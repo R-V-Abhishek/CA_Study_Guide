@@ -1,0 +1,174 @@
+paper: s2023.P4
+sm_edition: Applicable for May 2024 onwards
+chapters:
+- id: P4-PAY9DP
+  name: Profits and Gains of Business or Profession (PGBP)
+  seq: 1
+  topics:
+  - id: P4-5NTAF2
+    name: Depreciation and Business Deductions
+    seq: 1
+    subtopics:
+    - id: P4-1Y2TGB
+      name: Depreciation under section 32 and additional depreciation
+      seq: 1
+    - id: P4-97WRQR
+      name: Scientific research expenditure (Sec 35) and capital investments
+      seq: 2
+    - id: P4-CJEJR9
+      name: Specific allowable deductions under sections 30 to 37
+      seq: 3
+  - id: P4-HF98DD
+    name: Disallowances and Special Provisions
+    seq: 2
+    subtopics:
+    - id: P4-YKAAF6
+      name: 'Section 40(a) disallowances: TDS default, payment to non-residents'
+      seq: 1
+    - id: P4-YSFQBT
+      name: Section 40A(2) payments to relatives and 40A(3) cash payments
+      seq: 2
+    - id: P4-JZV9H7
+      name: Section 43B statutory dues and recent MSME payment rules
+      seq: 3
+    - id: P4-42F6FJ
+      name: Presumptive taxation under sections 44AD, 44ADA, 44AE
+      seq: 4
+- id: P4-BTPBYM
+  name: Capital Gains and Other Sources
+  seq: 2
+  topics:
+  - id: P4-JXNJNB
+    name: Capital Gains Computation
+    seq: 1
+    subtopics:
+    - id: P4-HPYPYG
+      name: Transfer definition and slump sale under section 50B
+      seq: 1
+    - id: P4-F4RYAE
+      name: 'Capital gains exemptions: Section 54, 54EC, 54F'
+      seq: 2
+    - id: P4-H68XGH
+      name: Taxation of virtual digital assets (VDA) under section 115BBH
+      seq: 3
+    - id: P4-KCEC1Z
+      name: Buyback of shares and capital reduction tax treatment
+      seq: 4
+  - id: P4-Y47ETD
+    name: Income from Other Sources
+    seq: 2
+    subtopics:
+    - id: P4-X4K8P8
+      name: Taxation of gifts and undervalued property (Sec 56(2)(x))
+      seq: 1
+    - id: P4-6621B7
+      name: Share premium in excess of fair value (Sec 56(2)(viib))
+      seq: 2
+    - id: P4-S6HVBK
+      name: Dividend income taxation and deductions allowable
+      seq: 3
+- id: P4-VZBQES
+  name: Assessment of Various Entities & Charitable Trusts
+  seq: 3
+  topics:
+  - id: P4-AYTVBD
+    name: Corporate and Entity Taxation
+    seq: 1
+    subtopics:
+    - id: P4-E5D6KZ
+      name: Minimum Alternate Tax (MAT) under section 115JB
+      seq: 1
+    - id: P4-5MMQY8
+      name: Concessional tax regimes for domestic companies (Sec 115BAA/115BAB)
+      seq: 2
+    - id: P4-TF8K38
+      name: Taxation of firms, LLPs and Alternate Minimum Tax (AMT)
+      seq: 3
+    - id: P4-AV9JW0
+      name: Taxation of Business Trusts (REITs/InvITs) and Securitization Trusts
+      seq: 4
+  - id: P4-JQN3AG
+    name: Charitable and Religious Trusts
+    seq: 2
+    subtopics:
+    - id: P4-MPH82R
+      name: Registration regime under sections 12AB and 10(23C)
+      seq: 1
+    - id: P4-KACH80
+      name: Application of income, accumulation rules and Form 9A/10
+      seq: 2
+    - id: P4-5TKVW4
+      name: Exit tax on accreted income of trusts (Sec 115TD)
+      seq: 3
+- id: P4-9BRFXF
+  name: TDS, TCS, Assessment and Dispute Resolution
+  seq: 4
+  topics:
+  - id: P4-DHRPQD
+    name: TDS and TCS Mechanisms
+    seq: 1
+    subtopics:
+    - id: P4-71Y7NW
+      name: TDS on contract payments, professional fees and rent
+      seq: 1
+    - id: P4-B563PD
+      name: TDS on purchase of goods (Sec 194Q) and TCS on sale of goods (Sec 206C(1H))
+      seq: 2
+    - id: P4-D6DR2F
+      name: TDS on benefit or perquisite in business (Sec 194R)
+      seq: 3
+  - id: P4-MBYH9Y
+    name: Assessment, Appeals and Penalties
+    seq: 2
+    subtopics:
+    - id: P4-Y2ZG7A
+      name: Faceless assessment scheme and reassessment under section 147/148
+      seq: 1
+    - id: P4-1HHAZQ
+      name: Appeals before CIT(A), ITAT, High Court and Supreme Court
+      seq: 2
+    - id: P4-FQ1CQ9
+      name: Penalties for under-reporting and misreporting of income (Sec 270A)
+      seq: 3
+    - id: P4-7GV8E3
+      name: General Anti-Avoidance Rules (GAAR) provisions and applicability
+      seq: 4
+- id: P4-MWTXW8
+  name: International Taxation and Transfer Pricing
+  seq: 5
+  topics:
+  - id: P4-RCRCZ3
+    name: Transfer Pricing
+    seq: 1
+    subtopics:
+    - id: P4-3T1JFM
+      name: Associated enterprise definition and international transactions
+      seq: 1
+    - id: P4-08TY54
+      name: Arm's length price determination methods
+      seq: 2
+    - id: P4-ABJ73N
+      name: Transfer pricing documentation, master file and CbCR
+      seq: 3
+    - id: P4-ZKPHP1
+      name: Safe harbour rules and Advance Pricing Agreements (APA)
+      seq: 4
+    - id: P4-FETR7T
+      name: Secondary adjustment under section 92CE and thin capitalization (Sec 94B)
+      seq: 5
+  - id: P4-SJYENR
+    name: Non-Resident Taxation & Treaties
+    seq: 2
+    subtopics:
+    - id: P4-EWGG0E
+      name: Residential status and Significant Economic Presence (SEP)
+      seq: 1
+    - id: P4-G0R974
+      name: Taxation of royalty, FTS and capital gains for non-residents
+      seq: 2
+    - id: P4-B37ERH
+      name: Equalisation levy on online advertising and e-commerce supply
+      seq: 3
+    - id: P4-4G6YK9
+      name: Double Taxation Relief under section 90/91 and MLI provisions
+      seq: 4

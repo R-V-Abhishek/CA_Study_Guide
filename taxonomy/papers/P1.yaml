@@ -1,0 +1,289 @@
+paper: s2023.P1
+sm_edition: Applicable for May 2024 onwards
+chapters:
+- id: P1-093VHQ
+  name: 'Ind AS 116: Leases'
+  seq: 1
+  topics:
+  - id: P1-WNPWF3
+    name: Scope and Recognition Exemptions
+    seq: 1
+    subtopics:
+    - id: P1-GDH25Q
+      name: Identifying a lease contract
+      seq: 1
+    - id: P1-YM4GXE
+      name: Short-term leases and low-value asset exemptions
+      seq: 2
+    - id: P1-ZXWVWH
+      name: Separating components of a contract
+      seq: 3
+  - id: P1-2AST7H
+    name: Lessee Accounting
+    seq: 2
+    subtopics:
+    - id: P1-BXTF71
+      name: Initial measurement of ROU asset and lease liability
+      seq: 1
+    - id: P1-ZEJT68
+      name: Subsequent measurement and depreciation of ROU asset
+      seq: 2
+    - id: P1-W810KT
+      name: Lease modifications and scope decrease
+      seq: 3
+  - id: P1-CRPZDZ
+    name: Lessor Accounting
+    seq: 3
+    subtopics:
+    - id: P1-EQ3KR1
+      name: Classification into operating vs finance lease
+      seq: 1
+    - id: P1-6FZMSQ
+      name: Finance lease initial and subsequent accounting
+      seq: 2
+    - id: P1-09J16J
+      name: Manufacturer or dealer lessor accounting
+      seq: 3
+    - id: P1-D7831K
+      name: Sale and leaseback transactions
+      seq: 4
+- id: P1-P425DG
+  name: 'Ind AS 115: Revenue from Contracts with Customers'
+  seq: 2
+  topics:
+  - id: P1-C653J0
+    name: Five-Step Model Core
+    seq: 1
+    subtopics:
+    - id: P1-PZR6WV
+      name: 'Step 1: Identifying the contract with customer'
+      seq: 1
+    - id: P1-VRQZAW
+      name: 'Step 2: Identifying performance obligations'
+      seq: 2
+    - id: P1-3RMFHN
+      name: 'Step 3: Determining the transaction price'
+      seq: 3
+    - id: P1-7X95AZ
+      name: 'Step 4: Allocating transaction price to performance obligations'
+      seq: 4
+    - id: P1-5GVJKT
+      name: 'Step 5: Recognizing revenue over time vs at a point in time'
+      seq: 5
+  - id: P1-MA0108
+    name: Specific Revenue Scenarios
+    seq: 2
+    subtopics:
+    - id: P1-C6MRTH
+      name: 'Contract costs: incremental costs of obtaining a contract'
+      seq: 1
+    - id: P1-V3ACEQ
+      name: Licensing agreements and intellectual property
+      seq: 2
+    - id: P1-CYTE4V
+      name: Principal vs agent considerations
+      seq: 3
+    - id: P1-F4MNE6
+      name: Warranties and customer options for additional goods/services
+      seq: 4
+- id: P1-ZQTNXC
+  name: Ind AS on Financial Instruments (Ind AS 32, 109, 107)
+  seq: 3
+  topics:
+  - id: P1-DF57T0
+    name: Classification and Measurement
+    seq: 1
+    subtopics:
+    - id: P1-KX2ANZ
+      name: 'Financial asset classification: Amortised cost, FVTOCI, FVTPL'
+      seq: 1
+    - id: P1-R1MA46
+      name: Business model and contractual cash flow (SPPI) test
+      seq: 2
+    - id: P1-V06V8A
+      name: Financial liability classification and compound instruments
+      seq: 3
+    - id: P1-ZXTZB0
+      name: Fair value option and reclassifications
+      seq: 4
+  - id: P1-AZRMK5
+    name: Impairment and Hedge Accounting
+    seq: 2
+    subtopics:
+    - id: P1-CEC1SQ
+      name: 'Expected credit loss (ECL) model: 3-stage approach'
+      seq: 1
+    - id: P1-M34QG4
+      name: Hedging instruments, hedged items and qualifying criteria
+      seq: 2
+    - id: P1-Y5EWJ7
+      name: Cash flow hedge vs fair value hedge mechanics
+      seq: 3
+    - id: P1-EQB42H
+      name: De-recognition of financial assets and liabilities
+      seq: 4
+- id: P1-WB29V3
+  name: Business Combinations & Corporate Restructuring (Ind AS 103)
+  seq: 4
+  topics:
+  - id: P1-VVKQY4
+    name: Acquisition Method
+    seq: 1
+    subtopics:
+    - id: P1-Y40P0R
+      name: Identifying the acquirer and acquisition date
+      seq: 1
+    - id: P1-NFZ39R
+      name: Purchase consideration and contingent consideration
+      seq: 2
+    - id: P1-MCN819
+      name: Recognizing and measuring identifiable assets and liabilities
+      seq: 3
+    - id: P1-JM0JAD
+      name: Calculation of goodwill or gain on bargain purchase
+      seq: 4
+  - id: P1-AJZWYW
+    name: Common Control and Step Acquisitions
+    seq: 2
+    subtopics:
+    - id: P1-MGSCAD
+      name: Business combinations under common control (Appendix C)
+      seq: 1
+    - id: P1-00JFY0
+      name: Reverse acquisitions mechanics
+      seq: 2
+    - id: P1-JSP3PE
+      name: Step acquisitions and re-measurement of existing interest
+      seq: 3
+- id: P1-8QYDJQ
+  name: Consolidated Financial Statements (Ind AS 110, 111, 28)
+  seq: 5
+  topics:
+  - id: P1-K0RHM9
+    name: Consolidation Procedures
+    seq: 1
+    subtopics:
+    - id: P1-705SZS
+      name: Assessment of control under Ind AS 110
+      seq: 1
+    - id: P1-M47A3X
+      name: 'Non-controlling interest (NCI) valuation: Proportionate vs Fair value'
+      seq: 2
+    - id: P1-ANDWRH
+      name: Uniform accounting policies and intra-group eliminations
+      seq: 3
+    - id: P1-KX50N8
+      name: Changes in parent's ownership interest without loss of control
+      seq: 4
+  - id: P1-4WFAAD
+    name: Associates and Joint Arrangements
+    seq: 2
+    subtopics:
+    - id: P1-YKK814
+      name: Equity method of accounting under Ind AS 28
+      seq: 1
+    - id: P1-ATAZYK
+      name: Joint ventures vs joint operations under Ind AS 111
+      seq: 2
+    - id: P1-KPTKRQ
+      name: Disposal of subsidiary and loss of control
+      seq: 3
+- id: P1-7Y5BAJ
+  name: Ind AS on Balance Sheet Items (Ind AS 16, 38, 36, 40, 2, 23)
+  seq: 6
+  topics:
+  - id: P1-J1FZNQ
+    name: Tangible and Intangible Assets
+    seq: 1
+    subtopics:
+    - id: P1-XBJTFT
+      name: 'Ind AS 16: PPE recognition, component depreciation, revaluation'
+      seq: 1
+    - id: P1-QKB8AJ
+      name: 'Ind AS 38: Intangible assets and R&D expenditure'
+      seq: 2
+    - id: P1-R7237M
+      name: 'Ind AS 23: Borrowing costs capitalisation criteria'
+      seq: 3
+    - id: P1-VN48MT
+      name: 'Ind AS 40: Investment property accounting'
+      seq: 4
+  - id: P1-VVMAJ0
+    name: Valuation and Impairment
+    seq: 2
+    subtopics:
+    - id: P1-NAYYJC
+      name: 'Ind AS 2: Valuation of inventories and NRV testing'
+      seq: 1
+    - id: P1-G16RPA
+      name: 'Ind AS 36: Identifying Cash Generating Units (CGU)'
+      seq: 2
+    - id: P1-MD6XEY
+      name: 'Ind AS 36: Impairment testing and reversal of impairment'
+      seq: 3
+    - id: P1-Q1H8KK
+      name: 'Ind AS 105: Non-current assets held for sale and discontinued ops'
+      seq: 4
+- id: P1-CMF927
+  name: Ind AS on Employee Benefits & Share Based Payment (Ind AS 19, 102)
+  seq: 7
+  topics:
+  - id: P1-MXYFWJ
+    name: Employee Benefits (Ind AS 19)
+    seq: 1
+    subtopics:
+    - id: P1-6SB1HV
+      name: Short-term and other long-term benefits
+      seq: 1
+    - id: P1-3V89JD
+      name: Defined contribution vs defined benefit plans
+      seq: 2
+    - id: P1-7Q61BF
+      name: Actuarial assumptions and remeasurement gains/losses in OCI
+      seq: 3
+  - id: P1-1279FE
+    name: Share Based Payment (Ind AS 102)
+    seq: 2
+    subtopics:
+    - id: P1-7HNJZK
+      name: Equity-settled share based payment transactions
+      seq: 1
+    - id: P1-J966FP
+      name: Cash-settled share based payment transactions
+      seq: 2
+    - id: P1-DEGMDP
+      name: Share-based payment with cash alternatives
+      seq: 3
+- id: P1-Q7RVEC
+  name: Ind AS on Income Taxes and Other Standards (Ind AS 12, 21, 24, 33)
+  seq: 8
+  topics:
+  - id: P1-49C3JG
+    name: Income Taxes (Ind AS 12)
+    seq: 1
+    subtopics:
+    - id: P1-8MHTQD
+      name: Current tax and deferred tax calculation
+      seq: 1
+    - id: P1-HPXKB2
+      name: Tax base vs carrying amount and temporary differences
+      seq: 2
+    - id: P1-C4W8NW
+      name: Recognition of deferred tax asset and unused tax losses
+      seq: 3
+  - id: P1-C5WSPK
+    name: Foreign Exchange & Disclosures
+    seq: 2
+    subtopics:
+    - id: P1-JXA7TS
+      name: 'Ind AS 21: Functional currency and foreign operations translation'
+      seq: 1
+    - id: P1-66GM5Y
+      name: 'Ind AS 33: Basic and diluted earnings per share'
+      seq: 2
+    - id: P1-RKXB7S
+      name: 'Ind AS 24: Related party disclosures'
+      seq: 3
+    - id: P1-AHMPX1
+      name: 'Ind AS 108: Operating segments identification'
+      seq: 4

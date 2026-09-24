@@ -1,0 +1,153 @@
+paper: s2023.P6
+sm_edition: Applicable for May 2024 onwards
+chapters:
+- id: P6-JV9ZRT
+  name: Financial Analysis and Strategic Financial Management
+  seq: 1
+  topics:
+  - id: P6-DJZXD5
+    name: Corporate Financial Strategy
+    seq: 1
+    subtopics:
+    - id: P6-P83W74
+      name: Evaluating strategic investments and hurdle rates
+      seq: 1
+    - id: P6-DEE6B9
+      name: Capital restructuring, dividend decisions and leverage optimization
+      seq: 2
+    - id: P6-EZX3YX
+      name: Forecasting sustainable growth rate and financial distress
+      seq: 3
+  - id: P6-BMW3NN
+    name: Valuation in Complex Business Situations
+    seq: 2
+    subtopics:
+    - id: P6-W5V7QS
+      name: Comprehensive DCF and relative valuation under uncertainty
+      seq: 1
+    - id: P6-Y6SZ9J
+      name: Brand and intangible asset valuation in M&A
+      seq: 2
+    - id: P6-J7C5AJ
+      name: Cross-border M&A and currency risk integration
+      seq: 3
+- id: P6-PHYBCT
+  name: Auditing, Internal Controls and Corporate Governance
+  seq: 2
+  topics:
+  - id: P6-Q8C8JM
+    name: Governance and Risk Oversight
+    seq: 1
+    subtopics:
+    - id: P6-KRGA9E
+      name: Board oversight, Audit Committee responsibilities and LODR compliance
+      seq: 1
+    - id: P6-E71KJX
+      name: Internal financial control evaluation and reporting
+      seq: 2
+    - id: P6-K4665Y
+      name: Forensic review and proactive fraud risk management
+      seq: 3
+  - id: P6-EWWZNS
+    name: Complex Accounting & Audit Issues
+    seq: 2
+    subtopics:
+    - id: P6-GEJBJ5
+      name: Evaluating complex Ind AS revenue and lease structures
+      seq: 1
+    - id: P6-RVZFM7
+      name: Group audit considerations and overseas subsidiary oversight
+      seq: 2
+    - id: P6-F3EEPY
+      name: Auditor reporting dilemmas and KAM formulation in crises
+      seq: 3
+- id: P6-554SDS
+  name: Direct and International Tax Strategy
+  seq: 3
+  topics:
+  - id: P6-XTR512
+    name: Domestic Tax Structuring
+    seq: 1
+    subtopics:
+    - id: P6-250CHX
+      name: 'Tax-optimized business restructuring: Mergers, demergers, slump sales'
+      seq: 1
+    - id: P6-YEF3AV
+      name: Interplay between corporate tax regimes and MAT credit
+      seq: 2
+    - id: P6-N3GSK7
+      name: GAAR evaluation for corporate holding structures
+      seq: 3
+  - id: P6-G384KS
+    name: Cross-Border Tax Planning
+    seq: 2
+    subtopics:
+    - id: P6-C7V708
+      name: BEPS alignment, substance requirements and treaty shopping risks
+      seq: 1
+    - id: P6-TAK6QC
+      name: Supply chain transfer pricing optimization and APA strategy
+      seq: 2
+    - id: P6-6V1SSE
+      name: Managing permanent establishment and SEP exposure
+      seq: 3
+- id: P6-R86H2R
+  name: Indirect Tax Optimization and Supply Chain Strategy
+  seq: 4
+  topics:
+  - id: P6-7PWVFN
+    name: GST Structuring
+    seq: 1
+    subtopics:
+    - id: P6-W2SSRR
+      name: 'Supply chain design: Cross-charge vs ISD vs branch transfers'
+      seq: 1
+    - id: P6-0JMHRM
+      name: Optimizing ITC recovery and mitigating inverted duty impact
+      seq: 2
+    - id: P6-9V872R
+      name: 'Export competitiveness: Advance authorization vs GST refunds'
+      seq: 3
+  - id: P6-Q6ZK3K
+    name: Customs and FTP Integration
+    seq: 2
+    subtopics:
+    - id: P6-73VQSG
+      name: Customs duty mitigation via Free Trade Agreements (FTA)
+      seq: 1
+    - id: P6-S3TMY4
+      name: Special Economic Zones (SEZ) and bonded warehouse logistics
+      seq: 2
+    - id: P6-DPR9FZ
+      name: Regulatory dispute management in multi-jurisdictional supply
+      seq: 3
+- id: P6-43FYM2
+  name: Comprehensive Integrated Case Studies
+  seq: 5
+  topics:
+  - id: P6-055TQG
+    name: Enterprise Turnaround and Distress
+    seq: 1
+    subtopics:
+    - id: P6-KBY3XY
+      name: Insolvency and Bankruptcy Code (IBC) financial and tax implications
+      seq: 1
+    - id: P6-1Z7DCE
+      name: Debt restructuring, one-time settlement and haircut accounting
+      seq: 2
+    - id: P6-P61J40
+      name: Stakeholder negotiation and turnaround strategy implementation
+      seq: 3
+  - id: P6-PG1GXR
+    name: Cross-Border Expansion and IPO Readiness
+    seq: 2
+    subtopics:
+    - id: P6-YCYR7K
+      name: Preparing financial statements for global listing / IPO
+      seq: 1
+    - id: P6-3AK0J7
+      name: 'Multi-regulatory compliance: Companies Act, SEBI, FEMA, Competition Act'
+      seq: 2
+    - id: P6-RSEYFZ
+      name: Integrated reporting and ESG governance implementation
+      seq: 3

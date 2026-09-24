@@ -1,0 +1,257 @@
+paper: s2023.P3
+sm_edition: Applicable for May 2024 onwards
+chapters:
+- id: P3-7Z7K1Z
+  name: Quality Management (SQC 1, SQM 1, SQM 2)
+  seq: 1
+  topics:
+  - id: P3-ACX58A
+    name: Leadership and Firm Governance
+    seq: 1
+    subtopics:
+    - id: P3-59Y1QB
+      name: Leadership responsibilities for quality within the firm
+      seq: 1
+    - id: P3-5G5CKR
+      name: Relevant ethical requirements and independence policies
+      seq: 2
+    - id: P3-A7R5V0
+      name: Acceptance and continuance of client relationships
+      seq: 3
+  - id: P3-WW7T22
+    name: Engagement Performance and Monitoring
+    seq: 2
+    subtopics:
+    - id: P3-MMSXDP
+      name: Engagement quality review (EQR) eligibility and procedures
+      seq: 1
+    - id: P3-4ECQJQ
+      name: Monitoring and remediation processes
+      seq: 2
+    - id: P3-78XSMG
+      name: Documentation of the system of quality management
+      seq: 3
+- id: P3-BMW7E9
+  name: General Auditing Principles and Planning (SA 200, 300 series)
+  seq: 2
+  topics:
+  - id: P3-7ATWTQ
+    name: Fundamental Principles
+    seq: 1
+    subtopics:
+    - id: P3-FYVZM3
+      name: 'SA 200: Overall objectives and professional skepticism'
+      seq: 1
+    - id: P3-8G7SXS
+      name: 'SA 210: Agreeing the terms of audit engagements'
+      seq: 2
+    - id: P3-0YNZFK
+      name: 'SA 220: Quality management for an audit of financial statements'
+      seq: 3
+    - id: P3-9VX79Y
+      name: 'SA 230: Audit documentation and assembly of final audit file'
+      seq: 4
+  - id: P3-J2AW1T
+    name: Audit Planning and Materiality
+    seq: 2
+    subtopics:
+    - id: P3-4AYY60
+      name: 'SA 300: Planning an audit of financial statements'
+      seq: 1
+    - id: P3-DYVP8B
+      name: 'SA 320: Materiality in planning and performing an audit'
+      seq: 2
+    - id: P3-KBMFBB
+      name: Performance materiality and revision as audit progresses
+      seq: 3
+    - id: P3-C484AV
+      name: 'SA 450: Evaluation of misstatements identified during the audit'
+      seq: 4
+- id: P3-FZCZ1Q
+  name: Risk Assessment and Internal Control (SA 315, 330, 240)
+  seq: 3
+  topics:
+  - id: P3-0Y2BN4
+    name: Understanding Entity and Environment
+    seq: 1
+    subtopics:
+    - id: P3-004M4M
+      name: 'SA 315: Identifying and assessing risks of material misstatement'
+      seq: 1
+    - id: P3-X9XBKV
+      name: Understanding the entity's internal control system
+      seq: 2
+    - id: P3-K8MHNV
+      name: IT general controls (ITGC) and application controls
+      seq: 3
+  - id: P3-V0F5N4
+    name: Responding to Assessed Risks and Fraud
+    seq: 2
+    subtopics:
+    - id: P3-5ABB95
+      name: 'SA 330: The auditor''s responses to assessed risks'
+      seq: 1
+    - id: P3-G95S2J
+      name: Test of controls vs substantive audit procedures
+      seq: 2
+    - id: P3-WNMK8Q
+      name: 'SA 240: The auditor''s responsibilities relating to fraud'
+      seq: 3
+    - id: P3-WCV172
+      name: Fraud risk factors and auditor's inquiry of management
+      seq: 4
+- id: P3-JAQT1Q
+  name: Audit Evidence and Sampling (SA 500 series)
+  seq: 4
+  topics:
+  - id: P3-P5592D
+    name: Obtaining Sufficient Appropriate Evidence
+    seq: 1
+    subtopics:
+    - id: P3-NZKY6B
+      name: 'SA 500: Audit evidence sources and reliability'
+      seq: 1
+    - id: P3-Z3N4HK
+      name: 'SA 501: Inventory count attendance and litigation inquiries'
+      seq: 2
+    - id: P3-XE264H
+      name: 'SA 505: External confirmations procedures and negative confirmations'
+      seq: 3
+    - id: P3-CQJRFM
+      name: 'SA 520: Analytical procedures in substantive testing'
+      seq: 4
+    - id: P3-26668J
+      name: 'SA 530: Audit sampling and evaluation of sample results'
+      seq: 5
+  - id: P3-NT315M
+    name: Estimates, Related Parties and Subsequent Events
+    seq: 2
+    subtopics:
+    - id: P3-ZHZJ6D
+      name: 'SA 540: Auditing accounting estimates and fair value disclosures'
+      seq: 1
+    - id: P3-9FNFSM
+      name: 'SA 550: Related parties identification and undisclosed relationships'
+      seq: 2
+    - id: P3-KZ93R6
+      name: 'SA 560: Subsequent events: Facts known before vs after report date'
+      seq: 3
+    - id: P3-KWZBF7
+      name: 'SA 570: Going concern evaluation and material uncertainty'
+      seq: 4
+    - id: P3-2JFHH3
+      name: 'SA 580: Written representations limitations and reliability'
+      seq: 5
+- id: P3-EZPA26
+  name: Using Work of Others and Group Audits (SA 600 series)
+  seq: 5
+  topics:
+  - id: P3-7DGV02
+    name: Coordinating with Others
+    seq: 1
+    subtopics:
+    - id: P3-JN0HD9
+      name: 'SA 600: Using the work of another auditor in group audits'
+      seq: 1
+    - id: P3-SA9FA5
+      name: Principal auditor responsibilities and component auditors
+      seq: 2
+    - id: P3-MC9P5H
+      name: 'SA 610: Using the work of internal auditors'
+      seq: 3
+    - id: P3-PT2XZ0
+      name: 'SA 620: Using the work of an auditor''s expert'
+      seq: 4
+- id: P3-AEM94G
+  name: Audit Conclusions and Reporting (SA 700 series)
+  seq: 6
+  topics:
+  - id: P3-206NMQ
+    name: Audit Opinions
+    seq: 1
+    subtopics:
+    - id: P3-5789RF
+      name: 'SA 700: Forming an opinion and reporting on financial statements'
+      seq: 1
+    - id: P3-YENNHT
+      name: 'SA 705: Modifications to the opinion: Qualified, Adverse, Disclaimer'
+      seq: 2
+    - id: P3-8TRA3V
+      name: 'SA 706: Emphasis of matter and other matter paragraphs'
+      seq: 3
+  - id: P3-A7J1FT
+    name: Key Audit Matters and Other Information
+    seq: 2
+    subtopics:
+    - id: P3-BYGRV2
+      name: 'SA 701: Communicating Key Audit Matters (KAM) in the report'
+      seq: 1
+    - id: P3-3PNCQR
+      name: Determination of KAM vs matters requiring modification
+      seq: 2
+    - id: P3-3XRN0S
+      name: 'SA 720: The auditor''s responsibilities relating to other information'
+      seq: 3
+- id: P3-J92N3R
+  name: Specialized Audits, Digital Auditing and Due Diligence
+  seq: 7
+  topics:
+  - id: P3-H876RD
+    name: Specialized Audits
+    seq: 1
+    subtopics:
+    - id: P3-W11CS7
+      name: 'Audit of Banks: IRAC norms and NPA classification'
+      seq: 1
+    - id: P3-SV7X67
+      name: Audit of NBFCs and RBI prudential regulations
+      seq: 2
+    - id: P3-SCV6RW
+      name: Audit of Public Sector Undertakings (PSU) and C&AG role
+      seq: 3
+  - id: P3-MH8X4B
+    name: Forensic Accounting and Digital Assurance
+    seq: 2
+    subtopics:
+    - id: P3-EX1ZM1
+      name: 'Digital auditing tools: Data analytics and automated test routines'
+      seq: 1
+    - id: P3-168XFQ
+      name: 'Due diligence: Financial, commercial and operational review'
+      seq: 2
+    - id: P3-D2BZ3A
+      name: Forensic investigation techniques and red flags
+      seq: 3
+    - id: P3-ZEP7W1
+      name: 'ESG assurance: Frameworks and auditor readiness'
+      seq: 4
+- id: P3-V1FZHN
+  name: Professional Ethics and Code of Conduct
+  seq: 8
+  topics:
+  - id: P3-1N7A32
+    name: First Schedule to CA Act, 1949
+    seq: 1
+    subtopics:
+    - id: P3-4KAPHT
+      name: 'Part I: Professional misconduct for members in practice'
+      seq: 1
+    - id: P3-NRF8N4
+      name: 'Part II: Professional misconduct for members in service'
+      seq: 2
+    - id: P3-1KMBR2
+      name: 'Part III & IV: Misconduct generally and other misconduct'
+      seq: 3
+  - id: P3-J5BB3H
+    name: Second Schedule and Council Guidelines
+    seq: 2
+    subtopics:
+    - id: P3-CGCH93
+      name: 'Part I: Serious misconduct for members in practice'
+      seq: 1
+    - id: P3-PA34YF
+      name: 'Part II & III: General misconduct and disciplinary mechanisms'
+      seq: 2
+    - id: P3-81ZPFG
+      name: 'ICAI Code of Ethics: Fundamental principles and threats/safeguards'
+      seq: 3

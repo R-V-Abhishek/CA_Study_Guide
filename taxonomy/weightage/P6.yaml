@@ -1,0 +1,12 @@
+paper: s2023.P6
+sections:
+- id: P6_SEC1
+  name: Section 1 Core Modules
+  min_pct: 85.0
+  max_pct: 100.0
+  chapter_ids:
+  - P6-JV9ZRT
+  - P6-PHYBCT
+  - P6-554SDS
+  - P6-R86H2R
+  - P6-43FYM2

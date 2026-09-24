@@ -1,0 +1,197 @@
+paper: s2023.P5
+sm_edition: Applicable for May 2024 onwards
+chapters:
+- id: P5-4RKS1C
+  name: Supply, Charge of Tax and Exemptions under GST
+  seq: 1
+  topics:
+  - id: P5-GBF9B9
+    name: Concept of Supply
+    seq: 1
+    subtopics:
+    - id: P5-JWB44P
+      name: 'Section 7: Meaning and scope of supply with consideration'
+      seq: 1
+    - id: P5-2FKTRB
+      name: 'Schedule I: Activities without consideration'
+      seq: 2
+    - id: P5-MS6ST6
+      name: 'Schedule II: Classification as supply of goods vs services'
+      seq: 3
+    - id: P5-HR0M7R
+      name: 'Schedule III: Non-supplies / negative list'
+      seq: 4
+  - id: P5-C53XBX
+    name: Charge and Exemptions
+    seq: 2
+    subtopics:
+    - id: P5-WXPC5D
+      name: 'Section 9: Forward charge and reverse charge mechanism (RCM)'
+      seq: 1
+    - id: P5-NES9JE
+      name: Composition levy under section 10 and eligibility criteria
+      seq: 2
+    - id: P5-RRHN1T
+      name: Mega exemptions notification for goods and services
+      seq: 3
+- id: P5-8H2RK5
+  name: Place, Time and Value of Supply
+  seq: 2
+  topics:
+  - id: P5-MD3QJM
+    name: Place of Supply
+    seq: 1
+    subtopics:
+    - id: P5-Q0RB8H
+      name: 'Section 10 & 11 IGST: Place of supply of goods (domestic and import/export)'
+      seq: 1
+    - id: P5-W045PA
+      name: 'Section 12 IGST: Place of supply of services (both supplier and recipient
+        in India)'
+      seq: 2
+    - id: P5-PASSB2
+      name: 'Section 13 IGST: Place of supply where supplier or recipient is outside
+        India'
+      seq: 3
+    - id: P5-ENAVB5
+      name: Online Information Database Access and Retrieval (OIDAR) services
+      seq: 4
+  - id: P5-42X4VD
+    name: Time and Value of Supply
+    seq: 2
+    subtopics:
+    - id: P5-5ST6HY
+      name: 'Section 12 & 13 CGST: Time of supply of goods and services'
+      seq: 1
+    - id: P5-M0ATSB
+      name: 'Section 15 CGST: Transaction value and inclusions/exclusions'
+      seq: 2
+    - id: P5-3T166Y
+      name: Valuation rules for related party and distinct person supplies
+      seq: 3
+- id: P5-Q0J6JZ
+  name: Input Tax Credit (ITC)
+  seq: 3
+  topics:
+  - id: P5-EF17V3
+    name: Eligibility and Apportionment
+    seq: 1
+    subtopics:
+    - id: P5-Q010WN
+      name: 'Section 16: Eligibility and conditions for claiming ITC'
+      seq: 1
+    - id: P5-4R5CV4
+      name: 'Section 17(1) & 17(2): Apportionment of credit and Rule 42/43 mechanics'
+      seq: 2
+    - id: P5-WP56YR
+      name: 'Section 17(5): Blocked credit list and specific exceptions'
+      seq: 3
+  - id: P5-0ZJA1T
+    name: Special ITC Scenarios
+    seq: 2
+    subtopics:
+    - id: P5-GZ91J8
+      name: 'Section 18: ITC on switchover to/from composition and exempt supplies'
+      seq: 1
+    - id: P5-WBZM4J
+      name: Job work provisions and ITC on goods sent for job work
+      seq: 2
+    - id: P5-JZA3TC
+      name: Input Service Distributor (ISD) mechanism and distribution rules
+      seq: 3
+- id: P5-BNVQ7Q
+  name: GST Procedures, Returns and Refunds
+  seq: 4
+  topics:
+  - id: P5-CD7TXX
+    name: Invoicing and Payment
+    seq: 1
+    subtopics:
+    - id: P5-FKTPKZ
+      name: E-invoicing applicability and exceptions
+      seq: 1
+    - id: P5-SQEA05
+      name: E-way bill rules and verification in transit
+      seq: 2
+    - id: P5-GMNJH7
+      name: Payment of tax, electronic ledgers and order of utilization
+      seq: 3
+  - id: P5-7V8R3X
+    name: Refunds and Zero Rated Supply
+    seq: 2
+    subtopics:
+    - id: P5-WFCSBY
+      name: Refund of unutilized ITC due to inverted duty structure
+      seq: 1
+    - id: P5-QVVTNM
+      name: 'Refund under zero-rated supplies: LUT vs payment of IGST'
+      seq: 2
+    - id: P5-1XC1G2
+      name: Deemed exports and relevant date for refund calculation
+      seq: 3
+- id: P5-A0YK5Q
+  name: Audit, Demands, Penalties and Appeals under GST
+  seq: 5
+  topics:
+  - id: P5-CEFCHX
+    name: Assessment and Audit
+    seq: 1
+    subtopics:
+    - id: P5-X41G3H
+      name: Self-assessment, provisional assessment and scrutiny of returns
+      seq: 1
+    - id: P5-KB9BDK
+      name: Departmental audit (Sec 65) and special audit (Sec 66)
+      seq: 2
+    - id: P5-SXW6T0
+      name: Inspection, search, seizure and arrest powers
+      seq: 3
+  - id: P5-9B6DDP
+    name: Demands, Penalties and Appeals
+    seq: 2
+    subtopics:
+    - id: P5-JAA48B
+      name: 'Section 73 & 74: Demands for non-fraud vs fraud cases'
+      seq: 1
+    - id: P5-GYR13B
+      name: Penalties, general offences and detention/confiscation rules
+      seq: 2
+    - id: P5-D1EQ5M
+      name: 'Appeals hierarchy: Appellate Authority, GSTAT, High Court'
+      seq: 3
+    - id: P5-JFFJGT
+      name: Advance ruling provisions and rectification of orders
+      seq: 4
+- id: P5-GVRSFT
+  name: Customs Law and Foreign Trade Policy (FTP)
+  seq: 6
+  topics:
+  - id: P5-XHB5P8
+    name: Customs Valuation and Classification
+    seq: 1
+    subtopics:
+    - id: P5-ADN4NV
+      name: Levy and types of customs duties (BCD, SWS, Anti-dumping, Safeguard)
+      seq: 1
+    - id: P5-NX5VZG
+      name: 'Customs valuation: Transaction value and Rule 3 to 10 adjustments'
+      seq: 2
+    - id: P5-XS06VP
+      name: Export valuation rules and classification principles
+      seq: 3
+  - id: P5-78HCSK
+    name: Customs Procedures and FTP
+    seq: 2
+    subtopics:
+    - id: P5-VRK6ER
+      name: Clearance of imported goods for home consumption vs warehousing
+      seq: 1
+    - id: P5-C9ZMZ2
+      name: Manufacture in warehouse (MOOWR scheme)
+      seq: 2
+    - id: P5-V1JHCH
+      name: Duty drawback under sections 74 and 75
+      seq: 3
+    - id: P5-5P61W4
+      name: 'Foreign Trade Policy: Advance Authorization and EPCG schemes'
+      seq: 4

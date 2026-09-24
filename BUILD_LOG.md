@@ -30,8 +30,8 @@ The **CA Final Study Companion** is an offline-first, single-user study operatin
 | Milestone | Scope | Status | Notes |
 |---|---|---|---|
 | **M0** | Foundations: Repo structure, uv workspace, Docker/Postgres, Alembic, contracts, common, DB models, `caf` CLI skeleton | 🟢 Complete | DB up on local Postgres 16; Alembic migrations apply/rollback verified; role grants applied; `caf status` active; C0–C6 contracts implemented. |
-| **M1** | Taxonomy v1 + Usable Tracker: L0 registries, outline extractor, YAML loader, all 6 papers, L6 thin app | 🟡 In Progress | Registries authored & verified (`schemes`, `attempts`, `papers`, `doc_types`, `instruments`, `law_boundaries`); initial ref data loaded. Authoring P1–P6 syllabus trees next. |
-| **M2** | Catalogue: L1 discovery (HTTP) for current scheme, catalogue review, downloader | ⚪ Pending | |
+| **M1** | Taxonomy v1 + Usable Tracker: L0 registries, outline extractor, YAML loader, all 6 papers, L6 thin app | 🟢 Complete | Authored & verified syllabus trees for all 6 papers (39 chapters, 77 topics, 264 subtopics); weightages loaded; L6 API endpoints active; full automated test suite passing. |
+| **M2** | Catalogue: L1 discovery (HTTP) for current scheme, catalogue review, downloader | 🟡 Up Next | |
 | **M3** | Extraction for one profile: L2 current-scheme Suggested Answers | ⚪ Pending | |
 | **M4** | Classification + Review: L0 descriptors + anchors, L3 cascade, L4 curation UI | ⚪ Pending | |
 | **M5** | Intelligence v1: L5 E/F/W/I scores, weak flags, inline history | ⚪ Pending | |
@@ -48,16 +48,26 @@ The **CA Final Study Companion** is an offline-first, single-user study operatin
 - **System Architecture Initialized**:
   - `config/`: `settings.toml`, `sources.toml`, `models.toml`, `depth.toml`, `scoring.toml`.
   - `taxonomy/registry/`: `schemes.yaml`, `attempts.yaml`, `papers.yaml`, `doc_types.yaml`, `instruments.yaml`, `law_boundaries.yaml`.
-  - `packages/`:
-    - `contracts`: Pure Pydantic models for C0 through C6 contracts.
-    - `common`: Typed settings loader, structured logging, `BlobStore`, `open_run` context.
-    - `db`: SQLAlchemy 2.0 ORM models for all 6 Postgres schemas (`ops`, `ref`, `ingest`, `core`, `intel`, `app`), Alembic migration `0001_initial_schema`, idempotent role grants.
-    - `l0_taxonomy`: `TaxonomyLoader` with dry-run planning and schema application.
-    - `cli`: `caf` CLI with `status`, `db (ping, migrate, rollback, grants)`, `taxonomy load`.
+  - `packages/`: `caf-contracts`, `caf-common`, `caf-db`, `caf-l0`, `caf-l1`, `caf-l2`, `caf-l3`, `caf-l4`, `caf-l5`, `caf-api`, `caf-cli`.
 - **Milestone 0 Verification**:
-  - Installed and configured local PostgreSQL 16 on port 5432.
-  - Executed and validated Alembic migration `0001_initial_schema` (apply & rollback both verified).
-  - Applied schema and role grants (`caf_pipeline`, `caf_curator`, `caf_app`).
-  - Ran `caf status` showing healthy DB connection and operational logging.
-  - Successfully loaded all initial reference registries into `ref.*` tables via `caf taxonomy load --apply` (Run ID: 2).
+  - PostgreSQL 16 on port 5432; Alembic migrations verified with clean apply/rollback cycle.
+  - Idempotent role grants for `caf_pipeline`, `caf_curator`, `caf_app`.
+  - Initialized independent git repository and pushed cleanly to remote.
+
+### Session 2: Milestone 1 — Taxonomy v1 & Usable Tracker (Complete)
+- **L0 Stable Node Identifiers**: Implemented Crockford base32 ID generation (`caf_l0/ids.py`) enforcing `P[1-6]-[0-9A-HJKMNP-TV-Z]{6}` syntax.
+- **Syllabus Hierarchy Authored**:
+  - Generated and structured complete syllabus trees in `taxonomy/papers/` for all 6 papers: P1 (FR), P2 (AFM), P3 (Audit), P4 (DT), P5 (IDT), P6 (IBS).
+  - Authored official chapter-level weightage groupings in `taxonomy/weightage/` for P1–P6.
+- **Enhanced Taxonomy Loader**:
+  - Extended `TaxonomyLoader` to validate Crockford base32 format, strict level chaining (Paper → Chapter → Topic → Subtopic), seq uniqueness, and weightage midpoint range (90–110%).
+  - Successfully loaded 39 chapters, 77 topics, and 264 subtopics into `ref.node` alongside `ref.weightage_section` and `ref.weightage_member` (Run ID: 3).
+- **L6 Thin Study Tracker Backend (`caf_api`)**:
+  - Implemented `GET /api/v1/papers`: lists papers with raw progress and chapter-weightage-weighted coverage.
+  - Implemented `GET /api/v1/papers/{paper_id}/tree`: returns nested hierarchy with user progress status and personal notes.
+  - Implemented `GET /api/v1/subtopics/{node_id}`: returns subtopic details with parent path, notes, status timestamps, chapter weightage, and past exam appearances.
+  - Implemented `PUT /api/v1/subtopics/{node_id}/progress`: 3-state tracking (`not_started`, `in_progress`, `done`) with automatic transition event logging in `app.progress_event`.
+  - Implemented `PUT /api/v1/subtopics/{node_id}/notes`: updates personal study notes in `app.note`.
+  - Implemented `GET /api/v1/dashboard`: summarizes overall syllabus coverage %, Group 1 & Group 2 breakdown, and recent study activity feed.
+- **Verification**: All 5 end-to-end API and business logic tests in `tests/test_milestone1.py` passing cleanly. Exit criterion met: The tool is immediately usable for daily study tracking across all 6 papers.
 

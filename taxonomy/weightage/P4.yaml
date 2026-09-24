@@ -1,0 +1,12 @@
+paper: s2023.P4
+sections:
+- id: P4_SEC1
+  name: Section 1 Core Modules
+  min_pct: 85.0
+  max_pct: 100.0
+  chapter_ids:
+  - P4-PAY9DP
+  - P4-BTPBYM
+  - P4-VZBQES
+  - P4-9BRFXF
+  - P4-MWTXW8

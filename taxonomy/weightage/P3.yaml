@@ -1,0 +1,20 @@
+paper: s2023.P3
+sections:
+- id: P3_SEC1
+  name: Section 1 Core Modules
+  min_pct: 45.0
+  max_pct: 55.0
+  chapter_ids:
+  - P3-7Z7K1Z
+  - P3-BMW7E9
+  - P3-FZCZ1Q
+  - P3-JAQT1Q
+- id: P3_SEC2
+  name: Section 2 Core Modules
+  min_pct: 45.0
+  max_pct: 55.0
+  chapter_ids:
+  - P3-EZPA26
+  - P3-AEM94G
+  - P3-J92N3R
+  - P3-V1FZHN

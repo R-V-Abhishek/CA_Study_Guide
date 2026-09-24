@@ -1,0 +1,206 @@
+paper: s2023.P2
+sm_edition: Applicable for May 2024 onwards
+chapters:
+- id: P2-Y6J9WH
+  name: Advanced Capital Budgeting Decisions
+  seq: 1
+  topics:
+  - id: P2-V8MJX9
+    name: Project Evaluation Techniques
+    seq: 1
+    subtopics:
+    - id: P2-8AEHAB
+      name: Cash flow forecasting and inflation adjustments
+      seq: 1
+    - id: P2-2X1DQZ
+      name: NPV, IRR and Modified IRR comparison
+      seq: 2
+    - id: P2-1XQT09
+      name: Capital rationing and project indivisibility
+      seq: 3
+  - id: P2-HDA93G
+    name: Risk and Uncertainty in Capital Budgeting
+    seq: 2
+    subtopics:
+    - id: P2-R4FH1R
+      name: Sensitivity analysis and scenario analysis
+      seq: 1
+    - id: P2-4HVW52
+      name: Decision tree analysis and certainty equivalent method
+      seq: 2
+    - id: P2-TSK9KZ
+      name: Real options in capital budgeting
+      seq: 3
+- id: P2-31RGXT
+  name: Security Analysis and Valuation
+  seq: 2
+  topics:
+  - id: P2-MEFVSR
+    name: Equity Valuation
+    seq: 1
+    subtopics:
+    - id: P2-6KX323
+      name: Dividend discount models and Walter model
+      seq: 1
+    - id: P2-1TPM9X
+      name: Free Cash Flow to Firm (FCFF) and to Equity (FCFE)
+      seq: 2
+    - id: P2-W4K7BP
+      name: Relative valuation multiples (P/E, P/B, EV/EBITDA)
+      seq: 3
+  - id: P2-M4Z9JR
+    name: Bond and Fixed Income Valuation
+    seq: 2
+    subtopics:
+    - id: P2-2BKGEW
+      name: 'Bond yield: YTM, YTC and spot rates'
+      seq: 1
+    - id: P2-5CJCXX
+      name: Duration, modified duration and convexity
+      seq: 2
+    - id: P2-X90CSW
+      name: Term structure of interest rates and immunization
+      seq: 3
+- id: P2-W7SVJM
+  name: Portfolio Management
+  seq: 3
+  topics:
+  - id: P2-QA376K
+    name: Portfolio Theory and Capital Asset Pricing
+    seq: 1
+    subtopics:
+    - id: P2-WK9XC7
+      name: Markowitz portfolio selection and efficient frontier
+      seq: 1
+    - id: P2-7572EV
+      name: Capital Asset Pricing Model (CAPM) and Beta estimation
+      seq: 2
+    - id: P2-81HBRE
+      name: Arbitrage Pricing Theory (APT) and multi-factor models
+      seq: 3
+  - id: P2-HZS7AX
+    name: Portfolio Performance and Rebalancing
+    seq: 2
+    subtopics:
+    - id: P2-FXZF4N
+      name: Sharpe, Treynor and Jensen performance measures
+      seq: 1
+    - id: P2-W4PX2B
+      name: Fama decomposition of portfolio return
+      seq: 2
+    - id: P2-1VNYFQ
+      name: 'Portfolio rebalancing strategies: Constant mix, CPPI'
+      seq: 3
+- id: P2-6VQRHV
+  name: Derivatives Analysis and Valuation
+  seq: 4
+  topics:
+  - id: P2-FFEJYD
+    name: Futures and Forwards
+    seq: 1
+    subtopics:
+    - id: P2-AX2H57
+      name: Pricing of forwards and futures contracts
+      seq: 1
+    - id: P2-85P9GR
+      name: Hedging strategies using stock and index futures
+      seq: 2
+    - id: P2-9H93D9
+      name: Commodity futures and roll yield
+      seq: 3
+  - id: P2-95Z1BN
+    name: Option Contracts and Strategies
+    seq: 2
+    subtopics:
+    - id: P2-TH79HK
+      name: Option payoff diagrams and combination strategies
+      seq: 1
+    - id: P2-6RQ7RY
+      name: Binomial option pricing model
+      seq: 2
+    - id: P2-V9V74T
+      name: Black-Scholes-Merton model and Option Greeks
+      seq: 3
+- id: P2-ABNS7T
+  name: Foreign Exchange Exposure and Risk Management
+  seq: 5
+  topics:
+  - id: P2-J0YCTN
+    name: Exchange Rate Arithmetic
+    seq: 1
+    subtopics:
+    - id: P2-Q7YA3Z
+      name: Direct vs indirect quotes, cross rates and bid-ask spreads
+      seq: 1
+    - id: P2-APGYJK
+      name: Purchasing Power Parity (PPP) and Interest Rate Parity (IRP)
+      seq: 2
+    - id: P2-BTC0J7
+      name: International Fisher Effect (IFE)
+      seq: 3
+  - id: P2-8VNH80
+    name: Forex Hedging Techniques
+    seq: 2
+    subtopics:
+    - id: P2-BJ2K1Q
+      name: Transaction, translation and economic exposure
+      seq: 1
+    - id: P2-WDYJK7
+      name: 'Internal hedging: Leading, lagging, netting, matching'
+      seq: 2
+    - id: P2-99T1PW
+      name: 'External hedging: Forward contracts, money market cover, options'
+      seq: 3
+- id: P2-58SDBE
+  name: Interest Rate Risk Management
+  seq: 6
+  topics:
+  - id: P2-5CP62A
+    name: Interest Rate Derivatives
+    seq: 1
+    subtopics:
+    - id: P2-7V0HRG
+      name: Forward Rate Agreements (FRAs)
+      seq: 1
+    - id: P2-T072K3
+      name: Interest rate futures and hedging debt portfolios
+      seq: 2
+    - id: P2-XT6ZV2
+      name: 'Interest rate swaps: Comparative advantage argument'
+      seq: 3
+    - id: P2-8A0KN6
+      name: Interest rate caps, floors and collars
+      seq: 4
+- id: P2-07C20K
+  name: Business Valuation and Corporate Restructuring
+  seq: 7
+  topics:
+  - id: P2-3BDZZF
+    name: Mergers and Acquisitions
+    seq: 1
+    subtopics:
+    - id: P2-GZ1SWQ
+      name: 'Financial evaluation of M&A: Swap ratio determination'
+      seq: 1
+    - id: P2-NCGAEB
+      name: Post-merger EPS and market price impact
+      seq: 2
+    - id: P2-6BNAKK
+      name: Economic Value Added (EVA) and Market Value Added (MVA)
+      seq: 3
+    - id: P2-1YXX0Q
+      name: Takeover defenses and reverse mergers
+      seq: 4
+  - id: P2-R0JR88
+    name: Startup Finance and Securitization
+    seq: 2
+    subtopics:
+    - id: P2-Z8WT4V
+      name: Pitch deck, bootstrapping and venture capital stages
+      seq: 1
+    - id: P2-TZ0SBN
+      name: 'Startup valuation methods: Scorecard, Berkus, Venture capital method'
+      seq: 2
+    - id: P2-WE2AV6
+      name: Securitization mechanism and pass-through certificates
+      seq: 3
