@@ -1,0 +1,16 @@
+# config/depth.toml
+[paper.P1]
+practice_value = true
+bands_open = ["s2023:*", "s2017:2023", "s2017:2022"]
+
+[paper.P2]
+practice_value = true
+bands_open = ["s2023:*"]
+
+[paper.P4]
+practice_value = false
+stale_after_attempts = 6
+
+[paper.P5]
+practice_value = false
+stale_after_attempts = 6

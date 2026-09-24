@@ -1,0 +1,12 @@
+services:
+  db:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${PG_SUPERUSER:-postgres}
+      POSTGRES_PASSWORD: ${PG_SUPERUSER_PASSWORD:-postgres_dev_password}
+      POSTGRES_DB: ${PG_DATABASE:-caf}
+    ports:
+      - "${PG_PORT:-5433}:5432"
+    volumes:
+      - ./data/pg:/var/lib/postgresql/data

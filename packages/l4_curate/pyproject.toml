@@ -1,0 +1,16 @@
+[project]
+name = "caf-l4"
+version = "0.1.0"
+description = "L4 Curation: human review queues, decisions, and publishing to core"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "caf-contracts",
+    "caf-common",
+    "caf-db",
+]
+
+[tool.uv.sources]
+caf-contracts = { workspace = true }
+caf-common = { workspace = true }
+caf-db = { workspace = true }

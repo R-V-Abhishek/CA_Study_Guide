@@ -1,0 +1,43 @@
+- id: IndAS
+  name: "Indian Accounting Standards"
+  paper_codes: ["P1", "P6"]
+
+- id: AS
+  name: "Accounting Standards"
+  paper_codes: ["P1"]
+
+- id: SA
+  name: "Standards on Auditing"
+  paper_codes: ["P3", "P6"]
+
+- id: SQC
+  name: "Standards on Quality Control"
+  paper_codes: ["P3"]
+
+- id: SQM
+  name: "Standards on Quality Management"
+  paper_codes: ["P3"]
+
+- id: ITA1961
+  name: "Income-tax Act, 1961"
+  paper_codes: ["P4", "P6"]
+
+- id: ITA2025
+  name: "Income-tax Act, 2025"
+  paper_codes: ["P4", "P6"]
+
+- id: CGST
+  name: "Central Goods and Services Tax Act, 2017"
+  paper_codes: ["P5", "P6"]
+
+- id: IGST
+  name: "Integrated Goods and Services Tax Act, 2017"
+  paper_codes: ["P5", "P6"]
+
+- id: CUSTOMS
+  name: "Customs Act, 1962 & Tariff Act, 1975"
+  paper_codes: ["P5", "P6"]
+
+- id: FTP
+  name: "Foreign Trade Policy"
+  paper_codes: ["P5"]

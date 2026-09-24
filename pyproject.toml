@@ -1,0 +1,49 @@
+[project]
+name = "ca-final"
+version = "0.1.0"
+description = "CA Final Study Companion — One Place for CA Final Prep"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "caf-contracts",
+    "caf-common",
+    "caf-db",
+    "caf-l0",
+    "caf-l1",
+    "caf-l2",
+    "caf-l3",
+    "caf-l4",
+    "caf-l5",
+    "caf-api",
+    "caf-cli",
+]
+
+[project.scripts]
+caf = "caf_cli.main:app"
+
+[tool.uv.workspace]
+members = [
+    "packages/*",
+]
+
+[tool.uv.sources]
+caf-contracts = { workspace = true }
+caf-common = { workspace = true }
+caf-db = { workspace = true }
+caf-l0 = { workspace = true }
+caf-l1 = { workspace = true }
+caf-l2 = { workspace = true }
+caf-l3 = { workspace = true }
+caf-l4 = { workspace = true }
+caf-l5 = { workspace = true }
+caf-api = { workspace = true }
+caf-cli = { workspace = true }
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+ignore_missing_imports = true

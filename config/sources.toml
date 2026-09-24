@@ -1,0 +1,23 @@
+# config/sources.toml
+[defaults]
+user_agent = "CAFinalStudyCompanion/0.1 (personal study tool; contact: local-dev)"
+min_delay_s = 5
+max_delay_s = 10
+max_downloads_per_session = 200
+pdf_hosts = ["resource.cdn.icai.org"]
+
+[[source]]
+id = "icai-final-pre2017"
+url = "https://www.icai.org/post/final-course-old-scheme-of-education-and-training"
+mode = "http"
+scheme_hint = "pre2017"
+max_depth = 2
+follow_patterns = ["^https://www\\.icai\\.org/post"]
+
+[[source]]
+id = "bos-portal-final"
+url = "https://boslive.icai.org/index.php"
+mode = "browser"
+scheme_hint = "s2023"
+max_depth = 3
+follow_patterns = ["^https://boslive\\.icai\\.org/"]

@@ -1,0 +1,9 @@
+- id: s2023
+  name: "New Scheme of Education and Training (2023)"
+  notes: "6 papers, applicable May 2024 onwards"
+- id: s2017
+  name: "Revised Scheme of Education and Training (2017)"
+  notes: "8 papers, applicable Nov 2018 to Nov 2023"
+- id: pre2017
+  name: "Old Scheme of Education and Training"
+  notes: "8 papers, ISCA / AMA era"

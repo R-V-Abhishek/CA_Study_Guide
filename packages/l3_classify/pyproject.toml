@@ -1,0 +1,17 @@
+[project]
+name = "caf-l3"
+version = "0.1.0"
+description = "L3 Classification: hierarchical tag suggestion cascade and gists"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "caf-contracts",
+    "caf-common",
+    "caf-db",
+    "google-genai>=0.1",
+]
+
+[tool.uv.sources]
+caf-contracts = { workspace = true }
+caf-common = { workspace = true }
+caf-db = { workspace = true }

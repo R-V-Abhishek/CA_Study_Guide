@@ -1,0 +1,48 @@
+# Current scheme (s2023)
+- id: s2023.P1
+  scheme_id: s2023
+  code: P1
+  name: "Financial Reporting"
+  group_no: 1
+  max_marks: 100
+  is_current: true
+
+- id: s2023.P2
+  scheme_id: s2023
+  code: P2
+  name: "Advanced Financial Management"
+  group_no: 1
+  max_marks: 100
+  is_current: true
+
+- id: s2023.P3
+  scheme_id: s2023
+  code: P3
+  name: "Advanced Auditing, Assurance and Professional Ethics"
+  group_no: 1
+  max_marks: 100
+  is_current: true
+
+- id: s2023.P4
+  scheme_id: s2023
+  code: P4
+  name: "Direct Tax Laws & International Taxation"
+  group_no: 2
+  max_marks: 100
+  is_current: true
+
+- id: s2023.P5
+  scheme_id: s2023
+  code: P5
+  name: "Indirect Tax Laws"
+  group_no: 2
+  max_marks: 100
+  is_current: true
+
+- id: s2023.P6
+  scheme_id: s2023
+  code: P6
+  name: "Integrated Business Solutions"
+  group_no: 2
+  max_marks: 100
+  is_current: true

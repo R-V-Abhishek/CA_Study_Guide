@@ -1,0 +1,15 @@
+- id: gst_intro
+  paper_code: P5
+  instrument_id: CGST
+  first_applicable_attempt: "2018-05"
+  scope_node_ids: null
+  policy: exclude
+  description: "Pre-GST domestic tax is excluded from IDT analysis"
+
+- id: ita_2025
+  paper_code: P4
+  instrument_id: ITA2025
+  first_applicable_attempt: null
+  scope_node_ids: null
+  policy: mark_stale
+  description: "Provisions under ITA 1961 are marked stale once ITA 2025 applies"

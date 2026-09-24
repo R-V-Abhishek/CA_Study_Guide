@@ -1,0 +1,22 @@
+[project]
+name = "caf-api"
+version = "0.1.0"
+description = "FastAPI backend for CA Final Study Companion"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "caf-contracts",
+    "caf-common",
+    "caf-db",
+    "caf-l4",
+    "caf-l5",
+    "fastapi>=0.110",
+    "uvicorn>=0.29",
+]
+
+[tool.uv.sources]
+caf-contracts = { workspace = true }
+caf-common = { workspace = true }
+caf-db = { workspace = true }
+caf-l4 = { workspace = true }
+caf-l5 = { workspace = true }

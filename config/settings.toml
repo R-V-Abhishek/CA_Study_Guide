@@ -1,0 +1,31 @@
+# config/settings.toml
+[app]
+env = "development"
+user_id = 1
+target_attempt_id = "2026-05"
+
+[storage]
+data_dir = "./data"
+blob_dir = "./data/blobs"
+inbox_dir = "./data/inbox"
+debug_dir = "./data/debug"
+log_dir = "./data/logs"
+backup_dir = "./data/backups"
+
+[database]
+host = "127.0.0.1"
+port = 5432
+database = "caf"
+user = "postgres"
+password = "postgres_dev_password"
+
+[curate]
+auto_accept_bucket_a = false
+
+[l0]
+heading_size_threshold = 14.0
+
+[l1]
+min_delay_s = 5
+max_delay_s = 10
+max_downloads_per_session = 200

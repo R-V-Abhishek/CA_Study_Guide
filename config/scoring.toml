@@ -1,0 +1,6 @@
+# config/scoring.toml
+version = "v1"
+half_life_exam_months = 24
+half_life_practice_months = 12
+secondary_share = 0.5
+p6_cross_paper_factor = 0.5        # κ

@@ -1,0 +1,16 @@
+[project]
+name = "caf-l5"
+version = "0.1.0"
+description = "L5 Intelligence: deterministic score computation and Depth Gate"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "caf-contracts",
+    "caf-common",
+    "caf-db",
+]
+
+[tool.uv.sources]
+caf-contracts = { workspace = true }
+caf-common = { workspace = true }
+caf-db = { workspace = true }

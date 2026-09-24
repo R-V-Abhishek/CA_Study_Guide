@@ -1,0 +1,9 @@
+[project]
+name = "caf-contracts"
+version = "0.1.0"
+description = "Pure interface contracts (C0-C6) for CA Final Study Companion"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "pydantic>=2.7",
+]

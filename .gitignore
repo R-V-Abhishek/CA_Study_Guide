@@ -1,0 +1,32 @@
+# Environments and tools
+.venv/
+venv/
+ENV/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+build/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local configs and secrets
+.env
+.env.local
+
+# Data and runtime artifacts
+data/
+!data/.gitkeep
+
+# Node / Web
+node_modules/
+dist/
+.pnpm-store/
+
+# OS and IDE
+.DS_Store
+.idea/
+.vscode/
+*.swp

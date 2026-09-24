@@ -1,0 +1,71 @@
+- id: question_paper
+  signal_class: exam
+  has_questions: true
+  has_answers: false
+  description: "Official Question Paper"
+
+- id: suggested_answer
+  signal_class: exam
+  has_questions: true
+  has_answers: true
+  description: "Suggested Answer / Model Solution"
+
+- id: rtp
+  signal_class: practice
+  has_questions: true
+  has_answers: true
+  description: "Revision Test Paper"
+
+- id: mtp_question
+  signal_class: practice
+  has_questions: true
+  has_answers: false
+  description: "Mock Test Paper Question"
+
+- id: mtp_answer
+  signal_class: practice
+  has_questions: true
+  has_answers: true
+  description: "Mock Test Paper Answer"
+
+- id: case_scenarios
+  signal_class: practice
+  has_questions: true
+  has_answers: true
+  description: "Case Scenarios and MCQs Booklet"
+
+- id: ibs_case_study
+  signal_class: practice
+  has_questions: true
+  has_answers: true
+  description: "Paper 6 Case Studies"
+
+- id: study_material
+  signal_class: reference
+  has_questions: false
+  has_answers: false
+  description: "ICAI Official Study Material"
+
+- id: study_guidelines
+  signal_class: reference
+  has_questions: false
+  has_answers: false
+  description: "Study Guidelines & Scope"
+
+- id: weightage
+  signal_class: reference
+  has_questions: false
+  has_answers: false
+  description: "Section-wise Weightage"
+
+- id: syllabus
+  signal_class: reference
+  has_questions: false
+  has_answers: false
+  description: "Syllabus Specification"
+
+- id: saransh
+  signal_class: reference
+  has_questions: false
+  has_answers: false
+  description: "Saransh Summary Booklets"

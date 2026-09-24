@@ -1,0 +1,18 @@
+[project]
+name = "caf-l2"
+version = "0.1.0"
+description = "L2 Extraction: deterministic segmentation, validation, and pairing"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "caf-contracts",
+    "caf-common",
+    "caf-db",
+    "pymupdf>=1.24",
+    "rapidfuzz>=3.8",
+]
+
+[tool.uv.sources]
+caf-contracts = { workspace = true }
+caf-common = { workspace = true }
+caf-db = { workspace = true }

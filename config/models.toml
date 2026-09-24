@@ -1,0 +1,31 @@
+# config/models.toml
+[pricing]  # USD per 1M tokens — update from official pricing page
+"gemini-2.5-flash-lite" = { input = 0.10, output = 0.40 }
+"gemini-2.5-flash"      = { input = 0.50, output = 3.00 }
+
+[budget]
+max_usd_per_run = 10.0
+
+[tasks.l3_chapter]
+model = "gemini-2.5-flash-lite"
+temperature = 0.0
+
+[tasks.l3_subtopic]
+model = "gemini-2.5-flash-lite"
+temperature = 0.0
+
+[tasks.l3_tiebreak]
+model = "gemini-2.5-flash"
+temperature = 0.0
+
+[tasks.l2_segment]
+model = "gemini-2.5-flash"
+temperature = 0.0
+
+[tasks.l2_transcribe]
+model = "gemini-2.5-flash"
+temperature = 0.0
+
+[tasks.l0_describe]
+model = "gemini-2.5-flash-lite"
+temperature = 0.2

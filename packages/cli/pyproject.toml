@@ -1,0 +1,35 @@
+[project]
+name = "caf-cli"
+version = "0.1.0"
+description = "CLI driver for CA Final Companion"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "caf-contracts",
+    "caf-common",
+    "caf-db",
+    "caf-l0",
+    "caf-l1",
+    "caf-l2",
+    "caf-l3",
+    "caf-l4",
+    "caf-l5",
+    "caf-api",
+    "typer>=0.12",
+    "rich>=13.7",
+]
+
+[project.scripts]
+caf = "caf_cli.main:app"
+
+[tool.uv.sources]
+caf-contracts = { workspace = true }
+caf-common = { workspace = true }
+caf-db = { workspace = true }
+caf-l0 = { workspace = true }
+caf-l1 = { workspace = true }
+caf-l2 = { workspace = true }
+caf-l3 = { workspace = true }
+caf-l4 = { workspace = true }
+caf-l5 = { workspace = true }
+caf-api = { workspace = true }
