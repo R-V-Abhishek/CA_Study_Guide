@@ -4,6 +4,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from caf_common.settings import get_settings
 from caf_api.routes import router
+from caf_api.curate import router as curate_router
 
 settings = get_settings()
 
@@ -23,6 +24,7 @@ app.add_middleware(
 )
 
 app.include_router(router)
+app.include_router(curate_router)
 
 
 @app.get("/api/v1/health")

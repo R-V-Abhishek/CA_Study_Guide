@@ -31,8 +31,8 @@ The **CA Final Study Companion** is an offline-first, single-user study operatin
 |---|---|---|---|
 | **M0** | Foundations: Repo structure, uv workspace, Docker/Postgres, Alembic, contracts, common, DB models, `caf` CLI skeleton | 🟢 Complete | DB up on local Postgres 16; Alembic migrations apply/rollback verified; role grants applied; `caf status` active; C0–C6 contracts implemented. |
 | **M1** | Taxonomy v1 + Usable Tracker: L0 registries, outline extractor, YAML loader, all 6 papers, L6 thin app | 🟢 Complete | Authored & verified syllabus trees for all 6 papers (39 chapters, 77 topics, 264 subtopics); weightages loaded; L6 API endpoints active; full automated test suite passing. |
-| **M2** | Catalogue: L1 discovery (HTTP) for current scheme, catalogue review, downloader | 🟡 Up Next | |
-| **M3** | Extraction for one profile: L2 current-scheme Suggested Answers | ⚪ Pending | |
+| **M2** | Catalogue: L1 discovery (HTTP) for current scheme, catalogue review, downloader | 🟢 Complete | Deterministic inference, polite crawler, SHA-256 deduplicated fetcher, manual importer, catalogue review API/CLI. |
+| **M3** | Extraction for one profile: L2 current-scheme Suggested Answers | 🟡 Up Next | PyMuPDF text & table extraction, deterministic question unit segmentation, C2 contract. |
 | **M4** | Classification + Review: L0 descriptors + anchors, L3 cascade, L4 curation UI | ⚪ Pending | |
 | **M5** | Intelligence v1: L5 E/F/W/I scores, weak flags, inline history | ⚪ Pending | |
 | **M6** | Practice Signal + Planning: L2 RTP/MTP profiles, P signal, revision planner | ⚪ Pending | |
@@ -70,4 +70,25 @@ The **CA Final Study Companion** is an offline-first, single-user study operatin
   - Implemented `PUT /api/v1/subtopics/{node_id}/notes`: updates personal study notes in `app.note`.
   - Implemented `GET /api/v1/dashboard`: summarizes overall syllabus coverage %, Group 1 & Group 2 breakdown, and recent study activity feed.
 - **Verification**: All 5 end-to-end API and business logic tests in `tests/test_milestone1.py` passing cleanly. Exit criterion met: The tool is immediately usable for daily study tracking across all 6 papers.
+
+### Session 3: Milestone 2 — Acquisition & Catalogue (Complete)
+- **Deterministic Metadata Inference (`caf_l1/infer.py`)**:
+  - Implemented multi-factor deterministic metadata inference parsing URLs, breadcrumbs, link text, and filenames into canonical tuples (`attempt_id`, `paper_id`, `doc_type_id`, `series`).
+  - Supports fuzzy matching against canonical paper titles via RapidFuzz, normalized regex delimiters, and auto-assignment of `catalog_status` (`inferred` vs `needs_curation`).
+- **Crawler & Polite Rate Limiting (`caf_l1/robots.py`, `caf_l1/discover.py`)**:
+  - Built `RobotsCache` parsing and honoring `robots.txt` per host with in-memory caching.
+  - Implemented `RateLimiter` enforcing minimum interval delays (2.0s per host) to prevent server strain.
+  - Built breadth-first crawler extracting PDF links from configured ICAI seed sources (`config/sources.toml`) into `ingest.discovery_link`.
+- **Fetcher & Deduplication (`caf_l1/fetcher.py`)**:
+  - Implemented polite downloader with PDF MIME validation and magic byte verification.
+  - Implemented SHA-256 deduplication checking both DB records and content-addressed `BlobStore`.
+- **Manual Import Pipeline (`caf_l1/importer.py`)**:
+  - Created `ManualImporter` enabling bulk offline ingestion of local PDF files or directories directly into `BlobStore` and `ingest.document` with auto-inference.
+- **Catalogue & Curator API (`caf_l1/catalog.py`, `caf_api/curate.py`)**:
+  - Implemented curator review endpoints in `caf_api`: `GET /api/v1/curate/documents`, `POST /api/v1/curate/documents/{doc_id}/confirm`, `POST /api/v1/curate/documents/{doc_id}/reject`, and `PUT /api/v1/curate/documents/{doc_id}` for metadata overrides.
+  - Added CLI commands under `caf acquire`: `discover`, `fetch`, `import`, `catalog`, and `confirm`.
+- **Verification**:
+  - Added automated test suite `tests/test_milestone2.py` verifying inference edge cases and end-to-end manual import + curation workflow.
+  - Full test suite passing (7/7 tests). CLI catalogue inspection verified.
+
 

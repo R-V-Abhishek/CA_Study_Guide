@@ -188,18 +188,157 @@ def taxonomy_load(apply: bool = typer.Option(False, "--apply", help="Apply chang
 
 
 # ==============================================================================
-# L1 Acquisition Stubs
+# L1 Acquisition Commands
 # ==============================================================================
 @acquire_app.command("discover")
-def acquire_discover() -> None:
+def acquire_discover(
+    source_id: str | None = typer.Option(None, "--source", help="Specific source ID to discover"),
+) -> None:
     """Discover official PDF links from configured seed sources."""
-    console.print("[cyan]Discovering official links from sources.toml...[/cyan]")
+    import tomllib
+    from caf_common.run_context import open_run
+    from caf_l1.discover import LinkDiscoverer
+    from caf_l1.robots import PolitenessManager
+
+    settings = get_settings()
+    sources_file = Path("config/sources.toml")
+    if not sources_file.exists():
+        console.print("[red]config/sources.toml not found[/red]")
+        return
+
+    with open(sources_file, "rb") as f:
+        cfg = tomllib.load(f)
+
+    defaults = cfg.get("defaults", {})
+    sources = cfg.get("source", [])
+    if source_id:
+        sources = [s for s in sources if s.get("id") == source_id]
+
+    politeness = PolitenessManager(
+        user_agent=defaults.get("user_agent", "CAFinalStudyCompanion/0.1"),
+        min_delay_s=defaults.get("min_delay_s", 5.0),
+        max_delay_s=defaults.get("max_delay_s", 10.0),
+    )
+
+    discoverer = LinkDiscoverer(sources=sources, politeness=politeness)
+
+    with open_run("l1.discover", {"sources": [s["id"] for s in sources]}) as run:
+        session_factory = get_session_factory()
+        total_discovered = 0
+        with session_factory() as session:
+            for s in sources:
+                count = discoverer.discover_source(s, session, run_id=run.id)
+                total_discovered += count
+            run.stats = {"total_discovered": total_discovered}
+        console.print(f"[bold green]Discovery complete. Discovered {total_discovered} link(s).[/bold green]")
 
 
 @acquire_app.command("fetch")
-def acquire_fetch() -> None:
+def acquire_fetch(
+    limit: int = typer.Option(20, "--limit", help="Maximum documents to download"),
+) -> None:
     """Fetch pending candidate PDFs using polite rate-limits and store in blob store."""
-    console.print("[cyan]Fetching pending candidate documents...[/cyan]")
+    import tomllib
+    from caf_common.blob_store import BlobStore
+    from caf_common.run_context import open_run
+    from caf_l1.fetcher import DocumentFetcher
+    from caf_l1.robots import PolitenessManager
+
+    settings = get_settings()
+    sources_file = Path("config/sources.toml")
+    with open(sources_file, "rb") as f:
+        cfg = tomllib.load(f)
+    defaults = cfg.get("defaults", {})
+
+    politeness = PolitenessManager(
+        user_agent=defaults.get("user_agent", "CAFinalStudyCompanion/0.1"),
+        min_delay_s=defaults.get("min_delay_s", 5.0),
+        max_delay_s=defaults.get("max_delay_s", 10.0),
+    )
+    blob_store = BlobStore(settings.storage.blob_dir)
+    fetcher = DocumentFetcher(blob_store=blob_store, politeness=politeness)
+
+    with open_run("l1.fetch", {"limit": limit}) as run:
+        session_factory = get_session_factory()
+        with session_factory() as session:
+            downloaded = fetcher.fetch_pending(session, limit=limit, run_id=run.id)
+            run.stats = {"downloaded": downloaded}
+        console.print(f"[bold green]Fetch run complete. Downloaded {downloaded} document(s).[/bold green]")
+
+
+@acquire_app.command("import")
+def acquire_import(
+    path: Path = typer.Argument(..., help="Path to PDF file or directory to import"),
+) -> None:
+    """Manually import PDF(s) into blob store and ingest.document table."""
+    from caf_common.blob_store import BlobStore
+    from caf_common.run_context import open_run
+    from caf_l1.importer import ManualImporter
+
+    settings = get_settings()
+    blob_store = BlobStore(settings.storage.blob_dir)
+    importer = ManualImporter(blob_store=blob_store)
+
+    with open_run("l1.import", {"path": str(path)}) as run:
+        session_factory = get_session_factory()
+        with session_factory() as session:
+            if path.is_dir():
+                imported = importer.import_directory(path, session, run_id=run.id)
+                count = len(imported)
+            else:
+                doc = importer.import_file(path, session, run_id=run.id)
+                count = 1 if doc else 0
+            run.stats = {"imported_count": count}
+        console.print(f"[bold green]Successfully imported {count} document(s).[/bold green]")
+
+
+@acquire_app.command("catalog")
+def acquire_catalog(
+    status: str = typer.Option("inferred", "--status", help="Filter by catalog_status"),
+) -> None:
+    """List documents in the catalogue pending confirmation."""
+    from caf_db.models.ingest import Document
+
+    session_factory = get_session_factory()
+    with session_factory() as session:
+        docs = session.execute(
+            sa.select(Document).where(Document.catalog_status == status).order_by(Document.id.desc())
+        ).scalars().all()
+
+        table = Table(title=f"Documents with status '{status}'")
+        table.add_column("ID", style="cyan")
+        table.add_column("Title")
+        table.add_column("Attempt", style="green")
+        table.add_column("Paper", style="magenta")
+        table.add_column("Doc Type", style="yellow")
+        table.add_column("Status", style="bold")
+        table.add_column("Pages")
+
+        for d in docs:
+            table.add_row(
+                str(d.id),
+                (d.title or "-")[:45],
+                d.attempt_id or "-",
+                d.paper_id or "-",
+                d.doc_type_id or "-",
+                d.catalog_status,
+                str(d.page_count or "-"),
+            )
+        console.print(table)
+
+
+@acquire_app.command("confirm")
+def acquire_confirm(doc_id: int = typer.Argument(..., help="Document ID to confirm")) -> None:
+    """Confirm metadata for a catalogued document."""
+    from caf_l1.catalog import confirm_document
+
+    session_factory = get_session_factory()
+    with session_factory() as session:
+        try:
+            doc = confirm_document(session, doc_id)
+            console.print(f"[bold green]Document {doc.id} ({doc.title}) successfully confirmed.[/bold green]")
+        except Exception as exc:
+            console.print(f"[bold red]Confirmation failed: {exc}[/bold red]")
 
 
 # ==============================================================================
