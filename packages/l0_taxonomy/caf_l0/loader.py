@@ -12,7 +12,9 @@ from sqlalchemy.orm import Session
 from caf_common.logging import get_logger
 from caf_l0.ids import is_valid_node_id
 from caf_db.models.ref import (
+    Anchor,
     Attempt,
+    Descriptor,
     DocType,
     Instrument,
     LawBoundary,
@@ -42,6 +44,7 @@ class TaxonomyLoader:
         self.registry_dir = taxonomy_dir / "registry"
         self.papers_dir = taxonomy_dir / "papers"
         self.weightage_dir = taxonomy_dir / "weightage"
+        self.descriptors_dir = taxonomy_dir / "descriptors"
 
     def load_registry_yaml(self, filename: str) -> list[dict[str, Any]]:
         path = self.registry_dir / filename
@@ -50,6 +53,16 @@ class TaxonomyLoader:
         with open(path, "r", encoding="utf-8") as f:
             data = yaml.safe_load(f)
             return data if isinstance(data, list) else []
+
+    def load_descriptors_yaml(self) -> list[dict[str, Any]]:
+        descriptors: list[dict[str, Any]] = []
+        if self.descriptors_dir.exists():
+            for d in sorted(self.descriptors_dir.glob("*.yaml")):
+                with open(d, "r", encoding="utf-8") as f:
+                    data = yaml.safe_load(f)
+                    if isinstance(data, list):
+                        descriptors.extend(data)
+        return descriptors
 
     def load_papers_yaml(self) -> dict[str, dict[str, Any]]:
         papers = {}
@@ -181,6 +194,9 @@ class TaxonomyLoader:
                     total_topics += 1
                     total_subtopics += len(top.get("subtopics", []))
 
+        anchors = self.load_registry_yaml("anchors.yaml")
+        descriptors = self.load_descriptors_yaml()
+
         return {
             "schemes": schemes,
             "attempts": attempts,
@@ -188,6 +204,8 @@ class TaxonomyLoader:
             "doc_types": doc_types,
             "instruments": instruments,
             "law_boundaries": law_boundaries,
+            "anchors": anchors,
+            "descriptors": descriptors,
             "paper_trees": paper_trees,
             "weightages": weightages,
             "total_chapters": total_chapters,
@@ -201,7 +219,16 @@ class TaxonomyLoader:
         table.add_column("Registry Entity", style="cyan")
         table.add_column("Count", style="green")
 
-        for key in ["schemes", "attempts", "papers_registry", "doc_types", "instruments", "law_boundaries"]:
+        for key in [
+            "schemes",
+            "attempts",
+            "papers_registry",
+            "doc_types",
+            "instruments",
+            "law_boundaries",
+            "anchors",
+            "descriptors",
+        ]:
             table.add_row(key, str(len(plan.get(key, []))))
 
         table.add_row("papers_trees", str(len(plan.get("paper_trees", {}))))
@@ -399,6 +426,41 @@ class TaxonomyLoader:
                     mem = session.get(WeightageMember, (sec_id, ch_id))
                     if not mem:
                         session.add(WeightageMember(section_id=sec_id, chapter_id=ch_id))
+
+        # 10. Anchors into ref.anchor
+        for item in plan.get("anchors", []):
+            existing_anchor = session.query(Anchor).filter(
+                Anchor.instrument_id == item["instrument_id"],
+                Anchor.ref_key == item["ref_key"],
+                Anchor.node_id == item["node_id"],
+            ).first()
+            if not existing_anchor:
+                session.add(
+                    Anchor(
+                        instrument_id=item["instrument_id"],
+                        ref_key=item["ref_key"],
+                        node_id=item["node_id"],
+                        weight=item.get("weight", 1.0),
+                    )
+                )
+
+        # 11. Descriptors into ref.descriptor
+        for item in plan.get("descriptors", []):
+            existing_desc = session.get(Descriptor, item["node_id"])
+            if not existing_desc:
+                session.add(
+                    Descriptor(
+                        node_id=item["node_id"],
+                        description=item["description"],
+                        keywords=item.get("keywords", []),
+                        approved=item.get("approved", True),
+                        source=item.get("source", "curator"),
+                    )
+                )
+            else:
+                existing_desc.description = item["description"]
+                existing_desc.keywords = item.get("keywords", [])
+                existing_desc.approved = item.get("approved", True)
 
         session.commit()
         return version.id

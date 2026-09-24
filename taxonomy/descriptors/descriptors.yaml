@@ -1,0 +1,166 @@
+# Syllabus chapter descriptors and domain keywords
+# P1: Financial Reporting
+- node_id: P1-093VHQ
+  description: "Lease accounting under Ind AS 116 for lessees and lessors, identification of leases, lease liabilities, ROU assets, lease modifications, sale and leaseback."
+  keywords: ["lease", "rou asset", "lease liability", "ind as 116", "lessor", "lessee", "operating lease", "finance lease", "sale and leaseback"]
+  approved: true
+  source: curator
+
+- node_id: P1-P425DG
+  description: "Revenue from contracts with customers under Ind AS 115: 5-step model, performance obligations, transaction price, contract modifications, principal vs agent, licensing."
+  keywords: ["revenue", "contract", "ind as 115", "performance obligation", "transaction price", "variable consideration", "contract liability", "contract asset", "licensing"]
+  approved: true
+  source: curator
+
+- node_id: P1-ZQTNXC
+  description: "Financial instruments under Ind AS 32, 109, and 107: classification (amortised cost, FVTOCI, FVTPL), financial assets, liabilities, compound instruments, impairment, hedge accounting."
+  keywords: ["financial instrument", "ind as 109", "ind as 32", "fvtoci", "fvtpl", "amortised cost", "compound instrument", "equity", "hedge", "derivative"]
+  approved: true
+  source: curator
+
+- node_id: P1-WB29V3
+  description: "Business combinations and corporate restructuring under Ind AS 103: acquisition method, purchase consideration, goodwill, bargain purchase, reverse acquisitions, common control."
+  keywords: ["business combination", "ind as 103", "goodwill", "purchase consideration", "contingent consideration", "reverse acquisition", "common control", "net assets"]
+  approved: true
+  source: curator
+
+- node_id: P1-8QYDJQ
+  description: "Consolidated and separate financial statements under Ind AS 110, 111, and 28: control assessment, non-controlling interest, joint arrangements, equity method for associates."
+  keywords: ["consolidation", "consolidated financial statements", "ind as 110", "nci", "non-controlling interest", "subsidiary", "parent", "associate", "ind as 28", "joint venture"]
+  approved: true
+  source: curator
+
+- node_id: P1-7Y5BAJ
+  description: "Ind AS on balance sheet items: property plant & equipment (Ind AS 16), intangible assets (Ind AS 38), impairment (Ind AS 36), investment property (Ind AS 40), inventories (Ind AS 2), borrowing costs (Ind AS 23)."
+  keywords: ["ppe", "ind as 16", "intangible asset", "ind as 38", "impairment", "ind as 36", "investment property", "ind as 40", "inventories", "ind as 2", "borrowing cost"]
+  approved: true
+  source: curator
+
+- node_id: P1-CMF927
+  description: "Employee benefits and share-based payments under Ind AS 19 and Ind AS 102: defined benefit plans, actuarial gains/losses, equity-settled, cash-settled share options."
+  keywords: ["employee benefits", "ind as 19", "actuarial gain", "defined benefit", "share based payment", "ind as 102", "esop", "stock options", "vesting condition"]
+  approved: true
+  source: curator
+
+- node_id: P1-Q7RVEC
+  description: "Income taxes, provisions, fair value, and other standards: Ind AS 12 (deferred tax), Ind AS 37 (provisions & contingent liabilities), Ind AS 21 (forex), Ind AS 24 (related party), Ind AS 33 (EPS), Ind AS 113 (fair value)."
+  keywords: ["income tax", "ind as 12", "deferred tax", "provision", "ind as 37", "contingent liability", "foreign exchange", "ind as 21", "related party", "ind as 24", "eps", "ind as 33", "fair value", "ind as 113"]
+  approved: true
+  source: curator
+
+# P3: Advanced Auditing, Assurance and Professional Ethics
+- node_id: P3-7Z7K1Z
+  description: "Quality management and quality control for firms undertaking audits and reviews: SQC 1, SQM 1, SQM 2, engagement quality review, independence and leadership."
+  keywords: ["quality management", "sqc 1", "sqm 1", "sqm 2", "eqr", "engagement quality review", "firm quality", "independence"]
+  approved: true
+  source: curator
+
+- node_id: P3-BMW7E9
+  description: "General auditing principles, terms of engagement, planning, and documentation: SA 200, SA 210, SA 220, SA 230, SA 300, SA 320 (materiality)."
+  keywords: ["sa 200", "sa 210", "sa 220", "sa 230", "sa 300", "sa 320", "audit planning", "audit documentation", "materiality", "engagement letter"]
+  approved: true
+  source: curator
+
+- node_id: P3-FZCZ1Q
+  description: "Risk assessment, internal controls, and auditor's responsibilities regarding fraud: SA 315 (identifying risks of material misstatement), SA 330 (responses to assessed risks), SA 240 (fraud)."
+  keywords: ["risk assessment", "sa 315", "sa 330", "sa 240", "internal control", "fraud", "material misstatement", "test of controls"]
+  approved: true
+  source: curator
+
+- node_id: P3-JAQT1Q
+  description: "Audit evidence, sampling, analytical procedures, accounting estimates, and related parties: SA 500, SA 501, SA 505 (external confirmations), SA 520, SA 530, SA 540, SA 550, SA 560, SA 570 (going concern)."
+  keywords: ["audit evidence", "sa 500", "sa 505", "external confirmation", "sa 520", "analytical procedures", "sa 530", "sampling", "sa 540", "estimates", "sa 570", "going concern"]
+  approved: true
+  source: curator
+
+- node_id: P3-EZPA26
+  description: "Using the work of others: internal auditors, auditor's experts, and group audits: SA 600, SA 610, SA 620."
+  keywords: ["sa 600", "sa 610", "sa 620", "internal auditor", "auditor's expert", "component auditor", "group audit", "work of others"]
+  approved: true
+  source: curator
+
+- node_id: P3-AEM94G
+  description: "Audit conclusions and reporting: forming an opinion, audit report formatting, key audit matters (KAM), modified opinions, emphasis of matter: SA 700, SA 701, SA 705, SA 706, SA 710, SA 720."
+  keywords: ["audit report", "sa 700", "sa 701", "key audit matters", "kam", "sa 705", "qualified opinion", "adverse opinion", "disclaimer", "sa 706", "emphasis of matter"]
+  approved: true
+  source: curator
+
+- node_id: P3-J92N3R
+  description: "Specialized audit areas: bank audit, NBFC audit, insurance audit, forensic accounting, digital auditing, due diligence, and peer review."
+  keywords: ["bank audit", "nbfc audit", "insurance audit", "forensic audit", "due diligence", "peer review", "digital audit", "caro"]
+  approved: true
+  source: curator
+
+- node_id: P3-V1FZHN
+  description: "Professional ethics, Code of Conduct under CA Act 1949: First and Second Schedules, professional misconduct, disciplinary mechanism, Council guidelines."
+  keywords: ["professional ethics", "code of conduct", "first schedule", "second schedule", "misconduct", "ca act 1949", "council guidelines", "disciplinary committee"]
+  approved: true
+  source: curator
+
+# P4: Direct Tax Laws & International Taxation
+- node_id: P4-PAY9DP
+  description: "Profits and gains of business or profession (PGBP): allowable deductions (sec 30-37), depreciation (sec 32), disallowances (sec 40, 40A), statutory dues (sec 43B), presumptive tax (sec 44AD/ADA)."
+  keywords: ["pgbp", "business income", "depreciation", "sec 32", "sec 37", "sec 40a", "sec 43b", "presumptive taxation", "sec 44ad", "sec 44ada"]
+  approved: true
+  source: curator
+
+- node_id: P4-BTPBYM
+  description: "Capital gains and income from other sources: capital asset transfer, slump sale (sec 50B), exemptions (sec 54, 54EC, 54F), virtual digital assets (sec 115BBH), gift taxation (sec 56(2)(x))."
+  keywords: ["capital gains", "slump sale", "sec 50b", "sec 54", "sec 54ec", "vda", "virtual digital asset", "sec 115bbh", "other sources", "sec 56"]
+  approved: true
+  source: curator
+
+- node_id: P4-VZBQES
+  description: "Assessment of various entities, charitable trusts, and concessional tax regimes: partnership firms, LLPs, AOP/BOI, trusts (sec 11-13), alternative tax regime (sec 115BAC, 115BAA)."
+  keywords: ["trust", "charitable trust", "sec 11", "sec 12", "partnership", "llp", "sec 115bac", "sec 115baa", "concessional tax"]
+  approved: true
+  source: curator
+
+- node_id: P4-9BRFXF
+  description: "TDS, TCS, income tax assessment, reassessment, search and seizure, appeals, revisions, and dispute resolution: sec 194C, 194J, 194Q, sec 147/148 reassessment, sec 263/264."
+  keywords: ["tds", "tcs", "sec 194q", "assessment", "reassessment", "sec 148", "sec 263", "revision", "appeal", "dispute resolution", "search and seizure"]
+  approved: true
+  source: curator
+
+- node_id: P4-MWTXW8
+  description: "International taxation and transfer pricing: associated enterprises, arm's length price methods, transfer pricing documentation, safe harbour, DTAA, foreign tax credit, equalisation levy."
+  keywords: ["transfer pricing", "arm's length price", "alp", "associated enterprise", "sec 92", "dtaa", "double taxation", "foreign tax credit", "equalisation levy", "pe", "permanent establishment"]
+  approved: true
+  source: curator
+
+# P5: Indirect Tax Laws
+- node_id: P5-4RKS1C
+  description: "Supply under GST, charge of tax, reverse charge mechanism (RCM), composition levy, and exemptions: Section 7, Section 9, Section 10, Schedules I, II, III of CGST Act."
+  keywords: ["supply", "sec 7", "rcm", "reverse charge", "sec 9", "composition levy", "sec 10", "exemption", "schedule i", "schedule ii", "schedule iii"]
+  approved: true
+  source: curator
+
+- node_id: P5-8H2RK5
+  description: "Place of supply, time of supply, and value of supply: Section 12, 13 (time of supply), Section 15 (valuation and discounts), Section 10-13 of IGST Act (place of supply)."
+  keywords: ["place of supply", "time of supply", "value of supply", "valuation", "sec 15", "igst", "sec 10 igst", "sec 12 igst", "sec 13 igst", "export of services"]
+  approved: true
+  source: curator
+
+- node_id: P5-Q0J6JZ
+  description: "Input tax credit (ITC): eligibility and conditions (sec 16), blocked credits (sec 17(5)), apportionment of credit, special circumstances (sec 18)."
+  keywords: ["itc", "input tax credit", "sec 16", "sec 17(5)", "blocked credit", "apportionment", "rule 42", "rule 43", "capital goods itc"]
+  approved: true
+  source: curator
+
+- node_id: P5-BNVQ7Q
+  description: "GST procedures, tax invoice, accounts, returns, payments, and refunds: Section 31 (invoicing, e-invoice), GSTR-1, GSTR-3B, annual return, refunds under Section 54, inverted duty structure."
+  keywords: ["invoice", "e-invoice", "e-way bill", "returns", "gstr-1", "gstr-3b", "refund", "sec 54", "inverted duty", "lut", "payment of tax"]
+  approved: true
+  source: curator
+
+- node_id: P5-A0YK5Q
+  description: "GST audit, inspection, search, seizure, demands, recovery, penalties, appeals, and revision: Section 67, Section 73, Section 74, Section 107 (Appellate Authority), GST Appellate Tribunal."
+  keywords: ["demand", "recovery", "sec 73", "sec 74", "search", "seizure", "penalty", "appeal", "sec 107", "tribunal", "gstat", "revision"]
+  approved: true
+  source: curator
+
+- node_id: P5-GVRSFT
+  description: "Customs law and Foreign Trade Policy (FTP): basic customs duty, valuation rules, import/export procedures, warehousing, duty drawback (sec 74/75), Advance Authorisation, EPCG."
+  keywords: ["customs", "customs duty", "valuation", "bill of entry", "warehousing", "duty drawback", "sec 74", "sec 75", "foreign trade policy", "ftp", "advance authorisation", "epcg"]
+  approved: true
+  source: curator

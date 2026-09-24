@@ -33,8 +33,8 @@ The **CA Final Study Companion** is an offline-first, single-user study operatin
 | **M1** | Taxonomy v1 + Usable Tracker: L0 registries, outline extractor, YAML loader, all 6 papers, L6 thin app | 🟢 Complete | Authored & verified syllabus trees for all 6 papers (39 chapters, 77 topics, 264 subtopics); weightages loaded; L6 API endpoints active; full automated test suite passing. |
 | **M2** | Catalogue: L1 discovery (HTTP) for current scheme, catalogue review, downloader | 🟢 Complete | Deterministic inference, polite crawler, SHA-256 deduplicated fetcher, manual importer, catalogue review API/CLI. |
 | **M3** | Extraction for one profile: L2 current-scheme Suggested Answers | 🟢 Complete | PyMuPDF block stream, deterministic segmenter, choice rules, V1–V7 validators, same-doc answer pairing, debug render HTML, manual overrides, C2 database persistence. |
-| **M4** | Classification + Review: L0 descriptors + anchors, L3 cascade, L4 curation UI | 🟡 Up Next | L0 anchor index & descriptors, L3 hierarchical classification cascade, L4 curation UI & bulk accept. |
-| **M5** | Intelligence v1: L5 E/F/W/I scores, weak flags, inline history | ⚪ Pending | |
+| **M4** | Classification + Review: L0 descriptors + anchors, L3 cascade, L4 curation UI | 🟢 Complete | L0 anchor registry (93 anchors), 27 chapter descriptors, deterministic anchor extractor, 3-run consistency cascade, A/B/C/D bucketing, L4 curation API, bulk accept, atomic publishing. |
+| **M5** | Intelligence v1: L5 E/F/W/I scores, weak flags, inline history | 🟡 Up Next | E/F/W/I score engine, weak flags, inline exam appearances on subtopic tracker, coverage indicators. |
 | **M6** | Practice Signal + Planning: L2 RTP/MTP profiles, P signal, revision planner | ⚪ Pending | |
 | **M7** | Depth Gate: 2017 & pre-2017 bands backfill gating | ⚪ Pending | |
 | **M8** | Hardening: Backup verification, alarms, end-to-end tests | ⚪ Pending | |
@@ -122,6 +122,32 @@ The **CA Final Study Companion** is an offline-first, single-user study operatin
 - **Verification**:
   - Added comprehensive test suite `tests/test_milestone3.py` (6 tests).
   - Full project test suite passing (13/13 tests). All CLI commands verified.
+
+### Session 5: Milestone 4 — Classification & Curation Review (Complete)
+- **L0 Anchor Registry & Syllabus Descriptors (`taxonomy/registry/anchors.yaml`, `taxonomy/descriptors/descriptors.yaml`)**:
+  - Authored 93 anchor definitions mapping Indian Accounting Standards (`IndAS`), Auditing Standards (`SA`, `SQC`, `SQM`), Direct Tax sections (`ITA1961`), and Indirect Tax sections (`CGST`, `IGST`, `CUSTOMS`) to canonical syllabus nodes.
+  - Authored 27 chapter descriptors and domain keyword sets across papers P1, P3, P4, P5.
+  - Enhanced `TaxonomyLoader` (`caf_l0/loader.py`) to validate and load anchors into `ref.anchor` and descriptors into `ref.descriptor` (Taxonomy Version 4).
+- **Deterministic Anchor Extractor & Lookup (`caf_l3/anchors.py`)**:
+  - Implemented regex extractors for Ind AS, SA, SQC/SQM, Income-tax sections, and GST/Customs sections with contextual Act disambiguation (IGST vs Customs vs CGST).
+  - Implemented `lookup_anchor_candidates` aggregating weights from `ref.anchor`.
+- **Classification Cascade & Consistency Protocol (`caf_l3/cascade.py`)**:
+  - Implemented 2-step hierarchy: Step 1 (Chapter selection) and Step 2 (Subtopic selection).
+  - Implemented multi-run consistency protocol: R1 (standard order) vs R2 (shuffled order seeded by unit fingerprint), with R3 tie-break.
+  - Evidence-based bucket assignment: Bucket A (Consensus + Anchor Consistent), Bucket B (Consensus + Anchor Conflicting), Bucket C (Tie-break resolved), Bucket D (No consensus / gap).
+  - Implemented concise gist generator (≤25 words concept summary).
+- **L3 Pipeline Orchestrator & CLI (`caf_l3/pipeline.py`, `caf_cli/classify.py`)**:
+  - Automated selection of gradable pending units, classification, and persistence to `ingest.tag_suggestion` (primary and secondary roles).
+  - Added CLI commands: `caf classify run`, `caf classify report`.
+- **L4 Curation, Decisions & Publishing (`caf_l4/publish.py`, `caf_api/curate.py`, `caf_cli/curate.py`)**:
+  - Built atomic publishing engine: records `core.decision`, upserts `core.appearance` with normalized tag shares (primary=1.0, secondary=0.5), computes `law_stale` against `ref.law_boundary`, marks units as decided, and logs audit events to `core.change_log`.
+  - Implemented `bulk_accept_bucket_a` for fast, human-confirmed document sign-off.
+  - Added FastAPI curation endpoints: `GET /api/v1/curate/queue`, `POST /api/v1/curate/units/{unit_id}/decision`, `POST /api/v1/curate/documents/{doc_id}/bulk_accept_bucket_a`.
+  - Added CLI commands: `caf curate queue`, `caf curate bulk-accept`, `caf curate stats`.
+- **Verification**:
+  - Added automated test suite `tests/test_milestone4.py` (6 tests).
+  - Full project test suite passing (19/19 tests across M1–M4).
+
 
 
 

@@ -24,8 +24,8 @@ db_app = typer.Typer(help="Database management commands")
 taxonomy_app = typer.Typer(help="L0 Reference & Taxonomy commands")
 acquire_app = typer.Typer(help="L1 Acquisition commands")
 from caf_cli.extract import app as extract_app
-classify_app = typer.Typer(help="L3 Classification commands")
-curate_app = typer.Typer(help="L4 Curation commands")
+from caf_cli.classify import app as classify_app
+from caf_cli.curate import app as curate_app
 intel_app = typer.Typer(help="L5 Intelligence commands")
 
 app.add_typer(db_app, name="db")

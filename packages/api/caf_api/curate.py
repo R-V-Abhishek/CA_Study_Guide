@@ -114,3 +114,146 @@ def api_edit_document(
 
     session.commit()
     return {"id": doc.id, "title": doc.title, "catalog_status": doc.catalog_status}
+
+
+# ==============================================================================
+# Tag Review Queue & Curation Decisions
+# ==============================================================================
+
+class DecisionRequest(BaseModel):
+    action: str  # accept | accept_alt | edit | none_fits | exclude | bulk_accept | undo
+    primary_node_id: str | None = None
+    secondary_node_ids: list[str] = []
+    gist: str | None = None
+    seconds_spent: float | None = None
+    blind: bool = False
+
+
+@router.get("/queue")
+def list_curate_queue(
+    paper_id: str | None = None,
+    doc_id: int | None = None,
+    bucket: str | None = None,
+    session: Session = Depends(get_db),
+):
+    """List pending units with suggestions for human review."""
+    from caf_db.models.core import Decision
+    from caf_db.models.ingest import TagSuggestion, Unit, UnitAnswer
+    from caf_db.models.ref import Node
+
+    query = (
+        sa.select(Unit, Document)
+        .join(Document, Unit.document_id == Document.id)
+        .where(
+            Unit.current.is_(True),
+            Unit.is_gradable.is_(True),
+            Unit.classify_status == "suggested",
+        )
+    )
+
+    if paper_id:
+        query = query.where(Document.paper_id == paper_id)
+    if doc_id:
+        query = query.where(Document.id == doc_id)
+
+    units_with_doc = session.execute(query.order_by(Document.attempt_id.desc(), Unit.id.asc())).all()
+
+    # Pre-fetch nodes
+    all_nodes = {n.id: n for n in session.query(Node).all()}
+
+    items = []
+    for u, doc in units_with_doc:
+        # Get suggestions
+        suggs = (
+            session.query(TagSuggestion)
+            .filter(TagSuggestion.unit_id == u.id, TagSuggestion.is_shadow.is_(False))
+            .all()
+        )
+        prim = next((s for s in suggs if s.role == "primary"), None)
+        if not prim:
+            continue
+
+        if bucket and prim.bucket != bucket:
+            continue
+
+        secondaries = [s for s in suggs if s.role == "secondary"]
+        ans = session.get(UnitAnswer, u.id)
+
+        items.append(
+            {
+                "unit_id": u.id,
+                "document_id": doc.id,
+                "attempt_id": doc.attempt_id,
+                "paper_id": doc.paper_id,
+                "doc_type_id": doc.doc_type_id,
+                "label_path": u.label_path,
+                "display_label": u.display_label,
+                "marks": u.marks,
+                "question_text": u.question_text,
+                "answer_text": ans.answer_text if ans else None,
+                "bucket": prim.bucket,
+                "primary_suggestion": {
+                    "node_id": prim.node_id,
+                    "node_name": all_nodes.get(prim.node_id, Node(name=prim.node_id)).name,
+                    "justification": prim.evidence.get("justification") if isinstance(prim.evidence, dict) else None,
+                    "gist": prim.evidence.get("gist") if isinstance(prim.evidence, dict) else None,
+                    "alternatives": prim.evidence.get("alternatives", []) if isinstance(prim.evidence, dict) else [],
+                },
+                "secondary_suggestions": [
+                    {
+                        "node_id": s.node_id,
+                        "node_name": all_nodes.get(s.node_id, Node(name=s.node_id)).name,
+                    }
+                    for s in secondaries
+                ],
+            }
+        )
+
+    return items
+
+
+@router.post("/units/{unit_id}/decision")
+def api_make_decision(
+    unit_id: int,
+    req: DecisionRequest,
+    session: Session = Depends(get_db),
+):
+    """Submit curator decision for an exam unit and publish to core.*."""
+    from caf_l4.publish import make_decision
+
+    payload = {
+        "primary_node_id": req.primary_node_id,
+        "secondary_node_ids": req.secondary_node_ids,
+        "gist": req.gist,
+    }
+    try:
+        decision = make_decision(
+            session=session,
+            unit_id=unit_id,
+            action=req.action,
+            payload=payload,
+            seconds_spent=req.seconds_spent,
+            blind=req.blind,
+        )
+        return {
+            "decision_id": decision.id,
+            "action": decision.action,
+            "unit_fingerprint": decision.unit_fingerprint,
+        }
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc))
+
+
+@router.post("/documents/{doc_id}/bulk_accept_bucket_a")
+def api_bulk_accept_bucket_a(
+    doc_id: int,
+    session: Session = Depends(get_db),
+):
+    """Bulk accept all remaining Bucket A suggestions for a confirmed document."""
+    from caf_l4.publish import bulk_accept_bucket_a
+
+    try:
+        count = bulk_accept_bucket_a(session, doc_id)
+        return {"document_id": doc_id, "accepted_count": count}
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc))
