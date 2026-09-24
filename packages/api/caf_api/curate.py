@@ -257,3 +257,25 @@ def api_bulk_accept_bucket_a(
         return {"document_id": doc_id, "accepted_count": count}
     except ValueError as exc:
         raise HTTPException(status_code=400, detail=str(exc))
+
+
+@router.post("/intel/recompute")
+def api_curate_recompute_scores(
+    target_attempt_id: str | None = None,
+    shadow: bool = False,
+    session: Session = Depends(get_db),
+):
+    """Trigger an L5 intelligence score recomputation."""
+    from caf_l5 import recompute_scores
+
+    try:
+        run = recompute_scores(session, target_attempt_id=target_attempt_id, shadow=shadow)
+        return {
+            "run_id": run.id,
+            "status": run.status,
+            "target_attempt_id": run.target_attempt_id,
+            "scoring_version": run.scoring_version,
+            "is_current": run.is_current,
+        }
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc))

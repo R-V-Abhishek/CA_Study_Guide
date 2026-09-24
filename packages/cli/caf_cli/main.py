@@ -26,7 +26,7 @@ acquire_app = typer.Typer(help="L1 Acquisition commands")
 from caf_cli.extract import app as extract_app
 from caf_cli.classify import app as classify_app
 from caf_cli.curate import app as curate_app
-intel_app = typer.Typer(help="L5 Intelligence commands")
+from caf_cli.intel import app as intel_app
 
 app.add_typer(db_app, name="db")
 app.add_typer(taxonomy_app, name="taxonomy")

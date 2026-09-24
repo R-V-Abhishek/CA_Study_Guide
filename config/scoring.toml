@@ -4,3 +4,16 @@ half_life_exam_months = 24
 half_life_practice_months = 12
 secondary_share = 0.5
 p6_cross_paper_factor = 0.5        # κ
+law_stale_factor = 0.5             # λ
+freq_window_attempts = 5           # N
+weak_flag_min_hits = 3
+
+[weights]
+exam = 0.6
+practice = 0.2
+prior = 0.2
+
+[plan]
+per_chapter_cap = 3
+weak_boost = 0.25
+in_progress_boost = 0.10

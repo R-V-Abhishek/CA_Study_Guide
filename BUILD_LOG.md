@@ -148,6 +148,37 @@ The **CA Final Study Companion** is an offline-first, single-user study operatin
   - Added automated test suite `tests/test_milestone4.py` (6 tests).
   - Full project test suite passing (19/19 tests across M1–M4).
 
-
-
-
+### Session 6: Milestone 5 — Intelligence Engine v1 (Complete)
+- **Scoring Configuration (`config/scoring.toml`, `caf_l5/config.py`)**:
+  - Implemented typed `ScoringConfig` loader with deterministic 16-character SHA-256 hash.
+  - Configured parameters: $H_{exam} = 24$ months, $H_{practice} = 12$ months, $\kappa = 0.5$ (P6 cross-paper), $\lambda = 0.5$ (law-stale), $N = 5$ attempts, `weak_flag_min_hits = 3`, weights $\{exam: 0.6, practice: 0.2, prior: 0.2\}$.
+- **Core Intelligence Engine & Decay (`caf_l5/scoring.py`)**:
+  - Whole-month attempt distance calculation relative to target attempt $T$: $age(a) = (T.year - a.year) \times 12 + (T.month - a.month)$ (ignores appearances with $age < 0$).
+  - Exponential decay computation: $2^{-age / H}$.
+  - Attributed marks: $m(a,s) = marks(a) \cdot share(a,s) \cdot \kappa(a,s) \cdot \lambda(a)$.
+  - Hierarchy-aware tag attribution supporting subtopic-level, topic-level, and chapter-level tags.
+  - Weightage prior: $W(s) = section\_marks(\sigma) / |applicable\_subtopics\_in\_\sigma|$.
+  - Paper-level normalization and composite Importance Score: $I(s) = 0.6 \hat{E}(s) + 0.2 \hat{P}(s) + 0.2 \hat{W}(s)$.
+  - Ingestion coverage tracking across papers and attempts (`intel.ingestion_coverage`).
+  - Atomic score run swapping in `intel.score_run` with retention of last 10 runs.
+- **Explainability & "Why" Payload (`caf_l5/why.py`)**:
+  - Implemented `get_subtopic_why` returning full mathematical transparency: every contributing appearance with raw marks, share, $\kappa$, $\lambda$, attributed marks, age, decay factor, and weighted contribution; weightage section priors; normalization maxima; and frequency window hits.
+- **Weak-Coverage Flags & Weighted Coverage (`caf_l5/service.py`)**:
+  - Evaluated weak flag rule: $weak(s) = applicable(s, T) \land F(s) \ge 3 \land freq\_window \ge 5 \land status(s) = 'not\_started'$.
+  - Thin data guard ($freq\_window \ge N$) preventing premature alerts on incomplete exam history.
+  - Implemented weighted syllabus coverage: $cov(paper) = \sum_{s \text{ done, app}} W(s) / \sum_{s \text{ app}} W(s)$ with group and overall aggregations.
+- **Serving & Student API Integrations (`caf_api/routes.py`, `caf_api/curate.py`)**:
+  - Enhanced `GET /api/v1/tree` and `GET /api/v1/papers/{id}/tree` with `importance`, `freq_hits`, `freq_window`, `weak`, and `applicable` fields.
+  - Enhanced `GET /api/v1/subtopics/{id}` with complete `score` object and inline historical exam appearances (`core.appearance`).
+  - Added `GET /api/v1/meta`: versions, target attempt, last computation timestamp, ingestion coverage indicator.
+  - Enhanced `GET /api/v1/dashboard`: weighted syllabus coverage, top weak subtopics, and ingestion coverage indicator.
+  - Added `GET /api/v1/why/subtopic/{node_id}` for on-demand score explainability.
+  - Added curator trigger `POST /api/v1/curate/intel/recompute`.
+- **CLI Commands (`caf_cli/intel.py`, `caf_cli/main.py`)**:
+  - `caf intel recompute [--target-attempt YYYY-MM] [--shadow]`
+  - `caf intel report [--paper Px] [--top N]`
+  - `caf intel why <node_id>`
+  - `caf intel coverage`
+- **Verification**:
+  - Added automated test suite `tests/test_milestone5.py` (6 tests).
+  - All 25 project tests passing (`uv run pytest` -> 25/25 passed). All CLI commands verified.

@@ -11,7 +11,17 @@ from caf_common.settings import get_settings
 from caf_db.engine import get_session_factory
 from caf_db.models.app import Note, Progress, ProgressEvent, Settings, UserAccount
 from caf_db.models.core import Appearance, AppearanceTag
+from caf_db.models.intel import SubtopicScore
 from caf_db.models.ref import Node, Paper, WeightageMember, WeightageSection
+from caf_l5 import (
+    compute_weighted_coverage,
+    get_current_score_run,
+    get_ingestion_coverage_matrix,
+    get_subtopic_scores_for_paper,
+    get_subtopic_why,
+    get_weak_subtopics,
+    is_subtopic_weak,
+)
 
 router = APIRouter(prefix="/api/v1")
 
@@ -63,6 +73,11 @@ class SubtopicItem(BaseModel):
     notes: str | None = None
     first_done_at: datetime | None = None
     last_revised_at: datetime | None = None
+    importance: float = 0.0
+    freq_hits: int = 0
+    freq_window: int = 0
+    weak: bool = False
+    applicable: bool = True
 
 
 class TopicItem(BaseModel):
@@ -241,6 +256,9 @@ def get_paper_tree(paper_id: str, session: Session = Depends(get_db)):
         elif n.level == "subtopic":
             subtopics_by_parent.setdefault(n.parent_id, []).append(n)
 
+    # Load intelligence scores for this paper
+    scores_map = get_subtopic_scores_for_paper(session, paper_id)
+
     result_chapters = []
     for ch_id, ch in sorted(chapters_by_id.items(), key=lambda x: x[1].seq):
         topics_out = []
@@ -255,6 +273,14 @@ def get_paper_tree(paper_id: str, session: Session = Depends(get_db)):
                 status = pr.status if pr else "not_started"
                 if status == "done":
                     ch_sub_done += 1
+
+                sc = scores_map.get(s.id)
+                importance = sc.importance if sc else 0.0
+                freq_hits = sc.freq_hits if sc else 0
+                freq_window = sc.freq_window if sc else 0
+                applicable = sc.applicable if sc else True
+                weak = is_subtopic_weak(applicable, freq_hits, freq_window, status)
+
                 subs_out.append(
                     SubtopicItem(
                         id=s.id,
@@ -264,6 +290,11 @@ def get_paper_tree(paper_id: str, session: Session = Depends(get_db)):
                         notes=note_map.get(s.id),
                         first_done_at=pr.first_done_at if pr else None,
                         last_revised_at=pr.last_revised_at if pr else None,
+                        importance=importance,
+                        freq_hits=freq_hits,
+                        freq_window=freq_window,
+                        weak=weak,
+                        applicable=applicable,
                     )
                 )
             topics_out.append(TopicItem(id=t.id, name=t.name, seq=t.seq, subtopics=subs_out))
@@ -292,6 +323,20 @@ def get_paper_tree(paper_id: str, session: Session = Depends(get_db)):
         "name": paper.name,
         "chapters": result_chapters,
     }
+
+
+@router.get("/tree")
+def get_tree_by_query(
+    paper: str,
+    session: Session = Depends(get_db),
+):
+    """Retrieve paper taxonomy tree by code (e.g. P1) or ID (s2023.P1)."""
+    paper_row = session.execute(
+        sa.select(Paper).where((Paper.code == paper.upper()) | (Paper.id == paper))
+    ).scalar_one_or_none()
+    if not paper_row:
+        raise HTTPException(status_code=404, detail=f"Paper '{paper}' not found")
+    return get_paper_tree(paper_row.id, session)
 
 
 @router.get("/subtopics/{node_id}")
@@ -327,10 +372,16 @@ def get_subtopic_detail(node_id: str, session: Session = Depends(get_db)):
             }
 
     # Published exam appearances (C4 inline history)
+    relevant_node_ids = [node_id]
+    if topic:
+        relevant_node_ids.append(topic.id)
+    if chapter:
+        relevant_node_ids.append(chapter.id)
+
     appearances = session.execute(
         sa.select(Appearance)
         .join(AppearanceTag, AppearanceTag.appearance_id == Appearance.id)
-        .where(AppearanceTag.node_id == node_id, Appearance.status == "published")
+        .where(AppearanceTag.node_id.in_(relevant_node_ids), Appearance.status == "published")
         .order_by(Appearance.attempt_id.desc())
     ).scalars().all()
 
@@ -350,18 +401,50 @@ def get_subtopic_detail(node_id: str, session: Session = Depends(get_db)):
         for a in appearances
     ]
 
+    # Intelligence scores for this subtopic
+    current_run = get_current_score_run(session)
+    score_rec = None
+    if current_run:
+        score_rec = session.query(SubtopicScore).where(
+            SubtopicScore.score_run_id == current_run.id,
+            SubtopicScore.node_id == node_id,
+        ).first()
+
+    status_str = progress.status if progress else "not_started"
+    score_out = {
+        "importance": score_rec.importance if score_rec else 0.0,
+        "exam_score": score_rec.exam_score if score_rec else 0.0,
+        "practice_score": score_rec.practice_score if score_rec else 0.0,
+        "weight_prior": score_rec.weight_prior if score_rec else 0.0,
+        "freq_hits": score_rec.freq_hits if score_rec else 0,
+        "freq_window": score_rec.freq_window if score_rec else 0,
+        "exam_marks_total": score_rec.exam_marks_total if score_rec else 0,
+        "exam_count": score_rec.exam_count if score_rec else 0,
+        "practice_count": score_rec.practice_count if score_rec else 0,
+        "first_exam_attempt": score_rec.first_exam_attempt if score_rec else None,
+        "last_exam_attempt": score_rec.last_exam_attempt if score_rec else None,
+        "weak": is_subtopic_weak(
+            score_rec.applicable if score_rec else True,
+            score_rec.freq_hits if score_rec else 0,
+            score_rec.freq_window if score_rec else 0,
+            status_str,
+        ),
+        "applicable": score_rec.applicable if score_rec else True,
+    }
+
     return {
         "id": subtopic.id,
         "name": subtopic.name,
         "paper": {"id": paper.id, "code": paper.code, "name": paper.name} if paper else None,
         "chapter": {"id": chapter.id, "name": chapter.name} if chapter else None,
         "topic": {"id": topic.id, "name": topic.name} if topic else None,
-        "status": progress.status if progress else "not_started",
+        "status": status_str,
         "notes": note.body if note else None,
         "status_changed_at": progress.status_changed_at if progress else None,
         "first_done_at": progress.first_done_at if progress else None,
         "last_revised_at": progress.last_revised_at if progress else None,
         "weightage": w_info,
+        "score": score_out,
         "appearances": appearances_out,
     }
 
@@ -516,13 +599,53 @@ def get_dashboard(session: Session = Depends(get_db)):
         for ev, node_name, paper_code in recent_events
     ]
 
+    # L5 Intelligence integrations
+    current_run = get_current_score_run(session)
+    weighted_cov = compute_weighted_coverage(session, user_id=user_id)
+    weak_items = get_weak_subtopics(session, user_id=user_id, limit=10)
+    coverage_matrix = get_ingestion_coverage_matrix(
+        session, current_run.id if current_run else None
+    )
+
     return {
         "target_attempt": settings.app.target_attempt_id,
+        "score_run_id": current_run.id if current_run else None,
         "total_subtopics": total_subtopics,
         "done_subtopics": done_subtopics,
         "in_progress_subtopics": in_progress_subtopics,
         "overall_progress_pct": round(overall_pct, 1),
         "group1_progress_pct": round(g1_pct, 1),
         "group2_progress_pct": round(g2_pct, 1),
+        "weighted_coverage": weighted_cov,
+        "weak_subtopics": weak_items,
+        "ingestion_coverage": coverage_matrix.get("coverage", []),
         "recent_activity": activity,
     }
+
+
+@router.get("/meta")
+def get_meta(session: Session = Depends(get_db)):
+    """System metadata and ingestion coverage indicator."""
+    settings = get_settings()
+    current_run = get_current_score_run(session)
+    coverage_matrix = get_ingestion_coverage_matrix(
+        session, current_run.id if current_run else None
+    )
+    return {
+        "taxonomy_version": "v1",
+        "scoring_version": current_run.scoring_version if current_run else "v1",
+        "api_version": "v1",
+        "target_attempt": settings.app.target_attempt_id,
+        "score_run_id": current_run.id if current_run else None,
+        "score_run_computed_at": current_run.finished_at.isoformat() if current_run and current_run.finished_at else None,
+        "ingestion_coverage": coverage_matrix.get("coverage", []),
+    }
+
+
+@router.get("/why/subtopic/{node_id}")
+def api_get_subtopic_why(node_id: str, session: Session = Depends(get_db)):
+    """Explainability payload for a subtopic score."""
+    try:
+        return get_subtopic_why(session, node_id)
+    except ValueError as exc:
+        raise HTTPException(status_code=404, detail=str(exc))
