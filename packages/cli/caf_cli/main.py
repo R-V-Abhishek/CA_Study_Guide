@@ -23,7 +23,7 @@ app = typer.Typer(
 db_app = typer.Typer(help="Database management commands")
 taxonomy_app = typer.Typer(help="L0 Reference & Taxonomy commands")
 acquire_app = typer.Typer(help="L1 Acquisition commands")
-extract_app = typer.Typer(help="L2 Extraction commands")
+from caf_cli.extract import app as extract_app
 classify_app = typer.Typer(help="L3 Classification commands")
 curate_app = typer.Typer(help="L4 Curation commands")
 intel_app = typer.Typer(help="L5 Intelligence commands")

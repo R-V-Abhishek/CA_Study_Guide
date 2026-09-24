@@ -32,8 +32,8 @@ The **CA Final Study Companion** is an offline-first, single-user study operatin
 | **M0** | Foundations: Repo structure, uv workspace, Docker/Postgres, Alembic, contracts, common, DB models, `caf` CLI skeleton | 🟢 Complete | DB up on local Postgres 16; Alembic migrations apply/rollback verified; role grants applied; `caf status` active; C0–C6 contracts implemented. |
 | **M1** | Taxonomy v1 + Usable Tracker: L0 registries, outline extractor, YAML loader, all 6 papers, L6 thin app | 🟢 Complete | Authored & verified syllabus trees for all 6 papers (39 chapters, 77 topics, 264 subtopics); weightages loaded; L6 API endpoints active; full automated test suite passing. |
 | **M2** | Catalogue: L1 discovery (HTTP) for current scheme, catalogue review, downloader | 🟢 Complete | Deterministic inference, polite crawler, SHA-256 deduplicated fetcher, manual importer, catalogue review API/CLI. |
-| **M3** | Extraction for one profile: L2 current-scheme Suggested Answers | 🟡 Up Next | PyMuPDF text & table extraction, deterministic question unit segmentation, C2 contract. |
-| **M4** | Classification + Review: L0 descriptors + anchors, L3 cascade, L4 curation UI | ⚪ Pending | |
+| **M3** | Extraction for one profile: L2 current-scheme Suggested Answers | 🟢 Complete | PyMuPDF block stream, deterministic segmenter, choice rules, V1–V7 validators, same-doc answer pairing, debug render HTML, manual overrides, C2 database persistence. |
+| **M4** | Classification + Review: L0 descriptors + anchors, L3 cascade, L4 curation UI | 🟡 Up Next | L0 anchor index & descriptors, L3 hierarchical classification cascade, L4 curation UI & bulk accept. |
 | **M5** | Intelligence v1: L5 E/F/W/I scores, weak flags, inline history | ⚪ Pending | |
 | **M6** | Practice Signal + Planning: L2 RTP/MTP profiles, P signal, revision planner | ⚪ Pending | |
 | **M7** | Depth Gate: 2017 & pre-2017 bands backfill gating | ⚪ Pending | |
@@ -90,5 +90,38 @@ The **CA Final Study Companion** is an offline-first, single-user study operatin
 - **Verification**:
   - Added automated test suite `tests/test_milestone2.py` verifying inference edge cases and end-to-end manual import + curation workflow.
   - Full test suite passing (7/7 tests). CLI catalogue inspection verified.
+
+### Session 4: Milestone 3 — Extraction for Current-Scheme Suggested Answers (Complete)
+- **Preflight & Text-Layer Verification (`caf_l2/preflight.py`)**:
+  - Implemented character density inspection per page (>= 200 chars on >= 70% pages) to distinguish digital PDFs from scanned PDFs.
+- **Positioned Block Stream & Normalization (`caf_l2/blocks.py`)**:
+  - Built block extractor using PyMuPDF `get_text("dict", sort=True)`.
+  - Implemented NFKC normalization, ligatures (`ﬁ` → `fi`), and PUA rupee symbols (`\uf0b9` → `₹`).
+  - Implemented header/footer removal for repeating lines in top/bottom 8% with protection for content headings (`question`, `case scenario`, parts).
+  - Emitted stable block IDs `p{page}-b{idx}`.
+- **Profile Architecture (`profiles/s2023.suggested_answer.yaml`, `caf_l2/profiles.py`)**:
+  - Formatted and compiled YAML extraction profile for `s2023.suggested_answer.v1` with regex anchors for questions, parts, subparts, marks, answers, OR alternatives, and choice rules.
+  - Built fallback profile resolver `(scheme, doc_type, paper) -> (scheme, doc_type) -> (doc_type)`.
+- **Deterministic Stateful Segmenter (`caf_l2/segmenter.py`)**:
+  - Stateful state-machine parsing questions, parts, subparts, case stems, and MCQs.
+  - Choice rule parsing from introductory pages (`Question 1 is compulsory, attempt any 4 of remaining 5`).
+  - Marks rollup: non-gradable parent questions receive `marks = sum(children)` with `marks_source='summed'`, while leaves receive explicit marks.
+  - Stable fingerprint generation: `sha1(doc_sha256 | label_path | normalized_text[:200])`.
+- **Answer Pairing (`caf_l2/pairing.py`)**:
+  - Paired answer text collected during interleaved parsing (`pairing_method='same_doc'`).
+  - Supported MCQ answer key table parsing.
+- **Deterministic Integrity Validators V1–V7 (`caf_l2/validators.py`)**:
+  - Implemented V1 (contiguous numbering), V2 (gradable marks completeness), V3 (choice-aware attemptable marks check against paper_max), V4 (answer pairing completeness), V5 (length thresholds), V6 (MCQ options and keys), V7 (monotonic page spans).
+  - Outcome resolution (`ok`, `ok_with_warnings`, `needs_review`) and per-unit parse confidence (`high`, `medium`, `low`).
+- **Overrides & Debug Renderer (`caf_l2/overrides.py`, `caf_l2/render.py`)**:
+  - Built manual override system (`overrides/<sha256>.yaml`) supporting patch and replace modes.
+  - Implemented HTML debug renderer generating standalone color-coded line block tables with unit badges and validation flags.
+- **Pipeline Orchestrator & CLI (`caf_l2/pipeline.py`, `caf_cli/extract.py`)**:
+  - Orchestrated full pipeline: blob read → preflight → blocks → profile → segment → pair → override → validate → DB persistence (`ingest.unit` and `ingest.unit_answer`) with transaction safety.
+  - Added CLI subcommands: `caf extract run`, `caf extract debug`, `caf extract report`.
+- **Verification**:
+  - Added comprehensive test suite `tests/test_milestone3.py` (6 tests).
+  - Full project test suite passing (13/13 tests). All CLI commands verified.
+
 
 

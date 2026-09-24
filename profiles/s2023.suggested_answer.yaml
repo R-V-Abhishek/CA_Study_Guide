@@ -1,0 +1,43 @@
+id: s2023.suggested_answer.v1
+applies_to:
+  scheme: s2023
+  doc_type: suggested_answer
+paper_max: 100
+patterns:
+  question_start:
+    - re: '^\s*(?:QUESTION|Question)\s*(?:NO\.?|No\.?)?\s*(?P<n>\d{1,2})\b'
+      require_bold: false
+  part_start:
+    - re: '^\s*\((?P<p>[a-hA-H])\)\s*'
+  subpart_start:
+    - re: '^\s*\((?P<s>i{1,3}|iv|v|vi{0,3}|ix|x)\)\s*'
+  marks:
+    - re: '\((?P<m>\d{1,2})\s*Marks?\)'
+    - re: '(?P<m>\d{1,2})\s*Marks?\s*$'
+  answer_start:
+    - re: '^\s*(?:ANSWER|Answer)\b'
+      require_bold: false
+  or_separator:
+    - re: '^\s*OR\s*$'
+      require_bold: false
+  case_scenario_start:
+    - re: '^\s*CASE\s+SCENARIO\s*[-–]?\s*(?P<n>[IVX]+|\d+)'
+      require_bold: false
+  mcq_start:
+    - re: '^\s*(?P<n>\d{1,2})\.\s+\S'
+  mcq_option:
+    - re: '^\s*\((?P<o>[A-Da-d])\)\s+'
+  mcq_key_table_title:
+    - re: '(?i)answers?\s+to\s+(?:the\s+)?(?:MCQ|multiple\s+choice)'
+  mcq_key_row:
+    - re: '^\s*(?P<n>\d{1,2})\s*[.)]?\s*\(?(?P<o>[A-Da-d])\)?\s*$'
+choice_rules:
+  - re: '(?i)question\s+no\.?\s*1\s+is\s+compulsory'
+    compulsory: ["Q1"]
+  - re: '(?i)(?:attempt|answer)\s+any\s+(?P<k>two|three|four|five|\d)\s+(?:questions\s+)?(?:out\s+)?of\s+the\s+remaining\s+(?P<n>two|three|four|five|six|\d)'
+    optional_pick: "{k}"
+defaults:
+  mcq_marks: 2
+  min_unit_chars: 15
+  max_unit_chars: 25000
+mode: interleaved

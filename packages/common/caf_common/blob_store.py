@@ -54,5 +54,12 @@ class BlobStore:
         path = self._get_path(sha256_hash)
         return path if path.exists() else None
 
+    def read(self, sha256_hash: str) -> bytes:
+        """Read and return blob bytes."""
+        path = self._get_path(sha256_hash)
+        if not path.exists():
+            raise FileNotFoundError(f"Blob {sha256_hash} not found in store")
+        return path.read_bytes()
+
     def exists(self, sha256_hash: str) -> bool:
         return self._get_path(sha256_hash).exists()

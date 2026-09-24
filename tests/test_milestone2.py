@@ -1,7 +1,7 @@
 """Milestone 2 Acquisition and Catalogue Test Suite."""
 
 from pathlib import Path
-import fitz
+import pymupdf as fitz
 import pytest
 from fastapi.testclient import TestClient
 
