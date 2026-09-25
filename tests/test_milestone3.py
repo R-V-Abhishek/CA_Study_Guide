@@ -263,22 +263,28 @@ def test_pipeline_end_to_end(tmp_path: Path):
     # 2. Insert confirmed document record
     session_factory = get_session_factory()
     with session_factory() as session:
-        doc = Document(
-            sha256=sha256,
-            blob_path=str(path_written),
-            bytes=num_bytes,
-            origin="manual",
-            scheme_id="s2023",
-            attempt_id="2024-05",
-            paper_id="s2023.P1",
-            doc_type_id="suggested_answer",
-            title="May 2024 Paper 1 Suggested Answers",
-            catalog_status="confirmed",
-            extract_status="pending",
-        )
-        session.add(doc)
-        session.commit()
-        doc_id = doc.id
+        existing = session.query(Document).filter(Document.sha256 == sha256).first()
+        if existing:
+            doc_id = existing.id
+            existing.extract_status = "pending"
+            session.commit()
+        else:
+            doc = Document(
+                sha256=sha256,
+                blob_path=str(path_written),
+                bytes=num_bytes,
+                origin="manual",
+                scheme_id="s2023",
+                attempt_id="2024-05",
+                paper_id="s2023.P1",
+                doc_type_id="suggested_answer",
+                title="May 2024 Paper 1 Suggested Answers",
+                catalog_status="confirmed",
+                extract_status="pending",
+            )
+            session.add(doc)
+            session.commit()
+            doc_id = doc.id
 
     # 3. Run extraction pipeline
     pipeline = ExtractionPipeline(

@@ -31,6 +31,7 @@ from caf_cli.plan import app as plan_app
 from caf_cli.revision import app as revision_app
 from caf_cli.mock_test import app as mock_test_app
 from caf_cli.depth import app as depth_app
+from caf_cli.backup import app as backup_app
 
 app.add_typer(db_app, name="db")
 app.add_typer(taxonomy_app, name="taxonomy")
@@ -43,6 +44,7 @@ app.add_typer(plan_app, name="plan")
 app.add_typer(revision_app, name="revision")
 app.add_typer(mock_test_app, name="mock-test")
 app.add_typer(depth_app, name="depth")
+app.add_typer(backup_app, name="backup")
 
 console = Console()
 
@@ -117,6 +119,27 @@ def status() -> None:
                 console.print(table)
             except Exception:
                 console.print("[yellow]ops.run table not initialized yet. Run 'caf db migrate'.[/yellow]")
+
+            # Evaluate System Health & Alarms (Plan §6.6, Guide §6.6)
+            try:
+                from caf_common.alarms import get_system_health
+                health_report = get_system_health(session)
+                alarm_table = Table(title="System Health & Alarms", show_header=True)
+                alarm_table.add_column("Alarm Code", style="bold")
+                alarm_table.add_column("Level", style="bold", justify="center")
+                alarm_table.add_column("Message")
+
+                for a in health_report.alarms:
+                    lvl_style = "green" if a.level == "OK" else ("yellow" if a.level == "WARNING" else "red")
+                    alarm_table.add_row(
+                        a.code,
+                        f"[{lvl_style}]{a.level}[/{lvl_style}]",
+                        a.message,
+                    )
+
+                console.print(alarm_table)
+            except Exception as e:
+                console.print(f"[dim]Could not evaluate system alarms: {e}[/dim]")
 
 
 # ==============================================================================

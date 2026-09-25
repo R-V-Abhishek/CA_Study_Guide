@@ -82,3 +82,51 @@ def classify_report() -> None:
 
         console.print(table)
         console.print(f"[bold]Total Primary Suggestions:[/bold] {total}")
+
+
+@app.command("evaluate")
+def classify_evaluate(
+    threshold: Annotated[float, typer.Option("--threshold", "-t", help="Minimum Bucket A precision threshold (0.0 - 1.0)")] = 0.80,
+    min_samples: Annotated[int, typer.Option("--min-samples", "-m", help="Minimum evaluated samples for strict gating")] = 5,
+) -> None:
+    """Evaluate classifier suggestions against human curator decisions in core.decision."""
+    from caf_l3.evaluate import evaluate_model_on_reviewed_decisions
+
+    session_factory = get_session_factory()
+    with session_factory() as session:
+        console.print(f"[bold cyan]Evaluating classification models against reviewed decisions (Bucket A threshold: {threshold * 100:.0f}%)...[/bold cyan]")
+        report = evaluate_model_on_reviewed_decisions(
+            session=session,
+            bucket_a_threshold=threshold,
+            min_samples=min_samples,
+        )
+
+        table = Table(title="Model Evaluation per Confidence Bucket", show_header=True)
+        table.add_column("Bucket", style="bold")
+        table.add_column("Total Samples", justify="right")
+        table.add_column("Human Agreed", justify="right", style="green")
+        table.add_column("Precision", justify="right", style="magenta")
+
+        for b in ["A", "B", "C", "D"]:
+            metric = report.bucket_metrics.get(b)
+            if metric and metric.total > 0:
+                table.add_row(
+                    b,
+                    str(metric.total),
+                    str(metric.matched),
+                    f"{metric.precision * 100:.1f}%",
+                )
+            else:
+                table.add_row(b, "0", "0", "N/A")
+
+        console.print(table)
+        console.print(f"Total Reviewed Decisions Evaluated: [bold]{report.total_reviewed}[/bold]")
+        console.print(f"Top-1 Agreement: [bold cyan]{report.top1_agreement * 100:.1f}%[/bold cyan]")
+
+        gate_style = "bold green" if report.passed else "bold red"
+        console.print(f"\nGate Outcome: [{gate_style}]{'PASSED' if report.passed else 'FAILED'}[/{gate_style}]")
+        console.print(f"[dim]{report.status_note}[/dim]")
+
+        if not report.passed:
+            raise typer.Exit(code=1)
+

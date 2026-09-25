@@ -246,3 +246,37 @@ The **CA Final Study Companion** is an offline-first, single-user study operatin
   - Added automated test suite `tests/test_milestone7.py` (6 tests covering ranking, TOML loading, shadow scoring with provisional items, workflow execution, CLI commands, and decision branching).
   - Full project test suite passing (37/37 tests across M1–M7). All CLI commands verified.
 
+### Session 9: Milestone 8 — Hardening (Complete)
+- **Backup, Restore & Verification Engine (`caf_common/backup.py`)**:
+  - Implemented `create_backup` performing custom-format `pg_dump -Fc`, blob directory synchronization (`data/blobs/`), configuration archiving (`taxonomy/`, `config/`, `overrides/`, `profiles/`), retention rotation, and `ops.event` recording (`code=BACKUP_OK`).
+  - Implemented `verify_backup` executing monthly restore drill into scratch database (`caf_verify`), verifying exact row counts for 10 critical tables across `app.*` and `core.*`, and logging `ops.event` (`code=BACKUP_VERIFIED_OK`).
+  - Implemented `rotate_backups` enforcing retention policy: 14 daily and 8 weekly dumps preserved, older stale dumps pruned.
+  - Implemented `list_backups` returning existing backup dumps with sizes, ages, and timestamps.
+- **System Observability & Alarms Engine (`caf_common/alarms.py`)**:
+  - Implemented `evaluate_system_alarms` monitoring 5 operational conditions per Plan §6.6 / Guide §6.6:
+    - `BACKUP_STALE`: backup older than 48 hours or absent.
+    - `ZERO_LINKS_DISCOVERED`: latest seed discovery returned 0 links.
+    - `EXTRACTION_FAILURE_HIGH`: extraction failure rate > 20% in latest run.
+    - `BUDGET_CAP_REACHED`: run aborted due to budget cap.
+    - `BUCKET_A_PRECISION_DROP`: human acceptance precision on Bucket A suggestions < 80%.
+  - Integrated into `caf status` CLI command and `GET /api/v1/system/health` API endpoint.
+- **Model Re-evaluation Procedure (`caf_l3/evaluate.py`, `caf classify evaluate`)**:
+  - Implemented `evaluate_model_on_reviewed_decisions` assessing classifier proposals against human curator decisions in `core.decision`.
+  - Computed sample totals, matches, Top-1 agreement, and precision for each confidence bucket (A, B, C, D).
+  - Quality gating: enforces Bucket A precision $\ge 80\%$ (or configurable threshold) prior to switching models.
+- **CLI Commands (`caf_cli/backup.py`, `caf_cli/classify.py`, `caf_cli/main.py`)**:
+  - `caf backup run [--backup-dir DIR] [--target-dir DIR]`
+  - `caf backup verify [--dump-file FILE] [--scratch-db NAME]`
+  - `caf backup list [--backup-dir DIR]`
+  - `caf classify evaluate [--threshold 0.80] [--min-samples 5]`
+  - Enhanced `caf status` with live System Health & Alarms table.
+- **API Endpoints (`caf_api/routes.py`)**:
+  - `GET /api/v1/system/health`: returns overall system status and active alarms.
+  - `GET /api/v1/system/backups`: returns list of backups with sizes and ages.
+  - `POST /api/v1/system/backups`: triggers immediate backup creation.
+  - `GET /api/v1/system/model-evaluation`: returns model evaluation report against reviewed decisions.
+- **Verification**:
+  - Added automated test suite `tests/test_milestone8.py` (7 tests covering rotation, creation, live verification drill, alarms, model evaluation, API endpoints, and CLI commands).
+  - Full project test suite passing (44/44 tests across M1–M8). All CLI commands verified.
+
+

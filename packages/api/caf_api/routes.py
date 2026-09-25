@@ -843,3 +843,102 @@ def api_delete_mock_test(
     session.delete(mt)
     session.commit()
     return {"deleted": True, "id": test_id}
+
+
+# ==============================================================================
+# System Observability & Hardening Endpoints (Milestone 8)
+# ==============================================================================
+@router.get("/system/health")
+def api_get_system_health(session: Session = Depends(get_db)):
+    """Retrieve overall system health and active operational alarms."""
+    from caf_common.alarms import get_system_health
+
+    health = get_system_health(session)
+    return {
+        "status": health.overall_status,
+        "evaluated_at": health.evaluated_at.isoformat(),
+        "alarms": [
+            {
+                "code": a.code,
+                "level": a.level,
+                "message": a.message,
+                "details": a.details,
+            }
+            for a in health.alarms
+        ],
+    }
+
+
+@router.get("/system/backups")
+def api_list_backups():
+    """List existing database backup dumps with sizes and ages."""
+    from caf_common.backup import list_backups
+
+    backups = list_backups()
+    return {
+        "count": len(backups),
+        "backups": [
+            {
+                "name": b["name"],
+                "path": b["path"],
+                "size_mb": b["size_mb"],
+                "age_hours": b["age_hours"],
+                "created_at": b["created_at"].isoformat(),
+            }
+            for b in backups
+        ],
+    }
+
+
+@router.post("/system/backups")
+def api_trigger_backup(session: Session = Depends(get_db)):
+    """Trigger an immediate full database and asset backup."""
+    from caf_common.backup import create_backup
+
+    try:
+        manifest = create_backup(session=session)
+        return {
+            "status": "ok",
+            "dump_file": manifest.dump_file.name,
+            "size_bytes": manifest.dump_size_bytes,
+            "blobs_copied": manifest.blobs_copied,
+            "configs_copied": manifest.configs_copied,
+            "created_at": manifest.created_at.isoformat(),
+        }
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=f"Backup failed: {exc}")
+
+
+@router.get("/system/model-evaluation")
+def api_evaluate_models(
+    threshold: float = 0.80,
+    min_samples: int = 5,
+    session: Session = Depends(get_db),
+):
+    """Evaluate classifier performance against reviewed human decisions."""
+    from caf_l3.evaluate import evaluate_model_on_reviewed_decisions
+
+    report = evaluate_model_on_reviewed_decisions(
+        session=session,
+        bucket_a_threshold=threshold,
+        min_samples=min_samples,
+    )
+    return {
+        "total_reviewed": report.total_reviewed,
+        "top1_matches": report.top1_matches,
+        "top1_agreement": report.top1_agreement,
+        "bucket_metrics": {
+            b: {
+                "bucket": m.bucket,
+                "total": m.total,
+                "matched": m.matched,
+                "precision": m.precision,
+            }
+            for b, m in report.bucket_metrics.items()
+        },
+        "bucket_a_threshold": report.bucket_a_threshold,
+        "passed": report.passed,
+        "status_note": report.status_note,
+        "evaluated_at": report.evaluated_at.isoformat(),
+    }
+
