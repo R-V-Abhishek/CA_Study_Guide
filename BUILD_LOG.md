@@ -217,3 +217,32 @@ The **CA Final Study Companion** is an offline-first, single-user study operatin
   - Added automated test suite `tests/test_milestone6.py` (6 tests).
   - Full project test suite passing (31/31 tests across M1–M6). All CLI commands verified.
 
+### Session 8: Milestone 7 — Depth Gate Tooling (Complete)
+- **Shadow Scoring Recomputation (`caf_l5/scoring.py`)**:
+  - Extended `recompute_scores` with `provisional_items: list[tuple[Appearance, AppearanceTag]]` for shadow scoring runs.
+  - Updated `published_coverage`, `paper_windows`, and `apps_with_tags` to incorporate provisional appearances and tags.
+  - Protected ScoreRuns referenced by `intel.depth_gate_report` during automated retention cleanup (`keep last 10 runs`).
+- **Depth Gate Engine (`caf_l5/depth_gate.py`)**:
+  - Pure-Python Spearman rank correlation `compute_spearman_correlation(x, y)` with fractional rank tie-handling `compute_ranks(values)`.
+  - TOML configuration loader `load_depth_config(config_path="config/depth.toml")`.
+  - Implemented `compute_depth_gate(session, paper, band, top_k=50, record_report=True)`:
+    - Resolved target current paper.
+    - Acquired or computed baseline current score run.
+    - Gathered band gradable units and deduplicated primary bucket A/B shadow tag suggestions.
+    - Constructed provisional `Appearance` and `AppearanceTag` items with attribution and law staleness checks.
+    - Computed shadow score run with provisional appearances.
+    - Evaluated top-$K$ sets for baseline and shadow ($K = \min(50, N)$).
+    - Calculated Jaccard similarity: $|top\_K(base) \cap top\_K(shadow)| / |top\_K(base) \cup top\_K(shadow)|$.
+    - Calculated Spearman rank correlation over the union of top-$K$ sets.
+    - Detected `newly_asked_nodes`: subtopics with 0 exam appearances in baseline and $>0$ in shadow.
+    - Computed `units_to_review` and `est_review_hours` using median `seconds_spent` over historical curator decisions (defaulting to 45.0s when $<5$ decisions).
+    - Evaluated recommendation: `continue` if $jaccard < 0.9$ or $new\_nodes \ge 10$; else `continue_practice_value` if paper has `practice_value = true` in `config/depth.toml`; else `stop`.
+    - Persisted report to `intel.depth_gate_report`.
+  - Historical query service `get_depth_gate_reports(session, paper, band)`.
+- **CLI Commands (`caf_cli/depth.py`, `caf_cli/main.py`)**:
+  - `caf depth gate --paper Px --band B [--top-k 50]`: runs depth gate computation and displays full comparison metrics table.
+  - `caf depth report [--paper Px] [--band B]`: lists historical depth gate reports in Rich table.
+- **Verification**:
+  - Added automated test suite `tests/test_milestone7.py` (6 tests covering ranking, TOML loading, shadow scoring with provisional items, workflow execution, CLI commands, and decision branching).
+  - Full project test suite passing (37/37 tests across M1–M7). All CLI commands verified.
+

@@ -13,7 +13,7 @@ from sqlalchemy.orm import Session
 from caf_common.settings import get_settings
 from caf_db.models.app import Settings as AppSettingsModel
 from caf_db.models.core import Appearance, AppearanceTag
-from caf_db.models.intel import IngestionCoverage, ScoreRun, SubtopicScore
+from caf_db.models.intel import DepthGateReport, IngestionCoverage, ScoreRun, SubtopicScore
 from caf_db.models.ref import (
     ApplicabilityRule,
     Attempt,
@@ -75,6 +75,7 @@ def recompute_scores(
     target_attempt_id: str | None = None,
     shadow: bool = False,
     config: ScoringConfig | None = None,
+    provisional_items: list[tuple[Any, Any]] | None = None,
 ) -> ScoreRun:
     """Recompute all subtopic scores and ingestion coverage, atomically swapping the current run.
     
@@ -83,6 +84,7 @@ def recompute_scores(
         target_attempt_id: Target attempt (e.g. '2024-11'). If None, read from app.settings
         shadow: If True, this is a shadow score run (does not become is_current)
         config: ScoringConfig override. If None, loaded from config/scoring.toml
+        provisional_items: Optional list of provisional (Appearance, AppearanceTag) for shadow runs
         
     Returns:
         The newly created ScoreRun
@@ -231,6 +233,16 @@ def recompute_scores(
             elif row.signal_class == "practice":
                 published_coverage[key]["practice"] = True
 
+        if provisional_items:
+            for p_app, _ in provisional_items:
+                p_key = (p_app.source_paper_id, p_app.attempt_id)
+                if p_key not in published_coverage:
+                    published_coverage[p_key] = {"exam": False, "practice": False}
+                if p_app.signal_class == "exam":
+                    published_coverage[p_key]["exam"] = True
+                elif p_app.signal_class == "practice":
+                    published_coverage[p_key]["practice"] = True
+
         # IngestionCoverage records across all current papers and all known attempts
         ingestion_coverage_rows = []
         for paper_id in current_paper_ids:
@@ -271,6 +283,8 @@ def recompute_scores(
             .where(Appearance.status == "published")
             .all()
         )
+        if provisional_items:
+            apps_with_tags = list(apps_with_tags) + list(provisional_items)
 
         # Subtopic appearance metrics
         # subtopic_id -> metrics dict
@@ -448,17 +462,25 @@ def recompute_scores(
         new_run.finished_at = datetime.now(timezone.utc)
         session.flush()
 
-        # 13. Retention: keep last 10 runs, delete older
+        # 13. Retention: keep last 10 runs, delete older (excluding runs referenced by depth_gate_report)
         all_run_ids = (
             session.query(ScoreRun.id)
             .order_by(ScoreRun.id.desc())
             .all()
         )
         if len(all_run_ids) > 10:
-            stale_ids = [r[0] for r in all_run_ids[10:]]
-            session.execute(
-                sa.delete(ScoreRun).where(ScoreRun.id.in_(stale_ids))
-            )
+            referenced_runs = set()
+            for r in session.query(DepthGateReport.baseline_run_id, DepthGateReport.shadow_run_id).all():
+                if r[0] is not None:
+                    referenced_runs.add(r[0])
+                if r[1] is not None:
+                    referenced_runs.add(r[1])
+
+            stale_ids = [r[0] for r in all_run_ids[10:] if r[0] not in referenced_runs]
+            if stale_ids:
+                session.execute(
+                    sa.delete(ScoreRun).where(ScoreRun.id.in_(stale_ids))
+                )
 
         session.commit()
         logger.info(
