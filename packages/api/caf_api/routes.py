@@ -1,26 +1,35 @@
-"""Student and study tracking API routes."""
-
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 from typing import Any, Literal
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Query
 from pydantic import BaseModel, Field
 import sqlalchemy as sa
 from sqlalchemy.orm import Session
 
 from caf_common.settings import get_settings
 from caf_db.engine import get_session_factory
-from caf_db.models.app import Note, Progress, ProgressEvent, Settings, UserAccount
+from caf_db.models.app import (
+    MockTest,
+    Note,
+    Progress,
+    ProgressEvent,
+    RevisionEvent,
+    Settings,
+    UserAccount,
+)
 from caf_db.models.core import Appearance, AppearanceTag
 from caf_db.models.intel import SubtopicScore
 from caf_db.models.ref import Node, Paper, WeightageMember, WeightageSection
 from caf_l5 import (
     compute_weighted_coverage,
+    generate_study_plan,
     get_current_score_run,
     get_ingestion_coverage_matrix,
+    get_revision_due_list,
     get_subtopic_scores_for_paper,
     get_subtopic_why,
     get_weak_subtopics,
     is_subtopic_weak,
+    record_revision_outcome,
 )
 
 router = APIRouter(prefix="/api/v1")
@@ -63,6 +72,20 @@ class ProgressUpdateRequest(BaseModel):
 
 class NoteUpdateRequest(BaseModel):
     notes: str
+
+
+class RevisionLogRequest(BaseModel):
+    outcome: Literal["ok", "shaky"]
+
+
+class MockTestCreateRequest(BaseModel):
+    paper_id: str
+    attempt_id: str | None = None
+    label: str | None = None
+    score: float
+    max_score: float = 100.0
+    taken_on: date
+    notes: str | None = None
 
 
 class SubtopicItem(BaseModel):
@@ -607,6 +630,11 @@ def get_dashboard(session: Session = Depends(get_db)):
         session, current_run.id if current_run else None
     )
 
+    # M6 Planning and revision previews
+    plan_data = generate_study_plan(session, user_id=user_id)
+    plan_preview = plan_data.get("items", [])[:5]
+    revision_due = get_revision_due_list(session, user_id=user_id)
+
     return {
         "target_attempt": settings.app.target_attempt_id,
         "score_run_id": current_run.id if current_run else None,
@@ -619,6 +647,8 @@ def get_dashboard(session: Session = Depends(get_db)):
         "weighted_coverage": weighted_cov,
         "weak_subtopics": weak_items,
         "ingestion_coverage": coverage_matrix.get("coverage", []),
+        "plan_preview": plan_preview,
+        "revision_due_count": len(revision_due),
         "recent_activity": activity,
     }
 
@@ -649,3 +679,167 @@ def api_get_subtopic_why(node_id: str, session: Session = Depends(get_db)):
         return get_subtopic_why(session, node_id)
     except ValueError as exc:
         raise HTTPException(status_code=404, detail=str(exc))
+
+
+# ==============================================================================
+# M6: Planning, Revision Queue & Mock Tests Endpoints
+# ==============================================================================
+
+@router.get("/plan")
+def api_get_study_plan(
+    paper: str | None = Query(None, description="Optional paper code/ID filter, e.g. P1"),
+    group: int | None = Query(None, description="Optional group filter, e.g. 1 or 2"),
+    hours: float | None = Query(None, description="Optional override for study hours per week"),
+    session: Session = Depends(get_db),
+):
+    """Retrieve next-week study plan with allocated subtopics and factual reasons."""
+    ensure_default_user(session)
+    settings = get_settings()
+    user_id = settings.app.user_id
+
+    plan = generate_study_plan(
+        session=session,
+        user_id=user_id,
+        paper_id=paper,
+        group_no=group,
+        hours_per_week=hours,
+    )
+    return plan
+
+
+@router.get("/revision/due")
+def api_get_revision_due(
+    paper: str | None = Query(None, description="Optional paper code/ID filter"),
+    session: Session = Depends(get_db),
+):
+    """Retrieve spaced-repetition revision queue due items."""
+    ensure_default_user(session)
+    settings = get_settings()
+    user_id = settings.app.user_id
+
+    due_items = get_revision_due_list(session=session, user_id=user_id, paper_id=paper)
+    return {
+        "total_due": len(due_items),
+        "items": due_items,
+    }
+
+
+@router.post("/subtopics/{node_id}/revisions")
+def api_record_subtopic_revision(
+    node_id: str,
+    req: RevisionLogRequest,
+    session: Session = Depends(get_db),
+):
+    """Record revision outcome ('ok' or 'shaky') and update last_revised_at."""
+    ensure_default_user(session)
+    settings = get_settings()
+    user_id = settings.app.user_id
+
+    try:
+        res = record_revision_outcome(
+            session=session,
+            node_id=node_id,
+            outcome=req.outcome,
+            user_id=user_id,
+        )
+        return res
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc))
+
+
+@router.get("/mock-tests")
+def api_list_mock_tests(
+    paper: str | None = Query(None, description="Optional paper filter"),
+    session: Session = Depends(get_db),
+):
+    """List mock test records for the student."""
+    ensure_default_user(session)
+    settings = get_settings()
+    user_id = settings.app.user_id
+
+    query = sa.select(MockTest, Paper.code).join(Paper, Paper.id == MockTest.paper_id).where(MockTest.user_id == user_id)
+    if paper:
+        query = query.where((Paper.code == paper.upper()) | (Paper.id == paper))
+    query = query.order_by(MockTest.taken_on.desc())
+
+    rows = session.execute(query).all()
+    tests = []
+    for mt, p_code in rows:
+        pct = (float(mt.score) / float(mt.max_score) * 100.0) if float(mt.max_score) > 0 else 0.0
+        tests.append({
+            "id": mt.id,
+            "paper_id": mt.paper_id,
+            "paper_code": p_code,
+            "attempt_id": mt.attempt_id,
+            "label": mt.label,
+            "score": float(mt.score),
+            "max_score": float(mt.max_score),
+            "score_pct": round(pct, 1),
+            "taken_on": mt.taken_on.isoformat(),
+            "notes": mt.notes,
+        })
+    return tests
+
+
+@router.post("/mock-tests")
+def api_create_mock_test(
+    req: MockTestCreateRequest,
+    session: Session = Depends(get_db),
+):
+    """Create a new mock test log entry."""
+    ensure_default_user(session)
+    settings = get_settings()
+    user_id = settings.app.user_id
+
+    # Resolve paper ID
+    paper = session.execute(
+        sa.select(Paper).where((Paper.id == req.paper_id) | (Paper.code == req.paper_id.upper()))
+    ).scalar_one_or_none()
+    if not paper:
+        raise HTTPException(status_code=404, detail=f"Paper '{req.paper_id}' not found")
+
+    mt = MockTest(
+        user_id=user_id,
+        paper_id=paper.id,
+        attempt_id=req.attempt_id,
+        label=req.label,
+        score=req.score,
+        max_score=req.max_score,
+        taken_on=req.taken_on,
+        notes=req.notes,
+    )
+    session.add(mt)
+    session.commit()
+
+    pct = (float(mt.score) / float(mt.max_score) * 100.0) if float(mt.max_score) > 0 else 0.0
+    return {
+        "id": mt.id,
+        "paper_id": mt.paper_id,
+        "paper_code": paper.code,
+        "attempt_id": mt.attempt_id,
+        "label": mt.label,
+        "score": float(mt.score),
+        "max_score": float(mt.max_score),
+        "score_pct": round(pct, 1),
+        "taken_on": mt.taken_on.isoformat(),
+        "notes": mt.notes,
+    }
+
+
+@router.delete("/mock-tests/{test_id}")
+def api_delete_mock_test(
+    test_id: int,
+    session: Session = Depends(get_db),
+):
+    """Delete a mock test log entry."""
+    ensure_default_user(session)
+    settings = get_settings()
+    user_id = settings.app.user_id
+
+    mt = session.get(MockTest, test_id)
+    if not mt or mt.user_id != user_id:
+        raise HTTPException(status_code=404, detail="Mock test not found")
+
+    session.delete(mt)
+    session.commit()
+    return {"deleted": True, "id": test_id}

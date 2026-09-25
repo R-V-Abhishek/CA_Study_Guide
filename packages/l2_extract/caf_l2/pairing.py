@@ -99,3 +99,46 @@ def pair_answers(
             )
 
     return paired
+
+
+def pair_cross_doc_answers(
+    question_units: list[ParsedUnit],
+    answer_units: list[ParsedUnit],
+    answer_doc_id: int | None = None,
+) -> dict[str, PairedAnswer]:
+    """Pair questions from a question document with answers from a separate answer document.
+    
+    Matches units by label_path (e.g. Q1(a), Q2(b)(i)).
+    """
+    flat_questions = flatten_units(question_units)
+    flat_answers = flatten_units(answer_units)
+
+    # Build index of answer units by label_path
+    answer_map = {ans.label_path: ans for ans in flat_answers}
+
+    paired: dict[str, PairedAnswer] = {}
+    for q in flat_questions:
+        if not q.is_gradable and not q.children:
+            continue
+
+        ans = answer_map.get(q.label_path)
+        if ans:
+            paired[q.label_path] = PairedAnswer(
+                label_path=q.label_path,
+                answer_text=ans.answer_text or ans.question_text,
+                page_start=ans.page_start,
+                page_end=ans.page_end,
+                mcq_correct_option=ans.mcq_correct_option,
+                pairing_method="cross_doc",
+            )
+        else:
+            paired[q.label_path] = PairedAnswer(
+                label_path=q.label_path,
+                answer_text=None,
+                page_start=None,
+                page_end=None,
+                mcq_correct_option=None,
+                pairing_method="cross_doc",
+            )
+
+    return paired

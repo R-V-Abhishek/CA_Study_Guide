@@ -182,3 +182,38 @@ The **CA Final Study Companion** is an offline-first, single-user study operatin
 - **Verification**:
   - Added automated test suite `tests/test_milestone5.py` (6 tests).
   - All 25 project tests passing (`uv run pytest` -> 25/25 passed). All CLI commands verified.
+
+### Session 7: Milestone 6 — Practice Signal + Planning (Complete)
+- **Practice L2 Extraction Profiles & Cross-Doc Pairing (`profiles/`, `caf_l2/pairing.py`)**:
+  - Authored YAML extraction profile for Revision Test Papers: `profiles/s2023.rtp.yaml` (`doc_type: rtp`).
+  - Authored YAML extraction profile for Mock Test Papers answers: `profiles/s2023.mtp_answer.yaml` (`doc_type: mtp_answer`).
+  - Authored YAML extraction profile for Case Scenarios: `profiles/s2023.case_scenarios.yaml` (`doc_type: case_scenarios`).
+  - Implemented `pair_cross_doc_answers` in `caf_l2/pairing.py` to match question units with answer units across distinct documents by `label_path` (`pairing_method='cross_doc'`).
+- **Practice Signal Scoring ($P(s)$)**:
+  - Verified exponential decay with half-life $H_{practice} = 12$ months.
+  - Verified integration with composite importance score $I(s) = 0.6 \hat{E} + 0.2 \hat{P} + 0.2 \hat{W}$.
+- **Next-Week Study Planning Engine (`caf_l5/planning.py`)**:
+  - Implemented effort budget allocation: $budget\_items = \lfloor (hours\_per\_week \times 60) / minutes\_per\_subtopic \rfloor$.
+  - Priority scoring: $score(s) = I(s) + 0.25 \cdot [weak(s)] + 0.10 \cdot [status = in\_progress]$.
+  - Implemented greedy allocation respecting per-chapter diversity caps ($\le 3$ picks per chapter).
+  - Implemented factual reason generator: `"Asked in {F} of last {freq_window} exams ({exam_marks_total} marks); weightage section {σ}: {min}-{max}%"`.
+  - Added optional scoping by `paper_id` and `group_no`.
+- **Spaced-Repetition Revision Queue (`caf_l5/revision.py`)**:
+  - Implemented dynamic scheduling across review intervals: `[3, 7, 21, 60]` days.
+  - Handled shaky outcomes resetting stage $k$ to 0.
+  - Ordered overdue subtopics by $I(s)$ descending, then overdue days descending.
+  - Implemented `record_revision_outcome` updating `app.revision_event` and `app.progress.last_revised_at`.
+- **API Endpoints (`caf_api/routes.py`)**:
+  - `GET /api/v1/plan`: next-week plan with factual reasons and candidate scoring.
+  - `GET /api/v1/revision/due`: spaced-repetition due list.
+  - `POST /api/v1/subtopics/{id}/revisions`: record revision outcomes (`ok` or `shaky`).
+  - `GET /api/v1/mock-tests`, `POST /api/v1/mock-tests`, `DELETE /api/v1/mock-tests/{id}`: mock test tracker CRUD.
+  - `GET /api/v1/dashboard`: updated to include `plan_preview` (top 5 picks) and `revision_due_count`.
+- **CLI Commands (`caf_cli/plan.py`, `caf_cli/revision.py`, `caf_cli/mock_test.py`, `caf_cli/main.py`)**:
+  - `caf plan [--paper Px] [--group N] [--hours N]`
+  - `caf revision list [--paper Px]`, `caf revision log <node_id> [--outcome ok|shaky]`
+  - `caf mock-test list [--paper Px]`, `caf mock-test log --paper Px --score N [--max-score N] [--date YYYY-MM-DD]`, `caf mock-test delete <id>`
+- **Verification**:
+  - Added automated test suite `tests/test_milestone6.py` (6 tests).
+  - Full project test suite passing (31/31 tests across M1–M6). All CLI commands verified.
+

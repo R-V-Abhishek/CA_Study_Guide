@@ -1,0 +1,27 @@
+id: s2023.case_scenarios.v1
+applies_to:
+  scheme: s2023
+  doc_type: case_scenarios
+paper_max: 30
+patterns:
+  case_scenario_start:
+    - re: '^\s*CASE\s+SCENARIO\s*[-–]?\s*(?P<n>[IVX]+|\d+)'
+      require_bold: false
+  mcq_start:
+    - re: '^\s*(?P<n>\d{1,2})\.\s+\S'
+  mcq_option:
+    - re: '^\s*\((?P<o>[A-Da-d])\)\s+'
+  marks:
+    - re: '\((?P<m>\d{1,2})\s*Marks?\)'
+    - re: '(?P<m>\d{1,2})\s*Marks?\s*$'
+  mcq_key_table_title:
+    - re: '(?i)answers?\s+key'
+    - re: '(?i)answers?\s+to\s+(?:the\s+)?(?:MCQ|multiple\s+choice)'
+  mcq_key_row:
+    - re: '^\s*(?P<n>\d{1,2})\s*[.)]?\s*\(?(?P<o>[A-Da-d])\)?\s*$'
+choice_rules: []
+defaults:
+  mcq_marks: 2
+  min_unit_chars: 15
+  max_unit_chars: 25000
+mode: interleaved

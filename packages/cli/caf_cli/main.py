@@ -27,6 +27,9 @@ from caf_cli.extract import app as extract_app
 from caf_cli.classify import app as classify_app
 from caf_cli.curate import app as curate_app
 from caf_cli.intel import app as intel_app
+from caf_cli.plan import app as plan_app
+from caf_cli.revision import app as revision_app
+from caf_cli.mock_test import app as mock_test_app
 
 app.add_typer(db_app, name="db")
 app.add_typer(taxonomy_app, name="taxonomy")
@@ -35,6 +38,9 @@ app.add_typer(extract_app, name="extract")
 app.add_typer(classify_app, name="classify")
 app.add_typer(curate_app, name="curate")
 app.add_typer(intel_app, name="intel")
+app.add_typer(plan_app, name="plan")
+app.add_typer(revision_app, name="revision")
+app.add_typer(mock_test_app, name="mock-test")
 
 console = Console()
 
