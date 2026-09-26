@@ -335,3 +335,34 @@ The **CA Final Study Companion** is an offline-first, single-user study operatin
 - **Two apps** in a Turborepo monorepo: `apps/student` (Study App) + `apps/curator` (Annotation Workbench)
 - All API contracts, design specs, responsive breakpoints, keyboard shortcuts, demo mode, and 5 implementation phases documented.
 
+### Session 11: Real ICAI Live Pipeline Execution (Complete)
+
+**Trigger**: Execute the pipeline on live ICAI data across Discovery, Acquisition, Extraction, Classification, Curation, and Intelligence.
+
+#### Pipeline Execution & Hardening
+
+1. **Network & HTTPS Redirect Normalization (`caf_l1/discover.py`, `caf_l1/fetcher.py`, `caf_l1/robots.py`)**:
+   - Diagnosed root cause for `[Errno 51] Network is unreachable`: ICAI webservers issue 301 redirects to unencrypted HTTP on port 80, which was unreachable.
+   - Added `_upgrade_redirect` response hooks and forced HTTPS scheme on all outbound client requests.
+
+2. **Official New Scheme Inventory (`config/sources.toml`, `caf_l1/discover.py`)**:
+   - Added official New Scheme (`s2023`) sources for Suggested Answers, Question Papers, Revision Test Papers (RTP), and Case Scenario Booklets across all 6 papers.
+   - Fixed queue iteration indentation in `LinkDiscoverer.discover_source`.
+   - Included `current_url` in metadata breadcrumbs to deterministically infer attempt IDs and doc types from URL paths (e.g. `sugg-ans-final-nov2024`, `rtp-final-course-may2024`).
+   - Catalogued **192 official New Scheme documents** in `ingest.discovered_link`.
+
+3. **L2 Segmenter Robustness on Live Exam PDFs (`caf_l2/segmenter.py`, `profiles/s2023.rtp.yaml`)**:
+   - Fixed regex boundary on question numbers (`^\s*(?P<n>\d{1,2})\.(?:\s+|$)`) so monetary/numerical figures like `1.20 lakhs` do not trigger false question units.
+   - Scoped questions and parts under case scenarios (e.g. `CS1.Q1`, `CS1.Q1.a`) to eliminate `uq_unit_doc_run_label` uniqueness collisions across multi-scenario exam papers.
+
+4. **Live End-to-End Pipeline Execution**:
+   - **L1 Acquisition**: Downloaded official ICAI exam PDFs into content-addressed `BlobStore` (`data/blobs/`).
+   - **L2 Extraction**: Successfully segmented units, parts, marks, and question texts.
+   - **L3 Classification**: Executed multi-run cascade on gradable units, producing consensus Bucket A suggestions.
+   - **L4 Curation**: Published verified units via `bulk_accept_bucket_a` to `core.appearance`, `core.appearance_tag`, and `core.decision`.
+   - **L5 Intelligence**: Recomputed live $E, P, W, I$ intelligence scores across all 264 syllabus subtopics for target attempt 2026-05.
+
+5. **Verification**:
+   - Full test suite passing (57/57 tests).
+
+

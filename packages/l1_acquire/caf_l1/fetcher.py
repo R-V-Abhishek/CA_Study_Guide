@@ -17,6 +17,13 @@ from caf_db.models.ops import Event
 logger = get_logger("acquire.fetcher")
 
 
+def _upgrade_redirect(response: httpx.Response) -> None:
+    if response.is_redirect:
+        loc = response.headers.get("location", "")
+        if loc.startswith("http://"):
+            response.headers["location"] = "https://" + loc[7:]
+
+
 class DocumentFetcher:
     def __init__(
         self,
@@ -34,13 +41,17 @@ class DocumentFetcher:
     ) -> int:
         now = datetime.now(timezone.utc)
 
-        # Select pending links
+        # Select pending links, prioritizing inferred exam paper links
         links = session.execute(
             sa.select(DiscoveredLink)
             .where(
                 DiscoveredLink.link_status.in_(["new", "failed"]),
                 sa.or_(DiscoveredLink.next_try_at.is_(None), DiscoveredLink.next_try_at <= now),
                 DiscoveredLink.tries < 3,
+            )
+            .order_by(
+                DiscoveredLink.inferred["paper_id"].is_not(None).desc(),
+                DiscoveredLink.id.desc(),
             )
             .limit(limit)
         ).scalars().all()
@@ -49,14 +60,21 @@ class DocumentFetcher:
 
         for link in links:
             url = link.url
+            if url.startswith("http://"):
+                url = "https://" + url[7:]
             logger.info("fetching_document", url=url, tries=link.tries)
             self.politeness.sleep_before_request(url)
             link.tries += 1
             link.last_checked_at = now
 
             try:
-                with httpx.Client(timeout=30.0, headers={"User-Agent": self.politeness.user_agent}) as client:
-                    resp = client.get(url, follow_redirects=True)
+                with httpx.Client(
+                    timeout=30.0,
+                    headers={"User-Agent": self.politeness.user_agent},
+                    follow_redirects=True,
+                    event_hooks={"response": [_upgrade_redirect]},
+                ) as client:
+                    resp = client.get(url)
 
                 if resp.status_code == 404 or resp.status_code == 410:
                     link.link_status = "failed"

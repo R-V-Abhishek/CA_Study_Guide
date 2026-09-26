@@ -7,7 +7,7 @@ patterns:
   question_start:
     - re: '^\s*(?:QUESTION|Question)\s*(?:NO\.?|No\.?)?\s*(?P<n>\d{1,2})\b'
       require_bold: false
-    - re: '^\s*(?P<n>\d{1,2})\.\s+\S'
+    - re: '^\s*(?P<n>\d{1,2})\.(?:\s+|$)'
       require_bold: false
   part_start:
     - re: '^\s*\((?P<p>[a-hA-H])\)\s*'
@@ -26,7 +26,7 @@ patterns:
     - re: '^\s*CASE\s+SCENARIO\s*[-–]?\s*(?P<n>[IVX]+|\d+)'
       require_bold: false
   mcq_start:
-    - re: '^\s*(?P<n>\d{1,2})\.\s+\S'
+    - re: '^\s*(?P<n>\d{1,2})\.(?:\s+|$)'
   mcq_option:
     - re: '^\s*\((?P<o>[A-Da-d])\)\s+'
   mcq_key_table_title:

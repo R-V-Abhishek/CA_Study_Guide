@@ -164,7 +164,10 @@ class Segmenter:
 
             elif q_match:
                 q_num = q_match.group("n")
-                label_path = f"Q{q_num}"
+                if current_case:
+                    label_path = f"{current_case.label_path}.Q{q_num}"
+                else:
+                    label_path = f"Q{q_num}"
                 choice = "compulsory" if label_path in self.compulsory_questions else (
                     "optional" if self.compulsory_questions or self.optional_pick else "unknown"
                 )
@@ -176,11 +179,15 @@ class Segmenter:
                     page_end=line.page,
                     block_start=line.block_id,
                     block_end=line.block_id,
+                    parent_label_path=current_case.label_path if current_case else None,
                     choice_role=choice,
                     or_group=pending_or_group,
                 )
                 pending_or_group = None
-                self.units.append(current_question)
+                if current_case:
+                    current_case.children.append(current_question)
+                else:
+                    self.units.append(current_question)
                 current_part = None
                 current_subpart = None
                 current_mcq = None
@@ -199,9 +206,12 @@ class Segmenter:
 
             elif part_match:
                 p_label = part_match.group("p").lower()
-                parent_path = (
-                    current_question.label_path if current_question else "Q1"
-                )
+                if current_question:
+                    parent_path = current_question.label_path
+                elif current_case:
+                    parent_path = f"{current_case.label_path}.Q1"
+                else:
+                    parent_path = "Q1"
                 label_path = f"{parent_path}.{p_label}"
                 current_part = ParsedUnit(
                     label_path=label_path,
@@ -217,6 +227,8 @@ class Segmenter:
                 pending_or_group = None
                 if current_question:
                     current_question.children.append(current_part)
+                elif current_case:
+                    current_case.children.append(current_part)
                 else:
                     self.units.append(current_part)
                 current_subpart = None
@@ -225,11 +237,14 @@ class Segmenter:
 
             elif subpart_match:
                 s_label = subpart_match.group("s").lower()
-                parent_path = (
-                    current_part.label_path
-                    if current_part
-                    else (current_question.label_path if current_question else "Q1")
-                )
+                if current_part:
+                    parent_path = current_part.label_path
+                elif current_question:
+                    parent_path = current_question.label_path
+                elif current_case:
+                    parent_path = f"{current_case.label_path}.Q1"
+                else:
+                    parent_path = "Q1"
                 label_path = f"{parent_path}.{s_label}"
                 current_subpart = ParsedUnit(
                     label_path=label_path,

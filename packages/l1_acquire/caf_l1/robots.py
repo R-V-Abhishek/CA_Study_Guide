@@ -30,8 +30,7 @@ class PolitenessManager:
         host = self.get_host(url)
         if host not in self._parsers:
             rp = urllib.robotparser.RobotFileParser()
-            scheme = urlparse(url).scheme or "https"
-            robots_url = f"{scheme}://{host}/robots.txt"
+            robots_url = f"https://{host}/robots.txt"
             try:
                 resp = httpx.get(robots_url, timeout=5.0, headers={"User-Agent": self.user_agent})
                 if resp.status_code == 200:

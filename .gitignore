@@ -19,6 +19,7 @@ build/
 # Data and runtime artifacts
 data/
 !data/.gitkeep
+debug/
 
 # Node / Web
 node_modules/

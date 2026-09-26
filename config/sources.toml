@@ -7,6 +7,39 @@ max_downloads_per_session = 200
 pdf_hosts = ["resource.cdn.icai.org"]
 
 [[source]]
+id = "icai-final-s2023-suggested-answers"
+url = "https://www.icai.org/post/suggested-answer-final-course"
+mode = "http"
+scheme_hint = "s2023"
+max_depth = 2
+follow_patterns = ["^https://www\\.icai\\.org/post/sugg-ans-final-"]
+
+[[source]]
+id = "icai-final-s2023-question-papers"
+url = "https://www.icai.org/post/question-papers-final-course"
+mode = "http"
+scheme_hint = "s2023"
+max_depth = 1
+follow_patterns = []
+
+[[source]]
+id = "icai-final-s2023-rtp"
+url = "https://www.icai.org/post/rtp-final-course"
+mode = "http"
+scheme_hint = "s2023"
+max_depth = 2
+follow_patterns = ["^https://www\\.icai\\.org/post/rtp-final-course-"]
+
+[[source]]
+id = "icai-final-s2023-case-scenarios"
+url = "https://www.icai.org/post/csb-final-course"
+mode = "http"
+scheme_hint = "s2023"
+max_depth = 2
+follow_patterns = ["^https://www\\.icai\\.org/post/bos-csb-final-"]
+
+
+[[source]]
 id = "icai-final-pre2017"
 url = "https://www.icai.org/post/final-course-old-scheme-of-education-and-training"
 mode = "http"
@@ -21,3 +54,4 @@ mode = "browser"
 scheme_hint = "s2023"
 max_depth = 3
 follow_patterns = ["^https://boslive\\.icai\\.org/"]
+
