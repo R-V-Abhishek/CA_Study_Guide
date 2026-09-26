@@ -12,6 +12,10 @@ from caf_db.models.ref import Descriptor, Node
 from caf_l3.anchors import AnchorMatch, extract_anchors, lookup_anchor_candidates
 
 
+class ClassificationError(Exception):
+    """Raised when the classifier cannot produce a valid result (e.g. empty taxonomy)."""
+
+
 @dataclass
 class ClassificationResult:
     primary_node_id: str
@@ -58,6 +62,7 @@ class HierarchicalClassifier:
         fingerprint: str = "",
     ) -> ClassificationResult:
         """Run hierarchical classification with consistency checks."""
+        self._paper_id = paper_id  # stored for use in _classify_run error messages
         combined_text = f"{question_text}\n{context_text}\n{answer_text}".strip()
         paper_code = paper_id.split(".")[-1]
 
@@ -193,11 +198,17 @@ class HierarchicalClassifier:
                 chosen_chapter_ids.append(ch_scores[1][0])
 
         # Step 2: Select Subtopic within chosen chapter(s)
+        if not chosen_chapter_ids:
+            raise ClassificationError(
+                f"No chapter candidates found for paper_id={getattr(self, '_paper_id', '?')!r}. "
+                "Ensure taxonomy is loaded for this paper."
+            )
         candidate_subtopics = [
             s for s in subtopics if self._get_chapter_id(s) in chosen_chapter_ids
         ]
         if not candidate_subtopics:
             candidate_subtopics = subtopics
+
 
         s_list = list(candidate_subtopics)
         if seed is not None:
@@ -217,7 +228,13 @@ class HierarchicalClassifier:
             sub_scores.append((s.id, score))
 
         sub_scores.sort(key=lambda x: x[1], reverse=True)
-        primary = sub_scores[0][0] if sub_scores else (chosen_chapter_ids[0] if chosen_chapter_ids else "P1-093VHQ")
+        if not sub_scores:
+            # No subtopics found — no fallback, caller must handle as Bucket D / taxonomy gap
+            raise ClassificationError(
+                f"No subtopic candidates found for paper_id={self._paper_id!r}. "
+                "Ensure taxonomy is loaded for this paper."
+            )
+        primary = sub_scores[0][0]
         secondaries = [s[0] for s in sub_scores[1:3] if s[1] >= 50.0]
         alt = sub_scores[1][0] if len(sub_scores) > 1 else None
 

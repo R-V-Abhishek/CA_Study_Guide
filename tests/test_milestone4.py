@@ -318,16 +318,59 @@ def test_bulk_accept_bucket_a():
 
 
 def test_law_staleness():
+    """Verify compute_law_stale covers exclude policy (→ False) and mark_stale policy (→ True).
+
+    Seed data (taxonomy/registry/law_boundaries.yaml):
+      - gst_intro: P5, policy=exclude, first_applicable_attempt=2018-05
+      - ita_2025: P4, policy=mark_stale, first_applicable_attempt=null
+        (null means the boundary has no attempt threshold yet — so it never fires)
+
+    To test the mark_stale=True path we insert a temporary boundary with a real threshold.
+    """
+    from caf_db.models.ref import LawBoundary
+
     session_factory = get_session_factory()
     with session_factory() as session:
-        # Pre-GST attempt 2017-05 in P5 -> should be law_stale or excluded
-        is_stale_pre_gst = compute_law_stale(session, "2017-05", "s2023.P5", ["P5-4RKS1C"])
-        # Attempts prior to 2018-05 in P5
-        # Note: gst_intro boundary has policy exclude and first_applicable_attempt 2018-05
-        # Any attempt < 2018-05 is pre-GST
-        assert compute_law_stale(session, "2017-05", "s2023.P5", ["P5-4RKS1C"]) is False  # gst_intro policy is exclude, not mark_stale
+        # 1. EXCLUDE policy: pre-GST attempt in P5 should be False (policy is 'exclude', not 'mark_stale')
+        is_stale_exclude = compute_law_stale(session, "2017-05", "s2023.P5", ["P5-4RKS1C"])
+        assert is_stale_exclude is False, (
+            "gst_intro boundary has policy=exclude, not mark_stale — should return False"
+        )
 
-        # ITA 2025 boundary has policy mark_stale
-        # If boundary has first_applicable_attempt set, test mark_stale
-        is_stale_current = compute_law_stale(session, "2024-05", "s2023.P1", ["P1-093VHQ"])
-        assert is_stale_current is False
+        # 2. Current attempt in P5 (post-GST): also False
+        assert compute_law_stale(session, "2024-05", "s2023.P5", ["P5-4RKS1C"]) is False
+
+        # 3. P4 with null first_applicable_attempt: never stale (guard in code skips it)
+        assert compute_law_stale(session, "2024-05", "s2023.P4", ["P4-XXXXXX"]) is False, \
+            "ita_2025 has null first_applicable_attempt — should not fire"
+
+        # 4. MARK_STALE path: insert a boundary with a real threshold and verify True
+        test_boundary = LawBoundary(
+            id="test_mark_stale_boundary",
+            paper_code="P1",
+            instrument_id="ITA1961",
+            first_applicable_attempt="2025-05",  # attempts before 2025-05 become stale
+            scope_node_ids=None,
+            policy="mark_stale",
+            description="Test boundary for mark_stale path verification",
+        )
+        session.add(test_boundary)
+        session.commit()
+
+        # Attempt "2024-05" < "2025-05" → should be stale
+        is_stale_before = compute_law_stale(session, "2024-05", "s2023.P1", ["P1-093VHQ"])
+        assert is_stale_before is True, (
+            "Attempt 2024-05 is before first_applicable_attempt 2025-05 — should be mark_stale=True"
+        )
+
+        # Attempt "2025-05" >= "2025-05" → NOT stale (not strictly before the boundary)
+        is_stale_at = compute_law_stale(session, "2025-05", "s2023.P1", ["P1-093VHQ"])
+        assert is_stale_at is False, "Attempt exactly at boundary should not be stale"
+
+        # Attempt "2025-11" > "2025-05" → NOT stale
+        is_stale_after = compute_law_stale(session, "2025-11", "s2023.P1", ["P1-093VHQ"])
+        assert is_stale_after is False
+
+        # Cleanup: remove test boundary to avoid affecting other tests
+        session.delete(test_boundary)
+        session.commit()

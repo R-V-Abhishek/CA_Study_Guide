@@ -379,6 +379,12 @@ class ProgressStatus(str, Enum):
 
 
 class ProgressContract(BaseModel):
+    """Maps to app.progress table.
+    
+    Field mapping:
+      - first_done_at: set when status transitions to 'done' for the first time
+      - last_revised_at: set by record_revision_outcome
+    """
     model_config = ConfigDict(frozen=True)
 
     user_id: int
@@ -386,4 +392,5 @@ class ProgressContract(BaseModel):
     status: ProgressStatus
     notes: str | None = None
     updated_at: datetime
-    completed_at: datetime | None = None
+    first_done_at: datetime | None = None   # was incorrectly named completed_at
+    last_revised_at: datetime | None = None

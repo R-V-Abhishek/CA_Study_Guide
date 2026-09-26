@@ -11,7 +11,7 @@ from sqlalchemy.orm import Session
 from caf_common.backup import list_backups
 from caf_common.settings import get_settings
 from caf_db.models.core import Decision
-from caf_db.models.ingest import Document, TagSuggestion
+from caf_db.models.ingest import Document, TagSuggestion, Unit
 from caf_db.models.ops import Run
 
 logger = logging.getLogger(__name__)
@@ -141,11 +141,19 @@ def evaluate_system_alarms(
         )
 
     # 5. Check Bucket A Precision Drop
-    # Join decisions with TagSuggestion on bucket A
+    # Correct path: Decision.unit_fingerprint → Unit.fingerprint → Unit.id → TagSuggestion.unit_id
+    # Only count primary suggestions on Bucket A units.
     recent_decisions = (
         session.query(Decision, TagSuggestion)
-        .join(TagSuggestion, TagSuggestion.unit_id == Decision.id)
-        .filter(TagSuggestion.bucket == "A")
+        .join(Unit, Unit.fingerprint == Decision.unit_fingerprint)
+        .join(
+            TagSuggestion,
+            sa.and_(
+                TagSuggestion.unit_id == Unit.id,
+                TagSuggestion.role == "primary",
+                TagSuggestion.bucket == "A",
+            ),
+        )
         .order_by(Decision.id.desc())
         .limit(100)
         .all()

@@ -134,17 +134,111 @@ def test_system_alarms_evaluation(session, tmp_path):
 
 
 def test_model_re_evaluation_procedure(session):
-    """Verify model re-evaluation against reviewed decisions in core.decision."""
+    """Verify model re-evaluation precision calculation with self-contained fixtures.
+    
+    Seeds its own Decision + TagSuggestion + Unit rows so the precision
+    calculation code path runs fully (not just the early-return 'no-data' path).
+    """
+    import uuid
+    from caf_db.models.ingest import Document, TagSuggestion, Unit
+    from caf_db.models.core import Decision
+
+    uid = uuid.uuid4().hex[:8]
+    node_a = "P1-WB29V3"  # Known P1 node (Ind AS 103)
+    node_b = "P1-P425DG"  # Different P1 node (Ind AS 115)
+
+    # Create a document
+    doc = Document(
+        sha256=f"eval_test_{uid}",
+        blob_path="/tmp/eval_test.pdf",
+        bytes=1000,
+        origin="manual",
+        scheme_id="s2023",
+        attempt_id="2024-05",
+        paper_id="s2023.P1",
+        doc_type_id="suggested_answer",
+        catalog_status="confirmed",
+        extract_status="ok",
+    )
+    session.add(doc)
+    session.flush()
+
+    # Create 5 units, each with a matching Decision + TagSuggestion
+    fps = [f"eval_fp_{uid}_{i}" for i in range(5)]
+    for i, fp in enumerate(fps):
+        u = Unit(
+            document_id=doc.id,
+            extract_run_id=1,
+            label_path=f"Q{i+1}.a",
+            display_label=f"{i+1}(a)",
+            kind="part",
+            is_gradable=True,
+            marks=5,
+            page_start=i + 1,
+            page_end=i + 1,
+            block_start=f"p{i+1}-b1",
+            block_end=f"p{i+1}-b2",
+            question_text=f"Eval test question {i+1}",
+            text_origin="pdf",
+            fingerprint=fp,
+            parse_confidence="high",
+            classify_status="decided",
+            current=True,
+        )
+        session.add(u)
+        session.flush()
+
+        # Tag suggestion: all propose node_a (Bucket A)
+        session.add(TagSuggestion(
+            unit_id=u.id,
+            run_id=1,
+            node_id=node_a,
+            role="primary",
+            method="anchor",
+            bucket="A",
+            evidence={"gist": f"Eval gist {i}"},
+        ))
+
+        # Decision: first 4 accept node_a (match), last 1 accepts node_b (mismatch)
+        accepted_node = node_a if i < 4 else node_b
+        session.add(Decision(
+            unit_fingerprint=fp,
+            action="accept",
+            payload={"primary_node_id": accepted_node},
+            blind=False,
+        ))
+
+    session.commit()
+
     report = evaluate_model_on_reviewed_decisions(
         session=session,
         bucket_a_threshold=0.80,
-        min_samples=5,
+        min_samples=3,  # lower than 5 so gating triggers
     )
-    assert report.total_reviewed >= 1
-    assert report.top1_agreement >= 0.0
-    assert "A" in report.bucket_metrics
-    assert report.passed is True
-    assert "PASSED" in report.status_note or "minimum" in report.status_note
+
+    # Verify the precision calculation actually ran (not the early-return path)
+    assert report.total_reviewed >= 5, \
+        f"Expected at least 5 evaluated (our 5 seeded), got {report.total_reviewed}"
+    assert 0 <= report.top1_matches <= report.total_reviewed, \
+        "top1_matches must be between 0 and total_reviewed"
+    assert 0.0 <= report.top1_agreement <= 1.0, \
+        f"top1_agreement must be in [0,1], got {report.top1_agreement}"
+
+    # Bucket A must be present and have valid counts
+    assert "A" in report.bucket_metrics, "Bucket A must appear in bucket_metrics"
+    bucket_a = report.bucket_metrics["A"]
+    assert bucket_a.total >= 5, \
+        f"Expected at least 5 Bucket A samples (our 5 seeded), got {bucket_a.total}"
+    assert 0 <= bucket_a.matched <= bucket_a.total
+
+    # Gate logic: passed iff precision >= threshold OR below min_samples
+    if report.total_reviewed >= 3:
+        expected_passed = bucket_a.precision >= 0.80 if bucket_a.total > 0 else True
+        assert report.passed == expected_passed, \
+            f"Gate logic wrong: precision={bucket_a.precision}, passed={report.passed}"
+
+    # Status note must be non-empty
+    assert report.status_note
 
 
 def test_milestone8_api_endpoints(client):
@@ -180,8 +274,10 @@ def test_milestone8_cli_commands():
     assert "Database Backups" in res_list.output or "No database backups found" in res_list.output
 
     # 2. caf classify evaluate
+    # Exit code is 0 when gate passes, 1 when gate fails — both are correct CLI behaviour.
+    # We only verify the command ran and produced the expected output structure.
     res_eval = runner.invoke(cli_app, ["classify", "evaluate", "--threshold", "0.80"])
-    assert res_eval.exit_code == 0
+    assert res_eval.exit_code in (0, 1), f"Unexpected exit code {res_eval.exit_code}: {res_eval.output}"
     assert "Model Evaluation" in res_eval.output
     assert "Gate Outcome" in res_eval.output
 
