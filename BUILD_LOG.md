@@ -37,7 +37,7 @@ The **CA Final Study Companion** is an offline-first, single-user study operatin
 | **M5** | Intelligence v1: L5 E/F/W/I scores, weak flags, inline history | 🟢 Complete | E/F/W/I score engine, weak flags, inline exam appearances, weighted coverage, why-payload, planning engine, revision queue. |
 | **M6** | Practice Signal + Planning: L2 RTP/MTP profiles, P signal, revision planner | 🟢 Complete | RTP/MTP/Case Scenario profiles, cross-doc pairing, practice signal, greedy planner, spaced repetition, mock test tracker. |
 | **M7** | Depth Gate: 2017 & pre-2017 bands backfill gating | 🟢 Complete | Shadow scoring, Jaccard + Spearman similarity, continue/stop decision, depth gate report persistence. |
-| **M9** | UI: Student Study App + Curator Annotation Workbench | 🟡 In Progress | Phase 1 (Foundation) complete: Turborepo + Vite + React 18 + TS monorepo, OpenAPI client generation, Zod schemas, FastAPI SPA static hosting. Phase 2 (Student Core) up next. |
+| **M9** | UI: Student Study App + Curator Annotation Workbench | 🟡 In Progress | Phase 1 (Foundation) & Phase 2 (Student App Core) complete: Dashboard, Papers overview, 2-pane syllabus tree, subtopic inspector, confetti celebrations, optimistic status mutations, and Decision D2 compliance. Phase 3 (Study Features) up next. |
 
 ---
 
@@ -398,6 +398,46 @@ The **CA Final Study Companion** is an offline-first, single-user study operatin
    - Full monorepo build passes cleanly via `pnpm build` in 2.5s. Production bundles are lightweight: ~66KB gzipped for both apps.
    - SPA static hosting and fallback verified via FastAPI `TestClient`.
    - All 57 Python unit and contract tests continue to pass.
+### Session 13: M9 UI Phase 2 Student App Core (Complete)
 
+**Trigger**: Implement Phase 2 (Student App Core) per `docs/UI_System_Design_and_Implementation_Plan.md` (v2.0).
 
+#### Phase 2 Deliverables Completed
 
+1. **Student Dashboard (`apps/student/src/pages/Dashboard.tsx`)**:
+   - Hero header featuring 14-day streak flame, target attempt badge (2026-05), dynamic time-of-day greeting, and circular progress ring for overall syllabus completion.
+   - "Today's Focus" hero section above the fold with prioritized high-yield cards (numbered ①-⑤) displaying title, five-dot importance metric (`●●●●●`), estimated minutes, paper badge, and deep-link study CTA buttons.
+   - Two-column lower layout:
+     - Syllabus coverage section with Group 1 / Group 2 completion rates and P1–P6 individual progress bars.
+     - Spaced revision queue preview with due counts, repetition intervals, and direct CTA to revision queue.
+
+2. **Papers Overview (`apps/student/src/pages/Papers.tsx`)**:
+   - 3-column responsive card grid for all 6 papers (P1–P6).
+   - Custom SVG circular progress rings (`ProgressRing.tsx`) with dynamic multi-stage color thresholds (red <33%, amber 33–66%, emerald ≥66%).
+   - Group filter (All, Group 1, Group 2) and Sort dropdown (by Group, lowest coverage first, highest average importance first).
+   - Weak flag count badges (⚑) and revision due indicators.
+
+3. **Two-Pane Paper Detail Tree (`apps/student/src/pages/PaperDetail.tsx`)**:
+   - Left pane: Persistent syllabus tree (Chapter → Topic → Subtopic) with deep-linking support (`/papers/:paperId/:nodeId`).
+   - Instant search filter across chapters, topics, and subtopics.
+   - Status filters (`All`, `Not Started`, `In Progress`, `Done`, `Weak Flags ⚑`).
+   - Sorting options: `Importance (High Yield)`, `Syllabus Order (ICAI seq)`, and `Not Done First`.
+   - Collapsible chapter headers with completion ratios and chapter importance metrics.
+   - Right pane: Subtopic inspector or default Paper Overview displaying top 5 high-yield importance leaders when nothing is selected.
+
+4. **Subtopic Detail Inspector (`apps/student/src/components/SubtopicDetail.tsx`)**:
+   - Breadcrumb navigation (`Paper › Chapter › Topic`).
+   - Five-dot importance indicator (`●●●●●`) with color-coded classification badge (`Critical`, `High Yield`, `Medium`, `Low`).
+   - 3-segment Status Toggle button (`Not Started`, `In Progress`, `Done`) with optimistic React Query updates calling `PUT /api/v1/subtopics/:nodeId/progress`.
+   - Celebratory confetti burst (`canvas-confetti`) triggered whenever a subtopic is marked "Done".
+   - Expandable "Why is this important?" accordion with human-readable summary and bar charts for $E, P, W, I$ score breakdown ($I = 0.50 \cdot E + 0.30 \cdot P + 0.20 \cdot W$).
+   - Weak coverage alert card with orange accent border.
+   - Verified past appearances list (attempt, marks, doc type, signal class tag, stale law indicator).
+   - Study notes editor with auto-save debounce calling `PUT /api/v1/subtopics/:nodeId/notes`.
+
+5. **Decision D2 Compliance & Automated Test Suite (`tests/test_milestone9.py`)**:
+   - Added automated tests verifying SPA static hosting and HTML5 fallback routing for student (`/`, `/papers`, `/papers/:paperId/:nodeId`) and curator (`/curator`, `/curator/queue`).
+   - Verified that `/api/v1/*` routes are never intercepted by SPA fallback.
+   - Strict Decision D2 test verifying student subtopic API responses never expose `question_text` or `answer_text`.
+   - Full test suite passing (61/61 tests).
+   - Production bundle size: student app bundle is 99.5KB gzipped (well under the 400KB budget).
