@@ -1,6 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import confetti from "canvas-confetti";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import {
   CheckCircle2,
   Circle,
@@ -13,6 +15,13 @@ import {
   Sparkles,
   Save,
   Calendar,
+  Bold,
+  Italic,
+  List,
+  Code,
+  Heading3,
+  Eye,
+  Edit3,
 } from "lucide-react";
 import { ImportanceDots, getImportanceLabel } from "./ImportanceDots";
 import { client } from "../lib/client";
@@ -82,6 +91,8 @@ export function SubtopicDetail({ paperId, nodeId, onStatusChange }: SubtopicDeta
   const [whyExpanded, setWhyExpanded] = useState(false);
   const [notesText, setNotesText] = useState("");
   const [saveStatus, setSaveStatus] = useState<"saved" | "saving" | "unsaved">("saved");
+  const [previewMode, setPreviewMode] = useState(false);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   // Fetch subtopic details
   const { data: subtopic, isLoading } = useQuery({
@@ -137,7 +148,6 @@ export function SubtopicDetail({ paperId, nodeId, onStatusChange }: SubtopicDeta
       return res.data;
     },
     onMutate: async (newStatus) => {
-      // Optimistic update
       await queryClient.cancelQueries({ queryKey: ["subtopic", nodeId] });
       const previous = queryClient.getQueryData(["subtopic", nodeId]);
 
@@ -177,7 +187,7 @@ export function SubtopicDetail({ paperId, nodeId, onStatusChange }: SubtopicDeta
     },
   });
 
-  // Auto-save notes mutation with debounce
+  // Auto-save notes mutation
   const notesMutation = useMutation({
     mutationFn: async (text: string) => {
       const res = await client.PUT("/api/v1/subtopics/{node_id}/notes", {
@@ -191,15 +201,48 @@ export function SubtopicDetail({ paperId, nodeId, onStatusChange }: SubtopicDeta
     },
   });
 
+  // Debounced auto-save effect (2 seconds after typing stops)
+  useEffect(() => {
+    if (saveStatus !== "unsaved") return;
+
+    const timer = setTimeout(() => {
+      setSaveStatus("saving");
+      notesMutation.mutate(notesText);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, [notesText, saveStatus]);
+
   const handleNotesChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    const val = e.target.value;
-    setNotesText(val);
+    setNotesText(e.target.value);
     setSaveStatus("unsaved");
   };
 
   const handleSaveNotes = () => {
-    setSaveStatus("saving");
-    notesMutation.mutate(notesText);
+    if (saveStatus === "unsaved") {
+      setSaveStatus("saving");
+      notesMutation.mutate(notesText);
+    }
+  };
+
+  // Helper to insert markdown tokens
+  const insertFormatting = (prefix: string, suffix: string = "") => {
+    const el = textareaRef.current;
+    if (!el) return;
+
+    const start = el.selectionStart;
+    const end = el.selectionEnd;
+    const selected = notesText.substring(start, end);
+    const replacement = `${prefix}${selected || "text"}${suffix}`;
+
+    const newText = notesText.substring(0, start) + replacement + notesText.substring(end);
+    setNotesText(newText);
+    setSaveStatus("unsaved");
+
+    setTimeout(() => {
+      el.focus();
+      el.setSelectionRange(start + prefix.length, start + prefix.length + (selected ? selected.length : 4));
+    }, 50);
   };
 
   if (isLoading && !subtopic) {
@@ -472,26 +515,56 @@ export function SubtopicDetail({ paperId, nodeId, onStatusChange }: SubtopicDeta
         )}
       </div>
 
-      {/* QUICK NOTES (Auto-saved) */}
+      {/* RICH STUDY NOTES (Auto-saved & Markdown capable) */}
       <div className="rounded-2xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900 p-5 space-y-3 shadow-sm">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between pb-2 border-b border-stone-100 dark:border-stone-800">
           <div className="flex items-center gap-2">
             <FileText className="w-4 h-4 text-stone-500" />
             <h3 className="text-xs font-bold uppercase tracking-wider text-stone-800 dark:text-stone-200">
               STUDY NOTES
             </h3>
           </div>
-          <div className="flex items-center gap-2">
+
+          <div className="flex items-center gap-3">
+            {/* Edit / Preview Toggle */}
+            <div className="flex items-center rounded-lg bg-stone-100 dark:bg-stone-800 p-0.5 text-xs">
+              <button
+                type="button"
+                onClick={() => setPreviewMode(false)}
+                className={`flex items-center gap-1 px-2.5 py-1 rounded-md transition-colors ${
+                  !previewMode
+                    ? "bg-white dark:bg-stone-700 font-semibold text-stone-900 dark:text-white shadow-xs"
+                    : "text-stone-500 hover:text-stone-800 dark:hover:text-stone-200"
+                }`}
+              >
+                <Edit3 className="w-3 h-3" />
+                <span>Edit</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => setPreviewMode(true)}
+                className={`flex items-center gap-1 px-2.5 py-1 rounded-md transition-colors ${
+                  previewMode
+                    ? "bg-white dark:bg-stone-700 font-semibold text-stone-900 dark:text-white shadow-xs"
+                    : "text-stone-500 hover:text-stone-800 dark:hover:text-stone-200"
+                }`}
+              >
+                <Eye className="w-3 h-3" />
+                <span>Preview</span>
+              </button>
+            </div>
+
             {saveStatus === "unsaved" && (
               <button
                 type="button"
                 onClick={handleSaveNotes}
-                className="flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-semibold bg-indigo-600 hover:bg-indigo-700 text-white transition-colors"
+                className="flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-semibold bg-indigo-600 hover:bg-indigo-700 text-white transition-colors cursor-pointer"
               >
                 <Save className="w-3 h-3" />
                 <span>Save</span>
               </button>
             )}
+
             <span className="text-[11px] text-stone-400">
               {saveStatus === "saving"
                 ? "Saving…"
@@ -502,14 +575,72 @@ export function SubtopicDetail({ paperId, nodeId, onStatusChange }: SubtopicDeta
           </div>
         </div>
 
-        <textarea
-          value={notesText}
-          onChange={handleNotesChange}
-          onBlur={handleSaveNotes}
-          placeholder="Record key concepts, formulas, section numbers, or memory hooks for this subtopic…"
-          rows={4}
-          className="w-full p-3 rounded-xl border border-stone-200 dark:border-stone-800 bg-stone-50 dark:bg-stone-800/40 text-xs md:text-sm text-stone-900 dark:text-stone-100 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 resize-y"
-        />
+        {/* Toolbar (Visible when editing) */}
+        {!previewMode && (
+          <div className="flex items-center gap-1 p-1 bg-stone-100/70 dark:bg-stone-800/50 rounded-xl text-stone-600 dark:text-stone-300">
+            <button
+              type="button"
+              onClick={() => insertFormatting("**", "**")}
+              className="p-1.5 rounded-lg hover:bg-white dark:hover:bg-stone-700 transition-colors"
+              title="Bold (**text**)"
+            >
+              <Bold className="w-3.5 h-3.5" />
+            </button>
+            <button
+              type="button"
+              onClick={() => insertFormatting("*", "*")}
+              className="p-1.5 rounded-lg hover:bg-white dark:hover:bg-stone-700 transition-colors"
+              title="Italic (*text*)"
+            >
+              <Italic className="w-3.5 h-3.5" />
+            </button>
+            <button
+              type="button"
+              onClick={() => insertFormatting("### ")}
+              className="p-1.5 rounded-lg hover:bg-white dark:hover:bg-stone-700 transition-colors"
+              title="Heading (### )"
+            >
+              <Heading3 className="w-3.5 h-3.5" />
+            </button>
+            <button
+              type="button"
+              onClick={() => insertFormatting("- ")}
+              className="p-1.5 rounded-lg hover:bg-white dark:hover:bg-stone-700 transition-colors"
+              title="Bullet list (- )"
+            >
+              <List className="w-3.5 h-3.5" />
+            </button>
+            <button
+              type="button"
+              onClick={() => insertFormatting("`", "`")}
+              className="p-1.5 rounded-lg hover:bg-white dark:hover:bg-stone-700 transition-colors"
+              title="Inline Code (`code`)"
+            >
+              <Code className="w-3.5 h-3.5" />
+            </button>
+          </div>
+        )}
+
+        {/* Editor or Markdown Preview */}
+        {previewMode ? (
+          <div className="p-4 rounded-xl border border-stone-200 dark:border-stone-800 bg-stone-50 dark:bg-stone-900 min-h-[120px] text-xs md:text-sm text-stone-800 dark:text-stone-200 prose dark:prose-invert max-w-none">
+            {notesText ? (
+              <ReactMarkdown remarkPlugins={[remarkGfm]}>{notesText}</ReactMarkdown>
+            ) : (
+              <span className="text-stone-400 italic">No notes written yet. Switch to Edit mode to start writing.</span>
+            )}
+          </div>
+        ) : (
+          <textarea
+            ref={textareaRef}
+            value={notesText}
+            onChange={handleNotesChange}
+            onBlur={handleSaveNotes}
+            placeholder="Record key concepts, formulas, section numbers, or memory hooks for this subtopic… (Markdown supported)"
+            rows={5}
+            className="w-full p-3 rounded-xl border border-stone-200 dark:border-stone-800 bg-stone-50 dark:bg-stone-800/40 text-xs md:text-sm font-mono text-stone-900 dark:text-stone-100 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 resize-y"
+          />
+        )}
       </div>
     </div>
   );

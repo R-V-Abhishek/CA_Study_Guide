@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 import {
   BookOpen,
@@ -9,12 +9,17 @@ import {
   Moon,
   Sun,
   Flame,
+  FileCheck,
 } from "lucide-react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { isDemoMode } from "./lib/demo";
 import { Dashboard } from "./pages/Dashboard";
 import { Papers } from "./pages/Papers";
 import { PaperDetail } from "./pages/PaperDetail";
+import { Plan } from "./pages/Plan";
+import { Revision } from "./pages/Revision";
+import { Progress } from "./pages/Progress";
+import { MockTests } from "./pages/MockTests";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -51,6 +56,7 @@ function Layout({ children }: { children: React.ReactNode }) {
     { to: "/plan", label: "Study Plan", icon: Calendar },
     { to: "/revision", label: "Revision", icon: RotateCcw },
     { to: "/progress", label: "Coverage", icon: CheckCircle2 },
+    { to: "/mock", label: "Mock Tests", icon: FileCheck },
   ];
 
   return (
@@ -124,54 +130,10 @@ export function App() {
             <Route path="/papers" element={<Papers />} />
             <Route path="/papers/:paperId" element={<PaperDetail />} />
             <Route path="/papers/:paperId/:nodeId" element={<PaperDetail />} />
-            <Route
-              path="/plan"
-              element={
-                <div className="p-8 bg-white dark:bg-stone-900 rounded-2xl border border-stone-200 dark:border-stone-800 max-w-2xl mx-auto text-center space-y-3">
-                  <div className="p-3 w-fit mx-auto rounded-xl bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400">
-                    <Calendar className="w-6 h-6" />
-                  </div>
-                  <h1 className="text-xl font-bold text-stone-900 dark:text-white">
-                    Study Plan (Phase 3)
-                  </h1>
-                  <p className="text-xs text-stone-500 leading-relaxed">
-                    Automated high-yield weekly schedule will generate day-by-day study tasks based on exam weightage and weak areas.
-                  </p>
-                </div>
-              }
-            />
-            <Route
-              path="/revision"
-              element={
-                <div className="p-8 bg-white dark:bg-stone-900 rounded-2xl border border-stone-200 dark:border-stone-800 max-w-2xl mx-auto text-center space-y-3">
-                  <div className="p-3 w-fit mx-auto rounded-xl bg-orange-50 dark:bg-orange-950/60 text-orange-600 dark:text-orange-400">
-                    <RotateCcw className="w-6 h-6" />
-                  </div>
-                  <h1 className="text-xl font-bold text-stone-900 dark:text-white">
-                    Spaced Revision Queue (Phase 3)
-                  </h1>
-                  <p className="text-xs text-stone-500 leading-relaxed">
-                    Flashcard review queue implementing Leitner/spaced-repetition intervals (3, 7, 21, 60 days) to prevent forgetting curves.
-                  </p>
-                </div>
-              }
-            />
-            <Route
-              path="/progress"
-              element={
-                <div className="p-8 bg-white dark:bg-stone-900 rounded-2xl border border-stone-200 dark:border-stone-800 max-w-2xl mx-auto text-center space-y-3">
-                  <div className="p-3 w-fit mx-auto rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400">
-                    <CheckCircle2 className="w-6 h-6" />
-                  </div>
-                  <h1 className="text-xl font-bold text-stone-900 dark:text-white">
-                    Full Coverage Overview (Phase 3)
-                  </h1>
-                  <p className="text-xs text-stone-500 leading-relaxed">
-                    Deep multi-paper syllabus completion breakdown and mock test score tracking.
-                  </p>
-                </div>
-              }
-            />
+            <Route path="/plan" element={<Plan />} />
+            <Route path="/revision" element={<Revision />} />
+            <Route path="/progress" element={<Progress />} />
+            <Route path="/mock" element={<MockTests />} />
           </Routes>
         </Layout>
       </BrowserRouter>

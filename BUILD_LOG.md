@@ -37,7 +37,7 @@ The **CA Final Study Companion** is an offline-first, single-user study operatin
 | **M5** | Intelligence v1: L5 E/F/W/I scores, weak flags, inline history | 🟢 Complete | E/F/W/I score engine, weak flags, inline exam appearances, weighted coverage, why-payload, planning engine, revision queue. |
 | **M6** | Practice Signal + Planning: L2 RTP/MTP profiles, P signal, revision planner | 🟢 Complete | RTP/MTP/Case Scenario profiles, cross-doc pairing, practice signal, greedy planner, spaced repetition, mock test tracker. |
 | **M7** | Depth Gate: 2017 & pre-2017 bands backfill gating | 🟢 Complete | Shadow scoring, Jaccard + Spearman similarity, continue/stop decision, depth gate report persistence. |
-| **M9** | UI: Student Study App + Curator Annotation Workbench | 🟡 In Progress | Phase 1 (Foundation) & Phase 2 (Student App Core) complete: Dashboard, Papers overview, 2-pane syllabus tree, subtopic inspector, confetti celebrations, optimistic status mutations, and Decision D2 compliance. Phase 3 (Study Features) up next. |
+| **M9** | UI: Student Study App + Curator Annotation Workbench | 🟡 In Progress | Phases 1–3 complete: Foundation (monorepo, openapi client, SPA static serving), Student App Core (Dashboard, Papers overview, 2-pane tree, subtopic inspector), and Student Study Features (Plan timeline, Anki-style spaced revision, full coverage audit with CSV export, Mock test tracker with Recharts, rich Markdown notes). Phase 4 (Student App Polish) & Phase 5 (Curator Workbench) up next. |
 
 ---
 
@@ -438,6 +438,44 @@ The **CA Final Study Companion** is an offline-first, single-user study operatin
 5. **Decision D2 Compliance & Automated Test Suite (`tests/test_milestone9.py`)**:
    - Added automated tests verifying SPA static hosting and HTML5 fallback routing for student (`/`, `/papers`, `/papers/:paperId/:nodeId`) and curator (`/curator`, `/curator/queue`).
    - Verified that `/api/v1/*` routes are never intercepted by SPA fallback.
-   - Strict Decision D2 test verifying student subtopic API responses never expose `question_text` or `answer_text`.
-   - Full test suite passing (61/61 tests).
-   - Production bundle size: student app bundle is 99.5KB gzipped (well under the 400KB budget).
+
+### Session 14: M9 UI Phase 3 Student App Study Features (Complete)
+
+**Trigger**: Implement Phase 3 (Student App Study Features) per `docs/UI_System_Design_and_Implementation_Plan.md` (v2.0).
+
+#### Phase 3 Deliverables Completed
+
+1. **Weekly Study Plan Timeline (`apps/student/src/pages/Plan.tsx`)**:
+   - Integrated with `GET /api/v1/plan` with budget allocation controls (15, 20, 28, 35 hrs/week), Group filter (All, Group 1, Group 2), Paper filter (P1–P6), and manual "Regenerate ↺" trigger.
+   - Day-by-day timeline cards (Today, Day 2, Day 3...) with aggregate study time badges.
+   - Prioritized subtopics numbered ①, ②, etc. with five-dot importance metric (`●●●●●`), time duration, paper badge, factual reason strings, and direct start/continue deep-links to `/papers/:paperCode/:nodeId`.
+   - Completed tasks styled with strikethrough and greyed state.
+
+2. **Spaced Revision Queue (`apps/student/src/pages/Revision.tsx`)**:
+   - Single-card focused recall interface inspired by Anki.
+   - Card displays paper badge, chapter context, subtopic title, importance dots, overdue days, interval stage ("Revision 3 of 4"), and expandable personal study notes preview.
+   - Recall self-evaluation controls: "✓ Got it" (advances interval) and "≈ Shaky — reset" (resets interval) with celebratory confetti burst and 400ms auto-advance transition.
+   - Zero-card celebratory completion screen ("All caught up for today! 🎉") and upcoming 7-day revision count summary.
+
+3. **Full Syllabus Coverage Explorer (`apps/student/src/pages/Progress.tsx`)**:
+   - Comprehensive audit of all 264 subtopics across all 6 papers.
+   - Aggregate statistics: Overall coverage percentage bar + Group 1 / Group 2 completion rates.
+   - Hierarchical accordion: Paper → Chapter → Subtopic rows with status indicators (`○`, `●`, `✓`), weak flags (⚑), and importance dots.
+   - Filter dropdowns (All, Not Started, In Progress, Done, Weak Flags) and sorting options (Code, Lowest Coverage, Highest Coverage).
+   - Client-side "Export CSV" feature generating a clean `ca_final_syllabus_progress.csv` download.
+
+4. **Mock Test Tracker & Trend Visualization (`apps/student/src/pages/MockTests.tsx`)**:
+   - Integrated with `GET /api/v1/mock-tests` and `POST /api/v1/mock-tests`.
+   - Score logging modal dialog: Paper selector, Series label, Score, Max score, Taken on date, and Key Learnings / Notes.
+   - Interactive score progression chart powered by `recharts` with tooltips, target passing thresholds, and responsive layout.
+   - Historical test log table with percentage badges, notes, and delete capability.
+
+5. **Rich Study Notes Editor (`apps/student/src/components/SubtopicDetail.tsx`)**:
+   - Markdown formatting toolbar (Bold, Italic, H3, Bullets, Code).
+   - Edit vs. Markdown Preview toggle powered by `react-markdown` and `remark-gfm`.
+   - 2-second debounced auto-save to `PUT /api/v1/subtopics/:nodeId/notes` with live status indicators ("Auto-saved", "Saving…", "Unsaved changes").
+
+6. **Automated Testing & Production Bundle**:
+   - Extended `tests/test_milestone9.py` to verify SPA static hosting and HTML5 fallback routing for `/plan`, `/revision`, `/progress`, and `/mock`.
+   - All 61 backend unit and contract tests passing.
+   - Full monorepo build passing in 4.6s with student bundle size at 266.8KB gzipped (well under the 400KB budget).

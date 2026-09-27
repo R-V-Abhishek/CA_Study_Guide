@@ -32,6 +32,13 @@ def test_student_spa_serving_and_fallback(client):
     assert res_deep.status_code == 200
     assert "text/html" in res_deep.headers.get("content-type", "")
 
+    # Phase 3 Study Feature routes
+    for path in ["/plan", "/revision", "/progress", "/mock"]:
+        res = client.get(path)
+        assert res.status_code == 200
+        assert "text/html" in res.headers.get("content-type", "")
+        assert "CA Final" in res.text
+
 
 def test_curator_spa_serving_and_fallback(client):
     """Verify that curator SPA serves index.html at /curator and deep routes."""
