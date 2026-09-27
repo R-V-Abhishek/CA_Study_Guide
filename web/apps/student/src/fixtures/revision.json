@@ -1,0 +1,32 @@
+[
+  {
+    "node_id": "P1-GDH25Q",
+    "title": "Identifying a Lease Contract & Separating Components (Ind AS 116)",
+    "paper_code": "P1",
+    "interval_days": 3,
+    "repetition_number": 2,
+    "due_date": "Today",
+    "is_overdue": false,
+    "key_takeaways": "Lease requires identified asset + right to control use throughout period of use."
+  },
+  {
+    "node_id": "P2-BXTF71",
+    "title": "Initial Measurement of ROU Asset & Lease Liability",
+    "paper_code": "P2",
+    "interval_days": 7,
+    "repetition_number": 3,
+    "due_date": "Today",
+    "is_overdue": false,
+    "key_takeaways": "Discount rate is rate implicit in the lease, or lessee's incremental borrowing rate."
+  },
+  {
+    "node_id": "P4-SEC44AB",
+    "title": "Tax Audit Under Section 44AB — Limits & Presumptive Schemes",
+    "paper_code": "P4",
+    "interval_days": 1,
+    "repetition_number": 1,
+    "due_date": "Yesterday",
+    "is_overdue": true,
+    "key_takeaways": "Threshold is ₹10 Cr if cash transactions <= 5%; otherwise ₹1 Cr for business."
+  }
+]

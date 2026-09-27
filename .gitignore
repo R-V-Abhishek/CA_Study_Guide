@@ -25,6 +25,8 @@ debug/
 node_modules/
 dist/
 .pnpm-store/
+.turbo/
+
 
 # OS and IDE
 .DS_Store

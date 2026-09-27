@@ -1,0 +1,12 @@
+{
+  "extends": "@caf/ts-config/base.json",
+  "compilerOptions": {
+    "lib": ["ES2022", "DOM"],
+    "moduleResolution": "bundler",
+    "baseUrl": ".",
+    "paths": {
+      "@caf/api-client": ["./src/index.ts"]
+    }
+  },
+  "include": ["src/**/*"]
+}

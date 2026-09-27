@@ -1,0 +1,62 @@
+[
+  {
+    "code": "P1",
+    "name": "Financial Reporting",
+    "total_chapters": 14,
+    "total_subtopics": 52,
+    "completed_subtopics": 35,
+    "coverage_pct": 67.3,
+    "avg_importance": 0.74,
+    "due_revision": 1
+  },
+  {
+    "code": "P2",
+    "name": "Advanced Financial Management",
+    "total_chapters": 11,
+    "total_subtopics": 44,
+    "completed_subtopics": 28,
+    "coverage_pct": 63.6,
+    "avg_importance": 0.71,
+    "due_revision": 2
+  },
+  {
+    "code": "P3",
+    "name": "Advanced Auditing & Professional Ethics",
+    "total_chapters": 18,
+    "total_subtopics": 62,
+    "completed_subtopics": 30,
+    "coverage_pct": 48.4,
+    "avg_importance": 0.69,
+    "due_revision": 0
+  },
+  {
+    "code": "P4",
+    "name": "Direct Tax Laws & International Taxation",
+    "total_chapters": 22,
+    "total_subtopics": 58,
+    "completed_subtopics": 31,
+    "coverage_pct": 53.4,
+    "avg_importance": 0.78,
+    "due_revision": 0
+  },
+  {
+    "code": "P5",
+    "name": "Indirect Tax Laws",
+    "total_chapters": 16,
+    "total_subtopics": 48,
+    "completed_subtopics": 29,
+    "coverage_pct": 60.4,
+    "avg_importance": 0.73,
+    "due_revision": 0
+  },
+  {
+    "code": "P6",
+    "name": "Integrated Business Solutions",
+    "total_chapters": 1,
+    "total_subtopics": 20,
+    "completed_subtopics": 0,
+    "coverage_pct": 0.0,
+    "avg_importance": 0.65,
+    "due_revision": 0
+  }
+]

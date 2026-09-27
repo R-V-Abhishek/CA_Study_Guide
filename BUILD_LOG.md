@@ -37,8 +37,7 @@ The **CA Final Study Companion** is an offline-first, single-user study operatin
 | **M5** | Intelligence v1: L5 E/F/W/I scores, weak flags, inline history | 🟢 Complete | E/F/W/I score engine, weak flags, inline exam appearances, weighted coverage, why-payload, planning engine, revision queue. |
 | **M6** | Practice Signal + Planning: L2 RTP/MTP profiles, P signal, revision planner | 🟢 Complete | RTP/MTP/Case Scenario profiles, cross-doc pairing, practice signal, greedy planner, spaced repetition, mock test tracker. |
 | **M7** | Depth Gate: 2017 & pre-2017 bands backfill gating | 🟢 Complete | Shadow scoring, Jaccard + Spearman similarity, continue/stop decision, depth gate report persistence. |
-| **M8** | Hardening: Backup verification, alarms, end-to-end tests | 🟢 Complete | pg_dump + rotation, live restore drill, 5 system alarms, model re-evaluation gate, full 44-test suite. |
-| **M9** | UI: Student Study App + Curator Annotation Workbench | 🟡 Up Next | Next.js 14 + TypeScript + Tailwind. Two apps: student SPA (dashboard, plan, revision, paper tree) and curator workbench (annotation queue, bulk accept, system health). Full design spec in `docs/UI_System_Design_and_Implementation_Plan.md`. |
+| **M9** | UI: Student Study App + Curator Annotation Workbench | 🟡 In Progress | Phase 1 (Foundation) complete: Turborepo + Vite + React 18 + TS monorepo, OpenAPI client generation, Zod schemas, FastAPI SPA static hosting. Phase 2 (Student Core) up next. |
 
 ---
 
@@ -364,5 +363,41 @@ The **CA Final Study Companion** is an offline-first, single-user study operatin
 
 5. **Verification**:
    - Full test suite passing (57/57 tests).
+
+### Session 12: M9 UI Phase 1 Foundation (Complete)
+
+**Trigger**: Begin M9 frontend implementation aligned with the updated UI System Design (v2.0).
+
+#### Foundation Deliverables Completed
+
+1. **Monorepo Architecture (`web/`)**:
+   - Initialized Turborepo + pnpm workspaces with 4 packages/apps:
+     - `web/apps/student`: Consumer Study Companion (React 18 + Vite + Tailwind CSS + Lucide React + Recharts + Motion).
+     - `web/apps/curator`: Internal Annotation Workbench (React 18 + Vite + Tailwind CSS + Lucide React + TanStack Table v8 + tinykeys).
+     - `web/packages/api-client`: Shared OpenAPI typed client + Zod schemas + fetch wrapper.
+     - `web/packages/ts-config`: Shared base and React tsconfig profiles.
+   - Enforced architectural separation: zero shared UI components; divergence between student consumer UX and curator power-tool UX.
+
+2. **OpenAPI Generation & Runtime Validation (`@caf/api-client`)**:
+   - Extracted OpenAPI spec (`openapi.json`, 26 endpoints) from live FastAPI app.
+   - Generated 1,481 lines of TypeScript types via `openapi-typescript`.
+   - Built runtime Zod schemas (`PaperSchema`, `SubtopicScoreSchema`, `WhyResponseSchema`, `PlanDaySchema`, `RevisionItemSchema`, `CuratorQueueItemSchema`).
+   - Created client factories (`createStudentClient`, `createCuratorClient`) with automated `X-Curator-Token` handling and D2 compliance.
+
+3. **Application Shells & Toolchain**:
+   - Configured Vite 6, Tailwind CSS design tokens (warm stone/indigo for student, dark slate for curator), and HTML5 routing.
+   - Implemented `isDemoMode()` detector and populated synthetic JSON fixtures (`dashboard.json`, `papers.json`, `plan.json`, `revision.json`) for zero-backend customer demos.
+   - Built student shell with theme toggle (dark mode), 14-day streak indicator, five-dot importance metric (`●●●●●`), and 3-column dashboard.
+   - Built curator shell with keyboard shortcut legend, live session metrics, and side-by-side question/answer preview.
+
+4. **FastAPI Static File Hosting & Fallback Routing (`caf_api/main.py`)**:
+   - Mounted `/` to `web/apps/student/dist` and `/curator` to `web/apps/curator/dist`.
+   - Implemented SPA HTML5 fallback routing ensuring client-side navigation (`/papers`, `/curator/queue`) serves `index.html` while preserving all `/api/*` and `/docs` endpoints.
+
+5. **Build Verification**:
+   - Full monorepo build passes cleanly via `pnpm build` in 2.5s. Production bundles are lightweight: ~66KB gzipped for both apps.
+   - SPA static hosting and fallback verified via FastAPI `TestClient`.
+   - All 57 Python unit and contract tests continue to pass.
+
 
 

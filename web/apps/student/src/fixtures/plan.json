@@ -1,0 +1,51 @@
+[
+  {
+    "day_index": 1,
+    "date": "Today",
+    "estimated_minutes": 155,
+    "subtopics": [
+      {
+        "node_id": "P1-EQ3KR1",
+        "title": "Classification of Leases into Operating vs Finance",
+        "paper_code": "P1",
+        "importance": 0.88,
+        "status": "in_progress"
+      },
+      {
+        "node_id": "P2-BXTF71",
+        "title": "Foreign Exchange Risk Management & Hedging",
+        "paper_code": "P2",
+        "importance": 0.84,
+        "status": "not_started"
+      },
+      {
+        "node_id": "P4-SEC115JB",
+        "title": "Minimum Alternate Tax (MAT) Under Section 115JB",
+        "paper_code": "P4",
+        "importance": 0.81,
+        "status": "not_started"
+      }
+    ]
+  },
+  {
+    "day_index": 2,
+    "date": "Tomorrow",
+    "estimated_minutes": 140,
+    "subtopics": [
+      {
+        "node_id": "P1-GDH25Q",
+        "title": "Identifying a Lease Contract & Separating Components",
+        "paper_code": "P1",
+        "importance": 0.85,
+        "status": "not_started"
+      },
+      {
+        "node_id": "P3-SA700",
+        "title": "Forming an Opinion and Reporting on Financial Statements (SA 700)",
+        "paper_code": "P3",
+        "importance": 0.79,
+        "status": "not_started"
+      }
+    ]
+  }
+]

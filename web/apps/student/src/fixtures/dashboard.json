@@ -1,0 +1,39 @@
+{
+  "student_name": "Abhishek",
+  "target_attempt": "2026-05",
+  "days_remaining": 47,
+  "streak_days": 14,
+  "overall_coverage_pct": 58,
+  "completed_subtopics": 153,
+  "total_subtopics": 264,
+  "due_revision_count": 3,
+  "study_today": [
+    {
+      "node_id": "P1-EQ3KR1",
+      "paper_code": "P1",
+      "paper_name": "Financial Reporting",
+      "title": "Classification of Leases into Operating vs Finance",
+      "importance": 0.88,
+      "estimated_minutes": 45,
+      "status": "in_progress"
+    },
+    {
+      "node_id": "P2-BXTF71",
+      "paper_code": "P2",
+      "paper_name": "Advanced Financial Management",
+      "title": "Foreign Exchange Risk Management & Hedging",
+      "importance": 0.84,
+      "estimated_minutes": 50,
+      "status": "not_started"
+    },
+    {
+      "node_id": "P4-SEC115JB",
+      "paper_code": "P4",
+      "paper_name": "Direct Tax Laws",
+      "title": "Minimum Alternate Tax (MAT) Under Section 115JB",
+      "importance": 0.81,
+      "estimated_minutes": 60,
+      "status": "not_started"
+    }
+  ]
+}
