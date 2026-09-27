@@ -517,3 +517,34 @@ The **CA Final Study Companion** is an offline-first, single-user study operatin
    - **Test Suite**: All 61 automated tests passing cleanly (`uv run pytest`).
    - **Monorepo Build**: `pnpm build` executes cleanly with Turborepo caching across all 4 packages.
 
+### Session 16: Cross-Platform Portability & System Documentation (Complete)
+
+**Trigger**: Implement complete cross-platform setup and launcher automation (macOS, Windows, Linux) and full documentation suite for non-technical CA Final students.
+
+#### Deliverables Completed
+
+1. **Zero-Node Portability**:
+   - Updated `.gitignore` to track pre-compiled bundles in `web/apps/student/dist/` and `web/apps/curator/dist/`.
+   - Non-developer students require only Python 3.12+ and Docker (no Node.js, pnpm, or frontend build toolchains needed).
+
+2. **Automated One-Time Bootstrap**:
+   - Authored `setup.py` (pure Python stdlib) executing an automated 7-step sequence: Python verification, `.env` interactive configuration with Gemini API key prompt, database readiness (Docker container startup or local service detection), `uv` auto-installation, dependency synchronization, Alembic migrations, DB role permissions, and canonical 264-node taxonomy loading.
+   - Added wrapper scripts: `setup.sh` (macOS/Linux) and `setup.bat` (Windows).
+
+3. **Single-Action Launchers**:
+   - Authored `start.py`: Verifies database availability, launches FastAPI serving backend and frontends on port 8000, waits for HTTP health check, auto-opens the default browser at `http://localhost:8000`, and handles clean shutdown on `Ctrl+C`.
+   - Added `start.sh` (macOS/Linux) and `start.bat` (Windows).
+   - Authored `stop.py`, `stop.sh`, and `stop.bat` for safe service termination.
+
+4. **Complete Documentation Suite**:
+   - Rewrote `README.md` in plain English, addressing the student-curator duality, system prerequisites, one-time setup, daily study usage, Phase 1 Curator Mode, Phase 2 Study Mode, personal configuration, and troubleshooting.
+   - Created `docs/PIPELINE.md`: Step-by-step CLI and workbench pipeline guide (L1 Discover & Fetch → L2 Extract → L3 Classify → L4 Curate → L5 Intelligence → L6 Study).
+   - Created `docs/PLATFORM_NOTES.md`: OS-specific setup guidance for Windows (WSL2, ExecutionPolicy), macOS (Apple Silicon, Homebrew), and Linux.
+   - Created `VERIFY.md`: Exhaustive 6-part end-to-end verification checklist.
+
+5. **Verification**:
+   - Local execution of `setup.py` verified end-to-end in 4.2 seconds.
+   - `start.py` verified live with automatic HTTP 200 health check and browser route resolution.
+   - All 61 backend automated tests passing cleanly (`uv run pytest`).
+
+

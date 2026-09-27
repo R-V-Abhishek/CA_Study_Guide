@@ -10,3 +10,9 @@ services:
       - "${PG_PORT:-5433}:5432"
     volumes:
       - ./data/pg:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${PG_SUPERUSER:-postgres} -d ${PG_DATABASE:-caf}"]
+      interval: 3s
+      timeout: 5s
+      retries: 15
+

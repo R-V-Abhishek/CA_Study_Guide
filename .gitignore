@@ -17,15 +17,19 @@ build/
 .env.local
 
 # Data and runtime artifacts
-data/
-!data/.gitkeep
+data/**
+!data/
+!data/**/
+!data/**/.gitkeep
 debug/
 
 # Node / Web
 node_modules/
-dist/
 .pnpm-store/
 .turbo/
+# Pre-built frontends tracked for zero-node portability
+!web/apps/student/dist/**
+!web/apps/curator/dist/**
 
 
 # OS and IDE
