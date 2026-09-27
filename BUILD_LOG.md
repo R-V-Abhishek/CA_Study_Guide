@@ -37,7 +37,7 @@ The **CA Final Study Companion** is an offline-first, single-user study operatin
 | **M5** | Intelligence v1: L5 E/F/W/I scores, weak flags, inline history | 🟢 Complete | E/F/W/I score engine, weak flags, inline exam appearances, weighted coverage, why-payload, planning engine, revision queue. |
 | **M6** | Practice Signal + Planning: L2 RTP/MTP profiles, P signal, revision planner | 🟢 Complete | RTP/MTP/Case Scenario profiles, cross-doc pairing, practice signal, greedy planner, spaced repetition, mock test tracker. |
 | **M7** | Depth Gate: 2017 & pre-2017 bands backfill gating | 🟢 Complete | Shadow scoring, Jaccard + Spearman similarity, continue/stop decision, depth gate report persistence. |
-| **M9** | UI: Student Study App + Curator Annotation Workbench | 🟡 In Progress | Phases 1–3 complete: Foundation (monorepo, openapi client, SPA static serving), Student App Core (Dashboard, Papers overview, 2-pane tree, subtopic inspector), and Student Study Features (Plan timeline, Anki-style spaced revision, full coverage audit with CSV export, Mock test tracker with Recharts, rich Markdown notes). Phase 4 (Student App Polish) & Phase 5 (Curator Workbench) up next. |
+| **M9** | UI: Student Study App + Curator Annotation Workbench | 🟢 Complete | Full UI suite implemented across both consumer and curator planes. Consumer Student App: Study Dashboard, 2-pane syllabus explorer, paper matrix, weekly study plan, spaced revision queue, full syllabus coverage audit with CSV export, mock test tracking with Recharts, rich Markdown notes, and responsive mobile nav with PWA manifest. Curator Workbench: Triage queue with tinykeys shortcuts, side-by-side Q&A inspector, 264-node picker modal, bulk accept for Bucket A consensus, PDF document catalogue, taxonomy browser, and system health & alarm monitor. Strict D2 compliance verified; monorepo bundles under budget. |
 
 ---
 
@@ -479,3 +479,41 @@ The **CA Final Study Companion** is an offline-first, single-user study operatin
    - Extended `tests/test_milestone9.py` to verify SPA static hosting and HTML5 fallback routing for `/plan`, `/revision`, `/progress`, and `/mock`.
    - All 61 backend unit and contract tests passing.
    - Full monorepo build passing in 4.6s with student bundle size at 266.8KB gzipped (well under the 400KB budget).
+
+### Session 15: Milestone 9 UI Completion — Student Polish & Curator Workbench (Complete)
+
+**Trigger**: Implement remaining phases of `docs/UI_System_Design_and_Implementation_Plan.md` (v2.0): Phase 4 (Student App Polish), Phase 5 (Curator Workbench), Phase 6 (Curator Tools), and Phase 7 (Verification & Hardening).
+
+#### Deliverables Completed
+
+1. **Phase 4: Student App Polish**:
+   - **PWA Manifest (`apps/student/public/manifest.json`)**: Configured standalone PWA manifest with theme color `#3B82F6` and background color `#F8FAFC`.
+   - **Mobile Bottom Navigation (`apps/student/src/App.tsx`)**: Responsive bottom navigation bar (`md:hidden`) with high-priority tabs (Dashboard, Papers, Plan, Revision, Progress) styled with active pills and safe padding.
+
+2. **Phase 5: Curator Workbench**:
+   - **Typed Curator Client (`apps/curator/src/lib/client.ts`)**: Built with `openapi-fetch` strictly typed against backend OpenAPI schemas.
+   - **264-Node Picker Modal (`apps/curator/src/components/NodePickerModal.tsx`)**: Modal search across all 264 syllabus nodes with paper filters (P1–P6), Crockford base32 ID highlighting, and keyboard navigation.
+   - **Review Queue (`apps/curator/src/pages/Queue.tsx`)**:
+     - Fast triage workflow using `tinykeys` keyboard shortcuts (`A` Accept, `E` Edit Node, `N` None Fits, `X` Exclude, `L/→` Next, `H/←` Prev).
+     - Side-by-side split screen: Question text & Solution preview vs. Primary (Bucket A/B) and secondary suggestion tags.
+     - Direct atomic publishing mutation to `POST /api/v1/curate/units/:unitId/decision`.
+     - Live session counter and filter controls by confidence bucket (Bucket A, B, C, D) and paper.
+   - **Bulk Accept Bucket A (`apps/curator/src/pages/BulkAccept.tsx`)**: Document-by-document consensus approval triggering `POST /api/v1/curate/documents/:docId/bulk_accept_bucket_a`.
+   - **Document Catalogue (`apps/curator/src/pages/Catalogue.tsx`)**: Complete view of ingested PDFs, SHA-256 deduplication hashes, and status confirmation.
+
+3. **Phase 6: Curator Tools**:
+   - **Taxonomy Explorer (`apps/curator/src/pages/Taxonomy.tsx`)**: Canonical 264-node tree browser across P1–P6 with Crockford base32 ID copy-to-clipboard functionality.
+   - **System Health & Alarm Monitor (`apps/curator/src/pages/System.tsx`)**:
+     - Live monitoring of operational alarms A1–A5 (Unclassified Spike, Pipeline Failure, Stale Scores, Depth Gate Drift, Unverified Document Alert).
+     - Automated backup management view for daily PostgreSQL dumps.
+     - Manual trigger for L5 score recomputation (`POST /api/v1/curate/intel/recompute`) with run ID feedback.
+
+4. **Phase 7: Verification & Hardening**:
+   - **Decision D2 Compliance**: Verified strict zero-leakage guarantee. Student API and frontend bundles contain no question/answer text or internal curation endpoints.
+   - **Zero Component Sharing**: Confirmed complete decoupling between `apps/student` and `apps/curator` (only `@caf/api-client` and `@caf/ts-config` shared).
+   - **Bundle Budgets**:
+     - Student App: 266.94 KB gzipped (Budget: 400 KB) — PASS.
+     - Curator App: 91.65 KB gzipped (Budget: 250 KB) — PASS.
+   - **Test Suite**: All 61 automated tests passing cleanly (`uv run pytest`).
+   - **Monorepo Build**: `pnpm build` executes cleanly with Turborepo caching across all 4 packages.
+

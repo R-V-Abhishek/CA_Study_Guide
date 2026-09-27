@@ -115,7 +115,27 @@ function Layout({ children }: { children: React.ReactNode }) {
       </header>
 
       {/* Main Content */}
-      <main className="flex-1 max-w-6xl w-full mx-auto px-4 py-6">{children}</main>
+      <main className="flex-1 max-w-6xl w-full mx-auto px-4 py-6 pb-20 md:pb-6">{children}</main>
+
+      {/* Mobile Bottom Navigation Bar (md:hidden) */}
+      <nav className="md:hidden fixed bottom-0 left-0 right-0 z-30 bg-white/95 dark:bg-[#1C1917]/95 backdrop-blur border-t border-[#E7E5E4] dark:border-[#44403C] flex items-center justify-around py-2 px-1">
+        {navItems.slice(0, 5).map((item) => (
+          <NavLink
+            key={item.to}
+            to={item.to}
+            className={({ isActive }) =>
+              `flex flex-col items-center gap-0.5 px-2 py-1 rounded-lg text-[10px] font-semibold transition-colors ${
+                isActive
+                  ? "text-indigo-600 dark:text-indigo-400"
+                  : "text-stone-500 hover:text-stone-800 dark:hover:text-stone-200"
+              }`
+            }
+          >
+            <item.icon className="w-4 h-4" />
+            <span>{item.label}</span>
+          </NavLink>
+        ))}
+      </nav>
     </div>
   );
 }
