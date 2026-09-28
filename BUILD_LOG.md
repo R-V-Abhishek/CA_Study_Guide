@@ -547,4 +547,58 @@ The **CA Final Study Companion** is an offline-first, single-user study operatin
    - `start.py` verified live with automatic HTTP 200 health check and browser route resolution.
    - All 61 backend automated tests passing cleanly (`uv run pytest`).
 
+### Session 17: Human Curation Reset & Colima Docker Hardening (Complete)
+
+**Trigger**: Remove all test/automated curation decisions from the pipeline to establish a pristine human review queue, and resolve Docker Compose compatibility on Colima.
+
+#### Deliverables Completed
+
+1. **Human Curation Queue Reset**:
+   - Cleared automated mock decisions from `core.decision` (813 rows deleted), published appearances from `core.appearance` (129 rows deleted), tags from `core.appearance_tag`, and audit entries from `core.change_log`.
+   - Restored `classify_status = 'suggested'` on all 842 units with generated AI tag suggestions in `ingest.tag_suggestion`.
+   - Restored `classify_status = 'pending'` on unclassified units.
+   - Recomputed clean L5 intelligence baseline (`uv run caf intel recompute` -> 264 subtopics scored with 0 published appearances).
+   - Verified that `GET /api/v1/curate/queue` now returns **842 real pending units** ready for human review in the Curator Workbench (`/curator`).
+
+2. **Docker Compose on Colima Resolved**:
+   - Installed `docker-compose` formula and symlinked to `~/.docker/cli-plugins/docker-compose`.
+   - Installed `docker-credential-helper` formula for macOS keychain credential resolution.
+   - Added `PGDATA: /var/lib/postgresql/data/pgdata` in `docker-compose.yml` to prevent Postgres initdb failures on mounted volumes with hidden files.
+   - Verified container `ca_study_guide-db-1` running healthy (`Up (healthy)`) with accepting connections on port 5432.
+
+3. **Documentation**:
+   - Authored `docs/HOW_TO_USE_UI.md`: Comprehensive visual and operational walkthrough for both Student App and Curator Workbench.
+   - Updated `docs/PIPELINE.md`: Added benchmark evaluation step for `uv run caf classify evaluate`.
+
+### Session 18: Gemini AI Classification Pipeline, Resilient Pacing Worker & Calibration Test Set (Complete)
+
+**Trigger**: Implement Google Gemini LLM API integration (Path 2), build polite rate-limiting background worker with file logging, resolve model deprecations, and construct stratified calibration test sets.
+
+#### Deliverables Completed
+
+1. **Gemini LLM Classification Engine**:
+   - Authored `packages/l3_classify/caf_l3/llm.py` with structured JSON output validation (`LLMClassificationOutput`).
+   - Integrated paper-scoped candidate trees and ICAI moderation rules.
+   - Resolved Google model deprecations: updated `config/models.toml` to active Gemini 3.x series (`gemini-3.6-flash`, `gemini-3.8-flash`, etc.).
+   - Integrated `UnitAnswer` official solutions into prompt context for high accuracy.
+
+2. **Polite Background Classification Worker**:
+   - Authored `scripts/classify_worker.py` executing continuously in the background.
+   - Enforces a 15-second polite delay after successful requests (4 requests/min, staying under the 5 RPM Free Tier quota).
+   - Implements automated exponential backoff on 503 high-demand or 429 rate limit spikes.
+   - Logs live activity continuously to `data/logs/classify_worker.log` and stdout.
+   - Commits each unit to the database immediately upon receipt for zero data loss.
+
+3. **Stratified Calibration Benchmark**:
+   - Authored `packages/l3_classify/caf_l3/benchmark.py` with stratified sampling algorithm across syllabus chapters.
+   - Added CLI commands: `caf classify test-set --generate`, `caf classify test-set --list`, and `caf classify evaluate --benchmark`.
+   - Updated `caf_api/curate.py` with `benchmark_only` filtering support for the Curator Review Queue.
+
+4. **Verification**:
+   - All 61 backend automated tests passing cleanly (`uv run pytest`).
+   - Calibration benchmark generation verified.
+   - Colima PostgreSQL container healthy.
+
+
+
 

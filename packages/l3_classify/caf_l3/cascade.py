@@ -10,6 +10,7 @@ from sqlalchemy.orm import Session
 
 from caf_db.models.ref import Descriptor, Node
 from caf_l3.anchors import AnchorMatch, extract_anchors, lookup_anchor_candidates
+from caf_l3.llm import GeminiClassifier, LLMClassificationOutput, QuotaExhaustedError
 
 
 class ClassificationError(Exception):
@@ -40,8 +41,9 @@ def generate_concise_gist(question_text: str, answer_text: str, max_words: int =
 class HierarchicalClassifier:
     """Classifies exam units using syllabus hierarchy, descriptors, and consistency protocol."""
 
-    def __init__(self, session: Session):
+    def __init__(self, session: Session, gemini_classifier: GeminiClassifier | None = None):
         self.session = session
+        self.gemini_classifier = gemini_classifier
         # Cache nodes and descriptors
         self._load_cache()
 
@@ -60,8 +62,36 @@ class HierarchicalClassifier:
         answer_text: str = "",
         chapter_hint_id: str | None = None,
         fingerprint: str = "",
+        run_id: int | None = None,
+        use_llm: bool = True,
     ) -> ClassificationResult:
         """Run hierarchical classification with consistency checks."""
+        # 0. Try LLM Classification if configured and enabled
+        if use_llm and self.gemini_classifier and self.gemini_classifier.is_available():
+            try:
+                llm_res = self.gemini_classifier.classify_unit(
+                    paper_id=paper_id,
+                    question_text=question_text,
+                    answer_text=answer_text,
+                    run_id=run_id,
+                )
+                return ClassificationResult(
+                    primary_node_id=llm_res.primary_node_id,
+                    secondary_node_ids=llm_res.secondary_node_ids,
+                    bucket=llm_res.bucket,
+                    method="llm",
+                    gist=llm_res.gist,
+                    justification=llm_res.justification,
+                    alternatives=llm_res.alternatives,
+                    evidence={
+                        "core_concept": llm_res.core_tested_concept,
+                        "confidence": llm_res.confidence,
+                        "r1": llm_res.primary_node_id,
+                    },
+                )
+            except (QuotaExhaustedError, Exception):
+                # Fallback to local anchor cascade if LLM is unavailable or quota exhausted
+                pass
         self._paper_id = paper_id  # stored for use in _classify_run error messages
         combined_text = f"{question_text}\n{context_text}\n{answer_text}".strip()
         paper_code = paper_id.split(".")[-1]

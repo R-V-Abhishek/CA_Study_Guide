@@ -134,6 +134,7 @@ def list_curate_queue(
     paper_id: str | None = None,
     doc_id: int | None = None,
     bucket: str | None = None,
+    benchmark_only: bool = Query(False, description="Filter for calibration benchmark units only"),
     session: Session = Depends(get_db),
 ):
     """List pending units with suggestions for human review."""
@@ -163,6 +164,10 @@ def list_curate_queue(
 
     items = []
     for u, doc in units_with_doc:
+        is_bench = "calibration_benchmark" in (u.validation_flags or [])
+        if benchmark_only and not is_bench:
+            continue
+
         # Get suggestions
         suggs = (
             session.query(TagSuggestion)
@@ -188,6 +193,7 @@ def list_curate_queue(
                 "doc_type_id": doc.doc_type_id,
                 "label_path": u.label_path,
                 "display_label": u.display_label,
+                "is_benchmark": is_bench,
                 "marks": u.marks,
                 "question_text": u.question_text,
                 "answer_text": ans.answer_text if ans else None,

@@ -120,6 +120,18 @@ Units are sorted into confidence buckets:
 - **Bucket C (Low Confidence < 65%)**: Ambiguous question; requires curator review.
 - **Bucket D (Multi-topic)**: Comprehensive case study spanning multiple subtopics.
 
+### 2. Evaluating AI Suggestion Accuracy
+After you have reviewed and accepted questions in the Curator Workbench, benchmark the AI model's accuracy against your human decisions:
+
+```bash
+uv run caf classify evaluate
+```
+
+This runs a statistical evaluation comparing model top-1 recommendations against your accepted nodes:
+- Calculates precision for Bucket A, B, C, D.
+- Evaluates the **Bucket A Quality Gate** (requires $\ge 80\%$ precision).
+- If Bucket A precision passes $\ge 80\%$, you can confidently use the **Bulk Accept** feature in the Curator Workbench.
+
 ---
 
 ## Stage L4: Human Curation (Curator Workbench)

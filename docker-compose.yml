@@ -6,6 +6,7 @@ services:
       POSTGRES_USER: ${PG_SUPERUSER:-postgres}
       POSTGRES_PASSWORD: ${PG_SUPERUSER_PASSWORD:-postgres_dev_password}
       POSTGRES_DB: ${PG_DATABASE:-caf}
+      PGDATA: /var/lib/postgresql/data/pgdata
     ports:
       - "${PG_PORT:-5433}:5432"
     volumes:
