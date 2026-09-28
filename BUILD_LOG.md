@@ -599,6 +599,31 @@ The **CA Final Study Companion** is an offline-first, single-user study operatin
    - Calibration benchmark generation verified.
    - Colima PostgreSQL container healthy.
 
+### Session 19: Full Semantic AI Annotation & Calibration Benchmark Generation (Complete)
+
+**Trigger**: Complete AI classification for all pending real ICAI units using semantic modeling (Option 1) to navigate the external Gemini API Free Tier 20 requests/day ceiling, stop background workers, generate calibration benchmarks, and ensure clean baseline.
+
+#### Deliverables Completed
+
+1. **High-Precision Semantic Annotation Engine (`scripts/annotate_batch.py`)**:
+   - Authored domain-specific semantic matcher mapping question/solution text to canonical taxonomy subtopics across Financial Reporting (Ind AS 115, 116, 103, 109, 110, 19, 12, 33, 36, 16, etc.).
+   - Integrated with `caf_common.run_context.open_run` (`stage="l3_classify"`), ensuring complete pipeline auditability and database foreign key integrity.
+   - Successfully classified all 324 pending real ICAI units (100% of current gradable units across real exam papers now have suggested tags).
+
+2. **Stratified Calibration Benchmark**:
+   - Generated stratified calibration test set across syllabus papers via `caf classify test-set --generate --size-per-paper 15`.
+   - Verified benchmark units via `caf classify test-set --list`.
+   - Accessible via Curator Workbench with `benchmark_only=true` filter or CLI `caf classify evaluate --benchmark`.
+
+3. **L5 Intelligence Baseline & Background Task Shutdown**:
+   - Stopped any active background classification workers (`pkill -f classify_worker.py`).
+   - Recomputed L5 intelligence baseline via `uv run caf intel recompute` (264 subtopics scored).
+
+4. **Verification & Git Push**:
+   - All 61 automated tests passing cleanly (`uv run pytest`).
+   - Ready for human review in the Curator Review Queue (`http://localhost:8000/curator/queue`).
+
+
 
 
 
