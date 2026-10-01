@@ -32,7 +32,7 @@ export function Plan() {
   return <div className="space-y-5"><h1 className="page-title">Weekly Study Plan</h1><p>Ordered allocation based on importance, progress and weak areas.</p>
     <div className="controls">
       <label>Hours per week <input aria-label="Hours per week" type="number" min="0.01" step="any" value={hoursText ?? query.data?.hours_per_week ?? ''} onChange={e => set({ hours: e.target.value })} /></label>
-      <label>Group <select aria-label="Group" value={group} onChange={e => set({ group: e.target.value, paper: 'all' })}><option value="all">All groups</option><option value="1">Group 1</option><option value="2">Group 2</option></select></label>
+      <label>Group <select aria-label="Group" value={group} onChange={e => { const next = e.target.value; const compatible = next === 'all' || papers.some(p => (p.id === paper || p.code === paper) && String(p.group_no) === next); set({ group: next, paper: compatible ? paper : 'all' }); }}><option value="all">All groups</option><option value="1">Group 1</option><option value="2">Group 2</option></select></label>
       <label>Paper <select aria-label="Paper" value={paper} onChange={e => set({ paper: e.target.value })}><option value="all">All papers</option>{options.map(p => <option key={p.id} value={p.id}>{p.code} — {p.name}</option>)}</select></label>
       <button className="action" disabled={!valid || query.isFetching} onClick={() => query.refetch()}>Refresh plan</button>
     </div>
