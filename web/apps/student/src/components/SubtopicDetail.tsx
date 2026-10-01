@@ -13,7 +13,7 @@ import type { SubtopicData, WhyData } from '../lib/contracts';
 type Status = 'not_started' | 'in_progress' | 'done';
 type Draft = { text: string; saved: string };
 const drafts = new Map<string, Draft>();
-const saves = new Map<string, Promise<unknown>>();
+const saves = new Map<string, { text: string; promise: Promise<unknown> }>();
 
 export function SubtopicDetail({ nodeId }: { paperId: string; nodeId: string }) {
   const cache = useQueryClient();
@@ -54,19 +54,22 @@ export function SubtopicDetail({ nodeId }: { paperId: string; nodeId: string }) 
   const save = async () => {
     const snapshot = latest.current;
     setSaveStatus('saving'); setNoteError('');
-    const previous = saves.get(key) ?? Promise.resolve();
+    const previous = saves.get(key)?.promise ?? Promise.resolve();
     const pending = previous.catch(() => undefined).then(async () => {
       if (isDemoMode()) demoUpdate(nodeId, { notes: snapshot });
       else await apiRequest(`/api/v1/subtopics/${encodeURIComponent(nodeId)}/notes`, jsonOptions('PUT', { notes: snapshot }));
       const draft = drafts.get(key);
       if (draft) drafts.set(key, { ...draft, saved: snapshot });
-      if (mounted.current) setSaveStatus(latest.current === snapshot ? 'saved' : 'unsaved');
+      if (mounted.current) {
+        const queuedText = saves.get(key)?.text;
+        setSaveStatus(latest.current === snapshot ? 'saved' : queuedText === latest.current ? 'saving' : 'unsaved');
+      }
       await cache.invalidateQueries();
     });
-    saves.set(key, pending);
+    saves.set(key, { text: snapshot, promise: pending });
     try { await pending; }
     catch (error) { if (mounted.current) { setSaveStatus('failed'); setNoteError(error instanceof Error ? error.message : 'Save failed'); } }
-    finally { if (saves.get(key) === pending) saves.delete(key); }
+    finally { if (saves.get(key)?.promise === pending) saves.delete(key); }
   };
   useEffect(() => {
     if (saveStatus !== 'unsaved') return;

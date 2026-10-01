@@ -291,3 +291,28 @@ test('unsaved notes warn on link and browser back; cancel preserves the draft', 
   await page.getByRole('link', { name: data.nodes[0].name, exact: true }).click();
   await expect(page.getByLabel('Notes', { exact: true })).toHaveValue('Preserve this draft');
 });
+
+test('older note acknowledgements cannot mark newer edits saved', async ({ page, request }) => {
+  const data = await fixture(request);
+  const id = data.nodes[0].id;
+  const bodies: string[] = [];
+  const releases: (() => void)[] = [];
+  await page.route(`**/api/v1/subtopics/${id}/notes`, async route => {
+    bodies.push(route.request().postDataJSON().notes);
+    const response = await route.fetch();
+    await new Promise<void>(resolve => { releases.push(resolve); });
+    await route.fulfill({ response });
+  });
+  await page.goto(`/papers/${data.paper_id}/${id}`);
+  await page.getByLabel('Notes', { exact: true }).fill('Older text');
+  await expect.poll(() => releases.length).toBe(1);
+  await page.getByLabel('Notes', { exact: true }).fill('Newest text');
+  releases[0]();
+  await expect.poll(() => releases.length).toBe(2);
+  await expect(page.getByRole('status').filter({ hasText: /^Saved$/ })).toHaveCount(0);
+  await expect(page.getByLabel('Notes', { exact: true })).toHaveValue('Newest text');
+  expect(bodies).toEqual(['Older text', 'Newest text']);
+  releases[1]();
+  await expect(page.getByRole('status').filter({ hasText: /^Saved$/ })).toBeVisible();
+  expect((await (await request.get(`/api/v1/subtopics/${id}`)).json()).notes).toBe('Newest text');
+});
