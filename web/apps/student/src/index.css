@@ -19,3 +19,12 @@
     --text-secondary: #A8A29E;
   }
 }
+
+/* Shared controls use the established stone/indigo palette. */
+.card { @apply p-5 rounded-2xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800; }
+.controls { @apply flex flex-wrap items-center gap-3; }
+.controls select, .controls input, input.field, textarea.field { @apply rounded-lg border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900 px-3 py-2 text-sm; }
+button { @apply disabled:opacity-50; }
+button.action { @apply px-3 py-2 rounded-lg bg-indigo-600 text-white text-sm font-semibold; }
+a.topic-link { @apply text-indigo-600 dark:text-indigo-400 hover:underline; }
+h1.page-title { @apply text-2xl font-bold mb-2; }

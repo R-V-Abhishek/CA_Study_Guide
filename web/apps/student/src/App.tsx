@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Routes, Route, NavLink } from "react-router-dom";
 import {
   BookOpen,
   Calendar,
@@ -8,11 +8,12 @@ import {
   BarChart3,
   Moon,
   Sun,
-  Flame,
   FileCheck,
 } from "lucide-react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { isDemoMode } from "./lib/demo";
+import { isDemoMode, demoLink } from "./lib/demo";
+import { RouteBoundary } from "./components/RouteBoundary";
+import { Diagnostics } from "./components/Diagnostics";
 import { Dashboard } from "./pages/Dashboard";
 import { Papers } from "./pages/Papers";
 import { PaperDetail } from "./pages/PaperDetail";
@@ -66,7 +67,7 @@ function Layout({ children }: { children: React.ReactNode }) {
         <div className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
           <div className="flex items-center gap-6">
             <NavLink
-              to="/"
+              to={demoLink("/")}
               className="flex items-center gap-2 font-black text-lg tracking-tight text-indigo-600 dark:text-indigo-400"
             >
               <BookOpen className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
@@ -77,7 +78,7 @@ function Layout({ children }: { children: React.ReactNode }) {
               {navItems.map((item) => (
                 <NavLink
                   key={item.to}
-                  to={item.to}
+                  to={demoLink(item.to)}
                   className={({ isActive }) =>
                     `px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
                       isActive
@@ -98,10 +99,7 @@ function Layout({ children }: { children: React.ReactNode }) {
                 Demo Mode
               </span>
             )}
-            <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-100 dark:bg-orange-950/50 text-orange-700 dark:text-orange-400 text-xs font-bold">
-              <Flame className="w-4 h-4 fill-orange-500 text-orange-500" />
-              <span>14d streak</span>
-            </div>
+            <Diagnostics />
             <button
               type="button"
               onClick={() => setDarkMode(!darkMode)}
@@ -122,7 +120,7 @@ function Layout({ children }: { children: React.ReactNode }) {
         {navItems.slice(0, 5).map((item) => (
           <NavLink
             key={item.to}
-            to={item.to}
+            to={demoLink(item.to)}
             className={({ isActive }) =>
               `flex flex-col items-center gap-0.5 px-2 py-1 rounded-lg text-[10px] font-semibold transition-colors ${
                 isActive
@@ -140,12 +138,9 @@ function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 
-export function App() {
-  return (
-    <QueryClientProvider client={queryClient}>
-      <BrowserRouter>
+const router = createBrowserRouter([{ path: '*', element: (
         <Layout>
-          <Routes>
+          <RouteBoundary><Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/papers" element={<Papers />} />
             <Route path="/papers/:paperId" element={<PaperDetail />} />
@@ -154,11 +149,12 @@ export function App() {
             <Route path="/revision" element={<Revision />} />
             <Route path="/progress" element={<Progress />} />
             <Route path="/mock" element={<MockTests />} />
-          </Routes>
+          </Routes></RouteBoundary>
         </Layout>
-      </BrowserRouter>
-    </QueryClientProvider>
-  );
+  ) }]);
+
+export function App() {
+  return <QueryClientProvider client={queryClient}><RouterProvider router={router} /></QueryClientProvider>;
 }
 
 export default App;

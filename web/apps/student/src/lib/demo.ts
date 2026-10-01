@@ -1,11 +1,8 @@
-/**
- * Demo Mode helper
- * Activated by ?demo=true query param or VITE_DEMO_MODE=true env var
- */
-export const isDemoMode = (): boolean => {
-  if (typeof window === "undefined") return false;
-  return (
-    new URLSearchParams(window.location.search).get("demo") === "true" ||
-    import.meta.env.VITE_DEMO_MODE === "true"
-  );
+/** Demo mode is explicit; fixtures never substitute for failed live requests. */
+export const isDemoMode = () => new URLSearchParams(window.location.search).get('demo') === 'true' || import.meta.env.VITE_DEMO_MODE === 'true';
+export const demoLink = (path: string) => {
+  if (!isDemoMode()) return path;
+  const url = new URL(path, window.location.origin);
+  url.searchParams.set('demo', 'true');
+  return url.pathname + url.search;
 };
