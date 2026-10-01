@@ -47,7 +47,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "$ref": "#/components/schemas/PaperTree"
+                }
               }
             }
           },
@@ -85,7 +87,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "$ref": "#/components/schemas/PaperTree"
+                }
               }
             }
           },
@@ -122,7 +126,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "$ref": "#/components/schemas/SubtopicDetail"
+                }
               }
             }
           },
@@ -169,7 +175,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "$ref": "#/components/schemas/ProgressResult"
+                }
               }
             }
           },
@@ -216,7 +224,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "$ref": "#/components/schemas/NoteResult"
+                }
               }
             }
           },
@@ -242,7 +252,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "$ref": "#/components/schemas/Dashboard"
+                }
               }
             }
           }
@@ -259,7 +271,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "$ref": "#/components/schemas/Metadata"
+                }
               }
             }
           }
@@ -287,7 +301,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "$ref": "#/components/schemas/ScoreExplanation"
+                }
               }
             }
           },
@@ -335,7 +351,9 @@
             "schema": {
               "anyOf": [
                 {
-                  "type": "integer"
+                  "type": "integer",
+                  "maximum": 2,
+                  "minimum": 1
                 },
                 {
                   "type": "null"
@@ -353,7 +371,8 @@
             "schema": {
               "anyOf": [
                 {
-                  "type": "number"
+                  "type": "number",
+                  "exclusiveMinimum": 0
                 },
                 {
                   "type": "null"
@@ -370,7 +389,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "$ref": "#/components/schemas/StudyPlan"
+                }
               }
             }
           },
@@ -417,7 +438,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "$ref": "#/components/schemas/RevisionQueue"
+                }
               }
             }
           },
@@ -465,7 +488,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "$ref": "#/components/schemas/RevisionResult"
+                }
               }
             }
           },
@@ -512,7 +537,13 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MockTestResult"
+                  },
+                  "title": "Response Api List Mock Tests Api V1 Mock Tests Get"
+                }
               }
             }
           },
@@ -547,7 +578,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "$ref": "#/components/schemas/MockTestResult"
+                }
               }
             }
           },
@@ -585,7 +618,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteResult"
+                }
               }
             }
           },
@@ -612,7 +647,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "$ref": "#/components/schemas/SystemHealth"
+                }
               }
             }
           }
@@ -629,7 +666,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "$ref": "#/components/schemas/BackupList"
+                }
               }
             }
           }
@@ -644,7 +683,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "$ref": "#/components/schemas/BackupResult"
+                }
               }
             }
           }
@@ -683,7 +724,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "$ref": "#/components/schemas/ModelEvaluation"
+                }
               }
             }
           },
@@ -764,7 +807,13 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CuratorDocument"
+                  },
+                  "title": "Response List Curate Documents Api V1 Curate Documents Get"
+                }
               }
             }
           },
@@ -821,7 +870,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentConfirmResult"
+                }
               }
             }
           },
@@ -861,7 +912,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentStatusResult"
+                }
               }
             }
           },
@@ -911,7 +964,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentEditResult"
+                }
               }
             }
           },
@@ -984,6 +1039,18 @@
               ],
               "title": "Bucket"
             }
+          },
+          {
+            "name": "benchmark_only",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "description": "Filter for calibration benchmark units only",
+              "default": false,
+              "title": "Benchmark Only"
+            },
+            "description": "Filter for calibration benchmark units only"
           }
         ],
         "responses": {
@@ -991,7 +1058,13 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CuratorQueueItem"
+                  },
+                  "title": "Response List Curate Queue Api V1 Curate Queue Get"
+                }
               }
             }
           },
@@ -1042,7 +1115,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "$ref": "#/components/schemas/CuratorDecisionResult"
+                }
               }
             }
           },
@@ -1083,7 +1158,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "$ref": "#/components/schemas/BulkAcceptResult"
+                }
               }
             }
           },
@@ -1141,7 +1218,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "$ref": "#/components/schemas/RecomputeResult"
+                }
               }
             }
           },
@@ -1179,10 +1258,1071 @@
           }
         }
       }
+    },
+    "/curator/{full_path}": {
+      "get": {
+        "summary": "Serve Curator Spa",
+        "operationId": "serve_curator_spa_curator__full_path__get",
+        "parameters": [
+          {
+            "name": "full_path",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Full Path"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/curator": {
+      "get": {
+        "summary": "Serve Curator Root",
+        "operationId": "serve_curator_root_curator_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{full_path}": {
+      "get": {
+        "summary": "Serve Student Spa",
+        "operationId": "serve_student_spa__full_path__get",
+        "parameters": [
+          {
+            "name": "full_path",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Full Path"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
     "schemas": {
+      "ActivityItem": {
+        "properties": {
+          "node_id": {
+            "type": "string",
+            "title": "Node Id"
+          },
+          "node_name": {
+            "type": "string",
+            "title": "Node Name"
+          },
+          "paper_code": {
+            "type": "string",
+            "title": "Paper Code"
+          },
+          "from_status": {
+            "type": "string",
+            "title": "From Status"
+          },
+          "to_status": {
+            "type": "string",
+            "title": "To Status"
+          },
+          "at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "At"
+          }
+        },
+        "type": "object",
+        "required": [
+          "node_id",
+          "node_name",
+          "paper_code",
+          "from_status",
+          "to_status",
+          "at"
+        ],
+        "title": "ActivityItem"
+      },
+      "AppearanceExplanation": {
+        "properties": {
+          "appearance_id": {
+            "type": "integer",
+            "title": "Appearance Id"
+          },
+          "attempt_id": {
+            "type": "string",
+            "title": "Attempt Id"
+          },
+          "signal_class": {
+            "type": "string",
+            "title": "Signal Class"
+          },
+          "display_label": {
+            "type": "string",
+            "title": "Display Label"
+          },
+          "gist": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Gist"
+          },
+          "marks": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Marks"
+          },
+          "tag_role": {
+            "type": "string",
+            "title": "Tag Role"
+          },
+          "tag_level": {
+            "type": "string",
+            "title": "Tag Level"
+          },
+          "share": {
+            "type": "number",
+            "title": "Share"
+          },
+          "kappa": {
+            "type": "number",
+            "title": "Kappa"
+          },
+          "lambda_val": {
+            "type": "number",
+            "title": "Lambda Val"
+          },
+          "attributed_marks_m": {
+            "type": "number",
+            "title": "Attributed Marks M"
+          },
+          "age_months": {
+            "type": "integer",
+            "title": "Age Months"
+          },
+          "half_life_months": {
+            "type": "number",
+            "title": "Half Life Months"
+          },
+          "decay": {
+            "type": "number",
+            "title": "Decay"
+          },
+          "contribution": {
+            "type": "number",
+            "title": "Contribution"
+          },
+          "in_freq_window": {
+            "type": "boolean",
+            "title": "In Freq Window"
+          },
+          "ignored_post_target": {
+            "type": "boolean",
+            "title": "Ignored Post Target"
+          },
+          "law_stale": {
+            "type": "boolean",
+            "title": "Law Stale"
+          }
+        },
+        "type": "object",
+        "required": [
+          "appearance_id",
+          "attempt_id",
+          "signal_class",
+          "display_label",
+          "gist",
+          "marks",
+          "tag_role",
+          "tag_level",
+          "share",
+          "kappa",
+          "lambda_val",
+          "attributed_marks_m",
+          "age_months",
+          "half_life_months",
+          "decay",
+          "contribution",
+          "in_freq_window",
+          "ignored_post_target",
+          "law_stale"
+        ],
+        "title": "AppearanceExplanation"
+      },
+      "AppearanceItem": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "attempt_id": {
+            "type": "string",
+            "title": "Attempt Id"
+          },
+          "signal_class": {
+            "type": "string",
+            "title": "Signal Class"
+          },
+          "display_label": {
+            "type": "string",
+            "title": "Display Label"
+          },
+          "marks": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Marks"
+          },
+          "gist": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Gist"
+          },
+          "official_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Official Url"
+          },
+          "page_start": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Page Start"
+          },
+          "page_end": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Page End"
+          },
+          "law_stale": {
+            "type": "boolean",
+            "title": "Law Stale"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "attempt_id",
+          "signal_class",
+          "display_label",
+          "marks",
+          "gist",
+          "official_url",
+          "page_start",
+          "page_end",
+          "law_stale"
+        ],
+        "title": "AppearanceItem"
+      },
+      "BackupItem": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "path": {
+            "type": "string",
+            "title": "Path"
+          },
+          "size_mb": {
+            "type": "number",
+            "title": "Size Mb"
+          },
+          "age_hours": {
+            "type": "number",
+            "title": "Age Hours"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At"
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "path",
+          "size_mb",
+          "age_hours",
+          "created_at"
+        ],
+        "title": "BackupItem"
+      },
+      "BackupList": {
+        "properties": {
+          "count": {
+            "type": "integer",
+            "title": "Count"
+          },
+          "backups": {
+            "items": {
+              "$ref": "#/components/schemas/BackupItem"
+            },
+            "type": "array",
+            "title": "Backups"
+          }
+        },
+        "type": "object",
+        "required": [
+          "count",
+          "backups"
+        ],
+        "title": "BackupList"
+      },
+      "BackupResult": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "dump_file": {
+            "type": "string",
+            "title": "Dump File"
+          },
+          "size_bytes": {
+            "type": "integer",
+            "title": "Size Bytes"
+          },
+          "blobs_copied": {
+            "type": "integer",
+            "title": "Blobs Copied"
+          },
+          "configs_copied": {
+            "type": "integer",
+            "title": "Configs Copied"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At"
+          }
+        },
+        "type": "object",
+        "required": [
+          "status",
+          "dump_file",
+          "size_bytes",
+          "blobs_copied",
+          "configs_copied",
+          "created_at"
+        ],
+        "title": "BackupResult"
+      },
+      "BucketMetric": {
+        "properties": {
+          "bucket": {
+            "type": "string",
+            "title": "Bucket"
+          },
+          "total": {
+            "type": "integer",
+            "title": "Total"
+          },
+          "matched": {
+            "type": "integer",
+            "title": "Matched"
+          },
+          "precision": {
+            "type": "number",
+            "title": "Precision"
+          }
+        },
+        "type": "object",
+        "required": [
+          "bucket",
+          "total",
+          "matched",
+          "precision"
+        ],
+        "title": "BucketMetric"
+      },
+      "BulkAcceptResult": {
+        "properties": {
+          "document_id": {
+            "type": "integer",
+            "title": "Document Id"
+          },
+          "accepted_count": {
+            "type": "integer",
+            "title": "Accepted Count"
+          }
+        },
+        "type": "object",
+        "required": [
+          "document_id",
+          "accepted_count"
+        ],
+        "title": "BulkAcceptResult"
+      },
+      "ChapterItem": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "seq": {
+            "type": "integer",
+            "title": "Seq"
+          },
+          "weightage_min_pct": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Weightage Min Pct"
+          },
+          "weightage_max_pct": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Weightage Max Pct"
+          },
+          "weightage_section_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Weightage Section Name"
+          },
+          "total_subtopics": {
+            "type": "integer",
+            "title": "Total Subtopics"
+          },
+          "completed_subtopics": {
+            "type": "integer",
+            "title": "Completed Subtopics"
+          },
+          "progress_pct": {
+            "type": "number",
+            "title": "Progress Pct"
+          },
+          "topics": {
+            "items": {
+              "$ref": "#/components/schemas/TopicItem"
+            },
+            "type": "array",
+            "title": "Topics"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "seq",
+          "weightage_min_pct",
+          "weightage_max_pct",
+          "weightage_section_name",
+          "total_subtopics",
+          "completed_subtopics",
+          "progress_pct",
+          "topics"
+        ],
+        "title": "ChapterItem"
+      },
+      "CoverageValue": {
+        "properties": {
+          "coverage_pct": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Coverage Pct"
+          },
+          "in_progress_pct": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "In Progress Pct"
+          }
+        },
+        "type": "object",
+        "required": [
+          "coverage_pct",
+          "in_progress_pct"
+        ],
+        "title": "CoverageValue"
+      },
+      "CuratorDecisionResult": {
+        "properties": {
+          "decision_id": {
+            "type": "integer",
+            "title": "Decision Id"
+          },
+          "action": {
+            "type": "string",
+            "title": "Action"
+          },
+          "unit_fingerprint": {
+            "type": "string",
+            "title": "Unit Fingerprint"
+          }
+        },
+        "type": "object",
+        "required": [
+          "decision_id",
+          "action",
+          "unit_fingerprint"
+        ],
+        "title": "CuratorDecisionResult"
+      },
+      "CuratorDocument": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "sha256": {
+            "type": "string",
+            "title": "Sha256"
+          },
+          "title": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Title"
+          },
+          "scheme_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Scheme Id"
+          },
+          "attempt_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Attempt Id"
+          },
+          "paper_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Paper Id"
+          },
+          "doc_type_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Doc Type Id"
+          },
+          "series": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Series"
+          },
+          "part": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Part"
+          },
+          "catalog_status": {
+            "type": "string",
+            "title": "Catalog Status"
+          },
+          "extract_status": {
+            "type": "string",
+            "title": "Extract Status"
+          },
+          "page_count": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Page Count"
+          },
+          "bytes": {
+            "type": "integer",
+            "title": "Bytes"
+          },
+          "origin": {
+            "type": "string",
+            "title": "Origin"
+          },
+          "created_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Created At"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "sha256",
+          "title",
+          "scheme_id",
+          "attempt_id",
+          "paper_id",
+          "doc_type_id",
+          "series",
+          "part",
+          "catalog_status",
+          "extract_status",
+          "page_count",
+          "bytes",
+          "origin",
+          "created_at"
+        ],
+        "title": "CuratorDocument"
+      },
+      "CuratorQueueItem": {
+        "properties": {
+          "unit_id": {
+            "type": "integer",
+            "title": "Unit Id"
+          },
+          "document_id": {
+            "type": "integer",
+            "title": "Document Id"
+          },
+          "attempt_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Attempt Id"
+          },
+          "paper_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Paper Id"
+          },
+          "doc_type_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Doc Type Id"
+          },
+          "label_path": {
+            "type": "string",
+            "title": "Label Path"
+          },
+          "display_label": {
+            "type": "string",
+            "title": "Display Label"
+          },
+          "is_benchmark": {
+            "type": "boolean",
+            "title": "Is Benchmark"
+          },
+          "marks": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Marks"
+          },
+          "question_text": {
+            "type": "string",
+            "title": "Question Text"
+          },
+          "answer_text": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Answer Text"
+          },
+          "bucket": {
+            "type": "string",
+            "title": "Bucket"
+          },
+          "primary_suggestion": {
+            "$ref": "#/components/schemas/CuratorRecommendation"
+          },
+          "secondary_suggestions": {
+            "items": {
+              "$ref": "#/components/schemas/CuratorRecommendation"
+            },
+            "type": "array",
+            "title": "Secondary Suggestions"
+          }
+        },
+        "type": "object",
+        "required": [
+          "unit_id",
+          "document_id",
+          "attempt_id",
+          "paper_id",
+          "doc_type_id",
+          "label_path",
+          "display_label",
+          "is_benchmark",
+          "marks",
+          "question_text",
+          "answer_text",
+          "bucket",
+          "primary_suggestion",
+          "secondary_suggestions"
+        ],
+        "title": "CuratorQueueItem"
+      },
+      "CuratorRecommendation": {
+        "properties": {
+          "node_id": {
+            "type": "string",
+            "title": "Node Id"
+          },
+          "node_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Node Name"
+          },
+          "chapter": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/NodeReference"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "topic": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/NodeReference"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "subtopic": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/NodeReference"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "justification": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Justification"
+          },
+          "gist": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Gist"
+          },
+          "alternatives": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Alternatives"
+          }
+        },
+        "type": "object",
+        "required": [
+          "node_id",
+          "node_name",
+          "chapter",
+          "topic",
+          "subtopic"
+        ],
+        "title": "CuratorRecommendation"
+      },
+      "Dashboard": {
+        "properties": {
+          "target_attempt": {
+            "type": "string",
+            "title": "Target Attempt"
+          },
+          "score_run_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Score Run Id"
+          },
+          "total_subtopics": {
+            "type": "integer",
+            "title": "Total Subtopics"
+          },
+          "done_subtopics": {
+            "type": "integer",
+            "title": "Done Subtopics"
+          },
+          "in_progress_subtopics": {
+            "type": "integer",
+            "title": "In Progress Subtopics"
+          },
+          "overall_progress_pct": {
+            "type": "number",
+            "title": "Overall Progress Pct"
+          },
+          "group1_progress_pct": {
+            "type": "number",
+            "title": "Group1 Progress Pct"
+          },
+          "group2_progress_pct": {
+            "type": "number",
+            "title": "Group2 Progress Pct"
+          },
+          "weighted_coverage": {
+            "$ref": "#/components/schemas/WeightedCoverage"
+          },
+          "weak_subtopics": {
+            "items": {
+              "$ref": "#/components/schemas/WeakSubtopic"
+            },
+            "type": "array",
+            "title": "Weak Subtopics"
+          },
+          "ingestion_coverage": {
+            "items": {
+              "$ref": "#/components/schemas/IngestionCoverageItem"
+            },
+            "type": "array",
+            "title": "Ingestion Coverage"
+          },
+          "plan_preview": {
+            "items": {
+              "$ref": "#/components/schemas/PlanItem"
+            },
+            "type": "array",
+            "title": "Plan Preview"
+          },
+          "revision_due_count": {
+            "type": "integer",
+            "title": "Revision Due Count"
+          },
+          "recent_activity": {
+            "items": {
+              "$ref": "#/components/schemas/ActivityItem"
+            },
+            "type": "array",
+            "title": "Recent Activity"
+          }
+        },
+        "type": "object",
+        "required": [
+          "target_attempt",
+          "score_run_id",
+          "total_subtopics",
+          "done_subtopics",
+          "in_progress_subtopics",
+          "overall_progress_pct",
+          "group1_progress_pct",
+          "group2_progress_pct",
+          "weighted_coverage",
+          "weak_subtopics",
+          "ingestion_coverage",
+          "plan_preview",
+          "revision_due_count",
+          "recent_activity"
+        ],
+        "title": "Dashboard"
+      },
       "DecisionRequest": {
         "properties": {
           "action": {
@@ -1241,6 +2381,24 @@
           "action"
         ],
         "title": "DecisionRequest"
+      },
+      "DeleteResult": {
+        "properties": {
+          "deleted": {
+            "type": "boolean",
+            "title": "Deleted"
+          },
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "deleted",
+          "id"
+        ],
+        "title": "DeleteResult"
       },
       "DocumentConfirmRequest": {
         "properties": {
@@ -1314,6 +2472,60 @@
         "type": "object",
         "title": "DocumentConfirmRequest"
       },
+      "DocumentConfirmResult": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "catalog_status": {
+            "type": "string",
+            "title": "Catalog Status"
+          },
+          "attempt_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Attempt Id"
+          },
+          "paper_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Paper Id"
+          },
+          "doc_type_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Doc Type Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "catalog_status",
+          "attempt_id",
+          "paper_id",
+          "doc_type_id"
+        ],
+        "title": "DocumentConfirmResult"
+      },
       "DocumentEditRequest": {
         "properties": {
           "attempt_id": {
@@ -1386,6 +2598,219 @@
         "type": "object",
         "title": "DocumentEditRequest"
       },
+      "DocumentEditResult": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "title": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Title"
+          },
+          "catalog_status": {
+            "type": "string",
+            "title": "Catalog Status"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "catalog_status"
+        ],
+        "title": "DocumentEditResult"
+      },
+      "DocumentStatusResult": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "catalog_status": {
+            "type": "string",
+            "title": "Catalog Status"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "catalog_status"
+        ],
+        "title": "DocumentStatusResult"
+      },
+      "ExamSignal": {
+        "properties": {
+          "score_E": {
+            "type": "number",
+            "title": "Score E"
+          },
+          "paper_max_E": {
+            "type": "number",
+            "title": "Paper Max E"
+          },
+          "normalized_E_hat": {
+            "type": "number",
+            "title": "Normalized E Hat"
+          },
+          "normalized_E_pct": {
+            "type": "number",
+            "title": "Normalized E Pct"
+          },
+          "weighted_contribution": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Weighted Contribution"
+          },
+          "weighted_contribution_pct": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Weighted Contribution Pct"
+          }
+        },
+        "type": "object",
+        "required": [
+          "score_E",
+          "paper_max_E",
+          "normalized_E_hat",
+          "normalized_E_pct",
+          "weighted_contribution",
+          "weighted_contribution_pct"
+        ],
+        "title": "ExamSignal"
+      },
+      "ExplanationSubtopic": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "paper": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/PaperReference"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "chapter": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/NodeReference"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "topic": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/NodeReference"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "applicable": {
+            "type": "boolean",
+            "title": "Applicable"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "paper",
+          "chapter",
+          "topic",
+          "applicable"
+        ],
+        "title": "ExplanationSubtopic"
+      },
+      "ExplanationWeights": {
+        "properties": {
+          "exam": {
+            "type": "number",
+            "title": "Exam"
+          },
+          "practice": {
+            "type": "number",
+            "title": "Practice"
+          },
+          "prior": {
+            "type": "number",
+            "title": "Prior"
+          }
+        },
+        "type": "object",
+        "required": [
+          "exam",
+          "practice",
+          "prior"
+        ],
+        "title": "ExplanationWeights"
+      },
+      "FrequencyExplanation": {
+        "properties": {
+          "freq_hits_F": {
+            "type": "integer",
+            "title": "Freq Hits F"
+          },
+          "freq_window": {
+            "type": "integer",
+            "title": "Freq Window"
+          },
+          "window_attempts": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Window Attempts"
+          },
+          "hit_attempts": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Hit Attempts"
+          }
+        },
+        "type": "object",
+        "required": [
+          "freq_hits_F",
+          "freq_window",
+          "window_attempts",
+          "hit_attempts"
+        ],
+        "title": "FrequencyExplanation"
+      },
       "HTTPValidationError": {
         "properties": {
           "detail": {
@@ -1398,6 +2823,182 @@
         },
         "type": "object",
         "title": "HTTPValidationError"
+      },
+      "ImportanceBreakdown": {
+        "properties": {
+          "importance": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Importance"
+          },
+          "weights": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ExplanationWeights"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "exam": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ExamSignal"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "practice": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/PracticeSignal"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "weightage_prior": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/PriorSignal"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "importance",
+          "weights",
+          "exam",
+          "practice",
+          "weightage_prior"
+        ],
+        "title": "ImportanceBreakdown"
+      },
+      "IngestionCoverageItem": {
+        "properties": {
+          "paper_id": {
+            "type": "string",
+            "title": "Paper Id"
+          },
+          "attempt_id": {
+            "type": "string",
+            "title": "Attempt Id"
+          },
+          "exam_published": {
+            "type": "boolean",
+            "title": "Exam Published"
+          },
+          "practice_published": {
+            "type": "boolean",
+            "title": "Practice Published"
+          }
+        },
+        "type": "object",
+        "required": [
+          "paper_id",
+          "attempt_id",
+          "exam_published",
+          "practice_published"
+        ],
+        "title": "IngestionCoverageItem"
+      },
+      "Metadata": {
+        "properties": {
+          "taxonomy_version": {
+            "type": "string",
+            "title": "Taxonomy Version"
+          },
+          "scoring_version": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Scoring Version"
+          },
+          "api_version": {
+            "type": "string",
+            "title": "Api Version"
+          },
+          "backend_revision": {
+            "type": "string",
+            "title": "Backend Revision"
+          },
+          "target_attempt": {
+            "type": "string",
+            "title": "Target Attempt"
+          },
+          "score_run_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Score Run Id"
+          },
+          "score_run_computed_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Score Run Computed At"
+          },
+          "score_run": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ScoreRunIdentity"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "ingestion_coverage": {
+            "items": {
+              "$ref": "#/components/schemas/IngestionCoverageItem"
+            },
+            "type": "array",
+            "title": "Ingestion Coverage"
+          }
+        },
+        "type": "object",
+        "required": [
+          "taxonomy_version",
+          "scoring_version",
+          "api_version",
+          "backend_revision",
+          "target_attempt",
+          "score_run_id",
+          "score_run_computed_at",
+          "score_run",
+          "ingestion_coverage"
+        ],
+        "title": "Metadata"
       },
       "MockTestCreateRequest": {
         "properties": {
@@ -1429,10 +3030,12 @@
           },
           "score": {
             "type": "number",
+            "minimum": 0.0,
             "title": "Score"
           },
           "max_score": {
             "type": "number",
+            "exclusiveMinimum": 0.0,
             "title": "Max Score",
             "default": 100.0
           },
@@ -1461,6 +3064,180 @@
         ],
         "title": "MockTestCreateRequest"
       },
+      "MockTestResult": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "paper_id": {
+            "type": "string",
+            "title": "Paper Id"
+          },
+          "paper_code": {
+            "type": "string",
+            "title": "Paper Code"
+          },
+          "attempt_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Attempt Id"
+          },
+          "label": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Label"
+          },
+          "score": {
+            "type": "number",
+            "title": "Score"
+          },
+          "max_score": {
+            "type": "number",
+            "title": "Max Score"
+          },
+          "score_pct": {
+            "type": "number",
+            "title": "Score Pct"
+          },
+          "taken_on": {
+            "type": "string",
+            "format": "date",
+            "title": "Taken On"
+          },
+          "notes": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Notes"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "paper_id",
+          "paper_code",
+          "attempt_id",
+          "label",
+          "score",
+          "max_score",
+          "score_pct",
+          "taken_on",
+          "notes"
+        ],
+        "title": "MockTestResult"
+      },
+      "ModelEvaluation": {
+        "properties": {
+          "total_reviewed": {
+            "type": "integer",
+            "title": "Total Reviewed"
+          },
+          "top1_matches": {
+            "type": "integer",
+            "title": "Top1 Matches"
+          },
+          "top1_agreement": {
+            "type": "number",
+            "title": "Top1 Agreement"
+          },
+          "bucket_metrics": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/BucketMetric"
+            },
+            "type": "object",
+            "title": "Bucket Metrics"
+          },
+          "bucket_a_threshold": {
+            "type": "number",
+            "title": "Bucket A Threshold"
+          },
+          "passed": {
+            "type": "boolean",
+            "title": "Passed"
+          },
+          "status_note": {
+            "type": "string",
+            "title": "Status Note"
+          },
+          "evaluated_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Evaluated At"
+          }
+        },
+        "type": "object",
+        "required": [
+          "total_reviewed",
+          "top1_matches",
+          "top1_agreement",
+          "bucket_metrics",
+          "bucket_a_threshold",
+          "passed",
+          "status_note",
+          "evaluated_at"
+        ],
+        "title": "ModelEvaluation"
+      },
+      "NodeReference": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "name"
+        ],
+        "title": "NodeReference"
+      },
+      "NoteResult": {
+        "properties": {
+          "node_id": {
+            "type": "string",
+            "title": "Node Id"
+          },
+          "notes": {
+            "type": "string",
+            "title": "Notes"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Updated At"
+          }
+        },
+        "type": "object",
+        "required": [
+          "node_id",
+          "notes",
+          "updated_at"
+        ],
+        "title": "NoteResult"
+      },
       "NoteUpdateRequest": {
         "properties": {
           "notes": {
@@ -1473,6 +3250,66 @@
           "notes"
         ],
         "title": "NoteUpdateRequest"
+      },
+      "PaperCoverage": {
+        "properties": {
+          "coverage_pct": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Coverage Pct"
+          },
+          "in_progress_pct": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "In Progress Pct"
+          },
+          "code": {
+            "type": "string",
+            "title": "Code"
+          }
+        },
+        "type": "object",
+        "required": [
+          "coverage_pct",
+          "in_progress_pct",
+          "code"
+        ],
+        "title": "PaperCoverage"
+      },
+      "PaperReference": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "code": {
+            "type": "string",
+            "title": "Code"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "code"
+        ],
+        "title": "PaperReference"
       },
       "PaperSummary": {
         "properties": {
@@ -1512,8 +3349,34 @@
             "title": "Raw Progress Pct"
           },
           "weighted_coverage_pct": {
-            "type": "number",
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Weighted Coverage Pct"
+          },
+          "average_importance": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Average Importance"
+          },
+          "revision_due_count": {
+            "type": "integer",
+            "title": "Revision Due Count"
+          },
+          "weak_topic_count": {
+            "type": "integer",
+            "title": "Weak Topic Count"
           }
         },
         "type": "object",
@@ -1525,9 +3388,259 @@
           "total_subtopics",
           "completed_subtopics",
           "raw_progress_pct",
-          "weighted_coverage_pct"
+          "weighted_coverage_pct",
+          "average_importance",
+          "revision_due_count",
+          "weak_topic_count"
         ],
         "title": "PaperSummary"
+      },
+      "PaperTree": {
+        "properties": {
+          "paper_id": {
+            "type": "string",
+            "title": "Paper Id"
+          },
+          "code": {
+            "type": "string",
+            "title": "Code"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "chapters": {
+            "items": {
+              "$ref": "#/components/schemas/ChapterItem"
+            },
+            "type": "array",
+            "title": "Chapters"
+          }
+        },
+        "type": "object",
+        "required": [
+          "paper_id",
+          "code",
+          "name",
+          "chapters"
+        ],
+        "title": "PaperTree"
+      },
+      "PlanItem": {
+        "properties": {
+          "node_id": {
+            "type": "string",
+            "title": "Node Id"
+          },
+          "node_name": {
+            "type": "string",
+            "title": "Node Name"
+          },
+          "paper_id": {
+            "type": "string",
+            "title": "Paper Id"
+          },
+          "paper_code": {
+            "type": "string",
+            "title": "Paper Code"
+          },
+          "chapter_id": {
+            "type": "string",
+            "title": "Chapter Id"
+          },
+          "chapter_name": {
+            "type": "string",
+            "title": "Chapter Name"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "not_started",
+              "in_progress",
+              "done"
+            ],
+            "title": "Status"
+          },
+          "importance": {
+            "type": "number",
+            "title": "Importance"
+          },
+          "priority_score": {
+            "type": "number",
+            "title": "Priority Score"
+          },
+          "weak": {
+            "type": "boolean",
+            "title": "Weak"
+          },
+          "freq_hits": {
+            "type": "integer",
+            "title": "Freq Hits"
+          },
+          "freq_window": {
+            "type": "integer",
+            "title": "Freq Window"
+          },
+          "exam_marks_total": {
+            "type": "integer",
+            "title": "Exam Marks Total"
+          },
+          "reason": {
+            "type": "string",
+            "title": "Reason"
+          }
+        },
+        "type": "object",
+        "required": [
+          "node_id",
+          "node_name",
+          "paper_id",
+          "paper_code",
+          "chapter_id",
+          "chapter_name",
+          "status",
+          "importance",
+          "priority_score",
+          "weak",
+          "freq_hits",
+          "freq_window",
+          "exam_marks_total",
+          "reason"
+        ],
+        "title": "PlanItem"
+      },
+      "PracticeSignal": {
+        "properties": {
+          "score_P": {
+            "type": "number",
+            "title": "Score P"
+          },
+          "paper_max_P": {
+            "type": "number",
+            "title": "Paper Max P"
+          },
+          "normalized_P_hat": {
+            "type": "number",
+            "title": "Normalized P Hat"
+          },
+          "normalized_P_pct": {
+            "type": "number",
+            "title": "Normalized P Pct"
+          },
+          "weighted_contribution": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Weighted Contribution"
+          },
+          "weighted_contribution_pct": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Weighted Contribution Pct"
+          }
+        },
+        "type": "object",
+        "required": [
+          "score_P",
+          "paper_max_P",
+          "normalized_P_hat",
+          "normalized_P_pct",
+          "weighted_contribution",
+          "weighted_contribution_pct"
+        ],
+        "title": "PracticeSignal"
+      },
+      "PriorSignal": {
+        "properties": {
+          "weight_prior_W": {
+            "type": "number",
+            "title": "Weight Prior W"
+          },
+          "paper_max_W": {
+            "type": "number",
+            "title": "Paper Max W"
+          },
+          "normalized_W_hat": {
+            "type": "number",
+            "title": "Normalized W Hat"
+          },
+          "normalized_W_pct": {
+            "type": "number",
+            "title": "Normalized W Pct"
+          },
+          "weighted_contribution": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Weighted Contribution"
+          },
+          "weighted_contribution_pct": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Weighted Contribution Pct"
+          }
+        },
+        "type": "object",
+        "required": [
+          "weight_prior_W",
+          "paper_max_W",
+          "normalized_W_hat",
+          "normalized_W_pct",
+          "weighted_contribution",
+          "weighted_contribution_pct"
+        ],
+        "title": "PriorSignal"
+      },
+      "ProgressResult": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "not_started",
+              "in_progress",
+              "done"
+            ],
+            "title": "Status"
+          },
+          "node_id": {
+            "type": "string",
+            "title": "Node Id"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Updated At"
+          }
+        },
+        "type": "object",
+        "required": [
+          "status",
+          "node_id",
+          "updated_at"
+        ],
+        "title": "ProgressResult"
       },
       "ProgressUpdateRequest": {
         "properties": {
@@ -1547,6 +3660,126 @@
         ],
         "title": "ProgressUpdateRequest"
       },
+      "RecomputeResult": {
+        "properties": {
+          "run_id": {
+            "type": "integer",
+            "title": "Run Id"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "target_attempt_id": {
+            "type": "string",
+            "title": "Target Attempt Id"
+          },
+          "scoring_version": {
+            "type": "string",
+            "title": "Scoring Version"
+          },
+          "is_current": {
+            "type": "boolean",
+            "title": "Is Current"
+          }
+        },
+        "type": "object",
+        "required": [
+          "run_id",
+          "status",
+          "target_attempt_id",
+          "scoring_version",
+          "is_current"
+        ],
+        "title": "RecomputeResult"
+      },
+      "RevisionItem": {
+        "properties": {
+          "node_id": {
+            "type": "string",
+            "title": "Node Id"
+          },
+          "node_name": {
+            "type": "string",
+            "title": "Node Name"
+          },
+          "paper_id": {
+            "type": "string",
+            "title": "Paper Id"
+          },
+          "paper_code": {
+            "type": "string",
+            "title": "Paper Code"
+          },
+          "importance": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Importance"
+          },
+          "due_date": {
+            "type": "string",
+            "format": "date",
+            "title": "Due Date"
+          },
+          "overdue_days": {
+            "type": "integer",
+            "title": "Overdue Days"
+          },
+          "revision_count_k": {
+            "type": "integer",
+            "title": "Revision Count K"
+          },
+          "interval_days": {
+            "type": "integer",
+            "title": "Interval Days"
+          },
+          "first_done_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "First Done At"
+          },
+          "last_revised_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Revised At"
+          }
+        },
+        "type": "object",
+        "required": [
+          "node_id",
+          "node_name",
+          "paper_id",
+          "paper_code",
+          "importance",
+          "due_date",
+          "overdue_days",
+          "revision_count_k",
+          "interval_days",
+          "first_done_at",
+          "last_revised_at"
+        ],
+        "title": "RevisionItem"
+      },
       "RevisionLogRequest": {
         "properties": {
           "outcome": {
@@ -1563,6 +3796,690 @@
           "outcome"
         ],
         "title": "RevisionLogRequest"
+      },
+      "RevisionQueue": {
+        "properties": {
+          "total_due": {
+            "type": "integer",
+            "title": "Total Due"
+          },
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/RevisionItem"
+            },
+            "type": "array",
+            "title": "Items"
+          }
+        },
+        "type": "object",
+        "required": [
+          "total_due",
+          "items"
+        ],
+        "title": "RevisionQueue"
+      },
+      "RevisionResult": {
+        "properties": {
+          "event_id": {
+            "type": "integer",
+            "title": "Event Id"
+          },
+          "node_id": {
+            "type": "string",
+            "title": "Node Id"
+          },
+          "outcome": {
+            "type": "string",
+            "enum": [
+              "ok",
+              "shaky"
+            ],
+            "title": "Outcome"
+          },
+          "at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "At"
+          },
+          "last_revised_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Last Revised At"
+          }
+        },
+        "type": "object",
+        "required": [
+          "event_id",
+          "node_id",
+          "outcome",
+          "at",
+          "last_revised_at"
+        ],
+        "title": "RevisionResult"
+      },
+      "ScoreExplanation": {
+        "properties": {
+          "node_id": {
+            "type": "string",
+            "title": "Node Id"
+          },
+          "explanation_status": {
+            "type": "string",
+            "enum": [
+              "available",
+              "historical_configuration_unavailable",
+              "score_unavailable",
+              "no_score_run"
+            ],
+            "title": "Explanation Status"
+          },
+          "error": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Error"
+          },
+          "configuration_source": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "snapshot",
+                  "matching_current"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Configuration Source"
+          },
+          "score_run": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ScoreRunIdentity"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "subtopic": {
+            "$ref": "#/components/schemas/ExplanationSubtopic"
+          },
+          "importance_breakdown": {
+            "$ref": "#/components/schemas/ImportanceBreakdown"
+          },
+          "frequency": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/FrequencyExplanation"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "weightage_section": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/WeightageExplanation"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "appearances": {
+            "items": {
+              "$ref": "#/components/schemas/AppearanceExplanation"
+            },
+            "type": "array",
+            "title": "Appearances"
+          }
+        },
+        "type": "object",
+        "required": [
+          "node_id",
+          "explanation_status",
+          "error",
+          "configuration_source",
+          "score_run",
+          "subtopic",
+          "importance_breakdown",
+          "frequency",
+          "weightage_section",
+          "appearances"
+        ],
+        "title": "ScoreExplanation"
+      },
+      "ScoreRunIdentity": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "version": {
+            "type": "string",
+            "title": "Version"
+          },
+          "target_attempt_id": {
+            "type": "string",
+            "title": "Target Attempt Id"
+          },
+          "computed_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Computed At"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "version",
+          "target_attempt_id",
+          "computed_at"
+        ],
+        "title": "ScoreRunIdentity"
+      },
+      "StudyPlan": {
+        "properties": {
+          "budget_items": {
+            "type": "integer",
+            "title": "Budget Items"
+          },
+          "total_allocated": {
+            "type": "integer",
+            "title": "Total Allocated"
+          },
+          "hours_per_week": {
+            "type": "number",
+            "title": "Hours Per Week"
+          },
+          "minutes_per_subtopic": {
+            "type": "integer",
+            "title": "Minutes Per Subtopic"
+          },
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/PlanItem"
+            },
+            "type": "array",
+            "title": "Items"
+          }
+        },
+        "type": "object",
+        "required": [
+          "budget_items",
+          "total_allocated",
+          "hours_per_week",
+          "minutes_per_subtopic",
+          "items"
+        ],
+        "title": "StudyPlan"
+      },
+      "SubtopicDetail": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "paper": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/PaperReference"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "chapter": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/NodeReference"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "topic": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/NodeReference"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "not_started",
+              "in_progress",
+              "done"
+            ],
+            "title": "Status"
+          },
+          "notes": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Notes"
+          },
+          "status_changed_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status Changed At"
+          },
+          "first_done_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "First Done At"
+          },
+          "last_revised_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Revised At"
+          },
+          "weightage": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Weightage"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "score_run": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ScoreRunIdentity"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "score": {
+            "$ref": "#/components/schemas/SubtopicScoreDetail"
+          },
+          "appearances": {
+            "items": {
+              "$ref": "#/components/schemas/AppearanceItem"
+            },
+            "type": "array",
+            "title": "Appearances"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "paper",
+          "chapter",
+          "topic",
+          "status",
+          "notes",
+          "status_changed_at",
+          "first_done_at",
+          "last_revised_at",
+          "weightage",
+          "score_run",
+          "score",
+          "appearances"
+        ],
+        "title": "SubtopicDetail"
+      },
+      "SubtopicItem": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "seq": {
+            "type": "integer",
+            "title": "Seq"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "not_started",
+              "in_progress",
+              "done"
+            ],
+            "title": "Status"
+          },
+          "notes": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Notes"
+          },
+          "first_done_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "First Done At"
+          },
+          "last_revised_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Revised At"
+          },
+          "importance": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Importance"
+          },
+          "freq_hits": {
+            "type": "integer",
+            "title": "Freq Hits"
+          },
+          "freq_window": {
+            "type": "integer",
+            "title": "Freq Window"
+          },
+          "weak": {
+            "type": "boolean",
+            "title": "Weak"
+          },
+          "applicable": {
+            "type": "boolean",
+            "title": "Applicable"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "seq",
+          "status",
+          "notes",
+          "first_done_at",
+          "last_revised_at",
+          "importance",
+          "freq_hits",
+          "freq_window",
+          "weak",
+          "applicable"
+        ],
+        "title": "SubtopicItem"
+      },
+      "SubtopicScoreDetail": {
+        "properties": {
+          "importance": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Importance"
+          },
+          "exam_score": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Exam Score"
+          },
+          "practice_score": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Practice Score"
+          },
+          "weight_prior": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Weight Prior"
+          },
+          "freq_hits": {
+            "type": "integer",
+            "title": "Freq Hits"
+          },
+          "freq_window": {
+            "type": "integer",
+            "title": "Freq Window"
+          },
+          "exam_marks_total": {
+            "type": "integer",
+            "title": "Exam Marks Total"
+          },
+          "exam_count": {
+            "type": "integer",
+            "title": "Exam Count"
+          },
+          "practice_count": {
+            "type": "integer",
+            "title": "Practice Count"
+          },
+          "first_exam_attempt": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "First Exam Attempt"
+          },
+          "last_exam_attempt": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Exam Attempt"
+          },
+          "weak": {
+            "type": "boolean",
+            "title": "Weak"
+          },
+          "applicable": {
+            "type": "boolean",
+            "title": "Applicable"
+          }
+        },
+        "type": "object",
+        "required": [
+          "importance",
+          "exam_score",
+          "practice_score",
+          "weight_prior",
+          "freq_hits",
+          "freq_window",
+          "exam_marks_total",
+          "exam_count",
+          "practice_count",
+          "first_exam_attempt",
+          "last_exam_attempt",
+          "weak",
+          "applicable"
+        ],
+        "title": "SubtopicScoreDetail"
+      },
+      "SystemAlarm": {
+        "properties": {
+          "code": {
+            "type": "string",
+            "title": "Code"
+          },
+          "level": {
+            "type": "string",
+            "title": "Level"
+          },
+          "message": {
+            "type": "string",
+            "title": "Message"
+          },
+          "details": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Details"
+          }
+        },
+        "type": "object",
+        "required": [
+          "code",
+          "level",
+          "message",
+          "details"
+        ],
+        "title": "SystemAlarm"
+      },
+      "SystemHealth": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "evaluated_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Evaluated At"
+          },
+          "alarms": {
+            "items": {
+              "$ref": "#/components/schemas/SystemAlarm"
+            },
+            "type": "array",
+            "title": "Alarms"
+          }
+        },
+        "type": "object",
+        "required": [
+          "status",
+          "evaluated_at",
+          "alarms"
+        ],
+        "title": "SystemHealth"
+      },
+      "TopicItem": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "seq": {
+            "type": "integer",
+            "title": "Seq"
+          },
+          "subtopics": {
+            "items": {
+              "$ref": "#/components/schemas/SubtopicItem"
+            },
+            "type": "array",
+            "title": "Subtopics"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "seq",
+          "subtopics"
+        ],
+        "title": "TopicItem"
       },
       "ValidationError": {
         "properties": {
@@ -1603,6 +4520,188 @@
           "type"
         ],
         "title": "ValidationError"
+      },
+      "WeakSubtopic": {
+        "properties": {
+          "node_id": {
+            "type": "string",
+            "title": "Node Id"
+          },
+          "node_name": {
+            "type": "string",
+            "title": "Node Name"
+          },
+          "paper_id": {
+            "type": "string",
+            "title": "Paper Id"
+          },
+          "paper_code": {
+            "type": "string",
+            "title": "Paper Code"
+          },
+          "importance": {
+            "type": "number",
+            "title": "Importance"
+          },
+          "freq_hits": {
+            "type": "integer",
+            "title": "Freq Hits"
+          },
+          "freq_window": {
+            "type": "integer",
+            "title": "Freq Window"
+          },
+          "exam_marks_total": {
+            "type": "integer",
+            "title": "Exam Marks Total"
+          },
+          "exam_count": {
+            "type": "integer",
+            "title": "Exam Count"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "not_started",
+              "in_progress",
+              "done"
+            ],
+            "title": "Status"
+          }
+        },
+        "type": "object",
+        "required": [
+          "node_id",
+          "node_name",
+          "paper_id",
+          "paper_code",
+          "importance",
+          "freq_hits",
+          "freq_window",
+          "exam_marks_total",
+          "exam_count",
+          "status"
+        ],
+        "title": "WeakSubtopic"
+      },
+      "Weightage": {
+        "properties": {
+          "section_name": {
+            "type": "string",
+            "title": "Section Name"
+          },
+          "min_pct": {
+            "type": "number",
+            "title": "Min Pct"
+          },
+          "max_pct": {
+            "type": "number",
+            "title": "Max Pct"
+          }
+        },
+        "type": "object",
+        "required": [
+          "section_name",
+          "min_pct",
+          "max_pct"
+        ],
+        "title": "Weightage"
+      },
+      "WeightageExplanation": {
+        "properties": {
+          "section_name": {
+            "type": "string",
+            "title": "Section Name"
+          },
+          "min_pct": {
+            "type": "number",
+            "title": "Min Pct"
+          },
+          "max_pct": {
+            "type": "number",
+            "title": "Max Pct"
+          },
+          "section_id": {
+            "type": "string",
+            "title": "Section Id"
+          },
+          "midpoint_pct": {
+            "type": "number",
+            "title": "Midpoint Pct"
+          },
+          "section_marks": {
+            "type": "number",
+            "title": "Section Marks"
+          },
+          "applicable_subtopics_in_section": {
+            "type": "integer",
+            "title": "Applicable Subtopics In Section"
+          },
+          "subtopic_weight_prior_W": {
+            "type": "number",
+            "title": "Subtopic Weight Prior W"
+          }
+        },
+        "type": "object",
+        "required": [
+          "section_name",
+          "min_pct",
+          "max_pct",
+          "section_id",
+          "midpoint_pct",
+          "section_marks",
+          "applicable_subtopics_in_section",
+          "subtopic_weight_prior_W"
+        ],
+        "title": "WeightageExplanation"
+      },
+      "WeightedCoverage": {
+        "properties": {
+          "overall_coverage_pct": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Overall Coverage Pct"
+          },
+          "overall_in_progress_pct": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Overall In Progress Pct"
+          },
+          "groups": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/CoverageValue"
+            },
+            "type": "object",
+            "title": "Groups"
+          },
+          "papers": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/PaperCoverage"
+            },
+            "type": "object",
+            "title": "Papers"
+          }
+        },
+        "type": "object",
+        "required": [
+          "overall_coverage_pct",
+          "overall_in_progress_pct",
+          "groups",
+          "papers"
+        ],
+        "title": "WeightedCoverage"
       }
     }
   }

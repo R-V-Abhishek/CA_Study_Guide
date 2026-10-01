@@ -499,10 +499,350 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/curator/{full_path}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Serve Curator Spa */
+        get: operations["serve_curator_spa_curator__full_path__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/curator": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Serve Curator Root */
+        get: operations["serve_curator_root_curator_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/{full_path}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Serve Student Spa */
+        get: operations["serve_student_spa__full_path__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
 }
 export type webhooks = Record<string, never>;
 export interface components {
     schemas: {
+        /** ActivityItem */
+        ActivityItem: {
+            /** Node Id */
+            node_id: string;
+            /** Node Name */
+            node_name: string;
+            /** Paper Code */
+            paper_code: string;
+            /** From Status */
+            from_status: string;
+            /** To Status */
+            to_status: string;
+            /**
+             * At
+             * Format: date-time
+             */
+            at: string;
+        };
+        /** AppearanceExplanation */
+        AppearanceExplanation: {
+            /** Appearance Id */
+            appearance_id: number;
+            /** Attempt Id */
+            attempt_id: string;
+            /** Signal Class */
+            signal_class: string;
+            /** Display Label */
+            display_label: string;
+            /** Gist */
+            gist: string | null;
+            /** Marks */
+            marks: number | null;
+            /** Tag Role */
+            tag_role: string;
+            /** Tag Level */
+            tag_level: string;
+            /** Share */
+            share: number;
+            /** Kappa */
+            kappa: number;
+            /** Lambda Val */
+            lambda_val: number;
+            /** Attributed Marks M */
+            attributed_marks_m: number;
+            /** Age Months */
+            age_months: number;
+            /** Half Life Months */
+            half_life_months: number;
+            /** Decay */
+            decay: number;
+            /** Contribution */
+            contribution: number;
+            /** In Freq Window */
+            in_freq_window: boolean;
+            /** Ignored Post Target */
+            ignored_post_target: boolean;
+            /** Law Stale */
+            law_stale: boolean;
+        };
+        /** AppearanceItem */
+        AppearanceItem: {
+            /** Id */
+            id: number;
+            /** Attempt Id */
+            attempt_id: string;
+            /** Signal Class */
+            signal_class: string;
+            /** Display Label */
+            display_label: string;
+            /** Marks */
+            marks: number | null;
+            /** Gist */
+            gist: string | null;
+            /** Official Url */
+            official_url: string | null;
+            /** Page Start */
+            page_start: number | null;
+            /** Page End */
+            page_end: number | null;
+            /** Law Stale */
+            law_stale: boolean;
+        };
+        /** BackupItem */
+        BackupItem: {
+            /** Name */
+            name: string;
+            /** Path */
+            path: string;
+            /** Size Mb */
+            size_mb: number;
+            /** Age Hours */
+            age_hours: number;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+        };
+        /** BackupList */
+        BackupList: {
+            /** Count */
+            count: number;
+            /** Backups */
+            backups: components["schemas"]["BackupItem"][];
+        };
+        /** BackupResult */
+        BackupResult: {
+            /** Status */
+            status: string;
+            /** Dump File */
+            dump_file: string;
+            /** Size Bytes */
+            size_bytes: number;
+            /** Blobs Copied */
+            blobs_copied: number;
+            /** Configs Copied */
+            configs_copied: number;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+        };
+        /** BucketMetric */
+        BucketMetric: {
+            /** Bucket */
+            bucket: string;
+            /** Total */
+            total: number;
+            /** Matched */
+            matched: number;
+            /** Precision */
+            precision: number;
+        };
+        /** BulkAcceptResult */
+        BulkAcceptResult: {
+            /** Document Id */
+            document_id: number;
+            /** Accepted Count */
+            accepted_count: number;
+        };
+        /** ChapterItem */
+        ChapterItem: {
+            /** Id */
+            id: string;
+            /** Name */
+            name: string;
+            /** Seq */
+            seq: number;
+            /** Weightage Min Pct */
+            weightage_min_pct: number | null;
+            /** Weightage Max Pct */
+            weightage_max_pct: number | null;
+            /** Weightage Section Name */
+            weightage_section_name: string | null;
+            /** Total Subtopics */
+            total_subtopics: number;
+            /** Completed Subtopics */
+            completed_subtopics: number;
+            /** Progress Pct */
+            progress_pct: number;
+            /** Topics */
+            topics: components["schemas"]["TopicItem"][];
+        };
+        /** CoverageValue */
+        CoverageValue: {
+            /** Coverage Pct */
+            coverage_pct: number | null;
+            /** In Progress Pct */
+            in_progress_pct: number | null;
+        };
+        /** CuratorDecisionResult */
+        CuratorDecisionResult: {
+            /** Decision Id */
+            decision_id: number;
+            /** Action */
+            action: string;
+            /** Unit Fingerprint */
+            unit_fingerprint: string;
+        };
+        /** CuratorDocument */
+        CuratorDocument: {
+            /** Id */
+            id: number;
+            /** Sha256 */
+            sha256: string;
+            /** Title */
+            title: string | null;
+            /** Scheme Id */
+            scheme_id: string | null;
+            /** Attempt Id */
+            attempt_id: string | null;
+            /** Paper Id */
+            paper_id: string | null;
+            /** Doc Type Id */
+            doc_type_id: string | null;
+            /** Series */
+            series: string | null;
+            /** Part */
+            part: string | null;
+            /** Catalog Status */
+            catalog_status: string;
+            /** Extract Status */
+            extract_status: string;
+            /** Page Count */
+            page_count: number | null;
+            /** Bytes */
+            bytes: number;
+            /** Origin */
+            origin: string;
+            /** Created At */
+            created_at: string | null;
+        };
+        /** CuratorQueueItem */
+        CuratorQueueItem: {
+            /** Unit Id */
+            unit_id: number;
+            /** Document Id */
+            document_id: number;
+            /** Attempt Id */
+            attempt_id: string | null;
+            /** Paper Id */
+            paper_id: string | null;
+            /** Doc Type Id */
+            doc_type_id: string | null;
+            /** Label Path */
+            label_path: string;
+            /** Display Label */
+            display_label: string;
+            /** Is Benchmark */
+            is_benchmark: boolean;
+            /** Marks */
+            marks: number | null;
+            /** Question Text */
+            question_text: string;
+            /** Answer Text */
+            answer_text: string | null;
+            /** Bucket */
+            bucket: string;
+            primary_suggestion: components["schemas"]["CuratorRecommendation"];
+            /** Secondary Suggestions */
+            secondary_suggestions: components["schemas"]["CuratorRecommendation"][];
+        };
+        /** CuratorRecommendation */
+        CuratorRecommendation: {
+            /** Node Id */
+            node_id: string;
+            /** Node Name */
+            node_name: string | null;
+            chapter: components["schemas"]["NodeReference"] | null;
+            topic: components["schemas"]["NodeReference"] | null;
+            subtopic: components["schemas"]["NodeReference"] | null;
+            /** Justification */
+            justification?: string | null;
+            /** Gist */
+            gist?: string | null;
+            /** Alternatives */
+            alternatives?: string[];
+        };
+        /** Dashboard */
+        Dashboard: {
+            /** Target Attempt */
+            target_attempt: string;
+            /** Score Run Id */
+            score_run_id: number | null;
+            /** Total Subtopics */
+            total_subtopics: number;
+            /** Done Subtopics */
+            done_subtopics: number;
+            /** In Progress Subtopics */
+            in_progress_subtopics: number;
+            /** Overall Progress Pct */
+            overall_progress_pct: number;
+            /** Group1 Progress Pct */
+            group1_progress_pct: number;
+            /** Group2 Progress Pct */
+            group2_progress_pct: number;
+            weighted_coverage: components["schemas"]["WeightedCoverage"];
+            /** Weak Subtopics */
+            weak_subtopics: components["schemas"]["WeakSubtopic"][];
+            /** Ingestion Coverage */
+            ingestion_coverage: components["schemas"]["IngestionCoverageItem"][];
+            /** Plan Preview */
+            plan_preview: components["schemas"]["PlanItem"][];
+            /** Revision Due Count */
+            revision_due_count: number;
+            /** Recent Activity */
+            recent_activity: components["schemas"]["ActivityItem"][];
+        };
         /** DecisionRequest */
         DecisionRequest: {
             /** Action */
@@ -524,6 +864,13 @@ export interface components {
              */
             blind: boolean;
         };
+        /** DeleteResult */
+        DeleteResult: {
+            /** Deleted */
+            deleted: boolean;
+            /** Id */
+            id: number;
+        };
         /** DocumentConfirmRequest */
         DocumentConfirmRequest: {
             /** Attempt Id */
@@ -538,6 +885,19 @@ export interface components {
             part?: string | null;
             /** Title */
             title?: string | null;
+        };
+        /** DocumentConfirmResult */
+        DocumentConfirmResult: {
+            /** Id */
+            id: number;
+            /** Catalog Status */
+            catalog_status: string;
+            /** Attempt Id */
+            attempt_id: string | null;
+            /** Paper Id */
+            paper_id: string | null;
+            /** Doc Type Id */
+            doc_type_id: string | null;
         };
         /** DocumentEditRequest */
         DocumentEditRequest: {
@@ -554,10 +914,113 @@ export interface components {
             /** Title */
             title?: string | null;
         };
+        /** DocumentEditResult */
+        DocumentEditResult: {
+            /** Id */
+            id: number;
+            /** Title */
+            title: string | null;
+            /** Catalog Status */
+            catalog_status: string;
+        };
+        /** DocumentStatusResult */
+        DocumentStatusResult: {
+            /** Id */
+            id: number;
+            /** Catalog Status */
+            catalog_status: string;
+        };
+        /** ExamSignal */
+        ExamSignal: {
+            /** Score E */
+            score_E: number;
+            /** Paper Max E */
+            paper_max_E: number;
+            /** Normalized E Hat */
+            normalized_E_hat: number;
+            /** Normalized E Pct */
+            normalized_E_pct: number;
+            /** Weighted Contribution */
+            weighted_contribution: number | null;
+            /** Weighted Contribution Pct */
+            weighted_contribution_pct: number | null;
+        };
+        /** ExplanationSubtopic */
+        ExplanationSubtopic: {
+            /** Id */
+            id: string;
+            /** Name */
+            name: string;
+            paper: components["schemas"]["PaperReference"] | null;
+            chapter: components["schemas"]["NodeReference"] | null;
+            topic: components["schemas"]["NodeReference"] | null;
+            /** Applicable */
+            applicable: boolean;
+        };
+        /** ExplanationWeights */
+        ExplanationWeights: {
+            /** Exam */
+            exam: number;
+            /** Practice */
+            practice: number;
+            /** Prior */
+            prior: number;
+        };
+        /** FrequencyExplanation */
+        FrequencyExplanation: {
+            /** Freq Hits F */
+            freq_hits_F: number;
+            /** Freq Window */
+            freq_window: number;
+            /** Window Attempts */
+            window_attempts: string[];
+            /** Hit Attempts */
+            hit_attempts: string[];
+        };
         /** HTTPValidationError */
         HTTPValidationError: {
             /** Detail */
             detail?: components["schemas"]["ValidationError"][];
+        };
+        /** ImportanceBreakdown */
+        ImportanceBreakdown: {
+            /** Importance */
+            importance: number | null;
+            weights: components["schemas"]["ExplanationWeights"] | null;
+            exam: components["schemas"]["ExamSignal"] | null;
+            practice: components["schemas"]["PracticeSignal"] | null;
+            weightage_prior: components["schemas"]["PriorSignal"] | null;
+        };
+        /** IngestionCoverageItem */
+        IngestionCoverageItem: {
+            /** Paper Id */
+            paper_id: string;
+            /** Attempt Id */
+            attempt_id: string;
+            /** Exam Published */
+            exam_published: boolean;
+            /** Practice Published */
+            practice_published: boolean;
+        };
+        /** Metadata */
+        Metadata: {
+            /** Taxonomy Version */
+            taxonomy_version: string;
+            /** Scoring Version */
+            scoring_version: string | null;
+            /** Api Version */
+            api_version: string;
+            /** Backend Revision */
+            backend_revision: string;
+            /** Target Attempt */
+            target_attempt: string;
+            /** Score Run Id */
+            score_run_id: number | null;
+            /** Score Run Computed At */
+            score_run_computed_at: string | null;
+            score_run: components["schemas"]["ScoreRunIdentity"] | null;
+            /** Ingestion Coverage */
+            ingestion_coverage: components["schemas"]["IngestionCoverageItem"][];
         };
         /** MockTestCreateRequest */
         MockTestCreateRequest: {
@@ -582,10 +1045,97 @@ export interface components {
             /** Notes */
             notes?: string | null;
         };
+        /** MockTestResult */
+        MockTestResult: {
+            /** Id */
+            id: number;
+            /** Paper Id */
+            paper_id: string;
+            /** Paper Code */
+            paper_code: string;
+            /** Attempt Id */
+            attempt_id: string | null;
+            /** Label */
+            label: string | null;
+            /** Score */
+            score: number;
+            /** Max Score */
+            max_score: number;
+            /** Score Pct */
+            score_pct: number;
+            /**
+             * Taken On
+             * Format: date
+             */
+            taken_on: string;
+            /** Notes */
+            notes: string | null;
+        };
+        /** ModelEvaluation */
+        ModelEvaluation: {
+            /** Total Reviewed */
+            total_reviewed: number;
+            /** Top1 Matches */
+            top1_matches: number;
+            /** Top1 Agreement */
+            top1_agreement: number;
+            /** Bucket Metrics */
+            bucket_metrics: {
+                [key: string]: components["schemas"]["BucketMetric"];
+            };
+            /** Bucket A Threshold */
+            bucket_a_threshold: number;
+            /** Passed */
+            passed: boolean;
+            /** Status Note */
+            status_note: string;
+            /**
+             * Evaluated At
+             * Format: date-time
+             */
+            evaluated_at: string;
+        };
+        /** NodeReference */
+        NodeReference: {
+            /** Id */
+            id: string;
+            /** Name */
+            name: string;
+        };
+        /** NoteResult */
+        NoteResult: {
+            /** Node Id */
+            node_id: string;
+            /** Notes */
+            notes: string;
+            /**
+             * Updated At
+             * Format: date-time
+             */
+            updated_at: string;
+        };
         /** NoteUpdateRequest */
         NoteUpdateRequest: {
             /** Notes */
             notes: string;
+        };
+        /** PaperCoverage */
+        PaperCoverage: {
+            /** Coverage Pct */
+            coverage_pct: number | null;
+            /** In Progress Pct */
+            in_progress_pct: number | null;
+            /** Code */
+            code: string;
+        };
+        /** PaperReference */
+        PaperReference: {
+            /** Id */
+            id: string;
+            /** Name */
+            name: string;
+            /** Code */
+            code: string;
         };
         /** PaperSummary */
         PaperSummary: {
@@ -604,7 +1154,103 @@ export interface components {
             /** Raw Progress Pct */
             raw_progress_pct: number;
             /** Weighted Coverage Pct */
-            weighted_coverage_pct: number;
+            weighted_coverage_pct: number | null;
+            /** Average Importance */
+            average_importance: number | null;
+            /** Revision Due Count */
+            revision_due_count: number;
+            /** Weak Topic Count */
+            weak_topic_count: number;
+        };
+        /** PaperTree */
+        PaperTree: {
+            /** Paper Id */
+            paper_id: string;
+            /** Code */
+            code: string;
+            /** Name */
+            name: string;
+            /** Chapters */
+            chapters: components["schemas"]["ChapterItem"][];
+        };
+        /** PlanItem */
+        PlanItem: {
+            /** Node Id */
+            node_id: string;
+            /** Node Name */
+            node_name: string;
+            /** Paper Id */
+            paper_id: string;
+            /** Paper Code */
+            paper_code: string;
+            /** Chapter Id */
+            chapter_id: string;
+            /** Chapter Name */
+            chapter_name: string;
+            /**
+             * Status
+             * @enum {string}
+             */
+            status: "not_started" | "in_progress" | "done";
+            /** Importance */
+            importance: number;
+            /** Priority Score */
+            priority_score: number;
+            /** Weak */
+            weak: boolean;
+            /** Freq Hits */
+            freq_hits: number;
+            /** Freq Window */
+            freq_window: number;
+            /** Exam Marks Total */
+            exam_marks_total: number;
+            /** Reason */
+            reason: string;
+        };
+        /** PracticeSignal */
+        PracticeSignal: {
+            /** Score P */
+            score_P: number;
+            /** Paper Max P */
+            paper_max_P: number;
+            /** Normalized P Hat */
+            normalized_P_hat: number;
+            /** Normalized P Pct */
+            normalized_P_pct: number;
+            /** Weighted Contribution */
+            weighted_contribution: number | null;
+            /** Weighted Contribution Pct */
+            weighted_contribution_pct: number | null;
+        };
+        /** PriorSignal */
+        PriorSignal: {
+            /** Weight Prior W */
+            weight_prior_W: number;
+            /** Paper Max W */
+            paper_max_W: number;
+            /** Normalized W Hat */
+            normalized_W_hat: number;
+            /** Normalized W Pct */
+            normalized_W_pct: number;
+            /** Weighted Contribution */
+            weighted_contribution: number | null;
+            /** Weighted Contribution Pct */
+            weighted_contribution_pct: number | null;
+        };
+        /** ProgressResult */
+        ProgressResult: {
+            /**
+             * Status
+             * @enum {string}
+             */
+            status: "not_started" | "in_progress" | "done";
+            /** Node Id */
+            node_id: string;
+            /**
+             * Updated At
+             * Format: date-time
+             */
+            updated_at: string;
         };
         /** ProgressUpdateRequest */
         ProgressUpdateRequest: {
@@ -614,6 +1260,47 @@ export interface components {
              */
             status: "not_started" | "in_progress" | "done";
         };
+        /** RecomputeResult */
+        RecomputeResult: {
+            /** Run Id */
+            run_id: number;
+            /** Status */
+            status: string;
+            /** Target Attempt Id */
+            target_attempt_id: string;
+            /** Scoring Version */
+            scoring_version: string;
+            /** Is Current */
+            is_current: boolean;
+        };
+        /** RevisionItem */
+        RevisionItem: {
+            /** Node Id */
+            node_id: string;
+            /** Node Name */
+            node_name: string;
+            /** Paper Id */
+            paper_id: string;
+            /** Paper Code */
+            paper_code: string;
+            /** Importance */
+            importance: number | null;
+            /**
+             * Due Date
+             * Format: date
+             */
+            due_date: string;
+            /** Overdue Days */
+            overdue_days: number;
+            /** Revision Count K */
+            revision_count_k: number;
+            /** Interval Days */
+            interval_days: number;
+            /** First Done At */
+            first_done_at: string | null;
+            /** Last Revised At */
+            last_revised_at: string | null;
+        };
         /** RevisionLogRequest */
         RevisionLogRequest: {
             /**
@@ -621,6 +1308,203 @@ export interface components {
              * @enum {string}
              */
             outcome: "ok" | "shaky";
+        };
+        /** RevisionQueue */
+        RevisionQueue: {
+            /** Total Due */
+            total_due: number;
+            /** Items */
+            items: components["schemas"]["RevisionItem"][];
+        };
+        /** RevisionResult */
+        RevisionResult: {
+            /** Event Id */
+            event_id: number;
+            /** Node Id */
+            node_id: string;
+            /**
+             * Outcome
+             * @enum {string}
+             */
+            outcome: "ok" | "shaky";
+            /**
+             * At
+             * Format: date-time
+             */
+            at: string;
+            /**
+             * Last Revised At
+             * Format: date-time
+             */
+            last_revised_at: string;
+        };
+        /** ScoreExplanation */
+        ScoreExplanation: {
+            /** Node Id */
+            node_id: string;
+            /**
+             * Explanation Status
+             * @enum {string}
+             */
+            explanation_status: "available" | "historical_configuration_unavailable" | "score_unavailable" | "no_score_run";
+            /** Error */
+            error: string | null;
+            /** Configuration Source */
+            configuration_source: ("snapshot" | "matching_current") | null;
+            score_run: components["schemas"]["ScoreRunIdentity"] | null;
+            subtopic: components["schemas"]["ExplanationSubtopic"];
+            importance_breakdown: components["schemas"]["ImportanceBreakdown"];
+            frequency: components["schemas"]["FrequencyExplanation"] | null;
+            weightage_section: components["schemas"]["WeightageExplanation"] | null;
+            /** Appearances */
+            appearances: components["schemas"]["AppearanceExplanation"][];
+        };
+        /** ScoreRunIdentity */
+        ScoreRunIdentity: {
+            /** Id */
+            id: number;
+            /** Version */
+            version: string;
+            /** Target Attempt Id */
+            target_attempt_id: string;
+            /** Computed At */
+            computed_at: string | null;
+        };
+        /** StudyPlan */
+        StudyPlan: {
+            /** Budget Items */
+            budget_items: number;
+            /** Total Allocated */
+            total_allocated: number;
+            /** Hours Per Week */
+            hours_per_week: number;
+            /** Minutes Per Subtopic */
+            minutes_per_subtopic: number;
+            /** Items */
+            items: components["schemas"]["PlanItem"][];
+        };
+        /** SubtopicDetail */
+        SubtopicDetail: {
+            /** Id */
+            id: string;
+            /** Name */
+            name: string;
+            paper: components["schemas"]["PaperReference"] | null;
+            chapter: components["schemas"]["NodeReference"] | null;
+            topic: components["schemas"]["NodeReference"] | null;
+            /**
+             * Status
+             * @enum {string}
+             */
+            status: "not_started" | "in_progress" | "done";
+            /** Notes */
+            notes: string | null;
+            /** Status Changed At */
+            status_changed_at: string | null;
+            /** First Done At */
+            first_done_at: string | null;
+            /** Last Revised At */
+            last_revised_at: string | null;
+            weightage: components["schemas"]["Weightage"] | null;
+            score_run: components["schemas"]["ScoreRunIdentity"] | null;
+            score: components["schemas"]["SubtopicScoreDetail"];
+            /** Appearances */
+            appearances: components["schemas"]["AppearanceItem"][];
+        };
+        /** SubtopicItem */
+        SubtopicItem: {
+            /** Id */
+            id: string;
+            /** Name */
+            name: string;
+            /** Seq */
+            seq: number;
+            /**
+             * Status
+             * @enum {string}
+             */
+            status: "not_started" | "in_progress" | "done";
+            /** Notes */
+            notes: string | null;
+            /** First Done At */
+            first_done_at: string | null;
+            /** Last Revised At */
+            last_revised_at: string | null;
+            /** Importance */
+            importance: number | null;
+            /** Freq Hits */
+            freq_hits: number;
+            /** Freq Window */
+            freq_window: number;
+            /** Weak */
+            weak: boolean;
+            /** Applicable */
+            applicable: boolean;
+        };
+        /** SubtopicScoreDetail */
+        SubtopicScoreDetail: {
+            /** Importance */
+            importance: number | null;
+            /** Exam Score */
+            exam_score: number | null;
+            /** Practice Score */
+            practice_score: number | null;
+            /** Weight Prior */
+            weight_prior: number | null;
+            /** Freq Hits */
+            freq_hits: number;
+            /** Freq Window */
+            freq_window: number;
+            /** Exam Marks Total */
+            exam_marks_total: number;
+            /** Exam Count */
+            exam_count: number;
+            /** Practice Count */
+            practice_count: number;
+            /** First Exam Attempt */
+            first_exam_attempt: string | null;
+            /** Last Exam Attempt */
+            last_exam_attempt: string | null;
+            /** Weak */
+            weak: boolean;
+            /** Applicable */
+            applicable: boolean;
+        };
+        /** SystemAlarm */
+        SystemAlarm: {
+            /** Code */
+            code: string;
+            /** Level */
+            level: string;
+            /** Message */
+            message: string;
+            /** Details */
+            details: {
+                [key: string]: unknown;
+            };
+        };
+        /** SystemHealth */
+        SystemHealth: {
+            /** Status */
+            status: string;
+            /**
+             * Evaluated At
+             * Format: date-time
+             */
+            evaluated_at: string;
+            /** Alarms */
+            alarms: components["schemas"]["SystemAlarm"][];
+        };
+        /** TopicItem */
+        TopicItem: {
+            /** Id */
+            id: string;
+            /** Name */
+            name: string;
+            /** Seq */
+            seq: number;
+            /** Subtopics */
+            subtopics: components["schemas"]["SubtopicItem"][];
         };
         /** ValidationError */
         ValidationError: {
@@ -634,6 +1518,75 @@ export interface components {
             input?: unknown;
             /** Context */
             ctx?: Record<string, never>;
+        };
+        /** WeakSubtopic */
+        WeakSubtopic: {
+            /** Node Id */
+            node_id: string;
+            /** Node Name */
+            node_name: string;
+            /** Paper Id */
+            paper_id: string;
+            /** Paper Code */
+            paper_code: string;
+            /** Importance */
+            importance: number;
+            /** Freq Hits */
+            freq_hits: number;
+            /** Freq Window */
+            freq_window: number;
+            /** Exam Marks Total */
+            exam_marks_total: number;
+            /** Exam Count */
+            exam_count: number;
+            /**
+             * Status
+             * @enum {string}
+             */
+            status: "not_started" | "in_progress" | "done";
+        };
+        /** Weightage */
+        Weightage: {
+            /** Section Name */
+            section_name: string;
+            /** Min Pct */
+            min_pct: number;
+            /** Max Pct */
+            max_pct: number;
+        };
+        /** WeightageExplanation */
+        WeightageExplanation: {
+            /** Section Name */
+            section_name: string;
+            /** Min Pct */
+            min_pct: number;
+            /** Max Pct */
+            max_pct: number;
+            /** Section Id */
+            section_id: string;
+            /** Midpoint Pct */
+            midpoint_pct: number;
+            /** Section Marks */
+            section_marks: number;
+            /** Applicable Subtopics In Section */
+            applicable_subtopics_in_section: number;
+            /** Subtopic Weight Prior W */
+            subtopic_weight_prior_W: number;
+        };
+        /** WeightedCoverage */
+        WeightedCoverage: {
+            /** Overall Coverage Pct */
+            overall_coverage_pct: number | null;
+            /** Overall In Progress Pct */
+            overall_in_progress_pct: number | null;
+            /** Groups */
+            groups: {
+                [key: string]: components["schemas"]["CoverageValue"];
+            };
+            /** Papers */
+            papers: {
+                [key: string]: components["schemas"]["PaperCoverage"];
+            };
         };
     };
     responses: never;
@@ -681,7 +1634,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": unknown;
+                    "application/json": components["schemas"]["PaperTree"];
                 };
             };
             /** @description Validation Error */
@@ -712,7 +1665,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": unknown;
+                    "application/json": components["schemas"]["PaperTree"];
                 };
             };
             /** @description Validation Error */
@@ -743,7 +1696,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": unknown;
+                    "application/json": components["schemas"]["SubtopicDetail"];
                 };
             };
             /** @description Validation Error */
@@ -778,7 +1731,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": unknown;
+                    "application/json": components["schemas"]["ProgressResult"];
                 };
             };
             /** @description Validation Error */
@@ -813,7 +1766,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": unknown;
+                    "application/json": components["schemas"]["NoteResult"];
                 };
             };
             /** @description Validation Error */
@@ -842,7 +1795,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": unknown;
+                    "application/json": components["schemas"]["Dashboard"];
                 };
             };
         };
@@ -862,7 +1815,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": unknown;
+                    "application/json": components["schemas"]["Metadata"];
                 };
             };
         };
@@ -884,7 +1837,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": unknown;
+                    "application/json": components["schemas"]["ScoreExplanation"];
                 };
             };
             /** @description Validation Error */
@@ -920,7 +1873,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": unknown;
+                    "application/json": components["schemas"]["StudyPlan"];
                 };
             };
             /** @description Validation Error */
@@ -952,7 +1905,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": unknown;
+                    "application/json": components["schemas"]["RevisionQueue"];
                 };
             };
             /** @description Validation Error */
@@ -987,7 +1940,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": unknown;
+                    "application/json": components["schemas"]["RevisionResult"];
                 };
             };
             /** @description Validation Error */
@@ -1019,7 +1972,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": unknown;
+                    "application/json": components["schemas"]["MockTestResult"][];
                 };
             };
             /** @description Validation Error */
@@ -1052,7 +2005,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": unknown;
+                    "application/json": components["schemas"]["MockTestResult"];
                 };
             };
             /** @description Validation Error */
@@ -1083,7 +2036,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": unknown;
+                    "application/json": components["schemas"]["DeleteResult"];
                 };
             };
             /** @description Validation Error */
@@ -1112,7 +2065,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": unknown;
+                    "application/json": components["schemas"]["SystemHealth"];
                 };
             };
         };
@@ -1132,7 +2085,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": unknown;
+                    "application/json": components["schemas"]["BackupList"];
                 };
             };
         };
@@ -1152,7 +2105,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": unknown;
+                    "application/json": components["schemas"]["BackupResult"];
                 };
             };
         };
@@ -1175,7 +2128,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": unknown;
+                    "application/json": components["schemas"]["ModelEvaluation"];
                 };
             };
             /** @description Validation Error */
@@ -1209,7 +2162,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": unknown;
+                    "application/json": components["schemas"]["CuratorDocument"][];
                 };
             };
             /** @description Validation Error */
@@ -1244,7 +2197,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": unknown;
+                    "application/json": components["schemas"]["DocumentConfirmResult"];
                 };
             };
             /** @description Validation Error */
@@ -1275,7 +2228,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": unknown;
+                    "application/json": components["schemas"]["DocumentStatusResult"];
                 };
             };
             /** @description Validation Error */
@@ -1310,7 +2263,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": unknown;
+                    "application/json": components["schemas"]["DocumentEditResult"];
                 };
             };
             /** @description Validation Error */
@@ -1330,6 +2283,8 @@ export interface operations {
                 paper_id?: string | null;
                 doc_id?: number | null;
                 bucket?: string | null;
+                /** @description Filter for calibration benchmark units only */
+                benchmark_only?: boolean;
             };
             header?: never;
             path?: never;
@@ -1343,7 +2298,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": unknown;
+                    "application/json": components["schemas"]["CuratorQueueItem"][];
                 };
             };
             /** @description Validation Error */
@@ -1378,7 +2333,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": unknown;
+                    "application/json": components["schemas"]["CuratorDecisionResult"];
                 };
             };
             /** @description Validation Error */
@@ -1409,7 +2364,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": unknown;
+                    "application/json": components["schemas"]["BulkAcceptResult"];
                 };
             };
             /** @description Validation Error */
@@ -1441,7 +2396,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": unknown;
+                    "application/json": components["schemas"]["RecomputeResult"];
                 };
             };
             /** @description Validation Error */
@@ -1473,6 +2428,88 @@ export interface operations {
                     "application/json": {
                         [key: string]: string;
                     };
+                };
+            };
+        };
+    };
+    serve_curator_spa_curator__full_path__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                full_path: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    serve_curator_root_curator_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    serve_student_spa__full_path__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                full_path: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
                 };
             };
         };

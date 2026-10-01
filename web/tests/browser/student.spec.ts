@@ -26,7 +26,7 @@ test('plan direct loading, refresh and returned names and destinations', async (
   await expect(page.getByRole('status')).toContainText('Loading');
   await expect(page.getByRole('heading', { name: 'Weekly Study Plan' })).toBeVisible();
   await expect(page.getByLabel('Hours per week')).toHaveValue('2');
-  await expect(page.getByRole('link', { name: '1. Returned beta topic' })).toHaveAttribute('href', `/papers/${paper.id}/synthetic.b`);
+  await expect(page.getByRole('link', { name: '1. Returned beta topic' })).toHaveAttribute('href', `/papers/${paper.id}/synthetic.b?return=%2Fplan`);
   await expect(page.getByText('Recorded reason').first()).toBeVisible();
   await page.getByRole('button', { name: 'Refresh plan' }).click();
   await expect.poll(() => requests).toBe(2);
@@ -51,7 +51,7 @@ test('paper zero values, unavailable scores and URL sorting survive reload', asy
   await page.goto('/papers');
   await expect(page.getByText('Weighted coverage: 0.0%')).toBeVisible();
   await expect(page.getByText('Average importance: Unavailable')).toBeVisible();
-  await expect(page.getByRole('link', { name: /Real returned paper name/ })).toHaveAttribute('href', `/papers/${paper.id}`);
+  await expect(page.getByRole('link', { name: /Real returned paper name/ })).toHaveAttribute('href', `/papers/${paper.id}?overview=%2Fpapers`);
   await page.getByLabel('Group', { exact: true }).selectOption('2');
   await expect(page.getByText('No results match these filters.')).toBeVisible();
   await expect(page).toHaveURL(/group=2/);
@@ -126,7 +126,7 @@ test('integration successful mutations persist and invalidate paper/dashboard/pl
   await page.goto('/');
   await expect(page.getByText(/1 \/ \d+ topics completed/)).toBeVisible();
   await page.getByRole('link', { name: 'Papers', exact: true }).click();
-  await page.locator(`a[href="/papers/${data.paper_id}"]`).click();
+  await page.locator(`a[href^="/papers/${data.paper_id}?overview="]`).click();
   await page.getByRole('link', { name: data.nodes[0].name, exact: true }).click();
   await page.getByLabel('Progress', { exact: true }).selectOption('done');
   await expect(page.getByText('Progress saved.', { exact: true })).toBeVisible();

@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "database": {
+    "host": "127.0.0.1",
+    "port": 5432,
+    "name": "caf"
+  },
+  "source_revision": "0001_initial_schema",
+  "result_revision": "0002_score_config_snapshot",
+  "tables_verified": 43,
+  "unchanged_tables": 41,
+  "changed_tables": [
+    "intel.score_run",
+    "ops.alembic_version"
+  ],
+  "schema_changed_tables": [
+    "intel.score_run"
+  ],
+  "legacy_score_run_count": 87,
+  "legacy_score_run_values_preserved": true,
+  "snapshot_backfilled": false,
+  "personal_and_published_content_unchanged": true
+}

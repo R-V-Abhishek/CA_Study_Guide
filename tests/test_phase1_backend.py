@@ -114,6 +114,10 @@ def test_shadow_runs_are_never_selected(client, session, scored_nodes):
 
 
 def test_plan_budget_groups_and_ties(client, session, scored_nodes):
+    for group in (1, 2):
+        response = client.get('/api/v1/plan', params={'group': group, 'paper': 'P1', 'hours': 3})
+        assert response.status_code == 200
+        assert bool(response.json()['items']) == (group == 1)
     run, nodes = scored_nodes
     tiny = generate_study_plan(session, hours_per_week=0.1)
     assert tiny['budget_items'] == tiny['total_allocated'] == 0

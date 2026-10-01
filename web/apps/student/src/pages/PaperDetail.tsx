@@ -11,6 +11,8 @@ export function PaperDetail() {
   const { paperId = '', nodeId } = useParams();
   const { params, set, search } = useUrlState();
   const returnPath = params.get('return');
+  const overview = params.get('overview');
+  const overviewPath = overview && /^\/papers(\?|$)/.test(overview) ? overview : '/papers';
   const backPath = returnPath && /^\/(progress|plan|revision|papers)(\?|\/|$)/.test(returnPath) ? returnPath : `/papers/${paperId}${search}`;
   const filter = params.get('status') ?? 'all';
   const weak = params.get('weak') === 'true' || filter === 'weak';
@@ -25,7 +27,7 @@ export function PaperDetail() {
     const rank = (status: string) => status === 'in_progress' ? 0 : status === 'not_started' ? 1 : 2;
     return (sort === 'seq' ? a.seq - b.seq : sort === 'not_done' ? rank(a.status) - rank(b.status) : (b.importance ?? -1) - (a.importance ?? -1)) || a.id.localeCompare(b.id);
   }) })).filter(topic => topic.subtopics.length) })).filter(ch => ch.topics.length) ?? [];
-  return <div className="space-y-5"><Link className="topic-link" to={demoLink('/papers')}>← Papers</Link><h1 className="page-title">{tree ? `${tree.code} — ${tree.name}` : 'Paper detail'}</h1><PageState loading={query.isPending} error={query.error} retry={() => query.refetch()} />
+  return <div className="space-y-5"><Link className="topic-link" to={demoLink(overviewPath)}>← Papers</Link><h1 className="page-title">{tree ? `${tree.code} — ${tree.name}` : 'Paper detail'}</h1><PageState loading={query.isPending} error={query.error} retry={() => query.refetch()} />
     {nodeId ? <><Link className="topic-link" to={demoLink(backPath)}>← Return</Link><SubtopicDetail key={nodeId} paperId={paperId} nodeId={nodeId} /></> : tree && <>
       <div className="controls"><label>Search <input aria-label="Search" value={text} onChange={e => set({ search: e.target.value })} /></label><label>Status <select aria-label="Status" value={filter} onChange={e => set({ status: e.target.value })}><option value="all">All statuses</option><option value="not_started">Not started</option><option value="in_progress">In progress</option><option value="done">Done</option></select></label><label><input type="checkbox" checked={weak} onChange={e => set({ weak: e.target.checked ? 'true' : '', status: filter === 'weak' ? 'all' : filter })} /> Weak only</label><label>Sort <select aria-label="Sort" value={sort} onChange={e => set({ sort: e.target.value })}><option value="importance">Highest importance</option><option value="seq">Syllabus order</option><option value="not_done">Not done first</option></select></label></div>
       {!chapters.length && <p className="card">{tree.chapters.some(ch => ch.topics.some(t => t.subtopics.length)) ? 'No results match these filters.' : 'No subtopics available.'}</p>}

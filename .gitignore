@@ -29,6 +29,8 @@ debug/
 node_modules/
 .pnpm-store/
 .turbo/
+web/test-results/
+web/playwright-report/
 # Pre-built frontends tracked for zero-node portability
 !web/apps/student/dist/**
 !web/apps/curator/dist/**

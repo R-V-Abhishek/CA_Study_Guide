@@ -1,0 +1,16 @@
+{
+  "source_artifact": "/Users/rva/Projects/CA_Study_Guide/data/backups/caf_20261001_135750_245563_ce8e08c1",
+  "source_revision": "0001_initial_schema",
+  "passed": true,
+  "result_revision": "0002_score_config_snapshot",
+  "tables_verified_before": 43,
+  "unchanged_tables_after": 41,
+  "legacy_score_run_count": 87,
+  "legacy_score_run_values_preserved": true,
+  "snapshot_backfilled": false,
+  "changed_tables": [
+    "intel.score_run",
+    "ops.alembic_version"
+  ],
+  "normal_database_modified": false
+}

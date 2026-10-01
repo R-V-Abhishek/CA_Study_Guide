@@ -687,7 +687,7 @@ def api_get_subtopic_why(node_id: str, session: Session = Depends(get_db)):
 @router.get("/plan", response_model=StudyPlan)
 def api_get_study_plan(
     paper: str | None = Query(None, description="Optional paper code/ID filter, e.g. P1"),
-    group: Literal[1, 2] | None = Query(None, description="Optional group filter, e.g. 1 or 2"),
+    group: int | None = Query(None, ge=1, le=2, description="Optional group filter, e.g. 1 or 2"),
     hours: float | None = Query(
         None, gt=0, allow_inf_nan=False,
         description="Optional override for study hours per week",

@@ -281,6 +281,11 @@ Phase 0 acceptance passed on 2026-10-01; see
 [verification evidence](Phase0_Verification.md). This enables Phase 1 but does not
 mark its implementation or any later authentication/reader work complete.
 
+Phase 1 acceptance subsequently passed on 2026-10-01; see
+[Phase 1 verification](Phase1_Verification.md) for the 116 isolated Python tests,
+66 Chromium/WebKit checks, generated contracts, migration, and preservation evidence.
+Native Windows verification remains pending. Later phases remain unimplemented.
+
 **Purpose:** Make the existing application honest and usable while structural work proceeds.
 
 Changes:
