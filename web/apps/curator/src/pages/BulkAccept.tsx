@@ -78,13 +78,13 @@ export function BulkAccept() {
               <div className="space-y-1">
                 <div className="flex items-center gap-2">
                   <span className="font-mono text-xs font-bold px-2 py-0.5 rounded bg-indigo-950 text-indigo-300 border border-indigo-700">
-                    {doc.paper_id}
+                    {doc.paper_id ?? "Paper unavailable"}
                   </span>
                   <span className="text-xs font-semibold text-white">
-                    {doc.attempt_id} · {doc.doc_type_id}
+                    {doc.attempt_id ?? "Attempt unavailable"} · {doc.doc_type_id ?? "Document type unavailable"}
                   </span>
                 </div>
-                <h3 className="font-semibold text-sm text-slate-200">{doc.title}</h3>
+                <h3 className="font-semibold text-sm text-slate-200">{doc.title ?? "Title unavailable"}</h3>
                 <div className="text-[11px] text-slate-400 flex items-center gap-2">
                   <FolderOpen className="w-3.5 h-3.5 text-slate-500" />
                   <span>Document ID #{doc.id}</span>

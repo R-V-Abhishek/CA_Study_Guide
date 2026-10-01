@@ -142,19 +142,19 @@ export function Catalogue() {
                         #{doc.id}
                       </td>
                       <td className="p-3.5 font-sans font-medium text-white max-w-xs truncate">
-                        {doc.title}
+                        {doc.title ?? "Title unavailable"}
                       </td>
                       <td className="p-3.5 font-bold text-indigo-400">
-                        {doc.paper_id}
+                        {doc.paper_id ?? "Unavailable"}
                       </td>
                       <td className="p-3.5 text-slate-200">
-                        {doc.attempt_id}
+                        {doc.attempt_id ?? "Unavailable"}
                       </td>
                       <td className="p-3.5 text-slate-400 uppercase">
-                        {doc.doc_type_id}
+                        {doc.doc_type_id ?? "Unavailable"}
                       </td>
                       <td className="p-3.5 text-slate-400">
-                        {doc.page_count} pp
+                        {doc.page_count === null ? "Unavailable" : `${doc.page_count} pp`}
                       </td>
                       <td className="p-3.5">
                         <span
