@@ -120,6 +120,7 @@ def recompute_scores(
     new_run = ScoreRun(
         scoring_version=config.version,
         config_hash=config.config_hash,
+        config_snapshot=config.model_dump(mode="json"),
         target_attempt_id=target_attempt_id,
         shadow=shadow,
         is_current=False,

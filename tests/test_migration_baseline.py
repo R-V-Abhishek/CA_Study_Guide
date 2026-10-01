@@ -9,6 +9,7 @@ from alembic.migration import MigrationContext
 from alembic.operations import Operations
 from sqlalchemy.dialects import postgresql
 from sqlalchemy.schema import CreateIndex, CreateTable
+from sqlalchemy import MetaData
 
 from caf_db.models import Base
 from caf_db.schema_baseline import compare_schema_snapshots, schema_snapshot
@@ -56,7 +57,13 @@ def test_frozen_revision_matches_original_orm_schema():
     revision.upgrade()
     dialect = postgresql.dialect()
     expected = []
+    original_metadata = MetaData()
     for table in Base.metadata.sorted_tables:
+        table.to_metadata(original_metadata)
+    # Only this explicitly forward-migrated column is absent from frozen 0001.
+    original_run = original_metadata.tables["intel.score_run"]
+    original_run._columns.remove(original_run.c.config_snapshot)
+    for table in original_metadata.sorted_tables:
         expected.append(str(CreateTable(table).compile(dialect=dialect)))
         expected.extend(str(CreateIndex(index).compile(dialect=dialect)) for index in table.indexes)
     assert ddl_statements(output.getvalue()) == ddl_statements(";".join(expected))
@@ -171,10 +178,10 @@ def test_supplied_connection_migration_baseline_isolated_from_settings(isolated_
 
         monkeypatch.setattr(caf_common.settings, "get_settings", settings_forbidden)
         with destination.connect() as connection:
-            baseline = migrated_schema_snapshot(connection, "0001_initial_schema")
+            baseline = migrated_schema_snapshot(connection, "0002_score_config_snapshot")
             assert compare_schema_snapshots(baseline, before) == {}
             with pytest.raises(ValueError, match="already contains"):
-                migrated_schema_snapshot(connection, "0001_initial_schema")
+                migrated_schema_snapshot(connection, "0002_score_config_snapshot")
         with source.connect() as connection:
             assert schema_snapshot(connection) == before
     finally:

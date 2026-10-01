@@ -7,8 +7,9 @@ from sqlalchemy.orm import Session
 from caf_db.models.core import Appearance, AppearanceTag
 from caf_db.models.intel import IngestionCoverage, ScoreRun, SubtopicScore
 from caf_db.models.ref import Attempt, Node, Paper, WeightageMember, WeightageSection
-from caf_l5.config import load_scoring_config
+from caf_l5.config import ScoringConfig, load_scoring_config
 from caf_l5.scoring import calculate_attributed_marks, compute_age_months, compute_decay
+from caf_l5.service import get_current_score_run
 
 
 def get_subtopic_why(
@@ -21,8 +22,6 @@ def get_subtopic_why(
     Returns all parameters, contributing appearances, intermediate decay/attributed marks,
     weightage section priors, normalization factors, and frequency calculations.
     """
-    config = load_scoring_config()
-
     # 1. Fetch node hierarchy
     subtopic = session.get(Node, node_id)
     if not subtopic or subtopic.level != "subtopic":
@@ -35,28 +34,63 @@ def get_subtopic_why(
     # 2. Fetch score run
     if run_id:
         score_run = session.get(ScoreRun, run_id)
+        if score_run and (score_run.shadow or score_run.status != "ok"):
+            raise ValueError("Only successful, non-shadow score runs can be explained")
     else:
-        score_run = session.query(ScoreRun).where(
-            ScoreRun.is_current.is_(True), ScoreRun.status == "ok"
-        ).first()
-
-    if not score_run:
-        # Fallback to latest ok run
-        score_run = session.query(ScoreRun).where(ScoreRun.status == "ok").order_by(
-            ScoreRun.id.desc()
-        ).first()
-
-    if not score_run:
-        return {
-            "node_id": node_id,
-            "error": "No completed score run found in database. Run 'caf intel recompute' first.",
-        }
+        score_run = get_current_score_run(session)
 
     # 3. Fetch subtopic score record
     score_rec = session.query(SubtopicScore).where(
         SubtopicScore.score_run_id == score_run.id,
         SubtopicScore.node_id == node_id,
-    ).first()
+    ).first() if score_run else None
+
+    # Stored scores remain authoritative. Never derive a historical formula from
+    # a different configuration merely because it is today's configuration.
+    configuration_source = None
+    config = None
+    if score_run and score_run.config_snapshot is not None:
+        config = ScoringConfig.model_validate(score_run.config_snapshot)
+        configuration_source = "snapshot"
+    elif score_run:
+        current_config = load_scoring_config()
+        if current_config.config_hash == score_run.config_hash:
+            config = current_config
+            configuration_source = "matching_current"
+
+    identity = {
+        "id": score_run.id,
+        "version": score_run.scoring_version,
+        "target_attempt_id": score_run.target_attempt_id,
+        "computed_at": score_run.finished_at.isoformat() if score_run.finished_at else None,
+    } if score_run else None
+    subtopic_info = {
+        "id": subtopic.id,
+        "name": subtopic.name,
+        "paper": {"id": paper.id, "code": paper.code, "name": paper.name} if paper else None,
+        "chapter": {"id": chapter.id, "name": chapter.name} if chapter else None,
+        "topic": {"id": topic.id, "name": topic.name} if topic else None,
+        "applicable": score_rec.applicable if score_rec else True,
+    }
+    if not score_run or not score_rec or config is None:
+        status = "no_score_run" if not score_run else (
+            "score_unavailable" if not score_rec else "historical_configuration_unavailable"
+        )
+        messages = {
+            "no_score_run": "No completed score run is available.",
+            "score_unavailable": "No score is available for this subtopic in the selected run.",
+            "historical_configuration_unavailable": "Historical configuration unavailable.",
+        }
+        return {
+            "node_id": node_id, "explanation_status": status, "error": messages[status],
+            "configuration_source": configuration_source, "score_run": identity,
+            "subtopic": subtopic_info,
+            "importance_breakdown": {
+                "importance": score_rec.importance if score_rec else None,
+                "weights": None, "exam": None, "practice": None, "weightage_prior": None,
+            },
+            "frequency": None, "weightage_section": None, "appearances": [],
+        }
 
     target_att = session.get(Attempt, score_run.target_attempt_id)
     t_year = target_att.exam_year if target_att else 2026
@@ -247,6 +281,10 @@ def get_subtopic_why(
     w_norm = (w_val / max_w) if max_w > 0 else 0.0
 
     return {
+        "node_id": node_id,
+        "explanation_status": "available",
+        "error": None,
+        "configuration_source": configuration_source,
         "score_run": {
             "id": score_run.id,
             "version": score_run.scoring_version,
@@ -272,19 +310,25 @@ def get_subtopic_why(
                 "score_E": round(e_val, 4),
                 "paper_max_E": round(max_e, 4),
                 "normalized_E_hat": round(e_norm, 4),
+                "normalized_E_pct": round(e_norm * 100, 2),
                 "weighted_contribution": round(config.weights.exam * e_norm, 4),
+                "weighted_contribution_pct": round(config.weights.exam * e_norm * 100, 2),
             },
             "practice": {
                 "score_P": round(p_val, 4),
                 "paper_max_P": round(max_p, 4),
                 "normalized_P_hat": round(p_norm, 4),
+                "normalized_P_pct": round(p_norm * 100, 2),
                 "weighted_contribution": round(config.weights.practice * p_norm, 4),
+                "weighted_contribution_pct": round(config.weights.practice * p_norm * 100, 2),
             },
             "weightage_prior": {
                 "weight_prior_W": round(w_val, 4),
                 "paper_max_W": round(max_w, 4),
                 "normalized_W_hat": round(w_norm, 4),
+                "normalized_W_pct": round(w_norm * 100, 2),
                 "weighted_contribution": round(config.weights.prior * w_norm, 4),
+                "weighted_contribution_pct": round(config.weights.prior * w_norm * 100, 2),
             },
         },
         "frequency": {

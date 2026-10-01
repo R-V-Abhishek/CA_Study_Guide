@@ -61,7 +61,7 @@ def get_revision_due_list(
     all_events = (
         session.query(RevisionEvent)
         .where(RevisionEvent.user_id == user_id)
-        .order_by(RevisionEvent.at.asc())
+        .order_by(RevisionEvent.at.asc(), RevisionEvent.id.asc())
         .all()
     )
     events_by_node: dict[str, list[RevisionEvent]] = {}
@@ -84,13 +84,13 @@ def get_revision_due_list(
                     k += 1
 
         interval_days = intervals[min(k, len(intervals) - 1)]
-        base_date = last_revised.date() if isinstance(last_revised, datetime) else last_revised
+        base_date = last_revised.date()
         due_date = base_date + timedelta(days=interval_days)
 
         if due_date <= today:
             overdue_days = (today - due_date).days
             sc = scores_map.get(node.id)
-            importance = sc.importance if sc else 0.0
+            importance = sc.importance if sc else None
 
             due_list.append({
                 "node_id": node.id,
@@ -107,7 +107,10 @@ def get_revision_due_list(
             })
 
     # Order by I(s) desc, then overdue days desc
-    due_list.sort(key=lambda item: (item["importance"], item["overdue_days"]), reverse=True)
+    due_list.sort(key=lambda item: (
+        -(item["importance"] if item["importance"] is not None else -1),
+        -item["overdue_days"], item["node_id"],
+    ))
     return due_list
 
 
@@ -122,7 +125,7 @@ def record_revision_outcome(
         raise ValueError(f"Invalid revision outcome '{outcome}'. Must be 'ok' or 'shaky'.")
 
     node = session.get(Node, node_id)
-    if not node:
+    if not node or node.level != "subtopic":
         raise ValueError(f"Node '{node_id}' not found.")
 
     progress = session.get(Progress, (user_id, node_id))

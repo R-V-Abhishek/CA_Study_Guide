@@ -6,6 +6,13 @@ import sqlalchemy as sa
 from sqlalchemy.orm import Session
 
 from caf_common.settings import get_settings
+from caf_api.responses import (
+    BackupList, BackupResult, ChapterItem, Dashboard, DeleteResult, Metadata,
+    MockTestResult, ModelEvaluation, NoteResult, PaperSummary, PaperTree,
+    ProgressResult, RevisionQueue, RevisionResult, ScoreExplanation, StudyPlan,
+    SubtopicDetail, SubtopicItem, SystemHealth, TopicItem,
+)
+from caf_api.version import backend_revision, score_run_identity
 from caf_db.engine import get_session_factory
 from caf_db.models.app import (
     MockTest,
@@ -82,56 +89,10 @@ class MockTestCreateRequest(BaseModel):
     paper_id: str
     attempt_id: str | None = None
     label: str | None = None
-    score: float
-    max_score: float = 100.0
+    score: float = Field(ge=0, allow_inf_nan=False)
+    max_score: float = Field(default=100.0, gt=0, allow_inf_nan=False)
     taken_on: date
     notes: str | None = None
-
-
-class SubtopicItem(BaseModel):
-    id: str
-    name: str
-    seq: int
-    status: str
-    notes: str | None = None
-    first_done_at: datetime | None = None
-    last_revised_at: datetime | None = None
-    importance: float = 0.0
-    freq_hits: int = 0
-    freq_window: int = 0
-    weak: bool = False
-    applicable: bool = True
-
-
-class TopicItem(BaseModel):
-    id: str
-    name: str
-    seq: int
-    subtopics: list[SubtopicItem]
-
-
-class ChapterItem(BaseModel):
-    id: str
-    name: str
-    seq: int
-    weightage_min_pct: float | None = None
-    weightage_max_pct: float | None = None
-    weightage_section_name: str | None = None
-    total_subtopics: int = 0
-    completed_subtopics: int = 0
-    progress_pct: float = 0.0
-    topics: list[TopicItem]
-
-
-class PaperSummary(BaseModel):
-    id: str
-    code: str
-    name: str
-    group_no: int | None
-    total_subtopics: int
-    completed_subtopics: int
-    raw_progress_pct: float
-    weighted_coverage_pct: float
 
 
 # ==============================================================================
@@ -145,9 +106,10 @@ def list_papers(session: Session = Depends(get_db)):
     user_id = settings.app.user_id
 
     papers = session.execute(
-        sa.select(Paper).where(Paper.is_current.is_(True)).order_by(Paper.code)
+        sa.select(Paper).where(Paper.is_current.is_(True)).order_by(Paper.code, Paper.id)
     ).scalars().all()
 
+    revision_due = get_revision_due_list(session, user_id=user_id)
     summaries = []
     for p in papers:
         # Get all subtopics for this paper
@@ -169,6 +131,26 @@ def list_papers(session: Session = Depends(get_db)):
                 )
             ).scalar() or 0
 
+        scores = get_subtopic_scores_for_paper(session, p.id)
+        applicable_scores = [
+            scores[node_id] for node_id in sub_ids
+            if node_id in scores and scores[node_id].applicable
+        ]
+        average_importance = (
+            sum(sc.importance for sc in applicable_scores) / len(applicable_scores)
+            if applicable_scores else None
+        )
+        progress_statuses = dict(session.execute(
+            sa.select(Progress.node_id, Progress.status).where(
+                Progress.user_id == user_id, Progress.node_id.in_(sub_ids)
+            )
+        ).all())
+        weak_count = sum(
+            is_subtopic_weak(
+                sc.applicable, sc.freq_hits, sc.freq_window,
+                progress_statuses.get(sc.node_id, "not_started"),
+            ) for sc in applicable_scores
+        )
         raw_pct = (completed_count / total_sub * 100.0) if total_sub > 0 else 0.0
 
         # Compute weighted coverage using chapter weightage midpoints
@@ -189,7 +171,10 @@ def list_papers(session: Session = Depends(get_db)):
 
         for ch_id, min_pct, max_pct in ch_rows:
             # Chapter midpoint weight
-            ch_mid = ((float(min_pct) + float(max_pct)) / 2.0) if min_pct and max_pct else 10.0
+            ch_mid = (
+                (float(min_pct) + float(max_pct)) / 2.0
+                if min_pct is not None and max_pct is not None else 10.0
+            )
             total_weight += ch_mid
 
             # Subtopics in this chapter
@@ -221,13 +206,16 @@ def list_papers(session: Session = Depends(get_db)):
                 completed_subtopics=completed_count,
                 raw_progress_pct=round(raw_pct, 1),
                 weighted_coverage_pct=round(weighted_pct, 1),
+                average_importance=average_importance,
+                revision_due_count=sum(item["paper_id"] == p.id for item in revision_due),
+                weak_topic_count=weak_count,
             )
         )
 
     return summaries
 
 
-@router.get("/papers/{paper_id}/tree")
+@router.get("/papers/{paper_id}/tree", response_model=PaperTree)
 def get_paper_tree(paper_id: str, session: Session = Depends(get_db)):
     ensure_default_user(session)
     settings = get_settings()
@@ -239,7 +227,7 @@ def get_paper_tree(paper_id: str, session: Session = Depends(get_db)):
 
     # Fetch all nodes for this paper
     nodes = session.execute(
-        sa.select(Node).where(Node.paper_id == paper_id, Node.status == "active").order_by(Node.seq)
+        sa.select(Node).where(Node.paper_id == paper_id, Node.status == "active").order_by(Node.seq, Node.id)
     ).scalars().all()
 
     # User progress & notes map
@@ -283,14 +271,14 @@ def get_paper_tree(paper_id: str, session: Session = Depends(get_db)):
     scores_map = get_subtopic_scores_for_paper(session, paper_id)
 
     result_chapters = []
-    for ch_id, ch in sorted(chapters_by_id.items(), key=lambda x: x[1].seq):
+    for ch_id, ch in sorted(chapters_by_id.items(), key=lambda x: (x[1].seq, x[1].id)):
         topics_out = []
         ch_sub_count = 0
         ch_sub_done = 0
 
-        for t in sorted(topics_by_parent.get(ch_id, []), key=lambda x: x.seq):
+        for t in sorted(topics_by_parent.get(ch_id, []), key=lambda x: (x.seq, x.id)):
             subs_out = []
-            for s in sorted(subtopics_by_parent.get(t.id, []), key=lambda x: x.seq):
+            for s in sorted(subtopics_by_parent.get(t.id, []), key=lambda x: (x.seq, x.id)):
                 ch_sub_count += 1
                 pr = progress_map.get(s.id)
                 status = pr.status if pr else "not_started"
@@ -298,7 +286,7 @@ def get_paper_tree(paper_id: str, session: Session = Depends(get_db)):
                     ch_sub_done += 1
 
                 sc = scores_map.get(s.id)
-                importance = sc.importance if sc else 0.0
+                importance = sc.importance if sc else None
                 freq_hits = sc.freq_hits if sc else 0
                 freq_window = sc.freq_window if sc else 0
                 applicable = sc.applicable if sc else True
@@ -348,21 +336,23 @@ def get_paper_tree(paper_id: str, session: Session = Depends(get_db)):
     }
 
 
-@router.get("/tree")
+@router.get("/tree", response_model=PaperTree)
 def get_tree_by_query(
     paper: str,
     session: Session = Depends(get_db),
 ):
     """Retrieve paper taxonomy tree by code (e.g. P1) or ID (s2023.P1)."""
     paper_row = session.execute(
-        sa.select(Paper).where((Paper.code == paper.upper()) | (Paper.id == paper))
+        sa.select(Paper).where(
+            (Paper.id == paper) | sa.and_(Paper.code == paper.upper(), Paper.is_current.is_(True))
+        )
     ).scalar_one_or_none()
     if not paper_row:
         raise HTTPException(status_code=404, detail=f"Paper '{paper}' not found")
     return get_paper_tree(paper_row.id, session)
 
 
-@router.get("/subtopics/{node_id}")
+@router.get("/subtopics/{node_id}", response_model=SubtopicDetail)
 def get_subtopic_detail(node_id: str, session: Session = Depends(get_db)):
     ensure_default_user(session)
     settings = get_settings()
@@ -405,8 +395,8 @@ def get_subtopic_detail(node_id: str, session: Session = Depends(get_db)):
         sa.select(Appearance)
         .join(AppearanceTag, AppearanceTag.appearance_id == Appearance.id)
         .where(AppearanceTag.node_id.in_(relevant_node_ids), Appearance.status == "published")
-        .order_by(Appearance.attempt_id.desc())
-    ).scalars().all()
+        .order_by(Appearance.attempt_id.desc(), Appearance.id)
+    ).scalars().unique().all()
 
     appearances_out = [
         {
@@ -435,10 +425,10 @@ def get_subtopic_detail(node_id: str, session: Session = Depends(get_db)):
 
     status_str = progress.status if progress else "not_started"
     score_out = {
-        "importance": score_rec.importance if score_rec else 0.0,
-        "exam_score": score_rec.exam_score if score_rec else 0.0,
-        "practice_score": score_rec.practice_score if score_rec else 0.0,
-        "weight_prior": score_rec.weight_prior if score_rec else 0.0,
+        "importance": score_rec.importance if score_rec else None,
+        "exam_score": score_rec.exam_score if score_rec else None,
+        "practice_score": score_rec.practice_score if score_rec else None,
+        "weight_prior": score_rec.weight_prior if score_rec else None,
         "freq_hits": score_rec.freq_hits if score_rec else 0,
         "freq_window": score_rec.freq_window if score_rec else 0,
         "exam_marks_total": score_rec.exam_marks_total if score_rec else 0,
@@ -467,12 +457,13 @@ def get_subtopic_detail(node_id: str, session: Session = Depends(get_db)):
         "first_done_at": progress.first_done_at if progress else None,
         "last_revised_at": progress.last_revised_at if progress else None,
         "weightage": w_info,
+        "score_run": score_run_identity(current_run),
         "score": score_out,
         "appearances": appearances_out,
     }
 
 
-@router.put("/subtopics/{node_id}/progress")
+@router.put("/subtopics/{node_id}/progress", response_model=ProgressResult)
 def update_subtopic_progress(
     node_id: str,
     req: ProgressUpdateRequest,
@@ -521,7 +512,7 @@ def update_subtopic_progress(
     return {"status": progress.status, "node_id": node_id, "updated_at": now.isoformat()}
 
 
-@router.put("/subtopics/{node_id}/notes")
+@router.put("/subtopics/{node_id}/notes", response_model=NoteResult)
 def update_subtopic_notes(
     node_id: str,
     req: NoteUpdateRequest,
@@ -548,7 +539,7 @@ def update_subtopic_notes(
     return {"node_id": node_id, "notes": note.body, "updated_at": now.isoformat()}
 
 
-@router.get("/dashboard")
+@router.get("/dashboard", response_model=Dashboard)
 def get_dashboard(session: Session = Depends(get_db)):
     ensure_default_user(session)
     settings = get_settings()
@@ -606,7 +597,7 @@ def get_dashboard(session: Session = Depends(get_db)):
         .join(Node, Node.id == ProgressEvent.node_id)
         .join(Paper, Paper.id == Node.paper_id)
         .where(ProgressEvent.user_id == user_id)
-        .order_by(ProgressEvent.at.desc())
+        .order_by(ProgressEvent.at.desc(), ProgressEvent.id.desc())
         .limit(10)
     ).all()
 
@@ -653,7 +644,7 @@ def get_dashboard(session: Session = Depends(get_db)):
     }
 
 
-@router.get("/meta")
+@router.get("/meta", response_model=Metadata)
 def get_meta(session: Session = Depends(get_db)):
     """System metadata and ingestion coverage indicator."""
     settings = get_settings()
@@ -663,8 +654,10 @@ def get_meta(session: Session = Depends(get_db)):
     )
     return {
         "taxonomy_version": "v1",
-        "scoring_version": current_run.scoring_version if current_run else "v1",
+        "scoring_version": current_run.scoring_version if current_run else None,
         "api_version": "v1",
+        "backend_revision": backend_revision(),
+        "score_run": score_run_identity(current_run),
         "target_attempt": settings.app.target_attempt_id,
         "score_run_id": current_run.id if current_run else None,
         "score_run_computed_at": current_run.finished_at.isoformat() if current_run and current_run.finished_at else None,
@@ -672,7 +665,7 @@ def get_meta(session: Session = Depends(get_db)):
     }
 
 
-@router.get("/why/subtopic/{node_id}")
+@router.get("/why/subtopic/{node_id}", response_model=ScoreExplanation)
 def api_get_subtopic_why(node_id: str, session: Session = Depends(get_db)):
     """Explainability payload for a subtopic score."""
     try:
@@ -685,11 +678,14 @@ def api_get_subtopic_why(node_id: str, session: Session = Depends(get_db)):
 # M6: Planning, Revision Queue & Mock Tests Endpoints
 # ==============================================================================
 
-@router.get("/plan")
+@router.get("/plan", response_model=StudyPlan)
 def api_get_study_plan(
     paper: str | None = Query(None, description="Optional paper code/ID filter, e.g. P1"),
-    group: int | None = Query(None, description="Optional group filter, e.g. 1 or 2"),
-    hours: float | None = Query(None, description="Optional override for study hours per week"),
+    group: Literal[1, 2] | None = Query(None, description="Optional group filter, e.g. 1 or 2"),
+    hours: float | None = Query(
+        None, gt=0, allow_inf_nan=False,
+        description="Optional override for study hours per week",
+    ),
     session: Session = Depends(get_db),
 ):
     """Retrieve next-week study plan with allocated subtopics and factual reasons."""
@@ -707,7 +703,7 @@ def api_get_study_plan(
     return plan
 
 
-@router.get("/revision/due")
+@router.get("/revision/due", response_model=RevisionQueue)
 def api_get_revision_due(
     paper: str | None = Query(None, description="Optional paper code/ID filter"),
     session: Session = Depends(get_db),
@@ -724,7 +720,7 @@ def api_get_revision_due(
     }
 
 
-@router.post("/subtopics/{node_id}/revisions")
+@router.post("/subtopics/{node_id}/revisions", response_model=RevisionResult)
 def api_record_subtopic_revision(
     node_id: str,
     req: RevisionLogRequest,
@@ -747,7 +743,7 @@ def api_record_subtopic_revision(
         raise HTTPException(status_code=400, detail=str(exc))
 
 
-@router.get("/mock-tests")
+@router.get("/mock-tests", response_model=list[MockTestResult])
 def api_list_mock_tests(
     paper: str | None = Query(None, description="Optional paper filter"),
     session: Session = Depends(get_db),
@@ -760,7 +756,7 @@ def api_list_mock_tests(
     query = sa.select(MockTest, Paper.code).join(Paper, Paper.id == MockTest.paper_id).where(MockTest.user_id == user_id)
     if paper:
         query = query.where((Paper.code == paper.upper()) | (Paper.id == paper))
-    query = query.order_by(MockTest.taken_on.desc())
+    query = query.order_by(MockTest.taken_on.desc(), MockTest.id.desc())
 
     rows = session.execute(query).all()
     tests = []
@@ -781,7 +777,7 @@ def api_list_mock_tests(
     return tests
 
 
-@router.post("/mock-tests")
+@router.post("/mock-tests", response_model=MockTestResult)
 def api_create_mock_test(
     req: MockTestCreateRequest,
     session: Session = Depends(get_db),
@@ -793,7 +789,9 @@ def api_create_mock_test(
 
     # Resolve paper ID
     paper = session.execute(
-        sa.select(Paper).where((Paper.id == req.paper_id) | (Paper.code == req.paper_id.upper()))
+        sa.select(Paper).where(
+            (Paper.id == req.paper_id) | sa.and_(Paper.code == req.paper_id.upper(), Paper.is_current.is_(True))
+        )
     ).scalar_one_or_none()
     if not paper:
         raise HTTPException(status_code=404, detail=f"Paper '{req.paper_id}' not found")
@@ -826,7 +824,7 @@ def api_create_mock_test(
     }
 
 
-@router.delete("/mock-tests/{test_id}")
+@router.delete("/mock-tests/{test_id}", response_model=DeleteResult)
 def api_delete_mock_test(
     test_id: int,
     session: Session = Depends(get_db),
@@ -848,7 +846,7 @@ def api_delete_mock_test(
 # ==============================================================================
 # System Observability & Hardening Endpoints (Milestone 8)
 # ==============================================================================
-@router.get("/system/health")
+@router.get("/system/health", response_model=SystemHealth)
 def api_get_system_health(session: Session = Depends(get_db)):
     """Retrieve overall system health and active operational alarms."""
     from caf_common.alarms import get_system_health
@@ -869,7 +867,7 @@ def api_get_system_health(session: Session = Depends(get_db)):
     }
 
 
-@router.get("/system/backups")
+@router.get("/system/backups", response_model=BackupList)
 def api_list_backups():
     """List existing database backup dumps with sizes and ages."""
     from caf_common.backup import list_backups
@@ -890,7 +888,7 @@ def api_list_backups():
     }
 
 
-@router.post("/system/backups")
+@router.post("/system/backups", response_model=BackupResult)
 def api_trigger_backup(session: Session = Depends(get_db)):
     """Trigger an immediate full database and asset backup."""
     from caf_common.backup import create_backup
@@ -909,7 +907,7 @@ def api_trigger_backup(session: Session = Depends(get_db)):
         raise HTTPException(status_code=500, detail=f"Backup failed: {exc}")
 
 
-@router.get("/system/model-evaluation")
+@router.get("/system/model-evaluation", response_model=ModelEvaluation)
 def api_evaluate_models(
     threshold: float = 0.80,
     min_samples: int = 5,
@@ -941,4 +939,3 @@ def api_evaluate_models(
         "status_note": report.status_note,
         "evaluated_at": report.evaluated_at.isoformat(),
     }
-

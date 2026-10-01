@@ -1,6 +1,8 @@
 """Intel schema models: intel.* intelligence and scoring tables."""
 
 from datetime import datetime
+from typing import Any
+from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy import (
     BigInteger,
     Boolean,
@@ -35,6 +37,7 @@ class ScoreRun(Base):
 
     id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
     scoring_version: Mapped[str] = mapped_column(Text, nullable=False)
+    config_snapshot: Mapped[dict[str, Any] | None] = mapped_column(JSONB, nullable=True)
     config_hash: Mapped[str] = mapped_column(Text, nullable=False)
     target_attempt_id: Mapped[str] = mapped_column(Text, ForeignKey("ref.attempt.id"), nullable=False)
     shadow: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False)

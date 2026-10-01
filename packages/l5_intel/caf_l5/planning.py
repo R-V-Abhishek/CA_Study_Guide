@@ -38,13 +38,17 @@ def generate_study_plan(
     if minutes_per_subtopic is None:
         minutes_per_subtopic = int(app_settings.minutes_per_subtopic) if app_settings else 45
 
+    if not math.isfinite(hours_per_week) or hours_per_week <= 0:
+        raise ValueError("Study hours must be finite and positive")
+    if group_no not in (None, 1, 2):
+        raise ValueError("Group must be 1 or 2")
     if minutes_per_subtopic <= 0:
-        minutes_per_subtopic = 45
+        raise ValueError("Minutes per subtopic must be positive")
     budget_items = math.floor((hours_per_week * 60) / minutes_per_subtopic)
 
     # 2. Fetch current ScoreRun
     current_run = get_current_score_run(session)
-    if not current_run:
+    if not current_run or budget_items < 1:
         return {
             "budget_items": budget_items,
             "total_allocated": 0,
@@ -78,6 +82,8 @@ def generate_study_plan(
             SubtopicScore.score_run_id == current_run.id,
             SubtopicScore.applicable.is_(True),
             Paper.is_current.is_(True),
+            Node.status == "active",
+            Node.level == "subtopic",
         )
     )
 
@@ -150,7 +156,7 @@ def generate_study_plan(
         })
 
     # Sort descending by priority_score, then importance
-    candidates.sort(key=lambda c: (c["priority_score"], c["importance"]), reverse=True)
+    candidates.sort(key=lambda c: (-c["priority_score"], -c["importance"], c["node_id"]))
 
     # Greedy allocation with per_chapter_cap
     per_cap = config.plan.per_chapter_cap

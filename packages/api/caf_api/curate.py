@@ -9,6 +9,10 @@ from sqlalchemy.orm import Session
 from caf_api.routes import get_db
 from caf_l1.catalog import confirm_document, reject_document
 from caf_db.models.ingest import Document
+from caf_api.responses import (
+    BulkAcceptResult, CuratorDecisionResult, CuratorDocument, CuratorQueueItem,
+    DocumentConfirmResult, DocumentEditResult, DocumentStatusResult, RecomputeResult,
+)
 
 router = APIRouter(prefix="/api/v1/curate", tags=["curation"])
 
@@ -31,7 +35,7 @@ class DocumentConfirmRequest(BaseModel):
     title: str | None = None
 
 
-@router.get("/documents")
+@router.get("/documents", response_model=list[CuratorDocument])
 def list_curate_documents(
     status: str | None = Query(None, description="inferred, needs_curation, confirmed, rejected"),
     attempt_id: str | None = None,
@@ -69,7 +73,7 @@ def list_curate_documents(
     ]
 
 
-@router.post("/documents/{doc_id}/confirm")
+@router.post("/documents/{doc_id}/confirm", response_model=DocumentConfirmResult)
 def api_confirm_document(
     doc_id: int,
     req: DocumentConfirmRequest | None = None,
@@ -89,7 +93,7 @@ def api_confirm_document(
         raise HTTPException(status_code=400, detail=str(exc))
 
 
-@router.post("/documents/{doc_id}/reject")
+@router.post("/documents/{doc_id}/reject", response_model=DocumentStatusResult)
 def api_reject_document(doc_id: int, session: Session = Depends(get_db)):
     try:
         doc = reject_document(session, doc_id)
@@ -98,7 +102,7 @@ def api_reject_document(doc_id: int, session: Session = Depends(get_db)):
         raise HTTPException(status_code=400, detail=str(exc))
 
 
-@router.put("/documents/{doc_id}")
+@router.put("/documents/{doc_id}", response_model=DocumentEditResult)
 def api_edit_document(
     doc_id: int,
     req: DocumentEditRequest,
@@ -109,7 +113,7 @@ def api_edit_document(
         raise HTTPException(status_code=404, detail=f"Document {doc_id} not found")
 
     for k, v in req.model_dump(exclude_unset=True).items():
-        if hasattr(doc, k) and v is not None:
+        if v is not None:
             setattr(doc, k, v)
 
     session.commit()
@@ -129,7 +133,7 @@ class DecisionRequest(BaseModel):
     blind: bool = False
 
 
-@router.get("/queue")
+@router.get("/queue", response_model=list[CuratorQueueItem])
 def list_curate_queue(
     paper_id: str | None = None,
     doc_id: int | None = None,
@@ -161,6 +165,16 @@ def list_curate_queue(
 
     # Pre-fetch nodes
     all_nodes = {n.id: n for n in session.query(Node).all()}
+
+    def recommendation(node_id: str) -> dict:
+        node = all_nodes.get(node_id)
+        ancestry = {"chapter": None, "topic": None, "subtopic": None}
+        current = node
+        while current:
+            if current.level in ancestry:
+                ancestry[current.level] = {"id": current.id, "name": current.name}
+            current = all_nodes.get(current.parent_id) if current.parent_id else None
+        return {"node_id": node_id, "node_name": node.name if node else None, **ancestry}
 
     items = []
     for u, doc in units_with_doc:
@@ -199,17 +213,13 @@ def list_curate_queue(
                 "answer_text": ans.answer_text if ans else None,
                 "bucket": prim.bucket,
                 "primary_suggestion": {
-                    "node_id": prim.node_id,
-                    "node_name": all_nodes.get(prim.node_id, Node(name=prim.node_id)).name,
-                    "justification": prim.evidence.get("justification") if isinstance(prim.evidence, dict) else None,
-                    "gist": prim.evidence.get("gist") if isinstance(prim.evidence, dict) else None,
-                    "alternatives": prim.evidence.get("alternatives", []) if isinstance(prim.evidence, dict) else [],
+                    **recommendation(prim.node_id),
+                    "justification": (prim.evidence or {}).get("justification"),
+                    "gist": (prim.evidence or {}).get("gist"),
+                    "alternatives": (prim.evidence or {}).get("alternatives", []),
                 },
                 "secondary_suggestions": [
-                    {
-                        "node_id": s.node_id,
-                        "node_name": all_nodes.get(s.node_id, Node(name=s.node_id)).name,
-                    }
+                    recommendation(s.node_id)
                     for s in secondaries
                 ],
             }
@@ -218,7 +228,7 @@ def list_curate_queue(
     return items
 
 
-@router.post("/units/{unit_id}/decision")
+@router.post("/units/{unit_id}/decision", response_model=CuratorDecisionResult)
 def api_make_decision(
     unit_id: int,
     req: DecisionRequest,
@@ -250,7 +260,7 @@ def api_make_decision(
         raise HTTPException(status_code=400, detail=str(exc))
 
 
-@router.post("/documents/{doc_id}/bulk_accept_bucket_a")
+@router.post("/documents/{doc_id}/bulk_accept_bucket_a", response_model=BulkAcceptResult)
 def api_bulk_accept_bucket_a(
     doc_id: int,
     session: Session = Depends(get_db),
@@ -265,7 +275,7 @@ def api_bulk_accept_bucket_a(
         raise HTTPException(status_code=400, detail=str(exc))
 
 
-@router.post("/intel/recompute")
+@router.post("/intel/recompute", response_model=RecomputeResult)
 def api_curate_recompute_scores(
     target_attempt_id: str | None = None,
     shadow: bool = False,

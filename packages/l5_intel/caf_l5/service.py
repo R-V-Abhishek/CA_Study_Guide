@@ -34,11 +34,11 @@ def is_subtopic_weak(
 def get_current_score_run(session: Session) -> ScoreRun | None:
     """Retrieve the active current ScoreRun."""
     run = session.query(ScoreRun).where(
-        ScoreRun.is_current.is_(True), ScoreRun.status == "ok"
+        ScoreRun.is_current.is_(True), ScoreRun.status == "ok", ScoreRun.shadow.is_(False)
     ).first()
     if not run:
         run = session.query(ScoreRun).where(
-            ScoreRun.status == "ok"
+            ScoreRun.status == "ok", ScoreRun.shadow.is_(False)
         ).order_by(ScoreRun.id.desc()).first()
     return run
 
@@ -100,7 +100,7 @@ def get_weak_subtopics(
     if paper_id:
         query = query.where(Node.paper_id == paper_id)
 
-    query = query.order_by(SubtopicScore.importance.desc()).limit(limit)
+    query = query.order_by(SubtopicScore.importance.desc(), Node.id).limit(limit)
     results = query.all()
 
     items = []
@@ -160,7 +160,10 @@ def compute_weighted_coverage(
     """
     current_run = get_current_score_run(session)
     if not current_run:
-        return {"overall": 0.0, "groups": {}, "papers": {}}
+        return {
+            "overall_coverage_pct": None, "overall_in_progress_pct": None,
+            "groups": {}, "papers": {},
+        }
 
     scores_and_nodes = (
         session.query(SubtopicScore, Node, Paper, Progress)
