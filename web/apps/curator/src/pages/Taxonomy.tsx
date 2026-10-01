@@ -1,26 +1,20 @@
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Network, ChevronDown, ChevronRight, Hash } from "lucide-react";
-import { curatorClient } from "../lib/client";
+import { curatorClient, requiredData } from "../lib/client";
+import { RequestError } from "../components/RequestError";
 
 export function Taxonomy() {
-  const [selectedPaper, setSelectedPaper] = useState("P1");
+  const [selectedPaper, setSelectedPaper] = useState("");
   const [expandedChapters, setExpandedChapters] = useState<Record<string, boolean>>({});
 
-  const { data: treeData, isLoading } = useQuery({
-    queryKey: ["curator-taxonomy-tree", selectedPaper],
+  const papers = useQuery({ queryKey: ["curator-papers"], queryFn: async () => requiredData(await curatorClient.GET("/api/v1/papers")) });
+  const paperId = selectedPaper || papers.data?.[0]?.id;
+  const { data: treeData, isLoading, error, refetch } = useQuery({
+    queryKey: ["curator-taxonomy-tree", paperId],
+    enabled: Boolean(paperId),
     queryFn: async () => {
-      try {
-        const res = await curatorClient.GET("/api/v1/tree", {
-          params: { query: { paper: selectedPaper } },
-        });
-        if (res.data) {
-          return res.data as any;
-        }
-      } catch (err) {
-        console.warn("Failed fetching taxonomy tree:", err);
-      }
-      return null;
+      return requiredData(await curatorClient.GET("/api/v1/tree", { params: { query: { paper: paperId! } } }));
     },
   });
 
@@ -42,43 +36,45 @@ export function Taxonomy() {
             <h1 className="text-lg font-bold text-white">Taxonomy Explorer</h1>
           </div>
           <p className="text-xs text-slate-400 mt-0.5">
-            Canonical syllabus hierarchy (39 chapters, 77 topics, 264 subtopics) with immutable node IDs.
+            Current syllabus hierarchy from the backend.
           </p>
         </div>
 
         {/* Paper selector tabs */}
         <div className="flex items-center gap-1.5 p-1 rounded-xl bg-slate-900 border border-slate-700">
-          {["P1", "P2", "P3", "P4", "P5", "P6"].map((p) => (
+          {papers.data?.map((p) => (
             <button
-              key={p}
+              key={p.id}
               type="button"
-              onClick={() => setSelectedPaper(p)}
+              onClick={() => setSelectedPaper(p.id)}
               className={`px-3 py-1 rounded-lg text-xs font-mono font-bold transition-colors ${
-                selectedPaper === p
+                paperId === p.id
                   ? "bg-indigo-600 text-white"
                   : "text-slate-400 hover:text-white"
               }`}
             >
-              {p}
+              {p.code}
             </button>
           ))}
         </div>
       </div>
 
+      <RequestError error={papers.error} retry={() => void papers.refetch()} />
+      <RequestError error={error} retry={() => void refetch()} />
       {/* Chapters & Topics List */}
       <div className="rounded-2xl border border-[#334155] bg-[#1E293B] overflow-hidden shadow-sm">
-        {isLoading ? (
+        {isLoading || papers.isPending ? (
           <div className="p-12 text-center text-slate-400 space-y-3">
             <div className="h-6 w-48 bg-slate-800 rounded animate-pulse mx-auto" />
             <div className="h-48 w-full bg-slate-800 rounded animate-pulse" />
           </div>
-        ) : chapters.length === 0 ? (
+        ) : error || papers.error ? null : chapters.length === 0 ? (
           <div className="p-12 text-center text-xs text-slate-500">
             No taxonomy chapters loaded for this paper.
           </div>
         ) : (
           <div className="divide-y divide-slate-800/80">
-            {chapters.map((chapter: any) => {
+            {chapters.map((chapter) => {
               const isExpanded = expandedChapters[chapter.id] ?? false;
 
               return (
@@ -104,7 +100,7 @@ export function Taxonomy() {
                     </div>
 
                     <div className="flex items-center gap-4 shrink-0 font-mono text-[11px] text-slate-400">
-                      {chapter.weightage_min_pct && (
+                      {chapter.weightage_min_pct != null && (
                         <span>
                           {chapter.weightage_min_pct}–{chapter.weightage_max_pct}% weightage
                         </span>
@@ -118,7 +114,7 @@ export function Taxonomy() {
                   {/* Topics and Subtopics */}
                   {isExpanded && (
                     <div className="px-8 pb-3 space-y-3 bg-slate-900/40 border-t border-slate-800/60 pt-3">
-                      {(chapter.topics || []).map((topic: any) => (
+                      {(chapter.topics || []).map((topic) => (
                         <div key={topic.id} className="space-y-1.5">
                           <div className="flex items-center gap-2 text-slate-300 font-semibold text-xs">
                             <span className="font-mono text-indigo-300 text-[11px]">
@@ -128,7 +124,7 @@ export function Taxonomy() {
                           </div>
 
                           <div className="space-y-1 pl-4 border-l border-slate-800">
-                            {(topic.subtopics || []).map((sub: any) => (
+                            {(topic.subtopics || []).map((sub) => (
                               <div
                                 key={sub.id}
                                 className="flex items-center justify-between py-1 px-2.5 rounded hover:bg-slate-800/40 transition-colors text-[11px] text-slate-400 font-mono"

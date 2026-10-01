@@ -8,6 +8,8 @@ import { BulkAccept } from "./pages/BulkAccept";
 import { Catalogue } from "./pages/Catalogue";
 import { Taxonomy } from "./pages/Taxonomy";
 import { System } from "./pages/System";
+import { Diagnostics } from "./components/Diagnostics";
+import { RouteBoundary } from "./components/RouteBoundary";
 
 const queryClient = new QueryClient();
 
@@ -31,12 +33,9 @@ function CuratorLayout({ children }: { children: React.ReactNode }) {
             </div>
             <div>
               <div className="font-bold text-sm leading-tight">Curator Tool</div>
-              <div className="text-[10px] text-slate-400 font-mono">v2.0 · target 2026-05</div>
+              <div className="text-[10px] text-slate-400 font-mono">Classification review</div>
             </div>
           </div>
-          <span className="px-1.5 py-0.5 rounded text-[10px] font-mono bg-emerald-950 border border-emerald-800 text-emerald-400">
-            ONLINE
-          </span>
         </div>
 
         <nav className="p-2 space-y-0.5 flex-1">
@@ -83,19 +82,11 @@ function CuratorLayout({ children }: { children: React.ReactNode }) {
       {/* Main Content Area */}
       <main className="flex-1 flex flex-col min-w-0">
         <header className="h-12 border-b border-[#334155] px-6 flex items-center justify-between bg-[#1E293B]/20 text-xs">
-          <div className="flex items-center gap-2 text-slate-400 font-mono">
-            <span>SESSION:</span>
-            <span className="text-slate-200 font-semibold">Ready</span>
-            <span>·</span>
-            <span>BUCKET A PRECISION:</span>
-            <span className="text-emerald-400 font-semibold">100.0%</span>
-          </div>
-          <div className="flex items-center gap-3">
-            <span className="text-[11px] text-slate-400">Press <kbd className="px-1 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-[10px]">?</kbd> for help</span>
-          </div>
+          <span className="text-slate-400">Curator workspace</span>
+          <Diagnostics />
         </header>
 
-        <div className="flex-1 p-6 overflow-auto">{children}</div>
+        <div className="flex-1 p-6 overflow-auto"><RouteBoundary>{children}</RouteBoundary></div>
       </main>
     </div>
   );

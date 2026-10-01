@@ -7,49 +7,22 @@ import {
   Clock,
   Filter,
 } from "lucide-react";
-import { curatorClient } from "../lib/client";
-
-interface DocumentRecord {
-  id: number;
-  sha256: string;
-  title: string;
-  scheme_id: string;
-  attempt_id: string;
-  paper_id: string;
-  doc_type_id: string;
-  series?: string | null;
-  catalog_status: string;
-  extract_status: string;
-  page_count: number;
-  bytes: number;
-  created_at?: string | null;
-}
+import { curatorClient, requiredData } from "../lib/client";
+import { RequestError } from "../components/RequestError";
 
 export function Catalogue() {
   const queryClient = useQueryClient();
   const [statusFilter, setStatusFilter] = useState<string>("all");
   const [paperFilter, setPaperFilter] = useState<string>("all");
 
-  const { data: documents = [], isLoading } = useQuery({
+  const { data: documents = [], isLoading, error, refetch } = useQuery({
     queryKey: ["curate-catalogue", statusFilter, paperFilter],
     queryFn: async () => {
-      try {
-        const queryParams: Record<string, any> = {};
-        if (statusFilter !== "all") queryParams.status = statusFilter;
-        if (paperFilter !== "all") queryParams.paper_id = paperFilter;
-
-        const res = await curatorClient.GET("/api/v1/curate/documents", {
-          params: { query: queryParams },
-        });
-        if (res.data) {
-          return res.data as DocumentRecord[];
-        }
-      } catch (err) {
-        console.warn("Failed fetching catalogue documents:", err);
-      }
-      return [];
+      return requiredData(await curatorClient.GET("/api/v1/curate/documents", { params: { query: { ...(statusFilter !== "all" ? { status: statusFilter } : {}), ...(paperFilter !== "all" ? { paper_id: paperFilter } : {}) } } }));
     },
   });
+
+  const papers = useQuery({ queryKey: ["curator-papers"], queryFn: async () => requiredData(await curatorClient.GET("/api/v1/papers")) });
 
   // Confirm document mutation
   const confirmMutation = useMutation({
@@ -60,7 +33,7 @@ export function Catalogue() {
           params: { path: { doc_id: docId } },
         }
       );
-      return res.data;
+      return requiredData(res);
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["curate-catalogue"] });
@@ -77,7 +50,7 @@ export function Catalogue() {
           params: { path: { doc_id: docId } },
         }
       );
-      return res.data;
+      return requiredData(res);
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["curate-catalogue"] });
@@ -121,16 +94,14 @@ export function Catalogue() {
             className="px-2.5 py-1 rounded-lg text-xs bg-slate-900 border border-slate-700 text-slate-200 focus:outline-none"
           >
             <option value="all">All Papers</option>
-            <option value="s2023.P1">P1 — FR</option>
-            <option value="s2023.P2">P2 — AFM</option>
-            <option value="s2023.P3">P3 — Audit</option>
-            <option value="s2023.P4">P4 — DT</option>
-            <option value="s2023.P5">P5 — IDT</option>
-            <option value="s2023.P6">P6 — IBS</option>
+            {papers.data?.map(paper => <option key={paper.id} value={paper.id}>{paper.code} — {paper.name}</option>)}
           </select>
         </div>
       </div>
 
+      <RequestError error={error} retry={() => void refetch()} />
+      <RequestError error={papers.error} retry={() => void papers.refetch()} />
+      <RequestError error={confirmMutation.error ?? rejectMutation.error} />
       {/* Documents Table */}
       <div className="rounded-2xl border border-[#334155] bg-[#1E293B] overflow-hidden shadow-sm">
         {isLoading ? (
@@ -138,7 +109,7 @@ export function Catalogue() {
             <div className="h-6 w-48 bg-slate-800 rounded animate-pulse mx-auto" />
             <div className="h-32 w-full bg-slate-800 rounded animate-pulse" />
           </div>
-        ) : documents.length === 0 ? (
+        ) : error ? null : documents.length === 0 ? (
           <div className="p-12 text-center text-xs text-slate-400">
             No documents found matching current filter criteria.
           </div>
@@ -211,7 +182,7 @@ export function Catalogue() {
                             <button
                               type="button"
                               onClick={() => confirmMutation.mutate(doc.id)}
-                              disabled={confirmMutation.isPending}
+                              disabled={confirmMutation.isPending || rejectMutation.isPending}
                               className="px-2.5 py-1 rounded-md bg-emerald-600 hover:bg-emerald-500 font-semibold text-white text-[11px] transition-colors"
                             >
                               Confirm
@@ -219,7 +190,7 @@ export function Catalogue() {
                             <button
                               type="button"
                               onClick={() => rejectMutation.mutate(doc.id)}
-                              disabled={rejectMutation.isPending}
+                              disabled={confirmMutation.isPending || rejectMutation.isPending}
                               className="px-2.5 py-1 rounded-md bg-slate-800 hover:bg-slate-700 text-slate-300 text-[11px] transition-colors"
                             >
                               Reject
