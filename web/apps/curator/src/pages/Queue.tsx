@@ -43,8 +43,8 @@ export function Queue() {
 
   useEffect(() => { setSelectedId(null); setPickerOpen(false); }, [bucket, paper]);
   useEffect(() => {
-    if (items.length && !items.some(item => item.unit_id === selectedId)) setSelectedId(items[0].unit_id);
-  }, [items, selectedId]);
+    setSelectedId(current => items.some(item => item.unit_id === current) ? current : items[0]?.unit_id ?? null);
+  }, [items]);
   useEffect(() => { startTime.current = Date.now(); setAnswerExpanded(false); }, [unit?.unit_id]);
 
   const decision = useMutation({
