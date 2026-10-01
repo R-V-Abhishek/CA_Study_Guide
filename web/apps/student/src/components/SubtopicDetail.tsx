@@ -37,7 +37,8 @@ export function SubtopicDetail({ nodeId }: { paperId: string; nodeId: string }) 
       latest.current = value; setText(value); setSaveStatus('saved');
     }
   }, [query.data, key]);
-  const dirty = text !== drafts.get(key)?.saved;
+  const draft = drafts.get(key);
+  const dirty = draft !== undefined && text !== draft.saved;
   const blocker = useBlocker(({ currentLocation, nextLocation }) => dirty && currentLocation.pathname !== nextLocation.pathname);
   useEffect(() => {
     if (blocker.state === 'blocked') {

@@ -265,3 +265,29 @@ test('integration mock creation/deletion persist and paper URL selection reloads
   await expect(page.getByText('No mock tests match this paper.', { exact: true })).toBeVisible();
   expect((await (await request.get('/api/v1/mock-tests')).json())).toHaveLength(0);
 });
+
+test('unsaved notes warn on link and browser back; cancel preserves the draft', async ({ page, request }) => {
+  const data = await fixture(request);
+  const id = data.nodes[0].id;
+  await page.route(`**/api/v1/subtopics/${id}/notes`, route => route.fulfill({ status: 503, json: { detail: 'Keep draft unsaved' } }));
+  await page.goto(`/papers/${data.paper_id}`);
+  await page.getByRole('link', { name: data.nodes[0].name, exact: true }).click();
+  await page.getByLabel('Notes', { exact: true }).fill('Preserve this draft');
+  const canceled = page.waitForEvent('dialog').then(async dialog => {
+    expect(dialog.message()).toContain('unsaved notes');
+    await dialog.dismiss();
+  });
+  await page.getByRole('link', { name: '← Return', exact: true }).click();
+  await canceled;
+  await expect(page.getByLabel('Notes', { exact: true })).toHaveValue('Preserve this draft');
+  await expect(page).toHaveURL(new RegExp(`${id}$`));
+  const accepted = page.waitForEvent('dialog').then(async dialog => {
+    expect(dialog.message()).toContain('unsaved notes');
+    await dialog.accept();
+  });
+  await page.goBack();
+  await accepted;
+  await expect(page.getByLabel('Search', { exact: true })).toBeVisible();
+  await page.getByRole('link', { name: data.nodes[0].name, exact: true }).click();
+  await expect(page.getByLabel('Notes', { exact: true })).toHaveValue('Preserve this draft');
+});
