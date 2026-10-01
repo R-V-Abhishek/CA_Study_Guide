@@ -5,6 +5,12 @@ import sys
 import structlog
 
 
+def _stderr_logger(*args):
+    # Click/pytest replace and close their captured streams after each invocation.
+    # Resolve the active stream on each log call, rather than caching a closed one.
+    return structlog.PrintLogger(file=sys.stderr)
+
+
 def setup_logging(level: str = "INFO") -> None:
     log_level = getattr(logging, level.upper(), logging.INFO)
 
@@ -19,8 +25,8 @@ def setup_logging(level: str = "INFO") -> None:
         ],
         wrapper_class=structlog.make_filtering_bound_logger(log_level),
         context_class=dict,
-        logger_factory=structlog.PrintLoggerFactory(file=sys.stderr),
-        cache_logger_on_first_use=True,
+        logger_factory=_stderr_logger,
+        cache_logger_on_first_use=False,
     )
 
 

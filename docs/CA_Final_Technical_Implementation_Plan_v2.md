@@ -1,11 +1,11 @@
-# Technical Implementation Plan — v2.0
+# Technical Implementation Plan — v2.1
 ## CA Final Study Companion — Engineering Source of Truth
 
 | | |
 |---|---|
-| **Document type** | Technical Implementation Plan (v2.0) — supersedes v1.0 |
-| **Status** | Approved baseline for development |
-| **Companion documents** | `CA_Final_Study_Tool_System_Design.md` (product intent), `CA_Final_Detailed_Implementation_Guide.md` (execution detail for every layer defined here) |
+| **Document type** | Technical Implementation Plan (v2.1) — supersedes v2.0 decisions D1–D3 and revised contracts below |
+| **Status** | Approved shared-study direction; Phase 0 prepares verification and contracts |
+| **Companion documents** | `Implementation_plan.md` (approved phase sequence), `CA_Final_Study_Tool_System_Design.md` (design history), `CA_Final_Detailed_Implementation_Guide.md` (execution detail) |
 | **Precedence** | Where this plan and the System Design conflict, **this plan wins**. Every such conflict is listed explicitly in §11. |
 | **Audience** | Whoever builds or modifies any part of the system |
 
@@ -23,18 +23,47 @@ Rules of engagement:
 
 ---
 
+### 0.1 Phase 0 boundary and migration rule
+
+The agreed target is an invited shared-study application. Phase 0 changes verification,
+recovery tooling, provenance reporting, documentation, and separately versioned draft
+contracts. It does not implement sign-in, change production schema constraints, enable
+student question-reading endpoints, clean corpus content, or reassign legacy decisions.
+The current API remains compatible, including its metadata-only appearance responses.
+Authentication/ownership are Phase 2; official taxonomy work is Phase 3; complete
+extraction is Phase 4; collaborative revision-bound publication and reader access are
+Phase 5, with authenticated reader endpoints and score context in Phase 6 of
+`Implementation_plan.md`.
+
+Revision `0001_initial_schema` is a frozen explicit Alembic baseline. Subsequent schema
+changes require explicit forward migrations. Never make an already released revision
+depend on the current ORM metadata. Compare fresh and restored schemas before later
+migrations; resolve reported drift without silently changing the working database.
+
+Phase 0 is complete only when the isolated suite, verified real recovery checkpoint,
+read-only provenance report, schema comparison, and contract/documentation checks all
+pass. Draft contract tests do not establish authentication or authorization behavior.
+
+---
+
 ## 1. Decision record (inputs to this revision)
 
 | # | Question | Decision | Consequence |
 |---|---|---|---|
-| D1 | Who uses it, where does it run? | **Single user, local-first.** One person is both the student and the curator. | No auth system, no tenancy. `user_id` still exists on all user-owned rows (one seeded user) so multi-user is a migration, not a rewrite. Runs on one machine; optional private access from phone via a private network overlay (e.g., Tailscale). Never exposed publicly. |
-| D2 | What content is stored and shown? | **Store privately, display metadata.** PDFs and extracted text are stored locally for processing. The student-facing UI shows attempt, marks, label, a short AI-written *gist* (≤25 words, curator-approved) and a **deep link to the exact page of the official PDF**. | The student-facing API never returns full question/answer text. Extraction errors can never mislead the student about *what the question said*, because the student always reads the original page. |
-| D3 | When is a subtopic tag trusted? | **Human-confirmed only.** Nothing reaches the student view without the curator accepting it. Auto-accept exists only as a config flag, off by default, and may be switched on only for a confidence bucket whose measured precision on a reviewed sample is ≥97% (n ≥ 200). | The LLM's job is to make review *fast*, not to replace it. Review UX is a first-class deliverable, not an afterthought. |
+| D1 | Who uses it, where does it run? | **Invited students with individual sign-in and private study records.** All invited students can curate a shared corpus. | Server-side ownership applies to progress, notes, revision history, mock results, settings, and plans. Administrative operations remain separately authorized. Preserve existing ownership during migration. Phase 0 does not implement authentication. |
+| D2 | What content is stored and shown? | **Authenticated students read complete published questions and available answers**, including common stems, ordered parts, source spans, and revisions. | Staging content remains outside the published reader boundary. Keep original-source links for provenance and layout verification. Current metadata endpoints retain their response shapes until the reader phase. |
+| D3 | When is a subtopic tag trusted? | **One identified student's review permits publication.** Other students can verify the specific content/classification revision. | Count distinct students for the explicit verification scope and revision; repeated reviews do not inflate counts, and changed revisions require fresh review. Machine confidence never counts as a student verification. Legacy decisions lack reliable reviewer identity and must be reported as such. |
 | D4 | How deep into the archive? | **Incremental, gated depth.** Newest attempts first; each older year is added only if a measurable *Depth Gate* (§7) says it is worth the human review time. The automated stages run ahead cheaply; the human review is what is gated. | Depth is configuration, not code. Paper-specific cut-offs apply where law changed (e.g., pre-GST indirect tax). |
-| D5 | Where does the taxonomy come from? | **Derived from ICAI study-material headings** (PDF bookmarks/outline first, font-structure fallback), then curator-edited. Subtopic ≈ lowest meaningful study-material sub-heading. Stored as **taxonomy-as-code** (YAML in the repo), loaded into the database. | Taxonomy authoring goes from weeks of typing to days of editing. Every taxonomy change is a reviewable diff with history. |
+| D5 | Where does the taxonomy come from? | **Derived from official source structure**, with modules, chapters, units, topics, and subtopics where the paper's source uses them. Stored as taxonomy-as-code with stable paths and versions. | Preserve paper-specific exceptions, including IBS; do not invent modules to satisfy a universal hierarchy. Keep source and applicability references separately from historical corpus coverage. |
 | D6 | What counts toward trend signals? | **Exam signal** = question papers + suggested answers of actual attempts. **Practice signal** = RTP, MTP, case-scenario booklets, Paper 6 case studies. Study-material illustrations / "Test Your Knowledge" are **excluded** from Phase 1. | The two signals are stored and scored separately. "Asked in 3 of the last 5 attempts" means *actual exams only*. |
 | D7 | Stack & model provider | **Python (FastAPI) + React/Vite/TypeScript. Google Gemini API, Flash-Lite / Flash tiers.** | Provider is behind a thin interface; model IDs live in config, never in code (Gemini model IDs churn every few months). See §6.3 for billing notes. |
 | D8 | Precedence | This plan overrides the System Design where they conflict. | §11 lists every deviation. |
+
+May 2027 (`2027-05`) is the default target for the future individual profiles. Selecting
+a target does not certify an applicable edition or historical corpus completeness.
+Scores are selected by target attempt, taxonomy/applicability/scoring versions, and
+published corpus context, rather than a single globally current run. Phase 0 leaves
+existing profile settings and score records unchanged.
 
 ---
 
@@ -147,7 +176,11 @@ Boundaries are enforced by **database roles**, not by discipline:
 | `caf_curator` | R `ref`, `ingest`, `app`; RW `core`, `intel`, `ops`; RW `ref` for the L0 loader |
 | `caf_app` | R `ref`, `core`, `intel`; RW `app` |
 
-The FastAPI process holds two connection pools: `caf_app` for student endpoints and `caf_curator` for `/api/v1/curate/*`. A bug in a student endpoint *cannot* write published knowledge.
+The intended service boundary uses `caf_app` for private study operations and
+`caf_curator` for shared publication operations. Current FastAPI routes use the
+single configured connection factory; Phase 0 tests database role permissions but
+does not establish runtime role routing or authenticated ownership. Those controls
+require the later authorization phase.
 
 ---
 
@@ -157,17 +190,30 @@ These seven contracts are the architecture. Every contract has a physical form (
 
 | ID | Producer → Consumer | Physical form | Readiness predicate (what "available to the next layer" means) | Key invariants |
 |---|---|---|---|---|
-| **C0** Taxonomy & reference | L0 → L1, L2, L3, L5, L6 | `ref.*` tables, sourced from `taxonomy/*.yaml` | Loaded by `caf taxonomy load` with a successful validation pass | Node IDs are opaque, authored once, **immutable**, never hard-deleted (deprecate instead). Each node has exactly one parent. Every applicable subtopic has a descriptor. |
+| **C0** Taxonomy & reference | L0 → L1, L2, L3, L5, L6 | `ref.*` tables, sourced from `taxonomy/*.yaml` | Loaded by `caf taxonomy load` with a successful validation pass | Stable IDs and paths; versioned official module/unit hierarchy, source/applicability references, and paper-specific exceptions. Nodes are deprecated rather than hard-deleted. Every applicable subtopic has a descriptor. |
 | **C1** Document | L1 → L2 (and → L0 tooling for reference docs) | `ingest.document` + blob file | `acq_status='acquired' AND catalog_status='confirmed'` | Blob exists and its SHA-256 matches. Metadata (scheme, attempt, paper, doc_type, series, part) was confirmed by the curator. Blobs are immutable; a changed file at the same URL is a *new document version*. |
-| **C2** Unit | L2 → L3 | `ingest.unit`, `ingest.unit_answer` | `ingest.document.extract_status IN ('ok','ok_with_warnings')` for the current `extract_run_id` | Every unit has `label_path`, `kind`, page span, `fingerprint`, and (for gradable leaves) integer `marks`. Text is copied from the PDF, never generated. |
+| **C2** Unit and complete question | L2 → L3, L4 | Current `ingest.unit`, `ingest.unit_answer`; future complete-question assembly | Valid current extraction with explicit completeness/pairing quality | Complete-question root, common stem, ordered parts and answer structure, content revision, and source spans. Keep analytical leaves and marks. Text is copied from the source, never generated. |
 | **C3** Suggestion | L3 → L4 | `ingest.tag_suggestion`, `ingest.unit_gist` | `ingest.unit.classify_status='suggested'` | Every suggestion references a valid current-taxonomy node, has `method`, `bucket` (A–D), evidence, `run_id`, model ID and prompt version. L3 **never** overwrites a unit that has a curator decision. |
-| **C4** Published knowledge | L4 → L5, L6 | `core.appearance`, `core.appearance_tag` | Row exists (publication is atomic) | Only human-confirmed tags (D3). Each appearance carries its `signal_class` (exam / practice), attempt, marks, official URL + page, gist, `law_stale` flag, and `unit_fingerprint` for re-parse reconciliation. |
-| **C5** Scores | L5 → L6 | `intel.subtopic_score`, `intel.score_run` | Latest `intel.score_run.status='ok'` | Every score row carries `scoring_version` and `computed_at`. L6 reads only the latest successful run (atomic swap). |
-| **C6** API | L6 backend → L6 frontend | OpenAPI document at `/api/v1/openapi.json`; generated TS client | Committed `openapi.json` equals the generated one (CI check) | Versioned under `/api/v1`. Student endpoints never return full source text (D2). Breaking changes require `/api/v2`. |
+| **C4** Published knowledge | L4 → L5, L6 | Current `core.appearance`, `core.appearance_tag`; future revision-bound publication | One identified student's review; atomic publication | Explicit published content and classification revisions, reviewer identity, verification scope, and distinct-student counts. Preserve signal, source, marks, applicability, and re-parse lineage. |
+| **C5** Scores | L5 → L6 | `intel.subtopic_score`, `intel.score_run`; future context-scoped snapshots | Successful snapshot matching the requested target/version context | Expose raw units, normalized components, configured weights, and freshness. Select by target attempt and version context; swap snapshots atomically within that context. |
+| **C6** API | L6 backend → L6 frontend | OpenAPI; generated TS client; future explicit response models | Authenticated student, server-enforced ownership/publication boundary | Private responses belong to the authenticated owner; the reader returns complete published content with matching revisions. Current metadata endpoint shapes remain compatible. Breaking changes require a versioned migration. |
+
+### 4.1 Contract transition without runtime changes
+
+`packages/contracts/caf_contracts/models.py` remains the current runtime contract.
+`packages/contracts/caf_contracts/future_v1.py` is the separately versioned
+`shared-study.v1` draft, imported explicitly. It adds `TaxonomyNodeV1` (C0),
+`CompleteQuestionV1` (C2), `PublishedKnowledgeV1` (C4), `ScoreSnapshotV1` (C5), and
+`PrivateStudyResponseV1` / `PublishedContentResponseV1` (C6). These models are not
+wired into endpoints or ORM constraints. Their pure tests prove representability,
+ordered parts, matching revisions, distinct scoped reviewers, and explicit ownership;
+later phases must test actual sign-in, query authorization, and full reader behavior.
 
 **Why these contracts should not need architectural change later:**
 
-- **More users?** `user_id` is already on every `app` row; add auth in L6 and an `account_id` column. No other layer changes.
+- **More users?** Existing private records carry `user_id`. Phase 2 adds invited
+  identities and server-enforced ownership throughout reads, writes and exports;
+  later publication phases bind shared reviews to those identities and revisions.
 - **Another LLM provider?** Change the adapter behind the L3 interface. The C3 schema is provider-agnostic.
 - **ICAI changes the syllabus?** L0 migration using `subtopic_version_link` (forward-only), with re-queued review of affected tags. C4 rows keep stable subtopic IDs.
 - **Better parser?** Re-run L2 and reconcile via `unit_fingerprint`. Published knowledge is never silently dropped.
@@ -359,13 +405,13 @@ Each subsection covers: responsibility, approach, inputs/outputs, Definition of 
 2. **Extraction review:** only documents flagged `needs_review` or `ok_with_warnings`. Shows the debug render and an override editor link.
 3. **Tag review** — the main workload.
    - Keyboard-first queue, grouped by document and sorted by bucket.
-   - The curator sees full unit text (curator views may), the suggested tags with justification and anchors, the gist, and a link to the source page.
+   - Every invited student can review the complete question/answer context, suggested tags with hierarchy paths and justification, gist, and source pages.
    - Actions: accept, choose alternative, edit, mark none-fits, skip.
    - **Bulk accept of bucket A within a document** is allowed after the list has been displayed. This is still a human decision (D3).
 4. **Publish.**
    - A single transaction per document (or per unit) upserts `core.appearance` and `core.appearance_tag`, keyed by `unit_fingerprint`.
    - It writes a `core.change_log` entry and emits a recompute trigger for L5.
-   - Publish is idempotent.
+   - Publish is idempotent. Future publication records the reviewing student and exact content/classification revisions; bulk review applies only to the displayed revisions. Further verification counts distinct students per revision and scope. Legacy decision identity remains unresolved until reviewed.
 5. **Re-parse reconciliation.**
    - When L2 re-runs on an already-published document, units are matched by fingerprint.
    - Unmatched published appearances are flagged `orphaned` for review — **never auto-deleted**.
@@ -410,8 +456,8 @@ Each subsection covers: responsibility, approach, inputs/outputs, Definition of 
 | **Depth Gate metrics** | See §7. |
 
 **Execution.**
-- Global scores are recomputed after every publish or taxonomy load into a new `intel.score_run`, then swapped atomically.
-- Per-user parts (coverage, plan, revision) are computed at request time — single user, trivial cost.
+- Scores are recomputed after publication or taxonomy changes into a new snapshot and swapped atomically within the target/version context. Preserve the last successful snapshot with freshness metadata while recomputing.
+- Per-student coverage, plans, and revision queues use authenticated ownership and the student's selected score context.
 
 **Output.** C5.
 
@@ -440,14 +486,15 @@ Each subsection covers: responsibility, approach, inputs/outputs, Definition of 
 - Settings: target attempt, exam date, hours per week.
 - Curator area: catalogue, extraction review, tag review, taxonomy gaps, pipeline status.
 
-**Source viewing.**
-- Primary: the official URL with `#page=N`.
-- Fallback when the official link is dead (checked periodically): open the locally stored copy through a localhost-only endpoint. This is equivalent to opening a PDF already on your own disk.
+**Source viewing.** Authenticated students will read complete published questions and
+answers through the revision-bound reader. Retain the official URL with `#page=N`
+and authorized source-page viewing for layout-sensitive content and extraction checks.
+The current metadata/deep-link view remains compatible until that reader is implemented.
 
-**Security.**
-- Localhost binding by default.
-- Remote access only through a private overlay network; never a public port.
-- Secrets in `.env`.
+**Security.** Current local development keeps its existing binding. Future shared
+deployment requires individual authentication, ownership checks, and administrative
+authorization behind HTTPS. External development servers bind to `0.0.0.0` when
+needed. Secrets remain in `.env` and are excluded from recovery archives.
 
 **Output.** C6.
 
@@ -538,9 +585,10 @@ The repository is private: fixture PDFs are ICAI material and must never be push
 
 ### 6.5 Backups
 
-- Nightly `pg_dump` (custom format) of all schemas, kept as 14 daily and 8 weekly copies, synced to a personal cloud folder.
-- The blob store is synced too — ICAI removes old files, so the local copy becomes the archive of record.
-- A restore drill runs monthly: `caf backup verify` restores into a scratch DB and compares row counts.
+- Each recovery checkpoint includes a custom-format `pg_dump` and manifest captured from the same exported database snapshot. Record schema revision, all `app`/`core` table counts and deterministic digests, dump checksum, and source/configuration archive checksums; exclude secrets.
+- Verify restore completion and every expected table in an independent disposable PostgreSQL 16 container. Personal progress, notes, study sessions, decisions, and appearances must survive. Missing/unreadable artifacts, missing tables, changed archived files, and digest mismatches are explicit failures.
+- Phase 0 creates a unique checkpoint without rotating or deleting existing backups. Legacy dumps remain identifiable and cannot claim manifest-based content verification. Later retention policy changes require a separate review.
+- A restore drill uses `uv run caf backup verify --dump-file <checkpoint-dump>` and compares the restored content and archived files to the checkpoint manifest in a separate disposable container.
 
 ### 6.6 Observability
 
@@ -613,7 +661,7 @@ M2 can run in parallel with late M1. Descriptor authoring (part of M4) can start
 | Wrong document metadata (attempt/paper) | L1 | Med | **High** (silently corrupts trends) | Mandatory catalogue confirmation for exam/practice documents |
 | Site structure change / file removal | L1 | High over time | Med | Config selectors, zero-link alarm, assisted/manual modes, local archive + backup |
 | `robots.txt` / human checks on paths | L1 | Known | Med | Auto-demote to assisted/manual; no evasion |
-| Silent segmentation errors | L2 | Med | High | Deterministic-first; validators; LLM returns IDs only; students always see the original page (D2) |
+| Silent segmentation errors | L2 | Med | High | Deterministic-first; validators; LLM returns IDs only; complete-question quality review and original-page references (D2) |
 | Scanned PDFs | L2 | High for old years | Med | OCR + vision fallback flagged for review |
 | Mis-tagging | L3 | Med | High | Human confirmation (D3); buckets; measured precision; descriptors |
 | Model deprecation / behaviour drift | L3 | High | Med | Pinned IDs per run; re-evaluation on reviewed set before switching |
@@ -622,7 +670,7 @@ M2 can run in parallel with late M1. Descriptor authoring (part of M4) can start
 | Loss of curator decisions or progress | L4/L6 | Low | **Severe** | Role separation, L3 can't overwrite decisions, tested backups |
 | Scores over incomplete data mislead | L5 | Med | Med | Ingested-attempt denominator; coverage indicator on the dashboard |
 | Law changes make answers wrong | L4/L5 | High (tax papers) | Med | `law_stale` flags; hard boundaries |
-| Copyright exposure | All | Low (single private user) | High if hosted | Local-only, private repo, metadata-only student views, no public hosting without legal review |
+| Unintended source access | L6 | Med | High | Authenticate invited readers, enforce published-content boundaries, and keep staging/source administration separately authorized |
 
 ---
 
@@ -643,14 +691,14 @@ M2 can run in parallel with late M1. Descriptor authoring (part of M4) can start
 
 | System Design says | This plan does | Reason |
 |---|---|---|
-| Multi-user web app for brother + friends; `account` table | Single-user local app; `user_id` only | D1 |
-| Next.js + Supabase + Vercel | FastAPI + React/Vite + local Postgres | D7; shared Python with the pipeline; no hosting |
+| Multi-user web app for brother + friends; `account` table | Invited students, private personal records, shared curation | Revised D1; implementation in Phase 2 |
+| Next.js + Supabase + Vercel | Retain FastAPI + React/Vite + Postgres 16 | D7; preserve current stack; hosting/auth choice belongs to later phases |
 | Claude API for tagging | Gemini API (Flash-Lite/Flash) behind a provider interface | D7 |
 | `subtopic_version_link` maps old syllabus versions to new | Forward-only; old questions classified directly against the current taxonomy | §2 |
 | Frequency across RTP/MTP/past papers combined | Separate exam and practice signals | D6 |
-| Show question/answer text inline (with a copyright caveat) | Gist + marks + deep link to the official page | D2 |
+| Show question/answer text inline | Complete published question/answer for authenticated students, with source references | Revised D2; reader implementation in Phase 6 |
 | "Hours implied by timestamps" on the dashboard | Dropped; optional explicit session log | §2 |
-| Group progress view | Dropped | D1 |
+| Group progress view | Personal progress remains private; shared corpus review is collaborative | Revised D1 |
 | Chapter weightage from `weightage_marks_typical` guess | ICAI section-wise weightage ranges (midpoint) | L0 |
 | Study material as a content-layer document | Taxonomy/descriptor source only | §2 |
 
@@ -673,3 +721,4 @@ These are recorded as data, not code, precisely because they must be verified fr
 | Date | Version | Change |
 |---|---|---|
 | 2026-09-24 | 2.0 | Full revision of v1.0: 7-layer model, formal contracts C0–C6, decisions D1–D8, Depth Gate, Gemini provider. |
+| 2026-10-01 | 2.1 | Revised invited shared-study D1–D3, official module/source context, May 2027 future profile default, C0/C2/C4/C5/C6 drafts, and Phase 0 recovery/isolation/migration gates; runtime authentication and reader remain future work. |

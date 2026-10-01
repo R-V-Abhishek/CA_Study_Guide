@@ -21,6 +21,8 @@ data/**
 !data/
 !data/**/
 !data/**/.gitkeep
+data/audits/
+data/backups/caf_*/
 debug/
 
 # Node / Web

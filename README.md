@@ -1,6 +1,10 @@
 # CA Final Study Companion
 
-An offline-first, single-user study operating system and exam-intelligence platform for CA Final aspirants.
+A study workspace and historical exam-intelligence platform for CA Final aspirants.
+The current local application is being prepared for invited shared study with private
+individual records. Phase 0 adds recovery and verification foundations; sign-in,
+collaborative revision-bound publication, and full published-content reading follow in
+the [implementation phases](docs/Implementation_plan.md).
 
 ---
 
@@ -8,7 +12,7 @@ An offline-first, single-user study operating system and exam-intelligence platf
 
 Preparing for the CA Final examination requires mastering vast syllabus depths across all 6 papers. Standard study planners treat every chapter the same. The **CA Final Study Companion** connects the official ICAI syllabus hierarchy with **historical exam intelligence**:
 
-- 🌲 **Canonical Syllabus Hierarchy**: Complete 4-tier tree (Paper → Chapter → Topic → Subtopic) across all 6 papers with 264 distinct subtopics.
+- 🌲 **Current Syllabus Seed**: Paper → Chapter → Topic → Subtopic across all 6 papers with 264 seeded subtopics. Official module/source reconciliation and paper-specific exceptions remain Phase 3 work.
 - 🎯 **Historical Exam Intelligence**: Surfaces past exam questions, frequency metrics ($E$), marks weightage ($W$), and a 5-dot importance score (`●●●●○`) right at the subtopic you are studying.
 - 📅 **Prioritized Weekly Study Plan**: Dynamic study schedule generator balancing high-weightage chapters and untouched topics based on your available weekly hours (15h to 35h).
 - 🧠 **Anki-Style Spaced Revision Queue**: Automated interval-based active recall cards (`✓ Got it` / `≈ Shaky`) with confetti completion tracking.
@@ -183,13 +187,17 @@ Open **http://localhost:8000** to use your personal study interface:
 ## ⚙️ Personalizing Your Setup
 
 ### Change Your Target Exam Attempt
-By default, the companion targets the `2026-05` (May 2026) attempt. To change this to November 2026:
+The future shared-study profiles default to `2027-05` (May 2027). Phase 0 preserves
+existing settings; the current local configuration may still target `2026-05`. Target
+attempt, applicable material edition, and historical corpus coverage are separate.
+To change the current local target:
 1. Open `config/settings.toml` in any text editor.
 2. Edit line 5:
    ```toml
-   target_attempt_id = "2026-11"
+   target_attempt_id = "2027-05"
    ```
-3. Save the file. The companion will automatically calibrate its recency weights.
+3. Save the file. Recency scoring uses the selected target; this does not certify
+   May 2027 material applicability or corpus completeness.
 
 ### Import Your Own Study Notes or Question Banks
 If you have local coaching material, past papers, or personal question bank PDFs:
@@ -232,16 +240,37 @@ You can also run the automated backend test suite at any time:
 ```bash
 uv run pytest
 ```
-*(All 61 tests verify contracts, database integrity, and Decision D2 leak prevention).*
+Tests bootstrap a disposable PostgreSQL 16 container before application imports, seed
+a template, and clone a fresh database for each database-changing test. Temporary
+storage and a connection allowlist protect the configured application database.
+Docker must be available; setup failures fail explicitly. No live model/acquisition
+calls are permitted in the suite. See [VERIFY.md](VERIFY.md) for Phase 0 acceptance.
 
 ---
 
 ## 📜 Architectural Decisions Reference
 
-- **Decision D1**: Offline-first, single-user architecture.
-- **Decision D2**: Strict separation — question/solution text is curator-only; student view contains only syllabus analytics and personal notes.
-- **Decision D3**: Human-in-the-loop guarantee — no raw AI classification reaches the student view without human review.
+- **Decision D1**: Invited students sign in individually and retain private study records. All invited students may curate the shared corpus.
+- **Decision D2**: Authenticated students will read complete published questions and available answers with source references; staging remains outside the published reader boundary.
+- **Decision D3**: One identified student's review permits publication. Additional verification counts distinct students for a specific content/classification revision and scope.
+- **Taxonomy and scores**: Follow official module/chapter/unit structure, including paper-specific exceptions. Select scores by target attempt and version context; expose raw units, normalized components, weights, and freshness separately.
 - **Stable IDs**: Crockford base32 syntax (`P[1-6]-[0-9A-Z]{6}`) for permanent bookmarking across exam attempts.
+
+These are the approved target architecture. Phase 0 adds safe verification, verified
+recovery, provenance reports, a frozen explicit migration, and `shared-study.v1` draft
+contracts in `caf_contracts.future_v1`. Current models, unauthenticated local behavior,
+and metadata endpoint responses remain compatible. Authentication/ownership are
+Phase 2; collaborative publication is Phase 5; complete reader endpoints and scoped
+scores are Phase 6. Pure contract tests do not establish those runtime features.
+Legacy curator decisions lack reliable reviewer identity and are reported without
+assigning them to a student. See the [implementation plan](docs/Implementation_plan.md).
+
+Tests use disposable PostgreSQL 16 containers through the active Docker context
+(Colima on this workstation), clone deterministic reference data per test, and reject
+normal database/storage destinations. Run `uv run pytest` after starting Colima.
+Recovery artifacts are unique directories with `manifest.json`; `caf backup run`
+preserves existing backups, and `caf backup verify` restores independently and checks
+content, files, and the frozen migration schema.
 
 ---
 

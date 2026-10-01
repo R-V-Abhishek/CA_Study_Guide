@@ -3,13 +3,68 @@
 
 | | |
 |---|---|
-| **Document type** | Detailed Implementation Guide (v1.0) |
+| **Document type** | Detailed Implementation Guide (v1.1, Phase 0 contract transition) |
 | **Parent document** | `CA_Final_Technical_Implementation_Plan_v2.md` — the Plan defines *what* and the contracts; this Guide defines *how* |
 | **Rule** | If this Guide contradicts the Plan, the Plan wins and this Guide gets fixed. Anything here may change without an architecture review **as long as** contracts C0–C6 and decisions D1–D8 in the Plan are preserved. |
 
 ---
 
 ## 0. Conventions
+
+### 0.0 Current implementation and approved target
+
+The technical plan's revised D1–D3 and `Implementation_plan.md` now define invited
+students with individual sign-in, private study records, and a shared corpus that all
+invited students may curate. One identified student review permits publication;
+additional verification counts distinct students for the exact content/classification
+revision and scope. Legacy curator decisions have no reliable reviewer identity;
+report that gap without attributing them to a student.
+
+Authenticated students will read complete published questions and available answers.
+May 2027 is the default for future profiles. Target attempt, official material
+applicability, and historical corpus coverage are separate dimensions. Follow each
+paper's official module/chapter/unit structure, including exceptions, and select
+scores by target and taxonomy/applicability/scoring/publication version context.
+
+Phase 0 supplies isolated verification, recovery, provenance reporting, the frozen
+migration, and draft contracts. Existing schema examples below describe the current
+baseline; they do not authorize new production constraints. Authentication and
+ownership are Phase 2, source/taxonomy work Phase 3, extraction Phase 4, collaborative
+publication Phase 5, and reader/score-context endpoints Phase 6. None of those later
+features is made complete by documentation or pure contract tests.
+
+### 0.0.1 Safe verification and schema evolution
+
+Test environment isolation starts before application imports. `uv run pytest` owns a
+disposable PostgreSQL 16 container with a dynamic localhost port and temporary data,
+seeds a migrated template, and clones it for each database-changing test. Reset cached
+settings, engines, and session factories on database switches; reject connections
+outside the container/database allowlist, including admin and backup destinations.
+Permission setup failures must fail setup; permission tests assert SQLSTATE `42501`.
+Fixtures must not rely on local corpus state, earlier tests, live acquisition, or model
+calls. Use `uv run pytest tests/test_future_contracts.py` for draft model checks.
+
+Freeze `0001_initial_schema` using explicit Alembic operations and preserve its ID and
+schema. All subsequent schema changes require explicit forward migrations. Compare
+a fresh migrated database with an isolated checkpoint restore before later changes;
+report drift instead of silently adapting the production database.
+
+Run `uv run caf audit baseline` in enforced read-only transactions. Preserve its JSON
+and Markdown reports in the ignored timestamped audit directory. Report confirmed
+synthetic, suspected synthetic, authentic source identified, and unresolved provenance
+with evidence; a filename containing “test” alone does not establish authenticity.
+Audit suggestions, source/checksum/lineage/pairing gaps, publication links, personal
+counts, descriptor coverage, score context, and revision; remediation is a later review.
+
+Create a unique recovery checkpoint without rotation. Capture database manifest values
+and `pg_dump` from one exported PostgreSQL snapshot; verification uses that manifest,
+even if the source database changes later. Include all `app`/`core` tables, especially
+notes and study sessions, plus archived source blobs and taxonomy/config/profile/
+override files with checksums. Exclude secrets. Restore in a separate disposable
+container and emit a machine-readable verification report. Restore errors, missing
+tables, corrupt/unreadable dumps, digest mismatches, and missing/changed archive files
+fail explicitly. Preserve existing scratch databases; never forcibly drop them.
+Legacy backups lack content verification and must remain labeled legacy.
 
 ### 0.1 Repository layout
 
@@ -59,7 +114,8 @@ ca-final/
 
 **Frontend:** Node LTS, `pnpm`, Vite, React, TypeScript, TanStack Query, React Router, `openapi-typescript` + `openapi-fetch`, Vitest, Playwright.
 
-**Licensing note.** PyMuPDF is AGPL. That is fine for a private, single-user tool. If the app is ever hosted for others, AGPL network-use obligations apply — at that point either swap to `pypdfium2` or comply.
+**Deployment dependencies.** Shared deployment decisions belong to the later release
+phase. Phase 0 retains the existing dependencies and local runtime configuration.
 
 ### 0.3 Identity and time conventions
 
@@ -99,7 +155,11 @@ services:
     volumes: ["./data/pg:/var/lib/postgresql/data"]
 ```
 
-Migrations live in `packages/db/alembic`. The first migration creates the schemas, the roles (`caf_pipeline`, `caf_curator`, `caf_app`) and the grants listed in Plan §3.3. Grants are re-applied idempotently by `caf db grants`.
+Migrations live in `packages/db/caf_db/alembic`. The frozen initial revision creates
+the existing schemas and tables using explicit operations. Role creation and grants
+(`caf_pipeline`, `caf_curator`, `caf_app`) are applied by `caf db grants`; test bootstrap
+must verify them before permission tests. Changes after this baseline require forward
+migrations, rather than edits that track current ORM metadata.
 
 ### 1.2 DDL (authoritative shape; Alembic implements it)
 
@@ -437,6 +497,24 @@ Full-text search for taxonomy and gists uses expression GIN indexes on `ref.node
 **Why `core` has no foreign keys into `ingest`.** `ingest` must be rebuildable (drop and re-run) without touching published knowledge. The join key between the two is the **fingerprint**, not the row ID.
 
 ### 1.3 Contracts package (C0–C6 in code)
+
+`caf_contracts.models` is the current compatible contract. The separate
+`caf_contracts.future_v1` module uses `contract_version="shared-study.v1"` and has no
+endpoint/ORM bindings:
+
+| Contract | Draft model and required semantics |
+|---|---|
+| C0 | `TaxonomyNodeV1`: official module/unit hierarchy, stable path, taxonomy version, source spans and applicability references |
+| C2 | `CompleteQuestionV1`: root and common stem, ordered recursive parts, structured answers, content revision, source spans and explicit missing/partial answer status |
+| C4 | `PublishedKnowledgeV1`: published content/classification revision, identified publication reviewer, scope-bound reviews, and computed distinct-student content/classification counts |
+| C5 | `ScoreSnapshotV1`: target/version context, raw values with units, normalized components, weights, timestamps and freshness |
+| C6 | `PrivateStudyResponseV1` and `PublishedContentResponseV1`: explicit authenticated identity, matching private owner, and complete content matching the published revision |
+
+The counts are read-only computed output fields; use Pydantic's `round_trip=True`
+when serializing for model input round-trips. These models reject conflicting ownership
+or revisions in supplied payloads; they do not authenticate requests or enforce database
+access. Later phases must add actual request authorization and reader integration tests.
+The examples below remain current-baseline sketches.
 
 `packages/contracts` holds Pydantic models that mirror each contract. Every layer's public function signatures use only these types. Excerpt:
 
@@ -891,7 +969,7 @@ for each document (independently; one failure never stops the batch):
    - Render the page at 200 dpi.
    - Call the LLM with task `l2.transcribe` (Flash tier) and prompt "transcribe verbatim; preserve numbers, tables as pipe tables; output text only".
    - Replace that page's text with the transcription. Units touching the page get `text_origin='llm_transcribed'` and `parse_confidence` capped at `medium`.
-   - Because students view the original page (D2), transcription errors can only affect classification — and every transcribed unit goes through review anyway.
+   - Published readers require complete-question quality review and source spans. Transcription errors can affect the reader as well as classification; keep original-page viewing and visibly report extraction uncertainty.
 
 ### 4.3 Block stream and cleaning
 
@@ -1373,24 +1451,33 @@ Additionally, for P4/P5, appearances older than `depth.toml: stale_after_attempt
 
 ### 6.6 Backups and restore
 
-`caf backup run` (schedule nightly with cron / launchd / Task Scheduler):
-1. `pg_dump -Fc -d caf -f data/backups/caf_<ts>.dump`
-2. `rsync -a data/blobs/ <backup_target>/blobs/`
-3. Copy `taxonomy/`, `overrides/`, `config/` (these are also in git).
-4. Rotate: keep 14 daily and 8 weekly dumps.
-5. Write `ops.event code=BACKUP_OK` with sizes.
+`uv run caf backup run` creates a unique directory under `data/backups/`:
 
-`caf backup verify` (monthly):
-1. Restore the latest dump into `caf_verify`.
-2. Compare row counts for `app.*` and `core.*` against live.
-3. Drop the scratch DB.
-4. Alarm on mismatch.
+1. Export a read-only repeatable-read snapshot and capture table counts/digests,
+   schema structure, and the database revision from it. Run custom-format `pg_dump`
+   with that same snapshot while its exporting transaction remains open.
+2. Archive blobs and `taxonomy/`, `overrides/`, `profiles/`, and `config/`; exclude
+   secret files and redact credential keys. Record dump and archived-file checksums
+   in `manifest.json`. `--target-dir` copies the complete unique artifact.
+3. Preserve all earlier backups. Creation does not run retention cleanup.
+4. Write `ops.event code=BACKUP_OK` after successful capture.
 
-**Restore:**
-1. Stop the app.
-2. `pg_restore -c -d caf <dump>`.
-3. Re-sync the blob store.
-4. Run `caf status`, then `caf intel recompute`.
+`uv run caf backup verify --dump-file <reported-dump-path>`:
+
+1. Reject unsafe names and preserve any existing scratch database. Restore into a
+   separate disposable PostgreSQL 16 container using `pg_restore --exit-on-error`.
+2. Require every expected table and compare all recorded row counts and content
+   digests to the manifest. Validate archived-file checksums and schema structure.
+3. Independently migrate an empty disposable database to the recorded revision and
+   compare its schema with the restore. Report drift before later migrations.
+4. Save a machine-readable `verification_*.json` report and remove only the owned
+   disposable container. Failed restores/checks are failures; legacy dumps without
+   manifests cannot claim content verification. The source may change after capture.
+
+**Production recovery remains a separately reviewed operation.** First verify the
+artifact and restore it into a new database/storage location. Review the result and
+cutover plan before replacing existing application data. Archived secret values are
+redacted; use separately retained credentials. Phase 0 performs no production restore.
 
 ### 6.7 L4 failure runbook
 
@@ -1493,6 +1580,11 @@ in_progress share is reported separately, never blended in.
 
 ### 7.3 Recompute (`caf intel recompute [--shadow --include-bands …]`)
 
+The sequence below describes the existing global-run baseline. Phase 6 replaces its
+global current-run selection with target/version-scoped snapshots using C5's context,
+raw units, normalized components, weights, and freshness. Phase 0 does not change this
+constraint, choose another student's settings row, or delete existing score history.
+
 1. Insert an `intel.score_run` (status `running`).
 2. Compute all rows in Python over SQL-fetched data. At expected sizes (≤ 50k appearances, ≤ 5k subtopics) this takes seconds.
 3. Bulk insert `intel.subtopic_score` and `intel.ingestion_coverage`.
@@ -1575,7 +1667,7 @@ due_list = s with due ≤ today, ordered by I(s) desc, then overdue days desc
 
 - `caf serve` runs `uvicorn api.main:app --host 127.0.0.1 --port 8765`.
 - The FastAPI app mounts `/api/v1` routers and serves `web/dist` as static files, with an SPA fallback (non-API GETs return `index.html`).
-- **Two SQLAlchemy engines:** `app_engine` (role `caf_app`) and `curator_engine` (role `caf_curator`). Routers under `/api/v1/curate` depend on `curator_engine`; all others on `app_engine`. The single user is resolved by a dependency returning `user_id=1`. This is the only place to change when auth is added.
+- **Current baseline and future authorization:** the existing configured user is not authentication. Phase 2 must resolve identity from authenticated requests, scope every personal query/cache/job, and enforce administrative permissions. Verify actual engine/grant wiring; named roles alone do not establish the runtime boundary. All invited students may curate shared content.
 - **Errors:** RFC 7807 `application/problem+json` with a stable `type` code (e.g., `/errors/taxonomy-node-not-found`).
 - **Remote access** (e.g., from a phone): install Tailscale on both devices and access the app via its tailnet address. Do not bind `0.0.0.0` on an untrusted network, and do not open router ports.
 
@@ -1586,7 +1678,7 @@ due_list = s with due ≤ today, ordered by I(s) desc, then overdue days desc
 | `GET /meta` | versions (taxonomy, scoring, API), target attempt, current score run time, ingestion coverage per paper×attempt | UI banner "data as of…" |
 | `GET /papers` | papers with coverage, done/in-progress counts | |
 | `GET /tree?paper=P1` | nested chapter → topic → subtopic with status, `importance` (0–1), `F/freq_window`, `weak`, `applicable` | One call per paper; cached by TanStack Query |
-| `GET /subtopics/{id}` | path, descriptor, status and timestamps, note, scores, **appearances[]**: `{id, attempt_label, doc_type, signal_class, series, label, marks, gist, law_stale, duplicate_of_label?, source_href}` | **No question/answer text** (D2) |
+| `GET /subtopics/{id}` | path, descriptor, status and timestamps, note, scores, **appearances[]**: `{id, attempt_label, doc_type, signal_class, series, label, marks, gist, law_stale, duplicate_of_label?, source_href}` | Current metadata response remains compatible; future authenticated reader returns complete published question/answer content under revised D2 |
 | `PUT /subtopics/{id}/progress` | `{status}` → progress + event | Idempotent. Writes `app.progress_event`. Sets `first_done_at` on first done. |
 | `PUT /subtopics/{id}/note` | `{body ≤ 5000 chars}` | |
 | `POST /subtopics/{id}/revisions` | `{outcome: ok\|shaky}` | Updates `last_revised_at` |
@@ -1720,7 +1812,7 @@ Every data-writing command opens an `ops.run`, is **idempotent**, and is safe to
 | `extraction_golden` | Profile outputs versus hand-written expected YAML | Private fixture PDFs (3+ per profile) | Every commit (skipped if fixtures are absent) |
 | `llm_contract` | Prompt builders produce the expected structure; response parsing against **recorded** responses (`tests/fixtures/llm/*.json`) | Recorded | Every commit — **no live LLM calls in tests** |
 | `publish` | Publish idempotency, undo, reconciliation (exact, fuzzy, orphan), taxonomy split/merge handlers | Synthetic | Every commit |
-| `api` | httpx TestClient over both routers; D2 check: student responses contain no `question_text`/`answer_text` keys (schema-level assertion) | Seed | Every commit |
+| `api` | TestClient compatibility checks for existing metadata endpoints; later phases add authenticated ownership, publication boundaries, and complete reader integration checks | Isolated seed | Every commit |
 | `openapi_drift` | Exported OpenAPI equals the committed file; generated TS equals the committed file | — | Every commit |
 | `e2e` | Playwright: mark done → dashboard coverage changes; review accept → subtopic history shows the appearance | Seed + small fixture | Before merging to main |
 | `eval` (manual) | `caf classify eval` on real decisions | Real | After prompt, model or descriptor changes |
@@ -1835,7 +1927,7 @@ These apply to every layer and override convenience:
 
 **L6**
 - [ ] All routes functional on real data.
-- [ ] D2 assertion test passes.
+- [ ] Existing metadata response compatibility tests pass; draft full-content contracts pass. Authentication, private-data isolation, and reader integration remain later-phase gates.
 - [ ] OpenAPI drift check in place.
 - [ ] e2e smoke passes.
 - [ ] Remote access (if used) via tailnet only.

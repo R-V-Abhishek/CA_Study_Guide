@@ -2,15 +2,78 @@
 
 Use this checklist to verify that your CA Final Study Companion is functioning correctly from infrastructure to user interface.
 
+The architecture now targets invited students with private records, shared curation,
+one-student publication, and distinct-student verification of specific revisions and
+scopes. Authenticated readers will receive complete published questions and answers.
+May 2027 is the future profile default; edition applicability and historical coverage
+remain separate. Official taxonomy structure includes paper-specific exceptions, and
+scores match the target/version context. Phase 0 preserves current application behavior.
+
+## Phase 0 acceptance gate
+
+The 2026-10-01 gate results and local artifact links are recorded in
+[Phase0_Verification.md](docs/Phase0_Verification.md).
+
+Execute these checks in order. A checked item requires actual evidence; this document
+does not mark later authentication or reader work complete.
+
+1. **Isolated harness:** `uv run pytest` bootstraps PostgreSQL 16 on a dynamically
+   allocated localhost port before application imports. Verify normal application URLs
+   and non-allowlisted admin/restore targets are rejected. Each database-changing test
+   gets an independently seeded clone and temporary storage; external model/acquisition
+   calls are disabled. Test roles/grants must exist and permission tests require SQLSTATE
+   `42501`. Run representative tests individually to establish order independence.
+   Use the active Docker context; on this workstation, start Colima with `colima start`
+   if needed. The harness never mounts the application Compose volume.
+2. **Synthetic recovery:** verify successful backup/restore and explicit failures for
+   corrupt/unreadable dumps, restore errors, missing tables, and changed/missing archived
+   files. Verify progress, notes, study sessions, decisions, and appearances. Change the
+   source after backup and confirm verification still matches the snapshot manifest.
+   An existing scratch destination must be rejected and preserved.
+3. **Frozen baseline:** migrate an empty isolated database using the explicit
+   `0001_initial_schema` operations. Compare tables, indexes, constraints, and foreign
+   keys with the expected baseline. Subsequent changes require forward migrations.
+4. **Read-only provenance:** run `uv run caf audit baseline`. Inspect timestamped JSON
+   and Markdown reports under the ignored audit directory. Require explicit evidence
+   for confirmed/suspected synthetic, authentic source identified, and unresolved records.
+   Check source checksums, lineage, answers, published-unit links, questionable suggestions,
+   score context, and descriptor gaps. Record missing reviewer identity without inventing
+   a student assignment. Confirm no source-database writes.
+   For preservation evidence after testing, run
+   `uv run caf audit baseline --checkpoint-manifest <checkpoint-directory>/manifest.json`.
+   The report compares
+   UTC-normalized counts and digests of every `app`/`core` table; differences fail.
+5. **Real recovery checkpoint:** create a unique backup using the existing CLI and
+   independently verify it in a separate disposable container. Require the manifest,
+   database revision, dump checksum, table counts/digests, archived source/configuration
+   checksums, and machine-readable verification report. Compare its restored schema to
+   the frozen baseline; resolve drift before later migrations. Do not rotate/delete
+   existing checkpoints. Legacy backups cannot claim manifest-based content verification.
+   Use `uv run caf backup run` and then
+   `uv run caf backup verify --dump-file <reported-dump-path>`; retain the reported
+   manifest and verification report with the checkpoint.
+   Verification also creates a fresh migrated database and records
+   `baseline_schema_drift`; `{}` means the restored schema agrees.
+6. **Compatibility and diff:** run the full isolated suite and
+   `uv run pytest tests/test_future_contracts.py`. Review all changes for production data,
+   schema, endpoint, or configuration changes outside Phase 0. Future model tests establish
+   representability, ordering, owner/revision consistency, and distinct scoped counts.
+   Authentication/enforcement tests belong to Phase 2; reader tests belong to Phase 6.
+
+Phase 0 passes only with the isolated suite, verified real checkpoint, provenance
+reports, schema agreement, and aligned documents/contracts. The remaining checklist
+describes current local behavior and must be exercised on disposable data for writes.
+
 ---
 
 ## 1. Quick Smoke Test
 
-After running `python start.py`:
+After running `uv run start.py`:
 
 - [ ] **Database Running**: Terminal shows `🐘 Ensuring PostgreSQL database is active...` without errors.
 - [ ] **HTTP Health**: Visit `http://localhost:8000/api/v1/health` in your browser.
-  - Expected response: `{"status":"ok","env":"development","target_attempt":"2026-05"}`
+  - Expected response: `status="ok"`, the configured environment and existing target
+    attempt. Phase 0 preserves the local target; future profiles default to `2027-05`.
 - [ ] **Interactive API Docs**: Visit `http://localhost:8000/docs`. The Swagger UI renders all 30+ endpoints.
 - [ ] **Student Web App**: Visit `http://localhost:8000`. The Dashboard renders with summary cards and paper grid.
 - [ ] **Curator Web App**: Visit `http://localhost:8000/curator`. The Curator Workbench loads with sidebar navigation.
@@ -22,7 +85,8 @@ After running `python start.py`:
 - [ ] **Subtopics API**: Visit `http://localhost:8000/api/v1/subtopics?limit=5`.
   - Returns a JSON array with Crockford base32 ID format (`P[1-6]-[0-9A-Z]{6}`).
 - [ ] **Total Syllabus Nodes**: Run `uv run caf taxonomy load`.
-  - Expected: 6 Papers, 39 Chapters, 77 Topics, 264 Subtopics.
+  - Current seed: 6 Papers, 39 Chapters, 77 Topics, 264 Subtopics. These counts are not
+    certification of official syllabus completeness; the source/taxonomy audit is Phase 3.
 - [ ] **Papers Overview**: In the Student App, click **Papers** in the navigation.
   - All 6 papers are listed:
     - `P1`: Financial Reporting
@@ -88,12 +152,21 @@ After running `python start.py`:
 
 ---
 
-## 5. Security & Isolation Checks (Decision D2)
+## 5. Current Metadata Compatibility and Future Access Gates
 
-- [ ] **Decision D2 Compliance**:
+- [ ] **Current Metadata Endpoint Compatibility**:
   - Open Student App network tab in browser developer tools.
   - Verify that no requests to `/api/v1/curate/*` are made from the Student App.
-  - Verify that no question text or answer text is sent to the Student frontend bundles.
+  - Verify that the existing metadata endpoints retain their response shapes without
+    embedded question/answer text. Revised D2 allows complete published content through
+    the future authenticated reader; this compatibility check is not a universal ban.
+- [ ] **Phase 2 ownership gate (future)**: two authenticated students cannot read or
+  change each other's progress, notes, study sessions, settings, or exports. Every invited
+  student may curate; administrative operations remain separately authorized.
+- [ ] **Phase 5/6 publication and reader gates (future)**: one student's review permits
+  publication; counts use distinct students, scope, and exact content/classification
+  revision. Published readers return complete questions/answers; unreviewed staging
+  and other students' private records remain inaccessible. Test actual endpoints.
 - [ ] **Zero Shared UI Components**:
   - Student app and Curator tool are independently bundled with separate stylesheets and assets.
 
@@ -102,8 +175,8 @@ After running `python start.py`:
 ## 6. Clean Shutdown & Data Preservation
 
 - [ ] **Stop Command**:
-  - Press `Ctrl+C` in the terminal running `start.py` (or run `python stop.py`).
+  - Press `Ctrl+C` in the terminal running `start.py` (or run `uv run stop.py`).
   - Terminal prints confirmation that PostgreSQL container is stopped.
 - [ ] **Data Persistence**:
-  - Restart the app: `python start.py`.
+  - Restart the app: `uv run start.py`.
   - All previously entered study notes, progress marks, and mock test scores remain intact.

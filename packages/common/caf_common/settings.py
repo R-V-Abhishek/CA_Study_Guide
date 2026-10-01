@@ -1,6 +1,7 @@
 """Typed configuration loader using pydantic-settings and TOML files."""
 
 from pathlib import Path
+import os
 import tomllib
 from typing import Any
 from pydantic import BaseModel, Field
@@ -63,6 +64,18 @@ class Settings(BaseSettings):
                 toml_data = tomllib.load(f)
 
         inst = cls(**toml_data)
+        if os.environ.get("CAF_TEST_MODE") == "1":
+            from caf_common.db_safety import assert_safe_database
+            if not inst.DATABASE_URL or not os.environ.get("CAF_TEST_STORAGE_ROOT"):
+                raise RuntimeError("Test settings require harness database and storage")
+            assert_safe_database(inst.DATABASE_URL)
+            root = Path(os.environ["CAF_TEST_STORAGE_ROOT"])
+            inst.storage = StorageSettings(**{
+                name: root / name.removesuffix("_dir")
+                for name in StorageSettings.model_fields
+            })
+            inst.GEMINI_API_KEY = None
+            inst.app.env = "test"
         # Reconcile DB URL if explicitly passed or configured
         if inst.DATABASE_URL:
             # We preserve custom url
@@ -92,3 +105,8 @@ def get_settings() -> Settings:
     if _cached_settings is None:
         _cached_settings = Settings.load()
     return _cached_settings
+
+
+def reset_settings() -> None:
+    global _cached_settings
+    _cached_settings = None

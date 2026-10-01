@@ -5,6 +5,7 @@ from pathlib import Path
 import tempfile
 import fitz  # PyMuPDF
 import httpx
+from caf_common.db_safety import assert_acquisition_allowed
 import sqlalchemy as sa
 from sqlalchemy.orm import Session
 
@@ -39,6 +40,7 @@ class DocumentFetcher:
         limit: int = 50,
         run_id: int | None = None,
     ) -> int:
+        assert_acquisition_allowed()
         now = datetime.now(timezone.utc)
 
         # Select pending links, prioritizing inferred exam paper links

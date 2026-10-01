@@ -15,6 +15,7 @@ from caf_l1.infer import infer_metadata
 from caf_l1.robots import PolitenessManager
 from caf_db.models.ingest import DiscoveredLink, SourcePage
 from caf_db.models.ops import Event, Run
+from caf_common.db_safety import assert_acquisition_allowed
 
 logger = get_logger("acquire.discover")
 
@@ -45,6 +46,7 @@ class LinkDiscoverer:
         session: Session,
         run_id: int | None = None,
     ) -> int:
+        assert_acquisition_allowed()
         source_id = source["id"]
         seed_url = source["url"]
         if seed_url.startswith("http://"):

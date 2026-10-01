@@ -3,10 +3,12 @@
 import hashlib
 from pathlib import Path
 from typing import BinaryIO
+from caf_common.db_safety import assert_safe_storage
 
 
 class BlobStore:
     def __init__(self, base_dir: Path) -> None:
+        assert_safe_storage(base_dir)
         self.base_dir = base_dir
         self.base_dir.mkdir(parents=True, exist_ok=True)
 

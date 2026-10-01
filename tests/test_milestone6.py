@@ -188,6 +188,8 @@ def test_practice_signal_scoring(session):
 
 def test_next_week_planning_engine(session):
     """Verify study planning engine, budget capping, per_chapter_cap, and reason generation."""
+    # This test requires its own score snapshot, independent of the preceding test.
+    recompute_scores(session, target_attempt_id="2026-05")
     plan = generate_study_plan(
         session=session,
         user_id=1,

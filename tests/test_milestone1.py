@@ -77,6 +77,10 @@ def test_subtopic_progress_and_notes():
 
 
 def test_dashboard():
+    # Explicitly create this test's progress; other tests use independent databases.
+    tree = client.get("/api/v1/papers/s2023.P1/tree").json()
+    sid = tree["chapters"][0]["topics"][0]["subtopics"][0]["id"]
+    assert client.put(f"/api/v1/subtopics/{sid}/progress", json={"status": "done"}).status_code == 200
     res = client.get("/api/v1/dashboard")
     assert res.status_code == 200
     data = res.json()

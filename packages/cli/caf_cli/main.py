@@ -32,6 +32,7 @@ from caf_cli.revision import app as revision_app
 from caf_cli.mock_test import app as mock_test_app
 from caf_cli.depth import app as depth_app
 from caf_cli.backup import app as backup_app
+from caf_cli.audit import app as audit_app
 
 app.add_typer(db_app, name="db")
 app.add_typer(taxonomy_app, name="taxonomy")
@@ -45,6 +46,7 @@ app.add_typer(revision_app, name="revision")
 app.add_typer(mock_test_app, name="mock-test")
 app.add_typer(depth_app, name="depth")
 app.add_typer(backup_app, name="backup")
+app.add_typer(audit_app, name="audit")
 
 console = Console()
 

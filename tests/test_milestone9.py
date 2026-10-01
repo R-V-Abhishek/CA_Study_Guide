@@ -74,13 +74,13 @@ def test_api_routes_not_shadowed_by_spa(client):
 
 
 def test_decision_d2_student_api_no_content_leak(client):
-    """Verify Decision D2: Student API endpoints NEVER return question_text or answer_text."""
+    """Current subtopic metadata response remains compatible during the transition."""
     factory = get_session_factory()
     with factory() as session:
         # Find any active subtopic
         subtopic = session.query(Node).filter(Node.level == "subtopic").first()
         if not subtopic:
-            pytest.skip("No subtopics in database")
+            pytest.fail("Reference subtopic fixtures missing")
 
         node_id = subtopic.id
 

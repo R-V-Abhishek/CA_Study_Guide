@@ -2,7 +2,7 @@
 
 These tests verify:
  - RBAC: caf_app role cannot write to core/ingest/ref schemas (spec §2.3)
- - D2:   Student API responses never return question_text or answer_text (spec D2)
+ - D2:   Current metadata endpoints retain their metadata-only compatibility shape
  - Alarm #5: BUCKET_A_PRECISION_DROP fires correctly after the BUG-1 fix
  - C4:   AppearanceTag.decision_id is always set on published tags (no null FK)
  - C5:   is_current is flipped atomically in score_run (only one current per target)
@@ -74,12 +74,7 @@ class TestRBAC:
                 ))
             pytest.fail("caf_app should not be allowed to INSERT into core.appearance")
         except sa.exc.ProgrammingError as e:
-            # Expected: permission denied for relation appearance
-            assert "permission denied" in str(e).lower() or "42501" in str(e), \
-                f"Expected permission denied, got: {e}"
-        except Exception:
-            # In CI the roles may not be set up; skip rather than fail
-            pytest.skip("caf_app role not configured in this environment — RBAC test skipped")
+            assert e.orig.sqlstate == "42501", f"Expected permission denied, got: {e}"
         finally:
             engine.dispose()
 
@@ -93,10 +88,8 @@ class TestRBAC:
                     "VALUES ('rbac_test_sha', '/tmp/test.pdf', 0, 'manual', 'confirmed', 'pending')"
                 ))
             pytest.fail("caf_app should not be allowed to INSERT into ingest.document")
-        except sa.exc.ProgrammingError:
-            pass  # expected
-        except Exception:
-            pytest.skip("caf_app role not configured — RBAC test skipped")
+        except sa.exc.ProgrammingError as e:
+            assert e.orig.sqlstate == "42501", f"Expected permission denied, got: {e}"
         finally:
             engine.dispose()
 
@@ -110,10 +103,8 @@ class TestRBAC:
                     "VALUES ('RBAC-000000', 's2023.P1', 'chapter', 'RBAC Test', 99, 'active')"
                 ))
             pytest.fail("caf_app should not be allowed to INSERT into ref.node")
-        except sa.exc.ProgrammingError:
-            pass  # expected
-        except Exception:
-            pytest.skip("caf_app role not configured — RBAC test skipped")
+        except sa.exc.ProgrammingError as e:
+            assert e.orig.sqlstate == "42501", f"Expected permission denied, got: {e}"
         finally:
             engine.dispose()
 
@@ -138,7 +129,7 @@ def _assert_no_exam_content(data, path="root"):
         for key, val in data.items():
             assert key not in FORBIDDEN_KEYS, (
                 f"D2 violation: key '{key}' found at {path} — "
-                "student endpoints must never return raw exam content"
+                "current metadata endpoints retain their compatibility shape"
             )
             _assert_no_exam_content(val, path=f"{path}.{key}")
     elif isinstance(data, list):
@@ -147,7 +138,7 @@ def _assert_no_exam_content(data, path="root"):
 
 
 class TestD2Compliance:
-    """Decision D2: No full question or answer text in any student-facing API response."""
+    """Current metadata responses; future authenticated published readers are separate."""
 
     @pytest.fixture
     def client(self):
@@ -178,7 +169,7 @@ class TestD2Compliance:
         # Get any node_id from the papers list
         papers = client.get("/api/v1/papers").json()
         if not papers:
-            pytest.skip("No papers in DB")
+            pytest.fail("Reference paper fixtures missing")
         paper_id = papers[0]["id"]
         tree = client.get(f"/api/v1/papers/{paper_id}/tree").json()
         # Find a subtopic node
@@ -193,7 +184,7 @@ class TestD2Compliance:
             if subtopic_id:
                 break
         if not subtopic_id:
-            pytest.skip("No subtopics in DB")
+            pytest.fail("Reference subtopic fixtures missing")
         res = client.get(f"/api/v1/subtopics/{subtopic_id}")
         assert res.status_code == 200
         _assert_no_exam_content(res.json(), path=f"/api/v1/subtopics/{subtopic_id}")
