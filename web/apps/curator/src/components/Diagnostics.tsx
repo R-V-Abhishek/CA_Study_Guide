@@ -14,7 +14,7 @@ export function Diagnostics() {
     route: location.pathname,
     browser: navigator.userAgent,
     target_attempt: meta.data?.target_attempt ?? null,
-    score_run: { id: meta.data?.score_run_id ?? null, version: meta.data?.scoring_version ?? null, computed_at: meta.data?.score_run_computed_at ?? null },
+    score_run: meta.data?.score_run ?? null,
     metadata_status: meta.isPending ? "loading" : meta.isError ? "unavailable" : "available",
   }, null, 2);
   return <div className="text-xs">
