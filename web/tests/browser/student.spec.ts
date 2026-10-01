@@ -124,7 +124,10 @@ test('integration failed progress rolls back and note failure retains edits', as
 test('integration successful mutations persist and invalidate paper/dashboard/plan', async ({ page, request }) => {
   const data = await fixture(request); const id = data.nodes[0].id;
   await page.goto('/');
-  await page.goto(`/papers/${data.paper_id}/${id}`);
+  await expect(page.getByText(/1 \/ \d+ topics completed/)).toBeVisible();
+  await page.getByRole('link', { name: 'Papers', exact: true }).click();
+  await page.locator(`a[href="/papers/${data.paper_id}"]`).click();
+  await page.getByRole('link', { name: data.nodes[0].name, exact: true }).click();
   await page.getByLabel('Progress', { exact: true }).selectOption('done');
   await expect(page.getByText('Progress saved.', { exact: true })).toBeVisible();
   await page.getByLabel('Notes', { exact: true }).fill('Persisted browser note');
@@ -230,4 +233,35 @@ test('all live and explicit demo routes render without exceptions; demo has no A
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
   }
   expect(traffic).toEqual([]); expect(errors).toEqual([]);
+});
+
+test('integration revision saves persist and move the queue only after acceptance', async ({ page, request }) => {
+  const data = await fixture(request);
+  await page.goto('/revision');
+  await expect(page.getByRole('heading', { name: data.nodes[2].name })).toBeVisible();
+  await page.getByRole('button', { name: 'Remembered' }).click();
+  await expect(page.getByText('Revision saved.', { exact: true })).toBeVisible();
+  await expect(page.getByText('Revision queue complete.', { exact: true })).toBeVisible();
+  expect((await (await request.get('/api/v1/revision/due')).json()).total_due).toBe(0);
+  await page.reload();
+  await expect(page.getByText('No revisions due.', { exact: true })).toBeVisible();
+});
+
+test('integration mock creation/deletion persist and paper URL selection reloads', async ({ page, request }) => {
+  const data = await fixture(request);
+  await page.goto('/mock');
+  await page.getByLabel('Paper filter').selectOption(data.paper_id);
+  await page.reload();
+  await expect(page.getByLabel('Paper filter')).toHaveValue(data.paper_id);
+  await page.getByRole('button', { name: 'Record mock test' }).click();
+  await page.getByLabel('Label', { exact: true }).fill('Persisted mock');
+  await page.getByLabel('Score', { exact: true }).fill('0');
+  await page.getByRole('button', { name: 'Save mock test' }).click();
+  await expect(page.getByText('Mock test saved.', { exact: true })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Persisted mock · P1' })).toBeVisible();
+  expect((await (await request.get('/api/v1/mock-tests')).json())).toHaveLength(1);
+  await page.getByRole('button', { name: 'Delete mock test' }).click();
+  await expect(page.getByText('Mock test deleted.', { exact: true })).toBeVisible();
+  await expect(page.getByText('No mock tests match this paper.', { exact: true })).toBeVisible();
+  expect((await (await request.get('/api/v1/mock-tests')).json())).toHaveLength(0);
 });
