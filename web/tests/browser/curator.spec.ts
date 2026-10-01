@@ -46,7 +46,7 @@ test.describe("curator controlled responses", () => {
     const requests: string[] = [];
     await page.route("**/api/v1/curate/queue**", route => {
       const url = new URL(route.request().url()); requests.push(url.search);
-      const items = [unit(1), unit(2, { bucket: "B", paper_id: "fixture.DT" })].filter(item => (!url.searchParams.has("bucket") || item.bucket === url.searchParams.get("bucket")) && (!url.searchParams.has("paper_id") || item.paper_id === url.searchParams.get("paper_id")));
+      const items = [unit(1), unit(2, { bucket: "B", paper_id: "fixture.DT" }), unit(3, { bucket: "D", paper_id: "fixture.DT" })].filter(item => (!url.searchParams.has("bucket") || item.bucket === url.searchParams.get("bucket")) && (!url.searchParams.has("paper_id") || item.paper_id === url.searchParams.get("paper_id")));
       return route.fulfill({ json: items });
     });
     await page.goto("/curator/queue");
@@ -63,6 +63,9 @@ test.describe("curator controlled responses", () => {
     await page.goBack();
     await expect(page.getByRole("combobox", { name: "Bucket", exact: true })).toHaveValue("B");
     await expect(page.getByText("Fixture question 2", { exact: true })).toBeVisible();
+    await page.getByRole("combobox", { name: "Bucket", exact: true }).selectOption("D");
+    await expect(page.getByText("Fixture question 3", { exact: true })).toBeVisible();
+    await expect.poll(() => requests.at(-1)).toContain("bucket=D");
   });
 
   test("failed decisions retain item, guard duplicates and never claim acceptance", async ({ page }) => {

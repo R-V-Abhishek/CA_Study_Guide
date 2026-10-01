@@ -98,7 +98,7 @@ export function Queue() {
     <div className="flex flex-wrap items-center gap-3 border-b border-slate-700 pb-3">
       <h1 className="font-bold mr-auto">Review Queue</h1>
       <label className="text-xs">Bucket <select aria-label="Bucket" value={bucket} disabled={decision.isPending} onChange={e => filter("bucket", e.target.value)} className="ml-2 bg-slate-900 rounded p-2">
-        <option value="all">All Buckets</option>{["A", "B", "C"].map(value => <option key={value} value={value}>Bucket {value}</option>)}
+        <option value="all">All Buckets</option>{["A", "B", "C", "D"].map(value => <option key={value} value={value}>Bucket {value}</option>)}
       </select></label>
       <label className="text-xs">Paper <select aria-label="Paper" value={paper} disabled={decision.isPending || papers.isPending} onChange={e => filter("paper", e.target.value)} className="ml-2 bg-slate-900 rounded p-2">
         <option value="all">All Papers</option>{papers.data?.map(item => <option key={item.id} value={item.id}>{item.code} — {item.name}</option>)}
