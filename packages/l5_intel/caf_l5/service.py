@@ -177,6 +177,8 @@ def compute_weighted_coverage(
             SubtopicScore.score_run_id == current_run.id,
             SubtopicScore.applicable.is_(True),
             Paper.is_current.is_(True),
+            Node.status == "active",
+            Node.level == "subtopic",
         )
         .all()
     )
@@ -215,33 +217,29 @@ def compute_weighted_coverage(
             group_accum[g_no]["in_prog_w"] += w
             overall_in_prog_w += w
 
+    def coverage_percentage(completed_weight: float, total_weight: float) -> float | None:
+        return round(completed_weight / total_weight * 100.0, 1) if total_weight > 0 else None
+
     paper_results = {}
     for p_id, d in paper_accum.items():
         tot = d["total_w"]
-        cov = (d["done_w"] / tot * 100.0) if tot > 0 else 0.0
-        in_p = (d["in_prog_w"] / tot * 100.0) if tot > 0 else 0.0
         paper_results[p_id] = {
             "code": d["paper_code"],
-            "coverage_pct": round(cov, 1),
-            "in_progress_pct": round(in_p, 1),
+            "coverage_pct": coverage_percentage(d["done_w"], tot),
+            "in_progress_pct": coverage_percentage(d["in_prog_w"], tot),
         }
 
     group_results = {}
     for g_no, d in group_accum.items():
         tot = d["total_w"]
-        cov = (d["done_w"] / tot * 100.0) if tot > 0 else 0.0
-        in_p = (d["in_prog_w"] / tot * 100.0) if tot > 0 else 0.0
         group_results[g_no] = {
-            "coverage_pct": round(cov, 1),
-            "in_progress_pct": round(in_p, 1),
+            "coverage_pct": coverage_percentage(d["done_w"], tot),
+            "in_progress_pct": coverage_percentage(d["in_prog_w"], tot),
         }
 
-    overall_cov = (overall_done_w / overall_total_w * 100.0) if overall_total_w > 0 else 0.0
-    overall_in_p = (overall_in_prog_w / overall_total_w * 100.0) if overall_total_w > 0 else 0.0
-
     return {
-        "overall_coverage_pct": round(overall_cov, 1),
-        "overall_in_progress_pct": round(overall_in_p, 1),
+        "overall_coverage_pct": coverage_percentage(overall_done_w, overall_total_w),
+        "overall_in_progress_pct": coverage_percentage(overall_in_prog_w, overall_total_w),
         "groups": group_results,
         "papers": paper_results,
     }

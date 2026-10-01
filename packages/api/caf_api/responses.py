@@ -71,7 +71,7 @@ class PaperSummary(BaseModel):
     total_subtopics: int
     completed_subtopics: int
     raw_progress_pct: float
-    weighted_coverage_pct: float
+    weighted_coverage_pct: float | None
     average_importance: float | None
     revision_due_count: int
     weak_topic_count: int
@@ -135,8 +135,8 @@ class WeakSubtopic(BaseModel):
 
 
 class CoverageValue(BaseModel):
-    coverage_pct: float
-    in_progress_pct: float
+    coverage_pct: float | None
+    in_progress_pct: float | None
 
 
 class PaperCoverage(CoverageValue):

@@ -13,7 +13,7 @@ from caf_db.engine import get_engine
 from caf_db.models.app import Progress
 from caf_db.models.intel import ScoreRun, SubtopicScore
 from caf_db.models.ingest import Document, TagSuggestion, Unit, UnitAnswer
-from caf_db.models.ref import Node
+from caf_db.models.ref import Node, WeightageMember, WeightageSection
 from caf_l5 import generate_study_plan, recompute_scores
 from caf_l5.config import ScoringConfig, WeightsConfig, load_scoring_config
 from caf_l5.service import get_current_score_run
@@ -157,6 +157,46 @@ def test_real_paper_metrics_and_successful_mutation_contracts(client, session, s
     assert deleted.json() == {'deleted': True, 'id': mock.json()['id']}
     assert client.put('/api/v1/subtopics/missing/progress', json={'status': 'done'}).status_code == 404
     assert client.post('/api/v1/mock-tests', json={'paper_id': paper['id'], 'score': 0, 'max_score': 0, 'taken_on': '2026-09-01'}).status_code == 422
+
+
+@pytest.mark.parametrize('missing_kind', ['all', 'partial', 'zero_weight'])
+def test_paper_weightage_unavailable_does_not_fabricate_coverage(client, session, scored_nodes, missing_kind):
+    _, nodes = scored_nodes
+    def paper_summary():
+        return next(p for p in client.get('/api/v1/papers').json() if p['code'] == 'P1')
+
+    # Actual positive fixture weightage and no completions means a legitimate zero.
+    assert paper_summary()['weighted_coverage_pct'] == 0
+    if missing_kind == 'zero_weight':
+        session.execute(sa.update(WeightageSection).where(
+            WeightageSection.paper_id == 's2023.P1',
+        ).values(min_pct=0, max_pct=0))
+    else:
+        chapters = sa.select(Node.id).where(Node.paper_id == 's2023.P1', Node.level == 'chapter')
+        condition = WeightageMember.chapter_id.in_(chapters)
+        if missing_kind == 'partial':
+            topic = session.get(Node, nodes[0].parent_id)
+            condition = WeightageMember.chapter_id == topic.parent_id
+        session.execute(sa.delete(WeightageMember).where(condition))
+    session.commit()
+    assert paper_summary()['weighted_coverage_pct'] is None
+    assert paper_summary()['raw_progress_pct'] == 0
+
+
+def test_scored_coverage_zero_and_unavailable_denominators(client, session, scored_nodes):
+    run, _ = scored_nodes
+    coverage = client.get('/api/v1/dashboard').json()['weighted_coverage']
+    assert coverage['overall_coverage_pct'] == 0
+    assert coverage['groups']['1']['coverage_pct'] == 0
+    assert coverage['papers']['s2023.P1']['coverage_pct'] == 0
+    assert coverage['groups']['2'] == {'coverage_pct': None, 'in_progress_pct': None}
+    session.execute(sa.update(SubtopicScore).where(SubtopicScore.score_run_id == run.id).values(weight_prior=0))
+    session.commit()
+    coverage = client.get('/api/v1/dashboard').json()['weighted_coverage']
+    assert coverage['overall_coverage_pct'] is None
+    assert coverage['overall_in_progress_pct'] is None
+    assert coverage['groups']['1'] == {'coverage_pct': None, 'in_progress_pct': None}
+    assert coverage['papers']['s2023.P1']['coverage_pct'] is None
 
 
 def test_recompute_records_effective_snapshot(session):

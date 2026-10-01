@@ -163,27 +163,30 @@ def list_papers(session: Session = Depends(get_db)):
             )
             .join(WeightageMember, WeightageMember.chapter_id == Node.id, isouter=True)
             .join(WeightageSection, WeightageSection.id == WeightageMember.section_id, isouter=True)
-            .where(Node.paper_id == p.id, Node.level == "chapter")
+            .where(Node.paper_id == p.id, Node.level == "chapter", Node.status == "active")
         ).all()
 
         total_weight = 0.0
         earned_weight = 0.0
+        weightage_complete = True
 
         for ch_id, min_pct, max_pct in ch_rows:
-            # Chapter midpoint weight
-            ch_mid = (
-                (float(min_pct) + float(max_pct)) / 2.0
-                if min_pct is not None and max_pct is not None else 10.0
-            )
-            total_weight += ch_mid
-
             # Subtopics in this chapter
-            topic_ids = sa.select(Node.id).where(Node.parent_id == ch_id, Node.level == "topic")
+            topic_ids = sa.select(Node.id).where(
+                Node.parent_id == ch_id, Node.level == "topic", Node.status == "active"
+            )
             ch_subs = session.execute(
-                sa.select(Node.id).where(Node.parent_id.in_(topic_ids), Node.level == "subtopic")
+                sa.select(Node.id).where(
+                    Node.parent_id.in_(topic_ids), Node.level == "subtopic", Node.status == "active"
+                )
             ).scalars().all()
 
             if ch_subs:
+                if min_pct is None or max_pct is None:
+                    weightage_complete = False
+                    continue
+                ch_mid = (float(min_pct) + float(max_pct)) / 2.0
+                total_weight += ch_mid
                 done_in_ch = session.execute(
                     sa.select(sa.func.count(Progress.node_id)).where(
                         Progress.user_id == user_id,
@@ -194,7 +197,10 @@ def list_papers(session: Session = Depends(get_db)):
                 ch_ratio = done_in_ch / len(ch_subs)
                 earned_weight += ch_mid * ch_ratio
 
-        weighted_pct = (earned_weight / total_weight * 100.0) if total_weight > 0 else raw_pct
+        weighted_pct = (
+            round(earned_weight / total_weight * 100.0, 1)
+            if weightage_complete and total_weight > 0 else None
+        )
 
         summaries.append(
             PaperSummary(
@@ -205,7 +211,7 @@ def list_papers(session: Session = Depends(get_db)):
                 total_subtopics=total_sub,
                 completed_subtopics=completed_count,
                 raw_progress_pct=round(raw_pct, 1),
-                weighted_coverage_pct=round(weighted_pct, 1),
+                weighted_coverage_pct=weighted_pct,
                 average_importance=average_importance,
                 revision_due_count=sum(item["paper_id"] == p.id for item in revision_due),
                 weak_topic_count=weak_count,
