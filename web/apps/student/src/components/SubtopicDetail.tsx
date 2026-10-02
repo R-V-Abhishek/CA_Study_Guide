@@ -3,7 +3,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { useBlocker } from 'react-router-dom';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { apiRequest } from '@caf/api-client';
+import { apiRequest, authGeneration, onIdentityReset } from '@caf/api-client';
 import { getData, mode, jsonOptions, importance } from '../lib/data';
 import { isDemoMode } from '../lib/demo';
 import { demoUpdate } from '../lib/fixtures';
@@ -13,10 +13,13 @@ import type { SubtopicData, WhyData } from '../lib/contracts';
 type Status = 'not_started' | 'in_progress' | 'done';
 type Draft = { text: string; saved: string };
 const drafts = new Map<string, Draft>();
+const timers = new Set<number>();
+onIdentityReset(() => { timers.forEach(timer => window.clearTimeout(timer)); timers.clear(); drafts.clear(); saves.clear(); });
 const saves = new Map<string, { text: string; promise: Promise<unknown> }>();
 
 export function SubtopicDetail({ nodeId }: { paperId: string; nodeId: string }) {
   const cache = useQueryClient();
+  const generation = authGeneration();
   const key = `${mode()}:${nodeId}`;
   const [text, setText] = useState(drafts.get(key)?.text ?? '');
   const [saveStatus, setSaveStatus] = useState<'saved' | 'saving' | 'unsaved' | 'failed'>(drafts.get(key)?.text !== drafts.get(key)?.saved ? 'unsaved' : 'saved');
@@ -47,17 +50,21 @@ export function SubtopicDetail({ nodeId }: { paperId: string; nodeId: string }) 
   }, [blocker]);
   useEffect(() => {
     if (!dirty) return;
+    const beforeLogout = (event: Event) => { if (!window.confirm('You have unsaved notes. Sign out and discard them?')) event.preventDefault(); };
+    window.addEventListener('caf-before-logout', beforeLogout);
     const unload = (event: BeforeUnloadEvent) => { event.preventDefault(); event.returnValue = ''; };
     window.addEventListener('beforeunload', unload);
-    return () => { window.removeEventListener('beforeunload', unload); };
+    return () => { window.removeEventListener('beforeunload', unload); window.removeEventListener('caf-before-logout', beforeLogout); };
   }, [dirty]);
   const save = async () => {
     const snapshot = latest.current;
     setSaveStatus('saving'); setNoteError('');
     const previous = saves.get(key)?.promise ?? Promise.resolve();
     const pending = previous.catch(() => undefined).then(async () => {
+      if (generation !== authGeneration()) return;
       if (isDemoMode()) demoUpdate(nodeId, { notes: snapshot });
       else await apiRequest(`/api/v1/subtopics/${encodeURIComponent(nodeId)}/notes`, jsonOptions('PUT', { notes: snapshot }));
+      if (generation !== authGeneration()) return;
       const draft = drafts.get(key);
       if (draft) drafts.set(key, { ...draft, saved: snapshot });
       if (mounted.current) {
@@ -74,7 +81,8 @@ export function SubtopicDetail({ nodeId }: { paperId: string; nodeId: string }) 
   useEffect(() => {
     if (saveStatus !== 'unsaved') return;
     const timer = window.setTimeout(() => { void save(); }, 1000);
-    return () => window.clearTimeout(timer);
+    timers.add(timer);
+    return () => { window.clearTimeout(timer); timers.delete(timer); };
   }, [text, saveStatus]);
   const progress = useMutation({
     mutationFn: async (status: Status) => {
@@ -88,7 +96,7 @@ export function SubtopicDetail({ nodeId }: { paperId: string; nodeId: string }) 
       if (previous) cache.setQueryData(queryKey, { ...previous, status });
       return previous;
     },
-    onError: (_error, _status, previous) => { if (previous) cache.setQueryData(queryKey, previous); },
+    onError: (_error, _status, previous) => { if (previous && generation === authGeneration()) cache.setQueryData(queryKey, previous); },
     onSuccess: async () => { setStatusSaved(true); await cache.invalidateQueries(); },
   });
   const data = query.data;

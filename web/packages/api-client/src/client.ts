@@ -1,5 +1,6 @@
 import createClient, { type ClientOptions } from "openapi-fetch";
 import type { paths } from "./generated";
+import { authenticatedFetch } from "./auth";
 
 export class ApiError extends Error {
   constructor(message: string, public readonly status?: number) {
@@ -26,7 +27,7 @@ async function checkedResponse(response: Response): Promise<Response> {
 export async function apiRequest<T>(url: string, options: RequestInit = {}): Promise<T> {
   let response: Response;
   try {
-    response = await fetch(url, {
+    response = await authenticatedFetch(new URL(url, window.location.origin), {
       ...options,
       headers: { "Content-Type": "application/json", ...options.headers },
     });
@@ -43,7 +44,6 @@ const errorMiddleware = {
 
 export interface ApiClientConfig extends ClientOptions {
   baseUrl?: string;
-  curatorToken?: string;
 }
 
 /**
@@ -54,6 +54,7 @@ export function createStudentClient(config: ApiClientConfig = {}) {
   const baseUrl = config.baseUrl ?? "";
   const client = createClient<paths>({
     baseUrl,
+    fetch: authenticatedFetch,
     headers: {
       "Content-Type": "application/json",
       ...config.headers,
@@ -64,26 +65,8 @@ export function createStudentClient(config: ApiClientConfig = {}) {
   return client;
 }
 
-/**
- * Creates a typed fetch client for curator-facing routes.
- * Automatically injects the X-Curator-Token header.
- */
-export function createCuratorClient(config: ApiClientConfig = {}) {
-  const baseUrl = config.baseUrl ?? "";
-  const token = config.curatorToken ?? (typeof window !== "undefined" ? localStorage.getItem("caf_curator_token") || "curator-dev-token" : "curator-dev-token");
-  
-  const client = createClient<paths>({
-    baseUrl,
-    headers: {
-      "Content-Type": "application/json",
-      "X-Curator-Token": token,
-      ...config.headers,
-    },
-    ...config,
-  });
-  client.use(errorMiddleware);
-  return client;
-}
+/** Both apps use the same revocable session cookie. */
+export const createCuratorClient = createStudentClient;
 
 export type StudentClient = ReturnType<typeof createStudentClient>;
 export type CuratorClient = ReturnType<typeof createCuratorClient>;

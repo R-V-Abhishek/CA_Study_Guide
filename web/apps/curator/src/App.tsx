@@ -1,4 +1,8 @@
-import React from "react";
+import React, { useSyncExternalStore } from "react";
+import { authState, subscribeAuth } from "@caf/api-client";
+import { AuthGate } from "./components/AuthGate";
+import { SessionControls } from "./components/SessionControls";
+import { Accounts } from "./pages/Accounts";
 import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 import { ListFilter, CheckCheck, FolderOpen, Activity, Network } from "lucide-react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -13,14 +17,21 @@ import { RouteBoundary } from "./components/RouteBoundary";
 
 const queryClient = new QueryClient();
 
+function AdminOnly({ children }: { children: React.ReactNode }) {
+  const state = useSyncExternalStore(subscribeAuth, authState);
+  return state.identity?.capabilities.includes("admin") ? <>{children}</> : <p role="alert">Administrator access required.</p>;
+}
+
 function CuratorLayout({ children }: { children: React.ReactNode }) {
+  const state = useSyncExternalStore(subscribeAuth, authState);
+  const admin = state.identity?.capabilities.includes("admin");
   const navItems = [
     { to: "/queue", label: "Review Queue", icon: ListFilter },
     { to: "/bulk", label: "Bulk Accept", icon: CheckCheck },
     { to: "/documents", label: "Catalogue", icon: FolderOpen },
     { to: "/taxonomy", label: "Taxonomy", icon: Network },
     { to: "/system", label: "System Health", icon: Activity },
-  ];
+  ].filter(item => admin || ["/queue", "/taxonomy"].includes(item.to));
 
   return (
     <div className="min-h-screen flex bg-[#0F172A] text-[#F8FAFC]">
@@ -83,7 +94,7 @@ function CuratorLayout({ children }: { children: React.ReactNode }) {
       <main className="flex-1 flex flex-col min-w-0">
         <header className="h-12 border-b border-[#334155] px-6 flex items-center justify-between bg-[#1E293B]/20 text-xs">
           <span className="text-slate-400">Curator workspace</span>
-          <Diagnostics />
+          <SessionControls /><Diagnostics />
         </header>
 
         <div className="flex-1 p-6 overflow-auto"><RouteBoundary>{children}</RouteBoundary></div>
@@ -95,18 +106,19 @@ function CuratorLayout({ children }: { children: React.ReactNode }) {
 export function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <BrowserRouter basename="/curator">
+      <AuthGate><BrowserRouter basename="/curator">
         <CuratorLayout>
           <Routes>
             <Route path="/" element={<Queue />} />
             <Route path="/queue" element={<Queue />} />
-            <Route path="/bulk" element={<BulkAccept />} />
-            <Route path="/documents" element={<Catalogue />} />
+            <Route path="/bulk" element={<AdminOnly><BulkAccept /></AdminOnly>} />
+            <Route path="/documents" element={<AdminOnly><Catalogue /></AdminOnly>} />
             <Route path="/taxonomy" element={<Taxonomy />} />
-            <Route path="/system" element={<System />} />
+            <Route path="/accounts" element={<AdminOnly><Accounts /></AdminOnly>} />
+            <Route path="/system" element={<AdminOnly><System /></AdminOnly>} />
           </Routes>
         </CuratorLayout>
-      </BrowserRouter>
+      </BrowserRouter></AuthGate>
     </QueryClientProvider>
   );
 }

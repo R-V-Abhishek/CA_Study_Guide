@@ -40,7 +40,7 @@ export function Plan() {
     {!valid && <p role="alert">Enter finite positive hours and a supported group (1 or 2).</p>}
     <PageState loading={valid && query.isPending} error={query.error ?? papersQuery.error} retry={() => { query.refetch(); papersQuery.refetch(); }} />
     {query.data && <><p>{query.data.hours_per_week} hours per week · {query.data.minutes_per_subtopic} minutes per subtopic · {query.data.total_allocated} allocated</p>
-      {query.data.items.length === 0 ? <p className="card">No topics allocated for this budget and selection.</p> : <ol className="space-y-3">{query.data.items.map((item, index) => <li className="card" key={item.node_id}><Link className="topic-link font-semibold" to={destination(item.paper_id, item.node_id)}>{index + 1}. {item.node_name}</Link><p>{item.paper_code} · {query.data.minutes_per_subtopic} minutes · Importance {importance(item.importance)}</p><p>{item.reason}</p></li>)}</ol>}
+      {query.data.items.length === 0 ? <p className="card">{(query.data as PlanData & { score_unavailable_reason?: string | null }).score_unavailable_reason ?? "No topics allocated for this budget and selection."}</p> : <ol className="space-y-3">{query.data.items.map((item, index) => <li className="card" key={item.node_id}><Link className="topic-link font-semibold" to={destination(item.paper_id, item.node_id)}>{index + 1}. {item.node_name}</Link><p>{item.paper_code} · {query.data.minutes_per_subtopic} minutes · Importance {importance(item.importance)}</p><p>{item.reason}</p></li>)}</ol>}
     </>}
   </div>;
 }

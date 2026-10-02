@@ -1,5 +1,6 @@
-import { test, expect, type Page } from "@playwright/test";
+import { test, expect, type Page } from "./fixtures";
 import type { components } from "../../packages/api-client/src/generated";
+test.beforeEach(async ({ request }) => { await request.post('/__test/login?account_id=3'); });
 
 type QueueItem = components["schemas"]["CuratorQueueItem"];
 type Paper = components["schemas"]["PaperSummary"];
@@ -158,7 +159,7 @@ test.describe("curator controlled responses", () => {
     await page.route("**/api/v1/curate/documents**", route => route.request().method() === "GET"
       ? route.fulfill({ json: [document] })
       : route.fulfill({ status: 500, json: { detail: "Document action failed" } }));
-    await page.route("**/api/v1/curate/intel/recompute", route => route.fulfill({ status: 500, json: { detail: "Recompute failed" } }));
+    await page.route("**/api/v1/curate/intel/recompute*", route => route.fulfill({ status: 500, json: { detail: "Recompute failed" } }));
     await page.route("**/api/v1/system/health", route => route.fulfill({ json: { status: "healthy", evaluated_at: "2026-10-01T00:00:00Z", alarms: [] } satisfies components["schemas"]["SystemHealth"] }));
     await page.route("**/api/v1/system/backups", route => route.fulfill({ json: { count: 0, backups: [] } satisfies components["schemas"]["BackupList"] }));
     await page.goto("/curator/documents");
@@ -181,7 +182,7 @@ test.describe("curator controlled responses", () => {
 });
 
 test.describe("curator disposable database integration", () => {
-  test.beforeEach(async ({ request }) => { expect((await request.post("/__test/reset")).ok()).toBeTruthy(); });
+  test.beforeEach(async ({ request }) => { expect((await request.post("/__test/reset")).ok()).toBeTruthy(); await request.post('/__test/login?account_id=3'); });
 
   test("direct curator routes render actual API contracts without uncaught errors", async ({ page }) => {
     const uncaught: string[] = []; page.on("pageerror", error => uncaught.push(error.message));

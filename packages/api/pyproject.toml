@@ -12,6 +12,8 @@ dependencies = [
     "caf-l5",
     "fastapi>=0.110",
     "uvicorn>=0.29",
+    "authlib>=1.6,<2",
+    "httpx>=0.27",
 ]
 
 [tool.uv.sources]

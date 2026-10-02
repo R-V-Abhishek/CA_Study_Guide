@@ -1,17 +1,17 @@
 from datetime import date, datetime, timezone
-from typing import Any, Literal
+from typing import Literal
 from fastapi import APIRouter, Depends, HTTPException, Query
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ConfigDict, model_validator
 import sqlalchemy as sa
 from sqlalchemy.orm import Session
 
-from caf_common.settings import get_settings
 from caf_api.responses import (
     BackupList, BackupResult, ChapterItem, Dashboard, DeleteResult, Metadata,
     MockTestResult, ModelEvaluation, NoteResult, PaperSummary, PaperTree,
     ProgressResult, RevisionQueue, RevisionResult, ScoreExplanation, StudyPlan,
-    SubtopicDetail, SubtopicItem, SystemHealth, TopicItem,
+    SubtopicDetail, SubtopicItem, SystemHealth, TopicItem, ProfileSettings, ProfileExport,
 )
+from caf_api.auth import Principal, require_account, require_admin, get_identity_db
 from caf_api.version import backend_revision, score_run_identity
 from caf_db.engine import get_session_factory
 from caf_db.models.app import (
@@ -20,16 +20,15 @@ from caf_db.models.app import (
     Progress,
     ProgressEvent,
     RevisionEvent,
-    Settings,
     UserAccount,
+    StudySession,
 )
 from caf_db.models.core import Appearance, AppearanceTag
 from caf_db.models.intel import SubtopicScore
-from caf_db.models.ref import Node, Paper, WeightageMember, WeightageSection
+from caf_db.models.ref import Attempt, Node, Paper, WeightageMember, WeightageSection
 from caf_l5 import (
     compute_weighted_coverage,
     generate_study_plan,
-    get_current_score_run,
     get_ingestion_coverage_matrix,
     get_revision_due_list,
     get_subtopic_scores_for_paper,
@@ -39,34 +38,20 @@ from caf_l5 import (
     record_revision_outcome,
 )
 
-router = APIRouter(prefix="/api/v1")
+from caf_l5.service import get_account_settings, get_account_score_run, selected_papers
+
+router = APIRouter(prefix="/api/v1", dependencies=[Depends(require_account)])
 
 
 def get_db():
-    factory = get_session_factory()
+    factory = get_session_factory("student")
     with factory() as session:
         yield session
 
 
-def ensure_default_user(session: Session) -> UserAccount:
-    settings = get_settings()
-    user_id = settings.app.user_id
-    user = session.get(UserAccount, user_id)
-    if not user:
-        user = UserAccount(id=user_id, name="Primary Aspirant")
-        session.add(user)
-        session.flush()
-
-        app_settings = Settings(
-            user_id=user_id,
-            target_attempt_id=settings.app.target_attempt_id,
-            hours_per_week=20.0,
-            minutes_per_subtopic=45,
-            revision_intervals=[3, 7, 21, 60],
-        )
-        session.add(app_settings)
-        session.commit()
-    return user
+def get_operations_db():
+    with get_session_factory("operations")() as session:
+        yield session
 
 
 # ==============================================================================
@@ -74,18 +59,22 @@ def ensure_default_user(session: Session) -> UserAccount:
 # ==============================================================================
 
 class ProgressUpdateRequest(BaseModel):
+    model_config = ConfigDict(extra="forbid")
     status: Literal["not_started", "in_progress", "done"]
 
 
 class NoteUpdateRequest(BaseModel):
+    model_config = ConfigDict(extra="forbid")
     notes: str
 
 
 class RevisionLogRequest(BaseModel):
+    model_config = ConfigDict(extra="forbid")
     outcome: Literal["ok", "shaky"]
 
 
 class MockTestCreateRequest(BaseModel):
+    model_config = ConfigDict(extra="forbid")
     paper_id: str
     attempt_id: str | None = None
     label: str | None = None
@@ -100,10 +89,8 @@ class MockTestCreateRequest(BaseModel):
 # ==============================================================================
 
 @router.get("/papers", response_model=list[PaperSummary])
-def list_papers(session: Session = Depends(get_db)):
-    ensure_default_user(session)
-    settings = get_settings()
-    user_id = settings.app.user_id
+def list_papers(session: Session = Depends(get_db), account: Principal = Depends(require_account)):
+    user_id = account.id
 
     papers = session.execute(
         sa.select(Paper).where(Paper.is_current.is_(True)).order_by(Paper.code, Paper.id)
@@ -131,7 +118,7 @@ def list_papers(session: Session = Depends(get_db)):
                 )
             ).scalar() or 0
 
-        scores = get_subtopic_scores_for_paper(session, p.id)
+        scores = get_subtopic_scores_for_paper(session, p.id, target_attempt_id=get_account_settings(session, user_id).target_attempt_id or "")
         applicable_scores = [
             scores[node_id] for node_id in sub_ids
             if node_id in scores and scores[node_id].applicable
@@ -222,10 +209,8 @@ def list_papers(session: Session = Depends(get_db)):
 
 
 @router.get("/papers/{paper_id}/tree", response_model=PaperTree)
-def get_paper_tree(paper_id: str, session: Session = Depends(get_db)):
-    ensure_default_user(session)
-    settings = get_settings()
-    user_id = settings.app.user_id
+def get_paper_tree(paper_id: str, session: Session = Depends(get_db), account: Principal = Depends(require_account)):
+    user_id = account.id
 
     paper = session.get(Paper, paper_id)
     if not paper:
@@ -274,7 +259,7 @@ def get_paper_tree(paper_id: str, session: Session = Depends(get_db)):
             subtopics_by_parent.setdefault(n.parent_id, []).append(n)
 
     # Load intelligence scores for this paper
-    scores_map = get_subtopic_scores_for_paper(session, paper_id)
+    scores_map = get_subtopic_scores_for_paper(session, paper_id, target_attempt_id=get_account_settings(session, user_id).target_attempt_id or "")
 
     result_chapters = []
     for ch_id, ch in sorted(chapters_by_id.items(), key=lambda x: (x[1].seq, x[1].id)):
@@ -345,7 +330,7 @@ def get_paper_tree(paper_id: str, session: Session = Depends(get_db)):
 @router.get("/tree", response_model=PaperTree)
 def get_tree_by_query(
     paper: str,
-    session: Session = Depends(get_db),
+    session: Session = Depends(get_db), account: Principal = Depends(require_account),
 ):
     """Retrieve paper taxonomy tree by code (e.g. P1) or ID (s2023.P1)."""
     paper_row = session.execute(
@@ -355,14 +340,12 @@ def get_tree_by_query(
     ).scalar_one_or_none()
     if not paper_row:
         raise HTTPException(status_code=404, detail=f"Paper '{paper}' not found")
-    return get_paper_tree(paper_row.id, session)
+    return get_paper_tree(paper_row.id, session, account)
 
 
 @router.get("/subtopics/{node_id}", response_model=SubtopicDetail)
-def get_subtopic_detail(node_id: str, session: Session = Depends(get_db)):
-    ensure_default_user(session)
-    settings = get_settings()
-    user_id = settings.app.user_id
+def get_subtopic_detail(node_id: str, session: Session = Depends(get_db), account: Principal = Depends(require_account)):
+    user_id = account.id
 
     subtopic = session.get(Node, node_id)
     if not subtopic or subtopic.level != "subtopic":
@@ -421,7 +404,7 @@ def get_subtopic_detail(node_id: str, session: Session = Depends(get_db)):
     ]
 
     # Intelligence scores for this subtopic
-    current_run = get_current_score_run(session)
+    current_run = get_account_score_run(session, account.id)
     score_rec = None
     if current_run:
         score_rec = session.query(SubtopicScore).where(
@@ -473,11 +456,9 @@ def get_subtopic_detail(node_id: str, session: Session = Depends(get_db)):
 def update_subtopic_progress(
     node_id: str,
     req: ProgressUpdateRequest,
-    session: Session = Depends(get_db),
+    session: Session = Depends(get_db), account: Principal = Depends(require_account),
 ):
-    ensure_default_user(session)
-    settings = get_settings()
-    user_id = settings.app.user_id
+    user_id = account.id
 
     subtopic = session.get(Node, node_id)
     if not subtopic or subtopic.level != "subtopic":
@@ -522,11 +503,9 @@ def update_subtopic_progress(
 def update_subtopic_notes(
     node_id: str,
     req: NoteUpdateRequest,
-    session: Session = Depends(get_db),
+    session: Session = Depends(get_db), account: Principal = Depends(require_account),
 ):
-    ensure_default_user(session)
-    settings = get_settings()
-    user_id = settings.app.user_id
+    user_id = account.id
 
     subtopic = session.get(Node, node_id)
     if not subtopic or subtopic.level != "subtopic":
@@ -546,14 +525,14 @@ def update_subtopic_notes(
 
 
 @router.get("/dashboard", response_model=Dashboard)
-def get_dashboard(session: Session = Depends(get_db)):
-    ensure_default_user(session)
-    settings = get_settings()
-    user_id = settings.app.user_id
+def get_dashboard(session: Session = Depends(get_db), account: Principal = Depends(require_account)):
+    user_id = account.id
+
+    paper_ids = selected_papers(session, user_id)
 
     # Overall subtopic counts
     all_subtopics = session.execute(
-        sa.select(Node.id).where(Node.level == "subtopic", Node.status == "active")
+        sa.select(Node.id).where(Node.level == "subtopic", Node.status == "active", Node.paper_id.in_(paper_ids))
     ).scalars().all()
     total_subtopics = len(all_subtopics)
 
@@ -577,7 +556,7 @@ def get_dashboard(session: Session = Depends(get_db)):
 
     # Group 1 and Group 2 Breakdown
     group_stats = {1: {"total": 0, "done": 0}, 2: {"total": 0, "done": 0}}
-    papers = session.execute(sa.select(Paper).where(Paper.is_current.is_(True))).scalars().all()
+    papers = session.execute(sa.select(Paper).where(Paper.is_current.is_(True), Paper.id.in_(paper_ids))).scalars().all()
 
     for p in papers:
         g = p.group_no or 1
@@ -602,7 +581,7 @@ def get_dashboard(session: Session = Depends(get_db)):
         sa.select(ProgressEvent, Node.name, Paper.code)
         .join(Node, Node.id == ProgressEvent.node_id)
         .join(Paper, Paper.id == Node.paper_id)
-        .where(ProgressEvent.user_id == user_id)
+        .where(ProgressEvent.user_id == user_id, Node.paper_id.in_(paper_ids))
         .order_by(ProgressEvent.at.desc(), ProgressEvent.id.desc())
         .limit(10)
     ).all()
@@ -620,12 +599,12 @@ def get_dashboard(session: Session = Depends(get_db)):
     ]
 
     # L5 Intelligence integrations
-    current_run = get_current_score_run(session)
+    current_run = get_account_score_run(session, account.id)
     weighted_cov = compute_weighted_coverage(session, user_id=user_id)
     weak_items = get_weak_subtopics(session, user_id=user_id, limit=10)
     coverage_matrix = get_ingestion_coverage_matrix(
-        session, current_run.id if current_run else None
-    )
+        session, current_run.id
+    ) if current_run else {"coverage": []}
 
     # M6 Planning and revision previews
     plan_data = generate_study_plan(session, user_id=user_id)
@@ -633,7 +612,8 @@ def get_dashboard(session: Session = Depends(get_db)):
     revision_due = get_revision_due_list(session, user_id=user_id)
 
     return {
-        "target_attempt": settings.app.target_attempt_id,
+        "target_attempt": get_account_settings(session, account.id).target_attempt_id,
+        "score_unavailable_reason": None if current_run else "No successful scoring run exists for your target attempt.",
         "score_run_id": current_run.id if current_run else None,
         "total_subtopics": total_subtopics,
         "done_subtopics": done_subtopics,
@@ -651,20 +631,20 @@ def get_dashboard(session: Session = Depends(get_db)):
 
 
 @router.get("/meta", response_model=Metadata)
-def get_meta(session: Session = Depends(get_db)):
+def get_meta(session: Session = Depends(get_db), account: Principal = Depends(require_account)):
     """System metadata and ingestion coverage indicator."""
-    settings = get_settings()
-    current_run = get_current_score_run(session)
+    current_run = get_account_score_run(session, account.id)
     coverage_matrix = get_ingestion_coverage_matrix(
-        session, current_run.id if current_run else None
-    )
+        session, current_run.id
+    ) if current_run else {"coverage": []}
     return {
         "taxonomy_version": "v1",
         "scoring_version": current_run.scoring_version if current_run else None,
         "api_version": "v1",
         "backend_revision": backend_revision(),
         "score_run": score_run_identity(current_run),
-        "target_attempt": settings.app.target_attempt_id,
+        "target_attempt": get_account_settings(session, account.id).target_attempt_id,
+        "score_unavailable_reason": None if current_run else "No successful scoring run exists for your target attempt.",
         "score_run_id": current_run.id if current_run else None,
         "score_run_computed_at": current_run.finished_at.isoformat() if current_run and current_run.finished_at else None,
         "ingestion_coverage": coverage_matrix.get("coverage", []),
@@ -672,10 +652,10 @@ def get_meta(session: Session = Depends(get_db)):
 
 
 @router.get("/why/subtopic/{node_id}", response_model=ScoreExplanation)
-def api_get_subtopic_why(node_id: str, session: Session = Depends(get_db)):
+def api_get_subtopic_why(node_id: str, session: Session = Depends(get_db), account: Principal = Depends(require_account)):
     """Explainability payload for a subtopic score."""
     try:
-        return get_subtopic_why(session, node_id)
+        return get_subtopic_why(session, node_id, target_attempt_id=get_account_settings(session, account.id).target_attempt_id or "")
     except ValueError as exc:
         raise HTTPException(status_code=404, detail=str(exc))
 
@@ -692,12 +672,10 @@ def api_get_study_plan(
         None, gt=0, allow_inf_nan=False,
         description="Optional override for study hours per week",
     ),
-    session: Session = Depends(get_db),
+    session: Session = Depends(get_db), account: Principal = Depends(require_account),
 ):
     """Retrieve next-week study plan with allocated subtopics and factual reasons."""
-    ensure_default_user(session)
-    settings = get_settings()
-    user_id = settings.app.user_id
+    user_id = account.id
 
     plan = generate_study_plan(
         session=session,
@@ -712,12 +690,10 @@ def api_get_study_plan(
 @router.get("/revision/due", response_model=RevisionQueue)
 def api_get_revision_due(
     paper: str | None = Query(None, description="Optional paper code/ID filter"),
-    session: Session = Depends(get_db),
+    session: Session = Depends(get_db), account: Principal = Depends(require_account),
 ):
     """Retrieve spaced-repetition revision queue due items."""
-    ensure_default_user(session)
-    settings = get_settings()
-    user_id = settings.app.user_id
+    user_id = account.id
 
     due_items = get_revision_due_list(session=session, user_id=user_id, paper_id=paper)
     return {
@@ -730,12 +706,10 @@ def api_get_revision_due(
 def api_record_subtopic_revision(
     node_id: str,
     req: RevisionLogRequest,
-    session: Session = Depends(get_db),
+    session: Session = Depends(get_db), account: Principal = Depends(require_account),
 ):
     """Record revision outcome ('ok' or 'shaky') and update last_revised_at."""
-    ensure_default_user(session)
-    settings = get_settings()
-    user_id = settings.app.user_id
+    user_id = account.id
 
     try:
         res = record_revision_outcome(
@@ -752,12 +726,10 @@ def api_record_subtopic_revision(
 @router.get("/mock-tests", response_model=list[MockTestResult])
 def api_list_mock_tests(
     paper: str | None = Query(None, description="Optional paper filter"),
-    session: Session = Depends(get_db),
+    session: Session = Depends(get_db), account: Principal = Depends(require_account),
 ):
     """List mock test records for the student."""
-    ensure_default_user(session)
-    settings = get_settings()
-    user_id = settings.app.user_id
+    user_id = account.id
 
     query = sa.select(MockTest, Paper.code).join(Paper, Paper.id == MockTest.paper_id).where(MockTest.user_id == user_id)
     if paper:
@@ -786,12 +758,10 @@ def api_list_mock_tests(
 @router.post("/mock-tests", response_model=MockTestResult)
 def api_create_mock_test(
     req: MockTestCreateRequest,
-    session: Session = Depends(get_db),
+    session: Session = Depends(get_db), account: Principal = Depends(require_account),
 ):
     """Create a new mock test log entry."""
-    ensure_default_user(session)
-    settings = get_settings()
-    user_id = settings.app.user_id
+    user_id = account.id
 
     # Resolve paper ID
     paper = session.execute(
@@ -801,6 +771,11 @@ def api_create_mock_test(
     ).scalar_one_or_none()
     if not paper:
         raise HTTPException(status_code=404, detail=f"Paper '{req.paper_id}' not found")
+
+    if req.attempt_id is not None and session.get(Attempt, req.attempt_id) is None:
+        raise HTTPException(status_code=422, detail="Unknown attempt")
+    if req.score > req.max_score:
+        raise HTTPException(status_code=422, detail="Score cannot exceed maximum score")
 
     mt = MockTest(
         user_id=user_id,
@@ -833,15 +808,13 @@ def api_create_mock_test(
 @router.delete("/mock-tests/{test_id}", response_model=DeleteResult)
 def api_delete_mock_test(
     test_id: int,
-    session: Session = Depends(get_db),
+    session: Session = Depends(get_db), account: Principal = Depends(require_account),
 ):
     """Delete a mock test log entry."""
-    ensure_default_user(session)
-    settings = get_settings()
-    user_id = settings.app.user_id
+    user_id = account.id
 
-    mt = session.get(MockTest, test_id)
-    if not mt or mt.user_id != user_id:
+    mt = session.scalar(sa.select(MockTest).where(MockTest.id == test_id, MockTest.user_id == user_id))
+    if not mt:
         raise HTTPException(status_code=404, detail="Mock test not found")
 
     session.delete(mt)
@@ -853,7 +826,7 @@ def api_delete_mock_test(
 # System Observability & Hardening Endpoints (Milestone 8)
 # ==============================================================================
 @router.get("/system/health", response_model=SystemHealth)
-def api_get_system_health(session: Session = Depends(get_db)):
+def api_get_system_health(session: Session = Depends(get_operations_db), account: Principal = Depends(require_admin)):
     """Retrieve overall system health and active operational alarms."""
     from caf_common.alarms import get_system_health
 
@@ -874,7 +847,7 @@ def api_get_system_health(session: Session = Depends(get_db)):
 
 
 @router.get("/system/backups", response_model=BackupList)
-def api_list_backups():
+def api_list_backups(account: Principal = Depends(require_admin)):
     """List existing database backup dumps with sizes and ages."""
     from caf_common.backup import list_backups
 
@@ -895,7 +868,7 @@ def api_list_backups():
 
 
 @router.post("/system/backups", response_model=BackupResult)
-def api_trigger_backup(session: Session = Depends(get_db)):
+def api_trigger_backup(session: Session = Depends(get_operations_db), account: Principal = Depends(require_admin)):
     """Trigger an immediate full database and asset backup."""
     from caf_common.backup import create_backup
 
@@ -917,7 +890,7 @@ def api_trigger_backup(session: Session = Depends(get_db)):
 def api_evaluate_models(
     threshold: float = 0.80,
     min_samples: int = 5,
-    session: Session = Depends(get_db),
+    session: Session = Depends(get_operations_db), account: Principal = Depends(require_admin),
 ):
     """Evaluate classifier performance against reviewed human decisions."""
     from caf_l3.evaluate import evaluate_model_on_reviewed_decisions
@@ -944,4 +917,92 @@ def api_evaluate_models(
         "passed": report.passed,
         "status_note": report.status_note,
         "evaluated_at": report.evaluated_at.isoformat(),
+    }
+
+
+class ProfileSettingsUpdate(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    display_name: str = Field(min_length=1, max_length=200)
+    target_attempt_id: str
+    selected_paper_ids: list[str] = Field(min_length=1)
+    hours_per_week: float = Field(gt=0, le=9999.9, allow_inf_nan=False)
+    minutes_per_subtopic: int = Field(gt=0, le=2147483647)
+    revision_intervals: list[int] = Field(min_length=1)
+    exam_start_date: date | None = None
+
+    @model_validator(mode="after")
+    def validate_settings(self):
+        if not self.display_name.strip():
+            raise ValueError("Display name cannot be blank")
+        if len(set(self.selected_paper_ids)) != len(self.selected_paper_ids):
+            raise ValueError("Selected papers must be unique")
+        if any(day <= 0 for day in self.revision_intervals):
+            raise ValueError("Revision intervals must be positive")
+        if any(day > 2147483647 for day in self.revision_intervals):
+            raise ValueError("Revision intervals exceed the supported integer range")
+        if any(a >= b for a, b in zip(self.revision_intervals, self.revision_intervals[1:])):
+            raise ValueError("Revision intervals must be strictly increasing")
+        return self
+
+
+def profile_settings_payload(session: Session, account: Principal) -> dict:
+    settings = get_account_settings(session, account.id)
+    papers = session.scalars(sa.select(Paper).where(Paper.is_current.is_(True)).order_by(Paper.code, Paper.id)).all()
+    paper_ids = selected_papers(session, account.id)
+    return {
+        "display_name": account.name,
+        "target_attempt_id": settings.target_attempt_id,
+        "selected_paper_ids": paper_ids,
+        "groups": sorted({p.group_no for p in papers if p.id in paper_ids}),
+        "hours_per_week": float(settings.hours_per_week),
+        "minutes_per_subtopic": settings.minutes_per_subtopic,
+        "revision_intervals": settings.revision_intervals,
+        "exam_start_date": settings.exam_start_date,
+        "available_papers": [{"id": p.id, "code": p.code, "name": p.name, "group_no": p.group_no} for p in papers],
+        "available_attempts": [{"id": a.id, "label": a.label} for a in session.scalars(sa.select(Attempt).order_by(Attempt.id))],
+    }
+
+
+@router.get("/me/settings", response_model=ProfileSettings)
+def get_profile_settings(session: Session = Depends(get_db), account: Principal = Depends(require_account)):
+    return profile_settings_payload(session, account)
+
+
+@router.put("/me/settings", response_model=ProfileSettings)
+def update_profile_settings(req: ProfileSettingsUpdate, session: Session = Depends(get_identity_db), account: Principal = Depends(require_account)):
+    if session.get(Attempt, req.target_attempt_id) is None:
+        raise HTTPException(status_code=422, detail="Unknown target attempt")
+    valid_papers = set(session.scalars(sa.select(Paper.id).where(Paper.is_current.is_(True))))
+    if not set(req.selected_paper_ids).issubset(valid_papers):
+        raise HTTPException(status_code=422, detail="Select current papers only")
+    settings = get_account_settings(session, account.id)
+    user = session.get(UserAccount, account.id)
+    user.name = req.display_name.strip()
+    settings.target_attempt_id = req.target_attempt_id
+    settings.selected_paper_ids = req.selected_paper_ids
+    settings.hours_per_week = req.hours_per_week
+    settings.minutes_per_subtopic = req.minutes_per_subtopic
+    settings.revision_intervals = req.revision_intervals
+    settings.exam_start_date = req.exam_start_date
+    session.commit()
+    payload = profile_settings_payload(session, account)
+    payload["display_name"] = user.name
+    return payload
+
+
+@router.get("/me/export", response_model=ProfileExport)
+def export_profile(session: Session = Depends(get_db), account: Principal = Depends(require_account)):
+    def records(model):
+        rows = session.scalars(sa.select(model).where(model.user_id == account.id)).all()
+        return [{column.name: row.__dict__[column.name] for column in model.__table__.columns if column.name != "user_id"} for row in rows]
+    return {
+        "account_id": account.id,
+        "exported_at": datetime.now(timezone.utc),
+        "settings": profile_settings_payload(session, account),
+        "progress": records(Progress),
+        "notes": records(Note),
+        "progress_events": records(ProgressEvent),
+        "revision_events": records(RevisionEvent),
+        "mock_tests": api_list_mock_tests(None, session, account),
+        "study_sessions": records(StudySession),
     }

@@ -1,3 +1,4 @@
+import { accountKey } from "@caf/api-client";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
@@ -7,7 +8,7 @@ export function Diagnostics() {
   const location = useLocation();
   const [open, setOpen] = useState(false);
   const [copyState, setCopyState] = useState("");
-  const meta = useQuery({ queryKey: ["curator-meta"], queryFn: async () => requiredData(await curatorClient.GET("/api/v1/meta")) });
+  const meta = useQuery({ queryKey: ["curator-meta", accountKey()], queryFn: async () => requiredData(await curatorClient.GET("/api/v1/meta")) });
   const info = JSON.stringify({
     frontend: { app: "curator", version: "1.0.0", revision: import.meta.env.VITE_BUILD_REVISION ?? "development", built_at: import.meta.env.VITE_BUILD_TIME ?? null },
     backend: { api_version: meta.data?.api_version ?? null, revision: meta.data?.backend_revision ?? null },

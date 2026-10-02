@@ -8,12 +8,12 @@ from sqlalchemy.orm import Session
 from caf_db.models.app import Progress, RevisionEvent, Settings as AppSettingsModel
 from caf_db.models.intel import SubtopicScore
 from caf_db.models.ref import Node, Paper
-from caf_l5.service import get_current_score_run
+from caf_l5.service import get_account_score_run, selected_papers
 
 
 def get_revision_due_list(
     session: Session,
-    user_id: int = 1,
+    user_id: int,
     as_of_date: date | None = None,
     paper_id: str | None = None,
 ) -> list[dict[str, Any]]:
@@ -32,7 +32,7 @@ def get_revision_due_list(
     intervals = app_settings.revision_intervals if app_settings and app_settings.revision_intervals else [3, 7, 21, 60]
 
     # 2. Fetch current ScoreRun for importance scores
-    current_run = get_current_score_run(session)
+    current_run = get_account_score_run(session, user_id)
     scores_map: dict[str, SubtopicScore] = {}
     if current_run:
         scores = session.query(SubtopicScore).where(SubtopicScore.score_run_id == current_run.id).all()
@@ -45,6 +45,7 @@ def get_revision_due_list(
         .join(Paper, Paper.id == Node.paper_id)
         .where(
             Progress.user_id == user_id,
+            Node.paper_id.in_(selected_papers(session, user_id)),
             Progress.status == "done",
             Progress.first_done_at.is_not(None),
         )
@@ -118,7 +119,7 @@ def record_revision_outcome(
     session: Session,
     node_id: str,
     outcome: str,
-    user_id: int = 1,
+    user_id: int,
 ) -> dict[str, Any]:
     """Record revision outcome ('ok' or 'shaky') and update last_revised_at."""
     if outcome not in ("ok", "shaky"):

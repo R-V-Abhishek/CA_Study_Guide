@@ -16,6 +16,7 @@ def get_subtopic_why(
     session: Session,
     node_id: str,
     run_id: int | None = None,
+    *, target_attempt_id: str | None = None,
 ) -> dict[str, Any]:
     """Generate detailed explainability breakdown for a subtopic score.
     
@@ -37,7 +38,7 @@ def get_subtopic_why(
         if score_run and (score_run.shadow or score_run.status != "ok"):
             raise ValueError("Only successful, non-shadow score runs can be explained")
     else:
-        score_run = get_current_score_run(session)
+        score_run = get_current_score_run(session, target_attempt_id)
 
     # 3. Fetch subtopic score record
     score_rec = session.query(SubtopicScore).where(

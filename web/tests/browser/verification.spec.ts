@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from './fixtures';
 import type { components } from '../../packages/api-client/src/generated';
 
 type Fixture = { paper_id: string; nodes: { id: string; name: string }[] };
@@ -6,6 +6,7 @@ test.beforeEach(async ({ request }) => {
   const response = await request.post('/__test/reset');
   expect(response.ok()).toBe(true);
   expect(await response.json()).toEqual({ reset: true });
+  await request.post('/__test/login');
 });
 
 test('dashboard distinguishes zero coverage from unavailable and uses real plan names', async ({ page, request }) => {
@@ -86,7 +87,7 @@ test('historical explanation shows recorded importance without a fabricated form
 
 test('network failures remain errors on every live student page', async ({ page, request }) => {
   const fixture: Fixture = await (await request.get('/__test/fixture')).json();
-  await page.route('**/api/v1/**', route => route.abort('failed'));
+  await page.route('**/api/v1/**', route => new URL(route.request().url()).pathname === '/api/v1/me' ? route.continue() : route.abort('failed'));
   for (const route of ['/', '/papers', '/plan', '/revision', '/progress', '/mock', `/papers/${fixture.paper_id}`]) {
     await page.goto(route);
     await expect(page.getByRole('alert').first()).toContainText('Unable to load');

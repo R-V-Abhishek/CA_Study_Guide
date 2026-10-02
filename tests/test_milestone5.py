@@ -167,7 +167,7 @@ def test_subtopic_why_explainability(session):
     """Test that every number in the importance score is fully explainable."""
     current_run = get_current_score_run(session)
     if not current_run:
-        current_run = recompute_scores(session)
+        current_run = recompute_scores(session, target_attempt_id="2026-05")
 
     # Pick a subtopic with published appearances if possible, or any subtopic
     scored = session.query(SubtopicScore).filter(
@@ -277,7 +277,7 @@ def test_api_subtopic_detail_dashboard_and_why(client, session):
     """Test GET /api/v1/subtopics/{id}, GET /api/v1/dashboard, and GET /api/v1/why/subtopic/{id}."""
     current_run = get_current_score_run(session)
     if not current_run:
-        current_run = recompute_scores(session)
+        current_run = recompute_scores(session, target_attempt_id="2026-05")
 
     # Get a subtopic ID
     sub = session.query(Node).where(Node.level == "subtopic", Node.status == "active").first()
@@ -314,7 +314,7 @@ def test_api_subtopic_detail_dashboard_and_why(client, session):
     assert "importance_breakdown" in why_data
 
     # 4. POST /api/v1/curate/intel/recompute
-    res_recompute = client.post("/api/v1/curate/intel/recompute")
+    res_recompute = client.post("/api/v1/curate/intel/recompute?target_attempt_id=2026-05")
     assert res_recompute.status_code == 200
     rec_data = res_recompute.json()
     assert rec_data["status"] == "ok"

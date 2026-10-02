@@ -4,6 +4,143 @@
  */
 
 export interface paths {
+    "/auth/login": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Login */
+        get: operations["login_auth_login_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/auth/callback": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Callback */
+        get: operations["callback_auth_callback_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/me": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Me */
+        get: operations["me_api_v1_me_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/auth/logout": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Logout */
+        post: operations["logout_auth_logout_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/admin/invitations": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Invitations */
+        get: operations["invitations_api_v1_admin_invitations_get"];
+        put?: never;
+        /** Invite */
+        post: operations["invite_api_v1_admin_invitations_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/admin/invitations/{invitation_id}/revoke": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Revoke Invitation */
+        post: operations["revoke_invitation_api_v1_admin_invitations__invitation_id__revoke_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/admin/accounts": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Accounts */
+        get: operations["accounts_api_v1_admin_accounts_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/admin/accounts/{account_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        /** Update Account */
+        patch: operations["update_account_api_v1_admin_accounts__account_id__patch"];
+        trace?: never;
+    };
     "/api/v1/papers": {
         parameters: {
             query?: never;
@@ -334,6 +471,41 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/me/settings": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Profile Settings */
+        get: operations["get_profile_settings_api_v1_me_settings_get"];
+        /** Update Profile Settings */
+        put: operations["update_profile_settings_api_v1_me_settings_put"];
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/me/export": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Export Profile */
+        get: operations["export_profile_api_v1_me_export_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/curate/documents": {
         parameters: {
             query?: never;
@@ -554,6 +726,26 @@ export interface paths {
 export type webhooks = Record<string, never>;
 export interface components {
     schemas: {
+        /** AccountResponse */
+        AccountResponse: {
+            /** Id */
+            id: number;
+            /** Name */
+            name: string;
+            /** Email */
+            email: string | null;
+            /** Role */
+            role: string;
+            /** Status */
+            status: string;
+        };
+        /** AccountUpdate */
+        AccountUpdate: {
+            /** Role */
+            role?: ("student" | "administrator") | null;
+            /** Status */
+            status?: ("active" | "disabled") | null;
+        };
         /** ActivityItem */
         ActivityItem: {
             /** Node Id */
@@ -725,6 +917,28 @@ export interface components {
             /** In Progress Pct */
             in_progress_pct: number | null;
         };
+        /** CreatedInvitationResponse */
+        CreatedInvitationResponse: {
+            /** Id */
+            id: number;
+            /** Email */
+            email: string;
+            /** Role */
+            role: string;
+            /**
+             * Expires At
+             * Format: date-time
+             */
+            expires_at: string;
+            /** Consumed At */
+            consumed_at: string | null;
+            /** Revoked At */
+            revoked_at: string | null;
+            /** Target User Id */
+            target_user_id: number | null;
+            /** Invitation Url */
+            invitation_url: string;
+        };
         /** CuratorDecisionResult */
         CuratorDecisionResult: {
             /** Decision Id */
@@ -815,6 +1029,8 @@ export interface components {
         };
         /** Dashboard */
         Dashboard: {
+            /** Score Unavailable Reason */
+            score_unavailable_reason?: string | null;
             /** Target Attempt */
             target_attempt: string;
             /** Score Run Id */
@@ -845,8 +1061,11 @@ export interface components {
         };
         /** DecisionRequest */
         DecisionRequest: {
-            /** Action */
-            action: string;
+            /**
+             * Action
+             * @enum {string}
+             */
+            action: "accept" | "accept_alt" | "edit" | "none_fits" | "exclude" | "bulk_accept" | "undo";
             /** Primary Node Id */
             primary_node_id?: string | null;
             /**
@@ -966,6 +1185,82 @@ export interface components {
             /** Prior */
             prior: number;
         };
+        /** ExportNote */
+        ExportNote: {
+            /** Node Id */
+            node_id: string;
+            /** Body */
+            body: string;
+            /**
+             * Updated At
+             * Format: date-time
+             */
+            updated_at: string;
+        };
+        /** ExportProgress */
+        ExportProgress: {
+            /** Node Id */
+            node_id: string;
+            /** Status */
+            status: string;
+            /**
+             * Status Changed At
+             * Format: date-time
+             */
+            status_changed_at: string;
+            /** First Done At */
+            first_done_at: string | null;
+            /** Last Revised At */
+            last_revised_at: string | null;
+            /** Verify Flag */
+            verify_flag: boolean;
+        };
+        /** ExportProgressEvent */
+        ExportProgressEvent: {
+            /** Id */
+            id: number;
+            /** Node Id */
+            node_id: string;
+            /** From Status */
+            from_status: string | null;
+            /** To Status */
+            to_status: string;
+            /**
+             * At
+             * Format: date-time
+             */
+            at: string;
+        };
+        /** ExportRevisionEvent */
+        ExportRevisionEvent: {
+            /** Id */
+            id: number;
+            /** Node Id */
+            node_id: string;
+            /** Outcome */
+            outcome: string;
+            /**
+             * At
+             * Format: date-time
+             */
+            at: string;
+        };
+        /** ExportStudySession */
+        ExportStudySession: {
+            /** Id */
+            id: number;
+            /** Node Id */
+            node_id: string | null;
+            /**
+             * Started At
+             * Format: date-time
+             */
+            started_at: string;
+            /** Ended At */
+            ended_at: string | null;
+            /** Minutes */
+            minutes: number | null;
+        };
         /** FrequencyExplanation */
         FrequencyExplanation: {
             /** Freq Hits F */
@@ -1002,8 +1297,43 @@ export interface components {
             /** Practice Published */
             practice_published: boolean;
         };
+        /** InvitationRequest */
+        InvitationRequest: {
+            /** Email */
+            email: string;
+        };
+        /** InvitationResponse */
+        InvitationResponse: {
+            /** Id */
+            id: number;
+            /** Email */
+            email: string;
+            /** Role */
+            role: string;
+            /**
+             * Expires At
+             * Format: date-time
+             */
+            expires_at: string;
+            /** Consumed At */
+            consumed_at: string | null;
+            /** Revoked At */
+            revoked_at: string | null;
+            /** Target User Id */
+            target_user_id: number | null;
+        };
+        /** MeResponse */
+        MeResponse: {
+            account: components["schemas"]["AccountResponse"];
+            /** Capabilities */
+            capabilities: string[];
+            /** Csrf Token */
+            csrf_token: string;
+        };
         /** Metadata */
         Metadata: {
+            /** Score Unavailable Reason */
+            score_unavailable_reason?: string | null;
             /** Taxonomy Version */
             taxonomy_version: string;
             /** Scoring Version */
@@ -1237,6 +1567,87 @@ export interface components {
             /** Weighted Contribution Pct */
             weighted_contribution_pct: number | null;
         };
+        /** ProfileAttempt */
+        ProfileAttempt: {
+            /** Id */
+            id: string;
+            /** Label */
+            label: string;
+        };
+        /** ProfileExport */
+        ProfileExport: {
+            /** Account Id */
+            account_id: number;
+            /**
+             * Exported At
+             * Format: date-time
+             */
+            exported_at: string;
+            settings: components["schemas"]["ProfileSettings"];
+            /** Progress */
+            progress: components["schemas"]["ExportProgress"][];
+            /** Notes */
+            notes: components["schemas"]["ExportNote"][];
+            /** Progress Events */
+            progress_events: components["schemas"]["ExportProgressEvent"][];
+            /** Revision Events */
+            revision_events: components["schemas"]["ExportRevisionEvent"][];
+            /** Mock Tests */
+            mock_tests: components["schemas"]["MockTestResult"][];
+            /** Study Sessions */
+            study_sessions: components["schemas"]["ExportStudySession"][];
+        };
+        /** ProfilePaper */
+        ProfilePaper: {
+            /** Id */
+            id: string;
+            /** Code */
+            code: string;
+            /** Name */
+            name: string;
+            /** Group No */
+            group_no: number;
+        };
+        /** ProfileSettings */
+        ProfileSettings: {
+            /** Display Name */
+            display_name: string;
+            /** Target Attempt Id */
+            target_attempt_id: string;
+            /** Selected Paper Ids */
+            selected_paper_ids: string[];
+            /** Groups */
+            groups: number[];
+            /** Hours Per Week */
+            hours_per_week: number;
+            /** Minutes Per Subtopic */
+            minutes_per_subtopic: number;
+            /** Revision Intervals */
+            revision_intervals: number[];
+            /** Exam Start Date */
+            exam_start_date: string | null;
+            /** Available Papers */
+            available_papers: components["schemas"]["ProfilePaper"][];
+            /** Available Attempts */
+            available_attempts: components["schemas"]["ProfileAttempt"][];
+        };
+        /** ProfileSettingsUpdate */
+        ProfileSettingsUpdate: {
+            /** Display Name */
+            display_name: string;
+            /** Target Attempt Id */
+            target_attempt_id: string;
+            /** Selected Paper Ids */
+            selected_paper_ids: string[];
+            /** Hours Per Week */
+            hours_per_week: number;
+            /** Minutes Per Subtopic */
+            minutes_per_subtopic: number;
+            /** Revision Intervals */
+            revision_intervals: number[];
+            /** Exam Start Date */
+            exam_start_date?: string | null;
+        };
         /** ProgressResult */
         ProgressResult: {
             /**
@@ -1372,6 +1783,8 @@ export interface components {
         };
         /** StudyPlan */
         StudyPlan: {
+            /** Score Unavailable Reason */
+            score_unavailable_reason?: string | null;
             /** Budget Items */
             budget_items: number;
             /** Total Allocated */
@@ -1597,6 +2010,249 @@ export interface components {
 }
 export type $defs = Record<string, never>;
 export interface operations {
+    login_auth_login_get: {
+        parameters: {
+            query?: {
+                return_to?: string;
+                invitation?: string | null;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    callback_auth_callback_get: {
+        parameters: {
+            query?: {
+                state?: string;
+                code?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    me_api_v1_me_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MeResponse"];
+                };
+            };
+        };
+    };
+    logout_auth_logout_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+        };
+    };
+    invitations_api_v1_admin_invitations_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["InvitationResponse"][];
+                };
+            };
+        };
+    };
+    invite_api_v1_admin_invitations_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["InvitationRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CreatedInvitationResponse"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    revoke_invitation_api_v1_admin_invitations__invitation_id__revoke_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                invitation_id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    accounts_api_v1_admin_accounts_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AccountResponse"][];
+                };
+            };
+        };
+    };
+    update_account_api_v1_admin_accounts__account_id__patch: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                account_id: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["AccountUpdate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AccountResponse"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
     list_papers_api_v1_papers_get: {
         parameters: {
             query?: never;
@@ -2142,6 +2798,79 @@ export interface operations {
             };
         };
     };
+    get_profile_settings_api_v1_me_settings_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ProfileSettings"];
+                };
+            };
+        };
+    };
+    update_profile_settings_api_v1_me_settings_put: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ProfileSettingsUpdate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ProfileSettings"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    export_profile_api_v1_me_export_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ProfileExport"];
+                };
+            };
+        };
+    };
     list_curate_documents_api_v1_curate_documents_get: {
         parameters: {
             query?: {
@@ -2380,8 +3109,8 @@ export interface operations {
     };
     api_curate_recompute_scores_api_v1_curate_intel_recompute_post: {
         parameters: {
-            query?: {
-                target_attempt_id?: string | null;
+            query: {
+                target_attempt_id: string;
                 shadow?: boolean;
             };
             header?: never;

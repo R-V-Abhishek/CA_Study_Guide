@@ -11,7 +11,6 @@ import sqlalchemy as sa
 from sqlalchemy.orm import Session
 
 from caf_common.settings import get_settings
-from caf_db.models.app import Settings as AppSettingsModel
 from caf_db.models.core import Appearance, AppearanceTag
 from caf_db.models.intel import DepthGateReport, IngestionCoverage, ScoreRun, SubtopicScore
 from caf_db.models.ref import (
@@ -81,7 +80,7 @@ def recompute_scores(
     
     Args:
         session: SQLAlchemy DB session
-        target_attempt_id: Target attempt (e.g. '2024-11'). If None, read from app.settings
+        target_attempt_id: Target attempt (e.g. '2024-11'). Required explicitly for administrative recomputation
         shadow: If True, this is a shadow score run (does not become is_current)
         config: ScoringConfig override. If None, loaded from config/scoring.toml
         provisional_items: Optional list of provisional (Appearance, AppearanceTag) for shadow runs
@@ -92,25 +91,12 @@ def recompute_scores(
     if config is None:
         config = load_scoring_config()
 
-    # 1. Resolve target attempt
+    # Administrative recomputation must identify its target explicitly.
     if not target_attempt_id:
-        app_settings = session.query(AppSettingsModel).first()
-        if app_settings and app_settings.target_attempt_id:
-            target_attempt_id = app_settings.target_attempt_id
-        else:
-            global_settings = get_settings()
-            target_attempt_id = global_settings.app.target_attempt_id or "2026-05"
-
+        raise ValueError("An explicit target_attempt_id is required")
     target_attempt = session.get(Attempt, target_attempt_id)
     if not target_attempt:
-        # Fallback to latest attempt in DB
-        target_attempt = session.query(Attempt).order_by(
-            Attempt.exam_year.desc(), Attempt.exam_month.desc()
-        ).first()
-        if target_attempt:
-            target_attempt_id = target_attempt.id
-        else:
-            raise ValueError(f"No valid attempt found in database for target {target_attempt_id}")
+        raise ValueError(f"Unknown target attempt: {target_attempt_id}")
 
     t_year = target_attempt.exam_year
     t_month = target_attempt.exam_month

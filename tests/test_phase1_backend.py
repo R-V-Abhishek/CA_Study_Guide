@@ -119,15 +119,15 @@ def test_plan_budget_groups_and_ties(client, session, scored_nodes):
         assert response.status_code == 200
         assert bool(response.json()['items']) == (group == 1)
     run, nodes = scored_nodes
-    tiny = generate_study_plan(session, hours_per_week=0.1)
+    tiny = generate_study_plan(session, user_id=1, hours_per_week=0.1)
     assert tiny['budget_items'] == tiny['total_allocated'] == 0
     assert tiny['items'] == []
-    ordered = generate_study_plan(session, hours_per_week=3, group_no=1, paper_id='P1')
+    ordered = generate_study_plan(session, user_id=1, hours_per_week=3, group_no=1, paper_id='P1')
     assert [item['node_id'] for item in ordered['items']] == sorted(node.id for node in nodes[:2])
-    assert generate_study_plan(session, group_no=2, paper_id='P1')['items'] == []
+    assert generate_study_plan(session, user_id=1, group_no=2, paper_id='P1')['items'] == []
     for value in (-1, 0, float('nan'), float('inf')):
         with pytest.raises(ValueError, match='finite and positive'):
-            generate_study_plan(session, hours_per_week=value)
+            generate_study_plan(session, user_id=1, hours_per_week=value)
     for query in ('hours=0', 'hours=-2', 'hours=nan', 'hours=inf', 'group=3'):
         assert client.get(f'/api/v1/plan?{query}').status_code == 422
 
@@ -205,7 +205,7 @@ def test_scored_coverage_zero_and_unavailable_denominators(client, session, scor
 
 def test_recompute_records_effective_snapshot(session):
     config = ScoringConfig(weights=WeightsConfig(exam=0.2, practice=0.3, prior=0.5))
-    run = recompute_scores(session, config=config)
+    run = recompute_scores(session, target_attempt_id="2026-05", config=config)
     assert run.config_snapshot == config.model_dump(mode='json')
     score = session.query(SubtopicScore).where(
         SubtopicScore.score_run_id == run.id, SubtopicScore.applicable.is_(True),
@@ -252,15 +252,28 @@ def test_curator_contract_ancestry_and_complete_nullable_answers(client, session
     assert item['answer_text'] == answer.answer_text
 
 
-def test_forward_migration_preserves_legacy_rows(session):
-    engine = get_engine()
-    session.close()
-    cfg = Config('alembic.ini')
-    command.downgrade(cfg, '0001_initial_schema')
-    with engine.begin() as conn:
-        before = conn.execute(sa.text("INSERT INTO intel.score_run(scoring_version, config_hash, target_attempt_id, shadow, is_current, status) VALUES('old', 'old-hash', '2026-05', false, true, 'ok') RETURNING id, config_hash")).one()
-    command.upgrade(cfg, 'head')
-    with engine.connect() as conn:
-        row = conn.execute(sa.text('SELECT id, config_hash, config_snapshot FROM intel.score_run')).one()
-        assert tuple(row) == (before.id, before.config_hash, None)
-        assert conn.execute(sa.text('SELECT version_num FROM ops.alembic_version')).scalar_one() == '0002_score_config_snapshot'
+def test_forward_migration_preserves_legacy_rows(session, isolated_database):
+    # Use a fresh baseline database; identity migrations are forward-only.
+    from uuid import uuid4
+    database = f"caf_baseline_{uuid4().hex}"
+    isolated_database.allow(database)
+    admin = sa.create_engine(isolated_database.url(), isolation_level="AUTOCOMMIT")
+    engine = sa.create_engine(isolated_database.url(database))
+    try:
+        with admin.connect() as conn:
+            conn.execute(sa.text(f'CREATE DATABASE "{database}"'))
+        with engine.begin() as conn:
+            cfg = Config('alembic.ini')
+            cfg.attributes['connection'] = conn
+            command.upgrade(cfg, '0001_initial_schema')
+            conn.execute(sa.text("INSERT INTO ref.attempt(id,exam_year,exam_month,label,verified) VALUES('2026-05',2026,5,'May 2026',false)"))
+            before = conn.execute(sa.text("INSERT INTO intel.score_run(scoring_version, config_hash, target_attempt_id, shadow, is_current, status) VALUES('old', 'old-hash', '2026-05', false, true, 'ok') RETURNING id, config_hash")).one()
+            command.upgrade(cfg, 'head')
+            row = conn.execute(sa.text('SELECT id, config_hash, config_snapshot FROM intel.score_run')).one()
+            assert tuple(row) == (before.id, before.config_hash, None)
+            assert conn.execute(sa.text('SELECT version_num FROM ops.alembic_version')).scalar_one() == '0003_identity'
+    finally:
+        engine.dispose()
+        with admin.connect() as conn:
+            conn.execute(sa.text(f'DROP DATABASE "{database}"'))
+        admin.dispose()

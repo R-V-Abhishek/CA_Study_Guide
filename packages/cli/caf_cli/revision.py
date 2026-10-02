@@ -13,12 +13,13 @@ console = Console()
 
 @app.command("list")
 def cmd_list_due(
+    user_id: int = typer.Option(..., "--user-id", min=1, help="Target account ID"),
     paper: str | None = typer.Option(None, "--paper", "-p", help="Filter by paper code (e.g. P1)"),
 ) -> None:
     """List subtopics due for spaced-repetition revision."""
-    session_factory = get_session_factory()
+    session_factory = get_session_factory("student")
     with session_factory() as session:
-        due = get_revision_due_list(session=session, user_id=1, paper_id=paper)
+        due = get_revision_due_list(session=session, user_id=user_id, paper_id=paper)
 
         console.print(f"\n[bold cyan]Spaced Repetition Revision Queue[/bold cyan]")
         console.print(f"Total Due Today: [bold green]{len(due)}[/bold green]")
@@ -42,7 +43,7 @@ def cmd_list_due(
                 item["node_id"],
                 item["paper_code"],
                 item["node_name"][:38],
-                f"{item['importance']:.4f}",
+                f"{item['importance']:.4f}" if item["importance"] is not None else "Unavailable",
                 item["due_date"],
                 f"{item['overdue_days']}d",
                 str(item["revision_count_k"]),
@@ -54,20 +55,21 @@ def cmd_list_due(
 
 @app.command("log")
 def cmd_log_revision(
+    user_id: int = typer.Option(..., "--user-id", min=1, help="Target account ID"),
     node_id: str = typer.Argument(..., help="Subtopic Node ID (e.g. P1-GDH25Q)"),
     outcome: str = typer.Option(
         "ok", "--outcome", "-o", help="Revision outcome: 'ok' (passed) or 'shaky' (needs review)"
     ),
 ) -> None:
     """Log a completed revision for a subtopic ('ok' or 'shaky')."""
-    session_factory = get_session_factory()
+    session_factory = get_session_factory("student")
     with session_factory() as session:
         try:
             res = record_revision_outcome(
                 session=session,
                 node_id=node_id,
                 outcome=outcome,
-                user_id=1,
+                user_id=user_id,
             )
             style = "green" if outcome == "ok" else "yellow"
             console.print(

@@ -21,7 +21,7 @@ def baseline(
 ) -> None:
     """Report corpus provenance without changing the source database."""
     settings = get_settings()
-    engine = get_engine()
+    engine = get_engine("backup")
     try:
         report = collect_baseline(engine)
         if checkpoint_manifest:

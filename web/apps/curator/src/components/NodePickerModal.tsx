@@ -1,3 +1,4 @@
+import { accountKey } from "@caf/api-client";
 import { useState, useEffect, useRef } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Search, X, Check } from "lucide-react";
@@ -38,7 +39,7 @@ export function NodePickerModal({
 
   // Query all subtopics across papers
   const { data: allSubtopics = [], isPending, error, refetch } = useQuery({
-    queryKey: ["curator-all-nodes"],
+    queryKey: ["curator-all-nodes", accountKey()],
     queryFn: async () => {
       const papers = requiredData(await curatorClient.GET("/api/v1/papers"));
       const trees = await Promise.all(papers.map(async paper => requiredData(await curatorClient.GET("/api/v1/tree", { params: { query: { paper: paper.id } } }))));

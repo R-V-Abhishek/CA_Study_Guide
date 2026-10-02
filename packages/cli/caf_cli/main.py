@@ -33,6 +33,7 @@ from caf_cli.mock_test import app as mock_test_app
 from caf_cli.depth import app as depth_app
 from caf_cli.backup import app as backup_app
 from caf_cli.audit import app as audit_app
+from caf_cli.auth import app as auth_app
 
 app.add_typer(db_app, name="db")
 app.add_typer(taxonomy_app, name="taxonomy")
@@ -47,6 +48,7 @@ app.add_typer(mock_test_app, name="mock-test")
 app.add_typer(depth_app, name="depth")
 app.add_typer(backup_app, name="backup")
 app.add_typer(audit_app, name="audit")
+app.add_typer(auth_app, name="auth")
 
 console = Console()
 
@@ -89,7 +91,7 @@ def status() -> None:
 
     if db_ok:
         console.print("[bold green]Database: CONNECTED[/bold green]")
-        session_factory = get_session_factory()
+        session_factory = get_session_factory("operations")
         with session_factory() as session:
             # Query recent runs
             try:
@@ -195,6 +197,14 @@ def db_grants() -> None:
     console.print("[green]Database roles and schema grants applied successfully.[/green]")
 
 
+@db_app.command("configure-connections")
+def db_configure_connections() -> None:
+    """Generate missing local role secrets and named URLs in .env."""
+    from caf_db.configuration import configure_connections
+    changed = configure_connections()
+    console.print(f"Configured {len(changed)} missing connection settings in .env; existing values preserved.")
+
+
 # ==============================================================================
 # L0 Taxonomy Stubs
 # ==============================================================================
@@ -213,7 +223,7 @@ def taxonomy_load(apply: bool = typer.Option(False, "--apply", help="Apply chang
         return
 
     with open_run("l0.load", {"apply": True}) as run:
-        session_factory = get_session_factory()
+        session_factory = get_session_factory("operations")
         with session_factory() as session:
             version_id = loader.apply(session, plan)
             run.stats = {"taxonomy_version_id": version_id, "entities": {k: len(v) for k, v in plan.items() if isinstance(v, list)}}
@@ -256,7 +266,7 @@ def acquire_discover(
     discoverer = LinkDiscoverer(sources=sources, politeness=politeness)
 
     with open_run("l1.discover", {"sources": [s["id"] for s in sources]}) as run:
-        session_factory = get_session_factory()
+        session_factory = get_session_factory("operations")
         total_discovered = 0
         with session_factory() as session:
             for s in sources:
@@ -292,7 +302,7 @@ def acquire_fetch(
     fetcher = DocumentFetcher(blob_store=blob_store, politeness=politeness)
 
     with open_run("l1.fetch", {"limit": limit}) as run:
-        session_factory = get_session_factory()
+        session_factory = get_session_factory("operations")
         with session_factory() as session:
             downloaded = fetcher.fetch_pending(session, limit=limit, run_id=run.id)
             run.stats = {"downloaded": downloaded}
@@ -313,7 +323,7 @@ def acquire_import(
     importer = ManualImporter(blob_store=blob_store)
 
     with open_run("l1.import", {"path": str(path)}) as run:
-        session_factory = get_session_factory()
+        session_factory = get_session_factory("operations")
         with session_factory() as session:
             if path.is_dir():
                 imported = importer.import_directory(path, session, run_id=run.id)
@@ -332,7 +342,7 @@ def acquire_catalog(
     """List documents in the catalogue pending confirmation."""
     from caf_db.models.ingest import Document
 
-    session_factory = get_session_factory()
+    session_factory = get_session_factory("operations")
     with session_factory() as session:
         docs = session.execute(
             sa.select(Document).where(Document.catalog_status == status).order_by(Document.id.desc())
@@ -365,7 +375,7 @@ def acquire_confirm(doc_id: int = typer.Argument(..., help="Document ID to confi
     """Confirm metadata for a catalogued document."""
     from caf_l1.catalog import confirm_document
 
-    session_factory = get_session_factory()
+    session_factory = get_session_factory("operations")
     with session_factory() as session:
         try:
             doc = confirm_document(session, doc_id)

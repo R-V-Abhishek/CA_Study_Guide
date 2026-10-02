@@ -9,12 +9,12 @@ from caf_db.models.app import Progress, Settings as AppSettingsModel
 from caf_db.models.intel import SubtopicScore
 from caf_db.models.ref import Node, Paper, WeightageMember, WeightageSection
 from caf_l5.config import load_scoring_config
-from caf_l5.service import get_current_score_run, is_subtopic_weak
+from caf_l5.service import get_account_score_run, selected_papers, is_subtopic_weak
 
 
 def generate_study_plan(
     session: Session,
-    user_id: int = 1,
+    user_id: int,
     paper_id: str | None = None,
     group_no: int | None = None,
     hours_per_week: float | None = None,
@@ -47,7 +47,7 @@ def generate_study_plan(
     budget_items = math.floor((hours_per_week * 60) / minutes_per_subtopic)
 
     # 2. Fetch current ScoreRun
-    current_run = get_current_score_run(session)
+    current_run = get_account_score_run(session, user_id)
     if not current_run or budget_items < 1:
         return {
             "budget_items": budget_items,
@@ -55,6 +55,7 @@ def generate_study_plan(
             "hours_per_week": hours_per_week,
             "minutes_per_subtopic": minutes_per_subtopic,
             "items": [],
+            "score_unavailable_reason": "No successful scoring run exists for your target attempt." if not current_run else None,
         }
 
     # 3. Fetch nodes, topics, chapters, papers, weightages
@@ -80,6 +81,7 @@ def generate_study_plan(
         )
         .where(
             SubtopicScore.score_run_id == current_run.id,
+            Node.paper_id.in_(selected_papers(session, user_id)),
             SubtopicScore.applicable.is_(True),
             Paper.is_current.is_(True),
             Node.status == "active",
@@ -177,4 +179,5 @@ def generate_study_plan(
         "hours_per_week": hours_per_week,
         "minutes_per_subtopic": minutes_per_subtopic,
         "items": allocated,
+        "score_unavailable_reason": None,
     }

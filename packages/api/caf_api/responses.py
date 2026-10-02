@@ -95,6 +95,7 @@ class PlanItem(BaseModel):
 
 
 class StudyPlan(BaseModel):
+    score_unavailable_reason: str | None = None
     budget_items: int
     total_allocated: int
     hours_per_week: float
@@ -167,6 +168,7 @@ class ActivityItem(BaseModel):
 
 
 class Dashboard(BaseModel):
+    score_unavailable_reason: str | None = None
     target_attempt: str
     score_run_id: int | None
     total_subtopics: int
@@ -184,6 +186,7 @@ class Dashboard(BaseModel):
 
 
 class Metadata(BaseModel):
+    score_unavailable_reason: str | None = None
     taxonomy_version: str
     scoring_version: str | None
     api_version: str
@@ -520,3 +523,78 @@ class ModelEvaluation(BaseModel):
     passed: bool
     status_note: str
     evaluated_at: datetime
+
+
+class ProfilePaper(BaseModel):
+    id: str
+    code: str
+    name: str
+    group_no: int
+
+
+class ProfileAttempt(BaseModel):
+    id: str
+    label: str
+
+
+class ProfileSettings(BaseModel):
+    display_name: str
+    target_attempt_id: str
+    selected_paper_ids: list[str]
+    groups: list[int]
+    hours_per_week: float
+    minutes_per_subtopic: int
+    revision_intervals: list[int]
+    exam_start_date: date | None
+    available_papers: list[ProfilePaper]
+    available_attempts: list[ProfileAttempt]
+
+
+class ExportProgress(BaseModel):
+    node_id: str
+    status: str
+    status_changed_at: datetime
+    first_done_at: datetime | None
+    last_revised_at: datetime | None
+    verify_flag: bool
+
+
+class ExportNote(BaseModel):
+    node_id: str
+    body: str
+    updated_at: datetime
+
+
+class ExportProgressEvent(BaseModel):
+    id: int
+    node_id: str
+    from_status: str | None
+    to_status: str
+    at: datetime
+
+
+class ExportRevisionEvent(BaseModel):
+    id: int
+    node_id: str
+    outcome: str
+    at: datetime
+
+
+class ExportStudySession(BaseModel):
+    id: int
+    node_id: str | None
+    started_at: datetime
+    ended_at: datetime | None
+    minutes: int | None
+
+
+class ProfileExport(BaseModel):
+    account_id: int
+    exported_at: datetime
+    settings: ProfileSettings
+    progress: list[ExportProgress]
+    notes: list[ExportNote]
+    progress_events: list[ExportProgressEvent]
+    revision_events: list[ExportRevisionEvent]
+    mock_tests: list[MockTestResult]
+    study_sessions: list[ExportStudySession]

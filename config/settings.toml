@@ -1,7 +1,6 @@
 # config/settings.toml
 [app]
 env = "development"
-user_id = 1
 target_attempt_id = "2026-05"
 
 [storage]

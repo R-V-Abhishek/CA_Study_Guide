@@ -1,3 +1,4 @@
+import { accountKey } from "@caf/api-client";
 import { useState } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import {
@@ -16,13 +17,13 @@ export function Catalogue() {
   const [paperFilter, setPaperFilter] = useState<string>("all");
 
   const { data: documents = [], isLoading, error, refetch } = useQuery({
-    queryKey: ["curate-catalogue", statusFilter, paperFilter],
+    queryKey: ["curate-catalogue", accountKey(), statusFilter, paperFilter],
     queryFn: async () => {
       return requiredData(await curatorClient.GET("/api/v1/curate/documents", { params: { query: { ...(statusFilter !== "all" ? { status: statusFilter } : {}), ...(paperFilter !== "all" ? { paper_id: paperFilter } : {}) } } }));
     },
   });
 
-  const papers = useQuery({ queryKey: ["curator-papers"], queryFn: async () => requiredData(await curatorClient.GET("/api/v1/papers")) });
+  const papers = useQuery({ queryKey: ["curator-papers", accountKey()], queryFn: async () => requiredData(await curatorClient.GET("/api/v1/papers")) });
 
   // Confirm document mutation
   const confirmMutation = useMutation({
@@ -36,8 +37,8 @@ export function Catalogue() {
       return requiredData(res);
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["curate-catalogue"] });
-      queryClient.invalidateQueries({ queryKey: ["curate-docs-bulk"] });
+      queryClient.invalidateQueries({ queryKey: ["curate-catalogue", accountKey()] });
+      queryClient.invalidateQueries({ queryKey: ["curate-docs-bulk", accountKey()] });
     },
   });
 
@@ -53,7 +54,7 @@ export function Catalogue() {
       return requiredData(res);
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["curate-catalogue"] });
+      queryClient.invalidateQueries({ queryKey: ["curate-catalogue", accountKey()] });
     },
   });
 

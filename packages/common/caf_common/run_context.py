@@ -40,7 +40,7 @@ def get_config_hash(config_dir: Path = Path("config")) -> str:
 @contextmanager
 def open_run(stage: str, args: dict[str, Any] | None = None) -> Generator[Run, None, None]:
     """Context manager that wraps execution in an ops.run lifecycle record."""
-    session_factory = get_session_factory()
+    session_factory = get_session_factory("operations")
     session = session_factory()
     git_sha = get_git_sha()
     config_hash = get_config_hash()

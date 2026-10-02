@@ -1,3 +1,4 @@
+import { accountKey } from "@caf/api-client";
 import { useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { curatorClient, requiredData } from "../lib/client";
@@ -6,10 +7,11 @@ import { RequestError } from "../components/RequestError";
 export function System() {
   const queryClient = useQueryClient();
   const [message, setMessage] = useState<string | null>(null);
-  const health = useQuery({ queryKey: ["curator-system-health"], queryFn: async () => requiredData(await curatorClient.GET("/api/v1/system/health")) });
-  const backups = useQuery({ queryKey: ["curator-system-backups"], queryFn: async () => requiredData(await curatorClient.GET("/api/v1/system/backups")) });
+  const [targetAttempt, setTargetAttempt] = useState('2027-05');
+  const health = useQuery({ queryKey: ["curator-system-health", accountKey()], queryFn: async () => requiredData(await curatorClient.GET("/api/v1/system/health")) });
+  const backups = useQuery({ queryKey: ["curator-system-backups", accountKey()], queryFn: async () => requiredData(await curatorClient.GET("/api/v1/system/backups")) });
   const recompute = useMutation({
-    mutationFn: async () => requiredData(await curatorClient.POST("/api/v1/curate/intel/recompute")),
+    mutationFn: async () => requiredData(await curatorClient.POST("/api/v1/curate/intel/recompute", { params: { query: { target_attempt_id: targetAttempt } } })),
     onSuccess: async data => {
       setMessage(`Score recompute completed. Run ID: ${data.run_id}.`);
       await queryClient.invalidateQueries();
@@ -18,6 +20,7 @@ export function System() {
   return <div className="max-w-5xl mx-auto space-y-6">
     <div className="flex items-center justify-between border-b border-slate-700 pb-4">
       <h1 className="text-lg font-bold">System Health & Ops Monitor</h1>
+      <label>Scoring target <input aria-label="Scoring target" className="bg-slate-800 rounded p-2" value={targetAttempt} onChange={event => setTargetAttempt(event.target.value)} /></label>
       <button disabled={recompute.isPending} onClick={() => { if (!recompute.isPending) { setMessage(null); recompute.mutate(); } }} className="bg-indigo-600 rounded-xl px-4 py-2 text-sm disabled:opacity-50">{recompute.isPending ? "Recomputing…" : "Trigger L5 Recompute"}</button>
     </div>
     <RequestError error={recompute.error} />

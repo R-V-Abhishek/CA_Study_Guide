@@ -105,6 +105,7 @@ class Decision(Base):
     )
 
     id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
+    actor_id: Mapped[int | None] = mapped_column(Integer, ForeignKey("app.user_account.id"), nullable=True)
     unit_fingerprint: Mapped[str] = mapped_column(String(40), nullable=False)
     action: Mapped[str] = mapped_column(Text, nullable=False)
     payload: Mapped[dict[str, Any]] = mapped_column(JSONB, nullable=False)

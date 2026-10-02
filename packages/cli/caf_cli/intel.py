@@ -23,15 +23,15 @@ console = Console()
 
 @app.command("recompute")
 def cmd_recompute(
-    target_attempt: str | None = typer.Option(
-        None, "--target-attempt", "-t", help="Target attempt ID (e.g. 2024-11 or 2026-05)"
+    target_attempt: str = typer.Option(
+        ..., "--target-attempt", "-t", help="Target attempt ID (e.g. 2024-11 or 2026-05)"
     ),
     shadow: bool = typer.Option(
         False, "--shadow", help="Run in shadow mode (do not make current)"
     ),
 ) -> None:
     """Recompute all intelligence scores (E, P, W, I, F) and ingestion coverage."""
-    session_factory = get_session_factory()
+    session_factory = get_session_factory("operations")
     with session_factory() as session:
         console.print(f"[bold cyan]Starting L5 Score Recomputation...[/bold cyan]")
         try:
@@ -75,7 +75,7 @@ def cmd_report(
     top: int = typer.Option(15, "--top", "-n", help="Number of top subtopics to show"),
 ) -> None:
     """Display intelligence report for a paper showing top topics by Importance score."""
-    session_factory = get_session_factory()
+    session_factory = get_session_factory("operations")
     with session_factory() as session:
         # Resolve paper
         p_row = session.query(Paper).where(
@@ -141,7 +141,7 @@ def cmd_why(
     node_id: str = typer.Argument(..., help="Subtopic Node ID (e.g. P1-GDH25Q)"),
 ) -> None:
     """Show detailed mathematical explainability breakdown for a subtopic score."""
-    session_factory = get_session_factory()
+    session_factory = get_session_factory("operations")
     with session_factory() as session:
         try:
             payload = get_subtopic_why(session, node_id)
@@ -247,11 +247,11 @@ def cmd_why(
 
 
 @app.command("coverage")
-def cmd_coverage() -> None:
+def cmd_coverage(user_id: int = typer.Option(..., "--user-id", min=1, help="Target account ID")) -> None:
     """Display ingestion coverage and weighted syllabus coverage."""
-    session_factory = get_session_factory()
+    session_factory = get_session_factory("student")
     with session_factory() as session:
-        cov = compute_weighted_coverage(session, user_id=1)
+        cov = compute_weighted_coverage(session, user_id=user_id)
         console.print(f"\n[bold cyan]Syllabus Coverage Summary[/bold cyan]")
         console.print(f"Overall Done: [bold green]{cov['overall_coverage_pct']}%[/bold green] | In Progress: [bold yellow]{cov['overall_in_progress_pct']}%[/bold yellow]")
 

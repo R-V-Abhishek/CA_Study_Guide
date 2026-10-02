@@ -1,12 +1,14 @@
 """Curator API endpoints for document review and catalog confirmation."""
 
-from typing import Any, Literal
+from typing import Literal
 from fastapi import APIRouter, Depends, HTTPException, Query
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 import sqlalchemy as sa
 from sqlalchemy.orm import Session
 
-from caf_api.routes import get_db
+from caf_api.routes import get_operations_db
+from caf_api.auth import Principal, require_account, require_admin
+from caf_db.engine import get_session_factory
 from caf_l1.catalog import confirm_document, reject_document
 from caf_db.models.ingest import Document
 from caf_api.responses import (
@@ -14,10 +16,16 @@ from caf_api.responses import (
     DocumentConfirmResult, DocumentEditResult, DocumentStatusResult, RecomputeResult,
 )
 
-router = APIRouter(prefix="/api/v1/curate", tags=["curation"])
+router = APIRouter(prefix="/api/v1/curate", tags=["curation"], dependencies=[Depends(require_account)])
+
+
+def get_curation_db():
+    with get_session_factory("curation")() as session:
+        yield session
 
 
 class DocumentEditRequest(BaseModel):
+    model_config = ConfigDict(extra="forbid")
     attempt_id: str | None = None
     paper_id: str | None = None
     doc_type_id: str | None = None
@@ -27,6 +35,7 @@ class DocumentEditRequest(BaseModel):
 
 
 class DocumentConfirmRequest(BaseModel):
+    model_config = ConfigDict(extra="forbid")
     attempt_id: str | None = None
     paper_id: str | None = None
     doc_type_id: str | None = None
@@ -40,7 +49,8 @@ def list_curate_documents(
     status: str | None = Query(None, description="inferred, needs_curation, confirmed, rejected"),
     attempt_id: str | None = None,
     paper_id: str | None = None,
-    session: Session = Depends(get_db),
+    session: Session = Depends(get_operations_db),
+    account: Principal = Depends(require_admin),
 ):
     query = sa.select(Document).where(Document.superseded.is_(False)).order_by(Document.id.desc())
     if status:
@@ -77,7 +87,8 @@ def list_curate_documents(
 def api_confirm_document(
     doc_id: int,
     req: DocumentConfirmRequest | None = None,
-    session: Session = Depends(get_db),
+    session: Session = Depends(get_operations_db),
+    account: Principal = Depends(require_admin),
 ):
     overrides = req.model_dump(exclude_unset=True) if req else None
     try:
@@ -94,7 +105,7 @@ def api_confirm_document(
 
 
 @router.post("/documents/{doc_id}/reject", response_model=DocumentStatusResult)
-def api_reject_document(doc_id: int, session: Session = Depends(get_db)):
+def api_reject_document(doc_id: int, session: Session = Depends(get_operations_db), account: Principal = Depends(require_admin)):
     try:
         doc = reject_document(session, doc_id)
         return {"id": doc.id, "catalog_status": doc.catalog_status}
@@ -106,7 +117,8 @@ def api_reject_document(doc_id: int, session: Session = Depends(get_db)):
 def api_edit_document(
     doc_id: int,
     req: DocumentEditRequest,
-    session: Session = Depends(get_db),
+    session: Session = Depends(get_operations_db),
+    account: Principal = Depends(require_admin),
 ):
     doc = session.get(Document, doc_id)
     if not doc:
@@ -125,7 +137,8 @@ def api_edit_document(
 # ==============================================================================
 
 class DecisionRequest(BaseModel):
-    action: str  # accept | accept_alt | edit | none_fits | exclude | bulk_accept | undo
+    model_config = ConfigDict(extra="forbid")
+    action: Literal["accept", "accept_alt", "edit", "none_fits", "exclude", "bulk_accept", "undo"]
     primary_node_id: str | None = None
     secondary_node_ids: list[str] = []
     gist: str | None = None
@@ -139,10 +152,10 @@ def list_curate_queue(
     doc_id: int | None = None,
     bucket: str | None = None,
     benchmark_only: bool = Query(False, description="Filter for calibration benchmark units only"),
-    session: Session = Depends(get_db),
+    session: Session = Depends(get_curation_db),
+    account: Principal = Depends(require_account),
 ):
     """List pending units with suggestions for human review."""
-    from caf_db.models.core import Decision
     from caf_db.models.ingest import TagSuggestion, Unit, UnitAnswer
     from caf_db.models.ref import Node
 
@@ -232,10 +245,14 @@ def list_curate_queue(
 def api_make_decision(
     unit_id: int,
     req: DecisionRequest,
-    session: Session = Depends(get_db),
+    session: Session = Depends(get_curation_db),
+    account: Principal = Depends(require_account),
 ):
     """Submit curator decision for an exam unit and publish to core.*."""
-    from caf_l4.publish import make_decision
+    from caf_l4.publish import make_decision, StaleDecisionError
+
+    if req.action in ("bulk_accept", "undo") and account.role != "administrator":
+        raise HTTPException(status_code=403, detail="Administrator capability required")
 
     payload = {
         "primary_node_id": req.primary_node_id,
@@ -250,12 +267,16 @@ def api_make_decision(
             payload=payload,
             seconds_spent=req.seconds_spent,
             blind=req.blind,
+            actor_id=account.id,
+            require_pending=True,
         )
         return {
             "decision_id": decision.id,
             "action": decision.action,
             "unit_fingerprint": decision.unit_fingerprint,
         }
+    except StaleDecisionError as exc:
+        raise HTTPException(status_code=409, detail=str(exc))
     except ValueError as exc:
         raise HTTPException(status_code=400, detail=str(exc))
 
@@ -263,23 +284,27 @@ def api_make_decision(
 @router.post("/documents/{doc_id}/bulk_accept_bucket_a", response_model=BulkAcceptResult)
 def api_bulk_accept_bucket_a(
     doc_id: int,
-    session: Session = Depends(get_db),
+    session: Session = Depends(get_curation_db),
+    account: Principal = Depends(require_admin),
 ):
     """Bulk accept all remaining Bucket A suggestions for a confirmed document."""
-    from caf_l4.publish import bulk_accept_bucket_a
+    from caf_l4.publish import bulk_accept_bucket_a, StaleDecisionError
 
     try:
-        count = bulk_accept_bucket_a(session, doc_id)
+        count = bulk_accept_bucket_a(session, doc_id, actor_id=account.id)
         return {"document_id": doc_id, "accepted_count": count}
+    except StaleDecisionError as exc:
+        raise HTTPException(status_code=409, detail=str(exc))
     except ValueError as exc:
         raise HTTPException(status_code=400, detail=str(exc))
 
 
 @router.post("/intel/recompute", response_model=RecomputeResult)
 def api_curate_recompute_scores(
-    target_attempt_id: str | None = None,
+    target_attempt_id: str = Query(..., min_length=1),
     shadow: bool = False,
-    session: Session = Depends(get_db),
+    session: Session = Depends(get_operations_db),
+    account: Principal = Depends(require_admin),
 ):
     """Trigger an L5 intelligence score recomputation."""
     from caf_l5 import recompute_scores
@@ -293,5 +318,7 @@ def api_curate_recompute_scores(
             "scoring_version": run.scoring_version,
             "is_current": run.is_current,
         }
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc))
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc))

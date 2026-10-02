@@ -1,0 +1,33 @@
+{
+  "browser_checks": {
+    "provider": "real Auth0 with user-completed Google sign-in and consent",
+    "original_profile_and_activity_visible": true,
+    "returning_login_without_invitation": true,
+    "both_application_shells_share_session": true,
+    "cross_tab_logout_clears_both_shells": true,
+    "post_logout_identity_refresh_status": 401,
+    "live_auth_access_logs_redact_query_values": true
+  },
+  "login": {
+    "verified_at": "2026-10-02T17:21:52.891096+00:00",
+    "account_id": 1,
+    "configured_issuer_matches": true,
+    "stable_subject_bound": true,
+    "nominated_email_verified": true,
+    "role": "administrator",
+    "invitation_consumed": true,
+    "active_sessions": 1,
+    "revoked_sessions": 0
+  },
+  "logout": {
+    "verified_at": "2026-10-02T17:24:55.724731+00:00",
+    "account_id": 1,
+    "configured_issuer_matches": true,
+    "stable_subject_bound": true,
+    "nominated_email_verified": true,
+    "role": "administrator",
+    "invitation_consumed": true,
+    "active_sessions": 0,
+    "revoked_sessions": 2
+  }
+}

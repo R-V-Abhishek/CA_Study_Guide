@@ -236,6 +236,7 @@ def main() -> None:
 
     # Step 6: Database Grants
     print_step(6, total_steps, "Applying role and schema permissions")
+    run_command([uv_bin, "run", "caf", "db", "configure-connections"], "Named database connections")
     run_command([uv_bin, "run", "caf", "db", "grants"], "Database role permissions")
 
     # Step 7: Load Syllabus Taxonomy

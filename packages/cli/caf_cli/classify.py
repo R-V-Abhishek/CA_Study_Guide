@@ -28,7 +28,7 @@ def classify_run(
     shadow: Annotated[bool, typer.Option("--shadow", help="Write shadow suggestions")] = False,
 ) -> None:
     """Run L3 classification cascade on pending gradable units with resumability."""
-    session_factory = get_session_factory()
+    session_factory = get_session_factory("operations")
     with session_factory() as session:
         pipeline = ClassificationPipeline(session, model_override=model)
 
@@ -77,7 +77,7 @@ def classify_test_set(
     list_units: Annotated[bool, typer.Option("--list", "-l", help="List current benchmark units")] = False,
 ) -> None:
     """Manage the representative calibration test set across all 6 papers."""
-    session_factory = get_session_factory()
+    session_factory = get_session_factory("operations")
     with session_factory() as session:
         if generate:
             console.print(f"[bold cyan]Generating stratified calibration benchmark ({size_per_paper} units per paper across all 6 papers)...[/bold cyan]")
@@ -121,7 +121,7 @@ def classify_evaluate(
     benchmark: Annotated[bool, typer.Option("--benchmark", "-b", help="Evaluate specifically on the calibration test set")] = False,
 ) -> None:
     """Evaluate classifier suggestions against human curator decisions."""
-    session_factory = get_session_factory()
+    session_factory = get_session_factory("operations")
     with session_factory() as session:
         if benchmark:
             console.print(f"[bold cyan]Evaluating AI suggestions on Calibration Benchmark (Target: {threshold * 100:.0f}%)...[/bold cyan]")
@@ -196,7 +196,7 @@ def classify_evaluate(
 @app.command("report")
 def classify_report() -> None:
     """Display statistics and bucket distribution of tag suggestions."""
-    session_factory = get_session_factory()
+    session_factory = get_session_factory("operations")
     with session_factory() as session:
         counts = (
             session.query(TagSuggestion.bucket, func.count(TagSuggestion.id))

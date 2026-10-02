@@ -72,6 +72,7 @@ def compute_depth_gate(
     top_k: int = 50,
     record_report: bool = True,
     config_path: Path | str = "config/depth.toml",
+    target_attempt_id: str | None = None,
 ) -> DepthGateReport:
     """Compute Depth Gate metrics comparing current baseline vs shadow run with the band's provisional appearances.
     
@@ -115,9 +116,15 @@ def compute_depth_gate(
         )
         .first()
     )
+    if target_attempt_id is not None:
+        baseline_run = session.query(ScoreRun).filter(
+            ScoreRun.target_attempt_id == target_attempt_id,
+            ScoreRun.shadow.is_(False), ScoreRun.status == "ok",
+        ).order_by(ScoreRun.id.desc()).first()
     if not baseline_run:
-        logger.info("No current baseline score run found. Triggering recompute.")
-        baseline_run = recompute_scores(session, shadow=False)
+        if target_attempt_id is None:
+            raise ValueError("An explicit target attempt is required to create a baseline score run")
+        baseline_run = recompute_scores(session, target_attempt_id=target_attempt_id, shadow=False)
 
     # 3. Find gradable units in band
     units_query = (

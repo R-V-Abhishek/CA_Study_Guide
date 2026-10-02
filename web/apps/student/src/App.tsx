@@ -20,6 +20,9 @@ import { PaperDetail } from "./pages/PaperDetail";
 import { Plan } from "./pages/Plan";
 import { Revision } from "./pages/Revision";
 import { Progress } from "./pages/Progress";
+import { AuthGate } from "./components/AuthGate";
+import { SessionControls } from "./components/SessionControls";
+import { Profile } from "./pages/Profile";
 import { MockTests } from "./pages/MockTests";
 
 const queryClient = new QueryClient({
@@ -100,6 +103,7 @@ function Layout({ children }: { children: React.ReactNode }) {
                 Demo Mode
               </span>
             )}
+            {!isDemoMode() && <SessionControls />}
             <Diagnostics />
             <button
               type="button"
@@ -149,13 +153,14 @@ const router = createBrowserRouter([{ path: '*', element: (
             <Route path="/plan" element={<Plan />} />
             <Route path="/revision" element={<Revision />} />
             <Route path="/progress" element={<Progress />} />
+            <Route path="/profile" element={<Profile />} />
             <Route path="/mock" element={<MockTests />} />
           </Routes></RouteBoundary>
         </Layout>
   ) }]);
 
 export function App() {
-  return <QueryClientProvider client={queryClient}><RouterProvider router={router} /></QueryClientProvider>;
+  return <QueryClientProvider client={queryClient}><AuthGate demo={isDemoMode()}><RouterProvider router={router} /></AuthGate></QueryClientProvider>;
 }
 
 export default App;

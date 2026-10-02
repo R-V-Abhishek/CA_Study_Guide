@@ -1,3 +1,4 @@
+import { accountKey } from "@caf/api-client";
 import { useState } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { CheckCheck, Check, FolderOpen } from "lucide-react";
@@ -10,7 +11,7 @@ export function BulkAccept() {
 
   // Fetch confirmed documents
   const { data: documents = [], isLoading, error, refetch } = useQuery({
-    queryKey: ["curate-docs-bulk"],
+    queryKey: ["curate-docs-bulk", accountKey()],
     queryFn: async () => {
       return requiredData(await curatorClient.GET("/api/v1/curate/documents", { params: { query: { status: "confirmed" } } }));
     },
@@ -28,8 +29,8 @@ export function BulkAccept() {
       return requiredData(res);
     },
     onSuccess: (data) => {
-      queryClient.invalidateQueries({ queryKey: ["curator-queue"] });
-      queryClient.invalidateQueries({ queryKey: ["curate-docs-bulk"] });
+      queryClient.invalidateQueries({ queryKey: ["curator-queue", accountKey()] });
+      queryClient.invalidateQueries({ queryKey: ["curate-docs-bulk", accountKey()] });
       setSuccessMsg(
         `Successfully published ${data.accepted_count} Bucket A units to core.appearance!`
       );

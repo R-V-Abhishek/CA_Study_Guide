@@ -1,0 +1,190 @@
+{
+  "checkpoint": "data/backups/caf_20261002_161800_834668_7c6a7aba/manifest.json",
+  "restored_exact": true,
+  "all_original_values_preserved": true,
+  "tables_checked": 42,
+  "legacy_accounts": [
+    {
+      "id": 1,
+      "status": "pending_binding",
+      "issuer": null,
+      "subject": null
+    }
+  ],
+  "next_account_id": 2,
+  "new_tables": [
+    "app.auth_session",
+    "app.invitation",
+    "app.login_transaction"
+  ],
+  "preserved": {
+    "app.mock_test": {
+      "count": 3,
+      "sha256": "b932433dc1d03fd503a460216f0f1ea3623a656f295d7d87a1e19594d0a25af4"
+    },
+    "app.note": {
+      "count": 1,
+      "sha256": "ef71ffaae20616ee215778b0ee74b752ae0f7a6d20a3bd2932f74b60b528323b"
+    },
+    "app.progress": {
+      "count": 4,
+      "sha256": "59a3a04e14212152c15833640faecfc2dd41d8b7a529c00e89a0242d5147654c"
+    },
+    "app.progress_event": {
+      "count": 79,
+      "sha256": "a9d32c2104938acb0c27385ef0fc955a471cf13846c2cd3f8e070e57e7eb7917"
+    },
+    "app.revision_event": {
+      "count": 6,
+      "sha256": "291f1749ea257ae8eee2ebcc96432a5e116254c18563eab8dc9e8f57e5a754ae"
+    },
+    "app.settings": {
+      "count": 1,
+      "sha256": "2da245a2cea4835257bd5a6dd773df19470c06fe1f9954c990699f20592f03b8"
+    },
+    "app.study_session": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "app.user_account": {
+      "count": 1,
+      "sha256": "4c2de463542cb64ae90f85ba1689cdb55b44dc28cba35ef2cf11ae5143018eb8"
+    },
+    "core.appearance": {
+      "count": 25,
+      "sha256": "51c72c79d4d92e70e3aa5899017ec1c97e9f582ef5b9f0a739c11cc0e5f83b73"
+    },
+    "core.appearance_tag": {
+      "count": 25,
+      "sha256": "4fef6dd0376484b5f51f9d4f82f7372b9adf9716c36ac54ed8df1630f4d1577c"
+    },
+    "core.change_log": {
+      "count": 20,
+      "sha256": "f844e04db44e054fc94ff4936901447f943b515d1593cf373969d8397902d0d0"
+    },
+    "core.decision": {
+      "count": 195,
+      "sha256": "95f43f4d26432c96928cd0a9768b505ebec329c262df0ca8ad5de43c23e8c428"
+    },
+    "ingest.discovered_link": {
+      "count": 512,
+      "sha256": "a02ce00dcb1307bba83ff5416b33d1dd3516a4c8f7ce7145359b975199ccb96d"
+    },
+    "ingest.document": {
+      "count": 269,
+      "sha256": "08c41e82cc3bad841cc475782ca269c7ebced8081b863d4c26769d9a4a3d578f"
+    },
+    "ingest.duplicate_link": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "ingest.source_page": {
+      "count": 85,
+      "sha256": "a208a6289d2eb79b08e33b0b9dc9273f870796f72432b3f2daedd22c14ce9cec"
+    },
+    "ingest.tag_suggestion": {
+      "count": 1429,
+      "sha256": "c47cf77ec2f187948e598126d9f1775bbe0b6314f0937aeb8eb399a09acc6b1f"
+    },
+    "ingest.taxonomy_gap": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "ingest.unit": {
+      "count": 1596,
+      "sha256": "e9185abc02d47bb434f8ae1dd9c4411a5e466e160ae4343fd61fb143957e2aca"
+    },
+    "ingest.unit_answer": {
+      "count": 360,
+      "sha256": "31967369b3a210c9efb4a51a5e02357f978758a37bdcc182eac9bfbf184b44fe"
+    },
+    "ingest.unit_gist": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "intel.depth_gate_report": {
+      "count": 53,
+      "sha256": "681c23dd3a4ccda8636ca7bfa67e2745179d218bf17471bf98b95abb9fa6e491"
+    },
+    "intel.ingestion_coverage": {
+      "count": 4176,
+      "sha256": "27f75ec185d5a5eb485eee9e801e61bc6c5268f5c477e1a51ed27be1d950216b"
+    },
+    "intel.score_run": {
+      "count": 87,
+      "sha256": "15d40f2b65cb11a71e8fd634a5e815e0ffc0099fe66609a9d2768ce0b4dbb2f4"
+    },
+    "intel.subtopic_score": {
+      "count": 22968,
+      "sha256": "9d3b7a21bcb5a554ba745d756d1eee7059dd99f7f28e0d8b463b8017f2798899"
+    },
+    "ops.event": {
+      "count": 81,
+      "sha256": "a88297644dacdbddafe3d8b886238d2b9f2e4afa63d06420ca56ff2bba72f389"
+    },
+    "ops.llm_call": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "ops.run": {
+      "count": 138,
+      "sha256": "51d8ad8e605f934305c2d2366c09fe1c70d9dddae7e7fc5ab9bd787271d851e1"
+    },
+    "ref.anchor": {
+      "count": 93,
+      "sha256": "667af78a2b555beb2039a88d3da39d5ce319c4f010343d3310ef49ed52c7e479"
+    },
+    "ref.applicability_rule": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "ref.attempt": {
+      "count": 8,
+      "sha256": "dce346d2bc255951afe86d6c8156ebe74c603899bf9c9a4af968e54d94c03f36"
+    },
+    "ref.descriptor": {
+      "count": 27,
+      "sha256": "5375d760f7561699094a606de79f8595934ba5d5edf9d6aebbe0517b863703d0"
+    },
+    "ref.doc_type": {
+      "count": 12,
+      "sha256": "9b79332635094b75c15690fef3ed4cf5e5be770651e33367ab95261932f0a255"
+    },
+    "ref.instrument": {
+      "count": 11,
+      "sha256": "26415488c7aec51044a66bb8be52afc8e80f2f47fa388ddc35c529628ba93f1d"
+    },
+    "ref.law_boundary": {
+      "count": 2,
+      "sha256": "9d7dd316473b0321823d15d16e706b5bcebb17e6ac1dcf0130eab8f6b4798a03"
+    },
+    "ref.node": {
+      "count": 380,
+      "sha256": "6bf3918fab6f9a4868e034fe1e652a57b671239381de7b443e5123ea60dd71b8"
+    },
+    "ref.node_version_link": {
+      "count": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "ref.paper": {
+      "count": 6,
+      "sha256": "dbf5eb2e5bb158e58346080c1acdb2576f4dd0e5fa80455d5a0269e52f9b4ebd"
+    },
+    "ref.scheme": {
+      "count": 3,
+      "sha256": "4a8d8b1ad998fa0649320d2005b17f62627b964c75e7abc0b546ffcdc4d9d5e2"
+    },
+    "ref.taxonomy_version": {
+      "count": 4,
+      "sha256": "4d8464ad10ef0e6c43d9aedbc77e383398f7cd2acb631c6f96f2dbb63411b267"
+    },
+    "ref.weightage_member": {
+      "count": 39,
+      "sha256": "a137218deb340e263877686bffe474b03b287eef9d439217c7fab1e64b8ef7ce"
+    },
+    "ref.weightage_section": {
+      "count": 10,
+      "sha256": "ddaf1c1f2805b88b5a548df033d1432793013921a443c30bdfc08f165552855b"
+    }
+  }
+}

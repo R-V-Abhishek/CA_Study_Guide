@@ -1,3 +1,4 @@
+import { accountKey, authGeneration } from "@caf/api-client";
 import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
@@ -8,6 +9,7 @@ import { RequestError } from "../components/RequestError";
 import { curatorClient, requiredData } from "../lib/client";
 
 type Recommendation = components["schemas"]["CuratorRecommendation"];
+type DecisionAction = components["schemas"]["DecisionRequest"]["action"];
 
 function RecommendationPath({ recommendation }: { recommendation: Recommendation }) {
   const ancestry = [recommendation.chapter, recommendation.topic, recommendation.subtopic].filter(Boolean);
@@ -19,6 +21,8 @@ function RecommendationPath({ recommendation }: { recommendation: Recommendation
 }
 
 export function Queue() {
+  const accountId = accountKey();
+  const generation = authGeneration();
   const queryClient = useQueryClient();
   const [params, setParams] = useSearchParams();
   const bucket = params.get("bucket") ?? "all";
@@ -31,12 +35,12 @@ export function Queue() {
   const activeFilters = useRef({ bucket, paper });
   activeFilters.current = { bucket, paper };
   const queue = useQuery({
-    queryKey: ["curator-queue", bucket, paper],
+    queryKey: ["curator-queue", accountKey(), bucket, paper],
     queryFn: async () => requiredData(await curatorClient.GET("/api/v1/curate/queue", {
       params: { query: { ...(bucket !== "all" ? { bucket } : {}), ...(paper !== "all" ? { paper_id: paper } : {}) } },
     })),
   });
-  const papers = useQuery({ queryKey: ["curator-papers"], queryFn: async () => requiredData(await curatorClient.GET("/api/v1/papers")) });
+  const papers = useQuery({ queryKey: ["curator-papers", accountKey()], queryFn: async () => requiredData(await curatorClient.GET("/api/v1/papers")) });
   const items = queue.data ?? [];
   const index = Math.max(0, items.findIndex(item => item.unit_id === selectedId));
   const unit = items[index];
@@ -48,12 +52,13 @@ export function Queue() {
   useEffect(() => { startTime.current = Date.now(); setAnswerExpanded(false); }, [unit?.unit_id]);
 
   const decision = useMutation({
-    mutationFn: async ({ action, nodeId, unitId }: { action: string; nodeId: string | null; unitId: number; bucket: string; paper: string }) => requiredData(await curatorClient.POST("/api/v1/curate/units/{unit_id}/decision", {
+    mutationFn: async ({ action, nodeId, unitId }: { action: DecisionAction; nodeId: string | null; unitId: number; bucket: string; paper: string }) => requiredData(await curatorClient.POST("/api/v1/curate/units/{unit_id}/decision", {
       params: { path: { unit_id: unitId } },
       body: { action, primary_node_id: nodeId, secondary_node_ids: [], seconds_spent: Math.max(1, (Date.now() - startTime.current) / 1000), blind: false },
     })),
     onSuccess: async (_, variables) => {
-      const key = ["curator-queue", variables.bucket, variables.paper];
+      if (generation !== authGeneration()) return;
+      const key = ["curator-queue", accountId, variables.bucket, variables.paper];
       const currentItems = queryClient.getQueryData<typeof items>(key) ?? [];
       const acceptedIndex = currentItems.findIndex(item => item.unit_id === variables.unitId);
       const remaining = currentItems.filter(item => item.unit_id !== variables.unitId);
@@ -66,7 +71,7 @@ export function Queue() {
     },
     onSettled: () => { submitting.current = false; },
   });
-  const submit = (action: string, nodeId?: string) => {
+  const submit = (action: DecisionAction, nodeId?: string) => {
     if (!unit || submitting.current) return;
     submitting.current = true;
     decision.mutate({ action, bucket, paper, unitId: unit.unit_id, nodeId: action === "exclude" || action === "none_fits" ? null : nodeId ?? unit.primary_suggestion.node_id });

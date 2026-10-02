@@ -1,4 +1,4 @@
-import { test, expect, type Page, type APIRequestContext } from '@playwright/test';
+import { test, expect, type Page, type APIRequestContext } from './fixtures';
 import type { components } from '../../packages/api-client/src/generated';
 
 type Fixture = { paper_id: string; nodes: { id: string; name: string }[]; score_run_id: number };
@@ -16,7 +16,7 @@ async function controlledPapers(page: Page) {
   await page.route('**/api/v1/papers', route => route.fulfill({ json: [paper] }));
   await page.route(`**/api/v1/papers/${paper.id}/tree`, route => route.fulfill({ json: tree }));
 }
-test.beforeEach(async ({ request }) => { await request.post('/__test/reset'); });
+test.beforeEach(async ({ request }) => { await request.post('/__test/reset'); await request.post('/__test/login'); });
 
 test('plan direct loading, refresh and returned names and destinations', async ({ page }) => {
   await controlledPapers(page);
@@ -181,7 +181,8 @@ test('integration failed revisions and mock mutations show no false success', as
   await page.getByRole('button', { name: 'Save mock test' }).click();
   await expect(page.getByRole('alert')).toContainText('Creation failed');
   await expect(page.getByRole('button', { name: 'Save mock test' })).toBeVisible();
-  const created = await (await request.post('/api/v1/mock-tests', { data: { paper_id: data.paper_id, score: 7.5, max_score: 100, taken_on: '2026-10-01' } })).json();
+  const me = await (await request.get('/api/v1/me')).json();
+  const created = await (await request.post('/api/v1/mock-tests', { headers: { Origin: 'http://127.0.0.1:8765', 'X-CSRF-Token': me.csrf_token }, data: { paper_id: data.paper_id, score: 7.5, max_score: 100, taken_on: '2026-10-01' } })).json();
   await page.getByRole('button', { name: 'Cancel', exact: true }).click();
   await page.reload();
   await page.route(`**/api/v1/mock-tests/${created.id}`, route => route.fulfill({ status: 503, json: { detail: 'Deletion rejected' } }));

@@ -1,3 +1,4 @@
+import { accountKey } from "@caf/api-client";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Network, ChevronDown, ChevronRight, Hash } from "lucide-react";
@@ -8,10 +9,10 @@ export function Taxonomy() {
   const [selectedPaper, setSelectedPaper] = useState("");
   const [expandedChapters, setExpandedChapters] = useState<Record<string, boolean>>({});
 
-  const papers = useQuery({ queryKey: ["curator-papers"], queryFn: async () => requiredData(await curatorClient.GET("/api/v1/papers")) });
+  const papers = useQuery({ queryKey: ["curator-papers", accountKey()], queryFn: async () => requiredData(await curatorClient.GET("/api/v1/papers")) });
   const paperId = selectedPaper || papers.data?.[0]?.id;
   const { data: treeData, isLoading, error, refetch } = useQuery({
-    queryKey: ["curator-taxonomy-tree", paperId],
+    queryKey: ["curator-taxonomy-tree", accountKey(), paperId],
     enabled: Boolean(paperId),
     queryFn: async () => {
       return requiredData(await curatorClient.GET("/api/v1/tree", { params: { query: { paper: paperId! } } }));

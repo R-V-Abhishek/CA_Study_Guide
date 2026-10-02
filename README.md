@@ -1,10 +1,11 @@
 # CA Final Study Companion
 
 A study workspace and historical exam-intelligence platform for CA Final aspirants.
-The current local application is being prepared for invited shared study with private
-individual records. Phase 0 adds recovery and verification foundations; sign-in,
-collaborative revision-bound publication, and full published-content reading follow in
-the [implementation phases](docs/Implementation_plan.md).
+The application supports invited Auth0 sign-in, private individual records, and
+shared classification review with administrator controls. Local tenant configuration
+is required; see [Phase 2 setup](docs/Phase2_Setup.md). Recovery and typed browser
+contracts are verified; publication revisions and full published-content reading
+remain later [implementation phases](docs/Implementation_plan.md).
 
 ---
 
@@ -19,7 +20,7 @@ Preparing for the CA Final examination requires mastering vast syllabus depths a
 - 📊 **Syllabus Coverage Audit**: Granular progress breakdown (Not Started, In Progress, Done) with 1-click CSV export.
 - 📈 **Mock Test Tracker**: Log your test series scores and visualize your score progression with responsive charts.
 - 📝 **Rich Markdown Notes**: Built-in distraction-free study notes editor with debounced auto-save.
-- 🔒 **100% Private & Offline-First**: All your study progress, notes, and metrics remain locally on your computer in PostgreSQL. Zero cloud tracking.
+- 🔒 **Private Profiles**: Study records remain in application PostgreSQL and are scoped to your signed-in account. Auth0 handles hosted sign-in and credentials.
 
 ---
 
@@ -258,10 +259,13 @@ calls are permitted in the suite. See [VERIFY.md](VERIFY.md) for Phase 0 accepta
 
 These are the approved target architecture. Phase 0 adds safe verification, verified
 recovery, provenance reports, a frozen explicit migration, and `shared-study.v1` draft
-contracts in `caf_contracts.future_v1`. Current models, unauthenticated local behavior,
-and metadata endpoint responses remain compatible. Authentication/ownership are
-Phase 2; collaborative publication is Phase 5; complete reader endpoints and scoped
-scores are Phase 6. Pure contract tests do not establish those runtime features.
+contracts in `caf_contracts.future_v1`. Phase 2 implements invited sessions,
+private ownership, restricted database connections, and target-matching score
+selection. Real Auth0 sign-in, legacy-owner binding and logout passed locally;
+see the [Phase 2 verification report](docs/Phase2_Verification.md).
+Collaborative publication revisions are Phase 5; complete reader endpoints and
+the full scoring architecture are Phase 6. Pure contract tests do not establish
+those later runtime features.
 Legacy curator decisions lack reliable reviewer identity and are reported without
 assigning them to a student. See the [implementation plan](docs/Implementation_plan.md).
 

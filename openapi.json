@@ -5,6 +5,335 @@
     "version": "1.0.0"
   },
   "paths": {
+    "/auth/login": {
+      "get": {
+        "tags": [
+          "identity"
+        ],
+        "summary": "Login",
+        "operationId": "login_auth_login_get",
+        "parameters": [
+          {
+            "name": "return_to",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "/",
+              "title": "Return To"
+            }
+          },
+          {
+            "name": "invitation",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Invitation"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/callback": {
+      "get": {
+        "tags": [
+          "identity"
+        ],
+        "summary": "Callback",
+        "operationId": "callback_auth_callback_get",
+        "parameters": [
+          {
+            "name": "state",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "State"
+            }
+          },
+          {
+            "name": "code",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "",
+              "title": "Code"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/me": {
+      "get": {
+        "tags": [
+          "identity"
+        ],
+        "summary": "Me",
+        "operationId": "me_api_v1_me_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MeResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/logout": {
+      "post": {
+        "tags": [
+          "identity"
+        ],
+        "summary": "Logout",
+        "operationId": "logout_auth_logout_post",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/admin/invitations": {
+      "get": {
+        "tags": [
+          "identity"
+        ],
+        "summary": "Invitations",
+        "operationId": "invitations_api_v1_admin_invitations_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/InvitationResponse"
+                  },
+                  "type": "array",
+                  "title": "Response Invitations Api V1 Admin Invitations Get"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "identity"
+        ],
+        "summary": "Invite",
+        "operationId": "invite_api_v1_admin_invitations_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InvitationRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreatedInvitationResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/admin/invitations/{invitation_id}/revoke": {
+      "post": {
+        "tags": [
+          "identity"
+        ],
+        "summary": "Revoke Invitation",
+        "operationId": "revoke_invitation_api_v1_admin_invitations__invitation_id__revoke_post",
+        "parameters": [
+          {
+            "name": "invitation_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Invitation Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/admin/accounts": {
+      "get": {
+        "tags": [
+          "identity"
+        ],
+        "summary": "Accounts",
+        "operationId": "accounts_api_v1_admin_accounts_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/AccountResponse"
+                  },
+                  "type": "array",
+                  "title": "Response Accounts Api V1 Admin Accounts Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/admin/accounts/{account_id}": {
+      "patch": {
+        "tags": [
+          "identity"
+        ],
+        "summary": "Update Account",
+        "operationId": "update_account_api_v1_admin_accounts__account_id__patch",
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Account Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AccountUpdate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/papers": {
       "get": {
         "summary": "List Papers",
@@ -743,6 +1072,78 @@
         }
       }
     },
+    "/api/v1/me/settings": {
+      "get": {
+        "summary": "Get Profile Settings",
+        "operationId": "get_profile_settings_api_v1_me_settings_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProfileSettings"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Update Profile Settings",
+        "operationId": "update_profile_settings_api_v1_me_settings_put",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProfileSettingsUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProfileSettings"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/me/export": {
+      "get": {
+        "summary": "Export Profile",
+        "operationId": "export_profile_api_v1_me_export_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProfileExport"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/curate/documents": {
       "get": {
         "tags": [
@@ -1189,16 +1590,10 @@
           {
             "name": "target_attempt_id",
             "in": "query",
-            "required": false,
+            "required": true,
             "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ],
+              "type": "string",
+              "minLength": 1,
               "title": "Target Attempt Id"
             }
           },
@@ -1352,6 +1747,83 @@
   },
   "components": {
     "schemas": {
+      "AccountResponse": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "email": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Email"
+          },
+          "role": {
+            "type": "string",
+            "title": "Role"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "email",
+          "role",
+          "status"
+        ],
+        "title": "AccountResponse"
+      },
+      "AccountUpdate": {
+        "properties": {
+          "role": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "student",
+                  "administrator"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Role"
+          },
+          "status": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "active",
+                  "disabled"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "AccountUpdate"
+      },
       "ActivityItem": {
         "properties": {
           "node_id": {
@@ -1855,6 +2327,78 @@
         ],
         "title": "CoverageValue"
       },
+      "CreatedInvitationResponse": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "email": {
+            "type": "string",
+            "title": "Email"
+          },
+          "role": {
+            "type": "string",
+            "title": "Role"
+          },
+          "expires_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Expires At"
+          },
+          "consumed_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Consumed At"
+          },
+          "revoked_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Revoked At"
+          },
+          "target_user_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Target User Id"
+          },
+          "invitation_url": {
+            "type": "string",
+            "title": "Invitation Url"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "email",
+          "role",
+          "expires_at",
+          "consumed_at",
+          "revoked_at",
+          "target_user_id",
+          "invitation_url"
+        ],
+        "title": "CreatedInvitationResponse"
+      },
       "CuratorDecisionResult": {
         "properties": {
           "decision_id": {
@@ -2229,6 +2773,17 @@
       },
       "Dashboard": {
         "properties": {
+          "score_unavailable_reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Score Unavailable Reason"
+          },
           "target_attempt": {
             "type": "string",
             "title": "Target Attempt"
@@ -2327,6 +2882,15 @@
         "properties": {
           "action": {
             "type": "string",
+            "enum": [
+              "accept",
+              "accept_alt",
+              "edit",
+              "none_fits",
+              "exclude",
+              "bulk_accept",
+              "undo"
+            ],
             "title": "Action"
           },
           "primary_node_id": {
@@ -2376,6 +2940,7 @@
             "default": false
           }
         },
+        "additionalProperties": false,
         "type": "object",
         "required": [
           "action"
@@ -2469,6 +3034,7 @@
             "title": "Title"
           }
         },
+        "additionalProperties": false,
         "type": "object",
         "title": "DocumentConfirmRequest"
       },
@@ -2595,6 +3161,7 @@
             "title": "Title"
           }
         },
+        "additionalProperties": false,
         "type": "object",
         "title": "DocumentEditRequest"
       },
@@ -2777,6 +3344,211 @@
         ],
         "title": "ExplanationWeights"
       },
+      "ExportNote": {
+        "properties": {
+          "node_id": {
+            "type": "string",
+            "title": "Node Id"
+          },
+          "body": {
+            "type": "string",
+            "title": "Body"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Updated At"
+          }
+        },
+        "type": "object",
+        "required": [
+          "node_id",
+          "body",
+          "updated_at"
+        ],
+        "title": "ExportNote"
+      },
+      "ExportProgress": {
+        "properties": {
+          "node_id": {
+            "type": "string",
+            "title": "Node Id"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "status_changed_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Status Changed At"
+          },
+          "first_done_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "First Done At"
+          },
+          "last_revised_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Revised At"
+          },
+          "verify_flag": {
+            "type": "boolean",
+            "title": "Verify Flag"
+          }
+        },
+        "type": "object",
+        "required": [
+          "node_id",
+          "status",
+          "status_changed_at",
+          "first_done_at",
+          "last_revised_at",
+          "verify_flag"
+        ],
+        "title": "ExportProgress"
+      },
+      "ExportProgressEvent": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "node_id": {
+            "type": "string",
+            "title": "Node Id"
+          },
+          "from_status": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "From Status"
+          },
+          "to_status": {
+            "type": "string",
+            "title": "To Status"
+          },
+          "at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "At"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "node_id",
+          "from_status",
+          "to_status",
+          "at"
+        ],
+        "title": "ExportProgressEvent"
+      },
+      "ExportRevisionEvent": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "node_id": {
+            "type": "string",
+            "title": "Node Id"
+          },
+          "outcome": {
+            "type": "string",
+            "title": "Outcome"
+          },
+          "at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "At"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "node_id",
+          "outcome",
+          "at"
+        ],
+        "title": "ExportRevisionEvent"
+      },
+      "ExportStudySession": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "node_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Node Id"
+          },
+          "started_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Started At"
+          },
+          "ended_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Ended At"
+          },
+          "minutes": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Minutes"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "node_id",
+          "started_at",
+          "ended_at",
+          "minutes"
+        ],
+        "title": "ExportStudySession"
+      },
       "FrequencyExplanation": {
         "properties": {
           "freq_hits_F": {
@@ -2916,8 +3688,128 @@
         ],
         "title": "IngestionCoverageItem"
       },
+      "InvitationRequest": {
+        "properties": {
+          "email": {
+            "type": "string",
+            "maxLength": 254,
+            "minLength": 3,
+            "pattern": "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$",
+            "title": "Email"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "email"
+        ],
+        "title": "InvitationRequest"
+      },
+      "InvitationResponse": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "email": {
+            "type": "string",
+            "title": "Email"
+          },
+          "role": {
+            "type": "string",
+            "title": "Role"
+          },
+          "expires_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Expires At"
+          },
+          "consumed_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Consumed At"
+          },
+          "revoked_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Revoked At"
+          },
+          "target_user_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Target User Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "email",
+          "role",
+          "expires_at",
+          "consumed_at",
+          "revoked_at",
+          "target_user_id"
+        ],
+        "title": "InvitationResponse"
+      },
+      "MeResponse": {
+        "properties": {
+          "account": {
+            "$ref": "#/components/schemas/AccountResponse"
+          },
+          "capabilities": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Capabilities"
+          },
+          "csrf_token": {
+            "type": "string",
+            "title": "Csrf Token"
+          }
+        },
+        "type": "object",
+        "required": [
+          "account",
+          "capabilities",
+          "csrf_token"
+        ],
+        "title": "MeResponse"
+      },
       "Metadata": {
         "properties": {
+          "score_unavailable_reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Score Unavailable Reason"
+          },
           "taxonomy_version": {
             "type": "string",
             "title": "Taxonomy Version"
@@ -3056,6 +3948,7 @@
             "title": "Notes"
           }
         },
+        "additionalProperties": false,
         "type": "object",
         "required": [
           "paper_id",
@@ -3245,6 +4138,7 @@
             "title": "Notes"
           }
         },
+        "additionalProperties": false,
         "type": "object",
         "required": [
           "notes"
@@ -3613,6 +4507,269 @@
         ],
         "title": "PriorSignal"
       },
+      "ProfileAttempt": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "label": {
+            "type": "string",
+            "title": "Label"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "label"
+        ],
+        "title": "ProfileAttempt"
+      },
+      "ProfileExport": {
+        "properties": {
+          "account_id": {
+            "type": "integer",
+            "title": "Account Id"
+          },
+          "exported_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Exported At"
+          },
+          "settings": {
+            "$ref": "#/components/schemas/ProfileSettings"
+          },
+          "progress": {
+            "items": {
+              "$ref": "#/components/schemas/ExportProgress"
+            },
+            "type": "array",
+            "title": "Progress"
+          },
+          "notes": {
+            "items": {
+              "$ref": "#/components/schemas/ExportNote"
+            },
+            "type": "array",
+            "title": "Notes"
+          },
+          "progress_events": {
+            "items": {
+              "$ref": "#/components/schemas/ExportProgressEvent"
+            },
+            "type": "array",
+            "title": "Progress Events"
+          },
+          "revision_events": {
+            "items": {
+              "$ref": "#/components/schemas/ExportRevisionEvent"
+            },
+            "type": "array",
+            "title": "Revision Events"
+          },
+          "mock_tests": {
+            "items": {
+              "$ref": "#/components/schemas/MockTestResult"
+            },
+            "type": "array",
+            "title": "Mock Tests"
+          },
+          "study_sessions": {
+            "items": {
+              "$ref": "#/components/schemas/ExportStudySession"
+            },
+            "type": "array",
+            "title": "Study Sessions"
+          }
+        },
+        "type": "object",
+        "required": [
+          "account_id",
+          "exported_at",
+          "settings",
+          "progress",
+          "notes",
+          "progress_events",
+          "revision_events",
+          "mock_tests",
+          "study_sessions"
+        ],
+        "title": "ProfileExport"
+      },
+      "ProfilePaper": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "code": {
+            "type": "string",
+            "title": "Code"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "group_no": {
+            "type": "integer",
+            "title": "Group No"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "code",
+          "name",
+          "group_no"
+        ],
+        "title": "ProfilePaper"
+      },
+      "ProfileSettings": {
+        "properties": {
+          "display_name": {
+            "type": "string",
+            "title": "Display Name"
+          },
+          "target_attempt_id": {
+            "type": "string",
+            "title": "Target Attempt Id"
+          },
+          "selected_paper_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Selected Paper Ids"
+          },
+          "groups": {
+            "items": {
+              "type": "integer"
+            },
+            "type": "array",
+            "title": "Groups"
+          },
+          "hours_per_week": {
+            "type": "number",
+            "title": "Hours Per Week"
+          },
+          "minutes_per_subtopic": {
+            "type": "integer",
+            "title": "Minutes Per Subtopic"
+          },
+          "revision_intervals": {
+            "items": {
+              "type": "integer"
+            },
+            "type": "array",
+            "title": "Revision Intervals"
+          },
+          "exam_start_date": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Exam Start Date"
+          },
+          "available_papers": {
+            "items": {
+              "$ref": "#/components/schemas/ProfilePaper"
+            },
+            "type": "array",
+            "title": "Available Papers"
+          },
+          "available_attempts": {
+            "items": {
+              "$ref": "#/components/schemas/ProfileAttempt"
+            },
+            "type": "array",
+            "title": "Available Attempts"
+          }
+        },
+        "type": "object",
+        "required": [
+          "display_name",
+          "target_attempt_id",
+          "selected_paper_ids",
+          "groups",
+          "hours_per_week",
+          "minutes_per_subtopic",
+          "revision_intervals",
+          "exam_start_date",
+          "available_papers",
+          "available_attempts"
+        ],
+        "title": "ProfileSettings"
+      },
+      "ProfileSettingsUpdate": {
+        "properties": {
+          "display_name": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Display Name"
+          },
+          "target_attempt_id": {
+            "type": "string",
+            "title": "Target Attempt Id"
+          },
+          "selected_paper_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "minItems": 1,
+            "title": "Selected Paper Ids"
+          },
+          "hours_per_week": {
+            "type": "number",
+            "maximum": 9999.9,
+            "exclusiveMinimum": 0.0,
+            "title": "Hours Per Week"
+          },
+          "minutes_per_subtopic": {
+            "type": "integer",
+            "maximum": 2147483647.0,
+            "exclusiveMinimum": 0.0,
+            "title": "Minutes Per Subtopic"
+          },
+          "revision_intervals": {
+            "items": {
+              "type": "integer"
+            },
+            "type": "array",
+            "minItems": 1,
+            "title": "Revision Intervals"
+          },
+          "exam_start_date": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Exam Start Date"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "display_name",
+          "target_attempt_id",
+          "selected_paper_ids",
+          "hours_per_week",
+          "minutes_per_subtopic",
+          "revision_intervals"
+        ],
+        "title": "ProfileSettingsUpdate"
+      },
       "ProgressResult": {
         "properties": {
           "status": {
@@ -3654,6 +4811,7 @@
             "title": "Status"
           }
         },
+        "additionalProperties": false,
         "type": "object",
         "required": [
           "status"
@@ -3791,6 +4949,7 @@
             "title": "Outcome"
           }
         },
+        "additionalProperties": false,
         "type": "object",
         "required": [
           "outcome"
@@ -3996,6 +5155,17 @@
       },
       "StudyPlan": {
         "properties": {
+          "score_unavailable_reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Score Unavailable Reason"
+          },
           "budget_items": {
             "type": "integer",
             "title": "Budget Items"

@@ -1,9 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
-import { apiRequest } from '@caf/api-client';
+import { apiRequest, accountKey } from '@caf/api-client';
 import { isDemoMode } from './demo';
 import { demoResponse } from './fixtures';
 import type { PaperSummary, PaperTree } from './contracts';
-export const mode = () => isDemoMode() ? 'demo' : 'live';
+export const mode = () => isDemoMode() ? 'demo' : `live:${accountKey()}`;
 export function getData<T>(url: string): Promise<T> {
   return isDemoMode() ? Promise.resolve(demoResponse<T>(url)) : apiRequest<T>(url);
 }

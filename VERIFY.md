@@ -160,9 +160,12 @@ After running `uv run start.py`:
   - Verify that the existing metadata endpoints retain their response shapes without
     embedded question/answer text. Revised D2 allows complete published content through
     the future authenticated reader; this compatibility check is not a universal ban.
-- [ ] **Phase 2 ownership gate (future)**: two authenticated students cannot read or
+- [x] **Phase 2 isolated ownership gate**: two authenticated students cannot read or
   change each other's progress, notes, study sessions, settings, or exports. Every invited
   student may curate; administrative operations remain separately authorized.
+  Python and Chromium/WebKit evidence is recorded in `docs/Phase2_Verification.md`.
+  Real Auth0 invitation redemption, preserved owner profile and logout passed locally.
+  Native Windows verification remains pending.
 - [ ] **Phase 5/6 publication and reader gates (future)**: one student's review permits
   publication; counts use distinct students, scope, and exact content/classification
   revision. Published readers return complete questions/answers; unreviewed staging

@@ -22,7 +22,7 @@ def cmd_run(
     ),
 ) -> None:
     """Create a unique recovery artifact with a snapshot manifest and archived files."""
-    session_factory = get_session_factory()
+    session_factory = get_session_factory("operations")
     with session_factory() as session:
         console.print("[bold cyan]Starting full system backup...[/bold cyan]")
         try:
@@ -61,7 +61,7 @@ def cmd_verify(
     ),
 ) -> None:
     """Restore in a disposable container and compare content/files to the manifest."""
-    session_factory = get_session_factory()
+    session_factory = get_session_factory("operations")
     with session_factory() as session:
         console.print("[bold cyan]Running monthly backup verification drill...[/bold cyan]")
         try:

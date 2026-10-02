@@ -29,6 +29,13 @@ CRITICAL_TABLES = [
 SCHEMAS = ["app", "core", "ref", "ingest", "intel", "ops"]
 
 
+def critical_tables(revision: str) -> set[str]:
+    tables = set(CRITICAL_TABLES)
+    if revision not in {"0001_initial_schema", "0002_score_config_snapshot"}:
+        tables.update({"app.invitation", "app.login_transaction", "app.auth_session"})
+    return tables
+
+
 @dataclass
 class BackupManifest:
     dump_file: Path
@@ -52,8 +59,8 @@ class VerificationResult:
 
 
 def _database_url(db_url=None):
-    settings = get_settings()
-    url = make_url(db_url or settings.DATABASE_URL or settings.database.url)
+    from caf_db.engine import database_url
+    url = make_url(db_url) if db_url else database_url("backup")
     assert_safe_database(url)
     return url
 
@@ -170,7 +177,7 @@ def create_backup(session: Session | None = None, backup_dir=None, blob_dir=None
             snapshot = connection.execute(sa.text("SELECT pg_export_snapshot()")).scalar_one()
             revision = connection.execute(sa.text("SELECT version_num FROM ops.alembic_version")).scalar_one()
             tables = database_content(connection)
-            missing = sorted(set(CRITICAL_TABLES) - tables.keys())
+            missing = sorted(critical_tables(revision) - tables.keys())
             if missing:
                 raise RuntimeError(f"Protected tables missing: {missing}")
             schema = schema_snapshot(connection)
@@ -257,7 +264,7 @@ def verify_backup(session: Session | None = None, dump_file=None, scratch_db_nam
         if manifest["format_version"] != 1 or manifest["dump_file"] != dump_path.name:
             raise ValueError("Invalid backup manifest")
         expected_counts = {table: values["count"] for table, values in manifest["tables"].items()}
-        if set(CRITICAL_TABLES) - expected_counts.keys():
+        if critical_tables(manifest["database_revision"]) - expected_counts.keys():
             raise ValueError("Manifest missing protected tables")
         if file_checksum(dump_path) != manifest["dump_sha256"]:
             raise ValueError("Dump checksum mismatch")

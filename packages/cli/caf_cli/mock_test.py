@@ -16,15 +16,16 @@ console = Console()
 
 @app.command("list")
 def cmd_list_mock_tests(
+    user_id: int = typer.Option(..., "--user-id", min=1, help="Target account ID"),
     paper: str | None = typer.Option(None, "--paper", "-p", help="Filter by paper code (e.g. P1)"),
 ) -> None:
     """List mock test results."""
-    session_factory = get_session_factory()
+    session_factory = get_session_factory("student")
     with session_factory() as session:
         query = (
             sa.select(MockTest, Paper.code)
             .join(Paper, Paper.id == MockTest.paper_id)
-            .where(MockTest.user_id == 1)
+            .where(MockTest.user_id == user_id)
         )
         if paper:
             query = query.where((Paper.code == paper.upper()) | (Paper.id == paper))
@@ -65,6 +66,7 @@ def cmd_list_mock_tests(
 
 @app.command("log")
 def cmd_log_mock_test(
+    user_id: int = typer.Option(..., "--user-id", min=1, help="Target account ID"),
     paper: str = typer.Option(..., "--paper", "-p", help="Paper code (e.g. P1)"),
     score: float = typer.Option(..., "--score", "-s", help="Score achieved"),
     max_score: float = typer.Option(100.0, "--max-score", "-m", help="Maximum marks (default 100)"),
@@ -75,7 +77,7 @@ def cmd_log_mock_test(
     notes: str | None = typer.Option(None, "--notes", help="Study notes / review areas"),
 ) -> None:
     """Log a completed mock test attempt."""
-    session_factory = get_session_factory()
+    session_factory = get_session_factory("student")
     with session_factory() as session:
         # Resolve paper
         p_row = session.execute(
@@ -88,7 +90,7 @@ def cmd_log_mock_test(
         test_date = date.fromisoformat(taken_on) if taken_on else date.today()
 
         mt = MockTest(
-            user_id=1,
+            user_id=user_id,
             paper_id=p_row.id,
             label=label,
             score=score,

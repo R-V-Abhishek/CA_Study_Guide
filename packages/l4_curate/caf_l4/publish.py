@@ -2,12 +2,16 @@
 
 from datetime import datetime, timezone
 from typing import Any
-from sqlalchemy import delete, select, update
+from sqlalchemy import delete, select
 from sqlalchemy.orm import Session
 
 from caf_db.models.core import Appearance, AppearanceTag, ChangeLog, Decision
 from caf_db.models.ingest import Document, TagSuggestion, Unit
 from caf_db.models.ref import DocType, LawBoundary
+
+
+class StaleDecisionError(ValueError):
+    """The suggestion was already reviewed by another request."""
 
 
 def compute_law_stale(
@@ -35,11 +39,19 @@ def make_decision(
     suggestion_run_id: int | None = None,
     seconds_spent: float | None = None,
     blind: bool = False,
+    actor_id: int | None = None,
+    require_pending: bool = False,
 ) -> Decision:
     """Record curator decision and publish appearance to core.* atomically."""
-    unit = session.get(Unit, unit_id)
+    unit = session.scalars(
+        select(Unit).where(Unit.id == unit_id).with_for_update()
+        .execution_options(populate_existing=True)
+    ).one_or_none()
     if not unit:
         raise ValueError(f"Unit {unit_id} not found")
+
+    if require_pending and (not unit.current or unit.classify_status != "suggested"):
+        raise StaleDecisionError("This suggestion has already been reviewed or superseded; refresh the queue.")
 
     doc = session.get(Document, unit.document_id)
     if not doc:
@@ -48,6 +60,7 @@ def make_decision(
     # 1. Record Decision
     decision = Decision(
         unit_fingerprint=unit.fingerprint,
+        actor_id=actor_id,
         action=action,
         payload=payload,
         suggestion_run_id=suggestion_run_id,
@@ -173,7 +186,7 @@ def make_decision(
     return decision
 
 
-def bulk_accept_bucket_a(session: Session, document_id: int) -> int:
+def bulk_accept_bucket_a(session: Session, document_id: int, actor_id: int | None = None) -> int:
     """Bulk accept all remaining Bucket A suggestions for a confirmed document."""
     doc = session.get(Document, document_id)
     if not doc:
@@ -213,7 +226,7 @@ def bulk_accept_bucket_a(session: Session, document_id: int) -> int:
         ]
         gist = (
             primary_sugg.evidence.get("gist")
-            if isinstance(primary_sugg.evidence, dict)
+            if primary_sugg.evidence
             else None
         )
 
@@ -227,6 +240,8 @@ def bulk_accept_bucket_a(session: Session, document_id: int) -> int:
                 "gist": gist or u.display_label,
             },
             suggestion_run_id=primary_sugg.run_id,
+            actor_id=actor_id,
+            require_pending=True,
         )
         accepted_count += 1
 

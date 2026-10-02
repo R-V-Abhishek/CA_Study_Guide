@@ -18,14 +18,26 @@ def main():
     os.environ["CAF_TEST_MODE"] = "1"
     os.environ["CAF_TEST_DATABASE_ALLOWLIST"] = "[]"
     os.environ["GEMINI_API_KEY"] = ""
-    for role in ("APP", "CURATOR", "PIPELINE"):
+    for role in ("APP", "CURATOR", "PIPELINE", "IDENTITY", "OPERATIONS", "BACKUP"):
         os.environ[f"PG_{role}_PASSWORD"] = secrets.token_hex(16)
+
+    base_url = "http://127.0.0.1:8765"
+    os.environ["AUTH_PUBLIC_BASE_URL"] = base_url
+    os.environ["AUTH_LOCAL_DEVELOPMENT"] = "true"
+    os.environ["AUTH_ALLOWED_ORIGINS"] = base_url
+    os.environ["OIDC_ISSUER"] = base_url + "/__test/oidc"
+    os.environ["OIDC_CLIENT_ID"] = "browser-harness"
+    os.environ["OIDC_CLIENT_SECRET"] = secrets.token_hex(32)
+    os.environ["OIDC_REDIRECT_URI"] = base_url + "/auth/callback"
 
     from caf_common.postgres_sandbox import PostgresSandbox
     with tempfile.TemporaryDirectory(prefix="caf-browser-") as storage, PostgresSandbox("browser") as sandbox:
         os.environ["CAF_TEST_STORAGE_ROOT"] = storage
         os.environ["CAF_TEST_ARTIFACT_ROOT"] = storage
         os.environ["DATABASE_URL"] = sandbox.url().render_as_string(hide_password=False)
+        for operation, role in {"student": "APP", "curation": "CURATOR", "identity": "IDENTITY", "operations": "OPERATIONS", "backup": "BACKUP", "pipeline": "PIPELINE"}.items():
+            username = {"APP": "caf_app", "CURATOR": "caf_curator"}.get(role, "caf_" + operation)
+            os.environ[f"{operation.upper()}_DATABASE_URL"] = sandbox.url().set(username=username, password=os.environ[f"PG_{role}_PASSWORD"]).render_as_string(hide_password=False)
         os.environ["PG_HOST"] = "127.0.0.1"
         os.environ["PG_PORT"] = str(sandbox.port)
         os.environ["PG_DATABASE"] = "postgres"
@@ -38,18 +50,24 @@ def main():
         from caf_db.models.ingest import Document, TagSuggestion, Unit, UnitAnswer
         from caf_db.models.intel import ScoreRun, SubtopicScore
         from caf_db.models.ops import Run
-        from caf_db.models.ref import Node
+        from caf_db.models.ref import Node, Paper
         from caf_l0.loader import TaxonomyLoader
         from caf_l5.config import load_scoring_config
         import sqlalchemy as sa
 
         command.upgrade(Config("alembic.ini"), "head")
+        from caf_db.grants import apply_grants
+        apply_grants()
         with get_session_factory()() as db:
             loader = TaxonomyLoader()
             loader.apply(db, loader.plan())
-            db.add(UserAccount(id=1, name="Browser fixture student"))
+            for account_id, name, subject, email, role in [(1, "Browser fixture student", "student-a", "a@example.test", "student"), (2, "Student B", "student-b", "b@example.test", "student"), (3, "Browser administrator", "administrator", "admin@example.test", "administrator")]:
+                db.add(UserAccount(id=account_id, name=name, issuer=os.environ["OIDC_ISSUER"], subject=subject, email=email, email_verified=True, role=role, status="active"))
             db.flush()
-            db.add(Settings(user_id=1, target_attempt_id="2026-05", hours_per_week=2, minutes_per_subtopic=45))
+            papers = list(db.scalars(sa.select(Paper.id).where(Paper.is_current.is_(True))))
+            for account_id in (1, 2, 3):
+                db.add(Settings(user_id=account_id, target_attempt_id="2026-05", selected_paper_ids=papers, hours_per_week=2, minutes_per_subtopic=45))
+            db.execute(sa.text("SELECT setval(pg_get_serial_sequence('app.user_account', 'id'), 3, true)"))
             db.add(Run(id=1, stage="browser-fixture", status="ok", stats={}))
             db.flush()
             nodes = db.scalars(sa.select(Node).where(Node.level == "subtopic", Node.paper_id == "s2023.P1").order_by(Node.id).limit(3)).all()
@@ -93,7 +111,28 @@ def main():
         from caf_api.main import app
         from fastapi import FastAPI
         import uvicorn
-        harness = FastAPI(docs_url=None, openapi_url=None)
+        from contextlib import asynccontextmanager
+        from browser_oidc import install_provider
+        from caf_api.auth import create_session, set_cookie, SESSION_COOKIE
+        from fastapi.responses import JSONResponse
+        @asynccontextmanager
+        async def lifespan(application):
+            async with app.router.lifespan_context(app):
+                yield
+        harness = FastAPI(docs_url=None, openapi_url=None, lifespan=lifespan)
+        install_provider(harness, base_url)
+
+        @harness.post("/__test/login")
+        def fixture_login(account_id: int = 1):
+            if account_id not in (1, 2, 3):
+                from fastapi import HTTPException
+                raise HTTPException(400, "Unknown fixture account")
+            with get_session_factory()() as db:
+                token, session = create_session(db, account_id)
+                db.commit()
+                response = JSONResponse({"account_id": account_id, "csrf_token": session.csrf_token})
+                set_cookie(response, SESSION_COOKIE, token, 7 * 86400)
+                return response
 
         @harness.get("/__test/fixture")
         def test_fixture():
@@ -101,12 +140,22 @@ def main():
 
         @harness.post("/__test/reset")
         def reset_fixture():
-            from caf_db.models.app import MockTest, Note, ProgressEvent, RevisionEvent
+            from caf_db.models.app import MockTest, Note, ProgressEvent, RevisionEvent, AuthSession, Invitation, LoginTransaction
             from caf_db.models.core import Appearance, AppearanceTag, ChangeLog, Decision
             with get_session_factory()() as db:
                 for model in (AppearanceTag, Appearance, Decision, ChangeLog,
                               ProgressEvent, RevisionEvent, Note, Progress, MockTest):
                     db.execute(sa.delete(model))
+                for model in (Invitation, LoginTransaction, AuthSession):
+                    db.execute(sa.delete(model))
+                db.execute(sa.delete(Settings).where(Settings.user_id > 3))
+                db.execute(sa.delete(UserAccount).where(UserAccount.id > 3))
+                db.execute(sa.update(UserAccount).values(status="active"))
+                db.execute(sa.update(UserAccount).where(UserAccount.id.in_([1, 2])).values(role="student"))
+                db.execute(sa.update(UserAccount).where(UserAccount.id == 3).values(role="administrator"))
+                for account_id, name in [(1, "Browser fixture student"), (2, "Student B"), (3, "Browser administrator")]:
+                    db.execute(sa.update(UserAccount).where(UserAccount.id == account_id).values(name=name))
+                db.execute(sa.update(Settings).values(target_attempt_id="2026-05", selected_paper_ids=papers, hours_per_week=2, minutes_per_subtopic=45, revision_intervals=[3, 7, 21, 60]))
                 db.execute(sa.update(Unit).values(classify_status="suggested"))
                 db.add(Progress(user_id=1, node_id=fixture["nodes"][2]["id"], status="done",
                                 first_done_at=old, status_changed_at=old))

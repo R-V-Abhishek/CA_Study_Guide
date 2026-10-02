@@ -26,7 +26,7 @@ def extract_run(
 ) -> None:
     """Run L2 extraction pipeline on confirmed documents."""
     settings = get_settings()
-    session_factory = get_session_factory()
+    session_factory = get_session_factory("operations")
     blob_store = BlobStore(settings.storage.blob_dir)
 
     profiles_dir = Path("profiles")
@@ -116,7 +116,7 @@ def extract_debug(
 ) -> None:
     """Generate interactive debug HTML showing line blocks and unit segmentation."""
     settings = get_settings()
-    session_factory = get_session_factory()
+    session_factory = get_session_factory("operations")
     blob_store = BlobStore(settings.storage.blob_dir)
 
     profiles_dir = Path("profiles")
@@ -152,7 +152,7 @@ def extract_debug(
 @app.command("report")
 def extract_report() -> None:
     """Display summary of extracted documents and validation statistics."""
-    session_factory = get_session_factory()
+    session_factory = get_session_factory("operations")
     with session_factory() as session:
         # Document extract status counts
         doc_stats = (

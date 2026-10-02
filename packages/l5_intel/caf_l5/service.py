@@ -4,7 +4,7 @@ from typing import Any
 import sqlalchemy as sa
 from sqlalchemy.orm import Session
 
-from caf_db.models.app import Progress
+from caf_db.models.app import Progress, Settings
 from caf_db.models.intel import IngestionCoverage, ScoreRun, SubtopicScore
 from caf_db.models.ref import Node, Paper
 from caf_l5.config import ScoringConfig, load_scoring_config
@@ -31,8 +31,13 @@ def is_subtopic_weak(
     )
 
 
-def get_current_score_run(session: Session) -> ScoreRun | None:
-    """Retrieve the active current ScoreRun."""
+def get_current_score_run(session: Session, target_attempt_id: str | None = None) -> ScoreRun | None:
+    """Retrieve a successful run; explicit targets never fall back across attempts."""
+    if target_attempt_id is not None:
+        return session.query(ScoreRun).where(
+            ScoreRun.target_attempt_id == target_attempt_id,
+            ScoreRun.status == "ok", ScoreRun.shadow.is_(False),
+        ).order_by(ScoreRun.id.desc()).first()
     run = session.query(ScoreRun).where(
         ScoreRun.is_current.is_(True), ScoreRun.status == "ok", ScoreRun.shadow.is_(False)
     ).first()
@@ -43,12 +48,33 @@ def get_current_score_run(session: Session) -> ScoreRun | None:
     return run
 
 
+def get_account_settings(session: Session, user_id: int) -> Settings:
+    settings = session.get(Settings, user_id)
+    if settings is None:
+        raise ValueError(f"Profile settings missing for account {user_id}")
+    return settings
+
+
+def selected_papers(session: Session, user_id: int) -> list[str]:
+    settings = get_account_settings(session, user_id)
+    if settings.selected_paper_ids is not None:
+        return settings.selected_paper_ids
+    return list(session.scalars(sa.select(Paper.id).where(Paper.is_current.is_(True))))
+
+
+def get_account_score_run(session: Session, user_id: int) -> ScoreRun | None:
+    settings = get_account_settings(session, user_id)
+    if settings.target_attempt_id is None:
+        return None
+    return get_current_score_run(session, settings.target_attempt_id)
+
+
 def get_subtopic_scores_for_paper(
-    session: Session, paper_id: str, run_id: int | None = None
+    session: Session, paper_id: str, run_id: int | None = None, *, target_attempt_id: str | None = None
 ) -> dict[str, SubtopicScore]:
     """Retrieve all SubtopicScore records for a paper under the current or specified run."""
     if run_id is None:
-        current_run = get_current_score_run(session)
+        current_run = get_current_score_run(session, target_attempt_id)
         if not current_run:
             return {}
         run_id = current_run.id
@@ -67,7 +93,7 @@ def get_subtopic_scores_for_paper(
 
 def get_weak_subtopics(
     session: Session,
-    user_id: int = 1,
+    user_id: int,
     limit: int = 10,
     paper_id: str | None = None,
 ) -> list[dict[str, Any]]:
@@ -76,7 +102,7 @@ def get_weak_subtopics(
     Ordered by importance descending.
     """
     config = load_scoring_config()
-    current_run = get_current_score_run(session)
+    current_run = get_account_score_run(session, user_id)
     if not current_run:
         return []
 
@@ -90,6 +116,7 @@ def get_weak_subtopics(
         )
         .where(
             SubtopicScore.score_run_id == current_run.id,
+            Node.paper_id.in_(selected_papers(session, user_id)),
             SubtopicScore.applicable.is_(True),
             SubtopicScore.freq_hits >= config.weak_flag_min_hits,
             SubtopicScore.freq_window >= config.freq_window_attempts,
@@ -153,12 +180,12 @@ def get_ingestion_coverage_matrix(
 
 
 def compute_weighted_coverage(
-    session: Session, user_id: int = 1
+    session: Session, user_id: int
 ) -> dict[str, Any]:
     """Compute weighted syllabus coverage per paper, group, and overall using weightage priors W(s):
     cov(paper) = Σ_{s done, applicable} W(s) / Σ_{s applicable} W(s)
     """
-    current_run = get_current_score_run(session)
+    current_run = get_account_score_run(session, user_id)
     if not current_run:
         return {
             "overall_coverage_pct": None, "overall_in_progress_pct": None,
@@ -175,6 +202,7 @@ def compute_weighted_coverage(
         )
         .where(
             SubtopicScore.score_run_id == current_run.id,
+            Node.paper_id.in_(selected_papers(session, user_id)),
             SubtopicScore.applicable.is_(True),
             Paper.is_current.is_(True),
             Node.status == "active",

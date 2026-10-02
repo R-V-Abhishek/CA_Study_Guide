@@ -27,7 +27,10 @@ def pytest_sessionstart(session):
     os.environ["CAF_TEST_STORAGE_ROOT"] = _storage.name
     os.environ["CAF_TEST_ARTIFACT_ROOT"] = str(session.config._tmp_path_factory.getbasetemp())
     os.environ["GEMINI_API_KEY"] = ""
-    for role in ("APP", "CURATOR", "PIPELINE"):
+    os.environ["AUTH_LOCAL_DEVELOPMENT"] = "true"
+    os.environ["AUTH_PUBLIC_BASE_URL"] = "http://testserver"
+    os.environ["AUTH_ALLOWED_ORIGINS"] = "http://testserver"
+    for role in ("APP", "CURATOR", "PIPELINE", "IDENTITY", "OPERATIONS", "BACKUP"):
         os.environ[f"PG_{role}_PASSWORD"] = secrets.token_hex(16)
 
     import psycopg
@@ -93,6 +96,7 @@ def pytest_sessionstart(session):
             db.add(Run(id=1, stage="test-fixture", status="ok", stats={}))
             db.commit()
             db.execute(sa.text("SELECT setval('ops.run_id_seq', 1)"))
+            db.execute(sa.text("SELECT setval(pg_get_serial_sequence('app.user_account','id'), 1)"))
             db.commit()
         reset_database()
         with _admin.connect() as conn:
@@ -107,6 +111,13 @@ def _configure(database, storage):
     from caf_db.engine import reset_database
     reset_database()
     os.environ["DATABASE_URL"] = _sandbox.url(database).render_as_string(hide_password=False)
+    from caf_db.engine import ROLE_NAMES
+    password_names = {"student": "APP", "curation": "CURATOR"}
+    for operation, role in ROLE_NAMES.items():
+        suffix = password_names.get(operation, operation.upper())
+        os.environ[f"{operation.upper()}_DATABASE_URL"] = _sandbox.url(database).set(
+            username=role, password=os.environ[f"PG_{suffix}_PASSWORD"]
+        ).render_as_string(hide_password=False)
     os.environ["PG_HOST"] = "127.0.0.1"
     os.environ["PG_PORT"] = str(_sandbox.port)
     os.environ["PG_DATABASE"] = database
@@ -141,6 +152,61 @@ def session():
     from caf_db.engine import get_session_factory
     with get_session_factory()() as db:
         yield db
+
+
+@pytest.fixture
+def authenticated_client():
+    """Real opaque application sessions for isolated API tests; no auth bypass."""
+    from fastapi.testclient import TestClient
+    from caf_api.main import app
+    from caf_api.auth import create_session, SESSION_COOKIE
+    from caf_db.engine import get_session_factory
+    from caf_db.models.app import UserAccount, Settings
+
+    def make(user_id=1, role="student", target="2026-05"):
+        with get_session_factory()() as db:
+            account = db.get(UserAccount, user_id)
+            if account is None:
+                account = UserAccount(id=user_id, name=f"Student {user_id}")
+                db.add(account)
+                db.flush()
+                db.add(Settings(user_id=user_id, target_attempt_id=target))
+            account.status = "active"
+            account.role = role
+            account.issuer = "https://test.invalid/"
+            account.subject = f"student-{user_id}"
+            account.email = f"student-{user_id}@test.invalid"
+            account.email_verified = True
+            token, auth_session = create_session(db, user_id)
+            csrf = auth_session.csrf_token
+            db.commit()
+        client = TestClient(app)
+        client.cookies.set(SESSION_COOKIE, token)
+        client.headers.update({"Origin": "http://testserver", "X-CSRF-Token": csrf})
+        return client
+
+    return make
+
+
+@pytest.fixture(autouse=True)
+def legacy_http_sessions(request, isolated_database, authenticated_client, monkeypatch):
+    """Keep pre-auth regressions meaningful using an explicit harness admin."""
+    if request.module.__name__.split(".")[-1].startswith("test_phase2"):
+        return
+    from fastapi.testclient import TestClient
+    template = authenticated_client(role="administrator")
+    original_init = TestClient.__init__
+
+    def initialized(client, *args, **kwargs):
+        original_init(client, *args, **kwargs)
+        client.cookies.update(template.cookies)
+        client.headers.update(template.headers)
+
+    monkeypatch.setattr(TestClient, "__init__", initialized)
+    for value in vars(request.module).values():
+        if type(value) is TestClient:
+            value.cookies.update(template.cookies)
+            value.headers.update(template.headers)
 
 
 def _cleanup():

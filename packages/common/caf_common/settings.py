@@ -10,7 +10,6 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class AppSettings(BaseModel):
     env: str = "development"
-    user_id: int = 1
     target_attempt_id: str = "2026-05"
 
 
@@ -42,6 +41,14 @@ class Settings(BaseSettings):
         extra="ignore",
     )
 
+    OIDC_ISSUER: str | None = None
+    OIDC_CLIENT_ID: str | None = None
+    OIDC_CLIENT_SECRET: str | None = None
+    OIDC_REDIRECT_URI: str | None = None
+    AUTH_PUBLIC_BASE_URL: str = "http://localhost:8000"
+    AUTH_LOCAL_DEVELOPMENT: bool = False
+    AUTH_ALLOWED_ORIGINS: str = "http://localhost:8000,http://localhost:5173,http://localhost:5174"
+
     # Overrides from environment
     DATABASE_URL: str | None = None
     GEMINI_API_KEY: str | None = None
@@ -50,6 +57,20 @@ class Settings(BaseSettings):
     PG_HOST: str = "127.0.0.1"
     PG_PORT: int = 5433
     PG_DATABASE: str = "caf"
+    CAF_ENV: str | None = None
+    PG_APP_PASSWORD: str | None = None
+    PG_CURATOR_PASSWORD: str | None = None
+    PG_PIPELINE_PASSWORD: str | None = None
+    PG_IDENTITY_PASSWORD: str | None = None
+    PG_OPERATIONS_PASSWORD: str | None = None
+    PG_BACKUP_PASSWORD: str | None = None
+    STUDENT_DATABASE_URL: str | None = None
+    IDENTITY_DATABASE_URL: str | None = None
+    CURATION_DATABASE_URL: str | None = None
+    OPERATIONS_DATABASE_URL: str | None = None
+    PIPELINE_DATABASE_URL: str | None = None
+    BACKUP_DATABASE_URL: str | None = None
+    MIGRATION_DATABASE_URL: str | None = None
 
     app: AppSettings = Field(default_factory=AppSettings)
     storage: StorageSettings = Field(default_factory=StorageSettings)
@@ -64,6 +85,8 @@ class Settings(BaseSettings):
                 toml_data = tomllib.load(f)
 
         inst = cls(**toml_data)
+        if inst.CAF_ENV:
+            inst.app.env = inst.CAF_ENV
         if os.environ.get("CAF_TEST_MODE") == "1":
             from caf_common.db_safety import assert_safe_database
             if not inst.DATABASE_URL or not os.environ.get("CAF_TEST_STORAGE_ROOT"):
