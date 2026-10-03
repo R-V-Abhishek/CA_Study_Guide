@@ -1,0 +1,298 @@
+{
+  "descriptors": [
+    {
+      "node_id": "3afd0c40-027b-4e5c-b489-237239710a21",
+      "concept_name": "Capital Assets Pricing Model (CAPM)",
+      "definition": "The Capital Assets Pricing Model calculates the expected return of an investment by viewing returns as a direct benefit of assuming risks. It classifies risks into a risk-free rate component and a market-relative risk component weighted by beta.",
+      "terminology": [
+        "Expected rate of return",
+        "Risk free rate of return",
+        "Beta value",
+        "Market rate of return"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Risk-free rate",
+        "Market risk premium",
+        "Stock beta coefficient"
+      ],
+      "exclusion": [
+        "Multiple macroeconomic factor sensitivities",
+        "Unlisted company adjustments"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from the Arbitrage Pricing Theory by using a single market index risk factor instead of multiple macroeconomic factors."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e40592de-b68e-46df-b0f3-be96acd4d8ae",
+      "concept_name": "Arbitrage Pricing Model",
+      "definition": "The Arbitrage Pricing Theory models an asset's expected return as a linear function of various macroeconomic factor sensitivities. It breaks down total risk into individual identifiable elements, each assigned a specific factor beta and risk premium along with a risk-free rate.",
+      "terminology": [
+        "Macro-economic factors",
+        "Factor-specific beta coefficient",
+        "Risk premium",
+        "Linear function"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Multiple risk factors",
+        "Factor betas",
+        "Risk-free rate"
+      ],
+      "exclusion": [
+        "Single market index approach of CAPM"
+      ],
+      "nearby_distinctions": [
+        "Unlike CAPM which uses a single market risk measure, this model incorporates multiple macroeconomic factors designated by analysts."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4215c0cb-8f50-4a7f-95c1-8119299cfd83",
+      "concept_name": "Estimating Beta and Valuation of Unlisted Companies",
+      "definition": "Valuing privately held or unlisted companies involves estimating their cost of capital in the absence of publicly available information. This process requires determining an appropriate unlevered beta to reflect the company's capital structure position.",
+      "terminology": [
+        "Unlevered beta",
+        "Privately held firms",
+        "Cost of capital",
+        "Publicly traded companies"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Privately held firm valuation",
+        "Unlevered beta calculations"
+      ],
+      "exclusion": [
+        "Publicly traded company direct valuation using market prices"
+      ],
+      "nearby_distinctions": [
+        "Focuses on unlisted or privately held entities lacking public information, requiring unlevered beta adjustments unlike standard listed company valuations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f9e902bf-d788-4878-ab5c-db01332a27c5",
+      "concept_name": "Relative Valuation",
+      "definition": "Relative valuation determines an asset's value through comparative analysis against similar peer enterprises using financial ratios and multiples. Analysts apply this method alongside intrinsic valuation approaches to validate and align enterprise worth with market pricing.",
+      "terminology": [
+        "Valuation by multiples",
+        "Comparable firms",
+        "Financial ratios",
+        "Comparative analysis"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Peer group comparison",
+        "Valuation multiples",
+        "Financial ratio drivers"
+      ],
+      "exclusion": [
+        "Sole reliance on standalone intrinsic asset and cash flow computations"
+      ],
+      "nearby_distinctions": [
+        "Contrasts with intrinsic valuation approaches by deriving values directly from market comparables and multiples rather than standalone cash flow forecasts."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3bc3a1ce-f7e5-434d-9057-fd7ee116be4e",
+      "concept_name": "Other Approaches To Value Measurement",
+      "definition": "Contemporary valuation approaches adapt traditional metrics to address industry-specific business characteristics, technology drivers, and conglomerate structures. Analysts utilize alternative ratios and goodwill methodologies to capture digital presence, subscriber bases, or brand attributes.",
+      "terminology": [
+        "Price Earning Ratio",
+        "Exit Multiples",
+        "Goodwill based approach",
+        "Price Per Page visited"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Industry-specific metrics",
+        "Price earning ratio formulations",
+        "Goodwill and sales-linked multiples"
+      ],
+      "exclusion": [
+        "Traditional single-method asset or income evaluations without contemporary adjustments"
+      ],
+      "nearby_distinctions": [
+        "Supplements standard asset and income models with industry-specific indicators tailored to modern technology and retail environments."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4d4a3d3c-d04e-4110-8b4e-9f7f37ad99bb",
+      "concept_name": "Contemporary Approaches to Valuation",
+      "definition": "Contemporary approaches modify valuation frameworks to reflect modern business models, technological assets, and conglomerate organizational structures. These methods incorporate industry-specific metrics such as traffic or subscriber counts alongside traditional earning multiples.",
+      "terminology": [
+        "Value creators",
+        "Exit Multiples",
+        "Price Per Page visited",
+        "Price Per Subscriber"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Technology firm metrics",
+        "Goodwill adjustments",
+        "Price-earnings evaluations"
+      ],
+      "exclusion": [
+        "Conventional valuation frameworks ignoring digital assets and modern business structures"
+      ],
+      "nearby_distinctions": [
+        "Focuses on specialized digital and operational metrics unique to modern tech businesses compared to historical asset-heavy valuation models."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0197e18a-4f27-4d47-919d-d8534967198e",
+      "concept_name": "Chop-Shop Method",
+      "definition": "The chop-shop method identifies undervalued multi-industry companies by breaking them down into individual business segments to calculate a theoretical break-up value. It evaluates segments using industry capitalization ratios for sales, assets, or operating income to determine total potential liquidation worth.",
+      "terminology": [
+        "Break-up value approach",
+        "Capitalization ratios",
+        "Business segments",
+        "Theoretical market value"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Segment sales calculations",
+        "Segment asset valuations",
+        "Pure-play industry capitalization averages"
+      ],
+      "exclusion": [
+        "Unified single-entity enterprise valuation without segment segregation"
+      ],
+      "nearby_distinctions": [
+        "Differs from consolidated valuation by separately evaluating individual business units against peer industry ratios and averaging their theoretical values."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6d797f74-786d-403c-88d7-633f05d2094d",
+      "concept_name": "Economic Value Added (EVA)",
+      "definition": "Economic Value Added measures financial performance by calculating the excess returns generated by a company over its weighted average cost of capital. It evaluates management efficiency by separating operating performance from financing decisions and determining true wealth creation.",
+      "terminology": [
+        "Capital charge",
+        "Weighted average cost of capital",
+        "Wealth creation",
+        "Residual returns"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Operating performance evaluation",
+        "Cost of capital deductions",
+        "Management accountability metrics"
+      ],
+      "exclusion": [
+        "Pure historical accounting profit without capital charges"
+      ],
+      "nearby_distinctions": [
+        "Unlike standard accounting returns, EVA explicitly charges operations for the cost of invested capital to measure true economic value creation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "bd41bfe9-378a-41bd-80e8-e8be3b73995d",
+      "concept_name": "Market Value Added (MVA)",
+      "definition": "Market Value Added represents the difference between a firm's current market value and its invested capital. It reflects external market perceptions of management efficiency and future wealth generation capabilities.",
+      "terminology": [
+        "Market capitalization",
+        "Invested capital",
+        "Current Market Value",
+        "Value drivers"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Market valuation adjustments",
+        "Capital discrepancy computations"
+      ],
+      "exclusion": [
+        "Internal operational residual calculations like basic EVA"
+      ],
+      "nearby_distinctions": [
+        "Measures external market-perceived value creation rather than internal derived operational metrics such as Economic Value Added."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e7df1d1a-1e23-4de5-9033-60f142828840",
+      "concept_name": "Shareholder Value Analysis (SVA)",
+      "definition": "Shareholder Value Analysis projects future cash flows using key operational and financial value drivers discounted by the weighted average cost of capital. This approach extends beyond historical profit measures to incorporate future investment opportunities, terminal values, and non-core asset adjustments.",
+      "terminology": [
+        "Free Cash Flows",
+        "Value drivers",
+        "Terminal value",
+        "Incremental capital investment"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Operating cash flow forecasts",
+        "Working capital adjustments",
+        "Discounted cash flow computations"
+      ],
+      "exclusion": [
+        "Sole reliance on historical NOPAT figures without forward-looking projections"
+      ],
+      "nearby_distinctions": [
+        "Extends beyond static historical metrics like EVA by integrating future cash flow projections, growth drivers, and capital investments."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3345e7e4-02b1-46b8-a72e-3218e0d59538",
+      "concept_name": "ARRIVING AT FAIR VALUE",
+      "definition": "Arriving at fair value involves determining an unbiased arm's length transaction price by synthesizing multiple valuation methods and qualitative factors. Decision makers utilize a range of acceptable values based on buyer and seller negotiations rather than relying on a single absolute metric.",
+      "terminology": [
+        "Arm's length",
+        "Fair price",
+        "Valuation range",
+        "Synthesis skill assessment"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Multi-method valuation synthesis",
+        "Negotiation ranges",
+        "Arm's length transaction assumptions"
+      ],
+      "exclusion": [
+        "Arbitrary pricing driven purely by speculative market booms"
+      ],
+      "nearby_distinctions": [
+        "Combines multiple analytical valuation techniques to establish a realistic negotiation range rather than a single definitive valuation figure."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d63c0fcb-eb42-4d9e-badc-7902261541b7",
+      "concept_name": "GOING CONCERN AND NON-GOING CONCERN VALUATION",
+      "definition": "Going concern valuation assumes an enterprise will continue operations indefinitely, incorporating future profitability and intangible goodwill into its total value. Conversely, non-going concern valuation treats the business as a liquidation scenario based on net realizable asset values after discharging all liabilities.",
+      "terminology": [
+        "Going concern value",
+        "Liquidation valuation",
+        "Distressed companies",
+        "Total value"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Liquidation asset realizations",
+        "Future profitability premiums",
+        "Distressed company obligation assessments"
+      ],
+      "exclusion": [
+        "Continuous operational profit projections in liquidation contexts"
+      ],
+      "nearby_distinctions": [
+        "Contrasts continuous operational valuation that includes goodwill and future profits with liquidation valuation based strictly on asset disposal proceeds."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "ef372f67bbbc99883bc85897b2745882c34b412bae3ebf5f32f5e10d3194539f",
+  "artifact_id": "c49075ef-f163-4f31-81f9-73a543047aaa",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 9040,
+  "output_tokens": 3117,
+  "cost_usd": 0.0105045,
+  "created_at": "2026-10-03T18:09:06.956739+00:00"
+}

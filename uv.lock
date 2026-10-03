@@ -130,6 +130,7 @@ dependencies = [
     { name = "caf-common" },
     { name = "caf-contracts" },
     { name = "caf-db" },
+    { name = "caf-l0" },
     { name = "caf-l4" },
     { name = "caf-l5" },
     { name = "fastapi" },
@@ -143,6 +144,7 @@ requires-dist = [
     { name = "caf-common", editable = "packages/common" },
     { name = "caf-contracts", editable = "packages/contracts" },
     { name = "caf-db", editable = "packages/db" },
+    { name = "caf-l0", editable = "packages/l0_taxonomy" },
     { name = "caf-l4", editable = "packages/l4_curate" },
     { name = "caf-l5", editable = "packages/l5_intel" },
     { name = "fastapi", specifier = ">=0.110" },
@@ -315,6 +317,7 @@ dependencies = [
     { name = "caf-common" },
     { name = "caf-contracts" },
     { name = "caf-db" },
+    { name = "caf-l0" },
     { name = "google-genai" },
 ]
 
@@ -323,6 +326,7 @@ requires-dist = [
     { name = "caf-common", editable = "packages/common" },
     { name = "caf-contracts", editable = "packages/contracts" },
     { name = "caf-db", editable = "packages/db" },
+    { name = "caf-l0", editable = "packages/l0_taxonomy" },
     { name = "google-genai", specifier = ">=0.1" },
 ]
 
@@ -351,6 +355,7 @@ dependencies = [
     { name = "caf-common" },
     { name = "caf-contracts" },
     { name = "caf-db" },
+    { name = "caf-l0" },
 ]
 
 [package.metadata]
@@ -358,6 +363,7 @@ requires-dist = [
     { name = "caf-common", editable = "packages/common" },
     { name = "caf-contracts", editable = "packages/contracts" },
     { name = "caf-db", editable = "packages/db" },
+    { name = "caf-l0", editable = "packages/l0_taxonomy" },
 ]
 
 [[package]]

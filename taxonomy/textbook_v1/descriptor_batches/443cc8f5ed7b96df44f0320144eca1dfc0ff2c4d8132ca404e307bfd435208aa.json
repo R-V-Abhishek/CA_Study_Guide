@@ -1,0 +1,119 @@
+{
+  "descriptors": [
+    {
+      "node_id": "4ad4b2e7-2d17-4d0f-a2f0-47b83b2aa4f0",
+      "concept_name": "Black Money and Imposition of Tax Framework",
+      "definition": "The framework establishes stringent taxation on undisclosed foreign income and assets held by individuals. It aims to deter and penalize foreign assets accumulated outside the country without proper tax disclosures.",
+      "terminology": [
+        "Undisclosed foreign income",
+        "Assessee",
+        "Assessing Officer",
+        "Previous year"
+      ],
+      "instrument_references": [
+        "The Black Money and Imposition of Tax Act, 2015",
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Undisclosed income from foreign sources",
+        "Undisclosed assets located abroad"
+      ],
+      "exclusion": [
+        "Domestic undisclosed income governed solely by standard domestic tax codes without foreign elements"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard domestic tax evasion provisions by its specific focus on extraterritorial assets and distinct penalty structures."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c61c7071-ccbf-4388-9a28-fb90b13305fe",
+      "concept_name": "Basis of Charge for Foreign Income and Assets",
+      "definition": "Every applicable assessee is charged tax at a specific statutory rate on their undisclosed foreign income and asset values. The taxable event and timing depend on when the asset or income is identified or acquired under relevant provisions.",
+      "terminology": [
+        "Charge of tax",
+        "Rate of tax",
+        "Beneficial owner",
+        "Section 3"
+      ],
+      "instrument_references": [
+        "Chapter II - Sections 3 to 5",
+        "Section 2(11)",
+        "Section 2(12)"
+      ],
+      "inclusion": [
+        "Taxation of foreign assets at 30 percent",
+        "Assessment based on discovery by authorities"
+      ],
+      "exclusion": [
+        "Assets fully disclosed under applicable legal compliance windows"
+      ],
+      "nearby_distinctions": [
+        "Differs from routine annual income tax calculations by applying a specialized punitive rate and triggering upon official notice rather than standard filing cycles for specific assets."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "311f5d1e-83e0-4709-872a-c86d9f0ec30e",
+      "concept_name": "Penalties for Foreign Income and Asset Non-Compliance",
+      "definition": "Assessees face financial penalties amounting to multiples of computed tax or fixed monetary fines for failing to disclose foreign assets or file required returns. Specific monetary thresholds and asset types provide exemptions from these penalties under defined conditions.",
+      "terminology": [
+        "Penalty",
+        "Section 41",
+        "Section 42",
+        "Section 43"
+      ],
+      "instrument_references": [
+        "Chapter IV - Sections 40 to 47",
+        "Section 139(1)"
+      ],
+      "inclusion": [
+        "Penalties equal to three times the tax computed",
+        "Fixed sum penalties for omission of foreign asset information"
+      ],
+      "exclusion": [
+        "Low-value bank accounts and minor aggregate asset holdings within statutory monetary limits"
+      ],
+      "nearby_distinctions": [
+        "Distinct from prosecution as these represent administrative financial sanctions rather than criminal imprisonment offenses."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "90233eb4-18bb-4bf4-a6d7-fb6823e794f9",
+      "concept_name": "Offences and Prosecution Framework",
+      "definition": "Willful failures to furnish returns, report foreign assets, or attempts to evade tax carry criminal liability including rigorous imprisonment and fines. These prosecution proceedings operate independently of regular administrative tax assessments or time limitations.",
+      "terminology": [
+        "Offences",
+        "Prosecution",
+        "Willful attempt to evade",
+        "Rigorous imprisonment"
+      ],
+      "instrument_references": [
+        "Chapter V",
+        "Section 48",
+        "Section 49",
+        "Section 50",
+        "Section 51"
+      ],
+      "inclusion": [
+        "Criminal prosecution for intentional concealment",
+        "Mandatory prison terms for tax evasion attempts"
+      ],
+      "exclusion": [
+        "Defaults remedied by filing returns prior to the expiration of the relevant assessment year where specified"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from civil penalties by involving criminal court trials, harsher personal liberties restrictions, and mandatory minimum imprisonment terms."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "443cc8f5ed7b96df44f0320144eca1dfc0ff2c4d8132ca404e307bfd435208aa",
+  "artifact_id": "58f1324d-e95f-40ed-96e5-7d4f33cb7493",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 3453,
+  "output_tokens": 1199,
+  "cost_usd": 0.0040333999999999995,
+  "created_at": "2026-10-03T18:22:44.197587+00:00"
+}

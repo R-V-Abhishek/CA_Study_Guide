@@ -1,0 +1,128 @@
+{
+  "descriptors": [
+    {
+      "node_id": "8fbce352-a20c-4aee-b801-e82fb2141afe",
+      "concept_name": "Low Risk: Low Reward",
+      "definition": "This approach involves automatically hedging currency exposures in the forward market as soon as they arise without regard to rate attractiveness. It secures known yields and costs with minimal cash flow destabilization and zero managerial effort, but fails to optimize transaction costs.",
+      "terminology": [
+        "automatic hedging",
+        "forward market",
+        "cash flow destabilization",
+        "known yields and costs"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Automatic booking of forward contracts for all exposures",
+        "Zero managerial effort for active monitoring"
+      ],
+      "exclusion": [
+        "Selective hedging based on rate predictions",
+        "Leaving exposures completely unhedged"
+      ],
+      "nearby_distinctions": [
+        "Differs from selective hedging by removing market timing entirely and hedging automatically regardless of rates."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f714403a-f092-4ce9-bc6f-941718c2f1df",
+      "concept_name": "Low Risk: Reasonable Reward",
+      "definition": "This strategy entails selectively hedging exposures when forward rates are favorable while leaving them open when rates are unfavorable. It requires quantifying future market expectations, comparing hedged positions to bonds and unhedged positions to equities.",
+      "terminology": [
+        "selective hedging",
+        "forward rates",
+        "quantification of expectations",
+        "bonds and equities"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Selective hedging based on attractive forward rates",
+        "Keeping exposures open when rates are unattractive"
+      ],
+      "exclusion": [
+        "Automatic uncritical hedging of every exposure",
+        "Continuous active trading of forward contracts"
+      ],
+      "nearby_distinctions": [
+        "Unlike automatic hedging, it incorporates market views and predictive accuracy to manage a mix of hedged and unhedged exposures."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "84cb5f7f-f6c1-4a7b-ad65-69dfd20dd889",
+      "concept_name": "High Risk: Low Reward",
+      "definition": "This strategy leaves all foreign exchange exposures completely unhedged, resulting in zero expenditure of managerial time or effort. However, it carries a very high risk of cash flow destabilization due to currency volatility.",
+      "terminology": [
+        "unhedged exposures",
+        "cash flow destabilization",
+        "zero managerial effort"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Leaving all operational and financial currency exposures unhedged"
+      ],
+      "exclusion": [
+        "Executing forward contracts",
+        "Active currency trading"
+      ],
+      "nearby_distinctions": [
+        "Unlike hedged strategies, it completely avoids transaction costs at the expense of maximum cash flow volatility."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3fc90407-3b4f-4b33-b1f9-cf2163c29405",
+      "concept_name": "High Risk: High Reward",
+      "definition": "This strategy involves active speculation in the currency market through continuous cancellations and re-bookings of forward contracts. It transforms the corporate trading function into a profit center under relaxed exchange controls.",
+      "terminology": [
+        "active trading",
+        "cancellations and re-bookings",
+        "profit centre",
+        "exchange controls"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Continuous cancellation and re-booking of forward contracts",
+        "Treating the treasury function as a profit center"
+      ],
+      "exclusion": [
+        "Passive holding of unhedged positions",
+        "Rigid automatic hedging"
+      ],
+      "nearby_distinctions": [
+        "Differs from standard hedging by intentionally taking speculative market positions to generate profit rather than merely mitigating risk."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ccd5d946-1a90-4ed4-9d38-4b78cfdaf622",
+      "concept_name": "Conclusion",
+      "definition": "Globalization of financial markets and international trade increases exchange rate risk, volatility, and cross-border interdependence. Consequently, financial managers must understand these risk factors and apply appropriate risk reduction methods.",
+      "terminology": [
+        "globalization",
+        "exchange rate risk",
+        "volatility",
+        "risk management"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Analysis of international trade and investment risk factors",
+        "Evaluation of risk reduction methods"
+      ],
+      "exclusion": [
+        "Specific operational hedging computations"
+      ],
+      "nearby_distinctions": [
+        "Serves as an overarching summary of macroeconomic drivers rather than a tactical hedging mechanism."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "ad99527905b51bd232f91cd776bfd396b8a2e08deb1f92d196f9eac8088cab84",
+  "artifact_id": "0559d53e-3174-4a31-9b5e-657565365bb5",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 2791,
+  "output_tokens": 1261,
+  "cost_usd": 0.0039898,
+  "created_at": "2026-10-03T18:08:25.256146+00:00"
+}

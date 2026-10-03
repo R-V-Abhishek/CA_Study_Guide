@@ -1,0 +1,169 @@
+{
+  "descriptors": [
+    {
+      "node_id": "df986923-8079-495b-82b8-efe2c7bcad1a",
+      "concept_name": "Audit Evidence Scope and Objectives",
+      "definition": "This principle governs the auditor's responsibility to design and perform audit procedures to obtain sufficient appropriate audit evidence. It provides the foundation for drawing reasonable conclusions to support the auditor's opinion.",
+      "terminology": [
+        "Audit Evidence",
+        "Accounting Records",
+        "Sufficiency",
+        "Appropriateness"
+      ],
+      "instrument_references": [
+        "SA 500"
+      ],
+      "inclusion": [
+        "Information contained in underlying accounting records",
+        "Other information supporting financial statements"
+      ],
+      "exclusion": [
+        "General business advice not related to financial statements",
+        "Unverified management assertions without supporting documentation"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from audit procedures themselves, which are the methods used to gather the evidence."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f440f51e-6dbe-42f1-976c-22d3ee8a5698",
+      "concept_name": "Audit Evidence Specific Considerations for Selected Items",
+      "definition": "This concept addresses the specific considerations required by the auditor to obtain sufficient appropriate audit evidence regarding inventory, litigations, claims, and segment information. It guides targeted procedures for these specialized financial statement areas.",
+      "terminology": [
+        "Inventory",
+        "Litigations and Claims",
+        "Segment Information",
+        "Specific Considerations"
+      ],
+      "instrument_references": [
+        "SA 501"
+      ],
+      "inclusion": [
+        "Physical inventory count observations",
+        "Inquiries concerning litigations and claims involving the entity",
+        "Presentation and disclosure of segment information"
+      ],
+      "exclusion": [
+        "General ledger balance verification not related to specified items",
+        "Routine cash count procedures"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general audit evidence under SA 500 by focusing on specific high-risk or specialized financial statement assertions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9d30657b-af1c-4980-ba25-1915eb95eb37",
+      "concept_name": "External Confirmations Procedures",
+      "definition": "This framework governs the use of external confirmation procedures by auditors to obtain direct, reliable audit evidence from third parties. It outlines steps for selecting confirming parties, designing requests, and managing refusals by management.",
+      "terminology": [
+        "External Confirmation",
+        "Positive Confirmation",
+        "Confirming Party",
+        "Alternative Audit Procedures"
+      ],
+      "instrument_references": [
+        "SA 505"
+      ],
+      "inclusion": [
+        "Direct communication with banks, debtors, and creditors",
+        "Evaluation of management refusal to allow confirmation"
+      ],
+      "exclusion": [
+        "Internal management inquiries without external verification",
+        "Review of internal accounting vouchers alone"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from internal inquiry because evidence is obtained directly from independent external sources."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9731453b-7137-45d1-9263-e99c7d0ca10d",
+      "concept_name": "Initial Audit Engagements Opening Balances",
+      "definition": "This standard specifies procedures an auditor must perform regarding opening balances when conducting an initial audit engagement. It ensures that prior period misstatements do not materially affect current financial statements and accounting policies are applied consistently.",
+      "terminology": [
+        "Initial Audit Engagement",
+        "Opening Balances",
+        "Predecessor Auditor",
+        "Consistency of Accounting Policies"
+      ],
+      "instrument_references": [
+        "SA 510"
+      ],
+      "inclusion": [
+        "Reviewing predecessor auditor reports and prior financial statements",
+        "Testing whether prior closing balances were correctly brought forward"
+      ],
+      "exclusion": [
+        "Routine current period transaction testing",
+        "Subsequent event reviews unrelated to opening positions"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from recurring audits by its specific focus on carry-forward balances and prior period accounting treatments."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1a4bf2e6-7db3-4198-863a-566537527f6b",
+      "concept_name": "Audit Sampling Design and Evaluation",
+      "definition": "This principle governs the application of statistical and non-statistical sampling to design audit samples, perform tests, and evaluate results. It provides a reasonable basis for the auditor to draw conclusions about an entire population.",
+      "terminology": [
+        "Audit Sampling",
+        "Statistical Sampling",
+        "Sampling Risk",
+        "Tests of Controls",
+        "Tests of Details"
+      ],
+      "instrument_references": [
+        "SA 530"
+      ],
+      "inclusion": [
+        "Designing sample size and selection methods",
+        "Investigating anomalies and deviations within samples"
+      ],
+      "exclusion": [
+        "100 percent examination of a population",
+        "Analytical review procedures applied to aggregate data"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from complete examination of populations because it infers population characteristics from a subset."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2ca63794-a034-4dd2-9b11-73d1c1d96e16",
+      "concept_name": "Related Parties Relationships and Transactions",
+      "definition": "This guideline directs the auditor's responsibilities regarding related party relationships, transactions, and associated fraud risks. It requires identifying, accounting for, and disclosing such transactions to ensure true and fair presentation.",
+      "terminology": [
+        "Related Parties",
+        "Normal Course of Business",
+        "Written Representation",
+        "Substantive Procedures"
+      ],
+      "instrument_references": [
+        "SA 550"
+      ],
+      "inclusion": [
+        "Identifying previously undisclosed related parties",
+        "Inspecting contracts outside normal business operations"
+      ],
+      "exclusion": [
+        "Routine arms-length transactions with completely independent third-party vendors",
+        "Standard payroll processing for unrelated employees"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard commercial transactions due to the inherent potential for conflict of interest and unexpressed management influence."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "4cf5774c9c00b78dd66daff1d2ac3f8cdcd4599c29d6e325de7ab5ed18e021e3",
+  "artifact_id": "f067e883-800d-4d05-a531-a5731630455a",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 4337,
+  "output_tokens": 1653,
+  "cost_usd": 0.0054336,
+  "created_at": "2026-10-03T18:10:00.629195+00:00"
+}

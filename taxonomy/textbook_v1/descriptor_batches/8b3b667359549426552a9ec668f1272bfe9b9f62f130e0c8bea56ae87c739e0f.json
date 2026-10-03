@@ -1,0 +1,307 @@
+{
+  "descriptors": [
+    {
+      "node_id": "86524764-38c9-45c6-8f1e-11f8d4b72527",
+      "concept_name": "Cross-Border Taxation Principles",
+      "definition": "Cross-border taxation relies on residence and source principles. Residence taxation taxes individuals based on domicile or companies on place of management, while source taxation taxes income arising within a jurisdiction regardless of residence.",
+      "terminology": [
+        "Residence based taxation",
+        "Source based taxation",
+        "Place of effective management",
+        "Domicile"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Taxation of natural persons based on residence",
+        "Taxation of companies based on incorporation or effective management",
+        "Taxation of income arising within a country's jurisdiction"
+      ],
+      "exclusion": [
+        "Domestic-only income transactions without cross-border elements"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between taxpayer location and income generation location"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2ea7505d-5d14-4c11-849b-5057f53912f8",
+      "concept_name": "Residential Status of Individuals",
+      "definition": "An individual's residential status depends on physical stay duration in India during the relevant previous year and preceding years. Citizenship or place of birth does not determine residential status.",
+      "terminology": [
+        "Resident and ordinarily resident",
+        "Resident but not ordinarily resident",
+        "Non-resident",
+        "Stay in India"
+      ],
+      "instrument_references": [
+        "Section 6",
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Stay in territorial waters",
+        "Stay on ships or boats moored in Indian territorial waters",
+        "Both arrival and departure dates counted as days in India"
+      ],
+      "exclusion": [
+        "Citizenship as a determinant of tax residency"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes individual residency criteria from corporate residency"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9cda145d-c66a-44f6-ab28-2d83ecb295d6",
+      "concept_name": "Exempted Income of Non-Residents",
+      "definition": "Specific categories of income earned by non-residents, such as interest on NRE accounts or specified offshore rupee-denominated bonds, are exempt from tax under statutory provisions. These exemptions encourage foreign currency inflows and investments in recognized financial instruments.",
+      "terminology": [
+        "NRE A/c",
+        "Specified off-shore Rupee Denominated Bonds",
+        "Specified fund",
+        "Convertible foreign exchange"
+      ],
+      "instrument_references": [
+        "Section 10(4)(ii)",
+        "Section 10(4C)",
+        "Section 10(4D)",
+        "Income-tax Act, 1961",
+        "Foreign Exchange Management Act, 1999"
+      ],
+      "inclusion": [
+        "Interest on NRE bank accounts maintained by non-residents",
+        "Interest on specified offshore rupee-denominated bonds",
+        "Income of specified funds from transfer of specific assets in IFSC"
+      ],
+      "exclusion": [
+        "Taxable domestic business income not covered under specific exemptions"
+      ],
+      "nearby_distinctions": [
+        "Differentiates between fully taxable foreign income and specifically exempted passive inflows"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "51818990-9518-496c-9b1e-c44d5224704a",
+      "concept_name": "Presumptive Taxation for Non-Resident Shipping Business",
+      "definition": "Non-residents engaged in the business of operating ships have their profits computed presumptively at a set percentage of gross receipts without standard expense deductions. This mechanism supersedes normal business income computation provisions under specific statutory non-obstante rules.",
+      "terminology": [
+        "Presumptive taxation",
+        "Demurrage charges",
+        "Handling charges",
+        "Carriage of passengers, livestock, mail or goods"
+      ],
+      "instrument_references": [
+        "Section 28",
+        "Section 44B",
+        "Section 44BBC",
+        "Section 172",
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Amounts received or deemed to be received for carrying passengers, livestock, mail, or goods",
+        "Demurrage and handling charges of a similar nature"
+      ],
+      "exclusion": [
+        "Cruise shipping businesses referred to in section 44BBC",
+        "Standard business expense deductions under sections 28 to 43A"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between standard net income computation and presumptive gross receipt percentage methods"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "aa295cb2-a776-4403-941a-52d33f30fc0e",
+      "concept_name": "Capital Gains Taxation for Non-Residents",
+      "definition": "Non-residents transferring capital assets in India are subject to capital gains tax, with specific currency fluctuation benefits applied when foreign exchange is invested. Computations require converting consideration, acquisition cost, and transfer expenses into the initial foreign currency used before reconverting the resulting gain into Indian currency.",
+      "terminology": [
+        "Foreign currency",
+        "Telegraphic transfer buying rate",
+        "Telegraphic transfer selling rate",
+        "Indexation benefit"
+      ],
+      "instrument_references": [
+        "First Proviso to Section 48",
+        "Rule 115A",
+        "Income-tax Rules, 1962",
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Capital gains from transfer of Indian company shares or debentures acquired in foreign exchange",
+        "Conversion using applicable telegraphic transfer rates"
+      ],
+      "exclusion": [
+        "Indexation benefits for transfers on or after specific statutory dates"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes standard domestic capital gains calculation from foreign currency fluctuation adjusted calculations"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d41c64cc-0dd2-4cb6-ae72-97f9da034f95",
+      "concept_name": "Special Provisions for Non-Resident Indians",
+      "definition": "Chapter XII-A provides specialized taxation rules for non-resident Indians deriving investment income or long-term capital gains from foreign exchange assets. Computation of total income under these provisions restricts standard expenditure deductions and Chapter VI-A deductions under specific conditions.",
+      "terminology": [
+        "Convertible foreign exchange",
+        "Foreign exchange asset",
+        "Investment income",
+        "Non-resident Indian",
+        "Specified asset"
+      ],
+      "instrument_references": [
+        "Chapter XII-A",
+        "Section 115C",
+        "Section 115D",
+        "Section 115E",
+        "Section 115F",
+        "Section 115G",
+        "Section 115H",
+        "Section 115-I",
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Taxation of investment income on a gross basis without expenditure deductions",
+        "Assets acquired through convertible foreign exchange"
+      ],
+      "exclusion": [
+        "Standard deductions under general provisions where gross total income consists solely of specified investment income"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes general resident taxation rules from NRI-specific Chapter XII-A asset regimes"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b0ff7433-717d-4663-befc-afce3746155d",
+      "concept_name": "Special Tax Rates for Non-Residents and Foreign Companies",
+      "definition": "Specific types of income earned by non-corporate non-residents and foreign companies, such as dividends, interest, and royalties, are taxed at specialized flat statutory rates. These rates vary based on the nature of the borrowing, listing status, and the type of financial instrument utilized.",
+      "terminology": [
+        "Foreign company",
+        "Non-corporate non-resident",
+        "Infrastructure debt fund",
+        "Rupee denominated bond"
+      ],
+      "instrument_references": [
+        "Section 115A",
+        "Section 80LA(1A)",
+        "Section 10(47)",
+        "Section 194LC",
+        "Section 194LBA(2)",
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Dividends from units in an IFSC or other entities",
+        "Interest received from government or Indian concerns in foreign currency",
+        "Distributed income of business trusts from special purpose vehicles"
+      ],
+      "exclusion": [
+        "General business profits subject to slab or standard corporate tax rates"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes concessional withholding tax rates on foreign borrowings from general domestic interest taxation"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b39d33c1-89a8-4274-b45f-267441eba6df",
+      "concept_name": "Conversion of Foreign Bank Indian Branch into Subsidiary",
+      "definition": "Capital gains arising when a foreign banking company converts its Indian branch into an Indian subsidiary company under an approved Reserve Bank of India scheme are exempt from tax. This exemption requires the complete transfer of all branch assets and liabilities to the new subsidiary under sanctioned amalgamation terms.",
+      "terminology": [
+        "Foreign company",
+        "Banking business",
+        "Subsidiary company",
+        "Scheme of amalgamation"
+      ],
+      "instrument_references": [
+        "Chapter XII-BB",
+        "Section 115JG(1)",
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Exemption of capital gains on conversion of foreign bank branches",
+        "Transfer of all assets and liabilities to the subsidiary"
+      ],
+      "exclusion": [
+        "Conversions executed outside of Reserve Bank of India regulatory frameworks"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes structural corporate branch reorganizations from standard taxable asset transfers"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "04174f9a-d485-4eef-933d-d053b0c8fc6d",
+      "concept_name": "Withholding Tax on Non-Resident Salaries and Perquisites",
+      "definition": "Employers must deduct withholding tax at applicable rates on salary payments to non-residents when services are rendered within India. Special provisions govern tax calculation on non-monetary perquisites and allow deferred tax payment timelines for specified startup securities.",
+      "terminology": [
+        "Withholding tax",
+        "Non-monetary perquisites",
+        "Average rate of income-tax",
+        "Sweat equity shares"
+      ],
+      "instrument_references": [
+        "Section 192",
+        "Section 9(1)(ii)",
+        "Section 115BAC",
+        "Section 80-IAC",
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Salary income deemed to accrue in India due to services rendered locally",
+        "Employer payment of tax on non-monetary perquisites without employee deduction",
+        "Deferred TDS on specified securities or sweat equity from eligible startups"
+      ],
+      "exclusion": [
+        "Salaries for services rendered entirely outside India"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes monetary salary withholding from non-monetary perquisite tax handling"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "18777ca9-a37d-4dc3-b60a-0873bf991945",
+      "concept_name": "Recovery and Miscellaneous Compliance for Non-Residents",
+      "definition": "Tax authorities can recover unpaid taxes owed by non-residents directly from any of their assets located within India or through international treaty mechanisms involving foreign tax recovery certificates. Additionally, non-residents maintaining liaison offices must submit prescribed periodic statements to tax authorities.",
+      "terminology": [
+        "Tax Recovery Officer",
+        "Representative assessee",
+        "Liaison office",
+        "CBDT"
+      ],
+      "instrument_references": [
+        "Section 173",
+        "Section 228A",
+        "Section 285",
+        "Section 161(1)",
+        "Section 167",
+        "Section 222",
+        "Chapter XVII-B",
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Recovery of tax arrears from any assets of the non-resident in India",
+        "Cross-border tax recovery enforcement via CBDT and treaty partner nations",
+        "Statement submission requirements for non-residents with liaison offices"
+      ],
+      "exclusion": [
+        "Domestic tax recovery procedures devoid of cross-border or representative elements"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes domestic asset attachment from reciprocal international tax recovery mechanisms"
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "8b3b667359549426552a9ec668f1272bfe9b9f62f130e0c8bea56ae87c739e0f",
+  "artifact_id": "ebed9df3-9a0c-4061-b692-6b09589c9ef4",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 7983,
+  "output_tokens": 3366,
+  "cost_usd": 0.010809899999999999,
+  "created_at": "2026-10-03T18:22:50.105999+00:00"
+}

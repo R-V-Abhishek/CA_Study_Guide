@@ -1,0 +1,337 @@
+{
+  "descriptors": [
+    {
+      "node_id": "47cd6935-5e9e-4d71-bc2a-49ac6dd420aa",
+      "concept_name": "BASEL III framework",
+      "definition": "The Basel III framework is a global regulatory standard designed to establish uniform capital adequacy rules and risk management practices for banks. It aims to protect depositors and shareholders by enhancing the banking sector's capacity to absorb financial shocks and maintain market liquidity.",
+      "terminology": [
+        "Capital adequacy",
+        "Tier I capital",
+        "Tier II capital",
+        "Regulatory capital",
+        "Stress testing"
+      ],
+      "instrument_references": [
+        "Master Circular on Prudential Guidelines on Capital Adequacy and Market Discipline- New Capital Adequacy Framework (NCAF)"
+      ],
+      "inclusion": [
+        "Capital adequacy requirements",
+        "Tier I and Tier II capital classification",
+        "Stress testing and market liquidity risk"
+      ],
+      "exclusion": [
+        "Non-banking financial company regulations",
+        "Non-capital operational guidelines"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from basic statutory reserve maintenance by its prescriptive risk-based capital measurement approach across distinct tiers."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "75702108-d94d-48fb-b69f-b320be6c7596",
+      "concept_name": "Auditor's Report for Nationalised Banks",
+      "definition": "The statutory audit report for a nationalised bank must be addressed to the Central Government in compliance with specified auditing standards. It requires expressing an opinion on the balance sheet and profit and loss account, alongside specific statutory disclosures regarding branch returns and transactions.",
+      "terminology": [
+        "Nationalised bank",
+        "Central Government report",
+        "True and fair view",
+        "Unaudited branches",
+        "Statutory report"
+      ],
+      "instrument_references": [
+        "SA 700",
+        "SA 705",
+        "SA 706",
+        "SA 710",
+        "SA 720"
+      ],
+      "inclusion": [
+        "Compliance with Standards on Auditing",
+        "Quantification of advances, deposits, interest income, and interest expense for unaudited branches",
+        "Verification of powers of the bank and adequacy of branch returns"
+      ],
+      "exclusion": [
+        "Long form audit report details",
+        "Concurrent audit procedures"
+      ],
+      "nearby_distinctions": [
+        "Distinct from standard corporate audit reports due to mandatory disclosures for unaudited bank branches and direct reporting obligations to the Central Government."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "57a3933c-fff3-4463-8049-8671ec4f1645",
+      "concept_name": "Format of Audit Report",
+      "definition": "Bank audit reports must adhere to specific professional auditing standards while incorporating mandatory statutory disclosures regarding branch operations. Additionally, banking companies are governed by Section 143 of the Companies Act, 2013, though CARO 2020 does not apply to them.",
+      "terminology": [
+        "Banking company",
+        "Companies Act Section 143",
+        "CARO 2020 exemption",
+        "Audit standards compliance"
+      ],
+      "instrument_references": [
+        "SA 700",
+        "SA 705",
+        "SA 706",
+        "SA 710",
+        "SA 720",
+        "Section 143 of the Companies Act, 2013",
+        "Companies (Auditor’s Report) Order, 2020",
+        "Banking Regulation Act, 1949"
+      ],
+      "inclusion": [
+        "Auditing standards compliance framework",
+        "Exemption mapping for CARO 2020",
+        "Statutory reporting under the Companies Act"
+      ],
+      "exclusion": [
+        "CARO 2020 reporting obligations",
+        "Non-banking financial reporting rules"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general corporate reporting by the explicit statutory exemption from CARO 2020 requirements."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "722a8866-2703-468f-9199-cc1cddb06c4b",
+      "concept_name": "Long Form Audit Report",
+      "definition": "The Long Form Audit Report (LFAR) is a detailed questionnaire-based report furnished by statutory branch and central auditors covering various banking operational areas. Consolidated LFARs are placed before the Audit Committee of the Board and submitted to the Reserve Bank of India within specified timelines.",
+      "terminology": [
+        "Long Form Audit Report",
+        "LFAR",
+        "Statutory Branch Auditor",
+        "Statutory Central Auditor",
+        "Audit Committee of the Board"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Branch questionnaire evaluations on cash, investments, and advances",
+        "Consolidation of branch LFARs at head office",
+        "Submission timelines to the Reserve Bank of India"
+      ],
+      "exclusion": [
+        "General statutory financial statement audit reports",
+        "Concurrent audit quarterly reviews"
+      ],
+      "nearby_distinctions": [
+        "Differs from the standard financial opinion report by providing a comprehensive, structured evaluation of internal operational controls via questionnaires."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a995a5bd-8154-42f2-8199-d892cfe0bf6e",
+      "concept_name": "Other Reporting Requirements",
+      "definition": "Statutory auditors must comply with specific regulatory circulars and auditing standards concerning bank fraud detection and legal disclosures. This includes reporting specified material offences to the Central Government and the Reserve Bank of India alongside regular statutory certifications.",
+      "terminology": [
+        "Bank frauds",
+        "Duty of confidentiality",
+        "Statutory certification",
+        "Fraud reporting"
+      ],
+      "instrument_references": [
+        "SA 250",
+        "SA 240",
+        "Section 143(12) of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Reporting mandates for material frauds",
+        "Overriding of confidentiality duties by statute",
+        "Statutory central auditor certificates on SLR and treasury operations"
+      ],
+      "exclusion": [
+        "Routine clerical transaction checking",
+        "Internal branch operational audits"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general audit opinion procedures by its mandatory statutory triggers for reporting irregularities and frauds directly to regulatory authorities."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "32842bc2-c0c3-40ab-ac73-9a47d0afdc48",
+      "concept_name": "Reports and Certificates",
+      "definition": "Statutory central auditors provide multiple specialized reports and certificates covering capital adequacy, internal controls, and asset classification compliance. These deliverables address specific regulatory requirements such as SLR compliance, risk management, and corporate governance.",
+      "terminology": [
+        "Statutory central auditor",
+        "Internal financial controls",
+        "Asset liability management",
+        "Prudential guidelines"
+      ],
+      "instrument_references": [
+        "Section 143(12) of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Internal financial control reporting",
+        "SLR and treasury compliance reports",
+        "Capital adequacy ratio authentication"
+      ],
+      "exclusion": [
+        "Standalone branch concurrent audit reports",
+        "General management memos"
+      ],
+      "nearby_distinctions": [
+        "Differs from the main financial statement audit report by constituting distinct functional certifications on targeted regulatory and compliance domains."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ea0a2896-64cb-481a-ae34-03d19e9cdac7",
+      "concept_name": "Concurrent Audit Overview",
+      "definition": "Concurrent audit is a systematic verification of financial transactions and activities conducted closely alongside their occurrence rather than as a pre-audit. It acts as an early-warning mechanism to promptly detect procedural deviations and prevent fraudulent transactions at bank branches.",
+      "terminology": [
+        "Concurrent audit",
+        "Early-warning system",
+        "Transaction verification",
+        "Audit Committee of the Board"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Real-time or near-time transaction verification",
+        "Internal operational deviation detection",
+        "High-risk transaction focus"
+      ],
+      "exclusion": [
+        "Pre-audit of transactions",
+        "Annual statutory financial statement finalisation"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from annual statutory audits by its continuous, near-real-time operational focus and function as an internal early-warning system."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "060a38a3-3850-471f-8308-33c909aab378",
+      "concept_name": "Scope of Concurrent Audit",
+      "definition": "The scope of a concurrent audit is determined centrally by the bank's internal department in consultation with the Audit Committee of the Board, prioritizing high-risk operational areas. It covers key functions such as cash, deposits, advances, investments, and foreign exchange based on the identified risk profiles of specific units.",
+      "terminology": [
+        "Central Inspection and Audit Department",
+        "Audit Committee of the Board",
+        "Risk-sensitive areas",
+        "Transaction testing"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "High-risk transaction prioritisation",
+        "Random sample testing",
+        "Branch coverage discretion of internal audit heads"
+      ],
+      "exclusion": [
+        "Exhaustive 100% pre-transaction checking",
+        "Unapproved non-risk areas"
+      ],
+      "nearby_distinctions": [
+        "Differs from fixed statutory audit scopes by allowing dynamic tailoring based on internal risk identification and business model specificities."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "419520b4-5961-4875-bbed-b7556339e0c6",
+      "concept_name": "Concurrent Audit System in Commercial Banks",
+      "definition": "The concurrent audit system functions as a vital early-warning tool within commercial banks to identify procedural lapses and mitigate branch-level risks. Management must ensure effective implementation through proper auditor selection, structured reporting, and timely follow-up of audit feedback.",
+      "terminology": [
+        "Early-warning system",
+        "Branch selection",
+        "Rectification process",
+        "Management review"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Early detection of operational lapses",
+        "Annual review of system effectiveness",
+        "Implementation follow-up procedures"
+      ],
+      "exclusion": [
+        "Statutory central audit sign-off",
+        "Board-level financial statement preparation"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from post-period financial audits by its direct operational integration into management's continuous risk mitigation framework."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6ecb94eb-5b40-402f-9e61-c2aeaece74ba",
+      "concept_name": "Coverage of Business/Branches for Concurrent Audit",
+      "definition": "Branch coverage and task allocation for concurrent audits are managed by the head of internal audit subject to approval by the Audit Committee of the Board. Focused areas must address unit-specific risk models through sample transaction testing and rigorous operational checks.",
+      "terminology": [
+        "Head of internal audit",
+        "Risk-sensitive areas",
+        "Sample testing",
+        "Business model coverage"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Discretionary branch coverage by internal audit heads",
+        "Mandatory ACB approval of scope",
+        "Random transaction testing of large samples"
+      ],
+      "exclusion": [
+        "Arbitrary auditor self-assignment of scope",
+        "Unchecked low-risk administrative units"
+      ],
+      "nearby_distinctions": [
+        "Differs from static statutory audit assignment criteria by relying on internal risk metrics and business-model-specific vulnerabilities."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "01573bee-3fe3-48aa-9789-494a941b9470",
+      "concept_name": "Types of Activities to be Covered in Concurrent Audit",
+      "definition": "Concurrent audit procedures target specific operational domains including cash management, investments, deposits, and advances to verify transaction authenticity and regulatory compliance. Auditors examine delegation of powers, physical security holdings, post-disbursement supervision, and asset classification accuracy.",
+      "terminology": [
+        "Delegated power",
+        "Currency chest",
+        "Post-disbursement supervision",
+        "Asset classification"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Cash transaction and currency chest checks",
+        "Investment holding and compliance verifications",
+        "Advances sanctioning and post-disbursement monitoring"
+      ],
+      "exclusion": [
+        "General strategic management decisions",
+        "Tax filing execution"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from generalized operational reviews through precise verification procedures applied to high-risk banking transaction cycles."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "85cf13f7-eade-473e-9fd8-fbaf0f437f95",
+      "concept_name": "Appointment and Reporting Systems of Concurrent Auditors",
+      "definition": "Banks may deploy internal staff or external chartered accountant firms as concurrent auditors under fixed tenure limits set by the Audit Committee of the Board. Findings must be formally reported through structured formats, addressing minor irregularities promptly and escalating serious deficiencies to controlling offices.",
+      "terminology": [
+        "Tenure limit",
+        "Structured format",
+        "Controlling office",
+        "Audit Committee of the Board"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Tenure restrictions for external and branch concurrent auditors",
+        "Structured quarterly and zone-wise reporting",
+        "Discussion of reports with branch managers prior to finalisation"
+      ],
+      "exclusion": [
+        "Indefinite auditor tenure at a single branch",
+        "Unreported informal feedback loops"
+      ],
+      "nearby_distinctions": [
+        "Differs from statutory audit governance by imposing strict short-term operational tenure limits and localized management interaction protocols."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "0fb7058d95304448921e49555274e7a59cf361209fb61c5e7365d339e961af44",
+  "artifact_id": "8d6c146a-10bb-408f-a623-b13038e6664d",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8383,
+  "output_tokens": 3652,
+  "cost_usd": 0.0116449,
+  "created_at": "2026-10-03T18:11:24.918080+00:00"
+}

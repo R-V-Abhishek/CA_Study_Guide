@@ -1,0 +1,210 @@
+{
+  "descriptors": [
+    {
+      "node_id": "dfe3c758-034d-4055-8928-d4e8b89843d0",
+      "concept_name": "Rule of Majority and Foundation of Oppression Concept",
+      "definition": "The rule of majority dictates that corporate decisions made by the majority shareholding must be respected, limiting judicial intervention in internal company matters. This governance principle creates vulnerabilities where minority shareholders can be legally sidelined, necessitating specific statutory protections against oppression and mismanagement.",
+      "terminology": [
+        "Rule of Majority",
+        "Foss v. Harbottle",
+        "Oppression",
+        "Mismanagement"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Majoritarian corporate governance principles",
+        "Historical legal precedents on internal management",
+        "Basic rationale for legislative intervention in corporate disputes"
+      ],
+      "exclusion": [
+        "Specific statutory eligibility thresholds for filing tribunal petitions",
+        "Detailed remedial orders issued by judicial authorities"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from statutory minority relief applications which provide exceptions to the general non-interference stance of majority rule."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1814971b-c88f-413b-95da-06b603438103",
+      "concept_name": "Application To Tribunal For Relief In Cases Of Oppression, Etc. [Section 241]",
+      "definition": "Eligible members or the Central Government can apply to the Tribunal alleging that corporate affairs are conducted in a manner prejudicial to public interest, company interests, or oppressive to members. Additionally, complaints may target material management or structural changes that threaten future prejudicial conduct.",
+      "terminology": [
+        "Prejudicial",
+        "Oppressive",
+        "Material change",
+        "Management control"
+      ],
+      "instrument_references": [
+        "Section 241 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Member applications regarding oppressive conduct",
+        "Central Government applications",
+        "Complaints concerning prejudicial management changes"
+      ],
+      "exclusion": [
+        "Direct shareholder class actions under separate statutory provisions",
+        "General winding up proceedings initiated independently of oppression claims"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general corporate governance disputes by requiring demonstrable prejudice or oppression to members, public interest, or the company."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "12681621-d74e-4dd5-a04a-5a8d90b1fd9f",
+      "concept_name": "Right To Apply Under Section 241 [Section 244]",
+      "definition": "Section 244 prescribes specific membership thresholds and eligibility criteria required for members to maintain a petition under Section 241. The Tribunal holds discretionary power to waive these statutory requirements upon application to ensure genuine grievances can be addressed.",
+      "terminology": [
+        "Eligibility criterion",
+        "Issued share capital",
+        "Tribunal waiver",
+        "Joint holders"
+      ],
+      "instrument_references": [
+        "Section 244 of the Companies Act, 2013",
+        "Section 241 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Minimum member count or shareholding requirements for companies with share capital",
+        "Proportional membership requirements for companies without share capital",
+        "Tribunal powers to waive eligibility thresholds"
+      ],
+      "exclusion": [
+        "Substantive remedial powers of the Tribunal over corporate management",
+        "Class action proceedings governed by separate statutory rules"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from the substantive grounds for oppression under Section 241 by focusing strictly on the procedural standing and qualification of petitioners."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "64bbca9f-d5f8-4e85-b8b7-21afddf77bf0",
+      "concept_name": "Powers Of Tribunal [Section 242]",
+      "definition": "The Tribunal is vested with extensive judicial powers to issue remedial orders when it finds oppression, mismanagement, or prejudice, provided winding up would unfairly punish the aggrieved members. These permissible measures include regulating future company conduct, altering management agreements, and restructuring share capital.",
+      "terminology": [
+        "Just and equitable",
+        "Regulation of conduct",
+        "Share purchase",
+        "Capital reduction"
+      ],
+      "instrument_references": [
+        "Section 242 of the Companies Act, 2013",
+        "Section 241 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Orders regulating future affairs",
+        "Share purchase directions and capital reductions",
+        "Modification or termination of managerial agreements"
+      ],
+      "exclusion": [
+        "Initial procedural qualification checks for filing petitions",
+        "Penal provisions resulting from contravening subsequent modification rules"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from preliminary petition filing rules by representing the actual discretionary remedies applied post-adjudication."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "bbc2df92-f208-429a-bfde-1cd1ad610d78",
+      "concept_name": "Consequences Of Termination Or Modification Of Certain Agreements [Section 243]",
+      "definition": "When the Tribunal modifies or terminates corporate agreements under statutory powers, affected managers lose entitlement to compensation or damages for loss of office. Furthermore, such individuals are disqualified from holding managerial positions in any company for five years without prior Tribunal leave.",
+      "terminology": [
+        "Disqualification",
+        "Compensation for loss of office",
+        "Leave of the Tribunal",
+        "Managerial contract termination"
+      ],
+      "instrument_references": [
+        "Section 243 of the Companies Act, 2013",
+        "Section 242 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Statutory bar on claiming compensation for terminated contracts",
+        "Five-year managerial appointment restriction",
+        "Penalties for contravening disqualification terms"
+      ],
+      "exclusion": [
+        "Initial discretionary powers of the Tribunal to issue structural remedies",
+        "General shareholder class action procedures"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general contract termination rules under civil law by stripping statutory rights to damages and imposing strict executive bans."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8ba13d9c-a2fa-433d-b17c-30da3cd64c17",
+      "concept_name": "Class Action [Section 245]",
+      "definition": "Section 245 enables shareholders and depositors to institute collective class actions before the Tribunal against companies, directors, auditors, or advisors for prejudicial management or fraudulent acts. Eligible members can seek restraining orders, declare fraudulent alterations void, and claim damages or compensation.",
+      "terminology": [
+        "Class action",
+        "Depositors",
+        "Ultra vires",
+        "Fraudulent conduct"
+      ],
+      "instrument_references": [
+        "Section 245 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Collective petitions by members or depositors",
+        "Restraints against ultra vires or unlawful corporate acts",
+        "Claims for damages against auditors, experts, and directors"
+      ],
+      "exclusion": [
+        "Individual member petitions strictly limited to personal oppression claims under Section 241",
+        "General winding up and liquidation administrative tasks"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from individual oppression petitions under Section 241 by serving a collective representative function targeting broader corporate governance, auditor, and expert liabilities."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3463cfd3-455d-4ebb-95d5-88312691c06b",
+      "concept_name": "Application Of Certain Provisions To Proceedings Under Section 241 Or Section 245 [Section 246]",
+      "definition": "Specific statutory provisions concerning winding-up offenses, fraudulent business conduct, and officer liability apply mutatis mutandis to proceedings initiated under Section 241 or Section 245. This ensures that fraudulent applications and delinquent managerial behavior during oppression or class action proceedings face appropriate penalties and damage assessments.",
+      "terminology": [
+        "Mutatis mutandis",
+        "Fraudulent conduct of business",
+        "Assessment of damages",
+        "Delinquent directors"
+      ],
+      "instrument_references": [
+        "Section 246 of the Companies Act, 2013",
+        "Section 241 of the Companies Act, 2013",
+        "Section 245 of the Companies Act, 2013",
+        "Section 337",
+        "Section 338",
+        "Section 339",
+        "Section 340",
+        "Section 341"
+      ],
+      "inclusion": [
+        "Application of winding-up penalty provisions to oppression proceedings",
+        "Liability assessment for fraudulent conduct or missing accounts",
+        "Extension of liabilities to partners and corporate directors"
+      ],
+      "exclusion": [
+        "Standard operational management decisions free from fraud or bad faith",
+        "General shareholder voting procedures"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard remedial relief provisions by importing penal liquidation consequences directly into active tribunal litigation for misconduct."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "4f325e9268eb3ec2a43ef9d963f8e3d22623b3237bee5bf5c83e281a7e29b80e",
+  "artifact_id": "181a225b-e5fe-4d90-8dcf-8e272563892f",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 5587,
+  "output_tokens": 2382,
+  "cost_usd": 0.0076311,
+  "created_at": "2026-10-03T18:24:20.460606+00:00"
+}

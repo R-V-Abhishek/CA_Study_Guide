@@ -1,0 +1,335 @@
+{
+  "descriptors": [
+    {
+      "node_id": "0646150e-ff83-4377-b488-d2345464de18",
+      "concept_name": "Introduction to Accounting Policies, Estimates and Errors",
+      "definition": "Ind AS 1 establishes the foundational rules for financial statement presentation and requires clear disclosures of significant accounting policies alongside primary statements. Changes in accounting policies must be handled systematically rather than through notes alone, and retrospective changes with material effects necessitate a third balance sheet.",
+      "terminology": [
+        "accounting policies",
+        "accounting estimates",
+        "correction of errors",
+        "third balance sheet"
+      ],
+      "instrument_references": [
+        "Ind AS 1",
+        "Ind AS 8"
+      ],
+      "inclusion": [
+        "disclosure of significant accounting policies",
+        "presentation requirements for retrospective policy application"
+      ],
+      "exclusion": [
+        "rectification of inappropriate policies solely via notes",
+        "unsupported tax effect calculations"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from detailed measurement criteria found subsequently in Ind AS 8 by focusing broadly on financial presentation foundations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d91d2819-5265-4676-9008-df5583ef8a83",
+      "concept_name": "Objectives of Ind AS 8",
+      "definition": "The standard prescribes the specific criteria for selecting, applying, and changing accounting policies, alongside the treatment and disclosure requirements for estimate changes and error corrections. It ensures financial reporting consistency and enhanced comparability across reporting periods and different entities.",
+      "terminology": [
+        "accounting policies",
+        "accounting estimates",
+        "prior period errors",
+        "retrospective application"
+      ],
+      "instrument_references": [
+        "Ind AS 8"
+      ],
+      "inclusion": [
+        "criteria for selecting accounting policies",
+        "treatment of estimate modifications",
+        "correction mechanics for prior errors"
+      ],
+      "exclusion": [
+        "first-time adoption adjustments governed by separate rules",
+        "tax calculation methodologies"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from disclosure standards like Ind AS 1 by prescribing active accounting treatments for changes and errors."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d843482b-7679-413b-9353-bd72cf94a6b7",
+      "concept_name": "Selection and Changing of Accounting Policies",
+      "definition": "Entities must select accounting policies based on relevance to user needs and operational transparency while ensuring alignment with specific standard guidelines. Changes to these established policies are restricted and governed by strict criteria responding to evolving business circumstances and regulatory updates.",
+      "terminology": [
+        "accounting policies",
+        "retrospective application",
+        "prospective application"
+      ],
+      "instrument_references": [
+        "Ind AS 8",
+        "Ind AS 1"
+      ],
+      "inclusion": [
+        "guidelines for choosing appropriate accounting principles",
+        "evaluation of regulatory mandates requiring policy modifications"
+      ],
+      "exclusion": [
+        "arbitrary policy shifts without regulatory or relevance justification",
+        "first-time adoption policy selections"
+      ],
+      "nearby_distinctions": [
+        "Differs from changes in accounting estimates because policy modifications alter the underlying measurement basis rather than updating uncertain monetary figures."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f0a1587b-97c4-41e7-9537-b98d02d9777d",
+      "concept_name": "Treatment of Changes in Accounting Policies",
+      "definition": "Changes in accounting policies must be evaluated to determine whether they require retrospective or prospective implementation based on standard-specific transition provisions. Entities are required to properly present and disclose the resulting financial statement impacts to maintain transparency.",
+      "terminology": [
+        "retrospective application",
+        "prospective application",
+        "transition provisions"
+      ],
+      "instrument_references": [
+        "Ind AS 8"
+      ],
+      "inclusion": [
+        "guidance on applying policy shifts retrospectively",
+        "disclosure of financial impacts caused by policy adjustments"
+      ],
+      "exclusion": [
+        "modifications resulting from the adoption of new estimates",
+        "adjustments for current period errors"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from error corrections because policy changes reflect improved reporting rules or standard updates rather than rectifying past mistakes."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f8730e41-22be-4c40-bc9f-1aab22e8284f",
+      "concept_name": "Treatment of Changes in Accounting Estimates",
+      "definition": "Changes in accounting estimates involve updating monetary amounts tied to inherent business uncertainties, such as asset useful lives or doubtful debts, based on new information. These adjustments are incorporated prospectively into profit or loss over current and future periods.",
+      "terminology": [
+        "accounting estimates",
+        "measurement uncertainty",
+        "prospective application",
+        "net realisable value"
+      ],
+      "instrument_references": [
+        "Ind AS 8",
+        "Ind AS 1"
+      ],
+      "inclusion": [
+        "revising uncollectible trade receivable projections",
+        "adjusting depreciation lives for property, plant and equipment"
+      ],
+      "exclusion": [
+        "retrospective restatements applied to accounting policy modifications",
+        "correction of mathematical mistakes in prior periods"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from policy changes since estimates address normal measurement uncertainties that evolve with new data rather than altering foundational accounting principles."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8e27aa24-d068-44bc-83f6-4e5938ab9f20",
+      "concept_name": "Correction of Prior Period Errors",
+      "definition": "Prior period errors represent omissions or misstatements in previous financial reports resulting from a failure to use or misuse of reliable information that was available. These mistakes must be corrected retrospectively in the first set of financial statements authorized for issue after their discovery.",
+      "terminology": [
+        "prior period errors",
+        "retrospective restatement",
+        "omissions",
+        "misstatements"
+      ],
+      "instrument_references": [
+        "Ind AS 8"
+      ],
+      "inclusion": [
+        "retrospective correction of mathematical mistakes",
+        "rectification of oversights in applying accounting policies"
+      ],
+      "exclusion": [
+        "prospective adjustments assigned to standard estimate revisions",
+        "tax effect computations governed by separate standards"
+      ],
+      "nearby_distinctions": [
+        "Differentiated from changes in estimates because errors involve factual mistakes or failures regarding existing data rather than updated prognostications."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "cc11e771-e9fb-4b71-ad8d-f4e016b32725",
+      "concept_name": "Enhancing Comparability Across and Within Entities",
+      "definition": "The standard aims to improve the relevance, reliability, and comparability of financial reports across different reporting periods and distinct corporate entities. Standardized rules for policies, estimates, and errors ensure that stakeholders can perform meaningful inter-firm and intra-firm analysis.",
+      "terminology": [
+        "comparability",
+        "relevance",
+        "reliability",
+        "inter-firm comparison",
+        "intra-firm comparison"
+      ],
+      "instrument_references": [
+        "Ind AS 8"
+      ],
+      "inclusion": [
+        "benchmarking financial statements over multiple time periods",
+        "evaluating financial results against industry peers"
+      ],
+      "exclusion": [
+        "inconsistent applications of accounting rules based on entity convenience",
+        "immaterial departures used to manipulate presentation"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from basic presentation requirements by actively enforcing uniform structural treatments that facilitate analytical benchmarking."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "bc710589-d28c-4ef3-a6b4-5fe5e5475b81",
+      "concept_name": "Scope of Ind AS 8",
+      "definition": "The standard governs the selection, application, and changes of accounting policies, alongside adjustments for estimate modifications and prior period error corrections. However, income tax consequences arising from retrospective policy changes and error corrections are explicitly excluded from its scope.",
+      "terminology": [
+        "scope",
+        "accounting policies",
+        "accounting estimates",
+        "prior period errors",
+        "tax effects"
+      ],
+      "instrument_references": [
+        "Ind AS 8",
+        "Ind AS 12"
+      ],
+      "inclusion": [
+        "guidance on selecting and applying accounting policies",
+        "rules for processing prior period error corrections"
+      ],
+      "exclusion": [
+        "tax calculations resulting from retrospective adjustments",
+        "first-time adoption policy changes"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from operational tax accounting standards by deferring all income tax consequences directly to specialized tax-governing pronouncements."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ac0c48ed-a621-4f6b-9c34-4487f7141870",
+      "concept_name": "Definitions of Policies, Estimates, Standards, and Materiality",
+      "definition": "Accounting policies comprise the specific principles and rules applied in preparing financial statements, whereas estimates represent monetary amounts subject to measurement uncertainty. Information is deemed material if its omission or misstatement could reasonably influence the economic decisions of primary financial statement users.",
+      "terminology": [
+        "accounting policies",
+        "accounting estimates",
+        "materiality",
+        "Indian Accounting Standards",
+        "primary users"
+      ],
+      "instrument_references": [
+        "Ind AS 8",
+        "Ind AS 1",
+        "Companies Act, 2013"
+      ],
+      "inclusion": [
+        "definitions governing measurement uncertainty and reporting rules",
+        "criteria for assessing information materiality"
+      ],
+      "exclusion": [
+        "immaterial disclosures that obscure financial statements",
+        "arbitrary thresholds detached from user impact"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes qualitative rules of accounting policy frameworks from quantitative thresholds governing materiality assessments."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a96cb7db-c20f-4405-b021-cd3afe9e2823",
+      "concept_name": "Framework of Accounting Policies",
+      "definition": "Entities must apply specific accounting standards directly to transactions or conditions when those standards exist. When rules are mandated by standard guidelines, companies are required to follow them consistently to establish a reliable measurement base.",
+      "terminology": [
+        "accounting policies",
+        "inventory cost formulas",
+        "cash equivalents",
+        "revenue recognition"
+      ],
+      "instrument_references": [
+        "Ind AS 8",
+        "Ind AS 1"
+      ],
+      "inclusion": [
+        "mandatory application of prescribed standard guidelines",
+        "selection of inventory valuation methods like FIFO or weighted average"
+      ],
+      "exclusion": [
+        "convenience-based deviations from established standards",
+        "immaterial policy applications"
+      ],
+      "nearby_distinctions": [
+        "Differentiates mandated standard applications from situations requiring management judgment when no specific standard exists."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7918d480-6d85-4ddf-bcd1-3fb0e423a5d8",
+      "concept_name": "Selection and Application of Accounting Policies",
+      "definition": "When an explicit standard governs a transaction or condition, the corresponding accounting policy must be determined by strictly applying that standard. Entities can also utilize guidance notes published by ICAI to resolve ambiguities and determine appropriate measurement treatments.",
+      "terminology": [
+        "accounting policy",
+        "guidance notes",
+        "ICAI",
+        "specific Ind AS"
+      ],
+      "instrument_references": [
+        "Ind AS 8",
+        "Ind AS 1"
+      ],
+      "inclusion": [
+        "following mandatory standard rules for specific events",
+        "referencing ICAI guidance notes for complex transactions"
+      ],
+      "exclusion": [
+        "adopting custom policies where a direct standard applies",
+        "ignoring authoritative implementation guidance"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from judgment-based policy formulation because it relies on pre-existing, codified standard rules rather than management estimation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e0547dab-c78f-48df-b55a-46bb339e61c5",
+      "concept_name": "Compulsory Application and Judgment in Accounting Policies",
+      "definition": "Accounting policies must be applied consistently unless their effects are immaterial, though leaving immaterial departures uncorrected to manipulate presentation is prohibited. In the absence of a specific standard, management must exercise professional judgment to develop policies that deliver relevant and reliable information reflecting economic substance.",
+      "terminology": [
+        "materiality",
+        "economic substance",
+        "neutrality",
+        "prudence",
+        "management judgment"
+      ],
+      "instrument_references": [
+        "Ind AS 8",
+        "Ind AS 1"
+      ],
+      "inclusion": [
+        "developing policies for novel business transactions lacking specific standards",
+        "assessing materiality based on user economic decisions"
+      ],
+      "exclusion": [
+        "intentional departures from standards to achieve favorable presentations",
+        "prioritizing legal form over economic substance"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from routine standard application by requiring active management judgment under conditions of regulatory absence for emerging business models."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "c35114efc7fbc3c7850baec2d6a6a7a04ccedcd3190315d9150cb2dd1b23ea0e",
+  "artifact_id": "cbfd61c4-0e83-4eb1-969b-458682ab3697",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8521,
+  "output_tokens": 3450,
+  "cost_usd": 0.0111813,
+  "created_at": "2026-10-03T17:48:07.032342+00:00"
+}

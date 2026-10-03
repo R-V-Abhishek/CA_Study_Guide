@@ -1,0 +1,83 @@
+{
+  "descriptors": [
+    {
+      "node_id": "d804eb5c-387d-46d1-bab8-26de02724a07",
+      "concept_name": "Cost Approach",
+      "definition": "The cost approach estimates asset value by calculating the aggregate costs required to build an identical or similar platform with matching utility. However, it can be inadequate for digital platforms because it often ignores the underlying revenue-generating capacity and potential shareholder value.",
+      "terminology": [
+        "cost to build",
+        "developer hours",
+        "utility"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "costs incurred to develop code",
+        "sum total of expenses to build identical platform"
+      ],
+      "exclusion": [
+        "revenue-generating capacity",
+        "future earnings potential"
+      ],
+      "nearby_distinctions": [
+        "Unlike income-based methods, the cost approach focuses on historical development expenses rather than projected future earnings."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "820a4adb-1322-40b0-8f0e-1d367c898d45",
+      "concept_name": "Valuation of Professional and Consultancy Firms",
+      "definition": "Professional services firms providing customized knowledge-based services are valued by analyzing historical financial data, industry trends, and key performance indicators. The process requires normalizing net income and cash flows by adding back non-cash and non-recurring items to facilitate fair comparative assessments.",
+      "terminology": [
+        "Key Performance Indicators",
+        "normalization",
+        "terminal value"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "audited annual statements",
+        "normalization of net income and cash flows",
+        "industry benchmarks"
+      ],
+      "exclusion": [
+        "standardized asset manufacturing costs"
+      ],
+      "nearby_distinctions": [
+        "Differs from general corporate valuation by heavily relying on bespoke knowledge assets, human capital metrics, and customized industry KPIs."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "68906414-137f-495f-bb24-c4a6ddf2d4c1",
+      "concept_name": "Impact of ESG on Valuation",
+      "definition": "Environmental, Social, and Governance integration into corporate strategy influences sustainable value creation and alters investor financing options. Incorporating these factors helps identify organizational risks and opportunities across climate change, social standards, and governance transparency.",
+      "terminology": [
+        "Environmental Social Governance",
+        "green bonds",
+        "sustainability taxonomy"
+      ],
+      "instrument_references": [
+        "IFRS",
+        "SEBI (Securities Exchange Board of India) framework on ESG disclosures"
+      ],
+      "inclusion": [
+        "environmental factors like climate change and waste generation",
+        "social factors like employee development and health and safety",
+        "governance factors like board independence and tax transparency"
+      ],
+      "exclusion": [
+        "purely financial statements without qualitative sustainability metrics"
+      ],
+      "nearby_distinctions": [
+        "Unlike traditional financial analysis, ESG evaluation focuses on non-financial risks and long-term sustainable value drivers that affect cost of capital."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "ac35c9efe565ca033a30f55be50a5ca52113ba97072cf7764073b56d5091f530",
+  "artifact_id": "c49075ef-f163-4f31-81f9-73a543047aaa",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 2195,
+  "output_tokens": 810,
+  "cost_usd": 0.0026835,
+  "created_at": "2026-10-03T18:09:00.077251+00:00"
+}

@@ -1,0 +1,302 @@
+{
+  "descriptors": [
+    {
+      "node_id": "fe6b147b-57f7-4e33-ab14-e0cd7b2d5aa6",
+      "concept_name": "In Case of Joint Venture",
+      "definition": "A joint venture is a separate business entity formed by two or more parties to develop a specific project or enterprise for profit while sharing risks. Assigning performance accountability becomes critical due to uneven distribution of resources, work, and diverse partnership structures.",
+      "terminology": [
+        "Joint venture",
+        "Strategic alliance",
+        "Separate business entity",
+        "Project based joint venture"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Project-based, vertical, horizontal, and functional joint ventures",
+        "Pooling of resources by separate business entities"
+      ],
+      "exclusion": [
+        "Strategic alliances where businesses retain independence",
+        "Single independent enterprise operations"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from strategic alliances, which are less binding and do not create a separate pooled business entity."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "be805080-9781-407f-bf0a-542b5274d1d3",
+      "concept_name": "In Case Of Multinationals",
+      "definition": "Multinationals operate subsidiaries across multiple countries with distinct legal frameworks, languages, cultures, and currencies, making coordination toward overall objectives challenging. These coordination difficulties multiply due to high uncertainties from exchange rate movements, taxation changes, and trade policies.",
+      "terminology": [
+        "Multinational enterprise",
+        "Subsidiaries",
+        "Exchange rate movements",
+        "Foreign trade policy"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Enterprises with operations or subsidiaries in multiple countries",
+        "Cross-border currency, legal, and reporting framework variations"
+      ],
+      "exclusion": [
+        "Domestic single-location business structures",
+        "Standard localized entities without international footprints"
+      ],
+      "nearby_distinctions": [
+        "Differs from joint ventures by focusing on cross-border subsidiary networks rather than multi-party equity pooling for a single project."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b48b2e4a-9646-400d-8a58-d6def3c58d06",
+      "concept_name": "In Case of Complex Supply Chain A supply chain is a network of enterprises which are connected to each other while involved in creating a product and delivering it to the consumer .",
+      "definition": "A supply chain is an interconnected network of enterprises that collaborate to create and deliver products to consumers. Modern supply chains face performance management hurdles from communication barriers and incompatible technologies, which can be mitigated through shared information systems and free information flow.",
+      "terminology": [
+        "Supply chain",
+        "Trading partner relationships",
+        "Logistical communication barriers",
+        "Shared information systems"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Networks of enterprises involved in product creation and delivery",
+        "Shared IT systems across business partners"
+      ],
+      "exclusion": [
+        "Isolated single-firm production processes",
+        "Internal departmental workflows lacking external trading partners"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from virtual organizations by its focus on sequential physical or service delivery networks rather than remote employment premises."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5517b06c-5382-4812-ab54-7170fe8a241e",
+      "concept_name": "In Case of Virtual Organisations",
+      "definition": "A virtual organisation operates with little or no physical premises, relying instead on information technology to connect remote employees and managers. Collecting reliable performance data in such structures is difficult due to widespread sources and limited supervisory control.",
+      "terminology": [
+        "Virtual organisation",
+        "Remote working",
+        "IT connectivity",
+        "Performance related data"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Enterprises with little or no physical premises",
+        "IT-connected remote employees and managers"
+      ],
+      "exclusion": [
+        "Traditional brick-and-mortar centralized offices",
+        "Standard co-located manufacturing or retail chains"
+      ],
+      "nearby_distinctions": [
+        "Differs from complex supply chains by replacing physical network links and shared trading premises with remote, IT-dependent workspaces."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "69ade029-3f5b-4128-9338-b13db4b98465",
+      "concept_name": "Performance Measures (Csfs & Kpis Thereto) Act As Stiumli",
+      "definition": "Clearly communicated performance measures act as stimuli that alter human behavior by making employees conscious of the specific activities being measured and evaluated. Guided by the principle that what gets measured gets done, people intensify their efforts toward metrics that are explicitly tracked.",
+      "terminology": [
+        "Performance measures",
+        "CSFs",
+        "KPIs",
+        "Stimuli",
+        "What gets measured gets done"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Explicitly communicated performance metrics",
+        "Behavioral modification driven by evaluation awareness"
+      ],
+      "exclusion": [
+        "Unmeasured operational roles",
+        "Implicit organizational expectations lacking formal metrics"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from broader management styles because it targets specific measurement indicators rather than general leadership or control atmospheres."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4ac90159-5288-4782-b435-dedd844ec487",
+      "concept_name": "Management Styles & Culture Modify Behaviour, Therefore Influence Performance",
+      "definition": "Management styles and prevailing organizational cultures must align with the specific strategic and developmental context to effectively guide employee behavior and performance. Different organizational life-cycle phases and strategies require tailored approaches such as budget-constrained or profit-conscious styles.",
+      "terminology": [
+        "Management styles",
+        "Organisational culture",
+        "Budget-constrained style",
+        "Profit-conscious style"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Hopwood's management styles",
+        "Financial control versus service cultures aligned with strategies"
+      ],
+      "exclusion": [
+        "Purely mathematical performance valuation models",
+        "Isolated individual performance metrics without cultural context"
+      ],
+      "nearby_distinctions": [
+        "Differs from specific performance measures by focusing on overarching leadership behavior patterns and cultural values rather than individual metrics."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a65363e2-e96b-4239-bc99-e37083c50776",
+      "concept_name": "Introduction",
+      "definition": "Corporate failure reflects deep-seated corporate shortcomings tied to micro and macroeconomic environments, decision-making processes, and organizational structures. Prominent failure triggers include failure to innovate, hostile environments, rapid restructuring, financial misappropriations, and flawed strategic investments.",
+      "terminology": [
+        "Corporate failure",
+        "Strategic drift",
+        "Financial misappropriations",
+        "Debt trap"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Bankruptcies, mergers driven by distress, and organizational closures",
+        "Environmental and structural causes of business decline"
+      ],
+      "exclusion": [
+        "Successful and sustainable business growth phases",
+        "Planned corporate voluntary liquidations"
+      ],
+      "nearby_distinctions": [
+        "Introduces the general causes of corporate distress prior to detailing formal quantitative and qualitative prediction models."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "72bdf99d-f293-425e-9757-3e3e42b13d54",
+      "concept_name": "Why Do Companies Fail?",
+      "definition": "Corporate failure stems from deep-seated shortcomings driven by external environments, decision processes, and structural deficiencies. Common root causes involve innovation failures, strategic drift under hostile conditions, rapid unmanaged expansions, and management inefficiencies.",
+      "terminology": [
+        "Corporate shortcomings",
+        "Strategic drift",
+        "Debt trap",
+        "Root cause"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Illustrative failure factors like financial irregularities and cash crunches",
+        "Contextual micro and macro environmental pressures"
+      ],
+      "exclusion": [
+        "Operational successes",
+        "Stable ongoing corporate entities"
+      ],
+      "nearby_distinctions": [
+        "Focuses on the causative diagnosis of company decline rather than the subsequent mathematical scoring of financial health."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f2c0b85d-9060-4e79-a8e2-2c9906d5e60a",
+      "concept_name": "Need for Predicting Corporate Failure",
+      "definition": "Predicting corporate failure is of strategic significance to ensure business survival and enable timely corrective and preventive measures. Detecting early warning signs of decline allows management to control existing damage and avoid total operational collapse.",
+      "terminology": [
+        "Survival",
+        "Corrective measures",
+        "Preventive measures",
+        "Strategic significance"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Early detection of declining business performance",
+        "Implementation of remedial controls against bankruptcy"
+      ],
+      "exclusion": [
+        "Post-liquidation legal winding up procedures",
+        "Routine management accounting variance reports"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from identifying historical failure causes by its forward-looking objective of detecting vulnerability before damage occurs."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8a8fd467-b310-4e78-98c3-a5bb644df3cc",
+      "concept_name": "Predicting Corporate Failure",
+      "definition": "Predicting corporate failure utilizes quantitative models based on financial ratios and qualitative models assessing risk factors to evaluate survival probabilities. These predictive frameworks enable organizations to identify distress signals early and deploy targeted corrective strategies.",
+      "terminology": [
+        "Quantitative models",
+        "Qualitative models",
+        "Financial ratios",
+        "Risk factors"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Monetary financial ratio assessments",
+        "Qualitative reviews of regulatory filings and reports"
+      ],
+      "exclusion": [
+        "Purely qualitative operational reviews lacking risk scoring",
+        "Historical post-mortem analysis of liquidated assets"
+      ],
+      "nearby_distinctions": [
+        "Covers the dual classification of prediction models contrasting numerical scoring against subjective risk evaluations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "41e3cbb5-aca0-48d4-aff7-6a54ebfdd99e",
+      "concept_name": "Quantitative Models",
+      "definition": "Quantitative models compute scores or assign ranks using monetary information, financial ratios, and financial statements to classify firms into surviving or failing categories. Drawing on discriminant analysis techniques, these models simultaneously evaluate multiple financial dimensions to predict bankruptcy risk.",
+      "terminology": [
+        "Quantitative models",
+        "Discriminant analysis",
+        "Financial ratios",
+        "Working capital"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Univariate models by Beaver",
+        "Multivariate discriminant models like Altman Z score"
+      ],
+      "exclusion": [
+        "Qualitative models evaluating brand equity or governance reports",
+        "Subjective management interviews"
+      ],
+      "nearby_distinctions": [
+        "Differs from qualitative models by relying strictly on numerical accounting data and financial ratios rather than text-based disclosures."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0456d4b3-1f38-4057-8feb-4e1cda23a278",
+      "concept_name": "Altman Z score (1968)",
+      "definition": "The Altman Z-score is a multivariate quantitative model that combines five key financial ratios with pre-determined coefficients to predict the probability of a firm going bankrupt. The resulting score classifies firms into distinct zones indicating financial soundness, distress, or a grey area requiring further investigation.",
+      "terminology": [
+        "Altman Z score",
+        "Discriminant score",
+        "Working capital to total assets",
+        "Distress zone"
+      ],
+      "instrument_references": [
+        "Altman Z score (1968)"
+      ],
+      "inclusion": [
+        "Publicly held manufacturing firms meeting specific asset thresholds",
+        "Five-ratio linear combination equations"
+      ],
+      "exclusion": [
+        "Service sector firms lacking manufacturing asset structures",
+        "Qualitative evaluation metrics"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from univariate bankruptcy models by utilizing a combined discriminant function across five weighted financial ratios."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "4d020443b11391f0bb15e779a2d18731f62b4b05c6c3920b8d24524477c0a590",
+  "artifact_id": "0b47355f-36e5-4c59-9049-c07390172694",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8646,
+  "output_tokens": 3243,
+  "cost_usd": 0.010701299999999999,
+  "created_at": "2026-10-03T18:27:40.059484+00:00"
+}

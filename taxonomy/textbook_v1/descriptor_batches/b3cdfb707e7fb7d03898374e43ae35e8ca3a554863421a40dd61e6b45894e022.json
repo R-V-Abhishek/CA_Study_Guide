@@ -1,0 +1,227 @@
+{
+  "descriptors": [
+    {
+      "node_id": "49454c34-00fb-4d42-beeb-bf3981213c71",
+      "concept_name": "Introduction to Financial Instruments Accounting",
+      "definition": "The accounting treatment for diverse financial instruments is governed by specific standards that emphasize the underlying economic substance over legal form. This framework ensures that financial statements provide relevant and faithful representations of an entity's financial performance, position, and cash flows.",
+      "terminology": [
+        "Substance over form",
+        "Financial instruments",
+        "Financial reporting"
+      ],
+      "instrument_references": [
+        "Ind AS 109",
+        "Ind AS 32",
+        "Ind AS 107"
+      ],
+      "inclusion": [
+        "Convertible preference shares",
+        "Foreign currency loans",
+        "Debt syndication arrangements"
+      ],
+      "exclusion": [
+        "Non-contractual statutory obligations",
+        "Constructive obligations"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes economic substance from formal legal categorization in financial reporting."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "06934215-89d0-452a-954b-3ac6cd2837a6",
+      "concept_name": "Definition of Financial Instruments and Financial Assets",
+      "definition": "A financial instrument constitutes any contract creating a financial asset for one entity and a financial liability or equity instrument for another. Financial assets include cash, equity instruments of other entities, or specific contractual rights to receive cash or exchange financial items under favorable conditions.",
+      "terminology": [
+        "Financial instrument",
+        "Financial asset",
+        "Contractual right"
+      ],
+      "instrument_references": [
+        "Ind AS 32",
+        "Ind AS 109"
+      ],
+      "inclusion": [
+        "Cash deposits",
+        "Primary instruments",
+        "Derivative financial instruments"
+      ],
+      "exclusion": [
+        "Statutory obligations like income taxes",
+        "Constructive obligations under Ind AS 37"
+      ],
+      "nearby_distinctions": [
+        "Separates contractual financial rights from non-contractual statutory duties."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "311a0e71-7258-4a88-99f9-338f01a86534",
+      "concept_name": "Detailed Elements of Financial Assets",
+      "definition": "Cash and bank balances qualify as financial assets because they serve as the foundational medium of exchange for all recognized transactions. Additionally, contractual rights to receive cash or financial instruments establish a chain that ultimately leads to cash settlements or asset acquisitions.",
+      "terminology": [
+        "Cash",
+        "Trade receivables",
+        "Contractual right to receive cash"
+      ],
+      "instrument_references": [
+        "Ind AS 32",
+        "Ind AS 109"
+      ],
+      "inclusion": [
+        "Currency",
+        "Bank deposits",
+        "Investments in bonds and equity"
+      ],
+      "exclusion": [
+        "Non-contractual physical assets",
+        "Prepaid expenses settled by goods or services"
+      ],
+      "nearby_distinctions": [
+        "Differentiates direct medium of exchange items from contractual receivables."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7b8d8c4b-f14e-4b82-b7a3-898336de64d9",
+      "concept_name": "Definition and Evaluation of Financial Liabilities",
+      "definition": "A financial liability encompasses any obligation resulting from a contract to deliver cash or another financial asset, or to exchange financial instruments under unfavorable conditions. It also covers contracts settled in an entity's own equity instruments under variable or non-fixed criteria.",
+      "terminology": [
+        "Financial liability",
+        "Contractual obligation",
+        "Unfavorable exchange"
+      ],
+      "instrument_references": [
+        "Ind AS 32"
+      ],
+      "inclusion": [
+        "Loans payable",
+        "Trade and other payables",
+        "Bills payable"
+      ],
+      "exclusion": [
+        "Statutory tax liabilities",
+        "Provisions lacking contractual backing"
+      ],
+      "nearby_distinctions": [
+        "Contrasts contractual payment obligations with statutory obligations lacking counterparties."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "97bd0f2c-821c-45d9-9e93-efd63362889e",
+      "concept_name": "Definition and Characteristics of Equity Instruments",
+      "definition": "An equity instrument is any contract evidencing a residual interest in an entity's assets after deducting all liabilities. It must be free from any contractual obligation to deliver cash or exchange financial assets under unfavorable terms.",
+      "terminology": [
+        "Equity instrument",
+        "Residual interest",
+        "Fixed-for-fixed"
+      ],
+      "instrument_references": [
+        "Ind AS 32"
+      ],
+      "inclusion": [
+        "Ordinary equity shares",
+        "Warrants for fixed shares at fixed prices"
+      ],
+      "exclusion": [
+        "Contracts requiring variable share delivery",
+        "Obligations to deliver cash or financial assets"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes residual ownership claims from senior contractual debt obligations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0a7fa4b2-09fc-496b-b621-4f774414c49f",
+      "concept_name": "Comparative Analysis of Financial Assets, Liabilities, and Equity",
+      "definition": "Financial instruments are categorized based on whether they represent cash, contractual rights to receive or exchange resources, contractual obligations to deliver resources, or residual equity interests. The classification depends strictly on the presence or absence of contractual payment obligations and settlement criteria.",
+      "terminology": [
+        "Comparative classification",
+        "Residual interest",
+        "Settlement criteria"
+      ],
+      "instrument_references": [
+        "Ind AS 32"
+      ],
+      "inclusion": [
+        "Cash assets",
+        "Receivables and payables",
+        "Equity shares"
+      ],
+      "exclusion": [
+        "Non-contractual obligations",
+        "Statutory dues"
+      ],
+      "nearby_distinctions": [
+        "Contrasts the active and passive cash flow rights of assets and liabilities with the residual nature of equity."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1982f9d5-4f50-453d-8d36-d09d482d6829",
+      "concept_name": "Scope Exclusions from Financial Instruments Standards",
+      "definition": "Certain specialized contractual rights and obligations are governed by separate accounting standards rather than the general financial instruments framework. These exclusions include investments in subsidiaries, lease agreements, employee benefit plans, and insurance contracts.",
+      "terminology": [
+        "Scope exclusions",
+        "Embedded derivatives",
+        "Lease liabilities"
+      ],
+      "instrument_references": [
+        "Ind AS 110",
+        "Ind AS 27",
+        "Ind AS 28",
+        "Ind AS 116",
+        "Ind AS 19",
+        "Ind AS 117"
+      ],
+      "inclusion": [
+        "Derivatives on subsidiary interests",
+        "Finance lease receivables",
+        "Embedded derivatives requiring separation"
+      ],
+      "exclusion": [
+        "Standard financial assets",
+        "Plain vanilla borrowings and receivables"
+      ],
+      "nearby_distinctions": [
+        "Separates general financial assets and liabilities from specialized arrangements regulated by dedicated Ind AS chapters."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5317bfdb-cc54-49a1-8deb-6b48db118baa",
+      "concept_name": "Contracts to Buy or Sell Non-Financial Items and Own Use Exemption",
+      "definition": "Contracts for purchasing or selling non-financial items are normally outside the financial instruments framework unless they can be settled net in cash or financial instruments. However, contracts entered into and held solely to meet an entity's expected purchase, sale, or usage requirements qualify for the own use exemption.",
+      "terminology": [
+        "Own use exemption",
+        "Net settlement",
+        "Non-financial items"
+      ],
+      "instrument_references": [
+        "Ind AS 109",
+        "Ind AS 32"
+      ],
+      "inclusion": [
+        "Commodity contracts settled net in cash",
+        "Contracts designated at fair value through profit or loss to eliminate accounting mismatches"
+      ],
+      "exclusion": [
+        "Contracts held for expected physical receipt or delivery requirements",
+        "Traditional physical delivery agreements"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes physical operational delivery contracts from financially settled speculative derivative contracts."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "b3cdfb707e7fb7d03898374e43ae35e8ca3a554863421a40dd61e6b45894e022",
+  "artifact_id": "65669b97-7a86-48a9-93ed-78e477bc43e8",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 5900,
+  "output_tokens": 2241,
+  "cost_usd": 0.0073725,
+  "created_at": "2026-10-03T18:04:15.422284+00:00"
+}

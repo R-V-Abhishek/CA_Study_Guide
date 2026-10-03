@@ -1,0 +1,335 @@
+{
+  "descriptors": [
+    {
+      "node_id": "26d79b35-cb21-479e-8340-37df8e4529e3",
+      "concept_name": "Foreign Exchange Management Act 1999 Overview",
+      "definition": "This legislation regulates foreign exchange transactions, external trade, payments, and the orderly development of the foreign exchange market in India. It empowers the management of foreign exchange reserves through restrictions on capital and current account transactions and authorized dealings.",
+      "terminology": [
+        "Foreign exchange",
+        "Authorised person",
+        "Current account transaction",
+        "Capital account transaction",
+        "Adjudication"
+      ],
+      "instrument_references": [
+        "Foreign Exchange Management Act, 1999"
+      ],
+      "inclusion": [
+        "Regulation of transactions between residents and non-residents",
+        "Overseas investments and foreign investments in India",
+        "Adjudication and compounding of offenses"
+      ],
+      "exclusion": [
+        "Domestic currency transactions without foreign exchange implications",
+        "Transactions handled outside authorized channels without statutory compliance"
+      ],
+      "nearby_distinctions": [
+        "Differs from the older Foreign Exchange Regulation Act (FERA) by focusing on management rather than strict criminal criminalization and control."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "564da74e-59eb-4aa3-a41d-0680d22b4695",
+      "concept_name": "Scope and Enforcement of FEMA",
+      "definition": "The Act governs foreign exchange transactions nationwide and extends its reach to offices and branches outside India owned or controlled by residents. Enforcement is carried out by a specialized Directorate of Enforcement under Section 36.",
+      "terminology": [
+        "Directorate of Enforcement",
+        "Authorised Dealer",
+        "Compounding of offences",
+        "Appellate Tribunal"
+      ],
+      "instrument_references": [
+        "Section 36"
+      ],
+      "inclusion": [
+        "Branches, offices, and agencies outside India owned or controlled by Indian residents",
+        "Investigation of contraventions by the Directorate of Enforcement"
+      ],
+      "exclusion": [
+        "Domestic tax enforcement matters governed by separate revenue statutes"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes overall policy control exercised by the Reserve Bank of India from operational investigation and enforcement handled by the Directorate of Enforcement."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "35a157fa-ed65-42ad-b941-649e9b0cf26b",
+      "concept_name": "Preamble Extent and Commencement of FEMA",
+      "definition": "The statute aims to consolidate and amend foreign exchange laws to promote external trade and maintain the domestic foreign exchange market. It applies across India and covers overseas offices owned or controlled by Indian residents starting from June 1, 2000.",
+      "terminology": [
+        "Preamble",
+        "External trade",
+        "Foreign exchange market",
+        "Whole of India"
+      ],
+      "instrument_references": [
+        "Section 1",
+        "Notification G.S.R. 371(E)"
+      ],
+      "inclusion": [
+        "Territory of India",
+        "Foreign branches controlled by Indian residents",
+        "Contraventions committed outside India by applicable persons"
+      ],
+      "exclusion": [
+        "Purely domestic transactions with no cross-border or foreign currency elements"
+      ],
+      "nearby_distinctions": [
+        "Extends extraterritorial jurisdiction specifically to controlled foreign business establishments unlike standard domestic economic laws."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e6bc7908-162f-4404-9544-061167ed1d94",
+      "concept_name": "Statutory Definitions Under Section 2",
+      "definition": "This provision outlines core legal terms including currency, foreign exchange, export, and current account transactions. It establishes the foundational dictionary for interpreting operational limits under the legislation.",
+      "terminology": [
+        "Capital Account Transaction",
+        "Current Account Transaction",
+        "Foreign Exchange",
+        "Export"
+      ],
+      "instrument_references": [
+        "Section 2"
+      ],
+      "inclusion": [
+        "Currency notes, postal orders, and credit cards",
+        "Payments for foreign trade, services, and short-term banking credit",
+        "Provision of services from India to outside India"
+      ],
+      "exclusion": [
+        "Transactions altering foreign assets or liabilities classified under capital account definitions"
+      ],
+      "nearby_distinctions": [
+        "Differentiates current account transactions meant for ordinary business and living expenses from capital account transactions that alter foreign assets and liabilities."
+      ],
+      "source_ambiguities": [
+        "Section 6(3) reference noted as deleted with effect from 15th October 2019."
+      ]
+    },
+    {
+      "node_id": "b3e84c01-b73a-4a19-a903-52f9e7011616",
+      "concept_name": "Residential Status Determination",
+      "definition": "Residential status under this statute depends on physical presence in India exceeding 182 days during the preceding financial year. Specific exceptions apply for employment, business, or uncertain stays abroad regardless of citizenship.",
+      "terminology": [
+        "Person Resident in India",
+        "Person Resident outside India",
+        "Preceding financial year",
+        "Employment purpose"
+      ],
+      "instrument_references": [
+        "Section 2"
+      ],
+      "inclusion": [
+        "Individuals residing in India for more than 182 days in the preceding year",
+        "Entities registered or incorporated in India",
+        "Domestic and foreign owned corporate branches"
+      ],
+      "exclusion": [
+        "Individuals staying abroad for employment, business, or uncertain duration despite physical presence thresholds"
+      ],
+      "nearby_distinctions": [
+        "Residency is determined strictly by duration and purpose of stay rather than nationality or citizenship."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "56c03f6c-1f11-4ff9-b190-4fbca6c1aa9c",
+      "concept_name": "Regulation and Management of Foreign Exchange Dealings",
+      "definition": "Section 3 imposes strict prohibitions on unauthorized foreign exchange dealings, unauthorized cross-border payments, and financial transactions linked to acquiring foreign assets. These restrictions ensure that foreign flows occur exclusively through permitted channels and authorized intermediaries.",
+      "terminology": [
+        "Authorised Person",
+        "Inward remittance",
+        "Foreign security",
+        "Financial transaction"
+      ],
+      "instrument_references": [
+        "Section 3"
+      ],
+      "inclusion": [
+        "Transfers of foreign exchange or securities with non-authorized persons",
+        "Payments made to or on behalf of non-residents without proper banking channels",
+        "Financial arrangements securing rights to assets outside India"
+      ],
+      "exclusion": [
+        "Transactions executed with general or special permission from the Reserve Bank of India"
+      ],
+      "nearby_distinctions": [
+        "Prohibits peer-to-peer foreign exchange swaps even at favorable market rates if conducted outside authorized dealer networks."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "41c6d345-bb12-4e46-9451-73b868dcd9ff",
+      "concept_name": "Authorised Persons and Operational Mandates",
+      "definition": "An authorised person comprises dealers, money changers, or off-shore banking units empowered by the Reserve Bank to handle foreign exchange. They must strictly follow regulatory directives and verify customer declarations for transactions.",
+      "terminology": [
+        "Authorised Dealer",
+        "Off-Shore Banking Unit",
+        "Money changer",
+        "Special Economic Zone"
+      ],
+      "instrument_references": [
+        "Section 10"
+      ],
+      "inclusion": [
+        "Authorised dealers and money changers appointed by the RBI",
+        "Off-shore banking units operating within Special Economic Zones"
+      ],
+      "exclusion": [
+        "Off-shore banking units conducting direct transactions with domestic residents in India"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes standard authorised dealers serving general domestic residents from SEZ-based off-shore banking units restricted to principal-to-principal dealings."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e20531fe-2954-4b0a-aed9-d6dac8b2dd3e",
+      "concept_name": "Contraventions and Penalties Framework",
+      "definition": "Violations of statutory provisions, RBI directions, or authorization conditions attract monetary penalties up to three times the quantifiable sum involved or specific fixed amounts. Persistent offenses trigger additional daily fines, property confiscation, and potential imprisonment.",
+      "terminology": [
+        "Quantum of penalty",
+        "Confiscation",
+        "Civil imprisonment",
+        "Continuing offence"
+      ],
+      "instrument_references": [
+        "Section 11",
+        "Section 13",
+        "Section 14",
+        "Section 37A"
+      ],
+      "inclusion": [
+        "Penalties up to three times quantifiable sums for general contraventions",
+        "Confiscation of domestic equivalents of foreign assets",
+        "Civil imprisonment for defaulting on large penalty payments"
+      ],
+      "exclusion": [
+        "Compliant transactions executed within authorized regulatory limits"
+      ],
+      "nearby_distinctions": [
+        "Separates administrative penalties and fines from criminal imprisonment terms applied under serious asset acquisition contraventions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "438d2683-c69e-4811-84cf-54766c1067e4",
+      "concept_name": "Compounding of Contraventions",
+      "definition": "Authorized officers from the Enforcement Directorate or RBI can compound eligible contraventions within 180 days of receiving an application. Successful compounding bars any further legal or adjudicatory proceedings for that specific offense.",
+      "terminology": [
+        "Compounding Authority",
+        "Directorate of Enforcement",
+        "Application",
+        "Subsequent proceedings"
+      ],
+      "instrument_references": [
+        "Section 13",
+        "Section 15"
+      ],
+      "inclusion": [
+        "Compounding applications processed within 180 days",
+        "Immunity from further proceedings upon successful compounding"
+      ],
+      "exclusion": [
+        "Offenses lacking formal compounding applications or falling outside statutory compounding rules"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes voluntary settlement through compounding from adversarial adjudication before a formal Adjudicating Authority."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9c4507ee-1cbe-4bf3-882b-ca209ecb5fb0",
+      "concept_name": "Adjudication and Appeal Procedures",
+      "definition": "Central Government-appointed Adjudicating Authorities hold inquiries and issue orders on complaints regarding statutory contraventions within a targeted one-year timeframe. Aggrieved parties can file appeals before designated appellate bodies and high courts within strict limitation periods.",
+      "terminology": [
+        "Adjudicating Authority",
+        "Special Director Appeals",
+        "Appellate Tribunal",
+        "Complaint inquiry"
+      ],
+      "instrument_references": [
+        "Section 13",
+        "Section 16",
+        "Section 17",
+        "Section 19",
+        "Section 35"
+      ],
+      "inclusion": [
+        "Inquiries conducted by appointed Adjudicating Authorities",
+        "Appeals to Special Director and Appellate Tribunal within 45 days"
+      ],
+      "exclusion": [
+        "Matters settled via compounding prior to formal complaint adjudication"
+      ],
+      "nearby_distinctions": [
+        "Separates first-instance inquiries by the Adjudicating Authority from subsequent appellate reviews handled by specialized tribunals and high courts."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "580b66dd-6d52-45cd-a465-fe31cf0e85bb",
+      "concept_name": "Directorate of Enforcement and Investigative Powers",
+      "definition": "The Central Government establishes a Directorate of Enforcement staffed with specialized officers to investigate statutory contraventions. Authorized officers possess search, seizure, and investigative powers comparable to income-tax authorities.",
+      "terminology": [
+        "Directorate of Enforcement",
+        "Search and seizure",
+        "Officers of Enforcement",
+        "Empowered officers"
+      ],
+      "instrument_references": [
+        "Section 36",
+        "Section 37",
+        "Section 38"
+      ],
+      "inclusion": [
+        "Establishment of the Directorate of Enforcement",
+        "Search and seizure powers for officers above assistant director rank",
+        "Empowerment of customs, excise, or police officers"
+      ],
+      "exclusion": [
+        "General civil litigations outside foreign exchange management scope"
+      ],
+      "nearby_distinctions": [
+        "Differentiates specialized enforcement officers from general administrative regulators within the Reserve Bank."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "924b89cb-4623-4aee-8e93-4bd48a7b4476",
+      "concept_name": "Miscellaneous Provisions and Act Suspension",
+      "definition": "This provision governs evidentiary presumptions for documents produced, seized, or authenticated from foreign jurisdictions during investigations. Additionally, the Central Government holds authority to suspend or relax statute operations in the public interest.",
+      "terminology": [
+        "Evidentiary presumption",
+        "Document authentication",
+        "Suspension of operation",
+        "Public interest"
+      ],
+      "instrument_references": [
+        "Section 39",
+        "Section 40"
+      ],
+      "inclusion": [
+        "Presumptions regarding handwriting and document execution in proceedings",
+        "Admission of documents despite minor stamping omissions if otherwise admissible",
+        "Temporary or indefinite suspension of statutory provisions by notification"
+      ],
+      "exclusion": [
+        "Unauthenticated documents lacking statutory verification standards"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes routine evidentiary rules from extraordinary executive powers allowing total or partial suspension of economic laws in public interest."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "85cd8a4f7e0c4519dbc8c07470c508bac49f4922b9cd95625b133702b20afb9b",
+  "artifact_id": "c988595b-3595-4bd1-bd70-ca51aadce9d9",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 9161,
+  "output_tokens": 3548,
+  "cost_usd": 0.0116183,
+  "created_at": "2026-10-03T18:25:38.675684+00:00"
+}

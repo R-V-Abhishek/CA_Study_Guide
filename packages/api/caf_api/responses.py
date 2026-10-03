@@ -3,6 +3,7 @@
 from datetime import date, datetime
 from typing import Any, Literal
 from pydantic import BaseModel, Field
+from caf_contracts.taxonomy import TaxonomyTreeNode
 
 
 class NodeReference(BaseModel):
@@ -18,6 +19,7 @@ class ScoreRunIdentity(BaseModel):
     id: int
     version: str
     target_attempt_id: str
+    taxonomy_version_id: int | None = None
     computed_at: datetime | None
 
 
@@ -26,6 +28,8 @@ class PaperTree(BaseModel):
     code: str
     name: str
     chapters: list['ChapterItem']
+    taxonomy_version_id: int | None = None
+    hierarchy: list[TaxonomyTreeNode] = Field(default_factory=list)
 
 
 class SubtopicItem(BaseModel):
@@ -284,6 +288,8 @@ class PracticeSignal(BaseModel):
 
 
 class PriorSignal(BaseModel):
+    available: bool = True
+    unavailable_reason: str | None = None
     weight_prior_W: float
     paper_max_W: float
     normalized_W_hat: float
@@ -394,6 +400,12 @@ class CuratorRecommendation(BaseModel):
     chapter: NodeReference | None
     topic: NodeReference | None
     subtopic: NodeReference | None
+    module: NodeReference | None = None
+    unit: NodeReference | None = None
+    breadcrumbs: list[NodeReference] = Field(default_factory=list)
+    descriptor_revision_id: int | None = None
+    method: str | None = None
+    model_id: str | None = None
     justification: str | None = None
     gist: str | None = None
     alternatives: list[str] = Field(default_factory=list)
@@ -401,6 +413,8 @@ class CuratorRecommendation(BaseModel):
 
 class CuratorQueueItem(BaseModel):
     unit_id: int
+    taxonomy_version_id: int | None = None
+    publication_ready: bool = True
     document_id: int
     attempt_id: str | None
     paper_id: str | None
@@ -425,6 +439,8 @@ class CuratorDecisionResult(BaseModel):
 class CuratorDocument(BaseModel):
     id: int
     sha256: str
+    course_level: Literal["foundation", "intermediate", "final"] | None = None
+    provenance_status: Literal["synthetic", "unresolved", "verified"] = "unresolved"
     title: str | None
     scheme_id: str | None
     attempt_id: str | None

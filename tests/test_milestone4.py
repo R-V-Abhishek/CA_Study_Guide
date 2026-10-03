@@ -129,25 +129,20 @@ def test_classification_pipeline_persistence():
         unit_id = unit.id
         doc_id = doc.id
 
-    # Run classification pipeline
+    # New classification requires a rebuilt release; this synthetic legacy
+    # fixture stays preserved and must not be presented as corpus coverage.
     with session_factory() as session:
         with open_run(stage="l3_classify", args={"doc_id": doc_id}) as run:
-            pipeline = ClassificationPipeline(session)
-            summary = pipeline.run_classification(run_id=run.id, doc_id=doc_id)
-
-            assert summary.total_processed >= 1
-            assert summary.primary_suggestions >= 1
+            with pytest.raises(ValueError, match="rebuilt taxonomy"):
+                ClassificationPipeline(session)
 
     # Verify suggestions and unit status
     with session_factory() as session:
         u_check = session.get(Unit, unit_id)
-        assert u_check.classify_status == "suggested"
+        assert u_check.classify_status == "pending"
 
         suggs = session.query(TagSuggestion).filter(TagSuggestion.unit_id == unit_id).all()
-        assert len(suggs) >= 1
-        prim = next(s for s in suggs if s.role == "primary")
-        assert prim.bucket in ("A", "B")
-        assert "P1-" in prim.node_id
+        assert suggs == []
 
 
 def test_curation_api_and_publishing():

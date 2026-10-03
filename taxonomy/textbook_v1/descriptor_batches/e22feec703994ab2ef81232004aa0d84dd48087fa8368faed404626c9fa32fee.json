@@ -1,0 +1,297 @@
+{
+  "descriptors": [
+    {
+      "node_id": "39b69105-82ae-4cdd-b63a-ef3c83559c65",
+      "concept_name": "Events After the Reporting Period Framework",
+      "definition": "This concept addresses the temporal gap between the end of the reporting period and the date financial statements are made available to the public. It provides guidance on recognizing, treating, and disclosing significant occurrences that transpire during this interim period.",
+      "terminology": [
+        "reporting period",
+        "public availability",
+        "financial statement cognizance"
+      ],
+      "instrument_references": [
+        "Ind AS 10"
+      ],
+      "inclusion": [
+        "Events affecting business existence occurring between reporting end and public release"
+      ],
+      "exclusion": [
+        "Events occurring after the public release date"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from transactions recorded during the active accounting period."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "26c44b54-13ed-4ffb-93fa-9e7b38f3cbef",
+      "concept_name": "Objectives of Ind AS 10",
+      "definition": "The standard prescribes specific criteria for when an entity must adjust its financial statements for subsequent events. It also mandates disclosures regarding the date of authorization for issue and dictates the abandonment of the going concern assumption if post-period events warrant it.",
+      "terminology": [
+        "adjusting financial statements",
+        "approval date",
+        "going concern assumption"
+      ],
+      "instrument_references": [
+        "Ind AS 10"
+      ],
+      "inclusion": [
+        "Rules for adjusting financial statements",
+        "Mandatory disclosure criteria for approval dates",
+        "Going concern evaluation parameters"
+      ],
+      "exclusion": [
+        "Day-to-day operational measurement rules"
+      ],
+      "nearby_distinctions": [
+        "Focuses on post-period prescriptions rather than primary recognition principles."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "08441824-7804-48c0-ba70-cae8fa2dbb40",
+      "concept_name": "Scope and Definition of Subsequent Events",
+      "definition": "The standard governs the accounting and disclosure of favorable and unfavorable events occurring between the reporting period end and the authorization date. It covers events finalized prior to management and board approvals.",
+      "terminology": [
+        "favourable and unfavourable events",
+        "cut-off date",
+        "approval by board"
+      ],
+      "instrument_references": [
+        "Ind AS 10"
+      ],
+      "inclusion": [
+        "Accounting treatments for events post-reporting end",
+        "Disclosures of events up to board approval"
+      ],
+      "exclusion": [
+        "Events occurring after shareholder meetings or final filing cut-offs"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between covered operational windows and excluded post-approval milestones."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "11e232e4-a56b-42e6-9efe-b26f3c30af41",
+      "concept_name": "Approval Mechanism and Authority",
+      "definition": "The process of financial statement authorization varies according to management structure, statutory rules, and finalization workflows. For companies, approval occurs when the Board of Directors signs off, whereas other entities rely on their corresponding governing management body.",
+      "terminology": [
+        "Board of Directors",
+        "approving authority",
+        "management structure"
+      ],
+      "instrument_references": [
+        "Ind AS 10"
+      ],
+      "inclusion": [
+        "Board of Directors approval for companies",
+        "Corresponding authorized management body approval for other entities"
+      ],
+      "exclusion": [
+        "Subsequent shareholder adoption or regulatory filings"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes executive board authorization from downstream shareholder adoption."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e41a0ffd-ea52-4326-b80a-e72536dfcfb6",
+      "concept_name": "Events After the Reporting Period",
+      "definition": "Events after the reporting period encompass all favorable and unfavorable occurrences between the close of the reporting cycle and the formal authorization date. This timeframe dictates the boundary for applying specific subsequent event standards.",
+      "terminology": [
+        "favorable events",
+        "unfavorable events",
+        "authorization for issue"
+      ],
+      "instrument_references": [
+        "Ind AS 10"
+      ],
+      "inclusion": [
+        "Events between reporting period end and board approval for issue"
+      ],
+      "exclusion": [
+        "Events arising after the board approval date"
+      ],
+      "nearby_distinctions": [
+        "Distinct from general operational activities occurring within the standard financial year."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2fea453a-aeae-4123-b7df-992530f6c936",
+      "concept_name": "Approval Date Hierarchy and Determinants",
+      "definition": "The definitive date for evaluating subsequent events is the initial authorization by the board of directors, regardless of subsequent shareholder adoption. Subsequent statutory meetings do not extend the cut-off period for identifying events.",
+      "terminology": [
+        "date of approval",
+        "annual general meeting",
+        "shareholder adoption"
+      ],
+      "instrument_references": [
+        "Ind AS 10, Paragraph 5"
+      ],
+      "inclusion": [
+        "Board approval date as the definitive cut-off"
+      ],
+      "exclusion": [
+        "Annual general meeting adoption dates"
+      ],
+      "nearby_distinctions": [
+        "Contrasts initial executive board sign-off with later stakeholder ratification."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "062e6518-398c-4154-a672-c70121a292f4",
+      "concept_name": "Interim and Public Announcement Timing",
+      "definition": "Subsequent events include all occurrences up to the final financial statement approval date, even if they happen after initial public profit announcements. This rule applies equally to full-year reports and interim financial filings.",
+      "terminology": [
+        "public announcement",
+        "interim financial report",
+        "approval for issue"
+      ],
+      "instrument_references": [
+        "Ind AS 10, Paragraph 3"
+      ],
+      "inclusion": [
+        "Events between interim period ends and board approvals"
+      ],
+      "exclusion": [
+        "Events occurring after final board authorization"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes preliminary financial disclosures from formal statement authorization dates."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a4aee217-251e-4e6a-bc80-39b821425d2f",
+      "concept_name": "Nature of Reported Subsequent Events",
+      "definition": "Subsequent events comprise both positive developments and negative occurrences that transpire after the reporting period. Entities are obligated to account for and disclose both favorable and unfavorable outcomes comprehensively.",
+      "terminology": [
+        "favourable events",
+        "unfavourable events",
+        "comprehensive reporting"
+      ],
+      "instrument_references": [
+        "Ind AS 10"
+      ],
+      "inclusion": [
+        "Favorable post-period events",
+        "Unfavorable post-period events"
+      ],
+      "exclusion": [
+        "Exclusively negative or penalty-based disclosures"
+      ],
+      "nearby_distinctions": [
+        "Contrasts balanced reporting of all outcomes against asymmetric loss-only reporting."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "28647f3e-85cd-46c4-a5d2-4186e91ba00c",
+      "concept_name": "Types of Subsequent Events",
+      "definition": "Subsequent events are split into adjusting events that validate pre-existing conditions at the period end, and non-adjusting events that signal new circumstances arising thereafter. This classification dictates whether financial statement amounts require alteration.",
+      "terminology": [
+        "adjusting events",
+        "non-adjusting events",
+        "pre-existing conditions"
+      ],
+      "instrument_references": [
+        "Ind AS 10"
+      ],
+      "inclusion": [
+        "Events evidencing conditions existing at the reporting date",
+        "Events indicating conditions arising post-reporting period"
+      ],
+      "exclusion": [
+        "Unclassified operational fluctuations without evidential links"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes historical condition confirmation from newly initiated operational occurrences."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a5dae9c5-f665-47cd-b15b-8626038b00b9",
+      "concept_name": "Recognition and Measurement of Adjusting Events",
+      "definition": "Entities must modify financial statement amounts to reflect adjusting events occurring after the reporting period. Post-period legal settlements confirming existing obligations require direct provision adjustments under applicable accounting standards rather than mere note disclosures.",
+      "terminology": [
+        "adjusting events",
+        "present obligation",
+        "court case settlement"
+      ],
+      "instrument_references": [
+        "Ind AS 10",
+        "Ind AS 37"
+      ],
+      "inclusion": [
+        "Post-period settlements confirming existing reporting date obligations",
+        "Modifications to provisions for ongoing litigation"
+      ],
+      "exclusion": [
+        "Stand-alone contingent liability disclosures when settlement evidence exists"
+      ],
+      "nearby_distinctions": [
+        "Contrasts active statement adjustments with passive contingent disclosures."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d88074ac-ac40-4130-b755-ab9c28f23ebf",
+      "concept_name": "Accounting and Disclosure for Non-Adjusting Events",
+      "definition": "Amounts recognized in financial statements must not be adjusted for non-adjusting events that reflect later circumstances. If these subsequent occurrences are material, entities must disclose their nature alongside an estimate of the financial impact or a statement that such an estimation is impossible.",
+      "terminology": [
+        "non-adjusting events",
+        "fair value decline",
+        "materiality disclosure"
+      ],
+      "instrument_references": [
+        "Ind AS 10, Paragraph 21"
+      ],
+      "inclusion": [
+        "Post-period fair value drops in investments",
+        "Qualitative and quantitative disclosure of material non-adjusting items"
+      ],
+      "exclusion": [
+        "Numerical adjustments to primary financial statement balances"
+      ],
+      "nearby_distinctions": [
+        "Contrasts balance sheet remeasurement with supplementary descriptive note disclosures."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1aed1562-3458-439e-8cd0-e94223848b83",
+      "concept_name": "Long-Term Loan Arrangement Carve-Out",
+      "definition": "When a material loan covenant breach occurs on or before the reporting date, making a liability payable on demand, a lender's subsequent agreement before approval to waive demand is treated as an adjusting event. This specific carve-out allows the liability to retain its non-current classification.",
+      "terminology": [
+        "loan covenant breach",
+        "payable on demand",
+        "lender agreement"
+      ],
+      "instrument_references": [
+        "Ind AS 10, Paragraph 3"
+      ],
+      "inclusion": [
+        "Post-period lender waivers for pre-existing covenant breaches",
+        "Maintenance of non-current liability classifications"
+      ],
+      "exclusion": [
+        "Waivers obtained after the formal authorization of financial statements"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes standard non-adjusting subsequent events from mandated debt classification adjustments."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "e22feec703994ab2ef81232004aa0d84dd48087fa8368faed404626c9fa32fee",
+  "artifact_id": "94a7f2d3-11a5-4989-b45d-3bb17459567f",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8437,
+  "output_tokens": 3052,
+  "cost_usd": 0.010161100000000001,
+  "created_at": "2026-10-03T17:48:29.106460+00:00"
+}

@@ -1,0 +1,74 @@
+{
+  "descriptors": [
+    {
+      "node_id": "97e4a5ed-625a-44b4-b3fb-1fe62f4ca730",
+      "concept_name": "Disclosures for joint venture and associate",
+      "definition": "Entities must disclose material summarised financial information for each joint venture and associate, including assets, liabilities, revenue, and profit or loss elements. These figures must reconcile to the carrying amount of the investment after factoring in equity method adjustments or permitted alternative bases.",
+      "terminology": [
+        "summarised financial information",
+        "equity method",
+        "material joint venture",
+        "associate",
+        "reconciliation"
+      ],
+      "instrument_references": [
+        "Ind AS 28",
+        "Ind AS 111",
+        "Ind AS 110"
+      ],
+      "inclusion": [
+        "Current and non-current assets and liabilities of material joint ventures and associates",
+        "Revenue, profit or loss, and comprehensive income components",
+        "Dividends received and equity method reconciliation items"
+      ],
+      "exclusion": [
+        "Subsidiary consolidation disclosures not governed by associate and joint venture rules",
+        "Unadjusted investee financial statement figures when equity adjustments are required"
+      ],
+      "nearby_distinctions": [
+        "Distinct from general subsidiary disclosure requirements by focusing strictly on associates and joint ventures under the equity method or fair value exceptions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "07dc8896-ce42-4ad8-a515-32fe5c2ca269",
+      "concept_name": "Disclosure for subsidiary, associate or joint venture classified as held for sale",
+      "definition": "When an entity's interest in a subsidiary, joint venture, or associate is classified as held for sale under specific standards, standard summarised financial information disclosures are exempted. Separate financial statements require specific declarations regarding exemption usage, listing significant investments, and describing accounting methods.",
+      "terminology": [
+        "held for sale",
+        "disposal group",
+        "separate financial statements",
+        "investment entity",
+        "exemption from consolidation"
+      ],
+      "instrument_references": [
+        "Ind AS 105",
+        "Ind AS 27",
+        "Ind AS 110",
+        "Ind AS 111",
+        "Ind AS 28",
+        "Ind AS 112"
+      ],
+      "inclusion": [
+        "Declarations of separate financial statements and consolidation exemptions",
+        "Lists of significant investments detailing principal place of business, ownership proportions, and voting rights",
+        "Descriptions of accounting methods applied to subsidiaries, joint ventures, and associates"
+      ],
+      "exclusion": [
+        "Standard summarised financial information disclosures for investees classified as held for sale",
+        "Consolidated financial statement disclosures when consolidation is validly omitted"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between active equity-accounted investments requiring full summarised metrics and those classified as held for sale which receive disclosure relief."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "1f1eca16735920ad3d2549ce2b1d7971e6fa3128ceffcddfc608304fdf23285b",
+  "artifact_id": "70d8c7b2-d598-45e8-ba73-6d4b34e9bcec",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 1669,
+  "output_tokens": 747,
+  "cost_usd": 0.0023682,
+  "created_at": "2026-10-03T18:05:30.766320+00:00"
+}

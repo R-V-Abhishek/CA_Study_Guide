@@ -1,0 +1,305 @@
+{
+  "descriptors": [
+    {
+      "node_id": "71ff7074-8abc-4f0e-8d7d-c621f7b9cc15",
+      "concept_name": "Identification of Risks",
+      "definition": "Audit risk is the possibility of issuing an inappropriate opinion when financial statements are materially misstated. It is driven by inherent risks and control risks affecting account balances or assertions.",
+      "terminology": [
+        "Audit risk",
+        "Inherent risk",
+        "Control risk",
+        "Material misstatement"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Inherent risk evaluation at assertion and financial statement levels",
+        "Assessment of business and industry vulnerabilities"
+      ],
+      "exclusion": [
+        "Detection risk determination",
+        "Substantive testing procedures"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from control risk by assuming the complete absence of related internal controls when assessing susceptibility."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4508929c-33c2-4381-9eff-38cd9dab23c8",
+      "concept_name": "Audit Risk Components",
+      "definition": "Audit risk comprises inherent risk, control risk, and detection risk. These elements collectively measure the susceptibility of assertions to misstatement, the failure of internal controls to prevent or detect them, and the possibility that the auditor fails to find them.",
+      "terminology": [
+        "Inherent Risk",
+        "Control Risk",
+        "Detection Risk"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Inherent risk factors such as complexity and estimates",
+        "Control risk limitations and system design",
+        "Detection risk regarding auditor examination"
+      ],
+      "exclusion": [
+        "Management risk appetite formulation",
+        "Internal audit operational budgeting"
+      ],
+      "nearby_distinctions": [
+        "Inherent and control risks relate to the entity's environment and controls, whereas detection risk is controlled by the auditor's procedures."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a7f7c3e2-1feb-4d18-abc5-efe59fec5f36",
+      "concept_name": "Steps for Risk Identification",
+      "definition": "Risk identification involves determining the significance, likelihood, and assertion-level impact of potential misstatements. The auditor assesses internal control effectiveness and identifies high-risk areas requiring distinct audit responses.",
+      "terminology": [
+        "Significance",
+        "Likelihood",
+        "Assertions",
+        "Significant risks"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Evaluating internal control routine nature and automation",
+        "Documentation of management responses and affected assertions"
+      ],
+      "exclusion": [
+        "Final audit opinion formulation",
+        "Statutory compliance reporting"
+      ],
+      "nearby_distinctions": [
+        "Focuses specifically on individual account assertions and control characteristics rather than macro entity-level planning."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ba459000-7dc3-4a13-a235-9ea6f77bc415",
+      "concept_name": "RISK-BASED AUDIT APPROACH",
+      "definition": "A risk-based audit analyzes audit risks to establish materiality thresholds and allocate greater resources to high-risk areas. It focuses primarily on identifying and assessing financial statement misstatement risks to reduce them to an acceptable level.",
+      "terminology": [
+        "Risk-based audit",
+        "Materiality thresholds",
+        "Audit risk analysis"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Resource allocation to high-risk areas",
+        "Attest audit and financial systems evaluation",
+        "Performance audit risk analysis for efficiency and effectiveness"
+      ],
+      "exclusion": [
+        "Performing specific audit procedures on all areas uniformly",
+        "Sole reliance on substantive testing without risk analysis"
+      ],
+      "nearby_distinctions": [
+        "Differs from routine compliance auditing by concentrating resources exclusively on areas identified as major risks of material misstatement."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8a16c835-46ba-4c0f-9049-73c7fce49160",
+      "concept_name": "Audit Risk Analysis",
+      "definition": "Audit risk analysis evaluates errors and fraud that could cause the auditor to unknowingly fail to modify an inappropriate opinion. It requires the auditor to plan procedures to obtain reasonable assurance that financial statements are free from material misstatements.",
+      "terminology": [
+        "Error",
+        "Fraud",
+        "Reasonable assurance",
+        "Misstatement"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Assessment of unintentional mistakes from omission or commission",
+        "Evaluation of intentional misstatements designed to deceive or misappropriate"
+      ],
+      "exclusion": [
+        "Operational management decision-making",
+        "Internal control implementation by entity management"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between unintentional errors in principles or processing and intentional fraud involving record falsification or misrepresentation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6d9c5ca7-e13b-40b0-84e2-e49f0af86b0a",
+      "concept_name": "General Steps in the Conduct of Risk Based Audit",
+      "definition": "A risk-based audit follows three main phases comprising risk assessment, risk response, and reporting. The process involves understanding the business, assessing risks of material misstatement, and performing responsive audit procedures.",
+      "terminology": [
+        "Risk assessment",
+        "Risk response",
+        "Reporting",
+        "Substantive procedures"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Client acceptance and overall engagement planning",
+        "Designing further audit procedures for automated or high-risk areas",
+        "Communicating material internal control weaknesses"
+      ],
+      "exclusion": [
+        "Unplanned ad-hoc substantive testing",
+        "Management operational execution"
+      ],
+      "nearby_distinctions": [
+        "Separates the initial evaluation and planning phase from the execution of responsive audit procedures and final reporting."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "07e2add3-8e85-46f2-a0f0-7cf601d1691b",
+      "concept_name": "Nature of Internal Control",
+      "definition": "Internal control is a management-designed process to support efficient performance, compliance, and reliable financial reporting. Auditors primarily focus on controls relating to safeguarding assets, preventing fraud, and ensuring the accuracy of accounting records.",
+      "terminology": [
+        "Administrative controls",
+        "Accounting controls",
+        "Internal control process",
+        "Reasonable assurance"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Controls over asset safeguarding",
+        "Procedures for preventing and detecting fraud and error",
+        "Administrative controls bearing on financial record reliability"
+      ],
+      "exclusion": [
+        "Administrative controls with remote relationships to financial records",
+        "Isolated management practices unconnected to company activities"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between broad administrative controls and specific accounting controls that directly impact financial statement assertions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f23a24e4-77eb-4f36-8251-85539f307345",
+      "concept_name": "Scope of Internal Controls",
+      "definition": "Internal control scope spans broad administrative policies and specific accounting procedures intended to direct operations and safeguard assets. The auditor evaluates controls that affect financial statement assertions, asset safeguarding, and reliable reporting.",
+      "terminology": [
+        "Administrative controls",
+        "Accounting controls",
+        "Authorization of transaction",
+        "Accountability"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Production methods and pricing policies with financial record relevance",
+        "Compliance controls with direct and material financial impact"
+      ],
+      "exclusion": [
+        "Administrative policies entirely detached from financial record reliability",
+        "Standalone operational practices"
+      ],
+      "nearby_distinctions": [
+        "Confines the financial auditor's review to administrative controls that bear on financial data reliability rather than general management efficiency."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9dbb06fe-b491-4676-863f-70e35f9c946a",
+      "concept_name": "Objectives of Internal Control System",
+      "definition": "Internal control objectives are established by management to ensure transactions are properly authorized, promptly recorded, and accurately valued. These controls help maintain asset accountability and provide reasonable assurance regarding operational and reporting goals.",
+      "terminology": [
+        "Authorization",
+        "Accountability",
+        "Reasonable assurance",
+        "Accounting control objectives"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Execution of transactions via management authorization",
+        "Timely recording and proper valuation of transactions",
+        "Periodic asset verification and safeguarding"
+      ],
+      "exclusion": [
+        "Absolute assurance of objective achievement",
+        "Unchecked manual processing without oversight"
+      ],
+      "nearby_distinctions": [
+        "Differs from absolute systems by explicitly recognizing inherent limitations that restrict controls to providing reasonable assurance only."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1ea21c18-b2ad-4357-ad84-731ed5075f3f",
+      "concept_name": "Structure of Internal Control",
+      "definition": "An effective internal control structure establishes policies like segregation of duties, duty rotation, and transaction authorization. These mechanisms minimize errors and fraud by ensuring no single person completes a transaction from start to finish.",
+      "terminology": [
+        "Segregation of duties",
+        "Rotation of duties",
+        "Authorization of transaction",
+        "Physical custody"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Separation of authorization, execution, custody, and recordkeeping",
+        "General and specific management authorization procedures",
+        "Periodic rotation of personnel duties"
+      ],
+      "exclusion": [
+        "Cumbersome over-elaboration resulting in excessive administrative costs",
+        "Unrestricted end-to-end processing by a single individual"
+      ],
+      "nearby_distinctions": [
+        "Contrasts general authorizations applying to routine classes of transactions with specific authorizations required for individual non-standard transactions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7355a859-cb18-47de-9532-a0e133b77a7f",
+      "concept_name": "Control Environment",
+      "definition": "The control environment encompasses governance and management attitudes, awareness, and actions regarding internal controls and ethical values. It sets the foundational tone of an organization, influencing the control consciousness of its personnel.",
+      "terminology": [
+        "Integrity and ethical values",
+        "Commitment to competence",
+        "Governance participation",
+        "Management philosophy"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Communication of behavioral standards and codes of conduct",
+        "Oversight responsibilities by those charged with governance",
+        "Organizational structure and reporting lines"
+      ],
+      "exclusion": [
+        "Individual activity-level operational controls",
+        "Automated application controls within IT systems"
+      ],
+      "nearby_distinctions": [
+        "Serves as the overarching foundation for all other internal control components rather than acting as a specific transaction-level procedure."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "da696f32-914e-48ef-8985-d832f7647f44",
+      "concept_name": "Entity’s Risk Assessment Process",
+      "definition": "An entity's risk assessment process identifies and manages business risks relevant to the preparation of financial statements in accordance with the applicable framework. It involves estimating the significance and likelihood of risks arising from internal or external changes.",
+      "terminology": [
+        "Business risks",
+        "Financial reporting framework",
+        "Significance",
+        "Likelihood"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Identifying unrecorded transactions and estimation risks",
+        "Assessing risks from operating environment changes, new technology, or rapid growth",
+        "Management plans to respond to and manage risks"
+      ],
+      "exclusion": [
+        "Auditor's substantive risk assessment procedures",
+        "Direct preparation of financial statements by auditors"
+      ],
+      "nearby_distinctions": [
+        "Represented as management's internal mechanism for identifying reporting risks, distinct from the independent auditor's assessment of audit risk."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "330fab70ef66f856fdc668d45f7a4d8ac48c1b51d6b41d9d6d0a47764a04b2e9",
+  "artifact_id": "12bad14c-1105-4bfe-84d1-eb5746a82dc5",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 7826,
+  "output_tokens": 3192,
+  "cost_usd": 0.0103278,
+  "created_at": "2026-10-03T18:10:05.661477+00:00"
+}

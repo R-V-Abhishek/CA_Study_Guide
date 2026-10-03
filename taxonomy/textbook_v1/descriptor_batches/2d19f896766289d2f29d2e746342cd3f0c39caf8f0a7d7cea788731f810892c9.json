@@ -1,0 +1,275 @@
+{
+  "descriptors": [
+    {
+      "node_id": "d4025a7d-f657-45bf-b670-0de922ff9a01",
+      "concept_name": "The Service Ecosystem Model",
+      "definition": "A business model where a company offers integrated products using a lock-in system to restrict consumer choices and eliminate competition. Premium differentiation brands deploy this setup to draw buyers into an exclusive network and retain them.",
+      "terminology": [
+        "lock system",
+        "integrated products",
+        "ecosystem"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Offering bundled product lines",
+        "Restricting consumer alternatives"
+      ],
+      "exclusion": [
+        "Unbundled standalone commodity sales"
+      ],
+      "nearby_distinctions": [
+        "Unlike the Experience Model which focuses on luxury fitting and bespoke service, the Service Ecosystem Model relies on product integration and customer lock-in."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "23a40d74-3b92-4fa5-87d0-d36f7644eddc",
+      "concept_name": "The Experience Model",
+      "definition": "An innovative business model delivering unique and stylish offerings combined with personalized experiences that heighten customer value. This approach secures market leadership and deters switching by integrating custom experiential components.",
+      "terminology": [
+        "experience component",
+        "market leadership",
+        "bespoke fitting"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Personalized manufacturing fittings",
+        "Exclusive customer lounges"
+      ],
+      "exclusion": [
+        "Standardized mass-market product distribution"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from the On Demand Model by focusing on experiential luxury and bespoke physical customization rather than monetizing speed and instant access."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5813c505-0797-421c-8f66-7c03c9a98faf",
+      "concept_name": "On Demand Model",
+      "definition": "A disruptive business model that monetizes time by charging premiums for instant, convenient access to services through digital technologies. It creates organizational advantage by offering seamless time and place utility.",
+      "terminology": [
+        "monetizing time",
+        "instant access",
+        "digital technologies"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "App-based cab booking",
+        "Online food and grocery ordering apps"
+      ],
+      "exclusion": [
+        "Traditional retail models requiring physical store visits without digital acceleration"
+      ],
+      "nearby_distinctions": [
+        "Differs from the Experience Model by prioritizing immediate availability and convenience rather than bespoke physical luxury craftsmanship."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ecb7cc7e-ab17-4aa1-bdf5-6efb1f39ae2d",
+      "concept_name": "Models Relevant to Sustainability",
+      "definition": "Business frameworks that integrate social and environmental perspectives alongside economic goals to generate monetary and nonmonetary stakeholder value. They align with systems theory principles such as operational modularity and resource diversity.",
+      "terminology": [
+        "triple bottom line",
+        "systems theory",
+        "stakeholder value"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Social governance aspects",
+        "Environmental footprint mitigation"
+      ],
+      "exclusion": [
+        "Purely profit-driven operational models lacking ecological considerations"
+      ],
+      "nearby_distinctions": [
+        "Unlike standard commercial models that focus only on financial returns, sustainable models explicitly incorporate ecological and societal health metrics."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2f080446-7c73-4c78-bf28-0bc4c289b9fb",
+      "concept_name": "Approaches for Developing A Sustainable Business Model",
+      "definition": "Methodologies utilized to formulate sustainable business strategies through mechanisms like product service systems, closed-loop production, and collaborative open innovation. These approaches target waste reduction, resource efficiency, and shared value creation.",
+      "terminology": [
+        "product service systems",
+        "closed-loop production",
+        "open innovation"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Cradle-to-cradle manufacturing",
+        "Peer-to-peer resource sharing networks"
+      ],
+      "exclusion": [
+        "Linear extract-make-dispose economic models"
+      ],
+      "nearby_distinctions": [
+        "Unlike basic strategic planning tools, these development approaches explicitly mandate circular resource flows and collaborative stakeholder ecosystems."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1b47e22c-3c13-4ddc-b76f-003a76781860",
+      "concept_name": "Models Relevant to Emerging National Markets",
+      "definition": "Analytical classifications used to characterize national economies transitioning toward free markets, featuring intermediate incomes and rapid growth. These markets present major expansion opportunities requiring customized business strategies.",
+      "terminology": [
+        "emerging economy",
+        "PPP per capita income",
+        "market extension strategy"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Economies experiencing catching-up growth",
+        "Nations undergoing institutional market transformations"
+      ],
+      "exclusion": [
+        "Fully mature, stable advanced industrialized economies"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from static developed markets by rapid structural changes, institutional flux, and income convergence dynamics."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "eb38d2ec-5210-4296-9cc3-438dcaf6c48e",
+      "concept_name": "Emerging Markets/ Economies",
+      "definition": "Regions characterized by rapid informationalization, institutional transformation, and intermediate purchasing power parity income ranges. They act as prime targets for market extension strategies due to their substantial share of global consumption.",
+      "terminology": [
+        "intermediate income",
+        "catching-up growth",
+        "globalisation"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Economies with per capita income between 10% and 75% of EU averages",
+        "Nations showing a decade of brisk economic growth"
+      ],
+      "exclusion": [
+        "Advanced industrialized nations with stagnant growth patterns"
+      ],
+      "nearby_distinctions": [
+        "Unlike mature economies, emerging economies exhibit ongoing institutional shifts and rapid integration into the global marketplace."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1a705730-f256-4bba-b8a4-7e517148ce66",
+      "concept_name": "Importance of Emerging Markets and Strings attached to it.",
+      "definition": "Strategic evaluation of high-consumption developing nations requiring international firms to significantly cut costs or rebuild business models from scratch. Organizations must adapt offerings to accommodate local price sensitivities and resource constraints.",
+      "terminology": [
+        "price sensitive market",
+        "cost cutting",
+        "value creation"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Adapting pricing models for local populations",
+        "Treating international expansion projects like foundational start-ups"
+      ],
+      "exclusion": [
+        "Deploying rigid, unadjusted global pricing strategies"
+      ],
+      "nearby_distinctions": [
+        "Unlike expansion into developed regions, emerging market entry necessitates fundamental cost restructuring due to local purchasing limits."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6f0ce00a-c67e-453e-8510-428dbf293401",
+      "concept_name": "Characteristic of Emerging National Markets relevant to the Business Model",
+      "definition": "Specific socio-political and economic market conditions, such as infrastructural inadequacy and unbranded competition, that dictate corporate strategy customization. Business models must evaluate these host country traits to address local resource constraints.",
+      "terminology": [
+        "market heterogeneity",
+        "inadequate infrastructure",
+        "unbranded competition"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Evaluating sociopolitical governance",
+        "Addressing informal institutional flux"
+      ],
+      "exclusion": [
+        "Assuming homogenous, highly regulated institutional environments"
+      ],
+      "nearby_distinctions": [
+        "Focuses specifically on structural frictions like distribution bottlenecks and resource shortages rather than general macroeconomic growth figures."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "36ee4f36-8d57-448b-a33a-c3110df8f8a0",
+      "concept_name": "Strategies Pertaining to Digital Technologies and the Advancement Thereof",
+      "definition": "Strategic approaches where start-ups center their business models on digital innovations for market disruption, while incumbents balance optimization with technological advancement. Lifecycle phases dictate how firms leverage emerging digital tools for growth.",
+      "terminology": [
+        "digital technologies",
+        "disruption",
+        "fintech innovation"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Payment solution integrations",
+        "Telecommunication technology upgrades"
+      ],
+      "exclusion": [
+        "Relying entirely on manual, non-digital legacy operations"
+      ],
+      "nearby_distinctions": [
+        "Unlike traditional administrative planning, this approach leverages core technological innovations to restructure service delivery and payments."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "eba90432-c6d3-4175-a577-51d53a80d16f",
+      "concept_name": "Value-Based Strategy (Value Capture Model) in a Business Ecosystem",
+      "definition": "Strategic focus within a cooperative network of organizations where firms concentrate on dominating aspects that generate major customer value. The approach prioritizes collaborative partnerships and ecosystem integration over isolated competition.",
+      "terminology": [
+        "value capture model",
+        "business ecosystem",
+        "system integrator"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Investing in capabilities influencing value capture",
+        "Acting as a central system integrator"
+      ],
+      "exclusion": [
+        "Operating in isolated, non-collaborative traditional markets"
+      ],
+      "nearby_distinctions": [
+        "Shifts focus from internal operational superiority over rivals to collaborative network optimization and partnership synergy."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "13d7f0c5-194f-49c4-b7f4-3615bb063340",
+      "concept_name": "Strategies to Capture Value",
+      "definition": "Guidelines involving resource and capability investments that enable firms to secure economic value within an ecosystem. Organizations execute this by addressing changing consumer needs, maintaining unique selling propositions, and acting as indispensable integrators.",
+      "terminology": [
+        "USP locus",
+        "system integrator",
+        "customer needs"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Adding recording features to set-top boxes",
+        "Positioning brand components prominently"
+      ],
+      "exclusion": [
+        "Ignoring shifting lifestyle trends and consumer preferences"
+      ],
+      "nearby_distinctions": [
+        "Distinct from broad corporate vision setting because it targets specific mechanisms like brand positioning and ecosystem integration to retain value."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "2d19f896766289d2f29d2e746342cd3f0c39caf8f0a7d7cea788731f810892c9",
+  "artifact_id": "93270a60-645c-46b1-b75f-5a66ce49fc26",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8524,
+  "output_tokens": 2879,
+  "cost_usd": 0.009754700000000002,
+  "created_at": "2026-10-03T18:27:06.872256+00:00"
+}

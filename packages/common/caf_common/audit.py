@@ -231,10 +231,28 @@ def collect_baseline(engine: Engine, project_root: Path = Path.cwd()) -> dict:
                     appearance["provenance_evidence"] = ["No matching source document"]
             score_context = _rows(conn, "SELECT id, scoring_version, config_hash, target_attempt_id, shadow, is_current, status, started_at, finished_at FROM intel.score_run ORDER BY id")
             taxonomy = _rows(conn, "SELECT id, git_sha, yaml_hash, loaded_at, notes FROM ref.taxonomy_version ORDER BY id")
+            legacy_scope = "TRUE"
+            textbook_releases = []
+            if "ref.taxonomy_release" in counts:
+                legacy_scope = """n.id NOT IN (SELECT m.node_id FROM ref.taxonomy_member m
+                    JOIN ref.taxonomy_release r ON r.taxonomy_version_id=m.taxonomy_version_id
+                    WHERE r.status<>'legacy')"""
+                textbook_releases = _rows(conn, """
+                    SELECT r.version_id, r.taxonomy_version_id, r.status, r.target_attempt,
+                           r.manifest_hash,
+                           (SELECT count(*) FROM ref.taxonomy_member m WHERE m.taxonomy_version_id=r.taxonomy_version_id) AS node_count,
+                           (SELECT count(*) FROM ref.textbook_artifact a WHERE a.taxonomy_version_id=r.taxonomy_version_id) AS artifact_count,
+                           (SELECT count(*) FROM ref.descriptor_revision d WHERE d.taxonomy_version_id=r.taxonomy_version_id) AS descriptor_revision_count,
+                           (SELECT count(*) FROM ref.descriptor_approval a JOIN ref.descriptor_revision d ON d.id=a.revision_id WHERE d.taxonomy_version_id=r.taxonomy_version_id) AS recorded_descriptor_approval_count
+                    FROM ref.taxonomy_release r WHERE r.status<>'legacy'
+                    ORDER BY r.taxonomy_version_id
+                """)
             taxonomy_completeness = {
-                "nodes_by_paper_level": _rows(conn, "SELECT paper_id, level, status, count(*) AS count FROM ref.node GROUP BY paper_id, level, status ORDER BY paper_id, level, status"),
+                "scope": "legacy",
+                "nodes_by_paper_level": _rows(conn, f"SELECT n.paper_id, n.level, n.status, count(*) AS count FROM ref.node n WHERE {legacy_scope} GROUP BY n.paper_id, n.level, n.status ORDER BY n.paper_id, n.level, n.status"),
                 "descriptors_by_approval_source": _rows(conn, "SELECT approved, source, count(*) AS count FROM ref.descriptor GROUP BY approved, source ORDER BY approved, source"),
-                "subtopics_missing_descriptors": _rows(conn, "SELECT n.id AS node_id, n.paper_id, n.status FROM ref.node n LEFT JOIN ref.descriptor d ON d.node_id=n.id WHERE n.level='subtopic' AND d.node_id IS NULL ORDER BY n.paper_id, n.id"),
+                "subtopics_missing_descriptors": _rows(conn, f"SELECT n.id AS node_id, n.paper_id, n.status FROM ref.node n LEFT JOIN ref.descriptor d ON d.node_id=n.id WHERE n.level='subtopic' AND d.node_id IS NULL AND {legacy_scope} ORDER BY n.paper_id, n.id"),
+                "textbook_releases": textbook_releases,
             }
             classification_runs = _rows(conn, "SELECT DISTINCT r.id, r.stage, r.git_sha, r.config_hash, r.args, r.status FROM ops.run r JOIN ingest.tag_suggestion s ON s.run_id=r.id ORDER BY r.id")
             protected_content = database_content(conn, ("app", "core"))
@@ -243,7 +261,7 @@ def collect_baseline(engine: Engine, project_root: Path = Path.cwd()) -> dict:
         "schema_revision": revision, "database_transaction": snapshot,
         "source_database_policy": "All database reads share one PostgreSQL-enforced read-only transaction. Audit creates no run, event, or other source record.",
         "filesystem_consistency": "Source-file checks are observations, not a PostgreSQL snapshot of filesystem state.",
-        "limitations": ["Legacy core.decision has no reliable reviewer identity. No decision is attributed to a student.", "Official URL plus matching bytes identifies source provenance; it does not validate extracted text or classification.", "Synthetic signatures cover known repository fixture producers; absence of a signature is not proof of authenticity.", "scripts/classify_worker.py substitutes the first available node for invalid model outputs without recording that fallback; those forced defaults cannot be reliably identified retrospectively.", "Reports identify concerns only; no corpus records were changed."],
+        "limitations": ["Legacy core.decision has no reliable reviewer identity. No decision is attributed to a student.", "Official URL plus matching bytes identifies source provenance; it does not validate extracted text or classification.", "Synthetic signatures cover known repository fixture producers; absence of a signature is not proof of authenticity.", "Historical versions of scripts/classify_worker.py substituted the first available node for invalid model outputs without recording that fallback; those forced defaults cannot be reliably identified retrospectively.", "Reports identify concerns only; no corpus records were changed."],
         "table_counts": counts, "personal_data_counts": {k: v for k, v in counts.items() if k.startswith("app.")},
         "protected_table_content": protected_content,
         "document_processing_groups": groups, "documents": documents,
@@ -276,7 +294,7 @@ def render_markdown(report: dict) -> str:
                   f"Confirmed synthetic standalone appearances: {len(report['confirmed_synthetic_appearances'])}.",
                   f"Current gradable units without paired answers: {len(report['lineage']['current_gradable_units_without_answers'])}.",
                   f"Published source-reference issues: {len(report['lineage']['published_reference_issues'])}.",
-                  f"Subtopics without descriptors: {len(report['taxonomy_completeness']['subtopics_missing_descriptors'])}.",
+                  f"Legacy subtopics without descriptors: {len(report['taxonomy_completeness']['subtopics_missing_descriptors'])}.",
                   f"Numeric confidence groups: {dict(sorted(confidence_counts.items()))}.",
                   "", "Personal-data counts:", ""])
     lines.extend(f"- {table}: {count}" for table, count in report["personal_data_counts"].items())

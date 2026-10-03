@@ -1,0 +1,358 @@
+{
+  "descriptors": [
+    {
+      "node_id": "8f454b48-f044-467c-b31b-295c5923b6c3",
+      "concept_name": "Disclosures in Offer Documents and Lead Manager Obligations",
+      "definition": "Offer documents must provide true and adequate material disclosures to help applicants make informed investment decisions. Lead managers are obligated to exercise due diligence regarding issue aspects and ensure that financial statements are not more than six months old.",
+      "terminology": [
+        "draft offer document",
+        "red-herring prospectus",
+        "shelf prospectus",
+        "lead manager",
+        "due diligence"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013",
+        "Schedule VI of SEBI ICDR Regulations"
+      ],
+      "inclusion": [
+        "Material disclosures in draft and final offer documents",
+        "Financial statements dating within six months of issue opening",
+        "Certificates and due diligence by lead managers"
+      ],
+      "exclusion": [
+        "Post-issue market performance analysis",
+        "Non-material operational data"
+      ],
+      "nearby_distinctions": [
+        "Differs from general ongoing periodic disclosures under LODR regulations by focusing specifically on initial capital issuance documents."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "79b4e961-b279-4001-8d90-2ffb6fc2f76f",
+      "concept_name": "Disclosures in the Draft Offer Document and the Offer Document",
+      "definition": "Offer documents must contain true and adequate material disclosures under the Companies Act and relevant schedules to guide investor decisions. Lead managers must verify issue aspects and confirm that financial statement particulars are current within six months.",
+      "terminology": [
+        "material disclosures",
+        "red-herring prospectus",
+        "shelf prospectus",
+        "lead manager"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013",
+        "Schedule VI"
+      ],
+      "inclusion": [
+        "Disclosures required by the Companies Act and SEBI schedules",
+        "Due diligence by lead managers on all issue aspects"
+      ],
+      "exclusion": [
+        "Post-issue compliance reports",
+        "Unverified promotional claims"
+      ],
+      "nearby_distinctions": [
+        "Focuses on mandatory disclosures within the offer document lifecycle rather than general stock exchange disclosures."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "dc50e4e2-dec9-4f56-96ee-f8033c56a80c",
+      "concept_name": "Filing of the Draft Offer Document and Offer Documents (Regulation 123)",
+      "definition": "Issuers must file multiple copies of draft offer documents along with specified fees and due diligence certificates with the Board prior to a further public offer. The Board reviews these documents and may issue observations or mandate changes within a specified timeframe.",
+      "terminology": [
+        "draft offer document",
+        "Board observations",
+        "due diligence certificate",
+        "lead manager",
+        "convertible debt instruments"
+      ],
+      "instrument_references": [
+        "Regulation 123",
+        "Schedule III",
+        "Schedule IV",
+        "Schedule V",
+        "Schedule VI"
+      ],
+      "inclusion": [
+        "Submission of draft offer documents to the Board and stock exchanges",
+        "Filing of required certificates from lead managers and debenture trustees",
+        "Incorporation of Board observations into an updated draft document"
+      ],
+      "exclusion": [
+        "Final allotment of shares",
+        "Post-issue listing applications handled separately"
+      ],
+      "nearby_distinctions": [
+        "Focuses on regulatory pre-issue filing and observation clearance rather than the final public circulation stage."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "28e67a10-f701-427a-ab6a-394aeee7f642",
+      "concept_name": "Draft Offer Document and Offer Document to be Available to the Public (Regulation 124)",
+      "definition": "Draft offer documents must be hosted on designated websites for public comments for at least twenty-one days accompanied by a public announcement in newspapers. Issuers and lead managers must ensure that publicly hosted versions match those filed with regulatory authorities.",
+      "terminology": [
+        "public announcement",
+        "public comments",
+        "website hosting",
+        "national daily",
+        "Registrar of Companies"
+      ],
+      "instrument_references": [
+        "Regulation 124"
+      ],
+      "inclusion": [
+        "Public availability of draft offer documents for comments",
+        "Newspaper announcements of document filing",
+        "Filing of public comment details and consequential modifications"
+      ],
+      "exclusion": [
+        "Private placement memorandums",
+        "Internal board memos"
+      ],
+      "nearby_distinctions": [
+        "Focuses on public feedback collection and transparency obligations rather than the initial internal regulatory filing."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e9db2f6f-7769-4558-b1df-6640d6c47002",
+      "concept_name": "PRICING",
+      "definition": "Issuers determine share prices, conversion prices, or coupon rates in consultation with lead managers or through the book building mechanism. Final prospectuses filed with the Registrar of Companies must reflect a single price or specific coupon rate.",
+      "terminology": [
+        "price band",
+        "floor price",
+        "book building process",
+        "coupon rate",
+        "conversion price"
+      ],
+      "instrument_references": [
+        "Regulation 125",
+        "Regulation 126",
+        "Regulation 127",
+        "Schedule XIII"
+      ],
+      "inclusion": [
+        "Face value disclosure alongside price band or issue price",
+        "Pricing determination via book building or consultation",
+        "Price band constraints and floor price announcements"
+      ],
+      "exclusion": [
+        "Post-listing secondary market price stabilization mechanisms",
+        "Arbitrary pricing without formulaic disclosure"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between fixed price issues and book-built issue pricing frameworks."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "57154d97-dcec-4500-85ff-9a3f95bf89a3",
+      "concept_name": "Face value of equity shares (Regulation 125)",
+      "definition": "The face value of equity shares must be clearly disclosed alongside the price band or issue price in all draft offer documents, offer documents, advertisements, and application forms. This disclosure must use an identical font size to ensure prominence and clarity for investors.",
+      "terminology": [
+        "face value",
+        "price band",
+        "issue price",
+        "application form",
+        "identical font size"
+      ],
+      "instrument_references": [
+        "Regulation 125"
+      ],
+      "inclusion": [
+        "Face value disclosure in offer documents and advertisements",
+        "Uniform font size requirement across application materials"
+      ],
+      "exclusion": [
+        "Market capitalization calculations",
+        "Dividend payout history"
+      ],
+      "nearby_distinctions": [
+        "Centers purely on face value disclosure formatting rather than pricing determination formulas."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5dc74b67-638e-4f41-9091-6bf3ce8388b9",
+      "concept_name": "Pricing (Regulation 126)",
+      "definition": "An issuer establishes equity share prices, conversion prices, and coupon rates either through consultations with lead managers or by executing a formal book building process. The book building procedure must strictly follow the operational rules specified in the applicable schedule.",
+      "terminology": [
+        "coupon rate",
+        "conversion price",
+        "lead manager",
+        "book building process"
+      ],
+      "instrument_references": [
+        "Regulation 126",
+        "Schedule XIII"
+      ],
+      "inclusion": [
+        "Price determination consultation with lead managers",
+        "Book building execution methodology"
+      ],
+      "exclusion": [
+        "Fixed-price allocation procedures handled outside book building",
+        "Secondary market trading prices"
+      ],
+      "nearby_distinctions": [
+        "Emphasizes the mechanism of price discovery over statutory disclosures of face value or price bands."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5cfcc403-5a52-4abe-8c63-ad26fae71a5d",
+      "concept_name": "Price and price band (Regulation 127)",
+      "definition": "Issuers specify fixed prices or price bands in offer documents and determine final prices prior to filing prospectuses with the Registrar of Companies. The cap on a price band must remain within specified percentage thresholds above the floor price, which cannot fall below the security face value.",
+      "terminology": [
+        "price band",
+        "floor price",
+        "red herring prospectus",
+        "Registrar of Companies",
+        "cap price"
+      ],
+      "instrument_references": [
+        "Regulation 127",
+        "Schedule X"
+      ],
+      "inclusion": [
+        "Floor price and price band limits relative to face value",
+        "Percentage constraints between price band caps and floors",
+        "Pre-bid advertisements and financial ratio disclosures"
+      ],
+      "exclusion": [
+        "Post-filing price modifications",
+        "Discretionary pricing below face value"
+      ],
+      "nearby_distinctions": [
+        "Focuses on numerical boundary constraints for price bands rather than general pricing consultation procedures."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4a455a59-3640-4bd0-8a12-4bd334aebac4",
+      "concept_name": "Differential pricing (Regulation 128)",
+      "definition": "Issuers may offer specified securities at varied prices to specific categories such as retail investors, employees, or anchor investors under prescribed discount thresholds. Any price discount or cross-issue pricing difference must be explicitly justified and expressed in rupee terms within the offer document.",
+      "terminology": [
+        "differential pricing",
+        "retail individual investors",
+        "anchor investors",
+        "discount",
+        "composite issue"
+      ],
+      "instrument_references": [
+        "Regulation 128",
+        "Regulation 130",
+        "Schedule XIII"
+      ],
+      "inclusion": [
+        "Discount limits for retail investors and employees",
+        "Pricing parity rules for anchor investors",
+        "Justification requirements for composite issue price variations"
+      ],
+      "exclusion": [
+        "Discriminatory pricing outside permitted regulatory categories",
+        "Unexpressed percentage discounts"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes uniform pricing rules from permitted exceptions allowing targeted discounts for specific investor classes."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e807059d-ee6f-4007-8896-b57a4efc90ef",
+      "concept_name": "ISSUANCE CONDITIONS AND PROCEDURE",
+      "definition": "This framework governs the procedural requirements and category-wise allocation quotas for public issues conducted through book building. It establishes mandatory distribution percentages across retail, non-institutional, and qualified institutional buyer categories.",
+      "terminology": [
+        "net offer",
+        "book building process",
+        "retail individual investors",
+        "qualified institutional buyers",
+        "non-institutional investors"
+      ],
+      "instrument_references": [
+        "Regulation 103",
+        "Regulation 129"
+      ],
+      "inclusion": [
+        "Procedural conditions for public issues",
+        "Allocation frameworks across investor categories"
+      ],
+      "exclusion": [
+        "Private placement procedures",
+        "Rights issue guidelines"
+      ],
+      "nearby_distinctions": [
+        "Focuses on post-pricing allocation mechanics rather than the initial pricing determination stages."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5cf45ffb-cced-429b-9600-11d4e012b4af",
+      "concept_name": "Allocation in the net offer (Regulation 129)",
+      "definition": "Net offer allocations in book-built issues must adhere to prescribed minimum and maximum percentage quotas designated for retail individual investors, non-institutional investors, and qualified institutional buyers. Subscriptions within these categories permit specific spillover adjustments and sub-allocations for mutual funds and anchor investors.",
+      "terminology": [
+        "net offer",
+        "retail individual investors",
+        "non-institutional investors",
+        "qualified institutional buyers",
+        "anchor investors"
+      ],
+      "instrument_references": [
+        "Regulation 103",
+        "Regulation 129",
+        "Schedule XIII"
+      ],
+      "inclusion": [
+        "Category-wise quota percentages for book-built issues",
+        "Mutual fund and anchor investor sub-allocations",
+        "Non-institutional investor application size sub-reservations"
+      ],
+      "exclusion": [
+        "Promoter contribution shares",
+        "Unsubscribed portion retentions without spillover"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between institutional and retail quotas while enforcing strict internal caps within non-institutional brackets."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f51471e3-cab5-4194-80d3-c05b6e791001",
+      "concept_name": "Reservation on a competitive basis (Regulation 130)",
+      "definition": "Issuers may carve out competitive reservations from the issue size excluding promoter contributions for eligible employees and specific shareholders. These reservations are subject to strict percentage limits, individual allotment caps, and rules governing unsubscribed portion adjustments.",
+      "terminology": [
+        "competitive basis",
+        "employee reservation",
+        "shareholder reservation",
+        "post-issue capital",
+        "inter-se adjustments"
+      ],
+      "instrument_references": [
+        "Regulation 130",
+        "Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Reservations for employees and eligible shareholders",
+        "Caps on employee and shareholder reservation percentages",
+        "Rules for handling under-subscription and spillover into net public offers"
+      ],
+      "exclusion": [
+        "Reservations for lead managers, registrars, or syndicate members",
+        "Promoter group reservations"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes targeted competitive reservations from standard net public offer allocations."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "66205f94a8a23166663b92dd85aeb6c3344cf37b081e4255b7bc7e2a6d73bb10",
+  "artifact_id": "ea684bf0-7c94-4045-a244-75e8b4a2e2df",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 9648,
+  "output_tokens": 3638,
+  "cost_usd": 0.011989399999999999,
+  "created_at": "2026-10-03T18:25:16.110314+00:00"
+}

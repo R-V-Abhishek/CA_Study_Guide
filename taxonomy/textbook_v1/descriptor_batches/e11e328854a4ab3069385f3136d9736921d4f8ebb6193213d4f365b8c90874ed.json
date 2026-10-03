@@ -1,0 +1,336 @@
+{
+  "descriptors": [
+    {
+      "node_id": "83e13b6a-409f-40f0-b3dd-9599c0985abd",
+      "concept_name": "Selection of Accounting Policy in Absence of Specific Standard",
+      "definition": "When no specific Ind AS governs a transaction, management uses its judgment to develop an accounting policy ensuring the resulting information is relevant to economic decisions and faithfully represents financial position, performance, and cash flows. The chosen policy must reflect economic substance over legal form while remaining neutral, prudent, and complete.",
+      "terminology": [
+        "economic substance",
+        "neutrality",
+        "prudence",
+        "relevance",
+        "reliability"
+      ],
+      "instrument_references": [
+        "Ind AS 8"
+      ],
+      "inclusion": [
+        "Transactions or conditions not explicitly covered by existing Ind AS",
+        "Policies developed via management judgment reflecting economic substance"
+      ],
+      "exclusion": [
+        "Transactions explicitly addressed by an existing specific Ind AS"
+      ],
+      "nearby_distinctions": [
+        "Differs from applying a clear existing standard; applies only when a regulatory gap exists for new business models or technologies."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3529a8b6-c0ba-43e5-bfe2-1dd5a7fb2720",
+      "concept_name": "Consistency of Accounting Policies",
+      "definition": "Entities must select and apply accounting policies consistently for similar transactions, events, and conditions unless an explicit standard requires or permits categorization. Maintaining consistency ensures that financial results across different periods remain comparable and reflect a true and fair financial position.",
+      "terminology": [
+        "consistency",
+        "categorisation",
+        "comparability",
+        "similar transactions"
+      ],
+      "instrument_references": [
+        "Ind AS 8",
+        "Ind AS 2",
+        "Ind AS 27"
+      ],
+      "inclusion": [
+        "Uniform application of cost formulas or valuation models across similar asset classes",
+        "Categorized items permitted by specific Ind AS to use different policies"
+      ],
+      "exclusion": [
+        "Arbitrary or year-to-year shifts in accounting bases without standard justification"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from changes in accounting policies, which are strictly restricted unless mandated or proven to provide more relevant and reliable information."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2cea5ba9-befd-42f6-93d4-1caa13775f8f",
+      "concept_name": "Changes in Accounting Policies",
+      "definition": "An entity is restricted from altering its established accounting policies unless the change is mandated by an accounting standard or produces more reliable and relevant information for users. Frequent or arbitrary shifts are disallowed to preserve the temporal comparability of financial statements and trends.",
+      "terminology": [
+        "voluntary change",
+        "mandatory change",
+        "retrospective application",
+        "comparability"
+      ],
+      "instrument_references": [
+        "Ind AS 8",
+        "Ind AS 27",
+        "Ind AS 33"
+      ],
+      "inclusion": [
+        "Changes required by a new or revised Ind AS",
+        "Voluntary modifications providing enhanced relevance and reliability"
+      ],
+      "exclusion": [
+        "Initial adoption of policies for transactions previously immaterial or non-existent",
+        "Adoption of a new policy for events differing in substance"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from changes in accounting estimates, which arise from new information or changing circumstances rather than a modification of foundational accounting principles."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9975faa9-aad2-4dea-9361-1c53329c329e",
+      "concept_name": "Disclosure Regarding the Changes in Accounting Policies",
+      "definition": "When an initial standard application or a voluntary policy change affects current, prior, or future periods, the entity must disclose comprehensive details including the nature of the change, transitional provisions, and line-item adjustments. If retrospective application is impracticable, the circumstances and operational application method must be explicitly stated.",
+      "terminology": [
+        "transitional provisions",
+        "impracticable",
+        "line item adjustment",
+        "earnings per share"
+      ],
+      "instrument_references": [
+        "Ind AS 8",
+        "Ind AS 33"
+      ],
+      "inclusion": [
+        "Disclosures for initial application of an Ind AS affecting periods",
+        "Disclosures for voluntary policy changes including justification and line-item adjustments"
+      ],
+      "exclusion": [
+        "Disclosures restricted strictly to routine changes in accounting estimates"
+      ],
+      "nearby_distinctions": [
+        "Differs from estimate change disclosures by focusing on transitional impacts, retrospective line-item adjustments, and standard titles rather than prospective operational effects."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7d911e6b-b9b8-48e7-bc76-b13725893a2a",
+      "concept_name": "Change in Accounting Estimates",
+      "definition": "Accounting estimates involve measurement uncertainty and require monetary amounts to be estimated using judgments or assumptions based on the latest available information. Modifications to these estimates arise from changes in underlying circumstances, new information, developments, or updated experience rather than prior period corrections.",
+      "terminology": [
+        "measurement uncertainty",
+        "estimation techniques",
+        "valuation techniques",
+        "prospective recognition"
+      ],
+      "instrument_references": [
+        "Ind AS 8",
+        "Ind AS 2",
+        "Ind AS 16",
+        "Ind AS 37",
+        "Ind AS 109",
+        "Ind AS 113"
+      ],
+      "inclusion": [
+        "Adjustments to expected credit loss allowances",
+        "Revisions of inventory net realisable values or asset useful lives"
+      ],
+      "exclusion": [
+        "Corrections of mathematical mistakes or misinterpretations representing prior period errors"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from changes in accounting policies, which alter the core measurement basis or convention rather than adjusting uncertain monetary inputs."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "af558e2d-437c-40de-9473-71fb09fba32a",
+      "concept_name": "Meaning of Accounting Estimates",
+      "definition": "Accounting estimates address measurement uncertainty where financial statement items cannot be directly observed and require monetary approximations using available reliable data. Utilizing reasonable estimates is foundational to preparing financial statements without compromising their overall reliability.",
+      "terminology": [
+        "measurement uncertainty",
+        "estimation techniques",
+        "valuation techniques",
+        "inputs"
+      ],
+      "instrument_references": [
+        "Ind AS 2",
+        "Ind AS 8",
+        "Ind AS 16",
+        "Ind AS 37",
+        "Ind AS 109",
+        "Ind AS 113"
+      ],
+      "inclusion": [
+        "Calculations involving direct estimation or valuation methodologies",
+        "Provisions, loss allowances, and depreciation parameters"
+      ],
+      "exclusion": [
+        "Definitive, unobservable-free historical cost tracking"
+      ],
+      "nearby_distinctions": [
+        "Differs from raw model inputs, which serve as foundational data components rather than the final output accounting estimate."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "61c04364-3d99-4f37-97c0-b850a68eeeb2",
+      "concept_name": "Distinction and Timing of Accounting Estimate Changes",
+      "definition": "Changes in accounting estimates stem from updated information or shifting operational contexts and do not represent prior period corrections. When distinguishing an accounting policy change from an estimate change proves difficult, the modification is treated as a change in estimate.",
+      "terminology": [
+        "prospective application",
+        "measurement technique",
+        "cost formula",
+        "basis of measurement"
+      ],
+      "instrument_references": [
+        "Ind AS 2",
+        "Ind AS 8"
+      ],
+      "inclusion": [
+        "Modifications driven by new operational experience or altered inputs",
+        "Ambiguous adjustments defaulting to estimate treatment"
+      ],
+      "exclusion": [
+        "Alterations to core measurement bases or inventory cost formulas, which constitute policy changes"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from policy changes by treating underlying principle modifications as policy shifts, while empirical or input updates are treated as estimates."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "005fae00-132a-453c-922e-2e769067c89b",
+      "concept_name": "Change in Measurement Basis versus Estimate",
+      "definition": "A shift in the core measurement basis applied to financial statement items constitutes a change in accounting policy rather than an accounting estimate. In scenarios where differentiating between a policy change and an estimate change is problematic, the adjustment is classified as a change in accounting estimate.",
+      "terminology": [
+        "measurement basis",
+        "cost formula",
+        "inventories",
+        "accounting policy"
+      ],
+      "instrument_references": [
+        "Ind AS 2",
+        "Ind AS 8"
+      ],
+      "inclusion": [
+        "Shifting inventory cost formulas between FIFO and weighted average",
+        "Modifying fundamental accounting conventions"
+      ],
+      "exclusion": [
+        "Adjusting useful lives or loss allowance rates based on current experience"
+      ],
+      "nearby_distinctions": [
+        "Differs from estimate changes because measurement bases dictate the primary valuation framework rather than fine-tuning unobservable variables."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4078bfb2-68be-47b6-a620-fd9ce6d033ac",
+      "concept_name": "Accounting Treatment for Changes in Estimates",
+      "definition": "The financial impact of a change in an accounting estimate is recognized prospectively through profit or loss either in the current period alone or across current and future periods. If the change modifies assets, liabilities, or equity items, its effect is recognized directly by adjusting the carrying amount of the related item during the period of change.",
+      "terminology": [
+        "prospective recognition",
+        "profit or loss",
+        "carrying amount",
+        "useful life"
+      ],
+      "instrument_references": [
+        "Ind AS 8"
+      ],
+      "inclusion": [
+        "Prospective inclusion of estimate effects in profit or loss",
+        "Adjustments to asset, liability, or equity carrying amounts in the current period"
+      ],
+      "exclusion": [
+        "Retrospective restatement of prior period financial statements"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from prior period error corrections, which require retrospective restatement rather than prospective current and future period adjustments."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "00a77a3a-6612-429a-bd94-2d0c688850cc",
+      "concept_name": "Disclosure of Changes in Accounting Estimates",
+      "definition": "An entity must disclose the specific nature and monetary amount of any accounting estimate change impacting the current period or expected future periods. If determining the future period impact is impracticable, the entity must explicitly disclose that limitation.",
+      "terminology": [
+        "impracticable",
+        "current period effect",
+        "future period effect",
+        "nature and amount"
+      ],
+      "instrument_references": [
+        "Ind AS 8"
+      ],
+      "inclusion": [
+        "Quantified impacts on current period results",
+        "Disclosures of anticipated future period effects or statements of impracticability"
+      ],
+      "exclusion": [
+        "Extensive retrospective transition disclosures required for accounting policy alterations"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from policy change disclosures by omitting historical retrospective restatement breakdowns and focusing purely on current and prospective effects."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c0ef1882-427d-460c-a950-7151267cc3ce",
+      "concept_name": "Prior Period Errors and Classifications",
+      "definition": "Prior period errors involve omissions or misstatements from past financial periods resulting from a failure to use or misuse of reliable information that was available and reasonably obtainable when financial statements were authorized. These errors encompass mathematical mistakes, policy application flaws, factual misinterpretations, and fraud.",
+      "terminology": [
+        "prior period errors",
+        "error of commission",
+        "offsetting",
+        "fraud"
+      ],
+      "instrument_references": [
+        "Ind AS 8",
+        "Ind AS 10",
+        "Ind AS 32"
+      ],
+      "inclusion": [
+        "Mathematical calculation mistakes and wrong totals",
+        "Improper offsetting of receivables and payables breaching presentation rules",
+        "Misinterpretations of facts or post-reporting events"
+      ],
+      "exclusion": [
+        "Changes in estimates resulting from newly uncovered or evolving operational insights"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from changes in estimates because errors stem from failing to use available historical information, whereas estimates involve legitimate uncertainties at the time."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "000e6f1e-975a-4ed1-b5b7-740dd19cb6e8",
+      "concept_name": "Meaning and Types of Prior Period Errors",
+      "definition": "Prior period errors represent past financial statement omissions or misstatements caused by misusing or ignoring reliable information that could have been obtained when reports were issued. Such discrepancies include computational errors, policy misapplications like improper offsetting, misinterpretations of facts, and fraudulent entries.",
+      "terminology": [
+        "prior period errors",
+        "omissions",
+        "misstatements",
+        "offsetting"
+      ],
+      "instrument_references": [
+        "Ind AS 8",
+        "Ind AS 10",
+        "Ind AS 32"
+      ],
+      "inclusion": [
+        "Mathematical and calculation errors",
+        "Incorrect policy application such as unauthorized asset-liability offsetting",
+        "Misinterpretation of reporting period events"
+      ],
+      "exclusion": [
+        "Legitimate prospective adjustments driven by changing business circumstances"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from accounting estimate changes by representing factual oversights or data misuse of past information rather than updated judgments on uncertain future outcomes."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "e11e328854a4ab3069385f3136d9736921d4f8ebb6193213d4f365b8c90874ed",
+  "artifact_id": "cbfd61c4-0e83-4eb1-969b-458682ab3697",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8841,
+  "output_tokens": 3617,
+  "cost_usd": 0.0116948,
+  "created_at": "2026-10-03T17:48:18.904198+00:00"
+}

@@ -1,0 +1,113 @@
+{
+  "descriptors": [
+    {
+      "node_id": "33f28d0c-70a9-454b-b6ad-2a015c463218",
+      "concept_name": "Meaning of Succession Planning",
+      "definition": "Succession planning identifies critical organizational roles and develops personnel to assume future leadership positions. This preparation ensures appropriate talent availability, aligns business goals, and enables ownership transfer in going concerns.",
+      "terminology": [
+        "Succession planning",
+        "Critical positions",
+        "Leadership roles",
+        "Going concern",
+        "Liquidity event"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Identifying critical leadership positions",
+        "Developing action plans for future roles",
+        "Preparing personnel for management and non-management positions"
+      ],
+      "exclusion": [
+        "Immediate daily operational task allocation",
+        "Short-term temporary replacement hiring"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard recruitment by its long-term focus on internal talent pipelines rather than filling immediate vacancies."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "fe46a48e-8f38-4d6d-a45d-f1ee93508a5d",
+      "concept_name": "Why is there a need for succession planning?",
+      "definition": "Succession planning mitigates leadership vacancy risks, manages cause removals due to misconduct, and builds internal talent pipelines. It also resolves internal conflicts and aligns family-owned businesses with core cultural values.",
+      "terminology": [
+        "Risk mitigation",
+        "Cause removal",
+        "Talent pipeline",
+        "Conflict Resolution Mechanism",
+        "Bridge Leader"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Mitigating leadership departure risks",
+        "Handling removals from gross negligence or fraud",
+        "Maintaining employee motivation and career paths"
+      ],
+      "exclusion": [
+        "Routine performance appraisal processes",
+        "External market share analysis"
+      ],
+      "nearby_distinctions": [
+        "Differs from general human resource planning by specifically addressing critical leadership continuity and emergency leader removal scenarios."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ce0090d9-943c-431f-9f0c-9a526ce607bd",
+      "concept_name": "Business succession strategy",
+      "definition": "Business succession strategy involves evaluating critical leadership roles, mapping required competencies, assessing current workforce capabilities, and deploying bridge leaders. This structured progression prepares organizations and family members for future leadership transitions.",
+      "terminology": [
+        "Evaluate key leadership positions",
+        "Map competencies",
+        "Identify competencies of current workforce",
+        "Bridge Leader"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Risk or impact assessment of roles",
+        "Identifying behavioral and technical competencies",
+        "Appointing external bridge leaders in family enterprises"
+      ],
+      "exclusion": [
+        "Immediate operational task delegation",
+        "Ad-hoc hiring without competency mapping"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general workforce planning through its specific focus on transforming entire business directions via critical leadership roles."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8983fa41-1c0a-4897-825d-bb7183b57a1f",
+      "concept_name": "Challenges",
+      "definition": "Implementing succession planning in startups faces hurdles due to divergent founder mindsets compared to corporate managers, early growth stages where processes slow development, and heavy reliance on founders as the face of the business.",
+      "terminology": [
+        "Founder mindset",
+        "Corporate mindset",
+        "Early growth stage",
+        "Face of startups"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Mismatch between founder and traditional corporate thinking",
+        "Premature process implementation slowing startup growth",
+        "Absence of founders making succession difficult"
+      ],
+      "exclusion": [
+        "Standard corporate succession obstacles",
+        "Regulatory compliance failures"
+      ],
+      "nearby_distinctions": [
+        "Differentiated from mature corporate succession challenges by the unique operational centrality of startup founders and early-stage agility constraints."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "07aa6717e33a470931bb9ef116b264a91000268a341d6e944646980691bf6d79",
+  "artifact_id": "6a3f4355-5594-4ddb-8fdf-621409468f31",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 2453,
+  "output_tokens": 1070,
+  "cost_usd": 0.0034109,
+  "created_at": "2026-10-03T18:09:24.491798+00:00"
+}

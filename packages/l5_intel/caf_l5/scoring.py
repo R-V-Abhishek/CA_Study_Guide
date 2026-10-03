@@ -75,6 +75,7 @@ def recompute_scores(
     shadow: bool = False,
     config: ScoringConfig | None = None,
     provisional_items: list[tuple[Any, Any]] | None = None,
+    taxonomy_version_id: int | None = None,
 ) -> ScoreRun:
     """Recompute all subtopic scores and ingestion coverage, atomically swapping the current run.
     
@@ -90,6 +91,18 @@ def recompute_scores(
     """
     if config is None:
         config = load_scoring_config()
+    from caf_l0.releases import active_version
+    from caf_l0.hierarchy import ancestor_at, descendant_leaves, version_nodes
+    release = active_version(session)
+    if taxonomy_version_id is None and release:
+        taxonomy_version_id = release.taxonomy_version_id
+    if taxonomy_version_id is not None:
+        from caf_db.models.taxonomy import TaxonomyRelease
+        scoped_release = session.scalar(sa.select(TaxonomyRelease).where(
+            TaxonomyRelease.taxonomy_version_id == taxonomy_version_id
+        ))
+        if scoped_release is None or scoped_release.status not in {"active", "archived"}:
+            raise ValueError("Scoring requires an activated textbook taxonomy version")
 
     # Administrative recomputation must identify its target explicitly.
     if not target_attempt_id:
@@ -108,6 +121,7 @@ def recompute_scores(
         config_hash=config.config_hash,
         config_snapshot=config.model_dump(mode="json"),
         target_attempt_id=target_attempt_id,
+        taxonomy_version_id=taxonomy_version_id,
         shadow=shadow,
         is_current=False,
         status="running",
@@ -128,9 +142,18 @@ def recompute_scores(
             ApplicabilityRule.attempt_id == target_attempt_id
         ).all()
         excluded_nodes = {r.node_id for r in app_rules if r.effect == "exclude"}
+        if taxonomy_version_id is not None and target_attempt_id >= "2027-05":
+            from caf_l0.releases import source_contexts
+            # P4 fallback structure is useful; unresolved historical provisions
+            # cannot enter target-attempt scores until applicability is reviewed.
+            for node_id, sources in source_contexts(session, taxonomy_version_id).items():
+                if any(source.get("paper_id") == "s2023.P4" and source.get("fallback") and
+                       source.get("target_applicability") not in {"verified", "applicable"}
+                       for source in sources):
+                    excluded_nodes.add(node_id)
 
         # 5. Fetch all active nodes and build hierarchy
-        all_nodes = session.query(Node).all()
+        all_nodes = version_nodes(session, taxonomy_version_id)
         nodes_by_id = {n.id: n for n in all_nodes}
 
         def is_node_applicable(n: Node) -> bool:
@@ -154,6 +177,7 @@ def recompute_scores(
         subtopics = [
             n for n in all_nodes
             if n.level == "subtopic" and n.paper_id in current_paper_ids
+            and not any(child.parent_id == n.id for child in all_nodes)
         ]
         subtopics_by_paper: dict[str, list[Node]] = {}
         for s in subtopics:
@@ -161,8 +185,9 @@ def recompute_scores(
 
         # 6. Compute Weightage Prior W(s)
         # Weightage section midpoint marks: ((min_pct + max_pct) / 2) / 100 * paper_max
-        weightage_sections = session.query(WeightageSection).all()
-        weightage_members = session.query(WeightageMember).all()
+        # Generated legacy priors never become official priors for a new release.
+        weightage_sections = session.query(WeightageSection).all() if taxonomy_version_id is None else []
+        weightage_members = session.query(WeightageMember).all() if taxonomy_version_id is None else []
         
         # chapter_id -> section_id
         ch_to_section = {m.chapter_id: m.section_id for m in weightage_members}
@@ -173,8 +198,7 @@ def recompute_scores(
         for s in subtopics:
             if not is_node_applicable(s):
                 continue
-            topic = nodes_by_id.get(s.parent_id) if s.parent_id else None
-            ch = nodes_by_id.get(topic.parent_id) if topic and topic.parent_id else None
+            ch = ancestor_at(s.id, nodes_by_id, "chapter")
             if ch and ch.id in ch_to_section:
                 sec_id = ch_to_section[ch.id]
                 section_applicable_subtopics.setdefault(sec_id, []).append(s.id)
@@ -184,8 +208,7 @@ def recompute_scores(
             if not is_node_applicable(s):
                 subtopic_prior_w[s.id] = 0.0
                 continue
-            topic = nodes_by_id.get(s.parent_id) if s.parent_id else None
-            ch = nodes_by_id.get(topic.parent_id) if topic and topic.parent_id else None
+            ch = ancestor_at(s.id, nodes_by_id, "chapter")
             sec_id = ch_to_section.get(ch.id) if ch else None
             if sec_id and sec_id in section_by_id:
                 sec = section_by_id[sec_id]
@@ -199,16 +222,21 @@ def recompute_scores(
 
         # 7. Ingestion coverage
         # Query distinct (paper_id, attempt_id, signal_class) with published appearances
-        pub_appearances_query = (
+        coverage_query = (
             session.query(
                 Appearance.source_paper_id,
                 Appearance.attempt_id,
                 Appearance.signal_class,
             )
             .where(Appearance.status == "published")
-            .distinct()
-            .all()
         )
+        if taxonomy_version_id is not None:
+            from caf_db.models.ingest import Document
+            coverage_query = coverage_query.join(AppearanceTag, AppearanceTag.appearance_id == Appearance.id).join(
+                Document, Document.sha256 == Appearance.doc_sha256
+            ).where(AppearanceTag.node_id.in_(nodes_by_id),
+                    Document.course_level == "final", Document.provenance_status == "verified")
+        pub_appearances_query = coverage_query.distinct().all()
 
         published_coverage: dict[tuple[str, str], dict[str, bool]] = {}
         for row in pub_appearances_query:
@@ -221,7 +249,9 @@ def recompute_scores(
                 published_coverage[key]["practice"] = True
 
         if provisional_items:
-            for p_app, _ in provisional_items:
+            for p_app, p_tag in provisional_items:
+                if p_tag.node_id not in nodes_by_id:
+                    continue
                 p_key = (p_app.source_paper_id, p_app.attempt_id)
                 if p_key not in published_coverage:
                     published_coverage[p_key] = {"exam": False, "practice": False}
@@ -264,12 +294,17 @@ def recompute_scores(
             paper_windows[p_id] = [a.id for a in top_n]
 
         # 9. Load all published appearances with their tags
-        apps_with_tags = (
+        appearances_query = (
             session.query(Appearance, AppearanceTag)
             .join(AppearanceTag, AppearanceTag.appearance_id == Appearance.id)
             .where(Appearance.status == "published")
-            .all()
         )
+        if taxonomy_version_id is not None:
+            appearances_query = appearances_query.join(Document, Document.sha256 == Appearance.doc_sha256).where(
+                AppearanceTag.node_id.in_(nodes_by_id),
+                Document.course_level == "final", Document.provenance_status == "verified",
+            )
+        apps_with_tags = appearances_query.all()
         if provisional_items:
             apps_with_tags = list(apps_with_tags) + list(provisional_items)
 
@@ -287,44 +322,12 @@ def recompute_scores(
                 "all_exam_attempts": [],
             }
 
-        # Build map of node_id -> list of (subtopic_id, share_multiplier)
-        # to support subtopic tags as well as chapter/topic tags
-        child_topics_by_chapter: dict[str, list[str]] = {}
-        child_subs_by_topic: dict[str, list[str]] = {}
-        for n in all_nodes:
-            if n.level == "topic" and n.parent_id:
-                child_topics_by_chapter.setdefault(n.parent_id, []).append(n.id)
-            elif n.level == "subtopic" and n.parent_id:
-                child_subs_by_topic.setdefault(n.parent_id, []).append(n.id)
-
         def resolve_subtopic_targets(node_id: str, tag_share: float) -> list[tuple[str, float]]:
-            node = nodes_by_id.get(node_id)
-            if not node:
+            subs = [leaf for leaf in descendant_leaves(node_id, nodes_by_id)
+                    if is_node_applicable(nodes_by_id[leaf])]
+            if not subs:
                 return []
-            if node.level == "subtopic":
-                return [(node.id, tag_share)]
-            elif node.level == "topic":
-                subs = [
-                    s_id for s_id in child_subs_by_topic.get(node.id, [])
-                    if is_node_applicable(nodes_by_id[s_id])
-                ]
-                if not subs:
-                    return []
-                share_each = tag_share / len(subs)
-                return [(s_id, share_each) for s_id in subs]
-            elif node.level == "chapter":
-                topics = child_topics_by_chapter.get(node.id, [])
-                subs = []
-                for t_id in topics:
-                    subs.extend([
-                        s_id for s_id in child_subs_by_topic.get(t_id, [])
-                        if is_node_applicable(nodes_by_id[s_id])
-                    ])
-                if not subs:
-                    return []
-                share_each = tag_share / len(subs)
-                return [(s_id, share_each) for s_id in subs]
-            return []
+            return [(leaf, tag_share / len(subs)) for leaf in subs]
 
         for app, tag in apps_with_tags:
             att = all_attempts.get(app.attempt_id)
@@ -449,26 +452,7 @@ def recompute_scores(
         new_run.finished_at = datetime.now(timezone.utc)
         session.flush()
 
-        # 13. Retention: keep last 10 runs, delete older (excluding runs referenced by depth_gate_report)
-        all_run_ids = (
-            session.query(ScoreRun.id)
-            .order_by(ScoreRun.id.desc())
-            .all()
-        )
-        if len(all_run_ids) > 10:
-            referenced_runs = set()
-            for r in session.query(DepthGateReport.baseline_run_id, DepthGateReport.shadow_run_id).all():
-                if r[0] is not None:
-                    referenced_runs.add(r[0])
-                if r[1] is not None:
-                    referenced_runs.add(r[1])
-
-            stale_ids = [r[0] for r in all_run_ids[10:] if r[0] not in referenced_runs]
-            if stale_ids:
-                session.execute(
-                    sa.delete(ScoreRun).where(ScoreRun.id.in_(stale_ids))
-                )
-
+        # Preserve historical score runs across attempt and taxonomy changes.
         session.commit()
         logger.info(
             f"L5 score recompute complete: run_id={new_run.id}, "

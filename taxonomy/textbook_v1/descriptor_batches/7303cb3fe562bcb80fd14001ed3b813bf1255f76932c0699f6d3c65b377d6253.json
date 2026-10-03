@@ -1,0 +1,165 @@
+{
+  "descriptors": [
+    {
+      "node_id": "9d6bc95a-75f1-4ec8-bec1-de5a1835aa46",
+      "concept_name": "Disclosures in Business Combinations",
+      "definition": "Acquirers must disclose changes in pre-acquisition deferred tax asset amounts resulting from business combinations. Additionally, entities need to describe events or circumstances that lead to the post-acquisition recognition of deferred tax benefits previously unrecognised at the acquisition date.",
+      "terminology": [
+        "Business combination",
+        "Pre-acquisition deferred tax asset",
+        "Acquisition date"
+      ],
+      "instrument_references": [
+        "Ind AS 12"
+      ],
+      "inclusion": [
+        "Changes in pre-acquisition deferred tax assets due to business combinations",
+        "Post-acquisition recognition of previously unrecognised deferred tax benefits"
+      ],
+      "exclusion": [
+        "General tax expense disclosures",
+        "Routine temporary difference disclosures"
+      ],
+      "nearby_distinctions": [
+        "Differs from general deferred tax asset recognition disclosures by focusing specifically on changes originating from business combination transactions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f6f3c024-57f2-46f3-9f4f-449325f7118f",
+      "concept_name": "Deferred Tax Asset Evidence Disclosures",
+      "definition": "Entities must disclose the specific deferred tax asset amounts and the supporting evidence for their recognition under certain conditions. This applies when utilisation depends on future taxable profits exceeding reversing taxable temporary differences and the entity experienced recent losses.",
+      "terminology": [
+        "Deferred tax asset",
+        "Tax jurisdiction",
+        "Taxable temporary differences"
+      ],
+      "instrument_references": [
+        "Ind AS 12"
+      ],
+      "inclusion": [
+        "Disclosure of deferred tax asset amounts dependent on future profits",
+        "Nature of evidence supporting recognition following current or preceding period losses"
+      ],
+      "exclusion": [
+        "Deferred tax assets fully supported by existing taxable temporary differences",
+        "General tax rate reconciliation items"
+      ],
+      "nearby_distinctions": [
+        "Distinct from standard tax disclosures because it specifically mandates evidence disclosure when loss history or future profit dependency exists."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8d84ce25-5bcc-45e6-ba9f-b4d3cd7bc9ac",
+      "concept_name": "Dividend Distribution Tax Consequences",
+      "definition": "When tax rates depend on dividend distribution, entities must disclose potential income tax consequences and system features affecting them. If calculating the total amount is impracticable, entities must disclose practicably determinable amounts or refundable taxes along with uncomputable limitations.",
+      "terminology": [
+        "Dividend distribution",
+        "Income tax consequences",
+        "Undistributed profits",
+        "Consolidated retained earnings"
+      ],
+      "instrument_references": [
+        "Ind AS 12"
+      ],
+      "inclusion": [
+        "Nature of potential income tax consequences from paying dividends",
+        "Practicable amounts of refundable taxes or unrecognised deferred tax liabilities"
+      ],
+      "exclusion": [
+        "Taxes paid on regular operating income without dividend rate differentials",
+        "Standard corporate tax expense recognition"
+      ],
+      "nearby_distinctions": [
+        "Focuses on dividend-dependent tax rates rather than general temporary differences or standard operational tax expenses."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b192a1df-566e-472f-bdf0-49334bbb3430",
+      "concept_name": "Tax Related Contingencies",
+      "definition": "Entities are required to disclose tax-related contingent liabilities and assets in accordance with relevant provisions standards. Such contingencies typically originate from unresolved disputes with taxation authorities.",
+      "terminology": [
+        "Contingent liabilities",
+        "Contingent assets",
+        "Taxation authorities"
+      ],
+      "instrument_references": [
+        "Ind AS 37"
+      ],
+      "inclusion": [
+        "Tax-related contingent liabilities",
+        "Tax-related contingent assets from unresolved disputes"
+      ],
+      "exclusion": [
+        "Recognized current or deferred tax liabilities",
+        "Certain future tax planning strategies"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from recognized deferred or current taxes by representing uncertain potential obligations or rights rather than measured temporary differences."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e95f7b9c-3e86-44fc-8b09-2d8d9ab9f503",
+      "concept_name": "Post-Reporting Period Tax Rate Changes",
+      "definition": "When tax rate or law modifications are enacted or announced after the reporting period, entities must disclose any significant effects on assets and liabilities. Such disclosures follow events after the reporting period principles.",
+      "terminology": [
+        "Tax rate changes",
+        "Enacted or announced",
+        "Events after the reporting period"
+      ],
+      "instrument_references": [
+        "Ind AS 10",
+        "Ind AS 12"
+      ],
+      "inclusion": [
+        "Significant effects of tax rate or law changes enacted after reporting date",
+        "Disclosures regarding announced post-period tax modifications"
+      ],
+      "exclusion": [
+        "Adjustments directly incorporated into financial statement balances if enacted before the reporting date",
+        "Internal tax calculations unaffected by legislative changes"
+      ],
+      "nearby_distinctions": [
+        "Applies specifically to post-period legislative changes rather than tax rates already substantively enacted by the balance sheet date."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "926ef141-7222-4696-9f31-1eeaac59c13f",
+      "concept_name": "Comparison of Deferred Tax Approaches",
+      "definition": "Ind AS 12 adopts a balance sheet approach focusing on temporary differences between asset and liability carrying amounts and tax bases, unlike the income statement approach of AS 22. Furthermore, Ind AS 12 recognizes deferred tax assets for deductible differences and losses based on probable future profits, whereas AS 22 requires virtual certainty or reasonable certainty thresholds.",
+      "terminology": [
+        "Balance sheet approach",
+        "Income statement approach",
+        "Temporary differences",
+        "Virtual certainty"
+      ],
+      "instrument_references": [
+        "Ind AS 12",
+        "AS 22"
+      ],
+      "inclusion": [
+        "Comparison of timing versus temporary differences",
+        "Contrasting recognition criteria for deferred tax assets under loss conditions"
+      ],
+      "exclusion": [
+        "Detailed computation worksheets for current tax liabilities",
+        "Specific tax audit procedures"
+      ],
+      "nearby_distinctions": [
+        "Contrasts the modern asset-liability framework with older income statement matching methodologies and stringent realization criteria."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "7303cb3fe562bcb80fd14001ed3b813bf1255f76932c0699f6d3c65b377d6253",
+  "artifact_id": "76ced5cf-1caf-4bf6-9e6f-068c7efe2df0",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 4830,
+  "output_tokens": 1713,
+  "cost_usd": 0.0057315,
+  "created_at": "2026-10-03T18:03:03.023020+00:00"
+}

@@ -1,0 +1,323 @@
+{
+  "descriptors": [
+    {
+      "node_id": "3f393bc6-a7ca-4439-ab8f-0f6eb17a2a36",
+      "concept_name": "Interim Financial Reporting Fundamentals",
+      "definition": "Interim financial reporting provides timely updates on an entity's financial condition and liquidity through reports covering periods shorter than a full financial year. It assists investors and creditors by outlining recognition, measurement, and disclosure requirements for interim periods.",
+      "terminology": [
+        "Interim Financial Report",
+        "Interim Period",
+        "Financial Condition",
+        "Liquidity"
+      ],
+      "instrument_references": [
+        "Ind AS 34"
+      ],
+      "inclusion": [
+        "Financial reports for periods shorter than a full financial year"
+      ],
+      "exclusion": [
+        "Full annual financial statements"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from annual financial reporting by permitting less information to be reported as an update."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d8d6064f-4778-455f-93fe-41058e9a3782",
+      "concept_name": "Objective of Interim Financial Reporting",
+      "definition": "The standard prescribes the minimum content requirements for an interim financial report alongside the recognition and measurement principles applicable to complete or condensed financial statements. It ensures that interim periods reflect proper accounting recognition without duplicating previously reported annual information.",
+      "terminology": [
+        "Minimum Content",
+        "Recognition and Measurement",
+        "Condensed Financial Statements",
+        "Complete Financial Statements"
+      ],
+      "instrument_references": [
+        "Ind AS 34",
+        "Ind AS 1"
+      ],
+      "inclusion": [
+        "Prescribing minimum content and measurement principles for interim reports"
+      ],
+      "exclusion": [
+        "Mandating which entities must publish interim reports"
+      ],
+      "nearby_distinctions": [
+        "Focuses specifically on reporting content rules rather than general corporate governance or audit mandates."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "35514012-f8c4-45eb-8dfa-0369a3c6dc37",
+      "concept_name": "Scope and Applicability of Interim Financial Reporting",
+      "definition": "The standard applies whenever an entity is required or elects to publish an interim financial report in accordance with Indian Accounting Standards, though it does not mandate which entities must publish such reports. Each financial report is evaluated individually for conformity, and compliance requires fulfilling all provisions if the report claims adherence to Ind AS.",
+      "terminology": [
+        "Mandatory Publication",
+        "Voluntary Publication",
+        "Conformity",
+        "Compliance"
+      ],
+      "instrument_references": [
+        "Ind AS 34",
+        "Ind AS"
+      ],
+      "inclusion": [
+        "Entities required to publish interim reports",
+        "Entities electing to publish interim reports"
+      ],
+      "exclusion": [
+        "Entities not publishing interim reports"
+      ],
+      "nearby_distinctions": [
+        "Scope dictates applicability rather than measurement rules; failure to provide interim reports does not inherently breach annual statement conformity."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "68ecc0a7-c68a-44c3-a3ba-5a721048446e",
+      "concept_name": "Definitions in Interim Financial Reporting",
+      "definition": "An interim period represents any financial reporting duration shorter than a full financial year. An interim financial report consists of either a complete set or a condensed set of financial statements for that duration.",
+      "terminology": [
+        "Interim Period",
+        "Interim Financial Report",
+        "Condensed Financial Statements",
+        "Complete Set of Financial Statements"
+      ],
+      "instrument_references": [
+        "Ind AS 34",
+        "Ind AS 1"
+      ],
+      "inclusion": [
+        "Reporting periods shorter than a full financial year",
+        "Condensed or complete financial statements"
+      ],
+      "exclusion": [
+        "Full annual financial reporting periods"
+      ],
+      "nearby_distinctions": [
+        "Separates the concept of a sub-annual reporting duration from full annual reporting cycles."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "73da4b56-3f03-4f5a-bad5-df299ecfaa68",
+      "concept_name": "Contents of an Interim Financial Report",
+      "definition": "An interim financial report must minimally include a condensed balance sheet, statement of profit and loss, statement of changes in equity, statement of cash flows, and selected explanatory notes. It focuses on new activities and events to avoid duplicating information previously disclosed in the most recent annual report.",
+      "terminology": [
+        "Condensed Balance Sheet",
+        "Condensed Statement of Profit and Loss",
+        "Selected Explanatory Notes",
+        "Material Accounting Policy Information"
+      ],
+      "instrument_references": [
+        "Ind AS 34",
+        "Ind AS 1"
+      ],
+      "inclusion": [
+        "Condensed balance sheet",
+        "Condensed statement of profit and loss",
+        "Condensed statement of changes in equity",
+        "Condensed statement of cash flows",
+        "Material accounting policy information and explanatory notes"
+      ],
+      "exclusion": [
+        "Unnecessary repetition of previously reported annual information"
+      ],
+      "nearby_distinctions": [
+        "Differs from annual reports by allowing condensed formats and focusing exclusively on updates rather than exhaustive disclosures."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "bd14b66f-cd7c-4754-926e-95776994cadc",
+      "concept_name": "Form and Content of Interim Financial Reports",
+      "definition": "Entities publishing complete interim statements must align with general presentation standards, whereas those publishing condensed statements must include at least the headings, subtotals, and earnings per share figures from the recent annual report. Additional line items or separate parent statements are optional unless omission renders the interim statements misleading.",
+      "terminology": [
+        "Condensed Statements",
+        "Basic Earnings Per Share",
+        "Diluted Earnings Per Share",
+        "Subtotals"
+      ],
+      "instrument_references": [
+        "Ind AS 34",
+        "Ind AS 1"
+      ],
+      "inclusion": [
+        "Basic and diluted earnings per share",
+        "Headings and subtotals from recent annual reports"
+      ],
+      "exclusion": [
+        "Mandatory inclusion of parent separate financial statements alongside consolidated statements"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes formatting requirements between full compliance presentations and streamlined condensed presentations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "098425f3-f5e5-49a3-a043-19b0e59a90bb",
+      "concept_name": "Significant Events and Transactions in Interim Reporting",
+      "definition": "Entities must disclose significant events and transactions that alter understanding of financial position and performance since the last annual reporting period. Required disclosures update prior annual information regarding inventory write-downs, impairments, restructuring reversals, asset acquisitions, litigation settlements, and prior period error corrections.",
+      "terminology": [
+        "Significant Events",
+        "Inventory Write-Down",
+        "Impairment Loss",
+        "Restructuring Provisions"
+      ],
+      "instrument_references": [
+        "Ind AS 34"
+      ],
+      "inclusion": [
+        "Inventory write-downs and reversals",
+        "Impairment losses and reversals",
+        "Litigation settlements and prior period error corrections"
+      ],
+      "exclusion": [
+        "Relatively insignificant updates already covered in recent annual notes"
+      ],
+      "nearby_distinctions": [
+        "Focuses on major impactful occurrences during the interim period rather than routine operational updates."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "de51a46d-2fc6-4ff8-9229-5893a7b78fe8",
+      "concept_name": "Other Disclosures in Interim Financial Reports",
+      "definition": "Interim reports must disclose year-to-date information including consistency of accounting policies, seasonality details, unusual items, estimate changes, and debt or equity transactions. Segment information must also be provided if required by annual reporting standards.",
+      "terminology": [
+        "Year-to-Date",
+        "Seasonality",
+        "Cyclicality",
+        "Segment Information"
+      ],
+      "instrument_references": [
+        "Ind AS 34",
+        "Ind AS 108"
+      ],
+      "inclusion": [
+        "Accounting policy consistency statements",
+        "Seasonality and cyclicality comments",
+        "Dividends paid and security transactions"
+      ],
+      "exclusion": [
+        "Segment disclosures when not mandated under annual reporting rules"
+      ],
+      "nearby_distinctions": [
+        "Covers explanatory note disclosures beyond primary financial statements and significant transaction updates."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6c9c94ec-ab6a-4468-9116-124a01237062",
+      "concept_name": "Periods for which Interim Financial Statements are Required",
+      "definition": "Interim reports require a balance sheet as of the current interim period-end with a comparative balance sheet from the prior financial year-end. Statements of profit and loss, changes in equity, and cash flows must cover the current interim period and cumulative year-to-date periods alongside comparable prior-year periods.",
+      "terminology": [
+        "Current Interim Period",
+        "Year-to-Date",
+        "Comparative Balance Sheet",
+        "Cumulative Financial Information"
+      ],
+      "instrument_references": [
+        "Ind AS 34"
+      ],
+      "inclusion": [
+        "Balance sheet as of current interim period-end and prior year-end",
+        "Profit and loss for current and cumulative year-to-date periods with comparatives",
+        "Changes in equity and cash flows on a cumulative year-to-date basis with comparatives"
+      ],
+      "exclusion": [
+        "Full annual comparative financial statements for income statement items outside comparative interim periods"
+      ],
+      "nearby_distinctions": [
+        "Mandates specific comparative timeframes tailored to interim and year-to-date reporting horizons."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8ff640da-1cdf-4f52-a4ad-25d445e15b1f",
+      "concept_name": "Materiality Assessment in Interim Financial Reporting",
+      "definition": "Materiality for interim reporting is assessed in relation to the interim period financial data itself, acknowledging that interim measurements rely more heavily on estimates. Unusual items, policy changes, and errors are evaluated against interim data to prevent misleading financial inferences.",
+      "terminology": [
+        "Interim Materiality",
+        "Estimate Reliance",
+        "Unusual Items",
+        "Financial Inferences"
+      ],
+      "instrument_references": [
+        "Ind AS 34"
+      ],
+      "inclusion": [
+        "Materiality assessments based on interim period data",
+        "Recognition of heightened estimation reliance"
+      ],
+      "exclusion": [
+        "Assessing interim materiality exclusively against full annual totals"
+      ],
+      "nearby_distinctions": [
+        "Differs from annual materiality thresholds by scaling significance to the specific interim reporting window."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ade0fdb8-1381-4214-9a28-ebc6fd259506",
+      "concept_name": "Disclosure in Annual Financial Statements and Interim Measurement",
+      "definition": "Significant changes in estimates made during a final interim period must be disclosed in the annual financial statements if a separate final interim report is not published. Interim measurements are performed on a year-to-date basis using annual accounting policies to ensure reporting frequency does not distort annual results.",
+      "terminology": [
+        "Final Interim Period",
+        "Change in Estimate",
+        "Year-to-Date Basis",
+        "Annual Financial Statements"
+      ],
+      "instrument_references": [
+        "Ind AS 34",
+        "Ind AS 8"
+      ],
+      "inclusion": [
+        "Final interim estimate change disclosures in annual notes",
+        "Year-to-date measurement consistency"
+      ],
+      "exclusion": [
+        "Mandatory inclusion of additional interim financial details within annual reports"
+      ],
+      "nearby_distinctions": [
+        "Bridges interim estimate adjustments with final annual reporting requirements when separate final interim reports are omitted."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "86c1e825-5c92-4e1a-98cc-0ef761d8f515",
+      "concept_name": "Recognition and Measurement Principles for Interim Periods",
+      "definition": "Entities must apply consistent accounting policies across interim and annual financial statements, performing measurements on a year-to-date basis to maintain annual result accuracy. Revenues received seasonally are recognized when they occur, while unevenly incurred costs are anticipated or deferred only if appropriate at financial year-end.",
+      "terminology": [
+        "Consistent Accounting Policies",
+        "Year-to-Date Measurements",
+        "Seasonal Revenues",
+        "Uneven Costs"
+      ],
+      "instrument_references": [
+        "Ind AS 34"
+      ],
+      "inclusion": [
+        "Year-to-date measurement approach",
+        "Recognition of seasonal revenues when occurring",
+        "Deferral or anticipation of costs aligned with annual criteria"
+      ],
+      "exclusion": [
+        "Deferral of seasonal revenues inappropriate at annual balance date"
+      ],
+      "nearby_distinctions": [
+        "Enforces annual recognition logic onto sub-annual periods while accommodating specific year-to-date adjustments."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "febff45f85439cb7b44a9168ec56e92689918adb23f6d52e9aedcf3d2df32f5d",
+  "artifact_id": "4653f48f-2a26-49b5-a604-40c74d05631d",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8205,
+  "output_tokens": 3427,
+  "cost_usd": 0.011029,
+  "created_at": "2026-10-03T17:47:42.719560+00:00"
+}

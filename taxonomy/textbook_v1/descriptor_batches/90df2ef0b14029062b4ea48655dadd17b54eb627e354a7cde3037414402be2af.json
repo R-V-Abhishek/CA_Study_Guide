@@ -1,0 +1,303 @@
+{
+  "descriptors": [
+    {
+      "node_id": "139f7ee9-a590-4f31-a127-743bc1391b27",
+      "concept_name": "Risk Analysis Fundamentals",
+      "definition": "Risk represents the potential variation between an investor's expected future return and the actual realized return from an investment. It stems from return variability caused by external macro or internal micro factors affecting security prices.",
+      "terminology": [
+        "Expected return",
+        "Realized return",
+        "Variability in returns",
+        "Systematic risk",
+        "Unsystematic risk"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Difference between expected and realized returns",
+        "Classification of risk into systematic and unsystematic groups"
+      ],
+      "exclusion": [
+        "Portfolio diversification mechanics",
+        "Advanced pricing models"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from expected return, which is the anticipated future outcome rather than the range of possible actual outcomes."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "31ed7189-4454-4f08-9bff-a9e90eb83f8a",
+      "concept_name": "Systematic Risk Components",
+      "definition": "Systematic risk comprises system-wide macro-level factors such as economic, political, and social changes that simultaneously affect a large number of securities. It includes specific components like interest rate risk, market risk, and purchasing power risk.",
+      "terminology": [
+        "Systematic risk",
+        "Interest rate risk",
+        "Purchasing power risk",
+        "Inflation risk",
+        "Macro level factors"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Interest rate risk driven by inverse price relationships",
+        "Purchasing power risk affecting nominal versus real returns"
+      ],
+      "exclusion": [
+        "Company-specific internal operational risks",
+        "Unsystematic firm-level fluctuations"
+      ],
+      "nearby_distinctions": [
+        "Distinct from unsystematic risk because macro factors are external and generally uncontrollable, impacting all firms simultaneously."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5a6addfb-213f-46ee-9643-44bae06b1c9e",
+      "concept_name": "Diversion of Risk",
+      "definition": "Unsystematic risk attached to individual securities can be reduced or eliminated by combining multiple securities into a diversified portfolio. As the portfolio size increases, total risk declines until it retains only systematic risk.",
+      "terminology": [
+        "Diversification",
+        "Total risk",
+        "Unsystematic risk elimination",
+        "Portfolio size"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Reduction of total risk through security aggregation",
+        "Identification of remaining risk limits in large portfolios"
+      ],
+      "exclusion": [
+        "Elimination of macroeconomic systematic risk factors"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from systematic risk, which cannot be diversified away by merely adding more securities to a portfolio."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "be6f1feb-10b9-4933-9944-29074679b559",
+      "concept_name": "Risk and Return Measurement",
+      "definition": "Investment return depends on expected cash inflows, including forecasted dividends and capital gains, assessed against the initial investment cost. Because the future is uncertain, investors utilize probability distributions of possible alternative returns to quantify expected outcomes.",
+      "terminology": [
+        "Expected return",
+        "Dividend",
+        "Capital gain",
+        "Probability distribution",
+        "Initial investment"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Expected return formula calculation using forecasted dividends and prices",
+        "Assignment of probabilities to alternative possible returns"
+      ],
+      "exclusion": [
+        "Multi-asset covariance calculations",
+        "Market equilibrium pricing formulas"
+      ],
+      "nearby_distinctions": [
+        "Distinct from realized return, focusing on probabilistic future scenarios rather than historical post-period outcomes."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7adfd1c3-4766-4221-bd22-bd454c45445c",
+      "concept_name": "Portfolio Return and Risk Metrics",
+      "definition": "Portfolio expected return is calculated as the weighted average of individual security returns based on invested proportions. Portfolio risk incorporates both weighted variances of constituent securities and weighted covariances measuring relative return behavior between asset pairs.",
+      "terminology": [
+        "Portfolio return",
+        "Weighted average",
+        "Portfolio variance",
+        "Covariance",
+        "Standard deviation"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Weighted average return formula for multi-security portfolios",
+        "Covariance calculations indicating relative co-movement of asset pairs"
+      ],
+      "exclusion": [
+        "Single security valuation models",
+        "Capital market line optimization paths"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from single-security risk measures by accounting for pairwise interactions through covariance terms."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d3380e59-52d3-4605-a9bf-7a1fa5113d2b",
+      "concept_name": "Markowitz Model of Risk-Return Optimization",
+      "definition": "The Markowitz model determines investor-specific optimal portfolios through a two-stage process involving mean-variance efficient portfolio identification and selection. It assumes investors are risk-averse, evaluating investments based solely on expected return and variance of return under probabilistic distributions.",
+      "terminology": [
+        "Mean-variance efficient portfolios",
+        "Risk aversion",
+        "Expected return",
+        "Variance of return",
+        "Optimization"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Core model assumptions regarding rational investor behavior",
+        "Utilization of standard deviation or variance as total risk proxies"
+      ],
+      "exclusion": [
+        "Single-index market beta derivations",
+        "Single risk-free rate capital market line formulations"
+      ],
+      "nearby_distinctions": [
+        "Differs from CAPM by focusing on investor-specific optimal portfolio selection rather than a universal market equilibrium pricing benchmark."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e0138e59-7812-47a9-a9c3-90eb82112375",
+      "concept_name": "Markowitz Model Assumptions and Dominance",
+      "definition": "Markowitz diversification combines assets that are less than perfectly positively correlated to reduce portfolio risk without sacrificing expected return. The mean-variance dominance principle establishes that a portfolio dominates another if it yields higher returns for equal risk or lower risk for equal returns.",
+      "terminology": [
+        "Mean-variance dominance principle",
+        "Correlation",
+        "Diversification",
+        "Standard deviation"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Criteria for portfolio dominance under mean-variance rules",
+        "Core rules for improving inefficient portfolios via risk-return adjustments"
+      ],
+      "exclusion": [
+        "Capital market line borrowing and lending allocations"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from simple asset pooling by requiring less-than-perfect positive correlation to achieve non-sacrificial risk reduction."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "bffa6ede-1e36-4c13-8e10-b0fcf0c5e98c",
+      "concept_name": "Efficient Frontier and Optimal Portfolio Selection",
+      "definition": "The efficient frontier comprises portfolios offering the highest return for a given risk level or the lowest risk for a given return. An individual investor achieves their optimal portfolio at the tangency point between the efficient frontier and their highest attainable indifference curve.",
+      "terminology": [
+        "Efficient frontier",
+        "Efficient portfolio",
+        "Indifference curve",
+        "Optimal portfolio",
+        "Risk-return space"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Graphical boundary definitions of efficient portfolios",
+        "Indifference curve tangency conditions for investor optimization"
+      ],
+      "exclusion": [
+        "Single security un-optimized return estimations"
+      ],
+      "nearby_distinctions": [
+        "Distinct from the general opportunity set because the efficient frontier isolates only non-dominated optimal asset combinations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0e2029f6-4ccb-48ee-af2a-1912ff7104bd",
+      "concept_name": "Capital Market Line and Index Co-Movement",
+      "definition": "The Capital Market Line depicts risk-return combinations obtained by combining the market portfolio with risk-free borrowing or lending, where its slope represents reward per unit of risk. Concurrently, the single index model estimates individual stock returns by relating them to market index movements through alpha and beta coefficients.",
+      "terminology": [
+        "Capital Market Line",
+        "Market portfolio",
+        "Risk-free rate",
+        "Single Index Model",
+        "Alpha coefficient",
+        "Beta coefficient"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Formula for Capital Market Line slope and expected portfolio return",
+        "Single index model equation separating market return from error terms"
+      ],
+      "exclusion": [
+        "Markowitz individual utility indifference curves"
+      ],
+      "nearby_distinctions": [
+        "Differs from individual security models by pricing portfolios relative to the aggregate market portfolio and risk-free asset combinations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5890d70e-4b16-48e2-aa9a-1e04b9b31507",
+      "concept_name": "Single Index Model Variance Decomposition",
+      "definition": "The single index model decomposes a security's total return variance into systematic risk explained by the market index and residual unsystematic risk represented by the error term variance. Beta measures the sensitivity of stock returns to market return changes.",
+      "terminology": [
+        "Single Index Model",
+        "Systematic risk",
+        "Unsystematic risk",
+        "Residual variance",
+        "Beta"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Variance formulation incorporating market beta and residual variance",
+        "Covariance formulation between securities i and j using market index variance"
+      ],
+      "exclusion": [
+        "Multi-factor arbitrage pricing frameworks"
+      ],
+      "nearby_distinctions": [
+        "Distinct from multi-index approaches by assuming co-movement stems exclusively from a single common market index factor."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "69afc155-f39e-49e9-b044-a4ed534c80fa",
+      "concept_name": "Capital Asset Pricing Model Principles",
+      "definition": "The Capital Asset Pricing Model evaluates security pricing by isolating systematic risk, measured by beta, since unsystematic risk can be eliminated through portfolio diversification. Beta represents the sensitivity of security returns relative to market returns within a linear regression framework.",
+      "terminology": [
+        "Capital Asset Pricing Model",
+        "Systematic risk",
+        "Unsystematic risk",
+        "Beta coefficient",
+        "Market sensitivity"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Differentiation between single-asset risk and portfolio risk",
+        "Calculation of portfolio beta as a weighted average of individual security betas"
+      ],
+      "exclusion": [
+        "Un-diversified security pricing models"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes relevant pricing risk as strictly non-diversifiable systematic risk rather than total security variance."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d3d777ff-7e14-47e8-b99f-8e2fc6641920",
+      "concept_name": "Risk-Free Rate Determination and Valuation",
+      "definition": "Application of the Capital Asset Pricing Model requires determining an appropriate single risk-free rate, which can utilize conservative, moderate, or aggressive government bill yields. Comparing the required return derived from CAPM against market expectations helps identify undervalued or overvalued stocks.",
+      "terminology": [
+        "Risk-free rate",
+        "Moderate approach",
+        "Required rate of return",
+        "Undervalued stocks",
+        "Overvalued stocks"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Selection methodologies for risk-free rates from treasury bill auctions",
+        "Practical application of CAPM formula to solve for company beta"
+      ],
+      "exclusion": [
+        "Markowitz quadratic programming portfolio optimizations"
+      ],
+      "nearby_distinctions": [
+        "Distinct from historical return calculations by establishing required normative return hurdles to evaluate market mispricing."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "90df2ef0b14029062b4ea48655dadd17b54eb627e354a7cde3037414402be2af",
+  "artifact_id": "28b19204-de90-410d-9639-af39970a6481",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8816,
+  "output_tokens": 3227,
+  "cost_usd": 0.0107123,
+  "created_at": "2026-10-03T18:07:35.130967+00:00"
+}

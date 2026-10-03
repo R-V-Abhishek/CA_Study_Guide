@@ -1,0 +1,239 @@
+{
+  "descriptors": [
+    {
+      "node_id": "4413b7c1-9ac0-4bf0-898a-5ff7a33a0021",
+      "concept_name": "Objective and Scope of Ind AS 27",
+      "definition": "Ind AS 27 sets out the accounting and disclosure rules for investments in subsidiaries, joint ventures, and associates when an entity presents separate financial statements. It applies when an entity elects or is required by law to produce separate financial statements complying with applicable standards.",
+      "terminology": [
+        "Separate financial statements",
+        "Subsidiaries",
+        "Joint ventures",
+        "Associates",
+        "Parent"
+      ],
+      "instrument_references": [
+        "Ind AS 27"
+      ],
+      "inclusion": [
+        "Investments in subsidiaries, joint ventures, and associates in separate financial statements"
+      ],
+      "exclusion": [
+        "Consolidated financial statements preparation rules"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from Ind AS 110 which governs consolidated financial statements rather than separate entity reporting"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "288786b7-6d57-4b8d-93fc-fda756866b27",
+      "concept_name": "Scope Of Ind As 27",
+      "definition": "The standard applies whenever an entity chooses or is legally mandated to present separate financial statements for its holdings in subsidiaries, associates, and joint ventures. It does not dictate which specific entities must produce separate financial statements, but applies when statements complying with Ind AS are prepared.",
+      "terminology": [
+        "Separate financial statements",
+        "Mandated by law",
+        "Election"
+      ],
+      "instrument_references": [
+        "Ind AS 27",
+        "Companies Act 2013",
+        "Ind AS 110",
+        "Ind AS 28"
+      ],
+      "inclusion": [
+        "Entities presenting separate financial statements by election or legal requirement"
+      ],
+      "exclusion": [
+        "Entities not preparing separate financial statements"
+      ],
+      "nearby_distinctions": [
+        "Differs from general consolidation mandates since Ind AS 27 governs elective or statutory separate reporting rather than group-wide consolidation"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "25a955fa-b59a-4221-81ac-bb4984c6fb09",
+      "concept_name": "What Are Separate Financial Statements And How They Are Presented?",
+      "definition": "Separate financial statements are presented by a parent or an investor with joint venture or associate investments, where those holdings are accounted for at cost or under Ind AS 109. They are typically presented alongside consolidated financial statements or as sole statements under specific exemptions.",
+      "terminology": [
+        "Parent",
+        "Investment entity",
+        "Equity method",
+        "Cost basis"
+      ],
+      "instrument_references": [
+        "Ind AS 109",
+        "Ind AS 110",
+        "Ind AS 28"
+      ],
+      "inclusion": [
+        "Financial statements presented in addition to consolidated statements",
+        "Statements presented by exempt entities as sole financial reports"
+      ],
+      "exclusion": [
+        "Full consolidated group financial statements"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from consolidated statements by recording investments at cost or financial instrument rules instead of combining line-by-line assets and liabilities"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b6846675-b754-4bb9-ba27-e1c38dc24b17",
+      "concept_name": "Preparation Of Separate Financial Statements",
+      "definition": "Entities prepare separate financial statements by accounting for investments in subsidiaries, associates, and joint ventures either at cost or in accordance with financial instrument standards. The chosen accounting treatment must be applied consistently to each category of investments.",
+      "terminology": [
+        "Cost method",
+        "Fair value through profit or loss",
+        "Fair value through other comprehensive income"
+      ],
+      "instrument_references": [
+        "Ind AS 109",
+        "Ind AS 105",
+        "Ind AS 110",
+        "Ind AS 28"
+      ],
+      "inclusion": [
+        "Accounting for subsidiaries, associates, and joint ventures at cost or fair value"
+      ],
+      "exclusion": [
+        "Equity method accounting for subsidiaries within separate financial statements"
+      ],
+      "nearby_distinctions": [
+        "Contrasts with consolidated financial statements where line-by-line consolidation is mandatory for subsidiaries"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0ace32b2-375c-4f6a-a9da-8ab5fc67a81d",
+      "concept_name": "Accounting of investments in subsidiaries, associates and joint ventures",
+      "definition": "Investments in subsidiaries, associates, and joint ventures in separate financial statements must be measured either at cost or via financial instrument standards. When investments held at cost are classified as held for sale, they are governed by non-current assets held for sale rules.",
+      "terminology": [
+        "Cost",
+        "Fair value through profit or loss",
+        "Held for sale",
+        "Venture capital organization"
+      ],
+      "instrument_references": [
+        "Ind AS 109",
+        "Ind AS 105",
+        "Ind AS 110",
+        "Ind AS 28"
+      ],
+      "inclusion": [
+        "Measurement at cost",
+        "Measurement at fair value through profit or loss or other comprehensive income"
+      ],
+      "exclusion": [
+        "Equity method use for subsidiaries in separate financial statements"
+      ],
+      "nearby_distinctions": [
+        "Differs from general equity accounting permitted under international frameworks since Indian standards exclude equity accounting in separate financial statements"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "008342cc-9f58-495e-8614-4e74a5960c02",
+      "concept_name": "Accounting When A Parent Ceases To Be An Investment Entity Or Becomes An Investment Entity",
+      "definition": "When a parent changes its status regarding investment entity definitions, it must account for the shift from the exact date of change. Transitioning out of an investment entity allows measuring subsidiaries at cost using fair value as deemed cost or continuing under financial instrument rules, whereas becoming an investment entity requires fair value measurement through profit or loss.",
+      "terminology": [
+        "Investment entity",
+        "Deemed cost",
+        "Fair value through profit or loss",
+        "Status change"
+      ],
+      "instrument_references": [
+        "Ind AS 109"
+      ],
+      "inclusion": [
+        "Accounting adjustments when status changes between investment entity and regular parent"
+      ],
+      "exclusion": [
+        "Retrospective restatement prior to the date of status change"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from routine changes in ownership interest because it focuses on a structural entity classification change rather than equity transaction adjustments"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e35cc7fd-5c3e-4028-8ed8-5c7f9b09ecff",
+      "concept_name": "Accounting of dividend from subsidiary, associate or joint venture",
+      "definition": "Dividends received from a subsidiary, associate, or joint venture are recognized directly in profit or loss within separate financial statements when the legal right to receive payment is established. Typically, this right crystallizes upon shareholder approval at a general meeting.",
+      "terminology": [
+        "Dividend",
+        "Profit or loss",
+        "Right to receive"
+      ],
+      "instrument_references": [
+        "Ind AS 27"
+      ],
+      "inclusion": [
+        "Dividend income recognition in separate financial statements from group entities"
+      ],
+      "exclusion": [
+        "Pre-acquisition dividend adjustments reducing investment cost under older frameworks"
+      ],
+      "nearby_distinctions": [
+        "Differs from consolidated accounting where intra-group dividends are eliminated entirely upon consolidation"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a16bbf5c-3bde-4ae9-bf70-48804f8b206e",
+      "concept_name": "Reorganisation Of The Group Structure",
+      "definition": "When a group reorganizes by inserting a new parent via issuing equity instruments while keeping assets, liabilities, and owner interests identical, specific cost calculation rules apply. If the new parent elects cost accounting, the investment cost equals the carrying amount of its share of equity items in the original parent at the reorganisation date.",
+      "terminology": [
+        "New parent",
+        "Original parent",
+        "Group reorganisation",
+        "Carrying amount of equity"
+      ],
+      "instrument_references": [
+        "Ind AS 27"
+      ],
+      "inclusion": [
+        "Calculation of investment cost upon insertion of a new holding company"
+      ],
+      "exclusion": [
+        "Business combinations under common control governed by other specialized appendices where terms differ"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard business combinations because it involves identical pre- and post-reorganisation net assets and absolute ownership ratios"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "fd581377-34e3-4d1d-978c-0e06aa216593",
+      "concept_name": "Major Changes In Ind AS 27 From IAS 27 Not Resulting Into Carve Out",
+      "definition": "Indian accounting standards diverge from international counterparts by disallowing the equity method for accounting for investments in subsidiaries, joint ventures, and associates in separate financial statements. This prohibition exists because the equity method is viewed as a consolidation mechanism rather than a pure measurement basis like cost or fair value.",
+      "terminology": [
+        "Carve out",
+        "Equity method",
+        "Separate financial statements",
+        "Measurement basis"
+      ],
+      "instrument_references": [
+        "Ind AS 27",
+        "IAS 27"
+      ],
+      "inclusion": [
+        "Exclusion of equity method option in separate financial statements under Indian standards"
+      ],
+      "exclusion": [
+        "Global IAS 27 provisions permitting equity accounting in separate statements"
+      ],
+      "nearby_distinctions": [
+        "Contrasts with global standards that give entities an explicit policy choice to use equity accounting in separate financial statements"
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "d474e1fa9c361f21d976784588c3e26f684c05986976d29dfd7638c5bf159510",
+  "artifact_id": "5bc4b23a-8382-4182-beb8-f295783ec462",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 6628,
+  "output_tokens": 2625,
+  "cost_usd": 0.0085509,
+  "created_at": "2026-10-03T18:05:25.751280+00:00"
+}

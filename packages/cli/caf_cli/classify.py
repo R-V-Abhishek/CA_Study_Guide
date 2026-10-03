@@ -19,6 +19,7 @@ console = Console()
 
 @app.command("run")
 def classify_run(
+    taxonomy: Annotated[str | None, typer.Option("--taxonomy", help="Rebuilt textbook release ID; defaults to active release")] = None,
     doc_id: Annotated[int | None, typer.Option("--doc", help="Filter by document ID")] = None,
     paper_id: Annotated[str | None, typer.Option("--paper", help="Filter by paper ID (e.g. s2023.P1)")] = None,
     limit: Annotated[int, typer.Option("--limit", help="Maximum units to classify")] = 100,
@@ -30,7 +31,7 @@ def classify_run(
     """Run L3 classification cascade on pending gradable units with resumability."""
     session_factory = get_session_factory("operations")
     with session_factory() as session:
-        pipeline = ClassificationPipeline(session, model_override=model)
+        pipeline = ClassificationPipeline(session, model_override=model, version_id=taxonomy)
 
         mode_str = f"LLM ({model or 'default'})" if (use_llm and pipeline.gemini_classifier.is_available()) else "Local Anchor/Keyword Cascade"
         console.print(f"[bold green]Running classification (limit={limit}, mode={mode_str}, resume={resume})...[/bold green]")
@@ -53,10 +54,15 @@ def classify_run(
             table.add_row("Total Units Processed", str(summary.total_processed))
             table.add_row("Primary Suggestions", str(summary.primary_suggestions))
             table.add_row("Secondary Suggestions", str(summary.secondary_suggestions))
+            table.add_row("Failed Units", str(summary.failed_units))
             for b_name in ["A", "B", "C", "D"]:
                 table.add_row(f"Bucket {b_name}", str(summary.buckets.get(b_name, 0)))
 
             console.print(table)
+            run.taxonomy_version_id = pipeline.classifier.taxonomy_version_id
+            run.stats = {"processed": summary.total_processed, "failed": summary.failed_units,
+                "buckets": summary.buckets, "primary_suggestions": summary.primary_suggestions,
+                "secondary_suggestions": summary.secondary_suggestions, "is_partial": summary.is_partial}
 
             if summary.quota_exhausted:
                 console.print(
@@ -68,6 +74,8 @@ def classify_run(
                         border_style="yellow",
                     )
                 )
+            if summary.is_partial:
+                raise RuntimeError(summary.status_message)
 
 
 @app.command("test-set")
@@ -116,6 +124,7 @@ def classify_test_set(
 
 @app.command("evaluate")
 def classify_evaluate(
+    taxonomy: Annotated[str | None, typer.Option("--taxonomy", help="Taxonomy version to evaluate; defaults to active release")] = None,
     threshold: Annotated[float, typer.Option("--threshold", "-t", help="Minimum Bucket A precision threshold (0.0 - 1.0)")] = 0.80,
     min_samples: Annotated[int, typer.Option("--min-samples", "-m", help="Minimum evaluated samples for strict gating")] = 5,
     benchmark: Annotated[bool, typer.Option("--benchmark", "-b", help="Evaluate specifically on the calibration test set")] = False,
@@ -125,7 +134,7 @@ def classify_evaluate(
     with session_factory() as session:
         if benchmark:
             console.print(f"[bold cyan]Evaluating AI suggestions on Calibration Benchmark (Target: {threshold * 100:.0f}%)...[/bold cyan]")
-            bench_report = evaluate_calibration_benchmark(session, threshold=threshold)
+            bench_report = evaluate_calibration_benchmark(session, threshold=threshold, version_id=taxonomy)
 
             table = Table(title="Calibration Benchmark Evaluation per Paper", show_header=True)
             table.add_column("Paper", style="bold")
@@ -166,6 +175,7 @@ def classify_evaluate(
             session=session,
             bucket_a_threshold=threshold,
             min_samples=min_samples,
+            version_id=taxonomy,
         )
 
         table = Table(title="Model Evaluation per Confidence Bucket", show_header=True)

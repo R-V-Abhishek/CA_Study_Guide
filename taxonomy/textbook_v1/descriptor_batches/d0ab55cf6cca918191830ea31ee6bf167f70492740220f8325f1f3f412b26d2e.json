@@ -1,0 +1,277 @@
+{
+  "descriptors": [
+    {
+      "node_id": "a9bf84af-756f-4a86-9933-ee37ae680c61",
+      "concept_name": "Conceptual Framework of Valuation",
+      "definition": "Valuation determines the true worth of an enterprise by blending scientific methodologies with market analysis. It fulfills stakeholder needs for assessing corporate worth during activities like debt financing, initial public offerings, and mergers or acquisitions.",
+      "terminology": [
+        "Corporate Valuation",
+        "Wealth Maximization",
+        "True Worth"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Valuation of entire enterprises or corporate bodies",
+        "Valuation for mergers and acquisitions",
+        "Assessment for debt financing and initial public offerings"
+      ],
+      "exclusion": [
+        "Standalone calculations for individual asset liquidation outside a corporate context"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standalone security valuation by its corporate-wide application for entity-level decisions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "49fc3b93-c20b-4414-919d-b1423b0926b4",
+      "concept_name": "Important Terms Associated With Valuation",
+      "definition": "Valuation models require foundational financial metrics to discount future returns and evaluate past performance. These fundamental parameters establish the groundwork before applying any specific enterprise valuation methodology.",
+      "terminology": [
+        "Present Value",
+        "Internal Rate of Return",
+        "Return on Investment"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Time value of money adjustments",
+        "Investment yield calculations",
+        "Cash flow equivalence metrics"
+      ],
+      "exclusion": [
+        "Advanced sector-specific valuation modeling multipliers"
+      ],
+      "nearby_distinctions": [
+        "Serves as preparatory foundational vocabulary distinct from advanced valuation approaches."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "36f39b51-d995-469f-aa8f-b8ed0f8eb1d2",
+      "concept_name": "The Concept of PV (Present Value) of cash flows",
+      "definition": "Present value measures the current worth of future cash inflows by discounting them using a specific required rate of return. This metric accounts for the time value of money, recognizing that future receipts are worth less than immediate funds.",
+      "terminology": [
+        "Time Value of Money",
+        "Discounted Value",
+        "Cash Inflows"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Discounting future cash receipts to current equivalents",
+        "Application of discount rates to future cash flows"
+      ],
+      "exclusion": [
+        "Undiscounted nominal future cash totals"
+      ],
+      "nearby_distinctions": [
+        "Focuses on current equivalent worth rather than rate equality across cash inflows and outflows."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8b47e167-7e3c-47ca-a8c1-56df2bde9129",
+      "concept_name": "The Concept of IRR (Internal Rate of Return)",
+      "definition": "Internal rate of return represents the specific discount rate that equates the present value of cash inflows with the present value of cash outflows, resulting in a net present value of zero. Higher internal rates of return indicate more favorable investment opportunities for selection.",
+      "terminology": [
+        "Discount Rate",
+        "Net Present Value",
+        "Cash Outflows"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Equating cash inflows and outflows",
+        "Capital budgeting project selection criteria"
+      ],
+      "exclusion": [
+        "Fixed external market interest benchmarks"
+      ],
+      "nearby_distinctions": [
+        "Determines the exact rate balancing inflows and outflows, unlike standard present value which relies on an externally set discount rate."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "288e6821-a8c4-4d9e-abad-6d5e2e99824e",
+      "concept_name": "ROI (Return on Investment)",
+      "definition": "Return on investment measures the profitability or return generated relative to the capital invested in an entity or project. It functions as a historical performance metric used by stakeholders to evaluate past transactions or guide future capital allocations.",
+      "terminology": [
+        "Investment Cost",
+        "Average Investment",
+        "Performance Measure"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Standalone transaction returns",
+        "Time-adjusted average investment returns"
+      ],
+      "exclusion": [
+        "Prospective market-implied future equity yields"
+      ],
+      "nearby_distinctions": [
+        "Operates as a historical performance ratio based on past deployment, whereas internal rate of return forecasts prospective discounting balances."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d9db5bdd-0b34-493d-bd12-e1c7ce17431b",
+      "concept_name": "Perpetual Growth Rate (Gordon Model)",
+      "definition": "The Gordon model determines value by assuming dividends grow at a constant perpetual rate alongside an expected rate of return. While favored by academicians for constant-rate modeling, real-world utility remains limited due to irregular dividend patterns.",
+      "terminology": [
+        "Perpetual Growth",
+        "Dividend Payout",
+        "Expected Rate of Return"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Constant rate dividend growth assumptions",
+        "Academic constant-rate enterprise evaluations"
+      ],
+      "exclusion": [
+        "Fluctuating variable growth forecasting schedules"
+      ],
+      "nearby_distinctions": [
+        "Relies on steady perpetual dividend assumptions, unlike multi-stage free cash flow models."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b5920739-2f69-4391-b56b-6b67edfc892e",
+      "concept_name": "The term ‘TV’ (Terminal Value)",
+      "definition": "Terminal value estimates the total worth of all future cash flows beyond a forecasted projection horizon at the point of exit. It incorporates long-term horizon expectations into the selling price, typically calculated using a perpetual growth model.",
+      "terminology": [
+        "Horizon Value",
+        "Exit Point",
+        "Perpetual Growth Model"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Valuation of cash flows beyond explicit forecast horizons",
+        "Exit price determinations in corporate valuation"
+      ],
+      "exclusion": [
+        "Cash flows occurring within the explicit short-term projection period"
+      ],
+      "nearby_distinctions": [
+        "Represents remote future value beyond discrete forecast periods, unlike near-term annual cash flows."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "fdd09951-4c02-4624-9fe1-7606eb3f5d1c",
+      "concept_name": "APPROACHES/ METHODS OF VALUATION",
+      "definition": "Enterprise valuation requires selecting appropriate methodologies tailored to whether target companies are listed or unlisted. The primary valuation frameworks evaluate businesses through asset-based, earning-based, or cash flow-based approaches.",
+      "terminology": [
+        "Target Company",
+        "Market Capitalization",
+        "Market Efficiency"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Assessment of listed and unlisted corporate targets",
+        "Categorization of asset, earning, and cash flow valuation models"
+      ],
+      "exclusion": [
+        "Standalone equity valuations covered entirely in separate security valuation chapters"
+      ],
+      "nearby_distinctions": [
+        "Broadens valuation criteria beyond isolated security pricing by integrating comprehensive enterprise methods."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "cccfd63a-6205-4653-a2e9-6e7ce6804415",
+      "concept_name": "Asset Based Approach",
+      "definition": "The asset-based approach computes target share value based on underlying net assets rather than direct income-generation potential. It provides a baseline lower limit for company valuation by utilizing historical book values or adjusted net realizable values.",
+      "terminology": [
+        "Net Asset Value",
+        "Net Realizable Value",
+        "Liquidation Value"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Book value computations using fixed assets and net current liabilities",
+        "Adjusted net realizable value calculations for break-up scenarios"
+      ],
+      "exclusion": [
+        "Future income generation capabilities and prospective earnings streams"
+      ],
+      "nearby_distinctions": [
+        "Focuses on existing asset holdings rather than future income potential or cash flow projections."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "af75f931-05e2-4f51-b46c-7f9e77e0df0a",
+      "concept_name": "Income based Approach",
+      "definition": "The income-based approach assesses company worth by evaluating earning potential and future maintainable profits when operations continue into the foreseeable future. It utilizes valuation metrics such as price-to-earnings ratios or earnings capitalization rates.",
+      "terminology": [
+        "PE Ratio",
+        "Earning Yield",
+        "Maintainable Profit"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Price-to-earnings multiple valuation methods",
+        "Capitalization of expected annual maintainable earnings"
+      ],
+      "exclusion": [
+        "Liquidation asset break-up valuations"
+      ],
+      "nearby_distinctions": [
+        "Relies on earnings potential rather than static historical asset book values."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "121d87a9-a700-4f7c-a018-843e93e365df",
+      "concept_name": "Cash flow based approach",
+      "definition": "The cash flow approach values an enterprise by determining future free cash flows and discounting them at a rate matching the inherent risk. This method overcomes historical data reliance by forecasting explicit future cash adjustments and terminal values.",
+      "terminology": [
+        "Free Cash Flows",
+        "Discount Rate",
+        "Terminal Value"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Free cash flow adjustments for working capital and fixed asset investments",
+        "Discounted cash flow computations incorporating terminal values"
+      ],
+      "exclusion": [
+        "Static backward-looking historical balance sheet book values"
+      ],
+      "nearby_distinctions": [
+        "Emphasizes projected future liquidity and risk-adjusted cash returns instead of historical earnings multiples or net asset costs."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5302ecbd-438c-48ec-a493-5ae486ba32a5",
+      "concept_name": "MEASURING COST OF EQUITY",
+      "definition": "Measuring the cost of equity involves evaluating expected returns as a direct benefit of assuming specific market or macroeconomic risks. Models like the capital asset pricing model and arbitrage pricing theory provide structured frameworks for quantifying these required returns.",
+      "terminology": [
+        "Capital Assets Pricing Model",
+        "Arbitrage Pricing Model",
+        "Beta"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Risk-free rate and market risk premium integration",
+        "Multi-factor macroeconomic sensitivity modeling"
+      ],
+      "exclusion": [
+        "Fixed debt borrowing cost computations"
+      ],
+      "nearby_distinctions": [
+        "Focuses on shareholder return expectations relative to risk, distinct from asset-based valuation ratios."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "d0ab55cf6cca918191830ea31ee6bf167f70492740220f8325f1f3f412b26d2e",
+  "artifact_id": "c49075ef-f163-4f31-81f9-73a543047aaa",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 9046,
+  "output_tokens": 2952,
+  "cost_usd": 0.0100938,
+  "created_at": "2026-10-03T18:09:06.394612+00:00"
+}

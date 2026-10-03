@@ -1,0 +1,311 @@
+{
+  "descriptors": [
+    {
+      "node_id": "d6735f70-04ab-48ba-ba59-6b71ce2cc266",
+      "concept_name": "Specialized Audit Areas Introduction",
+      "definition": "Specialized auditing standards address distinct engagements including special purpose frameworks, single financial statements or specific elements, and summary financial statements. These engagements impose specific responsibilities regarding engagement acceptance, planning, performance, and reporting.",
+      "terminology": [
+        "Special Purpose Framework",
+        "Single Financial Statement",
+        "Summary Financial Statements"
+      ],
+      "instrument_references": [
+        "SA 800",
+        "SA 805",
+        "SA 810"
+      ],
+      "inclusion": [
+        "Audits under special purpose frameworks",
+        "Audits of single financial statements or specific elements",
+        "Engagements on summary financial statements"
+      ],
+      "exclusion": [
+        "General purpose financial statement audits under standard series 100-700"
+      ],
+      "nearby_distinctions": [
+        "Differs from general purpose audits by focusing on specific user needs or specific financial components."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e7dbac9e-91f3-4b8e-963a-f3f0a5bc73f8",
+      "concept_name": "SA 800 Framework Overview",
+      "definition": "SA 800 governs special considerations for auditing financial statements prepared under a special purpose framework. It regulates engagement acceptance, planning, performance, and the formation of an audit opinion.",
+      "terminology": [
+        "Special Purpose Framework",
+        "Fair Presentation Framework",
+        "Compliance Framework"
+      ],
+      "instrument_references": [
+        "SA 800"
+      ],
+      "inclusion": [
+        "Cash basis financial statements",
+        "Regulator-established financial provisions",
+        "Contractual financial provisions"
+      ],
+      "exclusion": [
+        "General purpose financial statements designed for common needs of wide range of users"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general purpose frameworks by targeting specific financial information needs of distinct users."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c4f74529-36fd-46cd-a158-642f96d64076",
+      "concept_name": "Special Purpose Framework Definition",
+      "definition": "A special purpose framework is a financial reporting framework designed to meet the specific financial information needs of particular users. It determines the form, content, and completeness of the special purpose financial statements including related notes.",
+      "terminology": [
+        "Special Purpose Framework",
+        "General Purpose Framework",
+        "Complete Set of Special Purpose Financial Statements"
+      ],
+      "instrument_references": [
+        "SA 800"
+      ],
+      "inclusion": [
+        "Summary of significant accounting policies",
+        "Other explanatory information"
+      ],
+      "exclusion": [
+        "Frameworks designed for common financial information needs of wide range of users"
+      ],
+      "nearby_distinctions": [
+        "Contrasts with general purpose frameworks by catering exclusively to targeted user groups rather than general public or diverse stakeholders."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5799fc61-5194-4ea0-b4dc-9aa4c0f012c8",
+      "concept_name": "Considerations When Accepting Special Purpose Engagements",
+      "definition": "Acceptability of a special purpose framework depends on intended user needs and whether promulgated standards follow a transparent deliberation process. For frameworks arising from contracts, acceptability is evaluated by examining if the framework exhibits standard attributes under professional judgment.",
+      "terminology": [
+        "Acceptability of Financial Reporting Framework",
+        "Transparent Process",
+        "Professional Judgment"
+      ],
+      "instrument_references": [
+        "SA 800",
+        "SA 210"
+      ],
+      "inclusion": [
+        "Standard-setting organization frameworks",
+        "Regulator-prescribed provisions",
+        "Contractual or other source provisions"
+      ],
+      "exclusion": [
+        "Frameworks lacking transparent stakeholder deliberation without established attributes"
+      ],
+      "nearby_distinctions": [
+        "Requires evaluating specific user needs rather than common broad user needs found in general purpose audits."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c0917e57-54a5-46f2-98e5-cd789a7b6aeb",
+      "concept_name": "Considerations When Planning and Performing Special Purpose Audits",
+      "definition": "Auditors must comply with relevant auditing standards while adapting specific requirements, such as material judgments based on intended users rather than general groups. In contract-based statements, auditors must understand significant management interpretations and account for agreed misstatement thresholds.",
+      "terminology": [
+        "Significant Interpretations",
+        "Threshold",
+        "Materiality"
+      ],
+      "instrument_references": [
+        "SA 200",
+        "SA 320",
+        "SA 315",
+        "SA 260 (Revised)"
+      ],
+      "inclusion": [
+        "Evaluating significant contract interpretations",
+        "Assessing materiality tailored to intended users"
+      ],
+      "exclusion": [
+        "Standard general materiality calculations omitting specific user information needs"
+      ],
+      "nearby_distinctions": [
+        "Differs from general audits by focusing materiality and risk assessments on specific user needs and contract terms."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "771a3b6d-9362-462e-9194-f45e9e6638b0",
+      "concept_name": "Description of Applicable Financial Reporting Framework in Reporting",
+      "definition": "Auditors must evaluate whether special purpose financial statements adequately describe the framework and any significant contract interpretations. The auditor's report must describe the preparation purpose, identify intended users, and reference management's responsibility for framework acceptability.",
+      "terminology": [
+        "Emphasis of Matter",
+        "Key Audit Matters",
+        "Other Information"
+      ],
+      "instrument_references": [
+        "SA 700 (Revised)",
+        "SA 701",
+        "SA 720 (Revised)"
+      ],
+      "inclusion": [
+        "Description of purpose and intended users",
+        "Management framework acceptability responsibility"
+      ],
+      "exclusion": [
+        "Standard general purpose reporting paragraphs lacking purpose descriptions"
+      ],
+      "nearby_distinctions": [
+        "Requires explicit disclosure of the specific purpose and target users absent in standard general purpose audit reports."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3d83bcbb-339f-4d8e-988f-d7209663f6db",
+      "concept_name": "Alerting Readers and Restricting Use of Special Purpose Reports",
+      "definition": "To prevent misunderstandings from secondary usage, auditors include an Emphasis of Matter paragraph explaining that statements are prepared using a special purpose framework and may be unsuitable for other purposes. Auditors may also restrict report distribution exclusively to specified users.",
+      "terminology": [
+        "Emphasis of Matter",
+        "Restriction on Distribution",
+        "Basis of Accounting"
+      ],
+      "instrument_references": [
+        "SA 706 (Revised)"
+      ],
+      "inclusion": [
+        "Emphasis of Matter paragraph regarding framework unsuitability",
+        "Distribution restriction clauses"
+      ],
+      "exclusion": [
+        "Unrestricted general purpose audit reports"
+      ],
+      "nearby_distinctions": [
+        "Mandates explicit warnings regarding unsuitability for alternative uses, unlike general purpose reports."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6dff0b8a-31e8-434f-9642-ea7b23979d69",
+      "concept_name": "Restriction on Distribution or Use Implementation",
+      "definition": "Auditors can restrict report distribution and use to specific contractual parties via dedicated report wording to prevent misuse. This is coupled with a basis of accounting reference highlighting the precise purpose of the financial statements.",
+      "terminology": [
+        "Restriction on Distribution",
+        "Basis of Accounting",
+        "Unmodified Opinion"
+      ],
+      "instrument_references": [
+        "SA 706 (Revised)"
+      ],
+      "inclusion": [
+        "Designating specific intended corporate recipients",
+        "Explicit prohibition of distribution to third parties"
+      ],
+      "exclusion": [
+        "Publicly filed general purpose reports without circulation caps"
+      ],
+      "nearby_distinctions": [
+        "Focuses on legal and contractual boundaries limiting who can legally read or utilize the audit output."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e0a21786-76e1-4ea8-8c8a-8ba39d515275",
+      "concept_name": "SA 805 Special Considerations for Single Financial Statements and Elements",
+      "definition": "Standards in the 100-700 series apply and are adapted for audits of single financial statements or specific elements, accounts, or items. When these components utilize a special purpose framework, SA 800 also applies to the engagement.",
+      "terminology": [
+        "Single Financial Statement",
+        "Element of a Financial Statement",
+        "Historical Financial Information"
+      ],
+      "instrument_references": [
+        "SA 805",
+        "SA 800 (Revised)"
+      ],
+      "inclusion": [
+        "Audits of single financial statements like cash flow statements",
+        "Audits of specific accounts like trade receivables"
+      ],
+      "exclusion": [
+        "Component auditor reports requested by a principal auditor for consolidated financial statements"
+      ],
+      "nearby_distinctions": [
+        "Applies audit requirements to standalone financial components instead of complete sets of financial statements."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ec5e3475-ca57-4006-8dc6-1def164a57c0",
+      "concept_name": "Single Financial Statement Definition",
+      "definition": "A single financial statement is an individual financial statement, such as a cash flow statement, distinct from a complete set of financial statements. It includes relevant notes covering significant accounting policies and explanatory information.",
+      "terminology": [
+        "Single Financial Statement",
+        "Complete Set of Financial Statements",
+        "Explanatory Information"
+      ],
+      "instrument_references": [
+        "SA 805"
+      ],
+      "inclusion": [
+        "Individual financial statements with related explanatory notes"
+      ],
+      "exclusion": [
+        "Complete set of general purpose financial statements"
+      ],
+      "nearby_distinctions": [
+        "Represents only one standalone statement rather than an entire financial package."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1bee9e16-3869-48e8-bc8a-a14be9eccdc0",
+      "concept_name": "Element of a Financial Statement Definition",
+      "definition": "An element means a specific element, account, or item of a financial statement, which includes related explanatory notes and accounting policies. Examples include trade receivables or cash and bank balances.",
+      "terminology": [
+        "Element",
+        "Account",
+        "Item of a Financial Statement"
+      ],
+      "instrument_references": [
+        "SA 805"
+      ],
+      "inclusion": [
+        "Trade receivables",
+        "Cash and bank balances"
+      ],
+      "exclusion": [
+        "Full financial statements or aggregated category totals spanning multiple statements"
+      ],
+      "nearby_distinctions": [
+        "Targeted exclusively at micro-components or line items within a statement rather than whole statements."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ab25d6ff-f613-48c9-9083-cd559c1f16cf",
+      "concept_name": "Practicability of Single Statement and Element Audits",
+      "definition": "Auditors must comply with all relevant SAs during single statement or element audits regardless of whether they audit the complete set. If not auditing the complete set, auditors must evaluate audit practicability given potential lack of entity understanding or corroborative records.",
+      "terminology": [
+        "Practicability",
+        "Internal Control Understanding",
+        "Corroborative Evidence"
+      ],
+      "instrument_references": [
+        "SA 200",
+        "SA 570"
+      ],
+      "inclusion": [
+        "Evaluating entity and internal control comprehension limitations",
+        "Assessing disproportionate audit work requirements"
+      ],
+      "exclusion": [
+        "Audits where the auditor simultaneously performs the complete entity financial statement audit"
+      ],
+      "nearby_distinctions": [
+        "Addresses feasibility hurdles when an auditor lacks broad background knowledge from a full entity audit."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "80b563a4062ba9ca9ab864126c71623f6b2f2bf0ff874e11c90fa66e58be0025",
+  "artifact_id": "1d918b91-9442-47f3-936b-09fbc96e9a87",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8230,
+  "output_tokens": 3230,
+  "cost_usd": 0.010544,
+  "created_at": "2026-10-03T18:10:28.029878+00:00"
+}

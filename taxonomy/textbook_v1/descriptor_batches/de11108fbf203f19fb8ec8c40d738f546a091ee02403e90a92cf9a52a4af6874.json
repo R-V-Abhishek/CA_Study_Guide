@@ -1,0 +1,174 @@
+{
+  "descriptors": [
+    {
+      "node_id": "317b8949-63c1-42f1-b433-e15cf1218a6f",
+      "concept_name": "Common types of errors",
+      "definition": "Errors in financial statements arise from mathematical mistakes, incorrect application of accounting policies, misinterpretations of facts, omissions, or undetected frauds. These errors can occur during the recognition, measurement, presentation, or disclosure stages of financial reporting.",
+      "terminology": [
+        "error of commission",
+        "mathematical mistakes",
+        "misinterpretations of facts",
+        "omissions",
+        "frauds"
+      ],
+      "instrument_references": [
+        "Ind AS 8",
+        "Ind AS 32",
+        "Ind AS 10"
+      ],
+      "inclusion": [
+        "Wrong calculations and carry forward of incorrect balances",
+        "Offsetting assets and liabilities without legally enforceable rights",
+        "Omission of material transactions due to oversight"
+      ],
+      "exclusion": [
+        "Changes in accounting estimates resulting from new information",
+        "Legitimate management judgments reflecting known facts"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from changes in accounting estimates, which represent revisions of approximations based on new information rather than corrections of past mistakes."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8e9846a2-ce6f-45c7-a5ce-b039be97e6f4",
+      "concept_name": "Treatment of errors",
+      "definition": "Current period errors are corrected before financial statements are approved, whereas material prior period errors discovered subsequently are corrected retrospectively in comparative information. Retrospective correction involves restating prior period comparative amounts and opening balances unless impracticable.",
+      "terminology": [
+        "prior period errors",
+        "retrospective restatement",
+        "comparative information",
+        "current period errors"
+      ],
+      "instrument_references": [
+        "Ind AS 8"
+      ],
+      "inclusion": [
+        "Correction of errors relating to comparative prior periods presented",
+        "Correction of errors relating to periods before the earliest comparative period presented",
+        "Consequential restatement of opening balances"
+      ],
+      "exclusion": [
+        "Prospective adjustments for items that are not classified as errors",
+        "Intentional misstatements designed to achieve specific financial presentations"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from prospective treatment, which applies only when retrospective restatement is impracticable."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "330b8d1b-3287-4c0e-a018-d2da7a1303f9",
+      "concept_name": "Limitations on retrospective restatement",
+      "definition": "Prior period errors must be corrected through retrospective restatement if both period-specific and cumulative effects are determinable. When determining period-specific or cumulative effects is impracticable, entities restate comparative information prospectively from the earliest practicable date.",
+      "terminology": [
+        "retrospective restatement",
+        "impracticable",
+        "period-specific effects",
+        "cumulative effect",
+        "prospective correction"
+      ],
+      "instrument_references": [
+        "Ind AS 8"
+      ],
+      "inclusion": [
+        "Restatement of opening balances of assets, liabilities, and equity from the earliest practicable period",
+        "Exclusion of error corrections from current period profit or loss"
+      ],
+      "exclusion": [
+        "Indefinite retroactive adjustments when underlying historical data cannot be recreated without hindsight"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard retrospective restatement by the presence of operational limitations that force a prospective adjustment from an operationally feasible date."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ca8bd2da-a8d8-4383-a987-a1934c58fcbf",
+      "concept_name": "DISCLOSURE OF PRIOR PERIOD ERRORS",
+      "definition": "Entities correcting prior period errors must disclose the nature of the error, the amount of correction for each affected financial statement line item, and earnings per share impacts for each presented period. If retrospective restatement is impracticable, entities must explain the circumstances and describe how the error was corrected.",
+      "terminology": [
+        "nature of prior period error",
+        "financial statement line item",
+        "earnings per share",
+        "earliest prior period presented"
+      ],
+      "instrument_references": [
+        "Ind AS 8",
+        "Ind AS 33"
+      ],
+      "inclusion": [
+        "Disclosures of correction amounts at the beginning of the earliest prior period presented",
+        "Explanations of circumstances leading to impracticable retrospective restatements"
+      ],
+      "exclusion": [
+        "Repetition of prior period error disclosures in financial statements of subsequent periods"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general accounting policy change disclosures by its specific focus on historical mathematical or application corrections and per-share impacts."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7bdd1472-c25a-431d-8683-102813b16c2f",
+      "concept_name": "IMPRACTICABILITY IN RESPECT OF RETROSPECTIVE APPLICATION AND RETROSPECTIVE RESTATEMENT",
+      "definition": "Retrospective adjustments are deemed impracticable when an entity cannot recreate past data or distinguish between information reflecting circumstances existing at the transaction date and subsequent hindsight. When applying retrospective changes requires significant subjective estimates where such historical evidence cannot be isolated, the change is applied prospectively.",
+      "terminology": [
+        "impracticable",
+        "retrospective application",
+        "retrospective restatement",
+        "hindsight",
+        "unobservable inputs"
+      ],
+      "instrument_references": [
+        "Ind AS 8"
+      ],
+      "inclusion": [
+        "Evaluation of historical data availability and recreation feasibility",
+        "Prohibition against utilizing hindsight in retrospective estimates"
+      ],
+      "exclusion": [
+        "Adjustments where historical information was systematically collected and verifiable without hindsight"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard estimation uncertainty by the specific inability to filter out post-event knowledge from historical transaction conditions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8d91910c-891f-4bfd-8055-355049a13f89",
+      "concept_name": "SIGNIFICANT DIFFERENCES BETWEEN IND AS 8 AND AS 5",
+      "definition": "Ind AS 8 and AS 5 differ significantly in their treatment of extraordinary items, statutory policy changes, and mandatory comparative presentations. Unlike AS 5, Ind AS strictly prohibits presenting extraordinary income or expense items and mandates retrospective restatement with a third balance sheet for material policy changes.",
+      "terminology": [
+        "Ind AS 8",
+        "AS 5",
+        "extraordinary items",
+        "retrospective restatement",
+        "third balance sheet"
+      ],
+      "instrument_references": [
+        "Ind AS 8",
+        "Ind AS 1",
+        "AS 5"
+      ],
+      "inclusion": [
+        "Comparison of scope regarding policy selection criteria",
+        "Prohibition of extraordinary items under Ind AS versus mandatory separate presentation under AS 5"
+      ],
+      "exclusion": [
+        "Identical regulatory treatment for accounting estimates across both frameworks"
+      ],
+      "nearby_distinctions": [
+        "Distinguished by Ind AS requiring comprehensive retrospective restatement and a third opening balance sheet for policy changes, whereas AS 5 lacks equivalent structural prerequisites."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "de11108fbf203f19fb8ec8c40d738f546a091ee02403e90a92cf9a52a4af6874",
+  "artifact_id": "cbfd61c4-0e83-4eb1-969b-458682ab3697",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 4462,
+  "output_tokens": 1882,
+  "cost_usd": 0.0060436000000000005,
+  "created_at": "2026-10-03T17:48:13.971322+00:00"
+}

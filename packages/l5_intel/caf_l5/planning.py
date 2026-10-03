@@ -55,11 +55,12 @@ def generate_study_plan(
             "hours_per_week": hours_per_week,
             "minutes_per_subtopic": minutes_per_subtopic,
             "items": [],
-            "score_unavailable_reason": "No successful scoring run exists for your target attempt." if not current_run else None,
+            "score_unavailable_reason": "No successful scoring run exists for your target attempt and taxonomy version." if not current_run else None,
         }
 
     # 3. Fetch nodes, topics, chapters, papers, weightages
-    all_nodes = session.query(Node).all()
+    from caf_l0.hierarchy import ancestor_at, version_nodes
+    all_nodes = version_nodes(session, current_run.taxonomy_version_id)
     nodes_by_id = {n.id: n for n in all_nodes}
 
     # Weightage section map: chapter_id -> WeightageSection
@@ -116,8 +117,8 @@ def generate_study_plan(
         priority_score = score.importance + weak_add + in_prog_add
 
         # Resolve chapter & topic
-        topic = nodes_by_id.get(node.parent_id) if node.parent_id else None
-        chapter = nodes_by_id.get(topic.parent_id) if topic and topic.parent_id else None
+        topic = ancestor_at(node.id, nodes_by_id, "topic")
+        chapter = ancestor_at(node.id, nodes_by_id, "chapter")
         chapter_id = chapter.id if chapter else ""
         chapter_name = chapter.name if chapter else ""
         sec = ch_to_section.get(chapter_id)

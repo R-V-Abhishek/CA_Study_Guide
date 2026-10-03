@@ -9,6 +9,7 @@ from sqlalchemy.orm import Session
 from caf_db.models.core import Decision
 from caf_db.models.ingest import Document, TagSuggestion, Unit
 from caf_db.models.ref import Node
+from caf_l3.evaluate import evaluation_taxonomy
 
 BENCHMARK_FLAG = "calibration_benchmark"
 ALL_PAPERS = ["s2023.P1", "s2023.P2", "s2023.P3", "s2023.P4", "s2023.P5", "s2023.P6"]
@@ -125,8 +126,10 @@ class BenchmarkEvaluationReport:
     status_note: str
 
 
-def evaluate_calibration_benchmark(session: Session, threshold: float = 0.80) -> BenchmarkEvaluationReport:
+def evaluate_calibration_benchmark(session: Session, threshold: float = 0.80,
+                                   version_id: str | None = None) -> BenchmarkEvaluationReport:
     """Evaluate human decisions vs AI suggestions specifically on the benchmark subset."""
+    taxonomy_version_id = evaluation_taxonomy(session, version_id)
     benchmark_units = (
         session.query(Unit, Document)
         .join(Document, Unit.document_id == Document.id)
@@ -157,7 +160,10 @@ def evaluate_calibration_benchmark(session: Session, threshold: float = 0.80) ->
         .order_by(Decision.id.desc())
         .all()
     )
-    decisions_by_fp = {d.unit_fingerprint: d for d in decisions}
+    decisions_by_fp = {}
+    for decision in decisions:
+        if decision.payload.get("taxonomy_version_id") == taxonomy_version_id:
+            decisions_by_fp.setdefault(decision.unit_fingerprint, decision)
 
     # Fetch latest primary tag suggestions
     suggestions = (
@@ -165,11 +171,14 @@ def evaluate_calibration_benchmark(session: Session, threshold: float = 0.80) ->
         .filter(
             TagSuggestion.unit_id.in_(b_unit_ids),
             TagSuggestion.role == "primary",
+            TagSuggestion.taxonomy_version_id == taxonomy_version_id,
         )
         .order_by(TagSuggestion.id.desc())
         .all()
     )
-    sugg_by_unit = {s.unit_id: s for s in suggestions}
+    sugg_by_unit = {}
+    for suggestion in suggestions:
+        sugg_by_unit.setdefault(suggestion.unit_id, suggestion)
 
     paper_stats: dict[str, dict[str, int]] = {
         p: {"total": 0, "decided": 0, "matched": 0} for p in ALL_PAPERS

@@ -5,7 +5,7 @@ from caf_db.engine import get_engine
 from caf_common.settings import get_settings
 
 SCHEMAS = ("ref", "ingest", "core", "intel", "app", "ops")
-PERSONAL = ("settings", "progress", "progress_event", "note", "revision_event", "mock_test", "study_session")
+PERSONAL = ("settings", "progress", "progress_event", "note", "revision_event", "mock_test", "study_session", "progress_migration")
 IDENTITY = ("user_account", "invitation", "login_transaction", "auth_session")
 ROLE_PASSWORDS = {
     "caf_app": "APP", "caf_identity": "IDENTITY", "caf_curator": "CURATOR",
@@ -55,6 +55,10 @@ def apply_grants() -> None:
         grant("caf_identity", "SELECT", ["ref.paper", "ref.attempt"])
         grant("caf_curator", "SELECT", shared + [name for name in known if name.startswith("ingest.")])
         grant("caf_curator", "INSERT, UPDATE, DELETE", ["core.decision", "core.appearance", "core.appearance_tag", "core.change_log", "ingest.taxonomy_gap"])
+        grant("caf_curator", "INSERT", ["ref.descriptor_revision", "ref.descriptor_approval"])
+        if "app.user_account" in known:
+            for role in ("caf_curator", "caf_operations"):
+                conn.execute(text(f"GRANT SELECT (id,role,status) ON app.user_account TO {role}"))
         if "ingest.unit" in known:
             conn.execute(text("GRANT UPDATE (classify_status) ON ingest.unit TO caf_curator"))
         # Operational workers administer shared corpus/scoring, never profiles.
@@ -71,7 +75,7 @@ def apply_grants() -> None:
                     role == "caf_backup" or
                     role == "caf_app" and schema == "app" and name.removesuffix("_id_seq") in PERSONAL or
                     role == "caf_identity" and schema == "app" and name.removesuffix("_id_seq") in IDENTITY or
-                    role == "caf_curator" and schema == "core" or
+                    role == "caf_curator" and (schema == "core" or schema == "ref" and name == "descriptor_revision_id_seq") or
                     role == "caf_operations" and schema != "app" or
                     role == "caf_pipeline" and schema in {"ingest", "ops"}
                 )

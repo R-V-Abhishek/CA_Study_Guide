@@ -1,0 +1,277 @@
+{
+  "descriptors": [
+    {
+      "node_id": "84f0a63f-7fd8-4b05-8c5c-56a93d9264fb",
+      "concept_name": "Objective of an Engagement to Review Interim Financial Information in Accordance with SRE 2410",
+      "definition": "The objective is to enable an auditor to express a conclusion on whether anything causes them to believe interim financial information is not prepared in all material respects under the applicable framework. It utilizes inquiries and analytical procedures to reduce the risk of an inappropriate conclusion to a moderate level.",
+      "terminology": [
+        "interim financial information",
+        "moderate level risk",
+        "analytical procedures"
+      ],
+      "instrument_references": [
+        "SRE 2410"
+      ],
+      "inclusion": [
+        "Review of interim financial information by the independent auditor"
+      ],
+      "exclusion": [
+        "Expressing an audit opinion providing a true and fair view"
+      ],
+      "nearby_distinctions": [
+        "Differs from an audit by providing lower moderate assurance rather than reasonable assurance and omitting extensive corroborating tests."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6b1868c6-d8e6-4b1b-9207-6620ab4a5552",
+      "concept_name": "Agreeing the Terms of the Engagement",
+      "definition": "The auditor and client must agree on engagement terms, which are usually documented in an engagement letter. This communication prevents misunderstandings regarding the scope, objectives, responsibilities, and reporting format.",
+      "terminology": [
+        "engagement letter",
+        "engagement terms"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Recording agreed terms in writing"
+      ],
+      "exclusion": [
+        "Unwritten verbal understandings without documentation"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from subsequent audit planning by establishing baseline roles and scope agreements explicitly."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "fa7ebaea-a8bc-45ae-a0ef-c5ba3d9a7a39",
+      "concept_name": "Understanding the Entity and its Environment including its Internal Control",
+      "definition": "Auditors must update their understanding of the entity, its environment, and internal control as relevant to both annual and interim financial information. This updated knowledge assists in identifying potential material misstatements and selecting appropriate review procedures.",
+      "terminology": [
+        "internal control",
+        "material misstatement",
+        "risk assessment"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Reading preceding year audit documentation",
+        "Considering prior significant risks"
+      ],
+      "exclusion": [
+        "Relying solely on historical annual controls without interim verification"
+      ],
+      "nearby_distinctions": [
+        "Updates prior annual knowledge specifically focusing on differences pertinent to interim reporting periods."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e9022822-d5ec-4929-b469-a456e35d00fa",
+      "concept_name": "Inquiries, Analytical and other Review procedures",
+      "definition": "Auditors perform inquiries primarily of financial management and analytical review procedures to evaluate the preparation of interim financial information. These procedures generally omit intensive record testing via inspection, observation, or confirmation.",
+      "terminology": [
+        "inquiries",
+        "analytical procedures",
+        "accounting records"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Reading governance meeting minutes",
+        "Inquiring of financial management"
+      ],
+      "exclusion": [
+        "Extensive physical inventory counts",
+        "Direct third-party balance confirmations"
+      ],
+      "nearby_distinctions": [
+        "Differs from audit testing by relying on inquiry and analysis rather than corroborative inspection and confirmation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a4913fa7-bc2f-4e72-b1a7-63122ee0a306",
+      "concept_name": "Evaluation of Misstatements",
+      "definition": "The auditor evaluates uncorrected misstatements and inadequate disclosures individually and in aggregate to determine if material adjustments are necessary. Professional judgment is applied to assess their impact under the financial reporting framework.",
+      "terminology": [
+        "uncorrected misstatements",
+        "aggregate",
+        "material adjustment"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Assessing individual and aggregate uncorrected items",
+        "Evaluating disclosure adequacy"
+      ],
+      "exclusion": [
+        "Ignoring minor discrepancies without professional evaluation"
+      ],
+      "nearby_distinctions": [
+        "Focuses specifically on evaluating uncorrected items found during interim review procedures rather than full final audit adjustments."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "86d1ab89-747a-4e0b-bf17-5ee7da9fb470",
+      "concept_name": "Management representations",
+      "definition": "The auditor must obtain specific written representations from management acknowledging responsibilities for internal controls, fraud prevention, compliance, and accurate interim presentation. These representations confirm management disclosures on uncorrected misstatements and subsequent events.",
+      "terminology": [
+        "written representation",
+        "subsequent events",
+        "fraud risk"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Management acknowledgment of internal control responsibility",
+        "Disclosure of known frauds"
+      ],
+      "exclusion": [
+        "Verbal management assurances lacking formal written confirmation"
+      ],
+      "nearby_distinctions": [
+        "Serves as formal written confirmation of management's responsibilities specifically tailored to interim reporting assertions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4d6752bc-ddd5-40de-a713-a495245e6d1e",
+      "concept_name": "Auditor’s Responsibility for Accompanying Information",
+      "definition": "The auditor reads accompanying information to identify material inconsistencies with the interim financial information. If management refuses necessary amendments, the auditor considers report implications, withholding issuance, or engagement withdrawal.",
+      "terminology": [
+        "material inconsistency",
+        "accompanying information",
+        "withdrawal"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Reviewing documents accompanying interim statements",
+        "Evaluating alternative earnings measures"
+      ],
+      "exclusion": [
+        "Auditing information completely unrelated to financial reporting disclosures"
+      ],
+      "nearby_distinctions": [
+        "Focused on consistency checks with supplementary documents rather than core primary interim statements."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5fd783b7-5bc6-442c-9bc0-b69f278a8a0c",
+      "concept_name": "Communication",
+      "definition": "When review procedures reveal required material adjustments, fraud, or non-compliance, the auditor must communicate these matters promptly to management and those charged with governance. Oral communications must be documented appropriately.",
+      "terminology": [
+        "material adjustment",
+        "fraud",
+        "governance"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Reporting required adjustments to management",
+        "Documenting oral communications"
+      ],
+      "exclusion": [
+        "Withholding known fraud or significant non-compliance findings"
+      ],
+      "nearby_distinctions": [
+        "Mandates timely upward reporting of significant anomalies discovered during interim analytical reviews."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6b9723d5-bf58-4422-8cf5-811c101a0abd",
+      "concept_name": "Reporting the Nature, Extent and Results of the Review of Interim Financial Information",
+      "definition": "The auditor must issue a written review report containing an appropriate title, addressee, financial statement identification, and management responsibilities. It must explicitly state that the review followed applicable review standards and provides substantially less scope than an audit.",
+      "terminology": [
+        "written report",
+        "scope",
+        "conclusion"
+      ],
+      "instrument_references": [
+        "SRE 2410"
+      ],
+      "inclusion": [
+        "Statement of management and auditor responsibilities",
+        "Description of review procedures"
+      ],
+      "exclusion": [
+        "Expressing a positive audit opinion or true and fair assurance"
+      ],
+      "nearby_distinctions": [
+        "Provides a descriptive conclusion on interim review results instead of a high-assurance audit opinion."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e5a930c6-47de-48ae-8d06-bafad973eb3f",
+      "concept_name": "Departure from the Applicable Financial Reporting Framework",
+      "definition": "The auditor expresses a qualified or adverse conclusion when uncorrected material departures from the framework affect the interim financial information. The report must detail the nature of the departure and, if practicable, its financial effects.",
+      "terminology": [
+        "qualified conclusion",
+        "adverse conclusion",
+        "departure"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Adding explanatory paragraphs for departures",
+        "Issuing adverse conclusions for pervasive misstatements"
+      ],
+      "exclusion": [
+        "Issuing an unmodified clean report when material departures remain uncorrected"
+      ],
+      "nearby_distinctions": [
+        "Modifies the review conclusion due to accounting framework non-compliance rather than a lack of available evidence."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e9bc546f-60fe-4b59-add1-ce7035a88f6d",
+      "concept_name": "Limitation on Scope",
+      "definition": "Scope limitations typically prevent completion of the review, requiring written communication of reasons to management and governance. If management imposes a scope limitation precluding completion, the auditor disclaims a conclusion or considers withdrawal.",
+      "terminology": [
+        "scope limitation",
+        "disclaimer",
+        "withdrawal"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Written communication of incomplete reviews",
+        "Issuing disclaimers when required by regulation"
+      ],
+      "exclusion": [
+        "Accepting engagements with known unremovable management-imposed scope restrictions"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from accounting framework departures by addressing unperformed procedures and restricted evidence access rather than erroneous calculations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "777e96d8-aac3-4d88-81da-8a89b6c677ef",
+      "concept_name": "Going Concern and Significant Uncertainties",
+      "definition": "When material uncertainties regarding going concern come to attention and are adequately disclosed, the auditor adds an emphasis of matter paragraph to the review report. Inadequate disclosure requires a qualified or adverse conclusion.",
+      "terminology": [
+        "going concern",
+        "material uncertainty",
+        "emphasis of matter"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Adding emphasis of matter paragraphs for disclosed uncertainties",
+        "Expressing qualified conclusions for inadequate disclosures"
+      ],
+      "exclusion": [
+        "Ignoring continuing operational viability doubts during interim evaluations"
+      ],
+      "nearby_distinctions": [
+        "Focuses on reporting operational viability disclosures via specific emphasis paragraphs or modified conclusions during interim periods."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "170a5e8940778efe2d1e1c3b3b636e4c65fd791f59e95634cc36263b0885c069",
+  "artifact_id": "90b36341-d1cb-4663-b578-8964e8fff218",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 7870,
+  "output_tokens": 2897,
+  "cost_usd": 0.0096035,
+  "created_at": "2026-10-03T18:10:47.995076+00:00"
+}

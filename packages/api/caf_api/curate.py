@@ -36,6 +36,7 @@ class DocumentEditRequest(BaseModel):
 
 class DocumentConfirmRequest(BaseModel):
     model_config = ConfigDict(extra="forbid")
+    course_level: Literal["foundation", "intermediate", "final"] | None = None
     attempt_id: str | None = None
     paper_id: str | None = None
     doc_type_id: str | None = None
@@ -65,6 +66,8 @@ def list_curate_documents(
         {
             "id": d.id,
             "sha256": d.sha256,
+            "course_level": d.course_level,
+            "provenance_status": d.provenance_status,
             "title": d.title,
             "scheme_id": d.scheme_id,
             "attempt_id": d.attempt_id,
@@ -151,6 +154,7 @@ def list_curate_queue(
     paper_id: str | None = None,
     doc_id: int | None = None,
     bucket: str | None = None,
+    version_id: str | None = None,
     benchmark_only: bool = Query(False, description="Filter for calibration benchmark units only"),
     session: Session = Depends(get_curation_db),
     account: Principal = Depends(require_account),
@@ -158,6 +162,13 @@ def list_curate_queue(
     """List pending units with suggestions for human review."""
     from caf_db.models.ingest import TagSuggestion, Unit, UnitAnswer
     from caf_db.models.ref import Node
+    from caf_l0.releases import active_version, get_release
+    from caf_l0.hierarchy import ancestors, version_nodes
+    try:
+        release = get_release(session, version_id) if version_id else active_version(session)
+    except ValueError as exc:
+        raise HTTPException(422, str(exc)) from exc
+    taxonomy_version_id = release.taxonomy_version_id if release and release.status != "legacy" else None
 
     query = (
         sa.select(Unit, Document)
@@ -177,17 +188,18 @@ def list_curate_queue(
     units_with_doc = session.execute(query.order_by(Document.attempt_id.desc(), Unit.id.asc())).all()
 
     # Pre-fetch nodes
-    all_nodes = {n.id: n for n in session.query(Node).all()}
+    all_nodes = {n.id: n for n in version_nodes(session, release.taxonomy_version_id if release else None)}
 
     def recommendation(node_id: str) -> dict:
         node = all_nodes.get(node_id)
-        ancestry = {"chapter": None, "topic": None, "subtopic": None}
+        ancestry = {"module": None, "chapter": None, "unit": None, "topic": None, "subtopic": None}
         current = node
         while current:
             if current.level in ancestry:
                 ancestry[current.level] = {"id": current.id, "name": current.name}
             current = all_nodes.get(current.parent_id) if current.parent_id else None
-        return {"node_id": node_id, "node_name": node.name if node else None, **ancestry}
+        return {"node_id": node_id, "node_name": node.name if node else None, **ancestry,
+                "breadcrumbs": [{"id": n.id, "name": n.name} for n in ancestors(node_id, all_nodes)]}
 
     items = []
     for u, doc in units_with_doc:
@@ -199,6 +211,8 @@ def list_curate_queue(
         suggs = (
             session.query(TagSuggestion)
             .filter(TagSuggestion.unit_id == u.id, TagSuggestion.is_shadow.is_(False))
+            .filter(TagSuggestion.taxonomy_version_id == taxonomy_version_id)
+            .order_by(TagSuggestion.id.desc())
             .all()
         )
         prim = next((s for s in suggs if s.role == "primary"), None)
@@ -214,6 +228,8 @@ def list_curate_queue(
         items.append(
             {
                 "unit_id": u.id,
+                "taxonomy_version_id": taxonomy_version_id,
+                "publication_ready": taxonomy_version_id is None,
                 "document_id": doc.id,
                 "attempt_id": doc.attempt_id,
                 "paper_id": doc.paper_id,
@@ -230,6 +246,9 @@ def list_curate_queue(
                     "justification": (prim.evidence or {}).get("justification"),
                     "gist": (prim.evidence or {}).get("gist"),
                     "alternatives": (prim.evidence or {}).get("alternatives", []),
+                    "descriptor_revision_id": prim.descriptor_revision_id,
+                    "method": prim.method,
+                    "model_id": prim.model_id,
                 },
                 "secondary_suggestions": [
                     recommendation(s.node_id)

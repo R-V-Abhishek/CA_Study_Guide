@@ -1,0 +1,301 @@
+{
+  "descriptors": [
+    {
+      "node_id": "e8cdd87d-058f-4a9f-9e22-80c910e1e21a",
+      "concept_name": "Traditional Cost Management & Its Limitations",
+      "definition": "Traditional cost management focuses primarily on internal cost reduction and containment based on the premise that cutting costs directly enhances profits. However, it exhibits significant limitations by ignoring market dynamics, competition, and customer value propositions.",
+      "terminology": [
+        "Cost Ascertainment",
+        "Cost Control",
+        "Cost Reduction",
+        "Corrective Maintenance"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Internal cost cutting measures",
+        "Recording and controlling of historical costs"
+      ],
+      "exclusion": [
+        "Strategic alignment of costs",
+        "Market and customer value considerations"
+      ],
+      "nearby_distinctions": [
+        "Differs from strategic cost management by focusing exclusively on internal cost containment rather than long-term competitive positioning."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3533c8a4-49b5-4eae-a24f-97c1d1b6c733",
+      "concept_name": "Strategic Cost Management (SCM)",
+      "definition": "Strategic cost management integrates cost data analysis with the formulation and deployment of organizational strategies to achieve superior performance and sustainable competitive advantage. It assimilates both quantitative and qualitative information across service, manufacturing, and non-profit settings.",
+      "terminology": [
+        "Strategic Positioning",
+        "Cost Driver Analysis",
+        "Value Chain Analysis",
+        "Competitive Advantage"
+      ],
+      "instrument_references": [
+        "Cooper, R., & Slagmulder, R. R. A. (1998)"
+      ],
+      "inclusion": [
+        "Deployment of cost techniques for strategic positioning",
+        "Integration of quantitative and qualitative data in decision making"
+      ],
+      "exclusion": [
+        "Purely internal and reactive cost cutting without strategic context"
+      ],
+      "nearby_distinctions": [
+        "Unlike traditional cost management, SCM actively links cost management to external market strategy and competitive advantage."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0261b419-291a-4aa7-b753-e46aa3dcd1f4",
+      "concept_name": "Underneath Pillars of Strategic Cost Management",
+      "definition": "Strategic cost management rests upon three foundational pillars: strategic positioning, cost driver analysis, and value chain analysis. These pillars collectively help firms manage cost relationships across activities to attain explicit strategic objectives.",
+      "terminology": [
+        "Strategic Positioning",
+        "Cost Driver Analysis",
+        "Value Chain Analysis",
+        "Generic Value Chain"
+      ],
+      "instrument_references": [
+        "Porter, Michael E. (1985)",
+        "Cooper, R., & Slagmulder, R. R. A. (1998)"
+      ],
+      "inclusion": [
+        "Strategic positioning analysis",
+        "Value chain activity cost relationships"
+      ],
+      "exclusion": [
+        "Isolated operational budgeting disconnected from strategy"
+      ],
+      "nearby_distinctions": [
+        "Represents the conceptual scaffolding supporting overall strategic cost management rather than a single analytical tool."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c4b0c426-7f55-417a-9907-fdfc64ee8165",
+      "concept_name": "Value Chain Analysis",
+      "definition": "The value chain comprises a sequential set of primary and support activities that lead to the delivery of a final product or service while accumulating customer utility. Margin represents the excess of value customers are willing to pay over the firm's incurred costs.",
+      "terminology": [
+        "Primary Activities",
+        "Support Activities",
+        "Inbound Logistics",
+        "Operations",
+        "Margin"
+      ],
+      "instrument_references": [
+        "Porter, Michael E. (1985)"
+      ],
+      "inclusion": [
+        "Vertical primary activities like inbound logistics and operations",
+        "Horizontal support activities"
+      ],
+      "exclusion": [
+        "Direct procurement or purchasing under inbound logistics"
+      ],
+      "nearby_distinctions": [
+        "Focuses on sequential activity flows and cumulative customer utility rather than isolated departmental accounting."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "29eb321e-823a-4b13-a0e4-315ad1cc0c5d",
+      "concept_name": "Strategic Position and Strategic Positioning Analysis",
+      "definition": "Strategic positioning analysis evaluates a firm relative to its peer group to establish performance targets, competitive advantage, and action plans. It reflects choices about creating distinct customer value through either cost leadership or differentiation.",
+      "terminology": [
+        "Strategic Positioning Analysis",
+        "Differentiation",
+        "Cost Leadership",
+        "Vision and Values"
+      ],
+      "instrument_references": [
+        "Johnson, G., Scholes, K., Whittington, G. (2008)"
+      ],
+      "inclusion": [
+        "Appraisal of external environments and internal competences",
+        "Comparison of firm standing against true industry peers"
+      ],
+      "exclusion": [
+        "Internal cost control measures devoid of external peer benchmarking"
+      ],
+      "nearby_distinctions": [
+        "Focuses on market positioning and relative peer standing rather than internal process efficiency alone."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "13111efe-68a9-4a4b-a957-78105aca1967",
+      "concept_name": "Cost Driver Analysis",
+      "definition": "Cost driver analysis involves examining and quantifying the monetary effects of activity triggers that cause costs to be incurred. Drivers are categorized into structural types relating to business economic choices and executional types relating to operational execution.",
+      "terminology": [
+        "Cost Driver",
+        "Structural Cost Drivers",
+        "Executional Cost Drivers",
+        "Overhead Allocation"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Identification of structural economic choices",
+        "Review of executional business activities"
+      ],
+      "exclusion": [
+        "Allocating overhead exclusively based on volume output"
+      ],
+      "nearby_distinctions": [
+        "Extends beyond traditional volume-based cost drivers by incorporating complex structural and executional factors for long-term costs."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "49761495-fee5-4012-b755-30f374bfd3f8",
+      "concept_name": "Key tools of Strategic Cost Management and their nature",
+      "definition": "Strategic cost management employs various tools such as Activity Based Costing, Benchmarking, and Target Costing to align operational costs with business strategies. These mechanisms support organizations in achieving market dominance, accurate cost allocation, and continuous improvement.",
+      "terminology": [
+        "Activity Based Costing",
+        "Benchmarking",
+        "Target Costing",
+        "Theory of Constraints",
+        "Total Quality Management"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Illustrative strategic tools supporting cost alignment",
+        "Methods for indirect cost allocation and operational efficiency"
+      ],
+      "exclusion": [
+        "Static traditional accounting controls lacking strategic purpose"
+      ],
+      "nearby_distinctions": [
+        "Comprises an active toolkit explicitly linked to strategic positioning rather than standard passive record-keeping."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "82f36a21-e4f0-4073-a859-6269ec979aa4",
+      "concept_name": "Traditional vs. Strategic Cost Management",
+      "definition": "Traditional cost management focuses internally on short-term risk-averse cost control and volume-based allocation, whereas strategic cost management adopts a proactive, long-term approach encompassing both internal and external environments. SCM leverages activity-based costing and market context to pursue differentiation alongside cost containment.",
+      "terminology": [
+        "Reactive Approach",
+        "Proactive Approach",
+        "Risk Appetite",
+        "Competitive Advantage"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Comparison of scope, time horizon, and allocation bases",
+        "Evaluation of risk appetites between methods"
+      ],
+      "exclusion": [
+        "Single-environment short-term budgeting practices"
+      ],
+      "nearby_distinctions": [
+        "Highlights the divergence between internal short-term containment and broad, long-term externally integrated cost management."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5fef9c44-d07f-469f-9326-be06e9f82ef5",
+      "concept_name": "Gaining Competitive Advantage",
+      "definition": "Competitive advantage enables an organization to outperform rivals and generate higher profits from equivalent activities through superior performance. Strategists typically pursue this advantage through distinct generic fronts while avoiding the strategic trap of getting stuck in the middle.",
+      "terminology": [
+        "Competitive Advantage",
+        "Differentiation",
+        "Cost Leadership",
+        "Stuck in the Middle"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Outperforming competitors through superior performance",
+        "Pursuing generic strategic fronts for profitability"
+      ],
+      "exclusion": [
+        "Attempting to be all things to all customers without a clear focus"
+      ],
+      "nearby_distinctions": [
+        "Focuses on relative market outperformance and profit generation rather than mere cost reduction."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "de94aafc-86b0-4230-93a5-71828d21f8f3",
+      "concept_name": "How can a strategist increase profitability?",
+      "definition": "A strategist can enhance profitability by securing a competitive advantage through either product differentiation or cost leadership. Differentiation commands premium pricing via distinctive customer value, while cost leadership achieves the lowest production cost while maintaining acceptable quality.",
+      "terminology": [
+        "Differentiation",
+        "Cost Leadership",
+        "Premium Price",
+        "Value Chain Reconfiguration"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Driving up prices via product differentiation",
+        "Driving down costs via cost leadership and value chain reconfigurations"
+      ],
+      "exclusion": [
+        "Compromising core product quality below acceptable industry standards"
+      ],
+      "nearby_distinctions": [
+        "Outlines the dual profitability vectors of value-driven pricing versus cost minimization."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1186d960-977b-4a22-a420-d31ac7d35026",
+      "concept_name": "Differentiation",
+      "definition": "Differentiation increases profitability by commanding premium prices through the delivery of distinctive customer value supported by investments in research, design, and marketing. It can be sourced from superior quality, innovation, and customer relations to earn high margins or build market share.",
+      "terminology": [
+        "Differentiation",
+        "Premium Price",
+        "Distinctive Value",
+        "Research and Development"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Investing resources in design, innovation, and marketing",
+        "Sourcing advantage from customer relations and product range"
+      ],
+      "exclusion": [
+        "Competing purely on the basis of lowest production cost"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from cost leadership by its emphasis on value-added distinctiveness and premium pricing rather than low-cost production."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ce6845ec-907c-4c79-8aa5-2e874a6cad98",
+      "concept_name": "Cost Leadership",
+      "definition": "Cost leadership involves becoming the lowest-cost producer in an industry by balancing price with acceptable quality through reduced activity costs or value chain reconfiguration. This strategy allows firms to compete on price, capture market share, and earn high unit profits.",
+      "terminology": [
+        "Cost Leadership",
+        "Lowest Cost Producer",
+        "Value Chain Reconfiguration",
+        "Process Innovation"
+      ],
+      "instrument_references": [
+        "Shank (1989)"
+      ],
+      "inclusion": [
+        "Reducing individual value chain activity costs",
+        "Reconfiguring value chain processes for cost advantage"
+      ],
+      "exclusion": [
+        "Commanding high market prices through intensive product differentiation"
+      ],
+      "nearby_distinctions": [
+        "Focuses on operational cost minimization and price competitiveness rather than premium pricing through unique features."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "df67cad030d4c86a3b7df6338d9fd110f4edc5012faeb84b1a1d3757f4130845",
+  "artifact_id": "aefcd45d-6353-4580-9c39-054c3d302731",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 7845,
+  "output_tokens": 3186,
+  "cost_usd": 0.0103185,
+  "created_at": "2026-10-03T18:25:48.433335+00:00"
+}

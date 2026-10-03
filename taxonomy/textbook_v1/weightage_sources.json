@@ -1,0 +1,71 @@
+{
+  "records": [
+    {
+      "paper_id": "s2023.P1",
+      "official_landing_url": "https://boslive.icai.org/education_content_sectionwise.php?p=Section-wise_Skill%20wise%20Weightages",
+      "target_attempt": "2027-05",
+      "status": "unavailable",
+      "prior_contribution": 0,
+      "reason": "Official target applicability and exact mappings to independently built textbook nodes have not been reviewed.",
+      "download_url": "https://resource.cdn.icai.org/76831bos61899-final.pdf",
+      "availability": "discovered",
+      "mapping_review_status": "pending"
+    },
+    {
+      "paper_id": "s2023.P2",
+      "official_landing_url": "https://boslive.icai.org/education_content_sectionwise.php?p=Section-wise_Skill%20wise%20Weightages",
+      "target_attempt": "2027-05",
+      "status": "unavailable",
+      "prior_contribution": 0,
+      "reason": "Official target applicability and exact mappings to independently built textbook nodes have not been reviewed.",
+      "download_url": "https://resource.cdn.icai.org/76831bos61899-final.pdf",
+      "availability": "discovered",
+      "mapping_review_status": "pending"
+    },
+    {
+      "paper_id": "s2023.P3",
+      "official_landing_url": "https://boslive.icai.org/education_content_sectionwise.php?p=Section-wise_Skill%20wise%20Weightages",
+      "target_attempt": "2027-05",
+      "status": "unavailable",
+      "prior_contribution": 0,
+      "reason": "Official target applicability and exact mappings to independently built textbook nodes have not been reviewed.",
+      "download_url": "https://resource.cdn.icai.org/76831bos61899-final.pdf",
+      "availability": "discovered",
+      "mapping_review_status": "pending"
+    },
+    {
+      "paper_id": "s2023.P4",
+      "official_landing_url": "https://boslive.icai.org/education_content_sectionwise.php?p=Section-wise_Skill%20wise%20Weightages",
+      "target_attempt": "2027-05",
+      "status": "unavailable",
+      "prior_contribution": 0,
+      "reason": "Official target applicability and exact mappings to independently built textbook nodes have not been reviewed.",
+      "download_url": "https://resource.cdn.icai.org/76831bos61899-final.pdf",
+      "availability": "discovered",
+      "mapping_review_status": "pending"
+    },
+    {
+      "paper_id": "s2023.P5",
+      "official_landing_url": "https://boslive.icai.org/education_content_sectionwise.php?p=Section-wise_Skill%20wise%20Weightages",
+      "target_attempt": "2027-05",
+      "status": "unavailable",
+      "prior_contribution": 0,
+      "reason": "Official target applicability and exact mappings to independently built textbook nodes have not been reviewed.",
+      "download_url": "https://resource.cdn.icai.org/76831bos61899-final.pdf",
+      "availability": "discovered",
+      "mapping_review_status": "pending"
+    },
+    {
+      "paper_id": "s2023.P6",
+      "official_landing_url": "https://boslive.icai.org/education_content_sectionwise.php?p=Section-wise_Skill%20wise%20Weightages",
+      "target_attempt": "2027-05",
+      "status": "unavailable",
+      "prior_contribution": 0,
+      "reason": "Official target applicability and exact mappings to independently built textbook nodes have not been reviewed.",
+      "download_url": "https://resource.cdn.icai.org/76831bos61899-final.pdf",
+      "availability": "discovered",
+      "mapping_review_status": "pending"
+    }
+  ],
+  "landing_http_status": 200
+}

@@ -1,0 +1,254 @@
+{
+  "descriptors": [
+    {
+      "node_id": "c2dca473-af85-4712-9e6c-659f5c54e646",
+      "concept_name": "Fundamentals of Place of Supply",
+      "definition": "The place of supply identifies the consumption jurisdiction for destination-based taxation, establishing where tax revenue must accrue. It resolves complexities caused by the intangible nature of services, mobile recipients, and alterable delivery formats.",
+      "terminology": [
+        "destination-based consumption tax",
+        "jurisdiction",
+        "consumption point"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "goods consumption locations",
+        "service delivery tracking",
+        "cross-state service flows"
+      ],
+      "exclusion": [
+        "tax computation rules",
+        "input tax credit claiming mechanics"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from the physical location of the supplier or billing address by focusing strictly on the ultimate place of consumption."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "73d88e04-526e-41c5-9178-889673447efb",
+      "concept_name": "Relevant Definitions for Place of Supply",
+      "definition": "Statutory definitions establish legal boundaries for continuous passenger journeys, international trade movements, and organizational establishments. These terms govern the interpretation of cross-border and multi-location transactions under the GST framework.",
+      "terminology": [
+        "continuous journey",
+        "stopover",
+        "export of goods",
+        "export of services",
+        "fixed establishment"
+      ],
+      "instrument_references": [
+        "Section 2(3) of CGST Act",
+        "Section 2(5) of CGST Act",
+        "Section 2(6) of CGST Act",
+        "Section 2(7) of CGST Act",
+        "Section 2(34) of CGST Act"
+      ],
+      "inclusion": [
+        "conveyance classifications",
+        "distinct person establishment rules",
+        "foreign exchange receipt conditions"
+      ],
+      "exclusion": [
+        "valuation mechanisms",
+        "time of supply triggers"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between a regular place of business and a fixed establishment based on the sufficiency of human and technical resources."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "72e5467d-e42e-46ea-a94d-2b59460b1c5e",
+      "concept_name": "Place of Supply of Domestic Goods",
+      "definition": "Statutory rules determine the location where domestic goods are supplied based on physical movement, third-party delivery directions, or stationary delivery. For unregistered recipients, specific invoicing address criteria apply when movement is absent.",
+      "terminology": [
+        "movement of goods",
+        "bill to ship to model",
+        "delivery address"
+      ],
+      "instrument_references": [
+        "Section 10 of IGST Act"
+      ],
+      "inclusion": [
+        "terminating points of goods movement",
+        "third-party principal business locations",
+        "unregistered consumer invoice addresses"
+      ],
+      "exclusion": [
+        "imported goods cross-border transactions",
+        "exported goods leaving India"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes standard movement-based delivery rules from bill-to-ship-to triangular arrangements where a third party's principal place of business dictates the outcome."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a3f523c9-f866-4c97-bdf7-65b389fbc254",
+      "concept_name": "Place of Supply for Cross-Border Goods",
+      "definition": "Cross-border supply rules designate the importer's location as the place of supply for incoming goods and foreign destinations for outgoing goods. These cross-border transactions are classified as inter-state and zero-rated where applicable.",
+      "terminology": [
+        "import of goods",
+        "export of goods",
+        "zero rated supply"
+      ],
+      "instrument_references": [
+        "Section 11 of IGST Act",
+        "Section 2(10) of IGST Act",
+        "Section 2(5) of IGST Act"
+      ],
+      "inclusion": [
+        "importer location indexing",
+        "destination outside India tagging"
+      ],
+      "exclusion": [
+        "domestic intrastate transactions",
+        "inter-state domestic movements"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes domestic supply movement termination rules from international trade criteria tied strictly to import boundaries and foreign export destinations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6a1b0cbc-cdce-40c9-a7ba-3deb3df2f12e",
+      "concept_name": "Place of Supply of Services Within India",
+      "definition": "Domestic service rules establish the place of supply based on recipient registration status or specific performance ties to immovable properties and venues. Properties spanning multiple territories require proportional value allocation.",
+      "terminology": [
+        "registered person",
+        "immovable property",
+        "lodging accommodation"
+      ],
+      "instrument_references": [
+        "Section 12 of IGST Act"
+      ],
+      "inclusion": [
+        "architect and interior decorator services",
+        "hotel and boat lodging accommodations",
+        "event organization at immovable properties"
+      ],
+      "exclusion": [
+        "cross-border import of services",
+        "cross-border export of services"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes general B2B and B2C recipient-location rules from location-specific performance rules governing immovable property and related events."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "317840ea-c2c2-4b85-8510-26c59517f8a0",
+      "concept_name": "Clarifications on Place of Supply",
+      "definition": "Administrative clarifications resolve specific compliance ambiguities regarding e-commerce deliveries to unregistered persons and port cargo handling services. Cargo operations ancillary to port handling are classified under general service rules rather than immovable property rules.",
+      "terminology": [
+        "billing address",
+        "delivery address",
+        "cargo handling services"
+      ],
+      "instrument_references": [
+        "Section 10(1)(ca) of IGST Act",
+        "Section 12 of IGST Act",
+        "Section 13 of IGST Act",
+        "Circular No. 209/3/2024 GST"
+      ],
+      "inclusion": [
+        "e-commerce delivery address recording",
+        "port wagon haulage and unloading services"
+      ],
+      "exclusion": [
+        "immovable property statutory rules for port operations"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes port cargo handling ancillary operations from direct immovable property leases or construction services."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "67510bbb-a56d-4a1f-8823-a7aa46415dbe",
+      "concept_name": "Inter-State Supply Scope",
+      "definition": "Statutory provisions classify transactions as inter-state trade when the supplier and place of supply lie in different states or union territories, or involve cross-border imports and exports. Transactions involving Special Economic Zone developers or units are similarly integrated into this framework.",
+      "terminology": [
+        "inter-State trade or commerce",
+        "Special Economic Zone",
+        "customs frontiers"
+      ],
+      "instrument_references": [
+        "Section 7 of IGST Act",
+        "Section 10 of IGST Act",
+        "Section 12 of IGST Act"
+      ],
+      "inclusion": [
+        "supplies across different state boundaries",
+        "imported goods prior to customs clearance crossing",
+        "exports outside India"
+      ],
+      "exclusion": [
+        "intra-state supplies within the same state boundary"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes intra-state supplies occurring strictly within one state from inter-state transactions spanning multiple states, territories, or international borders."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "82dd4304-0876-40b0-9fbe-74288cea1777",
+      "concept_name": "Intra-State Supply Scope",
+      "definition": "Intra-state supply occurs when both the supplier and the place of supply are located within the same state or union territory, attracting CGST and SGST. Specific transactions involving Special Economic Zone units, uncrossed imports, or international tourists are legally excluded.",
+      "terminology": [
+        "intra-State supply",
+        "CGST",
+        "SGST",
+        "distinct persons"
+      ],
+      "instrument_references": [
+        "Section 8 of IGST Act",
+        "Section 10 of IGST Act",
+        "Section 12 of IGST Act",
+        "Section 15 of IGST Act"
+      ],
+      "inclusion": [
+        "supplies within the same state",
+        "branch establishments treated as distinct persons"
+      ],
+      "exclusion": [
+        "Special Economic Zone developer or unit supplies",
+        "imported goods before customs clearance"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes standard local state-contained transactions from excluded categories like SEZ supplies that default to inter-state treatment despite occurring locally."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "65b42194-2255-457f-bca5-73d3f58b3102",
+      "concept_name": "Supplies in Territorial Waters",
+      "definition": "Legal fictions assign supplier locations or places of supply occurring within territorial waters to the nearest coastal baseline state or union territory. This ensures every maritime supply links correctly to a destination-based administrative jurisdiction.",
+      "terminology": [
+        "territorial waters",
+        "baseline",
+        "coastal State"
+      ],
+      "instrument_references": [
+        "Section 9 of IGST Act",
+        "Territorial Waters, Continental Shelf, Exclusive Economic Zone and Other Maritime Zones Act 1976"
+      ],
+      "inclusion": [
+        "bunker fuel supplies to vessels",
+        "ship stores provided offshore"
+      ],
+      "exclusion": [
+        "high seas supplies beyond territorial water limits not captured by baseline rules"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes unassigned offshore maritime locations from land jurisdictions by legally anchoring them to the nearest coastal baseline point."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "6ae11acff918fdca86b132b7db17978721c92cd2d44ad49bee2fbccb7d9d2b03",
+  "artifact_id": "15f7f250-b72a-489b-aaee-0eb8e8ab3968",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 7032,
+  "output_tokens": 2672,
+  "cost_usd": 0.0087896,
+  "created_at": "2026-10-03T18:23:44.325834+00:00"
+}

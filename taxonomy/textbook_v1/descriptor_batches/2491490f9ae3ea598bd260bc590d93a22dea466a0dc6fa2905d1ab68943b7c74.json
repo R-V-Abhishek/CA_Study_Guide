@@ -1,0 +1,328 @@
+{
+  "descriptors": [
+    {
+      "node_id": "6cafc266-ccc8-4f5d-9f04-d83ef28f97b9",
+      "concept_name": "Objective Of Ind As 28",
+      "definition": "Ind AS 28 prescribes accounting guidance for investments in associates and outlines the requirements for applying the equity method to investments in associates and joint ventures. It establishes the foundational rules for how investors must report their holdings and shared economic activities in such entities.",
+      "terminology": [
+        "associates",
+        "joint ventures",
+        "equity method",
+        "investments"
+      ],
+      "instrument_references": [
+        "Ind AS 28"
+      ],
+      "inclusion": [
+        "Guidance on accounting of investments in associates",
+        "Application of the equity method for associates and joint ventures"
+      ],
+      "exclusion": [
+        "Consolidation rules for subsidiaries under Ind AS 110",
+        "Separate financial statement accounting under Ind AS 27"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standalone subsidiary consolidation principles by focusing specifically on shared influence rather than direct majority control."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b4006817-6df9-425f-b997-cc42745bd30e",
+      "concept_name": "Scope Of Ind As 28",
+      "definition": "Ind AS 28 applies universally to all entities that hold joint control over an investee, classifying it as a joint venture, or hold significant influence over an investee, classifying it as an associate. It dictates the mandatory accounting boundary for entities participating in these specific operational relationships.",
+      "terminology": [
+        "joint control",
+        "significant influence",
+        "joint venture",
+        "associate"
+      ],
+      "instrument_references": [
+        "Ind AS 28"
+      ],
+      "inclusion": [
+        "Investors with joint control over an investee",
+        "Investors with significant influence over an investee"
+      ],
+      "exclusion": [
+        "Entities exercising full control over a subsidiary",
+        "Passive investments without significant influence or joint control"
+      ],
+      "nearby_distinctions": [
+        "Distinct from general subsidiary frameworks because it applies when control is absent but joint control or significant influence exists."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "89ea5f0e-b08b-4d9d-b545-1489b3c3bb4f",
+      "concept_name": "SIGNIFICANT INFLUENCE",
+      "definition": "Significant influence represents an investor's power to participate in the financial and operating policy decisions of an investee without holding absolute control or joint control over those policies. An entity possessing this power treats the investee as an associate.",
+      "terminology": [
+        "financial and operating policy decisions",
+        "participation",
+        "associate",
+        "power"
+      ],
+      "instrument_references": [
+        "Ind AS 28"
+      ],
+      "inclusion": [
+        "Power to participate in policy decisions",
+        "Classification of investees as associates upon meeting criteria"
+      ],
+      "exclusion": [
+        "Control over the investee",
+        "Joint control over the investee"
+      ],
+      "nearby_distinctions": [
+        "Differs from control by granting only participation rights in policy-making rather than unilateral decision-making authority."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "846f2463-889a-48cf-8b0b-dc37b3d9a448",
+      "concept_name": "Presumption of significant influence",
+      "definition": "Holding 20% or more of an investee's voting rights directly or indirectly creates a rebuttable presumption of significant influence, whereas holding less than 20% presumes a lack of significant influence unless clear evidence proves otherwise. Substantial ownership by another investor does not automatically preclude an entity from exercising significant influence.",
+      "terminology": [
+        "voting rights",
+        "rebuttable presumption",
+        "direct or indirect holding",
+        "voting power"
+      ],
+      "instrument_references": [
+        "Ind AS 28"
+      ],
+      "inclusion": [
+        "Direct or indirect holding of 20% or more voting rights",
+        "Holdings below 20% evaluated through explicit demonstration"
+      ],
+      "exclusion": [
+        "Automatic control classifications based strictly on ownership percentages",
+        "Situations where other investors legally prevent participation"
+      ],
+      "nearby_distinctions": [
+        "Differs from absolute control tests by relying on a quantitative 20% threshold indicator that can be overcome by facts and circumstances."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5086fe4c-1569-4980-a9f4-4a2263f1c149",
+      "concept_name": "Judgement required in assessment of significant influence",
+      "definition": "Determining whether significant influence exists requires qualitative judgment based on specific factual circumstances, such as board representation or active participation in policy-making processes. Meeting a 20% voting threshold is not mandatory if board presence or decision-making involvement clearly demonstrates the power to participate.",
+      "terminology": [
+        "board representation",
+        "policy-making processes",
+        "qualitative judgement",
+        "governing body"
+      ],
+      "instrument_references": [
+        "Ind AS 28"
+      ],
+      "inclusion": [
+        "Representation on the board of directors",
+        "Participation in policy-making and dividend distribution decisions"
+      ],
+      "exclusion": [
+        "Purely mechanical or rigid reliance on numerical voting thresholds",
+        "Passive investments lacking any governance interaction"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from the rigid 20% quantitative presumption by evaluating active qualitative indicators of governance and policy participation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "806f3f67-bdcd-4d25-9db3-e10fedc83db3",
+      "concept_name": "Consideration of potential voting rights when assessing significant influence",
+      "definition": "Currently exercisable potential voting rights, such as share warrants and options, must be factored into assessing significant influence, ignoring management intentions and financial ability. Potential rights that are not currently exercisable are excluded from this assessment.",
+      "terminology": [
+        "potential voting rights",
+        "currently exercisable",
+        "share warrants",
+        "convertible instruments"
+      ],
+      "instrument_references": [
+        "Ind AS 28",
+        "Ind AS 110"
+      ],
+      "inclusion": [
+        "Currently exercisable options, warrants, and convertible instruments",
+        "Impact of potential power shifts on voting distribution"
+      ],
+      "exclusion": [
+        "Rights that cannot be exercised until a future date or triggering event",
+        "Consideration of management's financial ability or intent to exercise"
+      ],
+      "nearby_distinctions": [
+        "Unlike Ind AS 110 for subsidiaries, Ind AS 28 does not require potential voting rights to be substantive through financial capability to be included."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f5e5a2fb-cea4-4f48-979a-50b974b811bf",
+      "concept_name": "Loss of significant influence",
+      "definition": "An entity loses significant influence when it ceases to hold the power to participate in the financial and operating policy decisions of an investee. This termination can happen with or without changes in ownership levels, such as when an investee becomes controlled by a government or court administrator.",
+      "terminology": [
+        "loss of power",
+        "regulatory intervention",
+        "contractual arrangement",
+        "ownership level"
+      ],
+      "instrument_references": [
+        "Ind AS 28"
+      ],
+      "inclusion": [
+        "Associate becoming subject to government, court, or regulatory control",
+        "Loss of participation rights resulting from contractual terms"
+      ],
+      "exclusion": [
+        "Retention of active board seats and policy-making input",
+        "Routine equity fluctuations that do not impair participation power"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from initial acquisition assessment by focusing on the cessation of existing participatory governance rights rather than their creation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "68836890-eb8e-422e-8e94-9511340357fa",
+      "concept_name": "Equity Method",
+      "definition": "The equity method is an accounting approach where an investment is initially recognized at cost and subsequently adjusted for post-acquisition changes in the investor's share of the investee's net assets. The investor's profit or loss and other comprehensive income absorb their proportional share of the investee's corresponding results.",
+      "terminology": [
+        "post-acquisition change",
+        "net assets",
+        "other comprehensive income",
+        "proportionate share"
+      ],
+      "instrument_references": [
+        "Ind AS 28"
+      ],
+      "inclusion": [
+        "Initial recognition of investment at cost",
+        "Adjustments for post-acquisition net asset changes and comprehensive income shares"
+      ],
+      "exclusion": [
+        "Separate financial statement measurement frameworks",
+        "Full consolidation line-by-line asset and liability integration"
+      ],
+      "nearby_distinctions": [
+        "Unlike consolidation, it does not aggregate individual line items of assets and liabilities but reports the investment as a single net line item adjusted for performance."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "700711ca-dfae-4604-99b4-c7cfc6b10a13",
+      "concept_name": "Application of the equity method",
+      "definition": "Investors must apply the equity method for investments in associates and joint ventures in consolidated financial statements, whereas separate financial statements follow distinct rules. The accounting sequence involves recording initial acquisition cost, recognizing proportional shares of post-acquisition profits, OCI, and accounting for dividend distributions.",
+      "terminology": [
+        "acquisition cost",
+        "dividend receivable",
+        "consolidated financial statements",
+        "separate financial statements"
+      ],
+      "instrument_references": [
+        "Ind AS 28",
+        "Ind AS 27"
+      ],
+      "inclusion": [
+        "Recording initial investment at cost",
+        "Recognizing proportionate shares of profit, loss, and OCI",
+        "Adjusting carrying amounts for received or receivable distributions"
+      ],
+      "exclusion": [
+        "Applying equity method procedures within the investor's separate financial statements",
+        "Direct recognition of revenue purely upon cash dividend receipts"
+      ],
+      "nearby_distinctions": [
+        "Differs from separate financial statement reporting under Ind AS 27, which typically accounts for these investments at cost or fair value."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "28d9fafb-d9cb-40e7-9025-ad1086bb9611",
+      "concept_name": "Exemptions from applying the equity method",
+      "definition": "An entity is exempt from applying the equity method if it satisfies parent-subsidiary consolidation scope exceptions or if it is a venture capital organization, mutual fund, or unit trust that elects to measure investments at fair value through profit or loss. These exemptions relieve qualifying entities from complex proportional consolidation adjustments.",
+      "terminology": [
+        "venture capital organization",
+        "fair value through profit or loss",
+        "scope exception",
+        "mutual fund"
+      ],
+      "instrument_references": [
+        "Ind AS 28",
+        "Ind AS 110",
+        "Ind AS 109"
+      ],
+      "inclusion": [
+        "Parent entities exempt under consolidated financial statement rules",
+        "Venture capital organizations, mutual funds, and unit trusts electing fair value measurement"
+      ],
+      "exclusion": [
+        "Standard operating parent entities issuing publicly traded debt or equity instruments",
+        "Entities failing to meet subsidiary exemption notification criteria"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from mandatory equity accounting rules by offering specific structural carve-outs for investment funds and qualifying parent structures."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e06038b7-f54f-4dd6-9b39-93030bcb8e43",
+      "concept_name": "Equity Method Procedure",
+      "definition": "Applying the equity method involves systematic calculation steps on acquisition, including determining goodwill or capital reserves and adjusting investor shares for fair value differentials and subsequent asset depreciation. It governs how an investor processes ongoing operational results, intercompany transactions, and reporting period alignments with its investee.",
+      "terminology": [
+        "goodwill",
+        "capital reserve",
+        "fair value adjustments",
+        "depreciation"
+      ],
+      "instrument_references": [
+        "Ind AS 28"
+      ],
+      "inclusion": [
+        "Calculation of goodwill or capital reserve upon acquisition",
+        "Adjustments for asset depreciation and impairment based on acquisition date fair values"
+      ],
+      "exclusion": [
+        "Standalone accounting frameworks for non-associated holdings",
+        "Separate financial statement valuation rules"
+      ],
+      "nearby_distinctions": [
+        "Differs from general investment accounting by enforcing initial fair value adjustments and ongoing share tracking similar to consolidation mechanics."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "92b74f1a-659c-4507-979a-ba98e7f7712b",
+      "concept_name": "IMPAIRMENT LOSSES",
+      "definition": "An entity must evaluate whether objective evidence indicates that its net investment in an associate or joint venture is impaired due to loss events occurring after initial recognition. Goodwill embedded within the carrying amount of the net investment is not tested separately for impairment but is evaluated as part of the total net investment balance.",
+      "terminology": [
+        "loss event",
+        "net investment",
+        "objective evidence",
+        "credit rating"
+      ],
+      "instrument_references": [
+        "Ind AS 28"
+      ],
+      "inclusion": [
+        "Assessment of financial difficulty, defaults, or bankruptcy risks of the investee",
+        "Testing the entire net investment carrying amount including embedded goodwill"
+      ],
+      "exclusion": [
+        "Standalone impairment testing of acquired goodwill separated from the net investment",
+        "Market value declines or credit rating downgrades considered entirely in isolation without supporting loss data"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard asset impairment by assessing the aggregate net investment balance rather than isolating internal goodwill components."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "2491490f9ae3ea598bd260bc590d93a22dea466a0dc6fa2905d1ab68943b7c74",
+  "artifact_id": "3ae9c60c-1c25-42a1-9b38-d956e3d70a60",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8999,
+  "output_tokens": 3644,
+  "cost_usd": 0.011809700000000001,
+  "created_at": "2026-10-03T18:05:16.805356+00:00"
+}

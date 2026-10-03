@@ -1,0 +1,319 @@
+{
+  "descriptors": [
+    {
+      "node_id": "3083f3a5-4bae-4ee8-a03d-c78308155f58",
+      "concept_name": "Identification of IT Risks",
+      "definition": "Auditors identify information technology risks by evaluating the nature of applications, cybersecurity protocols, and management reliance on automated controls. Higher volumes of automated controls and shared common databases increase exposure to vulnerabilities like data loss, downtime, and unauthorized access.",
+      "terminology": [
+        "automated application controls",
+        "cybersecurity",
+        "system downtime",
+        "system integration"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Evaluating the volume and complexity of automated controls",
+        "Assessing risks related to system integration and compatibility",
+        "Identifying potential cyber threats and downtime causes"
+      ],
+      "exclusion": [
+        "Manual business process errors unrelated to IT systems",
+        "General economic industry risk factors"
+      ],
+      "nearby_distinctions": [
+        "Differs from general risk assessment because it focuses specifically on vulnerabilities arising from hardware, software, and network dependencies."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9c9ba562-096c-4bcd-bfd0-1226a61ad116",
+      "concept_name": "Risks Arising from Use of IT",
+      "definition": "Risks arising from information technology include unauthorized data changes, segregation of duties breakdowns, data corruption, system downtime, and compatibility issues across platforms. These hazards threaten the reliability of transaction processing, data integrity, and compliance with regulatory frameworks.",
+      "terminology": [
+        "segregation of duties",
+        "master files",
+        "system compatibility",
+        "regulatory compliance"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Unauthorized access or alterations to data and master files",
+        "System integration and compatibility failures",
+        "Regulatory compliance exposure due to technological changes"
+      ],
+      "exclusion": [
+        "Purely manual accounting calculation errors without IT involvement",
+        "Physical asset theft outside of data and IT environments"
+      ],
+      "nearby_distinctions": [
+        "Focuses on operational and compliance failures resulting directly from technology adoption rather than general business strategy risks."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "87763dde-e5ed-4da9-b212-6acc35de7379",
+      "concept_name": "IT Dependencies Impacting the Audit",
+      "definition": "IT dependencies represent the reliance of an entity on information technology to initiate, process, and report transactions for financial statements. Recognizing these dependencies through automated controls, reports, calculations, security, and interfaces helps auditors establish an efficient audit strategy.",
+      "terminology": [
+        "automated controls",
+        "system generated reports",
+        "IT dependencies",
+        "interfaces"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Automated business rule enforcement controls",
+        "System-generated reports used in audit testing",
+        "Automated accounting calculations and security restrictions"
+      ],
+      "exclusion": [
+        "Completely manual calculations performed entirely without system tools",
+        "Standalone physical security protocols unrelated to data systems"
+      ],
+      "nearby_distinctions": [
+        "Distinct from general IT risks because it identifies specific system touchpoints where financial data is processed and relied upon for auditing."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2779051a-4eec-4e9a-afa8-ae18679f126a",
+      "concept_name": "Assessing Cyber Risks (Including Remote Audit)",
+      "definition": "Cyber risks involve malicious attempts to gain unauthorized access to computing networks with the intent to damage, steal, or disrupt data assets. Assessing these risks requires evaluating security objectives across application access, program changes, and data center operations.",
+      "terminology": [
+        "malware",
+        "ransomware",
+        "access security objective",
+        "program change"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Evaluation of application access controls and user removal procedures",
+        "Review of program change management and segregation of duties",
+        "Assessment of data backup, recovery, and network operations"
+      ],
+      "exclusion": [
+        "Standard hardware wear-and-tear equipment failures",
+        "Internal human error unrelated to external attacks or security breaches"
+      ],
+      "nearby_distinctions": [
+        "Focuses explicitly on malicious digital intrusion and protective security architectures rather than general operational system downtime."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "39cb088f-c8af-4d97-8c99-98b7d0da007f",
+      "concept_name": "What is Cyber Risk",
+      "definition": "Cyber risk refers to potential harm or unauthorized access to computing systems and networks intended to compromise data integrity, confidentiality, or availability. Organizations must protect assets and maintain structured objectives regarding access security, program changes, and network operations.",
+      "terminology": [
+        "cyber-attack",
+        "access security",
+        "program change objective",
+        "malware"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Unauthorized access attempts and malicious software threats",
+        "Security objectives governing user authentication and authorization",
+        "Data backup and operational continuity controls"
+      ],
+      "exclusion": [
+        "Lawful system maintenance performed by authorized personnel",
+        "Planned system downtime for scheduled hardware upgrades"
+      ],
+      "nearby_distinctions": [
+        "Presents the core definition and security objectives of cyber threats as opposed to the audit methodology steps for evaluating them."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8e4dbdbd-6f4a-4687-abb1-1d8c8d5ec0af",
+      "concept_name": "Stages of Cyber Risks",
+      "definition": "The lifecycle of cyber risk management involves assessing common threat exposures, analyzing potential financial and operational impacts, and executing strategic mitigations. Organizations evaluate vulnerabilities like ransomware and phishing to understand regulatory, reputational, and financial consequences.",
+      "terminology": [
+        "ransomware",
+        "intellectual property theft",
+        "incident response cost",
+        "compensating controls"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Stage one assessment of common threats like phishing and insider actions",
+        "Stage two evaluation of impacts including regulatory costs and data loss",
+        "Stage three strategic management and alignment of cybersecurity programs"
+      ],
+      "exclusion": [
+        "Routine financial budgeting processes unrelated to security threats",
+        "General tax compliance reviews"
+      ],
+      "nearby_distinctions": [
+        "Frames cyber risk through a phased lifecycle approach from initial threat identification to impact analysis and strategic remediation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2aaeb96b-e449-4fc1-ac46-1964bb36730d",
+      "concept_name": "Cyber Security Framework",
+      "definition": "A cybersecurity framework encompasses management strategies for identifying risks, protecting electronic assets, and responding to adverse security events. Entities must maintain information asset inventories, prioritize digital asset protection, and align programs with recognized security guidelines.",
+      "terminology": [
+        "asset management",
+        "information assets",
+        "risk-based cybersecurity program",
+        "CISO"
+      ],
+      "instrument_references": [
+        "NIST",
+        "ISO"
+      ],
+      "inclusion": [
+        "Periodic risk assessments covering IT system failures and data access",
+        "Classification and prioritization of information assets",
+        "Governance structures establishing cybersecurity roles and responsibilities"
+      ],
+      "exclusion": [
+        "Physical inventory counts of tangible factory machinery without digital components",
+        "Manual financial statement preparation processes"
+      ],
+      "nearby_distinctions": [
+        "Emphasizes the overarching governance and management framework for defending electronic assets rather than specific transaction-level software controls."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ce3a3d11-2c78-49f9-9eff-141765cd8166",
+      "concept_name": "Control Considerations for Cyber Risks",
+      "definition": "Entities must implement internal controls to safeguard against cyber schemes that target vendor modifications, electronic fund transfers, and patch management vulnerabilities. Robust verification protocols prevent fraudulent disbursements and the exploitation of unpatched system security flaws.",
+      "terminology": [
+        "vendor master data",
+        "wire transfers",
+        "multi-factor authentication",
+        "patch management"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Controls around vendor setup and master data changes",
+        "Authentication protocols for electronic funds and wire transfers",
+        "Patch management controls to address known security vulnerabilities"
+      ],
+      "exclusion": [
+        "Standard physical cash count procedures at retail store registers",
+        "Non-electronic paper voucher approvals"
+      ],
+      "nearby_distinctions": [
+        "Centers specifically on high-risk transaction vectors and operational controls vulnerable to targeted cyber scams rather than general network firewalls."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "25bd73f7-c3ed-45f9-a58a-6bb5e93eb7b2",
+      "concept_name": "Remote Audit",
+      "definition": "A remote or virtual audit utilizes electronic and online means to conduct audit procedures, review documentation, and interact with auditees. Proper planning, secure document sharing platforms, and encrypted connections like virtual private networks are essential to maintain data confidentiality and evidence reliability.",
+      "terminology": [
+        "virtual audit",
+        "document sharing platform",
+        "virtual private network",
+        "archiving standards"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Planning audit timelines and video conferencing methods",
+        "Using encrypted document sharing platforms with restricted access",
+        "Employing virtual private networks when accessing client IT systems"
+      ],
+      "exclusion": [
+        "Traditional physical onsite audit walkthroughs and inspections",
+        "Unsecured local file transfers without encryption"
+      ],
+      "nearby_distinctions": [
+        "Replaces or supplements physical presence with digital communication and cloud-based review tools while enforcing strict data security protocols."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "40c021e1-c83c-4b79-86ed-f3053fddaffe",
+      "concept_name": "Emerging Technologies in Audit",
+      "definition": "Emerging technologies such as data analytics, artificial intelligence, and robotic process automation transform financial reporting and audit execution processes. Auditors apply computer-assisted auditing techniques to analyze large data sets, identify anomalies, and improve overall audit quality.",
+      "terminology": [
+        "data analytics",
+        "CAATs",
+        "artificial intelligence",
+        "audit data analytics"
+      ],
+      "instrument_references": [
+        "ACL",
+        "Alteryx",
+        "Power BI",
+        "CaseWare"
+      ],
+      "inclusion": [
+        "Using computer-assisted auditing techniques to evaluate large data populations",
+        "Discovering data patterns and identifying operational anomalies",
+        "Upskilling auditors and management on emerging technological impacts"
+      ],
+      "exclusion": [
+        "Traditional manual sampling of small paper-based ledger batches",
+        "Standard physical inventory observation counts"
+      ],
+      "nearby_distinctions": [
+        "Focuses on advanced digital tools and data analytics applied to large populations rather than standard manual examination methods."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "02688948-566f-4759-be91-368518ce0706",
+      "concept_name": "Automated Tools in Audit",
+      "definition": "Automated tools and emerging technologies require auditors to evaluate the design and operating effectiveness of controls across expanded system environments. The integration of technologies such as the Internet of Things broadens the audit scope to include peripheral systems and automated processes.",
+      "terminology": [
+        "robotic process automation",
+        "blockchain",
+        "machine learning",
+        "Internet of Things"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Evaluating peripheral automated systems relevant to financial reporting",
+        "Testing general IT and application controls for advanced technologies",
+        "Assessing IoT device integration and associated risk profiles"
+      ],
+      "exclusion": [
+        "Relying exclusively on traditional manual controls in highly automated settings",
+        "Legacy system reviews devoid of interconnectivity"
+      ],
+      "nearby_distinctions": [
+        "Focuses on the broader enterprise adoption of automation tools that necessitate expanding audit scopes beyond core ledger systems."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "dac66f20-fcd1-46dc-a9ec-9303f529f098",
+      "concept_name": "Internet of Things",
+      "definition": "The Internet of Things connects everyday devices to networks for data collection, analytics, and automated operational actions. This shift introduces new transaction flows, privacy considerations, and compliance risks that require auditors to evaluate automated controls and scope connected systems.",
+      "terminology": [
+        "IoT",
+        "connected devices",
+        "automated controls",
+        "consumer-facing tools"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Evaluating connected manufacturing equipment and smart device data flows",
+        "Assessing audit scope adjustments for connected payment processing tools",
+        "Reviewing privacy and security implications of IoT data collection"
+      ],
+      "exclusion": [
+        "Disconnected, standalone office equipment without network capabilities",
+        "Manual record-keeping systems lacking digital connectivity"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes physical objects embedded with sensors and network connectivity from standard enterprise computer servers and mainframes."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "3bb223287e25c2de9b74c3b267fa60e3cb7bc1a59c80e8f694c7faed7adf248a",
+  "artifact_id": "d5eee4df-7f69-4426-b9ae-d7bcf28203ad",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 7872,
+  "output_tokens": 3407,
+  "cost_usd": 0.010879100000000001,
+  "created_at": "2026-10-03T18:11:12.372738+00:00"
+}

@@ -1,0 +1,297 @@
+{
+  "descriptors": [
+    {
+      "node_id": "db28c693-c441-4943-97f9-a9a134e9f407",
+      "concept_name": "Mutual Fund Overview",
+      "definition": "A mutual fund is a trust that pools financial resources from numerous investors to invest in capital and money market instruments. Professional managers administer the portfolio, and net income and capital appreciation are shared proportionally among unit holders.",
+      "terminology": [
+        "Trust",
+        "Pool of resources",
+        "Unit holders",
+        "Capital market"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Shares",
+        "Debentures",
+        "Bonds",
+        "Money market instruments"
+      ],
+      "exclusion": [
+        "Direct individual stock picking without pooling"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from direct equity ownership by professional management and asset diversification."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4ec3a800-863f-4927-b0bb-a6dbc7529caf",
+      "concept_name": "Mutual Benefits",
+      "definition": "Investing through mutual funds allows individuals to access diversified baskets of securities managed by qualified professionals at a low cost. It enables regular, systematic participation in capital markets for investors with minimal surplus funds.",
+      "terminology": [
+        "Diversified securities",
+        "Professional managers",
+        "Low cost"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Regular systematic investment",
+        "Basket of diversified securities"
+      ],
+      "exclusion": [
+        "Unmanaged single stock portfolios"
+      ],
+      "nearby_distinctions": [
+        "Focuses on collective advantages over individual direct investing."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "212a6434-9160-4c08-84e1-baefdf49f949",
+      "concept_name": "What is a Mutual Fund?",
+      "definition": "Mutual funds are structured as trusts pooling savings from investors seeking common financial goals through units. They deploy capital across capital market and money market instruments managed by qualified professionals.",
+      "terminology": [
+        "Trust",
+        "Pooling savings",
+        "Units",
+        "Money-market instruments"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Commercial Papers",
+        "Certificate of Deposits",
+        "Treasury Bills"
+      ],
+      "exclusion": [
+        "Unpooled private borrowings"
+      ],
+      "nearby_distinctions": [
+        "Defines the legal trust structure and instrument scope specifically."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "cebfb590-7bc9-4e42-a906-06dfebe7bdd6",
+      "concept_name": "Who can invest in Mutual Funds?",
+      "definition": "Any individual possessing a minimal investible surplus can purchase units of a specific mutual fund scheme. Participation requires selecting a scheme with a defined investment objective and strategy.",
+      "terminology": [
+        "Investible surplus",
+        "Units",
+        "Investment objective"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Retail investors with small capital amounts"
+      ],
+      "exclusion": [
+        "Entities without investible surplus"
+      ],
+      "nearby_distinctions": [
+        "Focuses on investor eligibility criteria rather than fund mechanics."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5e958594-48e7-42f8-a3f6-ae35962cce79",
+      "concept_name": "How Mutual Funds work for you?",
+      "definition": "Collected investor funds are deployed by fund managers into various securities aligned with the scheme's objectives. Resulting income and capital appreciation are distributed to unit holders relative to their owned units.",
+      "terminology": [
+        "Fund managers",
+        "Capital appreciation",
+        "Unit holders",
+        "Stated objectives"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Shares",
+        "Debentures",
+        "Money market instruments"
+      ],
+      "exclusion": [
+        "Non-discretionary direct holdings"
+      ],
+      "nearby_distinctions": [
+        "Explains the operational cash flow from collection to return distribution."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "55a7d2e1-4282-43c6-9a6d-f8ba9206369b",
+      "concept_name": "Should we invest in Stocks or Mutual Funds?",
+      "definition": "Choosing between direct stocks and mutual funds depends on available disposable income, portfolio diversification needs, and time commitment. Mutual funds mitigate individual stock-picking burdens, high brokerage costs, and active monitoring requirements.",
+      "terminology": [
+        "Diversification",
+        "Brokerage",
+        "Systematic Investment Plan",
+        "Active investor"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Systematic Investment Plan",
+        "Wide basket of stocks"
+      ],
+      "exclusion": [
+        "Standalone direct equity stock selection"
+      ],
+      "nearby_distinctions": [
+        "Compares direct equity hurdles with pooled fund efficiencies."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5f188866-98d0-4363-9b97-7b9b80cde411",
+      "concept_name": "CLASSIFICATION OF MUTUAL FUNDS",
+      "definition": "Mutual funds are categorized under three distinct structural and operational typologies. These categories comprise functional, portfolio-based, and ownership-based classifications.",
+      "terminology": [
+        "Functional classification",
+        "Portfolio classification",
+        "Ownership classification"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Functional types",
+        "Portfolio types",
+        "Ownership types"
+      ],
+      "exclusion": [
+        "Unclassified hybrid asset pools"
+      ],
+      "nearby_distinctions": [
+        "Serves as a top-level taxonomy framework for fund categorization."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "edc4e413-6310-4240-98c1-09ad6ba2dfe5",
+      "concept_name": "Functional Classification",
+      "definition": "Funds are categorized functionally into open-ended, close-ended, and interval schemes based on liquidity and tenure. Open-ended schemes allow continuous entry and exit, close-ended schemes have fixed maturity corpora, and interval schemes combine features with pre-specified windows.",
+      "terminology": [
+        "Open-Ended",
+        "Close-Ended",
+        "Interval Funds",
+        "NAV based prices"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Open-ended funds",
+        "Close-ended funds",
+        "Interval funds"
+      ],
+      "exclusion": [
+        "Portfolio-specific equity or debt allocations"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes funds by liquidity mechanics and trading tenure rather than underlying asset type."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ca8fe78b-4673-4e52-a59f-1a8792d273cf",
+      "concept_name": "Portfolio Classification",
+      "definition": "Funds are grouped by underlying asset holdings into equity funds, debt funds, and special funds. Equity funds target stocks for growth, while debt funds focus on fixed income instruments subject to interest rate and credit risks.",
+      "terminology": [
+        "Equity Funds",
+        "Debt Funds",
+        "Special Funds",
+        "Interest Rate Risk",
+        "Credit Risk"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Growth funds",
+        "Aggressive funds",
+        "Income funds",
+        "Bond funds"
+      ],
+      "exclusion": [
+        "Functional liquidity structures"
+      ],
+      "nearby_distinctions": [
+        "Categorizes schemes by the nature of underlying asset classes rather than operational redemption rules."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c17a1054-3571-48f8-8614-32a4ae9b6e16",
+      "concept_name": "Ownership Classification",
+      "definition": "Mutual funds are classified by sponsor origin into public sector, private sector, and foreign mutual funds. Public and private funds are sponsored by domestic entities, whereas foreign funds are sponsored by international entities operating and raising funds in India.",
+      "terminology": [
+        "Public Sector Mutual Funds",
+        "Private Sector Mutual Funds",
+        "Foreign Mutual Funds",
+        "Sponsor"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Public sector company or bank sponsored funds",
+        "Private sector company sponsored funds",
+        "Foreign company sponsored funds"
+      ],
+      "exclusion": [
+        "Asset-based or liquidity-based fund categories"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes funds based on the sponsoring entity's market sector and geographical origin."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e917c8cb-c97c-4d0e-8923-65974480fec1",
+      "concept_name": "Direct Plans in Mutual Funds",
+      "definition": "Direct plans are mutual fund investment options where asset management companies omit distribution expenses, trail fees, and transaction charges. Consequently, direct plans generally exhibit higher net asset values and better performance than regular plans.",
+      "terminology": [
+        "Direct plans",
+        "Regular plan",
+        "Distribution expenses",
+        "Trail fees",
+        "Net Asset Value"
+      ],
+      "instrument_references": [
+        "SEBI regulations dated January 1, 2013"
+      ],
+      "inclusion": [
+        "Zero-commission investment routes managed directly through AMCs"
+      ],
+      "exclusion": [
+        "Regular plans involving intermediaries and distribution commissions"
+      ],
+      "nearby_distinctions": [
+        "Differentiated from regular plans by the absence of intermediary distribution costs."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e4bb0eea-4928-4c8a-94be-12b007c70994",
+      "concept_name": "Types of Schemes",
+      "definition": "Mutual fund schemes are categorized into specialized investment strategies including balanced funds, diversified equity funds, contra funds, index funds, and dividend yield funds. Each category pursues specific asset allocation rules and risk-return profiles.",
+      "terminology": [
+        "Balanced funds",
+        "Diversified Equity Funds",
+        "Contra fund",
+        "Index fund",
+        "Dividend Yield fund"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Flexicap and Multicap funds",
+        "Contra and Index funds",
+        "Balanced funds"
+      ],
+      "exclusion": [
+        "Broad portfolio classifications without specific strategy constraints"
+      ],
+      "nearby_distinctions": [
+        "Refines broad portfolio classifications into specific execution strategies and mandates."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "5860a46dacee7630d44746c3709202ee47ddb3847dad3ee64fab36b2f9ebe290",
+  "artifact_id": "9262d70d-22d9-4ff1-9136-3cc7ee2d5f15",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8539,
+  "output_tokens": 2843,
+  "cost_usd": 0.009669200000000001,
+  "created_at": "2026-10-03T18:07:51.209358+00:00"
+}

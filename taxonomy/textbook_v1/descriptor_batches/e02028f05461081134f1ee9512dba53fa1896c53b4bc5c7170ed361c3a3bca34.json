@@ -1,0 +1,317 @@
+{
+  "descriptors": [
+    {
+      "node_id": "153311fb-9cd4-4e25-90d2-cd92de71269d",
+      "concept_name": "Audit Quality and Quality Control Standards Framework",
+      "definition": "High audit quality involves applying a rigorous audit process and adhering to quality control procedures to ensure reports are appropriate. It is regulated by specific standards established for professional accounting firms and individual audit engagements.",
+      "terminology": [
+        "Audit quality",
+        "Quality control procedures",
+        "Professional standards"
+      ],
+      "instrument_references": [
+        "SQC 1",
+        "SA 220",
+        "Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Application of rigorous audit processes",
+        "Compliance with laws and professional standards",
+        "Establishment of quality control frameworks"
+      ],
+      "exclusion": [
+        "Non-assurance business strategies",
+        "Informal reviews without documented policies"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from generic financial reporting by its focus on independent assurance and regulatory compliance."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "89f4976e-9a11-4806-9be0-681c007ff004",
+      "concept_name": "SQC 1 Quality Control Framework and Leadership Responsibilities",
+      "definition": "Firms must establish a comprehensive system of quality control containing specific operational elements and documented policies. Leadership bears ultimate responsibility for promoting an internal culture that prioritizes quality above commercial considerations.",
+      "terminology": [
+        "System of quality control",
+        "Leadership responsibilities",
+        "Managing partners"
+      ],
+      "instrument_references": [
+        "SQC 1"
+      ],
+      "inclusion": [
+        "Documentation of policies and procedures",
+        "Communication of quality concerns by personnel",
+        "Assignment of operational responsibilities"
+      ],
+      "exclusion": [
+        "Engagement-specific audit procedures performed by individual teams",
+        "Commercial strategies overriding engagement quality"
+      ],
+      "nearby_distinctions": [
+        "Operates at the firm-wide level unlike SA 220 which targets individual engagements."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8bde6d24-91a5-4514-a8cc-aba27db856e5",
+      "concept_name": "Elements of System of Quality Control and Commercial Priorities",
+      "definition": "A firm's quality control framework comprises mandatory elements including leadership responsibilities, ethical requirements, human resources, and monitoring. Business strategy and performance evaluations must ensure that commercial considerations never override the quality of professional work performed.",
+      "terminology": [
+        "Quality control elements",
+        "Performance evaluation",
+        "Non-negotiable quality"
+      ],
+      "instrument_references": [
+        "SQC 1"
+      ],
+      "inclusion": [
+        "Policies addressing human resources and monitoring",
+        "Alignment of compensation and promotion with quality"
+      ],
+      "exclusion": [
+        "Revenue-driven incentive systems that compromise compliance"
+      ],
+      "nearby_distinctions": [
+        "Contrasts commercial targets with absolute professional standards compliance."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "597be7bf-f7b7-4ab1-adbe-56feda54dd61",
+      "concept_name": "SA 220 Engagement-Level Quality Control and Leadership",
+      "definition": "Engagement partners are responsible for implementing quality control procedures at the individual audit level to ensure compliance and appropriate reporting. This standard is premised on the firm maintaining an underlying quality control system.",
+      "terminology": [
+        "Engagement partner",
+        "Audit engagement",
+        "Engagement team"
+      ],
+      "instrument_references": [
+        "SA 220",
+        "SQC 1"
+      ],
+      "inclusion": [
+        "Implementation of engagement-level quality procedures",
+        "Leadership messages emphasizing compliance and safety to raise concerns"
+      ],
+      "exclusion": [
+        "Firm-wide structural policy formulation",
+        "Non-audit assurance services"
+      ],
+      "nearby_distinctions": [
+        "Applies specifically to individual audit engagements rather than the entire professional practice firm."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f2d27ce6-bab9-469a-a3fd-eb1e6b1eba00",
+      "concept_name": "Engagement Partner Leadership and Ethical Threat Management",
+      "definition": "Engagement partners must actively foster a quality-driven culture and ensure teams can report concerns without reprisal. They are tasked with identifying independence threats and escalating unresolved issues for appropriate remedial action.",
+      "terminology": [
+        "Engagement partner",
+        "Threats to independence",
+        "Safeguards"
+      ],
+      "instrument_references": [
+        "SA 220",
+        "SQC 1"
+      ],
+      "inclusion": [
+        "Identification of unmitigated independence threats",
+        "Reporting to firm management for engagement withdrawal where permitted"
+      ],
+      "exclusion": [
+        "Routine audit testing of account balances",
+        "Independent firm-level monitoring programs"
+      ],
+      "nearby_distinctions": [
+        "Focuses on active engagement-level threat resolution versus passive firm compliance manuals."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "364f5211-0136-4704-b27c-7e1c24400208",
+      "concept_name": "Client Acceptance, Continuance, and Team Competence",
+      "definition": "Before accepting or continuing engagements, partners must gather necessary information regarding client integrity and resource availability. Furthermore, the engagement team must collectively possess the appropriate competence and capabilities required for the task.",
+      "terminology": [
+        "Acceptance and continuance",
+        "Client integrity",
+        "Competence and capabilities"
+      ],
+      "instrument_references": [
+        "SQC 1",
+        "SA 220"
+      ],
+      "inclusion": [
+        "Assessment of principal owners' integrity",
+        "Evaluation of time, resources, and technical competence"
+      ],
+      "exclusion": [
+        "Post-issuance peer review evaluations",
+        "Execution of substantive audit procedures"
+      ],
+      "nearby_distinctions": [
+        "Evaluates pre-engagement viability rather than post-acceptance execution performance."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "fd191a4d-086b-4ab9-98e8-eedd70736172",
+      "concept_name": "Engagement Performance and Consultation Responsibilities",
+      "definition": "The engagement partner directs, supervises, and reviews audit work to ensure sufficient appropriate evidence supports the final report. Necessary consultations must be undertaken internally and externally regarding difficult or contentious matters.",
+      "terminology": [
+        "Direction and supervision",
+        "Audit evidence",
+        "Consultation"
+      ],
+      "instrument_references": [
+        "SA 220"
+      ],
+      "inclusion": [
+        "Review of audit documentation prior to report release",
+        "Consultation on complex technical issues"
+      ],
+      "exclusion": [
+        "Firm-level quality control monitoring",
+        "Unsupervised execution by junior staff"
+      ],
+      "nearby_distinctions": [
+        "Deals with active execution oversight rather than administrative resource allocation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8c5b2fe4-2bd0-4e8e-83fa-c1a8cac14338",
+      "concept_name": "Assignment of Engagement Teams and Review Prerequisites",
+      "definition": "Engagement partners must ensure that assigned teams and experts collectively hold adequate competencies. Additionally, for specified audits, an engagement quality control reviewer must be appointed and consulted before dating the auditor report.",
+      "terminology": [
+        "Auditor experts",
+        "Engagement quality control reviewer",
+        "Significant judgments"
+      ],
+      "instrument_references": [
+        "SA 220"
+      ],
+      "inclusion": [
+        "Verification of collective team competence",
+        "Appointment of a qualified quality review partner"
+      ],
+      "exclusion": [
+        "Self-review by the engagement partner without independent oversight",
+        "Routine clerical tasks"
+      ],
+      "nearby_distinctions": [
+        "Integrates specialist experts and external reviewers into the engagement lifecycle."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a3d4433b-897d-4967-9f86-55a1ee183054",
+      "concept_name": "Engagement Quality Control Review Process",
+      "definition": "An objective evaluation of significant judgments and conclusions must be performed by a reviewer for listed entity audits. This evaluation involves discussing significant matters, reviewing financial statements, and assessing supporting documentation.",
+      "terminology": [
+        "Engagement quality control review",
+        "Objective evaluation",
+        "Listed entities"
+      ],
+      "instrument_references": [
+        "SA 220"
+      ],
+      "inclusion": [
+        "Review of selected audit documentation",
+        "Evaluation of proposed reports for appropriateness"
+      ],
+      "exclusion": [
+        "Day-to-day audit fieldwork execution",
+        "Firm-wide annual inspections"
+      ],
+      "nearby_distinctions": [
+        "Provides an independent internal challenge function distinct from direct engagement execution."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ec1579a6-614f-4edb-9882-edcb0ac36f64",
+      "concept_name": "Review Considerations and Differences of Opinion",
+      "definition": "EQC reviewers for listed entities must evaluate independence compliance, appropriate consultations, and documentation adequacy. Formal firm policies must be followed when differences of opinion arise among team members or reviewers.",
+      "terminology": [
+        "Differences of opinion",
+        "EQC reviewer",
+        "Independence evaluation"
+      ],
+      "instrument_references": [
+        "SA 220"
+      ],
+      "inclusion": [
+        "Resolution protocols for internal technical disputes",
+        "Verification of consultation records"
+      ],
+      "exclusion": [
+        "Unilateral overriding of technical differences by junior staff"
+      ],
+      "nearby_distinctions": [
+        "Addresses formal dispute resolution procedures rather than standard task execution."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b74dbcf2-a65b-4ace-8037-5f1e99864f49",
+      "concept_name": "Monitoring Process and Documentation Requirements",
+      "definition": "An effective quality system incorporates monitoring to ensure policies remain adequate and effective. Engagement partners and reviewers must systematically document ethical resolutions, independence conclusions, and consultation scopes.",
+      "terminology": [
+        "Monitoring process",
+        "Documentation",
+        "Deficiencies"
+      ],
+      "instrument_references": [
+        "SQC 1",
+        "SA 220"
+      ],
+      "inclusion": [
+        "Circulation of monitoring results",
+        "Documentation of consultation scopes and ethical threat resolutions"
+      ],
+      "exclusion": [
+        "Verbal unrecorded clearance of review points"
+      ],
+      "nearby_distinctions": [
+        "Connects recurring firm-level inspection findings directly to individual engagement considerations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "dab4ed3b-f924-43a6-b039-6400702a75b0",
+      "concept_name": "Comparative Analysis of SQC 1 and SA 220",
+      "definition": "SQC 1 governs firm-wide quality control policies across all assurance services, whereas SA 220 governs specific quality procedures implemented by engagement teams during financial statement audits. SQC 1 serves as a mandatory prerequisite framework for SA 220 applicability.",
+      "terminology": [
+        "Firm-wide applicability",
+        "Engagement level",
+        "Sine qua non"
+      ],
+      "instrument_references": [
+        "SQC 1",
+        "SA 220"
+      ],
+      "inclusion": [
+        "Comparison of CEO versus engagement partner responsibilities",
+        "Scope differentiation between broad assurance and audit engagements"
+      ],
+      "exclusion": [
+        "Detailed substantive testing steps",
+        "Tax compliance computations"
+      ],
+      "nearby_distinctions": [
+        "Contrasts practice-wide administrative controls with discrete engagement execution responsibilities."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "e02028f05461081134f1ee9512dba53fa1896c53b4bc5c7170ed361c3a3bca34",
+  "artifact_id": "de2ad3d8-e88d-4465-a34b-95c6ceec4bc6",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 7913,
+  "output_tokens": 3131,
+  "cost_usd": 0.0102014,
+  "created_at": "2026-10-03T18:09:30.351584+00:00"
+}

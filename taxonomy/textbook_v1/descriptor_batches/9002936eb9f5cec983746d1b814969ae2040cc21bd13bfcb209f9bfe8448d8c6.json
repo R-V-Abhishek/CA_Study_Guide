@@ -1,0 +1,287 @@
+{
+  "descriptors": [
+    {
+      "node_id": "fecdacbb-1b2f-4f13-8fa3-0bae6f354ce5",
+      "concept_name": "Current Trends in Capital Budgeting",
+      "definition": "Capital budgeting evaluates investment proposals beyond simple certainty assumptions to address real-world factors. Investment decisions face variables including inflation, technological shifts, and government policies.",
+      "terminology": [
+        "capital budgeting",
+        "investment evaluation",
+        "cash flows"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Inflation impact",
+        "Technological changes",
+        "Government policy changes"
+      ],
+      "exclusion": [
+        "Static certainty-based intermediate frameworks"
+      ],
+      "nearby_distinctions": [
+        "Differs from basic intermediate capital budgeting by acknowledging real operational distortions and external volatilities."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9d5f2311-a874-4fe1-90f9-dd766f804958",
+      "concept_name": "Impact of Inflation on Capital Budgeting Decisions",
+      "definition": "Inflation elevates project revenues and costs while distorting historical depreciation charges. Consequently, tax benefits tied to historical depreciation do not keep parity with inflation, thereby reducing actual returns.",
+      "terminology": [
+        "inflation adjustment",
+        "depreciation charges",
+        "real net cash flow"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Adjusting revenues and costs for inflation",
+        "Calculating real net cash flows",
+        "Historical cost depreciation tax impact"
+      ],
+      "exclusion": [
+        "Ignoring inflationary cost-of-capital risk premiums"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard cash flow projections by explicitly deflating nominal cash flows to account for purchasing power changes."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "da02cfc7-af6b-47f6-bd11-798d4f7a9ae3",
+      "concept_name": "Impact of change in technology on Capital Budgeting Decisions",
+      "definition": "Technological changes alter production processes, shorten product life cycles, and affect future cash flows qualitatively and quantitatively. Incorporating these shifts requires continuous project review, sensitivity analysis, and evaluation of abandonment options.",
+      "terminology": [
+        "technology change",
+        "product life cycle",
+        "abandonment option"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Continuous project review",
+        "Sensitivity analysis for tech risk",
+        "Abandonment option evaluation"
+      ],
+      "exclusion": [
+        "Evaluating only simple machinery replacement without broader process shifts"
+      ],
+      "nearby_distinctions": [
+        "Differs from standard operational risk by focusing specifically on obsolescence and process transformation driven by technological advancements."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e7336fef-ba7f-401d-a5b0-547f3d3d3a07",
+      "concept_name": "Impact of change in Government Policies on Capital Budgeting Decisions",
+      "definition": "Government policies directly or indirectly influence firm cash flows through fiscal and monetary measures. Evaluating these changes requires analyzing both domestic and international policy shifts to revise estimations or consider project abandonment.",
+      "terminology": [
+        "fiscal policy",
+        "monetary policy",
+        "domestic capital budgeting"
+      ],
+      "instrument_references": [
+        "New Industrial Policy 1991"
+      ],
+      "inclusion": [
+        "Fiscal policy adjustments",
+        "Monetary policy shifts",
+        "International policy factors"
+      ],
+      "exclusion": [
+        "Internal project-specific execution errors"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from internal company-specific risks by originating from external regulatory, taxation, and central bank actions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "944a0194-074a-477c-a7a1-50f1b05c0321",
+      "concept_name": "DEALING WITH RISK IN INVESTMENT DECISIONS",
+      "definition": "Investment projects are exposed to varying degrees of risk that cause actual returns to deviate from estimates. Decision-making frameworks categorize environments into certainty, risk with known probabilities, and uncertainty without assignable probabilities.",
+      "terminology": [
+        "certainty",
+        "risk",
+        "uncertainty",
+        "coefficient of variation"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Risk measurement via standard deviation",
+        "Probability distribution analysis"
+      ],
+      "exclusion": [
+        "Static models assuming zero risk and perfect certainty"
+      ],
+      "nearby_distinctions": [
+        "Risk involves known probability distributions, whereas uncertainty describes situations where probabilities cannot be formulated."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "92e22f51-cfbb-4284-a6ef-22670c720b31",
+      "concept_name": "Risk and Uncertainty",
+      "definition": "Risk represents return variability measured through standard deviation and coefficient of variation where probability distributions are known. Internal risk factors are divided into project-specific and company-specific categories that impact entity cash flows.",
+      "terminology": [
+        "project-specific risk",
+        "company-specific risk",
+        "standard deviation"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Project completion and resource allocation errors",
+        "Credit rating downgrades and intellectual property disputes"
+      ],
+      "exclusion": [
+        "Macroeconomic and industry-wide external market factors"
+      ],
+      "nearby_distinctions": [
+        "Internal factors originate within the firm or specific project, unlike external industry or macroeconomic shocks."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d18ece0f-2702-44ed-9841-eea0b6253b65",
+      "concept_name": "Reasons for adjustment of Risk in Capital Budgeting decisions",
+      "definition": "Risk adjustment accounts for investment opportunity costs and determines whether expected project returns justify the borne risks. It ensures the evaluation of real cash inflow values against alternative investment options.",
+      "terminology": [
+        "opportunity cost",
+        "risk premium",
+        "real cash inflows"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Evaluating risk-return proportionality",
+        "Determining real cash inflow values"
+      ],
+      "exclusion": [
+        "Treating all projects as equally risk-free"
+      ],
+      "nearby_distinctions": [
+        "Focuses on the rationale for risk incorporation rather than the quantitative techniques used to calculate adjustments."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c23747e2-c177-45aa-8b7b-2b9cc4e2dec2",
+      "concept_name": "INTERNAL AND EXTERNAL FACTORS AFFECTING CAPITAL BUDGETING DECISION",
+      "definition": "Capital budgeting risks stem from various internal and external operational environments. These factors are categorized into project-specific, company-specific, industry-specific, market, competition, economic, and international risks.",
+      "terminology": [
+        "internal factors",
+        "external factors",
+        "industry-specific risk",
+        "market risk"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Industry regulations",
+        "Market resource access",
+        "Macroeconomic and international conditions"
+      ],
+      "exclusion": [
+        "Purely theoretical risk-free cash flow models"
+      ],
+      "nearby_distinctions": [
+        "Categorizes risks comprehensively by origin, separating internal firm dynamics from broad external market and economic forces."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3ddb8647-8f74-4b3b-8427-18962298da07",
+      "concept_name": "Internal Factors",
+      "definition": "Internal factors comprise risks originating from within the company or specific project execution parameters. These encompass project-specific estimation challenges and company-specific administrative or legal disputes.",
+      "terminology": [
+        "project-specific risk",
+        "company-specific risk",
+        "estimation error"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Resource allocation errors",
+        "Key managerial changes and intellectual property disputes"
+      ],
+      "exclusion": [
+        "Macro-economic shocks and external regulatory changes"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from external factors by remaining under direct operational or managerial purview of the firm."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d9c295ef-0fd9-4ced-8192-3b7f9954c3ba",
+      "concept_name": "External Factors",
+      "definition": "External factors involve risks arising outside the organization from industry conditions, market dynamics, and macroeconomic shifts. They govern broader systemic pressures impacting corporate cash flows and investment viability.",
+      "terminology": [
+        "industry-specific risk",
+        "competition risk",
+        "macroeconomic conditions"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Regulatory restrictions",
+        "Substitute entries and resource availability",
+        "Fiscal and monetary policy shifts"
+      ],
+      "exclusion": [
+        "Project scheduling errors and internal labor disputes"
+      ],
+      "nearby_distinctions": [
+        "Focuses on market-wide and systemic variables rather than internal corporate or project-level events."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "43ce3a6c-f8d2-4e1a-954a-25c445f2af91",
+      "concept_name": "METHODS OF INCORPORATING RISK IN CAPITAL BUDGETING",
+      "definition": "Risk analysis techniques in capital budgeting are classified into statistical, conventional, and analytical methods. These include probability, variance, risk-adjusted discount rates, sensitivity analysis, and decision trees.",
+      "terminology": [
+        "statistical techniques",
+        "conventional techniques",
+        "sensitivity analysis",
+        "decision tree"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Probability and variance measures",
+        "Risk-adjusted discount rates and certainty equivalents",
+        "Simulation and scenario analysis"
+      ],
+      "exclusion": [
+        "Static certainty-based payback methods without risk modification"
+      ],
+      "nearby_distinctions": [
+        "Provides a structured taxonomy of quantitative and qualitative tools to adjust investment evaluations for risk."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5b2dbdd6-36d5-40c7-b14e-89d5a2ed3dae",
+      "concept_name": "Statistical Techniques",
+      "definition": "Statistical techniques quantify risk using probability distributions to compute expected net cash flows and expected net present values. Probability assigns likelihood values ranging from zero to one for different cash flow outcomes.",
+      "terminology": [
+        "probability",
+        "expected net cash flows",
+        "expected net present value"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Calculating expected values via probability summation",
+        "Single and multi-period expected net present value computations"
+      ],
+      "exclusion": [
+        "Subjective risk adjustments without probabilistic modeling"
+      ],
+      "nearby_distinctions": [
+        "Relies on rigorous statistical probability weighting instead of arbitrary percentage risk premiums."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "9002936eb9f5cec983746d1b814969ae2040cc21bd13bfcb209f9bfe8448d8c6",
+  "artifact_id": "fec41244-a647-4655-bc7a-5e5ecb06d295",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 9190,
+  "output_tokens": 2512,
+  "cost_usd": 0.009037,
+  "created_at": "2026-10-03T18:06:10.518282+00:00"
+}

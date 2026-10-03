@@ -1,0 +1,275 @@
+{
+  "descriptors": [
+    {
+      "node_id": "247dc79a-58e0-4305-9136-601540f4610b",
+      "concept_name": "Relation between strategies and cost management Emphasis",
+      "definition": "Strategic choices regarding product differentiation or cost leadership dictate specific cost management priorities and operational focus. Different competitive postures alter the significance attributed to standard costs, flexible budgeting, budget adherence, and cost analysis.",
+      "terminology": [
+        "Product Differentiation",
+        "Cost Leadership",
+        "Standard Costs",
+        "Flexible Budgeting",
+        "Cost Analysis"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Comparing cost management emphases under product differentiation and cost leadership"
+      ],
+      "exclusion": [
+        "Detailed operational budgeting mechanics"
+      ],
+      "nearby_distinctions": [
+        "Product differentiation prioritizes market-facing value over internal standard cost precision, whereas cost leadership relies heavily on rigorous cost controls."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6db311e4-cf3f-458c-81f0-a39238548c95",
+      "concept_name": "How to conduct a Value Chain Analysis?",
+      "definition": "Value chain analysis is executed through a sequential process of identifying all primary and secondary activities, determining their respective costs and values, and identifying strategic opportunities for competitive advantage. This structured approach shifts focus from isolated products to the underlying processes and activities.",
+      "terminology": [
+        "Primary Activities",
+        "Secondary Activities",
+        "Cost and Value Determination",
+        "Competitive Advantage"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Sequential phases of value chain analysis"
+      ],
+      "exclusion": [
+        "Generic enterprise financial reporting"
+      ],
+      "nearby_distinctions": [
+        "Differs from traditional product costing by evaluating sequential operational activities rather than ending inventory balances."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a56f782f-9c7f-4d48-9f71-65911e22a152",
+      "concept_name": "Identify Value Chain Activities",
+      "definition": "The initial phase of value chain analysis requires mapping all primary and secondary activities involved in creating a product or service. This mapping must be performed individually for each product or service offered by the enterprise.",
+      "terminology": [
+        "Primary Activities",
+        "Secondary Activities",
+        "Process Mapping"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Enumerating all creation processes for products and services"
+      ],
+      "exclusion": [
+        "Calculating activity cost allocations"
+      ],
+      "nearby_distinctions": [
+        "Focuses purely on cataloging operational steps rather than assessing their financial contribution or cost drivers."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9f8c5b97-2acb-4f68-8a8c-d512fc49ac30",
+      "concept_name": "Determine the Cost and Value of Activities",
+      "definition": "This phase evaluates how each mapped activity enhances end-user satisfaction or firm value while quantifying its associated expenses. Evaluating specific material usage or feature integration helps determine whether lowering costs can improve transactional value.",
+      "terminology": [
+        "Activity Value",
+        "End-User Satisfaction",
+        "Expense Reduction"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Analyzing customer satisfaction drivers alongside process costs"
+      ],
+      "exclusion": [
+        "Initial process identification"
+      ],
+      "nearby_distinctions": [
+        "Builds on activity identification by attaching specific value creation metrics and cost burdens to each step."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "35f8dd03-8fbb-49ef-8f81-f5e2969a65b7",
+      "concept_name": "Assessing and Identify Opportunities for Competitive Advantage",
+      "definition": "Value chain analysis aids in uncovering specific operational points where cost leadership or product differentiation can be secured. Organizations evaluate these opportunities through internal cost analysis, internal differentiation analysis, and vertical linkage analysis.",
+      "terminology": [
+        "Internal Cost Analysis",
+        "Internal Differentiation Analysis",
+        "Vertical Linkage Analysis",
+        "Cost Drivers"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Evaluating internal cost efficiency opportunities",
+        "Assessing customer differentiation drivers"
+      ],
+      "exclusion": [
+        "External macroeconomic forecasting"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between efficiency-driven cost reduction lenses and customer-value-driven differentiation lenses within value chains."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "fd4bb358-6e09-46d5-b658-8bbe5e59d283",
+      "concept_name": "Business Model",
+      "definition": "A business model represents the economic logic and operational mechanisms by which an organization creates value for itself while delivering goods or services to customers. Over time, theoretical scopes have evolved to encompass production and selling components, value propositions, profit formulas, and key resources.",
+      "terminology": [
+        "Economic Logic",
+        "Value Proposition",
+        "Profit Formula",
+        "Key Resources and Processes"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Core structural components of organizational value creation and delivery"
+      ],
+      "exclusion": [
+        "Tactical daily operational scheduling"
+      ],
+      "nearby_distinctions": [
+        "Encapsulates broader strategic architecture compared to localized cost accounting or standalone product pricing strategies."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b4c16b8e-740d-4505-b7a5-799b5fd82276",
+      "concept_name": "Osterwalder’s Business Model Canvas",
+      "definition": "Alexander Osterwalder proposed a nine-element framework connecting cost-related infrastructure elements on the left to revenue-related customer elements on the right via a central value proposition. This visual tool maps, designs, and develops robust business models addressing strategy and performance.",
+      "terminology": [
+        "Business Model Canvas",
+        "Value Proposition",
+        "Cost Structure",
+        "Revenue Streams",
+        "Key Partners"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Nine foundational building blocks of the canvas framework"
+      ],
+      "exclusion": [
+        "Detailed granular product design specifications"
+      ],
+      "nearby_distinctions": [
+        "Connects financial viability and infrastructure elements directly to customer segments through a unified visual schematic."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e7ff0ec4-5865-4d0f-a891-a337f9428d86",
+      "concept_name": "How to draw Business Model Canvas",
+      "definition": "A business model can be mapped on a single page by answering targeted strategic questions linked to each of the nine canvas elements. These elements collectively categorize customer focus, infrastructure requirements, and financial viability.",
+      "terminology": [
+        "Customer Focus",
+        "Infrastructure",
+        "Financial Viability",
+        "Canvas Elements"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Inquiry prompts for mapping start-up or established company business models"
+      ],
+      "exclusion": [
+        "Legal entity incorporation procedures"
+      ],
+      "nearby_distinctions": [
+        "Provides practical inquiry mechanisms for building the canvas rather than theoretical definitions of business models."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f49c1ebf-7064-4abb-bc9e-aee835b08570",
+      "concept_name": "Industry Insight",
+      "definition": "Generic business models illustrate how specific industry structures, such as online meeting platforms or razor-and-blade manufacturers, align their key partners, activities, and cost structures with revenue streams. These models demonstrate practical applications of the business model canvas across diverse operational sectors.",
+      "terminology": [
+        "Online Meeting Platform",
+        "Razor and Blades",
+        "Industry Models"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Sector-specific structural breakdowns using canvas architecture"
+      ],
+      "exclusion": [
+        "Firm-specific proprietary financial statements"
+      ],
+      "nearby_distinctions": [
+        "Applies generic canvas theory to specific real-world industry configurations rather than discussing abstract principles."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "dafe04bc-12fa-4e05-be51-6a062b77f66e",
+      "concept_name": "Value Proposition Canvas",
+      "definition": "The value proposition canvas acts as a detailed plugin to the business model canvas to design, test, and manage customer offerings. It aligns the customer segment profile with the organization's value proposition map to ensure optimal fit.",
+      "terminology": [
+        "Value Proposition Canvas",
+        "Customer Segment Profile",
+        "Value Proposition Map",
+        "Fit"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Mapping tools matching customer requirements with enterprise offerings"
+      ],
+      "exclusion": [
+        "General balance sheet valuation"
+      ],
+      "nearby_distinctions": [
+        "Provides granular focus specifically on the product-customer fit aspect of the broader business model canvas."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6cc14115-d09d-48e1-8917-09c99d641b9e",
+      "concept_name": "Customer Segment Profile",
+      "definition": "The customer segment profile breaks down target customer characteristics into customer jobs, associated pains, and desired gains. These elements capture functional, social, and emotional intents alongside negative frictions and expected benefits.",
+      "terminology": [
+        "Customer Jobs",
+        "Pains",
+        "Gains",
+        "Customer Characteristics"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Analysis of customer tasks, annoyances, and desired outcomes"
+      ],
+      "exclusion": [
+        "Internal enterprise cost structures"
+      ],
+      "nearby_distinctions": [
+        "Examines external customer demand characteristics rather than internal firm activities or capabilities."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e06dbf16-9f2f-4096-9ac1-5635692c7f3e",
+      "concept_name": "Value Proposition Map",
+      "definition": "A value proposition map outlines the specific products and services designed to address customer jobs, pain relievers to alleviate customer frictions, and gain creators to generate desired benefits. This map structures the enterprise offering to match identified customer profile characteristics.",
+      "terminology": [
+        "Products and Services",
+        "Pain Relievers",
+        "Gain Creators",
+        "Value Proposition Map"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Structuring offerings, pain relievers, and gain creators"
+      ],
+      "exclusion": [
+        "Raw customer demographic enumeration without operational response"
+      ],
+      "nearby_distinctions": [
+        "Represents the firm-side response mechanism, whereas the customer segment profile represents the demand-side reality."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "04dc9f046ab8da0ac5aec07493f774cdfb7efabfe3c7794381c4eea687678a4e",
+  "artifact_id": "aefcd45d-6353-4580-9c39-054c3d302731",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8193,
+  "output_tokens": 2865,
+  "cost_usd": 0.0096204,
+  "created_at": "2026-10-03T18:25:48.279051+00:00"
+}

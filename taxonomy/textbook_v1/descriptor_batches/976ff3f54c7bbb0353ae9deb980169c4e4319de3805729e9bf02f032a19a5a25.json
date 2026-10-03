@@ -1,0 +1,324 @@
+{
+  "descriptors": [
+    {
+      "node_id": "2fd007f7-83a2-4ad5-afeb-c191f4777e57",
+      "concept_name": "Acquisitions through issue of equity instrument",
+      "definition": "In combinations involving equity exchanges, the issuing entity is typically deemed the acquirer, though economic substance can dictate otherwise. Identifying the acquirer requires evaluating relative post-combination voting rights and special governance provisions.",
+      "terminology": [
+        "combining entity",
+        "equity interests",
+        "voting rights",
+        "issuing entity"
+      ],
+      "instrument_references": [
+        "Ind AS 103"
+      ],
+      "inclusion": [
+        "Combinations effected primarily by exchanging equity interests",
+        "Consideration of unusual voting arrangements, options, warrants, or convertible securities"
+      ],
+      "exclusion": [
+        "Reverse acquisitions where the legal issuer is the accounting acquiree"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from reverse acquisitions where legal structures invert accounting reality"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1d542585-a921-46b7-b4ab-4ed2c49d7299",
+      "concept_name": "Acquisition Involving Shell Company And Reverse Acquisition",
+      "definition": "A reverse acquisition occurs when the legal issuer of securities is classified as the acquiree for accounting purposes, while the legal acquiree functions as the accounting acquirer. This typically arises when a private operating entity secures a public listing via a shell company without issuing its own registered shares.",
+      "terminology": [
+        "legal acquirer",
+        "accounting acquiree",
+        "accounting acquirer",
+        "shell company"
+      ],
+      "instrument_references": [
+        "Ind AS 103"
+      ],
+      "inclusion": [
+        "Private operating entity acquiring a public shell company",
+        "Transactions where the accounting acquiree meets the definition of a business"
+      ],
+      "exclusion": [
+        "Standard forward acquisitions where the legal issuer is also the accounting acquirer"
+      ],
+      "nearby_distinctions": [
+        "Differs from conventional acquisitions by inverting the legal and accounting roles of the entities involved"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "11941a9a-1ac2-404a-a5dd-d20a03da9eeb",
+      "concept_name": "Determining The Acquisition Date",
+      "definition": "The acquisition date is the precise point when the acquirer obtains control over the acquiree, which typically aligns with the closing date of legal transfer. Contractual provisions can shift this date earlier or later depending on when actual operational and financial control is secured.",
+      "terminology": [
+        "acquisition date",
+        "control",
+        "closing date",
+        "board representation"
+      ],
+      "instrument_references": [
+        "Ind AS 103"
+      ],
+      "inclusion": [
+        "Date of obtaining control over board representation or operating policies",
+        "Dates specified by written agreements transferring control prior to legal closing"
+      ],
+      "exclusion": [
+        "Appointed or formal dates specified in agreements where control has not yet transferred"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from legal transfer dates or arbitrary appointed dates by strictly depending on the transfer of power and control"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7a0f8c87-05fd-46f6-8bcf-afa4702fe335",
+      "concept_name": "Step Acquisitions",
+      "definition": "In a step acquisition, control is achieved in stages through a series of separate share purchases over time. Upon obtaining control, the acquirer must remeasure its previously held equity interest at fair value and recognize any resulting gain or loss.",
+      "terminology": [
+        "step acquisitions",
+        "previously held equity interest",
+        "remeasurement",
+        "fair value"
+      ],
+      "instrument_references": [
+        "Ind AS 103",
+        "Ind AS 109",
+        "Ind AS 28"
+      ],
+      "inclusion": [
+        "Acquisitions of control through multiple sequential purchases",
+        "Remeasurement of prior minority or associate stakes at the date control is secured"
+      ],
+      "exclusion": [
+        "Single-tranche business combinations executed entirely on one date"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from single-date combinations by requiring valuation adjustments for prior equity holdings"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4b589cf0-4885-40e8-87c3-76494beee8da",
+      "concept_name": "Determination Of The Purchase Consideration",
+      "definition": "Purchase consideration is measured at the aggregate fair value of all assets transferred, liabilities incurred, and equity interests issued by the acquirer at the acquisition date. Transferred assets or businesses belonging to the acquirer must be remeasured to fair value, with gains or losses recognized in profit or loss unless control over them is retained within the combined entity.",
+      "terminology": [
+        "purchase consideration",
+        "fair value",
+        "contingent consideration",
+        "transferred assets"
+      ],
+      "instrument_references": [
+        "Ind AS 103"
+      ],
+      "inclusion": [
+        "Fair value of cash, other assets, or a business of the acquirer",
+        "Equity instruments and contingent consideration obligations issued to former owners"
+      ],
+      "exclusion": [
+        "Direct acquisition-related professional fees and costs",
+        "Assets and liabilities retained within the combined entity measured at prior carrying amounts"
+      ],
+      "nearby_distinctions": [
+        "Differs from direct acquisition costs, which are expensed separately and excluded from the consideration pool"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4bc61742-59a9-4f5a-99c9-4b00e10e2951",
+      "concept_name": "A Business Combination Achieved In Stages (Step Acquisition)",
+      "definition": "When an entity acquires control of an acquiree in which it already holds a non-controlling equity interest, the transaction is treated as a step acquisition. The acquirer must remeasure its pre-existing stake at acquisition-date fair value and account for gains or losses in profit or loss or OCI depending on prior designations.",
+      "terminology": [
+        "step acquisition",
+        "previously held equity interest",
+        "fair value through OCI",
+        "remeasurement"
+      ],
+      "instrument_references": [
+        "Ind AS 103",
+        "Ind AS 109",
+        "Ind AS 27",
+        "Ind AS 28"
+      ],
+      "inclusion": [
+        "Transition of an associate investment to a controlled subsidiary",
+        "Obtaining control of a joint operation business"
+      ],
+      "exclusion": [
+        "Initial direct acquisitions of majority stakes in a single transaction"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from single-step purchases by forcing the revaluation of historical holdings rather than starting fresh"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "66ed3d7f-ae42-4c54-9c09-f0dcf792308b",
+      "concept_name": "A Business Combination Achieved Without The Transfer Of Consideration",
+      "definition": "A business combination can occur without transferring any consideration when an acquirer gains control solely through contract alone or corporate actions like share repurchases. In such cases, non-controlling interests are attributed their proportional share of net assets even if they represent all equity interests in the acquiree.",
+      "terminology": [
+        "contract alone",
+        "stapling arrangement",
+        "dual listed corporation",
+        "non-controlling interest"
+      ],
+      "instrument_references": [
+        "Ind AS 103"
+      ],
+      "inclusion": [
+        "Acquisitions via share repurchases by the acquiree",
+        "Lapsing of minority veto rights",
+        "Forming dual listed corporations or stapling arrangements"
+      ],
+      "exclusion": [
+        "Combinations involving the exchange of cash, assets, or equity consideration"
+      ],
+      "nearby_distinctions": [
+        "Differs from standard transactions by entirely omitting purchase consideration transfers while still establishing control"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5c6d0643-2013-44ac-9c12-1819d178847b",
+      "concept_name": "Direct Cost Of Acquisition",
+      "definition": "Acquisition-related costs incurred to execute a business combination are excluded from purchase consideration and expensed as incurred. Professional fees, due diligence expenses, and transfer taxes like stamp duty must be recognized directly in profit or loss rather than capitalized.",
+      "terminology": [
+        "acquisition-related costs",
+        "finder's fees",
+        "stamp duty",
+        "expensed"
+      ],
+      "instrument_references": [
+        "Ind AS 103",
+        "Ind AS 16",
+        "Ind AS 32",
+        "Ind AS 109"
+      ],
+      "inclusion": [
+        "Legal, accounting, valuation, and consulting fees",
+        "Stamp duty paid on asset transfers during a business combination"
+      ],
+      "exclusion": [
+        "Costs to issue debt or equity securities, which follow specific financial instrument standards",
+        "Stamp duty incurred in standalone asset purchases governed by property standards"
+      ],
+      "nearby_distinctions": [
+        "Distinct from asset purchase treatments under property standards where transfer duties are capitalized into asset cost"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b4f361e6-0afc-4381-84e7-bb60ca38431e",
+      "concept_name": "Contingent Consideration",
+      "definition": "Contingent consideration obligations or rights resulting from business combinations must be measured and recognized at fair value on the acquisition date. Subsequent changes in fair value for liabilities settled via variable cash amounts are recognized in the statement of profit and loss.",
+      "terminology": [
+        "contingent consideration",
+        "fair value",
+        "financial liability",
+        "performance targets"
+      ],
+      "instrument_references": [
+        "Ind AS 103",
+        "Ind AS 32"
+      ],
+      "inclusion": [
+        "Additional cash or asset transfers tied to future performance targets",
+        "Financial liabilities or equity instruments issued conditionally"
+      ],
+      "exclusion": [
+        "Fixed, unconditional purchase price components settled at closing"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from fixed consideration by fluctuating based on uncertain future events or performance parameters"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8bca4ff5-8c18-4425-99cc-e89341d13092",
+      "concept_name": "PURCHASE PRICE ALLOCATION",
+      "definition": "Purchase price allocation requires the acquirer to separately identify, recognize, and measure all acquired assets, assumed liabilities, and non-controlling interests at fair value on the acquisition date. Only items meeting standard asset and liability definitions that are part of the exchange deal qualify for recognition.",
+      "terminology": [
+        "purchase price allocation",
+        "identifiable assets",
+        "liabilities assumed",
+        "fair value"
+      ],
+      "instrument_references": [
+        "Ind AS 103"
+      ],
+      "inclusion": [
+        "Identifiable intangible assets like brand names and customer relationships",
+        "Assumed liabilities meeting the conceptual framework definitions"
+      ],
+      "exclusion": [
+        "Future exit plans or employee termination costs not representing present obligations at acquisition"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from post-combination operational expenses by restricting recognition strictly to obligations existing at the acquisition date"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "469049fe-ba1a-42f2-bf24-f70d55081df2",
+      "concept_name": "Recognition Of Assets And Liabilities Of The Acquired Entity",
+      "definition": "On the acquisition date, the acquirer must recognize identifiable assets acquired and liabilities assumed separately from goodwill based on their compliance with framework definitions. Assets and liabilities brought onto the books are limited strictly to those acquired or assumed as part of the combination transaction.",
+      "terminology": [
+        "identifiable assets",
+        "liabilities assumed",
+        "goodwill",
+        "recognition principle"
+      ],
+      "instrument_references": [
+        "Ind AS 103"
+      ],
+      "inclusion": [
+        "Acquired intangible assets unrecorded by the acquiree historically",
+        "Assumed liabilities meeting framework recognition criteria"
+      ],
+      "exclusion": [
+        "Future restructuring costs or internal exit plans not obligating the acquiree at acquisition"
+      ],
+      "nearby_distinctions": [
+        "Differs from general asset accumulation by focusing solely on items exchanged or assumed within the business combination perimeter"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4fe85713-4c95-4da6-bf62-91614b8f94e1",
+      "concept_name": "Measurement Principle",
+      "definition": "Acquired identifiable assets and assumed liabilities are generally measured at their acquisition-date fair values. Non-controlling interests may be measured either at fair value or at their proportionate share of the acquiree's identifiable net assets.",
+      "terminology": [
+        "measurement principle",
+        "fair value",
+        "non-controlling interest",
+        "identifiable net assets"
+      ],
+      "instrument_references": [
+        "Ind AS 103",
+        "Ind AS 37"
+      ],
+      "inclusion": [
+        "Acquisition-date fair valuation of all identifiable assets and liabilities",
+        "Choice of fair value or proportionate net assets for qualifying non-controlling interests"
+      ],
+      "exclusion": [
+        "Standard measurement rules for contingent liabilities which follow distinct acquisition recognition exceptions"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general ongoing accounting measurements by overriding standard definitions exclusively for acquisition date entries"
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "976ff3f54c7bbb0353ae9deb980169c4e4319de3805729e9bf02f032a19a5a25",
+  "artifact_id": "23477958-93cb-402d-93f4-c0ba7dba2199",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8514,
+  "output_tokens": 3556,
+  "cost_usd": 0.011444200000000002,
+  "created_at": "2026-10-03T18:04:52.831041+00:00"
+}

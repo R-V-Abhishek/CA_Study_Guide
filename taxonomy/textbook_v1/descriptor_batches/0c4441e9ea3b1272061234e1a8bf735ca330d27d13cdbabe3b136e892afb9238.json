@@ -1,0 +1,330 @@
+{
+  "descriptors": [
+    {
+      "node_id": "1ecc05fe-9544-4396-8f21-a7eddcbf0f96",
+      "concept_name": "Introduction to First-Time Adoption of Ind AS",
+      "definition": "Ind AS 101 establishes the accounting principles and transition requirements for entities moving from previous Indian GAAP to Ind AS. It generally mandates retrospective application of Ind AS while providing targeted exemptions and exceptions where retrospective compliance costs outweigh benefits.",
+      "terminology": [
+        "First-time adoption",
+        "Transition requirements",
+        "Exemptions",
+        "Exceptions"
+      ],
+      "instrument_references": [
+        "Ind AS 101"
+      ],
+      "inclusion": [
+        "Transition principles from Indian GAAP to Ind AS",
+        "Rules for limited exemptions and exceptions"
+      ],
+      "exclusion": [
+        "Subsequent accounting changes after first adoption",
+        "Exemptions from disclosures of other standards"
+      ],
+      "nearby_distinctions": [
+        "Differs from ongoing Ind AS compliance because it addresses initial transition mechanics rather than routine post-adoption accounting."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7e657143-dde8-4d61-bbab-7df8b0a1658f",
+      "concept_name": "Objective and Key Definitions of Ind AS 101",
+      "definition": "The standard ensures that an entity's initial Ind AS financial reports deliver transparent, comparable, and cost-effective starting information. It defines core temporal markers including the transition date, opening balance sheet, and reporting period.",
+      "terminology": [
+        "First Ind AS Financial Statements",
+        "First-time adopter",
+        "Opening Ind AS Balance sheet",
+        "Date of Transition to Ind AS",
+        "First Ind AS reporting period"
+      ],
+      "instrument_references": [
+        "Ind AS 101"
+      ],
+      "inclusion": [
+        "Criteria for unreserved statement of compliance",
+        "Identification of comparative periods and transition dates"
+      ],
+      "exclusion": [
+        "Partial compliance frameworks",
+        "Post-transition annual reporting periods"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes the date of transition from the first reporting period end by marking the absolute beginning of comparative information."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b6eec5f2-4744-45bf-b167-069104d39deb",
+      "concept_name": "Deemed Cost and Definitional Elements",
+      "definition": "Deemed cost serves as a substitute for historical cost or depreciated cost at a specific date, establishing a foundation for subsequent depreciation or amortization. It applies specifically to measuring investments in subsidiaries, joint ventures, associates, and property items upon transition.",
+      "terminology": [
+        "Deemed cost",
+        "Surrogate for cost",
+        "Depreciated cost"
+      ],
+      "instrument_references": [
+        "Ind AS 101"
+      ],
+      "inclusion": [
+        "Use of deemed cost for investments and property",
+        "Basis for future asset depreciation and amortization"
+      ],
+      "exclusion": [
+        "Actual historical cost measurement without transition adjustments",
+        "Routine ongoing periodic asset revaluations"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes actual historical cost from an assigned transition surrogate used solely for initiating subsequent amortization tracking."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d69bfab7-a10d-4ef0-9d1d-2896b34bc4e3",
+      "concept_name": "Scope of Ind AS 101",
+      "definition": "Ind AS 101 applies directly to an entity's initial annual financial statements prepared under Ind AS and every interim financial report covered within that initial period. It excludes subsequent accounting policy modifications made by entities that have already completed their transition.",
+      "terminology": [
+        "Scope",
+        "Interim financial report",
+        "First annual financial statements"
+      ],
+      "instrument_references": [
+        "Ind AS 101"
+      ],
+      "inclusion": [
+        "First-time annual Ind AS financial statements",
+        "Interim reports falling within the first Ind AS reporting period"
+      ],
+      "exclusion": [
+        "Subsequent policy changes by established adopters",
+        "Entities failing to make explicit unreserved statements of compliance"
+      ],
+      "nearby_distinctions": [
+        "Differentiates entities transitioning for the first time from mature entities altering policies post-adoption."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "04af0707-3d07-4059-b30c-07846f1bac60",
+      "concept_name": "Recognition, Measurement, and General Principle",
+      "definition": "First-time adopters must prepare an opening balance sheet at the transition date using consistent accounting policies aligned with the latest effective standards. The core principle requires retrospective application as if Ind AS had always been utilized, subject strictly to mandatory exceptions and optional exemptions.",
+      "terminology": [
+        "Opening Ind AS Balance Sheet",
+        "General principle",
+        "Retrospective application",
+        "Mandatory exceptions",
+        "Optional exemptions"
+      ],
+      "instrument_references": [
+        "Ind AS 101"
+      ],
+      "inclusion": [
+        "Preparation of opening balance sheet at transition date",
+        "Consistent application of accounting policies across presented periods"
+      ],
+      "exclusion": [
+        "Continuation of previous GAAP recognition rules without modification",
+        "Selective application of non-effective standards"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes pure retrospective application from modified retrospective handling governed by specific exceptions and exemptions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2333b2ec-ff1a-4d94-ac4c-aadbe24c077e",
+      "concept_name": "Opening Ind AS Balance Sheet Principles",
+      "definition": "An entity must construct and present an opening balance sheet at the precise transition date, serving as the foundational starting point for all subsequent reporting. All accounting policies applied herein must comply with every standard effective at the conclusion of the first reporting period.",
+      "terminology": [
+        "Opening Ind AS Balance Sheet",
+        "Transition date",
+        "Starting point"
+      ],
+      "instrument_references": [
+        "Ind AS 101"
+      ],
+      "inclusion": [
+        "Initial balance sheet presentation at transition",
+        "Alignment with standards effective at the period end"
+      ],
+      "exclusion": [
+        "Deferred compliance with current standards",
+        "Mid-stream policy shifts"
+      ],
+      "nearby_distinctions": [
+        "Differs from comparative balance sheets by representing the fundamental baseline date before any operations of the comparative period occur."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3e0c918f-ad83-4319-aebc-300564c642bf",
+      "concept_name": "Accounting Policies and First-Time Application Framework",
+      "definition": "Entities must utilize identical accounting policies in their opening balance sheet and across all reported periods of their initial statements. These policies must incorporate all mandatory exceptions and optional exemptions provided within the framework.",
+      "terminology": [
+        "Accounting policies",
+        "Consistent application",
+        "Mandatory exceptions",
+        "Optional exemptions"
+      ],
+      "instrument_references": [
+        "Ind AS 101"
+      ],
+      "inclusion": [
+        "Uniform policy application across comparative and current periods",
+        "Integration of statutory exceptions and exemptions"
+      ],
+      "exclusion": [
+        "Varying accounting policies between the transition balance sheet and later periods"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes policy uniformity across transition intervals from changing policies dynamically across ordinary annual reporting periods."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4729b964-c3ed-4def-8ab4-e40696bd2ce3",
+      "concept_name": "Exceptions and Exemptions Framework",
+      "definition": "Ind AS 101 modifies strict retrospective application through two distinct governance mechanisms: mandatory exceptions and optional exemptions. Mandatory exceptions prevent hindsight bias in estimates and govern prior financial asset derecognition without management discretion.",
+      "terminology": [
+        "Mandatory exceptions",
+        "Optional exemptions",
+        "Estimates",
+        "Derecognition"
+      ],
+      "instrument_references": [
+        "Ind AS 101",
+        "Ind AS 109"
+      ],
+      "inclusion": [
+        "Rules prohibiting retrospective adjustment of past estimates",
+        "Prospective application of financial asset and liability derecognition"
+      ],
+      "exclusion": [
+        "Voluntary modification of mandatory exception rules",
+        "Unrestricted hindsight adjustments to historical estimates"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes mandatory exceptions, which must be followed automatically, from optional exemptions which allow management discretion."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9b408c14-15ff-4715-abc4-e03154e6316c",
+      "concept_name": "Mandatory Exceptions to Retrospective Application",
+      "definition": "Mandatory exceptions override general retrospective rules to prevent inappropriate use of hindsight for past estimates and transactions. Entities must retain previous GAAP estimates unless objective error is evident and apply financial instrument derecognition rules prospectively.",
+      "terminology": [
+        "Mandatory exceptions",
+        "Estimates",
+        "Derecognition",
+        "Prospective application"
+      ],
+      "instrument_references": [
+        "Ind AS 101",
+        "Ind AS 109"
+      ],
+      "inclusion": [
+        "Consistency with previous GAAP estimates absent error",
+        "Prospective financial asset derecognition handling"
+      ],
+      "exclusion": [
+        "Retrospective alteration of past estimates without error evidence",
+        "Unconditional retrospective derecognition of old transfers"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes mandatory exceptions from optional exemptions based on whether the entity holds discretion to bypass the rule."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "70e762f1-4df5-41f5-847e-8870442ee863",
+      "concept_name": "Optional Exemptions from Retrospective Application",
+      "definition": "Optional exemptions allow first-time adopters to diverge from full retrospective application in complex areas such as business combinations and asset measurements. Utilizing these options prevents prohibitive compliance costs while maintaining structured adjustments to retained earnings.",
+      "terminology": [
+        "Optional exemptions",
+        "Business combination",
+        "Recognition exemptions",
+        "Measurement exemptions",
+        "Retained earnings"
+      ],
+      "instrument_references": [
+        "Ind AS 101",
+        "Ind AS 103",
+        "Ind AS 109"
+      ],
+      "inclusion": [
+        "Exemptions for historical business combinations",
+        "Specific asset and liability recognition and measurement reliefs"
+      ],
+      "exclusion": [
+        "Mandatory overrides that eliminate management choice",
+        "Unrestricted retrospective restatement of past mergers"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes optional exemptions from mandatory exceptions by emphasizing entity-level choice and cost-benefit relief."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e99019f2-6f05-4e5a-adb7-f1906202ad8d",
+      "concept_name": "Presentation and Disclosure Requirements",
+      "definition": "Entities transitioning to Ind AS must provide comprehensive reconciliations of equity, comprehensive income, and clear explanations of the adjustments made. Historical summaries under previous GAAP must be prominently labeled and detail the primary adjustments required for compliance.",
+      "terminology": [
+        "Comparative Information",
+        "Reconciliation of equity",
+        "Total comprehensive income",
+        "Explanation of transition"
+      ],
+      "instrument_references": [
+        "Ind AS 101",
+        "Ind AS 34",
+        "Ind AS 36"
+      ],
+      "inclusion": [
+        "Reconciliations from previous GAAP to Ind AS balances",
+        "Prominent labeling of non-Ind AS historical summaries"
+      ],
+      "exclusion": [
+        "Complete quantification of historical summary adjustments",
+        "Omission of interim transition reconciliations"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes the detailed reconciliation requirements for primary financial statements from the relaxed labeling treatment permitted for general historical summaries."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "78f859de-5be2-4ac0-9bbf-e7713c1a660b",
+      "concept_name": "Carve Outs in Ind AS 101 from IFRS 1",
+      "definition": "Ind AS 101 includes specific domestic modifications from IFRS 1 to align with Indian regulatory frameworks and practical legacy constraints. These adjustments redefine previous GAAP to refer to notified standards, permit historical property carrying values, and govern long-term foreign currency items.",
+      "terminology": [
+        "Carve outs",
+        "Previous GAAP definition",
+        "Property Plant and Equipment carrying cost",
+        "Foreign currency monetary items"
+      ],
+      "instrument_references": [
+        "Ind AS 101",
+        "IFRS 1",
+        "Ind AS 16"
+      ],
+      "inclusion": [
+        "Adoption of previous GAAP under Companies Act rules",
+        "Option to use previous GAAP carrying values for property items"
+      ],
+      "exclusion": [
+        "Strict IFRS retrospective valuation models for legacy assets without relief",
+        "Unmodified global IFRS 1 definitions"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes international IFRS 1 provisions from Indian-specific carve outs designed to address local statutory and historical asset record limitations."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "0c4441e9ea3b1272061234e1a8bf735ca330d27d13cdbabe3b136e892afb9238",
+  "artifact_id": "cd7040c6-8d9d-4909-ae4b-56051fc582c5",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 9318,
+  "output_tokens": 3481,
+  "cost_usd": 0.0114979,
+  "created_at": "2026-10-03T18:05:41.903631+00:00"
+}

@@ -1,0 +1,173 @@
+{
+  "descriptors": [
+    {
+      "node_id": "f942df44-0ee5-4afe-ae45-d96751cedcc0",
+      "concept_name": "Registered Valuer Framework Introduction",
+      "definition": "Valuation of company assets and net worth must be executed by certified professional valuers appointed by the audit committee or Board. These practitioners must uphold impartiality, exercise due diligence, and avoid conflicts of interest regarding the target assets.",
+      "terminology": [
+        "Registered Valuer",
+        "Net worth",
+        "Due diligence",
+        "Impartial valuation"
+      ],
+      "instrument_references": [
+        "Section 247 of the Companies Act, 2013",
+        "Companies (Registered Valuers and Valuation) Rules, 2017"
+      ],
+      "inclusion": [
+        "Property, stocks, shares, debentures, securities, and goodwill valuation",
+        "Appointment procedures via audit committee or Board"
+      ],
+      "exclusion": [
+        "Valuation undertaken by individuals with a direct or indirect interest within three years prior or post-appointment"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general financial auditing by its specific focus on asset and liability valuation under statutory valuation standards."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9ea6379e-cfa9-4dad-b491-dd643678cd24",
+      "concept_name": "Registered Valuer Contravention and Penalties",
+      "definition": "Valuers who breach compliance rules face monetary fines, while fraudulent contraventions trigger imprisonment terms and mandatory restitution. Convicted valuers are legally compelled to refund their professional remuneration and cover third-party damages arising from misleading statements.",
+      "terminology": [
+        "Contravention",
+        "Fraudulent intent",
+        "Restitution of remuneration",
+        "Damages for misleading statements"
+      ],
+      "instrument_references": [
+        "Section 247 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Penalties for standard compliance breaches",
+        "Punishment and imprisonment terms for fraud",
+        "Liability for remuneration refund and damage payouts"
+      ],
+      "exclusion": [
+        "Non-fraudulent administrative errors not amounting to statutory rule contraventions"
+      ],
+      "nearby_distinctions": [
+        "Differs from general corporate penalties under Section 450 by providing specialized clawback and damage mechanisms specific to valuation misconduct."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c1083916-dcf9-4778-b245-de444808b38a",
+      "concept_name": "Registrar Power to Remove Company Names",
+      "definition": "The Registrar may initiate company strike-off procedures when an entity fails to commence business within one year, remains inactive for two consecutive financial years without dormant status, or omits mandatory incorporation filings. Alternatively, a company can voluntarily apply for name removal after extinguishing all liabilities through special resolution or high-threshold member consent.",
+      "terminology": [
+        "Register of Companies",
+        "Dormant company",
+        "Special resolution",
+        "Physical verification"
+      ],
+      "instrument_references": [
+        "Section 248 of the Companies Act, 2013",
+        "Section 252 of the Companies Act, 2013",
+        "Section 455 of the Companies Act, 2013",
+        "Section 10A of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Involuntary strike-off due to non-commencement or operational inactivity",
+        "Voluntary removal applications post-liability clearance",
+        "Regulatory body approvals for specialized corporate entities"
+      ],
+      "exclusion": [
+        "Companies holding valid active operations or holding active dormant status applications"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from formal winding up or liquidation because strike-off is an administrative registry clearance rather than an insolvency resolution process."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "be3e6733-1401-40b2-a2d4-fb0b4232c974",
+      "concept_name": "Annual Reports on Government Companies",
+      "definition": "Government companies wherein the Central Government is a member must prepare annual reports on their working and affairs within three months of their annual general meeting. These reports, along with Comptroller and Auditor-General audit comments, must be laid before both Houses of Parliament.",
+      "terminology": [
+        "Government Company",
+        "Total voting power",
+        "Comptroller and Auditor-General of India",
+        "Annual general meeting"
+      ],
+      "instrument_references": [
+        "Section 2(45) of the Companies Act, 2013",
+        "Section 394 of the Companies Act, 2013",
+        "Section 143 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Preparation of annual working and affairs reports",
+        "Tabling reports and audit comments before Parliament"
+      ],
+      "exclusion": [
+        "Non-governmental private corporate entities lacking government shareholding thresholds"
+      ],
+      "nearby_distinctions": [
+        "Distinct from standard private company filing requirements due to the mandatory requirement of parliamentary presentation and auditor-general oversight."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3506f9aa-5df6-45ea-a787-ce1c7098873b",
+      "concept_name": "Nidhi Companies Modification and Rules",
+      "definition": "The Central Government holds statutory authority to declare specific entities as Nidhi or Mutual Benefit Society and modify how corporate enactments apply to them. Proposed modifications must be laid in draft before Parliament for review prior to final notification issuance.",
+      "terminology": [
+        "Nidhi",
+        "Mutual Benefit Society",
+        "Official Gazette"
+      ],
+      "instrument_references": [
+        "Section 406 of the Companies Act, 2013",
+        "Section 620A of the Companies Act, 1956",
+        "Nidhi Rules, 2014"
+      ],
+      "inclusion": [
+        "Declarations of mutual benefit societies",
+        "Parliamentary review of draft modification notifications",
+        "Application scope covering historical and newly incorporated Nidhi entities"
+      ],
+      "exclusion": [
+        "Standard commercial companies operating outside mutual benefit frameworks"
+      ],
+      "nearby_distinctions": [
+        "Differs from normal public or private companies because Nidhi operations are subject to tailored regulatory modifications and parliamentary oversight specific to mutual savings."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4030f0df-cfc5-48b5-a7d2-5ec1cedce3c3",
+      "concept_name": "Punishment for Fraud and Residual Penalties",
+      "definition": "Fraud involving specified financial thresholds or public interest carries strict mandatory minimum imprisonment terms and proportional monetary fines scaling with the amount involved. For general corporate violations where no explicit penalty is provided elsewhere in the legislation, residual penal provisions apply.",
+      "terminology": [
+        "Fraud",
+        "Wrongful gain",
+        "Wrongful loss",
+        "Residual penalty"
+      ],
+      "instrument_references": [
+        "Section 447 of the Companies Act, 2013",
+        "Section 450 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Punishment framework for fraud with monetary or public interest triggers",
+        "Legal definitions of wrongful gain and wrongful loss",
+        "General penalties for statutory defaults lacking specific assigned punishments"
+      ],
+      "exclusion": [
+        "Infractions governed by independent, specific penalty sections within the Act"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes high-severity dishonest acts carrying mandatory jail terms from lower-severity technical defaults penalized under residual catch-all provisions."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "017b4249199803b1eebb2814f632b058fa03aab73d22d088e4ecda3bba848d22",
+  "artifact_id": "1aa1ff8b-3792-489d-8a14-9b493c72c854",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 4750,
+  "output_tokens": 1973,
+  "cost_usd": 0.0063575,
+  "created_at": "2026-10-03T18:24:31.522580+00:00"
+}

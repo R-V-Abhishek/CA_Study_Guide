@@ -4,13 +4,15 @@ import { AuthGate } from "./components/AuthGate";
 import { SessionControls } from "./components/SessionControls";
 import { Accounts } from "./pages/Accounts";
 import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
-import { ListFilter, CheckCheck, FolderOpen, Activity, Network } from "lucide-react";
+import { ListFilter, CheckCheck, FolderOpen, Activity, Network, FileCheck } from "lucide-react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import { Queue } from "./pages/Queue";
 import { BulkAccept } from "./pages/BulkAccept";
 import { Catalogue } from "./pages/Catalogue";
 import { Taxonomy } from "./pages/Taxonomy";
+import { TextbookExplorer } from "../../student/src/components/TextbookExplorer";
+import { TaxonomyRelease } from "./pages/TaxonomyRelease";
 import { System } from "./pages/System";
 import { Diagnostics } from "./components/Diagnostics";
 import { RouteBoundary } from "./components/RouteBoundary";
@@ -30,8 +32,10 @@ function CuratorLayout({ children }: { children: React.ReactNode }) {
     { to: "/bulk", label: "Bulk Accept", icon: CheckCheck },
     { to: "/documents", label: "Catalogue", icon: FolderOpen },
     { to: "/taxonomy", label: "Taxonomy", icon: Network },
+    { to: "/textbooks", label: "Textbook Taxonomy", icon: Network },
+    { to: "/taxonomy-release", label: "Source & Release Review", icon: FileCheck },
     { to: "/system", label: "System Health", icon: Activity },
-  ].filter(item => admin || ["/queue", "/taxonomy"].includes(item.to));
+  ].filter(item => admin || ["/queue", "/taxonomy", "/textbooks"].includes(item.to));
 
   return (
     <div className="min-h-screen flex bg-[#0F172A] text-[#F8FAFC]">
@@ -114,6 +118,8 @@ export function App() {
             <Route path="/bulk" element={<AdminOnly><BulkAccept /></AdminOnly>} />
             <Route path="/documents" element={<AdminOnly><Catalogue /></AdminOnly>} />
             <Route path="/taxonomy" element={<Taxonomy />} />
+            <Route path="/textbooks" element={<TextbookExplorer curator />} />
+            <Route path="/taxonomy-release" element={<AdminOnly><TaxonomyRelease /></AdminOnly>} />
             <Route path="/accounts" element={<AdminOnly><Accounts /></AdminOnly>} />
             <Route path="/system" element={<AdminOnly><System /></AdminOnly>} />
           </Routes>

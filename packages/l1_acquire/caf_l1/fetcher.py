@@ -156,6 +156,8 @@ class DocumentFetcher:
                         blob_path=str(blob_path),
                         bytes=len(content),
                         origin="http",
+                        course_level=inferred.get("course_level"),
+                        provenance_status="unresolved",
                         scheme_id=scheme_id,
                         attempt_id=attempt_id,
                         paper_id=paper_id,

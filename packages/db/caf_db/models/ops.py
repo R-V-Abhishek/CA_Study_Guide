@@ -21,6 +21,7 @@ class Run(Base):
 
     id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
     stage: Mapped[str] = mapped_column(Text, nullable=False)
+    taxonomy_version_id: Mapped[int | None] = mapped_column(Integer, ForeignKey("ref.taxonomy_version.id"), nullable=True)
     git_sha: Mapped[str | None] = mapped_column(Text, nullable=True)
     config_hash: Mapped[str | None] = mapped_column(Text, nullable=True)
     args: Mapped[dict[str, Any] | None] = mapped_column(JSONB, nullable=True)

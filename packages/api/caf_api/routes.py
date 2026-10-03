@@ -39,6 +39,7 @@ from caf_l5 import (
 )
 
 from caf_l5.service import get_account_settings, get_account_score_run, selected_papers
+from caf_l0.hierarchy import ancestor_at, descendant_leaves, leaf_scope, node_scope, version_nodes
 
 router = APIRouter(prefix="/api/v1", dependencies=[Depends(require_account)])
 
@@ -102,7 +103,7 @@ def list_papers(session: Session = Depends(get_db), account: Principal = Depends
         # Get all subtopics for this paper
         subtopics = session.execute(
             sa.select(Node.id, Node.parent_id).where(
-                Node.paper_id == p.id, Node.level == "subtopic", Node.status == "active"
+                Node.paper_id == p.id, leaf_scope(session)
             )
         ).all()
         total_sub = len(subtopics)
@@ -150,7 +151,7 @@ def list_papers(session: Session = Depends(get_db), account: Principal = Depends
             )
             .join(WeightageMember, WeightageMember.chapter_id == Node.id, isouter=True)
             .join(WeightageSection, WeightageSection.id == WeightageMember.section_id, isouter=True)
-            .where(Node.paper_id == p.id, Node.level == "chapter", Node.status == "active")
+            .where(Node.paper_id == p.id, Node.level == "chapter", Node.status == "active", node_scope(session))
         ).all()
 
         total_weight = 0.0
@@ -159,14 +160,7 @@ def list_papers(session: Session = Depends(get_db), account: Principal = Depends
 
         for ch_id, min_pct, max_pct in ch_rows:
             # Subtopics in this chapter
-            topic_ids = sa.select(Node.id).where(
-                Node.parent_id == ch_id, Node.level == "topic", Node.status == "active"
-            )
-            ch_subs = session.execute(
-                sa.select(Node.id).where(
-                    Node.parent_id.in_(topic_ids), Node.level == "subtopic", Node.status == "active"
-                )
-            ).scalars().all()
+            ch_subs = descendant_leaves(ch_id, {n.id: n for n in version_nodes(session)})
 
             if ch_subs:
                 if min_pct is None or max_pct is None:
@@ -218,7 +212,7 @@ def get_paper_tree(paper_id: str, session: Session = Depends(get_db), account: P
 
     # Fetch all nodes for this paper
     nodes = session.execute(
-        sa.select(Node).where(Node.paper_id == paper_id, Node.status == "active").order_by(Node.seq, Node.id)
+        sa.select(Node).where(Node.paper_id == paper_id, Node.status == "active", node_scope(session)).order_by(Node.seq, Node.id)
     ).scalars().all()
 
     # User progress & notes map
@@ -249,14 +243,20 @@ def get_paper_tree(paper_id: str, session: Session = Depends(get_db), account: P
     chapters_by_id = {}
     topics_by_parent = {}
     subtopics_by_parent = {}
+    by_id = {node.id: node for node in nodes}
+    containers = {node.parent_id for node in nodes if node.parent_id}
 
     for n in nodes:
         if n.level == "chapter":
             chapters_by_id[n.id] = n
         elif n.level == "topic":
-            topics_by_parent.setdefault(n.parent_id, []).append(n)
-        elif n.level == "subtopic":
-            subtopics_by_parent.setdefault(n.parent_id, []).append(n)
+            chapter = ancestor_at(n.id, by_id, "chapter")
+            if chapter:
+                topics_by_parent.setdefault(chapter.id, []).append(n)
+        elif n.level == "subtopic" and n.id not in containers:
+            topic = ancestor_at(n.id, by_id, "topic")
+            if topic:
+                subtopics_by_parent.setdefault(topic.id, []).append(n)
 
     # Load intelligence scores for this paper
     scores_map = get_subtopic_scores_for_paper(session, paper_id, target_attempt_id=get_account_settings(session, user_id).target_attempt_id or "")
@@ -319,11 +319,16 @@ def get_paper_tree(paper_id: str, session: Session = Depends(get_db), account: P
             )
         )
 
+    from caf_l0.releases import active_version
+    release = active_version(session)
+    from caf_api.taxonomy import tree as recursive_tree
     return {
         "paper_id": paper.id,
         "code": paper.code,
         "name": paper.name,
         "chapters": result_chapters,
+        "taxonomy_version_id": release.taxonomy_version_id if release else None,
+        "hierarchy": recursive_tree(release.version_id, paper_id, session) if release else [],
     }
 
 
@@ -351,8 +356,9 @@ def get_subtopic_detail(node_id: str, session: Session = Depends(get_db), accoun
     if not subtopic or subtopic.level != "subtopic":
         raise HTTPException(status_code=404, detail="Subtopic not found")
 
-    topic = session.get(Node, subtopic.parent_id) if subtopic.parent_id else None
-    chapter = session.get(Node, topic.parent_id) if topic and topic.parent_id else None
+    nodes = {n.id: n for n in version_nodes(session)}
+    topic = ancestor_at(node_id, nodes, "topic")
+    chapter = ancestor_at(node_id, nodes, "chapter")
     paper = session.get(Paper, subtopic.paper_id) if subtopic.paper_id else None
 
     progress = session.get(Progress, (user_id, node_id))
@@ -532,7 +538,7 @@ def get_dashboard(session: Session = Depends(get_db), account: Principal = Depen
 
     # Overall subtopic counts
     all_subtopics = session.execute(
-        sa.select(Node.id).where(Node.level == "subtopic", Node.status == "active", Node.paper_id.in_(paper_ids))
+        sa.select(Node.id).where(Node.paper_id.in_(paper_ids), leaf_scope(session))
     ).scalars().all()
     total_subtopics = len(all_subtopics)
 
@@ -561,7 +567,7 @@ def get_dashboard(session: Session = Depends(get_db), account: Principal = Depen
     for p in papers:
         g = p.group_no or 1
         p_subs = session.execute(
-            sa.select(Node.id).where(Node.paper_id == p.id, Node.level == "subtopic")
+            sa.select(Node.id).where(Node.paper_id == p.id, leaf_scope(session))
         ).scalars().all()
         p_done = session.execute(
             sa.select(sa.func.count(Progress.node_id)).where(
@@ -637,14 +643,16 @@ def get_meta(session: Session = Depends(get_db), account: Principal = Depends(re
     coverage_matrix = get_ingestion_coverage_matrix(
         session, current_run.id
     ) if current_run else {"coverage": []}
+    from caf_l0.releases import active_version
+    release = active_version(session)
     return {
-        "taxonomy_version": "v1",
+        "taxonomy_version": release.version_id if release else "legacy",
         "scoring_version": current_run.scoring_version if current_run else None,
         "api_version": "v1",
         "backend_revision": backend_revision(),
         "score_run": score_run_identity(current_run),
         "target_attempt": get_account_settings(session, account.id).target_attempt_id,
-        "score_unavailable_reason": None if current_run else "No successful scoring run exists for your target attempt.",
+        "score_unavailable_reason": None if current_run else "No successful scoring run exists for your target attempt and taxonomy version.",
         "score_run_id": current_run.id if current_run else None,
         "score_run_computed_at": current_run.finished_at.isoformat() if current_run and current_run.finished_at else None,
         "ingestion_coverage": coverage_matrix.get("coverage", []),

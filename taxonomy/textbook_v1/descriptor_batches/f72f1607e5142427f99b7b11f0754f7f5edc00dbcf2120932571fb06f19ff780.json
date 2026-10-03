@@ -1,0 +1,296 @@
+{
+  "descriptors": [
+    {
+      "node_id": "8b019774-bc29-4c30-894c-6cd801077810",
+      "concept_name": "Audit Conclusion and Reporting",
+      "definition": "Joint auditors must issue a common audit report unless there is a disagreement over the opinion or report matters, in which case each dissenting auditor expresses an independent opinion in a separate report. Such separate reports must be cross-referenced under the Other Matter Paragraph.",
+      "terminology": [
+        "Joint Auditors",
+        "Common Audit Report",
+        "Separate Audit Report",
+        "Other Matter Paragraph"
+      ],
+      "instrument_references": [
+        "SA 706",
+        "SA 705"
+      ],
+      "inclusion": [
+        "Issuance of common audit report by joint auditors",
+        "Expression of separate opinions in case of disagreement",
+        "Cross-referencing using Other Matter Paragraph"
+      ],
+      "exclusion": [
+        "Consolidated single opinion reporting when unanimous agreement exists"
+      ],
+      "nearby_distinctions": [
+        "Differs from standard single auditor reporting by requiring coordination and formal cross-references for dissenting views."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "cfa0f9de-96d3-4b7c-b679-98a8553c890e",
+      "concept_name": "Communication with Those Charged with Governance",
+      "definition": "Auditors must communicate expected opinion modifications, including the underlying circumstances and proposed wording, directly to those charged with governance to ensure adherence to reporting standards. Similar communication is mandated when an Emphasis of Matter or Other Matter paragraph is anticipated.",
+      "terminology": [
+        "Those Charged with Governance",
+        "Expected Modification",
+        "Emphasis of Matter Paragraph",
+        "Other Matter Paragraph"
+      ],
+      "instrument_references": [
+        "SA 705",
+        "SA 706"
+      ],
+      "inclusion": [
+        "Communicating anticipated audit report modifications",
+        "Disclosing proposed wording for modified opinions",
+        "Discussing planned Emphasis of Matter or Other Matter paragraphs"
+      ],
+      "exclusion": [
+        "Routine operational audit findings without report modification implications"
+      ],
+      "nearby_distinctions": [
+        "Focuses specifically on reporting changes and modifications rather than general audit strategy execution."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a1a568dc-e9d0-4acc-920d-3b4b7cd88ed1",
+      "concept_name": "SA 402 Audit Considerations Relating to an Entity Using a Service Organisation",
+      "definition": "This standard governs the user auditor's responsibility to gather sufficient appropriate audit evidence when a user entity utilizes outsourced services from one or more service organizations. It specifically guides how the user auditor applies risk assessment and response standards to evaluate outsourced information systems and relevant internal controls.",
+      "terminology": [
+        "User Auditor",
+        "User Entity",
+        "Service Organisation",
+        "Information System"
+      ],
+      "instrument_references": [
+        "SA 402",
+        "SA 315",
+        "SA 330"
+      ],
+      "inclusion": [
+        "Assessing risks associated with outsourced business functions",
+        "Evaluating service organization controls integrated into the user entity's information system"
+      ],
+      "exclusion": [
+        "Direct auditing of service organizations without establishing user entity financial reporting relevance"
+      ],
+      "nearby_distinctions": [
+        "Applies specifically to third-party outsourced processing environments rather than internal client-operated units."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e546207f-13c3-4166-bec2-799ac3fe3d39",
+      "concept_name": "Objectives of User Auditor in accordance with SA 402",
+      "definition": "The user auditor must understand the nature and significance of outsourced services and their impact on relevant internal controls to identify and assess material misstatement risks. Additionally, the auditor is required to design and implement appropriate audit procedures responsive to those assessed risks.",
+      "terminology": [
+        "User Auditor",
+        "Internal Control",
+        "Risk of Material Misstatement",
+        "Audit Procedures"
+      ],
+      "instrument_references": [
+        "SA 402"
+      ],
+      "inclusion": [
+        "Gaining an understanding of service organization effects on internal controls",
+        "Designing and executing responsive audit procedures"
+      ],
+      "exclusion": [
+        "Assuming internal controls are effective without performing evaluative procedures"
+      ],
+      "nearby_distinctions": [
+        "Centers directly on auditor objectives regarding outsourced service impacts rather than general risk assessment tasks."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b0f617e2-9c64-43ed-b719-e8916d55ef75",
+      "concept_name": "Type 1 report and Type 2 report",
+      "definition": "A Type 1 report provides a service auditor's opinion on the description, design, and implementation of a service organization's controls as of a specific date. A Type 2 report extends this assurance by including an opinion on the operating effectiveness of those controls throughout a specified period, alongside a description of actual tests performed.",
+      "terminology": [
+        "Type 1 Report",
+        "Type 2 Report",
+        "Service Auditor",
+        "Control Objectives",
+        "Operating Effectiveness"
+      ],
+      "instrument_references": [
+        "SA 402"
+      ],
+      "inclusion": [
+        "Evaluation of control design and implementation for Type 1",
+        "Evaluation of control operating effectiveness and test descriptions for Type 2"
+      ],
+      "exclusion": [
+        "Management representation letters replacing independent service auditor reports"
+      ],
+      "nearby_distinctions": [
+        "Type 1 assesses design and implementation at a point in time, whereas Type 2 additionally evaluates operational effectiveness over a period."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6d1cc57a-c993-452e-ab20-2942c5c171c9",
+      "concept_name": "Obtaining an Understanding of the Services",
+      "definition": "When executing risk assessments under SA 315, the user auditor must examine how the user entity integrates service organization functions into its operations. This entails analyzing the nature and significance of the outsourced services and identifying the affected financial reporting processes and accounts.",
+      "terminology": [
+        "User Auditor",
+        "Service Organisation",
+        "Internal Control",
+        "Financial Reporting Processes"
+      ],
+      "instrument_references": [
+        "SA 402",
+        "SA 315"
+      ],
+      "inclusion": [
+        "Evaluating the significance of outsourced operations",
+        "Identifying material transactions and accounts processed by service providers"
+      ],
+      "exclusion": [
+        "Ignoring outsourced processes that do not impact financial reporting"
+      ],
+      "nearby_distinctions": [
+        "Focuses on building the foundational understanding of outsourced services prior to detailed control testing."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "321ab691-ae80-4b45-b619-113369bfceb4",
+      "concept_name": "Using Type 1 or Type 2 Report",
+      "definition": "To utilize a Type 1 or Type 2 report as audit evidence, the user auditor must verify the service auditor's professional competence, independence, and the adequacy of reporting standards. Alternative evidence collection methods include direct contact, site visits, or engaging another auditor when reports are unavailable.",
+      "terminology": [
+        "Type 1 Report",
+        "Type 2 Report",
+        "Service Auditor Independence",
+        "Complementary User Entity Controls"
+      ],
+      "instrument_references": [
+        "SA 402"
+      ],
+      "inclusion": [
+        "Verifying service auditor competence and independence",
+        "Alternative procedures such as site visits or using another auditor"
+      ],
+      "exclusion": [
+        "Accepting service auditor reports without assessing standard adequacy"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between relying on existing third-party service reports versus performing direct procedures at the service organization."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e76c0973-c837-41ea-813f-bf67f05a3596",
+      "concept_name": "Responding to the Assessed Risks of Material Misstatement",
+      "definition": "The user auditor must evaluate whether sufficient appropriate audit evidence concerning financial statement assertions is accessible via user entity records. If local records are insufficient, further audit procedures or another auditor must be utilized to perform tests at the service organization.",
+      "terminology": [
+        "Assessed Risks",
+        "Audit Evidence",
+        "Financial Statement Assertions",
+        "Service Organisation"
+      ],
+      "instrument_references": [
+        "SA 330",
+        "SA 402"
+      ],
+      "inclusion": [
+        "Determining availability of audit evidence at user entity",
+        "Executing further audit procedures at the service organization"
+      ],
+      "exclusion": [
+        "Relying solely on management assertions without corroborative testing"
+      ],
+      "nearby_distinctions": [
+        "Emphasizes active response strategies when local entity records fail to provide complete verification for outsourced activities."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "add4d95c-094d-49bf-a24c-29fef3b922d4",
+      "concept_name": "Tests of Controls",
+      "definition": "When expecting service organization controls to operate effectively, the user auditor gathers operating effectiveness evidence through appropriate testing methods. This involves evaluating control design dates, assessing evidence sufficiency, and identifying relevant complementary user entity controls.",
+      "terminology": [
+        "Tests of Controls",
+        "Operating Effectiveness",
+        "Complementary User Entity Controls",
+        "Type 2 Report"
+      ],
+      "instrument_references": [
+        "SA 402"
+      ],
+      "inclusion": [
+        "Obtaining Type 2 reports for operating effectiveness evidence",
+        "Performing direct tests of controls at the service organization"
+      ],
+      "exclusion": [
+        "Assuming control operating effectiveness without empirical testing"
+      ],
+      "nearby_distinctions": [
+        "Focuses specifically on verifying control operational performance rather than merely reviewing design implementation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e53b8d79-a576-4aa4-8a9e-8f5358e837a0",
+      "concept_name": "Fraud, Non-Compliance with Laws and Regulations and Uncorrected Misstatements in relation to Activities at the Service Organisation",
+      "definition": "The user auditor must inquire with user entity management regarding any reported fraud, regulatory non-compliance, or uncorrected misstatements originating from the service organization. The auditor then evaluates how these external events impact further audit procedures and overall reporting conclusions.",
+      "terminology": [
+        "Fraud",
+        "Non-Compliance with Laws and Regulations",
+        "Uncorrected Misstatements",
+        "Service Organisation"
+      ],
+      "instrument_references": [
+        "SA 402"
+      ],
+      "inclusion": [
+        "Inquiring about service organization fraud or non-compliance incidents",
+        "Evaluating the impact of reported errors on audit scope and conclusions"
+      ],
+      "exclusion": [
+        "Disregarding compliance issues reported by third-party service providers"
+      ],
+      "nearby_distinctions": [
+        "Concentrates on compliance failures and irregularities occurring within outsourced operational environments."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7a344752-c560-4240-b2e9-ba0d83ab7b80",
+      "concept_name": "Reporting by the User Auditor",
+      "definition": "If the user auditor cannot obtain sufficient appropriate audit evidence regarding outsourced service activities, the opinion must be modified in accordance with standard requirements. Furthermore, references to a service auditor's work in an unmodified report are strictly prohibited unless mandated by law.",
+      "terminology": [
+        "Modified Opinion",
+        "Service Auditor Work Reference",
+        "Sufficient Appropriate Audit Evidence",
+        "User Auditor Report"
+      ],
+      "instrument_references": [
+        "SA 705",
+        "SA 402"
+      ],
+      "inclusion": [
+        "Modifying the audit opinion due to insufficient evidence from service organizations",
+        "Restricting references to service auditors in unmodified reports"
+      ],
+      "exclusion": [
+        "Voluntarily referencing the service auditor in an unmodified report"
+      ],
+      "nearby_distinctions": [
+        "Governs explicit disclosure boundaries within the final audit report regarding reliance on external service auditors."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "f72f1607e5142427f99b7b11f0754f7f5edc00dbcf2120932571fb06f19ff780",
+  "artifact_id": "02c94852-2c09-4731-aea2-7bf6b3feb007",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 7718,
+  "output_tokens": 3194,
+  "cost_usd": 0.0103004,
+  "created_at": "2026-10-03T18:09:51.872963+00:00"
+}

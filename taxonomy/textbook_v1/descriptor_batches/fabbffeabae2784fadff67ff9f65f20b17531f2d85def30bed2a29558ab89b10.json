@@ -1,0 +1,310 @@
+{
+  "descriptors": [
+    {
+      "node_id": "732756db-01d5-43d8-b5d1-c9cd5f884b46",
+      "concept_name": "Introduction to Share-Based Payments",
+      "definition": "A share-based payment is a transaction where an entity acquires goods or services by granting equity instruments or incurring liabilities based on equity values. Corporate entities following Ind AS apply Ind AS 102 for these transactions rather than general guidance notes.",
+      "terminology": [
+        "share-based payment",
+        "equity instruments",
+        "share options",
+        "remuneration"
+      ],
+      "instrument_references": [
+        "Ind AS 102",
+        "Companies Act 2013 Section 62"
+      ],
+      "inclusion": [
+        "grants of shares or options to employees",
+        "payments to suppliers of professional services using shares"
+      ],
+      "exclusion": [
+        "transactions governed solely by older guidance notes for entities complying with Ind AS"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from cash-only compensation as the settlement amount is linked to equity prices."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ccb9fc02-52b4-4fd0-b27f-f57cb8c5bea9",
+      "concept_name": "Definitions in Ind AS 102",
+      "definition": "Ind AS 102 definitions establish key operational terms such as cash-settled and equity-settled transactions, fair value, and grant date. These terms govern how arrangements involving shares or share options are categorized and measured.",
+      "terminology": [
+        "cash-settled share-based payment",
+        "equity instrument granted",
+        "fair value",
+        "grant date",
+        "vesting condition"
+      ],
+      "instrument_references": [
+        "Ind AS 102"
+      ],
+      "inclusion": [
+        "definitions of employee status",
+        "equity instruments",
+        "vesting periods"
+      ],
+      "exclusion": [
+        "substantive recognition rules outside direct definitions"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between grant date expectations and final vesting outcomes."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d3feb747-85ed-4869-b103-757bcc6283b5",
+      "concept_name": "Share-Based Payment Arrangement",
+      "definition": "A share-based payment arrangement is a binding agreement between an entity and another party conferring the right to receive cash, assets, or equity instruments based on specified conditions. A binding communication of terms must exist for the standard to apply.",
+      "terminology": [
+        "binding arrangement",
+        "vesting condition",
+        "vesting period"
+      ],
+      "instrument_references": [
+        "Ind AS 102"
+      ],
+      "inclusion": [
+        "agreements offering equity or cash alternatives contingent on terms",
+        "formal plans communicated to employees"
+      ],
+      "exclusion": [
+        "uncommunicated internal management plans lacking finalized terms"
+      ],
+      "nearby_distinctions": [
+        "Differs from an active transaction because an arrangement sets the framework before goods or services are fully received."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "dd71e184-cb96-456a-9a16-40031a1bbd84",
+      "concept_name": "Share-Based Payment Transaction",
+      "definition": "A share-based payment transaction occurs when an entity receives goods or services under a share-based arrangement or incurs obligations when another group entity receives them. Transactions involving external suppliers or employees fall within scope, while transactions with shareholders acting solely in that capacity are excluded.",
+      "terminology": [
+        "supplier",
+        "group entity",
+        "unidentified goods or services"
+      ],
+      "instrument_references": [
+        "Ind AS 102"
+      ],
+      "inclusion": [
+        "receipt of inventories or services settled via equity",
+        "issuances to charities without consideration"
+      ],
+      "exclusion": [
+        "dealings with shareholders acting purely as owners"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general commercial transactions by the explicit use of equity instruments or share-linked liabilities as consideration."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "36e0315a-48f1-4b3a-900b-8e01be0166e5",
+      "concept_name": "Scope of Ind AS 102",
+      "definition": "Ind AS 102 applies to equity-settled, cash-settled, and alternative settlement share-based payments, including arrangements involving unidentified goods or services. Transactions with shareholders acting solely in their ownership capacity are strictly excluded from its scope.",
+      "terminology": [
+        "scope",
+        "alternative settlement option",
+        "unidentified goods or services"
+      ],
+      "instrument_references": [
+        "Ind AS 102"
+      ],
+      "inclusion": [
+        "stock options granted to employees",
+        "bonuses linked strictly to entity share prices"
+      ],
+      "exclusion": [
+        "rights offered to all equity holders proportionally",
+        "fixed cash grants independent of share price fluctuations"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes employee services compensated via share value from general equity distributions to shareholders."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "30bb2c7a-e905-4da7-ab1a-e691fcd70d7b",
+      "concept_name": "Scope Inclusions under Ind AS 102",
+      "definition": "The standard encompasses transactions settled in equity, cash, or via group entities, as well as situations involving unidentifiable goods or services. Employee service providers and non-financial items acquired through share instruments are fully covered.",
+      "terminology": [
+        "equity-settled",
+        "cash-settled",
+        "group entity"
+      ],
+      "instrument_references": [
+        "Ind AS 102"
+      ],
+      "inclusion": [
+        "inventory and property, plant & equipment acquired via shares",
+        "employee stock options and warrants"
+      ],
+      "exclusion": [
+        "fixed monetary grants unlinked to share price performance"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes share-linked variable compensation from standard fixed cash bonuses."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d2096540-71a5-46bd-9b3a-49c51f7ce586",
+      "concept_name": "Scope Exclusions under Ind AS 102",
+      "definition": "Ind AS 102 excludes transactions with shareholders acting in their capacity as owners, business combinations within the scope of Ind AS 103, and joint venture contributions under Ind AS 111. Financial instruments subject to net settlement for non-financial items are also excluded.",
+      "terminology": [
+        "business combinations",
+        "joint arrangements",
+        "financial instruments"
+      ],
+      "instrument_references": [
+        "Ind AS 102",
+        "Ind AS 103",
+        "Ind AS 111",
+        "Ind AS 109"
+      ],
+      "inclusion": [
+        "equity instruments issued to acquiree employees strictly in an employment capacity"
+      ],
+      "exclusion": [
+        "net-settled commodity contracts under Ind AS 109",
+        "shares issued as business purchase consideration in combinations"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between consideration issued for corporate acquisitions versus compensation issued for ongoing employee services."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "988ff49f-86ba-4e94-a9c9-25159ee44be0",
+      "concept_name": "Recognition of Share-Based Payments",
+      "definition": "Entities must recognize goods or services obtained in a share-based payment transaction when obtained, matching them with an increase in equity for equity-settled plans or a liability for cash-settled plans. Recognition for plans with vesting conditions relies on best estimates of expected vesting values over the service period.",
+      "terminology": [
+        "recognition",
+        "vesting condition",
+        "best estimate"
+      ],
+      "instrument_references": [
+        "Ind AS 102"
+      ],
+      "inclusion": [
+        "expenses or asset additions matching received goods or services",
+        "accruals based on estimated employee retention"
+      ],
+      "exclusion": [
+        "immediate recognition of unvested terms without adjusting for estimated forfeitures or service completion"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes immediate expense recognition from multi-period accruals tied to service conditions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7928f165-8cb9-41ce-af09-79a5a3457fa0",
+      "concept_name": "Types of Share-Based Payments",
+      "definition": "Share-based payments are categorized primarily into equity-settled and cash-settled arrangements, each dictating distinct measurement and recognition mechanics. Equity-settled transactions measure goods or services directly at fair value, using instrument fair value when direct measurement is impractical.",
+      "terminology": [
+        "equity-settled",
+        "cash-settled",
+        "fair value"
+      ],
+      "instrument_references": [
+        "Ind AS 102"
+      ],
+      "inclusion": [
+        "equity instruments granted to employees measured via instrument fair value",
+        "goods from external suppliers measured at direct fair value"
+      ],
+      "exclusion": [
+        "direct service fair value measurement for employees where values are impracticable to determine"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes direct valuation of goods from indirect valuation using equity instrument fair values."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2795c968-14e8-4b86-880f-197c5548e77c",
+      "concept_name": "Equity-Settled Share-Based Payments",
+      "definition": "For equity-settled transactions, entities measure received goods or services directly at fair value, falling back on the fair value of equity instruments granted if reliable fair value is absent. Employee services mandate using the fair value of equity instruments granted because service fair values cannot be reliably estimated.",
+      "terminology": [
+        "equity-settled",
+        "fair value of equity instruments",
+        "rebuttable presumption"
+      ],
+      "instrument_references": [
+        "Ind AS 102"
+      ],
+      "inclusion": [
+        "employee stock plans measured by grant date equity fair value",
+        "unidentified goods recognized via valuation gaps"
+      ],
+      "exclusion": [
+        "direct fair valuation of employee services"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes supplier transactions with reliable direct fair values from employee transactions requiring indirect fair value application."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "205a99fc-64d2-4528-9dd7-93f331d2d57c",
+      "concept_name": "Cash-Settled Share-Based Payments",
+      "definition": "Cash-settled transactions require measuring goods, services, and resulting liabilities at the liability fair value. Entities must remeasure the liability fair value at each reporting date until settlement, recognizing any fair value adjustments directly in profit or loss.",
+      "terminology": [
+        "cash-settled",
+        "liability",
+        "remeasurement",
+        "share appreciation rights"
+      ],
+      "instrument_references": [
+        "Ind AS 102"
+      ],
+      "inclusion": [
+        "share appreciation rights settled in cash",
+        "variable bonuses based on share prices without vesting periods"
+      ],
+      "exclusion": [
+        "fixed-price equity-settled instruments lacking cash settlement mechanisms"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from equity-settled plans by ongoing liability remeasurement through profit or loss rather than fixed equity accounting."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9833ad88-4e4f-4eb3-9333-ef3077ab94fd",
+      "concept_name": "Share-Based Payment Transactions with Cash Alternatives",
+      "definition": "Arrangements providing settlement choice between cash and equity are accounted for as compound instruments comprising debt and equity components. The entity measures the debt component first and then measures the equity component based on the counterparty forfeiting cash rights.",
+      "terminology": [
+        "cash alternatives",
+        "compound instrument",
+        "debt component",
+        "equity component"
+      ],
+      "instrument_references": [
+        "Ind AS 102"
+      ],
+      "inclusion": [
+        "transactions where either the entity or counterparty selects cash or equity settlement",
+        "compound financial instrument valuations"
+      ],
+      "exclusion": [
+        "purely single-settlement equity or cash plans"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes dual-choice settlement features from standard single-outcome equity or cash share-based payments."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "fabbffeabae2784fadff67ff9f65f20b17531f2d85def30bed2a29558ab89b10",
+  "artifact_id": "5d0aacb2-9e60-45a9-841a-7f617c9cc94b",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8963,
+  "output_tokens": 3354,
+  "cost_usd": 0.0110739,
+  "created_at": "2026-10-03T18:04:07.699169+00:00"
+}

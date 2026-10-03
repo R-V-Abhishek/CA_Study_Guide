@@ -1,0 +1,105 @@
+{
+  "descriptors": [
+    {
+      "node_id": "1cda5b93-9db7-4923-be88-8d3d32985ce6",
+      "concept_name": "Group Audit Responsibilities and Component Disclosures",
+      "definition": "When the parent auditor does not audit all group components, responsibilities are divided between auditors. The consolidated audit report must disclose the magnitude of unaudited or other-auditor components using aggregate amounts or percentages.",
+      "terminology": [
+        "consolidated financial statements",
+        "other auditor",
+        "divided responsibility",
+        "magnitude of portion"
+      ],
+      "instrument_references": [
+        "SA 600",
+        "SA 706"
+      ],
+      "inclusion": [
+        "Disclosure of aggregate rupee amounts or percentages of total assets, revenues, and cash flows of components audited by other auditors"
+      ],
+      "exclusion": [
+        "Audits where the parent auditor audits all components directly"
+      ],
+      "nearby_distinctions": [
+        "Differs from single-auditor group audits where no division of responsibility exists."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ce0da923-f094-4483-aac6-9e4455a149e9",
+      "concept_name": "Component Accounting Framework Conversion",
+      "definition": "When component financial statements follow a different accounting framework than the parent, management converts the statements or uses group accounting policies. The principal auditor audits these conversion adjustments to ensure suitability for consolidation.",
+      "terminology": [
+        "accounting framework",
+        "conversion adjustments",
+        "group accounting manual",
+        "local component auditor"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Conversion of local GAAP or IFRS financial statements to the parent framework",
+        "Audit of conversion adjustments by the principal auditor"
+      ],
+      "exclusion": [
+        "Components already reporting under the identical GAAP as the parent"
+      ],
+      "nearby_distinctions": [
+        "Focuses on financial reporting frameworks rather than auditing standard differences."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f55ac8b0-ff18-4c44-ae4d-3d907c44127e",
+      "concept_name": "Component Auditing Framework Alignment",
+      "definition": "Component audits should ideally be performed under auditing standards corresponding to Indian GAAS to maintain consistency. This enables the parent auditor to rely upon and reference the other auditor's report in the consolidated financial statements.",
+      "terminology": [
+        "Indian GAAS",
+        "auditing framework",
+        "consistency",
+        "audit report"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Auditing component financial statements using standards corresponding to Indian GAAS"
+      ],
+      "exclusion": [
+        "Components evaluated strictly under local auditing frameworks without alignment considerations"
+      ],
+      "nearby_distinctions": [
+        "Distinct from accounting framework (GAAP) differences handled via financial statement conversions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "278b5156-9ec6-4979-b757-4a895eb1782f",
+      "concept_name": "Handling Unaudited Group Components",
+      "definition": "All group components should generally be subjected to an audit or audit procedures. If any component remains unaudited, the group auditor must evaluate qualitative and quantitative factors to determine potential report modifications.",
+      "terminology": [
+        "unaudited components",
+        "sufficient appropriate audit evidence",
+        "modification of opinion",
+        "qualitative and quantitative factors"
+      ],
+      "instrument_references": [
+        "SA 705"
+      ],
+      "inclusion": [
+        "Evaluation of unaudited component balances affecting consolidated financial statements"
+      ],
+      "exclusion": [
+        "Components that have completed independent audits or specified audit procedures"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from audited components with different GAAS/GAAP frameworks by the absolute lack of audit evidence."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "2e22a564ac1c1a539cd2ef6200400d3ff783b29d514a95ee7f2a4a17eede5955",
+  "artifact_id": "67adde8f-b4ee-4b4a-a371-8b8be3d6ac54",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 2932,
+  "output_tokens": 1032,
+  "cost_usd": 0.0034595999999999997,
+  "created_at": "2026-10-03T18:11:04.383795+00:00"
+}

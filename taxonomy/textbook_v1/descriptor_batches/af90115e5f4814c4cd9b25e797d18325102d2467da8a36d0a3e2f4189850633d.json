@@ -1,0 +1,143 @@
+{
+  "descriptors": [
+    {
+      "node_id": "e42f45d8-2d8a-4215-a3b4-cc46d2f7ac63",
+      "concept_name": "Financial Instruments Disclosure Framework Overview",
+      "definition": "Ind AS 107 prescribes financial instrument disclosures that allow users to assess their importance to an entity's financial position and performance. It also requires reporting the nature, extent, and management of risks arising from these instruments during and at the end of the reporting period.",
+      "terminology": [
+        "Financial Position",
+        "Financial Performance",
+        "Risk Exposure",
+        "Risk Management"
+      ],
+      "instrument_references": [
+        "Ind AS 107"
+      ],
+      "inclusion": [
+        "Disclosures enabling evaluation of financial instrument significance",
+        "Disclosures detailing risk exposures and risk management strategies"
+      ],
+      "exclusion": [
+        "Recognition and measurement criteria of financial instruments"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from recognition rules under Ind AS 109 by focusing exclusively on qualitative and quantitative communication to financial statement users"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "202bc435-9256-4b41-b655-002d40609a85",
+      "concept_name": "Significance of Financial Instruments",
+      "definition": "Entities must provide disclosures that enable financial statement users to evaluate how significantly financial instruments impact overall financial position and performance. This entails breaking down carrying amounts and gains or losses across specific categorization standards.",
+      "terminology": [
+        "Carrying Amount",
+        "Financial Position",
+        "Financial Performance",
+        "Significance"
+      ],
+      "instrument_references": [
+        "Ind AS 107",
+        "Ind AS 109"
+      ],
+      "inclusion": [
+        "Information allowing users to assess the importance of financial instruments to financial position",
+        "Information allowing evaluation of performance impacts"
+      ],
+      "exclusion": [
+        "Operational management narratives unrelated to financial statements"
+      ],
+      "nearby_distinctions": [
+        "Focuses on overall significance rather than standalone fair value measurement mechanics"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "679bf381-7e68-4d22-b400-b9b594699157",
+      "concept_name": "Balance Sheet Disclosures for Financial Instruments",
+      "definition": "Entities must disclose the carrying amounts of financial assets and liabilities categorized under various valuation paradigms either directly on the balance sheet or within the notes. These categories include items measured at fair value through profit or loss, amortized cost, and fair value through other comprehensive income.",
+      "terminology": [
+        "Carrying Amount",
+        "Fair Value through Profit or Loss",
+        "Amortised Cost",
+        "Fair Value through Other Comprehensive Income"
+      ],
+      "instrument_references": [
+        "Ind AS 107",
+        "Ind AS 109"
+      ],
+      "inclusion": [
+        "Carrying amounts of financial assets and liabilities at fair value through profit or loss",
+        "Carrying amounts at amortised cost",
+        "Financial assets at fair value through other comprehensive income"
+      ],
+      "exclusion": [
+        "Non-financial asset and liability disclosures"
+      ],
+      "nearby_distinctions": [
+        "Differs from statement of profit and loss disclosures by focusing on stock balances rather than flow items of income and expense"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ca9eefbc-c44b-49b9-ae62-e67155278f54",
+      "concept_name": "Statement of Profit and Loss Disclosures for Financial Instruments",
+      "definition": "Entities are required to disclose net gains or losses, interest revenue and expense calculated via the effective interest method, and fee income and expense associated with financial instruments either in comprehensive income statements or notes. These breakdowns must separate items by valuation category such as amortized cost and fair value through profit or loss.",
+      "terminology": [
+        "Net Gains or Losses",
+        "Effective Interest Method",
+        "Interest Revenue",
+        "Fee Income"
+      ],
+      "instrument_references": [
+        "Ind AS 107",
+        "Ind AS 109"
+      ],
+      "inclusion": [
+        "Net gains or losses on financial assets and liabilities by measurement category",
+        "Total interest revenue and expense using effective interest method",
+        "Fee income and expense arising from non-FVPL assets and liabilities and fiduciary activities"
+      ],
+      "exclusion": [
+        "Balance sheet carrying amount breakdowns"
+      ],
+      "nearby_distinctions": [
+        "Captures flow statements of financial performance and periodic earnings rather than static period-end asset and liability balances"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5ef7382c-f60a-46f5-8c81-01b4e5a939a4",
+      "concept_name": "Other Disclosures for Financial Instruments",
+      "definition": "Entities must disclose significant accounting policies, hedge accounting strategies, cash flow impacts, and detailed fair value comparisons alongside unrecognised initial gains or losses. This ensures comprehensive reporting transparency regarding risk management strategies and valuation inputs.",
+      "terminology": [
+        "Hedge Accounting",
+        "Fair Value",
+        "Accounting Policies",
+        "Transaction Price"
+      ],
+      "instrument_references": [
+        "Ind AS 107",
+        "Ind AS 109"
+      ],
+      "inclusion": [
+        "Significant accounting policies and measurement bases",
+        "Hedge accounting risk management strategies and financial statement effects",
+        "Fair value comparisons by class and initial unrecognised gain or loss reconciliations"
+      ],
+      "exclusion": [
+        "Basic balance sheet carrying amount line-item totals"
+      ],
+      "nearby_distinctions": [
+        "Supplements primary financial statement line-item disclosures with qualitative risk metrics, valuation policy reconciliations, and hedge accounting specifics"
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "af90115e5f4814c4cd9b25e797d18325102d2467da8a36d0a3e2f4189850633d",
+  "artifact_id": "266c4aa4-0df9-4303-8fbf-5b37fea07911",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 3727,
+  "output_tokens": 1505,
+  "cost_usd": 0.0048806000000000006,
+  "created_at": "2026-10-03T18:04:45.547061+00:00"
+}

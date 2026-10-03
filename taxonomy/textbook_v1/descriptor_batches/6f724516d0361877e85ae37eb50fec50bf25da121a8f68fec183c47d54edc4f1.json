@@ -1,0 +1,160 @@
+{
+  "descriptors": [
+    {
+      "node_id": "22fec696-0ce2-4bfd-9b17-a0f87cec9dd2",
+      "concept_name": "Brief Background Of Beps",
+      "definition": "Base erosion and profit shifting encompasses tax planning mechanisms that exploit gaps and mismatches in domestic and international rules to minimize corporate tax liabilities. The OECD/G20 BEPS Project delivered fifteen Action Plans in 2015 to establish coherence, transparency, and coordinated solutions across jurisdictions.",
+      "terminology": [
+        "Base erosion and profit shifting",
+        "BEPS package",
+        "Harmful tax practices",
+        "Action plans"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Strategies exploiting cross-border rule mismatches",
+        "Coordination of domestic laws and international standards"
+      ],
+      "exclusion": [
+        "Single isolated domestic tax compliance errors"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard domestic tax avoidance through its specific focus on international corporate structures and cross-border arbitrage."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4fce4793-0c28-4141-bcc7-1b6e314672d0",
+      "concept_name": "Establishment Of Inclusive Framework (If)",
+      "definition": "The Inclusive Framework brings together countries and jurisdictions on an equal footing to collaborate on the implementation and monitoring of the BEPS package. Established in response to globalization and developing economies' interests, it creates a broader platform for international tax standard setting.",
+      "terminology": [
+        "Inclusive Framework",
+        "OECD/G20 BEPS Project",
+        "Equal footing"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Collaborative monitoring of BEPS measures",
+        "Participation of non-OECD and non-G20 economies"
+      ],
+      "exclusion": [
+        "Exclusive policy formulation limited strictly to original OECD member states"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from the original narrow OECD/G20 group by incorporating developing countries as equal participants in standard setting."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ebe7b327-ddbb-444e-8c7e-7953d4f121c9",
+      "concept_name": "Introduction Of Two-Pillar Solution (Beps 2.0)",
+      "definition": "The two-pillar solution provides a consensus-based framework to address the tax challenges of the digital economy and implement a global minimum tax. It updates international tax norms through Pillar One and Pillar Two to safeguard national tax bases.",
+      "terminology": [
+        "Two-Pillar Solution",
+        "Pillar One",
+        "Pillar Two",
+        "2021 October Statement"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Digital economy tax challenges",
+        "Global minimum tax frameworks"
+      ],
+      "exclusion": [
+        "Purely domestic single-jurisdiction enterprise operations without cross-border footprints"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from traditional physical presence nexus rules by introducing reallocation of taxing rights and minimum taxation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8836f417-6b00-425a-a054-f0d7142e162b",
+      "concept_name": "Overview",
+      "definition": "The international community pursued a consensus-based response to digitalisation challenges to prevent uncoordinated unilateral tax measures by individual countries. This initiative developed into the structured two-pillar framework following initial inconclusive findings regarding ring-fencing the digital economy.",
+      "terminology": [
+        "Digitalisation of the economy",
+        "Action 1 Report",
+        "Unilateral tax measures"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Consensus-based responses to digital tax challenges",
+        "Coordinated international policy development"
+      ],
+      "exclusion": [
+        "Fragmented, uncoordinated unilateral digital services taxes imposed independently by individual states"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from early discretionary domestic options by offering a harmonized global architecture."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3bb3e7f5-0b2b-45b9-8e6c-eb5c7c663f6f",
+      "concept_name": "Pillar One",
+      "definition": "Pillar One reallocates a portion of residual profits of large and highly profitable multinational enterprises to market jurisdictions regardless of physical presence. It comprises Amount A for super-profit reallocation and Amount B for simplifying baseline marketing and distribution transfer pricing.",
+      "terminology": [
+        "Amount A",
+        "Amount B",
+        "Residual profits",
+        "Market jurisdictions"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Multinational enterprises with global turnover above threshold and high profitability",
+        "Simplified transfer pricing for baseline distribution"
+      ],
+      "exclusion": [
+        "Extractives and regulated financial services",
+        "Smaller enterprises below the global turnover threshold"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from Pillar Two by focusing on market-based profit reallocation rather than minimum effective tax rates."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "cc91f607-27c1-4088-a313-fd3d52da5709",
+      "concept_name": "Pillar Two",
+      "definition": "Pillar Two ensures that large multinational enterprise groups pay a minimum level of tax through an interlocking system of Global Anti-Base Erosion rules and a treaty-based Subject to Tax Rule. It sets a fifteen percent global minimum tax rate evaluated on a jurisdictional basis.",
+      "terminology": [
+        "GloBE Rules",
+        "Subject to Tax Rule",
+        "Effective tax rate",
+        "Minimum level of tax"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Multinational enterprise groups with consolidated revenues of at least EUR 750 million",
+        "Jurisdictional effective tax rate calculations"
+      ],
+      "exclusion": [
+        "Entities falling below the consolidated revenue threshold of EUR 750 million"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from Pillar One by enforcing a floor on effective taxation across operating jurisdictions rather than reallocating residual market profits."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "6f724516d0361877e85ae37eb50fec50bf25da121a8f68fec183c47d54edc4f1",
+  "artifact_id": "697f9b17-7d3a-4c7b-84db-d8b68303ff45",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 4483,
+  "output_tokens": 1716,
+  "cost_usd": 0.0056349,
+  "created_at": "2026-10-03T18:23:04.386121+00:00"
+}

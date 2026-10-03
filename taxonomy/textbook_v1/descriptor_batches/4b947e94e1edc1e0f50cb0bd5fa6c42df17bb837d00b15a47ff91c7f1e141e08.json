@@ -1,0 +1,332 @@
+{
+  "descriptors": [
+    {
+      "node_id": "47fd5fe7-6b9e-421c-ad66-5724e087a440",
+      "concept_name": "Establishment and Objectives of SEBI",
+      "definition": "The Securities and Exchange Board of India was established as a statutory body to protect investor interests, promote market development, and regulate securities operations. It prevents market malpractices and consolidates oversight previously scattered across multiple administrative enactments.",
+      "terminology": [
+        "SEBI",
+        "Statutory Body",
+        "Securities Market",
+        "Investor Protection"
+      ],
+      "instrument_references": [
+        "SEBI Act 1992",
+        "Companies Act 1956",
+        "Securities Contract (Regulation) Act 1956",
+        "Capital Issues (Control) Act 1947"
+      ],
+      "inclusion": [
+        "Regulatory oversight of merchant banks and mutual funds",
+        "Supervision of stock exchange activities and new issue processes"
+      ],
+      "exclusion": [
+        "Non-statutory administrative advisory functions operating prior to 1992"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from the pre-1992 fragmented regulatory framework by holding unified statutory enforcement powers"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "33b5246a-ed5f-4431-8ac8-b222e6a7e0c0",
+      "concept_name": "Statutory Definitions under SEBI Act",
+      "definition": "The statute provides precise legal definitions for entities, collective schemes, and judicial or technical members functioning within the regulatory framework. Undefined expressions default to meanings assigned under connected securities and depository enactments.",
+      "terminology": [
+        "Board",
+        "Collective Investment Scheme",
+        "Judicial Member",
+        "Technical Member"
+      ],
+      "instrument_references": [
+        "SEBI Act 1992 Section 2",
+        "Securities Contracts (Regulation) Act 1956",
+        "Depositories Act 1996",
+        "Reserve Bank of India Act 1934"
+      ],
+      "inclusion": [
+        "Definitions of Chairman, Members, and Reserve Bank",
+        "Incorporation and management structure provisions"
+      ],
+      "exclusion": [
+        "Substantive regulatory powers and penalty enforcement mechanisms"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between judicial members, technical members, and general board members"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "eef64395-9a7d-43fc-882f-e7194d0fdb4a",
+      "concept_name": "Establishment and Management of the Board",
+      "definition": "SEBI operates as a corporate body with perpetual succession, a common seal, and the capacity to contract and hold property. Its overall management and superintendence vest in a designated board of members appointed by the Central Government.",
+      "terminology": [
+        "Body Corporate",
+        "Perpetual Succession",
+        "Common Seal",
+        "Whole-time Members"
+      ],
+      "instrument_references": [
+        "SEBI Act 1992 Section 3",
+        "SEBI Act 1992 Section 4",
+        "SEBI Act 1992 Section 5"
+      ],
+      "inclusion": [
+        "Head office location at Mumbai",
+        "Composition rules including government nominees and RBI representation",
+        "Tenure, termination, and resignation conditions"
+      ],
+      "exclusion": [
+        "Specific market investigation and adjudication powers"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between ex-officio government/RBI nominees and nominated professional members appointed under specific statutory sub-sections"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3e30b03d-37dc-43fc-90b5-fbb037f22766",
+      "concept_name": "Powers and Functions of SEBI",
+      "definition": "The regulatory board holds comprehensive duties to protect investors, develop the securities market, and supervise stock exchanges and market intermediaries. It possesses authority to prohibit fraudulent practices, conduct inspections, and call for relevant information.",
+      "terminology": [
+        "Intermediaries",
+        "Self-regulatory Organisations",
+        "Insider Trading",
+        "Inquiries and Audits"
+      ],
+      "instrument_references": [
+        "SEBI Act 1992 Section 11"
+      ],
+      "inclusion": [
+        "Registration and working regulations for stockbrokers, merchant bankers, and depositories",
+        "Prohibition of fraudulent trade practices and insider trading",
+        "Power to call for records from banks and other authorities"
+      ],
+      "exclusion": [
+        "Direct corporate management execution outside of regulatory oversight"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between general market development duties and specific investigative and registration mandates"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "51d21e83-f247-4126-a12a-58cde08f9afc",
+      "concept_name": "Regulation of Prospectus and Offer Documents",
+      "definition": "The regulatory board is empowered to specify disclosure norms, capital issuance rules, and listing requirements for companies. It can prohibit public issuance of offer documents or mandate specific conditions for issuing prospectuses to protect investors.",
+      "terminology": [
+        "Prospectus",
+        "Offer Document",
+        "Listing Requirements",
+        "Public Issuance"
+      ],
+      "instrument_references": [
+        "SEBI Act 1992 Section 11A"
+      ],
+      "inclusion": [
+        "Regulation of capital issue matters and transfer of securities",
+        "General or special orders prohibiting companies from soliciting money through defective offer documents"
+      ],
+      "exclusion": [
+        "Routine internal corporate capital restructuring without public solicitation"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes general supervisory powers from specific prohibitions on public capital solicitation offer documents"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a52d153c-9ecc-4f92-ac3f-94ef6746e16d",
+      "concept_name": "Collective Investment Scheme Definition and Exceptions",
+      "definition": "Any arrangement where investor contributions are pooled to receive profits and managed without day-to-day investor control constitutes a collective investment scheme. Unregistered pooling schemes involving a corpus of one hundred crore rupees or more are statutorily deemed collective investment schemes.",
+      "terminology": [
+        "Pooling of Funds",
+        "Corpus Amount",
+        "Day-to-day Control",
+        "Co-operative Society"
+      ],
+      "instrument_references": [
+        "SEBI Act 1992 Section 11AA",
+        "Co-operative Societies Act 1912",
+        "Income-tax Act 1961"
+      ],
+      "inclusion": [
+        "Arrangements involving pooled contributions for profit generation with professional management",
+        "Statutory threshold deeming rules for unregistered large corpuses"
+      ],
+      "exclusion": [
+        "Schemes offered by registered co-operative societies",
+        "Deposit acceptance activities by non-banking financial companies"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes regulated collective investment vehicles from cooperative society activities and NBFC deposit acceptances"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "060c9e73-ab64-4601-a852-9e8ac7aa458f",
+      "concept_name": "Power to Issue Directions, Levy Penalties, and Disgorge Profits",
+      "definition": "The regulatory board can issue directions, conduct inquiries, and levy statutory penalties against entities violating market regulations. This enforcement authority explicitly incorporates the power to order the disgorgement of wrongful gains made or losses averted.",
+      "terminology": [
+        "Disgorgement",
+        "Wrongful Gain",
+        "Loss Averted",
+        "Penalty Levy"
+      ],
+      "instrument_references": [
+        "SEBI Act 1992 Section 11B",
+        "SEBI Act 1992 Section 11",
+        "SEBI Act 1992 Section 15A"
+      ],
+      "inclusion": [
+        "Levying monetary penalties following an inquiry",
+        "Recouping unlawful profits or avoided losses from illegal market transactions"
+      ],
+      "exclusion": [
+        "Standard administrative supervisory reviews lacking inquiry findings"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes corrective administrative directions from punitive monetary fines and profit disgorgement orders"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c0ac7134-f8e5-4188-b3c5-84688e1bf168",
+      "concept_name": "Investigation Powers and Document Custody",
+      "definition": "When reasonable grounds indicate market detriment or rule violations, the board can order an investigation into intermediaries or associated persons. Investigating authorities can inspect, search, and temporarily retain custody of relevant books and records.",
+      "terminology": [
+        "Investigating Authority",
+        "Reasonable Grounds",
+        "Document Custody",
+        "Inspection and Seizure"
+      ],
+      "instrument_references": [
+        "SEBI Act 1992 Section 11C",
+        "SEBI Act 1992 Section 12",
+        "SEBI Act 1992 Section 11A"
+      ],
+      "inclusion": [
+        "Duty of company officers and intermediaries to preserve and produce records",
+        "Authority to keep seized documents in custody for up to six months"
+      ],
+      "exclusion": [
+        "Permanent confiscation of books without statutory return obligations"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes routine information-calling powers from formal investigative search and seizure proceedings"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7afb6ec9-e961-4171-9450-c63c869c86d3",
+      "concept_name": "Cease and Desist Proceedings",
+      "definition": "The board may issue cease and desist orders against persons violating or likely to violate statutory rules after conducting an inquiry. Listed public companies and prospective issuers are protected from such orders unless there are reasonable grounds indicating insider trading or market manipulation.",
+      "terminology": [
+        "Cease and Desist",
+        "Market Manipulation",
+        "Listed Public Company",
+        "Inquiry"
+      ],
+      "instrument_references": [
+        "SEBI Act 1992 Section 11D",
+        "SEBI Act 1992 Section 12"
+      ],
+      "inclusion": [
+        "Orders requiring cessation of violations by market participants",
+        "Threshold protections for general public companies regarding non-manipulative operational matters"
+      ],
+      "exclusion": [
+        "Intermediaries registered under section 12, which lack standard listed company safe harbors against cease and desist actions"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes general corporate operations from specific insider trading and market manipulation exceptions applicable to listed companies"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6f70addf-9343-4877-916a-2cfd4f722e93",
+      "concept_name": "Registration Certificate Requirement for Market Intermediaries",
+      "definition": "Market intermediaries, stock brokers, depositories, and fund sponsors must obtain a certificate of registration from the board before buying, selling, or dealing in securities. The board holds powers to suspend or cancel these registrations following a fair hearing opportunity.",
+      "terminology": [
+        "Certificate of Registration",
+        "Stock Broker",
+        "Alternative Investment Fund",
+        "Suspension or Cancellation"
+      ],
+      "instrument_references": [
+        "SEBI Act 1992 Section 12",
+        "Income-tax Act 1961"
+      ],
+      "inclusion": [
+        "Mandatory registration for merchant bankers, underwriters, credit rating agencies, and mutual fund sponsors",
+        "Procedural requirements providing a reasonable opportunity of being heard prior to cancellation"
+      ],
+      "exclusion": [
+        "Unregistered trading operations conducted without valid board certification"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes authorized market participants operating under valid registration certificates from unauthorized entities"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "71c6568a-7097-4533-9fb2-bd3435317228",
+      "concept_name": "Prohibition of Manipulative Devices, Insider Trading, and Fraud",
+      "definition": "The law prohibits any person from employing manipulative devices, deceptive contrivances, or fraudulent schemes in connection with listed securities. It strictly outlaws insider trading, dealing while possessing non-public information, and unauthorized substantial acquisitions of corporate control.",
+      "terminology": [
+        "Manipulative Device",
+        "Scheme to Defraud",
+        "Insider Trading",
+        "Non-Public Information"
+      ],
+      "instrument_references": [
+        "SEBI Act 1992 Section 12A"
+      ],
+      "inclusion": [
+        "Direct or indirect fraud in securities purchase or sale",
+        "Unlawful communication and trading based on material non-public information",
+        "Unlawful acquisition of equity shares exceeding specified thresholds"
+      ],
+      "exclusion": [
+        "Transparent market transactions executed in full compliance with regulatory norms"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes standard portfolio trading from fraudulent artifice, insider communication, and unauthorized control acquisitions"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0485ff99-ea46-441a-a793-bd86e50c56df",
+      "concept_name": "Finance, Accounts, and Audit Fund Mechanics",
+      "definition": "The board finances its operations through parliamentary grants provided by the Central Government and a dedicated general fund. All regulatory fees, charges, and government grants are credited to this fund to cover employee remuneration and administrative expenses.",
+      "terminology": [
+        "General Fund",
+        "Central Government Grants",
+        "Appropriation",
+        "Board Expenses"
+      ],
+      "instrument_references": [
+        "SEBI Act 1992 Section 13",
+        "SEBI Act 1992 Section 14"
+      ],
+      "inclusion": [
+        "Credit sources including statutory fees, charges, and government allocations",
+        "Application of fund resources towards employee salaries and operational expenses"
+      ],
+      "exclusion": [
+        "Private commercial revenues unrelated to statutory board functions"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes direct governmental budgetary grants from internal fee collections credited to the SEBI General Fund"
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "4b947e94e1edc1e0f50cb0bd5fa6c42df17bb837d00b15a47ff91c7f1e141e08",
+  "artifact_id": "ea684bf0-7c94-4045-a244-75e8b4a2e2df",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 9692,
+  "output_tokens": 3700,
+  "cost_usd": 0.012157600000000001,
+  "created_at": "2026-10-03T18:25:01.640241+00:00"
+}

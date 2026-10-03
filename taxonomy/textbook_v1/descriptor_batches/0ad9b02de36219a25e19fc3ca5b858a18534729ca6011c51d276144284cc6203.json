@@ -1,0 +1,306 @@
+{
+  "descriptors": [
+    {
+      "node_id": "8ed670e2-b842-4283-9e42-592cb961c8c6",
+      "concept_name": "International Financial Management Overview",
+      "definition": "International financial management deals with efficient resource allocation and capital raising across national borders within different macroeconomic and political environments. It requires finance managers to continuously monitor global market conditions and navigate foreign exchange and regulatory risks.",
+      "terminology": [
+        "Globalisation",
+        "Foreign Institutional Investors",
+        "Political Risks",
+        "Foreign Exchange Risks"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Cross-border capital raising",
+        "International investment decisions",
+        "Managing currency and political risks"
+      ],
+      "exclusion": [
+        "Domestic-only financial management",
+        "Purely localized tax compliance"
+      ],
+      "nearby_distinctions": [
+        "Differs from domestic financial management by incorporating cross-border variables such as exchange rate exposure, sovereign risks, and differing foreign tax policies."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ef4184eb-a107-4d89-b88c-526502cb241d",
+      "concept_name": "Role of SWIFT in Foreign Exchange",
+      "definition": "SWIFT is a secure, non-profit messaging network used by financial institutions globally to communicate fund transfers and validate documentation. It functions strictly as a standardized communication system rather than a direct transaction settlement mechanism.",
+      "terminology": [
+        "SWIFT",
+        "Messaging System",
+        "Currency Codes",
+        "Operational Risk"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Standardized cross-border financial messaging",
+        "Reduction of operational risk through secure communication",
+        "Standard 3-letter currency codes"
+      ],
+      "exclusion": [
+        "Direct transaction settlement",
+        "Physical cash handling"
+      ],
+      "nearby_distinctions": [
+        "Unlike payment gateways that handle actual payment collection and processing, SWIFT exclusively provides an interbank communication and messaging infrastructure."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b4f1c983-5561-4d6f-b75d-f9d43f2ac80c",
+      "concept_name": "National and International Payment Gateways",
+      "definition": "Payment gateways are virtual secure channels that authenticate and route transaction data from users to banks for real-time authorization. They facilitate both domestic and multi-currency international commercial transactions by enabling digital collections.",
+      "terminology": [
+        "Payment Gateway",
+        "Point of Sale",
+        "Encryption",
+        "International Payment Gateway"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Real-time credit and debit card authorization",
+        "Encrypted transmission of transaction details",
+        "Multi-currency support for international customers"
+      ],
+      "exclusion": [
+        "Interbank messaging without commercial checkout integration",
+        "Physical cash transfers"
+      ],
+      "nearby_distinctions": [
+        "Unlike SWIFT which serves as an interbank messaging network, payment gateways directly interface between retail customers, merchants, and acquiring banks for e-commerce checkouts."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "90b04fbf-b3a7-43e5-b20c-81300276cb9b",
+      "concept_name": "Nostro, Vostro and Loro Accounts",
+      "definition": "Banks utilize specialized current accounts in different countries and currencies to execute swift international fund transfers. A Nostro account represents a domestic bank's foreign currency holding abroad, whereas a Vostro account is held by a foreign bank locally.",
+      "terminology": [
+        "Nostro Account",
+        "Vostro Account",
+        "Loro Account",
+        "Cash Position",
+        "Exchange Position"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Foreign currency accounts held with overseas correspondent banks",
+        "Third-party bank settlement intermediaries via Loro accounts"
+      ],
+      "exclusion": [
+        "Domestic standard commercial bank accounts",
+        "Non-currency depository holdings"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from exchange positions which capture all forward and spot contractual commitments regardless of delivery, cash positions reflect only settled balances inside Nostro accounts."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "738b0acb-0e3b-445c-b43b-86d57ef56bb4",
+      "concept_name": "Exchange Position",
+      "definition": "Exchange position tracks the total purchase and sale commitments of foreign exchange undertaken by a bank as of the contract date, regardless of whether actual delivery has occurred. It encompasses all contractual obligations agreed upon with counterparties.",
+      "terminology": [
+        "Exchange Position",
+        "Overbought",
+        "Forward Commitments",
+        "Contract Date"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Spot and forward purchase commitments",
+        "Spot and forward sale commitments",
+        "Cancelled forward or draft transactions"
+      ],
+      "exclusion": [
+        "Settled balances restricted solely to physical cash movements in bank ledgers"
+      ],
+      "nearby_distinctions": [
+        "Unlike cash position which changes only upon physical delivery or settlement inside a Nostro account, exchange position updates immediately upon contract formation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0c792f1d-b88f-49fc-995a-32cfae34fbac",
+      "concept_name": "Cash Position",
+      "definition": "Cash position reflects the actual outstanding debit or credit balance residing within a bank's foreign Nostro account. It is modified exclusively when physical delivery or settlement of foreign exchange transactions takes place.",
+      "terminology": [
+        "Cash Position",
+        "Nostro Account Balance",
+        "Actual Delivery",
+        "Credit Balance"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Actual fund remittances",
+        "Cleared deposits and withdrawals in foreign correspondent accounts"
+      ],
+      "exclusion": [
+        "Unsettled forward contracts",
+        "Commitments without physical execution"
+      ],
+      "nearby_distinctions": [
+        "Unlike exchange position which records commitments on the contract date, cash position responds strictly to actual delivery events affecting the Nostro ledger."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0f5ab336-d16b-4d24-ac97-6af7c3e87950",
+      "concept_name": "Exchange Rate Quotation Mechanisms",
+      "definition": "Foreign exchange quotations express the relative price of one currency against another using American terms, European terms, direct quotes, or indirect quotes. Two-way quotes feature a bid price for buying and an offer price for selling, generating a dealer spread.",
+      "terminology": [
+        "American Term",
+        "European Term",
+        "Direct Quote",
+        "Indirect Quote",
+        "Bid",
+        "Offer",
+        "Spread"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Direct home currency pricing per unit of foreign currency",
+        "Indirect foreign currency pricing per unit of home currency",
+        "Bid-ask spread calculations"
+      ],
+      "exclusion": [
+        "Arbitrage-free forward margin notation without spot context"
+      ],
+      "nearby_distinctions": [
+        "Direct quotes measure home currency per foreign unit, whereas indirect quotes measure foreign currency per home unit, operating as mathematical reciprocals."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2f7ac73c-e30c-4279-9c8f-40fbfb9d37be",
+      "concept_name": "American and European Term Quotations",
+      "definition": "American terms express exchange rates as the U.S. dollar amount per unit of foreign currency, whereas European terms express rates as foreign currency units per U.S. dollar. Most global currencies adopt European terms using the U.S. dollar as the base.",
+      "terminology": [
+        "American Term",
+        "European Term",
+        "U.S. Dollar",
+        "Foreign Currency Unit"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "USD per foreign currency unit quotes",
+        "Foreign currency units per USD quotes"
+      ],
+      "exclusion": [
+        "Cross rates lacking a US dollar component"
+      ],
+      "nearby_distinctions": [
+        "American terms place the US dollar in the numerator, while European terms place the US dollar in the denominator as the base unit."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c0855018-9497-4151-90e6-a238144ca56d",
+      "concept_name": "Direct and Indirect Quote Conventions",
+      "definition": "Direct quotes measure the home currency cost of one foreign currency unit, while indirect quotes measure the foreign currency amount per single home currency unit. These quoting conventions serve as exact mathematical reciprocals of each other.",
+      "terminology": [
+        "Direct Quote",
+        "Indirect Quote",
+        "Home Currency",
+        "Reciprocal"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Home currency pricing per foreign unit",
+        "Reciprocal calculation of foreign currency per home unit"
+      ],
+      "exclusion": [
+        "Interbank two-way dealer trading jargon"
+      ],
+      "nearby_distinctions": [
+        "Direct quotes scale with respect to the perspective of the domestic observer's home currency, contrasting with foreign-centric indirect formulations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "59fff113-7b71-4398-a55a-e4a0b5ffa7b9",
+      "concept_name": "Bid, Offer and Spread Mechanics",
+      "definition": "Foreign exchange quotes are provided as two-way prices consisting of a bid rate at which a dealer buys and an offer rate at which a dealer sells. The difference between these rates constitutes the spread, representing the primary profit margin for inter-bank dealers.",
+      "terminology": [
+        "Bid Price",
+        "Offer Price",
+        "Spread",
+        "Two-way Quote",
+        "One Mine",
+        "One Yours"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Dealer purchase bid quotes",
+        "Dealer sale offer quotes",
+        "Spread percentage computations"
+      ],
+      "exclusion": [
+        "Single-point spot valuation without counterparty spread"
+      ],
+      "nearby_distinctions": [
+        "The offer price is consistently higher than the bid price to ensure dealer compensation, unlike theoretical mid-market exchange rates."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c9cc465a-380a-468b-9617-3627f24e95c1",
+      "concept_name": "Cross Rates Formulation",
+      "definition": "Cross rates denote exchange rates expressed between a currency pair where neither currency serves as the official legal tender of the quotation country. They are derived when direct quotes against a base currency are translated into third-party pairings.",
+      "terminology": [
+        "Cross Rate",
+        "Currency Pair",
+        "Bloomberg Extract",
+        "Base Currency"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Foreign exchange pairings omitting local currency",
+        "Derived currency conversions via a common denominator"
+      ],
+      "exclusion": [
+        "Direct local currency against foreign currency pairings"
+      ],
+      "nearby_distinctions": [
+        "Unlike direct quotes involving the domestic home currency, cross rates exclusively compare two external foreign currencies from a local reporting standpoint."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "03ff6a63-ae65-417d-bfac-b8bf4855e1d7",
+      "concept_name": "Pips and Forward Exchange Rate Quotation",
+      "definition": "A pip represents the smallest incremental unit of change in a currency quotation, functioning similarly to a share tick size. Forward rates are conventionally quoted separately as forward margins representing the premium or discount to be loaded onto the known spot rate.",
+      "terminology": [
+        "Pip",
+        "Price Interest Point",
+        "Forward Margin",
+        "Outright Forward Contract",
+        "Big Figure"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Minimum decimal fluctuation value",
+        "Spot rate offset using forward margin numbers",
+        "Interbank shorthand quoting conventions"
+      ],
+      "exclusion": [
+        "Full absolute forward rate statements without margin adjustments"
+      ],
+      "nearby_distinctions": [
+        "Unlike standard spot pricing expressed in full units, forward quotation conventions omit the big figure and list only the differential forward margins."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "0ad9b02de36219a25e19fc3ca5b858a18534729ca6011c51d276144284cc6203",
+  "artifact_id": "0559d53e-3174-4a31-9b5e-657565365bb5",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 9631,
+  "output_tokens": 3218,
+  "cost_usd": 0.0109343,
+  "created_at": "2026-10-03T18:08:20.610988+00:00"
+}

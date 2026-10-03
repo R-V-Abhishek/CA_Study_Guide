@@ -1,0 +1,130 @@
+{
+  "descriptors": [
+    {
+      "node_id": "31c45615-4707-4c6b-958c-e1250ab290c3",
+      "concept_name": "Overview of Income Tax Law in India",
+      "definition": "Income-tax in India is levied and collected under statutory authority derived from the Constitution and enacted legislation. The primary governing statute is the Income-tax Act, 2025, which operates alongside the annual Finance Act and constitutional lists.",
+      "terminology": [
+        "Union List",
+        "State List",
+        "Concurrent List",
+        "Direct Tax",
+        "Income-tax Act, 2025"
+      ],
+      "instrument_references": [
+        "Constitution of India Article 265",
+        "Constitution of India Article 246",
+        "Seventh Schedule Entry 82",
+        "Income-tax Act, 2025"
+      ],
+      "inclusion": [
+        "Levy of direct taxes on income excluding agricultural income",
+        "Statutory provisions under the Income-tax Act, 2025"
+      ],
+      "exclusion": [
+        "Agricultural income",
+        "Indirect taxes governed by separate constitutional entries"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from indirect taxes and state-levied taxes under the respective constitutional lists."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1333c098-c76e-4ea4-999c-b108305ff0e1",
+      "concept_name": "Charge of Income Tax",
+      "definition": "Income-tax is charged on the total income of every person for the tax year at the rates prescribed by the annual Finance Act or the Income-tax Act, 2025. This charging provision forms the foundational basis from which any tax liability legally originates.",
+      "terminology": [
+        "Charging section",
+        "Total income",
+        "Tax year",
+        "Assessee"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 2025 Section 4",
+        "Income-tax Act, 2025 Section 2(77)",
+        "Income-tax Act, 2025 Section 202(1)"
+      ],
+      "inclusion": [
+        "Total income of persons specified under the Act",
+        "Tax rates specified by the Finance Act or Income-tax Act, 2025"
+      ],
+      "exclusion": [
+        "Incomes explicitly exempt from charge under statutory provisions"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from computational provisions by serving strictly as the legal origin of tax liability."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4212ec19-a5cb-4fba-866a-e362ec62ea0f",
+      "concept_name": "Important Definitions",
+      "definition": "Statutory definitions provide precise legal meanings for key terms used throughout the tax legislation. When a term lacks explicit definition in the statute, external aids like the General Clauses Act or dictionaries are utilized.",
+      "terminology": [
+        "Assessee",
+        "Assessment",
+        "Deemed assessee",
+        "Assessee-in-default"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 2025 Section 2",
+        "Income-tax Act, 2025 Section 2(11)",
+        "Income-tax Act, 2025 Section 2(13)",
+        "Income-tax Act, 2025 Section 17",
+        "General Clauses Act"
+      ],
+      "inclusion": [
+        "Persons liable to pay tax or refund",
+        "Persons subject to assessment proceedings or deemed default",
+        "Procedures determining income through various assessment types"
+      ],
+      "exclusion": [
+        "Ordinary colloquial meanings where statutory definitions explicitly expand or restrict terms"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between terms defined directly in Section 2 versus those defined in specific operational sections."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4c6feadb-fcba-4c41-bd8f-1ab76cb2d129",
+      "concept_name": "Rates of Tax, Surcharge & Cess",
+      "definition": "Income-tax liability is computed using specified tax rates, augmented by a surcharge levied as a percentage of tax beyond specific income thresholds. Additionally, a Health and Education Cess is applied to the combined total of income-tax and surcharge for all assessees.",
+      "terminology": [
+        "Surcharge",
+        "Health and Education Cess",
+        "Default tax regime",
+        "Optional tax regime",
+        "Concessional rates"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 2025 Section 202",
+        "Income-tax Act, 2025 Section 202(1)",
+        "Income-tax Act, 2025 Section 202(2)",
+        "Income-tax Act, 2025 Section 202(4)",
+        "Income-tax Act, 2025 Section 193 to 198",
+        "Income-tax Act, 2025 Section 207 to 218"
+      ],
+      "inclusion": [
+        "Concessional tax rates under default regimes",
+        "Surcharge on higher income thresholds",
+        "Health and Education Cess at four percent"
+      ],
+      "exclusion": [
+        "Incomes subject to special tax rates under independent statutory sections"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between base tax rates, progressive surcharges, and the universal health and education cess."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "9fc85ecc9027a7d06f7f5d77ebb1df416c8c871d7593c5e4a1865c58d640cd9c",
+  "artifact_id": "25c207e1-f579-4507-9321-0f2c10249d7a",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 3335,
+  "output_tokens": 1442,
+  "cost_usd": 0.0046055,
+  "created_at": "2026-10-03T18:16:28.988874+00:00"
+}

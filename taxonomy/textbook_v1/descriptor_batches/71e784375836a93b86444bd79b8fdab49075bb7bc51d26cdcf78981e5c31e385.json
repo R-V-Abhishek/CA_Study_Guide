@@ -1,0 +1,295 @@
+{
+  "descriptors": [
+    {
+      "node_id": "0d550f91-ba93-4453-a50b-56c303cbd4a0",
+      "concept_name": "Investigation on behalf of an Incoming Partner",
+      "definition": "An incoming partner investigation evaluates whether the proposed partnership terms are reasonable considering past profitability, capital contributions, and partner capabilities. The investigator reviews partnership deeds, historical profits with necessary adjustments, and tangible asset backing to ensure investment safety and continuing benefit.",
+      "terminology": [
+        "Incoming Partner",
+        "Partnership Deed",
+        "Goodwill",
+        "Maintainable Profits"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Scrutiny of historical profitability records",
+        "Examination of asset and liability positions",
+        "Analysis of partner remuneration and capital contributions"
+      ],
+      "exclusion": [
+        "Statutory statutory corporate audits",
+        "Bank loan appraisal procedures"
+      ],
+      "nearby_distinctions": [
+        "Differs from a general business purchase investigation by focusing specifically on partnership terms and ongoing partner participation rights rather than complete buyout mechanics."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1cd6393c-8428-4e1b-ab5b-16a9ad0901da",
+      "concept_name": "Investigation for Valuation of Shares in Private Companies",
+      "definition": "Valuation of shares in private companies addresses transfer restrictions under company law where no open market exists for share pricing. Methods include computing net worth with adjusted going-concern asset values or capitalizing average prior earnings at a risk-adjusted rate.",
+      "terminology": [
+        "Net Worth Basis",
+        "Capitalisation of Profits",
+        "Going Concern",
+        "Non-Trading Assets"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Net worth method incorporating goodwill and non-trading assets",
+        "Capitalisation method using 5 to 7 year historical average profits",
+        "Preference share yield adjustments for transfer restrictions"
+      ],
+      "exclusion": [
+        "Publicly quoted stock exchange price discovery",
+        "General fraud investigation"
+      ],
+      "nearby_distinctions": [
+        "Focuses exclusively on private equity/preference valuation under statutory transfer limits rather than general business asset verification."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2584978e-ce47-49ec-8ac3-803d257a9017",
+      "concept_name": "Investigation on behalf of a Bank/ Financial Institution Proposing to Advance/Loan to a Company",
+      "definition": "An institutional lender investigation examines the loan purpose, repayment sources, and asset security available to mitigate default risks. The investigating accountant reviews condensed five-year income statements, historical growth, and the feasibility of borrower repayment schedules.",
+      "terminology": [
+        "Institutional Lenders",
+        "Repayment Schedule",
+        "Maintainable Profits",
+        "Condensed Income Statement"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Verification of loan utilization purpose",
+        "Appraisal of borrower repayment schedule assumptions",
+        "Review of past five-year financial performance"
+      ],
+      "exclusion": [
+        "Incoming partner evaluations",
+        "Fraud detection mandates"
+      ],
+      "nearby_distinctions": [
+        "Emphasizes borrower debt-servicing capacity and collateral security rather than equity ownership acquisition."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9859f65e-24c6-414b-910f-ca1a93f4480c",
+      "concept_name": "Investigation of Frauds",
+      "definition": "Fraud investigation identifies intentional deceptive acts by management, employees, or third parties resulting in unjust or illegal advantages or wrongful losses. It categorizes illicit activities into financial reporting misstatements, asset misappropriations, and corruption schemes.",
+      "terminology": [
+        "Fraudulent Financial Reporting",
+        "Misappropriation of Assets",
+        "Wrongful Gain",
+        "Wrongful Loss"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013 Section 143(10)",
+        "Companies Act, 2013 Section 447",
+        "SA 240"
+      ],
+      "inclusion": [
+        "Alteration or falsification of records",
+        "Embezzlement and skimming of receipts",
+        "Fictitious vendor and payroll schemes"
+      ],
+      "exclusion": [
+        "Unintentional accounting errors",
+        "Routine variance analysis"
+      ],
+      "nearby_distinctions": [
+        "Requires proving intentional deception and legal criteria of wrongful gain or loss, distinguishing it from standard internal control testing."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e16faa5a-20cc-4f82-8169-4947357feb07",
+      "concept_name": "Investigation on behalf of an Individual or Firm Proposing to Buy a Business",
+      "definition": "This acquisition investigation gathers critical information to help a prospective buyer determine whether to purchase a business and at what price. For companies, it encompasses share capital structures, dividend arrears, and statutory charges, whereas for partnerships, it examines lease terms, key customer concentration, and management continuity.",
+      "terminology": [
+        "Proprietary Concerns",
+        "Register of Charges",
+        "Goodwill Valuation",
+        "Uncalled Liability"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Reasons for sale and retirement impact",
+        "Lease tenure and patent unexpired periods",
+        "Share class rights and dividend arrears for limited companies"
+      ],
+      "exclusion": [
+        "Standalone bank lending appraisals",
+        "Forensic litigation support"
+      ],
+      "nearby_distinctions": [
+        "Distinct from share valuation by incorporating operational factors like vendor retirement effects, lease renewals, and major customer dependencies."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6988cf5f-38d9-4623-86b2-e5fe39de8989",
+      "concept_name": "Investigation in connection with review of Profit/Financial Forecasts",
+      "definition": "Forecast reviews examine future profit projections and project cash flows to support business acquisitions or bank loan appraisals. Because forecasts depend on numerous uncertainties, they require special review procedures departing from traditional historical audit opinions.",
+      "terminology": [
+        "Profit Reports",
+        "Project Cash Flow",
+        "Financial Forecasts",
+        "Uncertainties"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Evaluation of prospective financial statements for acquisitions",
+        "Review of project cash flows for loan appraisals"
+      ],
+      "exclusion": [
+        "Historical financial statement audits",
+        "Completed accounting period verification"
+      ],
+      "nearby_distinctions": [
+        "Focuses on forward-looking expectations and inherent uncertainties rather than historical verification of completed periods."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d044c9a5-d823-40bc-81d1-201e8f651538",
+      "concept_name": "Forensic Accounting",
+      "definition": "Forensic accounting is the specialized integration of accounting, auditing, and investigative skills to resolve financial issues within legal evidentiary frameworks. It provides dynamic tools to detect financial crimes, trace assets, and support legal proceedings.",
+      "terminology": [
+        "Forensic Evidence",
+        "Investigative Mentality",
+        "Rules of Evidence",
+        "Financial Crimes"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Tracking and collection of forensic evidence",
+        "Investigation of embezzlement and fraud",
+        "Application of financial skills to legal matters"
+      ],
+      "exclusion": [
+        "Standard statutory financial auditing",
+        "Routine tax return preparation"
+      ],
+      "nearby_distinctions": [
+        "Operates under strict legal rules of evidence and judicial suitability, distinguishing it from conventional auditing."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f05e8440-b883-4798-a150-312e947592fc",
+      "concept_name": "Forensic Professional",
+      "definition": "A forensic professional analyzes, interprets, and presents complex financial issues while adhering to legal frameworks and fraud investigation techniques. They utilize IT tools and data recovery skills to identify substance over form across services like asset tracing and suspicious transaction reviews.",
+      "terminology": [
+        "Substance Over Form",
+        "Asset Tracing",
+        "Anti-Money Laundering",
+        "Chain of Custody"
+      ],
+      "instrument_references": [
+        "Insolvency and Bankruptcy Code (IBC)"
+      ],
+      "inclusion": [
+        "Financial statement manipulation analysis",
+        "Fund diversions and asset tracing",
+        "Estimations of loss or damage"
+      ],
+      "exclusion": [
+        "Routine accounting bookkeeping",
+        "Standard external auditing"
+      ],
+      "nearby_distinctions": [
+        "Requires specialized legal knowledge, IT data recovery expertise, and adherence to evidence standards beyond general accounting roles."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f4e7fdc8-7183-4842-a504-1f7553466f06",
+      "concept_name": "Process Of Forensic Accounting",
+      "definition": "The forensic accounting process follows a structured methodology starting with initialization, planning, and evidence gathering while maintaining a clear chain of custody. Subsequent phases involve detailed analysis, formal reporting, and potential court proceedings.",
+      "terminology": [
+        "Initialization",
+        "Chain of Custody",
+        "Conflict Check",
+        "Evidence Gathering"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Initial conflict checks and preliminary investigations",
+        "Obtaining admissible evidence with intact chain of custody",
+        "Performing specialized analysis and court reporting"
+      ],
+      "exclusion": [
+        "Unstructured investigations without documented plans",
+        "Informal reviews lacking evidentiary rigor"
+      ],
+      "nearby_distinctions": [
+        "Enforces strict procedural controls like chain of custody to ensure admissibility in legal forums."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a7d385ea-e27d-4bb5-beb8-754e8348610f",
+      "concept_name": "Forensic Accounting And Investigation Report",
+      "definition": "A forensic accounting report is a written communication issued to stakeholders detailing the scope, procedures, and reliable evidence-based findings of an assignment. It must remain precise and unambiguous while containing key elements such as executive summaries, methodology, and conclusions.",
+      "terminology": [
+        "FAIS 510",
+        "Primary Stakeholders",
+        "Executive Summary",
+        "Chain of Custody"
+      ],
+      "instrument_references": [
+        "Forensic Accounting and Investigation Standard (FAIS) 510"
+      ],
+      "inclusion": [
+        "Written reports addressed to primary stakeholders",
+        "Inclusion of scope, work procedures, and key findings",
+        "Disclosure of assumptions, limitations, and disclaimers"
+      ],
+      "exclusion": [
+        "Oral unverified briefings",
+        "Standard statutory audit opinions"
+      ],
+      "nearby_distinctions": [
+        "Governed by specific forensic standards (FAIS 510) requiring explicit documentation of evidence sources and investigative limitations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3909ad7b-8600-4130-8771-34891c753c20",
+      "concept_name": "Overview Of Forensic Accounting and Investigation Standards (FAIS)",
+      "definition": "The Forensic Accounting and Investigation Standards framework establishes mandatory principles and boundaries to ensure high-quality professional delivery by ICAI members. It comprises foundational components including basic principles, key concepts, professional standards, and recommendatory guidance.",
+      "terminology": [
+        "FAIS",
+        "Framework Governing Forensic Accounting and Investigations",
+        "ICAI",
+        "Guidance"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Basic principles of forensic investigations",
+        "Standards on Forensic Accounting and Investigations",
+        "Recommendatory guidance and foundational concepts"
+      ],
+      "exclusion": [
+        "Non-binding corporate marketing guidelines",
+        "General accounting textbooks"
+      ],
+      "nearby_distinctions": [
+        "Represents formal regulatory benchmarks established specifically for forensic accounting services rather than general auditing standards."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "71e784375836a93b86444bd79b8fdab49075bb7bc51d26cdcf78981e5c31e385",
+  "artifact_id": "1827749e-e579-4427-bbab-7687efd26d91",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 7760,
+  "output_tokens": 3126,
+  "cost_usd": 0.010143,
+  "created_at": "2026-10-03T18:12:10.619255+00:00"
+}

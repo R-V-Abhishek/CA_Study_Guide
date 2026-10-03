@@ -1442,6 +1442,22 @@
             }
           },
           {
+            "name": "version_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Version Id"
+            }
+          },
+          {
             "name": "benchmark_only",
             "in": "query",
             "required": false,
@@ -1615,6 +1631,713 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/RecomputeResult"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/taxonomy/versions": {
+      "get": {
+        "tags": [
+          "textbook taxonomy"
+        ],
+        "summary": "Versions",
+        "operationId": "versions_api_v1_taxonomy_versions_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/ReleaseSummary"
+                  },
+                  "type": "array",
+                  "title": "Response Versions Api V1 Taxonomy Versions Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/taxonomy/versions/{version_id}/tree": {
+      "get": {
+        "tags": [
+          "textbook taxonomy"
+        ],
+        "summary": "Tree",
+        "operationId": "tree_api_v1_taxonomy_versions__version_id__tree_get",
+        "parameters": [
+          {
+            "name": "version_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Version Id"
+            }
+          },
+          {
+            "name": "paper_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Paper Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TaxonomyTreeNode"
+                  },
+                  "title": "Response Tree Api V1 Taxonomy Versions  Version Id  Tree Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/taxonomy/versions/{version_id}/sources": {
+      "get": {
+        "tags": [
+          "textbook taxonomy"
+        ],
+        "summary": "Sources",
+        "operationId": "sources_api_v1_taxonomy_versions__version_id__sources_get",
+        "parameters": [
+          {
+            "name": "version_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Version Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": true
+                  },
+                  "title": "Response Sources Api V1 Taxonomy Versions  Version Id  Sources Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/taxonomy/versions/{version_id}/question-sources": {
+      "get": {
+        "tags": [
+          "textbook taxonomy"
+        ],
+        "summary": "Question Sources",
+        "operationId": "question_sources_api_v1_taxonomy_versions__version_id__question_sources_get",
+        "parameters": [
+          {
+            "name": "version_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Version Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": true
+                  },
+                  "title": "Response Question Sources Api V1 Taxonomy Versions  Version Id  Question Sources Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/taxonomy/versions/{version_id}/crosswalk": {
+      "get": {
+        "tags": [
+          "textbook taxonomy"
+        ],
+        "summary": "Crosswalk",
+        "operationId": "crosswalk_api_v1_taxonomy_versions__version_id__crosswalk_get",
+        "parameters": [
+          {
+            "name": "version_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Version Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": true
+                  },
+                  "title": "Response Crosswalk Api V1 Taxonomy Versions  Version Id  Crosswalk Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/taxonomy/crosswalk/{mapping_id}/approve": {
+      "post": {
+        "tags": [
+          "textbook taxonomy"
+        ],
+        "summary": "Review Crosswalk",
+        "operationId": "review_crosswalk_api_v1_taxonomy_crosswalk__mapping_id__approve_post",
+        "parameters": [
+          {
+            "name": "mapping_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Mapping Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CrosswalkReview"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Review Crosswalk Api V1 Taxonomy Crosswalk  Mapping Id  Approve Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/taxonomy/versions/{version_id}/report": {
+      "get": {
+        "tags": [
+          "textbook taxonomy"
+        ],
+        "summary": "Report",
+        "operationId": "report_api_v1_taxonomy_versions__version_id__report_get",
+        "parameters": [
+          {
+            "name": "version_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Version Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Report Api V1 Taxonomy Versions  Version Id  Report Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/taxonomy/versions/{version_id}/approve": {
+      "post": {
+        "tags": [
+          "textbook taxonomy"
+        ],
+        "summary": "Approve",
+        "operationId": "approve_api_v1_taxonomy_versions__version_id__approve_post",
+        "parameters": [
+          {
+            "name": "version_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Version Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReleaseApproval"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Approve Api V1 Taxonomy Versions  Version Id  Approve Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/taxonomy/versions/{version_id}/activate": {
+      "post": {
+        "tags": [
+          "textbook taxonomy"
+        ],
+        "summary": "Activate",
+        "operationId": "activate_api_v1_taxonomy_versions__version_id__activate_post",
+        "parameters": [
+          {
+            "name": "version_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Version Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReleaseActivation"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Activate Api V1 Taxonomy Versions  Version Id  Activate Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/taxonomy/nodes/{node_id}/descriptor": {
+      "get": {
+        "tags": [
+          "textbook taxonomy"
+        ],
+        "summary": "Descriptor",
+        "operationId": "descriptor_api_v1_taxonomy_nodes__node_id__descriptor_get",
+        "parameters": [
+          {
+            "name": "node_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Node Id"
+            }
+          },
+          {
+            "name": "version_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Version Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "additionalProperties": true
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "title": "Response Descriptor Api V1 Taxonomy Nodes  Node Id  Descriptor Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "textbook taxonomy"
+        ],
+        "summary": "Edit Descriptor",
+        "operationId": "edit_descriptor_api_v1_taxonomy_nodes__node_id__descriptor_put",
+        "parameters": [
+          {
+            "name": "node_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Node Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DescriptorEdit"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Edit Descriptor Api V1 Taxonomy Nodes  Node Id  Descriptor Put"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/taxonomy/nodes/{node_id}/descriptor/approve": {
+      "post": {
+        "tags": [
+          "textbook taxonomy"
+        ],
+        "summary": "Review Descriptor",
+        "operationId": "review_descriptor_api_v1_taxonomy_nodes__node_id__descriptor_approve_post",
+        "parameters": [
+          {
+            "name": "node_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Node Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DescriptorReview"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Review Descriptor Api V1 Taxonomy Nodes  Node Id  Descriptor Approve Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/taxonomy/nodes/{node_id}/source/approve": {
+      "post": {
+        "tags": [
+          "textbook taxonomy"
+        ],
+        "summary": "Review Source",
+        "operationId": "review_source_api_v1_taxonomy_nodes__node_id__source_approve_post",
+        "parameters": [
+          {
+            "name": "node_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Node Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SourceReview"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Review Source Api V1 Taxonomy Nodes  Node Id  Source Approve Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/taxonomy/nodes/{node_id}/history": {
+      "get": {
+        "tags": [
+          "textbook taxonomy"
+        ],
+        "summary": "History",
+        "operationId": "history_api_v1_taxonomy_nodes__node_id__history_get",
+        "parameters": [
+          {
+            "name": "node_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Node Id"
+            }
+          },
+          {
+            "name": "version_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Version Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response History Api V1 Taxonomy Nodes  Node Id  History Get"
                 }
               }
             }
@@ -2399,6 +3122,20 @@
         ],
         "title": "CreatedInvitationResponse"
       },
+      "CrosswalkReview": {
+        "properties": {
+          "version_id": {
+            "type": "string",
+            "title": "Version Id"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "version_id"
+        ],
+        "title": "CrosswalkReview"
+      },
       "CuratorDecisionResult": {
         "properties": {
           "decision_id": {
@@ -2431,6 +3168,32 @@
           "sha256": {
             "type": "string",
             "title": "Sha256"
+          },
+          "course_level": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "foundation",
+                  "intermediate",
+                  "final"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Course Level"
+          },
+          "provenance_status": {
+            "type": "string",
+            "enum": [
+              "synthetic",
+              "unresolved",
+              "verified"
+            ],
+            "title": "Provenance Status",
+            "default": "unresolved"
           },
           "title": {
             "anyOf": [
@@ -2574,6 +3337,22 @@
           "unit_id": {
             "type": "integer",
             "title": "Unit Id"
+          },
+          "taxonomy_version_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Taxonomy Version Id"
+          },
+          "publication_ready": {
+            "type": "boolean",
+            "title": "Publication Ready",
+            "default": true
           },
           "document_id": {
             "type": "integer",
@@ -2730,6 +3509,66 @@
                 "type": "null"
               }
             ]
+          },
+          "module": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/NodeReference"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "unit": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/NodeReference"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "breadcrumbs": {
+            "items": {
+              "$ref": "#/components/schemas/NodeReference"
+            },
+            "type": "array",
+            "title": "Breadcrumbs"
+          },
+          "descriptor_revision_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Descriptor Revision Id"
+          },
+          "method": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Method"
+          },
+          "model_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Model Id"
           },
           "justification": {
             "anyOf": [
@@ -2965,8 +3804,126 @@
         ],
         "title": "DeleteResult"
       },
+      "DescriptorEdit": {
+        "properties": {
+          "definition": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Definition"
+          },
+          "terminology": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Terminology"
+          },
+          "instrument_references": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Instrument References"
+          },
+          "edition": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Edition"
+          },
+          "source_ambiguities": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Source Ambiguities"
+          },
+          "inclusion": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Inclusion"
+          },
+          "exclusion": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Exclusion"
+          },
+          "nearby_distinctions": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Nearby Distinctions"
+          },
+          "source_spans": {
+            "items": {
+              "$ref": "#/components/schemas/SourceSpan"
+            },
+            "type": "array",
+            "minItems": 1,
+            "title": "Source Spans"
+          },
+          "version_id": {
+            "type": "string",
+            "title": "Version Id"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "definition",
+          "source_spans",
+          "version_id"
+        ],
+        "title": "DescriptorEdit"
+      },
+      "DescriptorReview": {
+        "properties": {
+          "version_id": {
+            "type": "string",
+            "title": "Version Id"
+          },
+          "revision": {
+            "type": "integer",
+            "minimum": 1.0,
+            "title": "Revision"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "version_id",
+          "revision"
+        ],
+        "title": "DescriptorReview"
+      },
       "DocumentConfirmRequest": {
         "properties": {
+          "course_level": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "foundation",
+                  "intermediate",
+                  "final"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Course Level"
+          },
           "attempt_id": {
             "anyOf": [
               {
@@ -4309,6 +5266,24 @@
             },
             "type": "array",
             "title": "Chapters"
+          },
+          "taxonomy_version_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Taxonomy Version Id"
+          },
+          "hierarchy": {
+            "items": {
+              "$ref": "#/components/schemas/TaxonomyTreeNode"
+            },
+            "type": "array",
+            "title": "Hierarchy"
           }
         },
         "type": "object",
@@ -4457,6 +5432,22 @@
       },
       "PriorSignal": {
         "properties": {
+          "available": {
+            "type": "boolean",
+            "title": "Available",
+            "default": true
+          },
+          "unavailable_reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Unavailable Reason"
+          },
           "weight_prior_W": {
             "type": "number",
             "title": "Weight Prior W"
@@ -4851,6 +5842,96 @@
         ],
         "title": "RecomputeResult"
       },
+      "ReleaseActivation": {
+        "properties": {
+          "manifest_hash": {
+            "type": "string",
+            "title": "Manifest Hash"
+          },
+          "dry_run": {
+            "type": "boolean",
+            "title": "Dry Run",
+            "default": true
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "manifest_hash"
+        ],
+        "title": "ReleaseActivation"
+      },
+      "ReleaseApproval": {
+        "properties": {
+          "manifest_hash": {
+            "type": "string",
+            "title": "Manifest Hash"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "manifest_hash"
+        ],
+        "title": "ReleaseApproval"
+      },
+      "ReleaseSummary": {
+        "properties": {
+          "version_id": {
+            "type": "string",
+            "title": "Version Id"
+          },
+          "taxonomy_version_id": {
+            "type": "integer",
+            "title": "Taxonomy Version Id"
+          },
+          "target_attempt": {
+            "type": "string",
+            "title": "Target Attempt"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "manifest_hash": {
+            "type": "string",
+            "title": "Manifest Hash"
+          },
+          "approved_by": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Approved By"
+          },
+          "activated_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Activated At"
+          }
+        },
+        "type": "object",
+        "required": [
+          "version_id",
+          "taxonomy_version_id",
+          "target_attempt",
+          "status",
+          "manifest_hash",
+          "approved_by",
+          "activated_at"
+        ],
+        "title": "ReleaseSummary"
+      },
       "RevisionItem": {
         "properties": {
           "node_id": {
@@ -5131,6 +6212,17 @@
             "type": "string",
             "title": "Target Attempt Id"
           },
+          "taxonomy_version_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Taxonomy Version Id"
+          },
           "computed_at": {
             "anyOf": [
               {
@@ -5152,6 +6244,55 @@
           "computed_at"
         ],
         "title": "ScoreRunIdentity"
+      },
+      "SourceReview": {
+        "properties": {
+          "version_id": {
+            "type": "string",
+            "title": "Version Id"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "version_id"
+        ],
+        "title": "SourceReview"
+      },
+      "SourceSpan": {
+        "properties": {
+          "artifact_id": {
+            "type": "string",
+            "title": "Artifact Id"
+          },
+          "pdf_page_start": {
+            "type": "integer",
+            "minimum": 1.0,
+            "title": "Pdf Page Start"
+          },
+          "pdf_page_end": {
+            "type": "integer",
+            "minimum": 1.0,
+            "title": "Pdf Page End"
+          },
+          "review_status": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "reviewed"
+            ],
+            "title": "Review Status",
+            "default": "pending"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "artifact_id",
+          "pdf_page_start",
+          "pdf_page_end"
+        ],
+        "title": "SourceSpan"
       },
       "StudyPlan": {
         "properties": {
@@ -5619,6 +6760,110 @@
           "alarms"
         ],
         "title": "SystemHealth"
+      },
+      "TaxonomyTreeNode": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "paper_id": {
+            "type": "string",
+            "title": "Paper Id"
+          },
+          "parent_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Parent Id"
+          },
+          "level": {
+            "type": "string",
+            "title": "Level"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "seq": {
+            "type": "integer",
+            "title": "Seq"
+          },
+          "heading_origin": {
+            "type": "string",
+            "title": "Heading Origin",
+            "default": "official"
+          },
+          "source_review_status": {
+            "type": "string",
+            "title": "Source Review Status"
+          },
+          "descriptor_revision": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Descriptor Revision"
+          },
+          "descriptor_approved": {
+            "type": "boolean",
+            "title": "Descriptor Approved"
+          },
+          "eligible": {
+            "type": "boolean",
+            "title": "Eligible"
+          },
+          "breadcrumbs": {
+            "items": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Breadcrumbs"
+          },
+          "sources": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Sources"
+          },
+          "children": {
+            "items": {
+              "$ref": "#/components/schemas/TaxonomyTreeNode"
+            },
+            "type": "array",
+            "title": "Children"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "paper_id",
+          "parent_id",
+          "level",
+          "name",
+          "seq",
+          "source_review_status",
+          "descriptor_revision",
+          "descriptor_approved",
+          "eligible",
+          "breadcrumbs",
+          "sources"
+        ],
+        "title": "TaxonomyTreeNode"
       },
       "TopicItem": {
         "properties": {

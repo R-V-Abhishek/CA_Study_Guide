@@ -14,7 +14,7 @@ const metadata: components["schemas"]["Metadata"] = {
 };
 function unit(id: number, overrides: Partial<QueueItem> = {}): QueueItem {
   return {
-    unit_id: id, document_id: 1, attempt_id: "2024-05", paper_id: "fixture.FR", doc_type_id: "exam", label_path: `Q${id}.a`, display_label: `${id}(a)`, is_benchmark: false,
+    unit_id: id, publication_ready: true, document_id: 1, attempt_id: "2024-05", paper_id: "fixture.FR", doc_type_id: "exam", label_path: `Q${id}.a`, display_label: `${id}(a)`, is_benchmark: false,
     marks: 0, question_text: `Fixture question ${id}`, answer_text: `Fixture answer ${id}`, bucket: "A",
     primary_suggestion: { node_id: `fixture.node.${id}`, node_name: `Real recommendation ${id}`, chapter: { id: "fixture.chapter", name: "Real Chapter" }, topic: { id: "fixture.topic", name: "Real Topic" }, subtopic: { id: `fixture.node.${id}`, name: `Real recommendation ${id}` }, justification: "Actual fixture justification", gist: null, alternatives: [] }, secondary_suggestions: [], ...overrides,
   };
@@ -154,7 +154,7 @@ test.describe("curator controlled responses", () => {
     const document: components["schemas"]["CuratorDocument"] = {
       id: 1, sha256: "b".repeat(64), title: "Fixture document", scheme_id: "fixture", attempt_id: null, paper_id: null,
       doc_type_id: null, series: null, part: null, catalog_status: "inferred", extract_status: "ok", page_count: null,
-      bytes: 0, origin: "manual", created_at: null,
+      bytes: 0, origin: "manual", created_at: null, provenance_status: "unresolved",
     };
     await page.route("**/api/v1/curate/documents**", route => route.request().method() === "GET"
       ? route.fulfill({ json: [document] })

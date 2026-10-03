@@ -271,7 +271,7 @@ def test_forward_migration_preserves_legacy_rows(session, isolated_database):
             command.upgrade(cfg, 'head')
             row = conn.execute(sa.text('SELECT id, config_hash, config_snapshot FROM intel.score_run')).one()
             assert tuple(row) == (before.id, before.config_hash, None)
-            assert conn.execute(sa.text('SELECT version_num FROM ops.alembic_version')).scalar_one() == '0003_identity'
+            assert conn.execute(sa.text('SELECT version_num FROM ops.alembic_version')).scalar_one() == '0004_textbook_taxonomy'
     finally:
         engine.dispose()
         with admin.connect() as conn:

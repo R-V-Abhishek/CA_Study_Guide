@@ -1,0 +1,12 @@
+{
+  "model": "gemini-3.5-flash-lite",
+  "pricing_per_million_tokens": {
+    "input": 0.3,
+    "output": 2.5
+  },
+  "pricing_source": "https://ai.google.dev/gemini-api/docs/pricing",
+  "reason": "Configured gemini-2.5-flash-lite returned404: no longer available to new users; provider explicitly recommends gemini-3.5-flash-lite",
+  "budget_cap_usd": 10,
+  "concurrency": 4,
+  "concurrency_basis": "Initial33batches withconcurrency2 completed without quota failures; boundedincrease4, stoponpermanentfailure andbackoff429 retained"
+}

@@ -1,0 +1,294 @@
+{
+  "descriptors": [
+    {
+      "node_id": "6756da9a-710f-440e-aede-2e79a66b9ad9",
+      "concept_name": "Difference in Reporting Dates",
+      "definition": "When reporting dates differ between a foreign operation and the reporting entity, additional statements are ideally prepared. If not, Ind AS 110 permits a maximum three-month gap, adjusting for significant intervening transactions and exchange rate fluctuations.",
+      "terminology": [
+        "reporting dates",
+        "foreign operation",
+        "significant transactions",
+        "closing exchange rate"
+      ],
+      "instrument_references": [
+        "Ind AS 110",
+        "Ind AS 28",
+        "Ind AS 21"
+      ],
+      "inclusion": [
+        "Translation of assets and liabilities using the foreign operation's period-end exchange rate",
+        "Adjustments for significant exchange rate movements up to the reporting entity's end date"
+      ],
+      "exclusion": [
+        "Using a reporting date difference exceeding three months without specific consolidation adjustments"
+      ],
+      "nearby_distinctions": [
+        "Unlike standard same-date reporting, differing dates require explicit timing and exchange rate adjustment mechanisms to align consolidated financial statements."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4feeb0a5-11fc-4da4-b780-746639e59cc8",
+      "concept_name": "Intra-Group Transactions",
+      "definition": "Intra-group balances and unrealized profits or losses are eliminated on consolidation, but related foreign exchange gains or losses are recognized in profit or loss due to real currency exposure. Such eliminations and measurements utilize historical spot rates from the transaction date.",
+      "terminology": [
+        "intra-group balances",
+        "foreign exchange gains or losses",
+        "monetary item",
+        "spot rate"
+      ],
+      "instrument_references": [
+        "Ind AS 110",
+        "Ind AS 21"
+      ],
+      "inclusion": [
+        "Recognition of exchange differences on intra-group transactions in profit or loss",
+        "Elimination of unrealized intra-group profits or losses until realized by external sale or write-off"
+      ],
+      "exclusion": [
+        "Elimination of foreign exchange gains or losses arising on actual foreign currency settlement exposure"
+      ],
+      "nearby_distinctions": [
+        "Distinct from general intra-group balance eliminations, foreign exchange variances on these items survive consolidation and impact profit or loss unless tied to a net investment monetary item."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7a1bab58-72e4-4f95-a402-125099d2c329",
+      "concept_name": "Dividends",
+      "definition": "Subsidiary dividends declared to a parent are recorded at the exchange rate on the declaration date. Subsequent exchange rate movements between declaration and receipt create exchange differences that remain in consolidated profit or loss.",
+      "terminology": [
+        "declaration date",
+        "dividend receipt",
+        "inter-company dividends",
+        "functional currency exposure"
+      ],
+      "instrument_references": [
+        "Ind AS 21"
+      ],
+      "inclusion": [
+        "Exchange differences arising on dividend payment timing differences recognized in profit or loss",
+        "Elimination of declared dividends and intra-group balances upon consolidation"
+      ],
+      "exclusion": [
+        "Recognition of dividend-related exchange differences in other comprehensive income"
+      ],
+      "nearby_distinctions": [
+        "Unlike pre-declaration net investment exposures, declared dividends shift exposure toward standard monetary receivables, routing subsequent currency variances through profit or loss instead of equity."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a8895718-ad8a-431a-90ef-c19523f8eccc",
+      "concept_name": "Goodwill and Fair Value Adjustments Arising from a Business Combination",
+      "definition": "Goodwill and fair value adjustments to asset and liability carrying amounts from acquiring a foreign operation are treated as assets and liabilities of that foreign operation. Consequently, they are expressed in the foreign operation's functional currency and translated using the closing exchange rate.",
+      "terminology": [
+        "goodwill",
+        "fair value adjustments",
+        "foreign operation",
+        "closing exchange rate"
+      ],
+      "instrument_references": [
+        "Ind AS 21"
+      ],
+      "inclusion": [
+        "Translating acquired goodwill at the closing exchange rate",
+        "Translating fair value adjustments of a foreign acquisition at the closing rate"
+      ],
+      "exclusion": [
+        "Translating acquisition-related adjustments at historical transaction dates rather than closing rates"
+      ],
+      "nearby_distinctions": [
+        "Unlike domestic combinations, foreign business combinations require translation of fair value increments and resulting goodwill using closing exchange rates as integral components of the foreign operation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9533d9b7-8094-460e-a073-1fa22c1d2c79",
+      "concept_name": "Disposal or Partial Disposal of Foreign Operations",
+      "definition": "Upon full disposal of a foreign operation, cumulative exchange differences recognized in other comprehensive income are reclassified from equity to profit or loss. Partial disposals require specific treatments depending on whether control of a subsidiary or retention of interest in associates or joint arrangements occurs.",
+      "terminology": [
+        "full disposal",
+        "partial disposal",
+        "reclassification adjustment",
+        "foreign currency translation reserve"
+      ],
+      "instrument_references": [
+        "Ind AS 21"
+      ],
+      "inclusion": [
+        "Reclassification of cumulative OCI exchange differences to profit or loss upon full disposal",
+        "Derecognition of NCI-attributed exchange differences without profit or loss reclassification on subsidiary disposal"
+      ],
+      "exclusion": [
+        "Reclassifying NCI-attributed cumulative exchange differences to profit or loss on subsidiary disposal"
+      ],
+      "nearby_distinctions": [
+        "Differs from minor carrying-amount write-downs, which do not trigger reclassification of accumulated equity exchange differences into profit or loss."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a748c02f-dd9d-4a3d-a881-605333ed52b0",
+      "concept_name": "Full Disposal",
+      "definition": "Full disposal of a foreign operation occurs via sale, liquidation, or repayment of share capital, prompting the reclassification of cumulative exchange differences from equity to profit or loss. For subsidiaries, exchange differences attributed to non-controlling interests are derecognized without profit or loss reclassification.",
+      "terminology": [
+        "liquidation",
+        "reclassification adjustment",
+        "non-controlling interests",
+        "loss of control"
+      ],
+      "instrument_references": [
+        "Ind AS 21"
+      ],
+      "inclusion": [
+        "Transfer of accumulated OCI foreign exchange reserves to profit or loss on complete exit",
+        "Accounting for loss of control as a full disposal event"
+      ],
+      "exclusion": [
+        "Reclassifying exchange differences assigned to non-controlling interests into profit or loss"
+      ],
+      "nearby_distinctions": [
+        "Contrasts with partial disposals where only a proportionate share of accumulated translation reserves is reclassified or re-attributed."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "47163a35-2da5-44ce-92ea-b36a75cfe4db",
+      "concept_name": "Partial Disposal",
+      "definition": "A partial disposal reduces ownership interest without triggering a full disposal, requiring either proportionate re-attribution of cumulative exchange differences to non-controlling interests or reclassification to profit or loss. Asset write-downs or impairments do not constitute partial disposals and prompt no OCI reclassification.",
+      "terminology": [
+        "proportionate share",
+        "ownership interest",
+        "re-attribution",
+        "impairment"
+      ],
+      "instrument_references": [
+        "Ind AS 21"
+      ],
+      "inclusion": [
+        "Re-attributing proportionate OCI exchange differences to non-controlling interests upon partial subsidiary disposal",
+        "Reclassifying a proportionate share of cumulative exchange differences to profit or loss for associates or joint arrangements"
+      ],
+      "exclusion": [
+        "Reclassifying exchange differences to profit or loss upon an internal asset write-down or impairment"
+      ],
+      "nearby_distinctions": [
+        "Unlike full disposals that completely clear foreign currency translation reserves, partial disposals involve split reclassifications or re-attributions based on retained influence levels."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6231f301-22e6-4d5b-95fd-7a5b0e592c2f",
+      "concept_name": "Tax Effect of All Exchange Differences",
+      "definition": "Income taxes associated with foreign currency transaction gains and losses, as well as translation differences from foreign operations, are accounted for under specific income tax standards. This ensures proper tax allocation on currency-driven financial adjustments.",
+      "terminology": [
+        "tax effects",
+        "foreign currency transactions",
+        "translation results",
+        "financial position"
+      ],
+      "instrument_references": [
+        "Ind AS 12",
+        "Ind AS 21"
+      ],
+      "inclusion": [
+        "Applying income tax accounting principles to foreign exchange gains and losses",
+        "Tax effect evaluation on translated entity results and financial positions"
+      ],
+      "exclusion": [
+        "Excluding exchange-related tax allocation from consolidated financial statement adjustments"
+      ],
+      "nearby_distinctions": [
+        "Differs from pure currency translation calculations by incorporating jurisdictional tax rules governing temporary differences created by exchange fluctuations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7d5e725e-279a-4363-a5d6-644de112fd20",
+      "concept_name": "Disclosures",
+      "definition": "Entities must disclose specific foreign exchange details, including amounts recognized in profit or loss, OCI reconciliations, presentation currency deviations, and functional currency changes. Supplementary currency information requires explicit identification and methodology descriptions.",
+      "terminology": [
+        "exchange differences",
+        "reconciliation",
+        "presentation currency",
+        "functional currency"
+      ],
+      "instrument_references": [
+        "Ind AS 21",
+        "Ind AS 109"
+      ],
+      "inclusion": [
+        "Reporting exchange differences in profit or loss and other comprehensive income",
+        "Disclosing reasons and dates for any functional currency modifications"
+      ],
+      "exclusion": [
+        "Presenting supplementary currency data without clear identification as non-compliant with standard presentation frameworks"
+      ],
+      "nearby_distinctions": [
+        "Unlike standard financial line-item notes, these disclosures specifically mandate qualitative and quantitative tracking of currency definitions, translation methods, and reserve reconciliations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "717321c7-f70d-4d80-904d-6f68b3e3c43e",
+      "concept_name": "Extracts of Financial Statements of Listed Entity",
+      "definition": "Listed entities apply core standard principles by recording foreign transactions at transaction-date rates and retranslating monetary items at balance sheet dates, with variances hitting profit or loss. Foreign operation translations are routed through other comprehensive income into a translation reserve.",
+      "terminology": [
+        "functional currency",
+        "monetary assets and liabilities",
+        "balance sheet dates",
+        "foreign currency translation reserve"
+      ],
+      "instrument_references": [
+        "Ind AS 21"
+      ],
+      "inclusion": [
+        "Retranslation of monetary assets and liabilities at balance sheet dates",
+        "Recognition of foreign operation translation differences in other comprehensive income"
+      ],
+      "exclusion": [
+        "Retranslation of non-monetary assets and liabilities measured at historical cost in foreign currencies"
+      ],
+      "nearby_distinctions": [
+        "Contrasts monetary item settlement treatment with non-monetary historical cost items that omit periodic balance sheet retranslation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "666106c6-6c60-4ece-8aaa-817c5b4ed6db",
+      "concept_name": "Significant Differences in Ind AS 21 vis-à-vis AS 11",
+      "definition": "Ind AS 21 mandates a functional currency approach and excludes forward contracts covered elsewhere, whereas previous standards utilized integral classifications and permitted capital asset exchange capitalization options. Presentation currency flexibilities also differ significantly between the frameworks.",
+      "terminology": [
+        "functional currency approach",
+        "forward exchange contracts",
+        "long-term monetary items",
+        "presentation currency"
+      ],
+      "instrument_references": [
+        "Ind AS 21",
+        "Ind AS 109",
+        "Ind AS 101",
+        "AS 11"
+      ],
+      "inclusion": [
+        "Excluding forward exchange contracts from Ind AS 21 scope in favor of financial instrument standards",
+        "Enforcing functional currency determinations over legacy integral/non-integral operation classifications"
+      ],
+      "exclusion": [
+        "Applying previous GAAP options to capitalize long-term monetary exchange differences on new post-transition asset acquisitions"
+      ],
+      "nearby_distinctions": [
+        "Unlike legacy rules offering capitalization alternatives for long-term foreign currency items, Ind AS 21 generally routes variances directly through profit or loss or equity without direct asset cost adjustments."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "7a55d77e9f767428b963d41e98cba30d686f90f68be7ee58f806cdfe64183ae1",
+  "artifact_id": "aeb1995a-c3bf-4ad0-8862-8282c18770fe",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8132,
+  "output_tokens": 3366,
+  "cost_usd": 0.0108546,
+  "created_at": "2026-10-03T18:03:21.736212+00:00"
+}

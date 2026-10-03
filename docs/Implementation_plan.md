@@ -337,35 +337,36 @@ Acceptance:
 - All invited students can review shared content; administrative actions remain restricted.
 - Sign-out/profile changes expose no previous user’s private cached content.
 
-### Phase 3 — Audit official sources and rebuild the taxonomy safely
+### Phase 3 — Construct a new textbook-derived taxonomy for all six papers
 
-**Purpose:** Establish a defensible syllabus and material baseline for May 2027 preparation.
+**Purpose:** Independently construct `Paper → official modules → topics → subtopics`, preserving each textbook's chapter/unit context, for May 2027 preparation. The existing taxonomy remains immutable legacy history; its labels, wording, statistics, and questions do not define the new structure.
 
 Changes:
 
-1. Build an official source manifest by paper, edition, target applicability, module, chapter/unit, URL, and retrieval/version metadata.
-2. Verify all six papers, applicable study guidelines, amendments/corrigenda, official weightage documents, and exam-attempt registry entries.
-3. Record expected and available material separately. Identify the latest complete verified baseline and every May 2027-specific addition or missing item.
-4. Extract the official hierarchy from published contents, PDF outlines, and headings, then review discrepancies. Preserve the official sequence and names.
-5. Introduce module nodes. Use `Paper → Module → Chapter → Topic → Subtopic` where the source supports that hierarchy. Map official units explicitly and avoid fabricating modules or a universal module count for papers with different structures, especially IBS.
-6. Preserve existing stable IDs when their meaning is unchanged. Provide an explicit mapping for moved, split, merged, and deprecated nodes; never regenerate all IDs from seed order.
-7. Implement migration handling for progress, notes, historical tags, anchors, bookmarks, and weightage membership. Splits retain source history and require review; merges preserve notes and avoid overstating completion.
-8. Add source references and edition/applicability metadata. Version historical hierarchy membership sufficiently to explain old classifications and support students on different applicable editions.
-9. Add reviewed descriptors at the actual classification level, including P2 and P6. Track missing/unapproved descriptors as gaps.
-10. Replace generated weightage ranges with verified official mappings. If no official prior is available, display that explicitly and use a documented alternative only when justified.
-11. Handle P4’s May 2027 law change through instrument-aware mappings and attempt-specific answer applicability. Avoid treating all historical tax content as either automatically valid or automatically unusable.
-12. Update recursive traversal code so ancestry and rollups do not assume exactly three node levels.
+1. Inventory all six official textbooks before constructing nodes. Select material applicable to May 2027 when released; for partial releases, use the released sections and fill missing sections only from officially verified January 2026 material. If neither is verified, record a gap rather than substitute another edition.
+2. Record landing/download URLs, course level, edition evidence, applicable attempts, expected module/chapter/unit structure, retrieval date, SHA-256, page count, availability, fallback status, and target applicability for each section. Verify cached bytes independently.
+3. Reconcile contents, module introductions, PDF outlines, and substantive numbered headings. Track expected structure, available files, extracted hierarchy, and reviewed classification topics separately. Partial releases never shrink the expected syllabus. Follow IBS's documented sources without manufacturing modules.
+4. Allocate fresh IDs once and persist them. Preserve official names and sequence; distinguish official headings from app-authored conceptual subdivisions. Every conceptual node has textbook source spans and ancestry. Front matter, repeated exercises, and answer sections are excluded with evidence.
+5. Draft definitions, terminology/instruments, inclusion/exclusion guidance, neighbouring distinctions, and edition/page references for every classification leaf. One authenticated student approves a specific descriptor revision; editing invalidates that approval. Only source-reviewed and descriptor-approved leaves enter candidates.
+6. Inventory Model Test Papers, RTPs, Mock Test Papers, past examinations, and case/practice publications separately across Foundation, Intermediate, and Final branches. Model and mock types remain distinct practice evidence. Undated model attempts remain null; only verified Final documents enter classification.
+7. Bind all new classification suggestions and runs to the rebuilt version and descriptor revision, recording source document, method/model, evidence, and complete-question/part identity. Include recursive breadcrumbs and explicit IBS cross-paper references. Unsupported questions require taxonomy review rather than a forced label.
+8. Preserve existing personal records, decisions, and historical tags. Draft a separate reviewed crosswalk after textbook construction. Only reviewed one-to-one exact equivalence carries progress through a recorded migration; split/merge/unresolved records retain legacy history. Original notes remain separate and linked with attribution.
+9. Add forward migrations for immutable version membership/ancestry, artifacts/spans, descriptor revisions/approvals, crosswalks, source metadata, and classification/score context. Keep target attempt, source attempt, textbook edition, and taxonomy version distinct. Scores match attempt and version; preserve historical runs.
+10. Archive generated legacy weightage priors. Rebuild mappings only from applicable verified official evidence; unavailable priors contribute zero without redistributing configured component weights.
+11. Track January 2026 P4 fallback instrument/applicability separately. The Income-tax Act, 2025 transition begins with May 2027 exams; structural fallback coverage does not certify historical answers or provisions for that target.
+12. Add recursive student/curator explorers with source links, fallback/review/applicability indicators, and private predecessor history. Administrators review inventory, crosswalks, and concrete release reports. Regenerate contracts and production distributions.
+13. Validate on isolated fixtures and a restored checkpoint. Import/migration planning and activation default to dry-run. Activation is transactional, idempotent, and requires an administrator approval bound to the manifest and current review state. Whole-question bulk extraction and collaborative publication remain Phase 4–5 gates.
 
 Files: `taxonomy/`, `packages/l0_taxonomy/caf_l0/{loader,seeds,ids}.py`, `packages/db/caf_db/models/ref.py`, contracts, API tree queries, scoring ancestry, classifier candidate construction, and both taxonomy interfaces.
 
 Acceptance:
 
-- Every expected official module/chapter is mapped, explicitly excluded with a reason, or visibly pending.
-- The source manifest supports a completeness report for each paper and edition.
-- Every active classification subtopic has a reviewed descriptor and source context.
-- Weightage values have provenance; none is presented as official solely because the generated percentages look plausible.
-- Migration preserves personal information and review history, with unresolved mappings listed for review.
-- May 2027 is selectable without falsely claiming that all May 2027 source material is complete.
+- Each paper has a verified selection under the May 2027 / January 2026 policy, and every expected module/chapter/unit is accounted for with source gaps explicit.
+- Independent textbook evidence supports the new hierarchy; every eligible classification leaf has reviewed source context and a current approved descriptor.
+- Source inventories retain course level, attempt, paper, series, artifact identity/pairing and distinct model/mock types. Representative RTP, mock and model examples exercise the new path.
+- Personal data, IDs, notes, decisions, and historical labels remain preserved. Progress transfer is conservative; incompatible scores remain unavailable until recomputation.
+- Recovery, isolated Python and Chromium/WebKit tests, type checks, and both builds pass; the administrator approves the concrete release and migration report before activation.
+- Verification distinguishes structural textbook coverage, fallback usage, classification readiness, unresolved gaps, and May 2027 provision/answer applicability.
 
 ### Phase 4 — Complete acquisition and whole-question extraction
 

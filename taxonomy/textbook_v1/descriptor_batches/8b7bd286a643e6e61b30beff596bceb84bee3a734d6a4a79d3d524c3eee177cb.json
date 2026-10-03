@@ -1,0 +1,316 @@
+{
+  "descriptors": [
+    {
+      "node_id": "825330bf-b0fb-4782-894d-7a90c46be3d0",
+      "concept_name": "Determining Types Of Conditions",
+      "definition": "Share-based payment awards vest upon meeting specified service or performance conditions that dictate expense timing, measurement, and potential reversals. Classifying these conditions properly is essential because failure to meet them determines whether previously recognized compensation expenses can be reversed.",
+      "terminology": [
+        "vesting conditions",
+        "service conditions",
+        "performance conditions",
+        "reversal of expense"
+      ],
+      "instrument_references": [
+        "Ind AS 102"
+      ],
+      "inclusion": [
+        "Service-based requirements",
+        "Performance metric targets",
+        "Expense timing analysis"
+      ],
+      "exclusion": [
+        "Non-vesting clauses",
+        "Unconditional awards"
+      ],
+      "nearby_distinctions": [
+        "Differs from non-vesting conditions which do not impact entitlement eligibility directly."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b01e73ab-656a-4b1e-9911-2a9008d0bed0",
+      "concept_name": "Vesting Conditions",
+      "definition": "Vesting conditions govern whether a counterparty becomes entitled to receive share-based payments based on criteria like minimum service periods or performance targets. These requirements dictate the period over which compensation expense is recognized and whether prior expenses are reversed if conditions fail.",
+      "terminology": [
+        "service condition",
+        "performance condition",
+        "vesting period",
+        "grant date"
+      ],
+      "instrument_references": [
+        "Ind AS 102"
+      ],
+      "inclusion": [
+        "Time-based employment requirements",
+        "Profit or EBITDA targets"
+      ],
+      "exclusion": [
+        "Conditions unrelated to service or performance eligibility"
+      ],
+      "nearby_distinctions": [
+        "Unlike non-vesting conditions, vesting conditions directly govern the employee's entitlement and option to exercise."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f18e83eb-e3b8-4d1a-8fad-057dad90a883",
+      "concept_name": "Non-vesting conditions",
+      "definition": "Non-vesting conditions refer to terms outside of standard vesting requirements that do not impact an employee's ultimate eligibility to receive share-based payments. Because these clauses do not require future service, associated costs are recognized immediately without subsequent reversal upon non-compliance.",
+      "terminology": [
+        "non-vesting condition",
+        "non-compete clause",
+        "waiting time",
+        "immediate recognition"
+      ],
+      "instrument_references": [
+        "Ind AS 102"
+      ],
+      "inclusion": [
+        "Non-compete restrictions",
+        "Revenue targets without service prerequisites"
+      ],
+      "exclusion": [
+        "Service conditions dependent on time served",
+        "Performance targets tied to vesting"
+      ],
+      "nearby_distinctions": [
+        "Unlike vesting conditions, non-vesting conditions do not allow expense reversals if the associated clause is breached."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "bfd8a416-65a6-48a2-bb5e-99b1829f921d",
+      "concept_name": "Determining Impact Of Conditions On Share Based Valuation",
+      "definition": "Vesting conditions other than market conditions are excluded from initial fair value estimates and are accounted for by adjusting the expected number of equity instruments. Conversely, market conditions are incorporated directly into the grant date fair value without subsequent reversals for non-fulfillment.",
+      "terminology": [
+        "market conditions",
+        "non-market conditions",
+        "fair value estimation",
+        "instruments expected to vest"
+      ],
+      "instrument_references": [
+        "Ind AS 102"
+      ],
+      "inclusion": [
+        "Adjusting equity instrument counts",
+        "Incorporating share price targets into fair value"
+      ],
+      "exclusion": [
+        "Post-vesting valuation adjustments for service failures"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes how market conditions modify fair value calculations versus how service conditions modify instrument counts."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c8171c86-3fea-4189-a30e-4bd132591154",
+      "concept_name": "Grant Date",
+      "definition": "Grant date is the specific point when an entity and a counterparty establish a shared understanding of a share-based payment arrangement's terms and conditions. If the agreement requires external authorization like shareholder approval, the grant date is deferred until that approval is secured.",
+      "terminology": [
+        "grant date",
+        "shared understanding",
+        "approval process",
+        "terms and conditions"
+      ],
+      "instrument_references": [
+        "Ind AS 102"
+      ],
+      "inclusion": [
+        "Mutually agreed arrangement terms",
+        "Regulatory or shareholder approval dates"
+      ],
+      "exclusion": [
+        "Initial board proposal discussions lacking formal agreement or communication"
+      ],
+      "nearby_distinctions": [
+        "Differs from the vesting date or exercise date by marking the inception of terms and measurement."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6eb6a006-7685-4742-9bf0-68f5f36cda83",
+      "concept_name": "SUBSEQUENT MEASUREMENT",
+      "definition": "Subsequent measurement requires equity-settled awards to update expected vesting numbers at each reporting date while keeping the grant-date fair value per share constant. In contrast, cash-settled liabilities are remeasured to fair value at the end of every reporting period until final settlement.",
+      "terminology": [
+        "equity-settled",
+        "cash-settled",
+        "subsequent measurement",
+        "remeasurement"
+      ],
+      "instrument_references": [
+        "Ind AS 102"
+      ],
+      "inclusion": [
+        "Updating expected vest percentages for equity plans",
+        "Fair valuing liability components for cash plans"
+      ],
+      "exclusion": [
+        "Modifying grant date fair values for equity-settled awards due to market movements"
+      ],
+      "nearby_distinctions": [
+        "Equity-settled plans adjust quantities while maintaining fixed fair value, whereas cash-settled plans fluctuate in fair value per unit."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "208b7cb2-77c0-47ed-8df8-1df568b07d40",
+      "concept_name": "Equity Settled Share-Based Payment",
+      "definition": "Equity-settled share-based payments require recognizing services received over the vesting period based on the best estimate of instruments expected to vest. Entities update these estimates at each reporting date and credit equity without altering the initial grant-date fair value rate.",
+      "terminology": [
+        "equity-settled",
+        "vesting period",
+        "cumulative expenses",
+        "expected to vest"
+      ],
+      "instrument_references": [
+        "Ind AS 102"
+      ],
+      "inclusion": [
+        "Periodic expense adjustments",
+        "Equity increases reflecting received services"
+      ],
+      "exclusion": [
+        "Cash-settled liability adjustments"
+      ],
+      "nearby_distinctions": [
+        "Differs from cash-settled awards by crediting equity instead of maintaining a variable liability."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "196f3920-578d-4990-97b9-90d626309ed1",
+      "concept_name": "Cash-Settled Share-Based Payment",
+      "definition": "Cash-settled share-based payment liabilities are initially recognized and subsequently fair-valued at the end of each reporting period until final settlement is achieved. Changes in the fair value of the liability are recognized directly in the statement of profit and loss.",
+      "terminology": [
+        "cash-settled",
+        "liability",
+        "fair value",
+        "subsequent period"
+      ],
+      "instrument_references": [
+        "Ind AS 102"
+      ],
+      "inclusion": [
+        "Periodic liability revaluations",
+        "Cash settlement tracking"
+      ],
+      "exclusion": [
+        "Fixed equity adjustments"
+      ],
+      "nearby_distinctions": [
+        "Unlike equity-settled plans that keep fair value fixed at grant date, cash-settled plans revalue the liability continuously."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c257ee83-cac8-4e5e-ba85-01fccc631929",
+      "concept_name": "Modification, Cancellation And Settlements",
+      "definition": "Modifying share-based awards requires recognizing at least the original grant-date fair value cost plus any incremental fair value granted by the modification. Cancellations or early settlements during the vesting period are treated as accelerated vesting, immediately recognizing remaining unrecognized service costs.",
+      "terminology": [
+        "modification",
+        "cancellation",
+        "acceleration of vesting",
+        "incremental fair value"
+      ],
+      "instrument_references": [
+        "Ind AS 102"
+      ],
+      "inclusion": [
+        "Repricing exercise prices",
+        "Accelerated expense recognition upon settlement",
+        "Excess payments accounted as expense"
+      ],
+      "exclusion": [
+        "Forfeitures due to unfulfilled vesting conditions"
+      ],
+      "nearby_distinctions": [
+        "Differs from standard vesting by accelerating unamortized costs when terms are cancelled or cut short."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "70c09051-1d26-4f0e-9930-2a57416afb1c",
+      "concept_name": "Fair Value Calculation",
+      "definition": "Option pricing models such as Black-Scholes and Binomial models are utilized to calculate the grant-date fair value of share-based payments. These models incorporate minimum required inputs including exercise price, option life, share price, volatility, expected dividends, and risk-free interest rates.",
+      "terminology": [
+        "fair value calculation",
+        "Black-Scholes model",
+        "Binomial model",
+        "expected volatility"
+      ],
+      "instrument_references": [
+        "Ind AS 102"
+      ],
+      "inclusion": [
+        "Observable market inputs",
+        "Expected early exercise behaviors",
+        "Annualized standard deviation volatility"
+      ],
+      "exclusion": [
+        "Non-market vesting conditions from initial pricing"
+      ],
+      "nearby_distinctions": [
+        "Relies on established quantitative models rather than simplistic quoted prices to capture option characteristics."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2c986143-a1d4-4499-8f42-6c644fc76d38",
+      "concept_name": "GROUP SHARE-BASED PAYMENT PLAN",
+      "definition": "In group share-based arrangements where a parent settles awards for subsidiary employees, the entity receiving services must assess the award nature and its own obligations to classify it. The receiving entity measures the transaction as equity-settled if it involves its own instruments or if it bears no settlement obligation, and cash-settled otherwise.",
+      "terminology": [
+        "group share-based payment",
+        "separate financial statements",
+        "equity-settled",
+        "cash-settled"
+      ],
+      "instrument_references": [
+        "Ind AS 102"
+      ],
+      "inclusion": [
+        "Parent-settled subsidiary awards",
+        "Entity-specific classification assessments"
+      ],
+      "exclusion": [
+        "Consolidated group eliminations without individual entity assessment"
+      ],
+      "nearby_distinctions": [
+        "Focuses on individual or separate financial statement classification for the service recipient rather than consolidated group totals."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b7a88bae-62b0-466c-9ca7-5b1036f9c143",
+      "concept_name": "DISCLOSURE",
+      "definition": "Entities must disclose the general terms, scope, and types of share-based payment agreements existing during the reporting period. Required disclosures also cover share option movements, exercise price ranges, weighted average remaining lives, and valuation methodologies used.",
+      "terminology": [
+        "disclosure",
+        "weighted average price",
+        "contractual life",
+        "valuation method"
+      ],
+      "instrument_references": [
+        "Ind AS 102"
+      ],
+      "inclusion": [
+        "Outstanding option movements",
+        "Financial statement impacts on profit or loss and balance sheet"
+      ],
+      "exclusion": [
+        "Internal management forecasts not required by standards"
+      ],
+      "nearby_distinctions": [
+        "Pertains to explanatory reporting and note disclosures rather than primary recognition mechanics."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "8b7bd286a643e6e61b30beff596bceb84bee3a734d6a4a79d3d524c3eee177cb",
+  "artifact_id": "5d0aacb2-9e60-45a9-841a-7f617c9cc94b",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 9205,
+  "output_tokens": 3298,
+  "cost_usd": 0.0110065,
+  "created_at": "2026-10-03T18:04:07.336856+00:00"
+}

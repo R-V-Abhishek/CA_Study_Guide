@@ -1,0 +1,173 @@
+{
+  "descriptors": [
+    {
+      "node_id": "f37bde4d-f2b7-4773-bc0e-6932135c1ba2",
+      "concept_name": "Inputs to Valuation Techniques in Fair Value Measurement",
+      "definition": "Valuation techniques must prioritize relevant observable inputs and minimize unobservable inputs to establish consistency and comparability. The overall classification of an asset or liability class depends on the level of input that holds significance on an overall basis.",
+      "terminology": [
+        "observable inputs",
+        "unobservable inputs",
+        "fair value hierarchy",
+        "market participants"
+      ],
+      "instrument_references": [
+        "Ind AS 113"
+      ],
+      "inclusion": [
+        "Exchange market closing prices",
+        "Dealer market bid and ask prices",
+        "Brokered market order matching",
+        "Principal to principal negotiated prices"
+      ],
+      "exclusion": [
+        "Arbitrary valuation without market corroboration",
+        "Inputs failing to reflect market participant risk assumptions"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from specific hierarchy levels by establishing the overarching principle of maximizing observable and minimizing unobservable data."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "829ed6c6-77dc-402b-a2bb-5d26944a2a41",
+      "concept_name": "Level 1 Inputs",
+      "definition": "Level 1 inputs comprise unadjusted quoted prices in active markets for identical assets or liabilities accessible at the measurement date. These prices supply the most reliable evidence of fair value and require no adjustment when available.",
+      "terminology": [
+        "active market",
+        "quoted prices",
+        "identical assets",
+        "after-hour events"
+      ],
+      "instrument_references": [
+        "Ind AS 113"
+      ],
+      "inclusion": [
+        "Direct quoted prices from primary active stock exchanges",
+        "Identical financial instruments traded in multiple accessible active markets"
+      ],
+      "exclusion": [
+        "Quoted prices subjected to significant after-hour adjustments",
+        "Prices originating from inactive or restricted markets"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from Level 2 and Level 3 inputs by relying exclusively on direct, unadjusted active market quotations for identical items."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "cc9c9a46-1659-4ca1-9b9d-0cc79123bcca",
+      "concept_name": "Level 2 Inputs",
+      "definition": "Level 2 inputs consist of observable data other than quoted prices included within Level 1, applicable directly or indirectly for the asset or liability. For items with specified contractual terms, these inputs must remain observable across substantially the full term.",
+      "terminology": [
+        "indirectly observable",
+        "yield curves",
+        "implied volatilities",
+        "credit spreads"
+      ],
+      "instrument_references": [
+        "Ind AS 113"
+      ],
+      "inclusion": [
+        "Quoted prices for similar assets or liabilities in active markets",
+        "Interest rates and yield curves observable at commonly quoted intervals",
+        "Market-corroborated inputs and entity credit standing adjustments"
+      ],
+      "exclusion": [
+        "Unadjusted active market quotes for identical items",
+        "Internal forecasts devoid of corroborating market data"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from Level 1 by using indirect or similar-asset pricing rather than direct identical quotes, and from Level 3 by remaining observable."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d4e27d90-9323-4072-bb45-330bc401106c",
+      "concept_name": "Level 3 Inputs",
+      "definition": "Level 3 inputs represent unobservable parameters utilized for fair value measurement when relevant observable inputs are absent due to little or no market activity. These inputs incorporate entity assumptions and risk adjustments that market participants would apply in pricing.",
+      "terminology": [
+        "unobservable inputs",
+        "measurement uncertainty",
+        "pricing model",
+        "risk adjustment"
+      ],
+      "instrument_references": [
+        "Ind AS 113"
+      ],
+      "inclusion": [
+        "Adjustments to non-binding consensus prices using uncorroborated internal data",
+        "Financial forecasts of cash flows developed using an entity's own data"
+      ],
+      "exclusion": [
+        "Directly observable market quotes",
+        "Yield curves and interest rates observable at standard intervals"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from Level 1 and Level 2 inputs by the complete absence of directly or indirectly observable market benchmarks, necessitating internal estimations and risk adjustments."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "165b4ab2-29bf-4ae9-86e6-313dbb0c5093",
+      "concept_name": "Fair Value Disclosures and Hierarchy Determination",
+      "definition": "Entities must disclose valuation techniques, inputs, and the effects of measurements on financial performance to help users assess fair value determinations. A systematic hierarchy workflow directs fair value classification based on quote availability, adjustment requirements, and the presence of significant unobservable inputs.",
+      "terminology": [
+        "recurring measurements",
+        "non-recurring measurements",
+        "sensitivity analysis",
+        "hierarchy reconciliation"
+      ],
+      "instrument_references": [
+        "Ind AS 113"
+      ],
+      "inclusion": [
+        "Quantitative information about significant unobservable inputs",
+        "Reconciliation of opening and closing Level 3 balances",
+        "Transfers between fair value hierarchy levels"
+      ],
+      "exclusion": [
+        "Omission of valuation processes and policies for recurring items",
+        "Failure to disclose sensitivity changes for unobservable parameters"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from mere recognition rules by focusing strictly on explanatory transparency, reconciliation, and qualitative or quantitative disclosures of measurement parameters."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5176a98b-cac6-49be-9740-6e5ede3a3ea8",
+      "concept_name": "Financial Statement Extracts for Fair Value Measurement",
+      "definition": "Published corporate reports provide practical disclosures demonstrating how entities apply measurement techniques and accounting policies for fair value. These reporting extracts illustrate real-world execution of valuation governance within financial statements.",
+      "terminology": [
+        "annual report",
+        "accounting policy",
+        "measurement technique",
+        "financial statement extract"
+      ],
+      "instrument_references": [
+        "Ind AS 113"
+      ],
+      "inclusion": [
+        "Entity-specific accounting policy disclosures on fair value",
+        "Categorized financial statement presentation notes"
+      ],
+      "exclusion": [
+        "Hypothetical valuation models lacking corporate reporting backing",
+        "Unverified draft calculations"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from theoretical standard text by presenting empirical corporate reporting compliance and application examples."
+      ],
+      "source_ambiguities": [
+        "The source text provides only a heading and bibliographic reference without substantive accounting rules or data."
+      ]
+    }
+  ],
+  "input_hash": "050d6eb0fbceb7712b52f33ff232efc9dbed0fdb40daf381f8b35855024300ff",
+  "artifact_id": "89f5b79c-a65b-4596-846e-255b7b33b5b7",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 4112,
+  "output_tokens": 1786,
+  "cost_usd": 0.005698600000000001,
+  "created_at": "2026-10-03T17:48:49.050875+00:00"
+}

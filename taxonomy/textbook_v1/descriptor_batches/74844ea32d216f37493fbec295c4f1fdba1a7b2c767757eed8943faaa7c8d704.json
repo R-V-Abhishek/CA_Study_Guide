@@ -1,0 +1,326 @@
+{
+  "descriptors": [
+    {
+      "node_id": "ef8b81e1-d958-466c-8ef0-92661042c774",
+      "concept_name": "Overview and Asset Acquisition Distinction",
+      "definition": "Business combinations involve obtaining control over an integrated set of activities and assets, whereas asset acquisitions involve purchasing a group of assets without establishing a business. Transaction costs for business combinations are expensed as incurred, whereas transaction costs for asset acquisitions are capitalized as part of the asset cost.",
+      "terminology": [
+        "Business Combination",
+        "Acquisition-related Costs",
+        "Goodwill",
+        "Deferred Tax Accounting"
+      ],
+      "instrument_references": [
+        "Ind AS 103",
+        "AS 14",
+        "AS 21",
+        "IFRS 3"
+      ],
+      "inclusion": [
+        "Recognition of separately identifiable intangible assets and goodwill in business combinations",
+        "Expensing of stamp duty and acquisition-related costs in business combinations"
+      ],
+      "exclusion": [
+        "Capitalization of transaction costs for business combinations",
+        "Recognition of deferred taxes for goodwill"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from asset acquisitions where transaction costs are capitalized and no separate goodwill is recognized"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5a326293-8e95-4ebb-b3d1-a45807c8cc72",
+      "concept_name": "Scope Under Ind AS 103",
+      "definition": "Ind AS 103 applies to transactions where an entity obtains control of a business, excluding joint arrangement formations and simple asset acquisitions. Control over the acquiree is established either by acquiring net assets or equity interests, or exclusively through contractual arrangements.",
+      "terminology": [
+        "Joint Arrangement",
+        "Asset Acquisition",
+        "Controlling Interest",
+        "Non-Controlling Interest"
+      ],
+      "instrument_references": [
+        "Ind AS 103",
+        "Ind AS 110"
+      ],
+      "inclusion": [
+        "Acquisitions of net assets constituting a business",
+        "Acquisitions effected by contract alone without transferring consideration"
+      ],
+      "exclusion": [
+        "Formation of a joint arrangement",
+        "Acquisition of an asset or group of assets not constituting a business"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from joint arrangement formations which are outside the standard's scope"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "96518b07-e032-4fc6-a94c-b3379e3d7483",
+      "concept_name": "Definition Of Business Combination",
+      "definition": "A business combination occurs when an entity obtains control of a business through the acquisition of net assets, significant equity interests, or entirely via contractual terms. The fundamental prerequisites for a business combination are obtaining control under Ind AS 110 and establishing that the acquiree constitutes a business.",
+      "terminology": [
+        "Control",
+        "Acquiree",
+        "Acquirer",
+        "Equity Interests"
+      ],
+      "instrument_references": [
+        "Ind AS 103",
+        "Ind AS 110"
+      ],
+      "inclusion": [
+        "Transactions involving transfer of cash, liabilities, or equity interests",
+        "Transactions executed by contract alone"
+      ],
+      "exclusion": [
+        "Acquisitions of isolated assets that fail to meet the definition of a business"
+      ],
+      "nearby_distinctions": [
+        "Differs from generic asset purchases by requiring the two specific elements of control and an acquired business entity"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "aa12dd1c-a8a4-4d6a-87a1-9483965cd921",
+      "concept_name": "Definition And Elements Of Business",
+      "definition": "A business comprises an integrated set of activities and assets capable of being conducted and managed to provide goods or services or generate various forms of income. It requires the presence of economic inputs, processes applied to those inputs, and the capability of generating outputs.",
+      "terminology": [
+        "Inputs",
+        "Processes",
+        "Outputs",
+        "Acquisition Method"
+      ],
+      "instrument_references": [
+        "Ind AS 103"
+      ],
+      "inclusion": [
+        "Integrated assets and activities carrying out continuing trade",
+        "Interacting elements involving operating personnel"
+      ],
+      "exclusion": [
+        "Mere collections of assets or combinations of liabilities without operational interaction"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from a collection of assets by the presence of interacting elements and processes managed for income generation"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "59c94fdf-614a-46c8-b6b3-49dc227ec63e",
+      "concept_name": "Definition Of Business",
+      "definition": "A business consists of inputs and processes applied to those inputs that possess the ability to contribute to the creation of outputs. While businesses typically generate outputs, the presence of outputs is not strictly mandatory for an integrated set of activities and assets to qualify as a business.",
+      "terminology": [
+        "Inputs",
+        "Processes",
+        "Outputs",
+        "Application Guidance"
+      ],
+      "instrument_references": [
+        "Ind AS 103"
+      ],
+      "inclusion": [
+        "Integrated sets of activities capable of being managed for ordinary income",
+        "Combinations involving operational personnel and assets"
+      ],
+      "exclusion": [
+        "Passive holdings of assets lacking active operational processes"
+      ],
+      "nearby_distinctions": [
+        "Differs from pure asset groups because outputs are not mandatory provided necessary inputs and processes exist"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c35d604f-b416-4bb1-9713-179feb55e8d3",
+      "concept_name": "Elements Of Business",
+      "definition": "The structural elements of a business include economic inputs, operational processes, and resulting outputs that generate customer value or investment income. An integrated set must include at least an input and a substantive process that together significantly contribute to output creation.",
+      "terminology": [
+        "Input",
+        "Process",
+        "Output",
+        "Substantive Process"
+      ],
+      "instrument_references": [
+        "Ind AS 103"
+      ],
+      "inclusion": [
+        "Non-current assets, intellectual property, and organized workforces acting as inputs",
+        "Strategic, operational, and resource management systems acting as processes"
+      ],
+      "exclusion": [
+        "Administrative systems like billing, payroll, and accounting that are not primary output-creating processes"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes core operational processes from administrative routines which do not independently create outputs"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a27e2a43-980f-4cd5-8e7c-06b67e9cb405",
+      "concept_name": "Further Assessment",
+      "definition": "Evaluating whether an acquired process is substantive depends on whether the set of activities has outputs at the acquisition date. For sets without outputs, a substantive process requires an organized workforce with specialized skills combined with critical inputs or intellectual property.",
+      "terminology": [
+        "Substantive Process",
+        "Acquisition Date",
+        "Organized Workforce",
+        "Outputs"
+      ],
+      "instrument_references": [
+        "Ind AS 103"
+      ],
+      "inclusion": [
+        "Processes critical to converting acquired inputs into outputs when no prior output exists",
+        "Unique, scarce, or irreplaceable processes that significantly contribute to continuing outputs"
+      ],
+      "exclusion": [
+        "Non-critical administrative processes that can be replaced without significant cost or delay"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes pre-output requirements (requiring both an organized workforce and developmental inputs) from post-output requirements"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "296442ef-d512-4ddd-b3d2-33a001d9372e",
+      "concept_name": "Concentration Test",
+      "definition": "The concentration test provides a simplified optional assessment to determine if an acquired set of activities and assets fails to qualify as a business. The test is satisfied if substantially all of the fair value of the gross assets acquired is concentrated in a single identifiable asset or a group of similar identifiable assets.",
+      "terminology": [
+        "Concentration Test",
+        "Gross Assets",
+        "Identifiable Asset",
+        "Similar Assets"
+      ],
+      "instrument_references": [
+        "Ind AS 103",
+        "Ind AS 116"
+      ],
+      "inclusion": [
+        "Inclusion of consideration transferred, non-controlling interest, and previously held interest in gross asset fair value calculations",
+        "Treatment of physically attached inseparable tangible assets as a single identifiable asset"
+      ],
+      "exclusion": [
+        "Exclusion of cash, cash equivalents, deferred tax assets, and goodwill from gross assets",
+        "Exclusion of tangible and intangible assets from being classified as similar assets"
+      ],
+      "nearby_distinctions": [
+        "Differs from full substantive process evaluations by offering a simplified, rules-based threshold test to quickly rule out business combinations"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2306ed4a-6ca4-47bc-88af-5898d2dddcc5",
+      "concept_name": "The Acquisition Method",
+      "definition": "Accounting for business combinations requires following a structured four-step acquisition method to identify the acquirer, establish the acquisition date, and measure identifiable assets, liabilities, and non-controlling interests. Any excess of consideration over net assets is recognized as goodwill or a bargain purchase gain.",
+      "terminology": [
+        "Acquisition Method",
+        "Acquirer",
+        "Acquisition Date",
+        "Goodwill",
+        "Bargain Purchase"
+      ],
+      "instrument_references": [
+        "Ind AS 103",
+        "Ind AS 110"
+      ],
+      "inclusion": [
+        "Identification of the acquiring enterprise based on control principles",
+        "Measurement of identifiable net assets and non-controlling interests at fair value"
+      ],
+      "exclusion": [
+        "Application of the pooling-of-interests method for transactions within the scope of Ind AS 103"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard consolidation procedures by focusing specifically on the purchase price allocation and goodwill determination at the acquisition date"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1b7e4dd6-9f27-4ac9-8e7c-6e0e12a24c84",
+      "concept_name": "Identifying Acquiring Enterprise",
+      "definition": "The acquirer in a business combination is the entity that obtains control of another entity as determined by the criteria outlined in Ind AS 110. Control assessment requires evaluating power, variable returns, and the ability to use power, looking beyond simple voting percentages to potential voting rights and substantive contractual agreements.",
+      "terminology": [
+        "Acquirer",
+        "Control",
+        "Power",
+        "Potential Voting Rights",
+        "Non-Controlling Shareholders"
+      ],
+      "instrument_references": [
+        "Ind AS 103",
+        "Ind AS 110"
+      ],
+      "inclusion": [
+        "Assessment of potential voting rights and board control",
+        "Evaluation of substantive contractual rights impacting decision-making power"
+      ],
+      "exclusion": [
+        "Relying exclusively on direct equity voting shares to ascertain control"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from simple majority shareholding models by mandating a comprehensive review of potential voting rights and governance arrangements"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "70c9ad95-f901-43a5-97fe-0380790d9478",
+      "concept_name": "The Acquiring Enterprise",
+      "definition": "The acquiring enterprise is defined as the entity that secures control over the acquiree, triggering the application of the acquisition method of accounting. Identifying this entity involves assessing control frameworks and reviewing governance indicators such as board control and potential voting rights.",
+      "terminology": [
+        "Acquiring Enterprise",
+        "Acquiree",
+        "Acquisition Method",
+        "Control"
+      ],
+      "instrument_references": [
+        "Ind AS 103",
+        "Ind AS 110"
+      ],
+      "inclusion": [
+        "Application of purchase method principles to the acquiree's net assets",
+        "Evaluation of control indicators beyond basic voting percentages"
+      ],
+      "exclusion": [
+        "Treating the entity being taken over as the acquirer in standard direct combinations"
+      ],
+      "nearby_distinctions": [
+        "Differs from the acquiree by being the sole entity possessing power to direct relevant activities and generate variable returns"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2dca2822-986b-40bf-8156-f9c31ecefc03",
+      "concept_name": "Acquisitions Through Payment Of Cash Or Incurring Of Liability",
+      "definition": "In business combinations effected through cash transfers, asset transfers, or liability incurrence, the acquirer is typically the entity transferring the consideration or assuming the debt. For combinations involving equity exchanges, the acquirer is normally the issuer of equity interests, unless reverse acquisition rules apply.",
+      "terminology": [
+        "Transfer of Cash",
+        "Incurring Liabilities",
+        "Equity Interests",
+        "Reverse Acquisitions",
+        "Relative Voting Rights"
+      ],
+      "instrument_references": [
+        "Ind AS 103"
+      ],
+      "inclusion": [
+        "Identification of acquirer based on asset and cash transfers",
+        "Evaluation of relative voting rights and special voting arrangements in equity exchanges"
+      ],
+      "exclusion": [
+        "Treating the issuing entity as the automatic acquirer when reverse acquisition conditions are met"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes cash-settled or liability-incurring transactions from equity-swap combinations where relative voting power and warrants must be analyzed"
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "74844ea32d216f37493fbec295c4f1fdba1a7b2c767757eed8943faaa7c8d704",
+  "artifact_id": "23477958-93cb-402d-93f4-c0ba7dba2199",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8333,
+  "output_tokens": 3592,
+  "cost_usd": 0.0114799,
+  "created_at": "2026-10-03T18:04:52.953940+00:00"
+}

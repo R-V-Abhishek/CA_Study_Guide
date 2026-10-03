@@ -1,0 +1,275 @@
+{
+  "descriptors": [
+    {
+      "node_id": "2cee3da2-af83-4f1c-b0be-7ca4bfa1b4b0",
+      "concept_name": "Profit Maximisation Model",
+      "definition": "The profit maximisation model applies economic pricing theory to determine output and selling price where marginal revenue equals marginal cost. It uses a linear demand equation linking price, quantity, and demand curve slope to establish the optimum production volume.",
+      "terminology": [
+        "Marginal Revenue",
+        "Marginal Cost",
+        "Demand Curve Slope",
+        "Basic Price Equation"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Mathematical determination of output where MR equals MC",
+        "Derivation of price from linear demand functions"
+      ],
+      "exclusion": [
+        "Non-economic subjective pricing without cost-revenue balancing"
+      ],
+      "nearby_distinctions": [
+        "Differs from pure cost-plus pricing by explicitly integrating demand slope and marginal revenue analysis."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d0d680c8-989e-40d9-935a-48c6b50a4e96",
+      "concept_name": "Pricing Under Different Market Structure",
+      "definition": "Pricing decisions vary depending on the prevailing market structure, which dictates a firm's level of control over pricing and output. Different frameworks govern how sellers respond to competition, demand elasticity, and rival behavior.",
+      "terminology": [
+        "Market Structure",
+        "Price Taker",
+        "Optimal Price"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Categorization of pricing strategies based on competitive environment"
+      ],
+      "exclusion": [
+        "Universal pricing formulas ignoring market context"
+      ],
+      "nearby_distinctions": [
+        "Serves as an overarching taxonomy grouping specific market-based pricing environments."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "cd9f7a4b-e3ce-410e-b092-8a1bee89af5e",
+      "concept_name": "Perfect Competition",
+      "definition": "Under perfect competition, numerous sellers offer homogeneous products with free market entry and exit, making individual firms price takers. Firms maximize profit by producing up to the point where marginal cost equals the market-determined price.",
+      "terminology": [
+        "Price Taker",
+        "Homogeneous Product",
+        "Free Entry and Exit"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Firms selling at prevailing market prices",
+        "Production continuing until marginal cost equals price"
+      ],
+      "exclusion": [
+        "Product differentiation or independent price setting by individual firms"
+      ],
+      "nearby_distinctions": [
+        "Unlike monopolies, firms in perfect competition possess zero market control and cannot influence the market price."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "17fa7986-e2c1-47ba-b732-b84e1b11dba2",
+      "concept_name": "Monopoly",
+      "definition": "A monopoly features a single producer of a unique homogeneous product with no close substitutes, allowing the firm to act as a price setter. Pricing is established by factoring in demand elasticity to achieve maximum profit.",
+      "terminology": [
+        "Price Setter",
+        "Single Supplier",
+        "Demand Elasticity"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Single producer setting prices considering demand elasticity"
+      ],
+      "exclusion": [
+        "Markets with multiple competing sellers of identical goods"
+      ],
+      "nearby_distinctions": [
+        "Contrasts with perfect competition where firms are price takers with no pricing policy."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0fdf0ff7-20ec-4555-a661-a5b911a5dadf",
+      "concept_name": "Monopolistic Competition",
+      "definition": "Monopolistic competition involves numerous firms offering similar but differentiated products, where excess short-term profits attract new entrants and diminish long-term gains. Firms maximize profits by equating marginal revenue with marginal cost amidst price competition.",
+      "terminology": [
+        "Differentiated Products",
+        "Excess Profits",
+        "Price Competition"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Firms producing similar but non-identical products",
+        "Long-term profit erosion due to new market entrants"
+      ],
+      "exclusion": [
+        "Homogeneous product markets with a single supplier"
+      ],
+      "nearby_distinctions": [
+        "Differs from pure monopoly by featuring multiple firms producing similar substitute goods."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7fcc969b-2eef-46ca-b16a-37c8a391401c",
+      "concept_name": "Oligopoly",
+      "definition": "An oligopoly consists of a few firms producing homogeneous or identical products where competitors are mutually interdependent in their operational decisions. Firms must account for rival reactions and consider strategic pricing or non-price competition.",
+      "terminology": [
+        "Mutual Interdependence",
+        "Predatory Pricing",
+        "Non-Price Competition",
+        "Collusion"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Strategic pricing anticipating competitor reactions",
+        "Non-price strategies like advertising and quality improvement"
+      ],
+      "exclusion": [
+        "Granular atomistic markets with large numbers of independent sellers"
+      ],
+      "nearby_distinctions": [
+        "Distinguished by explicit rival interdependence, requiring anticipation of competitor retaliation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f7526daf-3713-4fc5-b2b1-975e3488d44f",
+      "concept_name": "Principles of Product Pricing",
+      "definition": "Product pricing relies primarily on competitive market situations and demand elasticities rather than cost alone to maximize profits. Pricing strategies must also account for customization based on customer traits, macro-economic factors, and legal constraints.",
+      "terminology": [
+        "Price Customization",
+        "Price Sensitivity",
+        "Competitive Situations"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Customization based on product line, past behavior, demographics, and time",
+        "Evaluation of market competition and elasticities"
+      ],
+      "exclusion": [
+        "Rigid pricing models based exclusively on historical production costs"
+      ],
+      "nearby_distinctions": [
+        "Focuses on broad market determinants and consumer behavioral factors rather than purely mechanical cost markups."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "30dd9cb9-0065-4e40-992f-42d33772d78c",
+      "concept_name": "Price Customization",
+      "definition": "Price customization sets product prices based on consumer preferences, perceived value, and specific behavioral or demographic traits. Mechanisms include product-line specifications, customer history, demographic concessions, and temporal differentials.",
+      "terminology": [
+        "Product Line Pricing",
+        "Demographic Pricing",
+        "Time Differential"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Varying prices by memory capacity, customer payment record, age, or subscription duration"
+      ],
+      "exclusion": [
+        "Uniform flat pricing applied identically across all market segments"
+      ],
+      "nearby_distinctions": [
+        "Customizes price points across segments based on consumer heterogeneity rather than charging a single going-rate."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f019a4ab-9d72-4ba5-96dc-f07203728a2e",
+      "concept_name": "Pricing Methods for Existing Finished Products",
+      "definition": "Pricing methods for existing finished goods are categorized based on cost, demand, and competitive market conditions. Firms utilize these frameworks to balance asset replacement needs, profit margins, and market realities.",
+      "terminology": [
+        "Cost-Based Pricing",
+        "Competition-Based Pricing",
+        "Value-Based Pricing"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Categorization into cost, competition, and value-oriented frameworks"
+      ],
+      "exclusion": [
+        "Arbitrary pricing lacking structural cost or market backing"
+      ],
+      "nearby_distinctions": [
+        "Serves as an umbrella structure encompassing specific cost-based, competition-based, and value-based methods."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3c362098-d955-4569-9598-3f0e24a8065c",
+      "concept_name": "Cost-Based Pricing Method",
+      "definition": "Cost-based pricing determines product prices by estimating full or variable production costs and adding a margin for profit or asset replacement. Variations include mark-up pricing on production costs and target rate of return pricing tied to invested capital.",
+      "terminology": [
+        "Full Cost",
+        "Mark-up Pricing",
+        "Target Rate of Return",
+        "Invested Capital"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Adding standard mark-ups to production costs",
+        "Calculating prices to achieve a desired return on investment"
+      ],
+      "exclusion": [
+        "Pricing models driven solely by competitor actions or customer perceived value without cost metrics"
+      ],
+      "nearby_distinctions": [
+        "Relies on internal cost calculations rather than external market leader benchmarks or sealed competitive bids."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "fec8cf7d-5201-40a3-9d8e-25bb364bcfd0",
+      "concept_name": "Competition-Based Pricing Method",
+      "definition": "Competition-based pricing sets a company's price primarily on the basis of what competitors or market leaders charge. Firms adjust their pricing policies relative to rivals through parity, discount, or premium pricing approaches.",
+      "terminology": [
+        "Competitive Pricing",
+        "Parity Pricing",
+        "Discount Pricing",
+        "Premium Pricing"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Maintaining prices proportional to competitor adjustments",
+        "Adopting industry average or leader price levels"
+      ],
+      "exclusion": [
+        "Determining prices exclusively through internal full-cost allocations"
+      ],
+      "nearby_distinctions": [
+        "Centers on external market competitor behavior rather than internal production costs or consumer value perceptions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "08693966-d7ea-436c-a7f0-8f0770d4163a",
+      "concept_name": "Going Rate Pricing",
+      "definition": "Going rate pricing is a competitive strategy where a firm aligns its product price with the industry average, which is particularly useful when costs are difficult to measure. It is prevalent in homogeneous markets where charging above or below the market rate is economically unviable.",
+      "terminology": [
+        "Going Rate Pricing",
+        "Homogeneous Product Markets",
+        "Industry Average"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Setting prices at the average industry level for homogeneous goods",
+        "Utilization in sectors where measuring individual costs is complex"
+      ],
+      "exclusion": [
+        "Differentiated product pricing based on unique brand attributes"
+      ],
+      "nearby_distinctions": [
+        "Differs from sealed-bid pricing by matching ongoing market averages rather than submitting customized competitive bids."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "18759428e37795d8436a1edba18dfe4db6e956a9f545cc7f030fcdc99d277a36",
+  "artifact_id": "c21d3107-096b-432f-83be-22929a7a5c48",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8443,
+  "output_tokens": 2937,
+  "cost_usd": 0.0098754,
+  "created_at": "2026-10-03T18:27:16.737702+00:00"
+}

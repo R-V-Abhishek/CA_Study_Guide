@@ -241,6 +241,12 @@ class TaxonomyLoader:
 
     def apply(self, session: Session, plan: dict[str, Any]) -> int:
         """Apply plan to database in a single transaction."""
+        from caf_db.models.taxonomy import TaxonomyMember, TaxonomyRelease
+        legacy = session.get(TaxonomyRelease, "legacy")
+        if legacy and session.scalar(sa.select(TaxonomyMember.node_id).where(
+            TaxonomyMember.taxonomy_version_id == legacy.taxonomy_version_id
+        ).limit(1)):
+            raise ValueError("Legacy taxonomy is snapshotted; import an independent textbook release instead of updating legacy nodes")
         yaml_hash = plan["yaml_hash"]
 
         # 1. Insert taxonomy_version

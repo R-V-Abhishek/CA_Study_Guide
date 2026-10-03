@@ -1,0 +1,358 @@
+{
+  "descriptors": [
+    {
+      "node_id": "ebf460cf-5d8b-4904-821b-ebefb5d37e62",
+      "concept_name": "Introduction to Professional Ethics",
+      "definition": "Professional ethics comprises personal, organizational, and corporate standards of behavior expected from professionals to uphold public interest and trust. Chartered Accountants must abide by ethical codes and fundamental principles to ensure professional credibility and independence.",
+      "terminology": [
+        "Professional Ethics",
+        "Code of Ethics",
+        "Fundamental Principles",
+        "Independence",
+        "Public Interest"
+      ],
+      "instrument_references": [
+        "Revised Code of Ethics"
+      ],
+      "inclusion": [
+        "Ethical standards of behavior for Chartered Accountants",
+        "Public interest responsibilities",
+        "Disciplinary mechanisms for deviations"
+      ],
+      "exclusion": [
+        "Detailed structures of Part 1, 2, and 3 of the Code",
+        "Specific threat categories"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general moral principles by its specific application to professional chartered accountancy duties and statutory responsibilities."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "03a3c284-c7bd-4f42-b876-5f6e02d3524e",
+      "concept_name": "Overview of the Code of Ethics",
+      "definition": "The revised Code of Ethics is structured into distinct parts covering all professional accountants, those in service, and those in public practice. It incorporates specific independence standards for audit, review, and other assurance engagements alongside a comprehensive glossary.",
+      "terminology": [
+        "Part 1",
+        "Part 2",
+        "Part 3",
+        "Part 4A",
+        "Part 4B",
+        "Independence Standards"
+      ],
+      "instrument_references": [
+        "Revised Code of Ethics",
+        "Part 4A",
+        "Part 4B"
+      ],
+      "inclusion": [
+        "Professional accountants in service",
+        "Professional accountants in public practice",
+        "Independence for audit, review, and assurance engagements"
+      ],
+      "exclusion": [
+        "Detailed behavioural rules outside the structural layout",
+        "Membership registration criteria"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between general fundamental compliance requirements and specific engagement-based independence standards."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "51b9ab12-d8eb-4c48-9130-dda1c5b6d8c5",
+      "concept_name": "Fundamental Principles",
+      "definition": "Professional accountants must observe fundamental principles including integrity, objectivity, professional competence and due care, confidentiality, and professional behaviour. Integrity requires straightforwardness and honesty, while professional competence and due care mandate maintaining requisite technical knowledge and acting diligently.",
+      "terminology": [
+        "Integrity",
+        "Objectivity",
+        "Professional Competence and Due Care",
+        "Confidentiality",
+        "Professional Behaviour"
+      ],
+      "instrument_references": [
+        "Code of Ethics of ICAI",
+        "Subsection 111",
+        "Subsection 112",
+        "Subsection 113"
+      ],
+      "inclusion": [
+        "Compliance requirements for honesty and fair dealing",
+        "Diligence in accordance with technical and professional standards",
+        "Avoidance of bias, conflict of interest, or undue influence"
+      ],
+      "exclusion": [
+        "Detailed safeguards and threat evaluation mechanics",
+        "Membership eligibility criteria"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes core personal and professional ethical traits from specific operational threat categories."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6f966c0c-ef2a-4af9-a297-c34bb60857e9",
+      "concept_name": "Threats, Evaluation of Threats and Safeguards",
+      "definition": "The conceptual framework requires professional accountants to identify, evaluate, and address threats to compliance with fundamental principles. These threats are categorized into self-interest, self-review, advocacy, familiarity, and intimidation threats.",
+      "terminology": [
+        "Self-interest Threats",
+        "Self-review threat",
+        "Advocacy threat",
+        "Familiarity threat",
+        "Intimidation threat",
+        "Conceptual framework"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Identification and evaluation of threats",
+        "Categories of threats impacting professional judgment",
+        "Examples of circumstances creating self-interest threats"
+      ],
+      "exclusion": [
+        "Fundamental principles definitions",
+        "Statutory membership provisions"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes active risks to professional independence from the static foundational ethical principles."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3ebebdf1-476c-4f7a-a262-802f69fea6aa",
+      "concept_name": "Non-Compliance with Laws and Regulations (NOCLAR)",
+      "definition": "Non-compliance with laws and regulations comprises intentional or unintentional acts of omission or commission contrary to prevailing laws by clients, employers, management, or those charged with governance. Professional accountants encountering potential NOCLAR during professional services must apply professional judgment without needing exhaustive legal expertise or conducting full investigations.",
+      "terminology": [
+        "NOCLAR",
+        "Non-compliance",
+        "Those charged with governance",
+        "Acts of omission or commission"
+      ],
+      "instrument_references": [
+        "Revised Code of Ethics",
+        "IESBA guidelines"
+      ],
+      "inclusion": [
+        "Acts contrary to prevailing laws by clients or employing organizations",
+        "Awareness of non-compliance during service provision",
+        "Application of professional judgment within engagement scope"
+      ],
+      "exclusion": [
+        "Personal misconduct unrelated to business activities",
+        "Non-compliance by outside parties not listed in the definition"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general audit procedures by focusing specifically on legal and regulatory breaches encountered rather than financial statement assertions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "bab0401d-924b-4356-97ff-c6415f5d45df",
+      "concept_name": "Membership of the Institute",
+      "definition": "Membership details are entered into the Register upon application acceptance, recording particulars such as qualifications and certificate status. Section 8 of the Chartered Accountants Act, 1949 enumerates explicit statutory disabilities that debar persons from entering or bearing their name on the Register.",
+      "terminology": [
+        "Register of Members",
+        "Certificate of Practice",
+        "Disabilities",
+        "Section 8",
+        "Section 19"
+      ],
+      "instrument_references": [
+        "Section 8 of the Chartered Accountants Act, 1949",
+        "Section 19 of the Chartered Accountants Act, 1949"
+      ],
+      "inclusion": [
+        "Particulars included in the Register",
+        "Statutory disqualifications for membership",
+        "Consequences of failing to disclose membership disabilities"
+      ],
+      "exclusion": [
+        "Classification categories of Associates and Fellows",
+        "Detailed fee restoration processes"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes administrative membership registration particulars from absolute statutory grounds for disqualification."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2222e1e5-4437-4dfb-a3d9-2f4436b94d74",
+      "concept_name": "Disabilities for the Purpose of Membership",
+      "definition": "Section 8 of the Chartered Accountants Act, 1949 outlines specific legal conditions that prevent individuals from being registered or retaining membership. Disqualifications include minority age, unsound mind, insolvency, conviction for moral turpitude, or prior removal for professional misconduct.",
+      "terminology": [
+        "Section 8",
+        "Disabilities",
+        "Undischarged insolvent",
+        "Moral turpitude",
+        "Professional misconduct"
+      ],
+      "instrument_references": [
+        "Section 8 of the Chartered Accountants Act, 1949",
+        "Section 5 of the Chartered Accountants Act, 1949"
+      ],
+      "inclusion": [
+        "Age and mental capacity criteria",
+        "Insolvency and criminal conviction conditions",
+        "Removal from membership consequences"
+      ],
+      "exclusion": [
+        "General register maintenance",
+        "Certificate of practice requirements"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes permanent or conditional legal disqualifications from standard fee-based removal provisions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ca5245d1-f3f0-4d27-ad29-4bcbb427527e",
+      "concept_name": "Types of Members of the Institute",
+      "definition": "Members of the Institute are classified into Associates and Fellows pursuant to Section 5 of the Chartered Accountants Act, 1949. Associate members use the designation A.C.A., whereas members meeting continuous practice criteria or possessing equivalent experience qualify as Fellows using F.C.A.",
+      "terminology": [
+        "Associate Member",
+        "Fellow Member",
+        "A.C.A.",
+        "F.C.A.",
+        "Section 5"
+      ],
+      "instrument_references": [
+        "Section 5 of the Chartered Accountants Act, 1949",
+        "Section 20 of the Act"
+      ],
+      "inclusion": [
+        "Criteria for Associate status",
+        "Criteria for Fellow status based on continuous practice or equivalent experience",
+        "Provisions for name removal from the Register"
+      ],
+      "exclusion": [
+        "Statutory disabilities under Section 8",
+        "Certificate of practice significance"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes entry-level Associate membership from advanced Fellow membership based on experience and practice duration."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7419d8ad-d61e-465c-b508-4eeb7daaf7c7",
+      "concept_name": "Removal of Name from the Register",
+      "definition": "Section 20 empowers the Council to remove a member's name from the Register for reasons such as death, request, non-payment of fees, or statutory disabilities. Subsequent restoration mechanisms and penalties for falsely claiming membership are enforced under separate statutory sections.",
+      "terminology": [
+        "Section 20",
+        "Removal of Name",
+        "Register",
+        "Section 24"
+      ],
+      "instrument_references": [
+        "Section 20 of the Act",
+        "Section 24 of the Chartered Accountants Act, 1949",
+        "Regulation 19 of the Chartered Accountants Regulations, 1988"
+      ],
+      "inclusion": [
+        "Grounds for council removal of members",
+        "Fee default removal conditions",
+        "Introduction to membership restoration and penalties"
+      ],
+      "exclusion": [
+        "Detailed case studies of fraudulent claims",
+        "Detailed Certificate of Practice significance"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes administrative or penal removal from the Register from initial registration criteria."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a873f0d2-b579-4d40-9768-ec9edbdaa98d",
+      "concept_name": "Restoration of Membership",
+      "definition": "Regulation 19 and Section 20 govern the restoration of a member's name to the Register following removal for non-payment of fees or disciplinary orders. Falsely claiming membership or practice status without valid credentials attracts penal consequences under Section 24.",
+      "terminology": [
+        "Restoration",
+        "Regulation 19",
+        "Section 24",
+        "Certificate of practice"
+      ],
+      "instrument_references": [
+        "Section 20 of the Chartered Accountants Act, 1949",
+        "Chartered Accountants Regulations, 1988",
+        "Section 24 of the Chartered Accountants Act, 1949",
+        "Indian Penal Code Section 465"
+      ],
+      "inclusion": [
+        "Restoration application processes and effective dates",
+        "Penalties for falsely representing membership",
+        "Judicial precedents on unauthorized designations"
+      ],
+      "exclusion": [
+        "Initial registration requirements",
+        "General ethical principles"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes regular membership maintenance from the reinstatement process of canceled registrations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d38e04b4-5f6b-48dc-8d70-78a547c871f2",
+      "concept_name": "Penalty for Falsely Claiming to be a Member etc.",
+      "definition": "Section 24 penalizes any non-member who represents themselves as an Institute member or uses the Chartered Accountant designation, as well as members lacking a certificate of practice who claim to be in practice. Convictions entail fines and potential imprisonment.",
+      "terminology": [
+        "Section 24",
+        "Certificate of Practice",
+        "Penalty",
+        "Designation"
+      ],
+      "instrument_references": [
+        "Section 24 of the Chartered Accountants Act, 1949",
+        "Section 6 of the Chartered Accountants Act, 1949"
+      ],
+      "inclusion": [
+        "Fines and imprisonment terms for first and subsequent convictions",
+        "Significance of holding a Certificate of Practice",
+        "Prohibition on unauthorized professional practice"
+      ],
+      "exclusion": [
+        "General register entry criteria",
+        "Detailed disciplinary committee procedures"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes infractions involving false professional titles from standard internal disciplinary code violations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "135825e4-4b71-47e6-816a-fbc84658421b",
+      "concept_name": "Chartered Accountants in Practice",
+      "definition": "A practicing Chartered Accountant is a member holding a valid Certificate of Practice or deemed to be in practice under the Act. Members not in practice are restricted from accepting professional engagements typically reserved for Chartered Accountants.",
+      "terminology": [
+        "Certificate of Practice",
+        "Practicing Chartered Accountant",
+        "Section 6",
+        "Deemed to be in Practice"
+      ],
+      "instrument_references": [
+        "Section 6 of the Chartered Accountants Act, 1949",
+        "Chartered Accountants Act and its Regulations"
+      ],
+      "inclusion": [
+        "Certificate of practice mandatory requirement",
+        "Annual fee obligations for practice certificates",
+        "Restrictions on members not holding a certificate of practice"
+      ],
+      "exclusion": [
+        "General membership registration without practice rights",
+        "Penal provisions under Section 24"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes passive institute members from active practitioners entitled to render statutory professional services."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "a0feb4ad0faa212f050b556f72fc88e0eecbbf7635830775f0f6247cc3a9b8dd",
+  "artifact_id": "733e0f0d-c084-4da9-8f70-4170c74976bb",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8579,
+  "output_tokens": 3778,
+  "cost_usd": 0.0120187,
+  "created_at": "2026-10-03T18:16:36.841019+00:00"
+}

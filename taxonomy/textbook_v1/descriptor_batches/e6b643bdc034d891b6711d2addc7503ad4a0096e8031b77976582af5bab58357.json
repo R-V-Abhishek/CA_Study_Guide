@@ -1,0 +1,274 @@
+{
+  "descriptors": [
+    {
+      "node_id": "891beeb7-1198-4ab2-8ad0-da8ff279c56b",
+      "concept_name": "Structure of Schedules to the Chartered Accountants Act",
+      "definition": "The First and Second Schedules of the Chartered Accountants Act define acts or omissions amounting to professional misconduct. They categorize violations into specific parts relating to members in practice, members in service, and members generally.",
+      "terminology": [
+        "First Schedule",
+        "Second Schedule",
+        "Professional Misconduct",
+        "Board of Discipline",
+        "Disciplinary Committee"
+      ],
+      "instrument_references": [
+        "Section 22 of the Chartered Accountants Act, 1949"
+      ],
+      "inclusion": [
+        "Misconduct rules for members in practice",
+        "Misconduct rules for members in service",
+        "Misconduct rules for members generally"
+      ],
+      "exclusion": [
+        "Substantive clause-level violation illustrations",
+        "Council general guidelines"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between First Schedule provisions covering general or practice-specific rules and Second Schedule provisions handling severe professional misconduct categories."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e39ef668-deaa-47b6-b925-244d0c61d8e1",
+      "concept_name": "Allowing Unqualified Persons to Practice in Accountant Name",
+      "definition": "A practicing chartered accountant commits professional misconduct by permitting any unqualified person to practice under their name. However, partners who are qualified chartered accountants in practice or firm employees may practice under that name.",
+      "terminology": [
+        "Professional Misconduct",
+        "Practicing Chartered Accountant",
+        "Unqualified Person",
+        "Partner",
+        "Employee"
+      ],
+      "instrument_references": [
+        "Clause (1) of Part I of the First Schedule to the Chartered Accountants Act, 1949"
+      ],
+      "inclusion": [
+        "Permitting qualified partners to practice in the member's name",
+        "Permitting firm employees to practice in the member's name"
+      ],
+      "exclusion": [
+        "Allowing non-chartered accountants or relatives lacking qualifications to practice under the member's name"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between permitted use of a CA firm name by qualified internal partners or employees versus prohibited use by external unqualified individuals."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "fef0b300-034b-4939-98e5-66bfef4f5d62",
+      "concept_name": "Disclosure of Client Professional Information",
+      "definition": "A practicing accountant must maintain client confidentiality and is guilty of professional misconduct if they disclose acquired professional information to third parties. Disclosure is permissible only with explicit client consent or when mandated by prevailing laws.",
+      "terminology": [
+        "Confidentiality",
+        "Professional Engagement",
+        "Disciplinary Committee",
+        "Consent",
+        "Breach of Professional Confidence"
+      ],
+      "instrument_references": [
+        "Clause (1) of Part I of the Second Schedule to the Chartered Accountants Act, 1949"
+      ],
+      "inclusion": [
+        "Disclosures explicitly authorized by the client",
+        "Disclosures mandatory under active legal frameworks"
+      ],
+      "exclusion": [
+        "Unauthorized sharing of client records",
+        "Voluntary leaks of operational details post-assignment completion"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between mandatory or client-consented regulatory disclosures and unauthorized breaches of professional trust."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f1e25789-7042-47ab-92e5-2c51f7552e57",
+      "concept_name": "Council General Guidelines Maintenance of Books of Account",
+      "definition": "Practicing chartered accountants or their firms must maintain proper professional books of account including a cash book and a ledger. Failure to maintain these records constitutes professional misconduct regardless of thresholds in other tax statutes.",
+      "terminology": [
+        "Council General Guidelines 2008",
+        "Books of Account",
+        "Cash Book",
+        "Ledger",
+        "Professional Misconduct"
+      ],
+      "instrument_references": [
+        "Clause (1) of Part-II of Second Schedule to The Chartered Accountants Act, 1949",
+        "Council General Guidelines, 2008"
+      ],
+      "inclusion": [
+        "Maintaining a professional cash book",
+        "Maintaining a professional ledger"
+      ],
+      "exclusion": [
+        "Relying solely on income tax turnover exemptions to bypass professional account-keeping rules"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes ICAI professional accounting mandates from general tax law maintenance limits like Section 44AA of the Income Tax Act."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ad340de5-e060-46c5-9f0f-0172cd8d61a5",
+      "concept_name": "Council Guidelines for Advertisement Write-ups",
+      "definition": "Members may publish informational write-ups about their firms and services provided they preserve the professional dignity and uphold truthfulness. These advertisements must avoid exaggerated claims, testimonials, client names, or prohibited formatting features.",
+      "terminology": [
+        "Write-up",
+        "Professional Reputation",
+        "Dignity",
+        "Disparaging References",
+        "Membership No./FRN"
+      ],
+      "instrument_references": [
+        "Council Guidelines for Advertisement, 2008",
+        "Chartered Accountants Act, 1949",
+        "Chartered Accountants Regulations, 1988",
+        "Code of Ethics, 2020"
+      ],
+      "inclusion": [
+        "Honest and truthful service particulars",
+        "Mandatory display of membership number or FRN",
+        "Font size compliance up to limit"
+      ],
+      "exclusion": [
+        "Client testimonials",
+        "Naming past or present clients",
+        "Disclosing fee amounts"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes acceptable factual member write-ups from prohibited promotional marketing, client endorsements, and exaggerated claims."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d9a89d51-2642-4f6c-bb3b-bf41cdcd8cd7",
+      "concept_name": "Branch Audits Self-Regulatory Restriction",
+      "definition": "Statutory auditors comprising ten or more members should refrain from conducting company branch audits, leaving them to smaller local firms. Exceptions apply if branch accounting records remain at the head office or significant operations occur at the branch.",
+      "terminology": [
+        "Branch Audits",
+        "Statutory Auditors",
+        "Self-Regulatory Measures",
+        "Head Office",
+        "Local Firms"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Branch audits handled by local firms with fewer than ten members",
+        "Statutory audit access rights preserved under company law"
+      ],
+      "exclusion": [
+        "Large statutory audit firms conducting branch audits where records are decentralized and operations are significant"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes recommendatory self-regulatory limits on large statutory audit firms handling branch audits from statutory statutory-access rights."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "85c94f76-7749-4cee-a509-adb3275b0f46",
+      "concept_name": "Relative Size Fee Disclosures for Entities",
+      "definition": "Practicing firms must disclose fee dependencies when gross annual professional fees from a single audit client exceed specific thresholds for consecutive years. Differentiated limits apply based on whether the entity is categorized as a public interest entity or a non-public interest entity.",
+      "terminology": [
+        "Public Interest Entities",
+        "Gross Annual Professional Fees",
+        "Relative Size",
+        "Disclosure Requirements",
+        "Audit Client"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Fee disclosures exceeding forty percent for non-public interest entities over two consecutive years",
+        "Fee disclosures exceeding twenty percent for public interest entities over two consecutive years"
+      ],
+      "exclusion": [
+        "Firms with total fees not exceeding twenty lakh rupees",
+        "Government company and regulated public sector bank audits"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes fee dependency disclosure rules for public interest entities versus non-public interest entities."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5072742f-7076-44bf-9d6f-db37fdf327c5",
+      "concept_name": "Joint Audit Practice Recommendations",
+      "definition": "Large companies are encouraged to associate practicing firms with fewer than five members as joint auditors. Senior firms should not object if a client requests the appointment of such a smaller firm.",
+      "terminology": [
+        "Joint Audit",
+        "Large Companies",
+        "Practicing Firm",
+        "Senior Firm",
+        "Self-Regulatory Measures"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Associating smaller firms with less than five members as joint auditors",
+        "Client selection of joint auditors without senior firm obstruction"
+      ],
+      "exclusion": [
+        "Exclusive single-firm statutory audits for large enterprises without joint auditor collaboration"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes recommendations promoting small firm participation in joint audits from mandatory statutory appointment criteria."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "98f9efed-5d7f-4936-a0e3-ed14cc24bbc5",
+      "concept_name": "Ratio Between Qualified and Unqualified Staff",
+      "definition": "Practicing audit firms should maintain a minimum staffing proportion of at least one qualified member for every five non-qualified staff members. This count excludes articled assistants, audit assistants, typists, and peons not directly engaged in professional audit work.",
+      "terminology": [
+        "Qualified Staff",
+        "Non-Qualified Members",
+        "Articled Assistants",
+        "Audit Work",
+        "Practicing Firm"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Counting professional firm members directly engaged in audit work",
+        "Excluding administrative personnel like typists and peons from staff ratios"
+      ],
+      "exclusion": [
+        "Counting articled and audit trainees toward the non-qualified professional staff ratio computation"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes professional and non-qualified core audit staff from support staff and trainees for ratio compliance."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "673b5a5b-5b1c-4f20-931e-08b0a759bf9e",
+      "concept_name": "Disclosure of Interest by Auditors in Other Firms",
+      "definition": "Auditors should transparently disclose any payments received for rendering other services through alternate firms in which they hold a proprietary or partnership interest. This practice ensures transparency regarding ancillary service revenues collected via separate entities.",
+      "terminology": [
+        "Disclosure of Interest",
+        "Other Services",
+        "Partner",
+        "Proprietor",
+        "Alternative Firms"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Disclosing payments from secondary firms where the auditor is a partner",
+        "Disclosing payments from secondary entities where the auditor is a proprietor"
+      ],
+      "exclusion": [
+        "Concealing revenues generated through associated alternate service entities"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes primary statutory audit fee disclosures from transparent disclosures of payments received through distinct affiliated service firms."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "e6b643bdc034d891b6711d2addc7503ad4a0096e8031b77976582af5bab58357",
+  "artifact_id": "733e0f0d-c084-4da9-8f70-4170c74976bb",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 7235,
+  "output_tokens": 2965,
+  "cost_usd": 0.009583,
+  "created_at": "2026-10-03T18:16:33.779477+00:00"
+}

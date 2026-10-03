@@ -76,6 +76,8 @@ class ManualImporter:
             blob_path=str(blob_path),
             bytes=len(data),
             origin="manual",
+            course_level=meta.get("course_level"),
+            provenance_status="unresolved",
             scheme_id=scheme_id,
             attempt_id=attempt_id,
             paper_id=paper_id,

@@ -44,11 +44,18 @@ class HierarchicalClassifier:
     def __init__(self, session: Session, gemini_classifier: GeminiClassifier | None = None):
         self.session = session
         self.gemini_classifier = gemini_classifier
+        from caf_l0.releases import active_version
+        release = active_version(session)
+        self.textbook_classifier = None
+        if release:
+            from caf_l3.textbook import TextbookClassifier
+            self.textbook_classifier = TextbookClassifier(session, release.version_id, gemini_classifier)
         # Cache nodes and descriptors
         self._load_cache()
 
     def _load_cache(self) -> None:
-        self.nodes = {n.id: n for n in self.session.query(Node).all()}
+        from caf_l0.hierarchy import version_nodes
+        self.nodes = {n.id: n for n in version_nodes(self.session)}
         self.descriptors = {d.node_id: d for d in self.session.query(Descriptor).all()}
         self.nodes_by_paper: dict[str, list[Node]] = {}
         for n in self.nodes.values():
@@ -66,6 +73,12 @@ class HierarchicalClassifier:
         use_llm: bool = True,
     ) -> ClassificationResult:
         """Run hierarchical classification with consistency checks."""
+        if self.textbook_classifier:
+            return self.textbook_classifier.classify_unit(
+                paper_id=paper_id, question_text=question_text, context_text=context_text,
+                answer_text=answer_text, fingerprint=fingerprint, run_id=run_id,
+                use_llm=use_llm, chapter_hint_id=chapter_hint_id,
+            )
         # 0. Try LLM Classification if configured and enabled
         if use_llm and self.gemini_classifier and self.gemini_classifier.is_available():
             try:

@@ -1,0 +1,66 @@
+{
+  "descriptors": [
+    {
+      "node_id": "6097b76e-9a31-4702-91eb-f1c1f61c8067",
+      "concept_name": "Holistic strategic decision-making",
+      "definition": "Strategic business choices require a comprehensive, interconnected evaluation of organizational operations instead of isolated functional perspectives. These decisions encompass product development, market expansion, and related or unrelated diversification options.",
+      "terminology": [
+        "Holistic view",
+        "Strategic objectives",
+        "Diversification",
+        "Horizontal integration",
+        "Vertical integration"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "New product development",
+        "Market exploration",
+        "Horizontal integration",
+        "Vertical integration"
+      ],
+      "exclusion": [
+        "Siloed operational approaches",
+        "Single-department optimizations without overall impact analysis"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from narrow functional decision-making by evaluating cross-functional consequences across productivity, profitability, and growth."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0b17aaf7-eddc-4bb0-bad0-c7d56c3fc9bd",
+      "concept_name": "Interrelated finance, reporting, assurance and compliance",
+      "definition": "Strategic business execution demands integrated financial management, robust risk systems, and strict compliance with accounting standards and tax legislation. Proper adherence to these regulatory requirements ensures legal protection and accurate presentation of financial outcomes.",
+      "terminology": [
+        "Financial risk management",
+        "Accounting standards",
+        "Tax laws",
+        "Statutory compliances",
+        "Legal compliance"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Financial decisions supporting strategic moves",
+        "Adherence to corporate tax laws",
+        "Compliance with accounting standards"
+      ],
+      "exclusion": [
+        "Unregulated operational adjustments",
+        "Non-compliant financial practices"
+      ],
+      "nearby_distinctions": [
+        "Differs from pure strategic planning by focusing strictly on the financial controls, risk frameworks, and statutory duties required to sustain corporate operations safely."
+      ],
+      "source_ambiguities": [
+        "Text source excerpt cuts off abruptly at the end regarding financial re."
+      ]
+    }
+  ],
+  "input_hash": "2d876d51953f933d790c6fd3b7d1290bddc4f1c95771dda4f04df824643684ae",
+  "artifact_id": "eb17a8d6-23b0-47cd-90e3-f8ceaf69e2e0",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 1508,
+  "output_tokens": 565,
+  "cost_usd": 0.0018649,
+  "created_at": "2026-10-03T18:23:46.887270+00:00"
+}

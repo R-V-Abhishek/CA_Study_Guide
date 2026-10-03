@@ -1,0 +1,41 @@
+{
+  "descriptors": [
+    {
+      "node_id": "a998f6d3-959b-48f6-8e2e-a1c1d9c6eb25",
+      "concept_name": "Extracts of Financial Statements of Listed Entity for Share-Based Payments",
+      "definition": "Entity financial statements reflect equity-settled and cash-settled employee compensation plans through proportionate expense recognition and corresponding reserve or liability adjustments. Grant-date fair values determine overall expense computations while factoring estimated forfeitures and non-market performance metrics across the defined vesting period.",
+      "terminology": [
+        "Equity-settled",
+        "Cash-settled",
+        "Grant date fair value",
+        "Vesting period",
+        "Share-based payment reserve"
+      ],
+      "instrument_references": [
+        "Ind AS 102"
+      ],
+      "inclusion": [
+        "Recognition of employee share-based payment expenses",
+        "Subsequent re-measurement of liabilities for cash-settled awards at fair value",
+        "Estimation of forfeitures and options expected to vest at reporting dates"
+      ],
+      "exclusion": [
+        "Awards failing to vest due to unmet service or non-market performance conditions",
+        "Unrelated employee benefit categories outside share-based compensation"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes equity-settled awards which credit a component of equity from cash-settled awards which establish a liability re-measured through profit or loss."
+      ],
+      "source_ambiguities": [
+        "Source text cuts off mid-sentence at the end discussing market performance conditions."
+      ]
+    }
+  ],
+  "input_hash": "eddf2e757482eeb43ac1c59c965ed5af3ff0cdce839498bc293ae9f4d5a2d887",
+  "artifact_id": "5d0aacb2-9e60-45a9-841a-7f617c9cc94b",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 1012,
+  "output_tokens": 391,
+  "cost_usd": 0.0012810999999999999,
+  "created_at": "2026-10-03T18:04:10.104032+00:00"
+}

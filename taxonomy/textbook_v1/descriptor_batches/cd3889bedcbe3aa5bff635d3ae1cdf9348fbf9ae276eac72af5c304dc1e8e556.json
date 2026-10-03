@@ -1,0 +1,296 @@
+{
+  "descriptors": [
+    {
+      "node_id": "edd551a4-5de1-497a-93a5-1301426c2914",
+      "concept_name": "Initial Measurement Factors for Assets and Liabilities",
+      "definition": "Initial measurement evaluates an asset or liability at recognition, typically matching its subsequent measurement basis. Market transactions generally equate initial cost to fair value unless transaction costs are material.",
+      "terminology": [
+        "initial recognition",
+        "fair value",
+        "historical cost",
+        "market terms"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "assets acquired using cash",
+        "liabilities incurred using cash",
+        "assets acquired via asset exchange"
+      ],
+      "exclusion": [
+        "subsequent measurement adjustments",
+        "off-market transactions"
+      ],
+      "nearby_distinctions": [
+        "Differs from off-market transactions where terms are influenced by related parties or special conditions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7b9c42ba-2882-4fb6-9d48-5e362e2dd0f1",
+      "concept_name": "Transactions on Market Terms",
+      "definition": "Market transactions involve cash or equivalent exchanges where initial cost aligns closely with fair value. Exchanges of assets or liabilities determine whether income or expense arises based on carrying versus fair values.",
+      "terminology": [
+        "at-market transactions",
+        "exchange of asset",
+        "derecognition",
+        "fair value"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "cash-based asset acquisitions",
+        "liability incurrence on market terms",
+        "asset or liability exchanges"
+      ],
+      "exclusion": [
+        "transactions affected by party relationships",
+        "government grants free of charge"
+      ],
+      "nearby_distinctions": [
+        "Unlike off-market transactions, market terms reflect standard fair value equivalencies without concessions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5e3daf09-d1f0-4bb6-bd42-8637f8f6f032",
+      "concept_name": "Transactions Not on Market Terms (Off-Market Transactions)",
+      "definition": "Off-market transactions occur outside standard commercial terms, such as through related-party relationships or government grants. Such events require measurement at deemed cost or fair value, recognizing differences as income, expenses, or equity contributions.",
+      "terminology": [
+        "off-market transactions",
+        "deemed cost",
+        "equity contribution",
+        "fair value"
+      ],
+      "instrument_references": [
+        "Ind AS 109"
+      ],
+      "inclusion": [
+        "transactions influenced by party relationships",
+        "government grants of assets free of charge",
+        "legislation-imposed liabilities"
+      ],
+      "exclusion": [
+        "cash transactions on standard market terms"
+      ],
+      "nearby_distinctions": [
+        "Unlike market transactions, off-market transactions necessitate adjustments like equity contributions when consideration differs from fair value."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b02e8354-dcc1-4710-99e3-3f6feb841bdb",
+      "concept_name": "More Than One Measurement Basis",
+      "definition": "Multiple measurement bases may be necessary when using a single basis fails to faithfully represent both financial position and performance. Total current value changes can be separated so that profit or loss reflects one basis while other comprehensive income captures the remainder.",
+      "terminology": [
+        "current value",
+        "amortised cost",
+        "other comprehensive income",
+        "profit or loss"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "interest-bearing financial assets measured at fair value through OCI",
+        "separation of total fair value changes"
+      ],
+      "exclusion": [
+        "single measurement basis applied uniformly without separation"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from single-basis reporting by segregating performance impacts between profit or loss and OCI."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0a61a243-3251-4f90-bb3d-2efac8861bc3",
+      "concept_name": "Measurement of Equity",
+      "definition": "Total equity is determined residually as the difference between recognized assets and liabilities rather than measured directly. Financial statements do not represent the entity's aggregate market value or enterprise sale price.",
+      "terminology": [
+        "total equity",
+        "carrying amount",
+        "residual value",
+        "going concern"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "residual calculation of total equity",
+        "direct measurement of specific equity components"
+      ],
+      "exclusion": [
+        "aggregate market value of equity claims",
+        "entity going concern sale valuation"
+      ],
+      "nearby_distinctions": [
+        "Unlike assets and liabilities that may have direct measurement bases, total equity is always calculated residually."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f1736a40-157e-4fc1-9742-4386e189ecac",
+      "concept_name": "Presentation and Disclosure Objectives and Principles",
+      "definition": "Financial statement communication balances entity flexibility with cross-period and cross-entity comparability. Effective reporting prioritizes entity-specific information while avoiding unnecessary duplication.",
+      "terminology": [
+        "effective communication",
+        "comparability",
+        "flexibility",
+        "entity-specific information"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "balancing flexibility and comparability",
+        "prioritizing entity-specific disclosures"
+      ],
+      "exclusion": [
+        "standardised generic descriptions",
+        "unnecessary information duplication"
+      ],
+      "nearby_distinctions": [
+        "Focuses on communication principles rather than recognition or measurement criteria."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "16216551-78a3-489c-aeda-cf2b65bf9693",
+      "concept_name": "Classification",
+      "definition": "Classification categorizes financial statement elements based on shared characteristics such as nature, business function, or measurement basis. Grouping dissimilar items obscures relevant information and reduces understandability.",
+      "terminology": [
+        "classification",
+        "shared characteristics",
+        "nature",
+        "function"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "sorting assets and liabilities",
+        "sorting income and expenses by shared traits"
+      ],
+      "exclusion": [
+        "grouping dissimilar items together",
+        "offsetting assets and liabilities"
+      ],
+      "nearby_distinctions": [
+        "Differs from aggregation, which combines items already sharing the same classification."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a7a29774-e78e-402f-9c6a-5af3c32888cd",
+      "concept_name": "Classification of Assets and Liabilities",
+      "definition": "Classification applies primarily to selected units of account for assets and liabilities, separating components when differing characteristics warrant it. Separating current and non-current components enhances the utility of financial information.",
+      "terminology": [
+        "unit of account",
+        "current component",
+        "non-current component",
+        "classification"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "separating asset components by maturity or characteristic",
+        "current and non-current balance sheet segregation"
+      ],
+      "exclusion": [
+        "offsetting separate asset and liability units into a single net total"
+      ],
+      "nearby_distinctions": [
+        "Applies classification rules to distinct asset and liability components rather than treating sets of rights as single units."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "40cfe12b-45b2-4013-b1d1-6aae9af5882f",
+      "concept_name": "Offsetting",
+      "definition": "Offsetting combines separately recognized assets and liabilities into a single net balance sheet amount. Because this practice groups dissimilar items, it is generally inappropriate unless specifically permitted.",
+      "terminology": [
+        "offsetting",
+        "net amount",
+        "unit of account",
+        "balance sheet"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "combining separate asset and liability units into a single net figure"
+      ],
+      "exclusion": [
+        "treating a single set of rights and obligations as one unit of account"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from treating a single contractual set of rights and obligations as a single unit of account."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "92a89d8b-474a-42c6-bbdf-2f471c34796d",
+      "concept_name": "Classification of Equity",
+      "definition": "Equity claims and components are classified separately when they possess distinct characteristics or face specific regulatory constraints. Separate presentation helps identify reserves subject to legal distribution restrictions.",
+      "terminology": [
+        "equity claims",
+        "components of equity",
+        "distributable reserves",
+        "regulatory requirements"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "separate classification of equity claims with different characteristics",
+        "disclosure of legally distributable reserves"
+      ],
+      "exclusion": [
+        "aggregating all equity claims into a single undifferentiated pool"
+      ],
+      "nearby_distinctions": [
+        "Focuses on legal and structural distinctions among equity claims rather than asset classification."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f7150883-2b58-41d2-b42a-ff4531aaf3d0",
+      "concept_name": "Classification of Income and Expenses",
+      "definition": "Income and expenses are classified based on the underlying unit of account or separated components possessing different characteristics. Separating distinct components like value changes and interest accrual enhances reporting usefulness.",
+      "terminology": [
+        "income and expenses",
+        "components",
+        "value changes",
+        "accrual of interest"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "separating interest accrual from value changes",
+        "classifying income and expense components"
+      ],
+      "exclusion": [
+        "lumping distinct revenue and expense components without structural basis"
+      ],
+      "nearby_distinctions": [
+        "Applies classification criteria to financial performance flows rather than balance sheet positions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8c15bcd2-020c-4479-97b7-a0d4946acdc5",
+      "concept_name": "Profit or Loss and Other Comprehensive Income",
+      "definition": "All income and expenses are included in profit or loss unless exceptional standard-setting permits inclusion in other comprehensive income. Items in other comprehensive income may subsequently be reclassified into profit or loss when relevant.",
+      "terminology": [
+        "profit or loss",
+        "other comprehensive income",
+        "reclassification",
+        "financial performance"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "inclusion of performance items in profit or loss",
+        "exceptional allocation of current value changes to other comprehensive income"
+      ],
+      "exclusion": [
+        "permanent omission of performance items from financial statements"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes primary performance reporting in profit or loss from items routed through other comprehensive income."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "cd3889bedcbe3aa5bff635d3ae1cdf9348fbf9ae276eac72af5c304dc1e8e556",
+  "artifact_id": "286aeffb-c1e1-493c-a40f-709922f46d7d",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8300,
+  "output_tokens": 2956,
+  "cost_usd": 0.00988,
+  "created_at": "2026-10-03T17:47:20.982408+00:00"
+}

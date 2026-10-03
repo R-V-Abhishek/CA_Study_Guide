@@ -1,0 +1,317 @@
+{
+  "descriptors": [
+    {
+      "node_id": "5b33fea3-2c39-4200-afec-39578e247726",
+      "concept_name": "Nature and Scope of Review Engagements",
+      "definition": "A review is a limited assurance engagement designed to reduce engagement risk to an acceptable level that is higher than in an audit. It evaluates historical financial statements through sufficient and appropriate evidence gathering to enhance user confidence.",
+      "terminology": [
+        "limited assurance",
+        "engagement risk",
+        "historical financial information",
+        "Standards on Review Engagements"
+      ],
+      "instrument_references": [
+        "SRE 2400",
+        "SRE 2410",
+        "SQC 1"
+      ],
+      "inclusion": [
+        "General purpose financial statements",
+        "Special purpose financial statements",
+        "Historical financial information"
+      ],
+      "exclusion": [
+        "Reasonable assurance engagements",
+        "Full scope statutory audits"
+      ],
+      "nearby_distinctions": [
+        "Unlike an audit which provides reasonable assurance, a review provides limited assurance with fewer procedures."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2689bb18-3fcc-49c9-b4e1-010fb1e01a27",
+      "concept_name": "Application of Standards on Review Engagements",
+      "definition": "Standards on Review Engagements govern the performance of review services by practitioners on financial information. These standards form part of engagement standards where quality control is premised on the firm adhering to quality frameworks.",
+      "terminology": [
+        "Standards on Review Engagements",
+        "Engagement Standards",
+        "Practitioner"
+      ],
+      "instrument_references": [
+        "SRE 2400",
+        "SRE 2410",
+        "SQC 1"
+      ],
+      "inclusion": [
+        "Review of historical financial statements",
+        "Review of interim financial information"
+      ],
+      "exclusion": [
+        "Non-assurance compilation services"
+      ],
+      "nearby_distinctions": [
+        "Distinct from auditing standards by targeting lower assurance thresholds and procedure volumes."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "34519133-687c-416a-90c7-df43e6aaac27",
+      "concept_name": "Responsibilities and Scope under SRE 2400",
+      "definition": "SRE 2400 governs a practitioner's responsibilities when reviewing historical financial statements when they are not the entity's auditor. The practitioner primarily uses inquiry and analytical procedures, supplemented by additional procedures if potential material misstatements are identified.",
+      "terminology": [
+        "historical financial statements",
+        "inquiry and analytical procedures",
+        "material misstatement",
+        "practitioner's report"
+      ],
+      "instrument_references": [
+        "SRE 2400"
+      ],
+      "inclusion": [
+        "Practitioner responsibilities for non-audit clients",
+        "Form and content of the review report"
+      ],
+      "exclusion": [
+        "Reviews performed by the independent statutory auditor of the entity"
+      ],
+      "nearby_distinctions": [
+        "Applies specifically when the reviewing practitioner is independent of the recurring annual audit role."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b0b97cbe-af09-4b56-99f4-85cb4b1d1d22",
+      "concept_name": "Objectives and Reporting Obligations under SRE 2400",
+      "definition": "The practitioner aims to obtain limited assurance on whether financial statements are free from material misstatement using inquiries and analytical procedures. If limited assurance cannot be obtained and modification is insufficient, the practitioner must disclaim a conclusion or withdraw.",
+      "terminology": [
+        "limited assurance",
+        "modified conclusion",
+        "disclaim a conclusion",
+        "withdrawal"
+      ],
+      "instrument_references": [
+        "SRE 2400"
+      ],
+      "inclusion": [
+        "Expressing a negative assurance conclusion",
+        "Engagement withdrawal or disclaimer protocols"
+      ],
+      "exclusion": [
+        "Unmodified positive audit opinions"
+      ],
+      "nearby_distinctions": [
+        "Focuses on negative form conclusions rather than positive assurance opinions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f2c47547-73e7-4e23-bf20-fffeb88ea321",
+      "concept_name": "Acceptance and Continuance Considerations",
+      "definition": "Practitioners must refuse a review engagement if there is no rational purpose, ethical or independence requirements fail, required information is unavailable or unreliable, or management integrity is doubtful. Engagements intended to satisfy statutory audit requirements lack a rational purpose for review.",
+      "terminology": [
+        "rational purpose",
+        "ethical requirements",
+        "independence",
+        "management integrity"
+      ],
+      "instrument_references": [
+        "SRE 2400"
+      ],
+      "inclusion": [
+        "Evaluations of scope limitations",
+        "Assessment of management trustworthiness"
+      ],
+      "exclusion": [
+        "Engagements with statutory audit mandates requiring full audits"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between appropriate review scenarios and situations where a full audit or compilation is mandated."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "667dc711-6e8b-4b40-a419-44b7c8194216",
+      "concept_name": "Preconditions for Accepting a Review Engagement",
+      "definition": "Before accepting a review, the practitioner must verify the acceptability of the financial reporting framework and obtain management's agreement on responsibilities. Management must acknowledge responsibility for financial statement preparation, internal controls, and providing unrestricted access to information and personnel.",
+      "terminology": [
+        "financial reporting framework",
+        "internal control",
+        "unrestricted access",
+        "management responsibilities"
+      ],
+      "instrument_references": [
+        "SRE 2400"
+      ],
+      "inclusion": [
+        "Verification of framework suitability",
+        "Written acknowledgement of management duties"
+      ],
+      "exclusion": [
+        "Engagements lacking management commitment to internal controls or record access"
+      ],
+      "nearby_distinctions": [
+        "Mandates explicit preconditions similar to audits, tailored specifically for review engagements."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "88495972-fb39-4845-ae4f-f6125ca9076a",
+      "concept_name": "Terms of Engagement and Materiality Framework",
+      "definition": "The practitioner must record agreed terms in an engagement letter prior to performance and evaluate changes when circumstances shift. Materiality for the financial statements as a whole must be determined and applied identically regardless of the lower assurance level.",
+      "terminology": [
+        "engagement letter",
+        "materiality",
+        "recurring engagements",
+        "change in terms"
+      ],
+      "instrument_references": [
+        "SRE 2400"
+      ],
+      "inclusion": [
+        "Engagement letter documentation",
+        "Materiality determination for financial statements as a whole"
+      ],
+      "exclusion": [
+        "Undocumented informal engagement terms"
+      ],
+      "nearby_distinctions": [
+        "Maintains the same concept of financial statement materiality as audits despite lower evidence collection."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d6a28408-62f7-429d-93b2-7778fa7ac617",
+      "concept_name": "Emphasis of Matter and Other Reporting Matters",
+      "definition": "The practitioner uses an Emphasis of Matter paragraph to draw attention to fundamental disclosed items in the financial statements supported by sufficient appropriate evidence. Other matters relevant to understanding the review or practitioner responsibilities are reported under an Other Matter heading.",
+      "terminology": [
+        "Emphasis of Matter",
+        "Other Matter",
+        "fundamental to users' understanding",
+        "financial statement disclosures"
+      ],
+      "instrument_references": [
+        "SRE 2400"
+      ],
+      "inclusion": [
+        "Emphasis of Matter paragraphs",
+        "Other Matter disclosures"
+      ],
+      "exclusion": [
+        "Matters not presented or disclosed in the financial statements placed in Emphasis of Matter"
+      ],
+      "nearby_distinctions": [
+        "Emphasis of Matter references disclosed financial data, whereas Other Matter addresses external review responsibilities."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "30776630-8f11-48a6-aac6-aa15fb6082d4",
+      "concept_name": "Documentation Requirements for Review Engagements",
+      "definition": "Review documentation must provide a sufficient record of the work performed to enable an experienced practitioner with no prior connection to understand the procedures, results, and judgments. Documentation must capture the nature, timing, extent of work, review quality control details, and the resolution of inconsistent information.",
+      "terminology": [
+        "documentation",
+        "experienced practitioner",
+        "significant matters",
+        "inconsistent information"
+      ],
+      "instrument_references": [
+        "SRE 2400"
+      ],
+      "inclusion": [
+        "Recording work performer details and dates",
+        "Documenting quality control review extent",
+        "Resolutions of contradictory findings"
+      ],
+      "exclusion": [
+        "Undocumented oral discussions without engagement rationale"
+      ],
+      "nearby_distinctions": [
+        "Mirrors audit documentation stringency by requiring proof of procedure execution and professional judgment."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0daee58c-11e0-481b-b9d7-2065e93a0233",
+      "concept_name": "Documentation Standards and Overview of Audit versus Review",
+      "definition": "This concept covers documentation retention mandates and sets up the comparative distinction between audits and reviews. Reviews require fewer procedures and lower assurance thresholds compared to extensive audit testing.",
+      "terminology": [
+        "documentation",
+        "audit vs review",
+        "assurance engagement",
+        "evidence records"
+      ],
+      "instrument_references": [
+        "SRE 2400"
+      ],
+      "inclusion": [
+        "Summary records of review execution",
+        "Cross-comparison of audit and review characteristics"
+      ],
+      "exclusion": [
+        "Absence of audit-level control testing in reviews"
+      ],
+      "nearby_distinctions": [
+        "Bridges detailed documentation requirements with structural differences between audit and review modalities."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8fe7405b-609d-4956-88ab-d459eed9c687",
+      "concept_name": "Comparative Distinctions Between Audit and Review Engagements",
+      "definition": "Audits provide reasonable assurance using extensive substantive and control testing with a positively worded opinion. Conversely, reviews deliver limited assurance through inquiry and analytical procedures, culminating in a negatively worded conclusion.",
+      "terminology": [
+        "reasonable assurance",
+        "limited assurance",
+        "positively worded opinion",
+        "negatively worded conclusion"
+      ],
+      "instrument_references": [
+        "SRE 2400"
+      ],
+      "inclusion": [
+        "Comparison of testing volume",
+        "Contrast between positive and negative reporting language"
+      ],
+      "exclusion": [
+        "Equating review conclusions with audit opinions"
+      ],
+      "nearby_distinctions": [
+        "Contrasts the high-assurance, procedure-heavy audit model with the inquiry-focused, low-assurance review model."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f175e51b-ca64-43f9-985b-6276f85a8d29",
+      "concept_name": "SRE 2410 Interim Financial Information Reviews",
+      "definition": "SRE 2410 governs the professional responsibilities of an independent statutory auditor when reviewing interim financial information for an audit client. Interim information comprises complete or condensed financial sets spanning periods shorter than a full financial year.",
+      "terminology": [
+        "SRE 2410",
+        "interim financial information",
+        "independent auditor",
+        "condensed financial statements"
+      ],
+      "instrument_references": [
+        "SRE 2410"
+      ],
+      "inclusion": [
+        "Quarterly financial reviews by statutory auditors",
+        "Condensed interim statement evaluations"
+      ],
+      "exclusion": [
+        "Reviews performed by practitioners independent of the annual audit appointment"
+      ],
+      "nearby_distinctions": [
+        "Differs from SRE 2400 by specifically applying to the entity's incumbent independent auditor rather than an outside practitioner."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "97bd3e44b5780cea5384da7a2a8b8573d87be7df503243d4537bef3e1679847a",
+  "artifact_id": "90b36341-d1cb-4663-b578-8964e8fff218",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 7979,
+  "output_tokens": 3243,
+  "cost_usd": 0.0105012,
+  "created_at": "2026-10-03T18:10:49.321532+00:00"
+}

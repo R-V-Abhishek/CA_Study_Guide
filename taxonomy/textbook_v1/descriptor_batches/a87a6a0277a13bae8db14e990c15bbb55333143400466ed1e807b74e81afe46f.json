@@ -1,0 +1,315 @@
+{
+  "descriptors": [
+    {
+      "node_id": "ae3d235d-9a58-449e-b9c0-d8d1679f6851",
+      "concept_name": "Overview of Public Sector Undertakings and Government Audit Framework",
+      "definition": "Public sector undertakings operate under government ownership or control to supply essential national inputs and public utilities. The Comptroller and Auditor General of India independently conducts government audits through constitutional authority and statutory powers.",
+      "terminology": [
+        "Public Sector Undertakings",
+        "Comptroller and Auditor General",
+        "Indian Audit and Accounts Department",
+        "Government Companies"
+      ],
+      "instrument_references": [
+        "Constitution of India Articles 148 to 151",
+        "Comptroller and Auditor General's Act 1971",
+        "Companies Act 2013"
+      ],
+      "inclusion": [
+        "Departmentally managed undertakings",
+        "Government and deemed government companies",
+        "Statutory corporations",
+        "Non-commercial autonomous bodies and substantially financed authorities"
+      ],
+      "exclusion": [
+        "Purely private commercial entities without government control or substantial public financing"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between departmental undertakings, statutory corporations, and government companies based on their formation and governance structures."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "27e3363a-76c3-43ab-8c8c-7233ad03328d",
+      "concept_name": "Framework and Scope of Government Audit",
+      "definition": "The constitutional framework empowers the C&AG to audit Union and State accounts, government companies, autonomous bodies, and substantially financed entities. Audit reports must be submitted to the President or State Governors for presentation before legislative bodies.",
+      "terminology": [
+        "Constitutional Authority",
+        "Audit Reports",
+        "Substantially Financed",
+        "Autonomous Bodies"
+      ],
+      "instrument_references": [
+        "Constitution of India Articles 148 to 151",
+        "Comptroller and Auditor General's Act 1971"
+      ],
+      "inclusion": [
+        "Union and State government departments",
+        "Public commercial enterprises",
+        "Non-commercial autonomous bodies",
+        "Authorities substantially financed from public revenues"
+      ],
+      "exclusion": [
+        "Entities outside government financial support or statutory audit purview"
+      ],
+      "nearby_distinctions": [
+        "Differentiates between commercial enterprises, departmental offices, and non-commercial funded bodies under the same constitutional audit umbrella."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7dc2e7e4-9b2a-4451-9b43-06449740b25d",
+      "concept_name": "Objective and Scope of Public Enterprises Audit",
+      "definition": "Public enterprise audits extend beyond financial and compliance checks to include performance, propriety, and comprehensive efficiency appraisals. The audit aims to ensure management decisions serve the public interest and help governments improve operational effectiveness.",
+      "terminology": [
+        "Propriety Audit",
+        "Comprehensive Audit",
+        "Performance Audit",
+        "Value-for-Money"
+      ],
+      "instrument_references": [
+        "Comptroller and Auditor General's Act 1971"
+      ],
+      "inclusion": [
+        "Financial and compliance audits",
+        "Propriety and management decision reviews",
+        "Efficiency-cum-performance appraisals"
+      ],
+      "exclusion": [
+        "Restricting public sector audits solely to arithmetical accuracy or routine financial balancing"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes narrow financial attestation from broader performance, propriety, and comprehensive multi-faceted evaluations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6c87bafe-7b04-4d2f-9b08-3c7ba5cfeeca",
+      "concept_name": "Elements and Principles of Public Sector Undertaking Audits",
+      "definition": "Public sector audits involve three core parties consisting of the Supreme Audit Institution, responsible entities, and intended users. Engagements utilize defined subject matter, criteria, and information through attestation or direct reporting structures.",
+      "terminology": [
+        "Supreme Audit Institution",
+        "Responsible Party",
+        "Attestation Engagement",
+        "Direct Reporting Engagement"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Auditor, responsible party, and intended users",
+        "Subject matter, criteria, and subject matter information",
+        "Attestation and direct reporting formats"
+      ],
+      "exclusion": [
+        "Engagements lacking clearly defined public accountability structures or standard three-party roles"
+      ],
+      "nearby_distinctions": [
+        "Contrasts attestation engagements where management presents subject matter information with direct reporting engagements where the auditor evaluates the subject matter directly."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "beaedfc0-167c-4320-8e14-7729274678f2",
+      "concept_name": "Principles Related to the Audit Process in Public Sector Audits",
+      "definition": "General principles and audit process standards govern the conduct of Supreme Audit Institution personnel during public sector engagements. These principles ensure rigorous planning, evidence gathering, and professional skepticism across financial and compliance assessments.",
+      "terminology": [
+        "General Principles",
+        "Audit Process",
+        "Professional Skepticism",
+        "Audit Risk"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Ethics, independence, and professional judgment",
+        "Audit risk, materiality, and documentation",
+        "Audit planning, evidence evaluation, and reporting"
+      ],
+      "exclusion": [
+        "Informal reviews lacking documented planning, risk assessment, or quality control frameworks"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes overarching behavioral standards from specific technical procedures applied during financial and compliance audit execution."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1be31687-954b-4e3e-abc3-437c792d5929",
+      "concept_name": "Financial and Compliance Audit Framework",
+      "definition": "Financial audits provide an opinion on whether financial statements comply with applicable frameworks and give a true and fair view. Compliance audits independently assess whether activities and transactions adhere in all material respects to governing rules, regulations, regularity, and propriety principles.",
+      "terminology": [
+        "Financial Reporting Framework",
+        "Regularity",
+        "Propriety",
+        "Compliance Assessment"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Audit opinions on financial statements",
+        "Regularity adherence to formal laws and agreements",
+        "Propriety observance of sound financial management principles"
+      ],
+      "exclusion": [
+        "Evaluations focused purely on operational efficiency without regard to statutory or regulatory rules"
+      ],
+      "nearby_distinctions": [
+        "Contrasts financial statement verification with compliance checks focusing on regulatory adherence and financial management propriety."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f7f0f452-b5be-4e15-9c4b-deeb4adbb6dd",
+      "concept_name": "Compliance Audit Process and Scope",
+      "definition": "Compliance audits evaluate whether entity activities and financial transactions conform to regulatory criteria and ethical principles. They can be performed independently, alongside financial statement audits, or integrated within broader performance reviews.",
+      "terminology": [
+        "Compliance Audit",
+        "Regularity",
+        "Propriety",
+        "Auditable Entity"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Individual standalone compliance audits",
+        "Compliance checks combined with financial statement audits",
+        "Compliance assessments integrated into performance audits"
+      ],
+      "exclusion": [
+        "Performance evaluations that ignore statutory rules and regulatory compliance requirements"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes standalone compliance evaluations from compliance reviews embedded inside performance or financial audits."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "51768afe-470b-41b8-a458-26134515f937",
+      "concept_name": "Performance Audit: Economy and Efficiency",
+      "definition": "Performance audits systematically examine government programs to evaluate whether resources are managed with economy and efficiency. Economy assesses resource acquisition costs and quality, while efficiency measures the maximization of outputs relative to minimum inputs.",
+      "terminology": [
+        "Economy",
+        "Efficiency",
+        "Value for Money",
+        "Input-Output Ratio"
+      ],
+      "instrument_references": [
+        "Performance Audit Manual 2017"
+      ],
+      "inclusion": [
+        "Assessment of resource acquisition costs and best pricing",
+        "Evaluation of input-output transformation processes",
+        "Value-for-money reviews for taxpayers and citizens"
+      ],
+      "exclusion": [
+        "Routine arithmetical checking of transaction vouchers or basic financial statement attestation"
+      ],
+      "nearby_distinctions": [
+        "Separates economy, which focuses on acquisition cost minimization, from efficiency, which measures the ratio of outputs generated from given inputs."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "cacc5d03-bec1-4c0e-821b-89eabc370fb9",
+      "concept_name": "Objectives and Application of Performance Audit",
+      "definition": "Performance auditing evaluates the economy, efficiency, and effectiveness of public policies, programs, and management structures to enhance accountability and transparency. Audited entities bear the primary responsibility for developing measurable objectives, performance indicators, and delivery benchmarks.",
+      "terminology": [
+        "Effectiveness",
+        "Performance Indicators",
+        "Accountability",
+        "Minimum Wages Act"
+      ],
+      "instrument_references": [
+        "Minimum Wages Act",
+        "Regulations on Audit and Accounts"
+      ],
+      "inclusion": [
+        "Evaluation of policy outcomes and management performance",
+        "Assessment of social welfare legislation enforcement mechanisms",
+        "Review of coordination and legal frameworks across public agencies"
+      ],
+      "exclusion": [
+        "Setting performance benchmarks or drafting primary metrics on behalf of the audited government department"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes the auditor's independent assessment role from the executive entity's responsibility to formulate performance indicators and unit costs."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "04b72275-b3c2-40c0-a863-ce482d4de7f9",
+      "concept_name": "Planning for Performance Audit",
+      "definition": "Planning a performance audit involves understanding the entity through diverse document sources, defining crisp objectives, and setting appropriate audit criteria and approaches. Auditors use audit design matrices, assess team skills, and determine necessary resources before executing the program.",
+      "terminology": [
+        "Audit Design Matrix",
+        "Audit Criteria",
+        "Entity Understanding",
+        "Scope of Audit"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Review of entity administrative and policy documents",
+        "Analysis of legislative reports, past audits, and media coverage",
+        "Defining audit scope, objectives, and developing audit design matrices"
+      ],
+      "exclusion": [
+        "Executing substantive audit testing without prior establishment of objectives, criteria, and planning matrices"
+      ],
+      "nearby_distinctions": [
+        "Contrasts the initial research and planning phase with the subsequent evidence collection and reporting stages of an audit."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "10669092-eac4-4c11-9e2e-eef65587a190",
+      "concept_name": "Comprehensive Audit of Public Undertakings",
+      "definition": "A comprehensive audit combines financial, compliance, and performance evaluations to deliver a holistic assessment of public enterprise operations. It investigates project costs, capacity utilization, inventory policies, and operational efficiency to locate areas of weakness or extravagance.",
+      "terminology": [
+        "Comprehensive Audit",
+        "Capacity Utilization",
+        "Capital Cost",
+        "Holistic Assessment"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Review of investment decisions and project formulation",
+        "Examination of production performance and plant capacity utilization",
+        "Appraisal of cost control measures and materials management"
+      ],
+      "exclusion": [
+        "Repeating routine fields already exhaustively covered by internal audit or professional statutory auditors"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes standalone financial or compliance checks from comprehensive multi-disciplinary appraisals covering overall enterprise functioning."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e6c1d605-2a29-4c40-ba93-4532f3706d72",
+      "concept_name": "Propriety Audit Principles and Scrutiny",
+      "definition": "Propriety audit verifies transactions against public interest, financial prudence, and accepted standards of conduct to prevent wasteful expenditure. It examines executive decisions beyond mere formal rule compliance to identify improper, avoidable, or infructuous use of public funds.",
+      "terminology": [
+        "Propriety Audit",
+        "Public Interest",
+        "Financial Prudence",
+        "Infructuous Expenditure"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Scrutiny of executive actions against standards of ordinary financial prudence",
+        "Identification of avoidable or wasteful expenditures despite formal regulatory compliance",
+        "Verification of transactions based on public interest and ethical conduct customs"
+      ],
+      "exclusion": [
+        "Limiting audit examination solely to arithmetical accuracy and formal adherence to written rules"
+      ],
+      "nearby_distinctions": [
+        "Differentiates regularity audit, which checks formal rule adherence, from propriety audit, which challenges wasteful spending despite rule compliance."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "a87a6a0277a13bae8db14e990c15bbb55333143400466ed1e807b74e81afe46f",
+  "artifact_id": "92218470-f7bd-43da-8ec8-543243a34621",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8097,
+  "output_tokens": 3432,
+  "cost_usd": 0.0110091,
+  "created_at": "2026-10-03T18:11:59.198502+00:00"
+}

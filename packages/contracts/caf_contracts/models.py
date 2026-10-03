@@ -11,6 +11,8 @@ from pydantic import BaseModel, ConfigDict, Field
 # ==============================================================================
 
 class NodeLevel(str, Enum):
+    MODULE = "module"
+    UNIT = "unit"
     CHAPTER = "chapter"
     TOPIC = "topic"
     SUBTOPIC = "subtopic"
@@ -194,6 +196,7 @@ class ParseConfidence(str, Enum):
 
 
 class ClassifyStatus(str, Enum):
+    NEEDS_REVIEW = "needs_review"
     PENDING = "pending"
     RUNNING = "running"
     SUGGESTED = "suggested"

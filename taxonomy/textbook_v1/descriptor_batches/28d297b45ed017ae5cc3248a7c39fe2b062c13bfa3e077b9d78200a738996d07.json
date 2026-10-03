@@ -1,0 +1,38 @@
+{
+  "descriptors": [
+    {
+      "node_id": "b677b66a-2b5c-49ea-9422-4c2800c2b79f",
+      "concept_name": "Environmental Management Accounting and Cost Control Summary",
+      "definition": "Environmental management accounting addresses the complex identification and allocation of environmental costs to prevent corporate financial harm and unsustainable business decisions. It operates alongside cost control mechanisms and target costing practices to drive permanent reductions in unit costs and foster proactive market-driven strategies.",
+      "terminology": [
+        "Environmental Management Accounting",
+        "Cost Control",
+        "Cost Reduction",
+        "Target Costing",
+        "Value Analysis"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Identification and allocation of environmental costs",
+        "Comparison of actual costs with standards for cost regulation",
+        "Target costing approaches for market-driven pricing and profitability"
+      ],
+      "exclusion": [
+        "Unverified external environmental policies",
+        "Non-standardized financial reporting frameworks"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes standard cost control mechanisms from proactive target costing techniques.",
+        "Separates environmental cost tracking from conventional financial accounting."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "28d297b45ed017ae5cc3248a7c39fe2b062c13bfa3e077b9d78200a738996d07",
+  "artifact_id": "43dc3c4a-76df-46d7-996d-f1ef07612524",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 955,
+  "output_tokens": 307,
+  "cost_usd": 0.001054,
+  "created_at": "2026-10-03T18:26:45.920010+00:00"
+}

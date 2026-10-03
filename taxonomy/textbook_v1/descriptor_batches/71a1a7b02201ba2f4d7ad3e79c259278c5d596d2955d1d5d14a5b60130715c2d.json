@@ -1,0 +1,215 @@
+{
+  "descriptors": [
+    {
+      "node_id": "a016f354-c415-447e-b4ff-f9243c91ff0d",
+      "concept_name": "Residuary Scope of Income from Other Sources",
+      "definition": "Income from other sources functions as a residuary tax head capturing all taxable profits, gains, or receipts that fail to qualify under any preceding specific head. It applies to any item chargeable under the Act that does not find a precise classification within other established income categories.",
+      "terminology": [
+        "residuary head",
+        "total income",
+        "chargeable"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 2025"
+      ],
+      "inclusion": [
+        "Receipts failing to fall under other specific heads of income",
+        "Profits and gains not covered elsewhere"
+      ],
+      "exclusion": [
+        "Income specifically falling under salaries, house property, business or profession, or capital gains"
+      ],
+      "nearby_distinctions": [
+        "Unlike specific heads with strict categorization criteria, this acts as a catch-all for remaining taxable items."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "dddd2f88-f3c1-4aa6-a68e-2a3f9303e136",
+      "concept_name": "Method of Accounting and Standards",
+      "definition": "Computations under this head follow either the cash or mercantile system regularly employed by the assessee. Ten notified income computation and disclosure standards apply to specified assessees using the mercantile system.",
+      "terminology": [
+        "cash system",
+        "mercantile system",
+        "ICDS"
+      ],
+      "instrument_references": [
+        "Section 276",
+        "Income-tax Act, 2025"
+      ],
+      "inclusion": [
+        "Computations based on regular cash or mercantile accounting",
+        "Application of notified ICDSs for qualifying assessees"
+      ],
+      "exclusion": [
+        "Assessees exempted from tax audit under section 63 following specific criteria"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between standard accounting methods chosen by the assessee and mandatory statutory disclosure standards."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7f081c07-50a3-4d5a-bffb-09a6de446eb1",
+      "concept_name": "Specific Incomes Chargeable under Section 92",
+      "definition": "Certain specific receipts like dividend income are exclusively taxable under the head of other sources with a wider statutory scope than general law. These include corporate distributions of accumulated profits entailing asset release, debentures, bonus shares to preference shareholders, and liquidation distributions.",
+      "terminology": [
+        "dividend income",
+        "accumulated profits",
+        "deemed dividend"
+      ],
+      "instrument_references": [
+        "Section 92",
+        "Section 2(40)",
+        "Income-tax Act, 2025"
+      ],
+      "inclusion": [
+        "Distribution of accumulated profits releasing company assets",
+        "Distribution of debentures, deposit certificates, and preference bonus shares",
+        "Distributions made on company liquidation out of accumulated profits"
+      ],
+      "exclusion": [
+        "Bonus shares given to equity shareholders"
+      ],
+      "nearby_distinctions": [
+        "Contrasts general law definitions of dividends with the expanded statutory deemed dividend rules under the Act."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a1def737-d135-49b2-92d2-443675de5fc4",
+      "concept_name": "Taxation of Casual Income and Lottery Winnings",
+      "definition": "Income from lotteries, crossword puzzles, races, card games, and betting is taxed at a flat rate without allowing expenditures, Chapter VIII deductions, or unexhausted basic exemption adjustments. Winnings from online games are excluded from this specific category and governed separately.",
+      "terminology": [
+        "casual income",
+        "lottery winnings",
+        "flat rate"
+      ],
+      "instrument_references": [
+        "Section 194(1)",
+        "Income-tax Act, 2025"
+      ],
+      "inclusion": [
+        "Winnings from lotteries, crossword puzzles, and horse races",
+        "Card games, gambling, or betting proceeds"
+      ],
+      "exclusion": [
+        "Winnings from any online game",
+        "Income from owning and maintaining race horses"
+      ],
+      "nearby_distinctions": [
+        "Separates general casual gambling and lottery income rules from online gaming winnings and business profits derived from racehorses."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "005fe422-6089-4f33-8c7a-dfe760a83df5",
+      "concept_name": "Taxation of Online Game Winnings",
+      "definition": "Net winnings from online games accessed through computer resources or telecommunication devices are subject to a flat tax rate. No related expenditure allowances, Chapter VIII deductions, or basic exemption limit adjustments are permitted against this income.",
+      "terminology": [
+        "net winnings",
+        "online game",
+        "internet"
+      ],
+      "instrument_references": [
+        "Section 194(1)",
+        "Income-tax Act, 2025"
+      ],
+      "inclusion": [
+        "Net winnings originating from internet-accessible games via computer resources"
+      ],
+      "exclusion": [
+        "Traditional physical lotteries, crosswords, and offline gambling winnings"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes digital and internet-based gaming platforms from traditional offline casual income sources."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0a19dbf8-6a83-4a41-ac7d-c0ec3d0dbbf1",
+      "concept_name": "Allowable Deductions under Section 93",
+      "definition": "Computations under this head permit specific deductions including banking realization commissions for securities, employee contribution recoveries remitted before return filing deadlines, and asset letting expenses. Other allowed items comprise family pension standard deductions, compensation interest reliefs, and specific pension commutations.",
+      "terminology": [
+        "deductions",
+        "family pension",
+        "depreciation allowance"
+      ],
+      "instrument_references": [
+        "Section 93",
+        "Section 92(2)",
+        "Income-tax Act, 2025"
+      ],
+      "inclusion": [
+        "Commissions for realizing interest on securities",
+        "Repairs, insurance, and depreciation for let-out plant, machinery, or furniture",
+        "Family pension statutory limits and 50% deduction on enhanced compensation interest"
+      ],
+      "exclusion": [
+        "Capital expenditures not specifically authorized by the provisions"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between standard operational expense deductions and flat statutory percentage deductions allowed for specific income types like family pensions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2e761870-1820-41b3-a0a6-c18868bdab8d",
+      "concept_name": "Disallowances and Non-Deductible Expenses",
+      "definition": "Certain expenditures are barred from deduction when computing income under this head, including personal expenses, un-deducted overseas interest, and salaries paid abroad without tax deduction. Additional restrictions apply to excessive payments to related parties, transactions exceeding cash limits, and unpaid resident sums subject to tax deduction at source.",
+      "terminology": [
+        "disallowance",
+        "personal expense",
+        "tax deduction at source"
+      ],
+      "instrument_references": [
+        "Section 94",
+        "Income-tax Act, 2025"
+      ],
+      "inclusion": [
+        "Personal expenses of the assessee",
+        "Payments exceeding specified limits made via non-banking channels",
+        "Thirty percent of resident sums subject to TDS left unpaid by the return due date"
+      ],
+      "exclusion": [
+        "Legitimate business or earning expenditures properly subjected to tax withholding requirements"
+      ],
+      "nearby_distinctions": [
+        "Differentiates absolute statutory expense bans from conditional disallowances remediable through timely tax deduction and remittance."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5b2367ed-6b62-4de3-b749-2311d19bab24",
+      "concept_name": "Deemed Income Chargeable to Tax",
+      "definition": "Recoveries or benefits derived from previously allowed deductions for losses, expenditures, or trading liabilities are treated as taxable income. This deemed income is taxable in the financial year in which the amount is received or the benefit accrues.",
+      "terminology": [
+        "deemed income",
+        "trading liability",
+        "benefit"
+      ],
+      "instrument_references": [
+        "Section 95",
+        "Income-tax Act, 2025"
+      ],
+      "inclusion": [
+        "Subsequent cash receipts compensating for prior allowed losses or expenditures",
+        "Benefits derived from previously written-off trading liabilities"
+      ],
+      "exclusion": [
+        "Original receipts that never received prior expense or loss write-off deductions"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes primary income generation events from secondary recoveries of previously claimed expense deductions."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "71a1a7b02201ba2f4d7ad3e79c259278c5d596d2955d1d5d14a5b60130715c2d",
+  "artifact_id": "7e28442b-e662-491d-b442-503cf954c7c9",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 6170,
+  "output_tokens": 2366,
+  "cost_usd": 0.007766,
+  "created_at": "2026-10-03T18:17:06.485241+00:00"
+}

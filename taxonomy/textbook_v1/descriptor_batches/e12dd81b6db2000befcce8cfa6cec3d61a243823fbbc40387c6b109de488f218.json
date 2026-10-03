@@ -1,0 +1,292 @@
+{
+  "descriptors": [
+    {
+      "node_id": "95b0c34e-89b5-42b5-9399-5bd378664ed0",
+      "concept_name": "Framework and Scope of Foreign Contribution Regulation",
+      "definition": "The legislation governs the influx of foreign funds to safeguard national security and prevent external interference in domestic affairs. It establishes prohibitions, registration procedures, and administrative limits on utilizing foreign contributions.",
+      "terminology": [
+        "Foreign Contribution",
+        "Prior Permission",
+        "Registration",
+        "FCRA Account"
+      ],
+      "instrument_references": [
+        "Foreign Contribution (Regulation) Act, 2010",
+        "Foreign Contribution (Regulation) Rules, 2011",
+        "Foreign Contribution (Regulation) Amendment Act, 2020"
+      ],
+      "inclusion": [
+        "Prohibition on public servants and judges accepting foreign contributions",
+        "Reduction of administrative expense limits",
+        "Mandatory opening of specific bank accounts for foreign contributions"
+      ],
+      "exclusion": [
+        "Domestic financial contributions not originating from foreign sources",
+        "Government-to-government transactions exempt under specific provisions"
+      ],
+      "nearby_distinctions": [
+        "Differs from general corporate statutes by specifically targeting national security risks arising from external monetary flows."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "cebc6ede-cd7d-445e-9d4a-4432eaaa0447",
+      "concept_name": "Important Definitions under Section 2",
+      "definition": "The statute defines key terms including designated accounts, foreign entities, multinational corporations, and external financial providers. These definitions determine the perimeter of entities whose funding flows are subject to statutory regulation.",
+      "terminology": [
+        "FCRA Account",
+        "Foreign Company",
+        "Foreign Source",
+        "Multi-national Corporation"
+      ],
+      "instrument_references": [
+        "Section 2 of the Foreign Contribution (Regulation) Act, 2010"
+      ],
+      "inclusion": [
+        "Foreign governments and their agencies",
+        "International agencies excluding specified bodies like the United Nations",
+        "Companies with more than half their share capital held by foreign citizens or entities"
+      ],
+      "exclusion": [
+        "The United Nations and its specialized agencies",
+        "The World Bank and International Monetary Fund"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes standard domestic corporate entities from foreign sources based on shareholding patterns and place of incorporation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "fe68cf28-bd1b-407d-9e48-a2e737a43774",
+      "concept_name": "Prohibitions on Acceptance of Foreign Contribution and Hospitality",
+      "definition": "The law completely bars specific classes of individuals and entities, such as election candidates, journalists, public servants, and political parties, from directly or indirectly accepting foreign contributions. This ensures that persons wielding public influence remain free from external financial entanglements.",
+      "terminology": [
+        "Public Servant",
+        "Political Party",
+        "Indirect Acceptance",
+        "Foreign Hospitality"
+      ],
+      "instrument_references": [
+        "Chapter II of the Foreign Contribution (Regulation) Act, 2010",
+        "Section 3 of the Foreign Contribution (Regulation) Act, 2010"
+      ],
+      "inclusion": [
+        "Prohibition on election candidates accepting foreign funds",
+        "Prohibition on media personnel and electronic news companies",
+        "Prohibition on residents acting as conduits for political parties to receive foreign currency"
+      ],
+      "exclusion": [
+        "Entities outside the specified vulnerable categories that have obtained valid registration or prior permission",
+        "Exempted government-to-government transactions"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes direct acceptance by restricted persons from indirect channeling of foreign currency through resident intermediaries."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "76bdadaa-c8ae-4d28-b822-9e8dd4be1be4",
+      "concept_name": "Administrative Expenses and Central Government Prohibitions",
+      "definition": "Administrative expenses comprise operational overheads like executive salaries, utility charges, and legal fees subject to statutory caps, while excluding direct field or welfare service costs. The Central Government may restrict foreign contributions or hospitality if receipt threatens national sovereignty, public interest, or election fairness.",
+      "terminology": [
+        "Administrative Expenses",
+        "Governing Council Remuneration",
+        "Prejudicial Effect",
+        "Prohibitory Order"
+      ],
+      "instrument_references": [
+        "Section 8 of the Foreign Contribution (Regulation) Act, 2010",
+        "Section 9 of the Foreign Contribution (Regulation) Act, 2010"
+      ],
+      "inclusion": [
+        "Executive committee travel expenses and utility charges as administrative costs",
+        "Government power to prohibit receipt of foreign contributions to protect public interest"
+      ],
+      "exclusion": [
+        "Salaries of personnel directly engaged in training or field data collection",
+        "Direct expenses incurred in furtherance of welfare-oriented objectives like hospital doctors' salaries"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes overhead operational outlays from direct programmatic expenditures dedicated to core organizational objectives."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "da115188-0e4c-4618-af0b-df84b940c2e5",
+      "concept_name": "Registration and Prior Permission Modes",
+      "definition": "Organizations with definite cultural, economic, or social programmes must obtain a certificate of registration from the Central Government to accept foreign contributions. Alternatively, unregistered entities must secure specific prior permission tied to a designated purpose and source before accepting funds.",
+      "terminology": [
+        "Certificate of Registration",
+        "Prior Permission",
+        "FCRA Account",
+        "Form FC-3A"
+      ],
+      "instrument_references": [
+        "Chapter III of the Foreign Contribution (Regulation) Act, 2010",
+        "Section 11 of the Foreign Contribution (Regulation) Act, 2010"
+      ],
+      "inclusion": [
+        "Electronic applications via Form FC-3A for registration",
+        "Electronic applications via Form FC-3B for prior permission",
+        "Affidavits executed by key functionaries in Proforma AA"
+      ],
+      "exclusion": [
+        "Acceptance of foreign contributions without holding either a valid registration certificate or prior permission"
+      ],
+      "nearby_distinctions": [
+        "Contrasts general registration which permits ongoing foreign contributions with prior permission which is restricted to a specific purpose and source."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8cd49c7e-2680-4ea1-b108-61413e09b2fb",
+      "concept_name": "Banking and Account Requirements for Foreign Contributions",
+      "definition": "Recipients of foreign contributions must receive funds exclusively through a designated FCRA account opened at the specified branch of the State Bank of India in New Delhi. Additional accounts in scheduled banks may be opened solely for utilizing or keeping transferred funds without mixing any other domestic moneys.",
+      "terminology": [
+        "FCRA Account",
+        "State Bank of India New Delhi Branch",
+        "Scheduled Bank",
+        "Foreign Remittance Reporting"
+      ],
+      "instrument_references": [
+        "Chapter IV of the Foreign Contribution (Regulation) Act, 2010",
+        "Section 17 of the Foreign Contribution (Regulation) Act, 2010"
+      ],
+      "inclusion": [
+        "Mandatory receipt of foreign remittances at the specified SBI branch in New Delhi",
+        "Permissibility of secondary accounts in scheduled banks for utilization",
+        "Bank obligation to report receipt transactions within forty-eight hours"
+      ],
+      "exclusion": [
+        "Depositing non-foreign funds or domestic contributions into designated FCRA accounts"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes the primary mandatory receipt account at SBI New Delhi from secondary operational accounts maintained in chosen scheduled banks."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "70610233-9fdf-42d9-9203-e2b58372f9ff",
+      "concept_name": "Adjudication of Confiscation",
+      "definition": "Articles, currencies, or securities seized due to statutory contraventions are liable to confiscation following formal adjudication proceedings. Courts of Session or empowered judicial officers handle these confiscation adjudications and determine the disposal of seized assets after granting a reasonable representation opportunity.",
+      "terminology": [
+        "Confiscation",
+        "Adjudication",
+        "Court of Session",
+        "Assistant Sessions Judge"
+      ],
+      "instrument_references": [
+        "Chapter VI of the Foreign Contribution (Regulation) Act, 2010",
+        "Section 28 of the Foreign Contribution (Regulation) Act, 2010",
+        "Section 29 of the Foreign Contribution (Regulation) Act, 2010",
+        "Section 30 of the Foreign Contribution (Regulation) Act, 2010"
+      ],
+      "inclusion": [
+        "Seizure and confiscation of unlawful articles, currencies, or securities",
+        "Adjudication without limit by the Court of Session",
+        "Prescribed monetary limits for Assistant Sessions Judge adjudication"
+      ],
+      "exclusion": [
+        "Confiscation orders passed without providing a reasonable opportunity for representation"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes judicial confiscation handled by sessions courts and authorized officers from general administrative penalty proceedings."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b77d748d-d0cc-4ef5-98f9-afdd36516175",
+      "concept_name": "Appeals and Revisions",
+      "definition": "Aggrieved persons may challenge adjudication or administrative orders by filing appeals before designated appellate courts within specified limitation periods. Additionally, the Central Government possesses powers of revision to examine records of proceedings on its own motion or via application.",
+      "terminology": [
+        "Appellate Authority",
+        "High Court",
+        "Court of Session",
+        "Revision of Orders"
+      ],
+      "instrument_references": [
+        "Chapter VIII of the Foreign Contribution (Regulation) Act, 2010",
+        "Section 31 of the Foreign Contribution (Regulation) Act, 2010",
+        "Section 32 of the Foreign Contribution (Regulation) Act, 2010"
+      ],
+      "inclusion": [
+        "Appeals against confiscation orders passed by officers to the Court of Session",
+        "Appeals against registration refusals or cancellations to the High Court",
+        "Central Government powers of revision within prescribed time frames"
+      ],
+      "exclusion": [
+        "Suo motu revision by the Central Government for orders made more than one year previously"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes judicial appellate pathways for confiscation and registration disputes from administrative revision mechanisms exercisable by the Central Government."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "51465c78-4cf8-4723-8fd8-7088612defc0",
+      "concept_name": "Offences and Penalties",
+      "definition": "The legislation outlines various punishable infractions, such as submitting false intimations, violating prohibitory orders, or unlawfully accepting foreign contributions. Convicted individuals face terms of imprisonment, monetary fines, or additional asset-based penalties determined by the trying court.",
+      "terminology": [
+        "Imprisonment",
+        "Fine",
+        "Prohibitory Order",
+        "Contravention"
+      ],
+      "instrument_references": [
+        "Chapter VII of the Foreign Contribution (Regulation) Act, 2010",
+        "Section 33 of the Foreign Contribution (Regulation) Act, 2010",
+        "Section 38 of the Foreign Contribution (Regulation) Act, 2010"
+      ],
+      "inclusion": [
+        "Penalties for knowingly giving false intimation or using fraud for registration",
+        "Punishment for dealing with assets in contravention of a prohibitory order",
+        "Imprisonment and fines for accepting foreign contributions from foreign sources in contravention of rules"
+      ],
+      "exclusion": [
+        "Lawful receipt of foreign contributions in compliance with statutory registration and banking mandates"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes criminal prosecution and imprisonment offenses from civil administrative compounding or asset confiscation processes."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a17b9e4c-f558-41de-88a0-055de3e11432",
+      "concept_name": "Miscellaneous Powers of Investigation, Exemption, and Application",
+      "definition": "The Central Government holds wide auxiliary powers including authorizing inspection officers, investigating offences equivalent to cognizable police matters, issuing implementation directions, and granting exemptions in the public interest. Furthermore, standard statutory provisions do not apply to direct transactions between the Indian government and foreign state governments.",
+      "terminology": [
+        "Inspecting Officer",
+        "Cognizable Offence",
+        "Power to Exempt",
+        "Government Transactions"
+      ],
+      "instrument_references": [
+        "Section 42 of the Foreign Contribution (Regulation) Act, 2010",
+        "Section 43 of the Foreign Contribution (Regulation) Act, 2010",
+        "Section 50 of the Foreign Contribution (Regulation) Act, 2010",
+        "Section 51 of the Foreign Contribution (Regulation) Act, 2010"
+      ],
+      "inclusion": [
+        "Authorization of inspecting officers to call for documents and examine records",
+        "Police powers for investigating offences under specified authorities",
+        "Exemption powers of the Central Government for specified persons or organizations in public interest",
+        "Exclusion of government-to-government transactions from the Act"
+      ],
+      "exclusion": [
+        "Exemption of political parties from Central Government exemption orders",
+        "Exemption of election candidates from exemption provisions"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes routine investigative and inspection powers from broad sovereign exemption authorities granted to the Central Government."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "e12dd81b6db2000befcce8cfa6cec3d61a243823fbbc40387c6b109de488f218",
+  "artifact_id": "fb837cce-dce0-4126-814d-65dfded2ff8d",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 7724,
+  "output_tokens": 3507,
+  "cost_usd": 0.011084700000000001,
+  "created_at": "2026-10-03T18:25:38.190258+00:00"
+}

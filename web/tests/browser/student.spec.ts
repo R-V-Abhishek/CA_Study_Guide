@@ -211,6 +211,7 @@ test('all live and explicit demo routes render without exceptions; demo has no A
   for (const route of ['/', '/papers', '/plan', '/revision', '/progress', '/mock']) {
     await page.goto(route);
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
+    await expect(page.getByRole('status').filter({ hasText: 'Loading' })).toHaveCount(0);
     await expect(page.getByRole('alert')).toHaveCount(0);
   }
   const traffic: string[] = []; page.on('request', request => { if (request.url().includes('/api/v1/')) traffic.push(request.url()); });

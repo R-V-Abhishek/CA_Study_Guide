@@ -1,0 +1,335 @@
+{
+  "descriptors": [
+    {
+      "node_id": "ebcef7a5-1be6-4892-bb38-ec63b231efd1",
+      "concept_name": "Classification Principles and Objectives",
+      "definition": "Ind AS 32 establishes principles for classifying issued financial instruments as financial liabilities, equity, or compound instruments based on contractual substance rather than legal form. Correct component analysis prevents financial statement misstatements and subsequent ratio distortions.",
+      "terminology": [
+        "Financial liability",
+        "Equity",
+        "Compound instrument",
+        "Substance over form"
+      ],
+      "instrument_references": [
+        "Ind AS 32"
+      ],
+      "inclusion": [
+        "Analysis of contract components",
+        "Classification of financial instruments by issuers"
+      ],
+      "exclusion": [
+        "Holder perspective classification",
+        "Non-contractual arrangements"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from legal form evaluation by prioritizing economic substance and contractual rights or obligations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "98f754c2-679c-4f5a-aa0e-58636a489d49",
+      "concept_name": "Definitions – Financial Liability And Equity",
+      "definition": "Financial liabilities involve contractual obligations to deliver cash, exchange assets unfavourably, or deliver variable equity instruments or non-fixed derivatives. Conversely, equity instruments contain no such delivery obligations and settle via fixed-for-fixed equity exchanges or non-derivatives with fixed share commitments.",
+      "terminology": [
+        "Contractual obligation",
+        "Fixed-for-fixed",
+        "Variable number of equity instruments"
+      ],
+      "instrument_references": [
+        "Ind AS 32.11",
+        "Ind AS 32.16"
+      ],
+      "inclusion": [
+        "Obligations to deliver cash or financial assets",
+        "Derivatives settled other than by fixed-for-fixed"
+      ],
+      "exclusion": [
+        "Instruments with no obligation to deliver assets",
+        "Fixed-for-fixed own equity derivatives"
+      ],
+      "nearby_distinctions": [
+        "Distinguished by mirror-image criteria where liabilities entail unfavourably binding delivery duties while equity reflects residual unencumbered claims."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "33661f64-11e4-42e5-bdad-b9a0af367878",
+      "concept_name": "Obligation To Deliver Cash",
+      "definition": "A financial instrument is classified as a financial liability if the issuer lacks an unconditional right to avoid delivering cash or another financial asset. This includes obligations determined via variable indices or mandatory fixed dividend and redemption provisions.",
+      "terminology": [
+        "Contractual obligation",
+        "Mandatory dividend",
+        "Redeemable preference shares",
+        "Unconditional right"
+      ],
+      "instrument_references": [
+        "Ind AS 32.17",
+        "Ind AS 32.18(b)",
+        "Ind AS 32.19",
+        "Ind AS 32.20"
+      ],
+      "inclusion": [
+        "Mandatory principal redemptions",
+        "Fixed cumulative dividend obligations"
+      ],
+      "exclusion": [
+        "Discretionary dividend distributions",
+        "Puttable instrument exceptions"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from equity by the absence of an unconditional escape clause preventing cash outflows."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9598b663-e691-4116-8c90-0b5101fae179",
+      "concept_name": "Puttable Instruments And Obligations Arising On Liquidation – Exceptions To Classification As ‘Financial Liability’ For Instruments Settled In Cash Or Another Financial Asset",
+      "definition": "Puttable instruments and limited-life entity obligations normally categorized as financial liabilities receive equity classification if they grant a pro rata share of net assets upon liquidation. These provisions mirror residual economic interests in the issuing entity.",
+      "terminology": [
+        "Puttable instrument",
+        "Pro rata share",
+        "Liquidation obligation",
+        "Residual interest"
+      ],
+      "instrument_references": [
+        "Ind AS 32.16A",
+        "Ind AS 32.16B",
+        "Ind AS 32.16C",
+        "Ind AS 32.16D"
+      ],
+      "inclusion": [
+        "Mutual fund units redeemable at net asset value",
+        "Limited life infrastructure SPVs"
+      ],
+      "exclusion": [
+        "Instruments entitling holders to capped or non-pro-rata liquidation payouts",
+        "Standard debt with non-residual claims"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard liabilities because, despite mandating cash settlement, they represent residual net asset claims."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f3d7b182-bbff-4627-a1cf-1dff8ac03327",
+      "concept_name": "Obligation to purchase own equity instruments",
+      "definition": "Contracts containing an issuer obligation to purchase its own equity instruments for cash or financial assets create a financial liability for the present value of the redemption amount. This liability classification overrides general fixed-for-fixed derivative equity rules.",
+      "terminology": [
+        "Redemption amount",
+        "Present value",
+        "Purchase obligation"
+      ],
+      "instrument_references": [
+        "Ind AS 32.23",
+        "Ind AS 32.16A",
+        "Ind AS 32.16B",
+        "Ind AS 32.16C",
+        "Ind AS 32.16D"
+      ],
+      "inclusion": [
+        "Contracts obligating share buybacks for cash",
+        "Derivatives requiring own-equity acquisitions"
+      ],
+      "exclusion": [
+        "Puttable instruments meeting specific exceptions",
+        "Non-obligatory conditional buybacks"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard equity derivatives because the buyback requirement forces liability treatment regardless of other terms."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f5e3ead5-c006-4c99-8974-28cf5b406423",
+      "concept_name": "Contingent Settlement Provisions",
+      "definition": "Settlement provisions requiring cash or financial asset delivery upon uncertain future events are evaluated based on whether the contingency is within the issuer's control and whether the liability trigger is genuine. Genuine non-issuer-controlled contingencies resulting in cash outflow compel liability classification unless specific exceptions apply.",
+      "terminology": [
+        "Contingent settlement",
+        "Uncertain future event",
+        "Control of the issuer"
+      ],
+      "instrument_references": [
+        "Ind AS 32"
+      ],
+      "inclusion": [
+        "Trigger-based cash payout clauses",
+        "Contingencies controlled by holders or external factors"
+      ],
+      "exclusion": [
+        "Non-genuine settlement clauses",
+        "Liquidation-only settlement triggers meeting specific exceptions"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from unconditional liabilities by relying on uncertain trigger events to mandate cash delivery."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "28fe21af-cac2-4f3f-8582-905447f8cc9b",
+      "concept_name": "Written Put Options Over Non-Controlling Interests",
+      "definition": "Consolidated financial statements evaluate all agreements across group members and instrument holders to determine group-level cash delivery obligations. Supplemental parent guarantees or terms over subsidiary instruments can trigger financial liability classification for non-controlling interests.",
+      "terminology": [
+        "Non-controlling interests",
+        "Written put options",
+        "Consolidated financial statements",
+        "Group-level obligation"
+      ],
+      "instrument_references": [
+        "Ind AS 1",
+        "Ind AS 110",
+        "Ind AS 32.AG29"
+      ],
+      "inclusion": [
+        "Parent-backed subsidiary put options",
+        "Supplementary group agreements impacting redemption"
+      ],
+      "exclusion": [
+        "Standalone subsidiary instrument classification ignoring group side-agreements",
+        "Discretionary non-guaranteed instruments"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from individual entity reporting by factoring in group-wide commitments that override subsidiary-level equity treatments."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8f9c21c8-250e-4d7e-94b5-2f076b42eada",
+      "concept_name": "Settlement In Entity’S Own Equity Instruments",
+      "definition": "Instruments settled via an entity's own equity instruments are classified as liabilities if the entity delivers a variable number of shares matching a fixed monetary value. Using shares as currency to satisfy a fixed value obligation establishes liability rather than equity.",
+      "terminology": [
+        "Variable number of equity instruments",
+        "Shares as currency",
+        "Fixed value conversion"
+      ],
+      "instrument_references": [
+        "Ind AS 32"
+      ],
+      "inclusion": [
+        "Conversion into equity shares equivalent to a predetermined monetary value",
+        "Variable share delivery mechanisms"
+      ],
+      "exclusion": [
+        "Conversion into a fixed number of equity instruments",
+        "Fixed-for-fixed derivative contracts"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from fixed-share equity settlement because variable share sizing exposes the entity to shifting economic values akin to cash."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "84dcc957-b9d3-4c24-aa19-26a39b68f28c",
+      "concept_name": "Settlement Options",
+      "definition": "Derivatives giving one party a choice of settlement methods are classified as financial assets or liabilities unless every single settlement alternative qualifies as an equity instrument. Giving an issuer net cash or share exchange choices results in liability classification.",
+      "terminology": [
+        "Settlement alternatives",
+        "Derivative financial instrument",
+        "Issuer choice"
+      ],
+      "instrument_references": [
+        "Ind AS 32.26",
+        "Ind AS 32.22A"
+      ],
+      "inclusion": [
+        "Share options with cash-settle alternatives",
+        "Multi-mode settlement derivative contracts"
+      ],
+      "exclusion": [
+        "Contracts where all available settlement options exclusively yield equity",
+        "Fixed-for-fixed equity instruments"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from single-path equity instruments because the existence of a cash settlement alternative taints the entire instrument."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1c9f19dc-1708-413d-bd35-7f002471bbbe",
+      "concept_name": "Settlement By Delivery Of Instruments That Meet Conditions For Exceptions To Classification As Financial Liability",
+      "definition": "Contracts settled by receiving or delivering a fixed number of puttable instruments or liquidation-exception shares in exchange for cash are classified as financial assets or liabilities. Such delivery mechanisms do not qualify for equity treatment despite using fixed quantities of exception-qualified instruments.",
+      "terminology": [
+        "Puttable financial instruments",
+        "Liquidation exception",
+        "Fixed amount exchange"
+      ],
+      "instrument_references": [
+        "Ind AS 32.22A",
+        "Ind AS 32.16A",
+        "Ind AS 32.16B",
+        "Ind AS 32.16C",
+        "Ind AS 32.16D"
+      ],
+      "inclusion": [
+        "Derivatives settled in a fixed number of mutual fund units",
+        "Fixed-for-fixed contracts involving puttable shares"
+      ],
+      "exclusion": [
+        "Standard equity instruments lacking puttable or liquidation features",
+        "Non-puttable ordinary share contracts"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from normal equity-settled derivatives because the underlying shares themselves possess liability-exception traits that prevent equity contract accounting."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1ecc42d2-e03f-44c4-bdf0-f690def1eb77",
+      "concept_name": "Rights Issues, Options Or Warrants To Acquire Entity’S Own Equity Instruments For Any Currency",
+      "definition": "Rights, options, or warrants offering a fixed number of own equity instruments for a fixed amount in any currency are classified as equity if offered pro rata to existing owners. Ind AS 32 provides a carve-out permitting equity classification for foreign currency convertible bond conversion options.",
+      "terminology": [
+        "Rights issue",
+        "Pro rata offer",
+        "Foreign currency convertible bond",
+        "Carve out"
+      ],
+      "instrument_references": [
+        "Ind AS 32.11"
+      ],
+      "inclusion": [
+        "Pro rata rights issues in foreign currency",
+        "Fixed-share foreign currency convertible bond options"
+      ],
+      "exclusion": [
+        "Non-pro-rata third-party warrants",
+        "Variable-share foreign currency options"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from IFRS rules which treat foreign currency equity conversion options as derivative liabilities causing profit and loss volatility."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e4c84f31-c7ad-443e-8429-a0033049170c",
+      "concept_name": "COMPOUND FINANCIAL INSTRUMENTS",
+      "definition": "Financial instruments possessing characteristics of both financial liabilities and equity instruments are classified as compound instruments. Each component must be separately identified and accounted for based on whether it entails unavoidable cash delivery or discretionary avoidance features.",
+      "terminology": [
+        "Compound financial instruments",
+        "Discretionary dividend",
+        "Mandatory redemption",
+        "Split accounting"
+      ],
+      "instrument_references": [
+        "Ind AS 32"
+      ],
+      "inclusion": [
+        "Debentures with mandatory principal redemption and discretionary interest",
+        "Instruments blending liability and equity attributes"
+      ],
+      "exclusion": [
+        "Pure financial liabilities with mandatory cash flows",
+        "Pure equity instruments lacking fixed obligations"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from single-category instruments by requiring simultaneous segregation of liability and equity components within one contract."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "7db5c5791fa826d7cb0c5cb5a290b9223a322455bfc01c39a5e6bc3f813acc49",
+  "artifact_id": "f5b78a1f-9b1c-456a-ba7c-57c8d7adbfda",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8770,
+  "output_tokens": 3639,
+  "cost_usd": 0.0117285,
+  "created_at": "2026-10-03T18:04:21.276556+00:00"
+}

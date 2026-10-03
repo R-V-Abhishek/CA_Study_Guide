@@ -1,0 +1,41 @@
+{
+  "descriptors": [
+    {
+      "node_id": "8d0ed4b8-4abf-4f4e-b3c1-ad98716f38d2",
+      "concept_name": "Significant Differences In Ind As 38 Vis-À-Vis As 26",
+      "definition": "The comparative framework highlights key divergences between reporting standards, specifically noting that Ind AS 38 removes certain use-related restrictions from asset definitions and introduces explicit identifiability criteria based on separability or legal rights. These regulatory distinctions alter how entities recognize and evaluate intangible assets compared to previous Indian GAAP frameworks.",
+      "terminology": [
+        "Identifiability criterion",
+        "Separability",
+        "Service concession arrangements",
+        "Probable inflow of economic benefits"
+      ],
+      "instrument_references": [
+        "Ind AS 38",
+        "AS 26"
+      ],
+      "inclusion": [
+        "Differences in scope exclusions",
+        "Variations in intangible asset definitions",
+        "Divergence in identifiability rules"
+      ],
+      "exclusion": [
+        "General recognition criteria outside the scope of comparison",
+        "Detailed measurement rules of tangible assets"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between Ind AS 38 recognition thresholds and legacy AS 26 requirements regarding separability and probable future economic benefits."
+      ],
+      "source_ambiguities": [
+        "The source text is truncated at the end of the excerpt regarding separately acquired intangible assets."
+      ]
+    }
+  ],
+  "input_hash": "ca7e68f4da2742ea97c7e710881fad691e7b05cdb6f68b6ece4c9e1c8fd3e048",
+  "artifact_id": "96cc93ef-5bcf-49a1-8792-7e053f2ac8fe",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 1043,
+  "output_tokens": 366,
+  "cost_usd": 0.0012279,
+  "created_at": "2026-10-03T17:57:37.419902+00:00"
+}

@@ -83,7 +83,21 @@ def infer_metadata(
     # 3. Doc type inference
     doc_type_id = None
     lower_text = combined_text.lower()
-    if "suggested answer" in lower_text or "suggested_answer" in lower_text:
+    # Level comes from the official branch, never from paper number alone.
+    level_matches = {
+        level for level in ("foundation", "intermediate", "final")
+        if re.search(rf"\b{level}\b", lower_text)
+    }
+    course_level = next(iter(level_matches)) if len(level_matches) == 1 else None
+    if course_level in {"foundation", "intermediate"}:
+        paper_id = None  # Their paper numbers do not identify Final papers.
+    is_model = "model test paper" in lower_text
+    is_mock = "mock test paper" in lower_text or bool(re.search(r"\bmtp\b", lower_text))
+    if is_model:
+        doc_type_id = "model_answer" if "answer" in lower_text or "solution" in lower_text else "model_question"
+    elif is_mock:
+        doc_type_id = "mtp_answer" if "answer" in lower_text or "solution" in lower_text else "mtp_question"
+    elif "suggested answer" in lower_text or "suggested_answer" in lower_text:
         doc_type_id = "suggested_answer"
     elif "question paper" in lower_text or "question_paper" in lower_text:
         doc_type_id = "question_paper"
@@ -121,11 +135,12 @@ def infer_metadata(
 
     # 5. Catalog status resolution
     # All fields resolved uniquely -> 'inferred', otherwise 'needs_curation'
-    is_complete = bool(attempt_id and paper_id and doc_type_id)
+    is_complete = bool((attempt_id or is_model) and paper_id and doc_type_id and course_level)
     catalog_status = "inferred" if is_complete else "needs_curation"
 
     return {
         "scheme_id": scheme_hint,
+        "course_level": course_level,
         "attempt_id": attempt_id,
         "paper_id": paper_id,
         "paper_code": paper_code,

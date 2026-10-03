@@ -1,0 +1,179 @@
+{
+  "status": "archived_generated_legacy",
+  "official_prior_verified": false,
+  "files": [
+    {
+      "path": "taxonomy/weightage/P1.yaml",
+      "sha256": "801187d9d2a88e577eb6b5eb99a331d5b02a3cd26181ef7d83c4209588c491cd",
+      "data": {
+        "paper": "s2023.P1",
+        "sections": [
+          {
+            "id": "P1_SEC1",
+            "name": "Section 1 Core Modules",
+            "min_pct": 45.0,
+            "max_pct": 55.0,
+            "chapter_ids": [
+              "P1-093VHQ",
+              "P1-P425DG",
+              "P1-ZQTNXC",
+              "P1-WB29V3"
+            ]
+          },
+          {
+            "id": "P1_SEC2",
+            "name": "Section 2 Core Modules",
+            "min_pct": 45.0,
+            "max_pct": 55.0,
+            "chapter_ids": [
+              "P1-8QYDJQ",
+              "P1-7Y5BAJ",
+              "P1-CMF927",
+              "P1-Q7RVEC"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "path": "taxonomy/weightage/P2.yaml",
+      "sha256": "794affd69930c989a4cb2ad825b27fc0e57ff116da22489cbdf77febf33b5bc0",
+      "data": {
+        "paper": "s2023.P2",
+        "sections": [
+          {
+            "id": "P2_SEC1",
+            "name": "Section 1 Core Modules",
+            "min_pct": 45.0,
+            "max_pct": 55.0,
+            "chapter_ids": [
+              "P2-Y6J9WH",
+              "P2-31RGXT",
+              "P2-W7SVJM"
+            ]
+          },
+          {
+            "id": "P2_SEC2",
+            "name": "Section 2 Core Modules",
+            "min_pct": 45.0,
+            "max_pct": 55.0,
+            "chapter_ids": [
+              "P2-6VQRHV",
+              "P2-ABNS7T",
+              "P2-58SDBE",
+              "P2-07C20K"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "path": "taxonomy/weightage/P3.yaml",
+      "sha256": "4293af5f4fbca5b52c143030c8a407169e1a440b8ded9393d9409c63723be622",
+      "data": {
+        "paper": "s2023.P3",
+        "sections": [
+          {
+            "id": "P3_SEC1",
+            "name": "Section 1 Core Modules",
+            "min_pct": 45.0,
+            "max_pct": 55.0,
+            "chapter_ids": [
+              "P3-7Z7K1Z",
+              "P3-BMW7E9",
+              "P3-FZCZ1Q",
+              "P3-JAQT1Q"
+            ]
+          },
+          {
+            "id": "P3_SEC2",
+            "name": "Section 2 Core Modules",
+            "min_pct": 45.0,
+            "max_pct": 55.0,
+            "chapter_ids": [
+              "P3-EZPA26",
+              "P3-AEM94G",
+              "P3-J92N3R",
+              "P3-V1FZHN"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "path": "taxonomy/weightage/P4.yaml",
+      "sha256": "e63d89313762114a07f5dc1683b24d942d3f75b1cb683a84849f347324dfa4a7",
+      "data": {
+        "paper": "s2023.P4",
+        "sections": [
+          {
+            "id": "P4_SEC1",
+            "name": "Section 1 Core Modules",
+            "min_pct": 85.0,
+            "max_pct": 100.0,
+            "chapter_ids": [
+              "P4-PAY9DP",
+              "P4-BTPBYM",
+              "P4-VZBQES",
+              "P4-9BRFXF",
+              "P4-MWTXW8"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "path": "taxonomy/weightage/P5.yaml",
+      "sha256": "096cb7d5fa3de6ce6c8ae7ed3cb208d7cd13b51adf498466f92655eb57db26e6",
+      "data": {
+        "paper": "s2023.P5",
+        "sections": [
+          {
+            "id": "P5_SEC1",
+            "name": "Section 1 Core Modules",
+            "min_pct": 45.0,
+            "max_pct": 55.0,
+            "chapter_ids": [
+              "P5-4RKS1C",
+              "P5-8H2RK5",
+              "P5-Q0J6JZ"
+            ]
+          },
+          {
+            "id": "P5_SEC2",
+            "name": "Section 2 Core Modules",
+            "min_pct": 45.0,
+            "max_pct": 55.0,
+            "chapter_ids": [
+              "P5-BNVQ7Q",
+              "P5-A0YK5Q",
+              "P5-GVRSFT"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "path": "taxonomy/weightage/P6.yaml",
+      "sha256": "d767747a2f3d038f67fad8c65f37aca20b8a912bbd77f4391d6eb3d1840726df",
+      "data": {
+        "paper": "s2023.P6",
+        "sections": [
+          {
+            "id": "P6_SEC1",
+            "name": "Section 1 Core Modules",
+            "min_pct": 85.0,
+            "max_pct": 100.0,
+            "chapter_ids": [
+              "P6-JV9ZRT",
+              "P6-PHYBCT",
+              "P6-554SDS",
+              "P6-R86H2R",
+              "P6-43FYM2"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

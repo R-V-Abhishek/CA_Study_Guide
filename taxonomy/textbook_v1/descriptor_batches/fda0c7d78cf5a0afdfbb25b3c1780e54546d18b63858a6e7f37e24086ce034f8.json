@@ -1,0 +1,352 @@
+{
+  "descriptors": [
+    {
+      "node_id": "3ee47166-40d9-4324-952d-fbc03c4aa6f1",
+      "concept_name": "Board Meetings and Governance Framework",
+      "definition": "The board of directors collectively manages corporate affairs, exercising powers delegated by shareholders to achieve wealth maximization while protecting stakeholder interests. Companies must hold their first board meeting within thirty days of incorporation and conduct a minimum of four meetings annually with a maximum interval of one hundred and twenty days between consecutive sessions.",
+      "terminology": [
+        "Board of Directors",
+        "General Meeting",
+        "First Board Meeting",
+        "Subsequent Board Meetings",
+        "Wealth Maximization"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013, Section 173",
+        "Secretarial Standards-1, Para 2.1"
+      ],
+      "inclusion": [
+        "Collective management of corporate affairs by directors",
+        "Scheduling first board meeting within thirty days of incorporation",
+        "Maintaining a minimum of four board meetings per calendar year",
+        "Ensuring maximum gap of one hundred and twenty days between consecutive meetings"
+      ],
+      "exclusion": [
+        "Matters legally required to be exercised by shareholders in general meetings",
+        "Exemptions applicable to specific company categories under Section 173(5)"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from shareholder general meetings which exercise reserve powers rather than day-to-day administrative management."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1eca21f6-4fdf-45d8-bb2a-997ec3191370",
+      "concept_name": "Exemptions to Certain Companies Regarding Board Meetings",
+      "definition": "One Person Companies, small companies, and dormant companies are exempt from holding four annual board meetings, requiring instead one meeting in each half of a calendar year with a minimum ninety-day gap. Furthermore, a One Person Company having only a single director on its board is completely exempt from holding any board meetings.",
+      "terminology": [
+        "One Person Company",
+        "Small Company",
+        "Dormant Company",
+        "Half-Yearly Board Meeting"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013, Section 173(5)"
+      ],
+      "inclusion": [
+        "One Person Companies with multiple directors holding half-yearly board meetings",
+        "Small companies conducting one board meeting in each half of a calendar year",
+        "Dormant companies maintaining a minimum ninety-day gap between half-yearly meetings"
+      ],
+      "exclusion": [
+        "Standard companies governed by regular four-meeting annual schedules",
+        "One Person Companies having only a single director which are totally exempted from holding board meetings"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general companies requiring four annual meetings under Section 173(1) by relaxing frequency rules for specified corporate entities."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "33ea4dd2-e09b-41b2-abda-9f77308d2291",
+      "concept_name": "Quorum for Meetings of Board",
+      "definition": "A valid board meeting requires a quorum consisting of one-third of the total board strength or two directors, whichever is higher, with fractions rounded off as one. Directors participating through video conferencing or audio-visual means count towards the quorum unless excluded for specific items under the law.",
+      "terminology": [
+        "Quorum",
+        "Total Strength",
+        "Video Conferencing",
+        "Fraction Rounding"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013, Section 174",
+        "Notification No. G.S.R.466(E)",
+        "Notification No. G.S.R.584(E)"
+      ],
+      "inclusion": [
+        "Calculating quorum as one-third of total strength or two directors whichever is higher",
+        "Counting electronic participation via video conferencing towards quorum",
+        "Modifying quorum rules for compliant Section 8 companies as eight members or 25 percent whichever is less"
+      ],
+      "exclusion": [
+        "Vacant director places when computing total board strength",
+        "Articles of association specifying a quorum lower than the statutory minimum"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general meeting quorums which apply to shareholder assemblies rather than board deliberations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "fc4bdefb-8e77-45fd-b986-ff4952d0cb31",
+      "concept_name": "Passing of Resolution by Circulation",
+      "definition": "Companies may pass board resolutions by circulating drafts and necessary papers via electronic means to directors when urgent decisions do not necessitate a formal meeting. If at least one-third of total directors demand that a circulated resolution be decided at a meeting, the chairperson must put it before a convened board meeting.",
+      "terminology": [
+        "Resolution by Circulation",
+        "Draft Resolution",
+        "Electronic Means",
+        "Minutes"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013, Section 175",
+        "Companies (Meetings of Board and its Powers) Rules, 2014, Rule 5"
+      ],
+      "inclusion": [
+        "Circulating draft resolutions and papers via email or fax",
+        "Noting resolutions passed by circulation in the subsequent board meeting minutes",
+        "Reverting to a physical meeting when requested by one-third of total directors"
+      ],
+      "exclusion": [
+        "Matters mandatorily requiring consideration at a duly convened physical board meeting",
+        "Resolutions lacking the requisite director consent"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from physical board meeting resolutions because it operates through document circulation without assembling directors in person."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3c606933-a25c-49da-a237-18f2c3aba2c3",
+      "concept_name": "Audit Committee Constitution and Applicability",
+      "definition": "Listed public companies and specific public companies meeting prescribed paid-up share capital, turnover, or loan thresholds must constitute an audit committee. Unlisted joint ventures, wholly owned subsidiaries, and dormant companies are exempt from this requirement.",
+      "terminology": [
+        "Audit Committee",
+        "Listed Public Company",
+        "Paid-up Share Capital",
+        "Turnover"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013, Section 177",
+        "Companies (Meetings of Board and its Powers) Rules, 2014, Rule 6",
+        "Companies (Appointment and Qualifications of Directors) Rules, 2014, Rule 4"
+      ],
+      "inclusion": [
+        "Constitution by every listed public company",
+        "Public companies with paid-up capital of ten crore rupees or more",
+        "Public companies with turnover of one hundred crore rupees or more",
+        "Public companies with aggregate loans, debentures, and deposits exceeding fifty crore rupees"
+      ],
+      "exclusion": [
+        "Unlisted joint ventures",
+        "Wholly owned subsidiaries",
+        "Dormant companies under Section 455"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from other board committees like the nomination and remuneration committee by its specific financial and audit-focused statutory criteria."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "594cdc58-3a26-40dc-aaeb-27ee548c7e7a",
+      "concept_name": "Nomination and Remuneration Committee",
+      "definition": "Listed public companies and specified large public companies defined by financial thresholds must establish a nomination and remuneration committee. Joint ventures, wholly owned subsidiaries, and dormant companies are exempt from forming this committee.",
+      "terminology": [
+        "Nomination and Remuneration Committee",
+        "Listed Public Company",
+        "Paid-up Share Capital",
+        "Outstanding Loans"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013, Section 178",
+        "Companies (Meetings of Board and its Powers) Rules, 2014, Rule 6",
+        "Companies (Appointment and Qualification of Directors) Rules, 2014, Rule 4"
+      ],
+      "inclusion": [
+        "Every listed public company",
+        "Public companies with paid-up share capital of ten crore rupees or more",
+        "Public companies with turnover of one hundred crore rupees or more",
+        "Public companies with aggregate outstanding loans, debentures, and deposits exceeding fifty crore rupees"
+      ],
+      "exclusion": [
+        "Joint ventures",
+        "Wholly owned subsidiaries",
+        "Dormant companies under Section 455"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from the audit committee through its exclusive mandate regarding director appointments and remuneration policies rather than financial auditing."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "64e6a108-8cb0-488b-81ef-411bb2e803af",
+      "concept_name": "Powers of the Board of Directors",
+      "definition": "The board of directors is entitled to exercise all powers and do all acts that the company is authorized to do, subject to statutory provisions, memorandum, articles, and general meeting regulations. Specific statutory powers must be exercised exclusively through resolutions passed at duly convened board meetings.",
+      "terminology": [
+        "Board Powers",
+        "General Meeting Regulations",
+        "Board Resolution",
+        "Prospective Effect"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013, Section 179",
+        "Companies (Meetings of Board and its Powers) Rules, 2014, Rule 8"
+      ],
+      "inclusion": [
+        "Exercising all powers authorized for the company management",
+        "Complying with memorandum, articles, and general meeting directions",
+        "Executing mandatory corporate powers via resolutions passed at board meetings"
+      ],
+      "exclusion": [
+        "Matters directed by law or articles to be exercised by shareholders in general meetings",
+        "Retrospective invalidation of prior valid board acts by subsequent general meeting regulations"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from shareholder general meeting powers by vesting operational management in directors while retaining ultimate ownership authority with shareholders."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "275d1230-c1a0-4815-8523-de48ede77bf0",
+      "concept_name": "Restrictions on Powers of Board",
+      "definition": "Public company boards must obtain shareholder consent via a special resolution before selling, leasing, or disposing of the whole or substantially the whole of an undertaking. This restriction does not apply to private companies or to sales conducted as part of a company's ordinary course of business.",
+      "terminology": [
+        "Special Resolution",
+        "Undertaking",
+        "Lease",
+        "Capital Reduction"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013, Section 180"
+      ],
+      "inclusion": [
+        "Selling, leasing, or disposing of whole or substantially whole undertakings",
+        "Stipulating shareholder conditions regarding sale proceeds utilization",
+        "Protecting clean title of buyers acting in good faith"
+      ],
+      "exclusion": [
+        "Private companies",
+        "Transactions where selling or leasing forms part of the company's ordinary business",
+        "Unauthorized capital reductions under the guise of asset sales"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general board powers under Section 179 by imposing a mandatory special resolution requirement for fundamental corporate asset disposals."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "cc19d162-b8c5-4c58-a313-b250b9ac6fef",
+      "concept_name": "Charitable and Bona Fide Contributions by Company",
+      "definition": "The board of directors may contribute to bona fide charitable and other funds up to five percent of the average net profits of the three immediately preceding financial years without prior general meeting approval. Exceeding this financial limit requires prior permission from the company through an ordinary resolution in a general meeting.",
+      "terminology": [
+        "Charitable Contributions",
+        "Average Net Profits",
+        "Ordinary Resolution",
+        "Bona Fide Funds"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013, Section 181"
+      ],
+      "inclusion": [
+        "Contributions by boards up to five percent of preceding three years average net profits",
+        "Seeking ordinary resolution approval for contributions exceeding the statutory limit",
+        "Making contributions during loss years provided three-year average net profit remains positive"
+      ],
+      "exclusion": [
+        "Contributions exceeding five percent without prior general meeting permission",
+        "Contributions directed to non-bona fide funds"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from political and national defence contributions by its specific focus on charitable donations capped relative to average net profits."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1e259a39-d873-4e6c-8fa2-2ba4f3f3bf74",
+      "concept_name": "Prohibitions and Restrictions Regarding Political Contributions",
+      "definition": "Eligible companies may contribute any amount directly or indirectly to registered political parties after passing an authorizing board resolution. Government companies and entities in existence for less than three financial years are strictly prohibited from making political contributions.",
+      "terminology": [
+        "Political Contributions",
+        "Political Party",
+        "Deemed Political Contributions",
+        "Board Resolution"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013, Section 182",
+        "Representation of the People Act, 1951, Section 29A"
+      ],
+      "inclusion": [
+        "Direct or indirect contributions to registered political parties",
+        "Authorizing contributions through a meeting of the board of directors",
+        "Treating souvenir advertisements benefiting political parties as deemed contributions",
+        "Disclosing total political contributions in profit and loss accounts"
+      ],
+      "exclusion": [
+        "Government companies",
+        "Companies in existence for less than three financial years"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from charitable contributions under Section 181 by prohibiting certain company classes and eliminating percentage caps for political donations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6d5b9ea9-cb7c-41cc-86ad-b6c8584cd024",
+      "concept_name": "Contributions to National Defence Fund",
+      "definition": "The board of directors or authorized persons may contribute unlimited amounts to the National Defence Fund or other central government-approved funds for national defence. This power has overriding effect over other statutory contribution provisions and requires profit and loss account disclosure.",
+      "terminology": [
+        "National Defence Fund",
+        "Central Government Approval",
+        "Overriding Effect",
+        "Profit and Loss Disclosure"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013, Section 183"
+      ],
+      "inclusion": [
+        "Unlimited contributions to the National Defence Fund",
+        "Contributions to funds approved by the Central Government for national defence",
+        "Disclosing total contributed amounts in the annual profit and loss account"
+      ],
+      "exclusion": [
+        "Restrictions imposed by Sections 180, 181, and 182 due to statutory overriding effect"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from charitable and political contributions by providing an unlimited, overriding statutory channel specifically for national defence funds."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1b4609ff-ed4f-4d84-a234-848c641e4739",
+      "concept_name": "Disclosure of Interest by Director",
+      "definition": "Directors hold office in a fiduciary capacity and must make general and specific disclosures regarding any concern or interest in companies, bodies corporate, firms, or proposed contracts. General disclosure must be made at the first board meeting of participation, annually thereafter, or whenever changes occur.",
+      "terminology": [
+        "Fiduciary Capacity",
+        "General Disclosure",
+        "Specific Disclosure",
+        "Concern or Interest"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013, Section 184",
+        "Companies (Meetings of Board and its Powers) Rules, 2014, Rule 9"
+      ],
+      "inclusion": [
+        "Disclosing shareholding and interest in other corporate bodies or firms",
+        "Making general disclosure at the first board meeting of participation and every financial year",
+        "Making specific disclosure when interested in contracts or arrangements"
+      ],
+      "exclusion": [
+        "Failing to notify changes in previously submitted disclosures at the first subsequent board meeting"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general board decision-making by placing a strict fiduciary obligation on interested directors to transparently disclose personal stakes."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "fda0c7d78cf5a0afdfbb25b3c1780e54546d18b63858a6e7f37e24086ce034f8",
+  "artifact_id": "b2b57bae-1797-4fa8-aed6-7ee49d5fad4c",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 9650,
+  "output_tokens": 4236,
+  "cost_usd": 0.013485,
+  "created_at": "2026-10-03T18:24:11.632980+00:00"
+}

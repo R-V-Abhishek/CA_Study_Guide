@@ -12,7 +12,7 @@ type Recommendation = components["schemas"]["CuratorRecommendation"];
 type DecisionAction = components["schemas"]["DecisionRequest"]["action"];
 
 function RecommendationPath({ recommendation }: { recommendation: Recommendation }) {
-  const ancestry = [recommendation.chapter, recommendation.topic, recommendation.subtopic].filter(Boolean);
+  const ancestry = recommendation.breadcrumbs?.length ? recommendation.breadcrumbs : [recommendation.module, recommendation.chapter, recommendation.unit, recommendation.topic, recommendation.subtopic].filter(Boolean);
   return <div className="space-y-1">
     <p className="text-xs text-slate-400">{ancestry.map(node => node!.name).join(" → ") || "Ancestry unavailable"}</p>
     <p className="text-sm font-semibold">{recommendation.node_name ?? "Name unavailable"}</p>
@@ -73,6 +73,7 @@ export function Queue() {
   });
   const submit = (action: DecisionAction, nodeId?: string) => {
     if (!unit || submitting.current) return;
+    if (unit.publication_ready === false && action !== "none_fits" && action !== "exclude") return;
     submitting.current = true;
     decision.mutate({ action, bucket, paper, unitId: unit.unit_id, nodeId: action === "exclude" || action === "none_fits" ? null : nodeId ?? unit.primary_suggestion.node_id });
   };
@@ -92,7 +93,7 @@ export function Queue() {
       event.preventDefault(); callback();
     };
     return tinykeys(window, {
-      a: shortcut(() => submit("accept")), e: shortcut(() => { if (unit && !submitting.current) setPickerOpen(true); }),
+      a: shortcut(() => submit("accept")), e: shortcut(() => { if (unit && unit.publication_ready !== false && !submitting.current) setPickerOpen(true); }),
       n: shortcut(() => submit("none_fits")), x: shortcut(() => submit("exclude")),
       ArrowRight: shortcut(() => move(1)), l: shortcut(() => move(1)),
       ArrowLeft: shortcut(() => move(-1)), h: shortcut(() => move(-1)),
@@ -135,11 +136,12 @@ export function Queue() {
           <h2 className="font-bold text-sm">Classifier Recommendation · Bucket {unit.bucket}</h2>
           <RecommendationPath recommendation={unit.primary_suggestion} />
           {unit.primary_suggestion.justification && <p className="text-xs whitespace-pre-wrap text-slate-300">{unit.primary_suggestion.justification}</p>}
-          {unit.secondary_suggestions.map(item => <button key={item.node_id} disabled={decision.isPending} onClick={() => submit("edit", item.node_id)} className="p-3 w-full text-left rounded border border-slate-700"><RecommendationPath recommendation={item} /><span className="text-xs underline">Choose candidate</span></button>)}
+          {unit.secondary_suggestions.map(item => <button key={item.node_id} disabled={decision.isPending || unit.publication_ready === false} onClick={() => submit("edit", item.node_id)} className="p-3 w-full text-left rounded border border-slate-700"><RecommendationPath recommendation={item} /><span className="text-xs underline">Choose candidate</span></button>)}
         </section>
         <section className="bg-slate-800 border border-slate-700 rounded-xl p-5 space-y-3">
-          <button onClick={() => submit("accept")} disabled={decision.isPending} className="w-full rounded bg-emerald-600 p-3 text-sm font-bold disabled:opacity-50">{decision.isPending ? "Saving decision…" : "[A] Accept Recommendation"}</button>
-          <button onClick={() => setPickerOpen(true)} disabled={decision.isPending} className="w-full rounded bg-slate-700 p-3 text-sm">[E] Reclassify (Choose Node)</button>
+          {unit.publication_ready === false && <p className="text-sm text-amber-200">These textbook suggestions await publication review. Your saved historical labels are preserved.</p>}
+          <button onClick={() => submit("accept")} disabled={decision.isPending || unit.publication_ready === false} className="w-full rounded bg-emerald-600 p-3 text-sm font-bold disabled:opacity-50">{decision.isPending ? "Saving decision…" : "[A] Accept Recommendation"}</button>
+          <button onClick={() => setPickerOpen(true)} disabled={decision.isPending || unit.publication_ready === false} className="w-full rounded bg-slate-700 p-3 text-sm">[E] Reclassify (Choose Node)</button>
           <div className="flex gap-2"><button onClick={() => submit("none_fits")} disabled={decision.isPending} className="flex-1 rounded bg-slate-900 p-3 text-xs">[N] None Fits</button><button onClick={() => submit("exclude")} disabled={decision.isPending} className="flex-1 rounded bg-slate-900 p-3 text-xs text-rose-300">[X] Exclude</button></div>
         </section>
       </div>

@@ -31,21 +31,20 @@ def is_subtopic_weak(
     )
 
 
-def get_current_score_run(session: Session, target_attempt_id: str | None = None) -> ScoreRun | None:
+def get_current_score_run(session: Session, target_attempt_id: str | None = None,
+                          taxonomy_version_id: int | None = None) -> ScoreRun | None:
     """Retrieve a successful run; explicit targets never fall back across attempts."""
+    from caf_l0.releases import active_version
+    release = active_version(session)
+    if taxonomy_version_id is None and release:
+        taxonomy_version_id = release.taxonomy_version_id
+    query = session.query(ScoreRun).where(
+        ScoreRun.status == "ok", ScoreRun.shadow.is_(False),
+        ScoreRun.taxonomy_version_id == taxonomy_version_id,
+    )
     if target_attempt_id is not None:
-        return session.query(ScoreRun).where(
-            ScoreRun.target_attempt_id == target_attempt_id,
-            ScoreRun.status == "ok", ScoreRun.shadow.is_(False),
-        ).order_by(ScoreRun.id.desc()).first()
-    run = session.query(ScoreRun).where(
-        ScoreRun.is_current.is_(True), ScoreRun.status == "ok", ScoreRun.shadow.is_(False)
-    ).first()
-    if not run:
-        run = session.query(ScoreRun).where(
-            ScoreRun.status == "ok", ScoreRun.shadow.is_(False)
-        ).order_by(ScoreRun.id.desc()).first()
-    return run
+        query = query.where(ScoreRun.target_attempt_id == target_attempt_id)
+    return query.order_by(ScoreRun.is_current.desc(), ScoreRun.id.desc()).first()
 
 
 def get_account_settings(session: Session, user_id: int) -> Settings:
@@ -78,6 +77,15 @@ def get_subtopic_scores_for_paper(
         if not current_run:
             return {}
         run_id = current_run.id
+    else:
+        run = session.get(ScoreRun, run_id)
+        from caf_l0.releases import active_version
+        release = active_version(session)
+        expected_version = release.taxonomy_version_id if release else None
+        if run is None or run.taxonomy_version_id != expected_version or (
+            target_attempt_id is not None and run.target_attempt_id != target_attempt_id
+        ):
+            return {}
 
     rows = (
         session.query(SubtopicScore)

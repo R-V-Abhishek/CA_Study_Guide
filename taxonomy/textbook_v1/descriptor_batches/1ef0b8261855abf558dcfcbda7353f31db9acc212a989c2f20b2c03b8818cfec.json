@@ -1,0 +1,270 @@
+{
+  "descriptors": [
+    {
+      "node_id": "eb4908d5-6106-46b2-ace8-5efcbce36f3b",
+      "concept_name": "DEFECTS IN APPOINTMENT OF DIRECTORS NOT TO INVALIDATE ACTIONS TAKEN [SECTION 176]",
+      "definition": "Actions performed by a director remain fully valid and binding despite any subsequent discovery of appointment defects, disqualifications, or termination provisions. However, this protective validation ceases for any acts executed after the company officially notices the invalidity or termination of the appointment.",
+      "terminology": [
+        "Defect in appointment",
+        "Disqualification",
+        "Termination",
+        "Validation of actions"
+      ],
+      "instrument_references": [
+        "Section 176 of the Companies Act, 2013",
+        "Section 196 (5) of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Acts done before discovering appointment irregularities",
+        "Actions by managing or whole-time directors before general meeting disapproval"
+      ],
+      "exclusion": [
+        "Acts executed after the company notices appointment invalidity",
+        "Actions that are ultra vires the company or statute"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from acts performed post-notice of invalidity which receive no statutory validation"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f59d0604-23a8-4329-870d-09966031a8d6",
+      "concept_name": "LOAN TO DIRECTORS, ETC. [SECTION 185]",
+      "definition": "Companies are generally prohibited from directly or indirectly advancing loans, book debts, guarantees, or securities to their directors, relatives, partners, or associated firms. Specific relaxations permit such financial assistance only if approved via special resolution with detailed explanatory statements and utilized strictly for principal business activities.",
+      "terminology": [
+        "Book debt",
+        "Guarantee",
+        "Security",
+        "Person in whom director is interested"
+      ],
+      "instrument_references": [
+        "Section 185 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Direct and indirect loan advancements",
+        "Provision of guarantees or securities for loans taken by directors or connected entities"
+      ],
+      "exclusion": [
+        "Exempted transactions specifically provided under statutory non-applicability provisions"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general inter-corporate loans under Section 186 due to targeted restrictions on key management personnel and related entities"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e4a44492-c301-477b-b38b-5c54cd73f4f7",
+      "concept_name": "LOAN AND INVESTMENT BY COMPANY [SECTION 186]",
+      "definition": "Companies are restricted from making investments through more than two layers of investment companies to prevent the flagrant diversion of corporate funds. Specific exceptions apply when acquiring foreign companies with multi-layered investment subsidiaries or when maintaining mandatory legal subsidiaries.",
+      "terminology": [
+        "Investment company",
+        "Two layers of investment companies",
+        "Step-down subsidiaries"
+      ],
+      "instrument_references": [
+        "Section 186 of the Companies Act, 2013",
+        "Rules 11, 12 and 13"
+      ],
+      "inclusion": [
+        "Acquisitions of shares, debentures, or other securities",
+        "Investments through permitted subsidiary layers"
+      ],
+      "exclusion": [
+        "Investments exceeding two layers outside the permitted statutory exceptions"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from director-specific loan prohibitions under Section 185 by focusing broadly on multi-layered corporate structures and quantitative investment limits"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c7c60594-20fb-4339-96d5-9b5eb59f3d37",
+      "concept_name": "INVESTMENTS OF COMPANY TO BE HELD IN ITS OWN NAME [SECTION 187]",
+      "definition": "Companies must execute and maintain all investments in properties, securities, or assets strictly in their own corporate name. Specific statutory exemptions permit holding shares through nominees solely to maintain statutory membership limits or depositing assets with bankers and security holders under prescribed conditions.",
+      "terminology": [
+        "Own name",
+        "Nominee",
+        "Scheduled bank",
+        "Re-transfer"
+      ],
+      "instrument_references": [
+        "Section 187 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Investments held in subsidiary companies via nominees to satisfy statutory member minimums",
+        "Depositing securities with bankers for dividend collection or transfer facilitation"
+      ],
+      "exclusion": [
+        "Holding general corporate investments in unverified external names without a qualifying statutory exemption"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general investment authorization rules by strictly governing the legal title registration and custody mechanics of existing investments"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "391c7d78-7e95-4ed9-82f3-5c9bb5d43b6f",
+      "concept_name": "RELATED PARTY TRANSACTIONS [SECTION 188]",
+      "definition": "Transactions between a company and its specified related parties—including directors, key managerial personnel, holding or subsidiary bodies, and associated entities—are stringently regulated. These frameworks require proper definitions of relational status to govern commercial dealings and corporate disclosures effectively.",
+      "terminology": [
+        "Related party",
+        "Key managerial personnel",
+        "Associate company",
+        "Venturer"
+      ],
+      "instrument_references": [
+        "Section 188 of the Companies Act, 2013",
+        "Section 2(76) of the Companies Act, 2013",
+        "Rule 15 of the Companies (Meetings of Board and its Powers) Rules, 2014"
+      ],
+      "inclusion": [
+        "Relationships involving directors, KMPs, and their relatives",
+        "Corporate affiliations such as holding, subsidiary, and investing structures"
+      ],
+      "exclusion": [
+        "Professional advice, directions, or instructions given in a professional capacity"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general board contracts by establishing a precise legal threshold of connectedness that dictates special approval pathways"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "31d3dfbf-afd1-4158-b14e-23a2469eb41d",
+      "concept_name": "REGISTER OF CONTRACTS OR ARRANGEMENTS IN WHICH DIRECTORS ARE INTERESTED [SECTION 189]",
+      "definition": "Companies must mandatorily maintain a chronological register documenting particulars of all contracts and arrangements involving interested directors or related parties. These entries must be authenticated immediately, placed before the subsequent board meeting, and signed by all attending directors.",
+      "terminology": [
+        "Register of contracts",
+        "Form MBP 4",
+        "Chronological order",
+        "Authentication"
+      ],
+      "instrument_references": [
+        "Section 189 of the Companies Act, 2013",
+        "Section 184(2)",
+        "Section 188",
+        "Rule 16 of the Companies (Meetings of Board and its Powers) Rules, 2014"
+      ],
+      "inclusion": [
+        "Particulars of entities where directors hold concern or interest",
+        "Details of related party transactions governed by Section 188"
+      ],
+      "exclusion": [
+        "Holdings where a director together with others holds two percent or less of the paid-up share capital",
+        "Unrecorded or unauthenticated informal notes"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from initial director disclosures under Section 184 by acting as a consolidated statutory register maintained in a specific format"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "20ce9e36-d5ea-4728-b470-5bfbabab3330",
+      "concept_name": "CONTRACT OF EMPLOYMENT WITH MANAGING OR WHOLE-TIME DIRECTORS [SECTION 190]",
+      "definition": "Companies must retain copies of written employment contracts or formal written memoranda detailing service terms for managing or whole-time directors at their registered office. These documents remain freely open to inspection by any company member without payment of fees, subject to specific penalties for non-compliance.",
+      "terminology": [
+        "Contract of employment",
+        "Written memorandum",
+        "Registered office",
+        "Inspection"
+      ],
+      "instrument_references": [
+        "Section 190 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Written service contracts with managing or whole-time directors",
+        "Written memoranda detailing unwritten service arrangements"
+      ],
+      "exclusion": [
+        "Private companies, which are statutorily exempted from these specific requirements"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general board meeting minutes by specifically targeting executive service agreements and member inspection rights"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "37d42855-bdd9-49b9-99bf-2f40cee45eea",
+      "concept_name": "PAYMENT TO DIRECTOR FOR LOSS OF OFFICE, ETC., IN CONNECTION WITH TRANSFER OF UNDERTAKING, PROPERTY OR SHARES [SECTION 191]",
+      "definition": "Directors are prohibited from receiving compensation for loss of office or retirement during property, undertaking, or share transfers unless full particulars are disclosed and approved by members in a general meeting. This safeguards shareholders by ensuring transparency when control changes or company assets are transferred.",
+      "terminology": [
+        "Compensation for loss of office",
+        "Retirement consideration",
+        "General meeting approval",
+        "Transferee"
+      ],
+      "instrument_references": [
+        "Section 191 of the Companies Act, 2013",
+        "Rule 17 of the Companies (Meetings of Board and its Powers) Rules, 2014"
+      ],
+      "inclusion": [
+        "Payments connected to the transfer of company undertakings or properties",
+        "Consideration resulting from general or conditional share transfer offers"
+      ],
+      "exclusion": [
+        "Payments made without prior member disclosure and general meeting approval"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard managerial remuneration by specifically governing compensatory exit payouts tied to corporate restructuring or asset transfers"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "45e8829f-20cd-44b0-b5ee-919b850fe888",
+      "concept_name": "RESTRICTION ON NON-CASH TRANSACTIONS INVOLVING DIRECTORS [SECTION 192]",
+      "definition": "Companies and their holding, subsidiary, or associate entities are prohibited from entering into non-cash asset acquisition arrangements with directors or connected persons without prior approval via a general meeting resolution. Valuations for these transactions must be established by a registered valuer and included in the meeting notice.",
+      "terminology": [
+        "Non-cash transaction",
+        "Registered valuer",
+        "Connected person",
+        "Voidable arrangement"
+      ],
+      "instrument_references": [
+        "Section 192 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Asset acquisitions for considerations other than cash involving directors or connected persons",
+        "Arrangements requiring valuations by registered valuers"
+      ],
+      "exclusion": [
+        "Transactions where restitution is impossible and indemnification applies, or bona fide value acquisitions without notice"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from monetary loans and related party contracts by specifically targeting non-cash asset swaps between companies and directors"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6b6be745-337e-46ab-ba18-45c42b2c0370",
+      "concept_name": "CONTRACTS BY ONE PERSON COMPANY (OPC) [SECTION 193]",
+      "definition": "When a One Person Company enters into a contract with its sole member who also serves as its director, the terms must be recorded in writing, in a memorandum, or in the subsequent board meeting minutes. Ordinary course business contracts are exempt, while recorded contracts must be reported to the Registrar within fifteen days.",
+      "terminology": [
+        "One Person Company",
+        "Sole member-director",
+        "Board minutes",
+        "Ordinary course of business"
+      ],
+      "instrument_references": [
+        "Section 193 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Non-standard contracts between an OPC and its sole member-director",
+        "Recording contract terms in board meeting minutes"
+      ],
+      "exclusion": [
+        "Contracts executed in the ordinary course of business"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from multi-member corporate contracts by addressing the unique governance risks of single-member control structures"
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "1ef0b8261855abf558dcfcbda7353f31db9acc212a989c2f20b2c03b8818cfec",
+  "artifact_id": "b2b57bae-1797-4fa8-aed6-7ee49d5fad4c",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 7993,
+  "output_tokens": 3265,
+  "cost_usd": 0.0105604,
+  "created_at": "2026-10-03T18:24:09.195745+00:00"
+}

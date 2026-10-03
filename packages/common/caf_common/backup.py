@@ -33,6 +33,10 @@ def critical_tables(revision: str) -> set[str]:
     tables = set(CRITICAL_TABLES)
     if revision not in {"0001_initial_schema", "0002_score_config_snapshot"}:
         tables.update({"app.invitation", "app.login_transaction", "app.auth_session"})
+    if revision not in {"0001_initial_schema", "0002_score_config_snapshot", "0003_identity"}:
+        tables.update({"ref.taxonomy_release", "ref.taxonomy_member", "ref.textbook_artifact",
+                       "ref.node_source_span", "ref.descriptor_revision", "ref.descriptor_approval",
+                       "ref.taxonomy_crosswalk", "app.progress_migration"})
     return tables
 
 

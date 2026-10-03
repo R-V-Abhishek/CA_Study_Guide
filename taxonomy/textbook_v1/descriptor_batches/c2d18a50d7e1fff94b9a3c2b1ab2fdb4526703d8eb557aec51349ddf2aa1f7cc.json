@@ -1,0 +1,342 @@
+{
+  "descriptors": [
+    {
+      "node_id": "bd08159f-328d-4731-8b2d-6ebb0e130020",
+      "concept_name": "Processing of TDS and TCS Statements",
+      "definition": "Tax deduction and collection statements are processed centrally to rectify arithmetical errors or incorrect claims apparent from the data. The system computes applicable interest and late fees under section 234E to generate a final intimation specifying the net payable sum or refundable amount.",
+      "terminology": [
+        "permissible adjustments",
+        "correction statement",
+        "intimation",
+        "arithmetical error",
+        "incorrect claim"
+      ],
+      "instrument_references": [
+        "Section 200A",
+        "Section 206CB",
+        "Section 234E"
+      ],
+      "inclusion": [
+        "Rectification of arithmetical errors in TDS/TCS statements",
+        "Adjustment of inconsistent entries or incorrect deduction rates",
+        "Computation and levy of late filing fees under section 234E"
+      ],
+      "exclusion": [
+        "Regular field scrutiny assessments",
+        "Detailed tax recovery proceedings"
+      ],
+      "nearby_distinctions": [
+        "Distinct from regular return processing under section 143(1) as it specifically addresses statements submitted by tax deductors and collectors rather than taxpayer income returns."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2a373b5c-bd67-49b7-8b0c-d1949e88c3d2",
+      "concept_name": "Advance Payment of Tax Framework",
+      "definition": "Assessees must discharge their tax liability on current income progressively during the financial year if the total advance tax payable meets the statutory threshold. Resident senior citizens with passive income and no business profits are exempt from this requirement.",
+      "terminology": [
+        "current income",
+        "advance tax",
+        "self-assessment tax",
+        "senior citizen exemption"
+      ],
+      "instrument_references": [
+        "Section 207",
+        "Section 208",
+        "Section 210"
+      ],
+      "inclusion": [
+        "Tax payment obligations on current financial year income",
+        "Exemptions for resident individuals aged 60 or above without business income"
+      ],
+      "exclusion": [
+        "Assessees whose computed advance tax liability falls below the statutory threshold of 10000 rupees"
+      ],
+      "nearby_distinctions": [
+        "Differs from self-assessment tax or tax deducted at source by enforcing mandatory installment payments ahead of the assessment year based on estimated current earnings."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "08c004ff-5e33-406b-a75d-606155529236",
+      "concept_name": "Liability for Payment of Advance Tax",
+      "definition": "An obligation to pay advance tax is triggered whenever the computed tax liability reaches or exceeds ten thousand rupees for the financial year. Resident individuals aged sixty or older without business or professional income are exempted from this payment rule.",
+      "terminology": [
+        "advance tax liability",
+        "senior citizen exemption",
+        "passive income",
+        "current income"
+      ],
+      "instrument_references": [
+        "Section 207",
+        "Section 208"
+      ],
+      "inclusion": [
+        "Mandatory advance tax obligations for liabilities exceeding the statutory threshold",
+        "Relief provisions for elderly resident individuals with rental or interest incomes"
+      ],
+      "exclusion": [
+        "Taxpayers whose total advance tax liability remains under ten thousand rupees",
+        "Non-residents meeting age criteria"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general tax remittance because liability is conditioned specifically on crossing a minimum financial threshold and the absence of speculative business revenue for senior exemptions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e7740ed8-f358-40d6-94d6-7c772808d0dd",
+      "concept_name": "Computation of Advance Tax",
+      "definition": "Assessees independently calculate advance tax on estimated current income using prevailing financial year rates, subject to modification via official administrative orders. The computed tax must account for tax deductible or collectible at source while ignoring un-deducted amounts.",
+      "terminology": [
+        "current income",
+        "regular assessment",
+        "tax deductible at source",
+        "administrative order"
+      ],
+      "instrument_references": [
+        "Section 209",
+        "Section 210"
+      ],
+      "inclusion": [
+        "Self-computation of advance tax based on estimated current earnings",
+        "Modification of computation basis using higher historical regular assessments or returned incomes",
+        "Reduction for actual tax deducted or collected at source"
+      ],
+      "exclusion": [
+        "Reduction for tax deductible or collectible amounts that were not actually subjected to deduction or collection"
+      ],
+      "nearby_distinctions": [
+        "Differs from post-year-end tax calculations by relying strictly on ongoing estimations and official prior-year baselines rather than finalized annual financial statements."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c3b32ca6-576d-4ed7-a038-1f30fd6d1a53",
+      "concept_name": "Instalments of Advance Tax and Due Dates",
+      "definition": "Advance tax is payable across specified quarterly installment dates throughout the financial year with designated cumulative percentage thresholds. Eligible presumptive business and professional assessees fulfill this obligation through a single installment due by the final installment date.",
+      "terminology": [
+        "installment schedule",
+        "cumulative percentage",
+        "presumptive basis",
+        "assessee in default"
+      ],
+      "instrument_references": [
+        "Section 44AD",
+        "Section 44ADA",
+        "Section 219"
+      ],
+      "inclusion": [
+        "Standard quarterly installment schedules for corporate and non-corporate entities",
+        "Single installment relaxation for eligible presumptive income taxpayers",
+        "Credit assignment provisions for paid advance tax amounts"
+      ],
+      "exclusion": [
+        "Late payments treated as standard tax arrears without default status designation"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes standard multi-stage corporate and non-corporate schedules from the simplified single-installment timeline granted to eligible presumptive business and professional taxpayers."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5fc636d3-2c9b-4883-96d1-7ec78ce8ffe4",
+      "concept_name": "Credit for Advance Tax",
+      "definition": "Payments made towards advance tax, excluding any associated interest or penalties, are officially recognized as tax payments for the relevant previous year. The corresponding tax credit is formally granted during the regular assessment procedure.",
+      "terminology": [
+        "advance tax credit",
+        "previous year income",
+        "regular assessment",
+        "tax recovery"
+      ],
+      "instrument_references": [
+        "Section 219"
+      ],
+      "inclusion": [
+        "Crediting recovered or voluntarily paid advance tax sums against final tax liabilities",
+        "Allocation of payments exclusively to income tax components"
+      ],
+      "exclusion": [
+        "Inclusion of interest payments or monetary penalties within the creditable tax pool"
+      ],
+      "nearby_distinctions": [
+        "Separates pure advance tax principal payments from penal or interest charges, ensuring only principal tax remittances qualify for assessment-stage tax credits."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "59357440-41a1-498a-81da-59655ddba4cd",
+      "concept_name": "Interest Chargeable in Certain Cases",
+      "definition": "Statutory interest is levied at specified monthly rates for procedural defaults such as delayed return filings or short-payments of advance tax. The calculation period and underlying base amount depend on whether determinations occur via summary processing or regular assessments.",
+      "terminology": [
+        "default interest",
+        "simple interest",
+        "regular assessment",
+        "shortfall"
+      ],
+      "instrument_references": [
+        "Section 234A",
+        "Section 234B",
+        "Section 234C",
+        "Section 139",
+        "Section 143"
+      ],
+      "inclusion": [
+        "Interest charges for belated or omitted income tax return submissions",
+        "Penal interest frameworks for advance tax shortfalls and deferments"
+      ],
+      "exclusion": [
+        "Discretionary waiver of statutory interest outside explicit legislative provisions"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes return-filing delay interest from advance tax default interest by targeting compliance failures at different stages of the annual tax cycle."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "005c1207-0571-4e8b-83fc-776839378a9b",
+      "concept_name": "Interest for Defaults in Furnishing Return of Income",
+      "definition": "Simple interest is charged when an assessee fails to submit an income tax return by the statutory due date or omits filing entirely. The charge accrues monthly from the day following the due date until the actual filing date or best-judgment completion.",
+      "terminology": [
+        "belated return",
+        "simple interest",
+        "due date",
+        "best judgment assessment"
+      ],
+      "instrument_references": [
+        "Section 234A",
+        "Section 139",
+        "Section 144"
+      ],
+      "inclusion": [
+        "Monthly interest computations for late or un-furnished tax returns",
+        "Reductions for advance interest payments made under section 140A"
+      ],
+      "exclusion": [
+        "Inclusion of additional income tax components specified under sections 140B or 143 within the interest calculation base"
+      ],
+      "nearby_distinctions": [
+        "Focuses exclusively on return submission timelines rather than installment payment milestones or tax deferment discrepancies."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ccec3fca-6354-4a4a-a6c9-aeaf2d5c1edd",
+      "concept_name": "Interest for Non-Payment or Short-Payment of Advance Tax",
+      "definition": "Interest is attracted when an advance tax liable assessee fails to pay or pays less than ninety percent of the assessed tax. The charge applies at fixed monthly rates starting from the beginning of the subsequent financial year until the assessment determination date.",
+      "terminology": [
+        "assessed tax",
+        "shortfall",
+        "regular assessment",
+        "monthly interest"
+      ],
+      "instrument_references": [
+        "Section 234B",
+        "Section 143",
+        "Section 147"
+      ],
+      "inclusion": [
+        "Interest assessments when total advance tax paid drops below the ninety percent threshold",
+        "Adjustments for self-assessment tax payments made prior to final determination"
+      ],
+      "exclusion": [
+        "Inclusion of additional taxes under section 140B within the assessed tax base"
+      ],
+      "nearby_distinctions": [
+        "Differs from deferment interest by penalizing the aggregate annual shortfall of advance tax rather than intra-year installment timing mismatches."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a3a82045-d2dd-4e44-b65b-3581ab14731f",
+      "concept_name": "Interest for Deferment of Advance Tax",
+      "definition": "Assessees who pay lesser advance tax than the specified cumulative percentages by designated quarterly dates face simple interest penalties on the shortfall. Presumptive business and professional income earners follow a modified single-installment threshold arrangement.",
+      "terminology": [
+        "deferment",
+        "cumulative percentage",
+        "shortfall",
+        "presumptive income"
+      ],
+      "instrument_references": [
+        "Section 234C",
+        "Section 44AD",
+        "Section 44ADA"
+      ],
+      "inclusion": [
+        "Quarterly shortfall computations for corporate and non-corporate entities",
+        "Safégard tolerances for early installment payments",
+        "Single-date deferment assessments for presumptive income schemes"
+      ],
+      "exclusion": [
+        "Levy of interest where early installment shortfalls remain within permitted tolerance margins"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from total advance tax avoidance penalties by specifically targeting the phased under-payment across interim sub-periods of the financial year."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1226e355-84f9-40ab-aa09-77d810d721bf",
+      "concept_name": "Fee and Penalty for Default in Furnishing TDS and TCS Statements",
+      "definition": "Late submission of tax deduction or collection statements incurs a mandatory daily fee capped at the total tax amount. Additional monetary penalties apply for missing statutory deadlines or providing incorrect statement information, with thresholds adjusted for extended delays.",
+      "terminology": [
+        "daily fee",
+        "statement default",
+        "penalty",
+        "extended delay"
+      ],
+      "instrument_references": [
+        "Section 234E",
+        "Section 271H"
+      ],
+      "inclusion": [
+        "Daily statutory fees for delayed TDS and TCS statement filings",
+        "Monetized penalty ranges for un-furnished or incorrect statements",
+        "Conditional penalty waivers for compliance within specified grace periods"
+      ],
+      "exclusion": [
+        "Penalty impositions under section 271H when delayed statements are filed within the permitted one-year timeframe alongside due payments"
+      ],
+      "nearby_distinctions": [
+        "Separates administrative daily late-filing fees from substantive legal penalties, imposing both concurrently only when delays exceed extended statutory limits."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e838e015-feab-4696-850b-6559f1b55aaf",
+      "concept_name": "Payment of Tax and Defaults by the Assessee",
+      "definition": "Demanded tax sums must be satisfied within thirty days of notice service, though administrative authorities can shorten or extend this duration. Failure to pay within the stipulated window triggers monthly interest liabilities that adjust dynamically based on subsequent appellate or rectification orders.",
+      "terminology": [
+        "notice of demand",
+        "default interest",
+        "continuity of proceedings",
+        "relation back"
+      ],
+      "instrument_references": [
+        "Section 220",
+        "Section 156",
+        "Section 154",
+        "Section 250"
+      ],
+      "inclusion": [
+        "Mandatory payment timelines following a notice of demand",
+        "Discretionary administrative extensions or installment permissions",
+        "Interest recalibrations resulting from appellate or rectification orders"
+      ],
+      "exclusion": [
+        "Unconditional extensions without official supervisory approval"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes general collection default mechanisms from advance tax shortfalls by tying enforcement to formal notices of demand and subsequent appellate revisions."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "c2d18a50d7e1fff94b9a3c2b1ab2fdb4526703d8eb557aec51349ddf2aa1f7cc",
+  "artifact_id": "709b89a3-dc01-4355-bec1-d27da08bc4e4",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 10134,
+  "output_tokens": 3795,
+  "cost_usd": 0.012527700000000001,
+  "created_at": "2026-10-03T18:17:50.885019+00:00"
+}

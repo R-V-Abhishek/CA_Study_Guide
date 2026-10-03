@@ -24,6 +24,7 @@ import { AuthGate } from "./components/AuthGate";
 import { SessionControls } from "./components/SessionControls";
 import { Profile } from "./pages/Profile";
 import { MockTests } from "./pages/MockTests";
+import { TextbookExplorer } from "./components/TextbookExplorer";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -155,6 +156,7 @@ const router = createBrowserRouter([{ path: '*', element: (
             <Route path="/progress" element={<Progress />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/mock" element={<MockTests />} />
+            <Route path="/textbooks" element={<TextbookExplorer demo={isDemoMode()} />} />
           </Routes></RouteBoundary>
         </Layout>
   ) }]);

@@ -242,7 +242,7 @@ def test_api_meta_and_tree_endpoints(client):
     res_meta = client.get("/api/v1/meta")
     assert res_meta.status_code == 200
     meta = res_meta.json()
-    assert meta["taxonomy_version"] == "v1"
+    assert meta["taxonomy_version"] == "legacy"
     assert meta["scoring_version"] is None  # No successful run in this isolated fixture.
     assert meta["api_version"] == "v1"
     assert "ingestion_coverage" in meta

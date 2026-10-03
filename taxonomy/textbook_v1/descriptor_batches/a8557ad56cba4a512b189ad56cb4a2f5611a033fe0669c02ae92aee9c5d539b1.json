@@ -1,0 +1,152 @@
+{
+  "descriptors": [
+    {
+      "node_id": "8b2b5511-0fcb-4289-95b8-f38bc43dee24",
+      "concept_name": "SQC 1 vs SA 220 Differences",
+      "definition": "SQC 1 establishes firm-wide quality control systems and policies applicable to all assurance and related services engagements. In contrast, SA 220 addresses specific quality control procedures implemented by engagement teams for individual audit engagements only.",
+      "terminology": [
+        "SQC 1",
+        "SA 220",
+        "Engagement partner",
+        "System of quality control",
+        "Engagement quality control review"
+      ],
+      "instrument_references": [
+        "SQC 1",
+        "SA 220"
+      ],
+      "inclusion": [
+        "Firm-wide quality control policies",
+        "Engagement-level audit quality procedures",
+        "Review of historical financial information"
+      ],
+      "exclusion": [
+        "Non-assurance services outside professional standards",
+        "Individual team member personal liabilities"
+      ],
+      "nearby_distinctions": [
+        "SQC 1 governs the entire practice unit while SA 220 focuses exclusively on individual audit execution and engagement team responsibilities."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "149fa7bb-e354-4656-b811-43b5b01d2dca",
+      "concept_name": "Mechanisms for Review of Quality Control",
+      "definition": "Regulatory and professional bodies oversee and examine the quality of professional services provided by members and practice units. These mechanisms employ structured reviews to ensure compliance with technical, professional, and ethical standards.",
+      "terminology": [
+        "Peer Review Board",
+        "Quality Review Board",
+        "National Financial Reporting Authority",
+        "Practice Unit",
+        "Technical reviewers"
+      ],
+      "instrument_references": [
+        "Section 132(1) of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Peer review of practice units",
+        "Risk-based audit quality reviews",
+        "Monitoring of accounting and auditing standards compliance"
+      ],
+      "exclusion": [
+        "Internal firm self-evaluations without statutory backing",
+        "Non-regulated commercial business reviews"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between internal quality control systems and external statutory oversight bodies such as QRB and NFRA."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a972b802-616c-49aa-8a65-54301dd1f582",
+      "concept_name": "Peer Review Board",
+      "definition": "A board constituted by the ICAI Council to examine and review the systems and procedures of practice units. Its primary objective is ensuring member compliance with technical, professional, and ethical standards through structured assignment records evaluation.",
+      "terminology": [
+        "Peer Review Board",
+        "Practice Unit",
+        "Peer Reviewer",
+        "Peer Review Certificate",
+        "Assurance assignments"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Examination of assurance engagement records",
+        "Issuance of peer review certificates",
+        "Follow-on reviews for qualified reports"
+      ],
+      "exclusion": [
+        "Direct investigation of listed company audits governed by NFRA",
+        "Direct governmental standard enforcement"
+      ],
+      "nearby_distinctions": [
+        "Focuses on practice units and assurance engagements under ICAI oversight rather than centralized government-appointed quality boards."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0d75f325-62bf-44e6-9e60-16b53f5e5ee0",
+      "concept_name": "Quality Review Board",
+      "definition": "A body established by the Central Government to review the quality of services provided by ICAI members using a risk-based approach. It guides members on regulatory adherence and covers entities outside the specific jurisdiction of the NFRA.",
+      "terminology": [
+        "Quality Review Board",
+        "Technical reviewers",
+        "Risk-based approach",
+        "Audit quality review"
+      ],
+      "instrument_references": [
+        "Rule 3 of the NFRA Rules, 2018",
+        "Section 132 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Review of audit services for non-NFRA entities",
+        "Recommendations to the ICAI Council",
+        "Guidance on statutory compliance"
+      ],
+      "exclusion": [
+        "Oversight of listed companies and banking entities under NFRA purview",
+        "Peer review certificate issuance"
+      ],
+      "nearby_distinctions": [
+        "Focuses on entities outside Rule 3 NFRA rules, differing from NFRA's mandated jurisdiction over listed and financial institutions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1e68dc0e-1061-4985-b35f-5b13fa6c37c6",
+      "concept_name": "National Financial Reporting Authority (NFRA)",
+      "definition": "A regulatory authority constituted under the Companies Act to monitor and enforce accounting and auditing standards. It oversees audit quality and investigates auditors of specific major classes of companies such as listed entities, banks, and insurance firms.",
+      "terminology": [
+        "National Financial Reporting Authority",
+        "Section 132",
+        "NFRA Rules 2018",
+        "Audit quality"
+      ],
+      "instrument_references": [
+        "Section 132(1) of the Companies Act, 2013",
+        "Section 132(2)",
+        "Section 132(4)",
+        "Rule 3 of the NFRA Rules, 2018"
+      ],
+      "inclusion": [
+        "Enforcement of accounting standards",
+        "Investigation of auditors for specified companies",
+        "Oversight of listed company audit quality"
+      ],
+      "exclusion": [
+        "General peer reviews of smaller practice units handled by ICAI",
+        "Quality reviews for entities outside Rule 3 criteria"
+      ],
+      "nearby_distinctions": [
+        "Operates with statutory enforcement and investigative powers over specific high-impact companies, unlike standard ICAI peer review mechanisms."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "a8557ad56cba4a512b189ad56cb4a2f5611a033fe0669c02ae92aee9c5d539b1",
+  "artifact_id": "de2ad3d8-e88d-4465-a34b-95c6ceec4bc6",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 3708,
+  "output_tokens": 1582,
+  "cost_usd": 0.0050674,
+  "created_at": "2026-10-03T18:09:25.899066+00:00"
+}

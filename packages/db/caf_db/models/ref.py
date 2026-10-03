@@ -103,13 +103,13 @@ class Node(Base):
     __tablename__ = "node"
     __table_args__ = (
         CheckConstraint(
-            "level IN ('chapter','topic','subtopic')", name="check_node_level"
+            "level IN ('module','chapter','unit','topic','subtopic')", name="check_node_level"
         ),
         CheckConstraint(
             "status IN ('active','deprecated')", name="check_node_status"
         ),
         CheckConstraint(
-            "((level = 'chapter') = (parent_id IS NULL))", name="check_chapter_parent_null"
+            "parent_id IS NOT NULL OR level IN ('module','chapter','topic')", name="check_chapter_parent_null"
         ),
         Index("ix_ref_node_parent_id", "parent_id"),
         Index("ix_ref_node_paper_id_level", "paper_id", "level"),

@@ -1,0 +1,145 @@
+{
+  "descriptors": [
+    {
+      "node_id": "efdcb959-0ca2-4392-81a3-220edb37e3e7",
+      "concept_name": "Concept Of Double Taxation Relief",
+      "definition": "Double taxation occurs when the same income is taxed in both the residence country and the source country under their respective tax laws. Double Taxation Avoidance Agreements establish allocation rules to prevent this simultaneous taxation and mitigate prohibitive international operating costs.",
+      "terminology": [
+        "source rule",
+        "residence rule",
+        "Double Taxation Avoidance Agreements"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "income taxed in multiple jurisdictions",
+        "application of source and residence rules"
+      ],
+      "exclusion": [
+        "single jurisdiction taxation"
+      ],
+      "nearby_distinctions": [
+        "distinguishes between taxation based on origin versus taxation based on taxpayer domicile"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5af24393-182c-4b41-9447-10ce1ab65bb9",
+      "concept_name": "Types Of Relief",
+      "definition": "Relief from double taxation is provided through bilateral agreements between governments or unilaterally by a resident country for foreign taxes paid. Bilateral relief typically utilizes exemption or tax credit methods, whereas unilateral relief is applied under domestic law provisions.",
+      "terminology": [
+        "Bilateral Relief",
+        "Unilateral Relief",
+        "Exemption Method",
+        "Tax Credit Method",
+        "Rule 128"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961",
+        "Section 91",
+        "Rule 128"
+      ],
+      "inclusion": [
+        "bilateral DTAA mechanisms",
+        "unilateral foreign tax credit under section 91"
+      ],
+      "exclusion": [
+        "domestic taxation without cross-border overlap"
+      ],
+      "nearby_distinctions": [
+        "distinguishes between relief negotiated mutually via treaty and relief granted independently by domestic statute"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "bcf318b6-6b1a-4d6a-a255-ea4cb8dcd09a",
+      "concept_name": "Double Taxation Relief Provisions Under The Income Tax Act, 1961",
+      "definition": "Sections 90, 90A, and 91 empower the Central Government to implement bilateral and unilateral agreements for granting tax relief, avoiding double taxation, exchanging information, and recovering taxes. Assessees can apply the provisions of the Act or the agreement, whichever is more beneficial.",
+      "terminology": [
+        "Section 90",
+        "Section 90A",
+        "Section 91",
+        "treaty-shopping"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961",
+        "Section 90",
+        "Section 90A",
+        "Section 91"
+      ],
+      "inclusion": [
+        "agreements with foreign countries or specified territories",
+        "agreements by specified associations",
+        "most beneficial provision rule"
+      ],
+      "exclusion": [
+        "arrangements creating opportunities for non-taxation through tax evasion"
+      ],
+      "nearby_distinctions": [
+        "distinguishes between government-to-government agreements and association-level agreements under specific statutory parameters"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4deda211-77ac-4797-a067-4f4c7b746102",
+      "concept_name": "Concept Of Permanent Establishment",
+      "definition": "A permanent establishment denotes a fixed place of business through which an enterprise's business is wholly or partly carried on. Under DTAAs, a non-resident's business income is generally not taxable in India unless such a permanent establishment exists.",
+      "terminology": [
+        "Permanent Establishment",
+        "business connection",
+        "fixed place of business",
+        "Liaison Office"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961",
+        "Section 9(1)(i)",
+        "Section 92F(iiia)"
+      ],
+      "inclusion": [
+        "places of management, branches, offices, factories, and mines",
+        "fixed locations for carrying out enterprise operations"
+      ],
+      "exclusion": [
+        "preparatory or auxiliary activities such as certain liaison office functions"
+      ],
+      "nearby_distinctions": [
+        "contrasts the wider domestic scope of business connection with the narrower operational requirement of a permanent establishment"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f5b87f14-03c9-437b-87c4-d750baae424a",
+      "concept_name": "Taxation Of Business Process Outsourcing Units In India",
+      "definition": "Foreign entities outsourcing IT-enabled services to resident Indian entities are taxed in India only if the resident unit constitutes a permanent establishment. Profits attributable to such a permanent establishment are determined as if it were a distinct and separate independent enterprise.",
+      "terminology": [
+        "Business Process Outsourcing",
+        "Circular No.5/2004",
+        "dependent agent",
+        "attribution of profits"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961",
+        "Circular No.5/2004"
+      ],
+      "inclusion": [
+        "outsourced IT-enabled services creating a permanent establishment",
+        "profit attribution for separate enterprise operations"
+      ],
+      "exclusion": [
+        "independent resident service providers operating without business connections"
+      ],
+      "nearby_distinctions": [
+        "distinguishes between independent outsourcing contractors and dependent agents acting as permanent establishments"
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "22e8fe6d16c22da2e9958884220156d61a443bd71940405909690662a8315eba",
+  "artifact_id": "10974bdf-a376-4eaa-917e-96798df5cafd",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 3896,
+  "output_tokens": 1496,
+  "cost_usd": 0.0049088000000000005,
+  "created_at": "2026-10-03T18:22:44.498755+00:00"
+}

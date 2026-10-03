@@ -1,0 +1,293 @@
+{
+  "descriptors": [
+    {
+      "node_id": "6ecbe348-7283-4941-81c6-5fb245579172",
+      "concept_name": "Considerations When Planning and Performing the Audit",
+      "definition": "The auditor must adapt all relevant standards as necessary when auditing single financial statements or specific elements. This includes evaluating risks like fraud, related party transactions, and going concern assumptions under the reporting framework.",
+      "terminology": [
+        "single financial statement",
+        "specific element",
+        "adaptation",
+        "relevant SAs"
+      ],
+      "instrument_references": [
+        "SA 240",
+        "SA 250",
+        "SA 260(Revised)",
+        "SA 550",
+        "SA 570(Revised)"
+      ],
+      "inclusion": [
+        "adaptation of auditing standards for specific elements",
+        "evaluation of related party transactions",
+        "assessment of going concern application"
+      ],
+      "exclusion": [
+        "audits of complete sets of general purpose financial statements without modifications"
+      ],
+      "nearby_distinctions": [
+        "Differs from a full scope complete financial statement audit by focusing adaptation efforts solely on the specific requested element or single statement."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b5fe0cb9-9992-4993-a111-c7a5a3101bf1",
+      "concept_name": "Form of Opinion",
+      "definition": "The auditor must evaluate whether the expected form of opinion is appropriate based on the applicable financial reporting framework and governing regulations. Factors include whether the framework explicitly or implicitly restricts itself to complete financial statement sets.",
+      "terminology": [
+        "fair presentation framework",
+        "compliance framework",
+        "true and fair view",
+        "presents fairly"
+      ],
+      "instrument_references": [
+        "SA 210",
+        "Revised SA 700"
+      ],
+      "inclusion": [
+        "evaluation of reporting phrases for fair presentation versus compliance frameworks",
+        "assessment of framework restrictions"
+      ],
+      "exclusion": [
+        "standard unmodified reporting on complete sets of financial statements without framework ambiguity"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard reporting by requiring specific checks on whether single statement presentations are explicitly addressed by the chosen framework."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f18da49d-e838-417a-927e-fcb9239295a1",
+      "concept_name": "Forming an Opinion and Reporting Considerations",
+      "definition": "The auditor applies Revised SA 700 and other relevant standards, adapted as necessary, when forming an opinion and reporting on single statements or elements. Specific disclosures must enable users to understand the effect of material transactions and events.",
+      "terminology": [
+        "adequate disclosures",
+        "material transactions",
+        "adapted reporting",
+        "other information"
+      ],
+      "instrument_references": [
+        "Revised SA 700",
+        "SA 800(Revised)",
+        "SA 570(Revised)",
+        "SA 701",
+        "SA 720(Revised)"
+      ],
+      "inclusion": [
+        "evaluation of adequate disclosures for single statements",
+        "adaptation of going concern and key audit matter descriptions"
+      ],
+      "exclusion": [
+        "unadapted standard audit reports on standard general purpose financial statements"
+      ],
+      "nearby_distinctions": [
+        "Focuses on tailoring standard disclosure evaluation and specialized sections like key audit matters to limited financial contexts."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "44293a48-b815-41f3-8c66-4797d50105de",
+      "concept_name": "Engagement Acceptance",
+      "definition": "Auditors ordinarily accept engagements to report on summary financial statements only if they have also conducted the audit of the underlying financial statements. Management must apply acceptable criteria to ensure summaries are consistent and not misleading due to aggregation.",
+      "terminology": [
+        "summary financial statements",
+        "applied criteria",
+        "underlying financial statements",
+        "aggregation risk"
+      ],
+      "instrument_references": [
+        "SA 210"
+      ],
+      "inclusion": [
+        "prerequisite audit of source financial statements",
+        "evaluation of management's preparation criteria acceptability"
+      ],
+      "exclusion": [
+        "accepting summary reporting engagements where the auditor did not audit the full historical financial statements"
+      ],
+      "nearby_distinctions": [
+        "Differs from general engagement acceptance by enforcing a strict prerequisite dependency on prior full-set audit access and knowledge."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ddb73b30-52cc-42c7-876b-80ba2990fe68",
+      "concept_name": "Nature of Procedures to be Performed by Auditor",
+      "definition": "The auditor must evaluate whether summaries disclose their nature, identify audited statements, and agree with or recalculate from source data. Procedures ensure summaries are prepared using applied criteria and maintain an appropriate level of aggregation without being misleading.",
+      "terminology": [
+        "re-calculation",
+        "aggregation level",
+        "applied criteria evaluation",
+        "source comparison"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "comparing summaries with audited financial statement information",
+        "evaluating disclosure of applied criteria and source availability"
+      ],
+      "exclusion": [
+        "performing full substantive re-audits of every individual underlying transaction category"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from detailed substantive testing by focusing on comparison, recalculation from source, and aggregation evaluation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3d4da856-cf5c-4726-8dfe-e46a2d78a388",
+      "concept_name": "Form of Opinion on Summary Financial Statements",
+      "definition": "When expressing an unmodified opinion, the auditor states that summaries are consistent in all material respects with, or are a fair summary of, the audited statements based on applied criteria. If prescribed statutory wording causes user misunderstanding that additional explanations cannot mitigate, the auditor must decline or drop the engagement.",
+      "terminology": [
+        "consistent in all material respects",
+        "fair summary",
+        "prescribed wording",
+        "mitigate misunderstanding"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "specific unmodified opinion phrasing options",
+        "evaluation of user misunderstanding risks"
+      ],
+      "exclusion": [
+        "issuing standard audit opinions designed for complete general purpose financial statement sets"
+      ],
+      "nearby_distinctions": [
+        "Contrasts with standard audit opinions by using specialized consistency or fair summary phrases tied directly to applied criteria."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0145949a-a12a-4a9c-b3c3-e0f70168e124",
+      "concept_name": "Modifications and Special Paragraphs from Audited Financial Statements",
+      "definition": "When the underlying audit report contains modifications, emphasis of matter, or other special sections, the summary report must state this fact and describe the basis and effect on the summaries. The summary report date cannot precede the date of the underlying audit report or the collection of sufficient evidence.",
+      "terminology": [
+        "qualified opinion",
+        "emphasis of matter",
+        "underlying report reference",
+        "report dating"
+      ],
+      "instrument_references": [
+        "SA 705(Revised)",
+        "SA 706(Revised)",
+        "SA 570(Revised)",
+        "SA 701",
+        "SA 720(Revised)"
+      ],
+      "inclusion": [
+        "disclosure of underlying report modifications in the summary report",
+        "dating restrictions relative to the main audit report"
+      ],
+      "exclusion": [
+        "issuing clean summary reports when underlying reports contain adverse opinions or disclaimers"
+      ],
+      "nearby_distinctions": [
+        "Differs from standard reporting updates by requiring explicit cascading descriptions of prior modifications and their specific impacts on summarized figures."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ad4c26f1-3d7d-48e9-a041-14a1132b88e4",
+      "concept_name": "Restriction on Distribution or Use or Alerting Readers to Special Frameworks",
+      "definition": "If the auditor's report on the audited financial statements contains a distribution restriction or an alert regarding a special purpose framework, a similar restriction or alert must be included in the summary financial report. This ensures users are properly notified of the constrained use or specialized basis of the underlying data.",
+      "terminology": [
+        "distribution restriction",
+        "special purpose framework",
+        "alerting readers",
+        "similar restriction"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "duplicating special framework alerts in summary reports",
+        "replicating distribution use limitations"
+      ],
+      "exclusion": [
+        "issuing unrestricted general-use reports when underlying data deployment is contractually or legally restricted"
+      ],
+      "nearby_distinctions": [
+        "Distinguished by its derivative nature, mirroring limitations directly from the primary audit engagement context rather than establishing new ones."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ccb4bc15-ebea-4d66-bf04-337c9c6aeca2",
+      "concept_name": "Comparatives and Supplementary Information Management",
+      "definition": "The auditor determines the reasonableness of omitting comparatives in summary statements and handles reports involving predecessor auditors. Unaudited supplementary information presented alongside summaries must be clearly differentiated to avoid association issues.",
+      "terminology": [
+        "comparatives omission",
+        "another auditor",
+        "unaudited supplementary information",
+        "clearly differentiated"
+      ],
+      "instrument_references": [
+        "SA 710"
+      ],
+      "inclusion": [
+        "evaluating omitted comparatives reasonableness",
+        "handling another auditor's comparative reports",
+        "reviewing differentiation of supplementary information"
+      ],
+      "exclusion": [
+        "automatic acceptance of unverified supplementary data integrated without clear boundary separation"
+      ],
+      "nearby_distinctions": [
+        "Focuses on comparative omissions and supplementary data boundaries rather than primary summary figures generation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b2ae25b5-4316-45db-8e8e-3faac5107cee",
+      "concept_name": "Auditor Association and Document Context",
+      "definition": "The auditor must prevent inappropriate association or referencing when entities mention the auditor in documents containing summaries without including the actual report. Appropriate actions must be taken if management refuses to correct misleading references or omit auditor mentions.",
+      "terminology": [
+        "inappropriate association",
+        "document reference",
+        "request management",
+        "other appropriate actions"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "actions against unauthorized auditor name referencing",
+        "securing inclusion of audit reports in summary documents"
+      ],
+      "exclusion": [
+        "authorized report inclusions where the auditor was formally engaged to report on the summaries"
+      ],
+      "nearby_distinctions": [
+        "Differs from general review procedures by targeting external document references and protecting the auditor's professional reputation against misuse."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "98d681e9-834c-4bc7-bb8b-5993627f5c73",
+      "concept_name": "Timing of Work and Subsequent Events",
+      "definition": "When summary reports are dated after the underlying audit report, the report must specify that neither summaries nor audited statements reflect subsequent events occurring after the original audit report date. Discovery of prior facts requires completion of subsequent event reviews before issuing summary reports.",
+      "terminology": [
+        "subsequent to the date",
+        "subsequent events",
+        "facts that existed",
+        "report dating"
+      ],
+      "instrument_references": [
+        "SA 560"
+      ],
+      "inclusion": [
+        "dating summary reports later than underlying audit reports",
+        "handling newly discovered facts existing at the original audit report date"
+      ],
+      "exclusion": [
+        "obtaining fresh audit evidence on underlying financial statements solely due to the passage of time before summary issuance"
+      ],
+      "nearby_distinctions": [
+        "Distinguished by addressing timing gaps between primary audit completion and summary reporting without requiring a re-audit of historical balances."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "ec5c973c3eebc2ede07d95e13d4bdf6fec9507c8316999096ebfb060a3164412",
+  "artifact_id": "1d918b91-9442-47f3-936b-09fbc96e9a87",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 7488,
+  "output_tokens": 3168,
+  "cost_usd": 0.010166399999999999,
+  "created_at": "2026-10-03T18:10:30.017547+00:00"
+}

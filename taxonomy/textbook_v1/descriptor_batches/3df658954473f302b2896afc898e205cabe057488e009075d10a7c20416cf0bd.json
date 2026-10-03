@@ -1,0 +1,39 @@
+{
+  "descriptors": [
+    {
+      "node_id": "0e296a6d-8dcc-462e-818f-74d3612c1441",
+      "concept_name": "Professional Behaviour and Conceptual Framework Application",
+      "definition": "Chartered Accountants must maintain honesty and avoid bringing the profession into disrepute through exaggerated claims or improper advertising. Practitioners apply a conceptual framework by identifying, evaluating, and addressing threats to fundamental ethical principles using professional judgment and the reasonable and informed third party test.",
+      "terminology": [
+        "Professional behaviour",
+        "Conceptual framework",
+        "Professional judgment",
+        "Disparaging references",
+        "Advertisement guidelines"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Prohibiting exaggerated claims about qualifications or services",
+        "Applying the conceptual framework to identify and evaluate threats",
+        "Exercising professional judgment in professional activities"
+      ],
+      "exclusion": [
+        "Making unsubstantiated comparisons to the work of others",
+        "Violating council advertisement guidelines directly or indirectly"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from technical audit procedures by its primary focus on ethical compliance and professional deportment."
+      ],
+      "source_ambiguities": [
+        "The source text abruptly truncates at the end of the excerpt during the discussion of professional judgment."
+      ]
+    }
+  ],
+  "input_hash": "3df658954473f302b2896afc898e205cabe057488e009075d10a7c20416cf0bd",
+  "artifact_id": "8d1fbda6-5be6-4c31-8320-b53374709a4a",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 930,
+  "output_tokens": 257,
+  "cost_usd": 0.0009215,
+  "created_at": "2026-10-03T18:05:33.367317+00:00"
+}

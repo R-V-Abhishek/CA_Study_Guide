@@ -1,0 +1,312 @@
+{
+  "descriptors": [
+    {
+      "node_id": "72a3f211-b3f3-4b9e-8f2c-b69aab7d29fe",
+      "concept_name": "Culture and people",
+      "definition": "This concept contrasts the organizational culture and workforce attributes between entrepreneurial start-ups and established incumbents. Start-ups typically exhibit risk-taking behaviors, dynamic individualistic environments, and younger leadership, whereas incumbents tend to be risk-averse, bureaucratic, and guided by legacy processes.",
+      "terminology": [
+        "Risk taking",
+        "Risk averse",
+        "Dynamic culture",
+        "Bureaucratic culture",
+        "Legacy mind set"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Comparison of leadership demographics",
+        "Evaluation of second-line management strength",
+        "Assessment of reward and recognition frameworks"
+      ],
+      "exclusion": [
+        "Financial capital structure analysis",
+        "Product innovation lifecycle details"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from operating models by focusing on human capital characteristics rather than production and channel distribution metrics."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a0fbbfba-7986-489a-b5e2-419b0481d0ea",
+      "concept_name": "Operating model",
+      "definition": "Operating models dictate how businesses execute production, manage channels, and handle risks, diverging sharply between new ventures and established firms. Start-ups often utilize lean, online-centric frameworks with low minimum viable scale, whereas incumbents rely heavily on traditional offline networks and structured risk protocols.",
+      "terminology": [
+        "Minimum viable market size",
+        "Online channel",
+        "Offline stores",
+        "Media spend ROI"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Production scale thresholds",
+        "Distribution network strategies",
+        "Media channel communications and ROI monitoring"
+      ],
+      "exclusion": [
+        "Intrapreneurship incentive schemes",
+        "Board-level governance structures"
+      ],
+      "nearby_distinctions": [
+        "Distinct from culture and people parameters by focusing on operational mechanics and channel distribution instead of internal workforce attributes."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "be273c03-2b05-4d91-9000-a4ced093fb44",
+      "concept_name": "Consumer and innovation Start-up Incumbents",
+      "definition": "This concept contrasts consumer engagement approaches and product innovation speeds between new market entrants and traditional firms. Start-ups focus on addressing unmet demand through niche categories with rapid turnaround times, whereas incumbents typically extend existing product lines with longer development cycles.",
+      "terminology": [
+        "Niche categories",
+        "Product variation",
+        "Turnaround time",
+        "R&D spend"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Product turnaround time metrics",
+        "R&D versus marketing budget allocations",
+        "Customer demand targeting strategies"
+      ],
+      "exclusion": [
+        "Supply chain collaboration frameworks",
+        "Corporate financing structures"
+      ],
+      "nearby_distinctions": [
+        "Differs from operating models by concentrating specifically on product development velocity and R&D resource allocation rather than general distribution channels."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "cf3896e9-c6dd-41e5-b864-2f08a931914f",
+      "concept_name": "Financing Start-up Incumbents",
+      "definition": "This concept compares the financial stability, transaction capabilities, and stakeholder accountability structures of start-ups and established incumbents. Start-ups are typically unprofitable initially with limited internal transaction capabilities and are answerable to investors, while incumbents feature strong financial positions and accountability to shareholders.",
+      "terminology": [
+        "Initial profitability",
+        "Strategic investments",
+        "Investor accountability",
+        "Shareholder accountability"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Initial profitability evaluations",
+        "Internal transaction capabilities",
+        "Stakeholder reporting lines"
+      ],
+      "exclusion": [
+        "Operational media spend metrics",
+        "Supply chain innovation approaches"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from consumer and innovation concepts by evaluating capital availability and financial governance rather than product development metrics."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "cb3d34a2-c8e0-4de4-8b18-6c2135367920",
+      "concept_name": "Intrapreneurship",
+      "definition": "Intrapreneurship is the practice of fostering entrepreneurial ventures within an established organization to drive innovation and counter growth stagnation. It enables internal personnel to execute new ideas using allocated resources, functioning as a restorative mechanism for cost efficiency and strategic renewal.",
+      "terminology": [
+        "Intrapreneurs",
+        "Organizational entrepreneurship",
+        "Growth stagnation",
+        "Cost rationalisation"
+      ],
+      "instrument_references": [
+        "Stevenson and Jarillo (1990)"
+      ],
+      "inclusion": [
+        "Internal corporate venturing models",
+        "Resource allocation for internal innovation",
+        "Profit-center reclassification of intrapreneurial teams"
+      ],
+      "exclusion": [
+        "Independent external entrepreneurship",
+        "Standard operational cost accounting"
+      ],
+      "nearby_distinctions": [
+        "Differs from conventional start-ups because intrapreneurs operate within existing business structures without complete independence or ultimate venture ownership."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5a88b67c-4769-4bf1-9130-850539b58fd7",
+      "concept_name": "Innovation Hubs and Incubators",
+      "definition": "Innovation hubs and incubators are specialized collaborative structures designed to nurture early-stage ideas and scale new businesses. Incubators focus directly on transforming raw concepts into viable products through structured programs, whereas accelerators target rapid growth reduction of risks for existing minimum viable products.",
+      "terminology": [
+        "Innovation hub",
+        "Incubator",
+        "Accelerator",
+        "Minimum Viable Product"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Physical space environments for creators",
+        "Fee-basis incubator programs",
+        "Primary identifiers of accelerators and startup hubs"
+      ],
+      "exclusion": [
+        "Internal corporate intrapreneurship",
+        "Traditional supply chain logistics"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from accelerators by assisting pre-MVP founders with fundamental business creation rather than scaling enterprises that already possess a market-viable product."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "047daea0-53bd-4110-ac4e-345f3bf77012",
+      "concept_name": "Supply Chain Partnerships",
+      "definition": "Supply chain partnerships involve coordinating internal departments and external partners to maintain optimized, resilient product flows and fulfill customer demand efficiently. Effective collaboration increases agility, reduces the bullwhip effect, and ensures seamless information sharing across the entire network.",
+      "terminology": [
+        "Supply chain collaboration",
+        "Bullwhip effect",
+        "Business resilience",
+        "On-time in-full delivery"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Internal and external partner coordination",
+        "Agility and risk reduction mechanisms",
+        "Information flow optimization"
+      ],
+      "exclusion": [
+        "Internal product R&D budgeting",
+        "Initial start-up financing structures"
+      ],
+      "nearby_distinctions": [
+        "Differs from standard operational models by emphasizing multi-entity collaborative integration rather than isolated internal company fulfillment procedures."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e5dc5f4d-55f6-45c2-9e50-15c6f4e91a4b",
+      "concept_name": "Approaches to Supply Chain Innovations",
+      "definition": "Supply chain innovation approaches categorize strategic methodologies utilized to satisfy dynamic customer requirements through operational adaptability. These approaches comprise rapid supply chains prioritizing speed, agile models responding to demand shifts, and lean frameworks focused on waste elimination.",
+      "terminology": [
+        "Rapid supply chains",
+        "Agile supply chains",
+        "Lean supply chains",
+        "Waste elimination"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Speed and efficiency optimization",
+        "Volume and variety response capacity",
+        "Time-based waste reduction"
+      ],
+      "exclusion": [
+        "Financial transaction governance",
+        "Incumbent versus start-up culture mapping"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general supply chain partnerships by focusing on specific functional strategic paradigms like lean or agile performance rather than collaborative alignment."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ae20626f-6990-41d7-af01-3da297cbb8f9",
+      "concept_name": "Essentials of seamless Supply Chain Collaboration",
+      "definition": "Seamless supply chain collaboration requires specific technical and operational enablers to ensure disparate partners function cohesively across the network. These foundational elements facilitate unified decision-making, exception management, and proactive threat mitigation.",
+      "terminology": [
+        "Real-time data sharing",
+        "Configurable workflows",
+        "End-to-end visibility",
+        "In-context messaging"
+      ],
+      "instrument_references": [
+        "Luis Benavides et al. (2012)"
+      ],
+      "inclusion": [
+        "Real-time data synchronization",
+        "Workflow alignment across partners",
+        "AI-driven exception management"
+      ],
+      "exclusion": [
+        "Intrapreneurial profit-center accounting",
+        "Startup equity financing models"
+      ],
+      "nearby_distinctions": [
+        "Differs from broad supply chain partnership goals by detailing the granular technological infrastructure and tools required to make collaboration operational."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "055cd2fe-860f-42f3-80bf-a9e689b3614b",
+      "concept_name": "Real-time data sharing",
+      "definition": "Real-time data sharing ensures all participating entities in a network maintain immediate access to the latest operational information. It connects disparate systems to establish a robust foundation for collaborative planning, execution, and exception management.",
+      "terminology": [
+        "Disparate data sources",
+        "Planning and execution",
+        "Exception management",
+        "Recent data access"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Connecting disparate data systems",
+        "Foundational data access for partners"
+      ],
+      "exclusion": [
+        "Configurable workflow design",
+        "In-context user messaging interfaces"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from workflow configuration by focusing strictly on information accessibility rather than procedural system alignment."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e14d8536-7eb5-443e-9c07-c3eee531729f",
+      "concept_name": "Configurable workflows",
+      "definition": "Configurable workflows involve aligning internal systems and operational processes so that diverse business entities can coordinate seamlessly. This adaptation accommodates unique business requirements to streamline joint supply chain execution.",
+      "terminology": [
+        "Aligning systems",
+        "Coordinating with partners",
+        "Unique business processes"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "System alignment for partners",
+        "Customization of operational processes"
+      ],
+      "exclusion": [
+        "Real-time data synchronization",
+        "AI threat identification"
+      ],
+      "nearby_distinctions": [
+        "Differs from real-time data sharing by prioritizing the structural alignment of operational steps rather than the immediate transmission of data metrics."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f1d13dc2-345a-4cee-824a-9bb1cabaa579",
+      "concept_name": "AI and Machine Learning that goes beyond data analytics",
+      "definition": "Next-generation artificial intelligence advances past basic data analytics by proactively identifying operational threats and recommending corrective actions. It empowers supply chain partners to make faster, higher-quality collaborative decisions.",
+      "terminology": [
+        "Next-generation AI",
+        "Threat identification",
+        "Action recommendations",
+        "Data analytics"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Proactive threat detection",
+        "Automated decision recommendations"
+      ],
+      "exclusion": [
+        "Static reporting dashboards",
+        "Manual in-context messaging"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from basic data analytics by providing active problem resolution and recommendations rather than passive historical reporting."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "8db886ca61dc382d20f57bd5b547b31f122b0ae5c1d476be029ddf690fd4fee8",
+  "artifact_id": "93270a60-645c-46b1-b75f-5a66ce49fc26",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 7683,
+  "output_tokens": 3233,
+  "cost_usd": 0.0103874,
+  "created_at": "2026-10-03T18:27:07.317007+00:00"
+}

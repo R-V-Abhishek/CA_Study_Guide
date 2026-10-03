@@ -1,0 +1,314 @@
+{
+  "descriptors": [
+    {
+      "node_id": "3e0d0464-94fa-4882-af6c-a5ca0825faa6",
+      "concept_name": "Prospective Financial Information Overview",
+      "definition": "Prospective financial information comprises future-oriented statements prepared by entities to evaluate loan and equity proposals. Practitioners perform attest functions under applicable assurance standards to examine these forward-looking statements.",
+      "terminology": [
+        "Attest function",
+        "Prospective financial statements",
+        "Projected cash flow",
+        "Profitability statements"
+      ],
+      "instrument_references": [
+        "SAE 3400",
+        "SAE 3402",
+        "SAE 3420"
+      ],
+      "inclusion": [
+        "Projected cash flow statements",
+        "Profit forecast statements"
+      ],
+      "exclusion": [
+        "Historical financial information"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from historical financial audits by focusing on future events and expected actions rather than past transactions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0a2aba2a-52a9-45fd-9fde-a64581363938",
+      "concept_name": "Standards on Assurance Engagements",
+      "definition": "Standards on assurance engagements regulate professional responsibilities for examinations concerning non-historical matters such as prospective financial information or internal controls. These engagements deliver a moderate level of assurance to stakeholders.",
+      "terminology": [
+        "Assurance engagement",
+        "Moderate assurance",
+        "Best-estimate assumptions",
+        "Forecast"
+      ],
+      "instrument_references": [
+        "SAE 3400",
+        "SAE 3402",
+        "SAE 3420"
+      ],
+      "inclusion": [
+        "Examinations of prospective financial information",
+        "Assurance reports on internal controls"
+      ],
+      "exclusion": [
+        "Audits of historical financial statements"
+      ],
+      "nearby_distinctions": [
+        "Provides a moderate level of assurance, differing from the reasonable assurance typically associated with historical audits."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "189e1335-ac67-49b1-a25b-be1c5d1edb67",
+      "concept_name": "Forecasts and Projections under SAE 3400",
+      "definition": "Forecasts are prospective financial statements built on best-estimate assumptions reflecting anticipated future events and actions. Projections instead utilize hypothetical assumptions or mixtures of both best-estimate and hypothetical conditions for start-up or major operational shifts.",
+      "terminology": [
+        "Forecast",
+        "Projection",
+        "Best-estimate assumptions",
+        "Hypothetical assumptions"
+      ],
+      "instrument_references": [
+        "SAE 3400"
+      ],
+      "inclusion": [
+        "Best-estimate assumptions for anticipated conditions",
+        "Hypothetical assumptions for start-up or major change scenarios"
+      ],
+      "exclusion": [
+        "Historical financial information reports"
+      ],
+      "nearby_distinctions": [
+        "Forecasts rely on expected operational conditions, whereas projections rely on speculative or imagined hypothetical conditions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "00338ab4-91b7-4a45-914b-9cb2b3912649",
+      "concept_name": "Scope of SAE 3400",
+      "definition": "SAE 3400 governs engagements to examine and report on prospective financial information including evaluation procedures for best-estimate and hypothetical assumptions. It does not apply to prospective financial information expressed strictly in general or narrative terms.",
+      "terminology": [
+        "Scope",
+        "Best-estimate assumptions",
+        "Hypothetical assumptions",
+        "Auditor"
+      ],
+      "instrument_references": [
+        "SAE 3400"
+      ],
+      "inclusion": [
+        "Examinations of structured prospective financial information"
+      ],
+      "exclusion": [
+        "Prospective information expressed in general narrative terms like management discussion and analysis"
+      ],
+      "nearby_distinctions": [
+        "Excludes narrative management reports from its formal application scope."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c9c333eb-ef75-44f8-9397-373185933c7c",
+      "concept_name": "Nature of Assurance Regarding Prospective Financial Information",
+      "definition": "Because prospective financial information involves future-oriented, speculative evidence, an auditor cannot express an opinion on whether the projected results will actually be achieved. Management remains entirely responsible for the preparation, presentation, and underlying assumptions.",
+      "terminology": [
+        "Future-oriented evidence",
+        "Speculative evidence",
+        "Professional misconduct",
+        "Estimate of earnings"
+      ],
+      "instrument_references": [
+        "Chartered Accountants Act 1949"
+      ],
+      "inclusion": [
+        "Evaluation of underlying assumptions",
+        "Review of profit and financial forecasts"
+      ],
+      "exclusion": [
+        "Vouching for the absolute accuracy of forecasts"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between reviewing the reasonableness of underlying assumptions and guaranteeing actual performance outcomes."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4b0ae191-1155-45ab-be78-bd96ab4c6fcd",
+      "concept_name": "Responsibilities in Prospective Financial Information",
+      "definition": "Management holds the sole responsibility for preparing and presenting prospective financial information, disclosures, and underlying assumptions. Chartered accountants may participate or review these forecasts provided they do not vouch for absolute accuracy.",
+      "terminology": [
+        "Management responsibility",
+        "Disclosure",
+        "Professional misconduct",
+        "Contingent earnings"
+      ],
+      "instrument_references": [
+        "Chartered Accountants Act 1949"
+      ],
+      "inclusion": [
+        "Identification and disclosure of prospective financial information",
+        "Explanation of forecast bases"
+      ],
+      "exclusion": [
+        "Vouching for the realization of estimated future earnings"
+      ],
+      "nearby_distinctions": [
+        "Separates the management's primary creation duty from the practitioner's objective review and reporting role."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0f94ec34-44a5-4136-9d2c-50d9a4f0d840",
+      "concept_name": "Duties of Examining Auditor",
+      "definition": "The examining auditor must gather sufficient evidence to determine whether best-estimate assumptions are reasonable and hypothetical assumptions fit the engagement purpose. Furthermore, the auditor verifies correct preparation, appropriate accounting principles, consistent presentation, and adequate disclosure.",
+      "terminology": [
+        "Sufficient appropriate evidence",
+        "Best-estimate assumptions",
+        "Hypothetical assumptions",
+        "Consistent basis"
+      ],
+      "instrument_references": [
+        "SAE 3400"
+      ],
+      "inclusion": [
+        "Testing preparation methodology",
+        "Verifying assumption consistency"
+      ],
+      "exclusion": [
+        "Assurance on actual future target realization"
+      ],
+      "nearby_distinctions": [
+        "Focuses on testing the reasonableness of underlying inputs rather than certifying factual operational outcomes."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "21add141-6afa-45ae-aaa7-300ac02ac89c",
+      "concept_name": "Acceptance and Precautionary Procedures",
+      "definition": "Before accepting a prospective information engagement, the auditor evaluates the intended use, distribution limits, assumption types, and reporting period. The auditor must decline or withdraw if assumptions are unrealistic or the information is inappropriate.",
+      "terminology": [
+        "Engagement acceptance",
+        "Intended use",
+        "Limited distribution",
+        "Unrealistic assumptions"
+      ],
+      "instrument_references": [
+        "SAE 3400"
+      ],
+      "inclusion": [
+        "Evaluating intended use and distribution scope",
+        "Assessing justification of historical reliance"
+      ],
+      "exclusion": [
+        "Acceptance of engagements with clearly unrealistic assumptions"
+      ],
+      "nearby_distinctions": [
+        "Serves as a preliminary filter before engagement commitments are finalized."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "fc584107-1b27-4454-a7b5-990082a3823f",
+      "concept_name": "Engagement Acceptance Protocols",
+      "definition": "Auditors must evaluate the reliability of historical financial data, clarify engagement terms through engagement letters, and check assumption viability. Clear boundaries must be established regarding general versus limited distribution of the reports.",
+      "terminology": [
+        "Engagement letter",
+        "Historical financial information",
+        "Distribution scope",
+        "Assumption viability"
+      ],
+      "instrument_references": [
+        "SAE 3400"
+      ],
+      "inclusion": [
+        "Agreement on terms via engagement letters",
+        "Assessment of historical data reliance"
+      ],
+      "exclusion": [
+        "Unvetted third-party reliance without verification"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes standard acceptance reviews from formal fieldwork execution."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "84cc27a8-5e21-44f7-a978-051292c3234d",
+      "concept_name": "Examination Procedures for Assumptions",
+      "definition": "Auditors assess the source and reliability of evidence supporting best-estimate assumptions while checking that hypothetical assumptions account for all significant implications. Procedures consider business stability, management competence, and previous engagement knowledge.",
+      "terminology": [
+        "Examination procedures",
+        "Evidence source",
+        "Hypothetical implications",
+        "Management competence"
+      ],
+      "instrument_references": [
+        "SAE 3400"
+      ],
+      "inclusion": [
+        "Assessment of evidence from budgets and debt agreements",
+        "Verification of capacity limits under hypothetical growth"
+      ],
+      "exclusion": [
+        "Acceptance of inconsistent hypothetical scenarios"
+      ],
+      "nearby_distinctions": [
+        "Requires checking operational ripple effects, such as capacity investments, when applying hypothetical growth scenarios."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5f5a5ebe-a628-45c9-8cc6-c29b5d26d29f",
+      "concept_name": "Presentation and Disclosure Assessment",
+      "definition": "The auditor evaluates whether prospective presentations are informative, clear, and unmisleading, with properly disclosed accounting policies and assumptions. Clear distinctions must be drawn between best-estimate and hypothetical components along with associated uncertainties.",
+      "terminology": [
+        "Presentation and disclosure",
+        "Informative presentation",
+        "Accounting policies",
+        "Sensitivity results"
+      ],
+      "instrument_references": [
+        "SAE 3400"
+      ],
+      "inclusion": [
+        "Verification of adequate assumption notes",
+        "Evaluation of uncertainty sensitivity disclosures"
+      ],
+      "exclusion": [
+        "Misleading or biased range selections"
+      ],
+      "nearby_distinctions": [
+        "Separates disclosure compliance from underlying calculation verification."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "211f339d-eb97-42ad-924b-b80d2e47c273",
+      "concept_name": "Report on Examination of Prospective Financial Information",
+      "definition": "The examination report must contain a title, addressee, prospective information identification, management responsibility statements, and negative assurance on the assumptions. It must also disclose preparation dates, range estimation bases, and accounting policy changes.",
+      "terminology": [
+        "Examination report",
+        "Negative assurance",
+        "Range estimation",
+        "Accounting policy change"
+      ],
+      "instrument_references": [
+        "SAE 3400"
+      ],
+      "inclusion": [
+        "Statements of negative assurance",
+        "Disclosure of preparation dates and range criteria"
+      ],
+      "exclusion": [
+        "Unqualified positive opinion on future target achievement"
+      ],
+      "nearby_distinctions": [
+        "Employs negative assurance regarding assumption adequacy rather than absolute positive opinions on future events."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "ab4d5f987ef6d71215c7ea27e224559d19de7012f9a51ce0a6ff5fc06e8bf8eb",
+  "artifact_id": "ec4ecd3f-1e19-4027-9b3d-5268e9f56a90",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 7867,
+  "output_tokens": 3128,
+  "cost_usd": 0.010180100000000001,
+  "created_at": "2026-10-03T18:10:58.962897+00:00"
+}

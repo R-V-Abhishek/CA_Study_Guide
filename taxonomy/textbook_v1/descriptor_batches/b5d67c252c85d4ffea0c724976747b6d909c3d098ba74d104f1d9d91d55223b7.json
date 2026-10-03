@@ -1,0 +1,59 @@
+{
+  "descriptors": [
+    {
+      "node_id": "66110dc0-8299-4e1c-8af3-59d2cb2e8e3d",
+      "concept_name": "Aggregation",
+      "definition": "Aggregation involves grouping assets, liabilities, equity, income, or expenses that share common characteristics within the same classification. This process enhances financial utility by condensing extensive details, while requiring a balance to prevent important facts from being obscured by excessive summarization or insignificant minutiae.",
+      "terminology": [
+        "Aggregation",
+        "Classification",
+        "Summarising",
+        "Disclosed details"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Combining items with shared characteristics within the same classification",
+        "Presenting summarized line items on primary financial statements such as the balance sheet and statement of profit and loss"
+      ],
+      "exclusion": [
+        "Presenting completely unstructured or unclassified raw data without regard to shared characteristics",
+        "Concealing critical information entirely through excessive data compression"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from detailed disclosure in notes, which provides granular information corresponding to the aggregated line items on primary statements."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "cc5b6c80-b5fe-4518-8a00-13f35590bc27",
+      "concept_name": "Capital Maintenance Adjustments",
+      "definition": "Capital maintenance adjustments arise from the revaluation or restatement of assets and liabilities, producing increases or decreases in equity. Although these valuation changes meet the definition of income and expenses, certain capital maintenance concepts exclude them from the income statement, recording them directly in equity as reserves.",
+      "terminology": [
+        "Capital maintenance adjustments",
+        "Revaluation",
+        "Restatement",
+        "Revaluation reserves"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Increases or decreases in equity resulting from asset and liability revaluations",
+        "Items recorded directly in equity as revaluation reserves under specific capital maintenance concepts"
+      ],
+      "exclusion": [
+        "Gains and losses recognized directly in the profit and loss income statement under financial capital concepts",
+        "Ordinary trading revenues and operational expenses"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard operating profit and loss items by being routed directly through equity rather than the income statement depending on the chosen capital maintenance framework."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "b5d67c252c85d4ffea0c724976747b6d909c3d098ba74d104f1d9d91d55223b7",
+  "artifact_id": "286aeffb-c1e1-493c-a40f-709922f46d7d",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 2000,
+  "output_tokens": 606,
+  "cost_usd": 0.002115,
+  "created_at": "2026-10-03T17:47:14.098995+00:00"
+}

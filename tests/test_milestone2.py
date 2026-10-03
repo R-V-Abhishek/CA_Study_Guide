@@ -21,6 +21,7 @@ def test_metadata_inference():
     t1 = infer_metadata(
         url="https://resource.cdn.icai.org/12345may24_p1_sa.pdf",
         anchor_text="Paper 1: Financial Reporting Suggested Answers May 2024",
+        breadcrumb=["Final"],
     )
     assert t1["attempt_id"] == "2024-05"
     assert t1["paper_id"] == "s2023.P1"
@@ -31,6 +32,7 @@ def test_metadata_inference():
     t2 = infer_metadata(
         url="https://resource.cdn.icai.org/sep2025_dt_qp.pdf",
         anchor_text="September 2025 Paper 4 Direct Tax Laws Question Paper",
+        breadcrumb=["Final"],
     )
     assert t2["attempt_id"] == "2025-09"
     assert t2["paper_id"] == "s2023.P4"
@@ -41,6 +43,7 @@ def test_metadata_inference():
     t3 = infer_metadata(
         url="https://resource.cdn.icai.org/rtp_nov24_p5.pdf",
         anchor_text="Revision Test Paper November 2024 Paper 5",
+        breadcrumb=["Final"],
     )
     assert t3["attempt_id"] == "2024-11"
     assert t3["paper_id"] == "s2023.P5"
@@ -51,6 +54,7 @@ def test_metadata_inference():
     t4 = infer_metadata(
         url="https://resource.cdn.icai.org/mtp_p2_ans_may25.pdf",
         anchor_text="Mock Test Paper Series 1 Answer May 2025 Advanced Financial Management",
+        breadcrumb=["Final"],
     )
     assert t4["attempt_id"] == "2025-05"
     assert t4["paper_id"] == "s2023.P2"

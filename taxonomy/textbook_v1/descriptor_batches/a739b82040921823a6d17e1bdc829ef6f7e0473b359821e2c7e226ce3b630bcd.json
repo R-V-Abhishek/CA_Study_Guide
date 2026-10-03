@@ -1,0 +1,327 @@
+{
+  "descriptors": [
+    {
+      "node_id": "f47bbb98-dcbb-4748-bcb8-de18b16c583f",
+      "concept_name": "Defined Benefit Plans Accounting Steps",
+      "definition": "Defined benefit plans involve estimating employee benefits earned in current and prior periods using actuarial techniques and discounting them to present value. The resulting obligation is adjusted by deducting the fair value of plan assets to determine any net deficit or surplus.",
+      "terminology": [
+        "PUCM",
+        "Projected Unit Credit Method",
+        "Discounting",
+        "Fair value of plan assets",
+        "Current service cost"
+      ],
+      "instrument_references": [
+        "INDIAN ACCOUNTING STANDARD 19"
+      ],
+      "inclusion": [
+        "Unfunded and funded defined benefit plans",
+        "Actuarial estimations of demographic and financial variables"
+      ],
+      "exclusion": [
+        "Contributions due for the period without actuarial valuation"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from defined contribution plans where an entity's obligation is strictly limited to the amount it agrees to contribute to the fund."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "cf0935b9-c315-4f49-b3fd-b3c48f4ad19c",
+      "concept_name": "Accounting for Constructive Obligations and Plan Surpluses",
+      "definition": "Constructive obligations arise from informal entity practices where there is no realistic alternative to paying employee benefits, forcing the assumption that benefit promises will continue. When a plan generates a surplus, the net defined benefit asset is measured at the lower of the surplus and the asset ceiling.",
+      "terminology": [
+        "Constructive obligation",
+        "Informal practices",
+        "Asset ceiling",
+        "Net defined benefit asset",
+        "Deferred Tax Asset"
+      ],
+      "instrument_references": [
+        "Ind AS 19",
+        "Ind AS 12 Income Taxes"
+      ],
+      "inclusion": [
+        "Obligations resulting from informal practices causing unacceptable damage to employee relations",
+        "Surplus assets measured against the asset ceiling"
+      ],
+      "exclusion": [
+        "Formal plan terminations executed without retaining employees or incurring payment obligations"
+      ],
+      "nearby_distinctions": [
+        "Differs from Ind AS 12 deferred tax assets where establishing probability of future taxable profit is mandatory, whereas Ind AS 19 requires no such probability assessment for net defined benefit assets."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "90f494a8-d027-4d26-9725-b672711723cd",
+      "concept_name": "Balance Sheet Recognition of Defined Benefit Obligations",
+      "definition": "Entities must recognize the net defined benefit liability or asset directly on the balance sheet. Net defined benefit assets are restricted to the lower of the plan surplus or the asset ceiling determined through discounting.",
+      "terminology": [
+        "Net defined benefit liability",
+        "Net defined benefit asset",
+        "Asset ceiling",
+        "PV of Defined Benefit Obligations",
+        "Fair Value of Plan Assets"
+      ],
+      "instrument_references": [
+        "INDIAN ACCOUNTING STANDARD 19"
+      ],
+      "inclusion": [
+        "Presentation of deficits as non-current liabilities under provisions",
+        "Control of resources providing future economic benefits via contribution reductions or cash refunds"
+      ],
+      "exclusion": [
+        "Unfunded commitments not assessed through formal present value and plan asset matching"
+      ],
+      "nearby_distinctions": [
+        "Contrasts with standard deferred tax assets that depend strictly on future taxable profit probabilities rather than explicit plan asset trust investments."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8704f89d-ecd0-47fd-997f-809217523f94",
+      "concept_name": "Recognition and Measurement of Present Value and Service Costs",
+      "definition": "Measuring post-employment benefit obligations requires applying an actuarial valuation method, attributing benefits to service periods, and utilizing appropriate actuarial assumptions. Because final costs depend on uncertain long-term variables like salaries and turnover, structured valuation is necessary.",
+      "terminology": [
+        "Actuarial valuation method",
+        "Projected Unit Credit Method",
+        "Current service cost",
+        "Employee turnover",
+        "Mortality"
+      ],
+      "instrument_references": [
+        "INDIAN ACCOUNTING STANDARD 19"
+      ],
+      "inclusion": [
+        "Variables including final salaries, mortality, employee turnover, and medical cost trends"
+      ],
+      "exclusion": [
+        "Fixed-cost assumptions ignoring long-term demographic and financial fluctuations"
+      ],
+      "nearby_distinctions": [
+        "Differs from simple short-term accruals by factoring in multi-year service periods and compounding variables."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e6ad100a-7f26-4fa0-84ee-38525648c1ff",
+      "concept_name": "Actuarial Valuation Method Application",
+      "definition": "The Projected Unit Credit Method is employed to ascertain present values of obligations and current service costs by treating each service period as an independent unit of benefit entitlement. This method builds up the cumulative obligation through separate measurements of individual service units.",
+      "terminology": [
+        "Actuarial valuation method",
+        "Projected Unit Credit Method",
+        "Accrued benefit method",
+        "Benefit/years of service method",
+        "Current service cost"
+      ],
+      "instrument_references": [
+        "INDIAN ACCOUNTING STANDARD 19"
+      ],
+      "inclusion": [
+        "Attribution of prior and current year benefits based on compounding salary growth rates and discount parameters"
+      ],
+      "exclusion": [
+        "Static benefit accounting that ignores future salary increments and service duration"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from total-obligation lump-sum approaches by segregating benefits into incremental yearly service units."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "269893e1-9605-427a-b875-29f9697c31c9",
+      "concept_name": "Attributing Benefit to Periods of Service",
+      "definition": "Entities attribute benefits to service periods based on the plan's formula, utilizing straight-line allocation if later service yields materially higher benefits. This attribution spans from the initial date service leads to benefits until further service yields no material benefit increases outside of salary adjustments.",
+      "terminology": [
+        "Attributing benefit",
+        "Straight-line basis",
+        "Projected Unit Credit Method",
+        "Vesting date",
+        "Current service cost"
+      ],
+      "instrument_references": [
+        "INDIAN ACCOUNTING STANDARD 19"
+      ],
+      "inclusion": [
+        "Obligations arising from employee service even prior to formal vesting",
+        "Discounted present values reflecting expected employee departure dates"
+      ],
+      "exclusion": [
+        "Attribution models failing to adjust for disproportionate benefit surges in later working years"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard period-cost matching by linking the liability creation directly to historical and current employee service delivery."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "426eec09-507f-4965-99bc-3733cb53c0ba",
+      "concept_name": "Actuarial Assumptions Formulation",
+      "definition": "Actuarial assumptions represent an entity's unbiased and mutually compatible best estimates of demographic and financial variables determining ultimate benefit costs. Financial assumptions are typically established in nominal terms using market expectations at the reporting period end.",
+      "terminology": [
+        "Actuarial assumptions",
+        "Demographic assumptions",
+        "Financial assumptions",
+        "Discount rate",
+        "Inflation level"
+      ],
+      "instrument_references": [
+        "INDIAN ACCOUNTING STANDARD 19"
+      ],
+      "inclusion": [
+        "Mortality, employee turnover, disability, early retirement, and medical claim rates",
+        "Discount rates, future salary levels, and plan contribution taxes"
+      ],
+      "exclusion": [
+        "Imprudent or excessively conservative estimates that lack mutual economic compatibility"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from static historical costs by relying on dynamic future market expectations and demographic projections."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d66aefdc-f13b-4025-adff-ed5327779f98",
+      "concept_name": "Recognition and Measurement of Plan Assets",
+      "definition": "Plan assets are measured at fair value and deducted from the present value of defined benefit obligations to determine deficits or surpluses. These assets exclude unpaid entity contributions, non-transferable entity instruments, and non-benefit fund liabilities.",
+      "terminology": [
+        "Fair value of plan assets",
+        "Qualifying insurance policies",
+        "Reimbursements",
+        "Deficit",
+        "Surplus"
+      ],
+      "instrument_references": [
+        "INDIAN ACCOUNTING STANDARD 19"
+      ],
+      "inclusion": [
+        "Qualifying insurance policies matching benefit amount and timing",
+        "Reimbursement rights recognized as separate assets when virtually certain"
+      ],
+      "exclusion": [
+        "Unpaid company contributions and non-transferable instruments issued by the entity",
+        "Non-qualifying insurance policies treated as general reimbursement rights rather than plan assets"
+      ],
+      "nearby_distinctions": [
+        "Differs from non-qualifying insurance policies which are handled as separate reimbursement assets rather than direct deductions from the obligation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7518a967-cd37-44cc-a08f-98763bc47606",
+      "concept_name": "Fair Value Measurement of Plan Assets",
+      "definition": "The fair value of plan assets is deducted from the present value of the defined benefit obligation to calculate plan deficits or surpluses. Plan assets exclude unpaid company contributions and non-transferable instruments issued by the reporting entity.",
+      "terminology": [
+        "Fair value of plan assets",
+        "Qualifying insurance policies",
+        "Deficit",
+        "Surplus",
+        "Plan assets"
+      ],
+      "instrument_references": [
+        "INDIAN ACCOUNTING STANDARD 19"
+      ],
+      "inclusion": [
+        "Deduction of fair value of plan assets from obligation present values",
+        "Qualifying insurance policies matching benefit terms"
+      ],
+      "exclusion": [
+        "Fund liabilities unrelated to employee benefits such as trade payables and derivatives"
+      ],
+      "nearby_distinctions": [
+        "Contrasts with non-qualifying insurance policies that cannot offset the obligation directly and must be accounted for as distinct reimbursement assets."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "26006263-21f5-4a25-90b6-895447adc2e5",
+      "concept_name": "Reimbursements and Defined Benefit Cost Components",
+      "definition": "An entity recognizes a right to reimbursement as a separate asset only when recovery from a third party is virtually certain. Defined benefit costs are parsed into service costs, net interest, and remeasurements, with remeasurements recognized entirely in other comprehensive income.",
+      "terminology": [
+        "Reimbursements",
+        "Qualifying insurance policies",
+        "Defined benefit cost",
+        "Other comprehensive income",
+        "Service cost"
+      ],
+      "instrument_references": [
+        "Ind AS 2",
+        "Ind AS 16",
+        "INDIAN ACCOUNTING STANDARD 19"
+      ],
+      "inclusion": [
+        "Separate asset recognition for non-qualifying insurance policy reimbursements",
+        "Non-reclassifiable remeasurements recognized in other comprehensive income"
+      ],
+      "exclusion": [
+        "Reclassification of OCI remeasurements back to profit or loss in subsequent periods"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes third-party insurer reimbursements from internal plan assets by requiring separate asset presentation unless tied to a qualifying insurance policy."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e45454d5-ddb4-4df8-bfe4-7af4e72ac0e3",
+      "concept_name": "Components of Defined Benefit Cost and Net Interest",
+      "definition": "Defined benefit costs comprise service costs and net interest recognized in profit or loss, alongside remeasurements recognized in other comprehensive income. Net interest is determined by multiplying the net defined benefit liability or asset by the specified discount rate.",
+      "terminology": [
+        "Defined benefit cost",
+        "Current service cost",
+        "Net interest",
+        "Remeasurements",
+        "Other comprehensive income"
+      ],
+      "instrument_references": [
+        "Ind AS 2",
+        "Ind AS 16",
+        "Ind AS 19"
+      ],
+      "inclusion": [
+        "Service costs recognized in profit or loss unless capitalized under specific standards",
+        "Net interest calculated using opening or remeasured discount rates"
+      ],
+      "exclusion": [
+        "Reclassification of OCI remeasurements into profit or loss during subsequent accounting periods"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes operating service and financing interest components routed through profit or loss from volatile actuarial remeasurements isolated in other comprehensive income."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "cfc7aac9-e1aa-4585-adc2-e407a7a1868b",
+      "concept_name": "Net Interest on Net Defined Benefit Liability or Asset",
+      "definition": "Net interest on the net defined benefit liability or asset is calculated by applying the discount rate to the net liability or asset position at the start of the period. It integrates interest cost on obligations, interest income on plan assets, and interest on any asset ceiling effects.",
+      "terminology": [
+        "Net interest",
+        "Interest income on plan assets",
+        "Interest cost",
+        "Discount rate",
+        "Asset ceiling"
+      ],
+      "instrument_references": [
+        "INDIAN ACCOUNTING STANDARD 19"
+      ],
+      "inclusion": [
+        "Products of fair value of plan assets and discount rates evaluated at the period start",
+        "Adjustments reflecting contributions and benefit payments"
+      ],
+      "exclusion": [
+        "Variations between actual return on plan assets and calculated interest income, which route to remeasurements"
+      ],
+      "nearby_distinctions": [
+        "Separates predictable interest income derived from discount rates applied to plan assets from actual total asset returns containing actuarial variances."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "a739b82040921823a6d17e1bdc829ef6f7e0473b359821e2c7e226ce3b630bcd",
+  "artifact_id": "10f7a15e-f42d-4012-b67d-f9111f848b13",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8848,
+  "output_tokens": 3652,
+  "cost_usd": 0.0117844,
+  "created_at": "2026-10-03T17:58:53.501744+00:00"
+}

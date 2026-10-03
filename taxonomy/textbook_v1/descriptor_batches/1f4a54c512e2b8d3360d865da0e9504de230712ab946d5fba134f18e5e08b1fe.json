@@ -1,0 +1,135 @@
+{
+  "descriptors": [
+    {
+      "node_id": "3964d5a8-4634-42ae-b7a8-f4a418c9c087",
+      "concept_name": "Valuation Framework Foundations",
+      "definition": "Fiscal statutes compute tax liability on an ad-valorem basis using a prescribed valuation mechanism for goods and services. The transaction value between unrelated parties acts as the default taxable base under statutory valuation provisions.",
+      "terminology": [
+        "ad-valorem",
+        "transaction value",
+        "taxable value",
+        "intra-State supply",
+        "inter-State supply"
+      ],
+      "instrument_references": [
+        "Section 15 of the CGST Act",
+        "Chapter IV of the CGST Rules, 2017",
+        "Section 20 of the IGST Act"
+      ],
+      "inclusion": [
+        "Goods and services supply valuations",
+        "CGST, SGST, UTGST, and IGST computation frameworks"
+      ],
+      "exclusion": [
+        "Non-ad-valorem levies",
+        "Transactions where price is not the sole consideration"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes standard transaction value pricing from specialized rule-based valuation methods used when standard criteria fail."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ab16205c-cf85-4475-a1fc-0555f215862c",
+      "concept_name": "Statutory Definitions for Supply Valuation",
+      "definition": "Statutory definitions establish specific legal meanings for agents, consideration, family dependents, goods, and market value within the indirect tax framework. Deposits are excluded from consideration unless explicitly applied by the supplier as payment.",
+      "terminology": [
+        "Agent",
+        "Consideration",
+        "Family",
+        "Goods",
+        "Market value",
+        "Deposit"
+      ],
+      "instrument_references": [
+        "Section 2(5) of the CGST Act",
+        "Section 2(31) of the CGST Act",
+        "Section 2(49) of the CGST Act",
+        "Section 2(52) of the CGST Act",
+        "Section 2(73) of the CGST Act"
+      ],
+      "inclusion": [
+        "Mercantile agents and brokers",
+        "Monetary and non-monetary payments",
+        "Actionable claims and growing crops",
+        "Dependent family members"
+      ],
+      "exclusion": [
+        "Government subsidies",
+        "Deposits held without supplier application",
+        "Money and securities"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes held security deposits from active payment consideration based on supplier application timing."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "72407f6f-8662-4f40-aa8a-204e85bc7b81",
+      "concept_name": "Determination of Value of Supply",
+      "definition": "The taxable value of a supply equals its transaction value when parties are unrelated and price is the sole consideration. Additions such as incidental expenses, recipient liabilities, non-government subsidies, and taxes are included, while qualifying pre- and post-supply discounts are excluded.",
+      "terminology": [
+        "Transaction value",
+        "Incidental expenses",
+        "Price-linked subsidy",
+        "Discount",
+        "Input tax credit reversal"
+      ],
+      "instrument_references": [
+        "Section 15(1) of the CGST Act",
+        "Section 15(2) of the CGST Act",
+        "Section 15(3) of the CGST Act"
+      ],
+      "inclusion": [
+        "Separate third-party levies other than specified GST laws",
+        "Recipient liabilities paid by supplier",
+        "Delayed payment interest, late fees, and penalties"
+      ],
+      "exclusion": [
+        "Central and State Government subsidies",
+        "Discounts recorded on invoices or linked via pre-supply agreements with reversed ITC"
+      ],
+      "nearby_distinctions": [
+        "Contrasts mandatory additions to the price with permitted exclusions like conditional discounts and government subsidies."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9f9ce6ee-c738-4820-a2d4-908a5f561122",
+      "concept_name": "Valuation Rules for Non-Standard Supplies",
+      "definition": "Valuation rules determine taxable values when consideration is not wholly in money or when transactions occur between distinct or related persons. The process follows a hierarchical methodology starting with open market value and falling back to like-kind quality or computed cost rules.",
+      "terminology": [
+        "Open market value",
+        "Consideration not wholly in money",
+        "Distinct persons",
+        "Related persons",
+        "Like kind and quality"
+      ],
+      "instrument_references": [
+        "Rule 27 of the CGST Rules",
+        "Rule 28 of the CGST Rules",
+        "Rule 30 of the CGST Rules",
+        "Rule 31 of the CGST Rules"
+      ],
+      "inclusion": [
+        "Barter transactions",
+        "Part-exchange arrangements",
+        "Supplies between distinct establishments or related entities"
+      ],
+      "exclusion": [
+        "Standard arm-length transactions where price is the sole monetary consideration under section 15(1)"
+      ],
+      "nearby_distinctions": [
+        "Differentiates default transaction pricing from sequential fallback valuation rules applied during non-monetary or related-party transactions."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "1f4a54c512e2b8d3360d865da0e9504de230712ab946d5fba134f18e5e08b1fe",
+  "artifact_id": "1f3c3008-51cd-4b34-8bcf-bdfd5b200b5f",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 3222,
+  "output_tokens": 1390,
+  "cost_usd": 0.0044416,
+  "created_at": "2026-10-03T18:23:40.622910+00:00"
+}

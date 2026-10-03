@@ -1,0 +1,226 @@
+{
+  "descriptors": [
+    {
+      "node_id": "3d657b6d-ce4f-4805-a95b-39aed9b63903",
+      "concept_name": "First Appeal Before Joint Commissioner (Appeals) or Commissioner (Appeals)",
+      "definition": "An assessee aggrieved by specific adverse orders passed by an Assessing Officer below the rank of Joint Commissioner can challenge the determination before the appellate authority. This includes objections to income amounts, tax computations, loss determinations, or penalty impositions.",
+      "terminology": [
+        "Assessee",
+        "Assessing Officer",
+        "Intimation",
+        "Status"
+      ],
+      "instrument_references": [
+        "Section 246",
+        "Section 246(1)",
+        "Section 143(1)",
+        "Section 143(3)",
+        "Section 144",
+        "Section 147",
+        "Section 200A(1)",
+        "Section 201",
+        "Section 206C(6A)",
+        "Section 206CB(1)",
+        "Section 154",
+        "Section 155"
+      ],
+      "inclusion": [
+        "Orders under section 143(3) or 144 regarding assessed income or tax",
+        "Assessment orders under section 147",
+        "Default orders under section 201 or section 206C(6A)"
+      ],
+      "exclusion": [
+        "Orders passed by or with the prior approval of an income-tax authority above the rank of Deputy Commissioner"
+      ],
+      "nearby_distinctions": [
+        "Differs from second appeals to the Appellate Tribunal as it forms the initial statutory tier of grievance redressal against subordinate assessing authorities."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8166077e-46b1-4932-898f-e5d061a4c50b",
+      "concept_name": "Appeals to the Appellate Tribunal",
+      "definition": "Aggrieved assessees can challenge specific administrative and appellate determinations, including orders from the Joint Commissioner (Appeals) or Commissioner (Appeals), before the constitutionally established multi-member tribunal. The appellate mechanism covers diverse statutory disputes such as tonnage tax exclusions, general anti-avoidance rule consequences, and specific penalty impositions.",
+      "terminology": [
+        "Appellate Tribunal",
+        "Judicial Member",
+        "Accountant Member",
+        "Dispute Resolution Panel"
+      ],
+      "instrument_references": [
+        "Section 252",
+        "Section 252(1)",
+        "Section 253",
+        "Section 115VZC(1)",
+        "Section 143(3)",
+        "Section 147",
+        "Section 144BA(12)",
+        "Section 270A",
+        "Section 271A",
+        "Section 271AAC",
+        "Section 271AAD",
+        "Section 271J"
+      ],
+      "inclusion": [
+        "Orders disposing of appeals by the Joint Commissioner (Appeals) or Commissioner (Appeals)",
+        "Penalty orders under sections 270A, 271A, 271AAC, 271AAD, and 271J"
+      ],
+      "exclusion": [
+        "Initial assessment orders passed directly by low-ranking Assessing Officers without prior appellate disposal or specialized panel directions."
+      ],
+      "nearby_distinctions": [
+        "Acts as a second appellate tier situated above the first appellate authorities and below the jurisdictional High Court."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2713c7f0-f89b-42b7-9a23-00671e5b243c",
+      "concept_name": "Appeals to High Court",
+      "definition": "Parties aggrieved by an Appellate Tribunal order can file a direct appeal before the High Court provided the case involves a substantial question of law. The High Court must formulate the specific question and restrict its hearing to that defined legal issue.",
+      "terminology": [
+        "Substantial Question of Law",
+        "Memorandum of Appeal",
+        "Condonation of Delay"
+      ],
+      "instrument_references": [
+        "Section 260A",
+        "Section 260A(1)",
+        "Section 260B",
+        "Section 261"
+      ],
+      "inclusion": [
+        "Appeals filed by the Principal Chief Commissioner, Chief Commissioner, Principal Commissioner, Commissioner, or assessee",
+        "Matters involving formulated substantial questions of law"
+      ],
+      "exclusion": [
+        "Pure findings of fact or disputes lacking a substantial question of law"
+      ],
+      "nearby_distinctions": [
+        "Restricted exclusively to substantial questions of law, unlike lower appellate tiers that evaluate both factual findings and legal applications."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a19b23bb-bd20-45bc-98ae-4d1039fbd161",
+      "concept_name": "Appeal to the Supreme Court",
+      "definition": "An appeal lies to the Supreme Court against any High Court judgment if the High Court certifies the case as a fit one for appeal. The procedural rules of the Code of Civil Procedure govern these proceedings alongside discretionary cost awards by the apex court.",
+      "terminology": [
+        "Certificate of Fitness",
+        "Decree",
+        "Apex Court"
+      ],
+      "instrument_references": [
+        "Section 261",
+        "Code of Civil Procedure, 1908",
+        "Section 158A",
+        "Section 260A",
+        "Section 246",
+        "Section 246A",
+        "Section 253"
+      ],
+      "inclusion": [
+        "High Court judgments certified as fit for appeal",
+        "Appeals where procedural rules of civil procedure apply similarly to high court decrees"
+      ],
+      "exclusion": [
+        "High Court judgments lacking a formal certificate of fitness for appeal"
+      ],
+      "nearby_distinctions": [
+        "Represents the final tier of judicial review above High Courts, requiring a specific fitness certification."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "95662b50-d4c5-4fd8-b609-dd19214755cf",
+      "concept_name": "Revision of Orders Prejudicial to Revenue",
+      "definition": "Higher administrative authorities can examine records and modify or cancel subordinate assessment or transfer pricing orders if found erroneous and prejudicial to revenue interests. An order is deemed prejudicial if passed without mandatory inquiries or contrary to statutory board instructions and jurisdictional rulings.",
+      "terminology": [
+        "Prejudicial to the Interests of the Revenue",
+        "Transfer Pricing Officer",
+        "Record",
+        "Enhancing"
+      ],
+      "instrument_references": [
+        "Section 263",
+        "Section 263(1)",
+        "Section 92CA",
+        "Section 119"
+      ],
+      "inclusion": [
+        "Orders passed without conducting necessary inquiries or verifications",
+        "Orders granting relief without inquiring into claims",
+        "Orders violating CBDT instructions or binding jurisdictional court decisions"
+      ],
+      "exclusion": [
+        "Matters already considered and specifically decided in an earlier appeal concerning the same order"
+      ],
+      "nearby_distinctions": [
+        "Initiated suo motu by high-ranking commissioners to protect revenue, contrasting with assessee-driven appeal mechanisms."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2040868f-68fc-45b1-931d-9f2f6960d418",
+      "concept_name": "Monetary Limits for Regulating Filing of Appeals by Income Tax Authorities",
+      "definition": "The central board is empowered to set financial thresholds that regulate when tax authorities can file appeals or reference applications before tribunals and courts. Failure to appeal in a specific case due to these monetary limits does not prevent the authority from litigating the same issue in other assessment years or against different assessees.",
+      "terminology": [
+        "Monetary Limit",
+        "Reference",
+        "Acquiescence",
+        "Special Leave Petition"
+      ],
+      "instrument_references": [
+        "Section 268A",
+        "Section 268A(1)",
+        "Circular No. 8/2023",
+        "Circular No. 5/2024",
+        "Circular No. 09/2024"
+      ],
+      "inclusion": [
+        "Departmental appeals restricted by prescribed monetary thresholds",
+        "Future filings on identical issues for other assessment years or assessees"
+      ],
+      "exclusion": [
+        "Appeals exceeding the specified monetary cutoffs where merits justify litigation"
+      ],
+      "nearby_distinctions": [
+        "Regulates administrative discretion to litigate based on financial stakes rather than the legal merit of the underlying dispute."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "aff0e462-46bd-437a-85ee-a7d8571cb9a8",
+      "concept_name": "Doctrine of Partial Merger and Total Merger",
+      "definition": "The partial merger doctrine allows rectification or revision only for matters untouched by a prior appeal, whereas total merger extinguishes lower revision powers once an order becomes the subject matter of an appeal. Consequently, rectification or selective revision can proceed alongside appellate proceedings only for distinct unlitigated issues.",
+      "terminology": [
+        "Partial Merger",
+        "Total Merger",
+        "Rectification",
+        "Subject-matter"
+      ],
+      "instrument_references": [
+        "Section 154",
+        "Section 263",
+        "Section 264"
+      ],
+      "inclusion": [
+        "Rectification of matters unconsidered in prior appeal proceedings under section 154",
+        "Revision powers under section 263 extending to unconsidered appeal matters"
+      ],
+      "exclusion": [
+        "Revision under section 264 if the order has been made the subject matter of an appeal to the appellate authorities or tribunal"
+      ],
+      "nearby_distinctions": [
+        "Partial merger permits concurrent administrative review of unaddressed issues, whereas total merger completely bars revision of any part of an order subjected to appeal."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "3fdb28178c28110a1738aa126944e2ed16645d00793b6b139e3fa8aa28e1df3d",
+  "artifact_id": "cefe6037-01f2-4528-9723-d6e31aa02119",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 5904,
+  "output_tokens": 2594,
+  "cost_usd": 0.0082562,
+  "created_at": "2026-10-03T18:22:19.323614+00:00"
+}

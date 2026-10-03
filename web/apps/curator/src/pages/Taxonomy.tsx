@@ -1,5 +1,6 @@
 import { accountKey } from "@caf/api-client";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { Network, ChevronDown, ChevronRight, Hash } from "lucide-react";
 import { curatorClient, requiredData } from "../lib/client";
@@ -39,6 +40,7 @@ export function Taxonomy() {
           <p className="text-xs text-slate-400 mt-0.5">
             Current syllabus hierarchy from the backend.
           </p>
+          <p className="text-xs text-indigo-300 mt-2"><Link to="/textbooks">Recursive textbook taxonomy</Link>{" · "}<Link to="/textbooks?legacy=true">Legacy taxonomy history</Link></p>
         </div>
 
         {/* Paper selector tabs */}

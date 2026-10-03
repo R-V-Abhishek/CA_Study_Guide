@@ -1,0 +1,314 @@
+{
+  "descriptors": [
+    {
+      "node_id": "00125d83-ac0f-4134-8a3b-367a4808e8c9",
+      "concept_name": "Change in tax status of an entity or its shareholders",
+      "definition": "A modification in the taxation classification of an organization or its investors alters future tax rates and asset recovery consequences. Such adjustments impact profit or loss unless the underlying events directly affect equity or other comprehensive income.",
+      "terminology": [
+        "tax status change",
+        "public listing",
+        "tax incentives",
+        "deferred tax adjustments"
+      ],
+      "instrument_references": [
+        "Ind AS 12"
+      ],
+      "inclusion": [
+        "Tax consequences affecting profit or loss",
+        "Tax effects relating to items recognized in equity",
+        "Tax effects relating to items recognized in other comprehensive income"
+      ],
+      "exclusion": [
+        "Increases or decreases in amounts recognized outside profit or loss unrelated to equity or OCI"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from routine temporary difference reversals by stemming from structural status alterations rather than operational asset recovery."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6ed20b53-8f37-4183-8a89-74f978afc483",
+      "concept_name": "PART E: DISCLOSURES",
+      "definition": "Financial statement reporting mandates extend beyond recognition and measurement to encompass detailed disclosures regarding income taxes. These disclosures explain tax expenses, equity charges, and other tax-related line items.",
+      "terminology": [
+        "tax expense",
+        "tax income",
+        "disclosures",
+        "components of tax expense"
+      ],
+      "instrument_references": [
+        "Ind AS 12"
+      ],
+      "inclusion": [
+        "Major components of tax expense",
+        "Taxes related to items charged directly to equity"
+      ],
+      "exclusion": [
+        "Initial recognition and measurement rules detailed in earlier sections"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from core recognition principles by focusing strictly on note disclosures and explanatory breakdowns."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2c3cfbd8-f0a4-48bd-be80-f84be57ea1b4",
+      "concept_name": "Disclosure 1: Disclose components of tax expenses (income)",
+      "definition": "Entities must separately disclose major components of tax expense or income within the financial statements. This includes current tax, prior period adjustments, and deferred tax movements.",
+      "terminology": [
+        "current tax expense",
+        "deferred tax expense",
+        "prior period adjustments",
+        "tax income"
+      ],
+      "instrument_references": [
+        "Ind AS 12",
+        "Ind AS 8"
+      ],
+      "inclusion": [
+        "Current tax expense",
+        "Deferred tax expense relating to origination and reversal of temporary differences",
+        "Tax expense relating to accounting policy changes and errors"
+      ],
+      "exclusion": [
+        "Unrelated operating expense disclosures"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from aggregate balance sheet totals by itemizing specific profit or loss tax drivers."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e320e905-2d77-4fe1-91ff-97f368445a8b",
+      "concept_name": "Disclosure 2: Tax related to items charged directly to equity",
+      "definition": "Current and deferred taxes associated with items credited or charged directly to equity must be accounted for and disclosed accordingly. Examples include retrospective accounting policy adjustments and the initial equity component of compound instruments.",
+      "terminology": [
+        "charged directly to equity",
+        "retained earnings",
+        "compound financial instrument",
+        "aggregate current and deferred tax"
+      ],
+      "instrument_references": [
+        "Ind AS 12",
+        "Ind AS 8"
+      ],
+      "inclusion": [
+        "Aggregate current and deferred tax related to equity items",
+        "Retained earnings opening balance adjustments from error corrections"
+      ],
+      "exclusion": [
+        "Taxes recognized through profit or loss or other comprehensive income"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from OCI tax disclosures by isolating items bypassing profit or loss straight into equity components."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a2d72636-4e33-47bc-bfbd-a19f6ace5e5a",
+      "concept_name": "Disclosure 3: Tax related to items recognised in statement of other comprehensive income",
+      "definition": "Income taxes relating to items recognized in other comprehensive income must be accounted for and disclosed for each component. Examples include asset revaluations and foreign operation translation differences.",
+      "terminology": [
+        "other comprehensive income",
+        "revaluation of property plant and equipment",
+        "foreign operation translation",
+        "income tax relating to OCI"
+      ],
+      "instrument_references": [
+        "Ind AS 12",
+        "Ind AS 16",
+        "Ind AS 21"
+      ],
+      "inclusion": [
+        "Tax relating to property, plant and equipment revaluations",
+        "Tax relating to foreign operation exchange differences"
+      ],
+      "exclusion": [
+        "Tax expenses affecting standard profit or loss from ordinary activities"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from direct equity charges by applying specifically to elements traversing the statement of other comprehensive income."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1b63ec58-d519-4078-baa6-27efe22f827a",
+      "concept_name": "Disclosure 4: Explanation of the relationship between tax expense (income) and accounting profit",
+      "definition": "Entities must provide a numerical reconciliation explaining the variance between accounting profit multiplied by applicable rates and actual tax expense. This explanation can use either monetary tax amounts or effective tax rate percentages.",
+      "terminology": [
+        "accounting profit",
+        "applicable tax rate",
+        "numerical reconciliation",
+        "effective tax rate"
+      ],
+      "instrument_references": [
+        "Ind AS 12"
+      ],
+      "inclusion": [
+        "Numerical reconciliation of tax expense against accounting profit product",
+        "Numerical reconciliation of average effective tax rate against applicable tax rate"
+      ],
+      "exclusion": [
+        "Standard balance sheet tax asset and liability schedules"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from component breakdowns by offering a conceptual bridge between pre-tax accounting profits and final tax expense calculations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5fa42e14-95e8-4066-8e5f-78e2efd7c87e",
+      "concept_name": "Disclosure 5: Change in tax rates",
+      "definition": "Explanations must be provided whenever applicable tax rates shift compared to the prior period. These shifts can stem from legislative revisions, structural entity changes, or asset recovery alterations.",
+      "terminology": [
+        "change in tax rates",
+        "manner of recovery",
+        "tax law changes",
+        "entity structure"
+      ],
+      "instrument_references": [
+        "Ind AS 12"
+      ],
+      "inclusion": [
+        "Explanations for tax rate variations across accounting periods"
+      ],
+      "exclusion": [
+        "Static tax rate disclosures under constant legislative frameworks"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general tax expense breakdowns by explicitly targeting the rationale behind shifting statutory percentages."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9e228ad5-97d6-4880-8fa8-7204c97778be",
+      "concept_name": "Disclosure 6: Unrecognised deductible temporary differences, unused tax losses and unused tax credits",
+      "definition": "Entities must disclose the monetary amounts and expiry dates of deductible temporary differences, unused tax losses, and tax credits lacking deferred tax asset recognition. This reporting applies when standard recognition criteria cannot be fulfilled.",
+      "terminology": [
+        "unrecognised deferred tax assets",
+        "unused tax losses",
+        "unused tax credits",
+        "expiry date"
+      ],
+      "instrument_references": [
+        "Ind AS 12"
+      ],
+      "inclusion": [
+        "Amounts of unrecognised deductible temporary differences",
+        "Expiry dates of unrecognised tax losses and tax credits"
+      ],
+      "exclusion": [
+        "Deferred tax assets successfully recognized on the balance sheet"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from recognized asset disclosures by focusing exclusively on potential tax benefits excluded from the balance sheet due to strict criteria."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "661769cc-5b8f-44c4-9b00-2e686c2b3c92",
+      "concept_name": "Disclosure 7: Temporary differences associated with investments in subsidiaries etc.",
+      "definition": "Entities must disclose the aggregate temporary differences linked to investments in subsidiaries, branches, associates, and joint ventures where deferred tax liabilities remain unrecognised. Disclosing the underlying differences satisfies requirements when computing precise unrecognised liabilities is impracticable.",
+      "terminology": [
+        "investments in subsidiaries",
+        "associates",
+        "joint ventures",
+        "aggregate temporary differences"
+      ],
+      "instrument_references": [
+        "Ind AS 12"
+      ],
+      "inclusion": [
+        "Aggregate temporary differences for unrecognised subsidiary and affiliate liabilities"
+      ],
+      "exclusion": [
+        "Direct computation of unrecognised deferred tax liabilities when impracticable"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard temporary difference disclosures by addressing complex group-structure investments where computation is burdensome."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "93ed602e-45a7-4354-9a60-8748bf16bce9",
+      "concept_name": "Disclosure 8: Amount of deferred tax liabilities (assets) or income (expenses)",
+      "definition": "Entities must disclose recognized deferred tax balances across balance sheet periods alongside associated profit or loss impacts. These figures must be categorized by each distinct type of temporary difference, tax loss, and tax credit.",
+      "terminology": [
+        "deferred tax assets",
+        "deferred tax liabilities",
+        "deferred tax income",
+        "deferred tax expense"
+      ],
+      "instrument_references": [
+        "Ind AS 12"
+      ],
+      "inclusion": [
+        "Amounts of deferred tax assets and liabilities recognized in the balance sheet",
+        "Deferred tax income or expense recognized in profit or loss"
+      ],
+      "exclusion": [
+        "Unrecognised tax positions and off-balance-sheet items"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from aggregate tax expense lines by offering granular balance sheet tracking for individual temporary difference categories."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d6ba7324-75db-4871-a96b-1e2e761f74f1",
+      "concept_name": "Disclosure 9: Discontinued operations",
+      "definition": "Tax expenses connected to discontinued operations must be separately disclosed for both discontinuance gains or losses and ordinary operational profits. These disclosures must also incorporate comparative prior period amounts.",
+      "terminology": [
+        "discontinued operations",
+        "gain or loss on discontinuance",
+        "ordinary activities",
+        "prior period presented"
+      ],
+      "instrument_references": [
+        "Ind AS 12"
+      ],
+      "inclusion": [
+        "Tax expense relating to gain or loss on discontinuance",
+        "Tax expense relating to profit or loss from ordinary activities of discontinued operations"
+      ],
+      "exclusion": [
+        "Taxes associated with continuing operations"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from core continuing operation tax disclosures by segregating discontinued business lines and their unique exit metrics."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4ee176fa-8f55-4b8d-9762-32ee48c09add",
+      "concept_name": "Disclosure 10: Dividend tax",
+      "definition": "Entities must disclose the income tax consequences of dividends proposed or declared after the reporting date but prior to financial statement approval. Such dividend tax impacts are omitted from balance sheet liabilities but require explicit disclosure.",
+      "terminology": [
+        "dividend tax",
+        "proposed or declared dividends",
+        "reporting date",
+        "income tax consequences"
+      ],
+      "instrument_references": [
+        "Ind AS 12"
+      ],
+      "inclusion": [
+        "Income tax consequences of dividends proposed after reporting date but before approval"
+      ],
+      "exclusion": [
+        "Recognized dividend liability tax provisions"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from recognized liabilities by targeting post-reporting date unrecognised corporate distributions."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "876eefd77caff9343458620c82aed24a9de73e43e2721ce31fd1342beae1b186",
+  "artifact_id": "76ced5cf-1caf-4bf6-9e6f-068c7efe2df0",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 9078,
+  "output_tokens": 3284,
+  "cost_usd": 0.0109334,
+  "created_at": "2026-10-03T18:03:07.485595+00:00"
+}

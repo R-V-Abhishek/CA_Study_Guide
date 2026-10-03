@@ -1,0 +1,332 @@
+{
+  "descriptors": [
+    {
+      "node_id": "d6bf82cc-2f76-47de-b078-de73f7a88460",
+      "concept_name": "Communicating Key Audit Matters",
+      "definition": "Key audit matters are those of most significance in auditing the financial statements of the current period based on professional judgment. When no such matters exist, the auditor must explicitly state this within a designated paragraph.",
+      "terminology": [
+        "Key Audit Matters",
+        "Professional Judgment",
+        "Current Period",
+        "Auditor's Report"
+      ],
+      "instrument_references": [
+        "SA 700",
+        "SA 705"
+      ],
+      "inclusion": [
+        "Matters of most significance in current period audit",
+        "Explicit reporting when no key audit matters exist"
+      ],
+      "exclusion": [
+        "Modified opinions under SA 705",
+        "Separate opinions on individual matters"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from modified opinions which directly alter the audit opinion rather than highlighting significant audit areas."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0b3d3acb-d24b-44f9-81b3-bcd1b4d624f8",
+      "concept_name": "SA 705 Modifications To The Opinion In The Independent Auditor’S Report",
+      "definition": "This standard governs the auditor's responsibility to issue an appropriately modified report when financial statements are not free from material misstatement or when sufficient appropriate audit evidence cannot be obtained. The appropriate modification type depends on the nature of the matter and its pervasiveness.",
+      "terminology": [
+        "Modified Opinion",
+        "Qualified Opinion",
+        "Adverse Opinion",
+        "Disclaimer of Opinion",
+        "Pervasiveness"
+      ],
+      "instrument_references": [
+        "SA 705",
+        "SA 700 (Revised)"
+      ],
+      "inclusion": [
+        "Qualified opinions due to material misstatement or scope limitation",
+        "Adverse opinions and disclaimers of opinion"
+      ],
+      "exclusion": [
+        "Unmodified audit reports",
+        "Emphasis of matter paragraphs addressing properly disclosed items"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from Emphasis of Matter paragraphs which do not alter the auditor's opinion."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "236dfcfd-a701-4e81-9f7f-c4b39377f323",
+      "concept_name": "Types of Modified Opinions",
+      "definition": "Modified opinions comprise qualified opinions, adverse opinions, and disclaimers of opinion. Selection of the specific modification relies on whether underlying issues stem from material misstatements or potential evidence limitations, alongside the assessed pervasiveness across financial statements.",
+      "terminology": [
+        "Qualified Opinion",
+        "Adverse Opinion",
+        "Disclaimer of Opinion",
+        "Pervasiveness"
+      ],
+      "instrument_references": [
+        "SA 705"
+      ],
+      "inclusion": [
+        "Evaluation of misstatement nature",
+        "Assessment of evidence limitations and pervasiveness"
+      ],
+      "exclusion": [
+        "Unmodified standard opinions",
+        "Other reporting paragraphs without opinion modification"
+      ],
+      "nearby_distinctions": [
+        "Qualified opinions apply when effects are material but not pervasive, whereas adverse or disclaimer opinions apply when effects are both material and pervasive."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0b4d9c04-6bbc-42fb-b9ff-c50b295bcc36",
+      "concept_name": "Objective",
+      "definition": "The auditor aims to clearly express an appropriately modified opinion when evidence indicates financial statements are materially misstated or when sufficient appropriate evidence is unobtainable. This ensures audit reports transparently convey significant deviations from financial reporting frameworks.",
+      "terminology": [
+        "Modified Opinion",
+        "Material Misstatement",
+        "Audit Evidence",
+        "Financial Statements as a Whole"
+      ],
+      "instrument_references": [
+        "SA 705"
+      ],
+      "inclusion": [
+        "Expressing clear modifications for material misstatements",
+        "Expressing modifications for inability to obtain sufficient evidence"
+      ],
+      "exclusion": [
+        "Issuing clean unmodified opinions when material errors persist",
+        "Expressing separate opinions on specific financial statement elements when an adverse opinion is issued overall"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general reporting objectives by explicitly focusing on situations requiring opinion modification."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "32dd63af-49b4-4b78-a0e1-3727363b3955",
+      "concept_name": "Circumstances When a Modification to the Auditor’s Opinion is Required",
+      "definition": "An auditor must modify the report opinion if financial statements contain material misstatements or if evidence limitations prevent verifying whether statements are free from material misstatements as a whole. These conditions trigger the evaluation of qualified, adverse, or disclaimer options.",
+      "terminology": [
+        "Material Misstatement",
+        "Audit Evidence",
+        "Modified Opinion",
+        "Scope Limitation"
+      ],
+      "instrument_references": [
+        "SA 705"
+      ],
+      "inclusion": [
+        "Situations with uncorrected material misstatements",
+        "Inability to gather sufficient appropriate audit evidence"
+      ],
+      "exclusion": [
+        "Audits with fully verifiable balances and unmodified reports",
+        "Matters resolved prior to audit completion"
+      ],
+      "nearby_distinctions": [
+        "Triggers mandatory modification rather than optional emphasis formatting."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "bfc0ad1c-3655-42d8-a2dd-4c4b444f7c03",
+      "concept_name": "Determining the Type of Modification to the Auditor’s Opinion",
+      "definition": "Qualified opinions are issued when misstatements or undetected potential effects are material but not pervasive to the financial statements. The determination requires weighing both the magnitude of the issue and its widespread impact across financial statement elements.",
+      "terminology": [
+        "Qualified Opinion",
+        "Material but not Pervasive",
+        "Undetected Misstatements",
+        "Audit Evidence"
+      ],
+      "instrument_references": [
+        "SA 705"
+      ],
+      "inclusion": [
+        "Misstatements identified as material but non-pervasive",
+        "Potential effects from evidence limitations deemed material but non-pervasive"
+      ],
+      "exclusion": [
+        "Pervasive misstatements requiring adverse opinions",
+        "Pervasive scope limitations requiring disclaimers"
+      ],
+      "nearby_distinctions": [
+        "Differs from adverse opinions by restricting the impact to specific areas rather than pervading the entire financial statements."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6e5fb5ec-a007-4076-9fcd-9f90953aa022",
+      "concept_name": "Consequence of an Inability to Obtain Sufficient Appropriate Audit Evidence Due to a Management-Imposed Limitation after Engagement Acceptance",
+      "definition": "When management imposes scope limitations after engagement acceptance, the auditor must request removal and seek alternative procedures. If unresolved, the auditor qualifies the opinion for material effects or withdraws and disclaims if effects are pervasive and permitted by law.",
+      "terminology": [
+        "Management-Imposed Limitation",
+        "Alternative Procedures",
+        "Withdrawal",
+        "Disclaimer of Opinion",
+        "Qualified Opinion"
+      ],
+      "instrument_references": [
+        "SA 705"
+      ],
+      "inclusion": [
+        "Communication with those charged with governance regarding limitations",
+        "Evaluating whether to qualify, withdraw, or disclaim"
+      ],
+      "exclusion": [
+        "Limitations imposed by circumstances outside management control",
+        "Scope limitations resolved via alternative audit procedures"
+      ],
+      "nearby_distinctions": [
+        "Specifically applies to post-acceptance management-imposed limitations rather than general evidence scarcity."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e493857e-059c-4774-8447-08b27db8a270",
+      "concept_name": "If the Auditor Decides to Withdraw",
+      "definition": "An auditor deciding to withdraw must communicate identified misstatements prompting opinion modifications to those charged with governance beforehand. Regulatory frameworks, such as SEBI guidelines, may restrict immediate resignation without issuing pending quarterly or annual review reports.",
+      "terminology": [
+        "Withdrawal",
+        "Resignation",
+        "SEBI Directive",
+        "Limited Review Report",
+        "Those Charged with Governance"
+      ],
+      "instrument_references": [
+        "SEBI Circular CIR/CFD/CMD1/114/2019"
+      ],
+      "inclusion": [
+        "Communication of misstatements prior to resignation",
+        "Compliance with mandatory reporting timelines before withdrawal"
+      ],
+      "exclusion": [
+        "Unrestricted resignations where regional listing agreements or regulations do not apply",
+        "Withdrawals executed without notifying governance bodies"
+      ],
+      "nearby_distinctions": [
+        "Integrates regulatory resignation constraints with standard audit withdrawal protocols."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5293a824-52e1-4419-9641-ca40ceb05bb1",
+      "concept_name": "Other Considerations Relating to an Adverse Opinion or Disclaimer of Opinion",
+      "definition": "Expressing an adverse opinion or disclaimer on financial statements as a whole prohibits including an unmodified opinion on individual financial elements under the same framework. Such contradictory reporting misleads users regarding the overall reliability of the financial statements.",
+      "terminology": [
+        "Adverse Opinion",
+        "Disclaimer of Opinion",
+        "Unmodified Opinion",
+        "Contradictory Reporting",
+        "Financial Reporting Framework"
+      ],
+      "instrument_references": [
+        "SA 705"
+      ],
+      "inclusion": [
+        "Prohibition of mixed unmodified element opinions alongside adverse whole opinions",
+        "Prohibition of mixed unmodified element opinions alongside disclaimers"
+      ],
+      "exclusion": [
+        "Issuing uniform modified reports across all components",
+        "Separate standalone reports governed by different frameworks where permitted"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from situations where qualified opinions allow partial specific reporting if it does not contradict the whole."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a043c3c2-194f-46a0-9af4-635fe61d78df",
+      "concept_name": "Form and Content of the Auditor’s Report When the Opinion is Modified",
+      "definition": "When modifying an opinion, the auditor must apply designated headings like Qualified Opinion and specify whether reporting under a fair presentation or compliance framework. Qualified reports must state that the opinion holds true except for the effects or possible effects of the described matters.",
+      "terminology": [
+        "Qualified Opinion",
+        "Fair Presentation Framework",
+        "Compliance Framework",
+        "Basis for Qualified Opinion",
+        "True and Fair View"
+      ],
+      "instrument_references": [
+        "SA 705"
+      ],
+      "inclusion": [
+        "Using specific section headings for modified opinions",
+        "Deploying except-for phrasing for material misstatements or evidence limitations"
+      ],
+      "exclusion": [
+        "Standard unqualified report wording",
+        "Omitting the basis for modification paragraph"
+      ],
+      "nearby_distinctions": [
+        "Differs from unmodified report styling by requiring explicit 'except for' phraseology linked to the basis section."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "81164b25-1415-4b1a-af72-ac8cb8200f5f",
+      "concept_name": "Communication with Those Charged with Governance",
+      "definition": "Prior to modifying an audit opinion, the auditor must discuss the underlying circumstances and proposed wording with those charged with governance. This ensures governance bodies are formally apprised of expected audit findings and misstatement classifications.",
+      "terminology": [
+        "Those Charged with Governance",
+        "Expected Modification",
+        "Audit Findings",
+        "Misstatement Types"
+      ],
+      "instrument_references": [
+        "SA 705"
+      ],
+      "inclusion": [
+        "Deliberating expected modifications with governance",
+        "Communicating circumstances and wording of modifications"
+      ],
+      "exclusion": [
+        "Unmodified audit reports lacking significant adjustments",
+        "Unilateral opinion filings without prior governance dialogue"
+      ],
+      "nearby_distinctions": [
+        "Focuses on pre-issuance governance dialogue rather than post-issuance report distribution."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9498d28e-7da0-4938-a342-5fce8defece3",
+      "concept_name": "SA 706 EMPHASIS OF MATTER PARAGRAPHS AND OTHER MATTER PARAGRAPHS IN THE INDEPENDENT AUDITOR’S REPORT",
+      "definition": "This standard guides the inclusion of additional paragraphs to draw users' attention to properly presented financial statement matters fundamental to user understanding or other relevant audit aspects. Emphasis of matter and other matter paragraphs clarify key disclosures without modifying the audit opinion.",
+      "terminology": [
+        "Emphasis of Matter Paragraph",
+        "Other Matter Paragraph",
+        "Fundamental Understanding",
+        "Financial Statement Disclosure"
+      ],
+      "instrument_references": [
+        "SA 706",
+        "SA 705",
+        "SA 701"
+      ],
+      "inclusion": [
+        "Emphasis of matter paragraphs for fundamental disclosures",
+        "Other matter paragraphs for audit responsibility context"
+      ],
+      "exclusion": [
+        "Matters requiring opinion modifications under SA 705",
+        "Matters designated as key audit matters under SA 701"
+      ],
+      "nearby_distinctions": [
+        "Differs from SA 705 modifications because the underlying matter is appropriately presented or disclosed without changing the opinion."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "89ebbad9879cd2298243ed29dfdbb2cbb9a8c26b26dd32f22cc13ee7ef07741e",
+  "artifact_id": "560e543c-b6ce-4364-a5f5-2f339091d917",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8548,
+  "output_tokens": 3538,
+  "cost_usd": 0.0114094,
+  "created_at": "2026-10-03T18:10:17.431429+00:00"
+}

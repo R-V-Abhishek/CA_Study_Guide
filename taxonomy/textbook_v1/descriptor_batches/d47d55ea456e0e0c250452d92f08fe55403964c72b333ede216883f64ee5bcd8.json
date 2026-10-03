@@ -1,0 +1,323 @@
+{
+  "descriptors": [
+    {
+      "node_id": "4483adff-f549-4fd3-adbb-4d44dcb98d53",
+      "concept_name": "Factors to be Considered When Investigating Variance",
+      "definition": "Organizations assess specific elements such as variance size, cost-benefit trade-offs, and temporal patterns before deciding to investigate performance differences. If budgets prove unrealistic, management should re-evaluate the budgeting process rather than review individual variances.",
+      "terminology": [
+        "variance size",
+        "adverse variance",
+        "favourable variance",
+        "budgetary process",
+        "variance pattern"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "evaluating cost versus benefit of investigations",
+        "assessing variance magnitude and worsening trends",
+        "re-evaluating uncontrollable budgets"
+      ],
+      "exclusion": [
+        "calculating mathematical variance formulas",
+        "executing operational corrective actions"
+      ],
+      "nearby_distinctions": [
+        "Differs from variance computation methods by focusing on the operational and economic decision criteria governing whether to pursue an investigation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a9fbe497-16c4-4527-8f1c-ff25d5b75a87",
+      "concept_name": "Method Used for Investigating Variance 6",
+      "definition": "Management evaluates operational discrepancies using structured decision frameworks such as arbitrary rule of thumb criteria or statistical probability models. These approaches help determine whether a cost system is operating normally or requires formal intervention.",
+      "terminology": [
+        "rule of thumb model",
+        "statistical decision model",
+        "in control",
+        "out of control"
+      ],
+      "instrument_references": [
+        "Management and Cost Accounting by Colin M. Drury"
+      ],
+      "inclusion": [
+        "applying percentage or absolute threshold criteria",
+        "using statistical probability distributions to flag operational deviations"
+      ],
+      "exclusion": [
+        "calculating standard cost variances",
+        "determining individual cost element prices"
+      ],
+      "nearby_distinctions": [
+        "Contrasts with variance interpretation which identifies qualitative root causes rather than the mathematical or decision thresholds triggering an investigation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5dd4b3e5-3ba3-4e58-8e48-e9af6bff206b",
+      "concept_name": "Simple Rule of Thumb Model",
+      "definition": "This model relies on managerial judgment and arbitrary criteria to decide whether cost variances warrant investigation. Triggers include absolute variance sizes exceeding monetary limits or variance-to-cost ratios surpassing predetermined percentages.",
+      "terminology": [
+        "arbitrary criteria",
+        "managerial judgement",
+        "predetermined percentage",
+        "absolute size"
+      ],
+      "instrument_references": [
+        "Management and Cost Accounting by Colin M. Drury"
+      ],
+      "inclusion": [
+        "investigating absolute variance amounts over a fixed threshold",
+        "assessing variances exceeding specified cost ratios"
+      ],
+      "exclusion": [
+        "statistical distribution testing",
+        "probabilistic control limit analysis"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from statistical decision models by its reliance on subjective managerial rules rather than probability distributions of in-control systems."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7a911dfb-9107-4040-84a1-0151b547d3a9",
+      "concept_name": "Statistical Decision Model",
+      "definition": "This approach evaluates variances by assuming two mutually exclusive states where a system is either in control with random fluctuations or out of control. Investigations are triggered when the statistical probability of an observation coming from an in-control distribution falls below a chosen level.",
+      "terminology": [
+        "in control",
+        "out of control",
+        "random fluctuations",
+        "probability level"
+      ],
+      "instrument_references": [
+        "Management and Cost Accounting by Colin M. Drury"
+      ],
+      "inclusion": [
+        "evaluating observations against in-control distributions",
+        "initiating corrective action based on statistical probability triggers"
+      ],
+      "exclusion": [
+        "arbitrary percentage thresholds",
+        "purely subjective management cut-offs"
+      ],
+      "nearby_distinctions": [
+        "Unlike the simple rule of thumb model, this approach uses formal probability thresholds to distinguish random fluctuations from systemic process failures."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8f197827-d6fa-40c2-8785-ca7c435ae8a5",
+      "concept_name": "Possible Interdependence Between Variances",
+      "definition": "Interdependence describes how the underlying cause of one variance can partially or wholly explain another, requiring simultaneous evaluation of multiple variances. For instance, purchasing cheaper, lower-quality material may create a favorable material price variance while simultaneously causing an adverse material usage variance due to increased wastage.",
+      "terminology": [
+        "interdependence",
+        "material price variance",
+        "material usage variance",
+        "labour mix variance",
+        "sales volume variance"
+      ],
+      "instrument_references": [
+        "Management and Cost Accounting by Colin M. Drury"
+      ],
+      "inclusion": [
+        "analyzing correlated cost variances together",
+        "linking material quality trade-offs to usage impacts",
+        "evaluating trade-offs between labour rate and productivity"
+      ],
+      "exclusion": [
+        "analyzing standard cost variances completely in isolation",
+        "treating operational variances as independent events"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from single variance interpretation by emphasizing the interactive cause-and-effect relationships linking multiple operational variances."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9fc22a7a-df71-43da-acad-8c51a3a8e77e",
+      "concept_name": "Material Price Variance",
+      "definition": "This variance reflects differences in material acquisition costs caused by supplier changes, order sizes, or purchasing inefficiencies. Additional drivers include unexpected delivery charge increases and emergency purchases necessitated by poor inventory control.",
+      "terminology": [
+        "different supplier",
+        "order size",
+        "buying costs",
+        "inventory control",
+        "emergency purchase"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "identifying supplier-related cost changes",
+        "evaluating purchasing procedure inefficiencies",
+        "assessing emergency purchase cost impacts"
+      ],
+      "exclusion": [
+        "material quantity wastage analysis",
+        "production line efficiency tracking"
+      ],
+      "nearby_distinctions": [
+        "Unlike material usage variance which measures physical quantities consumed, material price variance focuses strictly on acquisition costs and purchasing conditions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "35f63b7a-d8e3-4e5f-a60f-7059f5056776",
+      "concept_name": "Material Usage Variance",
+      "definition": "This variance captures discrepancies in the physical quantity of materials consumed compared to standard expectations. Potential causes include purchasing inferior materials, changing production designs, handling carelessness, material pilferage, and poor quality inspection.",
+      "terminology": [
+        "inferior quality material",
+        "wastage rate",
+        "material mix",
+        "pilferage",
+        "poor inspection"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "tracking production wastage rates",
+        "identifying material handling and pilferage issues",
+        "evaluating quality control and design impacts"
+      ],
+      "exclusion": [
+        "material purchasing price fluctuations",
+        "direct labour pay rate adjustments"
+      ],
+      "nearby_distinctions": [
+        "Differs from material price variance by focusing on physical consumption quantities and wastage rather than purchasing rates and supplier pricing."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9481c262-d7de-4ea8-9229-dce8ebe44201",
+      "concept_name": "Labour Rate Variance",
+      "definition": "This variance measures unexpected deviations in direct payroll expenses arising from pay rate changes or workforce structure adjustments. Key drivers include wage rate increases, bonus payments, and shifts in workforce composition or experience levels.",
+      "terminology": [
+        "pay rate",
+        "experience of labour",
+        "payment of bonuses",
+        "composition of workforce"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "tracking unexpected wage rate increases",
+        "evaluating workforce composition changes",
+        "accounting for direct labour bonus payments"
+      ],
+      "exclusion": [
+        "direct labour hours efficiency tracking",
+        "machine running cost variances"
+      ],
+      "nearby_distinctions": [
+        "Contrasts with labour efficiency variance, which measures time utilization and productivity rather than hourly wage rate fluctuations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "cf47a97d-b50d-4e4a-b171-860906afc8fa",
+      "concept_name": "Labour Efficiency Variance",
+      "definition": "This variance reflects productivity differences driven by workforce performance, supervision quality, and operational disruptions. Potential triggers include learning curve effects, resource shortages, inferior material inputs, and machinery introductions.",
+      "terminology": [
+        "productivity efficiency",
+        "workforce mix",
+        "learning curve effect",
+        "resource shortages",
+        "new machinery"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "evaluating learning curve productivity impacts",
+        "assessing supervision and industrial action effects",
+        "analyzing resource shortage delays"
+      ],
+      "exclusion": [
+        "direct labour pay rate changes",
+        "material purchasing price variances"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from labour rate variance by measuring time and productivity performance rather than hourly wage compensation differentials."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "fbc5d104-6e28-45e4-b369-9c7b78349747",
+      "concept_name": "Overhead Variances",
+      "definition": "Overhead variances encompass discrepancies in fixed and variable manufacturing overheads resulting from spending levels or volume fluctuations. Fixed expenditure variances arise from excess spending, while variable expenditure variances typically stem from machine running cost changes.",
+      "terminology": [
+        "fixed overhead expenditure variance",
+        "fixed overhead volume variance",
+        "variable overhead expenditure variance",
+        "machine running costs"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "analyzing excess fixed overhead budget spending",
+        "evaluating fixed overhead volume changes",
+        "tracking variable overhead machine cost shifts"
+      ],
+      "exclusion": [
+        "direct material purchasing prices",
+        "direct labour wage rate adjustments"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from direct cost variances by evaluating indirect manufacturing costs categorized into fixed and variable expenditure and volume components."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "358a3ac2-4543-40e2-b52c-ef26c1f88b20",
+      "concept_name": "Sales Price Variance",
+      "definition": "This variance measures the impact of actual selling price deviations compared to budgeted prices across products. Causes include customer discounts for bulk purchases, promotional marketing offers, sales personnel performance, and broad industry economic conditions.",
+      "terminology": [
+        "discounts",
+        "marketing campaign",
+        "sales personnel",
+        "market conditions",
+        "economic conditions"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "evaluating customer bulk purchase discounts",
+        "assessing pricing impacts of marketing campaigns",
+        "tracking industry-wide economic price shifts"
+      ],
+      "exclusion": [
+        "sales quantity and volume fluctuations",
+        "production cost variances"
+      ],
+      "nearby_distinctions": [
+        "Contrasts with sales volume variance by focusing strictly on unit selling price realizations rather than quantities sold."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a1b70875-e328-4214-8919-c14d995d4051",
+      "concept_name": "Sales Volume Variance",
+      "definition": "This variance tracks the financial effect of selling a different total quantity of goods than budgeted. Underlying causes include direct selling and marketing effectiveness, customer preference shifts, production difficulties satisfying demand, and price elasticity effects.",
+      "terminology": [
+        "sales quantity",
+        "sales mix variance",
+        "marketing efforts",
+        "customer preferences",
+        "production difficulties"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "evaluating sales mix and quantity contribution effects",
+        "assessing marketing and direct selling performance",
+        "analyzing demand changes from pricing adjustments"
+      ],
+      "exclusion": [
+        "unit selling price variances",
+        "direct material usage quantities"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from sales price variance by measuring volume and mix performance rather than unit price deviations."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "d47d55ea456e0e0c250452d92f08fe55403964c72b333ede216883f64ee5bcd8",
+  "artifact_id": "9a245639-e170-44dc-aee3-3c752f6f5b8d",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 6867,
+  "output_tokens": 3290,
+  "cost_usd": 0.0102851,
+  "created_at": "2026-10-03T18:28:02.345002+00:00"
+}

@@ -1,0 +1,325 @@
+{
+  "descriptors": [
+    {
+      "node_id": "b22bab50-d787-493b-a2a4-667cb374cd23",
+      "concept_name": "Recognition of Intangible Asset",
+      "definition": "An item meeting the definition of an intangible asset is recognized when it is probable that future economic benefits will flow to the entity and its cost can be measured reliably. Subsequent expenditures are generally recognized in profit or loss as incurred unless they specifically enhance an existing asset.",
+      "terminology": [
+        "probable economic benefits",
+        "reliable measurement",
+        "subsequent expenditure",
+        "carrying amount"
+      ],
+      "instrument_references": [
+        "Ind AS 38"
+      ],
+      "inclusion": [
+        "costs incurred initially to acquire or internally generate an intangible asset",
+        "subsequent expenditures that add to, replace part of, or service an existing intangible asset meeting criteria"
+      ],
+      "exclusion": [
+        "subsequent expenditure on brands, mastheads, publishing titles, and customer lists",
+        "expenditures that cannot be distinguished from developing the business as a whole"
+      ],
+      "nearby_distinctions": [
+        "Initial acquisition costs versus subsequent maintenance expenditures",
+        "Intangible assets versus general business development expenses"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3a57a5bf-cba8-4a9a-a605-ed8a6f44e512",
+      "concept_name": "Recognition of Intangible Assets - General Principles",
+      "definition": "An intangible asset is recognized only if future economic benefits are probable and the cost can be reliably measured based on management's best estimates. Subsequent expenditures are rarely capitalized because they typically maintain existing benefits rather than create a new recognizable asset.",
+      "terminology": [
+        "recognition criteria",
+        "future economic benefits",
+        "reliable measurement",
+        "subsequent expenditure"
+      ],
+      "instrument_references": [
+        "Ind AS 38"
+      ],
+      "inclusion": [
+        "initial acquisition costs",
+        "qualifying subsequent replacement costs"
+      ],
+      "exclusion": [
+        "subsequent expenditure on brands and customer lists",
+        "general business upkeep costs"
+      ],
+      "nearby_distinctions": [
+        "General recognition criteria versus specialized internal generation rules"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3fc60d18-bf06-4b32-bc36-a5291a3221c1",
+      "concept_name": "Measurement of Intangible Asset",
+      "definition": "Intangible assets are initially measured at cost upon acquisition or self-generation. Separately acquired assets automatically satisfy probability criteria and include purchase price and directly attributable preparation costs.",
+      "terminology": [
+        "initial cost",
+        "separately acquired",
+        "directly attributable costs",
+        "purchase consideration"
+      ],
+      "instrument_references": [
+        "Ind AS 38",
+        "Ind AS 19"
+      ],
+      "inclusion": [
+        "purchase price including import duties and non-refundable taxes",
+        "employee benefits cost arising directly from bringing the asset to working condition",
+        "professional fees and testing costs"
+      ],
+      "exclusion": [
+        "general administrative overhead",
+        "costs incurred after asset is ready for intended use"
+      ],
+      "nearby_distinctions": [
+        "Initial cost measurement versus subsequent measurement models"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "347ae9b3-76b9-4bcc-bbc4-dd71899e231c",
+      "concept_name": "Separate Acquisition",
+      "definition": "Separately acquired intangible assets are measured at cost comprising purchase price and direct preparation expenses, with the probability criterion automatically considered satisfied. Capitalization ceases once the asset is capable of operating in the manner intended by management.",
+      "terminology": [
+        "purchase price",
+        "directly attributable cost",
+        "deferred consideration",
+        "cessation of capitalisation"
+      ],
+      "instrument_references": [
+        "Ind AS 38",
+        "Ind AS 23"
+      ],
+      "inclusion": [
+        "cash price equivalent for deferred payments",
+        "costs of testing whether the asset works properly"
+      ],
+      "exclusion": [
+        "interest expense recognized over credit period",
+        "costs incurred after cessation of capitalization"
+      ],
+      "nearby_distinctions": [
+        "Separate acquisition cost components versus business combination fair value measurement"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "081a5c0c-6744-48ab-940b-91459a2c92bb",
+      "concept_name": "Acquisition as Part of a Business Combination",
+      "definition": "Intangible assets acquired in a business combination are measured at fair value at the acquisition date, which incorporates market expectations of future economic benefits. The acquirer recognizes these identifiable assets separately from goodwill even if the acquiree had not previously recognized them.",
+      "terminology": [
+        "business combination",
+        "fair value",
+        "in-process research and development",
+        "separability"
+      ],
+      "instrument_references": [
+        "Ind AS 103",
+        "Ind AS 38"
+      ],
+      "inclusion": [
+        "identifiable intangible assets arising from contractual or legal rights",
+        "in-process research and development projects meeting asset definitions"
+      ],
+      "exclusion": [
+        "goodwill components not meeting identifiable asset criteria"
+      ],
+      "nearby_distinctions": [
+        "Business combination fair value recognition versus separate acquisition historical cost"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4eceb961-4808-4d26-a1c8-307319545d39",
+      "concept_name": "Acquisition by Way of a Government Grant",
+      "definition": "Intangible assets acquired free of charge or for nominal consideration via government grants are recognized initially at fair value or at a nominal amount plus direct preparation costs. Asset exchanges are measured at fair value unless the transaction lacks commercial substance or fair values are unreliable.",
+      "terminology": [
+        "government grant",
+        "nominal amount",
+        "commercial substance",
+        "non-monetary asset"
+      ],
+      "instrument_references": [
+        "Ind AS 20",
+        "Ind AS 38"
+      ],
+      "inclusion": [
+        "airport landing rights and radio licenses",
+        "assets received in commercial exchanges measured at fair value"
+      ],
+      "exclusion": [
+        "exchanges lacking commercial substance measured at fair value"
+      ],
+      "nearby_distinctions": [
+        "Government grant nominal recognition versus standard fair value acquisition"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "13dae479-413e-49ef-b02a-1b6781342efa",
+      "concept_name": "Exchange of Assets",
+      "definition": "Intangible assets acquired in exchange for other assets are measured at fair value unless the transaction lacks commercial substance or fair values cannot be measured reliably. If fair value is not used, the cost is measured at the carrying amount of the asset given up.",
+      "terminology": [
+        "commercial substance",
+        "non-monetary asset",
+        "fair value",
+        "carrying amount"
+      ],
+      "instrument_references": [
+        "Ind AS 38"
+      ],
+      "inclusion": [
+        "assets acquired via exchange of non-monetary or mixed assets",
+        "reliable fair value measurements of received or given assets"
+      ],
+      "exclusion": [
+        "transactions lacking significant changes in future cash flow configurations"
+      ],
+      "nearby_distinctions": [
+        "Exchange valuation using fair value versus carrying amount of asset given up"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "cc23497b-64c2-4734-85cd-0dec595d2a4f",
+      "concept_name": "Internally Generated Goodwill",
+      "definition": "Internally generated goodwill is prohibited from recognition as an asset because it lacks an identifiable, separable resource controlled by the entity with a reliably measurable cost. Discrepancies between an entity's fair value and its net identifiable assets do not represent recognizable intangible asset costs.",
+      "terminology": [
+        "internally generated goodwill",
+        "identifiable resource",
+        "separable",
+        "net identifiable assets"
+      ],
+      "instrument_references": [
+        "Ind AS 38"
+      ],
+      "inclusion": [
+        "unrecognized business value drivers contributing to overall corporate worth"
+      ],
+      "exclusion": [
+        "recognized goodwill arising strictly from business combinations",
+        "identifiable intangible assets separately acquired"
+      ],
+      "nearby_distinctions": [
+        "Prohibited internally generated goodwill versus acquired goodwill in business combinations"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "134d4c9e-d34e-438f-9f91-39f992223165",
+      "concept_name": "Internally Generated Intangible Assets",
+      "definition": "The generation of an internal intangible asset is split into a research phase and a development phase to determine recognition eligibility. Expenditures incurred during the research phase must be expensed immediately as no asset can be demonstrated to exist at that stage.",
+      "terminology": [
+        "research phase",
+        "development phase",
+        "original and planned investigation",
+        "scientific knowledge"
+      ],
+      "instrument_references": [
+        "Ind AS 38"
+      ],
+      "inclusion": [
+        "original investigation activities aimed at obtaining new knowledge",
+        "search for alternative materials and processes"
+      ],
+      "exclusion": [
+        "development phase expenditures meeting strict capitalization criteria",
+        "internally generated brands, mastheads, and customer lists"
+      ],
+      "nearby_distinctions": [
+        "Research phase immediate expensing versus development phase capitalization criteria"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ec8730fe-9d14-4b9d-963a-b8fd8d88fc1c",
+      "concept_name": "Recognition Of An Expense",
+      "definition": "Expenditures on intangible items are recognized as expenses when incurred unless they form part of a recognized intangible asset cost or business combination goodwill. Specific outlays like research, start-up costs, training, advertising, and relocation must always be expensed.",
+      "terminology": [
+        "expense recognition",
+        "start-up costs",
+        "pre-opening costs",
+        "right to access goods"
+      ],
+      "instrument_references": [
+        "Ind AS 38",
+        "Ind AS 19"
+      ],
+      "inclusion": [
+        "establishment and pre-opening costs",
+        "advertising and promotional expenditures",
+        "training and reorganization costs"
+      ],
+      "exclusion": [
+        "expenditures forming part of the cost of a qualifying intangible asset",
+        "prepayments for goods or services before rights are obtained"
+      ],
+      "nearby_distinctions": [
+        "Immediate expense recognition versus capitalization into intangible asset carrying amounts"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2f02415c-04ec-41d6-909c-221ba9ffcfce",
+      "concept_name": "Measurement After Recognition",
+      "definition": "Entities must choose either the cost model or the revaluation model as an accounting policy for subsequent measurement of intangible assets. Under the cost model, assets are carried at cost less accumulated amortization and impairment, whereas the revaluation model uses fair value based on active markets.",
+      "terminology": [
+        "cost model",
+        "revaluation model",
+        "accumulated amortisation",
+        "active market"
+      ],
+      "instrument_references": [
+        "Ind AS 38"
+      ],
+      "inclusion": [
+        "carrying amount adjustments for amortization and impairment",
+        "fair value revaluations referenced to an active market"
+      ],
+      "exclusion": [
+        "initial recognition of unrecognized intangible assets via revaluation",
+        "selective revaluation of isolated assets without revaluing their entire class"
+      ],
+      "nearby_distinctions": [
+        "Cost model carrying value tracking versus active market revaluation model"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e38cbecf-02e2-468d-a5e6-bba5dab2d541",
+      "concept_name": "Cost Model",
+      "definition": "Following initial recognition, an intangible asset is accounted for using the cost model by carrying it at cost less any accumulated amortisation and any accumulated impairment losses. This model forms the baseline measurement approach unless the revaluation model option is elected for an entire class of assets.",
+      "terminology": [
+        "cost model",
+        "accumulated amortisation",
+        "accumulated impairment losses",
+        "carrying amount"
+      ],
+      "instrument_references": [
+        "Ind AS 38"
+      ],
+      "inclusion": [
+        "historical cost less amortisation and impairment adjustments"
+      ],
+      "exclusion": [
+        "fair value adjustments without an active market revaluation policy"
+      ],
+      "nearby_distinctions": [
+        "Cost model historical tracking versus revaluation model fair value adjustments"
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "8a8dd28b7b7e8b53223752e0dae2c18048ee4c5fe11363465d6c5fb0c3170162",
+  "artifact_id": "96cc93ef-5bcf-49a1-8792-7e053f2ac8fe",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8914,
+  "output_tokens": 3337,
+  "cost_usd": 0.0110167,
+  "created_at": "2026-10-03T17:57:34.717762+00:00"
+}

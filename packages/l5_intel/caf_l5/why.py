@@ -28,8 +28,10 @@ def get_subtopic_why(
     if not subtopic or subtopic.level != "subtopic":
         raise ValueError(f"Subtopic node not found: {node_id}")
 
-    topic = session.get(Node, subtopic.parent_id) if subtopic.parent_id else None
-    chapter = session.get(Node, topic.parent_id) if topic and topic.parent_id else None
+    from caf_l0.hierarchy import ancestor_at, descendant_leaves, version_nodes
+    nodes = {node.id: node for node in version_nodes(session)}
+    topic = ancestor_at(node_id, nodes, "topic")
+    chapter = ancestor_at(node_id, nodes, "chapter")
     paper = session.get(Paper, subtopic.paper_id) if subtopic.paper_id else None
 
     # 2. Fetch score run
@@ -37,6 +39,13 @@ def get_subtopic_why(
         score_run = session.get(ScoreRun, run_id)
         if score_run and (score_run.shadow or score_run.status != "ok"):
             raise ValueError("Only successful, non-shadow score runs can be explained")
+        from caf_l0.releases import active_version
+        release = active_version(session)
+        expected_version = release.taxonomy_version_id if release else None
+        if score_run and (score_run.taxonomy_version_id != expected_version or (
+            target_attempt_id is not None and score_run.target_attempt_id != target_attempt_id
+        )):
+            raise ValueError("Score context does not match target attempt and taxonomy version")
     else:
         score_run = get_current_score_run(session, target_attempt_id)
 
@@ -63,6 +72,7 @@ def get_subtopic_why(
         "id": score_run.id,
         "version": score_run.scoring_version,
         "target_attempt_id": score_run.target_attempt_id,
+        "taxonomy_version_id": score_run.taxonomy_version_id,
         "computed_at": score_run.finished_at.isoformat() if score_run.finished_at else None,
     } if score_run else None
     subtopic_info = {
@@ -140,17 +150,8 @@ def get_subtopic_why(
     )
 
     # Compute subtopic counts under topic and chapter to scale share if tagged at higher level
-    topic_sub_count = session.query(sa.func.count(Node.id)).where(
-        Node.level == "subtopic", Node.parent_id == topic.id, Node.status == "active"
-    ).scalar() or 1 if topic else 1
-
-    chapter_sub_count = session.query(sa.func.count(Node.id)).where(
-        Node.level == "subtopic",
-        Node.status == "active",
-        Node.parent_id.in_(
-            session.query(Node.id).where(Node.level == "topic", Node.parent_id == chapter.id)
-        )
-    ).scalar() or 1 if chapter else 1
+    topic_sub_count = (len(descendant_leaves(topic.id, nodes)) or 1) if topic else 1
+    chapter_sub_count = (len(descendant_leaves(chapter.id, nodes)) or 1) if chapter else 1
 
     contributing_appearances = []
     exam_total_contrib = 0.0
@@ -238,16 +239,8 @@ def get_subtopic_why(
                     ).all()
                 ]
                 # Find all subtopics under these chapters
-                subtopic_count = session.query(sa.func.count(Node.id)).where(
-                    Node.level == "subtopic",
-                    Node.status == "active",
-                    Node.parent_id.in_(
-                        session.query(Node.id).where(
-                            Node.level == "topic",
-                            Node.parent_id.in_(all_ch_ids)
-                        )
-                    )
-                ).scalar() or 0
+                subtopic_count = len({leaf for chapter_id in all_ch_ids
+                                     for leaf in descendant_leaves(chapter_id, nodes)})
 
                 w_info = {
                     "section_id": sec.id,
@@ -324,6 +317,8 @@ def get_subtopic_why(
                 "weighted_contribution_pct": round(config.weights.practice * p_norm * 100, 2),
             },
             "weightage_prior": {
+                "available": score_run.taxonomy_version_id is None,
+                "unavailable_reason": "Applicable official weightage mappings are unavailable for this textbook taxonomy. Prior contribution is zero; configured weights are unchanged." if score_run.taxonomy_version_id is not None else None,
                 "weight_prior_W": round(w_val, 4),
                 "paper_max_W": round(max_w, 4),
                 "normalized_W_hat": round(w_norm, 4),

@@ -1,0 +1,180 @@
+{
+  "descriptors": [
+    {
+      "node_id": "82ea845b-1dbf-4078-bf54-2902bbc1ba58",
+      "concept_name": "Company Liquidation Dividend And Undistributed Assets Account [Section 352]",
+      "definition": "Liquidators must deposit unpaid creditor dividends and refundable contributory assets remaining undistributed for six months into a designated special account maintained with a scheduled bank. Upon company dissolution, all remaining balances of unpaid dividends or undistributed assets must similarly be transferred to this account alongside a detailed statement furnished to the Registrar.",
+      "terminology": [
+        "Company Liquidation Dividend and Undistributed Assets Account",
+        "Scheduled Bank",
+        "Contributory",
+        "Liquidator"
+      ],
+      "instrument_references": [
+        "Section 352"
+      ],
+      "inclusion": [
+        "Dividends payable to creditors remaining unpaid for six months",
+        "Assets refundable to contributories remaining undistributed for six months",
+        "Any money in the liquidator's hands at the date of company dissolution"
+      ],
+      "exclusion": [
+        "Funds distributed within the statutory six-month window",
+        "General operational funds of the company prior to winding up"
+      ],
+      "nearby_distinctions": [
+        "Differs from general company bank accounts by being a dedicated statutory repository managed under regulatory oversight for unclaimed liquidation proceeds."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4023c02c-35f9-496f-bc9b-69ab0185a973",
+      "concept_name": "Liquidator To Make Returns, Etc. [Section 353]",
+      "definition": "If a liquidator defaults on filing returns, accounts, or notices and fails to rectify the default within fourteen days of service of notice, the Tribunal may order compliance at the liquidator's personal cost. This remedial power is without prejudice to any other statutory penalties applicable to the defaulting liquidator.",
+      "terminology": [
+        "Company Liquidator",
+        "Default",
+        "Tribunal"
+      ],
+      "instrument_references": [
+        "Section 353"
+      ],
+      "inclusion": [
+        "Orders directing liquidators to make good procedural defaults within a specified time",
+        "Imposition of costs incidental to the application upon the liquidator"
+      ],
+      "exclusion": [
+        "Substantive asset distribution disputes unrelated to statutory filing defaults"
+      ],
+      "nearby_distinctions": [
+        "Focuses specifically on enforcing procedural filing and notification compliance rather than general asset management or distribution."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "97b1f0f2-9820-4128-af73-3d87cf7e2605",
+      "concept_name": "Meetings To Ascertain Wishes Of Creditors Or Contributories [Section 354]",
+      "definition": "The Tribunal may direct meetings of creditors or contributories to be held under an appointed chairman to ascertain their collective wishes regarding winding up matters. Weight is assigned based on the financial value of each creditor's debt and the voting count held by each contributory.",
+      "terminology": [
+        "Wishes of Creditors",
+        "Contributories",
+        "Chairman"
+      ],
+      "instrument_references": [
+        "Section 354"
+      ],
+      "inclusion": [
+        "Tribunal directed meetings to gauge stakeholder consensus",
+        "Evaluation weighted by debt value for creditors and voting rights for contributories"
+      ],
+      "exclusion": [
+        "Binding judicial adjudications that override creditor or contributory preferences"
+      ],
+      "nearby_distinctions": [
+        "Serves as an advisory mechanism for the Tribunal to gauge stakeholder sentiment rather than a definitive voting decree."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2b1b98fe-f20d-41cf-96b3-80da99cb4608",
+      "concept_name": "Court, Tribunal Or Person, Etc., Before Whom Affidavit May Be Sworn [Section 355]",
+      "definition": "Affidavits required under the winding up chapter may be sworn in India before any authorized court, tribunal, judge, or person, and in foreign countries before authorized foreign authorities or Indian diplomatic and consular officers. Indian judicial authorities must take judicial notice of the official seals, stamps, and signatures affixed to these documents.",
+      "terminology": [
+        "Affidavit",
+        "Diplomatic or Consular Officer",
+        "Judicial Notice"
+      ],
+      "instrument_references": [
+        "Section 355"
+      ],
+      "inclusion": [
+        "Affidavits sworn before authorized domestic judicial officers",
+        "Affidavits sworn before foreign courts or Indian diplomatic officers abroad"
+      ],
+      "exclusion": [
+        "Unauthenticated statements lacking required official seals or signatures"
+      ],
+      "nearby_distinctions": [
+        "Specifically governs the formal execution and cross-jurisdictional acceptance of evidentiary affidavits for winding up proceedings."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c94a7d67-942c-4fe0-882a-3e65e4f0a4f2",
+      "concept_name": "Powers Of Tribunal To Declare Dissolution Of Company Void [Section 356]",
+      "definition": "Within two years of a company's dissolution, the Tribunal may declare the dissolution void upon application by the liquidator or an interested person, allowing winding up proceedings to resume as if dissolution had not occurred. Certified copies of this order must be filed with the Registrar within specified timelines.",
+      "terminology": [
+        "Dissolution Void",
+        "Registrar",
+        "Liquidator"
+      ],
+      "instrument_references": [
+        "Section 356"
+      ],
+      "inclusion": [
+        "Applications filed within two years of dissolution",
+        "Orders restoring the legal existence of a dissolved company for ongoing proceedings"
+      ],
+      "exclusion": [
+        "Applications filed after the expiry of the two-year statutory window"
+      ],
+      "nearby_distinctions": [
+        "Reverses a finalized corporate dissolution to handle residual matters, distinct from initial winding up orders."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e1bb87e6-29a9-4efa-ae05-a697294bfd6e",
+      "concept_name": "Commencement Of Winding Up By Tribunal [Section 357]",
+      "definition": "The official winding up of a company by the Tribunal is legally deemed to commence retrospectively at the exact time when the winding up petition was initially presented. This statutory marker establishes the temporal baseline for subsequent legal calculations and protective measures.",
+      "terminology": [
+        "Presentation of Petition",
+        "Winding Up by Tribunal"
+      ],
+      "instrument_references": [
+        "Section 357"
+      ],
+      "inclusion": [
+        "Timeline determination anchored to the petition presentation date"
+      ],
+      "exclusion": [
+        "The date of the actual winding up order passed by the Tribunal"
+      ],
+      "nearby_distinctions": [
+        "Marks the inception point of winding up based on petition filing rather than the subsequent date of formal order issuance."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "50d7c53b-ccf7-434c-9ec4-e3ecc9e14c79",
+      "concept_name": "Exclusion Of Certain Time In Computing Period Of Limitation [Section 358]",
+      "definition": "When computing limitation periods for suits or applications filed by or on behalf of a company in tribunal winding up, a specific timeframe is excluded. This exclusion covers the duration from the commencement of winding up until one year immediately following the winding up order.",
+      "terminology": [
+        "Limitation Period",
+        "Exclusion of Time",
+        "Winding Up Order"
+      ],
+      "instrument_references": [
+        "Section 358",
+        "Limitation Act, 1963"
+      ],
+      "inclusion": [
+        "Time span from winding up commencement to one year post-order for limitation computations"
+      ],
+      "exclusion": [
+        "Standard limitation periods running outside the protected winding up window"
+      ],
+      "nearby_distinctions": [
+        "Provides a statutory buffer specifically for corporate litigation limitation periods during active tribunal winding up proceedings."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "447a45677a093058a6d84a13cdfc519d0892be5988bc679e75d9728005e00164",
+  "artifact_id": "13a19cb4-ed8a-4ca9-a470-d04037ece9bf",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 4838,
+  "output_tokens": 2068,
+  "cost_usd": 0.0066213999999999995,
+  "created_at": "2026-10-03T18:24:31.330894+00:00"
+}

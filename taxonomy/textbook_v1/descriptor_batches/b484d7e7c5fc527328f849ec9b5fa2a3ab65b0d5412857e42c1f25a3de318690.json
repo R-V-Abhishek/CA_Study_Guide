@@ -1,0 +1,329 @@
+{
+  "descriptors": [
+    {
+      "node_id": "4cafd7f2-b3e5-4189-9ca4-039afa9db247",
+      "concept_name": "What Is Fair Value?",
+      "definition": "Fair value represents a market-based exit price estimated at the measurement date for selling an asset or transferring a liability under current market conditions. It relies entirely on market participant assumptions rather than entity-specific intentions.",
+      "terminology": [
+        "exit price",
+        "market-based measurement",
+        "orderly transaction",
+        "market participants",
+        "measurement date"
+      ],
+      "instrument_references": [
+        "Ind AS 113"
+      ],
+      "inclusion": [
+        "Estimating prices under current market conditions",
+        "Maximizing observable inputs",
+        "Incorporating market participant risk assumptions"
+      ],
+      "exclusion": [
+        "Entity-specific intentions to hold or settle",
+        "Stressed sales"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from entity-specific value by focusing entirely on market participant perspectives rather than internal holding strategies."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "86f2f56e-54cf-4ecd-b217-836f6b4fd71d",
+      "concept_name": "Objective",
+      "definition": "The objective of fair value measurement is to establish a single framework for estimating the exit price of an asset or liability in an orderly transaction between market participants. It also mandates specific disclosures regarding these measurements.",
+      "terminology": [
+        "framework",
+        "exit price",
+        "disclosures",
+        "market participants"
+      ],
+      "instrument_references": [
+        "Ind AS 113"
+      ],
+      "inclusion": [
+        "Assets and liabilities as primary measurement subjects",
+        "An entity's own equity instruments measured at fair value"
+      ],
+      "exclusion": [
+        "Items explicitly excluded from the standard's scope"
+      ],
+      "nearby_distinctions": [
+        "Focuses on defining the framework and disclosure mandates rather than specific valuation techniques."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "dc02da7e-7904-4284-b0ee-a4b0637c5947",
+      "concept_name": "Scope",
+      "definition": "Ind AS 113 applies whenever another standard requires or permits fair value measurements or disclosures based on fair value. It governs both initial and subsequent measurements unless specific scope exceptions apply.",
+      "terminology": [
+        "initial measurement",
+        "subsequent measurement",
+        "scope exclusions",
+        "fair value less costs to sell"
+      ],
+      "instrument_references": [
+        "Ind AS 113",
+        "Ind AS 109",
+        "Ind AS 105",
+        "Ind AS 16",
+        "Ind AS 41"
+      ],
+      "inclusion": [
+        "Fair value through profit or loss or OCI under Ind AS 109",
+        "Revalued PPE under Ind AS 16",
+        "Biological assets under Ind AS 41"
+      ],
+      "exclusion": [
+        "Share-based payment transactions under Ind AS 102",
+        "Leasing transactions under Ind AS 116",
+        "Measurements like net realizable value under Ind AS 2 or value in use under Ind AS 36"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between standard fair value measurements and similar metrics like net realizable value or value in use which are excluded."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7a57ca5a-04c0-4b52-8325-e3c7e860cf31",
+      "concept_name": "What Is Not Covered?",
+      "definition": "The standard explicitly excludes certain measurement, disclosure, and valuation mechanisms from its direct purview. Entities must apply the respective specific standards for these exempted items.",
+      "terminology": [
+        "measurement and disclosure exclusion",
+        "disclosure exclusion",
+        "net realisable value",
+        "value in use"
+      ],
+      "instrument_references": [
+        "Ind AS 102",
+        "Ind AS 116",
+        "Ind AS 2",
+        "Ind AS 36",
+        "Ind AS 19"
+      ],
+      "inclusion": [
+        "Share-based payments",
+        "Leases",
+        "Plan assets measured at fair value",
+        "Recoverable amount based on fair value less costs of disposal"
+      ],
+      "exclusion": [
+        "General fair value measurements governed by Ind AS 113"
+      ],
+      "nearby_distinctions": [
+        "Separates exclusions into measurement-and-disclosure types and disclosure-only types."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6c0f9ba3-7a0e-4e02-89d4-d196ffaf342a",
+      "concept_name": "Definition",
+      "definition": "Fair value is defined as the price received to sell an asset or paid to transfer a liability in an orderly transaction between market participants at the measurement date. This definition relies on evaluating specific core elements including the asset or liability, transaction mechanics, market participants, and pricing.",
+      "terminology": [
+        "orderly transaction",
+        "market participants",
+        "measurement date",
+        "transfer a liability"
+      ],
+      "instrument_references": [
+        "Ind AS 113"
+      ],
+      "inclusion": [
+        "Hypothetical transfer transactions reflecting credit profiles",
+        "Market-based discount considerations"
+      ],
+      "exclusion": [
+        "Entity-specific settlement values that ignore market credit risk adjustments"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between settlement value (fulfilling directly with an obligee) and transfer value (hypothetically transferring the obligation in the market)."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8fec1af0-560d-46ae-8b17-97a808a17012",
+      "concept_name": "Asset Or Liability Specific Fair Value",
+      "definition": "Fair value measurements must incorporate the intrinsic characteristics of the asset or liability, such as condition, location, and transferrable restrictions. Restrictions that are strictly entity-specific are excluded from the valuation.",
+      "terminology": [
+        "characteristics",
+        "condition",
+        "location",
+        "asset-specific restrictions",
+        "entity-specific restrictions"
+      ],
+      "instrument_references": [
+        "Ind AS 113"
+      ],
+      "inclusion": [
+        "Restrictions attached to the asset that transfer to a buyer",
+        "Physical condition and operational location"
+      ],
+      "exclusion": [
+        "Restrictions arising solely from an entity's internal business objectives"
+      ],
+      "nearby_distinctions": [
+        "Contrasts asset-specific restrictions (which affect market participant pricing and are included) with entity-specific restrictions (which do not transfer and are excluded)."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9efa659c-14bf-4a47-a9c9-7cad956b9765",
+      "concept_name": "Unit Of Account",
+      "definition": "The unit of account defines the level of aggregation or disaggregation for recognizing or measuring an asset or liability. It is determined by the specific Ind AS requiring the fair value measurement rather than Ind AS 113 itself.",
+      "terminology": [
+        "unit of account",
+        "aggregation",
+        "disaggregation",
+        "cash generating unit"
+      ],
+      "instrument_references": [
+        "Ind AS 113",
+        "Ind AS 36"
+      ],
+      "inclusion": [
+        "Individual asset quoting levels",
+        "Group-level measurements like Cash Generating Units"
+      ],
+      "exclusion": [
+        "Ind AS 113 determining what is being measured"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between Ind AS 113 (which prescribes how to measure fair value) and other standards (which define the unit of account)."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "69e3cc04-f2f5-46c5-a167-6dcb14bddf0e",
+      "concept_name": "The Transaction",
+      "definition": "A fair value measurement assumes an orderly exchange between market participants under current market conditions, occurring either in the principal market or the most advantageous market. Entities must evaluate these markets separately for distinct assets and liabilities.",
+      "terminology": [
+        "orderly transaction",
+        "principal market",
+        "most advantageous market",
+        "measurement date"
+      ],
+      "instrument_references": [
+        "Ind AS 113"
+      ],
+      "inclusion": [
+        "Principal market valuation when available",
+        "Most advantageous market valuation in the absence of a principal market"
+      ],
+      "exclusion": [
+        "Transactions conducted under stress or force"
+      ],
+      "nearby_distinctions": [
+        "Differentiates between the principal market (highest volume and activity) and the most advantageous market (maximizing net proceeds)."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1bf40fb4-a092-4a31-9c7c-487ad5b2acab",
+      "concept_name": "Principal Market",
+      "definition": "The principal market is the venue with the greatest volume and highest level of activity for the asset or liability. Prices from this market must be used for fair valuation even if alternative markets offer more advantageous pricing.",
+      "terminology": [
+        "principal market",
+        "highest volume",
+        "level of activity",
+        "liquid market"
+      ],
+      "instrument_references": [
+        "Ind AS 113"
+      ],
+      "inclusion": [
+        "Markets with the most representative inputs due to high liquidity",
+        "Volume-based market identification"
+      ],
+      "exclusion": [
+        "Using advantageous prices from lower-volume secondary markets when a principal market exists"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from the most advantageous market by prioritizing transaction volume and liquidity over raw price optimization."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "cffbb42b-827e-4004-97b7-de5b55baff27",
+      "concept_name": "Most Advantageous Market",
+      "definition": "The most advantageous market maximizes asset sale proceeds or minimizes liability transfer payments after accounting for transaction costs. It is utilized for fair valuation only in the absence of a principal market.",
+      "terminology": [
+        "most advantageous market",
+        "net proceeds",
+        "transaction costs",
+        "maximize amount"
+      ],
+      "instrument_references": [
+        "Ind AS 113"
+      ],
+      "inclusion": [
+        "Markets assessed based on net proceeds after sale expenses",
+        "Fallback valuation venue when no principal market exists"
+      ],
+      "exclusion": [
+        "Venues utilized when a principal market is accessible"
+      ],
+      "nearby_distinctions": [
+        "Differs from the principal market by focusing on net financial return rather than sheer transaction volume."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "13288b11-8f40-49c2-8e5d-0da64a9d1349",
+      "concept_name": "Market Participants",
+      "definition": "Market participants are independent, knowledgeable buyers and sellers acting in their economic best interest in the principal or most advantageous market. They are assumed not to be under any stress or force when transacting.",
+      "terminology": [
+        "market participants",
+        "independent parties",
+        "economic best interest",
+        "arm's length price"
+      ],
+      "instrument_references": [
+        "Ind AS 113"
+      ],
+      "inclusion": [
+        "Parties with reasonable and sufficient information",
+        "Related parties if transactions occur at arm's length"
+      ],
+      "exclusion": [
+        "Stressed or forced counterparties"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes unconstrained, informed market participants from distressed sellers or non-arm's length related entities."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5f0d24fe-f1f8-47dd-a9f0-aaea57839b64",
+      "concept_name": "What Are Market Participants?",
+      "definition": "Market participants are buyers and sellers in the principal or most advantageous market who are independent, unforced, and adequately informed. Pricing models must incorporate the economic assumptions these participants would use.",
+      "terminology": [
+        "market participants",
+        "independent",
+        "sufficient information",
+        "economic best interest"
+      ],
+      "instrument_references": [
+        "Ind AS 113"
+      ],
+      "inclusion": [
+        "Independent entities transacting without external pressure",
+        "Participants possessing sufficient market knowledge"
+      ],
+      "exclusion": [
+        "Forced or distressed market actors"
+      ],
+      "nearby_distinctions": [
+        "Differentiates general market entities from specific internal management perspectives that lack broad market consensus."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "b484d7e7c5fc527328f849ec9b5fa2a3ab65b0d5412857e42c1f25a3de318690",
+  "artifact_id": "89f5b79c-a65b-4596-846e-255b7b33b5b7",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8709,
+  "output_tokens": 3348,
+  "cost_usd": 0.010982700000000001,
+  "created_at": "2026-10-03T17:48:42.433761+00:00"
+}

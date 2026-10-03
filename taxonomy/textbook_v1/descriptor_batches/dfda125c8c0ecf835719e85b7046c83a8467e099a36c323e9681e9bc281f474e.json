@@ -1,0 +1,333 @@
+{
+  "descriptors": [
+    {
+      "node_id": "c41715da-829e-44b8-bd2e-e1f3c1709c48",
+      "concept_name": "Objective of Non-Current Assets Held for Sale and Discontinued Operations",
+      "definition": "The standard specifies the accounting, measurement, presentation, and disclosure requirements for non-current assets held for sale and discontinued operations. This segregation helps users evaluate an entity's future cash flows, earnings capacity, and financial position by separating them from continuing operations.",
+      "terminology": [
+        "Held for sale",
+        "Discontinued operations",
+        "Measurement",
+        "Presentation",
+        "Classification"
+      ],
+      "instrument_references": [
+        "Ind AS 105"
+      ],
+      "inclusion": [
+        "Non-current assets held for sale",
+        "Disposal groups",
+        "Discontinued operations results"
+      ],
+      "exclusion": [
+        "Continuing operations assets and liabilities"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between ongoing operational activities and assets whose value is recovered principally through a sale transaction."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "42e7d446-8da8-419f-8494-3e4132f03884",
+      "concept_name": "Scope of Non-Current Assets Held for Sale and Discontinued Operations",
+      "definition": "The classification and presentation rules apply to all recognized non-current assets and disposal groups, while measurement rules apply generally with specific exclusions. Assets scoped out from measurement under this standard include deferred tax assets, employee benefit assets, financial assets, biological assets, and insurance contracts.",
+      "terminology": [
+        "Disposal group",
+        "Scoped-out assets",
+        "Fair value less costs to sell"
+      ],
+      "instrument_references": [
+        "Ind AS 105",
+        "Ind AS 1",
+        "Ind AS 12",
+        "Ind AS 19",
+        "Ind AS 109",
+        "Ind AS 41",
+        "Ind AS 117"
+      ],
+      "inclusion": [
+        "All recognized non-current assets",
+        "Disposal groups containing scoped-in assets"
+      ],
+      "exclusion": [
+        "Deferred tax assets",
+        "Employee benefit assets",
+        "Financial assets under Ind AS 109",
+        "Biological assets under Ind AS 41",
+        "Insurance contracts under Ind AS 117"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between general non-current assets subject to full standard rules and specific asset categories governed by separate financial standards."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "331ea71c-e8e5-4600-8b18-645e58b6d252",
+      "concept_name": "Relevant Definitions",
+      "definition": "Key terms include cash-generating units, components of an entity, costs to distribute, costs to sell, and disposal groups utilized throughout the standard. These definitions establish boundaries for identifying separable operations, associated disposal costs, and asset groupings transferred in a single transaction.",
+      "terminology": [
+        "Cash-generating unit",
+        "Component of an entity",
+        "Costs to distribute",
+        "Costs to sell",
+        "Discontinued operation",
+        "Disposal group"
+      ],
+      "instrument_references": [
+        "Ind AS 105",
+        "Ind AS 7",
+        "Ind AS 36"
+      ],
+      "inclusion": [
+        "Definitions governing asset groupings",
+        "Disposal costs",
+        "Discontinued operations criteria"
+      ],
+      "exclusion": [
+        "General operational definitions outside the scope of non-current asset disposal"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes individual operational assets from multi-asset disposal groups and cash-generating units."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "569374e4-bd91-42da-a211-1e9269c976c0",
+      "concept_name": "Classification of Non-Current Assets as Held for Sale",
+      "definition": "An entity must classify a non-current asset or disposal group as held for sale if its carrying amount will be recovered principally through a sale transaction rather than continuing use. The asset must be available for immediate sale in its present condition, and the sale must be highly probable.",
+      "terminology": [
+        "Carrying amount",
+        "Available for immediate sale",
+        "Highly probable",
+        "Disposal group"
+      ],
+      "instrument_references": [
+        "Ind AS 105"
+      ],
+      "inclusion": [
+        "Non-current assets available for immediate sale",
+        "Disposal groups meeting high probability criteria"
+      ],
+      "exclusion": [
+        "Current assets sold individually outside a disposal group",
+        "Assets held for distant future sale"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes assets utilized continuously in operations from assets held exclusively for immediate recovery through sale."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f7af2c3d-1352-46c6-9ae9-ce6ad8342677",
+      "concept_name": "Available for Immediate Sale",
+      "definition": "An asset or disposal group must be ready for sale in its current condition with only normal and customary terms for such sales. Assets are not available for immediate sale if they remain vital to ongoing operations or require substantial value-enhancing refurbishments prior to disposal.",
+      "terminology": [
+        "Present condition",
+        "Customary terms",
+        "Refurbishment"
+      ],
+      "instrument_references": [
+        "Ind AS 105"
+      ],
+      "inclusion": [
+        "Assets transferable under standard customary sales terms",
+        "Vacating properties within usual timeframes"
+      ],
+      "exclusion": [
+        "Assets delayed by operational dependencies or enhancement renovations"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes customary transitional delays from intentional operational retention or pre-sale value enhancement."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "36cefb08-3e6b-46d6-ba9b-be1c8ed87808",
+      "concept_name": "Sale Must Be Highly Probable",
+      "definition": "A highly probable sale requires management commitment, active marketing at reasonable prices, an active buyer search, and an expected completion within one year without significant plan withdrawal likelihood. Shareholder approval requirements must also be evaluated for feasibility within this assessment.",
+      "terminology": [
+        "Highly probable",
+        "Active programme",
+        "Commitment",
+        "Shareholder approval"
+      ],
+      "instrument_references": [
+        "Ind AS 105"
+      ],
+      "inclusion": [
+        "Management commitment plans",
+        "Active marketing programs",
+        "One-year completion expectations"
+      ],
+      "exclusion": [
+        "Tentative plans without active marketing or management commitment"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes general management intentions to sell from concrete, highly probable execution plans meeting rigorous procedural criteria."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c726ac36-fc94-43ea-9cc1-d8fa6e404d0f",
+      "concept_name": "Other Key Points and Exceptions to One-Year Period",
+      "definition": "Loss of control in a subsidiary requires classifying all its assets and liabilities as held for sale in consolidated statements regardless of retained non-controlling interests. The one-year completion period can be exceeded if delays stem from events beyond the entity's control and there is sufficient evidence of continued sales commitment.",
+      "terminology": [
+        "Loss of control",
+        "Subsidiary",
+        "Exception to one year",
+        "Firm purchase commitment"
+      ],
+      "instrument_references": [
+        "Ind AS 105"
+      ],
+      "inclusion": [
+        "Subsidiary loss of control scenarios",
+        "Beyond-control delay circumstances satisfying the one-year exception"
+      ],
+      "exclusion": [
+        "Delays caused by internal management indecision or controllable factors"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes entity-controlled delays from external, unforeseeable impediments permitting timeframe extensions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "dbc246d0-d882-43cd-b05c-167f1e8ec158",
+      "concept_name": "Measurement of Non-Current Assets Classified as Held for Sale",
+      "definition": "Non-current assets or disposal groups classified as held for sale are measured at the lower of their carrying amount and fair value less costs to sell. Costs to sell expected beyond one year are discounted to present value, with time-value increases recognized as financing costs in profit or loss.",
+      "terminology": [
+        "Carrying amount",
+        "Fair value less costs to sell",
+        "Present value",
+        "Financing cost"
+      ],
+      "instrument_references": [
+        "Ind AS 105"
+      ],
+      "inclusion": [
+        "Measurement at lower of carrying amount and fair value less costs to sell",
+        "Present value adjustments for extended disposal periods"
+      ],
+      "exclusion": [
+        "Continued depreciation after classification"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes standard operational asset valuation models from the lower-of-carrying-amount and fair-value-less-costs-to-sell rule."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e4d341ef-dfad-4f5b-8ec4-aa535ad057b7",
+      "concept_name": "Measurement at Lower of Carrying Amount and Fair Value Less Costs to Sell",
+      "definition": "Assets held for sale are remeasured prior to classification and subsequently evaluated at the lower of carrying amount and fair value less costs to sell. Newly acquired assets meeting the criteria are initially measured at what their carrying amount would have been or fair value less costs to sell if acquired in a business combination.",
+      "terminology": [
+        "Initial recognition",
+        "Business combination",
+        "Remeasurement",
+        "Carrying amount"
+      ],
+      "instrument_references": [
+        "Ind AS 105"
+      ],
+      "inclusion": [
+        "Pre-classification carrying amount verification",
+        "Business combination initial measurement rules"
+      ],
+      "exclusion": [
+        "Standard cost-based depreciation models post-classification"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes standard asset acquisition measurement from initial held-for-sale criteria application."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8248ac64-e647-4f32-8e41-6aff7ca10258",
+      "concept_name": "Recognition of Impairment Losses and Reversals",
+      "definition": "Impairment losses are recognized for initial or subsequent write-downs to fair value less costs to sell, while subsequent gains are recognized up to the cumulative impairment previously recorded. Depreciation and amortization of the asset cease immediately upon classification as held for sale.",
+      "terminology": [
+        "Impairment loss",
+        "Reversal",
+        "Goodwill allocation",
+        "Derecognition"
+      ],
+      "instrument_references": [
+        "Ind AS 105",
+        "Ind AS 36",
+        "Ind AS 16",
+        "Ind AS 38"
+      ],
+      "inclusion": [
+        "Impairment loss allocation starting with goodwill",
+        "Cessation of depreciation",
+        "Subsequent gain reversals"
+      ],
+      "exclusion": [
+        "Interest and liability-associated expenses which continue to be recognized"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes the suspension of depreciation for held-for-sale assets from active operational asset depreciation models."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c73de45e-73cf-4e30-9b8d-c058edcebdf3",
+      "concept_name": "Changes to a Plan of Sale",
+      "definition": "When an asset or disposal group no longer meets held-for-sale criteria, it ceases to be classified as such and is measured at the lower of its pre-classification carrying amount adjusted for intervening depreciation and its recoverable amount. Adjustments are included in continuing operations profit or loss.",
+      "terminology": [
+        "Recoverable amount",
+        "Adjusted carrying amount",
+        "Profit or loss",
+        "Disposal group"
+      ],
+      "instrument_references": [
+        "Ind AS 105"
+      ],
+      "inclusion": [
+        "Reclassification out of held for sale status",
+        "Carrying amount adjustments for missed depreciation"
+      ],
+      "exclusion": [
+        "Retroactive adjustments violating standard transition rules"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes active held-for-sale assets from assets reverting to operational use due to cancelled sale plans."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "53be0553-9376-4e57-a685-19d8132729b2",
+      "concept_name": "Presentation and Disclosures of Non-Current Assets Held for Sale",
+      "definition": "Non-current assets and disposal group assets and liabilities held for sale must be presented separately on the balance sheet without offsetting them against each other. Major classes of these assets and liabilities must be disclosed, and comparative balance sheet amounts for prior periods are not re-presented.",
+      "terminology": [
+        "Balance sheet presentation",
+        "Offsetting prohibition",
+        "Major classes",
+        "Comparative amounts"
+      ],
+      "instrument_references": [
+        "Ind AS 105"
+      ],
+      "inclusion": [
+        "Separate balance sheet presentation of assets and liabilities",
+        "Disclosure of major asset and liability classes"
+      ],
+      "exclusion": [
+        "Offsetting assets against liabilities as a single net amount",
+        "Re-presentation of prior period comparative balance sheets"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes current presentation requirements from prior period balance sheet comparative restatement rules."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "dfda125c8c0ecf835719e85b7046c83a8467e099a36c323e9681e9bc281f474e",
+  "artifact_id": "915adacd-0f7e-4d7b-bfdd-6f9ff4b58a59",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8959,
+  "output_tokens": 3579,
+  "cost_usd": 0.0116352,
+  "created_at": "2026-10-03T17:57:46.598165+00:00"
+}

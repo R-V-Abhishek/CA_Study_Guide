@@ -1,0 +1,261 @@
+{
+  "descriptors": [
+    {
+      "node_id": "a3b41a29-c218-4899-9327-14c61ebac9f6",
+      "concept_name": "Taxation Regime of Special Entities and Non-Profit Organisations",
+      "definition": "This chapter covers the income tax treatment and exemptions applicable to educational and medical organizations, charitable or religious trusts, political parties, electoral trusts, and special entities like securitization trusts, business trusts, and investment funds under the Income-tax Act, 2025. Specific provisions govern registered non-profit organizations and special investment vehicles through dedicated sections and schedules.",
+      "terminology": [
+        "Registered Non-Profit Organisations",
+        "Discretionary Trusts",
+        "Political Parties",
+        "Securitisation Trust",
+        "Business Trusts",
+        "Investment Funds"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 2025",
+        "Section 11",
+        "Section 12",
+        "Chapter XVII-B",
+        "Schedules II to VIII"
+      ],
+      "inclusion": [
+        "Charitable and religious institutions",
+        "Educational and medical organizations",
+        "Political parties and electoral trusts",
+        "Securitization and business trusts",
+        "Investment funds"
+      ],
+      "exclusion": [
+        "Standard corporate entities not falling under special exemptions",
+        "General individual taxpayers"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between general commercial entities and special tax-exempt non-profit or pass-through vehicles."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0fa53a94-92b0-4fff-b405-0cbd724aa528",
+      "concept_name": "Exemption for Certain Educational and Medical Institutions",
+      "definition": "Specific universities, educational institutions, hospitals, and medical institutions are exempt from income tax on their total income if they are wholly or substantially financed by the government, or if their aggregate annual receipts do not exceed five crore rupees. An institution is considered substantially financed when government grants exceed 50 percent of its total receipts including donations during the tax year.",
+      "terminology": [
+        "Substantially financed",
+        "Educational institution",
+        "Hospital",
+        "Medical institution",
+        "Government grant"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 2025",
+        "Section 11",
+        "Schedule VII",
+        "Rule 287"
+      ],
+      "inclusion": [
+        "Universities wholly or substantially financed by the government",
+        "Hospitals existing solely for philanthropic purposes and substantially financed by the government",
+        "Educational and medical institutions with aggregate annual receipts not exceeding five crore rupees"
+      ],
+      "exclusion": [
+        "Institutions operating for profit",
+        "Hospitals or educational institutions exceeding the financial receipt threshold without government financing"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes government-backed or smaller scale medical and educational bodies from standard commercial enterprises and general trusts."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f0e92b0e-7b56-4938-8a9b-b51769e8a15f",
+      "concept_name": "Special Provisions for Registered Non-Profit Organization",
+      "definition": "Non-profit organizations are typically established as trusts, societies, or section 8 companies to carry out charitable or religious activities. A trust involves an obligation where a trustee holds and manages property according to a trust deed for the benefit of ascertainable or unascertainable beneficiaries.",
+      "terminology": [
+        "Trust",
+        "Author of the trust",
+        "Trustee",
+        "Beneficiary",
+        "Trust property",
+        "Instrument of trust",
+        "Public trust",
+        "Private trust"
+      ],
+      "instrument_references": [
+        "Indian Trust Act, 1882"
+      ],
+      "inclusion": [
+        "Trusts, societies, and section 8 companies",
+        "Public trusts with general public beneficiaries",
+        "Private trusts formed for individual or family convenience"
+      ],
+      "exclusion": [
+        "Commercial business entities operating for profit",
+        "Private trusts claiming public charitable exemptions solely by status"
+      ],
+      "nearby_distinctions": [
+        "Public trusts qualify for special charitable exemption regimes, whereas private trusts do not qualify merely by being constituted as a trust."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4052caa4-41cd-48fb-ab6a-c20cb400ba70",
+      "concept_name": "Taxation of Discretionary Trusts",
+      "definition": "Discretionary trusts, where income is not specifically receivable on behalf of a single person or individual shares are indeterminate, are generally taxed at the maximum marginal rate. Specific statutory exceptions apply under conditions such as will-created trusts, certain dependent relative trusts, and employee benefit funds.",
+      "terminology": [
+        "Representative assessee",
+        "Indeterminate shares",
+        "Maximum marginal rate",
+        "Court of Wards",
+        "Official Trustee"
+      ],
+      "instrument_references": [
+        "Section 307",
+        "Section 303(1)(c)",
+        "Section 303(1)(d)",
+        "Wakf Validating Act, 1913"
+      ],
+      "inclusion": [
+        "Trusts with unknown or indeterminate beneficiary shares",
+        "Representative assessees managing property under court orders or trust deeds"
+      ],
+      "exclusion": [
+        "Trusts with specific, determinate beneficiary shares",
+        "Exempt provident, superannuation, or gratuity funds meeting specific conditions"
+      ],
+      "nearby_distinctions": [
+        "Contrasts with determinate trusts where beneficiary shares are known and taxed accordingly rather than at the maximum marginal rate."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d5d252a3-26f0-41fd-a27a-c9f5e732d020",
+      "concept_name": "Special Provisions Relating to Income of Political Parties and Electoral Trusts",
+      "definition": "Political parties and electoral trusts receive tax exemptions on specific categories of income such as house property, other sources, capital gains, and voluntary contributions. To claim this exemption, entities must maintain proper books of accounts, record large contributions, audit accounts via a chartered accountant, and file required statutory returns.",
+      "terminology": [
+        "Political Party",
+        "Electoral Trust",
+        "Electoral Bond",
+        "Voluntary contributions",
+        "Chartered Accountant audit"
+      ],
+      "instrument_references": [
+        "Section 12",
+        "Schedule VIII",
+        "Representation of the People Act, 1951",
+        "Section 29A",
+        "Section 29C(3)",
+        "Section 263"
+      ],
+      "inclusion": [
+        "Income from house property of political parties",
+        "Voluntary contributions received by political parties and electoral trusts",
+        "Capital gains and income from other sources for political bodies"
+      ],
+      "exclusion": [
+        "Income failing to meet record-keeping and audit criteria",
+        "Donations accepted outside prescribed banking or electronic channels beyond permitted limits"
+      ],
+      "nearby_distinctions": [
+        "Exempts political and electoral income only upon strict compliance with transparency and record-keeping mandates, unlike standard trust income."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f4c82a5b-1248-4b6e-a331-7704bd871ab5",
+      "concept_name": "Taxation Regime for Securitization Trusts and its Investors",
+      "definition": "Securitization involves converting future cash flows from loans or receivables into marketable securities through a special purpose trust or vehicle. The trust acquires these assets from an originator and issues securitized debt instruments to investors while distributing incoming borrower repayments.",
+      "terminology": [
+        "Securitisation",
+        "Originator",
+        "Securitisation Trust",
+        "Special Purpose Vehicle",
+        "Securitised debt instrument"
+      ],
+      "instrument_references": [
+        "Section 221",
+        "Section 221(6)(d)",
+        "Securities and Exchange Board of India Regulations, 2008",
+        "SARFAESI Act, 2002"
+      ],
+      "inclusion": [
+        "Special purpose distinct entities under SEBI regulations",
+        "Special purpose vehicles regulated by RBI guidelines on securitization",
+        "Trusts set up by securitization or reconstruction companies under the SARFAESI Act"
+      ],
+      "exclusion": [
+        "Standard corporate entities not engaged in asset-backed securitization"
+      ],
+      "nearby_distinctions": [
+        "Differs from standard business trusts by specifically dealing with the acquisition and refinancing of debt pools and receivables."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7ea6e27f-4b78-4515-b38d-7eb747823257",
+      "concept_name": "Scheme for Taxation of Real Estate Investment Trust and Infrastructure Investment Trust",
+      "definition": "Real Estate Investment Trusts and Infrastructure Investment Trusts are investment vehicles set up as trusts and registered with SEBI to hold assets for the benefit of unit holders. REITs must invest the majority of their asset value in completed, rent-generating properties while adhering to strict listing and investment thresholds.",
+      "terminology": [
+        "Real Estate Investment Trust",
+        "Infrastructure Investment Trust",
+        "Trustee",
+        "Sponsor group",
+        "Manager",
+        "Real estate"
+      ],
+      "instrument_references": [
+        "Section 223",
+        "SEBI Regulations, 2014"
+      ],
+      "inclusion": [
+        "Real Estate Investment Trusts",
+        "Infrastructure Investment Trusts",
+        "Freehold or leasehold commercial real estate assets"
+      ],
+      "exclusion": [
+        "Mortgage assets",
+        "Unlisted investment vehicles failing mandatory stock exchange requirements"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from securitization trusts by focusing on direct or indirect ownership of physical real estate and infrastructure assets rather than loan receivables."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ec158be5-ca08-41d6-af26-d040d6840c40",
+      "concept_name": "Special Taxation Regime for Investment Funds and Income Received from Such Funds",
+      "definition": "Income received by a unit holder from an investment fund is taxed as if the underlying investments were made directly by the unit holder. Investment funds are generally exempt from tax on income other than profits and gains from business or profession, which remains taxable at the fund level.",
+      "terminology": [
+        "Investment fund",
+        "Unit holder",
+        "Profits and gains from business or profession",
+        "Tax deduction at source"
+      ],
+      "instrument_references": [
+        "Section 224",
+        "Section 224(1)",
+        "Schedule V",
+        "Circular No. 14/2019",
+        "Section 5(2)",
+        "Section 393(1)"
+      ],
+      "inclusion": [
+        "Income distributed by investment funds to resident and non-resident unit holders",
+        "Business income taxable directly at the investment fund level"
+      ],
+      "exclusion": [
+        "Offshore investment income routed through specified alternative investment funds for non-residents under direct investment rules"
+      ],
+      "nearby_distinctions": [
+        "Pass-through taxation applies to non-business incomes of investment funds, whereas business profits are taxed directly at the fund level."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "85e69686589ea63f62d38bb6c05599eaa244379c58238c876726723a63ad5101",
+  "artifact_id": "0a16a477-187b-4669-a526-2b10e98b088d",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 6338,
+  "output_tokens": 2874,
+  "cost_usd": 0.0090864,
+  "created_at": "2026-10-03T18:17:34.591184+00:00"
+}

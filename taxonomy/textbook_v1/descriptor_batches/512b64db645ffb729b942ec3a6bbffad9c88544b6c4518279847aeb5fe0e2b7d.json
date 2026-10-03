@@ -1,0 +1,283 @@
+{
+  "descriptors": [
+    {
+      "node_id": "1e108569-b1c0-45c0-aa47-7a578a06dadb",
+      "concept_name": "Forward exchange rate quotation",
+      "definition": "Forward exchange rates are market conventions quoted separately as forward margins representing the numerical difference between the spot rate and the forward rate. Dealers omit the big figure of the spot rate under the presumption that it is known to the counterparty.",
+      "terminology": [
+        "Forward outright contracts",
+        "Forward margin",
+        "Forward premium",
+        "Forward discount"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Quoting forward margins separately from the spot rate",
+        "Identifying currency forward premium or discount"
+      ],
+      "exclusion": [
+        "Quoting the absolute forward rate directly without market convention",
+        "Treating forward margins as trader profit margins"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from spot rate quotations by including only the differential adjustment rather than the full price."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "34e1918d-30a7-471e-a06b-75d0b1eb110e",
+      "concept_name": "Forward point determination",
+      "definition": "Forward points denote the basis points added to or deducted from the spot rate to compute the outright forward rate under direct quotation methods. They reflect interest rate differentials and yield relationships between two currencies.",
+      "terminology": [
+        "Forward points",
+        "Basis points",
+        "Bid-ask spread"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Adding forward points for currencies at a premium",
+        "Deducting forward points for currencies at a discount"
+      ],
+      "exclusion": [
+        "Treating forward points as direct exchange rates",
+        "Using indirect quotation addition rules without adjustment"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from forward margins by serving as specific basis point increments reflecting interest rate disparities."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ea064aae-7c1d-4de6-ba58-ce560ab351b8",
+      "concept_name": "Broken period forward rate",
+      "definition": "Broken period forward rates are calculated for non-standard or odd maturity dates by proportionately scaling standard interbank forward points. This method assumes that forward margins grow uniformly and arithmetically across the intervening days.",
+      "terminology": [
+        "Broken period",
+        "Merchant forward rate",
+        "Odd dates"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Proportionate scaling of forward margins for non-standard dates",
+        "Calculating customer transaction rates for odd realization dates"
+      ],
+      "exclusion": [
+        "Applying standard wholesale end-of-month interbank dates directly to odd customer dates"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard period rates by incorporating fractional period interpolations for odd maturities."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "15344b25-a0c4-4cae-8a23-1a0ad8c7faee",
+      "concept_name": "Merchant Rates",
+      "definition": "Merchant rates are exchange rates applied by commercial banks to customer transactions, derived from wholesale interbank market rates adjusted by bank margins. FEDAI guidelines require the rounding off of all resulting rupee amounts to the nearest whole rupee without paise.",
+      "terminology": [
+        "Merchant rates",
+        "Interbank rates",
+        "FEDAI Rule 5A.8"
+      ],
+      "instrument_references": [
+        "FEDAI Rule 5A.8"
+      ],
+      "inclusion": [
+        "Applying bank-determined margins to interbank rates for customers",
+        "Rounding merchant transaction settlement amounts to the nearest whole rupee"
+      ],
+      "exclusion": [
+        "Applying wholesale interbank rates directly to retail customer remittances"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from interbank rates which apply exclusively to transactions among commercial banks."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "99d18902-278e-4549-9a24-1b03c5d94946",
+      "concept_name": "Exchange Rate Forecasting",
+      "definition": "Exchange rate forecasting encompasses various analytical techniques used by corporations and investors to predict future currency movements for financial decision-making. The primary methodologies are categorized into technical, fundamental, market-based, and mixed forecasting groups.",
+      "terminology": [
+        "Technical forecasting",
+        "Fundamental forecasting",
+        "Market-based forecasting",
+        "Mixed forecasting"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Using historical time series data for short-term predictions",
+        "Applying economic and financial relationships to estimate future rates"
+      ],
+      "exclusion": [
+        "Relying exclusively on guaranteed central bank fixed pegs"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from exchange rate theories by focusing on applied predictive modeling techniques rather than structural parity equilibria."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3b1f0578-15e5-424d-9346-6b08a6df4ef1",
+      "concept_name": "Exchange Rate Determination",
+      "definition": "Exchange rate determination is driven primarily by inflation and interest rates, alongside current and capital account balances, trade barriers, and central bank interventions. Market expectations and government controls also exert substantial direct pressures on currency valuations.",
+      "terminology": [
+        "Capital account",
+        "Current account",
+        "Trade barriers",
+        "Band wagon effect"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Evaluating current and capital account deficits or surpluses",
+        "Assessing central bank market interventions and trade restrictions"
+      ],
+      "exclusion": [
+        "Sole reliance on single-factor nominal interest comparisons"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from exchange rate forecasting by describing structural macro drivers rather than projection methods."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9c3e453d-ae55-4ff1-9bfe-2eacf2be2a53",
+      "concept_name": "Exchange Rate Theories",
+      "definition": "Exchange rate theories analyze the structural equilibrium relationships governing currency values through parity conditions involving interest rates and inflation differentials. The principal frameworks include interest rate parity, purchasing power parity, and the international fisher effect.",
+      "terminology": [
+        "Interest rate parity",
+        "Purchasing power parity",
+        "International Fisher effect"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Analyzing interest rate differentials",
+        "Evaluating inflation and purchasing power relationships"
+      ],
+      "exclusion": [
+        "Using short-term technical chart patterns for long-term parity valuations"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general market determination factors by utilizing formal mathematical parity equations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8cac9a65-d951-4160-b2de-7568548b322d",
+      "concept_name": "Interest Rate Parity (IRP)",
+      "definition": "Interest Rate Parity states that the forward premium or discount of a currency must equal the interest rate differential between the two countries concerned. When IRP holds, covered interest arbitrage yields a return equivalent to domestic investments.",
+      "terminology": [
+        "Covered interest rate parity",
+        "Uncovered interest rate parity",
+        "Covered interest arbitrage"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Equating forward premium or discount to interest differentials",
+        "Assessing covered interest arbitrage feasibility"
+      ],
+      "exclusion": [
+        "Assuming foreign investments yield excess risk-free returns when parity holds"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from Purchasing Power Parity by utilizing interest rate variables rather than inflation metrics."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a31caf10-be6f-448f-96d4-2e193bc46fbf",
+      "concept_name": "Purchasing Power Parity (PPP)",
+      "definition": "Purchasing Power Parity links exchange rate variations to relative inflation rate differentials between countries. Its absolute form asserts that identical products should cost the same in common currency, while its relative form focuses on price level changes.",
+      "terminology": [
+        "Law of one price",
+        "Absolute form PPP",
+        "Relative form PPP",
+        "Sectoral constant"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Evaluating inflation-exchange rate relationships",
+        "Applying sectoral constants for transportation and tariff market imperfections"
+      ],
+      "exclusion": [
+        "Assuming absolute price equality without adjusting for trade barriers"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from Interest Rate Parity by centering on inflation and consumer price indices rather than nominal interest yields."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "17e411bc-9f24-4491-ae42-82b95ee73442",
+      "concept_name": "International Fisher Effect (IFE)",
+      "definition": "The International Fisher Effect posits that nominal interest rate differentials reflect expected inflation differentials and determine changes in spot exchange rates over time. It implies that currencies with higher nominal interest rates will tend to depreciate.",
+      "terminology": [
+        "Nominal risk-free interest rates",
+        "Real rate of return",
+        "Anticipated inflation"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Relating nominal interest rate differentials to future spot rate changes",
+        "Assuming real returns equalize across international borders under free capital flows"
+      ],
+      "exclusion": [
+        "Expecting long-term positive abnormal returns from unhedged cross-border borrowing and investing strategies"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from IRP by forecasting changes in future spot rates rather than pricing current forward rates."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f0569b67-7d4a-4703-b7e5-9e7101913631",
+      "concept_name": "Comparison of PPP, IRP and IFE Theories",
+      "definition": "Comparative analysis of exchange rate theories shows that IRP focuses on current forward-spot differentials via interest rates, while PPP and IFE focus on future spot rate changes driven by inflation and interest rates respectively. These frameworks interrelate since inflation differentials influence nominal interest rate gaps.",
+      "terminology": [
+        "Interest Rate Parity",
+        "Purchasing Power Parity",
+        "International Fisher Effect"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Contrasting forward-spot pricing mechanisms with future spot rate adjustments",
+        "Mapping inflation differentials to interest rate differentials"
+      ],
+      "exclusion": [
+        "Treating IRP as a predictor of long-term spot rate changes over time"
+      ],
+      "nearby_distinctions": [
+        "Distinguished by their specific temporal focus, utilizing point-in-time forward pricing versus multi-period spot rate forecasting."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2386a48b-ced0-48de-a4d1-10155b92eb37",
+      "concept_name": "Foreign Exchange Market",
+      "definition": "The foreign exchange market is an intermediary structure enabling individuals, firms, and banks to transfer purchasing power and convert one national currency into another. It facilitates international trade settlements, tourism expenditures, and cross-border capital investments.",
+      "terminology": [
+        "Purchasing power",
+        "Invoicing currency",
+        "Commercial bank intermediary"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Trading national currencies for international trade and investment",
+        "Routing foreign currency exchanges through commercial banks"
+      ],
+      "exclusion": [
+        "Direct barter trade transactions devoid of currency conversion"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from theoretical parity models by representing the physical marketplace where actual currency transactions occur."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "512b64db645ffb729b942ec3a6bbffad9c88544b6c4518279847aeb5fe0e2b7d",
+  "artifact_id": "0559d53e-3174-4a31-9b5e-657565365bb5",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8793,
+  "output_tokens": 3092,
+  "cost_usd": 0.0103679,
+  "created_at": "2026-10-03T18:08:30.946729+00:00"
+}

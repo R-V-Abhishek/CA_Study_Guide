@@ -1,0 +1,317 @@
+{
+  "descriptors": [
+    {
+      "node_id": "6dc57c62-d84c-4528-95e7-31410fabd774",
+      "concept_name": "Due Diligence Review",
+      "definition": "Due diligence is an investigative process performed by investors to examine operations, management, agreements, and assets to verify material facts and ensure business conditions conform to expectations. It involves exercising the reasonable prudence expected of a prudent person under specific circumstances prior to acquiring a controlling interest or completing a transaction.",
+      "terminology": [
+        "risk-based due diligence",
+        "adverse impacts",
+        "prudence",
+        "restructuring"
+      ],
+      "instrument_references": [
+        "OECD Due Diligence Guidance for Responsible Business Conduct (RBC)"
+      ],
+      "inclusion": [
+        "investigation of asset titles and intellectual property",
+        "review of health, safety and environment laws compliance",
+        "examination of operational and financial possibilities for restructuring"
+      ],
+      "exclusion": [
+        "routine statutory audits",
+        "unverified subjective evaluations"
+      ],
+      "nearby_distinctions": [
+        "Unlike an ordinary audit which verifies historical financial statements for a true and fair view, due diligence specifically investigates operational, legal, and financial feasibility to support a prospective transaction or investment decision."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ce9288c4-f46d-403a-a1d9-cd7c656fda56",
+      "concept_name": "Importance Of Due Diligence",
+      "definition": "Due diligence is typically conducted after parties reach an agreement in principle but before signing a binding contract to uncover critical business strengths, weaknesses, and potential deal-killing defects. The findings assist buyers in negotiating final prices, asset valuations, and appropriate warranty or indemnity provisions.",
+      "terminology": [
+        "deal killer defects",
+        "warranty and indemnity",
+        "commercial operational due diligence",
+        "tax due diligence"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "confirming business operations match representations",
+        "identifying potential contractual remedies and price concessions",
+        "verifying compliance with acquisition criteria"
+      ],
+      "exclusion": [
+        "post-completion operational monitoring without transaction context",
+        "unaudited casual estimation"
+      ],
+      "nearby_distinctions": [
+        "Distinct from post-merger integration, due diligence occurs exclusively prior to transaction completion to inform negotiation and risk mitigation strategies."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "93fedb8a-0d66-448a-8c15-32c74db3f4a6",
+      "concept_name": "Classification Of Due-Diligence",
+      "definition": "Due diligence is categorized into discipline-specific exercises including commercial, financial, tax, information systems, legal, environmental, and personnel evaluations. Financial due diligence analyzes books of accounts and financial matters, commencing only after initial pricing or restructuring plans are framed.",
+      "terminology": [
+        "commercial operational due diligence",
+        "financial due diligence",
+        "tax due diligence",
+        "information systems due diligence"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "evaluation of commercial and strategic operational synergies",
+        "analysis of statutory compliance and legal property aspects",
+        "review of personnel policies for restructuring suitability"
+      ],
+      "exclusion": [
+        "treating narrow financial due diligence as a complete comprehensive review without broad scope coverage",
+        "ignoring non-financial operational factors"
+      ],
+      "nearby_distinctions": [
+        "While financial due diligence focuses strictly on accounting records and financial status, it must be broad enough to capture the financial implications of all other discipline-specific reviews to serve as an overall assessment."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c5760887-b826-4ed6-b5d5-5dc2b9f09224",
+      "concept_name": "Work Approach To Due Diligence",
+      "definition": "Assessing a business's fair value during due diligence involves addressing unique variables such as company age, markets, pricing, and competitive dynamics through a structured six-dimensional process framework. The methodology requires maintaining an open mind, engaging experienced industry professionals, reviewing submitted financials, and conducting first-hand site visits.",
+      "terminology": [
+        "six-dimensional process framework",
+        "fair value",
+        "competitive dynamics",
+        "site visit"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "hiring specialized experts for unfamiliar target industries",
+        "reviewing and reporting on target company financials",
+        "defining key acquisition areas collaboratively"
+      ],
+      "exclusion": [
+        "assuming pre-existing negative findings before investigation",
+        "relying solely on internal staff lacking relevant domain expertise"
+      ],
+      "nearby_distinctions": [
+        "Unlike standard audit testing governed by strict auditing standards, the due diligence work approach is custom-tailored to unique situational variables and specific transaction risks using a multi-dimensional framework."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ea2b23f7-6743-42ef-aba8-6c687b79911f",
+      "concept_name": "How To Conduct Due Diligence",
+      "definition": "Conducting due diligence requires gathering a multidisciplinary team across finance, tax, legal, and technology to achieve a comprehensive 360-degree view of the acquisition candidate. Investigators must adopt a risk management approach that balances thorough research with respectful engagement of target personnel to compile a detailed report of compliances and substantive risks.",
+      "terminology": [
+        "360-degree view",
+        "risk management approach",
+        "substantive risks",
+        "comprehensive report"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "consulting external stakeholders like customers, suppliers, and employees",
+        "preparing a detailed report covering management structure, financial liabilities, and asset valuations",
+        "assessing statutory liabilities and ongoing litigations"
+      ],
+      "exclusion": [
+        "overburdening target company teams with excessive unstructured inquiries",
+        "ignoring non-financial functional areas"
+      ],
+      "nearby_distinctions": [
+        "Unlike routine verification tasks that focus narrowly on books of account, conducting due diligence requires expansive stakeholder engagement across all business facets to uncover hidden operational and legal liabilities."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8708a5df-fc8e-4636-8c4a-a28e89762fec",
+      "concept_name": "Contents Of A Due Diligence Report",
+      "definition": "A due diligence report details target company findings including background, shareholding patterns, management structures, asset valuations, and operating results. It incorporates analyses of future projections, legal liabilities, charges or liens, and strategic suggestions or indemnities for addressing contingent risks.",
+      "terminology": [
+        "SWOT analysis",
+        "contingent liabilities",
+        "interlocking investments",
+        "liens and encumbrances"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "assessment of taxation and statutory liabilities",
+        "review of property leases and encumbrances",
+        "recommendations on affidavits and indemnities for unforeseen liabilities"
+      ],
+      "exclusion": [
+        "standardized report formats irrespective of individual circumstances",
+        "omitting unrecorded financial obligations"
+      ],
+      "nearby_distinctions": [
+        "Unlike a standard financial audit report which expresses an opinion strictly on historical financial statements, a due diligence report provides a strategic evaluation of comprehensive business risks, asset values, and future viability."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "00261875-b043-41d2-ac50-a4754f8f9aee",
+      "concept_name": "Investigation",
+      "definition": "Investigation is a systematic and in-depth examination of accounts, records, or specific transactions to establish facts, evaluate particular situations, or determine profitability and costs. It addresses specific financing, investment, or fraud objectives through narrow, focused inquiries without rigid statutory time frames.",
+      "terminology": [
+        "inquiry into facts",
+        "in-depth examination",
+        "statutory or non-statutory",
+        "conclusive evidence"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "examination of records preliminary to financing",
+        "inquiries into suspected frauds",
+        "evaluating specific operational or cost situations"
+      ],
+      "exclusion": [
+        "expressing an opinion on general-purpose financial statements",
+        "routine quarterly or yearly compliance audits"
+      ],
+      "nearby_distinctions": [
+        "Unlike audits which evaluate historical financial statements on a sample basis to form a general opinion, investigations perform specialized, in-depth examinations to establish specific facts or handle targeted inquiries."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e28016ef-1fff-4081-80aa-69ec0abbe87f",
+      "concept_name": "Audit Versus Investigation",
+      "definition": "Audit and investigation differ fundamentally in objective, scope, nature, and evidence standards, with audits focusing on expressing opinions on financial statements while investigations seek conclusive facts regarding specific situations. Audits are mandatory for companies and bound by general accounting principles and inherent limitations, whereas investigations are voluntary, flexible, and capable of being appointed by third parties.",
+      "terminology": [
+        "statutory audit",
+        "conclusive evidence",
+        "prima-facie evidence",
+        "inherent limitations"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "comparing statutory versus voluntary mandates",
+        "contrasting prima-facie audit evidence with conclusive investigation evidence",
+        "evaluating differences in appointing agencies and reporting structures"
+      ],
+      "exclusion": [
+        "treating investigations as bound by standard statutory audit procedures",
+        "applying rigid reporting time frames to investigative engagements"
+      ],
+      "nearby_distinctions": [
+        "Audits are broad, mandatory, and rely on sample test-checks and prima-facie evidence to express a general opinion, whereas investigations are narrow, voluntary, and utilize detailed examinations to secure conclusive evidence for specific users."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "af724e5c-9408-4dee-a84c-39308b737664",
+      "concept_name": "Steps In Investigation",
+      "definition": "An investigation follows a sequential procedure starting with clear determination of objectives and scope through written instructions from the client. Subsequent steps involve formulating a flexible investigation programme tailored to the business structure, examining relevant records, and processing findings to prepare a conclusive report.",
+      "terminology": [
+        "investigation programme",
+        "terms of reference",
+        "scope of investigation",
+        "analysis of findings"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "obtaining clearly written instructions covering assignment purpose and period",
+        "designing a customized investigation programme based on organizational structure",
+        "extending verification into records belonging to external entities when necessary"
+      ],
+      "exclusion": [
+        "applying a standardized, rigid procedure across completely different assignment types",
+        "proceeding with vague or non-specific client instructions"
+      ],
+      "nearby_distinctions": [
+        "Unlike standard audit planning governed by established auditing standards, investigation steps require high flexibility tailored to the unique economic and structural circumstances dictated by the specific assignment objective."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4a8c6718-2a6a-4335-b58a-0f969b16a3d6",
+      "concept_name": "Special Issues In Investigations",
+      "definition": "Investigative assignments present special issues regarding whether to execute cent-per-percent verification or selective sampling based on case circumstances. An investigator may generally rely on previously audited accounts unless terms specify otherwise, specific doubts exist, or initial test checks reveal casual auditing.",
+      "terminology": [
+        "selective verification",
+        "statistical sampling",
+        "audited statement reliance",
+        "cent per cent verification"
+      ],
+      "instrument_references": [
+        "Short & Compton v. Brackert (1904)"
+      ],
+      "inclusion": [
+        "using statistically recognized sampling methods for profitability determinations",
+        "performing 100 percent voucher verification for specific fraud defalcation scopes",
+        "relying on prior audited figures in valuation engagements absent contrary indications"
+      ],
+      "exclusion": [
+        "blindly trusting previously audited statements when specific doubts or defects are uncovered",
+        "applying arbitrary test checks without statistical backing where comprehensive review is required"
+      ],
+      "nearby_distinctions": [
+        "Unlike routine audit sampling governed by materiality and risk models, investigation verification strategy varies strictly between exhaustive 100 percent checks for fraud and targeted statistical sampling for profitability based on the core assignment purpose."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b65b99f7-a50b-4e9f-b393-d8ee4d998cc4",
+      "concept_name": "Special Aspects In Connection With Business Investigations",
+      "definition": "Business investigations require studying the overall organizational background and group relationships before analyzing financial figures. The investigator must evaluate external macroeconomic forces, market positioning, product lines, supply chains, labour relations, and management character to accurately interpret financial performance.",
+      "terminology": [
+        "overall picture",
+        "group structure",
+        "labour-intensive",
+        "character of management"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "preparing group company charts to track inter-unit transactions",
+        "assessing dependence on imported raw materials or local ancillary supplies",
+        "evaluating labour relations and trade union dynamics in labour-intensive businesses"
+      ],
+      "exclusion": [
+        "analyzing financial figures in isolation without contextual background knowledge",
+        "ignoring political, economic, and competitive market forces"
+      ],
+      "nearby_distinctions": [
+        "Unlike pure accountancy verifications that treat figures as absolute, business investigations treat figures merely as symbols that must be interpreted through comprehensive study of operational, environmental, and managerial contexts."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "39e039a8-3f70-4ae9-8891-59c8abc4a182",
+      "concept_name": "TYPES OF INVESTIGATION",
+      "definition": "Investigations are classified into statutory investigations governed by specific legal sections and non-statutory investigations initiated voluntarily for commercial, valuation, or financing purposes. Non-statutory assignments include reviews on behalf of incoming partners, banks, private share valuations, fraud checks, and profit forecasts.",
+      "terminology": [
+        "statutory investigation",
+        "non-statutory investigation",
+        "incoming partner",
+        "financial forecast"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013 (Sections 210, 212, 213, 216)"
+      ],
+      "inclusion": [
+        "Central Government or court-ordered statutory inspections under the Companies Act",
+        "non-statutory investigations for private share valuations and loan evaluations",
+        "investigations supporting incoming partnership admissions"
+      ],
+      "exclusion": [
+        "mandatory periodic statutory audits",
+        "informal internal reviews lacking systematic inquiry"
+      ],
+      "nearby_distinctions": [
+        "Statutory investigations derive their authority and scope directly from legislative provisions like the Companies Act, whereas non-statutory investigations are voluntary arrangements established contractually to meet specific commercial or financial objectives of private clients."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "43071990d58494fd43695d442281e566a9252fcc28c56644b7e0dc4bbe674d1e",
+  "artifact_id": "1827749e-e579-4427-bbab-7687efd26d91",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8090,
+  "output_tokens": 3811,
+  "cost_usd": 0.0119545,
+  "created_at": "2026-10-03T18:12:13.037567+00:00"
+}

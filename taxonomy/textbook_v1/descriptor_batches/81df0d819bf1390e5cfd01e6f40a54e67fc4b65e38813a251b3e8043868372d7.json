@@ -1,0 +1,307 @@
+{
+  "descriptors": [
+    {
+      "node_id": "7cd04761-1c15-4077-91a5-679fc6a970b3",
+      "concept_name": "Activity Based CVP Analysis",
+      "definition": "Activity based cost-volume-profit analysis breaks down overhead costs beyond unit volume by identifying batch-level, unit-level, and other non-volume-related activity drivers. This method recognizes that certain costs are incurred per batch or setup rather than strictly varying with each individual unit of production.",
+      "terminology": [
+        "Unit level activities",
+        "Batch-level activities",
+        "Cost driver",
+        "Set-up costs"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Unit-level manufacturing activities",
+        "Batch-level activities such as machine setups and purchase order processing"
+      ],
+      "exclusion": [
+        "Traditional CVP analysis assuming all overheads vary solely with total production volume"
+      ],
+      "nearby_distinctions": [
+        "Unlike traditional CVP which treats non-unit overheads as fixed, activity-based CVP identifies specific cost drivers for batch-level expenditures."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "65f7e189-f550-442c-9c1a-d73df338aab3",
+      "concept_name": "CVP Analysis in Service and Non-Profit Organisations",
+      "definition": "Cost-volume-profit analysis can be extended to service and non-profit organizations by shifting the output measurement from tangible physical goods to service activity measures like passenger kilometers. This allows entities to determine cost recovery and profit markups under regulated pricing constraints.",
+      "terminology": [
+        "Passenger kilometers",
+        "Load factor",
+        "Route permit charges",
+        "Markup on cost"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Fleet transport services",
+        "Passenger-kilometer output metrics",
+        "Regulated fare evaluations"
+      ],
+      "exclusion": [
+        "Tangible manufacturing unit sales"
+      ],
+      "nearby_distinctions": [
+        "Differs from standard manufacturing CVP by measuring output through service units instead of physical inventory units sold."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "eaf6ff4d-134e-4a08-8f4a-68693f449b53",
+      "concept_name": "CVP Analysis in Just in Time Environment 1",
+      "definition": "In a Just-In-Time environment, direct labor is treated as a fixed cost while direct materials vary directly with production volume under long-term purchasing agreements. Furthermore, batch-level variables are eliminated since production batch sizes effectively equal a single unit.",
+      "terminology": [
+        "Just in Time",
+        "Unit-based variable cost",
+        "Engineering cost",
+        "Batch size of one"
+      ],
+      "instrument_references": [
+        "Cornerstones of Cost Management 2/e By Don R. Hansen, Maryanne M. Mowen, Cost-Volume-Profit Analysis, p.853"
+      ],
+      "inclusion": [
+        "Single-unit batch production structures",
+        "Fixed direct labor classifications",
+        "Engineering hour cost components"
+      ],
+      "exclusion": [
+        "Traditional variable direct labor costs",
+        "Batch-level overhead drivers"
+      ],
+      "nearby_distinctions": [
+        "Unlike conventional manufacturing CVP, JIT treats labor as fixed and sets batch-level variance to zero."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "17d354ab-9e96-4942-a581-55b9ca77f702",
+      "concept_name": "Decision Making Model",
+      "definition": "Tactical decision making involves a structured sequential approach to choose among feasible short-run alternatives by evaluating relevant costs, benefits, qualitative factors, and ethical considerations. The process ensures that management defines the operational problem and selects the alternative yielding the greatest overall benefit.",
+      "terminology": [
+        "Tactical decision making",
+        "Differential cost",
+        "Relevant costs",
+        "Non-financial factors"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Problem definition",
+        "Alternative identification",
+        "Relevant cost and benefit comparison",
+        "Assessment of non-financial factors"
+      ],
+      "exclusion": [
+        "Long-term strategic vision formulation"
+      ],
+      "nearby_distinctions": [
+        "Focuses on immediate or short-term operational choices rather than multi-year strategic positioning."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1f17d812-770f-44d8-ba2c-f294103cce33",
+      "concept_name": "Some Applications of CVP Analysis and Cost Concepts",
+      "definition": "Short-run operational decisions utilize cost-volume-profit analysis and incremental cost principles to evaluate alternatives such as outsourcing, special orders, and product mix adjustments. These applications depend on identifying avoidable costs, incremental savings, and relevant opportunity costs to optimize short-term profitability.",
+      "terminology": [
+        "Make or buy",
+        "Incremental cost",
+        "Avoidable costs",
+        "Opportunity costs"
+      ],
+      "instrument_references": [
+        "Managerial Accounting: The Cornerstone of Business Decision-Making By Maryanne M. Mowen, Don R. Hansen, Dan L. Heitger"
+      ],
+      "inclusion": [
+        "Outsourcing evaluations",
+        "Incremental cost savings analysis",
+        "Avoidable fixed and variable cost allocations"
+      ],
+      "exclusion": [
+        "Permanent long-term capital expenditure budgeting"
+      ],
+      "nearby_distinctions": [
+        "Applies incremental cost principles strictly to short-term operational alternatives rather than permanent corporate restructuring."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2809a852-c71b-462f-9a0e-df0f1d38a8c2",
+      "concept_name": "Outsourcing Decision 5",
+      "definition": "An outsourcing decision evaluates whether to produce an item internally or procure it from an external supplier using incremental cost and opportunity cost analysis. Management accepts outsourcing if the sum of incremental cost savings and opportunity costs exceeds the incremental purchase price.",
+      "terminology": [
+        "Make or buy decision",
+        "Incremental cost savings",
+        "Supplier efficiencies",
+        "Qualitative factors"
+      ],
+      "instrument_references": [
+        "Managerial Accounting: The Cornerstone of Business Decision-Making By Maryanne M. Mowen, Don R. Hansen, Dan L. Heitger"
+      ],
+      "inclusion": [
+        "Comparison of internal production costs versus external purchase prices",
+        "Evaluation of freed-up space rental opportunity costs"
+      ],
+      "exclusion": [
+        "Sunk historical manufacturing overheads"
+      ],
+      "nearby_distinctions": [
+        "Centers explicitly on comparing external procurement expenses against internal avoidable manufacturing outlays."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1e543cba-0b79-4ee7-8c58-74cc96c8b4f9",
+      "concept_name": "Minimum Pricing Decisions",
+      "definition": "Minimum pricing establishes the lowest acceptable selling price during intense competition or surplus capacity by combining incremental manufacturing costs with relevant opportunity costs. The threshold price ensures that the business recovers any resource opportunity costs and direct outlays tied to executing a special job.",
+      "terminology": [
+        "Minimum pricing",
+        "Surplus production capacity",
+        "Incremental costs of manufacturing",
+        "Opportunity cost of labour"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Special orders during excess capacity",
+        "Computation of labor and material opportunity costs",
+        "Disposal cost offsets"
+      ],
+      "exclusion": [
+        "Full absorption pricing targeting long-term normal profit margins"
+      ],
+      "nearby_distinctions": [
+        "Focuses exclusively on short-term floor pricing using incremental and opportunity costs rather than full cost-plus markup pricing."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c6d44ac9-84cd-4f60-8178-cedc24d00e3b",
+      "concept_name": "Keep or Drop Decisions 6",
+      "definition": "A keep or drop decision determines whether an unprofitable business segment, product line, or store should be eliminated based on whether its revenue exceeds its directly traceable and avoidable costs. Segments are dropped when the incremental cost savings and opportunity gains outweigh the incremental revenue lost.",
+      "terminology": [
+        "Unprofitable segments",
+        "Directly traceable costs",
+        "Avoidable fixed costs",
+        "Incremental revenue lost"
+      ],
+      "instrument_references": [
+        "Managerial Accounting: The Cornerstone of Business Decision-Making By Maryanne M. Mowen, Don R. Hansen, Dan L. Heitger"
+      ],
+      "inclusion": [
+        "Segment-specific variable costs",
+        "Avoidable direct fixed expenses",
+        "Vacant space opportunity costs"
+      ],
+      "exclusion": [
+        "Common unallocated corporate overheads"
+      ],
+      "nearby_distinctions": [
+        "Evaluates the entire operational continuity of an existing segment rather than pricing individual short-term orders."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2420ba18-775e-406f-87d2-ebd514ead2ff",
+      "concept_name": "Product Mix Decision",
+      "definition": "Product mix decisions determine the optimal allocation of constrained production resources to maximize total contribution. When limiting factors such as machine hours or material quantities restrict output, profitability is maximized by prioritizing products that generate the highest contribution per unit of the limiting resource.",
+      "terminology": [
+        "Limiting factor",
+        "Key factor",
+        "Contribution per unit",
+        "Optimum production mix"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Multiple department capacity constraints",
+        "Material availability limits",
+        "Contribution ranking per limiting factor"
+      ],
+      "exclusion": [
+        "Unconstrained multi-product manufacturing environments"
+      ],
+      "nearby_distinctions": [
+        "Prioritizes production based on scarce resource bottlenecks rather than simple sales volume or standard unit contribution."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1ac03fbb-814c-4198-b231-eff6f7d04147",
+      "concept_name": "Pricing Policy",
+      "definition": "Pricing policy comprises the foundational principles and protocols established by a firm to guide pricing decisions and strategies in alignment with overarching corporate objectives. It balances internal cost structures with external market determinants like consumer demand and competitive intensity to ensure long-term survival.",
+      "terminology": [
+        "Pricing policy",
+        "Pricing strategy",
+        "Market power",
+        "Determinants of pricing"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Corporate objective alignment",
+        "Long-term profit generation",
+        "Interaction of cost and consumer demand"
+      ],
+      "exclusion": [
+        "Isolated tactical price setting without strategic guidelines"
+      ],
+      "nearby_distinctions": [
+        "Establishes overarching governance principles, whereas pricing strategies and decisions represent downstream operational applications."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "da416f2b-6a4b-4db3-bb07-b5f7570831a9",
+      "concept_name": "Factors Influencing Pricing Decisions",
+      "definition": "Pricing decisions are shaped by a comprehensive set of internal task environment variables and external macroeconomic conditions. These internal and external factors encompass corporate objectives, elasticity of demand, competitor pricing policies, and regulatory government controls.",
+      "terminology": [
+        "Internal factors",
+        "External factors",
+        "Price elasticity of demand",
+        "Bargaining power of buyers"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Corporate objectives and product life cycle stages",
+        "Macroeconomic state and government regulations",
+        "Competitor pricing behavior"
+      ],
+      "exclusion": [
+        "Purely internal cost-accounting calculations independent of market forces"
+      ],
+      "nearby_distinctions": [
+        "Accounts for broad macroeconomic and organizational constraints rather than solely focusing on internal manufacturing outlays."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "cb955ea3-15d9-4dca-b74a-4374c82f5dc1",
+      "concept_name": "Pricing Theory",
+      "definition": "Microeconomic pricing theory assumes that a firm's primary objective is profit maximization by optimizing the gap between total revenue and total cost functions. Optimum volume occurs where marginal revenue equals marginal cost, as expanding output beyond this point causes incremental costs to exceed incremental revenues.",
+      "terminology": [
+        "Optimum price",
+        "Marginal revenue",
+        "Marginal cost",
+        "Optimum volume"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Profit maximization models",
+        "Total revenue and total cost curves",
+        "Marginal analysis of output levels"
+      ],
+      "exclusion": [
+        "Non-economic pricing frameworks unconcerned with profit optimization"
+      ],
+      "nearby_distinctions": [
+        "Relies on continuous economic functions of marginal revenue and marginal cost rather than fixed markup accounting formulas."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "81df0d819bf1390e5cfd01e6f40a54e67fc4b65e38813a251b3e8043868372d7",
+  "artifact_id": "c21d3107-096b-432f-83be-22929a7a5c48",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 9073,
+  "output_tokens": 3348,
+  "cost_usd": 0.0110919,
+  "created_at": "2026-10-03T18:27:18.453466+00:00"
+}

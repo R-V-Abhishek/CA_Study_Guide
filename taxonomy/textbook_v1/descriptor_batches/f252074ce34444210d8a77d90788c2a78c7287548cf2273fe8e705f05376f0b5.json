@@ -1,0 +1,314 @@
+{
+  "descriptors": [
+    {
+      "node_id": "4b911bde-227d-4f7a-9061-d11de45a30cb",
+      "concept_name": "Sustainability and ESG Framework Fundamentals",
+      "definition": "Sustainability involves meeting current needs without compromising future generations' ability to meet theirs by using exhaustible natural resources rationally. Corporate sustainability operates through three core pillars known as Environment (E), Social (S), and Governance (G).",
+      "terminology": [
+        "Sustainability",
+        "Brundtland report",
+        "Environment",
+        "Social",
+        "Governance"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Corporate climate policies",
+        "Energy use and natural resource conservation",
+        "Labour relations and community relationships",
+        "Internal governance structures"
+      ],
+      "exclusion": [
+        "Financial accounting standards",
+        "Statutory tax audits"
+      ],
+      "nearby_distinctions": [
+        "Differentiated from traditional financial reporting by focusing on non-financial environmental, social, and governance impacts."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "fd7795fb-0ca3-4fa2-80de-a1555c5d8245",
+      "concept_name": "Sustainable Development Goals (SDGs)",
+      "definition": "Adopted by United Nations Member states in 2015, the seventeen Sustainable Development Goals provide an urgent global blueprint to end poverty and deprivations alongside improving health, education, and economic growth while tackling climate change. The Division for Sustainable Development Goals supports these initiatives and tracks implementation under the 2030 Agenda.",
+      "terminology": [
+        "Sustainable Development Goals (SDGs)",
+        "DSDG",
+        "2030 Agenda",
+        "UNDESA"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Seventeen global goals ranging from ending poverty to climate action",
+        "Capacity building and thematic issues supported by UNDESA"
+      ],
+      "exclusion": [
+        "Entity-specific internal management accounting policies",
+        "Local municipal bylaws"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from single-entity ESG frameworks as macro-level global targets established for all United Nations member states."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8f1d94cd-8e35-44fe-9e21-b36a5c43d236",
+      "concept_name": "Global Trends in Sustainable Reporting Frameworks",
+      "definition": "Global sustainability reporting utilizes multi-stakeholder frameworks to disclose economic, environmental, and social performance, with mandatory requirements primarily targeting large corporations and listed companies. Prominent standard setters include the Global Reporting Initiative, Carbon Disclosure Project, and the International Integrated Reporting Framework.",
+      "terminology": [
+        "Global Reporting Initiative (GRI)",
+        "Carbon Disclosure Project (CDP)",
+        "International Integrated Reporting Framework (IIRC)",
+        "Mandatory reporting"
+      ],
+      "instrument_references": [
+        "GRI Sustainability Reporting Standards"
+      ],
+      "inclusion": [
+        "Greenhouse gas emissions and water security disclosures",
+        "General disclosures covering economic, environment, and social dimensions"
+      ],
+      "exclusion": [
+        "Purely domestic private financial accounting statements without sustainability addenda"
+      ],
+      "nearby_distinctions": [
+        "Differentiated from national financial GAAP through its multi-stakeholder orientation toward non-financial sustainability impacts."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0066f115-8d13-4c91-8af6-e21a55d96df0",
+      "concept_name": "Integrated Reporting Capitals",
+      "definition": "Integrated reporting incorporates six fundamental capitals representing the stocks of value an organization uses or affects to produce goods or services. These capitals encompass financial, manufactured, and natural resources utilized within the entity's business model.",
+      "terminology": [
+        "Financial Capital",
+        "Manufactured Capital",
+        "Natural Capital",
+        "Integrated Reporting"
+      ],
+      "instrument_references": [
+        "IFRS S1",
+        "IFRS S2 Climate-related Disclosures"
+      ],
+      "inclusion": [
+        "Pool of funds from debt, equity, or operations",
+        "Human-created tools, equipment, and infrastructure",
+        "Natural inputs like water, land, minerals, and forests"
+      ],
+      "exclusion": [
+        "Solely profit-and-loss financial summaries devoid of resource stock impacts"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard financial statements by tracking holistic inputs across multiple forms of value capital rather than monetary wealth alone."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ecb82812-f328-45e7-8e1c-6134a3b56daf",
+      "concept_name": "Global Scenario in Various Countries",
+      "definition": "Jurisdictions globally have introduced mandatory climate-risk and sustainability reporting requirements for large companies, aligning corporate disclosures with net-zero targets. Notable measures include United States SEC climate-risk rules and United Kingdom Companies Act expansion incorporating sustainability matters.",
+      "terminology": [
+        "SEC climate-risk disclosure",
+        "Companies Act of 2006",
+        "Streamlined Energy and Carbon Reporting",
+        "Sustainability Disclosure Requirements (SDRs)"
+      ],
+      "instrument_references": [
+        "Companies Act of 2006"
+      ],
+      "inclusion": [
+        "Climate change-related risks and opportunities",
+        "Greenhouse gas emissions tracking",
+        "Due diligence regarding employees, social matters, and anti-corruption"
+      ],
+      "exclusion": [
+        "Unregulated voluntary disclosures by micro-enterprises"
+      ],
+      "nearby_distinctions": [
+        "Distinguished by legal enforceability through statutory acts and securities commission mandates rather than purely voluntary corporate guidelines."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7159e1f7-4b3f-4829-973e-e70d8eed2caf",
+      "concept_name": "United States Climate Disclosure Mandates",
+      "definition": "Regulatory proposals by financial oversight bodies require publicly traded companies to integrate financially material climate-related risks into annual filings. These disclosures cover climate risk management processes, mitigation strategies, and transition plans guided by specific task force recommendations.",
+      "terminology": [
+        "US Securities and Exchange Commission (SEC)",
+        "Climate-risk disclosure",
+        "TCFD recommendations"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Climate risk impact on financial performance",
+        "Scenario analysis and transition plans",
+        "Publicly announced climate goals"
+      ],
+      "exclusion": [
+        "Non-material environmental generalities omitted from official filings"
+      ],
+      "nearby_distinctions": [
+        "Differentiated from general voluntary sustainability reports by focusing specifically on financially material climate risks within regulatory securities filings."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3283ae9c-9b12-42b4-a704-d1be4b3a4eb8",
+      "concept_name": "United Kingdom Sustainability Regulations",
+      "definition": "Statutory frameworks mandate large UK companies to incorporate comprehensive non-financial sustainability matters into annual reporting. These provisions cover environmental impacts, employee relations, human rights, and anti-corruption measures aligned with climate disclosure recommendations.",
+      "terminology": [
+        "Companies Act of 2006",
+        "Streamlined Energy and Carbon Reporting",
+        "Sustainability Disclosure Requirements (SDRs)",
+        "Net zero"
+      ],
+      "instrument_references": [
+        "Companies Act of 2006"
+      ],
+      "inclusion": [
+        "Greenhouse gas emissions targets and KPIs",
+        "Energy use and carbon reporting",
+        "Governance structures addressing climate risk"
+      ],
+      "exclusion": [
+        "Entities falling below statutory turnover and employee thresholds"
+      ],
+      "nearby_distinctions": [
+        "Differentiated from voluntary guidelines by legal enforceability under company law for qualifying large enterprises."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8d181952-3078-4042-9e74-4e3ba83c07f6",
+      "concept_name": "Evolution of ESG in India",
+      "definition": "India's regulatory approach to corporate responsibility evolved from voluntary guidelines on social and environmental responsibilities to mandatory reporting formats for listed companies. The regulatory progression spans from early MCA voluntary frameworks to structured business responsibility filings mandated by market regulators.",
+      "terminology": [
+        "Corporate Social Responsibility Voluntary Guidelines",
+        "National Voluntary Guidelines (NVGs)",
+        "Business Responsibility Report (BRR)",
+        "SEBI (LODR) Regulations"
+      ],
+      "instrument_references": [
+        "SEBI (Listing Obligations and Disclosure Requirements) Regulations, 2015"
+      ],
+      "inclusion": [
+        "Ethical functioning and human rights welfare",
+        "Environmental development activities",
+        "Mandatory filing requirements for top listed entities"
+      ],
+      "exclusion": [
+        "Unlisted small-scale enterprises exempt from market regulator filing rules"
+      ],
+      "nearby_distinctions": [
+        "Distinguished by its sequential transition from advisory corporate guidance to mandatory market-regulated reporting disclosures."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "dbb57cb9-1526-477a-8a31-86fb7263816e",
+      "concept_name": "Initiatives by ICAI and BRSR Structure",
+      "definition": "The Institute of Chartered Accountants of India fosters sustainability reporting through specialized boards, educational courses, and technical publications. Structured reporting instruments like the Business Responsibility and Sustainability Report organize disclosures across general profiles, management processes, and principle-wise key performance indicators.",
+      "terminology": [
+        "Sustainability Reporting Standards Board (SRSB)",
+        "Business Responsibility and Sustainability Report (BRSR)",
+        "Essential indicators",
+        "Leadership indicators"
+      ],
+      "instrument_references": [
+        "SAE 3410"
+      ],
+      "inclusion": [
+        "General company disclosures and governance management processes",
+        "Mandatory essential indicators and optional leadership indicators"
+      ],
+      "exclusion": [
+        "Traditional financial statement audits unconcerned with ESG key performance indicators"
+      ],
+      "nearby_distinctions": [
+        "Differentiated from standard financial auditing through its specific focus on non-financial sustainability metrics and green house gas statements."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "033b83ba-d2ad-4cb6-87fd-54def1852487",
+      "concept_name": "Nine Principles of BRSR",
+      "definition": "Business Responsibility and Sustainability Reporting evaluates corporate performance across nine principles mapped to environmental, social, and governance pillars. These principles govern ethical transparency, stakeholder inclusiveness, worker welfare, human rights, and environmental protection.",
+      "terminology": [
+        "Nine Principles",
+        "Ethics Transparency and Accountability",
+        "NGRBC",
+        "Principle-wise performance disclosures"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Policies ensuring operational ethics and stakeholder access",
+        "Transparent disclosures concerning adverse operational effects",
+        "Value chain partner encouragement"
+      ],
+      "exclusion": [
+        "Purely profit-driven financial metrics divorced from ethical and environmental governance"
+      ],
+      "nearby_distinctions": [
+        "Differentiated from standard financial controls by prioritizing holistic socio-environmental impacts and transparent stakeholder accountability over monetary returns."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4a5c73d1-a8d8-41bb-97fd-ae5b284a9571",
+      "concept_name": "Consideration of Climate Related Risks in Financial Statement Audits",
+      "definition": "Auditors must incorporate climate-related risks into their understanding of an entity to evaluate material misstatements in financial statements. Auditors check consistency between financial disclosures, climate narratives, and public communications while considering whether to include explanatory paragraphs in their reports.",
+      "terminology": [
+        "Climate-related risks",
+        "Material misstatement",
+        "Emphasis of matter paragraph",
+        "Other information"
+      ],
+      "instrument_references": [
+        "Indian Accounting Standards",
+        "Accounting Standards"
+      ],
+      "inclusion": [
+        "Sector-specific evaluation of climate impacts in energy, agriculture, and banking",
+        "Review of management report narratives and press releases for consistency",
+        "Verification of appropriate financial statement disclosures"
+      ],
+      "exclusion": [
+        "Independent standalone sustainability assurance engagements performed outside the financial statement audit scope"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from dedicated sustainability assurance by remaining anchored in the audit of historical financial statements and their material accuracy."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f0f44373-2b84-4e77-8c8d-020508756b59",
+      "concept_name": "Conclusion on Sustainability Assurance Landscape",
+      "definition": "Global demand for sustainability reporting and independent assurance continues to expand to enhance information integrity. The absence of uniform global standards necessitates that assurance professionals closely monitor ongoing developments in sustainability frameworks.",
+      "terminology": [
+        "Sustainability assurance",
+        "Uniform standards",
+        "Integrity",
+        "Key Takeaways"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Independent assurance of sustainability branded reporting",
+        "Monitoring landscape developments across global markets"
+      ],
+      "exclusion": [
+        "Unverified internal corporate claims lacking independent professional examination"
+      ],
+      "nearby_distinctions": [
+        "Distinguished by its emphasis on future assurance market growth and standardization needs rather than current fixed reporting rules."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "f252074ce34444210d8a77d90788c2a78c7287548cf2273fe8e705f05376f0b5",
+  "artifact_id": "6009ae95-2c02-4915-afa6-40d27be3f469",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8195,
+  "output_tokens": 3426,
+  "cost_usd": 0.0110235,
+  "created_at": "2026-10-03T18:12:11.272445+00:00"
+}

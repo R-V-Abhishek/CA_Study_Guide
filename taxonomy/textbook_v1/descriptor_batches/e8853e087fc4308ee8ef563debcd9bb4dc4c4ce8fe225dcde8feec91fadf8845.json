@@ -1,0 +1,205 @@
+{
+  "descriptors": [
+    {
+      "node_id": "0e06953b-e550-4d6c-a6b4-44bc42b8cf55",
+      "concept_name": "Boards For Advance Rulings Introduction",
+      "definition": "Bodies established by the Central Government to pronounce binding determinations on tax questions for applicants under Chapter XIX-B. These boards consist of two officers not below the rank of Chief Commissioner.",
+      "terminology": [
+        "Board for Advance Rulings",
+        "Chief Commissioner",
+        "Advance Ruling"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Boards constituted under Chapter XIX-B"
+      ],
+      "exclusion": [
+        "Old Settlement Commission rulings"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from Income-tax Authorities and Appellate Tribunals by specific statutory jurisdiction."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5bd1e8fd-ee79-4b61-877d-cdb8b41d77e8",
+      "concept_name": "Constitution of Board for Advance Rulings",
+      "definition": "The Central Government may constitute one or more Boards for Advance Rulings by official notification. Every such Board comprises two members nominated by the Board who hold a rank not below Chief Commissioner.",
+      "terminology": [
+        "Section 245-OB",
+        "Notification",
+        "Central Government"
+      ],
+      "instrument_references": [
+        "Section 245-OB of the Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Constitution of multiple benches with designated headquarters"
+      ],
+      "exclusion": [
+        "Appointment of officers below Chief Commissioner rank"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general tax assessment machinery by specialized membership and administrative setup."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "29691ab8-635f-4ace-a1e2-6381446a43b4",
+      "concept_name": "Definitions of Advance Ruling and Applicant",
+      "definition": "An advance ruling covers determinations for non-residents, specified resident transactions, tax computations, and avoidance arrangements. An applicant includes non-residents, residents meeting monetary thresholds, and notified public sector companies.",
+      "terminology": [
+        "Section 245N(a)",
+        "Section 245N(b)(A)",
+        "Impermissible avoidance arrangement"
+      ],
+      "instrument_references": [
+        "Section 245N of the Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Non-resident applicants",
+        "Resident applicants fulfilling notification criteria"
+      ],
+      "exclusion": [
+        "General taxpayers not falling under specified categories"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between non-resident application rights and restricted resident eligibility criteria."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "44b3fc14-16df-4475-84fb-4b8878e64171",
+      "concept_name": "Application for Advance Ruling",
+      "definition": "An eligible person may apply for an advance ruling in quadruplicate through electronic means accompanied by prescribed fees based on transaction value. Applicants retain the right to withdraw their application within a specific statutory window.",
+      "terminology": [
+        "Section 245Q",
+        "Rule 44E",
+        "Quadruplicate application"
+      ],
+      "instrument_references": [
+        "Section 245Q of the Income-tax Act, 1961",
+        "Rule 44E"
+      ],
+      "inclusion": [
+        "Applications via registered e-mail address",
+        "Tiered fee structures based on transaction scale"
+      ],
+      "exclusion": [
+        "Applications submitted without proof of required fee payment"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes filing procedures and sliding-scale fees from standard tax return filings."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e9404606-7761-4779-9d50-aed17106ad72",
+      "concept_name": "Procedure on Receipt of Application",
+      "definition": "Upon receiving an application, the Board consults the Commissioner, examines relevant records, and either allows or rejects the application. Valid applications must receive a pronounced ruling within six months after providing a hearing opportunity.",
+      "terminology": [
+        "Section 245R",
+        "Principal Commissioner",
+        "Fair Market Value"
+      ],
+      "instrument_references": [
+        "Section 245R of the Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Mandatory opportunity of being heard before rejection",
+        "Statutory six-month time limit for ruling pronouncement"
+      ],
+      "exclusion": [
+        "Rejection of applications without providing reasons"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes initial admissibility checks from the substantive evaluation of tax questions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3c77ec70-98e3-44bb-a9c2-3488573107b7",
+      "concept_name": "Void Advance Rulings and Board Powers",
+      "definition": "An advance ruling obtained through fraud or misrepresentation may be declared void ab initio by the Board. The Board possesses civil court powers for discovery, enforcing attendance, and examining witnesses under oath during judicial proceedings.",
+      "terminology": [
+        "Section 245T",
+        "Section 245U",
+        "Void ab initio"
+      ],
+      "instrument_references": [
+        "Section 245T",
+        "Section 245U",
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Declarations of nullity due to factual misrepresentation",
+        "Civil court powers for evidence collection and inspection"
+      ],
+      "exclusion": [
+        "Civil court status for criminal procedure provisions affecting the administration of justice"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes administrative voiding due to fraud from normal appellate reversals."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "cff8d7d0-36e0-453a-9ff4-b24d3395cd1e",
+      "concept_name": "Powers of the Board for Advance Rulings",
+      "definition": "The Board exercises specific powers equivalent to a civil court regarding evidence inspection, witness attendance, and document production. Proceedings before the Board are treated as judicial proceedings for statutory contempt and penal purposes.",
+      "terminology": [
+        "Section 245U",
+        "Civil court powers",
+        "Judicial proceeding"
+      ],
+      "instrument_references": [
+        "Section 245U of the Income-tax Act, 1961",
+        "Code of Criminal Procedure, 1973"
+      ],
+      "inclusion": [
+        "Compelling production of books of accounts",
+        "Issuing commissions for examination"
+      ],
+      "exclusion": [
+        "Exemption from being categorized as a civil court under specific criminal procedure chapters"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes quasi-judicial evidence-gathering powers from regular executive tax collection functions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c433a15a-e99b-4a71-a8ac-17f66b24d32f",
+      "concept_name": "Appeals to High Court",
+      "definition": "An aggrieved applicant or an Assessing Officer directed by the Commissioner can appeal rulings to the High Court within a specified timeframe. The High Court may extend this filing period upon proving sufficient cause for delay.",
+      "terminology": [
+        "Section 245W",
+        "Appeal to High Court",
+        "Sufficient cause"
+      ],
+      "instrument_references": [
+        "Section 245W of the Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Sixty-day base window for filing appeals",
+        "Discretionary thirty-day extension for sufficient cause"
+      ],
+      "exclusion": [
+        "Direct appeals bypassing the High Court level"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes appellate judicial review by High Courts from initial board-level proceedings."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "e8853e087fc4308ee8ef563debcd9bb4dc4c4ce8fe225dcde8feec91fadf8845",
+  "artifact_id": "8f36a5b3-1786-44c2-8ad6-2c2ac04fecc4",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 6352,
+  "output_tokens": 2179,
+  "cost_usd": 0.0073531000000000004,
+  "created_at": "2026-10-03T18:22:57.297784+00:00"
+}

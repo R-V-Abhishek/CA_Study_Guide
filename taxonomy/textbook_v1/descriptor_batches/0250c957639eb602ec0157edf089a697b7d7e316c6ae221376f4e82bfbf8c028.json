@@ -1,0 +1,210 @@
+{
+  "descriptors": [
+    {
+      "node_id": "c83ccbac-4f5a-4093-a61e-dd5ab64e47b1",
+      "concept_name": "Brand Strategy",
+      "definition": "Brand strategy involves employing distinctive identifiers like logos or colors to make products or services visually stand out in the market. This practice enhances customer appeal and differentiates offerings from competitors.",
+      "terminology": [
+        "Branding",
+        "Logo",
+        "Product Distinction",
+        "Visual Appeal"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Use of specific logos",
+        "Distinctive color schemes",
+        "Methods making products visually distinct"
+      ],
+      "exclusion": [
+        "Internal operational service agreements",
+        "Supply chain logistics"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from Service Level Agreements by focusing on market differentiation rather than operational service commitments."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ee9d07fc-34a1-48ec-b39c-f2083e6dbc93",
+      "concept_name": "Service Level Agreements (SLA)",
+      "definition": "A service level agreement is a formal or informal contract establishing expectations between a customer and a service provider. It defines service parameters, rewards, penalties, and provisions for regular review and termination.",
+      "terminology": [
+        "SLA",
+        "Service-Level Agreement",
+        "Rewards and Penalties",
+        "Contract"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Formal or informal contracts",
+        "Agreements between separate organizations or internal teams",
+        "Reward and penalty specifications"
+      ],
+      "exclusion": [
+        "General brand marketing strategies",
+        "Supply chain physical transport networks"
+      ],
+      "nearby_distinctions": [
+        "Unlike generic supply chain optimization, SLAs focus on contractual performance metrics and service standards between parties."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "03326ae6-7f15-4be1-b6fc-83053ac72354",
+      "concept_name": "Benefits of the Supply Chain",
+      "definition": "A highly controlled supply chain delivers operational advantages such as inventory reduction, streamlined personnel needs, and enhanced financial cycles. It also improves information visibility, flexibility, and customer responsiveness.",
+      "terminology": [
+        "Supply Chain Benefits",
+        "Inventory Reduction",
+        "Financial Cycle Improvement",
+        "Information Visibility"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Tangible operational metrics improvement",
+        "Order management optimization",
+        "Standardization and globalization of business performance"
+      ],
+      "exclusion": [
+        "Human resource workforce downsizing actions",
+        "Brand aesthetic formulation"
+      ],
+      "nearby_distinctions": [
+        "Differs from general outsourcing by addressing the entire integrated network of organizations managing production and delivery rather than transferring single non-core tasks."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0b3c5c3a-f389-469e-b8f9-504113db630f",
+      "concept_name": "Building a Resilient and Sustainable Supply Chain",
+      "definition": "Supply chain resilience involves designing networks to flexibly and rapidly adapt to catastrophic or day-to-day operational disruptions. Organizations utilize tools like stress test maps and digital twins to assess vulnerabilities and identify mitigation strategies.",
+      "terminology": [
+        "Resilient Supply Chain",
+        "Digital Twin",
+        "Stress Test Maps",
+        "Disruption Scenarios"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Stress testing using digital twins",
+        "Benchmarking resilience against peers",
+        "Risk mitigation for raw material shortages and geopolitical conflicts"
+      ],
+      "exclusion": [
+        "Standard cost-cutting through workforce downsizing",
+        "Routine invoice processing automation"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard supply chain management by its explicit focus on risk anticipation, exposure assessment, and crisis adaptability."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "98497173-d97d-46bb-b8a3-27e9fb1277d0",
+      "concept_name": "Gain Sharing Arrangements",
+      "definition": "Gain sharing is a contractual adjustment approach where a supplier performs services without guaranteed payment, tying compensation directly to verified benefits realized by the customer. This arrangement exposes the supplier to high risk in exchange for potential substantial returns.",
+      "terminology": [
+        "Gain Sharing",
+        "Contract Adjustment",
+        "Contingent Compensation"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Contracts with no guaranteed base payment",
+        "Compensation linked strictly to customer-experienced benefits",
+        "Risk-sharing mechanisms between customer and supplier"
+      ],
+      "exclusion": [
+        "Fixed-fee service contracts",
+        "Traditional workforce wage payments"
+      ],
+      "nearby_distinctions": [
+        "Unlike fixed-fee SLAs, gain sharing ties vendor compensation entirely to realized customer benefits, resembling an equity stake."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5be66a0c-f4e2-4ee7-82b5-a2cbbef90239",
+      "concept_name": "Downsizing",
+      "definition": "Downsizing is a strategic human resource measure implemented during economic hardship to reduce overall costs and eliminate redundant workforce capacity. It involves workforce reduction, work redesign, or closing non-profitable divisions to ensure organizational survival.",
+      "terminology": [
+        "Downsizing",
+        "Workforce Reduction",
+        "Redundancies",
+        "Cost Management"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Eliminating idle capacity",
+        "Closing non-profitable divisions",
+        "Work redesign strategies"
+      ],
+      "exclusion": [
+        "Transferring internal business functions to external third-party vendors",
+        "Relocating infrastructure to foreign countries"
+      ],
+      "nearby_distinctions": [
+        "Distinct from rightsizing because downsizing focuses specifically on cost reduction during economic duress rather than long-term strategic optimality."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "731f692e-bb75-4caa-8e9d-e3d6d4c12f3b",
+      "concept_name": "Outsourcing",
+      "definition": "Outsourcing involves transferring non-core business processes to external third-party service providers that specialize in those activities. This strategy aims to reduce operational costs, enhance specialization, and maintain operational flexibility.",
+      "terminology": [
+        "Outsourcing",
+        "Third Party Service Provider",
+        "Non-Core Functions",
+        "First Party and Second Party"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Transfer of non-core processes to external firms",
+        "Vendor management arrangements",
+        "Scaling operational flexibility"
+      ],
+      "exclusion": [
+        "Internal workforce downsizing",
+        "Establishing foreign physical infrastructure without external vendors"
+      ],
+      "nearby_distinctions": [
+        "Unlike downsizing, which reduces internal employee headcount, outsourcing delegates internal functions to external specialized agencies."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "27dc506a-8029-44fa-9e3f-ce8a085db59e",
+      "concept_name": "Offshoring",
+      "definition": "Offshoring is the relocation of business functions to another country to benefit from lower operating costs or advantageous local conditions. This process necessitates establishing physical infrastructure abroad without necessarily involving third-party vendors.",
+      "terminology": [
+        "Offshoring",
+        "Relocation",
+        "Physical Infrastructure",
+        "Offshore Outsourcing"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Establishing foreign physical infrastructure",
+        "Relocating operations for cost reduction or time zone coverage",
+        "Utilizing local overseas labor pools"
+      ],
+      "exclusion": [
+        "Reducing local headcount via internal downsizing without geographic relocation",
+        "Pure domestic vendor outsourcing"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from outsourcing because offshoring focuses on geographic relocation and physical infrastructure setup abroad, whereas outsourcing focuses on transferring tasks to independent entities."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "0250c957639eb602ec0157edf089a697b7d7e316c6ae221376f4e82bfbf8c028",
+  "artifact_id": "3c55fc21-8da7-4147-980e-68bf34fe7721",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 5764,
+  "output_tokens": 2093,
+  "cost_usd": 0.0069616999999999995,
+  "created_at": "2026-10-03T18:25:57.202606+00:00"
+}

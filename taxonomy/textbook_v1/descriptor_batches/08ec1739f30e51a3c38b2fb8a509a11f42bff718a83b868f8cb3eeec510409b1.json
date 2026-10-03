@@ -1,0 +1,327 @@
+{
+  "descriptors": [
+    {
+      "node_id": "fdec554a-9eb6-4bc6-a1d4-04d1c7fd6f07",
+      "concept_name": "Objective Of Ind As 110",
+      "definition": "Ind AS 110 establishes principles for deciding whether an entity must prepare consolidated financial statements and outlines how those statements should be prepared. It mandates that a parent entity controlling subsidiaries must present consolidated reports using specific control evaluation and accounting requirements.",
+      "terminology": [
+        "Consolidated financial statements",
+        "Parent",
+        "Subsidiary",
+        "Control"
+      ],
+      "instrument_references": [
+        "Ind AS 110"
+      ],
+      "inclusion": [
+        "Principles for preparing consolidated financial statements",
+        "Control evaluation guidance",
+        "Investment entity definitions and exemptions"
+      ],
+      "exclusion": [
+        "Accounting requirements for business combinations",
+        "Goodwill arising on business combinations"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from business combination standards which govern the initial acquisition accounting rather than ongoing consolidation mechanics."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b9109143-f69e-4ecf-b55b-7b9f8009fa55",
+      "concept_name": "Scope Of Ind As 110",
+      "definition": "The standard obligates any parent entity to present consolidated financial statements unless specific ownership, non-listing, non-filing, and parent consolidation exemptions are met. Unlisted subsidiaries whose ultimate parent produces public Ind AS financial statements consolidating subsidiaries may be exempt from consolidation.",
+      "terminology": [
+        "Parent entity",
+        "Consolidation exemption",
+        "Public market",
+        "Ultimate parent"
+      ],
+      "instrument_references": [
+        "Ind AS 110 paragraph 4(a)"
+      ],
+      "inclusion": [
+        "Entities meeting all four specified exemption conditions",
+        "Wholly or partly owned subsidiaries not traded in public markets"
+      ],
+      "exclusion": [
+        "Entities whose debt or equity instruments are traded in public markets",
+        "Entities filing financial statements to issue public instruments"
+      ],
+      "nearby_distinctions": [
+        "Differs from general consolidation mandates by allowing conditional exemptions for intermediate or lower-tier subsidiaries under strict parent reporting criteria."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "af775b40-493e-448b-a170-98230305c78d",
+      "concept_name": "Control Evaluation",
+      "definition": "An investor controls an investee if and only if it simultaneously holds power over the investee, exposure or rights to variable returns, and the ability to use that power to affect those returns. Assessments must be reassessed when changes occur in any of these three core elements.",
+      "terminology": [
+        "Power",
+        "Variable returns",
+        "Investor",
+        "Investee",
+        "Reassessment"
+      ],
+      "instrument_references": [
+        "Ind AS 110"
+      ],
+      "inclusion": [
+        "Simultaneous presence of power, variable returns, and the linkage between them",
+        "Continuous evaluation of control criteria"
+      ],
+      "exclusion": [
+        "Joint control arrangements governed by separate standards",
+        "Investments in associates or financial instruments lacking control"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from joint arrangements and associate investments where individual control is absent and other specific standards apply."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b88ff1e0-275d-4e42-8dbf-6baf113886fe",
+      "concept_name": "Power",
+      "definition": "Power exists when an investor holds existing rights that grant the current ability to direct an investee's relevant activities. Relevant activities encompass operating and financing decisions that significantly affect the investee's returns.",
+      "terminology": [
+        "Relevant activities",
+        "Current ability",
+        "Existing rights",
+        "Operating and financing activities"
+      ],
+      "instrument_references": [
+        "Ind AS 110"
+      ],
+      "inclusion": [
+        "Activities such as selling goods, managing financial assets, capital budgeting, and appointing key personnel",
+        "Rights that give current ability to direct operational outcomes"
+      ],
+      "exclusion": [
+        "Protective rights that only shield an investor's interest without granting operational direction",
+        "Activities that do not significantly affect investee returns"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from protective rights, which do not confer the ability to direct ongoing operational and financial policies."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4df2420b-03bb-4765-8caa-0291e2508ff7",
+      "concept_name": "Exposure, Or Rights, To Variable Returns From An Investee",
+      "definition": "Variable returns are returns that are not fixed and can vary based on an investee's performance, encompassing positive, negative, or dual outcomes. An investor evaluates exposure to these returns based on transaction substance regardless of the legal form.",
+      "terminology": [
+        "Variable returns",
+        "Substance of arrangement",
+        "Credit risk",
+        "Performance fees"
+      ],
+      "instrument_references": [
+        "Ind AS 110"
+      ],
+      "inclusion": [
+        "Returns subject to default risk or credit risk such as fixed interest bonds",
+        "Returns varying with operational performance or fees"
+      ],
+      "exclusion": [
+        "Completely insulated cash flows devoid of any performance variability or default exposure",
+        "Returns interpreted strictly as positive benefits"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from static nominal benefits by encompassing any fluctuation driven by credit, performance, or default risks."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ff32d07e-1598-46cf-87ef-557ec3a5d35a",
+      "concept_name": "Link Between Power And Returns",
+      "definition": "Control requires an investor to have the ability to use its power to affect its own returns from the investee, necessitating an evaluation of whether decision-makers act as principals or agents. An agent acts primarily on behalf and for the benefit of others and does not control the investee when exercising delegated rights.",
+      "terminology": [
+        "Principal",
+        "Agent",
+        "Decision-making rights",
+        "Delegated authority"
+      ],
+      "instrument_references": [
+        "Ind AS 110"
+      ],
+      "inclusion": [
+        "Assessment of decision-making scope and discretion",
+        "Evaluation of whether a party acts as a principal or an agent"
+      ],
+      "exclusion": [
+        "Agents exercising delegated authority on behalf of principals",
+        "Parties lacking the discretion to alter investee outcomes"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from direct unilateral power by accounting for delegation structures where decision-makers act purely on behalf of principals."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "84d9a85b-ea45-4ce8-bfad-c53bcf854219",
+      "concept_name": "RELATIONSHIP WITH OTHER PARTIES",
+      "definition": "An investor must evaluate whether related or interacting parties act as de facto agents by assessing if the investor can direct them to act on its behalf. De facto agent rights and indirect variable return exposures are aggregated with the investor's own rights when assessing control.",
+      "terminology": [
+        "De facto agent",
+        "Related parties",
+        "Indirect exposure",
+        "Voting powers"
+      ],
+      "instrument_references": [
+        "Ind AS 110"
+      ],
+      "inclusion": [
+        "Related parties capable of being directed by the investor",
+        "Parties receiving interests from or acting on behalf of the investor"
+      ],
+      "exclusion": [
+        "Independent third parties acting entirely in their own self-interest without direction",
+        "Parties lacking any operational or behavioral linkage to the investor"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from independent minority shareholders by the presence of behavioral control or relationship ties enabling the investor to direct their votes."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3217f200-2ebb-4d5d-94d1-a4a99423cc40",
+      "concept_name": "CONTROL OF SPECIFIED ASSETS",
+      "definition": "A portion of an investee is treated as a deemed separate entity, or silo, if its specified assets and liabilities are ring-fenced from the rest of the investee. An investor controlling such a silo must consolidate it independently while other parties exclude it from their evaluations.",
+      "terminology": [
+        "Deemed separate entity",
+        "Silo",
+        "Ring-fenced",
+        "Specified assets"
+      ],
+      "instrument_references": [
+        "Ind AS 110"
+      ],
+      "inclusion": [
+        "Sub-funds or portions where assets serve as sole payment sources for specified liabilities",
+        "Sub-funds whose residual cash flows and liabilities do not interact with the remaining investee"
+      ],
+      "exclusion": [
+        "Undivided investee operations lacking asset and liability ring-fencing",
+        "General pool assets accessible by all creditors of the broader entity"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from whole-entity consolidation by isolating specific ring-fenced segments that operate independently of the broader investee structure."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "34648823-6cc5-4f84-acbb-f0642ac65974",
+      "concept_name": "CONTINUOUS ASSESSMENT",
+      "definition": "Investors must continuously reassess control over an investee if facts and circumstances indicate changes to power, variable returns, or the link between them. Market condition changes alone do not alter control unless they modify the core control elements or principal-agent relationships.",
+      "terminology": [
+        "Reassessment",
+        "Facts and circumstances",
+        "Principal or agent status",
+        "Voting rights"
+      ],
+      "instrument_references": [
+        "Ind AS 110"
+      ],
+      "inclusion": [
+        "Changes in how power is exercised via contracts or voting shifts",
+        "Termination or alteration of return entitlements and fee contracts"
+      ],
+      "exclusion": [
+        "Standalone market condition shifts that leave underlying control elements unchanged",
+        "Temporary fluctuations in returns without structural governance alterations"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from static initial evaluations by requiring ongoing monitoring and mandatory reassessment upon structural event changes."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9b229227-9048-4b90-af16-b22e79c3d92c",
+      "concept_name": "INVESTMENT ENTITIES",
+      "definition": "An investment entity is an entity that obtains funds from investors to provide investment management services, commits to invest solely for capital appreciation or investment income, and measures substantially all investments at fair value. Such entities typically feature multiple investments, multiple unrelated investors, and equity ownership structures.",
+      "terminology": [
+        "Investment entity",
+        "Capital appreciation",
+        "Fair value basis",
+        "Investment management services"
+      ],
+      "instrument_references": [
+        "Ind AS 110"
+      ],
+      "inclusion": [
+        "Entities committing to invest solely for capital appreciation or investment income",
+        "Entities evaluating investment performance on a fair value basis"
+      ],
+      "exclusion": [
+        "Operating entities providing secondary strategic benefits to parents",
+        "Entities lacking typical investment characteristics without additional qualifying judgment"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard operating parents by their exclusive business purpose of investing for fair value returns and capital appreciation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "aff06b76-a444-40e7-8308-08b04d8c4ba8",
+      "concept_name": "Determining whether an entity is an investment entity",
+      "definition": "Evaluating whether an entity qualifies as an investment entity requires checking criteria such as obtaining funds for investment management, committing to invest solely for capital appreciation or investment income, and evaluating investments at fair value. Typical characteristics like multiple investors and multiple investments guide the final classification judgment.",
+      "terminology": [
+        "Business purpose",
+        "Fair value measurement",
+        "Typical characteristics",
+        "Investment management services"
+      ],
+      "instrument_references": [
+        "Ind AS 110"
+      ],
+      "inclusion": [
+        "Assessment of offering memoranda, corporate documents, and investment intent",
+        "Verification of fair value performance evaluation across investments"
+      ],
+      "exclusion": [
+        "Entities holding strategic assets that provide operational benefits to related corporate parents",
+        "Entities failing to meet core definitions even if some typical characteristics are present"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general holding entities by the strict requirement to measure and evaluate investments exclusively at fair value."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4ca401bb-feae-4621-923b-f44b4eb06a1b",
+      "concept_name": "Exemptions to investment entities",
+      "definition": "An investment entity must not consolidate its subsidiaries or apply business combination standards when gaining control, instead measuring subsidiary investments at fair value through profit or loss. However, subsidiaries providing investment-related services or activities must be consolidated if they are not investment entities themselves.",
+      "terminology": [
+        "Fair value through profit or loss",
+        "Investment-related services",
+        "Exemption",
+        "Subsidiary consolidation"
+      ],
+      "instrument_references": [
+        "Ind AS 110",
+        "Ind AS 103",
+        "Ind AS 109"
+      ],
+      "inclusion": [
+        "Measurement of non-service subsidiaries at fair value through profit or loss",
+        "Consolidation of subsidiaries whose main purpose is providing investment-related services to the parent"
+      ],
+      "exclusion": [
+        "Consolidation of standard operating subsidiaries controlled by the investment entity",
+        "Application of business combination standards to typical investment acquisitions"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard consolidation rules by substituting fair value accounting for subsidiaries unless those subsidiaries provide direct investment-related support services."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "08ec1739f30e51a3c38b2fb8a509a11f42bff718a83b868f8cb3eeec510409b1",
+  "artifact_id": "9c5ed774-b255-4d0b-8d24-2204030a49f3",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8658,
+  "output_tokens": 3619,
+  "cost_usd": 0.0116449,
+  "created_at": "2026-10-03T18:05:04.928257+00:00"
+}

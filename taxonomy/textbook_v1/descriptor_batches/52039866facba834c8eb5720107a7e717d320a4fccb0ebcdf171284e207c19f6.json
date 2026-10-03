@@ -1,0 +1,312 @@
+{
+  "descriptors": [
+    {
+      "node_id": "a7ab65ed-597f-4821-b633-882374300ef8",
+      "concept_name": "Core Principle",
+      "definition": "Entities must provide disclosures enabling users to evaluate the nature and financial effects of their business activities and economic environments. This disclosure mandates presenting operational insights from the exact perspective utilized by the entity's management.",
+      "terminology": [
+        "Business activities",
+        "Economic environments",
+        "Stakeholders",
+        "Management perspective"
+      ],
+      "instrument_references": [
+        "Ind AS 108"
+      ],
+      "inclusion": [
+        "Financial effects of business activities",
+        "Economic environment factors impacting operations"
+      ],
+      "exclusion": [
+        "Segments reported in separate financial statements when consolidated statements exist"
+      ],
+      "nearby_distinctions": [
+        "Differs from general financial disclosures by enforcing a strict management viewpoint rather than standardized financial metric groupings."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7c45cef3-689a-4aa1-87a3-9b2dd4a9f51b",
+      "concept_name": "Scope",
+      "definition": "The standard applies to companies required to follow Indian Accounting Standards notified under the Companies Act, 2013. When separate financial statements are presented alongside consolidated statements, segment information is required exclusively in the consolidated financial statements.",
+      "terminology": [
+        "Consolidated financial statements",
+        "Separate financial statements",
+        "Segment information"
+      ],
+      "instrument_references": [
+        "Ind AS 108",
+        "Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Companies under notified Indian Accounting Standards"
+      ],
+      "exclusion": [
+        "Non-compliant disclosures labeled as segment information by exempt entities",
+        "Parent's separate financial statements when consolidated statements are present"
+      ],
+      "nearby_distinctions": [
+        "Restricts mandatory segment reporting exclusively to consolidated financial reports rather than duplicate separate filings."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d2f72490-038b-417c-a198-6b2347a514a9",
+      "concept_name": "Operating Segments",
+      "definition": "An operating segment is an entity component engaging in business activities that earn revenues and incur expenses, whose operating results are regularly reviewed by the chief operating decision maker, and for which discrete financial information is available. This approach relies entirely on the internal organizational structure utilized by management rather than generalized risk and return assessments.",
+      "terminology": [
+        "Chief operating decision maker",
+        "Discrete financial information",
+        "Management approach",
+        "Component"
+      ],
+      "instrument_references": [
+        "Ind AS 108",
+        "AS 17"
+      ],
+      "inclusion": [
+        "Start-up operations yet to earn revenues",
+        "Components with internal review by the CODM and discrete financial data"
+      ],
+      "exclusion": [
+        "Components lacking discrete financial information or regular review by the CODM"
+      ],
+      "nearby_distinctions": [
+        "Replaces the risk and return approach of AS 17 with the management approach focused on internal resource allocation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e638540e-c168-4711-a0b1-ea1c4ba06f35",
+      "concept_name": "Functions that are integral to business",
+      "definition": "Internal functional units integral to a company's operations, such as research and development, qualify as operating segments if discrete information exists and the chief operating decision maker regularly reviews their results. Similarly, discontinued operations meeting standard business activity, review, and discrete data criteria qualify as operating segments.",
+      "terminology": [
+        "Operating function",
+        "Discrete information",
+        "CODM",
+        "Discontinued operations"
+      ],
+      "instrument_references": [
+        "Ind AS 108"
+      ],
+      "inclusion": [
+        "Research and development functions with discrete reviewed data",
+        "Discontinued operations engaging in business activities with reviewed results"
+      ],
+      "exclusion": [
+        "Integral functions lacking discrete financial metrics or regular management review"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes internal support functions from ordinary revenue-generating segments by requiring active CODM review and discrete data."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0e3ba021-eb99-4ca3-a711-b4251c6c8988",
+      "concept_name": "Discontinued Operations – Whether An Operating Segment",
+      "definition": "Discontinued operations meet the definition of an operating segment if they continue engaging in business activities, their operating results are reviewed by the chief operating decision maker, and supporting discrete information is available. Merely examining revenue data alone without broader performance measures may fail to establish an operating segment unless aligned with specific market-building strategies.",
+      "terminology": [
+        "Discontinued operation",
+        "Business activities",
+        "CODM review",
+        "Revenue growth"
+      ],
+      "instrument_references": [
+        "Ind AS 108"
+      ],
+      "inclusion": [
+        "Discontinued units with ongoing business activities and discrete review data"
+      ],
+      "exclusion": [
+        "Units devoid of ongoing operational activity or management performance tracking"
+      ],
+      "nearby_distinctions": [
+        "Differentiates terminated business lines from active segments by requiring active persistence in business activities and active CODM oversight."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e0475d95-5672-43ec-b354-169b3d170b75",
+      "concept_name": "Reportable Segments",
+      "definition": "Entities must report separate information for each operating segment that is identified individually, results from aggregating multiple segments, or exceeds established quantitative thresholds. Additional specific situations defined by the standard may also mandate separate segment reporting.",
+      "terminology": [
+        "Reportable segment",
+        "Quantitative thresholds",
+        "Aggregation",
+        "Separate information"
+      ],
+      "instrument_references": [
+        "Ind AS 108"
+      ],
+      "inclusion": [
+        "Segments exceeding quantitative thresholds",
+        "Aggregated segments meeting combination criteria"
+      ],
+      "exclusion": [
+        "Operating segments falling below thresholds and not meeting aggregation or utility criteria"
+      ],
+      "nearby_distinctions": [
+        "Separates broad operating segments from subsets that warrant individual reporting via quantitative metrics or aggregation rules."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "67f1d30b-2de7-452b-a3a8-922dc38577c7",
+      "concept_name": "Aggregation Criteria",
+      "definition": "Two or more operating segments can be combined into a single segment if they exhibit similar long-term financial performance and economic characteristics. Furthermore, the segments must align with the core principle and share identical traits regarding products, production processes, customer types, distribution methods, and regulatory environments.",
+      "terminology": [
+        "Economic characteristics",
+        "Long-term financial performance",
+        "Production processes",
+        "Regulatory environment"
+      ],
+      "instrument_references": [
+        "Ind AS 108"
+      ],
+      "inclusion": [
+        "Segments sharing similar gross margins, products, processes, customers, and distribution methods"
+      ],
+      "exclusion": [
+        "Segments operating under distinct regulatory rules or conflicting economic environments without comparable metrics"
+      ],
+      "nearby_distinctions": [
+        "Permits consolidation of distinct operating units only when strict qualitative and economic likeness conditions are mutually met."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b8971bbf-319f-4de0-bb3e-3f8da56086c4",
+      "concept_name": "Quantitative Thresholds",
+      "definition": "An operating segment becomes reportable if its reported revenue, absolute profit or loss, or assets equal or exceed 10% of the combined totals for all operating segments. Management may also discretionally report segments failing these numeric tests if deemed useful for financial statement users.",
+      "terminology": [
+        "Combined revenue",
+        "Absolute profit or loss",
+        "Segment assets",
+        "Quantitative thresholds"
+      ],
+      "instrument_references": [
+        "Ind AS 108"
+      ],
+      "inclusion": [
+        "Segments representing 10% or more of combined segment revenues",
+        "Segments holding 10% or more of absolute profit/loss or total assets"
+      ],
+      "exclusion": [
+        "Segments below the 10% limits unless voluntarily selected by management for user utility"
+      ],
+      "nearby_distinctions": [
+        "Applies strict mathematical cutoff values to isolate significant segments, distinct from discretionary management grouping."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "33011124-8154-48cf-bf1e-68ec16116838",
+      "concept_name": "Disclosure",
+      "definition": "Entities must disclose general information, performance measures, assets, liabilities, and measurement bases for each period presenting profit or loss statements. Comprehensive reconciliations linking segment totals back to corresponding entity-wide financial statement amounts must also be provided.",
+      "terminology": [
+        "General information",
+        "Segment profit or loss",
+        "Reconciliations",
+        "Restated prior periods"
+      ],
+      "instrument_references": [
+        "Ind AS 108"
+      ],
+      "inclusion": [
+        "General organizational factors and aggregation judgments",
+        "Reconciliations of segment revenues, assets, and liabilities to entity totals"
+      ],
+      "exclusion": [
+        "Unreconciled segment figures or missing prior period restatements"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes core segment performance metrics from mandatory reconciliations required to tie internal reports to official financial statements."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0252c7b1-2099-4057-a166-b2fba34cf653",
+      "concept_name": "General Information",
+      "definition": "Entities must disclose the factors utilized to identify reportable segments, encompassing organizational bases like products, services, or geography. Disclosures must also cover management judgments applied during segment aggregation and descriptions of products and services generating segment revenues.",
+      "terminology": [
+        "Basis of organisation",
+        "Aggregation criteria judgments",
+        "Economic indicators",
+        "Products and services"
+      ],
+      "instrument_references": [
+        "Ind AS 108"
+      ],
+      "inclusion": [
+        "Organizational factors used for segment identification",
+        "Descriptions of products and services per reportable segment"
+      ],
+      "exclusion": [
+        "Omission of management judgment rationale or aggregation criteria descriptions"
+      ],
+      "nearby_distinctions": [
+        "Provides qualitative context regarding segment identification, supplementing the quantitative numerical tables."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "aea4c313-b286-453d-8bb3-cf169e0869aa",
+      "concept_name": "Information about profit or loss, assets and liabilities",
+      "definition": "Entities must report measures of profit or loss, total assets, and total liabilities for each reportable segment if regularly provided to the chief operating decision maker. Specific supplementary financial items like interest, depreciation, and equity-accounted investments must also be disclosed when included in metrics reviewed by the CODM.",
+      "terminology": [
+        "Measure of profit or loss",
+        "Segment assets and liabilities",
+        "Interest revenue and expense",
+        "Depreciation and amortisation"
+      ],
+      "instrument_references": [
+        "Ind AS 108",
+        "Ind AS 1",
+        "Ind AS 19"
+      ],
+      "inclusion": [
+        "Revenues from external customers and intersegment transactions",
+        "Additions to non-current assets excluding financial instruments and tax assets"
+      ],
+      "exclusion": [
+        "Items never reviewed by the CODM and excluded from internal reporting measures"
+      ],
+      "nearby_distinctions": [
+        "Ties mandatory reporting items directly to the internal data package reviewed by the CODM rather than imposing universal line-item checklists."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9d9ae896-f9f7-49a5-8c30-37c33c5d0338",
+      "concept_name": "Measurement",
+      "definition": "Reported segment items must align with the exact measures supplied to the chief operating decision maker for resource allocation and performance evaluation. Entities must provide clear explanations of measurement bases, transaction accounting between segments, and the nature of differences separating segment totals from entity-wide financial figures.",
+      "terminology": [
+        "CODM performance assessment",
+        "Allocation basis",
+        "Accounting policies",
+        "Reconciliation differences"
+      ],
+      "instrument_references": [
+        "Ind AS 108"
+      ],
+      "inclusion": [
+        "Measures matching internal CODM reporting standards",
+        "Explanations of measurement differences between segments and entity financials"
+      ],
+      "exclusion": [
+        "Arbitrary cost allocations lacking a reasonable basis"
+      ],
+      "nearby_distinctions": [
+        "Mandates that segment accounting rules mirror internal management reporting tools rather than standardizing separate independent measurement policies."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "52039866facba834c8eb5720107a7e717d320a4fccb0ebcdf171284e207c19f6",
+  "artifact_id": "2cbe5530-7c24-4721-b750-0d1359ae989f",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8339,
+  "output_tokens": 3382,
+  "cost_usd": 0.010956700000000002,
+  "created_at": "2026-10-03T18:03:33.976033+00:00"
+}

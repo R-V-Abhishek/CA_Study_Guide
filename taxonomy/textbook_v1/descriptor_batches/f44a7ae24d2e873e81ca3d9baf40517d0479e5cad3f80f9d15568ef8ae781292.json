@@ -1,0 +1,317 @@
+{
+  "descriptors": [
+    {
+      "node_id": "c13f0c0f-23ff-4203-a64d-c3cb185be7a8",
+      "concept_name": "Investment and Portfolio Fundamentals",
+      "definition": "Investing in securities involves balancing potential rewards against inherent market risks through scientific and analytical skills. Building a well-diversified portfolio of multiple securities optimizes the overall risk-return profile and minimizes risk without diluting returns.",
+      "terminology": [
+        "Portfolio",
+        "Diversification",
+        "Risk-return profile",
+        "Rate of return",
+        "Standard deviation"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Securities like bonds, debentures, and shares",
+        "Diversification across multiple assets",
+        "Measurement of risk via variance and standard deviation"
+      ],
+      "exclusion": [
+        "Investing the entire fund in a single security"
+      ],
+      "nearby_distinctions": [
+        "Differs from individual security analysis by focusing on collective asset interactions and aggregate risk-return optimization."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "231ef05c-3dfc-4a2e-b1bf-39bc845507aa",
+      "concept_name": "Core Activities in Portfolio Management",
+      "definition": "Forming an optimal portfolio requires selecting suitable securities, constructing all feasible portfolios, and deciding individual asset weights. These sequential activities align the final investment mix with the specific risk appetite of the investor.",
+      "terminology": [
+        "Optimal portfolio",
+        "Feasible portfolios",
+        "Security selection",
+        "Asset weights",
+        "Risk appetite"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Selection of individual securities",
+        "Construction of feasible portfolios",
+        "Allocation of constituent security proportions"
+      ],
+      "exclusion": [
+        "Post-construction performance evaluation metrics"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from portfolio objectives by representing concrete procedural steps rather than desired investment outcomes."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "991ea49a-fef3-4ac7-8b45-fccd290a4431",
+      "concept_name": "Objectives of Portfolio Management",
+      "definition": "Portfolio management aims to secure principal amounts, stabilize income, achieve capital growth, and maintain marketability and liquidity. Additional goals include broad asset diversification and minimizing the tax burden to optimize effective yields.",
+      "terminology": [
+        "Stability of income",
+        "Capital growth",
+        "Marketability",
+        "Liquidity",
+        "Effective yield"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Preservation of principal and purchasing power",
+        "Maintenance of liquidity and marketability",
+        "Minimizing tax burden for improved yield"
+      ],
+      "exclusion": [
+        "Detailed quantitative security pricing models"
+      ],
+      "nearby_distinctions": [
+        "Differs from portfolio management activities by defining the foundational goals and benchmarks rather than the construction steps."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e79dae1e-2079-4c7f-9050-a4ad8bf548fe",
+      "concept_name": "Phases of Portfolio Management",
+      "definition": "Portfolio management is an ongoing, multi-phase process spanning security analysis, portfolio construction, revision, and performance evaluation. Success depends on the efficiency with which each integrated phase is executed over the investment lifecycle.",
+      "terminology": [
+        "Security analysis",
+        "Portfolio construction",
+        "Portfolio revision",
+        "Portfolio evaluation",
+        "Ongoing process"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Initial security analysis and valuation",
+        "Ongoing portfolio monitoring and revision",
+        "Quantitative performance evaluation"
+      ],
+      "exclusion": [
+        "Static, one-off investment decisions"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from portfolio theories by providing a chronological operational framework rather than mathematical optimization models."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "cca977d9-a7cf-44c7-9e97-f155b1527ea4",
+      "concept_name": "Security Analysis Phase",
+      "definition": "Security analysis forms the initial phase of portfolio formation by examining individual risk-return profiles and cross-correlations. Analysts utilize fundamental and technical approaches to identify mispriced securities by comparing intrinsic values against current market prices.",
+      "terminology": [
+        "Security analysis",
+        "Fundamental analysis",
+        "Technical analysis",
+        "Intrinsic value",
+        "Mispricing"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Examination of individual security risk-return traits",
+        "Evaluation of company earnings, dividends, and management",
+        "Comparison of intrinsic value with market price"
+      ],
+      "exclusion": [
+        "Final asset weight allocation among feasible portfolios"
+      ],
+      "nearby_distinctions": [
+        "Differs from portfolio analysis by focusing on individual security evaluation prior to combining assets into portfolios."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "de54acff-459e-4222-ba50-90804021812f",
+      "concept_name": "Portfolio Analysis and Selection",
+      "definition": "Portfolio analysis involves combining selected securities to compute aggregate risk-return metrics based on asset proportions and pair-wise correlations. Investors then identify efficient portfolios to select the optimal portfolio matching their specific risk appetite.",
+      "terminology": [
+        "Feasible portfolios",
+        "Efficient portfolios",
+        "Optimal portfolio",
+        "Pair-wise correlations",
+        "Risk appetite"
+      ],
+      "instrument_references": [
+        "Harry Markowitz's portfolio theory"
+      ],
+      "inclusion": [
+        "Mathematical computation of portfolio risk and return",
+        "Generation of feasible and efficient portfolios",
+        "Selection of optimal asset allocations"
+      ],
+      "exclusion": [
+        "Standalone single-security fundamental evaluation"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from security analysis by evaluating multi-asset combinations and interactions instead of isolated securities."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ebb8e158-baa5-45cb-8b66-7b2f481cf670",
+      "concept_name": "Portfolio Selection and Lifecycle Management",
+      "definition": "Rational investors filter feasible portfolios to find efficient sets that maximize returns for a given risk level. Subsequent continuous monitoring ensures portfolios adapt to changing market dynamics and investor requirements through structured revision and evaluation.",
+      "terminology": [
+        "Efficient portfolios",
+        "Optimal portfolio",
+        "Portfolio monitoring",
+        "Portfolio revision",
+        "Portfolio evaluation"
+      ],
+      "instrument_references": [
+        "Harry Markowitz's portfolio theory"
+      ],
+      "inclusion": [
+        "Identification of efficient and optimal portfolios",
+        "Continuous performance monitoring",
+        "Periodic assessment of realized returns and risks"
+      ],
+      "exclusion": [
+        "Static, unmonitored buy-and-hold strategies over shifting market conditions"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from initial security selection by focusing on post-construction optimization and ongoing management."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "36438953-d0b3-4404-ad0a-ae1fefd756ca",
+      "concept_name": "Portfolio Revision and Evaluation",
+      "definition": "Portfolio revision entails adding or deleting securities to maintain optimality in response to dynamic market shifts or changing investor objectives. Portfolio evaluation quantitatively measures realized returns and risks over a period to identify weaknesses and refine investment skills.",
+      "terminology": [
+        "Portfolio revision",
+        "Portfolio evaluation",
+        "Optimal risk-return characteristics",
+        "Dynamic market variables",
+        "Performance measurement"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Addition and deletion of securities during revision",
+        "Quantitative measurement of realized returns and risk",
+        "Identification of weaknesses in the investment process"
+      ],
+      "exclusion": [
+        "Initial valuation and pricing of standalone securities"
+      ],
+      "nearby_distinctions": [
+        "Differs from portfolio construction by dealing with corrective adjustments and retrospective performance assessment rather than initial setup."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "318bdcc1-c344-49c3-9e2c-d45b71835e29",
+      "concept_name": "Portfolio Theories and Management Services",
+      "definition": "Portfolio theories guide investors in selecting and combining securities to achieve the highest expected return for a given risk level. Professional portfolio management services utilize this framework to optimize returns for high net-worth clients through specialized financial expertise.",
+      "terminology": [
+        "Portfolio theory",
+        "High net-worth clients",
+        "Professional investment managers",
+        "Expected rate of return",
+        "Specialised service"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Methods for selecting and combining securities",
+        "Professional management for high net-worth individuals",
+        "Optimization of returns under varying market conditions"
+      ],
+      "exclusion": [
+        "Unplanned or unguided individual retail trading"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from mechanical portfolio execution by emphasizing theoretical selection models and professional advisory frameworks."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "938f5d9c-e2de-485f-b365-35c757235339",
+      "concept_name": "Traditional Approach to Portfolio Management",
+      "definition": "The traditional approach focuses on analyzing investor constraints, defining wealth-maximization objectives, and balancing asset classes. It relies heavily on fundamental analysis, expert advice, and asset backing to construct diversified equity and fixed-income portfolios.",
+      "terminology": [
+        "Traditional approach",
+        "Investor constraints",
+        "Wealth maximization",
+        "Fixed interest securities",
+        "Intrinsic value"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Assessment of investor age, health, and tax status",
+        "Balancing fixed-interest securities against equities",
+        "Fundamental and technical selection of individual investments"
+      ],
+      "exclusion": [
+        "Modern mathematical mean-variance covariance optimization models"
+      ],
+      "nearby_distinctions": [
+        "Differs from modern portfolio theory by prioritizing qualitative individual asset selection and intuitive diversification over formal statistical optimization."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "87072324-ec47-4788-85ea-2e893a476d95",
+      "concept_name": "Traditional Portfolio Strategy and Selection",
+      "definition": "Traditional investment strategies involve balancing income taxes against capital gains, managing transaction costs, and retaining liquidity for market bargains. Individual investments are selected by tracking company track records, management quality, leverage policies, and intrinsic valuations.",
+      "terminology": [
+        "Investment strategy",
+        "Asset backing",
+        "Dividend growth",
+        "Switching costs",
+        "Intrinsic value"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Balancing income tax payable against capital gains tax",
+        "Targeting companies with good asset backing and earnings",
+        "Relying on published accounts and expert tips"
+      ],
+      "exclusion": [
+        "Rigorous quantitative covariance matrix calculations"
+      ],
+      "nearby_distinctions": [
+        "Differs from quantitative modern models by utilizing qualitative indicators like management reputation and insider insights for security choices."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "bb62d48d-037c-4bca-b81d-677b92bbbadf",
+      "concept_name": "Modern Portfolio Theory and Mean-Variance Analysis",
+      "definition": "Modern Portfolio Theory provides a mathematical framework for optimizing risk and return by combining assets with low or negative return correlations. Developed through mean-variance analysis, it asserts that an individual asset's standalone risk matters less than its contribution to overall portfolio risk.",
+      "terminology": [
+        "Modern portfolio theory",
+        "Mean variance analysis",
+        "Low correlation",
+        "Negative correlation",
+        "Expected return"
+      ],
+      "instrument_references": [
+        "Harry Markowitz Model"
+      ],
+      "inclusion": [
+        "Risk-return optimization using mathematical frameworks",
+        "Reduction of risk via low or negatively correlated assets",
+        "Evaluation of expected versus realized return variability"
+      ],
+      "exclusion": [
+        "Sole reliance on qualitative tips or isolated asset risk metrics"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from traditional approaches by utilizing formal statistical covariance and correlation measures to evaluate asset contributions."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "f44a7ae24d2e873e81ca3d9baf40517d0479e5cad3f80f9d15568ef8ae781292",
+  "artifact_id": "28b19204-de90-410d-9639-af39970a6481",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 7802,
+  "output_tokens": 3210,
+  "cost_usd": 0.0103656,
+  "created_at": "2026-10-03T18:07:08.169838+00:00"
+}

@@ -1,0 +1,252 @@
+{
+  "descriptors": [
+    {
+      "node_id": "c29c5988-f303-4e3c-aea0-e038ab56c84d",
+      "concept_name": "Business Model Assessment for Financial Assets",
+      "definition": "An entity evaluates its business model based on objective facts and observable activities regarding how financial assets are managed to generate cash flows. This assessment is performed at a higher level of aggregation for groups of assets rather than on an individual instrument-by-instrument basis.",
+      "terminology": [
+        "Business model test",
+        "Key management personnel",
+        "Contractual cash flows",
+        "Level of aggregation"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Evaluation of reporting to key management personnel",
+        "Consideration of risk management strategies",
+        "Review of managerial compensation bases"
+      ],
+      "exclusion": [
+        "Instrument-by-instrument evaluation",
+        "Management intentions for single isolated assets"
+      ],
+      "nearby_distinctions": [
+        "Distinct from contractual cash flow characteristics tests since business models focus on operational management objectives rather than contractual terms."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6eb47772-d2eb-46ca-ad7b-9931d7b346e9",
+      "concept_name": "Determining Basis of Realisation of Contractual Cash Flows",
+      "definition": "The business model establishes whether an entity achieves its objectives by collecting contractual cash flows, selling financial assets, or both. Entities utilize observable evidence like management reporting, risk factors, and compensation models to determine this realization basis.",
+      "terminology": [
+        "Realisation basis",
+        "Contractual cash flows",
+        "Business model objective",
+        "Portfolio management"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Assessment of portfolio management strategies",
+        "Evaluation of trading versus collection objectives"
+      ],
+      "exclusion": [
+        "Subjective management assertions unsupported by operational evidence"
+      ],
+      "nearby_distinctions": [
+        "Differs from initial recognition measurement by focusing on operational intent for asset portfolios over their lifecycle."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "fa91a456-8ccc-4d67-bf3c-677e6267f712",
+      "concept_name": "Financial Assets Overall Classification Framework",
+      "definition": "Financial assets are categorized into amortised cost, fair value through other comprehensive income, or fair value through profit or loss. This classification depends jointly on the entity's business model for managing the assets and the contractual cash flow characteristics of the instrument.",
+      "terminology": [
+        "Amortised cost",
+        "FVOCI",
+        "FVTPL",
+        "Contractual cash flow characteristics"
+      ],
+      "instrument_references": [
+        "Ind AS 109.4.1.1",
+        "Ind AS 109.4.1.5"
+      ],
+      "inclusion": [
+        "Debt instruments meeting solely payments of principal and interest criteria",
+        "Designated equity instruments at fair value through OCI"
+      ],
+      "exclusion": [
+        "Assets failing business model or cash flow criteria unless specifically designated"
+      ],
+      "nearby_distinctions": [
+        "Contrasts with financial liability classification rules which emphasize trading status and fair value designation options."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "96ad3be5-08c2-4d37-967c-48b04d02db4e",
+      "concept_name": "Financial Assets Measurement and Transaction Costs",
+      "definition": "Financial assets are initially measured at fair value adjusted for transaction costs unless classified at fair value through profit or loss. Subsequent measurement follows their assigned classification category using effective interest rates or periodic fair value updates.",
+      "terminology": [
+        "Effective interest rate",
+        "Transaction price",
+        "Origination fee",
+        "Subsequent measurement"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Integral origination fees adjusted into effective interest rate calculations",
+        "Periodic fair value changes for FVTPL and FVOCI assets"
+      ],
+      "exclusion": [
+        "Non-integral fees such as loan servicing fees included in profit or loss",
+        "Transaction costs for assets measured at fair value through profit or loss"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between transaction costs that are integral parts of the effective interest rate versus non-integral administrative fees."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0e9aa447-0861-4528-9a3c-354fa3db7edf",
+      "concept_name": "Financial Assets Initial Measurement and Off-Market Terms",
+      "definition": "Financial assets are initially measured at fair value, which normally equates to the transaction price unless exchanged on off-market terms. When off-market terms apply, fair value is determined by discounting future cash receipts using prevailing market interest rates.",
+      "terminology": [
+        "Transaction price",
+        "Off-market terms",
+        "Present value",
+        "Transaction costs"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Adjustment of transaction costs for non-FVTPL financial assets",
+        "Discounting cash flows for zero-interest or low-interest loans"
+      ],
+      "exclusion": [
+        "Debt premiums, discounts, and internal administrative holding costs from transaction costs"
+      ],
+      "nearby_distinctions": [
+        "Contrasts standard market transactions with off-market exchanges requiring present value adjustments for interest rate differentials."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7e966b96-a4de-4089-9a5d-6b5733e23643",
+      "concept_name": "Financial Assets Subsequent Measurement Framework",
+      "definition": "Subsequent measurement requires assets meeting the collection business model and SPPI criteria to be held at amortised cost. All other financial assets are carried at fair value through either other comprehensive income or profit or loss.",
+      "terminology": [
+        "Amortised cost",
+        "Fair value through OCI",
+        "Fair value through profit or loss",
+        "Effective interest rate"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Carrying value adjustments for principal repayments and interest accruals",
+        "Equity instruments measured at fair value"
+      ],
+      "exclusion": [
+        "Assets failing the amortised cost business model criteria"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes amortised cost tracking via effective interest rates from periodic fair value remeasurements recognized in profit or loss or OCI."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "801da216-47dc-4877-8bd2-703dc612f30d",
+      "concept_name": "Financial Liabilities Classification and Designation",
+      "definition": "Financial liabilities are initially measured at fair value and subsequently classified as amortised cost, held for trading, or designated at fair value through profit or loss. Liabilities can be designated at fair value to eliminate accounting mismatches or when managed on a fair value basis.",
+      "terminology": [
+        "Amortised cost",
+        "Held for trading",
+        "Accounting mismatch",
+        "Contingent consideration"
+      ],
+      "instrument_references": [
+        "Ind AS 109.4.2.1"
+      ],
+      "inclusion": [
+        "Liabilities acquired for near-term sale or repurchase",
+        "Derivative liabilities and financial guarantee contracts"
+      ],
+      "exclusion": [
+        "Non-trading liabilities accounted for under standard amortised cost criteria"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes standard amortised cost liabilities from trading liabilities and fair value options aimed at reducing recognition inconsistencies."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ce14208f-1c6a-4298-aef2-454767c54fc8",
+      "concept_name": "Financial Liabilities Measurement and Modifications",
+      "definition": "Financial liabilities are subsequently measured at amortised cost using the effective interest rate method or at fair value through profit or loss. Substantial modifications of terms result in the derecognition of the original liability and recognition of a new liability.",
+      "terminology": [
+        "Extinguishment",
+        "Substantial modification",
+        "Effective interest rate",
+        "Own credit risk"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Discounted cash flow comparisons showing at least a 10 percent difference for substantial modifications",
+        "Recognition of own credit risk changes in other comprehensive income"
+      ],
+      "exclusion": [
+        "Non-substantial modifications that adjust the existing liability carrying amount rather than extinguishing it"
+      ],
+      "nearby_distinctions": [
+        "Contrasts substantial modifications treated as extinguishments with minor modifications handled via carrying amount adjustments."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0b971442-8cae-4991-8633-add2c19d7d4e",
+      "concept_name": "Reclassification of Financial Assets and Liabilities",
+      "definition": "Financial assets are reclassified only when an entity changes its operational business model for managing those assets. Such changes must be infrequent, significant to operations, determined by senior management, and applied prospectively from the reclassification date.",
+      "terminology": [
+        "Reclassification date",
+        "Prospective application",
+        "Business model change",
+        "Senior management"
+      ],
+      "instrument_references": [
+        "Ind AS 109.4.4.1"
+      ],
+      "inclusion": [
+        "Reclassification triggered by significant corporate acquisitions or business line terminations"
+      ],
+      "exclusion": [
+        "Changes in management intention for individual assets",
+        "Restatement of previously recognized gains, losses, or interest"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes structural business model alterations from temporary changes in individual asset holding intentions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a27a3c40-62ef-4474-922a-7363cd47882f",
+      "concept_name": "Impairment Scope and General Approach",
+      "definition": "Entities must recognize a loss allowance for expected credit losses on financial assets measured at amortised cost or fair value through OCI, lease receivables, loan commitments, and financial guarantee contracts. The general approach applies either a 12-month or lifetime expected credit loss allowance based on significant increases in credit risk.",
+      "terminology": [
+        "Expected credit losses",
+        "Loss allowance",
+        "12 month ECL",
+        "Lifetime ECL"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Financial assets at amortised cost and fair value through OCI",
+        "Loan commitments and financial guarantee contracts"
+      ],
+      "exclusion": [
+        "Equity instruments measured at fair value",
+        "Debt instruments measured at fair value through profit or loss"
+      ],
+      "nearby_distinctions": [
+        "Contrasts the general 12-month and lifetime ECL approach with specialized simplified impairment models."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "fa89d5fcfc4322885eb1943d0f3e1a83bd46b0d9d6c09d0a32c304532f20e28d",
+  "artifact_id": "51f64880-b4e9-4bb5-af32-6f9b483e79a6",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 7230,
+  "output_tokens": 2806,
+  "cost_usd": 0.009184,
+  "created_at": "2026-10-03T18:04:17.743126+00:00"
+}

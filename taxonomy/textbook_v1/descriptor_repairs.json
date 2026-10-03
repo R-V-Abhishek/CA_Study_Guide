@@ -1,0 +1,27 @@
+{
+  "records": [
+    {
+      "node_id": "8e9846a2-ce6f-45c7-a5ce-b039be97e6f4",
+      "fields": {
+        "exclusion": [
+          "Prospective changes in estimates and other adjustments that are not corrections of errors."
+        ],
+        "inclusion": [
+          "Correction of current-period errors before approval for issue",
+          "Retrospective correction of material prior-period errors, including errors involving fraud",
+          "Assessment of intentional immaterial errors made to achieve a particular financial presentation"
+        ],
+        "source_ambiguities": [
+          "Independent draft QA corrected an unsupported exclusion of intentional misstatements. Textbook PDF34 explicitly includes fraud and intentional errors; authenticated descriptor review must confirm this repaired boundary."
+        ]
+      },
+      "source_evidence": {
+        "artifact_id": "cbfd61c4-0e83-4eb1-969b-458682ab3697",
+        "pdf_page": 34,
+        "download_url": "https://resource.cdn.icai.org/87816bos-280825-final-ch4-u1.pdf"
+      },
+      "review_status": "pending",
+      "method": "Unapproved source-backed contradiction repair; original machine cache preserved"
+    }
+  ]
+}

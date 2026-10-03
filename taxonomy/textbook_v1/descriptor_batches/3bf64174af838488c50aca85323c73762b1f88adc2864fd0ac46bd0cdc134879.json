@@ -1,0 +1,217 @@
+{
+  "descriptors": [
+    {
+      "node_id": "37cb5cfb-105e-4bd5-9ec1-0c1ae74d14e1",
+      "concept_name": "Non-Monetary Government Grants",
+      "definition": "Non-monetary government grants involve transfers of resources such as land or assets provided to an entity at a concessional rate or free of charge. Entities can record both the asset and the grant either at their assessed fair value or alternatively at a nominal value.",
+      "terminology": [
+        "Non-monetary asset",
+        "Fair value",
+        "Nominal value",
+        "Concessional rate",
+        "Deferred income"
+      ],
+      "instrument_references": [
+        "Ind AS 20"
+      ],
+      "inclusion": [
+        "Transfers of land at nominal or concessional values",
+        "Transfers of non-monetary resources for entity use"
+      ],
+      "exclusion": [
+        "Monetary grants",
+        "Loans provided by government at market rates"
+      ],
+      "nearby_distinctions": [
+        "Monetary grants are received in cash equivalents, whereas non-monetary grants involve physical or intangible resources transferred directly."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6532a616-9fed-4044-abb3-7e437f54a229",
+      "concept_name": "Government Assistance – No Specific Relation To Operating Activities",
+      "definition": "Government assistance aimed at encouraging business activities in specific regions or industry sectors qualifies as a government grant even without conditions tied directly to operating activities. Such assistance must be recognized in profit or loss on a systematic basis rather than being credited directly to shareholders interests.",
+      "terminology": [
+        "Government assistance",
+        "Operating activities",
+        "Underdeveloped areas",
+        "Privatised industries"
+      ],
+      "instrument_references": [
+        "Ind AS 20",
+        "Appendix A to Ind AS 20"
+      ],
+      "inclusion": [
+        "Assistance for operating in particular industries",
+        "Assistance for running businesses in underdeveloped areas"
+      ],
+      "exclusion": [
+        "Assistance that cannot be reliably measured",
+        "Transactions with government that cannot be distinguished from normal trading transactions"
+      ],
+      "nearby_distinctions": [
+        "Differs from standard operational subsidies by focusing on regional or sectoral establishment rather than specific daily operational milestones."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3171ff42-7889-454e-9554-47d6e7b5f867",
+      "concept_name": "Presentation Of Grants Related To Assets",
+      "definition": "Government grants related to assets are presented in the balance sheet either by setting up the grant as deferred income or by deducting the grant from the asset carrying amount. Deferred income is recognized in profit or loss systematically over the useful life of the asset.",
+      "terminology": [
+        "Deferred income",
+        "Carrying amount",
+        "Depreciable asset",
+        "Gross investment"
+      ],
+      "instrument_references": [
+        "Ind AS 20"
+      ],
+      "inclusion": [
+        "Setting up grants as deferred income",
+        "Deducting grants from asset cost"
+      ],
+      "exclusion": [
+        "Grants related strictly to income without asset acquisition"
+      ],
+      "nearby_distinctions": [
+        "Grants related to assets focus on capital property acquisition, whereas grants related to income defray periodic operational expenses."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "eceea6ed-2efa-4010-8b73-56db7d9a3f7f",
+      "concept_name": "Presentation in the Balance Sheet",
+      "definition": "Government grants related to assets are presented in the balance sheet either by establishing the grant as deferred income or by deducting it directly from the asset carrying value. The deferred income approach recognizes revenue systematically over the asset useful life, while the deduction approach lowers future depreciation charges.",
+      "terminology": [
+        "Deferred income",
+        "Carrying amount",
+        "Depreciation expense",
+        "Straight line method"
+      ],
+      "instrument_references": [
+        "Ind AS 20"
+      ],
+      "inclusion": [
+        "Deferred income balance sheet presentation",
+        "Asset cost reduction presentation"
+      ],
+      "exclusion": [
+        "Direct credit of asset-related grants to shareholders equity"
+      ],
+      "nearby_distinctions": [
+        "Balance sheet presentation addresses the carrying value of funded assets, whereas cash flow disclosure tracks actual monetary inflows and outflows.",
+        "source_ambiguities"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "69bec7ea-0083-4f0f-96bf-e613d066b787",
+      "concept_name": "Disclosure In The Statement Of Cash Flows",
+      "definition": "Asset purchases and related grant receipts must be disclosed as separate gross cash flow items in the statement of investing activities. This independent reporting is required regardless of whether the grant is deducted from the asset carrying amount in the balance sheet.",
+      "terminology": [
+        "Statement of cash flows",
+        "Investing activities",
+        "Gross investment",
+        "Cash inflow and outflow"
+      ],
+      "instrument_references": [
+        "Ind AS 20"
+      ],
+      "inclusion": [
+        "Separate gross disclosure of asset acquisition outflows",
+        "Separate gross disclosure of grant receipt inflows"
+      ],
+      "exclusion": [
+        "Netting off grant receipts against asset purchase payments in cash flows"
+      ],
+      "nearby_distinctions": [
+        "Cash flow disclosure mandates gross presentation to reflect actual liquidity movements, distinguishing it from alternative balance sheet netting methods."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e96d5eb5-546a-4df8-8698-8a496f135ab5",
+      "concept_name": "Disclosure",
+      "definition": "Entities must disclose their adopted accounting policies and presentation methods for government grants alongside the nature, extent, and duration of benefits received. Unfulfilled conditions and contingencies attached to recognized assistance must also be explicitly reported.",
+      "terminology": [
+        "Accounting policy",
+        "Nature and extent",
+        "Government assistance",
+        "Unfulfilled conditions",
+        "Contingencies"
+      ],
+      "instrument_references": [
+        "Ind AS 20"
+      ],
+      "inclusion": [
+        "Disclosure of accounting policies and presentation methods",
+        "Disclosure of unfulfilled conditions and contingencies"
+      ],
+      "exclusion": [
+        "Internal management reports not forming part of published financial statements"
+      ],
+      "nearby_distinctions": [
+        "General disclosures cover broad policy frameworks, whereas contingency disclosures specifically highlight risks of grant clawbacks or non-compliance penalties."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d1bd4074-b402-42ec-a9c3-d15e50bec40d",
+      "concept_name": "Extracts Of Financial Statements Of Listed Entities",
+      "definition": "Financial statement extracts provide practical illustrations of how listed companies apply accounting standards to report government grants. These examples demonstrate standard reporting disclosures and financial statement line-item presentations.",
+      "terminology": [
+        "Listed entity",
+        "Annual report",
+        "Financial statement extracts"
+      ],
+      "instrument_references": [
+        "Ind AS 20"
+      ],
+      "inclusion": [
+        "Published annual report disclosures from listed corporations"
+      ],
+      "exclusion": [
+        "Hypothetical illustrations and draft notes"
+      ],
+      "nearby_distinctions": [
+        "Financial extracts reflect actual corporate reporting practices, whereas theoretical illustrations focus on computational mechanics."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f99dc9b0-efc1-4db7-be86-0a2931591efa",
+      "concept_name": "Significant Differences Between Ind As 20 And As 12",
+      "definition": "Ind AS 20 and AS 12 diverge significantly in their treatment of non-depreciable asset grants, promoters contributions, below-market government loans, and non-monetary grants. Unlike AS 12, Ind AS 20 prohibits crediting grants directly to shareholders funds and mandates systematic income recognition or fair value measurements.",
+      "terminology": [
+        "Capital reserve",
+        "Promoters contribution",
+        "Below-market rate loan",
+        "Shareholders funds"
+      ],
+      "instrument_references": [
+        "Ind AS 20",
+        "AS 12",
+        "Ind AS 109"
+      ],
+      "inclusion": [
+        "Comparisons of monetary grants on non-depreciable assets",
+        "Comparisons of concessional loan treatments"
+      ],
+      "exclusion": [
+        "Identical provisions shared between both standards without conflict"
+      ],
+      "nearby_distinctions": [
+        "Ind AS standards emphasize profit or loss matching and fair value measurement via financial instruments, whereas older AS rules frequently permit capital reserve equity credits."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "3bf64174af838488c50aca85323c73762b1f88adc2864fd0ac46bd0cdc134879",
+  "artifact_id": "148617aa-3a48-443e-a7a9-588664a3529a",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 5845,
+  "output_tokens": 2267,
+  "cost_usd": 0.007421,
+  "created_at": "2026-10-03T18:04:04.008381+00:00"
+}

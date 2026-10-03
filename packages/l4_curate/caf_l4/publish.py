@@ -56,6 +56,14 @@ def make_decision(
     doc = session.get(Document, unit.document_id)
     if not doc:
         raise ValueError(f"Document {unit.document_id} not found")
+    if action not in ("none_fits", "exclude"):
+        from caf_db.models.taxonomy import TaxonomyMember, TaxonomyRelease
+        selected_ids = [payload.get("primary_node_id"), *payload.get("secondary_node_ids", [])]
+        rebuilt = session.scalar(select(TaxonomyMember.node_id).join(TaxonomyRelease,
+            TaxonomyRelease.taxonomy_version_id == TaxonomyMember.taxonomy_version_id
+        ).where(TaxonomyMember.node_id.in_(selected_ids), TaxonomyRelease.status != "legacy").limit(1))
+        if rebuilt:
+            raise ValueError("Textbook classifications remain suggestions until Phase 5 revisioned publication; historical labels are preserved")
 
     # 1. Record Decision
     decision = Decision(

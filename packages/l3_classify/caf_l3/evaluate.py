@@ -12,6 +12,12 @@ from caf_db.models.ingest import TagSuggestion, Unit
 logger = logging.getLogger(__name__)
 
 
+def evaluation_taxonomy(session: Session, version_id: str | None = None) -> int | None:
+    from caf_l0.releases import active_version, get_release
+    release = get_release(session, version_id) if version_id else active_version(session)
+    return release.taxonomy_version_id if release and release.status != "legacy" else None
+
+
 @dataclass
 class BucketMetric:
     bucket: str
@@ -36,6 +42,7 @@ def evaluate_model_on_reviewed_decisions(
     session: Session,
     bucket_a_threshold: float = 0.80,
     min_samples: int = 5,
+    version_id: str | None = None,
 ) -> ModelEvaluationReport:
     """Evaluate classifier performance against reviewed curator decisions in core.decision.
     
@@ -44,13 +51,16 @@ def evaluate_model_on_reviewed_decisions(
     - Computes precision for each confidence bucket (A, B, C, D).
     - Requires Bucket A precision >= threshold (default 80%) before model switch.
     """
-    # 1. Fetch human decisions where a primary node was accepted or edited
+    taxonomy_version_id = evaluation_taxonomy(session, version_id)
+    # Historical decisions without version context are legacy evidence only.
     decisions = (
         session.query(Decision)
         .filter(Decision.action.in_(["accept", "bulk_accept", "accept_alt", "edit"]))
         .order_by(Decision.id.desc())
         .all()
     )
+    decisions = [decision for decision in decisions
+                 if decision.payload.get("taxonomy_version_id") == taxonomy_version_id]
 
     if not decisions:
         return ModelEvaluationReport(
@@ -59,8 +69,8 @@ def evaluate_model_on_reviewed_decisions(
             top1_agreement=0.0,
             bucket_metrics={},
             bucket_a_threshold=bucket_a_threshold,
-            passed=True,
-            status_note="No reviewed decisions available yet in core.decision.",
+            passed=False,
+            status_note="No reviewed decisions available for this taxonomy version.",
         )
 
     # 2. Map fingerprint to Unit
@@ -79,6 +89,7 @@ def evaluate_model_on_reviewed_decisions(
         .filter(
             TagSuggestion.unit_id.in_(unit_ids),
             TagSuggestion.role == "primary",
+            TagSuggestion.taxonomy_version_id == taxonomy_version_id,
         )
         .order_by(TagSuggestion.id.desc())
         .all()
@@ -129,8 +140,8 @@ def evaluate_model_on_reviewed_decisions(
             top1_agreement=0.0,
             bucket_metrics={},
             bucket_a_threshold=bucket_a_threshold,
-            passed=True,
-            status_note="No paired decision-suggestion pairs found for evaluation.",
+            passed=False,
+            status_note="No paired decision-suggestion pairs found for this taxonomy version.",
         )
 
     # 5. Calculate metrics
@@ -150,10 +161,10 @@ def evaluate_model_on_reviewed_decisions(
 
     # Gate verification
     bucket_a_metric = bucket_metrics.get("A")
-    bucket_a_prec = bucket_a_metric.precision if bucket_a_metric and bucket_a_metric.total > 0 else 1.0
+    bucket_a_prec = bucket_a_metric.precision if bucket_a_metric and bucket_a_metric.total > 0 else 0.0
 
     if total_evaluated < min_samples:
-        passed = True
+        passed = False
         status_note = (
             f"Evaluated {total_evaluated} sample(s) (< {min_samples} required minimum for strict gating). "
             f"Top-1 Agreement: {top1_agreement * 100:.1f}%. Bucket A Precision: {bucket_a_prec * 100:.1f}%."

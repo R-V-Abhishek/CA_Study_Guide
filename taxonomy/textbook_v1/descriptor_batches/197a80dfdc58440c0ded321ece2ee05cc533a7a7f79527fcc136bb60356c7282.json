@@ -1,0 +1,309 @@
+{
+  "descriptors": [
+    {
+      "node_id": "49274548-eb76-4de6-9639-e9dbd3ef56cc",
+      "concept_name": "Banking Industry Characteristics and Audit Scope",
+      "definition": "Banks act as primary financial intermediaries handling large volumes of monetary items through geographically dispersed networks. These institutional characteristics require robust internal controls to mitigate vulnerabilities related to physical security, off-balance sheet commitments, and decentralized operations.",
+      "terminology": [
+        "financial intermediation",
+        "off-balance sheet items",
+        "systemic risk",
+        "core operating procedures"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Custody of cash and negotiable instruments",
+        "Off-balance sheet commitments",
+        "Geographically dispersed branch networks"
+      ],
+      "exclusion": [
+        "Non-banking commercial enterprise accounting",
+        "Direct corporate treasury execution without banking intermediation"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from non-financial commercial entities by high volume and liquidity of monetary custody coupled with systemic settlement linkages."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "68717352-f1d6-420f-96dc-94d5b7315628",
+      "concept_name": "Legal Framework for Banks",
+      "definition": "Banking institutions operate under an extensive legislative framework governed by principal enactments and directives issued by the central banking authority. Financial statements must adhere to specific statutory schedules while complying with prescribed accounting standards.",
+      "terminology": [
+        "Banking Regulation Act",
+        "Form A and Form B",
+        "standalone and consolidated financial statements",
+        "Reserve Bank of India Act"
+      ],
+      "instrument_references": [
+        "Third Schedule to the Banking Regulation Act, 1949",
+        "Reserve Bank of India Act, 1934",
+        "Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Statutory financial statement disclosures under Form A and Form B",
+        "Standalone and consolidated statement preparation procedures"
+      ],
+      "exclusion": [
+        "Mandatory branch audits for all private banks operating under centralized accounting structures"
+      ],
+      "nearby_distinctions": [
+        "Distinct from general corporate legal compliance due to specialized banking statutes, RBI directive powers, and deferred Ind AS applicability."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "301bf30e-d043-4b74-85a9-696e54569bf9",
+      "concept_name": "Form And Content Of Financial Statements",
+      "definition": "Banking companies must present their balance sheets and profit and loss accounts following specific regulatory schedules. Standalone statements require consolidating branch accounts and department verticals, whereas listed banks must additionally satisfy stock exchange listing regulations.",
+      "terminology": [
+        "Form A",
+        "Form B",
+        "Third Schedule",
+        "LODR"
+      ],
+      "instrument_references": [
+        "Banking Regulation Act, 1949",
+        "SEBI LODR regulations"
+      ],
+      "inclusion": [
+        "Balance sheet preparation using Form A",
+        "Profit and loss account presentation using Form B"
+      ],
+      "exclusion": [
+        "Mandatory branch-level statutory audits in centralized private banking setups"
+      ],
+      "nearby_distinctions": [
+        "Differentiates public sector bank branch consolidation processes from centralized private bank accounting structures."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "838a6e50-eaf9-422a-b210-0f57c99d9651",
+      "concept_name": "Audit of Accounts & Appointment of Auditor",
+      "definition": "Statutory audits of banking companies must be conducted by qualified chartered accountants appointed through specific governing authorities with regulatory approval. The appointment process involves issuing detailed engagement terms, defining joint audit responsibilities, and securing declarations of eligibility.",
+      "terminology": [
+        "Statutory Central Auditors",
+        "Statutory Branch Auditors",
+        "joint auditors",
+        "appointment letter"
+      ],
+      "instrument_references": [
+        "Section 30 of the Banking Regulation Act"
+      ],
+      "inclusion": [
+        "Appointment procedures for Statutory Central Auditors and Statutory Branch Auditors",
+        "Division of work among joint auditors"
+      ],
+      "exclusion": [
+        "Internal management assignments undertaken concurrently with statutory audits"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes shareholder-approved appointments for banking companies from Board-level appointments for nationalised banks requiring central bank approval."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5f893867-e85d-4467-a7d7-6a91fc93f914",
+      "concept_name": "Conducting An Audit",
+      "definition": "Bank audits follow a structured multi-stage process beginning with initial acceptance considerations and engagement risk assessments. Subsequent planning and execution phases address specialized banking risks such as money laundering, outsourcing, and computerised environment controls.",
+      "terminology": [
+        "engagement risk",
+        "declaration of indebtedness",
+        "Long Form Audit Report",
+        "audit materiality"
+      ],
+      "instrument_references": [
+        "SA 210",
+        "Section 141 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Initial consideration stages covering engagement acceptance and independence",
+        "Risk assessment involving money laundering and outsourced activities"
+      ],
+      "exclusion": [
+        "Non-audit internal assignments performed by statutory audit firms"
+      ],
+      "nearby_distinctions": [
+        "Differentiates preliminary bank audit acceptance checks, including declarations of indebtedness for wilful default, from standard corporate client onboarding."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "72cf97d3-3814-40af-9c42-ab535e79ff9b",
+      "concept_name": "Special Considerations in IT Environment",
+      "definition": "The operational reliance on Core Banking Solutions requires auditors to evaluate IT system policies, data integrity, and security controls across head office and branch levels. Central auditors review overall IT architecture and exception reports, while branch auditors perform substantive transaction testing through the system.",
+      "terminology": [
+        "Core Banking Solution",
+        "data integrity",
+        "exception reports",
+        "embedded logic"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Head office level review of IT policy and security architecture",
+        "Branch level data analysis and control testing via CBS"
+      ],
+      "exclusion": [
+        "Direct branch-level access to bank-wide IT governance policies"
+      ],
+      "nearby_distinctions": [
+        "Separates head office responsibilities for macro IT policy evaluation from branch auditor duties regarding localized system transaction testing."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "57f637e5-fde9-40eb-9881-a99c55e43857",
+      "concept_name": "Internal Audit and Inspection",
+      "definition": "Banks maintain a central audit department headed by a Chief Audit Executive to execute Risk-Based Internal Audit frameworks. This function oversees branch risk assessments, manages concurrent auditors, and evaluates inherent business and control risks.",
+      "terminology": [
+        "Risk-Based Internal Audit",
+        "Chief Audit Executive",
+        "inherent business risk",
+        "control risk"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Execution of Risk-Based Internal Audit frameworks",
+        "Assessment of branch business and control risks"
+      ],
+      "exclusion": [
+        "Statutory audit opinion formulation by external central auditors"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes internal risk-based audit and concurrent review management from external statutory audit reporting."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "29fa0a7f-b4c5-4319-96e2-dffcb70ab9c5",
+      "concept_name": "Internal Control In Certain Selected Areas",
+      "definition": "Banks implement internal control systems to mitigate operational risks, ensure arithmetical accuracy, and safeguard assets. Key controls include mandatory job rotation, joint custody of cash and secure items, independent daily book balancing, and segregated duties for cashiers.",
+      "terminology": [
+        "joint custody",
+        "job rotation",
+        "surprise inspection",
+        "day book"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "General administrative controls including mandatory staff rotation and dual-person checking",
+        "Cash handling safeguards involving joint custody and ledger segregation"
+      ],
+      "exclusion": [
+        "Direct access by cashiers to customer ledger accounts and day books"
+      ],
+      "nearby_distinctions": [
+        "Separates general operational governance controls from specific cash handling security measures such as dual-officer vault custody."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d9a1d2ab-1710-46d5-b36f-9e51f963a794",
+      "concept_name": "Compliance With Crr And Slr Requirements",
+      "definition": "Scheduled commercial banks must maintain statutory reserves through a specified fraction of customer deposits held as cash reserves and liquid assets. Auditors verify compliance by evaluating weekly trial balances, deposit liabilities, and approved security holdings across designated reporting dates.",
+      "terminology": [
+        "Cash Reserve Ratio",
+        "Statutory Liquidity Ratio",
+        "Demand and Time Liabilities",
+        "reporting Friday"
+      ],
+      "instrument_references": [
+        "Banking Regulation Act, 1949",
+        "Reserve Bank of India Act, 1934"
+      ],
+      "inclusion": [
+        "Verification of Demand and Time Liabilities components",
+        "Audit testing of reserve maintenance on designated reporting dates"
+      ],
+      "exclusion": [
+        "Non-scheduled banking reserve calculations"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes CRR reserve maintenance held with the central bank or in cash from SLR asset holdings kept in gold, cash, and government-approved securities."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "83e1920e-3d2d-4232-b3dd-71dbdcce6aa4",
+      "concept_name": "Verification Of Assets",
+      "definition": "Asset verification procedures focus on confirming the existence and completeness of cash, bank balances, and money at call and short notice as of the balance sheet date. Auditors perform physical cash counts, review reconciliations for unresponded items, and evaluate internal controls over high-risk liquid assets.",
+      "terminology": [
+        "physical verification",
+        "money at call and short notice",
+        "reconciliation statement",
+        "joint custody"
+      ],
+      "instrument_references": [
+        "Third Schedule to the Banking Regulation Act, 1949"
+      ],
+      "inclusion": [
+        "Physical verification of cash, ATMs, and cash deposit machines",
+        "Review of bank reconciliation statements and unresponded transactions"
+      ],
+      "exclusion": [
+        "Branch-level balance reporting for non-treasury accounts lacking operational activity"
+      ],
+      "nearby_distinctions": [
+        "Differentiates decentralized branch-level cash verification from centralized treasury management of money at call and short notice."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "28799d1d-a446-45a5-bb6e-dd4a36e8f068",
+      "concept_name": "Verification Of Capital & Liabilities",
+      "definition": "Auditors verify share capital balances against opening records, special resolutions, and offer documents while evaluating overall capital adequacy. Capital adequacy frameworks relate a bank's capital resources to its risk profile to ensure soundness and stability under adverse conditions.",
+      "terminology": [
+        "share capital",
+        "capital adequacy",
+        "stress testing framework",
+        "risk profile"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Verification of authorized, subscribed, and paid-up capital increases",
+        "Board-approved stress testing framework integration"
+      ],
+      "exclusion": [
+        "Non-commercial bank capital structures exempt from standard commercial frameworks"
+      ],
+      "nearby_distinctions": [
+        "Separates traditional historical capital verification from modern risk-based capital adequacy and stress testing evaluations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ae9ddee1-0b5b-4551-b79a-286402eb3b11",
+      "concept_name": "Stress Testing and Basel III Framework",
+      "definition": "The Basel III accord establishes global regulatory standards on capital adequacy, market liquidity risk, and stress testing to enhance the banking sector's shock absorption capacity. Scheduled commercial banks must implement board-approved stress testing frameworks to maintain sufficient capital buffers under extreme macroeconomic scenarios.",
+      "terminology": [
+        "Basel III accord",
+        "regulatory capital",
+        "stress testing",
+        "market liquidity risk"
+      ],
+      "instrument_references": [
+        "Basel III accord",
+        "Master Circular on Prudential Guidelines on Capital Adequacy and Market Discipline-New Capital Adequacy Framework"
+      ],
+      "inclusion": [
+        "Compliance with Basel III prescriptive rules for measuring regulatory capital",
+        "Board-approved stress testing for adverse economic conditions"
+      ],
+      "exclusion": [
+        "Regional Rural Banks and Local Area Banks exempt from specific commercial capital adequacy rules"
+      ],
+      "nearby_distinctions": [
+        "Differentiates baseline statutory capital minimums from advanced risk-weighted Basel III capital adequacy tiers and stress test buffers."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "197a80dfdc58440c0ded321ece2ee05cc533a7a7f79527fcc136bb60356c7282",
+  "artifact_id": "8d6c146a-10bb-408f-a623-b13038e6664d",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8386,
+  "output_tokens": 3396,
+  "cost_usd": 0.0110058,
+  "created_at": "2026-10-03T18:11:23.593912+00:00"
+}

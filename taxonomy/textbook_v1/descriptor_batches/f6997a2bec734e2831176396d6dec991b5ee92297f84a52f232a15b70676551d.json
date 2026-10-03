@@ -1,0 +1,69 @@
+{
+  "descriptors": [
+    {
+      "node_id": "e0657843-9ff7-4b31-b660-d663ae0eec97",
+      "concept_name": "Pro Forma Engagement Acceptance Considerations",
+      "definition": "Before accepting an engagement to report on pro forma financial information included in a prospectus, the practitioner must evaluate competence, verify criteria suitability, and assess potential reporting obstacles. These checks ensure the compiled information remains reliable and avoids misleading intended users.",
+      "terminology": [
+        "applicable criteria",
+        "pro forma financial information",
+        "responsible party",
+        "unadjusted financial information"
+      ],
+      "instrument_references": [
+        "SAE 3420"
+      ],
+      "inclusion": [
+        "Evaluation of practitioner capabilities and competence",
+        "Review of suitability of criteria and prevention of misleading information",
+        "Assessment of modified audit opinions on source or acquiree financial information"
+      ],
+      "exclusion": [
+        "Actual execution of substantive testing procedures",
+        "Drafting of the final assurance report"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from engagement planning because acceptance occurs prior to formal contract finalization and resource allocation."
+      ],
+      "source_ambiguities": [
+        "The source text truncates abruptly at the end regarding acquiree historical financial information."
+      ]
+    },
+    {
+      "node_id": "04322403-1b06-44c3-9381-7cf988576e31",
+      "concept_name": "Documentation and Prospective Financial Information Reporting",
+      "definition": "Practitioners must maintain comprehensive working papers and documentation throughout assurance engagements governing pro forma and prospective financial data. Reports on prospective information require careful evaluation of underlying assumptions and management responsibilities.",
+      "terminology": [
+        "documentation",
+        "prospective financial information",
+        "pro forma adjustments",
+        "hypothetical assumption"
+      ],
+      "instrument_references": [
+        "SAE 3420",
+        "SAE 3400"
+      ],
+      "inclusion": [
+        "Working paper documentation for assurance engagements",
+        "Examination of evidence supporting prospective project assumptions"
+      ],
+      "exclusion": [
+        "Management preparation of company projections",
+        "Unverified casual drafting of assurance conclusions without evidence"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from pro forma compilation reporting because prospective information deals with future projections rather than historical adjustments."
+      ],
+      "source_ambiguities": [
+        "The excerpt transitions abruptly into an integrated case scenario with draft report text containing an incomplete sentence ending."
+      ]
+    }
+  ],
+  "input_hash": "f6997a2bec734e2831176396d6dec991b5ee92297f84a52f232a15b70676551d",
+  "artifact_id": "ec4ecd3f-1e19-4027-9b3d-5268e9f56a90",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 1569,
+  "output_tokens": 637,
+  "cost_usd": 0.0020632,
+  "created_at": "2026-10-03T18:10:52.720314+00:00"
+}

@@ -1,0 +1,279 @@
+{
+  "descriptors": [
+    {
+      "node_id": "56f11286-b4a8-4718-961c-69d6ef59bb64",
+      "concept_name": "Investments In Subsidiaries, Associates And Joint Ventures",
+      "definition": "When an investor accounts for an investment in a subsidiary, associate, or joint venture using the cost or equity method, cash flow reporting is restricted to flows between the investor and the investee, such as dividends and advances. For equity-method interests, the investor includes cash flows concerning the investment itself along with any distributions or payments exchanged with the investee.",
+      "terminology": [
+        "Equity method",
+        "Cost method",
+        "Investee",
+        "Dividends and advances"
+      ],
+      "instrument_references": [
+        "Ind AS 7"
+      ],
+      "inclusion": [
+        "Dividends paid or received between investor and investee",
+        "Advances between investor and investee",
+        "Cash flows regarding investments in equity-method associates or joint ventures"
+      ],
+      "exclusion": [
+        "Underlying operational cash flows generated independently within the investee entity",
+        "Full consolidation cash flows when equity or cost method applies"
+      ],
+      "nearby_distinctions": [
+        "Differs from full consolidation reporting which incorporates all individual asset and liability cash flows of the subsidiary rather than restricting items to direct dividends and advances."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e4bd7bf0-e359-452a-bd66-cf25bfb3cabe",
+      "concept_name": "Changes In Ownership Interests In Subsidiaries And Other Businesses",
+      "definition": "Aggregate cash flows resulting from obtaining or losing control of subsidiaries or other businesses must be presented separately under investing activities. Furthermore, cash flows arising from ownership changes in a subsidiary that do not result in a loss of control are classified as financing activities unless the subsidiary is held by an investment entity measured at fair value through profit or loss.",
+      "terminology": [
+        "Obtaining control",
+        "Losing control",
+        "Change in ownership interest",
+        "Investing activities",
+        "Financing activities"
+      ],
+      "instrument_references": [
+        "Ind AS 7",
+        "Ind AS 110"
+      ],
+      "inclusion": [
+        "Aggregate cash flows from gaining or losing control of subsidiaries",
+        "Cash flows from ownership changes not resulting in loss of control"
+      ],
+      "exclusion": [
+        "Transactions where an investment entity subsidiary is measured at fair value through profit or loss",
+        "Normal operating revenue and expense receipts"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between complete control alterations classified as investing activities versus partial ownership adjustments without loss of control classified as financing activities."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1ef85be5-d1ba-43e7-8a10-55cc8c2d6bd3",
+      "concept_name": "Classification of Cash Flows as Investing Activity",
+      "definition": "Aggregate cash flows arising from acquiring or relinquishing control of subsidiaries or other businesses are classified strictly as investing activities and presented separately. The net cash consideration paid or received is reported net of cash and cash equivalents acquired or disposed of in the transaction.",
+      "terminology": [
+        "Obtaining control",
+        "Losing control",
+        "Investing activities",
+        "Consideration"
+      ],
+      "instrument_references": [
+        "Ind AS 7"
+      ],
+      "inclusion": [
+        "Total consideration paid or received for control changes",
+        "Cash and cash equivalents acquired or disposed of in business changes"
+      ],
+      "exclusion": [
+        "Financing transactions involving partial equity changes without loss of control",
+        "Standard operating cycle cash flows"
+      ],
+      "nearby_distinctions": [
+        "Separates major structural entity acquisition or disposal cash flows from routine operational or financing cash movements."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "feae8490-0b6f-4884-9325-5bc4892afb14",
+      "concept_name": "Classification of Cash Flows as Financing Activity",
+      "definition": "Cash flows stemming from alterations in a parent's ownership interest in a subsidiary that do not trigger a loss of control are categorized as financing activities. These transactions are treated as equity transactions, meaning their cash flows follow the standard classification for transactions with owners.",
+      "terminology": [
+        "Changes in ownership interests",
+        "Financing activities",
+        "Equity transactions",
+        "Loss of control"
+      ],
+      "instrument_references": [
+        "Ind AS 7",
+        "Ind AS 110"
+      ],
+      "inclusion": [
+        "Subsequent purchase or sale of a subsidiary's equity instruments by a parent without losing control"
+      ],
+      "exclusion": [
+        "Transactions causing a complete loss or initial acquisition of control",
+        "Subsidiaries held by an investment entity measured at fair value through profit or loss"
+      ],
+      "nearby_distinctions": [
+        "Contrasts with transactions that result in a loss or gain of control, which are classified under investing activities."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f19833f6-aebd-4723-829c-ac2403fcfd27",
+      "concept_name": "Non-Cash Transactions",
+      "definition": "Investing and financing transactions that do not involve the use of cash or cash equivalents are excluded from the statement of cash flows. Such non-cash events are instead disclosed separately in the financial statements to provide complete information regarding capital and asset structure changes.",
+      "terminology": [
+        "Non-cash transactions",
+        "Investing and financing activities",
+        "Notes to financial statements"
+      ],
+      "instrument_references": [
+        "Ind AS 7"
+      ],
+      "inclusion": [
+        "Acquisition of assets by assuming direct liabilities or via leases",
+        "Acquisition of an entity through an equity issue",
+        "Conversion of debt into equity"
+      ],
+      "exclusion": [
+        "Transactions requiring direct cash or cash equivalent settlements",
+        "Standard cash-settled operating expenses"
+      ],
+      "nearby_distinctions": [
+        "Differentiated from standard cash flows because they alter asset and capital structures without triggering actual cash inflows or outflows."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ffbba967-a585-4bb6-af69-8e7267e2ed7d",
+      "concept_name": "Changes in liabilities arising from financing activities",
+      "definition": "Entities must provide disclosures that allow financial statement users to evaluate modifications in liabilities arising from financing activities, covering both cash and non-cash changes. This requirement can be fulfilled by presenting a reconciliation between opening and closing balance sheet liabilities classified under financing activities.",
+      "terminology": [
+        "Liabilities arising from financing activities",
+        "Financing cash flows",
+        "Reconciliation",
+        "Non-cash changes"
+      ],
+      "instrument_references": [
+        "Ind AS 7"
+      ],
+      "inclusion": [
+        "Changes from financing cash flows",
+        "Changes from obtaining or losing control of businesses",
+        "Foreign exchange rate fluctuations and fair value changes"
+      ],
+      "exclusion": [
+        "Liabilities whose cash flows are classified under operating or investing activities",
+        "General operating trade payables"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes financing liabilities from operating and investing obligations by focusing specifically on items generating financing cash flows."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8f577d58-2bd7-47a9-ab68-d8396290bc05",
+      "concept_name": "Components Of Cash And Cash Equivalents",
+      "definition": "An entity must disclose the specific components of cash and cash equivalents and reconcile those amounts with equivalent items reported in the balance sheet. Bank overdrafts repayable on demand that form an integral part of cash management are included as a component of cash and cash equivalents.",
+      "terminology": [
+        "Cash and cash equivalents",
+        "Reconciliation",
+        "Bank overdrafts",
+        "Cash management"
+      ],
+      "instrument_references": [
+        "Ind AS 1",
+        "Ind AS 7",
+        "Ind AS 32"
+      ],
+      "inclusion": [
+        "Cash on hand and demand deposits",
+        "Bank overdrafts repayable on demand forming an integral part of cash management"
+      ],
+      "exclusion": [
+        "Bank overdrafts included in cash equivalents for cash flow statements that fail balance sheet netting-off criteria",
+        "Unrealized foreign exchange gains or losses on foreign currency balances"
+      ],
+      "nearby_distinctions": [
+        "Separates cash flow presentation treatment of bank overdrafts from balance sheet presentation rules which require strict netting-off compliance."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "134ee185-65a1-434c-bdfe-5c671e0f786a",
+      "concept_name": "Other Disclosures",
+      "definition": "Entities must disclose significant cash and cash equivalent balances held that are restricted or unavailable for group use, accompanied by management commentary. Additional optional or required disclosures include undrawn borrowing facilities, operating capacity maintenance cash flows, and segment-wise cash flows.",
+      "terminology": [
+        "Restricted cash",
+        "Exchange controls",
+        "Undrawn borrowing facilities",
+        "Segment cash flows"
+      ],
+      "instrument_references": [
+        "Ind AS 7",
+        "Ind AS 108"
+      ],
+      "inclusion": [
+        "Cash balances restricted by legal or exchange controls",
+        "Amounts of undrawn borrowing facilities with restrictions",
+        "Operating, investing, and financing cash flows for each reportable segment"
+      ],
+      "exclusion": [
+        "Unrestricted cash balances freely available for general group operations",
+        "Standard statement of cash flow primary line items"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes freely available liquidity pools from encumbered or restricted funds held in specific regulated jurisdictions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "21a97654-3f7c-4e77-b595-057a79912efe",
+      "concept_name": "Extracts Of Financial Statements Of Listed Entity",
+      "definition": "Practical disclosures and statement extracts illustrate the real-world application of cash flow presentation formats for listed corporate entities. These extracts demonstrate how operating, investing, and financing activities are structured in published financial statements.",
+      "terminology": [
+        "Financial statement extracts",
+        "Listed entity",
+        "Annual report"
+      ],
+      "instrument_references": [
+        "Ind AS 7"
+      ],
+      "inclusion": [
+        "Published cash flow statement extracts from annual reports"
+      ],
+      "exclusion": [
+        "Theoretical framework guidelines without empirical reporting context"
+      ],
+      "nearby_distinctions": [
+        "Provides applied disclosure documentation rather than standard-setting normative rules."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c62dcc93-3b62-4d65-9bf7-bd5c9280e49e",
+      "concept_name": "Significant Differences In Ind AS 7 Vis-À-Vis AS 3",
+      "definition": "Ind AS 7 introduces explicit guidelines compared to AS 3, such as mandating bank overdrafts repayable on demand to be part of cash equivalents and requiring profit adjustments for undistributed earnings of associates. It also outlines precise treatments for rental assets held for sale, financing activity examples, and subsidiary control changes.",
+      "terminology": [
+        "Ind AS 7",
+        "AS 3",
+        "Bank overdraft",
+        "Undistributed profits",
+        "Control changes"
+      ],
+      "instrument_references": [
+        "Ind AS 7",
+        "AS 3"
+      ],
+      "inclusion": [
+        "Bank overdraft inclusion rules",
+        "Undistributed profit adjustments for associates and non-controlling interests",
+        "Specific rules for control acquisition and loss disclosures"
+      ],
+      "exclusion": [
+        "Separate classification of extraordinary activity cash flows present in older standards",
+        "Omissions found in legacy accounting standards"
+      ],
+      "nearby_distinctions": [
+        "Compares modern Indian Accounting Standards with legacy accounting standards to highlight enhanced convergence disclosures."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "dd2b142ffd97384d5bf59e52a9ea575a76a62f1331fbc3d4074eab908b2d9c9a",
+  "artifact_id": "7ee89275-e26a-48bc-b94b-0383b62f6f19",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 6889,
+  "output_tokens": 3072,
+  "cost_usd": 0.0097467,
+  "created_at": "2026-10-03T17:48:04.972842+00:00"
+}

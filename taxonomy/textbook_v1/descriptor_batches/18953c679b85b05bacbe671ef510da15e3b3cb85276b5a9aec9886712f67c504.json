@@ -1,0 +1,115 @@
+{
+  "descriptors": [
+    {
+      "node_id": "74151876-c5b8-4e18-931a-dc4d4ac7a4de",
+      "concept_name": "Indian Accounting Standards Applicability and Presentation for NBFCs",
+      "definition": "Non-Banking Financial Companies must comply with Indian Accounting Standards pursuant to specified company rules. Financial statements are prepared utilizing the structured balance sheet format established under Division III of Schedule III.",
+      "terminology": [
+        "Ind AS",
+        "Division III of Schedule III",
+        "Financial Assets",
+        "Non-Financial Assets"
+      ],
+      "instrument_references": [
+        "Rule 4 (1)(iv) of the Companies (Indian Accounting Standards) Rules, 2015",
+        "Companies (Indian Accounting Standards) (Amendment) Rules, 2023",
+        "Division III of Schedule III of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Financial assets and liabilities categories",
+        "Non-financial assets and liabilities categories",
+        "Comparative reporting periods"
+      ],
+      "exclusion": [
+        "Non-NBFC corporate financial statement formats",
+        "Standards applicable prior to amendments"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from manufacturing or general corporate financial statement layouts by specialized financial sector asset and liability classifications."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "87f48c8a-6e90-45e8-afb9-ea8127ff613c",
+      "concept_name": "Applicability of Indian Accounting Standards (Ind AS) on NBFCs",
+      "definition": "Certain Non-Banking Financial Companies are mandated to structure their accounting processes around specific Indian Accounting Standards. Compliance follows regulatory frameworks established via statutory company rules and subsequent amendments.",
+      "terminology": [
+        "Ind AS compliance",
+        "NBFC regulatory framework"
+      ],
+      "instrument_references": [
+        "Rule 4 (1)(iv) of the Companies (Indian Accounting Standards) Rules, 2015",
+        "Companies (Indian Accounting Standards) (Amendment) Rules, 2023"
+      ],
+      "inclusion": [
+        "Mandatory adopters of Ind AS among non-banking financial entities"
+      ],
+      "exclusion": [
+        "Entities exempted from Ind AS integration"
+      ],
+      "nearby_distinctions": [
+        "Separates entities governed by general accounting standards from those subjected to specialized financial sector Ind AS mandates."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2ace0c07-df63-47e1-b717-11abf640861f",
+      "concept_name": "Format for Preparation of Financial Statements by NBFCs under Ind AS",
+      "definition": "Compliant Non-Banking Financial Companies construct balance sheets using a distinct regulatory layout prescribed under corporate legislation. This layout categorizes items systematically into financial and non-financial assets, liabilities, and equity elements.",
+      "terminology": [
+        "Division III",
+        "Schedule III Balance Sheet",
+        "Current reporting period"
+      ],
+      "instrument_references": [
+        "Division III under Schedule III of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Assets sub-classified into financial and non-financial components",
+        "Liabilities sub-classified into debt securities, borrowings, and deposits"
+      ],
+      "exclusion": [
+        "Non-Ind AS compliant presentation frameworks"
+      ],
+      "nearby_distinctions": [
+        "Distinct from standard corporate schedules by featuring specific financial sector line items such as subordinated liabilities and debt securities."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0b19fd39-620a-444c-bc25-18cca9ca1e58",
+      "concept_name": "Difference between Division II and Division III of Schedule III",
+      "definition": "Financial statement presentation for NBFCs under Division III diverges from general corporate structures in Division II through unique liquidity ordering and specific disclosure thresholds. Key variations include face-value revenue disclosures and explicit reporting for credit-impaired receivables.",
+      "terminology": [
+        "Division II",
+        "Division III",
+        "Liquidity order",
+        "Significant increase in credit risk",
+        "Credit impaired"
+      ],
+      "instrument_references": [
+        "Division II of Schedule III",
+        "Division III of Schedule III of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Liquidity-based balance sheet sequencing for NBFCs",
+        "Specific thresholds for other income or expenditure disclosures",
+        "LLP partner/member debt disclosures under receivables"
+      ],
+      "exclusion": [
+        "Standard manufacturing entity presentation rules under Division II"
+      ],
+      "nearby_distinctions": [
+        "Contrasts general corporate formats which prohibit liquidity ordering with NBFC layouts that mandate it alongside stricter line-item disclosures on the face of the profit and loss statement."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "18953c679b85b05bacbe671ef510da15e3b3cb85276b5a9aec9886712f67c504",
+  "artifact_id": "3ee1f29f-fd99-4327-9824-70dcba52628e",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 3501,
+  "output_tokens": 1236,
+  "cost_usd": 0.0041403,
+  "created_at": "2026-10-03T18:11:52.096109+00:00"
+}

@@ -38,6 +38,7 @@ def get_revision_due_list(
         scores = session.query(SubtopicScore).where(SubtopicScore.score_run_id == current_run.id).all()
         scores_map = {s.node_id: s for s in scores}
 
+    from caf_l0.hierarchy import node_scope
     # 3. Query completed subtopics for this user
     query = (
         session.query(Progress, Node, Paper)
@@ -46,6 +47,7 @@ def get_revision_due_list(
         .where(
             Progress.user_id == user_id,
             Node.paper_id.in_(selected_papers(session, user_id)),
+            node_scope(session),
             Progress.status == "done",
             Progress.first_done_at.is_not(None),
         )

@@ -1,0 +1,322 @@
+{
+  "descriptors": [
+    {
+      "node_id": "875c966b-01e3-44be-81ca-1fbd39eb7e57",
+      "concept_name": "Planning & Operational Variances",
+      "definition": "Planning and operational variances decouple performance appraisal from outdated ex-ante budgets by substituting ex-post standards reflecting actual environmental conditions. A planning variance evaluates the change between original and revised standards, whereas an operational variance compares actual results directly against the revised benchmark.",
+      "terminology": [
+        "ex-ante budget",
+        "ex-post standard",
+        "planning variance",
+        "operational variance",
+        "revision variance"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Computing planning variances by comparing revised standards to original standards",
+        "Calculating operational variances by comparing actual outcomes against revised amounts",
+        "Flexing standards to reflect price levels and technological changes"
+      ],
+      "exclusion": [
+        "Using routine unrevised variance analysis under changed environmental conditions",
+        "Assessing managerial performance solely against static initial targets"
+      ],
+      "nearby_distinctions": [
+        "Planning variance evaluates budget realism under altered environments, whereas operational variance measures execution efficiency against current achievable standards."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "cc7a98f4-01bc-44dc-891b-6085751a5149",
+      "concept_name": "Variance Analysis in Activity Based Costing",
+      "definition": "Variance analysis in activity-based costing tracks cost driver usage to explain differences between actual and budgeted activity costs. It isolates expenditure variances driven by unit price fluctuations and efficiency variances capturing deviations in the volume of activities performed.",
+      "terminology": [
+        "output unit-level cost",
+        "batch level cost",
+        "product sustaining cost",
+        "facility sustaining cost",
+        "efficiency variance",
+        "expenditure variance"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Applying variance analysis to activity costs like setups and quality testing",
+        "Measuring efficiency variance via cost driver unit quantity differences",
+        "Computing expenditure variance based on the actual price paid per activity"
+      ],
+      "exclusion": [
+        "Assuming overheads vary strictly with physical units output rather than delivery numbers",
+        "Relying exclusively on traditional volume-based overhead absorption logic"
+      ],
+      "nearby_distinctions": [
+        "ABC efficiency variance measures cost impact of activity volume variations, whereas traditional efficiency variance measures direct input usage per unit of output."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "eea9a1e2-c849-489b-b9b4-1d04b1af7c13",
+      "concept_name": "N.2 Computation of Standard and Actual Rate",
+      "definition": "Standard and actual rates determine the unit cost parameters for labor inputs by dividing total expenditure by corresponding operational hours. These computed rates facilitate the isolation of rate variances and efficiency variances within labor performance reconciliations.",
+      "terminology": [
+        "standard rate",
+        "actual rate",
+        "labour rate variance",
+        "labour efficiency variance",
+        "reconciliation statement"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Computing standard labor rates from budgetary financial parameters",
+        "Calculating actual labor rates using incurred costs and recorded hours",
+        "Reconciling actual costs to revised budgeted costs via variance components"
+      ],
+      "exclusion": [
+        "Treating fixed overhead absorption as a component of standard variable labor rates",
+        "Ignoring idle time or mix variations when computing primary efficiencies"
+      ],
+      "nearby_distinctions": [
+        "Labor rate variance highlights financial impacts of hourly wage discrepancies, whereas labor efficiency variance isolates the productivity impact of time utilization."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "cb2d650b-307b-477f-a511-173e6424b631",
+      "concept_name": "Relevant Cost Approach to Variance Analysis",
+      "definition": "The relevant cost approach modifies traditional variance analysis to account for limited production inputs where suboptimal utilization causes forgone contributions. By integrating opportunity costs, it addresses the ambiguity of standard costing when resources are constrained.",
+      "terminology": [
+        "relevant cost approach",
+        "limited inputs",
+        "lost contribution",
+        "acquisition cost"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Incorporating lost contributions resulting from inefficient use of limited inputs",
+        "Adjusting variance interpretations when production bottlenecks exist"
+      ],
+      "exclusion": [
+        "Relying solely on total actual acquisition cost versus standard input allocations",
+        "Altering standard price or expenditure calculations under the relevant cost framework"
+      ],
+      "nearby_distinctions": [
+        "Traditional variance focuses strictly on input acquisition and usage costs, whereas the relevant cost approach incorporates lost contribution from constrained resources."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "000d33f2-5254-4a0f-a8c7-f1720db59798",
+      "concept_name": "Variance Analysis and Throughput Accounting",
+      "definition": "Throughput accounting realigns variance reporting away from localized operational efficiencies toward constraint optimization and inventory buffer tracking. It treats upstream labor downtime proactively to prevent excess work-in-process rather than penalizing units for non-productive staff hours.",
+      "terminology": [
+        "throughput accounting",
+        "constrained resources",
+        "inventory buffer",
+        "work-in-process",
+        "labor efficiency variance"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Tracking variations in inventory buffer sizes preceding constraints",
+        "Shutdown of upstream terminals to avoid unnecessary inventory accumulation",
+        "Focusing system performance on overall profit generation rather than departmental efficiency"
+      ],
+      "exclusion": [
+        "Maximizing localized efficiencies through long manufacturing runs",
+        "Accumulating excess work-in-process inventory to secure favorable labor variances"
+      ],
+      "nearby_distinctions": [
+        "Traditional variance reporting penalizes localized idle time with adverse efficiency variances, whereas throughput accounting tolerates downtime to prevent inventory buildup before bottlenecks."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a10ed6ce-5bc4-42a1-8694-3f0541d95d08",
+      "concept_name": "Variance Analysis in Advanced Manufacturing Environment/ High-Technology Firms",
+      "definition": "Advanced manufacturing environments exhibit high automation where traditional variable costs transform into committed fixed costs. Consequently, variance analysis shifts its primary focus toward direct materials and variable overheads while treating skilled labor as a fixed commitment.",
+      "terminology": [
+        "high-technology firms",
+        "committed fixed cost",
+        "variable manufacturing overhead",
+        "direct materials",
+        "skilled labor"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Placing variance analysis emphasis on direct materials and machine power",
+        "Treating highly trained programming and operating personnel as committed costs",
+        "Adapting variance models for computerized and automated production systems"
+      ],
+      "exclusion": [
+        "Relying on traditional direct labor variances where labor is no longer output-variable",
+        "Classifying electronic manufacturing overhead expenses as purely traditional indirect costs"
+      ],
+      "nearby_distinctions": [
+        "Traditional environments emphasize labor efficiency variances, whereas high-technology automated environments discount labor variances due to skilled labor becoming a committed fixed cost."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "dc1f5101-cd71-44cd-bb38-9d00d06bc086",
+      "concept_name": "Standard Costing in Service Sector",
+      "definition": "Standard costing in service sectors addresses operations where overhead expenses dominate production costs through the application of activity-based costing frameworks. Concepts like McDonaldization facilitate task rationalization, enabling more precise establishment of time and cost standards for services.",
+      "terminology": [
+        "service sector",
+        "overhead expenses",
+        "activity based costing",
+        "mcdonaldization",
+        "rationalisation"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Applying activity-based costing to control overhead expenses in service businesses",
+        "Breaking down service tasks into minimal components to optimize completion methods",
+        "Setting precise cost and time standards for professional or personal services"
+      ],
+      "exclusion": [
+        "Relying on traditional direct material and labor models unsuited to service cost structures",
+        "Ignoring implementation efforts required for management information systems"
+      ],
+      "nearby_distinctions": [
+        "Manufacturing standard costing focuses on material and direct labor inputs, whereas service sector standard costing focuses on activity-based overheads and task rationalization."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ee09f27f-75e5-43e5-932d-0b2ea28f1315",
+      "concept_name": "Standard Costing in Public Sector 5",
+      "definition": "Public sector standard costing involves monthly tracking and comparison of estimated versus actual unit costs for civic services using structured time and service records. Financial reports require adjustments for trade payables, accruals, and timing differences to maintain accurate budgetary control.",
+      "terminology": [
+        "public sector",
+        "estimated unit cost",
+        "time recording",
+        "trade payables",
+        "accruals",
+        "timing differences"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Calculating actual unit costs monthly for services like street cleaning and refuse disposal",
+        "Modifying financial system expenditure reports for unpaid bills and timing gaps",
+        "Maintaining statistics on service visits and operational hours worked"
+      ],
+      "exclusion": [
+        "Relying solely on unadjusted cash-basis expenditures for budgetary control",
+        "Omitting operational activity statistics from unit cost computations"
+      ],
+      "nearby_distinctions": [
+        "Public sector costing relies on service delivery unit metrics and financial adjustments for accruals, whereas commercial manufacturing focuses on physical inventory conversion cycles."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d9624ed7-fc25-47c6-a811-21163efcee9e",
+      "concept_name": "Standard Marginal Costing",
+      "definition": "Standard marginal costing restricts variance systems strictly to variable product costs, excluding fixed overhead absorption and its associated volume variances. Sales variances within this framework evaluate performance using contribution margins rather than total absorption profits.",
+      "terminology": [
+        "standard marginal costing",
+        "variable product cost",
+        "overhead volume variance",
+        "fixed overhead expenditure variance",
+        "sales contribution variance"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Incorporating only variable costs into standard marginal cost systems",
+        "Computing fixed overhead expenditure variance as the sole fixed overhead variance",
+        "Measuring sales performance using unit contributions instead of full manufacturing cost margins"
+      ],
+      "exclusion": [
+        "Absorbing fixed costs into standard production unit valuations",
+        "Calculating overhead volume variances in marginal costing models"
+      ],
+      "nearby_distinctions": [
+        "Absorption costing incorporates fixed manufacturing overhead into unit costs and calculates volume variances, whereas marginal costing excludes fixed overhead absorption entirely."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "409c0987-d0bb-4dbe-ae4c-4df56f95a80b",
+      "concept_name": "Reconciliation Statement Budgeted Profit to Actual Profit (Absorption Costing)",
+      "definition": "A reconciliation statement bridges budgeted profit to actual profit under absorption costing by sequentially incorporating the financial effects of cost and margin variances. It integrates material, labor, variable overhead, fixed overhead, and sales margin variances to explain total profit deviations.",
+      "terminology": [
+        "reconciliation statement",
+        "absorption costing",
+        "budgeted profit",
+        "actual profit",
+        "sales margin variances"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Reconciling budgeted profit to actual profit using absorption costing variance categories",
+        "Including fixed overhead capacity, efficiency, and volume variances",
+        "Incorporating sales margin price, volume, mix, and quantity variances"
+      ],
+      "exclusion": [
+        "Excluding fixed overhead absorption effects when reconciling under absorption methods",
+        "Using contribution margins in place of absorption profit margins"
+      ],
+      "nearby_distinctions": [
+        "Absorption costing reconciliation accounts for fixed overhead volume variances and uses profit margins, whereas marginal costing reconciliation utilizes contribution margins and omits volume variances."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d0076545-a700-404b-af55-208cc41549cb",
+      "concept_name": "Reconciliation Statement Budgeted Profit to Actual Profit (Marginal Costing)",
+      "definition": "A marginal costing reconciliation statement links budgeted profit to actual profit using variable cost variances and sales contribution variances. It excludes fixed overhead volume, efficiency, and capacity variances because fixed costs are treated as period expenses.",
+      "terminology": [
+        "marginal costing",
+        "budgeted profit",
+        "sales contribution variances",
+        "fixed overhead expenditure variance"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Bridging budgeted and actual profit using standard marginal costing variances",
+        "Incorporating sales contribution price, volume, mix, and quantity variances",
+        "Retaining fixed overhead expenditure variance while omitting volume and efficiency components"
+      ],
+      "exclusion": [
+        "Including fixed overhead volume or efficiency variances in marginal reconciliation statements",
+        "Using total absorption profit margins for sales variance evaluations"
+      ],
+      "nearby_distinctions": [
+        "Marginal costing reconciliation utilizes sales contribution variances and excludes fixed overhead volume variances, unlike absorption reconciliation which includes them."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3d095e16-dc74-42d0-9a5b-140ecb66e6e6",
+      "concept_name": "Reconciliation Statement Standard Profit to Actual Profit (Absorption Costing)",
+      "definition": "This reconciliation statement bridges standard profit based on actual output quantities to actual profit using operational cost and sales variances. It isolates variances occurring during actual production execution while omitting mix and quantity subdivisions where specified.",
+      "terminology": [
+        "standard profit",
+        "actual profit",
+        "absorption costing",
+        "reconciliation statement",
+        "sales margin variance"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Starting reconciliation with standard profit calculated from actual quantity and standard margin",
+        "Adjusting for material, labor, and overhead variances during production execution",
+        "Incorporating applicable sales margin price and volume variances"
+      ],
+      "exclusion": [
+        "Using budgeted quantity baselines for initial profit calculation",
+        "Including inapplicable sales margin mix and quantity variances when marked non-applicable"
+      ],
+      "nearby_distinctions": [
+        "Standard profit reconciliation starts from actual quantities multiplied by standard margins, whereas budgeted profit reconciliation starts from budgeted quantities."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "3708e481c9943801ffef976bb20c49bd9da019870962ebb93c4c1dc35ec59c8b",
+  "artifact_id": "9a245639-e170-44dc-aee3-3c752f6f5b8d",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8543,
+  "output_tokens": 3689,
+  "cost_usd": 0.0117854,
+  "created_at": "2026-10-03T18:28:03.866520+00:00"
+}

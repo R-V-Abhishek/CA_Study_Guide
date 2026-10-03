@@ -40,6 +40,7 @@ class ScoreRun(Base):
     config_snapshot: Mapped[dict[str, Any] | None] = mapped_column(JSONB, nullable=True)
     config_hash: Mapped[str] = mapped_column(Text, nullable=False)
     target_attempt_id: Mapped[str] = mapped_column(Text, ForeignKey("ref.attempt.id"), nullable=False)
+    taxonomy_version_id: Mapped[int | None] = mapped_column(Integer, ForeignKey("ref.taxonomy_version.id"), nullable=True)
     shadow: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False)
     is_current: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False)
     status: Mapped[str] = mapped_column(Text, nullable=False)

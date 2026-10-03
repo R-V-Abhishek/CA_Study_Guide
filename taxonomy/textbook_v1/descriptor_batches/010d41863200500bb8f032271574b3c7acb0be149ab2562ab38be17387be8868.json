@@ -1,0 +1,214 @@
+{
+  "descriptors": [
+    {
+      "node_id": "aa026409-9aab-4e23-84be-64a771b963ab",
+      "concept_name": "Fundamentals of International Transfer Pricing",
+      "definition": "Transfer pricing refers to the pricing of goods, services, and intangible property transferred between associated enterprises within a multinational group. It is utilized to prevent profit shifting and base erosion across tax jurisdictions through the application of the arm's length principle.",
+      "terminology": [
+        "Multinational Companies",
+        "Associated Enterprises",
+        "Arm's Length Principle",
+        "Base Erosion"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Intra-group transfer of physical goods",
+        "Provision of services between associated enterprises",
+        "Transfer of intangible property"
+      ],
+      "exclusion": [
+        "Transactions between completely unrelated and independent third parties"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from domestic pricing by the involvement of multiple tax jurisdictions and associated enterprise controls."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d282d387-93cd-4bb4-b0b8-1e4f42fcbc4e",
+      "concept_name": "Meaning of Arm's Length Principle",
+      "definition": "The arm's length principle evaluates transactions between associated enterprises by comparing them to conditions and prices that would be agreed upon between independent, unrelated parties. It treats related entities as separate, independent market participants for profit allocation purposes.",
+      "terminology": [
+        "Arm's Length Price",
+        "Commercial Relations",
+        "Financial Relations",
+        "Independent Enterprises"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Profits adjustment based on independent market conditions",
+        "Separate entity treatment for corporate group members"
+      ],
+      "exclusion": [
+        "Profits allocation based on unified business integration without market comparison"
+      ],
+      "nearby_distinctions": [
+        "Differs from consolidated group accounting by treating each affiliate as an independent unit."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5e4afbfa-a447-4f96-a351-60b7b0634515",
+      "concept_name": "Significance of Arm's Length Principle",
+      "definition": "The arm's length principle ensures tax parity between multinational enterprises and independent businesses, eliminating artificial price distortions in international trade. It accurately measures economic contributions to determine real taxable profits earned within each specific jurisdiction.",
+      "terminology": [
+        "Parity",
+        "Price Distortion",
+        "Economic Contribution",
+        "Real Taxable Profits"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Rectification of accounts by tax authorities",
+        "Alignment of income with economic risks and contributions"
+      ],
+      "exclusion": [
+        "Arbitrary shifting of profits to low-tax jurisdictions"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from simple profit-splitting methods by focusing strictly on comparable market values."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a42eab65-835a-4517-87f5-75fb19554999",
+      "concept_name": "Practical Difficulties in Application of Arm's Length Principle",
+      "definition": "Applying the arm's length principle is challenging due to the scarcity of true comparisons for unique commercial interactions and specialized intra-group transactions. Additionally, obtaining reliable data on comparable independent companies and pricing for unique intangibles remains difficult.",
+      "terminology": [
+        "True Comparison",
+        "Intangible Transactions",
+        "Data Reliability",
+        "Uncontrolled Market Price"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Valuation hurdles in licensing valuable intangibles",
+        "Deficits in comparable third-party pricing data"
+      ],
+      "exclusion": [
+        "Standardized transactions with narrow and certain market price ranges"
+      ],
+      "nearby_distinctions": [
+        "Contrasts with standard commodity transactions where market comparables are readily accessible."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a2c79666-6048-43ed-b0c2-989cd044190b",
+      "concept_name": "Transfer Pricing in Relation to International Transactions",
+      "definition": "Chapter X of the tax statute provides a statutory framework to compute reasonable profits and curb base erosion from international transactions between associated enterprises. It mandates that qualifying transactions involving non-residents must be executed at an arm's length price that increases income or reduces losses.",
+      "terminology": [
+        "Chapter X",
+        "International Transaction",
+        "Associated Enterprises",
+        "Arm's Length Price"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961",
+        "Income-tax Rules, 1962"
+      ],
+      "inclusion": [
+        "Purchase, sale, or lease of tangible or intangible property",
+        "Provision of services and lending or borrowing money",
+        "Cost-sharing arrangements and expense allocations"
+      ],
+      "exclusion": [
+        "Domestic transactions between fully resident independent parties"
+      ],
+      "nearby_distinctions": [
+        "Differs from domestic tax computations by explicitly requiring cross-border international transaction triggers."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2815146a-9fee-4fd7-b08a-40eea0746278",
+      "concept_name": "Transfer of Income to Non-Residents",
+      "definition": "This provision targets tax avoidance arrangements where a resident transfers asset ownership to a non-resident while retaining rights to enjoy the resulting income. When tax avoidance is the purpose, the income from the transferred asset is deemed to be the income of the resident transferor.",
+      "terminology": [
+        "Resident Transferor",
+        "Non-Resident Transferee",
+        "Associated Operations",
+        "Deemed Income"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Transfer of assets combined with rights to enjoy income",
+        "Asset transfers to foreign body corporates for shares"
+      ],
+      "exclusion": [
+        "Transfers proven to be executed without a tax avoidance purpose"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard transfer pricing rules as it addresses direct alienation of asset ownership rather than intra-group pricing adjustments."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "571f2b0d-7f08-421c-87eb-9b325d383922",
+      "concept_name": "Specific Anti-Avoiadance Measures for Notified Jurisdictional Areas",
+      "definition": "Anti-avoidance rules target transactions involving persons located in notified territories that lack effective information exchange mechanisms with India. Transactions with entities in a notified jurisdictional area are deemed international transactions, and the parties are treated as associated enterprises subject to transfer pricing.",
+      "terminology": [
+        "Notified Jurisdictional Area",
+        "Information Exchange",
+        "Deemed International Transaction",
+        "Associated Enterprises"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Transactions with persons located in notified tax jurisdictions",
+        "Mandatory application of transfer pricing provisions to notified area deals"
+      ],
+      "exclusion": [
+        "Benefit of permissible statutory price variations"
+      ],
+      "nearby_distinctions": [
+        "Differs from standard transfer pricing by automatically presuming associated enterprise status based on geographic location rather than equity or management control."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "131740c8-e5e3-429e-a766-667658d2124f",
+      "concept_name": "Limitation of Interest Deduction in Certain Cases",
+      "definition": "This provision restricts the deductibility of interest expenses claimed on borrowings from associated enterprises to curb profit shifting through excessive debt financing. It sets a ceiling limit on interest deductions in alignment with international base erosion countermeasures.",
+      "terminology": [
+        "Excess Interest",
+        "Debt Financing",
+        "Associated Enterprises",
+        "Base Erosion and Profit Shifting"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Interest expenses on debt borrowed from associated enterprises",
+        "Ceiling limits on interest deductions under business income"
+      ],
+      "exclusion": [
+        "Dividend payments on equity financing"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general transfer pricing pricing rules as it applies specifically to debt-to-equity capitalization structures and interest caps."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "010d41863200500bb8f032271574b3c7acb0be149ab2562ab38be17387be8868",
+  "artifact_id": "21ca19ca-40b6-4b95-b46b-c9dab3c06356",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 5992,
+  "output_tokens": 2283,
+  "cost_usd": 0.007505100000000001,
+  "created_at": "2026-10-03T18:22:57.942760+00:00"
+}

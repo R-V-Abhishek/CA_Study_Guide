@@ -1,0 +1,146 @@
+{
+  "descriptors": [
+    {
+      "node_id": "bc6fa50c-408a-41e3-bcc2-bd87d93dcc19",
+      "concept_name": "Performing the Engagement",
+      "definition": "The practitioner gathers sufficient understanding of the entity and framework to compile financial information from management records and discussions. If records are incomplete or amendments are refused, the practitioner must propose changes or withdraw from the engagement.",
+      "terminology": [
+        "compilation engagement",
+        "financial information",
+        "significant judgments",
+        "applicable financial reporting framework",
+        "withdrawal"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "obtaining understanding of entity operations and accounting system",
+        "reading compiled information against understanding prior to completion",
+        "requesting additional information for incomplete records"
+      ],
+      "exclusion": [
+        "expressing an audit opinion",
+        "performing verification of accuracy or completeness of provided data"
+      ],
+      "nearby_distinctions": [
+        "differs from assurance engagements because verification and testing of data are not performed",
+        "differs from management responsibilities as the practitioner only assists and compiles based on given data"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f0c59d92-b919-4a9e-b5f6-2d0ddb4854df",
+      "concept_name": "Communication with Management and Those Charged with Governance",
+      "definition": "The practitioner must timely communicate all significant engagement matters to management or those charged with governance. The resulting written report clearly details the engagement nature and responsibilities without providing an assurance opinion.",
+      "terminology": [
+        "timely communication",
+        "professional judgment",
+        "practitioner report",
+        "engagement nature",
+        "written report"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "communicating significant engagement matters on a timely basis",
+        "issuing a written report containing required elements",
+        "identifying the applicable financial reporting framework"
+      ],
+      "exclusion": [
+        "expressing an audit opinion or review conclusion",
+        "verifying underlying information accuracy"
+      ],
+      "nearby_distinctions": [
+        "differs from audit reporting because it explicitly states no opinion or review conclusion is provided",
+        "differs from informal updates by requiring a formal written report with specific mandated elements"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1de8c6c5-61fd-4b2f-b526-6e2a4cc424d8",
+      "concept_name": "The Practitioner’s Report",
+      "definition": "A written report issued to clearly communicate the engagement nature and the practitioner role without expressing any assurance opinion. It includes structural elements such as responsibilities, reporting framework identification, and statements that verification is not performed.",
+      "terminology": [
+        "practitioner report",
+        "non-assurance engagement",
+        "written report",
+        "management responsibilities",
+        "reporting framework"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "stating that the compilation is based on management information",
+        "describing management and practitioner responsibilities",
+        "explaining that compilation is not an assurance engagement"
+      ],
+      "exclusion": [
+        "expressing an audit opinion",
+        "expressing a review conclusion"
+      ],
+      "nearby_distinctions": [
+        "differs from audit and review reports by omitting any expression of opinion or conclusion",
+        "differs from engagement terms by serving as the final formal communication vehicle to users"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c1b49b14-dcb1-48c5-a41f-47d6e4dd6d9f",
+      "concept_name": "Engagement Level Quality Control",
+      "definition": "The engagement partner assumes responsibility for ensuring overall engagement quality and adherence to firm quality control policies. Documentation must capture significant matters, reconciliation records, and the final compiled financial information copy.",
+      "terminology": [
+        "engagement partner",
+        "quality control policies",
+        "engagement documentation",
+        "reconciliation record",
+        "final compiled financial information"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "taking responsibility for overall engagement quality",
+        "recording how compiled information reconciles with underlying records",
+        "retaining a copy of the final compiled financial information and report"
+      ],
+      "exclusion": [
+        "delegating partner responsibility for quality control compliance",
+        "omitting reconciliation documentation"
+      ],
+      "nearby_distinctions": [
+        "differs from firm-wide quality control by focusing specifically on individual engagement execution and partner oversight",
+        "differs from general working papers by requiring specific acknowledgment of responsibility from management"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2f29b090-cdce-4dfb-9a99-cc08588d8af4",
+      "concept_name": "Documentation",
+      "definition": "The practitioner maintains comprehensive engagement documentation recording significant matters, how they were addressed, and reconciliation of financial information. It also preserves the final compiled version approved by management along with the practitioner report.",
+      "terminology": [
+        "engagement documentation",
+        "significant matters",
+        "reconciliation",
+        "final version",
+        "acknowledged responsibility"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "documenting significant matters arising during the engagement",
+        "maintaining a reconciliation record with underlying documents",
+        "including copies of final compiled financial information and practitioner report"
+      ],
+      "exclusion": [
+        "excluding final management-acknowledged financial information from files",
+        "omitting records of how matters were addressed"
+      ],
+      "nearby_distinctions": [
+        "differs from management records by specifically constituting the practitioner working papers and engagement file",
+        "differs from preliminary drafts by containing the final version acknowledged by management"
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "f5cb6487fc1abf2a04753eff592e29e37e461968d4b6e026b14500eb6114889b",
+  "artifact_id": "42525103-f797-4354-b687-81e3b92ce017",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 3478,
+  "output_tokens": 1469,
+  "cost_usd": 0.004715899999999999,
+  "created_at": "2026-10-03T18:10:43.874367+00:00"
+}

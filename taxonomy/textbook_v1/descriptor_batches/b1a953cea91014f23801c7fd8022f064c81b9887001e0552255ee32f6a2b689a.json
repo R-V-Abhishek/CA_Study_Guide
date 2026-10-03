@@ -1,0 +1,178 @@
+{
+  "descriptors": [
+    {
+      "node_id": "88c6b2e3-b899-4419-881a-8d534068993a",
+      "concept_name": "Refunding of Bonds",
+      "definition": "Refunding of bonds involves replacing existing high-coupon bonds with fresh debt issued at lower prevailing market rates to achieve net cash savings. The strategic decision is evaluated using capital budgeting net present value techniques by weighing net cash savings against cash outflows like call premiums and overlapping transition interest.",
+      "terminology": [
+        "Call feature",
+        "Call premium",
+        "Net Present Value",
+        "Overlapping period",
+        "Coupon rate"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Issuance of fresh bonds at lower coupon rates",
+        "Repayment of existing bonds before maturity",
+        "Evaluation using net present value methods"
+      ],
+      "exclusion": [
+        "Default on bond principal repayment",
+        "Regular maturity redemption without prior call"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard bond redemption at maturity by exercising a call option ahead of the due date when market conditions favor lower interest rates."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "886864dc-5580-4d89-adb1-6a8a1efa323e",
+      "concept_name": "Money Market Instruments",
+      "definition": "Money market instruments are short-duration, large-volume, highly liquid financial assets with deregulated interest rates used by governments and corporations to manage short-term funding needs. They provide safe investment opportunities for deploying surplus funds and facilitating dynamic asset-liability management through instruments like call money, notice money, and treasury bills.",
+      "terminology": [
+        "Call money",
+        "Notice money",
+        "Treasury bills",
+        "Commercial bills",
+        "Liquidity management"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Short-duration financial instruments",
+        "Call and notice money",
+        "Treasury bills issued at a discount"
+      ],
+      "exclusion": [
+        "Long-term capital market securities",
+        "Equity shares"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from long-term capital market debt by carrying very short maturities, high liquidity, and lower default risk due to high issuer standing."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6fe741ff-c2f5-44ea-8abe-4ddefe99ff7b",
+      "concept_name": "Role and Responsibilities of Valuers",
+      "definition": "Valuers provide independent professional assessments required by various regulatory statutes for corporate transactions, restructuring, and financial reporting. Registered valuers must adhere to a model code of conduct emphasizing uncompromising integrity, fairness, professional competence, and due diligence.",
+      "terminology": [
+        "Registered valuer",
+        "Model code of conduct",
+        "Slump sale",
+        "Capital reduction",
+        "Due diligence"
+      ],
+      "instrument_references": [
+        "Income Tax Act 1961",
+        "Insolvency and Bankruptcy Code 2016",
+        "Companies Act 2013",
+        "Companies (Registered Valuers and Valuation) Rules 2017"
+      ],
+      "inclusion": [
+        "Statutory valuations for mergers and acquisitions",
+        "Compliance with professional conduct rules",
+        "Exercise of independent professional judgment"
+      ],
+      "exclusion": [
+        "Internal management accounting without statutory requirement",
+        "Biased advocacy for clients"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general financial analysis by being bound by statutory mandates, specific legal frameworks, and enforceable codes of professional conduct."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6e6211cb-ab08-41ea-8cc5-96b4aa191ad4",
+      "concept_name": "Role of Valuers",
+      "definition": "Valuers execute mandatory professional valuations required by diverse legal statutes to facilitate corporate actions such as mergers, acquisitions, slump sales, and capital reductions. Their determinations satisfy regulatory compliance mandates established by tax authorities, insolvency codes, securities regulators, and corporate laws.",
+      "terminology": [
+        "Statutory valuation",
+        "Mergers and acquisitions",
+        "Slump sale",
+        "Capital reduction",
+        "Strategic financial restructuring"
+      ],
+      "instrument_references": [
+        "Income Tax Act 1961",
+        "Insolvency and Bankruptcy Code 2016",
+        "Companies Act 2013",
+        "SARFAESI Act 2002"
+      ],
+      "inclusion": [
+        "Valuations for corporate restructuring",
+        "Tax compliance valuations",
+        "Liquidation value assessments"
+      ],
+      "exclusion": [
+        "Informal business estimates lacking legal standing"
+      ],
+      "nearby_distinctions": [
+        "Distinguished by its formal statutory triggers under specific legislative acts rather than voluntary internal corporate planning."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "06c85e31-67c2-43b5-8e81-6c692f84901d",
+      "concept_name": "Responsibilities of Valuers",
+      "definition": "Registered valuers must maintain high standards of integrity, fairness, and transparency while avoiding professional disrepute in all client interactions. They are obligated to exercise professional competence, due diligence, and independent judgment in accordance with established technical standards.",
+      "terminology": [
+        "Model Code of Conduct",
+        "Professional competence",
+        "Due diligence",
+        "Independent professional judgment",
+        "Integrity and fairness"
+      ],
+      "instrument_references": [
+        "Companies (Registered Valuers and Valuation) Rules 2017"
+      ],
+      "inclusion": [
+        "Honest and forthright professional relationships",
+        "Application of relevant technical standards",
+        "Exercise of proper care"
+      ],
+      "exclusion": [
+        "Misrepresentation of facts",
+        "Compromising professional independence"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general commercial duties by imposing personal regulatory accountability and adherence to a codified ethical standard under valuation rules."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e48417ec-0c25-4794-878e-158a1452b86c",
+      "concept_name": "Precautions Need To Be Taken By A Valuer Before Accepting Any Valuation Assignment",
+      "definition": "Valuers must recognize that professional valuation requires a deep understanding of the underlying business narrative rather than mere numerical computation. Quality valuations depend significantly on thorough data collection and contextual analysis rather than relying solely on historical financial numbers.",
+      "terminology": [
+        "Narrative behind valuation",
+        "Number crunching",
+        "Intrinsic value",
+        "Professional estimate",
+        "Data collection"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Comprehensive understanding of company narrative",
+        "Extensive data collection and time investment",
+        "Recognition of valuation as an informed professional estimate"
+      ],
+      "exclusion": [
+        "Treating valuation as a purely mechanical formula",
+        "Relying exclusively on surface historical statements"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from routine mathematical calculation by prioritizing contextual operational realities and qualitative business insights over mechanical spreadsheet modeling."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "b1a953cea91014f23801c7fd8022f064c81b9887001e0552255ee32f6a2b689a",
+  "artifact_id": "4d109d7a-fd35-43ed-877a-d0a02ff5822e",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 4241,
+  "output_tokens": 1844,
+  "cost_usd": 0.0058823,
+  "created_at": "2026-10-03T18:06:53.824629+00:00"
+}

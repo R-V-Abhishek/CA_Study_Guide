@@ -1,0 +1,318 @@
+{
+  "descriptors": [
+    {
+      "node_id": "dfde285f-0169-4102-8922-e6b3b6dafbcf",
+      "concept_name": "Identification of cash generating units",
+      "definition": "A cash-generating unit represents the smallest identifiable group of assets that generates largely independent cash inflows. When an individual asset lacks an independent recoverable amount, the entity determines the recoverable amount of the broader asset group to which it belongs.",
+      "terminology": [
+        "cash-generating unit",
+        "recoverable amount",
+        "independent cash inflows",
+        "value in use"
+      ],
+      "instrument_references": [
+        "Ind AS 36"
+      ],
+      "inclusion": [
+        "Entire entities",
+        "Business units or departments",
+        "Production lines",
+        "Groups of property, plant, and equipment"
+      ],
+      "exclusion": [
+        "Individual assets whose recoverable amounts can be determined independently"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from individual assets because it aggregates multiple asset items to isolate independent cash streams."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "49ea3cc7-aad2-4325-950e-8322d4e46842",
+      "concept_name": "Two-step approach for goodwill allocated to a group of CGUs",
+      "definition": "When goodwill cannot be allocated on a non-arbitrary basis to individual units, the separate units must be tested for impairment before evaluating the broader group containing the associated goodwill. This ensures proper sequencing when assessing impairment for units sharing unallocated goodwill.",
+      "terminology": [
+        "goodwill",
+        "group of CGUs",
+        "impairment testing",
+        "non-arbitrary basis"
+      ],
+      "instrument_references": [
+        "Ind AS 36"
+      ],
+      "inclusion": [
+        "Goodwill allocated to groups of cash-generating units"
+      ],
+      "exclusion": [
+        "Goodwill that can be directly allocated to individual units on a non-arbitrary basis"
+      ],
+      "nearby_distinctions": [
+        "Differs from single CGU testing by requiring a sequential two-tier approach when goodwill serves multiple units."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e254cbe5-de3c-4116-97ef-e8aff445fee8",
+      "concept_name": "REVERSING AN IMPAIRMENT LOSS",
+      "definition": "Entities must assess at each reporting period whether prior impairment losses for assets other than goodwill have decreased or no longer exist. Reversals occur exclusively when changes in the estimates used to determine the recoverable amount happen since the last loss was recognized.",
+      "terminology": [
+        "reversal of impairment loss",
+        "recoverable amount",
+        "service potential",
+        "estimates"
+      ],
+      "instrument_references": [
+        "Ind AS 36"
+      ],
+      "inclusion": [
+        "Assets other than goodwill showing indicators of impairment reversal"
+      ],
+      "exclusion": [
+        "Goodwill impairment losses",
+        "Increases in carrying amount purely due to the passage of time"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from time-based discount unwinding, which does not reflect increased asset service potential."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5653eab9-c942-44a3-8f17-da27ec14eb8b",
+      "concept_name": "Reversals of impairment losses – general",
+      "definition": "An entity must evaluate at each reporting date if prior impairment losses on non-goodwill assets have reversed due to altered estimation parameters. Such reversals reflect an increase in the estimated service potential of the asset from either use or sale.",
+      "terminology": [
+        "reversal of impairment loss",
+        "service potential",
+        "estimates",
+        "carrying amount"
+      ],
+      "instrument_references": [
+        "Ind AS 36"
+      ],
+      "inclusion": [
+        "Prior period impairment losses on non-goodwill assets"
+      ],
+      "exclusion": [
+        "Goodwill impairment reversals",
+        "Passage of time value increases"
+      ],
+      "nearby_distinctions": [
+        "Differs from initial impairment testing by focusing on positive changes in service potential rather than adverse declines."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "37f16c80-40af-4269-918d-a58e4d854382",
+      "concept_name": "Indications of reversals of impairment loss",
+      "definition": "Entities identify potential impairment reversals by monitoring external and internal indicators such as significant increases in asset value, technological enhancements, or improved economic performance. The presence of these triggers requires estimating the asset's current recoverable amount.",
+      "terminology": [
+        "external sources",
+        "internal sources",
+        "recoverable amount",
+        "discount rate"
+      ],
+      "instrument_references": [
+        "Ind AS 36"
+      ],
+      "inclusion": [
+        "Significant asset value increases",
+        "Favorable market or technological environment changes",
+        "Decreased market interest rates",
+        "Internal evidence of superior economic performance"
+      ],
+      "exclusion": [
+        "Routine market fluctuations without substantive impact on service potential"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from impairment indicators by focusing on positive operational or economic enhancements rather than adverse declines."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0fafe79c-015e-4235-938e-ba6fb9e5c955",
+      "concept_name": "Reversing an impairment loss for an individual asset",
+      "definition": "The increased carrying amount of an asset from an impairment reversal is capped at the historical carrying amount net of depreciation that would have existed had no impairment occurred. Reversals are generally recognized directly in profit or loss unless the asset is carried at a revalued amount.",
+      "terminology": [
+        "reversal",
+        "carrying amount",
+        "profit or loss",
+        "revalued asset"
+      ],
+      "instrument_references": [
+        "Ind AS 36",
+        "Ind AS 16"
+      ],
+      "inclusion": [
+        "Individual non-goodwill assets",
+        "Revalued assets treated under relevant valuation standards"
+      ],
+      "exclusion": [
+        "Goodwill",
+        "Excess increases treated as revaluations"
+      ],
+      "nearby_distinctions": [
+        "Differs from revaluation surplus accounting by being limited strictly to the pre-impairment depreciated historical cost baseline."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "759a0a04-7469-4aef-adfc-863cb39c1442",
+      "concept_name": "Reversing an impairment loss for a cash-generating unit",
+      "definition": "Impairment reversals for a cash-generating unit are allocated pro rata across the unit's assets, excluding goodwill, based on their carrying amounts. Individual asset increases are capped at the lower of their recoverable amount or their hypothetical depreciated historical carrying amount.",
+      "terminology": [
+        "cash-generating unit",
+        "pro rata",
+        "carrying amount",
+        "recoverable amount"
+      ],
+      "instrument_references": [
+        "Ind AS 36"
+      ],
+      "inclusion": [
+        "Assets within a cash-generating unit excluding goodwill"
+      ],
+      "exclusion": [
+        "Goodwill"
+      ],
+      "nearby_distinctions": [
+        "Differs from individual asset reversal by requiring proportional allocation across multiple assets subject to individual asset caps."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7274afb3-4cea-49ca-a24b-1a7304d9810a",
+      "concept_name": "Reversing an impairment loss for goodwill not permitted",
+      "definition": "Impairment losses recognized for goodwill in prior periods cannot be reversed under any subsequent circumstances. Any subsequent increase in goodwill value reflects internally generated goodwill rather than a reversal of acquired goodwill.",
+      "terminology": [
+        "goodwill",
+        "internally generated goodwill",
+        "subsequent period",
+        "impairment loss"
+      ],
+      "instrument_references": [
+        "Ind AS 36",
+        "Ind AS 38"
+      ],
+      "inclusion": [
+        "Previously recognized goodwill impairment losses"
+      ],
+      "exclusion": [
+        "Impairment reversals for tangible or identifiable intangible assets"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from other assets because goodwill cannot absorb reversals due to prohibitions against recognizing internal goodwill."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c97b2d42-7126-4f40-b9ad-bbbb4f16115b",
+      "concept_name": "Non-controlling interests – the impact on goodwill impairment testing",
+      "definition": "When non-controlling interest is measured at its proportionate share of net identifiable assets rather than fair value, unrecognised NCI goodwill must be grossed up for impairment testing. This grossed-up carrying amount is compared against the recoverable amount of the unit.",
+      "terminology": [
+        "non-controlling interests",
+        "goodwill",
+        "gross up",
+        "identifiable net assets"
+      ],
+      "instrument_references": [
+        "Ind AS 36",
+        "Ind AS 103"
+      ],
+      "inclusion": [
+        "Subsidiaries with non-controlling interests measured at proportionate net identifiable assets"
+      ],
+      "exclusion": [
+        "Subsidiaries where non-controlling interest is measured at acquisition-date fair value"
+      ],
+      "nearby_distinctions": [
+        "Differs from full fair value NCI methods by requiring an explicit adjustment to incorporate unrecognised NCI goodwill before testing."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "25d2321c-432e-4c3a-90c3-30710632b640",
+      "concept_name": "DISCLOSURE",
+      "definition": "Entities must disclose financial statement line items, amounts, and comprehensive details regarding impairment losses and reversals across asset classes and segments. These disclosures provide transparency regarding the financial impact of asset impairments.",
+      "terminology": [
+        "disclosure",
+        "profit or loss",
+        "other comprehensive income",
+        "revaluation"
+      ],
+      "instrument_references": [
+        "Ind AS 36",
+        "Ind AS 16",
+        "Ind AS 108"
+      ],
+      "inclusion": [
+        "Impairment losses and reversals recognised in profit or loss",
+        "Impairment losses and reversals recognised in other comprehensive income"
+      ],
+      "exclusion": [
+        "General operational depreciation and amortisation expenses"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard depreciation disclosures by focusing explicitly on abnormal downward revaluations and recoveries."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "959bdf18-a39f-42ea-8160-c98bd4b46cb3",
+      "concept_name": "Disclosure – general",
+      "definition": "Entities are required to disclose class-specific impairment losses and reversals recognized in profit or loss and other comprehensive income during the reporting period. This information may be integrated within standard asset class reconciliations such as property, plant, and equipment schedules.",
+      "terminology": [
+        "disclosure",
+        "profit or loss",
+        "other comprehensive income",
+        "reconciliation"
+      ],
+      "instrument_references": [
+        "Ind AS 36",
+        "Ind AS 16"
+      ],
+      "inclusion": [
+        "Impairment losses and reversals by asset class"
+      ],
+      "exclusion": [
+        "Segment-specific reporting disclosures handled separately"
+      ],
+      "nearby_distinctions": [
+        "Differs from material event disclosures by focusing on aggregated class-level totals rather than specific individual loss events."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "547e48e8-6db2-4d7c-921e-accd5be16d9f",
+      "concept_name": "Entities reporting segment information",
+      "definition": "Entities reporting segment information under Ind AS 108 must disclose impairment losses and reversals recognized in both profit or loss and other comprehensive income for each reportable segment. This ensures visibility of impairment trends across business segments.",
+      "terminology": [
+        "segment information",
+        "reportable segment",
+        "profit or loss",
+        "other comprehensive income"
+      ],
+      "instrument_references": [
+        "Ind AS 36",
+        "Ind AS 108"
+      ],
+      "inclusion": [
+        "Segment-level impairment losses",
+        "Segment-level impairment reversals"
+      ],
+      "exclusion": [
+        "Unallocated corporate asset impairments lacking segment attribution"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from entity-wide class disclosures by segregating financial figures strictly according to reportable operating segments."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "d544cbc81c2b7de3e240952c054e0c447403d60749945089fb50d48f71288781",
+  "artifact_id": "6fb162ea-fc0d-45ba-a883-8ee4d03cdfb3",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 9228,
+  "output_tokens": 3316,
+  "cost_usd": 0.0110584,
+  "created_at": "2026-10-03T17:57:34.959601+00:00"
+}

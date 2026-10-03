@@ -28,6 +28,7 @@ class LLMClassificationOutput(BaseModel):
     primary_node_id: str = Field(
         description="Exact canonical node ID from candidate subtopics list, e.g. P1-BXTF71"
     )
+    model_id: str | None = None
     secondary_node_ids: list[str] = Field(
         default_factory=list,
         description="Secondary node IDs if the question tests multiple subtopics",
@@ -63,8 +64,10 @@ class QuotaExhaustedError(Exception):
 class GeminiClassifier:
     """Manages LLM API calls with structured output and fallback cascades."""
 
-    def __init__(self, session: Session, model_override: str | None = None):
+    def __init__(self, session: Session, model_override: str | None = None,
+                 taxonomy_version_id: int | None = None):
         self.session = session
+        self.taxonomy_version_id = taxonomy_version_id
         settings = get_settings()
         self.api_key = settings.GEMINI_API_KEY
         self.client = genai.Client(api_key=self.api_key) if self.api_key else None
@@ -95,26 +98,33 @@ class GeminiClassifier:
 
     def build_candidate_prompt(self, paper_id: str) -> tuple[str, dict[str, Node]]:
         """Construct a scoped syllabus hierarchy string for the specific paper."""
-        nodes = (
-            self.session.query(Node)
-            .filter(Node.paper_id == paper_id)
-            .order_by(Node.seq.asc())
-            .all()
-        )
-        node_map = {n.id: n for n in nodes}
+        from caf_l0.hierarchy import ancestors, version_nodes
+        from caf_l0.releases import eligible_candidates
+        from caf_db.models.taxonomy import DescriptorRevision
+        from sqlalchemy import select
 
-        # Build hierarchical representation
-        chapters = [n for n in nodes if n.level == "chapter"]
+        if self.taxonomy_version_id is None:
+            raise ValueError("LLM classification requires a rebuilt taxonomy version")
+        nodes = version_nodes(self.session, self.taxonomy_version_id)
+        candidates = eligible_candidates(self.session, self.taxonomy_version_id,
+                                         None if paper_id == "s2023.P6" else paper_id)
+        by_id = {n.id: n for n in nodes}
+        node_map = {member.node_id: by_id[member.node_id] for member in candidates}
+        revisions = {}
+        for revision in self.session.scalars(select(DescriptorRevision).where(
+            DescriptorRevision.taxonomy_version_id == self.taxonomy_version_id,
+            DescriptorRevision.node_id.in_(node_map),
+        ).order_by(DescriptorRevision.revision)):
+            revisions[revision.node_id] = revision
         lines = []
-        for ch in chapters:
-            lines.append(f"\n[Chapter: {ch.name}] (ID: {ch.id})")
-            topics = [n for n in nodes if n.parent_id == ch.id]
-            for tp in topics:
-                lines.append(f"  • Topic: {tp.name}")
-                subtopics = [n for n in nodes if n.parent_id == tp.id]
-                for st in subtopics:
-                    lines.append(f"    - Subtopic ID: {st.id} | Name: {st.name}")
-
+        for node in node_map.values():
+            path = " → ".join(n.name for n in ancestors(node.id, by_id))
+            descriptor = revisions[node.id].content
+            lines.append(f"Paper {node.paper_id} | {path} | Subtopic ID: {node.id}\n"
+                         f"Descriptor revision: {revisions[node.id].id}\n"
+                         f"{json.dumps(descriptor, ensure_ascii=False)}")
+        if not node_map:
+            raise ValueError("needs taxonomy review: no eligible candidates")
         return "\n".join(lines), node_map
 
     def classify_unit(
@@ -126,6 +136,7 @@ class GeminiClassifier:
         retries: int = 2,
     ) -> LLMClassificationOutput:
         """Execute structured LLM classification using the Gemini API."""
+        from caf_l3.textbook import NeedsTaxonomyReview
         if not self.is_available():
             raise ValueError("GEMINI_API_KEY is not set or client unavailable.")
 
@@ -142,7 +153,8 @@ class GeminiClassifier:
             f"   - Ignore background facts that do not drive marks. If a company leases machinery and later calculates "
             f"impairment under Ind AS 36, classify under Ind AS 36 (Impairment) unless lease measurement is evaluated.\n"
             f"2. STRICT PAPER BOUNDARY:\n"
-            f"   - You MUST select only from the provided Candidate Subtopics list for Paper {paper_code}. Do not invent IDs.\n"
+            f"   - Select only provided Candidate Subtopics. IBS may use explicitly listed cross-paper concepts.\n"
+            f"   - Return an empty primary_node_id when none fits; never invent or force a match.\n"
             f"3. USE OFFICIAL SOLUTION EVIDENCE:\n"
             f"   - Official solutions often state the governing Standard or Section in the opening paragraph.\n"
             f"4. CONFIDENCE BUCKETS:\n"
@@ -204,7 +216,7 @@ class GeminiClassifier:
                             run_id=run_id,
                             task="l3_classify",
                             model_id=model_name,
-                            prompt_version="v2_structured",
+                            prompt_version="textbook-v1",
                             input_tokens=input_tokens,
                             output_tokens=output_tokens,
                             cost_usd=cost_usd,
@@ -222,20 +234,11 @@ class GeminiClassifier:
                         raw_text = raw_text[:-3]
 
                     result = LLMClassificationOutput.model_validate_json(raw_text.strip())
+                    result.model_id = model_name
                     # Validate that primary_node_id exists in the paper candidates
-                    if result.primary_node_id not in node_map:
-                        logger.warning(
-                            "Model returned unknown node_id %s, validating against candidates",
-                            result.primary_node_id,
-                        )
-                        valid_ids = [nid for nid in result.alternatives if nid in node_map]
-                        if valid_ids:
-                            result.primary_node_id = valid_ids[0]
-                        else:
-                            # Pick first subtopic in paper as safe fallback
-                            result.primary_node_id = list(node_map.keys())[0]
-                            result.confidence = 0.50
-                            result.bucket = "C"
+                    if any(node_id not in node_map for node_id in
+                           [result.primary_node_id, *result.secondary_node_ids, *result.alternatives]):
+                        raise NeedsTaxonomyReview("needs taxonomy review: model returned unsupported candidate IDs")
 
                     return result
 
@@ -258,6 +261,8 @@ class GeminiClassifier:
                             continue
                         break
 
+                except NeedsTaxonomyReview:
+                    raise
                 except Exception as exc:
                     last_error = exc
                     logger.error("Unexpected error in classification call: %s", exc)

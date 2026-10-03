@@ -1,0 +1,324 @@
+{
+  "descriptors": [
+    {
+      "node_id": "75c07f1a-17b1-48fd-8447-e8fb8590bd7c",
+      "concept_name": "Government Grants and Assistance Overview",
+      "definition": "Government entities provide monetary or non-monetary grants and assistance to entities for industrial, geographic, and social development purposes. Ind AS 20 governs the appropriate accounting treatment and disclosures required for these transactions.",
+      "terminology": [
+        "Government grants",
+        "Government assistance",
+        "Monetary grants",
+        "Non-monetary grants"
+      ],
+      "instrument_references": [
+        "Ind AS 20"
+      ],
+      "inclusion": [
+        "Accounting for government grants",
+        "Disclosure of government grants",
+        "Disclosure of other forms of government assistance"
+      ],
+      "exclusion": [
+        "Income tax holidays",
+        "Government participation in entity ownership",
+        "Grants covered by Ind AS 41"
+      ],
+      "nearby_distinctions": [
+        "Distinct from general government assistance like infrastructure provision available to the entire community."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "cc3aa827-e5d5-4165-8f36-c806c9434f8b",
+      "concept_name": "Scope of Government Grants and Assistance",
+      "definition": "The standard applies specifically to the accounting and disclosure of government grants and other forms of government assistance. It sets boundaries by excluding tax-related benefits, ownership participations, and agricultural grants.",
+      "terminology": [
+        "Scope",
+        "Applicability",
+        "Non-applicability",
+        "Government assistance"
+      ],
+      "instrument_references": [
+        "Ind AS 20"
+      ],
+      "inclusion": [
+        "Recognition and measurement of grants",
+        "Disclosures of assistance received"
+      ],
+      "exclusion": [
+        "Changing prices effects",
+        "Tax benefits like investment tax credits",
+        "Agricultural activities under Ind AS 41"
+      ],
+      "nearby_distinctions": [
+        "Excludes general infrastructural benefits not specific to qualifying entities."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "473199a6-d1e4-422c-9e27-f5706c8d852a",
+      "concept_name": "Applicability of Ind AS 20",
+      "definition": "Ind AS 20 mandates the specific accounting methods and disclosure norms for government grants received by entities. It also governs the required disclosures for general forms of government assistance.",
+      "terminology": [
+        "Applicability",
+        "Accounting and disclosure",
+        "Government grants"
+      ],
+      "instrument_references": [
+        "Ind AS 20"
+      ],
+      "inclusion": [
+        "Government grants accounting",
+        "Government assistance disclosures"
+      ],
+      "exclusion": [
+        "Tax exemptions",
+        "Ownership interests",
+        "Biological assets under Ind AS 41"
+      ],
+      "nearby_distinctions": [
+        "Focuses on direct entity-specific transfers rather than broad macroeconomic fiscal policies."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "50038720-e109-42c0-9393-2f24498dcb35",
+      "concept_name": "Non-applicability of Ind AS 20",
+      "definition": "Certain items are excluded from the purview of Ind AS 20, including tax-related benefits, price-level adjustments, and government ownership stakes. These exclusions ensure specialized standards or tax laws govern those specific transactions instead.",
+      "terminology": [
+        "Non-applicability",
+        "Taxable profit",
+        "Income tax liability",
+        "Ownership participation"
+      ],
+      "instrument_references": [
+        "Ind AS 20",
+        "Ind AS 41"
+      ],
+      "inclusion": [
+        "Income tax holidays",
+        "Accelerated depreciation benefits",
+        "Agricultural grants"
+      ],
+      "exclusion": [
+        "Direct conditional grants",
+        "Below-market government loans"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between specific economic grants and general taxation benefits or equity investments."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0d4a217c-d9cd-44d3-930a-406c0153ebc6",
+      "concept_name": "Definitions and General Government Assistance",
+      "definition": "Government assistance involves actions supplying specific economic benefits to qualifying entities, excluding broad community infrastructure or normal trading transactions. It requires careful evaluation when resources are transferred to appropriately reflect financial statement impact.",
+      "terminology": [
+        "Government assistance",
+        "Government agencies",
+        "Economic benefit",
+        "Trading transactions"
+      ],
+      "instrument_references": [
+        "Ind AS 20"
+      ],
+      "inclusion": [
+        "Specific economic benefits",
+        "Qualifying criteria assessments"
+      ],
+      "exclusion": [
+        "General infrastructure improvements",
+        "Normal commercial procurement policies"
+      ],
+      "nearby_distinctions": [
+        "General trading activities with government cannot be arbitrarily segregated as assistance."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b1a906af-4f67-4a1d-997f-6f42273af64d",
+      "concept_name": "Recognition of Government Grants",
+      "definition": "Government grants are recognized only when there is reasonable assurance that the entity will comply with attached conditions and that the grant will be received. Mere physical receipt of funds does not automatically constitute conclusive evidence of condition fulfillment.",
+      "terminology": [
+        "Recognition",
+        "Reasonable assurance",
+        "Conditions",
+        "Deferred income"
+      ],
+      "instrument_references": [
+        "Ind AS 20"
+      ],
+      "inclusion": [
+        "Monetary grants",
+        "Non-monetary grants at fair value"
+      ],
+      "exclusion": [
+        "Grants without reasonable assurance of compliance or receipt"
+      ],
+      "nearby_distinctions": [
+        "Differs from cash-basis recognition by requiring the dual threshold of condition compliance assurance and receipt likelihood."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e5637c4c-74f0-469c-ba8d-d1e057b27e4e",
+      "concept_name": "Forgivable and Below-Market Government Loans",
+      "definition": "Forgivable loans from governments convert to grants when there is reasonable assurance the entity will satisfy forgiveness terms. Below-market interest rate loans derive a government grant component measured as the difference between initial fair value under financial instrument standards and proceeds received.",
+      "terminology": [
+        "Forgivable loan",
+        "Below-market rate",
+        "Fair value",
+        "Deferred income"
+      ],
+      "instrument_references": [
+        "Ind AS 20",
+        "Ind AS 109"
+      ],
+      "inclusion": [
+        "Loan forgiveness terms",
+        "Interest differential calculations"
+      ],
+      "exclusion": [
+        "Standard commercial loans at prevailing market rates"
+      ],
+      "nearby_distinctions": [
+        "Below-market loans split into a financial liability measured at fair value and a deferred grant benefit."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7d68b36f-48b8-4f2f-a357-72e534d0de27",
+      "concept_name": "Accounting for Loans at Less Than Market Rate",
+      "definition": "The benefit derived from a government loan carrying a below-market interest rate is treated as a government grant. This benefit equals the difference between the initial carrying value determined via financial instrument standards and the actual proceeds received.",
+      "terminology": [
+        "Below-market rate",
+        "Carrying value",
+        "Discounting factor",
+        "Present value"
+      ],
+      "instrument_references": [
+        "Ind AS 20",
+        "Ind AS 109"
+      ],
+      "inclusion": [
+        "Initial fair value measurement of loan",
+        "Amortization of grant benefit over expense periods"
+      ],
+      "exclusion": [
+        "Market-rate loans lacking any government subsidy element"
+      ],
+      "nearby_distinctions": [
+        "Requires present value discounting using market interest rates rather than nominal loan rates."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1e62c355-38e9-4012-a50d-d1266932dc66",
+      "concept_name": "Accrual Versus Receipts Basis and Specific Grant Types",
+      "definition": "Recognizing government grants on a receipts basis violates accrual accounting principles unless no other allocation method exists. Grants compensating for past expenses or providing immediate financial support are recognized in profit or loss during the period they become receivable.",
+      "terminology": [
+        "Receipts basis",
+        "Accrual accounting",
+        "Immediate financial support",
+        "Non-depreciable assets"
+      ],
+      "instrument_references": [
+        "Ind AS 1",
+        "Ind AS 20"
+      ],
+      "inclusion": [
+        "Immediate financial support grants",
+        "Grants for past incurred losses"
+      ],
+      "exclusion": [
+        "Arbitrary cash-basis recognition when systematic allocation is feasible"
+      ],
+      "nearby_distinctions": [
+        "Contrasts systematic deferral models by immediately expensing or recognizing grants lacking future matching costs."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "be76cd61-513f-4f5c-888a-3e0e093a0cac",
+      "concept_name": "Grants Related to Non-Depreciable Assets and Non-Monetary Transfers",
+      "definition": "Grants tied to non-depreciable assets requiring specific fulfillment obligations are recognized over the periods bearing those compliance costs. Non-monetary asset transfers are recorded at either assessed fair value or nominal value alongside the corresponding grant.",
+      "terminology": [
+        "Non-depreciable assets",
+        "Non-monetary government grants",
+        "Fair value",
+        "Nominal value"
+      ],
+      "instrument_references": [
+        "Ind AS 20"
+      ],
+      "inclusion": [
+        "Conditional land grants",
+        "Transfer of resources for entity use"
+      ],
+      "exclusion": [
+        "Standard depreciable asset grants mapped directly to depreciation lives"
+      ],
+      "nearby_distinctions": [
+        "Non-depreciable asset grants link to obligation fulfillment periods rather than asset depreciation schedules."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "dfca615d-f07c-42a7-8f02-4add6869b143",
+      "concept_name": "Conditional and Package Grants Accounting",
+      "definition": "Grants received within complex financial or fiscal aid packages require identifying specific underlying cost conditions to determine appropriate revenue recognition periods. Non-monetary grants under these packages can alternatively be recognized at full fair value or nominal amounts.",
+      "terminology": [
+        "Conditional grants",
+        "Package of financial aids",
+        "Cost allocation",
+        "Fiscal aids"
+      ],
+      "instrument_references": [
+        "Ind AS 20"
+      ],
+      "inclusion": [
+        "Multi-condition grant allocations",
+        "Leasehold land at nominal values"
+      ],
+      "exclusion": [
+        "Unconditional grants recognized immediately"
+      ],
+      "nearby_distinctions": [
+        "Demands splitting multi-faceted aid packages across varying expense-matching timelines."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "74548b25-6438-4b89-b011-d5c83bee02c3",
+      "concept_name": "Grants for Past Expenses and Non-Monetary Valuations",
+      "definition": "Grants acting as compensation for past expenses or immediate financial support without future cost obligations are recognized directly in profit or loss when receivable. Non-monetary asset transfers are measured at fair value or nominal value with equivalent deferred income setup.",
+      "terminology": [
+        "Past expenses",
+        "Immediate financial support",
+        "Deferred income",
+        "Nominal amount"
+      ],
+      "instrument_references": [
+        "Ind AS 20"
+      ],
+      "inclusion": [
+        "Compensation for prior losses",
+        "Fair value or nominal asset recording"
+      ],
+      "exclusion": [
+        "Grants tied to future expenditure obligations"
+      ],
+      "nearby_distinctions": [
+        "Immediate recognition applies when no further performance obligations or future costs remain."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "b2fac97c41ad4d51aa1e329d1b8d872a21cd1a81371f648489a0971fbe47248a",
+  "artifact_id": "148617aa-3a48-443e-a7a9-588664a3529a",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 9266,
+  "output_tokens": 3217,
+  "cost_usd": 0.0108223,
+  "created_at": "2026-10-03T18:04:06.505769+00:00"
+}

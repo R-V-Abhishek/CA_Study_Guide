@@ -1,0 +1,295 @@
+{
+  "descriptors": [
+    {
+      "node_id": "f5169d63-92f2-4236-bb53-2ec864212fc3",
+      "concept_name": "Digital Technologies",
+      "definition": "Digital technologies comprise automated tools, electronic systems, and resources that generate, store, or process data across networks. They serve as foundational change drivers that rapidly transform societies, economies, and business environments.",
+      "terminology": [
+        "Internet of Things",
+        "Blockchain",
+        "Cloud"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Smartphones",
+        "Multimedia",
+        "Cloud-based applications"
+      ],
+      "exclusion": [
+        "Traditional analog equipment",
+        "Non-electronic manual records"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from advanced manufacturing, which represents the physical effect driven by digital causes."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "83b70baf-4b89-47ce-a169-beca2bd93a58",
+      "concept_name": "Robotics",
+      "definition": "Robotics refers to programmable technologies capable of sensing inputs, applying rules or artificial intelligence, and executing physical reactions. These systems increase operational effectiveness in repetitive or analytical tasks by safely augmenting or replacing human labor.",
+      "terminology": [
+        "Industrial robots",
+        "Sensors",
+        "Automation"
+      ],
+      "instrument_references": [
+        "World Robotics Report"
+      ],
+      "inclusion": [
+        "Healthcare robots",
+        "Manufacturing robotic arms",
+        "Military autonomous units"
+      ],
+      "exclusion": [
+        "Purely software-based analytics scripts",
+        "Manual assembly lines"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from pure software automation by its physical interaction capabilities and sensor-driven environmental response."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "cca7b319-0297-4a1a-93d2-9812675a1bae",
+      "concept_name": "Artificial intelligence (AI)",
+      "definition": "Artificial intelligence deals with computational technologies that process data and react in ways resembling human thought. It drives advanced analytics, generative design, and independent machine learning to create novel approaches for solving complex business problems.",
+      "terminology": [
+        "Machine learning",
+        "Generative design",
+        "Cognitive computing"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Mathematical data models",
+        "AI-enabled diagnostic tools"
+      ],
+      "exclusion": [
+        "Hard-coded procedural programming",
+        "Basic automated workflows"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from basic automation because AI systems learn and adapt independently based on historical data patterns rather than following static rules."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "fab83844-16eb-4ecc-a017-0f0f67b0909b",
+      "concept_name": "Automation",
+      "definition": "Automation encompasses technology applications designed to perform tasks independently with minimal human input. It spans multiple complexity levels ranging from basic rule execution to advanced artificial intelligence decision-making.",
+      "terminology": [
+        "Business Process Automation",
+        "Robotic Process Automation",
+        "Workflow automation"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Basic automation",
+        "Process automation",
+        "Integration automation",
+        "AI automation"
+      ],
+      "exclusion": [
+        "Completely manual labor-intensive operations without technology support"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from complete organizational transformation by focusing strictly on replacing human execution effort without inherently altering the wider corporate culture."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9e701e9d-3995-4160-86cc-74dce766dbcf",
+      "concept_name": "Cloud",
+      "definition": "Cloud computing delivers computer infrastructure, storage, and software services over an interconnected network of remote servers. It functions as a vital enabler for organizational flexibility, rapid scalability, and digital transformation.",
+      "terminology": [
+        "XaaS",
+        "SaaS",
+        "PaaS",
+        "IaaS",
+        "BaaS"
+      ],
+      "instrument_references": [
+        "Gartner 5 R's model",
+        "AWS 6 R's migration model"
+      ],
+      "inclusion": [
+        "Remote server data storage",
+        "Internet-hosted application services"
+      ],
+      "exclusion": [
+        "On-premise physical data centers managed locally without remote network delivery"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from local IT infrastructure by leveraging shared, network-accessible remote resources and multi-tier service delivery models."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "51a9275d-0a07-423c-a2a1-9fc618a674be",
+      "concept_name": "Autonomous vehicles",
+      "definition": "Autonomous vehicles comprise transport systems capable of navigating, steering, and driving entirely without human operators. They are widely deployed in specialized sectors like military operations and emerging consumer transport products.",
+      "terminology": [
+        "Self-navigating systems",
+        "Driverless transport"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Military autonomous transport units",
+        "Consumer self-driving cars"
+      ],
+      "exclusion": [
+        "Manually operated commercial delivery trucks",
+        "Standard human-driven passenger vehicles"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard vehicles by the complete absence of a human driver during navigation and operation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "24990e75-846a-42f2-ab10-e52e293ecc17",
+      "concept_name": "Blockchain",
+      "definition": "Blockchain is a decentralized digital ledger technology that records public transactions across a peer-to-peer network in secure chronological blocks. It utilizes immutable cryptographic hashes to protect data integrity, making unauthorized alterations extremely difficult.",
+      "terminology": [
+        "Distributed ledger technology",
+        "Cryptographic signature",
+        "Hash",
+        "Decentralized database"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Digital transaction logs",
+        "Peer-to-peer verified blocks"
+      ],
+      "exclusion": [
+        "Centralized relational database management systems",
+        "Single-party administered ledgers"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from traditional centralized databases by its distributed peer-to-peer replication and immutable cryptographic verification."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "76a9a1a4-8600-4b68-acd2-dc76824fb77e",
+      "concept_name": "Business Ecosystems",
+      "definition": "A business ecosystem is an interconnected network of cross-industry organizations collaborating and competing to deliver specific products or services. Participants collectively co-evolve and create greater total value than they could achieve individually.",
+      "terminology": [
+        "Ecosystem strategy framework",
+        "Partnership networks",
+        "Co-evolution"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Suppliers and distributors",
+        "Competitors and government agencies acting in network alliances"
+      ],
+      "exclusion": [
+        "Isolated single-firm operating models",
+        "Traditional uncoordinated market transactions"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from traditional single-firm strategy by basing competitive advantage on network alliances and shared ecosystem value creation rather than standalone firm capabilities."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "046f9637-e89f-4054-bd28-7106ce546428",
+      "concept_name": "Hyper Competition",
+      "definition": "Hyper-competition describes an intense market condition characterized by high rivalry, rapid structural changes, and frequent strategic disruptions. Under these dynamics, any established competitive advantage is strictly temporary, forcing continuous strategic adaptation.",
+      "terminology": [
+        "D'Aveni's 7S framework",
+        "Short-term advantage",
+        "Market velocity"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "High-velocity market disruptions",
+        "Aggressive temporary advantage initiatives"
+      ],
+      "exclusion": [
+        "Stable mature markets with entrenched long-term monopolies",
+        "Static industry equilibrium"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard competition by the rapid destruction and replacement of temporary advantages, necessitating continuous disruption rather than long-term strategic defense."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "79c82f28-6337-4b5c-9538-866f98123c2e",
+      "concept_name": "The Characteristics of the Hypercompetitive Market are listed below–",
+      "definition": "Hypercompetitive markets exhibit strong buyer bargaining power, low entry barriers, and intense rivalry that render traditional competitive advantages ephemeral. Organizations respond to these volatile conditions through rapid strategic maneuvers and continuous market disruptions.",
+      "terminology": [
+        "Temporary competitive advantage",
+        "Buyer bargaining power",
+        "Rapid strategic maneuvers"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Global alliances among competitors",
+        "Unstable market structures"
+      ],
+      "exclusion": [
+        "Regulated utility markets with fixed barriers and low rivalry"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from ordinary market competition by the absolute transience of market advantages and the immediate replacement of old strategies by new innovations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2074223c-0b61-4b86-8d37-52b1076a41c0",
+      "concept_name": "Response (Strategy) for Hyper-competition",
+      "definition": "Responses to hyper-competition involve executing dynamic strategies that secure a series of short-term advantages through constant disruption rather than maintaining static equilibrium. Frameworks like D'Aveni's 7S guide organizations to navigate high-velocity markets successfully.",
+      "terminology": [
+        "D'Aveni's 7S framework",
+        "Disruption series",
+        "Market velocity management"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Stakeholder satisfaction",
+        "Strategic soothsaying",
+        "Simultaneous and sequential thrust"
+      ],
+      "exclusion": [
+        "Traditional long-term structural cost-cutting for market equilibrium"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from equilibrium-seeking restructuring by deliberately unsettling the market status quo through agile, temporary initiatives."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "68eea529-5b2d-480d-b009-d6a771cf0fb8",
+      "concept_name": "Transformations and Disruptions",
+      "definition": "Transformations and disruptions occur when innovations fundamentally shift industry competitive landscapes by realigning technologies and business models. Disruptive innovations specifically convert complex or expensive offerings into simpler, affordable solutions accessible to broader populations.",
+      "terminology": [
+        "Disruptive innovation",
+        "Business model realignment",
+        "Customer experience lifecycle"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Process and domain transformations",
+        "App-based transport disruption models"
+      ],
+      "exclusion": [
+        "Incremental product updates",
+        "Gradual sustaining innovations along established industry life cycles"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from sustaining innovations because disruptions target neglected or unattractive segments with simpler models that existing players cannot easily replicate."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "9b8f4b4cd4c82be2fdd51164eea3ad5968430a78fbf8f07936d4902b6ae4e353",
+  "artifact_id": "93270a60-645c-46b1-b75f-5a66ce49fc26",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8480,
+  "output_tokens": 3011,
+  "cost_usd": 0.0100715,
+  "created_at": "2026-10-03T18:26:54.031273+00:00"
+}

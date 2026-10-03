@@ -1,0 +1,218 @@
+{
+  "descriptors": [
+    {
+      "node_id": "aec7933b-e6d1-40b4-90d8-7c14ae436918",
+      "concept_name": "Performance Management System",
+      "definition": "A four-stage operational framework used to guide for-profit organizations toward sustainability through structure determination, delegation evaluation, target establishment, and performance review. In not-for-profit entities, it focuses on value for money encompassing efficiency, effectiveness, and economy.",
+      "terminology": [
+        "Sustainability",
+        "Responsibility Centres",
+        "KPI Dashboard",
+        "Value for Money"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Financial and non-financial performance measures",
+        "For-profit and not-for-profit structural applications"
+      ],
+      "exclusion": [
+        "Purely unmeasured operational activities without feedback loops"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from responsibility accounting, which functions as an underlying information sub-system for measuring individual managerial performance."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7c589bb9-c0dc-42f2-867f-de8607fd5824",
+      "concept_name": "Responsibility Accounting",
+      "definition": "An information sub-system of the performance management system that collects, summarizes, and reports data to hold individual managers accountable for specific costs, revenues, or assets. It judges managerial performance based on items directly under their control.",
+      "terminology": [
+        "Responsibility Centre",
+        "Delegated Authority",
+        "Managerial Accountability",
+        "Performance Reporting"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Cost, revenue, and asset tracking per manager",
+        "Private and public sector organizational performance measurement"
+      ],
+      "exclusion": [
+        "Holding managers accountable for uncontrollable company-wide overheads"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general financial accounting by focusing strictly on controllable segments and individual managerial accountability rather than entity-wide aggregates."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d7e9a13a-1f27-41d6-a28a-d2b3773cffbe",
+      "concept_name": "Performance Report",
+      "definition": "A formal document detailing the outcomes of an individual's work or a specific activity by comparing actual results against a baseline budget or standard. It highlights variances to prompt corrective action from recipients when unfavorable deviations occur.",
+      "terminology": [
+        "Baseline",
+        "Variance",
+        "Unfavorable Variance",
+        "Yardstick"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Comparison of actual outcomes to budgets",
+        "Identification of cost and time overruns"
+      ],
+      "exclusion": [
+        "Informal unwritten managerial feedback"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from raw financial statements by directly measuring variances against specific performance yardsticks and KPIs for operational accountability."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5f4db059-75e4-41fa-a3fe-bf91170b61ed",
+      "concept_name": "Role of Performance Reports",
+      "definition": "The systematic issuance of frequent reports that inform responsibility center managers of budget deviations, highlight poor performance areas, and prioritize issues for immediate attention. They establish a communication platform and enable upward information flow across operating levels.",
+      "terminology": [
+        "Upward Flow",
+        "Quantification",
+        "Benchmarking",
+        "Resource Planning"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Summarizing departmental budgets into consolidated reports",
+        "Facilitating benchmarking and corrective action tracking"
+      ],
+      "exclusion": [
+        "External statutory reporting without internal operational metrics"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from basic record-keeping by actively focusing attention on performance issues and fostering direct communication between managers and employees."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f8eb5143-3428-407f-b1c0-99c88d744a93",
+      "concept_name": "Aspects Involved in the Preparation of Performance Reports",
+      "definition": "The sequential methodology of drafting performance reports by first identifying user needs, establishing objectives linked to organizational vision, providing an executive summary, and performing detailed quantitative and qualitative assessments. It involves evaluating critical success factors and key performance indicators against benchmarks or historical trends.",
+      "terminology": [
+        "Critical Success Factors",
+        "Executive Summary",
+        "Transverse Analysis",
+        "Longitudinal Analysis"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "User identification and audience analysis",
+        "Cross-sectional and time-series performance assessments"
+      ],
+      "exclusion": [
+        "Arbitrary metric selection without alignment to corporate mission"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from the mere distribution of data by imposing a structured, sequential workflow ranging from audience profiling to analytical assessment."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5f53110c-2a4a-419f-bb78-cc0fa33a44c6",
+      "concept_name": "Types of Performance Reports",
+      "definition": "Categorized reporting formats utilized to compare actual project execution against operational plans across various metrics. These include earned value, forecasting, progress, status, trend, and variance reports.",
+      "terminology": [
+        "Earned Value Report",
+        "Forecasting Report",
+        "Progress Report",
+        "Status Report",
+        "Trend Report",
+        "Variance Report"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Earned value management integration",
+        "Periodic trend and variance charts"
+      ],
+      "exclusion": [
+        "Single static general-purpose financial ledgers"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard balance sheets by specifically targeting project lifecycles, schedules, resource utilization, and dynamic milestone comparisons."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8930b126-eb85-4d34-997c-79f36ca89058",
+      "concept_name": "Triple Bottom Line (TBL report)",
+      "definition": "An expanded reporting framework that goes beyond traditional financial performance by incorporating environmental and social impacts into organizational evaluation. It directs corporate focus toward profit, planet, and people to drive sustainability.",
+      "terminology": [
+        "3Ps",
+        "Planet",
+        "People",
+        "Profit"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Environmental decision impacts",
+        "Social responsibility disclosures"
+      ],
+      "exclusion": [
+        "Traditional financial-only accounting statements"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from traditional financial reporting by explicitly mandating the measurement of social and environmental performance alongside monetary outcomes."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "48eac066-da52-4734-94db-61750ccafae2",
+      "concept_name": "Global Reporting Initiative report (GRI report)",
+      "definition": "A sustainability disclosure report formulated in accordance with guidelines issued by the Global Reporting Initiative to provide globally accepted standards. It enables organizations to measure and report their environmental, social, and economic performance transparently.",
+      "terminology": [
+        "GRI Guidelines",
+        "Sustainability Reporting",
+        "GRI Standards"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Globally standardized sustainability metrics"
+      ],
+      "exclusion": [
+        "Locally constrained financial reporting metrics lacking standardized sustainability criteria"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from internal-only variance reports through its adherence to international institute guidelines designed for global comparability."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "06d9e8a6-5af9-4e43-bd47-e1a8d62c26f3",
+      "concept_name": "ANALYSE THE PERFORMANCE REPORTS TO TAKE THE REQUIRED ACTION",
+      "definition": "The structured process undertaken by senior managers and business intelligence experts to review quantitative and qualitative report data within set timeframes. It involves identifying trends, summarizing findings, and formulating corrective, preventive, or feed-forward action plans.",
+      "terminology": [
+        "Corrective Action",
+        "Preventive Action",
+        "Feed-Forward Action",
+        "Business Intelligence"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Quantitative metric and qualitative survey evaluation",
+        "Trend documentation and action plan creation"
+      ],
+      "exclusion": [
+        "Passive archiving of reports without review or follow-up"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from report preparation by actively utilizing evaluated data to formulate operational interventions rather than merely summarizing historical deviations."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "ccf601d859a7af8da4c6cecd24bf1138886bc2ff8aba9c4d90eac8357217b12c",
+  "artifact_id": "273d90b9-19e2-4284-97ba-f501300601bf",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 6351,
+  "output_tokens": 2276,
+  "cost_usd": 0.0075953,
+  "created_at": "2026-10-03T18:27:59.088951+00:00"
+}

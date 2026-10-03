@@ -1,0 +1,331 @@
+{
+  "descriptors": [
+    {
+      "node_id": "af2baf1a-d4bb-46b5-945a-e0063bd9705f",
+      "concept_name": "Audit Procedures When Non-Compliance Is Identified Or Suspected",
+      "definition": "When an auditor encounters indications of potential non-compliance with legal requirements, they must gather facts regarding the act and its environment to assess financial statement impacts. If management fails to substantiate compliance, the auditor must consider legal consultation and evaluate the effect on audit evidence reliability and overall risk assessment.",
+      "terminology": [
+        "suspected non-compliance",
+        "nature of the act",
+        "legal advice",
+        "audit evidence",
+        "risk assessment"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Gathering facts about suspected legal breaches",
+        "Consulting management and those charged with governance",
+        "Evaluating audit opinion implications for unverified compliance"
+      ],
+      "exclusion": [
+        "Definitive legal adjudication of illegal acts",
+        "Unilateral reporting to external enforcement without governance escalation"
+      ],
+      "nearby_distinctions": [
+        "Differs from general risk assessment by focusing specifically on verified or suspected regulatory infractions rather than broad operational errors."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9a62c1d9-a87c-4ac4-bd49-caec5f8a0f47",
+      "concept_name": "Reporting of Identified or Suspected Non-Compliance",
+      "definition": "The auditor communicates identified non-compliance matters to those charged with governance unless inconsequential or involving management complicity, in which case escalation to higher authorities or legal counsel is necessary. Uncorrected material non-compliance results in modified audit opinions regarding the financial statements.",
+      "terminology": [
+        "governance escalation",
+        "qualified opinion",
+        "adverse opinion",
+        "scope limitation",
+        "higher level of authority"
+      ],
+      "instrument_references": [
+        "SA 705"
+      ],
+      "inclusion": [
+        "Escalating material infractions to governance or higher supervisory bodies",
+        "Modifying the audit report for uncorrected material non-compliance",
+        "Issuing scope limitations when evidence is blocked by management"
+      ],
+      "exclusion": [
+        "Communicating clearly inconsequential infractions",
+        "Direct external reporting absent specific statutory mandates"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from initial fact-finding procedures by focusing strictly on formal communication channels and audit report modifications."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a7657b25-c254-40ad-b60c-33b60d63e09f",
+      "concept_name": "Documentation of Non-Compliance",
+      "definition": "The auditor must formally record all identified or suspected instances of legal non-compliance along with the substance of discussions held with management, governance representatives, and external parties. This documentation preserves the audit trail regarding how potential statutory violations were evaluated.",
+      "terminology": [
+        "audit documentation",
+        "discussions with management",
+        "external parties",
+        "suspected non-compliance"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Recording details of legal non-compliance findings",
+        "Documenting outcomes of consultations with governance"
+      ],
+      "exclusion": [
+        "Omission of oral communication logs",
+        "Informal unrecorded assessments"
+      ],
+      "nearby_distinctions": [
+        "Distinct from the substantive audit procedures or reporting steps because it solely targets the permanent recording of findings and discussions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1b5f1a63-f8a6-492c-9cd3-f45c00a7ef56",
+      "concept_name": "Definition and Governance Structure of Those Charged with Governance",
+      "definition": "Those charged with governance comprise individuals or organizations entrusted with overseeing an entity's strategic direction, operational accountability, and financial reporting obligations. Governance structures vary significantly by entity size and legal framework, ranging from separate supervisory boards to sole owner-managers.",
+      "terminology": [
+        "those charged with governance",
+        "oversight",
+        "strategic direction",
+        "supervisory board",
+        "owner-manager"
+      ],
+      "instrument_references": [
+        "SA 260"
+      ],
+      "inclusion": [
+        "Board of directors",
+        "Supervisory boards",
+        "Proprietors, partners, or trustees"
+      ],
+      "exclusion": [
+        "Operational management personnel acting exclusively in an executive capacity without governance oversight duties (unless overlapping in smaller entities)"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes those overseeing strategic accountability from operational managers, though both roles may overlap in smaller enterprises."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1934e69f-e09c-4f0a-96f9-0329c4470cfc",
+      "concept_name": "Objectives of Auditor in Accordance with SA 260",
+      "definition": "The auditor must clearly communicate statutory audit responsibilities and scope while fostering effective two-way dialogue with governance bodies. This process ensures auditors obtain relevant audit information and provide timely, significant observations regarding the financial reporting process.",
+      "terminology": [
+        "two-way communication",
+        "planned scope",
+        "timing",
+        "financial reporting process"
+      ],
+      "instrument_references": [
+        "SA 260"
+      ],
+      "inclusion": [
+        "Communicating auditor responsibilities and engagement scope",
+        "Obtaining relevant information from governance",
+        "Promoting continuous dialogue"
+      ],
+      "exclusion": [
+        "Relieving management of financial statement preparation duties"
+      ],
+      "nearby_distinctions": [
+        "Focused on establishing communication objectives rather than executing substantive testing procedures."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d6be00ca-d043-4419-9de1-069e240fbf5f",
+      "concept_name": "Mandatory Communications with Governance",
+      "definition": "Auditors must communicate their core responsibilities regarding financial statement audits alongside the planned scope and timing of the engagement. This dialogue helps those charged with governance understand audit consequences, discuss risk and materiality concepts, and provide supplementary insights.",
+      "terminology": [
+        "engagement terms",
+        "planned scope",
+        "timing",
+        "materiality",
+        "risk"
+      ],
+      "instrument_references": [
+        "SA 260"
+      ],
+      "inclusion": [
+        "Communicating the division of audit responsibilities",
+        "Discussing planned audit scope and timing parameters"
+      ],
+      "exclusion": [
+        "Operational instructions to entity staff"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from independence disclosures because it specifically addresses engagement parameters and auditor duties."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b443e300-3b83-4f70-8905-bd95f1c6e704",
+      "concept_name": "Communication of Auditor’s Independence in Case of Listed Entities",
+      "definition": "For listed entities, auditors must formally communicate compliance with ethical independence requirements, detailing all relationships and fees for audit and non-audit services. Additionally, the auditor must disclose any applied safeguards used to mitigate identified threats to independence.",
+      "terminology": [
+        "independence",
+        "listed entities",
+        "network firms",
+        "non-audit services",
+        "safeguards"
+      ],
+      "instrument_references": [
+        "SA 260"
+      ],
+      "inclusion": [
+        "Fee disclosures for audit and non-audit services",
+        "Statements of compliance with ethical independence norms",
+        "Descriptions of safeguards against independence threats"
+      ],
+      "exclusion": [
+        "Standard scope and timing disclosures applicable to non-listed entities without independence breakdowns"
+      ],
+      "nearby_distinctions": [
+        "Mandated specifically for listed entities, requiring rigorous fee breakdowns and safeguard evaluations not strictly required for private entities under the same standard."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "bffe31f1-5711-41a9-a198-b00e815484f7",
+      "concept_name": "Documentation and Overview of Joint Audits",
+      "definition": "Auditors must document all oral and written communications mandated by governance standards, specifying the timing and recipients of such notices. Furthermore, joint audits involve multiple independent auditors collaborating to examine financial statements and issue a shared audit report.",
+      "terminology": [
+        "audit documentation",
+        "oral communication",
+        "written communication",
+        "joint audit",
+        "joint auditors"
+      ],
+      "instrument_references": [
+        "SA 260",
+        "SA 299",
+        "SA 200"
+      ],
+      "inclusion": [
+        "Retaining copies of written governance communications",
+        "Logging dates and recipients of oral communications",
+        "Collaborative multi-auditor financial statement examination"
+      ],
+      "exclusion": [
+        "Principal-component auditor relationships governed by separate standards"
+      ],
+      "nearby_distinctions": [
+        "Bridges governance documentation requirements with the foundational principles of multi-auditor joint engagements."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "eeedce97-7cc6-4cd9-8354-00669da8e36b",
+      "concept_name": "Framework and Objectives of Joint Audits",
+      "definition": "Joint audits establish uniform principles and coordinated work methodologies for multiple auditors appointed to evaluate an entity's financial statements. The framework defines distinct coverage zones while delineating individual versus collective professional responsibilities.",
+      "terminology": [
+        "joint audit",
+        "joint auditors",
+        "uniform approach",
+        "individual responsibility",
+        "joint responsibility"
+      ],
+      "instrument_references": [
+        "SA 299"
+      ],
+      "inclusion": [
+        "Establishing unified audit strategies across joint teams",
+        "Identifying specific operational areas for each auditor",
+        "Clarifying shared accountability lines"
+      ],
+      "exclusion": [
+        "Relationships between principal auditors and independent component auditors"
+      ],
+      "nearby_distinctions": [
+        "Differs from single-auditor models by requiring formal synchronization and shared governance among distinct auditing firms."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d36fb556-cf3e-429b-af62-8d0c17d33102",
+      "concept_name": "Objectives and Work Allocation in Joint Audits",
+      "definition": "Joint auditors must establish a cooperative framework that divides audit areas based on operational units, locations, or financial statement items. Certain high-risk or critical areas are examined collectively by all joint auditors rather than being segregated.",
+      "terminology": [
+        "division of work",
+        "common audit areas",
+        "identifiable units",
+        "reporting objectives"
+      ],
+      "instrument_references": [
+        "SA 299"
+      ],
+      "inclusion": [
+        "Allocating work by business units or financial statement accounts",
+        "Designating unpartitioned common areas for joint inspection",
+        "Aligning engagement reporting objectives"
+      ],
+      "exclusion": [
+        "Siloed independent reviews without cross-communication"
+      ],
+      "nearby_distinctions": [
+        "Focuses specifically on the strategic division of tasks and common review areas rather than general audit planning."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "523202ef-22ff-4bce-8637-439301ce9bef",
+      "concept_name": "Audit Planning and Risk Assessment in Joint Audits",
+      "definition": "Engagement partners and core teams from all joint audit firms must collaborate to formulate an overarching audit strategy and joint plan. This planning phase accounts for preliminary engagement findings, resource allocations, and material misstatement risks.",
+      "terminology": [
+        "engagement partner",
+        "overall audit strategy",
+        "joint audit plan",
+        "material misstatement",
+        "preliminary engagement activities"
+      ],
+      "instrument_references": [
+        "SA 299"
+      ],
+      "inclusion": [
+        "Joint formulation of audit strategy and plans",
+        "Assessment of material misstatement risks across teams",
+        "Resource allocation and historical knowledge integration"
+      ],
+      "exclusion": [
+        "Independent, uncoordinated planning by individual joint firms"
+      ],
+      "nearby_distinctions": [
+        "Emphasizes mandatory cross-firm collaboration during the initial risk assessment and planning stages."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6604361b-e111-4c66-bb72-616074312810",
+      "concept_name": "Responsibility and Co-ordination among Joint Auditors",
+      "definition": "Joint auditors remain individually accountable for executing procedures within their allocated segments, but share joint and several liability for undivided work, common audit decisions, and statutory compliance. Auditors must maintain active coordination and communicate inter-area findings in writing before audit completion.",
+      "terminology": [
+        "joint and several liability",
+        "allocated work",
+        "co-ordination",
+        "common audit areas",
+        "internal control evaluation"
+      ],
+      "instrument_references": [
+        "SA 299"
+      ],
+      "inclusion": [
+        "Individual liability for assigned units or financial captions",
+        "Shared liability for unallocated and common review areas",
+        "Written communication of cross-segment findings between auditors"
+      ],
+      "exclusion": [
+        "Absolute immunity of one joint auditor for errors discovered in another's clearly unshared domain if warning signs were mutually evident"
+      ],
+      "nearby_distinctions": [
+        "Establishes a precise boundary between segregated individual execution duties and collective responsibilities shared across all joint firms."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "63668bbbac6a81ef9feddef822a1eb0a0a455aa6e36c1f1807768818a00dae80",
+  "artifact_id": "02c94852-2c09-4731-aea2-7bf6b3feb007",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8348,
+  "output_tokens": 3483,
+  "cost_usd": 0.0112119,
+  "created_at": "2026-10-03T18:09:54.670015+00:00"
+}

@@ -1,0 +1,304 @@
+{
+  "descriptors": [
+    {
+      "node_id": "5d05b946-b9f2-4109-bb5e-d2d63bfe93c5",
+      "concept_name": "Startup Financing Fundamentals",
+      "definition": "Startup financing involves securing initial monetary resources to convert business concepts into operational entities despite conservative lender reluctance due to unproven assets and uncertain cash flows. Entrepreneurs utilize non-bank alternatives, personal bootstrapping, and structured family loans to expedite initial operations until sustainable business models attract large investors.",
+      "terminology": [
+        "Startup financing",
+        "Bootstrapped",
+        "Non-bank financing",
+        "Business plan"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Initial money infusions",
+        "Bootstrapping from personal savings",
+        "Personal loans from family and friends"
+      ],
+      "exclusion": [
+        "Conservative commercial bank loans to unproven entities",
+        "Established corporate revenue funding"
+      ],
+      "nearby_distinctions": [
+        "Differs from traditional corporate financing because it targets unproven business ideas lacking historical collateral."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d5de6d16-68d0-4226-a137-e2250abb60fd",
+      "concept_name": "Innovative Startup Funding Methods",
+      "definition": "Innovative startup funding comprises non-traditional capital sourcing methods utilized when traditional bank loans are unavailable. These mechanisms include personal financing, personal credit lines, written family loans, peer-to-peer lending, crowdfunding, microloans, and vendor financing.",
+      "terminology": [
+        "Personal credit lines",
+        "Peer-to-peer lending",
+        "Crowdfunding",
+        "Microloans",
+        "Vendor financing"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Personal savings and credit lines",
+        "Crowdfunding via social networks",
+        "Vendor lending for purchases"
+      ],
+      "exclusion": [
+        "Traditional long-term institutional bank debt without personal guarantees"
+      ],
+      "nearby_distinctions": [
+        "Focuses on alternative and non-bank liquidity vehicles rather than standard corporate debt issuances."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d82cbe73-238d-42de-9d50-500e758a91cf",
+      "concept_name": "Pitch Presentation",
+      "definition": "A pitch presentation is a brief PowerPoint overview lasting under twenty minutes used to communicate company prospects and business plans to potential investors. It covers introductory backgrounds, team credentials, specific problems, and proposed solutions to convince stakeholders to commit capital.",
+      "terminology": [
+        "Pitch deck",
+        "Pitch presentation",
+        "Business plan overview"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Face-to-face or online meetings with investors",
+        "Slide overviews of team and solutions"
+      ],
+      "exclusion": [
+        "Full-length exhaustive financial audit reports"
+      ],
+      "nearby_distinctions": [
+        "Serves as a concise marketing and persuasion tool rather than an exhaustive legal prospectus."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3b767445-67cd-445c-9b1c-024891c7f4e8",
+      "concept_name": "Concept Of Unicorn",
+      "definition": "A unicorn is a privately held startup company that has achieved a valuation of at least US$ 1 billion, reflecting significant statistical rarity and disruptive market innovation. If the valuation subsequently drops below this threshold, the entity loses its official unicorn status.",
+      "terminology": [
+        "Unicorn",
+        "Valuation",
+        "Privately held start-up"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Privately held startups valued at or above US$ 1 billion",
+        "Firms exhibiting disruptive innovation and new technology focus"
+      ],
+      "exclusion": [
+        "Publicly listed corporations",
+        "Startups valued under US$ 1 billion"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard startups purely by achieving the specific US$ 1 billion private valuation mark."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ad86fef1-85af-491c-8fb0-ed1fff23f674",
+      "concept_name": "Modes Of Financing For Startups",
+      "definition": "Startup financing modes involve internal and operational methods such as bootstrapping, leveraging personal savings, securing trade credit, and utilizing factoring. These mechanisms minimize external debt reliance, curb wasteful expenditures, and optimize working capital requirements.",
+      "terminology": [
+        "Bootstrapping",
+        "Trade credit",
+        "Factoring",
+        "Accounts receivable"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Building a company from personal finances",
+        "Trade credit negotiation",
+        "Selling accounts receivable via factoring"
+      ],
+      "exclusion": [
+        "External venture capital equity investments"
+      ],
+      "nearby_distinctions": [
+        "Emphasizes internal cash generation and working capital management over external fundraising."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "24012d83-f01b-4da4-b9ac-13a79007cb0a",
+      "concept_name": "Sources of financing",
+      "definition": "Bootstrapping is a startup financing approach where a founder builds a company using personal savings and operational revenues rather than external capital. Key operational methods under this approach include negotiating trade credit with suppliers and utilizing factoring for accounts receivable.",
+      "terminology": [
+        "Bootstrapping",
+        "Trade credit",
+        "Non-notification basis",
+        "Factoring"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Personal savings utilization",
+        "Reinvestment of operational revenues",
+        "Trade credit and accounts receivable factoring"
+      ],
+      "exclusion": [
+        "Large institutional equity infusions"
+      ],
+      "nearby_distinctions": [
+        "Relies solely on internal financial generation rather than external investor debt or equity."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "cfa36b64-ee49-4611-a429-84099aa8ba44",
+      "concept_name": "VC Investment Process",
+      "definition": "The venture capital investment process comprises sequential stages including deal origination, committee screening, external due diligence, deal structuring, and post-investment monitoring. It incorporates governance covenants, convertible structures, and tag-along clauses to protect investor interests and manage risk.",
+      "terminology": [
+        "Deal Origination",
+        "Investment Memorandum",
+        "Screening",
+        "Due Diligence",
+        "Deal Structuring",
+        "Tag-along clause"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Intermediary sourcing",
+        "Verification audits",
+        "Conversion and exit structuring"
+      ],
+      "exclusion": [
+        "Unstructured informal angel gifts"
+      ],
+      "nearby_distinctions": [
+        "A rigorous, multi-stage institutional evaluation process unlike casual personal lending."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "bc9af4a6-822f-44c4-99cc-22d422b1784b",
+      "concept_name": "VENTURE CAPITAL FUNDS IN INDIA",
+      "definition": "Venture capital in India evolved from early government-appointed committees and restrictive regulatory guidelines to a liberalized framework supporting technology and startup growth. Domestic venture funds are typically structured using a trust model for pooling funds alongside a separate investment adviser for asset management.",
+      "terminology": [
+        "Controller of Capital Issues",
+        "Domestic Funds",
+        "Trust",
+        "Investment adviser"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Domestic pooling vehicles",
+        "Investment manager entities"
+      ],
+      "exclusion": [
+        "Unregulated informal lending pools"
+      ],
+      "nearby_distinctions": [
+        "Refers specifically to institutionalized fund structures rather than individual angel investments."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8790ef36-e7cb-424d-a4cb-b813c9215eb0",
+      "concept_name": "Evolution",
+      "definition": "The historical evolution of Indian venture capital spans from initial 1970s government funding committees through restrictive Controller of Capital Issues guidelines to subsequent liberalization. Subsequent reforms and the late 1990s information technology boom significantly expanded institutional venture capital participation across the country.",
+      "terminology": [
+        "Controller of Capital Issues",
+        "IT revolution",
+        "Seed and start-up financing"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Historical government guidelines",
+        "Institutional development initiatives"
+      ],
+      "exclusion": [
+        "Modern unguided crowdfunding models"
+      ],
+      "nearby_distinctions": [
+        "Traces the chronological and regulatory development of the venture capital market rather than operational investment steps."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "bd747793-250c-458a-8fbd-6a28fbd04de1",
+      "concept_name": "Structure of Venture Capital Fund in India",
+      "definition": "Venture capital funds in India operate through domestic and offshore structures, with domestic funds predominantly utilizing trusts due to operational flexibility. Offshore structures employ foreign vehicles managed externally with local investment advisors conducting due diligence, while unified structures combine overseas and domestic capital pools.",
+      "terminology": [
+        "Domestic Funds",
+        "Offshore Funds",
+        "Unified Structure",
+        "LLC",
+        "LP"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Trust-based domestic pooling",
+        "Offshore LLC and LP vehicles",
+        "Unified local-foreign co-investment models"
+      ],
+      "exclusion": [
+        "Direct unpooled retail borrowing"
+      ],
+      "nearby_distinctions": [
+        "Classifies legal fund vehicles and asset management routing arrangements."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f7140895-a63d-491c-a2da-458a3072dc52",
+      "concept_name": "STARTUP INDIA INITIATIVE",
+      "definition": "The Startup India initiative defines eligible startups based on incorporation age up to ten years, turnover limits, and a core focus on innovation, scalable employment, or wealth generation. Entities formed by splitting or reconstructing existing businesses are explicitly excluded from qualifying for these government schemes and tax benefits.",
+      "terminology": [
+        "Startup India",
+        "GSR Notification 127(E)",
+        "Turnover limit",
+        "Tax holiday"
+      ],
+      "instrument_references": [
+        "GSR Notification 127 (E)",
+        "Companies Act, 2013",
+        "Partnership Act, 1932",
+        "Limited Liability Partnership Act, 2008"
+      ],
+      "inclusion": [
+        "Private limited companies",
+        "Registered partnerships",
+        "Limited liability partnerships meeting criteria"
+      ],
+      "exclusion": [
+        "Entities formed by splitting existing businesses",
+        "Firms exceeding the hundred crore turnover cap"
+      ],
+      "nearby_distinctions": [
+        "Sets official regulatory thresholds for government program eligibility rather than general commercial definitions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "51d4f17e-7ccd-4a9b-b8a0-25e1cd6cef03",
+      "concept_name": "SUCCESSION PLANNING IN BUSINESS",
+      "definition": "Succession planning involves identifying critical organizational positions and formulating action plans to develop individuals to assume those leadership roles. It mitigates leadership vacancy risks, establishes talent pipelines, resolves internal conflicts, and preserves institutional knowledge especially within family-owned enterprises.",
+      "terminology": [
+        "Succession planning",
+        "Risk mitigation",
+        "Talent pipeline",
+        "Family owned business"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Leadership risk assessments",
+        "Career path development",
+        "Transition strategies for key roles"
+      ],
+      "exclusion": [
+        "Ad-hoc emergency management replacements without prior planning"
+      ],
+      "nearby_distinctions": [
+        "Focuses on long-term leadership continuity and talent development rather than immediate short-term recruitment."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "a11b9c262b90eed1a629d4fa12f5aaf3963761b081179dd6b827eb52bfd20f65",
+  "artifact_id": "6a3f4355-5594-4ddb-8fdf-621409468f31",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8443,
+  "output_tokens": 2439,
+  "cost_usd": 0.0086304,
+  "created_at": "2026-10-03T18:09:17.304464+00:00"
+}

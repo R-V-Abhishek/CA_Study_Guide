@@ -1,0 +1,289 @@
+{
+  "descriptors": [
+    {
+      "node_id": "5776921d-3fdc-46c5-80f8-769710064c2d",
+      "concept_name": "VALUATION OF DISTRESSED COMPANIES",
+      "definition": "Distressed company valuation addresses businesses that cannot fulfill financial commitments due to heavy fixed costs, asset illiquidity, or economic sensitivity. Conventional discounted cash flow techniques prove ineffective here because such entities often exhibit negative cash flows, lack perpetual viability, and require distinct risk adjustments.",
+      "terminology": [
+        "operational distress",
+        "financial obligations",
+        "defaulted debt"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Firms unable to meet obligations to creditors",
+        "Enterprises facing high default risk or negative cash streams"
+      ],
+      "exclusion": [
+        "Financially sound operating businesses",
+        "Stable going concern entities with predictable earnings"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes from standard going concern valuation by modifying terminal value and discount rate assumptions to reflect high failure probabilities."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "361bc6b7-f5ed-402c-933a-b093b2cbcf53",
+      "concept_name": "Modified Discounted Cash Flow Valuation",
+      "definition": "Modified discounted cash flow valuation computes expected periodic cash flows by factoring in default likelihood distributions and updated capital structures. It combines going concern projections with potential distress sale outcomes to capture the true risk of enterprise failure.",
+      "terminology": [
+        "probability of distress",
+        "distress sale value",
+        "expected cash flow"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Computing expected cash flows adjusted for default probabilities",
+        "Combining going concern DCF value with weighted distress sale values"
+      ],
+      "exclusion": [
+        "Standard infinite horizon DCF without default adjustments",
+        "Asset liquidation values calculated independently of cash flow forecasts"
+      ],
+      "nearby_distinctions": [
+        "Differs from conventional DCF by incorporating explicit discrete or distributed probabilities of company failure into the cash flow and final valuation equations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "eb7f0fd4-5035-461d-a1e2-6d335cbe7e40",
+      "concept_name": "DCF Valuation + Distress Value",
+      "definition": "This approach calculates total equity value by summing the going concern DCF value weighted by survival probability and the distress sale value weighted by default probability. It prevents understating firm worth when a company risks failing before reaching stable growth.",
+      "terminology": [
+        "survival probability",
+        "distress sale value",
+        "going concern equity"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Weighting going concern equity by the probability of survival",
+        "Weighting distress sale value by the probability of distress"
+      ],
+      "exclusion": [
+        "Valuations assuming indefinite going-concern operations without risk weighting",
+        "Pure liquidation asset appraisals"
+      ],
+      "nearby_distinctions": [
+        "Contrasts with Modified DCF models by explicitly bifurcating the terminal state into a going-concern path and a distinct distress sale recovery value."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "acbb0b93-4643-4a2c-892e-b2529000c995",
+      "concept_name": "Adjusted Present Value Model",
+      "definition": "The adjusted present value model separates investment decisions from financing decisions by evaluating an unlevered firm and subsequently adjusting for financing side effects. Total firm value equals the unlevered value plus tax benefits of debt minus expected bankruptcy costs derived from distress probabilities.",
+      "terminology": [
+        "unlevered firm value",
+        "tax benefits of debt",
+        "expected bankruptcy costs"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Discounting free cash flows to the firm at the unlevered cost of equity",
+        "Adjusting for tax shields and expected bankruptcy losses"
+      ],
+      "exclusion": [
+        "Weighted average cost of capital models combining debt and equity cost directly",
+        "Pure asset-based liquidation valuations"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes itself from standard WACC valuation by isolating tax shields and bankruptcy expenses explicitly as additive components to an unlevered baseline."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "49559919-fdcf-4648-b334-22af1e89a21d",
+      "concept_name": "Relative Valuation",
+      "definition": "Relative valuation for distressed companies relies heavily on revenue and EBITDA multiples rather than traditional price-to-earnings or book value metrics. Analysts apply subjective downward adjustments to standard industry average multiples to account for a target firm's operational distress.",
+      "terminology": [
+        "revenue multiples",
+        "EBITDA multiples",
+        "industry average adjustments"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Using top-line revenue and EBITDA metrics for distressed firms",
+        "Adjusting standard sector trading multiples downward for distress factors"
+      ],
+      "exclusion": [
+        "Price to earnings multiples for loss-making firms",
+        "Price to book multiples for capital-distorted entities"
+      ],
+      "nearby_distinctions": [
+        "Unlike healthy firms where P/E ratios are standard, distressed relative valuation mandates revenue or EBITDA bases because bottom-line earnings are typically negative."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "bbf70223-db9b-482f-82a6-fbd783f32023",
+      "concept_name": "VALUATION OF START UPS",
+      "definition": "Startup valuation involves assessing emerging enterprises that lack historical financial records, performance track records, or immediate profitability. Valuations depend heavily on future growth potential, founders' execution capabilities, and qualitative success narratives.",
+      "terminology": [
+        "untested ideas",
+        "absence of past performance",
+        "growth potential"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Evaluating businesses lacking historical operational data",
+        "Assessing future growth narratives and founder capabilities"
+      ],
+      "exclusion": [
+        "Established enterprises with multi-year financial track records",
+        "Stable, cash-generating going-concern corporations"
+      ],
+      "nearby_distinctions": [
+        "Differs from traditional corporate valuation by substituting historical financials with forward-looking qualitative value drivers due to a complete absence of past data."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6a2d96ae-9f21-4ccc-8dd4-4ee684276fcb",
+      "concept_name": "Why traditional methods cannot be applied?",
+      "definition": "Traditional valuation methods fail for new-age startups because they presuppose historical profitability, standard asset backing, and established industry competition. Startups typically generate negative cash flows, hold intangible intellectual property, and act as market disruptors without historical peers.",
+      "terminology": [
+        "income approach failure",
+        "asset approach limitations",
+        "market approach disruption"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Explaining why income, asset, and market approaches fail for startups",
+        "Highlighting lack of positive cash flows and intangible asset reliance"
+      ],
+      "exclusion": [
+        "Valuation of mature, profitable companies with standard competitive landscapes",
+        "Firms with clear balance-sheet physical asset backing"
+      ],
+      "nearby_distinctions": [
+        "Contrasts standard business valuation assumptions with startup realities such as absent historical comparables and non-existent current earnings."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3b60fd9d-0195-4438-ad7d-81a3284c92e3",
+      "concept_name": "Value Drivers for startups",
+      "definition": "Startup value drivers are core qualitative and quantitative elements that dictate an early-stage enterprise's worth in the absence of financial history. Key factors include product readiness, management team credentials, market traction, revenue streams, industry attractiveness, and competitive positioning.",
+      "terminology": [
+        "product readiness",
+        "management credentials",
+        "market traction"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Evaluating product prototypes, customer traction, and management credentials",
+        "Assessing industry competitiveness and revenue stream variety"
+      ],
+      "exclusion": [
+        "Historical net income and multi-year dividend payout records",
+        "Tangible fixed asset book values"
+      ],
+      "nearby_distinctions": [
+        "Unlike mature firms driven by financial statements, startup value is driven by operational milestones, team background, and market demand metrics."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e9b97459-953c-4834-9dbe-be724e225c8a",
+      "concept_name": "Methods for valuing startups",
+      "definition": "Specialized startup valuation methods attempt to reduce subjectivity by evaluating specific operational and market criteria rather than relying on historical cash flows. Common frameworks include scoring key success factors, aggregating development costs, and benchmarking against comparable historical transactions.",
+      "terminology": [
+        "Berkus Approach",
+        "Cost-to-Duplicate Approach",
+        "Comparable Transactions Method"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Scoring success criteria like technology and execution",
+        "Aggregating development and physical asset costs",
+        "Benchmarking per-user metrics from precedent transactions"
+      ],
+      "exclusion": [
+        "Discounted cash flow models utilizing multi-year historical projections",
+        "Traditional asset-based liquidation valuation"
+      ],
+      "nearby_distinctions": [
+        "Replaces traditional financial modeling with specialized heuristics like pre-revenue valuation caps, cost aggregation, and per-unit transaction multiples."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "11c27041-4507-4dde-89e4-eb37567e08fb",
+      "concept_name": "VALUATION OF DIGITAL PLATFORMS",
+      "definition": "Digital platforms are software-based online infrastructures that facilitate many-to-many interactions and transactions across various categories like marketplaces, search engines, and repositories. Their valuation follows general principles adapted for unique industry nuances such as network effects and user metrics.",
+      "terminology": [
+        "digital platform",
+        "marketplace",
+        "repository"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Online software infrastructures facilitating user interactions",
+        "Categories including marketplaces, search engines, repositories, and communication networks"
+      ],
+      "exclusion": [
+        "Traditional brick-and-mortar manufacturing companies",
+        "Single-party asset holding entities without user network effects"
+      ],
+      "nearby_distinctions": [
+        "Differs from conventional business valuation by prioritizing user engagement metrics, network scale, and platform categorization over physical operational assets."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a3f5cac1-645a-44dc-b8f8-54a2bab02284",
+      "concept_name": "Income Approach",
+      "definition": "The income approach for digital platforms projects future financial performance by analyzing specific revenue and cost drivers through top-down or bottom-up forecasting methods. Top-down analysis starts from total addressable market potential down to serviceable obtainable market share, while bottom-up forecasting builds earnings estimates from constrained operational resources.",
+      "terminology": [
+        "Total Addressable Market",
+        "Serviceable Addressable Market",
+        "Serviceable Obtainable Market"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Top-down market sizing via TAM, SAM, and SOM metrics",
+        "Bottom-up earnings estimation based on restricted operational resources",
+        "Factoring in penetrative cash-burning growth strategies"
+      ],
+      "exclusion": [
+        "Historical backward-looking earnings capitalization models",
+        "Pure asset liquidation approaches"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes platform income valuation by explicitly modeling user acquisition cash burn and macro-to-micro market sizing stages."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a1449e3e-88a0-447e-9902-4be0b9f19d39",
+      "concept_name": "Market Approach",
+      "definition": "The market approach values digital platforms by comparing them against similar entities using operational valuation ratios and platform-specific revenue drivers. Because listed comparables are often scarce and underlying earnings or book values may be negative or minimal, comparison emphasizes primary revenue generators such as active users, transaction volumes, and search efficiency.",
+      "terminology": [
+        "comparable selection",
+        "revenue drivers",
+        "active users"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Benchmarking platform performance via operational metrics like active users and transaction volume",
+        "Adjusting comparisons based on platform category specific drivers"
+      ],
+      "exclusion": [
+        "Traditional book-value or P/E multiples where earnings and asset bases are robust",
+        "Standard manufacturing sector asset multiples"
+      ],
+      "nearby_distinctions": [
+        "Unlike standard market approaches relying on net profit multiples, digital platform valuation substitutes user activity and engagement metrics due to scarce comparables and capital-lite balance sheets."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "c3b80e74883711618fec24c013a188f670b4c179acbec580aa89f8957403af99",
+  "artifact_id": "c49075ef-f163-4f31-81f9-73a543047aaa",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8193,
+  "output_tokens": 3353,
+  "cost_usd": 0.0108404,
+  "created_at": "2026-10-03T18:09:07.957989+00:00"
+}

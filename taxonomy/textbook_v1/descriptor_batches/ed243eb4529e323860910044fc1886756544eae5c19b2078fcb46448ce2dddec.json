@@ -1,0 +1,335 @@
+{
+  "descriptors": [
+    {
+      "node_id": "d23a3ae4-d5bf-4c1b-905e-ac384e5e6991",
+      "concept_name": "Payment in respect of life insurance policy [Section 194DA]",
+      "definition": "Tax is deductible on maturity or other proceeds of life insurance policies that fail to satisfy statutory exemption conditions. The deduction applies to the income component after subtracting the premium paid.",
+      "terminology": [
+        "life insurance policy",
+        "maturity proceeds",
+        "bonus",
+        "sum assured",
+        "income component"
+      ],
+      "instrument_references": [
+        "Section 194DA",
+        "Section 10(10D)"
+      ],
+      "inclusion": [
+        "maturity proceeds of policies not qualifying for exemption",
+        "bonus amounts allocated under such policies"
+      ],
+      "exclusion": [
+        "sums fully exempt under Section 10(10D)",
+        "payments below the prescribed financial year threshold limit"
+      ],
+      "nearby_distinctions": [
+        "Unlike fully exempt policies under Section 10(10D), policies failing conditions attract tax deduction on the net income element."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5c686061-984f-4cc2-9cbc-82791109a0bd",
+      "concept_name": "Payments in respect of deposits under National Savings Scheme, etc. [Section 194EE]",
+      "definition": "A person responsible for paying amounts from a National Savings Scheme Account must deduct tax at the specified rate upon payment. Payments made to legal heirs are exempt from these tax deduction requirements.",
+      "terminology": [
+        "National Savings Scheme Account",
+        "aggregate payments",
+        "heirs"
+      ],
+      "instrument_references": [
+        "Section 194EE"
+      ],
+      "inclusion": [
+        "withdrawals from National Savings Scheme accounts"
+      ],
+      "exclusion": [
+        "payments disbursed to the legal heirs of the assessee"
+      ],
+      "nearby_distinctions": [
+        "Section 194EE specifically governs NSS account withdrawals, differing from general bank deposit interest provisions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9cb86ab6-0298-4300-99ee-062b739cf927",
+      "concept_name": "Commission etc. on the sale of lottery tickets [Section 194G]",
+      "definition": "Payers distributing income by way of commission, remuneration, or prize on lottery tickets must deduct tax at source. Crediting a suspense or similar account is deemed a credit to the payee's account.",
+      "terminology": [
+        "lottery tickets",
+        "stocking",
+        "distributing",
+        "suspense account"
+      ],
+      "instrument_references": [
+        "Section 194G"
+      ],
+      "inclusion": [
+        "commission on lottery ticket sales",
+        "remuneration and prizes relating to lotteries"
+      ],
+      "exclusion": [
+        "payments not exceeding the statutory threshold limit"
+      ],
+      "nearby_distinctions": [
+        "Distinct from general commission or brokerage under Section 194H, Section 194G specifically targets lottery-related earnings."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ebf252fa-f5d7-4d88-b8d1-e70d70ffa175",
+      "concept_name": "Commission or brokerage [Section 194H]",
+      "definition": "Specified payers making payments by way of commission or brokerage to a resident must deduct tax at source. Professional services are explicitly excluded from the scope of this provision.",
+      "terminology": [
+        "commission",
+        "brokerage",
+        "services rendered",
+        "turnover"
+      ],
+      "instrument_references": [
+        "Section 194H",
+        "Section 44AA"
+      ],
+      "inclusion": [
+        "payments for services rendered in the course of buying or selling goods",
+        "transactions relating to assets or valuable articles other than securities"
+      ],
+      "exclusion": [
+        "insurance commission",
+        "professional services"
+      ],
+      "nearby_distinctions": [
+        "Differs from insurance commission which is covered under a separate section, and excludes professional services governed under Section 194J."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "172d4c79-476f-4c13-b000-f11b618b39ea",
+      "concept_name": "Rent [Section 194-I]",
+      "definition": "Entities responsible for paying rental income for the use of land, buildings, machinery, plant, equipment, furniture, or fittings to a resident must deduct tax at source. Real estate assets owned directly by a REIT are exempt from this deduction.",
+      "terminology": [
+        "rent",
+        "lease",
+        "sub-lease",
+        "plant and machinery",
+        "REIT"
+      ],
+      "instrument_references": [
+        "Section 194-I"
+      ],
+      "inclusion": [
+        "payments for land or buildings",
+        "rent for plant, machinery, equipment, furniture, or fittings"
+      ],
+      "exclusion": [
+        "rent paid to a business trust being a REIT in respect of directly owned real estate assets"
+      ],
+      "nearby_distinctions": [
+        "Applies distinct tax rates for plant, machinery, and equipment rental compared to land, building, and furniture rental."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "16021ad6-79e0-4ff3-96ff-967394f41d28",
+      "concept_name": "Payment on transfer of certain immovable property other than agricultural land [Section 194-IA]",
+      "definition": "Transferees acquiring immovable property other than rural agricultural land from a resident must deduct tax from the consideration or stamp duty value. Compulsory acquisitions are excluded as they fall under alternative provisions.",
+      "terminology": [
+        "transferee",
+        "transferor",
+        "stamp duty value",
+        "rural agricultural land",
+        "urban agricultural land"
+      ],
+      "instrument_references": [
+        "Section 194-IA",
+        "Section 194LA",
+        "Section 203A"
+      ],
+      "inclusion": [
+        "consideration for transfer of land other than rural agricultural land",
+        "buildings or parts of buildings",
+        "incidental charges like club membership and parking fees"
+      ],
+      "exclusion": [
+        "rural agricultural land",
+        "compulsory acquisitions"
+      ],
+      "nearby_distinctions": [
+        "Unlike compulsory property acquisitions covered under Section 194LA, standard voluntary property transfers fall under Section 194-IA."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a2959541-74b5-4ed9-a4ab-cb9b501bd402",
+      "concept_name": "Payment of rent by certain individuals or Hindu undivided family [Section194-IB]",
+      "definition": "Individuals and Hindu Undivided Families not subject to regular tax audit thresholds who pay monthly rent exceeding a specified amount must deduct tax at source. The deduction is capped at the rent payable for the last month of the previous year or tenancy.",
+      "terminology": [
+        "monthly rent",
+        "tenancy",
+        "previous year",
+        "TAN"
+      ],
+      "instrument_references": [
+        "Section 194-IB",
+        "Section 203A",
+        "Section 206AA"
+      ],
+      "inclusion": [
+        "monthly rental payments exceeding the threshold by qualifying individuals and HUFs"
+      ],
+      "exclusion": [
+        "individuals and HUFs subject to business or profession audit turnover limits"
+      ],
+      "nearby_distinctions": [
+        "Specifically targets non-business or smaller individual and HUF tenants rather than corporate or large business entities."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7b7b364e-2166-4b73-a0f1-866e352b5ed5",
+      "concept_name": "Payment under specified agreement [Section 194-IC]",
+      "definition": "Payers distributing consideration under a registered real estate development agreement involving land or buildings must deduct tax at source. This mechanism applies specifically to specified agreements governed by capital gains provisions.",
+      "terminology": [
+        "specified agreement",
+        "real estate project",
+        "consideration in kind",
+        "share in project"
+      ],
+      "instrument_references": [
+        "Section 194-IC",
+        "Section 45(5A)",
+        "Section 194-IA"
+      ],
+      "inclusion": [
+        "monetary consideration paid under registered land development agreements"
+      ],
+      "exclusion": [
+        "consideration paid entirely in kind or transfers covered under general immovable property sections"
+      ],
+      "nearby_distinctions": [
+        "Supersedes general immovable property transfer TDS for arrangements qualifying as specified agreements under Section 45(5A)."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e3c6046e-ffeb-4b64-814f-9ff0eaaf9787",
+      "concept_name": "Fees for professional or technical services [Section 194J]",
+      "definition": "Entities other than individuals and HUFs paying fees for professional or technical services, royalty, non-compete fees, or director remuneration must deduct tax at source. Threshold limits apply independently to professional fees, technical fees, royalties, and non-compete payments.",
+      "terminology": [
+        "professional services",
+        "technical services",
+        "royalty",
+        "non-compete fees",
+        "director remuneration"
+      ],
+      "instrument_references": [
+        "Section 194J",
+        "Section 192",
+        "Section 28(va)"
+      ],
+      "inclusion": [
+        "fees for professional or technical services",
+        "royalty payments",
+        "non-compete fees",
+        "director remuneration"
+      ],
+      "exclusion": [
+        "payments below the distinct threshold limits per category"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes separate threshold evaluations for professional fees, technical fees, royalties, and non-compete compensation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6b730882-32ce-4e8d-a0ff-a4f0ea0ad754",
+      "concept_name": "Income in respect of units [Section 194K]",
+      "definition": "Payers distributing income in respect of mutual fund units or specified undertakings must deduct tax at source. Capital gains distributions and amounts below the financial year threshold are exempt from this deduction.",
+      "terminology": [
+        "mutual fund",
+        "units",
+        "specified undertaking",
+        "capital gains"
+      ],
+      "instrument_references": [
+        "Section 194K",
+        "Section 10(23D)"
+      ],
+      "inclusion": [
+        "income distributed on mutual fund units",
+        "units from administrators of specified undertakings or specified companies"
+      ],
+      "exclusion": [
+        "income of the nature of capital gains",
+        "aggregate income not exceeding the threshold limit in a financial year"
+      ],
+      "nearby_distinctions": [
+        "Excludes capital gains components, focusing strictly on income distributions from specified mutual fund and corporate units."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3ed1d995-7507-4001-943b-e49532652b20",
+      "concept_name": "Payment of compensation on acquisition of certain immovable property [Section 194LA]",
+      "definition": "Payers disbursing compensation or consideration for the compulsory acquisition of immovable property other than agricultural land must deduct tax at source. Awards exempted under specific land acquisition transparency legislation are excluded.",
+      "terminology": [
+        "compulsory acquisition",
+        "compensation",
+        "enhanced consideration",
+        "immovable property"
+      ],
+      "instrument_references": [
+        "Section 194LA",
+        "Right to Fair Compensation and Transparency in Land Acquisition, Rehabilitation and Resettlement Act, 2013"
+      ],
+      "inclusion": [
+        "compensation and enhanced consideration for compulsory property acquisition"
+      ],
+      "exclusion": [
+        "agricultural land",
+        "awards exempted under Section 96 of the Land Acquisition Act 2013"
+      ],
+      "nearby_distinctions": [
+        "Restricted exclusively to compulsory acquisitions under statutory laws rather than voluntary real estate transfers."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1641a1d7-69cf-4886-b0d3-fd3812c0c6c7",
+      "concept_name": "Payment made by an individual or a HUF for contract work or by way of commission or brokerage or fees for professional services [Section 194M]",
+      "definition": "Individuals and HUFs not subject to regular business audit requirements who pay substantial sums for contract work, commission, brokerage, or professional services must deduct tax at source. Taxpayers already obligated to deduct tax under specific contractor, commission, or professional sections are excluded.",
+      "terminology": [
+        "contract work",
+        "commission",
+        "brokerage",
+        "professional services",
+        "aggregate amount"
+      ],
+      "instrument_references": [
+        "Section 194M",
+        "Section 194C",
+        "Section 194H",
+        "Section 194J"
+      ],
+      "inclusion": [
+        "contract work payments",
+        "commission or brokerage",
+        "fees for professional services made by non-audit individuals and HUFs"
+      ],
+      "exclusion": [
+        "individuals and HUFs required to deduct tax under Sections 194C, 194H, or 194J"
+      ],
+      "nearby_distinctions": [
+        "Serves as a catch-all provision for individual and HUF payees who exceed high financial thresholds but lack business audit obligations."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "ed243eb4529e323860910044fc1886756544eae5c19b2078fcb46448ce2dddec",
+  "artifact_id": "709b89a3-dc01-4355-bec1-d27da08bc4e4",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 10141,
+  "output_tokens": 3598,
+  "cost_usd": 0.012037299999999999,
+  "created_at": "2026-10-03T18:17:50.053623+00:00"
+}

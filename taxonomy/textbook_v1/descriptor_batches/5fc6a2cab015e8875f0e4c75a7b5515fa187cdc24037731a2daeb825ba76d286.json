@@ -1,0 +1,95 @@
+{
+  "descriptors": [
+    {
+      "node_id": "389e270c-6d3e-4310-8192-abffd9a04caa",
+      "concept_name": "Restatement Of Previously Reported Interim Periods",
+      "definition": "Changes in accounting policies are incorporated by restating prior interim periods of the current and comparable prior financial years. If determining the cumulative effect is impracticable, the new policy is applied prospectively from the earliest date practicable.",
+      "terminology": [
+        "change in accounting policy",
+        "retrospective application",
+        "prospective application",
+        "impracticable",
+        "prior interim periods"
+      ],
+      "instrument_references": [
+        "Ind AS 8",
+        "Ind AS 34"
+      ],
+      "inclusion": [
+        "Restatement of prior interim financial statements of the current financial year",
+        "Restatement of comparable interim periods of prior financial years"
+      ],
+      "exclusion": [
+        "Changes where transition is specifically prescribed by a new Ind AS",
+        "Reversal of goodwill impairment losses"
+      ],
+      "nearby_distinctions": [
+        "Retrospective restatement versus prospective application when cumulative effects cannot be determined."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3d2befe3-afde-4018-9647-567ba89f8a26",
+      "concept_name": "Interim Financial Reporting And Impairment",
+      "definition": "Goodwill impairment losses recognized in previous interim periods cannot be reversed in subsequent reporting periods even if conditions improve. Entities must recognize expenses incurred during an interim period within that same period rather than deferring them.",
+      "terminology": [
+        "goodwill impairment",
+        "impairment loss",
+        "deferral of expenses",
+        "interim reporting period"
+      ],
+      "instrument_references": [
+        "Ind AS 34",
+        "Ind AS 36"
+      ],
+      "inclusion": [
+        "Prohibition of goodwill impairment loss reversals",
+        "Recognition of interim expenses in the period incurred"
+      ],
+      "exclusion": [
+        "Deferral of bad debts or exceptional losses to subsequent quarters",
+        "Reversal of impairment losses for goodwill"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between mandatory current period expense recognition and improper inter-quarter cost deferrals."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "39a44bc6-8533-4005-bb43-10f251984383",
+      "concept_name": "Significant Differences In Ind As 34 Vis-À-Vis AS 25",
+      "definition": "Ind AS 34 introduces specific disclosure requirements for significant events, prohibits goodwill and certain asset impairment reversals, and contains Appendix A for impairment interactions. Unlike prior standards, it neither mandates nor prohibits including separate parent statements alongside consolidated interim statements.",
+      "terminology": [
+        "Ind AS 34",
+        "AS 25",
+        "reversal of impairment loss",
+        "contingent liabilities and assets"
+      ],
+      "instrument_references": [
+        "Ind AS 34",
+        "AS 25",
+        "Ind AS 36"
+      ],
+      "inclusion": [
+        "Comparative differences in interim disclosures",
+        "Impairment loss reversal prohibitions for specific assets",
+        "Provisions regarding separate and consolidated interim statements"
+      ],
+      "exclusion": [
+        "Identical accounting treatments across both standards",
+        "Annual financial statement frameworks outside interim reporting scope"
+      ],
+      "nearby_distinctions": [
+        "Contrasts Ind AS 34 requirements with AS 25 concerning impairment reversals and financial statement inclusions."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "5fc6a2cab015e8875f0e4c75a7b5515fa187cdc24037731a2daeb825ba76d286",
+  "artifact_id": "4653f48f-2a26-49b5-a604-40c74d05631d",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 2573,
+  "output_tokens": 930,
+  "cost_usd": 0.0030969,
+  "created_at": "2026-10-03T17:47:35.838464+00:00"
+}

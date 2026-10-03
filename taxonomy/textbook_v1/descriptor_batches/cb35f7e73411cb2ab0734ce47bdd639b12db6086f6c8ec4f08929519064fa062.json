@@ -1,0 +1,325 @@
+{
+  "descriptors": [
+    {
+      "node_id": "c2e25801-4976-4c49-b54b-5d430d16e529",
+      "concept_name": "Cash And Cash Equivalents",
+      "definition": "Cash comprises cash on hand and demand deposits, while cash equivalents consist of short-term, highly liquid investments that are readily convertible to known cash amounts with insignificant valuation risks. They are held to meet short-term cash commitments rather than for investment purposes, normally possessing a maturity of three months or less.",
+      "terminology": [
+        "Cash on hand",
+        "Demand deposits",
+        "Short-term maturity",
+        "Insignificant risk",
+        "Cash equivalents"
+      ],
+      "instrument_references": [
+        "Ind AS 7"
+      ],
+      "inclusion": [
+        "Cash on hand",
+        "Demand deposits",
+        "Short-term highly liquid investments with maturity of three months or less",
+        "Bank overdrafts forming an integral part of cash management"
+      ],
+      "exclusion": [
+        "Equity investments, unless in substance cash equivalents",
+        "Long-term investments exceeding three months maturity"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general long-term investments held for return rather than short-term liquidity commitments."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6bac69d9-8dda-47f0-9813-8a2a327d8c89",
+      "concept_name": "Cash And Cash Equivalents",
+      "definition": "Cash equivalents represent short-term investments easily realizable into known cash amounts with negligible risk of value fluctuation. Internal movements and transfers between items constituting cash or cash equivalents are excluded from cash flows because they form part of entity cash management.",
+      "terminology": [
+        "Cash management",
+        "Known amount of cash",
+        "Short maturity",
+        "Insignificant risk"
+      ],
+      "instrument_references": [
+        "Ind AS 7"
+      ],
+      "inclusion": [
+        "Investments realizable easily in a short period",
+        "Items utilized for meeting short-term cash commitments"
+      ],
+      "exclusion": [
+        "Movements between items constituting cash or cash equivalents"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from operating, investing, and financing cash flows which involve external resource exchanges."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5d6e68fa-7f8a-450c-a762-65d72963e66e",
+      "concept_name": "Presentation Of Statement Of Cash Flows",
+      "definition": "Cash flow statements must report cash flows classified into operating, investing, and financing activities during the period. Operating activities primarily comprise principal revenue-producing operations and other activities that are neither investing nor financing.",
+      "terminology": [
+        "Operating activities",
+        "Investing activities",
+        "Financing activities",
+        "Principal revenue-producing activities"
+      ],
+      "instrument_references": [
+        "Ind AS 7"
+      ],
+      "inclusion": [
+        "Cash receipts from goods and services",
+        "Cash payments to suppliers and employees",
+        "Tax payments unless specifically identified with investing or financing"
+      ],
+      "exclusion": [
+        "Transactions classified separately as investing or financing activities"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from investing and financing activities by focusing strictly on day-to-day operational revenue generation and profit determination."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "58c18cf1-d033-48c6-8ab2-26f803d6d1c5",
+      "concept_name": "Operating Activities",
+      "definition": "Operating activities reflect cash flows derived primarily from the core revenue-producing operations of an enterprise, generally resulting from transactions entering profit or loss determination. They encompass operational inflows from sales and outflows for supplies, employees, and taxes unless specifically linked to other categories.",
+      "terminology": [
+        "Operating cash inflows",
+        "Operating cash outflows",
+        "Principal revenue-producing",
+        "Profit or loss determination"
+      ],
+      "instrument_references": [
+        "Ind AS 7"
+      ],
+      "inclusion": [
+        "Receipts from sale of goods and rendering services",
+        "Payments to suppliers and employees",
+        "Receipts and payments from dealing or trading contracts"
+      ],
+      "exclusion": [
+        "Non-cash expenses such as depreciation or inventory loss decreases",
+        "Cash flows specifically identified with investing or financing"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from investing and financing flows by capturing operational business cycles rather than long-term asset changes or capital structure adjustments."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3fe96d25-9d65-480f-b054-bc1495fb9e45",
+      "concept_name": "Investing Activities",
+      "definition": "Investing activities represent expenditures and receipts associated with resources intended to generate future income and cash flows, requiring a recognized asset on the balance sheet. They include transactions regarding long-term assets, investments, and advances not categorized as cash equivalents.",
+      "terminology": [
+        "Long-term assets",
+        "Future income",
+        "Recognized asset",
+        "Advances and loans"
+      ],
+      "instrument_references": [
+        "Ind AS 7"
+      ],
+      "inclusion": [
+        "Acquisition and disposal of property, plant, and equipment and intangibles",
+        "Purchases and sales of debt or equity instruments of other entities",
+        "Advances and loans made to other parties"
+      ],
+      "exclusion": [
+        "Instruments considered cash equivalents",
+        "Instruments held for dealing or trading purposes"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from operating activities by focusing on long-term resource deployment rather than immediate operational revenue cycles."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "23f2d227-bb93-420b-bbf3-8157637581db",
+      "concept_name": "Financing Activities",
+      "definition": "Financing activities encompass cash flows resulting from changes in the size and composition of an entity's contributed equity and borrowings. These flows assist in predicting future claims on capital providers by capturing fund-raising, capital redemption, and associated capital costs.",
+      "terminology": [
+        "Contributed equity",
+        "Borrowings",
+        "Capital structure",
+        "Cost of capital"
+      ],
+      "instrument_references": [
+        "Ind AS 7"
+      ],
+      "inclusion": [
+        "Proceeds from issuing shares or equity instruments",
+        "Proceeds and repayments of debentures, loans, and bonds",
+        "Lease liability payments by lessees"
+      ],
+      "exclusion": [
+        "Non-cash asset acquisitions via equity issuance",
+        "Bonus share issues involving no cash flows"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from investing activities by focusing on capital structure adjustments rather than long-term asset acquisitions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f6ae5dc6-c424-41da-a162-02f161c65527",
+      "concept_name": "Reporting Cash Flows From Operating Activities",
+      "definition": "Operating cash flows are reported using either the direct method, disclosing major classes of gross cash receipts and payments, or the indirect method, adjusting net profit or loss for non-cash effects and accruals. The direct method is encouraged as it provides useful estimations of future cash flows not available under the indirect method.",
+      "terminology": [
+        "Direct method",
+        "Indirect method",
+        "Gross cash receipts",
+        "Non-cash items"
+      ],
+      "instrument_references": [
+        "Ind AS 7"
+      ],
+      "inclusion": [
+        "Gross cash receipts and payments under the direct method",
+        "Adjustments for non-cash transactions and working capital changes under the indirect method"
+      ],
+      "exclusion": [
+        "Cash flows from investing and financing activities within operating totals"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from investing and financing reporting by explicitly converting accrual-based profit into operational cash realizations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "40063400-c922-4aa8-9333-4aef55c3c8f2",
+      "concept_name": "Reporting Cash Flows From Investing And Financing Activities",
+      "definition": "Entities must report major classes of gross cash receipts and gross cash payments arising from investing and financing activities separately. Reporting on a net basis is prohibited unless specifically permitted for customer-related transactions or rapid-turnover, high-amount, short-maturity items.",
+      "terminology": [
+        "Gross basis",
+        "Net basis",
+        "Gross cash receipts",
+        "Gross cash payments"
+      ],
+      "instrument_references": [
+        "Ind AS 7"
+      ],
+      "inclusion": [
+        "Separate reporting of individual asset purchases and sales",
+        "Separate reporting of loan disbursements and repayments"
+      ],
+      "exclusion": [
+        "Net reporting of general non-qualifying cash transactions"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from permitted net reporting exceptions which apply to rapid short-term turnovers or custodial activities."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ff2dd93a-3c7a-4547-b0b7-2a489a780adf",
+      "concept_name": "Reporting Cash Flows On A Net Basis",
+      "definition": "Cash flows are normally presented on a gross basis, but exceptions allow net reporting for customer-driven flows, high-turnover items with short maturities, and specific financial institution activities. These exceptions apply when flows reflect customer activities or rapid-turnover items rather than the entity's direct operations.",
+      "terminology": [
+        "Net basis",
+        "Demand deposits",
+        "Quick turnover",
+        "Short maturity"
+      ],
+      "instrument_references": [
+        "Ind AS 7"
+      ],
+      "inclusion": [
+        "Acceptance and repayment of demand deposits",
+        "Funds held for customers and rents collected on behalf of owners",
+        "Short-term borrowings with maturity of three months or less"
+      ],
+      "exclusion": [
+        "Standard long-term asset purchases and sales"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard gross reporting which demands separate disclosure of all major cash inflows and outflows."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a78fbb4c-ec37-42de-8fa3-c1271927c999",
+      "concept_name": "Foreign Currency Cash Flows",
+      "definition": "Foreign currency transactions must be recorded in the functional currency by applying the exchange rate at the date of the cash flow. Unrealized gains and losses from rate changes do not constitute cash flows, but exchange rate changes on foreign cash balances are reported separately to reconcile beginning and ending cash equivalents.",
+      "terminology": [
+        "Functional currency",
+        "Exchange rate",
+        "Unrealized gains and losses",
+        "Reconciliation"
+      ],
+      "instrument_references": [
+        "Ind AS 7"
+      ],
+      "inclusion": [
+        "Translation of foreign currency cash transactions at the date of the cash flow",
+        "Separate reporting of exchange rate effects on foreign cash and cash equivalents"
+      ],
+      "exclusion": [
+        "Unrealized exchange differences treated as operating cash flows under indirect method reconciliations where appropriate"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from actual operating, investing, or financing cash flows by serving as a reconciliation adjustment for cash balances."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "758eb3f4-fb6b-43b0-832c-e90f10ca35b6",
+      "concept_name": "Interest And Dividends",
+      "definition": "Cash flows from interest and dividends received and paid must each be disclosed separately and classified consistently across periods. For financial institutions, interest paid and interest and dividends received are typically classified as operating activities, whereas for other entities they may be categorized as operating, investing, or financing.",
+      "terminology": [
+        "Interest paid",
+        "Interest received",
+        "Dividends paid",
+        "Dividends received",
+        "Financial institution"
+      ],
+      "instrument_references": [
+        "Ind AS 7"
+      ],
+      "inclusion": [
+        "Separate disclosure of interest paid and received",
+        "Separate disclosure of dividends paid and received"
+      ],
+      "exclusion": [
+        "Non-cash interest accruals where no cash flow occurs"
+      ],
+      "nearby_distinctions": [
+        "Distinguished by entity type, where financial institutions treat certain interest and dividends as operating activities while non-financial entities classify them as investing or financing returns."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "42c186c2-4b8e-46a8-9a07-6c98e6e3615c",
+      "concept_name": "Taxes On Income",
+      "definition": "Cash flows arising from income taxes must be separately disclosed and classified as operating activities unless they can be specifically identified with investing or financing activities. Tax flows are typically classed under operations because individual transaction-level tax tracing is frequently impracticable.",
+      "terminology": [
+        "Income taxes",
+        "Operating activities",
+        "Investing activities",
+        "Financing activities",
+        "Advance tax"
+      ],
+      "instrument_references": [
+        "Ind AS 7"
+      ],
+      "inclusion": [
+        "Taxes classified as operating cash flows by default",
+        "Taxes specifically identified with investing or financing transactions"
+      ],
+      "exclusion": [
+        "Unidentified tax allocations across multiple ambiguous activities"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general operating taxes when a tax cash flow is directly and practicably attributable to an individual investing or financing transaction."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "cb35f7e73411cb2ab0734ce47bdd639b12db6086f6c8ec4f08929519064fa062",
+  "artifact_id": "7ee89275-e26a-48bc-b94b-0383b62f6f19",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8316,
+  "output_tokens": 3512,
+  "cost_usd": 0.0112748,
+  "created_at": "2026-10-03T17:47:54.528519+00:00"
+}

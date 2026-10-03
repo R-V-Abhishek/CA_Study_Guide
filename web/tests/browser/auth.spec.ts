@@ -32,7 +32,7 @@ test('hosted OIDC invitation creates a private profile with honest unavailable s
   await page.getByRole('button', { name: 'Save profile' }).click();
   await expect(page.getByRole('status')).toHaveText('Profile settings saved.');
   await page.goto('/plan');
-  await expect(page.getByText('No successful scoring run exists for your target attempt.')).toBeVisible();
+  await expect(page.getByText('No successful scoring run exists for your target attempt and taxonomy version.')).toBeVisible();
   await page.getByRole('button', { name: 'Sign out' }).click();
   await expect(page.getByRole('link', { name: 'Sign in with Auth0' })).toBeVisible();
   await expect.poll(async () => (await request.get('/api/v1/me')).status()).toBe(401);
@@ -140,7 +140,7 @@ test('an unseen cookie switch rejects a stale account read before showing privat
   await expect(page.getByText('Target attempt: 2027-05')).toBeVisible();
   release(); await page.unroute('**/api/v1/plan*');
   await page.getByRole('link', { name: 'Study Plan', exact: true }).click();
-  await expect(page.getByText('No successful scoring run exists for your target attempt.')).toBeVisible();
+  await expect(page.getByText('No successful scoring run exists for your target attempt and taxonomy version.')).toBeVisible();
   await expect(page.locator('ol li')).toHaveCount(0);
 });
 

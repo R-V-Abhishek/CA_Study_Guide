@@ -1,0 +1,326 @@
+{
+  "descriptors": [
+    {
+      "node_id": "e3f7f5fb-c700-40a6-b75f-dedb25383aaa",
+      "concept_name": "Reference Date for Further Public Offer",
+      "definition": "An issuer must fulfill all regulatory conditions for a further public offer on both the date of filing the draft offer document with the Board and the final offer document with the Registrar of Companies. This dual-filing timeline ensures continuous compliance before securities can be issued to the public.",
+      "terminology": [
+        "draft offer document",
+        "offer document",
+        "Registrar of Companies",
+        "Board"
+      ],
+      "instrument_references": [
+        "Regulation 101"
+      ],
+      "inclusion": [
+        "Filing date with the Board",
+        "Filing date with the Registrar of Companies"
+      ],
+      "exclusion": [
+        "Allotment date",
+        "Listing date"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from post-issue listing approvals and general conditions which operate on separate regulatory timelines."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a0f9638b-d4cd-4c4e-9325-9ef6a72972d3",
+      "concept_name": "Entities not eligible to make a further public offer (Regulation 102)",
+      "definition": "Certain issuers are disqualified from undertaking a further public offer if the issuer, its promoters, promoter group, directors, or selling shareholders are debarred from capital markets. Disqualifications also extend to wilful defaulters, fraudulent borrowers, and fugitive economic offenders.",
+      "terminology": [
+        "promoter group",
+        "debarred",
+        "wilful defaulter",
+        "fraudulent borrower",
+        "fugitive economic offender"
+      ],
+      "instrument_references": [
+        "Regulation 102"
+      ],
+      "inclusion": [
+        "Entities with past debarment periods already expired at filing",
+        "Issuers with directors linked to debarred companies"
+      ],
+      "exclusion": [
+        "Issuers with expired debarment periods",
+        "Entities compliant with all capital market regulations"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general operational conditions by focusing entirely on personal or corporate integrity and regulatory penalty histories."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1a0dba9a-9d61-4e17-8a34-dbb5352ef000",
+      "concept_name": "Eligibility requirements for further public offer (Regulation 103)",
+      "definition": "An issuer must not have changed its name within the preceding one year unless at least half of its revenue comes from the activity reflecting the new name. Failure to meet this revenue threshold requires using the book building process, allocating seventy-five percent of the net offer to qualified institutional buyers, and offering full subscription refunds upon failure.",
+      "terminology": [
+        "book building process",
+        "qualified institutional buyers",
+        "net offer",
+        "revenue"
+      ],
+      "instrument_references": [
+        "Regulation 103"
+      ],
+      "inclusion": [
+        "Issuers with unchanged names for one year",
+        "Name-changed issuers earning fifty percent revenue from the new activity"
+      ],
+      "exclusion": [
+        "Issuers failing revenue thresholds without opting for book building and QIB allotment safeguards"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from entity disqualifications by imposing specific financial and procedural hurdles related to corporate identity shifts."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "391b2d14-296b-44bc-988a-90736a3f96ab",
+      "concept_name": "General conditions (Regulation 104)",
+      "definition": "An issuer executing a further public offer must secure in-principle stock exchange listings, utilize depositories for dematerialization, fully pay or forfeit partly paid shares, and arrange verifiable finance for seventy-five percent of specific capital expenditure projects. Additionally, limits are imposed on amounts raised for general corporate purposes and unidentified acquisitions or investments.",
+      "terminology": [
+        "in-principle approval",
+        "designated stock exchange",
+        "dematerialisation",
+        "general corporate purposes"
+      ],
+      "instrument_references": [
+        "Regulation 104",
+        "Schedule XIX",
+        "Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Application to stock exchanges",
+        "Depository agreements",
+        "Project financing arrangements"
+      ],
+      "exclusion": [
+        "Active partly paid-up equity shares without forfeiture",
+        "Unverified financing arrangements"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from eligibility rules by dictating structural prerequisites and fund utilization caps rather than historical track records."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "482e520e-a0b6-4461-b743-c2b7e03ab947",
+      "concept_name": "Additional conditions for an offer for sale (Regulation 105)",
+      "definition": "Shares offered for sale to the public must be fully paid-up and held by the selling shareholder for a minimum of one year prior to filing the draft offer document. Specific exemptions apply to infrastructure-focused government entities, tribunal-approved business restructuring schemes, and bonus issues derived from existing free reserves.",
+      "terminology": [
+        "offer for sale",
+        "selling shareholder",
+        "compulsorily convertible securities",
+        "bonus issue"
+      ],
+      "instrument_references": [
+        "Regulation 105",
+        "Sections 230 to 234 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Fully paid shares held for at least one year",
+        "Shares derived from conversion of convertible securities meeting combined holding periods"
+      ],
+      "exclusion": [
+        "Shares held for less than one year without statutory exemption",
+        "Partly paid-up equity shares"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from primary issuances by enforcing retrospective holding duration constraints directly onto existing shareholders."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d491eabd-0964-446f-a53d-5ea77ee33a3f",
+      "concept_name": "Eligibility of issuer to make FPO of convertible debt instruments",
+      "definition": "An issuer may execute a further public offer of convertible debt instruments only if its equity shares are already listed on a recognized stock exchange. Furthermore, the issuer must not remain in default of interest or principal repayments on public debt instruments for more than six months.",
+      "terminology": [
+        "convertible debt instruments",
+        "listed",
+        "default",
+        "interest payment"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Issuers with listed equity shares",
+        "Issuers compliant with debt repayment schedules"
+      ],
+      "exclusion": [
+        "Issuers with unlisted equity shares",
+        "Issuers defaulting on public debt payments exceeding six months"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard equity FPOs by mandating prior equity listing status and specific debt-servicing track records."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "768334eb-b7b8-4541-b314-95f2ffc23e77",
+      "concept_name": "Eligibility of issuer to make FPO of convertible debt instruments",
+      "definition": "An issuer may execute a further public offer of convertible debt instruments only if its equity shares are already listed on a recognized stock exchange. Furthermore, the issuer must not remain in default of interest or principal repayments on public debt instruments for more than six months.",
+      "terminology": [
+        "convertible debt instruments",
+        "listed",
+        "default",
+        "repayment"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Issuers with listed equity shares",
+        "Issuers compliant with debt repayment schedules"
+      ],
+      "exclusion": [
+        "Issuers with unlisted equity shares",
+        "Issuers defaulting on public debt payments exceeding six months"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard equity FPOs by mandating prior equity listing status and specific debt-servicing track records."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ee51a881-9209-4f5d-a08d-99e695872760",
+      "concept_name": "Additional requirements for issue of convertible debt instruments (Regulation 107)",
+      "definition": "Issuers offering public convertible debt instruments must secure credit ratings, appoint debenture trustees, and establish debenture redemption reserves under statutory guidelines. Secured instruments require unencumbered asset cover sufficient to cover principal amounts, with prior institutional consents obtained for second or pari passu charges.",
+      "terminology": [
+        "credit rating",
+        "debenture trustee",
+        "debenture redemption reserve",
+        "asset cover"
+      ],
+      "instrument_references": [
+        "Regulation 107",
+        "Companies Act, 2013",
+        "Securities and Exchange Board of India (Debenture Trustees) Regulations, 1993"
+      ],
+      "inclusion": [
+        "Credit ratings from rating agencies",
+        "Debenture trust appointments",
+        "Asset security coverage for secured debt"
+      ],
+      "exclusion": [
+        "Unsecured debt lacking required asset covers or trustee structures",
+        "Debt issues without mandatory redemption reserves"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from basic FPO rules by introducing rigorous credit safety, trust administration, and asset encumbrance mandates."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9140f73d-ddcd-4070-b6b2-108553f6dc46",
+      "concept_name": "Roll over of non-convertible portion of partly convertible debt instruments (Regulation 108)",
+      "definition": "The non-convertible portion of large partly convertible debt instruments exceeding ten crore rupees can be rolled over if approved by seventy-five percent of holders by value via postal ballot. The issuer must provide audited cash flow statements, redeem holdings of dissenting investors, and secure fresh credit ratings before maturity.",
+      "terminology": [
+        "partly convertible debt instruments",
+        "rolled over",
+        "postal ballot",
+        "auditors' certificate"
+      ],
+      "instrument_references": [
+        "Regulation 108",
+        "Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Postal ballot approval by seventy-five percent value holders",
+        "Redemption provisions for dissenting debt holders"
+      ],
+      "exclusion": [
+        "Roll-overs executed without required value-holder consent",
+        "Omission of mandatory auditor liquidity reports"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard debt redemption by providing restructuring mechanisms through institutional voting thresholds."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "808fbfea-99fa-4622-b6f5-88811bec6b2d",
+      "concept_name": "Conversion of optionally convertible debt instruments into equity share capital (Regulation 109)",
+      "definition": "Optionally convertible debt instruments cannot convert to equity without explicit positive consent from holders, treating silence as non-consent. For listed instruments exceeding ten crore rupees without upfront pricing, holders must be granted an exit option unless a price formula or upper limit was disclosed initially.",
+      "terminology": [
+        "optionally convertible debt instruments",
+        "positive consent",
+        "conversion price",
+        "redemption"
+      ],
+      "instrument_references": [
+        "Regulation 109"
+      ],
+      "inclusion": [
+        "Explicit positive consent collection",
+        "Redemption provisions for unconverted instruments"
+      ],
+      "exclusion": [
+        "Automatic conversion based on non-response to notices",
+        "Conversion without pre-disclosed pricing formulas or holder options"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from mandatory conversions by protecting investor optionality and requiring affirmative confirmation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8721d4be-3694-41ac-a271-449fa1bf1ec1",
+      "concept_name": "Issue of convertible debt instruments for financing (Regulation 110) An issuer shall not issue convertible debt instruments for financing or for providing loans to or for acquiring shares of any person who is part of the promoter group or group companies:",
+      "definition": "Issuing convertible debt instruments to finance, lend to, or acquire shares of promoter group entities or group companies is prohibited. An exception applies permitting fully convertible debt instruments for these purposes if conversion occurs in less than eighteen months.",
+      "terminology": [
+        "convertible debt instruments",
+        "promoter group",
+        "group companies",
+        "fully convertible"
+      ],
+      "instrument_references": [
+        "Regulation 110"
+      ],
+      "inclusion": [
+        "Fully convertible debt instruments converting under eighteen months for group financing"
+      ],
+      "exclusion": [
+        "Partly or non-convertible debt instruments utilized for promoter group loans or share acquisitions"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general corporate financing rules by placing strict guardrails on intra-group fund routing via convertible instruments."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5bfcd745-07b3-4e2c-ab60-e92067e1c06b",
+      "concept_name": "Issue of warrants (Regulation 111)",
+      "definition": "Issuers may attach warrants to specified securities in further public offers provided their tenure does not exceed eighteen months. Upfront collection of at least twenty-five percent of the exercise price or cap price formula is mandatory, and unexercised warrant considerations must be forfeited after three months.",
+      "terminology": [
+        "warrants",
+        "tenure",
+        "exercise price",
+        "forfeiture"
+      ],
+      "instrument_references": [
+        "Regulation 111"
+      ],
+      "inclusion": [
+        "Warrants with a maximum eighteen-month tenure",
+        "Upfront collection of twenty-five percent consideration",
+        "Forfeiture of unexercised warrant deposits"
+      ],
+      "exclusion": [
+        "Warrants exceeding eighteen-month tenures",
+        "Issues lacking upfront consideration payments"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from debt instruments by providing optional equity acquisition rights tied to upfront pricing parameters."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "6bb3823c2e8ec30d863e5c61292321f86bc058dc6bafc3f86a4243179c473efe",
+  "artifact_id": "ea684bf0-7c94-4045-a244-75e8b4a2e2df",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 9737,
+  "output_tokens": 3672,
+  "cost_usd": 0.0121011,
+  "created_at": "2026-10-03T18:25:15.848479+00:00"
+}

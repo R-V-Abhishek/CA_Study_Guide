@@ -1,0 +1,239 @@
+{
+  "descriptors": [
+    {
+      "node_id": "6a266835-bb82-4083-aeca-51b1d25d02d0",
+      "concept_name": "Protection of Employees During Investigation",
+      "definition": "During an ongoing company investigation, employers must obtain prior approval from the Tribunal before discharging, suspending, punishing, or altering the terms of employment of any employee who has disclosed information. If the Tribunal does not communicate objections within thirty days of the application, the proposed action may proceed.",
+      "terminology": [
+        "NCLT approval",
+        "Discharge or suspension",
+        "Reduction in rank",
+        "Appellate Tribunal"
+      ],
+      "instrument_references": [
+        "Section 218 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Employees disclosing information during investigations",
+        "Proposals to alter terms of employment to an employee's disadvantage"
+      ],
+      "exclusion": [
+        "Actions taken with express or implied Tribunal approval after thirty days without notice"
+      ],
+      "nearby_distinctions": [
+        "Differs from general labor retrenchment rules by specifically conditioning adverse personnel actions on regulatory tribunal clearance during active investigations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4c5ed277-712e-41c6-8111-ec938c5cc5bf",
+      "concept_name": "Powers of Inspector",
+      "definition": "An inspector appointed to examine a company's affairs may extend investigations to related bodies corporate, managing directors, or managers upon receiving prior approval from the Central Government. Statutory timelines prescribed for completing such investigations are interpreted as directory rather than mandatory.",
+      "terminology": [
+        "Related companies",
+        "Prior approval",
+        "Directory timeline",
+        "Serious Fraud Investigation Office"
+      ],
+      "instrument_references": [
+        "Section 219 of the Companies Act, 2013",
+        "Section 212 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Investigation into associated corporate entities and managerial personnel",
+        "Judicial interpretations of investigation duration limits"
+      ],
+      "exclusion": [
+        "Unapproved investigative inquiries into unrelated third-party entities"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from primary company investigations by requiring explicit proof of relevance to the main corporate subject before expanding scope."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "bd6c1354-d8dc-4596-83bb-b074441f417d",
+      "concept_name": "Powers of Tribunal",
+      "definition": "The Tribunal can direct the freezing of a company's assets, funds, and properties for up to three years upon application by the Central Government, qualifying members, or creditors when prejudicial transfers are apprehended. Contravention of such freezing orders attracts severe penal consequences including fines and imprisonment for defaulting officers.",
+      "terminology": [
+        "Freezing of assets",
+        "Prejudicial transfer",
+        "Defaulting officer",
+        "Imposition of restrictions"
+      ],
+      "instrument_references": [
+        "Section 221 of the Companies Act, 2013",
+        "Section 222 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Asset freeze orders up to three years",
+        "Penalties for violating Tribunal restraint orders"
+      ],
+      "exclusion": [
+        "Unrestricted asset disposal executed prior to the issuance of a Tribunal freezing order"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from winding-up procedures as it imposes interim preventive controls on specific assets rather than dissolving the corporate entity."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "24060a8b-ad92-478e-a8a9-12d5d2bf335a",
+      "concept_name": "Actions to be Taken in Pursuance of Inspector's Report",
+      "definition": "Following an investigation report revealing criminal culpability or operational mismanagement, the Central Government may initiate criminal prosecutions, file winding-up petitions, or bring civil suits for damages and property recovery in the public interest. Company officers and employees are legally bound to assist the government in these subsequent legal proceedings.",
+      "terminology": [
+        "Criminal prosecution",
+        "Winding up petition",
+        "Misfeasance",
+        "Recovery of property"
+      ],
+      "instrument_references": [
+        "Section 224 of the Companies Act, 2013",
+        "Section 223 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Prosecution for criminal offences identified in reports",
+        "Suits for recovering misapplied property or damages"
+      ],
+      "exclusion": [
+        "Voluntary private settlements executed outside statutory enforcement frameworks"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from the investigative phase itself by representing post-investigation enforcement and remedial litigation actions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4cb07a49-08e9-4db9-9435-b96f6e820189",
+      "concept_name": "Expenses of Investigation",
+      "definition": "Investigation expenses are initially borne by the Central Government and subsequently recovered through court orders, recovered asset values, or direct directives issued against convicted persons, implicated companies, or original applicants. Amounts owed by corporate bodies under these recovery provisions constitute a first charge on the associated funds or property.",
+      "terminology": [
+        "Reimbursement of expenses",
+        "First charge",
+        "Defrayed costs",
+        "Convicted persons"
+      ],
+      "instrument_references": [
+        "Section 225 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Initial funding of costs by the Central Government",
+        "First charge status on recovered sums and properties"
+      ],
+      "exclusion": [
+        "Expenses strictly related to preliminary security deposits under separate inspection provisions"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from regular operational expenses by functioning as statutory liabilities enforceable against specific recovery proceeds or convicted parties."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "81caf3da-be28-4668-9ac6-26555949e1e6",
+      "concept_name": "Voluntary Winding Up of Company, Etc., Not to Stop Investigation Proceedings",
+      "definition": "Initiating an investigation remains valid and active notwithstanding any concurrent applications for relief from oppression, voluntary winding-up resolutions, or pending tribunal liquidation proceedings. Winding-up orders do not absolve directors or employees from their mandatory participation obligations and liabilities arising from the inspector's findings.",
+      "terminology": [
+        "Voluntary winding up",
+        "Oppression application",
+        "Liquidation proceedings",
+        "Continued investigation"
+      ],
+      "instrument_references": [
+        "Section 226 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Continuation of investigations during voluntary liquidations",
+        "Obligation of employees to participate despite winding-up orders"
+      ],
+      "exclusion": [
+        "Suspension or abatement of investigations due to corporate dissolution processes"
+      ],
+      "nearby_distinctions": [
+        "Differs from normal civil litigation stays by ensuring regulatory investigations supersede and survive corporate winding-up timelines."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a3f60c7e-60e0-44b3-ad5a-ef3f4fd74c8b",
+      "concept_name": "Legal Advisers and Bankers Not to Disclose Certain Information",
+      "definition": "Statutory inspection and investigation provisions exempt legal advisers from disclosing privileged client communications, other than the client's name and address. Similarly, bank institutions are protected from disclosing customer affairs information concerning individuals or entities unrelated to the specific investigation.",
+      "terminology": [
+        "Privileged communication",
+        "Legal adviser",
+        "Customer affairs",
+        "Non-disclosure exemption"
+      ],
+      "instrument_references": [
+        "Section 227 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Exemption of lawyer-client privileged disclosures",
+        "Protection of unrelated bank customer data"
+      ],
+      "exclusion": [
+        "Basic identification details like client names and addresses held by legal counsel"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general disclosure mandates by carving out explicit professional confidences that cannot be breached by investigators."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f00e99bc-6ea4-46bc-84e4-d394752c6b65",
+      "concept_name": "Investigation Etc. of Foreign Companies",
+      "definition": "The statutory framework governing inspections, inquiries, and investigations applies with necessary modifications and adaptations to foreign corporate entities operating within the relevant legal jurisdiction. This ensures extraterritorial or cross-border corporate structures remain subject to equivalent regulatory oversight.",
+      "terminology": [
+        "Mutatis mutandis",
+        "Foreign companies",
+        "Regulatory oversight",
+        "Statutory application"
+      ],
+      "instrument_references": [
+        "Section 228 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Application of Chapter XIV rules to foreign corporate entities"
+      ],
+      "exclusion": [
+        "Entities completely lacking commercial or statutory nexus to the domestic jurisdiction"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from domestic company provisions only by the adaptive application required for entities incorporated under foreign laws."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8a88d915-0355-4eb1-973f-4a322632cc13",
+      "concept_name": "Penalty for Furnishing False Statement, Mutilation, Destruction of Documents",
+      "definition": "Any individual required to provide explanations or statements during investigations who destroys, falsifies, alters, or conceals documents, makes false entries, or provides known false explanations is penalized for fraud. Such actions attract punitive measures identical to those prescribed under the general corporate fraud provisions.",
+      "terminology": [
+        "Destruction of documents",
+        "False entry",
+        "Punishable for fraud",
+        "Mutilation"
+      ],
+      "instrument_references": [
+        "Section 229 of the Companies Act, 2013",
+        "Section 447 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Concealment or unauthorized removal of company documents",
+        "Fabrication of false statements or explanations during proceedings"
+      ],
+      "exclusion": [
+        "Routine document destruction executed in compliance with lawful, pre-existing corporate record retention policies outside investigation periods"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from ordinary non-compliance by involving active falsification or destruction of evidence, directly triggering severe fraud penalties."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "3ed832bdcb6fe7e13e13c423984cbbbbd7b386623905058e9597219e280f8e26",
+  "artifact_id": "1b6aca10-5dd9-42ff-86ce-eea5181f54ad",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 6858,
+  "output_tokens": 2745,
+  "cost_usd": 0.0089199,
+  "created_at": "2026-10-03T18:24:08.242353+00:00"
+}

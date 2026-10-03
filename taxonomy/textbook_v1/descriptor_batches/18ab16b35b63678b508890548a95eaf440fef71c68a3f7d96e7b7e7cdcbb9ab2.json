@@ -1,0 +1,312 @@
+{
+  "descriptors": [
+    {
+      "node_id": "1a3f7c99-4957-42ff-88ec-8b0aad41230b",
+      "concept_name": "Definition and Foundation of Ethics",
+      "definition": "Ethics represents moral principles, conduct systems, and duties governing individual behavior or specific disciplines. The ICAI Code of Ethics establishes behavioral standards for chartered accountants to serve the public interest.",
+      "terminology": [
+        "Ethics",
+        "Code of Ethics",
+        "Chartered Accountant",
+        "Public Interest"
+      ],
+      "instrument_references": [
+        "ICAI Code of Ethics (2019)",
+        "IESBA Code of Ethics (2018)"
+      ],
+      "inclusion": [
+        "Moral principles",
+        "Conduct standards"
+      ],
+      "exclusion": [
+        "Detailed assurance engagement independence rules"
+      ],
+      "nearby_distinctions": [
+        "Differs from specific statutory schedules by focusing on foundational behavioral principles rather than penal clauses."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "66828d54-9b28-42a4-9c45-1c7990a57352",
+      "concept_name": "Ethical Principles and Statutory Governance",
+      "definition": "Chartered accountants must maintain conduct aligned with the Chartered Accountants Act, 1949, upon registration as Institute members. Violations of professional or other conduct expose members to disciplinary action under Section 21 of the Act.",
+      "terminology": [
+        "Chartered Accountants Act 1949",
+        "Disciplinary Action",
+        "Section 21"
+      ],
+      "instrument_references": [
+        "Chartered Accountants Act, 1949"
+      ],
+      "inclusion": [
+        "Statutory membership obligations",
+        "Disciplinary frameworks"
+      ],
+      "exclusion": [
+        "Voluntary non-binding ethical recommendations"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from the conceptual code framework by enforcing mandatory statutory penalties for misconduct."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7895b825-1c10-42b2-80f5-9bf45a2fe3f3",
+      "concept_name": "Statutory Misconduct Framework",
+      "definition": "Professional or other misconduct encompasses specific acts or omissions detailed across the schedules of the Chartered Accountants Act, 1949. The Council investigates both professional work deviations and non-professional personal conduct to uphold integrity standards.",
+      "terminology": [
+        "Professional Misconduct",
+        "Other Misconduct",
+        "Section 22",
+        "Schedules"
+      ],
+      "instrument_references": [
+        "Chartered Accountants Act, 1949"
+      ],
+      "inclusion": [
+        "Professional schedule violations",
+        "Personal conduct deviations"
+      ],
+      "exclusion": [
+        "Actions complying strictly with statutory schedules"
+      ],
+      "nearby_distinctions": [
+        "Other misconduct covers personal affairs outside professional work, unlike professional misconduct tied directly to accounting practice."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a27ee992-386b-4525-a705-2d7bb5435bb5",
+      "concept_name": "Schedule Classification of Misconduct",
+      "definition": "Misconduct provisions are divided into multiple parts across the First and Second Schedules of the Act for practitioners, service members, and members generally. These schedules outline precise clauses categorizing professional and other misconduct offenses.",
+      "terminology": [
+        "First Schedule",
+        "Second Schedule",
+        "Parts",
+        "Clauses"
+      ],
+      "instrument_references": [
+        "Chartered Accountants Act, 1949"
+      ],
+      "inclusion": [
+        "Practitioner misconduct clauses",
+        "Service member misconduct clauses"
+      ],
+      "exclusion": [
+        "Non-statutory internal firm guidelines"
+      ],
+      "nearby_distinctions": [
+        "The First and Second Schedules categorize different severity levels and applicability spheres for member infractions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "aa5d4351-2485-4100-8a95-99fa9f65e984",
+      "concept_name": "Professional Misconduct Scope",
+      "definition": "Members engaged in accounting via practice or service must restrict actions to the provisions established in respective schedule parts. Violating these provisions deems the member guilty of professional misconduct.",
+      "terminology": [
+        "Professional Misconduct",
+        "Accountancy Practice",
+        "Members in Service"
+      ],
+      "instrument_references": [
+        "Chartered Accountants Act, 1949"
+      ],
+      "inclusion": [
+        "Practice-related breaches",
+        "Service-related breaches"
+      ],
+      "exclusion": [
+        "Unrelated personal actions devoid of statutory schedule overlap"
+      ],
+      "nearby_distinctions": [
+        "Restricted strictly to professional engagements and roles, contrasting with broader personal sphere misconduct."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2bc69970-97bc-4acf-9cdd-cb2042ffab99",
+      "concept_name": "Other Misconduct Scope",
+      "definition": "Other misconduct provisions empower the Council to investigate member actions occurring outside professional work environments. This ensures chartered accountants maintain elite integrity standards within their personal affairs.",
+      "terminology": [
+        "Other Misconduct",
+        "Council Inquiry",
+        "Personal Affairs"
+      ],
+      "instrument_references": [
+        "Chartered Accountants Act, 1949"
+      ],
+      "inclusion": [
+        "Non-professional behavior",
+        "Personal integrity deviations"
+      ],
+      "exclusion": [
+        "Misconduct strictly originating from direct audit or attest engagements"
+      ],
+      "nearby_distinctions": [
+        "Applies to non-professional personal life actions, whereas professional misconduct arises from client or statutory accounting work."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e99849fc-26cb-420c-952c-7d08427adb65",
+      "concept_name": "Code Compliance and Public Interest",
+      "definition": "Accountants must prioritize public interest obligations over individual client demands by strictly complying with the ethical code. Where local regulations conflict, prevailing laws overrule specific code sections, though stringency rules apply.",
+      "terminology": [
+        "Public Interest",
+        "Complying with the Code",
+        "Stringent Provisions"
+      ],
+      "instrument_references": [
+        "Code of Ethics"
+      ],
+      "inclusion": [
+        "Public interest responsibilities",
+        "Statutory override rules"
+      ],
+      "exclusion": [
+        "Exclusive fulfillment of individual client needs"
+      ],
+      "nearby_distinctions": [
+        "Focuses on overarching public duty and statutory compliance hierarchy rather than individual technical rules."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "acb018cb-c7a4-4768-ab41-c55413697e20",
+      "concept_name": "Fundamental Ethical Principles Overview",
+      "definition": "Chartered accountants must uphold five core ethical principles covering integrity, objectivity, competence, confidentiality, and professional behavior. Conflicting principle scenarios require professional judgment, consultation, or disassociation where permitted.",
+      "terminology": [
+        "Integrity",
+        "Objectivity",
+        "Professional Competence",
+        "Confidentiality",
+        "Professional Behaviour"
+      ],
+      "instrument_references": [
+        "Code of Ethics"
+      ],
+      "inclusion": [
+        "All five mandatory ethical principles",
+        "Conflict resolution mechanisms"
+      ],
+      "exclusion": [
+        "Unchecked non-compliance based on informal consultations"
+      ],
+      "nearby_distinctions": [
+        "Encompasses the broad five-pillar framework, whereas individual principles target specific behavioral dimensions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1a130f69-4b4b-4a90-b7fd-e84913222ae1",
+      "concept_name": "Principle of Integrity",
+      "definition": "Integrity requires accountants to remain straightforward and honest across all professional and business dealings. Members must avoid association with reports or information containing false statements, negligence, or misleading omissions.",
+      "terminology": [
+        "Integrity",
+        "Honesty",
+        "Misleading Statements",
+        "Negligence"
+      ],
+      "instrument_references": [
+        "Code of Ethics"
+      ],
+      "inclusion": [
+        "Truthful professional communications",
+        "Avoidance of negligent reporting"
+      ],
+      "exclusion": [
+        "Association with obscured or deceptive financial disclosures"
+      ],
+      "nearby_distinctions": [
+        "Centers on honesty and freedom from deceit, whereas objectivity centers specifically on freedom from bias and undue influence."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1d432823-0909-48cd-b7e3-7b50784055f1",
+      "concept_name": "Principle of Objectivity",
+      "definition": "Objectivity mandates that accountants prevent bias, conflicts of interest, or undue third-party influence from compromising professional judgments. This principle ensures independent evaluation free from external pressures in business and reporting decisions.",
+      "terminology": [
+        "Objectivity",
+        "Bias",
+        "Conflict of Interest",
+        "Undue Influence"
+      ],
+      "instrument_references": [
+        "Code of Ethics"
+      ],
+      "inclusion": [
+        "Independent judgment preservation",
+        "Conflict avoidance"
+      ],
+      "exclusion": [
+        "Yielding to management or stakeholder pressure"
+      ],
+      "nearby_distinctions": [
+        "Deals with freedom from bias and external pressure, distinguishing it from basic honesty covered under integrity."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c33d6a3b-2a20-41ba-8191-f58dbd4333e8",
+      "concept_name": "Professional Competence and Due Care",
+      "definition": "Professional competence and due care requires maintaining technical knowledge aligned with current standards alongside diligent execution of assignments. Accountants must ensure subordinates possess adequate training and supervision while adhering to technical requirements.",
+      "terminology": [
+        "Professional Competence",
+        "Due Care",
+        "Continuing Professional Development",
+        "Diligence"
+      ],
+      "instrument_references": [
+        "Ind AS 16",
+        "Ind AS 37"
+      ],
+      "inclusion": [
+        "Technical skill maintenance",
+        "Diligent assignment execution",
+        "Staff supervision"
+      ],
+      "exclusion": [
+        "Deliberate non-compliance with applicable accounting standards"
+      ],
+      "nearby_distinctions": [
+        "Focuses on technical capability and thoroughness, unlike confidentiality which governs information restriction."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "43302530-a1dd-4645-92f5-314fe3388398",
+      "concept_name": "Principle of Confidentiality",
+      "definition": "Confidentiality requires protecting information acquired through professional relationships from unauthorized disclosure or personal exploitation. Disclosures are prohibited unless authorized, legally mandated, or justified by a professional duty.",
+      "terminology": [
+        "Confidentiality",
+        "Inadvertent Disclosure",
+        "Sensitive Data",
+        "Public Interest"
+      ],
+      "instrument_references": [
+        "Code of Ethics"
+      ],
+      "inclusion": [
+        "Internal and external data protection",
+        "Post-relationship data security",
+        "Legal disclosure exceptions"
+      ],
+      "exclusion": [
+        "Unauthorized sharing for personal or third-party advantage"
+      ],
+      "nearby_distinctions": [
+        "Restricts data dissemination to safeguard client secrets, whereas integrity regulates the absolute truthfulness of published reports."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "18ab16b35b63678b508890548a95eaf440fef71c68a3f7d96e7b7e7cdcbb9ab2",
+  "artifact_id": "8d1fbda6-5be6-4c31-8320-b53374709a4a",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8329,
+  "output_tokens": 3040,
+  "cost_usd": 0.0100987,
+  "created_at": "2026-10-03T18:05:41.176997+00:00"
+}

@@ -1,0 +1,210 @@
+{
+  "descriptors": [
+    {
+      "node_id": "193efe7e-04ed-481a-917d-93ec8a75729d",
+      "concept_name": "Cessation of capitalisation",
+      "definition": "Capitalisation of borrowing costs must stop when substantially all activities required to prepare a qualifying asset for its intended use or sale are finished. Physical completion of construction normally signals this point even if minor administrative tasks or minor modifications remain outstanding.",
+      "terminology": [
+        "Cessation of capitalisation",
+        "Qualifying asset",
+        "Intended use or sale"
+      ],
+      "instrument_references": [
+        "Ind AS 23"
+      ],
+      "inclusion": [
+        "Borrowing costs incurred up to the date physical construction is complete",
+        "Partial completion where individual parts are capable of being used while construction continues on other parts"
+      ],
+      "exclusion": [
+        "Borrowing costs incurred after the asset is ready for its intended use or sale",
+        "Delays due to low occupancy or lack of rental uptake after physical completion"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from the commencement of capitalisation, which occurs when expenditure, borrowing costs, and asset preparation activities are all underway."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d675d7fc-cc66-481f-a62e-ee838d29a055",
+      "concept_name": "Disclosure",
+      "definition": "Entities are required to disclose the total amount of borrowing costs capitalised during the period alongside the specific capitalisation rate used. These disclosures ensure transparency regarding the financing costs added to the carrying value of qualifying assets.",
+      "terminology": [
+        "Capitalised borrowing costs",
+        "Capitalisation rate"
+      ],
+      "instrument_references": [
+        "Ind AS 23"
+      ],
+      "inclusion": [
+        "Amount of borrowing costs capitalised during the period",
+        "Capitalisation rate applied to determine eligible borrowing costs"
+      ],
+      "exclusion": [
+        "General operational expenses unrelated to asset capitalisation disclosures"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from recognition criteria and measurement mechanics of borrowing costs."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "14e4e684-b524-440f-88dd-d2c95107be1e",
+      "concept_name": "Other Relevant Concepts",
+      "definition": "Specialized financing arrangements and group structures require targeted accounting treatment when determining eligible borrowing costs for capitalisation. These rules govern instruments classified as financial liabilities and loans originating from entities within a corporate group.",
+      "terminology": [
+        "Financial liabilities",
+        "Group financial statements",
+        "Inter-company loan"
+      ],
+      "instrument_references": [
+        "Ind AS 23",
+        "Ind AS 32"
+      ],
+      "inclusion": [
+        "Dividends on shares classified as financial liabilities",
+        "Borrowing cost capitalisation in group and separate financial statements"
+      ],
+      "exclusion": [
+        "Standard external bank borrowings lacking specific group or liability reclassification features"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general standalone borrowing cost computations by addressing complex ownership or equity-liability boundary classifications."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "86a39007-e04c-4b10-91e4-3267bc1bbcef",
+      "concept_name": "Dividends payable on shares classified as financial liabilities",
+      "definition": "Dividends payable on preference shares classified as financial liabilities under accounting standards meet the definition of borrowing costs. Consequently, such dividends can be capitalised if they fund the development of a qualifying asset following specific borrowing principles.",
+      "terminology": [
+        "Preference shares",
+        "Financial liabilities",
+        "Dividends as borrowing costs"
+      ],
+      "instrument_references": [
+        "Ind AS 23",
+        "Ind AS 32"
+      ],
+      "inclusion": [
+        "Dividends on redeemable preference shares classified as financial liabilities",
+        "Capitalisation of qualifying dividend payments as interest"
+      ],
+      "exclusion": [
+        "Dividends on equity-classified instruments that do not meet liability definitions"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard equity distributions by their liability classification and treatment as finance expenses."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "65dd973e-5dd8-48dd-83fe-abc5c8edd93d",
+      "concept_name": "Capitalising borrowing cost in group financial statements",
+      "definition": "Group financial statements may capitalise interest on third-party borrowings held by one group entity even if the qualifying asset is developed by another. Such capitalisation is appropriate if the amount fairly reflects avoidable group interest costs, while separate financial statements rely on actual inter-company loan costs incurred.",
+      "terminology": [
+        "Group financial statements",
+        "Inter-company loan",
+        "Third-party borrowings"
+      ],
+      "instrument_references": [
+        "Ind AS 23"
+      ],
+      "inclusion": [
+        "Group-level capitalisation reflecting third-party debt of a different group company",
+        "Borrowing costs on inter-company loans in separate financial statements of the subsidiary"
+      ],
+      "exclusion": [
+        "Capitalisation of third-party debt in the separate financial statements of an entity that holds no external borrowings"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from separate entity accounts where an entity lacking external borrowings cannot capitalise interest unless an actual inter-company loan exists."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c9f5c216-d81c-4174-b4e3-ad894e726a4a",
+      "concept_name": "Cessation of capitalisation for maturing inventories",
+      "definition": "Capitalisation of borrowing costs for maturing inventories continues as long as the inventory increases in value solely due to increasing age under a consistent business model. Once aging-related value appreciation cannot be demonstrated, inventories are treated as held for sale and capitalisation ceases.",
+      "terminology": [
+        "Maturing inventories",
+        "Period of production",
+        "Business model"
+      ],
+      "instrument_references": [
+        "Ind AS 23"
+      ],
+      "inclusion": [
+        "Addition of borrowing costs while items increase in value solely from aging",
+        "Inventories held to mature under a consistent business model"
+      ],
+      "exclusion": [
+        "Value increases driven by market fluctuations or general inflation",
+        "Inventories categorized strictly as held for sale"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from regular manufacturing production phases where completion of physical form ends production; maturing inventories accrue value over extended aging periods."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7b535dec-c644-4a86-82f3-4199256c01c2",
+      "concept_name": "Extracts Of Financial Statements Of Listed Entity",
+      "definition": "Practical reporting disclosures demonstrate how listed companies apply accounting standards to capitalise borrowing costs and define their underlying accounting policies. These disclosures specify the exact capitalisation rates utilized and the types of finance costs included.",
+      "terminology": [
+        "Capital work-in-progress",
+        "Capitalisation rate",
+        "Accounting policy"
+      ],
+      "instrument_references": [
+        "Ind AS 23"
+      ],
+      "inclusion": [
+        "Disclosed amounts of borrowing costs capitalised into property, plant, and equipment",
+        "Applied capitalisation rates derived from annual financial statements"
+      ],
+      "exclusion": [
+        "General administrative costs and unallocated corporate overheads"
+      ],
+      "nearby_distinctions": [
+        "Distinguished as empirical illustrative reporting examples rather than standard-setting text mandates."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6072c99c-fe91-4c6b-98dc-852456a992ea",
+      "concept_name": "Significant Differences In Ind As 23 Vis-À-Vis As 16",
+      "definition": "Significant structural variations exist between modern accounting standards and older frameworks regarding scope exclusions, measurement methods, and lease treatment. These differences affect how borrowing costs are calculated, scoped, and adjusted for foreign exchange variations.",
+      "terminology": [
+        "Effective interest rate method",
+        "Unrealized exchange loss",
+        "Qualifying asset measured at fair value"
+      ],
+      "instrument_references": [
+        "Ind AS 23",
+        "AS 16",
+        "Ind AS 109",
+        "Ind AS 116"
+      ],
+      "inclusion": [
+        "Scope exclusions for fair-value measured qualifying assets",
+        "Effective interest rate method calculations for borrowing costs",
+        "Inclusion of lease liabilities"
+      ],
+      "exclusion": [
+        "Legacy AS 16 treatment provisions that conflict with current Ind AS frameworks"
+      ],
+      "nearby_distinctions": [
+        "Distinguished by comparing contemporary Ind AS requirements directly against legacy AS guidelines to highlight operational framework divergences."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "5e3b5fd39f1059a1f64854f4e2881a37bab5c65a67531f34776fd829c11d2fac",
+  "artifact_id": "48b01c17-81b3-4e91-a862-c93356b90cf0",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 5877,
+  "output_tokens": 2297,
+  "cost_usd": 0.0075056,
+  "created_at": "2026-10-03T17:49:24.281358+00:00"
+}

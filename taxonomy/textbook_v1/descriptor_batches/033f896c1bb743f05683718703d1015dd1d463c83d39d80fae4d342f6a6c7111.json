@@ -1,0 +1,358 @@
+{
+  "descriptors": [
+    {
+      "node_id": "00133539-ee31-437a-8a5f-bd515a9765bf",
+      "concept_name": "Objective and Definitions of Foreign Exchange Accounting",
+      "definition": "The standard prescribes accounting for foreign currency transactions and foreign operations, including translating financial statements into a presentation currency. It establishes key definitions such as functional currency, presentation currency, spot rate, and closing rate to govern currency translations.",
+      "terminology": [
+        "Foreign currency",
+        "Functional currency",
+        "Presentation currency",
+        "Foreign operation",
+        "Closing rate",
+        "Spot exchange rate"
+      ],
+      "instrument_references": [
+        "Ind AS 21"
+      ],
+      "inclusion": [
+        "Accounting for foreign currency transactions and balances",
+        "Translation of foreign operations into a reporting entity's financial statements",
+        "Translation of financial statements into a presentation currency"
+      ],
+      "exclusion": [
+        "Hedge accounting for foreign currency items covered under Ind AS 109",
+        "Presentation of cash flows in statement of cash flows covered under Ind AS 7"
+      ],
+      "nearby_distinctions": [
+        "Functional currency represents the primary economic environment currency, whereas presentation currency is merely the currency used for publishing financial statements."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c3ccfafd-02e8-41c1-815d-139477121ef2",
+      "concept_name": "Scope of Foreign Currency Accounting",
+      "definition": "The standard applies to accounting for foreign currency transactions, foreign operations consolidation, and translating financial statements into presentation currency. It explicitly excludes specific areas like hedge accounting, cash flow statements, and specific long-term monetary item exemptions.",
+      "terminology": [
+        "Scope",
+        "Foreign currency transactions",
+        "Foreign operations",
+        "Hedge accounting",
+        "Exemption"
+      ],
+      "instrument_references": [
+        "Ind AS 21",
+        "Ind AS 109",
+        "Ind AS 7",
+        "Ind AS 101"
+      ],
+      "inclusion": [
+        "Foreign currency derivatives not covered by Ind AS 109",
+        "Translation of results and financial position of foreign operations",
+        "Translation into presentation currency"
+      ],
+      "exclusion": [
+        "Hedge accounting for foreign currency items and net investment hedging",
+        "Statement of cash flows presentation of foreign currency cash flows",
+        "Long term foreign currency monetary items utilizing Ind AS 101 exemptions"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes standard foreign currency translation rules from specialised treatments governed separately by Ind AS 109, Ind AS 7, and Ind AS 101."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8ba6fff4-c3c3-4a42-8de7-ab30d9ca12a0",
+      "concept_name": "Functional Currency Determination",
+      "definition": "Entities measure their financial items using a functional currency determined by primary indicators like sales pricing and cost influences. Secondary indicators such as financing activities and operational generation provide supporting evidence for establishing this currency.",
+      "terminology": [
+        "Functional currency",
+        "Primary indicators",
+        "Secondary indicators",
+        "Pricing currency",
+        "Financing activities"
+      ],
+      "instrument_references": [
+        "Ind AS 21"
+      ],
+      "inclusion": [
+        "Primary economic environment evaluation",
+        "Sales price influencing currency assessment",
+        "Labour, material, and cost currency determination"
+      ],
+      "exclusion": [
+        "Presentation currency selection choices",
+        "Group level currency determinations"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between the primary economic pricing currency and the secondary financing or remittance currencies used for supporting evidence."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2158958e-a073-492c-b07a-aff8872eb21f",
+      "concept_name": "Initial Recognition and Item Classification",
+      "definition": "Foreign currency transactions must be initially recorded at the transaction date exchange rate using the functional currency. Items are categorized into monetary assets and liabilities with fixed currency units versus non-monetary items lacking such fixed terms.",
+      "terminology": [
+        "Initial recognition",
+        "Transaction date",
+        "Monetary items",
+        "Non-monetary items",
+        "Fixed or determinable units"
+      ],
+      "instrument_references": [
+        "Ind AS 21"
+      ],
+      "inclusion": [
+        "Transactions buying or selling goods/services in foreign currency",
+        "Borrowing or lending funds in foreign currency",
+        "Classification of employee benefits, provisions, and lease liabilities as monetary items"
+      ],
+      "exclusion": [
+        "Subsequent revaluations at reporting dates",
+        "Non-monetary assets like goodwill, inventories, and property plant and equipment"
+      ],
+      "nearby_distinctions": [
+        "Monetary items involve a fixed or determinable number of currency units for receipts or payments, whereas non-monetary items do not."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e3f8ab60-0041-4ceb-94df-5f208659d2fc",
+      "concept_name": "Initial Recognition of Foreign Currency Transactions",
+      "definition": "Foreign currency transactions are initially recorded by translating the foreign amount into the functional currency at the spot exchange rate on the transaction date. Approximations like weekly or monthly average rates are acceptable unless exchange rates fluctuate significantly.",
+      "terminology": [
+        "Initial recognition",
+        "Transaction date",
+        "Exchange rate",
+        "Average rate",
+        "Foreign currency transaction"
+      ],
+      "instrument_references": [
+        "Ind AS 21"
+      ],
+      "inclusion": [
+        "Translation of goods and services transactions at transaction date rates",
+        "Translation of borrowings and lendings at transaction date rates",
+        "Use of approximation rates under stable exchange rate conditions"
+      ],
+      "exclusion": [
+        "Subsequent reporting period closing rate valuations",
+        "Average rates usage during significant exchange rate fluctuations"
+      ],
+      "nearby_distinctions": [
+        "Differs from subsequent measurement by utilizing the specific transaction date rate rather than the closing balance sheet date rate."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d1e6366e-c3a0-4da3-ad40-49c5c4252a62",
+      "concept_name": "Monetary and Non-Monetary Item Differentiation",
+      "definition": "Monetary items consist of currency held and assets or liabilities to be received or paid in fixed units of currency, whereas non-monetary items lack this fixed feature. Subsequent reporting dates require monetary items to use closing rates, historical-cost non-monetary items to use transaction rates, and fair-value non-monetary items to use valuation date rates.",
+      "terminology": [
+        "Monetary items",
+        "Non-monetary items",
+        "Closing rate",
+        "Historical cost",
+        "Fair value"
+      ],
+      "instrument_references": [
+        "Ind AS 21",
+        "Ind AS 16"
+      ],
+      "inclusion": [
+        "Monetary translations using closing rates",
+        "Non-monetary historical cost translations using transaction date rates",
+        "Non-monetary fair value translations using valuation date rates"
+      ],
+      "exclusion": [
+        "Initial transaction date recording rules",
+        "Presentation currency group translation methods"
+      ],
+      "nearby_distinctions": [
+        "Monetary items are always updated to closing rates at reporting dates, whereas historical-cost non-monetary items remain fixed at past transaction rates."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a898ee6e-5be4-42a2-9320-ad47b1c19a88",
+      "concept_name": "Subsequent Reporting Period Measurement Rules",
+      "definition": "At each reporting date, foreign currency items are translated using closing rates for monetary elements, historical rates for cost-based non-monetary elements, and specific valuation dates for fair-value non-monetary elements. For items determined by comparing multiple values like lower of cost and net realizable value, each component is translated using the exchange rate appropriate to the date of its specific determination.",
+      "terminology": [
+        "Reporting date",
+        "Closing rate",
+        "Historical cost",
+        "Net realizable value",
+        "Recoverable amount"
+      ],
+      "instrument_references": [
+        "Ind AS 21",
+        "Ind AS 16"
+      ],
+      "inclusion": [
+        "Translation of carrying amounts determined by comparing two or more amounts",
+        "Comparison of historical cost at transaction date rate against net realizable value at closing rate",
+        "Impairment loss recognition arising from currency valuation differences"
+      ],
+      "exclusion": [
+        "Initial transaction date recognition mechanics",
+        "Functional currency re-determinations"
+      ],
+      "nearby_distinctions": [
+        "Comparison-based items require dual-rate evaluations where historical elements use transaction date rates and net realizable values use closing rates."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "fc5b68de-40da-4879-8114-eaaba77c3fd1",
+      "concept_name": "Recognition of Foreign Exchange Gains and Losses",
+      "definition": "Exchange differences arising from settlement or translation of monetary items are recognized in profit or loss, except when specific hedge accounting or net investment rules apply. For non-monetary items, any exchange component follows the primary gain or loss recognition path, whether in profit or loss or other comprehensive income.",
+      "terminology": [
+        "Exchange difference",
+        "Profit or loss",
+        "Other comprehensive income",
+        "Monetary items",
+        "Hedge accounting"
+      ],
+      "instrument_references": [
+        "Ind AS 21",
+        "Ind AS 109",
+        "Ind AS 16"
+      ],
+      "inclusion": [
+        "Exchange differences on monetary settlements recognized in profit or loss",
+        "Cash flow hedge exchange differences recognized in other comprehensive income",
+        "Exchange components of non-monetary asset revaluations processed through other comprehensive income"
+      ],
+      "exclusion": [
+        "Standard translation of foreign operations presented in separate equity reserves",
+        "Unsettled long-term monetary items with specific equity recognition elections"
+      ],
+      "nearby_distinctions": [
+        "Monetary exchange differences default to profit or loss unless bound by specific hedging or net investment exceptions, unlike non-monetary exchange items that shadow the underlying asset's destination."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e57f4445-3bea-41c3-884d-aa113877821d",
+      "concept_name": "Change in Functional Currency and Prospective Application",
+      "definition": "An entity changes its functional currency only when underlying economic transactions, events, and conditions shift, applying the change prospectively from that date. All items are translated into the new functional currency using the exchange rate on the change date, treating resulting amounts as historical costs.",
+      "terminology": [
+        "Functional currency change",
+        "Prospective application",
+        "Historical cost",
+        "Presentation currency",
+        "Retrospective application"
+      ],
+      "instrument_references": [
+        "Ind AS 21",
+        "Ind AS 8"
+      ],
+      "inclusion": [
+        "Prospective translation of all items at the exchange rate on the change date",
+        "Deferred reclassification of foreign operation equity reserves until disposal",
+        "Retrospective restatement of comparative amounts for presentation currency changes"
+      ],
+      "exclusion": [
+        "Immediate transfer of accumulated foreign operation reserves to profit or loss upon functional currency change",
+        "Prospective application of presentation currency alterations"
+      ],
+      "nearby_distinctions": [
+        "A change in functional currency is applied prospectively from the change date, whereas a change in presentation currency is applied retrospectively as an accounting policy choice."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0061b55e-78ad-4f18-8c40-91e4aca87841",
+      "concept_name": "Translation to Presentation Currency",
+      "definition": "When an entity's presentation currency differs from its functional currency, assets and liabilities are translated at closing rates while income and expenses use transaction date rates. Resulting translation differences are recognized in other comprehensive income and accumulated in a separate equity component until disposal.",
+      "terminology": [
+        "Presentation currency",
+        "Closing rate",
+        "Transaction date rate",
+        "Other comprehensive income",
+        "Foreign currency translation reserve"
+      ],
+      "instrument_references": [
+        "Ind AS 21"
+      ],
+      "inclusion": [
+        "Translating assets and liabilities of non-hyperinflationary entities at closing rates",
+        "Translating income and expenses at transaction or average rates",
+        "Allocating translation differences to non-controlling interests for non-wholly-owned subsidiaries"
+      ],
+      "exclusion": [
+        "Entities with functional currencies of hyperinflationary economies",
+        "Group-level functional currency concepts since groups only maintain presentation currencies"
+      ],
+      "nearby_distinctions": [
+        "Differs from functional currency measurement by converting financial statement line items specifically for external reporting presentation rather than internal record-keeping."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8c5dfd06-5e64-4a55-b0a3-25b1cd63ec67",
+      "concept_name": "Translation Procedures for Presentation Currency",
+      "definition": "The financial position and results of entities whose functional currency is not hyperinflationary are translated into a presentation currency using closing rates for balance sheets and transaction rates for income statements. Resulting translation adjustments are accumulated in a separate equity reserve until the foreign operation is disposed of.",
+      "terminology": [
+        "Presentation currency",
+        "Balance sheet translation",
+        "Income and expense translation",
+        "Foreign currency translation reserve",
+        "Hyperinflationary economy"
+      ],
+      "instrument_references": [
+        "Ind AS 21"
+      ],
+      "inclusion": [
+        "Translation of balance sheet comparatives at historical closing rates",
+        "Recognition of exchange differences in other comprehensive income",
+        "Attribution of translation reserves to non-controlling interests"
+      ],
+      "exclusion": [
+        "Hyperinflationary economy translation procedures",
+        "Direct recognition of translation differences in profit or loss prior to disposal"
+      ],
+      "nearby_distinctions": [
+        "Applies specific closing rate rules to all balance sheet components distinct from transaction-date rates applied to operational flows."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0fbc2736-42f9-4721-bb46-4b2e14fe8274",
+      "concept_name": "Translation of Foreign Operations and Reporting Dates",
+      "definition": "Foreign operations are translated using closing rates for assets and liabilities and transaction rates for income and expenses, with differences routed to other comprehensive income. When reporting dates differ, adjustments are made for significant transactions and exchange rate changes up to the parent entity's reporting date in accordance with consolidation standards.",
+      "terminology": [
+        "Foreign operation",
+        "Reporting date",
+        "Exchange difference",
+        "Net investment",
+        "Consolidation adjustments"
+      ],
+      "instrument_references": [
+        "Ind AS 21",
+        "Ind AS 110"
+      ],
+      "inclusion": [
+        "Translation of foreign operation assets and liabilities at reporting date exchange rates",
+        "Inclusion of net investment loans and hedging gains in translation reserves",
+        "Adjustments for significant exchange rate variations under differing reporting periods"
+      ],
+      "exclusion": [
+        "Operations differing by more than three months without special interim statements",
+        "Immediate recognition of translation reserves in profit or loss"
+      ],
+      "nearby_distinctions": [
+        "Differs from single-entity presentation currency translation by incorporating specific net investment loan adjustments and distinct parent-subsidiary reporting date alignment rules."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "033f896c1bb743f05683718703d1015dd1d463c83d39d80fae4d342f6a6c7111",
+  "artifact_id": "aeb1995a-c3bf-4ad0-8862-8282c18770fe",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8581,
+  "output_tokens": 3988,
+  "cost_usd": 0.0125443,
+  "created_at": "2026-10-03T18:03:09.898472+00:00"
+}

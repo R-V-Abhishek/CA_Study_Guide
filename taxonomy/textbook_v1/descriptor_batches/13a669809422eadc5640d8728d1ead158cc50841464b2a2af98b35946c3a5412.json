@@ -1,0 +1,296 @@
+{
+  "descriptors": [
+    {
+      "node_id": "87115cbf-bebc-411d-8f7c-cf948a0dbedd",
+      "concept_name": "Definition and Essence of Business Strategy",
+      "definition": "Strategy constitutes an organization's patterned activities or deliberate competitive positioning designed to achieve long-term objectives and secure a sustainable competitive advantage. Its ultimate effectiveness relies heavily on efficient strategic planning and operational control.",
+      "terminology": [
+        "Strategy",
+        "Competitive Advantage",
+        "Shrinkflation",
+        "Strategic Planning and Control"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Patterns of activities aligning scope and resources with environmental changes",
+        "Deliberate selection of unique activity sets to deliver distinct value mixes"
+      ],
+      "exclusion": [
+        "Short-term tactical adjustments detached from long-term goals"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from performance management by serving as the guiding force rather than the measurement mechanism."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "45137cba-f90c-44e6-b16e-8c29d8494101",
+      "concept_name": "Fundamentals of Performance Management",
+      "definition": "Performance management is a core management accounting mechanism involving organizational structuring, responsibility center establishment, and periodic performance measurement against specific goals. It accumulates and analyzes performance data to execute corrective actions and align efforts with strategic objectives.",
+      "terminology": [
+        "Performance Management",
+        "Responsibility Centre",
+        "Decentralisation",
+        "Corrective Measures"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Structuring organization and establishing decentralization levels",
+        "Fixing measurement yardsticks and reviewing performance periodically"
+      ],
+      "exclusion": [
+        "Purely external market analysis without internal operational tracking"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from strategy formulation by focusing on execution tracking and corrective feedback rather than defining competitive positions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0a703956-dd61-4ed3-9809-664c9b795bdf",
+      "concept_name": "Interlinking Performance Management and Strategy",
+      "definition": "Strategy acts as the guiding force that establishes critical success factors and key performance indicators, while performance management supplies the information system required for informed strategic planning and control. This interlinkage aligns individual goals with organizational objectives using evaluation models like the Balanced Scorecard and Performance Pyramid.",
+      "terminology": [
+        "Critical Success Factors",
+        "Key Performance Indicators",
+        "Balanced Scorecard",
+        "Performance Pyramid"
+      ],
+      "instrument_references": [
+        "Balanced Scorecard (Kaplan and Norton, 1992)",
+        "SMART / Performance Pyramid (Cross and Lynch, 1989)"
+      ],
+      "inclusion": [
+        "Translating company strategy into measurable operational objectives",
+        "Aligning individual performance metrics with broader strategic goals"
+      ],
+      "exclusion": [
+        "Operating performance measurement systems completely detached from organizational strategy"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standalone budgeting by its direct integration of operational yardsticks with long-term strategic vision."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2f7598f9-f4e9-4c75-8255-661594295718",
+      "concept_name": "Importance of Interlinking Performance Management and Strategy",
+      "definition": "In modern dynamic environments, performance management must evolve beyond isolated appraisals or monitoring into systems directly derived from shifting strategic objectives. Such integration ensures that management possesses reliable information to support strategic decision-making and control.",
+      "terminology": [
+        "Dynamic Environment",
+        "Performance Appraisals",
+        "Strategic Objectives",
+        "Business Integration"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Adapting performance management systems to changing organizational strategies",
+        "Providing reliable information for strategic decision-making"
+      ],
+      "exclusion": [
+        "Static performance appraisal frameworks ignoring external environmental changes"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from historical people-management-only appraisals by its holistic alignment with shifting corporate strategies."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0c2f8bf1-b26b-445b-977a-300e45a03ae3",
+      "concept_name": "Introduction to Business Integration",
+      "definition": "Business integration aligns all organizational aspects to achieve strategic objectives efficiently through scarce resource allocation. Performance management is significantly enhanced when core elements such as people, operations, strategy, and technology are effectively linked across specialized departments.",
+      "terminology": [
+        "Business Integration",
+        "Resource Scarcity",
+        "Strategic Objectives",
+        "Process Alignment"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Aligning people, operations, strategy, and technology",
+        "Linking specialized departmental processes to create customer value"
+      ],
+      "exclusion": [
+        "Siloed functional operations operating independently of overall company strategy"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from simple departmental budgeting by its cross-functional focus on comprehensive value creation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0ef4b0f9-05a4-4ea9-ad36-45f8b61a93a4",
+      "concept_name": "Mechanics and Scope of Business Integration",
+      "definition": "Business integration resolves sub-optimization by viewing end-to-end processes from an entity-wide perspective rather than an individual department viewpoint. It leverages information technology breakthroughs to connect activities spanning order intake to final product delivery.",
+      "terminology": [
+        "Sub-optimisation",
+        "Process Perspective",
+        "Information Technology Breakthroughs",
+        "Entity-wide View"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Viewing processes from initial order to final delivery",
+        "Overcoming departmental sub-optimization using research findings by BPR experts like Hammer and Davenport"
+      ],
+      "exclusion": [
+        "Maximizing individual departmental efficiency at the expense of the overall organization"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from departmental performance maximization by prioritizing total entity outcomes over local functional targets."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f75154e7-781b-42d8-88ed-0606c7e7cd9c",
+      "concept_name": "Structure of the Value Chain and Margin",
+      "definition": "The value chain represents the sequential set of vertical primary activities and horizontal support activities that deliver products and accumulate customer utility. Margin reflects the excess of customer willingness to pay over the total costs incurred by the firm.",
+      "terminology": [
+        "Value Chain",
+        "Primary Activities",
+        "Support Activities",
+        "Margin"
+      ],
+      "instrument_references": [
+        "Competitive Advantage: Creating and Sustaining Superior Performance (Michael E. Porter, 1985)"
+      ],
+      "inclusion": [
+        "Sequential chain of activities leading to final product delivery",
+        "Measurement of margin as customer value minus firm cost"
+      ],
+      "exclusion": [
+        "Random uncoordinated tasks unconnected to customer utility accumulation"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general operational costing by specifically mapping activities to customer-perceived value and margin generation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a95e8b4b-0ffd-4454-9467-2b1679850db4",
+      "concept_name": "Primary Activities in the Value Chain",
+      "definition": "Primary activities encompass the vertical chain directly involved in transforming inputs and delivering products, consisting of inbound logistics, operations, outbound logistics, marketing and sales, and after-sales service. These activities drive competitive advantage through customized cost and differentiation strategies across business segments.",
+      "terminology": [
+        "Inbound Logistics",
+        "Operations",
+        "Outbound Logistics",
+        "Marketing and Sales",
+        "After Sales Service"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Receiving, storing, and handling raw material inputs",
+        "Transforming inputs into finished goods and executing outbound distribution and service"
+      ],
+      "exclusion": [
+        "Infrastructure, human resources, and procurement tasks categorized under support activities"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from support activities by their direct, vertical involvement in physical product transformation and delivery."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b6ff8fd5-7109-4aff-a2d0-60bae9e1c551",
+      "concept_name": "Primary Activities and Operational Segment Execution",
+      "definition": "Primary activities govern the physical transformation and market delivery of goods, exemplified by global supply chain management, operational outsourcing, and regional segment reporting. Managing these vertical workflows enables firms to leverage scale, reduce resource costs, and focus on core competencies.",
+      "terminology": [
+        "Inbound Logistics",
+        "Operations",
+        "Outsourcing",
+        "Reportable Operating Segments"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Outsourcing manufacturing to optimize resource costs",
+        "Managing global inbound and outbound supply chain logistics"
+      ],
+      "exclusion": [
+        "General firm administration and horizontal technological development"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from support functions by directly handling the physical creation, movement, and sale of market offerings."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f6157a76-bcba-4e29-8e68-8593075b5c23",
+      "concept_name": "Support Activities and Value Chain Analysis",
+      "definition": "Support activities provide horizontal infrastructure, human resources, procurement, and technology development that back primary activities. Value chain analysis categorizes these activities into value-added and non-value-added components to eliminate waste, achieve cost leadership, and enhance differentiation.",
+      "terminology": [
+        "Firm Infrastructure",
+        "Technology Development",
+        "Human Resource Management",
+        "Procurement",
+        "Value Chain Analysis"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Categorizing activities into value-added and non-value-added elements",
+        "Deploying firm infrastructure, technology, HR, and procurement to support primary functions"
+      ],
+      "exclusion": [
+        "Direct physical transformation processes classified as primary activities"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from primary activities by providing foundational horizontal support rather than direct product transformation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6705d07b-d5d5-49ff-af72-b77ac227e72a",
+      "concept_name": "Strategic Application of the Value Chain",
+      "definition": "An organization utilizes the value chain to present an integrated view of business activities, identifying key value drivers and categorizing processes to eliminate waste and focus resources. This classification supports the pursuit of cost leadership and product differentiation.",
+      "terminology": [
+        "Key Value Drivers",
+        "Cost Leadership",
+        "Product Differentiation",
+        "Value-Added Activities"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Identifying key value drivers equivalent to critical success factors",
+        "Targeting non-value-added activities for elimination"
+      ],
+      "exclusion": [
+        "Treating all operational activities as equally critical without cost-benefit justification"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from generic process mapping by its specific strategic focus on securing competitive advantage and margin expansion."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2dbaf92f-090d-4e64-aa25-c9654a03e584",
+      "concept_name": "Kaplan and Cooper's Four-Category Activity Classification",
+      "definition": "Kaplan and Cooper propose an alternative four-category value-added scheme that overcomes the limitations of dichotomous classification, sorting activities based on necessity and potential for improvement, simplification, or elimination. This framework addresses employee friction and categorization difficulties associated with traditional value-added labels.",
+      "terminology": [
+        "Dichotomous Classification",
+        "Four-Category Value-Added Scheme",
+        "Process Simplification",
+        "Learning Curve"
+      ],
+      "instrument_references": [
+        "Kaplan and Cooper (1998) Activity Classification Framework"
+      ],
+      "inclusion": [
+        "Classifying activities required to produce products that cannot currently be cost-justified for reduction",
+        "Identifying activities that can be simplified, improved, or eventually eliminated via learning curves"
+      ],
+      "exclusion": [
+        "Rigid binary classification of activities strictly as either value-added or non-value-added"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from simple binary value classifications by offering a granular four-tier scale that accounts for cost-justified necessity and improvement potential."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "13a669809422eadc5640d8728d1ead158cc50841464b2a2af98b35946c3a5412",
+  "artifact_id": "0b47355f-36e5-4c59-9049-c07390172694",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8428,
+  "output_tokens": 3295,
+  "cost_usd": 0.0107659,
+  "created_at": "2026-10-03T18:27:40.099046+00:00"
+}

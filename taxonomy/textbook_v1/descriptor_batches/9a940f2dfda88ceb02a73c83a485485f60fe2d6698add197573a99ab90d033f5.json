@@ -1,0 +1,371 @@
+{
+  "descriptors": [
+    {
+      "node_id": "1ea44252-4f28-41de-9d13-692941b69dfb",
+      "concept_name": "Legal Nature and Position of Directors",
+      "definition": "Directors act as agents of the company to bind it in transactions and as trustees to safeguard its properties and funds. They stand in a fiduciary relationship with the company rather than with individual shareholders.",
+      "terminology": [
+        "Board of Directors",
+        "Director",
+        "Agent",
+        "Trustee",
+        "Fiduciary relationship"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013, Section 2(10)",
+        "Companies Act, 2013, Section 2(34)"
+      ],
+      "inclusion": [
+        "Individuals appointed to the Board to manage business affairs",
+        "Directors elected from shareholders or outsiders"
+      ],
+      "exclusion": [
+        "Bodies corporate, firms, or associations of persons",
+        "Individual shareholders acting outside official capacity"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from shareholders who are owners, whereas directors manage business affairs and owe fiduciary duties to the company as a corporate entity."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "12e60339-0cd0-4920-877b-3083a79da2e7",
+      "concept_name": "Board Constitution and Composition Limits",
+      "definition": "Every company must constitute a Board of Directors consisting solely of individuals, adhering to specified minimum and maximum numerical thresholds. Public companies require a minimum of three directors, private companies two, and One Person Companies one, with an overall maximum cap of fifteen unless expanded via special resolution.",
+      "terminology": [
+        "Board of Directors",
+        "Public Company",
+        "Private Company",
+        "One Person Company",
+        "Woman Director",
+        "Special Resolution"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013, Section 149",
+        "Companies (Appointment and Qualifications of Directors) Rules, 2014, Rule 3"
+      ],
+      "inclusion": [
+        "Minimum director requirements for public companies, private companies, and OPCs",
+        "Appointment of at least one woman director for prescribed classes of companies"
+      ],
+      "exclusion": [
+        "Non-individual entities such as bodies corporate, firms, or association of persons",
+        "Exceeding 15 directors without passing a special resolution"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general member composition by strictly mandating individual natural persons and setting specific structural minimums and maximums."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d8cbf395-b847-4e41-b891-f321e6b995af",
+      "concept_name": "Director Appointment Procedures and Requirements",
+      "definition": "Directors are generally appointed by the company in a general meeting, except where specific statutory provisions allow alternative board-level appointments. Individual subscribers to the memorandum act as first directors if articles are silent, and every appointed director must possess an active Director Identification Number.",
+      "terminology": [
+        "First Directors",
+        "Subsequent Directors",
+        "General Meeting",
+        "Director Identification Number",
+        "Subscribers to Memorandum"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013, Section 152",
+        "Companies Act, 2013, Section 153",
+        "Companies Act, 2013, Section 154"
+      ],
+      "inclusion": [
+        "Individual subscribers acting as first directors when articles are silent",
+        "Subsequent director appointments made by shareholders in general meetings",
+        "Mandatory allotment of Director Identification Number prior to appointment"
+      ],
+      "exclusion": [
+        "Corporate bodies acting as subscribers becoming first directors",
+        "Appointment of any person lacking a valid Director Identification Number"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes first directors determined by memorandum subscription from subsequent directors elected by shareholders in general meetings."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "bbd26698-96d5-46d0-9280-b19f90e59458",
+      "concept_name": "Director Identification Number",
+      "definition": "Director Identification Number is a unique identification number allotted by the Central Government to any individual intending to be appointed as a director or serving as an existing director. This mandatory identifier includes designated partnership identification numbers issued under separate limited liability partnership regulations.",
+      "terminology": [
+        "Director Identification Number",
+        "DIN",
+        "Designated Partnership Identification Number",
+        "DPIN",
+        "Central Government"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013, Section 152(3)",
+        "Companies Act, 2013, Sections 153 to 159",
+        "Companies (Specification of Definitions Details) Rules, 2014, Rule 2(1)(e)",
+        "Limited Liability Partnership Act, 2008, Section 7"
+      ],
+      "inclusion": [
+        "Identification numbers allotted to individuals intending to be appointed as directors",
+        "Previously obtained DINs and recognized DPINs equivalent for designated partners"
+      ],
+      "exclusion": [
+        "Appointment of any person as a director without an allotted DIN",
+        "Separate DPIN acquisition requirements for individuals already possessing an eligible DIN"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general company registration numbers by being an individual-specific tracking identifier required for holding any directorship."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2d4e7734-55b7-413a-9685-15e051a9cb5c",
+      "concept_name": "Candidature of Non-Retiring Directors",
+      "definition": "Persons other than retiring directors may stand for directorship if they or a proposing member submit a written notice at least fourteen days prior to a general meeting along with a mandatory monetary deposit. The company must inform its members of such candidature at least seven days before the meeting through electronic or written notices and website publication.",
+      "terminology": [
+        "Retiring Director",
+        "Candidature",
+        "Written Notice",
+        "Deposit",
+        "Nomination and Remuneration Committee"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013, Section 160",
+        "Companies Act, 2013, Section 178(1)",
+        "Companies (Appointment and Qualifications of Directors) Rules, 2014, Rule 13"
+      ],
+      "inclusion": [
+        "Candidature notices submitted by non-retiring candidates or proposing members",
+        "Required monetary deposit accompanying the notice",
+        "Exemptions from deposit requirements for independent directors or committee-recommended candidates"
+      ],
+      "exclusion": [
+        "Retiring directors seeking standard reappointment through regular rotation mechanisms",
+        "Candidates lacking the mandatory notice period or financial deposit where applicable"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard retiring director re-appointments by requiring explicit proactive written notice and financial deposits from non-retiring candidates or supporting members."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e9059e2b-8ab7-462d-bb9c-7050bd09c13e",
+      "concept_name": "Small Shareholders Director Appointment",
+      "definition": "A listed company may have one director elected by small shareholders holding shares of a specified nominal value, provided a qualifying threshold of members submits a formal notice. This representative director is considered an independent director for governance purposes.",
+      "terminology": [
+        "Small Shareholders",
+        "Listed Company",
+        "Small Shareholders Director",
+        "Nominal Value",
+        "Independent Director"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013, Section 151",
+        "Companies (Appointment and Qualifications of Directors) Rules, 2014, Rule 7"
+      ],
+      "inclusion": [
+        "Election of a single director by small shareholders in listed companies",
+        "Notice requirements backed by specified numbers of small shareholders",
+        "Classification of the small shareholders' director as an independent director"
+      ],
+      "exclusion": [
+        "Unlisted companies lacking statutory thresholds for small shareholder directorships",
+        "Shareholders holding nominal values exceeding the prescribed small shareholder limit"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general board appointments by specifically empowering minority small shareholders through a dedicated collective petition mechanism."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "51a3af45-0795-4e62-94e7-fd8fb7a40606",
+      "concept_name": "Board Appointment of Additional and Alternate Directors",
+      "definition": "The Board of Directors may appoint additional directors if empowered by the articles, provided the appointee has not been rejected at a general meeting, with tenure expiring at the next annual general meeting. Alternate directors may also be appointed during a director's long absence, subject to statutory and governance limitations.",
+      "terminology": [
+        "Additional Director",
+        "Alternate Director",
+        "Articles of Association",
+        "Annual General Meeting",
+        "Board of Directors"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013, Section 161",
+        "Companies Act, 2013, Section 161(1)",
+        "Companies Act, 2013, Section 161(2)",
+        "Companies Act, 2013, Section 167"
+      ],
+      "inclusion": [
+        "Board appointment of additional directors via article authorization",
+        "Tenure limitations restricting additional directors to the date of the next annual general meeting",
+        "Alternate director appointments covering extended absences"
+      ],
+      "exclusion": [
+        "Appointing any person as an additional director who failed to secure appointment at a general meeting",
+        "Extending an additional director's term beyond the due date of the annual general meeting"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from regular shareholder-elected directors by originating from Board-level discretion authorized strictly through company articles to manage urgent management requirements."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "02082e24-5653-4921-be8a-e4dd4c19bc4f",
+      "concept_name": "Individual Voting Requirement for Director Appointments",
+      "definition": "Companies are prohibited from appointing two or more directors through a single collective resolution unless a preliminary proposal to do so is agreed upon without any dissenting votes. This ensures shareholders retain individual choice and can reject specific candidates without voting against an entire slate.",
+      "terminology": [
+        "Single Resolution",
+        "Individual Voting",
+        "Ordinary Resolution",
+        "General Meeting"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013, Section 162",
+        "Companies (Appointment and Qualifications of Directors) Rules, 2014"
+      ],
+      "inclusion": [
+        "Separate resolutions required for each individual director appointment",
+        "Unanimous agreement exception allowing single resolution voting if no votes are cast against the proposal"
+      ],
+      "exclusion": [
+        "Passing a single resolution to elect multiple directors when any member casts a dissenting vote",
+        "Exemptions applicable to specific government companies, wholly-owned subsidiaries, and private companies under rules"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from block-voting practices by forcing strict individual assessment of candidates unless absolute unanimous consent permits a grouped ballot."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "73353372-eafa-4e70-a1d1-4c67694e97ea",
+      "concept_name": "Proportional Representation for Director Appointments",
+      "definition": "Companies may adopt systems of proportional representation in their articles to ensure minority shareholders secure fair representation on the board. This mechanism overrides standard majority voting rules by utilizing single transferable votes, cumulative voting, or other transparent methods for at least two-thirds of total directors.",
+      "terminology": [
+        "Proportional Representation",
+        "Single Transferable Vote",
+        "Cumulative Voting",
+        "Minority Shareholders",
+        "Articles of Association"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013, Section 163",
+        "Companies Act, 2013, Section 161(4)"
+      ],
+      "inclusion": [
+        "Adopting proportional representation via company articles for at least two-thirds of total directors",
+        "Methods including single transferable votes and cumulative voting systems",
+        "Triennial appointment cycles"
+      ],
+      "exclusion": [
+        "Default appointment of all directors via standard simple majority voting",
+        "Failing to provide minority interest representation mechanisms in articles when opting for the system"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard simple majority voting by allowing minority voting blocks to secure proportional board representation rather than being entirely overridden."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ad9ad78e-7d09-4481-a936-ef6cfe0b593a",
+      "concept_name": "Statutory Disqualifications for Directorship",
+      "definition": "A person is ineligible for appointment as a director if they suffer from specified personal incapacities, legal convictions, un-paid call defaults, or non-compliance with identification and directorship limits. Additional disqualifications attach automatically if a director serves on a company defaulting on financial statements, annual returns, or deposit repayments.",
+      "terminology": [
+        "Disqualifications",
+        "Unsound Mind",
+        "Insolvent",
+        "Moral Turpitude",
+        "Director Identification Number",
+        "Related Party Transactions"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013, Section 164",
+        "Companies Act, 2013, Section 164(1)",
+        "Companies Act, 2013, Section 164(2)",
+        "Companies Act, 2013, Section 152(3)",
+        "Companies Act, 2013, Section 165(1)",
+        "Companies Act, 2013, Section 188"
+      ],
+      "inclusion": [
+        "Personal legal incapacities such as unsound mind or insolvency",
+        "Criminal convictions carrying specified prison sentences",
+        "Defaults in paying share calls or filing statutory financial statements"
+      ],
+      "exclusion": [
+        "Mandatory professional or educational qualification requirements, which are not prescribed by law",
+        "Holding qualification shares as a pre-requisite"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from performance-based removals by functioning as absolute statutory bars preventing initial appointment or continuation based on past legal defaults or personal status."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "512c453a-4e85-449a-84cc-03d897d8a085",
+      "concept_name": "Maximum Directorship Limits and Transition",
+      "definition": "An individual cannot hold office as a director, including alternate directorships, in more than twenty companies concurrently, with a sub-limit restricting public company directorships to a maximum of ten. Dormant companies and section 8 companies are excluded from these numerical counts.",
+      "terminology": [
+        "Maximum Directorships",
+        "Public Company",
+        "Private Company",
+        "Dormant Company",
+        "Section 8 Company",
+        "Transition Period"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013, Section 165",
+        "Companies Act, 2013, Section 165(1)",
+        "Companies Act, 2013, Section 137",
+        "Companies Act, 2013, Section 92"
+      ],
+      "inclusion": [
+        "Overall cap of twenty companies for simultaneous directorships",
+        "Sub-limit capping public company directorships at ten",
+        "Exclusion of dormant and compliant section 8 companies from the computation"
+      ],
+      "exclusion": [
+        "Holding directorships exceeding ten public companies or twenty total companies",
+        "Counting compliant section 8 companies towards the maximum limit"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from single-company governance roles by setting a hard statutory ceiling across multiple corporate entities simultaneously."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5f5f12fd-ded6-4867-a541-719ded9dbf8c",
+      "concept_name": "Independent Director Mandates and Thresholds",
+      "definition": "Listed public companies must maintain at least one-third of their total directors as independent directors, while specific classes of unlisted public companies must appoint a minimum of two based on paid-up capital, turnover, or loan thresholds. Intermittent vacancies must be filled within specified statutory timeframes.",
+      "terminology": [
+        "Independent Directors",
+        "Listed Company",
+        "Paid-up Share Capital",
+        "Turnover",
+        "Intermittent Vacancy",
+        "Audit Committee"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013, Section 149(4)",
+        "Companies Act, 2013, Section 177(2)",
+        "Companies (Appointment and Qualifications of Directors) Rules, 2014, Rule 4(1)"
+      ],
+      "inclusion": [
+        "One-third independent director quota for listed public companies",
+        "Minimum of two independent directors for unlisted public companies meeting financial thresholds",
+        "Mandatory filling of intermittent vacancies by the next board meeting or three months"
+      ],
+      "exclusion": [
+        "Private companies lacking public company listing or financial threshold triggers",
+        "Mandatory appointments when financial conditions fail to be met for three consecutive years"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from executive or non-executive ordinary directors by strict statutory independence criteria and quantitative financial scale triggers."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "9a940f2dfda88ceb02a73c83a485485f60fe2d6698add197573a99ab90d033f5",
+  "artifact_id": "f5f3687e-96dc-4c0e-9db1-286cd45862e5",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 9752,
+  "output_tokens": 4508,
+  "cost_usd": 0.014195600000000001,
+  "created_at": "2026-10-03T18:23:58.683641+00:00"
+}

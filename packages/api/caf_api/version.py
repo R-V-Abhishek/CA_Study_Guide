@@ -27,5 +27,6 @@ def score_run_identity(run: ScoreRun | None) -> dict | None:
         'id': run.id,
         'version': run.scoring_version,
         'target_attempt_id': run.target_attempt_id,
+        'taxonomy_version_id': run.taxonomy_version_id,
         'computed_at': run.finished_at,
     }

@@ -1,0 +1,214 @@
+{
+  "descriptors": [
+    {
+      "node_id": "970f5f6f-85d1-442a-b58e-916790effb50",
+      "concept_name": "Digital Transactions Tax Framework Introduction",
+      "definition": "The rapid expansion of information and communication technology enables businesses to operate globally in cyberspace without physical boundaries or traditional physical presence. This shift creates complex international tax challenges concerning jurisdictional nexus, data valuation, and the accurate characterization of digital transactions.",
+      "terminology": [
+        "cyberspace",
+        "brick and mortar to click and order",
+        "digital epoch",
+        "nexus",
+        "stateless income"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Cross-border digital goods and services",
+        "E-commerce business models",
+        "Equalisation levy developments",
+        "Virtual digital asset transfers"
+      ],
+      "exclusion": [
+        "Traditional physical retail trade without digital components",
+        "Domestic trade governed exclusively by conventional brick-and-mortar rules"
+      ],
+      "nearby_distinctions": [
+        "Contrasts with physical location-bound commerce by dissolving the direct link between income-producing activity and a specific geographic territory."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "342e3ed1-31a4-4c8f-8679-61652e6fedcd",
+      "concept_name": "Meaning of E-Commerce",
+      "definition": "Electronic commerce denotes the supply of goods, services, or digital products over a digital or electronic network for economic value. Classification of a commercial transaction as e-commerce is determined strictly by the digital ordering method rather than the underlying product characteristics, participant types, or payment modes.",
+      "terminology": [
+        "electronic commerce",
+        "digital network",
+        "ordering method",
+        "subscription e-commerce"
+      ],
+      "instrument_references": [
+        "Section 194O Explanation Clause (a)"
+      ],
+      "inclusion": [
+        "Online shopping and retail",
+        "Online trading of goods and services",
+        "Electronic fund transfers and data exchanges",
+        "Subscription-based digital service streams"
+      ],
+      "exclusion": [
+        "Traditional face-to-face transactions conducted without computer or telecommunication network ordering methods"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from a standalone business type because e-commerce is merely a method of conducting business transactions containing the same substantive economic content as traditional trades."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "48e0c9ac-236e-4446-803a-0faee45d94fe",
+      "concept_name": "Conduct of Business in Digital Economy",
+      "definition": "Digital technologies act as the operational backbone for modern commercial transactions, enabling businesses to expand markets and reach participants online through innovative channels. Transactions conducted via electronic networks are structurally categorized based on the participating entities, such as businesses, consumers, and governmental bodies.",
+      "terminology": [
+        "B2C",
+        "B2B",
+        "G2C",
+        "G2B",
+        "B2G",
+        "artificial intelligence smart assistants"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Business to Consumer e-commerce platforms",
+        "Business to Business online trading marketplaces",
+        "Government to Citizen portals for tax payments and filings",
+        "Government to Business electronic exchanges"
+      ],
+      "exclusion": [
+        "Transactions isolated entirely from electronic networks and telecommunication infrastructures"
+      ],
+      "nearby_distinctions": [
+        "Differentiated from simple electronic communication by requiring active commercial exchange of goods, services, or information between distinct market participants."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2d3f2a8f-5185-40b5-9ccf-73817807e1df",
+      "concept_name": "Taxation Issues Relating to Digital Economy",
+      "definition": "Modern digital business models undermine traditional physical presence-based permanent establishment rules by operating through decentralized platforms and automated artificial intelligence. This technological shift creates acute difficulties in establishing jurisdictional nexus, characterizing payments, and preventing stateless, untaxed income.",
+      "terminology": [
+        "permanent establishment",
+        "stateless income",
+        "nexus",
+        "characterization",
+        "virtual fixed place"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "De-materialized digital activities lacking physical offices",
+        "Automated technical services rendered without human intervention",
+        "Cross-border transactions generating stateless income"
+      ],
+      "exclusion": [
+        "Traditional brick-and-mortar operations with clear physical office locations and localized administrative control"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from traditional permanent establishment criteria which rely strictly on physical place, location, and operational permanency."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4232161f-e362-4b9a-9868-4638773852f6",
+      "concept_name": "OECD Recommendations Under Action Plan 1 of the BEPS Project",
+      "definition": "The G20-OECD BEPS Action Plan 1 proposes addressing digital tax challenges through modified permanent establishment rules, virtual fixed places of business, and gross-basis withholding taxes or equalization levies. These measures serve as interim mechanisms for domestic implementation or bilateral treaties to counteract base erosion and profit shifting.",
+      "terminology": [
+        "BEPS Action Plan 1",
+        "significant economic presence",
+        "virtual fixed place of business",
+        "withholding tax",
+        "equalisation levy"
+      ],
+      "instrument_references": [
+        "2015 Action 1 Report"
+      ],
+      "inclusion": [
+        "Significant digital presence PE rules",
+        "Website maintenance on foreign servers as virtual PE",
+        "Final gross-basis withholding taxes on digital service payments",
+        "Equalisation levies for foreign businesses with sufficient economic presence"
+      ],
+      "exclusion": [
+        "Long-term multilateral consensus solutions superseding interim domestic rules"
+      ],
+      "nearby_distinctions": [
+        "Contrasts with standard physical site PE thresholds by factoring in remote digital interactions and server hosting arrangements."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "cf4e5a51-8546-418b-bb4d-cbc61d31c916",
+      "concept_name": "Equalisation Levy - Chapter VIII in the Finance Act, 2016",
+      "definition": "Chapter VIII of the Finance Act, 2016 establishes a six percent equalisation levy on gross consideration for specified online advertisement and related services received by non-residents lacking a permanent establishment in India. This levy applies exclusively to business-to-business transactions involving resident payers or non-residents with an Indian permanent establishment, operating outside standard income tax treaty benefit frameworks.",
+      "terminology": [
+        "equalisation levy",
+        "specified services",
+        "non-resident without PE",
+        "B2B transactions",
+        "gross amount paid"
+      ],
+      "instrument_references": [
+        "Finance Act, 2016 Chapter VIII",
+        "Section 164(d)",
+        "Section 165"
+      ],
+      "inclusion": [
+        "Online advertisement consideration exceeding aggregate thresholds",
+        "Specified services provided by non-residents without Indian permanent establishments",
+        "Business-to-business digital payments"
+      ],
+      "exclusion": [
+        "Transactions involving non-residents who maintain a taxable permanent establishment in India",
+        "Consumer-to-consumer or business-to-consumer transactions"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard income tax because it is not characterized as income tax, thereby denying conventional double tax avoidance treaty foreign tax credits."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e3d973df-0500-4c28-abe6-284eb6efbc8b",
+      "concept_name": "Taxation of Virtual Digital Assets",
+      "definition": "Virtual digital assets encompass cryptographically generated codes, tokens, or numbers providing a digital representation of value that can be electronically transferred, stored, or traded. The statutory definition includes non-fungible tokens while expressly excluding Indian or foreign currency, digital gift cards, reward points, and specific subscription vouchers.",
+      "terminology": [
+        "virtual digital asset",
+        "cryptographic means",
+        "non-fungible token",
+        "store of value",
+        "unit of account"
+      ],
+      "instrument_references": [
+        "Section 2(47A)",
+        "Finance Act, 2022",
+        "Notification No. 74/2022",
+        "Notification No. 75/2022"
+      ],
+      "inclusion": [
+        "Cryptographically generated value tokens",
+        "Notified non-fungible tokens",
+        "Electronically transferable store-of-value digital codes"
+      ],
+      "exclusion": [
+        "Indian currency and foreign currency",
+        "Gift cards or discount vouchers",
+        "Loyalty, rebate, or reward mileage points",
+        "Non-fungible tokens whose transfer legally enforces underlying tangible asset ownership"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard fiat currencies and traditional commercial discount vouchers by its cryptographic generation and electronic store-of-value properties."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "cfc9418ebbc3e47da0ad589f3c35f3ff11ebfefb1a7c8e87d34046139e439c0b",
+  "artifact_id": "bf011bdf-4bc6-4606-aa19-65884b499665",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 5222,
+  "output_tokens": 2366,
+  "cost_usd": 0.007481600000000001,
+  "created_at": "2026-10-03T18:17:34.486879+00:00"
+}

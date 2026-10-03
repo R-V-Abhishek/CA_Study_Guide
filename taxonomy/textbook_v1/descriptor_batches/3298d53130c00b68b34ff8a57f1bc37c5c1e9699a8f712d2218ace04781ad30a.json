@@ -1,0 +1,319 @@
+{
+  "descriptors": [
+    {
+      "node_id": "28fc9f55-c3ca-4e58-bb92-c64af510c93c",
+      "concept_name": "Audit Report Issuance and Communication Role",
+      "definition": "The issuance of an audit report represents the culmination of audit fieldwork and serves as a vital communication medium conveying the statutory auditor's expert views on financial statements. Because numerous stakeholders depend on this opinion, the auditor must exercise rigorous care and objectivity while adhering strictly to standard reporting requirements.",
+      "terminology": [
+        "Audit Report",
+        "Statutory Auditor",
+        "Audit Opinion",
+        "SA 700 Series"
+      ],
+      "instrument_references": [
+        "SA 700 Series"
+      ],
+      "inclusion": [
+        "Communication of expert views on financial statements",
+        "Adherence to reporting standards for uniformity"
+      ],
+      "exclusion": [
+        "Audit fieldwork execution steps prior to report issuance"
+      ],
+      "nearby_distinctions": [
+        "Differs from general internal audit memos by serving as a formal, publicly relied-upon external deliverable."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "54d42953-665b-4a88-b530-4ee323e33f71",
+      "concept_name": "SA 700 Scope and Global Consistency",
+      "definition": "SA 700 applies to audits of complete general-purpose financial statements and balances global consistency with jurisdictional flexibility. It governs the form and content of the auditor's report to ensure international comparability and credibility.",
+      "terminology": [
+        "General-purpose financial statements",
+        "Consistency and comparability",
+        "SA 700"
+      ],
+      "instrument_references": [
+        "SA 700"
+      ],
+      "inclusion": [
+        "Audits of complete general-purpose financial statements",
+        "Balancing global consistency with local flexibility"
+      ],
+      "exclusion": [
+        "Special purpose frameworks outside general-purpose sets"
+      ],
+      "nearby_distinctions": [
+        "Focuses specifically on standard reporting structure rather than individual substantive testing procedures."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5c57ad29-4a4f-4e00-9ee8-f75b7b96d705",
+      "concept_name": "Auditor Opinion Formation and Objectives",
+      "definition": "The auditor must evaluate audit evidence to determine whether financial statements comply with the applicable financial reporting framework in all material respects. Objectives under SA 700 require forming this opinion via reasonable assurance and expressing it clearly through a written report.",
+      "terminology": [
+        "Reasonable assurance",
+        "Material misstatement",
+        "Applicable financial reporting framework",
+        "Written report"
+      ],
+      "instrument_references": [
+        "SA 700"
+      ],
+      "inclusion": [
+        "Evaluation of audit evidence",
+        "Formation of opinion on material compliance",
+        "Issuance of a written report"
+      ],
+      "exclusion": [
+        "Informal verbal opinions provided to management"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from evidence-gathering phases by culminating strictly in a formal written conclusion."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "85d433ad-7c8b-4bb3-839a-7245b9b915b8",
+      "concept_name": "Fair Presentation Framework Evaluation",
+      "definition": "When financial statements follow a fair presentation framework, the auditor evaluates overall presentation, structure, content, and note disclosures. This ensures underlying transactions and events are represented accurately to achieve fair presentation.",
+      "terminology": [
+        "Fair presentation framework",
+        "Overall presentation",
+        "Underlying transactions"
+      ],
+      "instrument_references": [
+        "SA 700"
+      ],
+      "inclusion": [
+        "Evaluation of financial statement structure and content",
+        "Assessment of underlying transaction representation"
+      ],
+      "exclusion": [
+        "Compliance frameworks that do not explicitly require fair presentation"
+      ],
+      "nearby_distinctions": [
+        "Goes beyond mere mechanical rule compliance by assessing whether economic reality is fairly depicted."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5ff8f726-3116-4602-9ad3-cd2d3a1eb7ec",
+      "concept_name": "Basic Elements and Title of the Auditor Report",
+      "definition": "An independent auditor's report must be in writing and feature explicit required elements, beginning with a title indicating independence and a properly directed addressee. The opinion section must comprehensively identify the audited entity, financial statement components, notes, and applicable reporting periods.",
+      "terminology": [
+        "Independent Auditor's Report",
+        "Addressee",
+        "Auditor's Opinion",
+        "True and fair view"
+      ],
+      "instrument_references": [
+        "SA 700"
+      ],
+      "inclusion": [
+        "Title specifying independence",
+        "Appropriate addressee designation",
+        "Opinion section detailing covered financial components"
+      ],
+      "exclusion": [
+        "Non-written or informal audit communications"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from supplementary sections by serving as the core mandatory structural layout of the audit report."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f9cf9a5a-add4-4e30-a165-47daa73d6e96",
+      "concept_name": "Statutorily Prescribed Auditor Reports",
+      "definition": "When laws or regulations mandate a specific report layout, the auditor may only reference Standards on Auditing if minimum mandated elements are included. These compulsory elements encompass titles, addressees, independence declarations referencing the ICAI Code of Ethics, management responsibilities, and appropriate sign-off details.",
+      "terminology": [
+        "Law or regulation",
+        "ICAI Code of Ethics",
+        "Minimum elements",
+        "Auditor's signature"
+      ],
+      "instrument_references": [
+        "Standards on Auditing",
+        "SA 570",
+        "SA 570 (Revised)",
+        "SA 701"
+      ],
+      "inclusion": [
+        "Mandatory layout integration",
+        "Explicit ICAI Code of Ethics references",
+        "Required going concern and key audit matter sections"
+      ],
+      "exclusion": [
+        "Reports lacking mandatory foundational elements while claiming SA compliance"
+      ],
+      "nearby_distinctions": [
+        "Differs from standard SA 700 layouts by accommodating jurisdictional statutory formatting while preserving core audit principles."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7e738fab-855a-4ef5-9635-3096277fd50e",
+      "concept_name": "Dual Reporting Under SAs and Other Jurisdictions",
+      "definition": "An auditor conducting an engagement under both ICAI Standards on Auditing and international or foreign standards may cross-reference both regimes provided no framework conflicts exist. Such dual-reporting requires complete alignment on audit opinions and mandatory emphasis-of-matter paragraphs alongside mandatory minimum elements.",
+      "terminology": [
+        "International Standards on Auditing",
+        "ISAs",
+        "Jurisdiction of origin",
+        "Conflict-free reporting"
+      ],
+      "instrument_references": [
+        "Standards on Auditing issued by ICAI",
+        "International Standards on Auditing"
+      ],
+      "inclusion": [
+        "Cross-referencing foreign and domestic auditing standards",
+        "Verification of zero conflict in opinion outcomes"
+      ],
+      "exclusion": [
+        "Engagements with substantive procedural conflicts between domestic and foreign standards"
+      ],
+      "nearby_distinctions": [
+        "Differs from single-jurisdiction audits by necessitating active harmonization across multiple regulatory standard bodies."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "367701df-a3e8-4f9e-8d73-52a39c83719d",
+      "concept_name": "Supplementary Information Treatment in Audits",
+      "definition": "The auditor evaluates whether supplementary information presented alongside financial statements is an integral part requiring audit coverage or distinct unaudited data. If management refuses to clearly differentiate unaudited schedules, the auditor must explicitly identify them in the report.",
+      "terminology": [
+        "Supplementary information",
+        "Integral part",
+        "Clearly differentiated",
+        "Unaudited schedule"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Evaluation of supplementary data integration",
+        "Drafting explanatory paragraphs for un-differentiated schedules"
+      ],
+      "exclusion": [
+        "Core primary financial statements required by the reporting framework"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from cross-referenced notes by being explicitly segregated or identified as separate from primary audited statements."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "23739645-2af6-4448-be5e-9807a2ca3951",
+      "concept_name": "SA 701 Purpose and Core Objective",
+      "definition": "SA 701 governs the communication of key audit matters to enhance reporting transparency and highlight issues of highest professional significance. It provides essential insights into areas involving complex management judgment without acting as a substitute for modified opinions or financial statement disclosures.",
+      "terminology": [
+        "Key Audit Matters",
+        "Professional judgment",
+        "Transparency",
+        "Communicative value"
+      ],
+      "instrument_references": [
+        "SA 701",
+        "SA 705 (Revised)",
+        "SA 570 (Revised)"
+      ],
+      "inclusion": [
+        "Communication of significant current period audit matters",
+        "Enhancement of auditor report transparency"
+      ],
+      "exclusion": [
+        "Replacement for required financial statement disclosures",
+        "Substitute for modified audit opinions"
+      ],
+      "nearby_distinctions": [
+        "Differs from an emphasis-of-matter paragraph by highlighting matters of most significance rather than simply drawing attention to disclosures."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "bb6f59ab-2d37-431a-adde-f9b7d312894e",
+      "concept_name": "SA 701 Scope and Applicability",
+      "definition": "SA 701 applies primarily to audits of complete general-purpose financial statements for listed entities, or where otherwise required by law. However, auditors issuing a disclaimer of opinion are explicitly prohibited from communicating key audit matters unless mandated by regulation.",
+      "terminology": [
+        "Listed entities",
+        "General purpose financial statements",
+        "Disclaimer of opinion"
+      ],
+      "instrument_references": [
+        "SA 701",
+        "SA 705 (Revised)"
+      ],
+      "inclusion": [
+        "Audits of listed entity financial statements",
+        "Mandated key audit matter reporting environments"
+      ],
+      "exclusion": [
+        "Unlisted entities unless voluntarily elected or legally mandated",
+        "Engagements with disclaimed opinions"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard audits by mandatory application thresholds tied specifically to listed entity status."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "60f18fac-0082-45a4-8ddc-cacb010e69ce",
+      "concept_name": "Key Audit Matter Selection and Risk Factors",
+      "definition": "The auditor determines key audit matters by identifying areas requiring significant attention from governance communications, focusing on high assessed risks and significant management estimates. Consideration is extended to significant risks under SA 315, high estimation uncertainty, and impactful period transactions.",
+      "terminology": [
+        "Significant auditor attention",
+        "Significant risks",
+        "Estimation uncertainty",
+        "Audit governance"
+      ],
+      "instrument_references": [
+        "SA 315",
+        "SA 701"
+      ],
+      "inclusion": [
+        "Evaluation of high assessed risk areas",
+        "Review of items with high estimation uncertainty"
+      ],
+      "exclusion": [
+        "Routine audit tasks lacking complexity or significant judgment"
+      ],
+      "nearby_distinctions": [
+        "Differs from general risk assessment by focusing strictly on matters requiring significant attention during actual execution."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5a354c98-8621-45d3-b0b4-023cfe50d94f",
+      "concept_name": "Determining and Communicating Key Audit Matters",
+      "definition": "Auditors select key audit matters from governance discussions based on risk magnitude, complex estimates, and significant period events. The report must explicitly state that these matters were addressed in the context of the audit as a whole without providing separate individual opinions on them.",
+      "terminology": [
+        "Impairment assessment",
+        "Valuation of financial instruments",
+        "Audit opinion context",
+        "Introductory language"
+      ],
+      "instrument_references": [
+        "SA 701"
+      ],
+      "inclusion": [
+        "Inclusion of specific introductory KAM framing language",
+        "Evaluation of impairment and tax contingencies"
+      ],
+      "exclusion": [
+        "Provision of separate, standalone opinions on individual line items"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from the main opinion block by clarifying that KAMs are contextual insights rather than separate micro-opinions."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "3298d53130c00b68b34ff8a57f1bc37c5c1e9699a8f712d2218ace04781ad30a",
+  "artifact_id": "560e543c-b6ce-4364-a5f5-2f339091d917",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8277,
+  "output_tokens": 3384,
+  "cost_usd": 0.0109431,
+  "created_at": "2026-10-03T18:10:17.190231+00:00"
+}

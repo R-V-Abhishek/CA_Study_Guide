@@ -1,0 +1,290 @@
+{
+  "descriptors": [
+    {
+      "node_id": "ccc83c4e-3859-455f-a963-d2ca9613e04b",
+      "concept_name": "Objective And Scope Of Financial Statements",
+      "definition": "The primary objective of financial statements is to supply financial information regarding an entity's assets, liabilities, equity, income, and expenses that assists users in evaluating future net cash inflows and management's stewardship. This financial information is communicated through the balance sheet, the statement of profit and loss, and accompanying notes disclosing recognised and unrecognised items, cash flows, equity contributions, and estimation judgments.",
+      "terminology": [
+        "Reporting entity",
+        "Economic resources",
+        "Stewardship",
+        "Future net cash inflows",
+        "Recognised assets"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Information about assets, liabilities, and equity in the balance sheet",
+        "Information about income and expenses in the statement of profit and loss",
+        "Disclosures on risks, cash flows, and estimation methods in notes"
+      ],
+      "exclusion": [
+        "Detailed explanatory material regarding management expectations and strategies not tied to reported measures"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general purpose financial reports which encompass broader commentaries beyond the financial statements themselves."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "39b3d0dc-03e2-4397-9430-b4964cd73ead",
+      "concept_name": "Reporting period",
+      "definition": "Financial statements are prepared for a specified period of time to help users identify and assess changes and trends, incorporating comparative information for at least one preceding period. Forward-looking information is included only if it relates to existing assets, liabilities, or equity during the period and is useful to statement users.",
+      "terminology": [
+        "Comparative information",
+        "Forward-looking information",
+        "Subsequent events"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Comparative data for preceding reporting periods",
+        "Forward-looking estimates related to existing assets and liabilities",
+        "Information about post-reporting period events necessary to meet objectives"
+      ],
+      "exclusion": [
+        "General explanatory materials regarding management expectations and strategies not connected to reported measures"
+      ],
+      "nearby_distinctions": [
+        "Differs from general forward-looking management reports by strictly limiting future-oriented disclosures to those explaining existing financial statement measures."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4c3b905a-63f5-4613-a68e-46bcd7ba3f19",
+      "concept_name": "Perspective Adopted In Financial Statements",
+      "definition": "Financial statements provide information viewed from the perspective of the reporting entity as a whole rather than from the viewpoint of any specific group of existing or potential investors, lenders, or creditors. This ensures the reported information caters broadly to the common information needs of primary users.",
+      "terminology": [
+        "Entity as a whole",
+        "Primary users",
+        "Perspective"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Information reflecting the economic position and performance of the overall entity"
+      ],
+      "exclusion": [
+        "Customized reports tailored exclusively to the specialized demands of a single lender or investor group"
+      ],
+      "nearby_distinctions": [
+        "Contrasts with specialized investor group analyses that focus solely on specific stakeholder claims rather than aggregate entity resources."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d80dfb37-1eb9-4b17-8171-8962d6a3d1a7",
+      "concept_name": "Going Concern Assumption",
+      "definition": "Financial statements are normally prepared on the assumption that the reporting entity is a going concern and will continue operation for the foreseeable future without the intention or necessity of liquidation or cessation. If such operational risks exist, alternative bases must be applied and fully described.",
+      "terminology": [
+        "Going concern",
+        "Foreseeable future",
+        "Liquidation"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Assumption of continuing operations for the foreseeable future",
+        "Description of alternative bases if liquidation or cessation is intended"
+      ],
+      "exclusion": [
+        "Liquidation-value accounting when the entity has no foreseeable liquidation intent or necessity"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from liquidation or break-up bases of accounting which apply only when an entity faces compulsory or intended cessation of trade."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5c04571e-4278-411b-baa7-3ded55209bfc",
+      "concept_name": "The Reporting Entity",
+      "definition": "A reporting entity is an organization or portion of an organization required or choosing to prepare financial statements, which need not be a single legal entity. The boundaries of non-standard reporting entities are determined by user information needs to ensure a faithful and neutral representation of economic activities.",
+      "terminology": [
+        "Reporting entity",
+        "Standalone financial statements",
+        "Combined financial statements"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Single legal entities",
+        "Portions of entities or combinations of multiple entities",
+        "Parent and subsidiary boundaries"
+      ],
+      "exclusion": [
+        "Arbitrary or incomplete sets of economic activities that distort neutral representation"
+      ],
+      "nearby_distinctions": [
+        "Differs from strictly legal entities because a reporting entity can comprise multiple independent corporate structures or only a portion of a single entity."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "41441a36-ca6d-4395-a277-826104f5c67b",
+      "concept_name": "Consolidated And Unconsolidated Financial Statements",
+      "definition": "Consolidated financial statements present the aggregated assets, liabilities, equity, income, and expenses of a parent and its subsidiaries as a single economic unit. Unconsolidated financial statements focus exclusively on the parent entity's individual accounts and cannot serve as a substitute for consolidated statements when consolidated reporting is mandated.",
+      "terminology": [
+        "Consolidated financial statements",
+        "Unconsolidated financial statements",
+        "Parent and subsidiaries"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Aggregated financial data for parent and subsidiaries combined",
+        "Separate financial data for the parent entity alone"
+      ],
+      "exclusion": [
+        "Separate standalone subsidiary information within consolidated primary face statements"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes consolidated group-wide reporting from unconsolidated parent-only reporting where subsidiary assets and liabilities are excluded from the main statements."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b1943a98-11ca-43d3-96a7-024fe273f4cb",
+      "concept_name": "Link Between Information In General Purpose Financial Reports As Per Conceptual Framework And Elements Of Financial Statements",
+      "definition": "General purpose financial reports reflect underlying economic resources and claims through specific balance sheet elements like assets, liabilities, and equity. Changes in these resources and claims over time are captured via financial performance elements such as income and expenses.",
+      "terminology": [
+        "Economic resources",
+        "Asset",
+        "Liability",
+        "Equity",
+        "Income",
+        "Expenses"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Mapping of economic resources to assets and claims to liabilities",
+        "Mapping of financial changes to income and expense elements"
+      ],
+      "exclusion": [
+        "Equity contributions and distributions categorized as financial performance elements"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes static structural elements (assets, liabilities, equity) from dynamic performance elements (income, expenses)."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7f89a200-e7cb-44c5-a509-222632d2a3f8",
+      "concept_name": "Definition Of An Asset",
+      "definition": "An asset is defined as a present economic resource controlled by the entity as a result of past events, where an economic resource represents a right with the potential to produce economic benefits. These rights can arise from counterparties' obligations, physical objects, intellectual property, contracts, or statutory legislation.",
+      "terminology": [
+        "Economic resource",
+        "Present economic resource",
+        "Control",
+        "Past events"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Rights to receive cash, goods, or services",
+        "Rights over physical objects and intellectual property",
+        "Constructive obligations of other parties"
+      ],
+      "exclusion": [
+        "Items failing to meet the three core criteria of right, benefit potential, and entity control"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from mere expenditure, as spending money does not automatically guarantee the acquisition of an asset."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e9af0b7e-29ec-48da-a5f7-a51536e5c562",
+      "concept_name": "Right",
+      "definition": "A right forms the foundational component of an economic resource and can stem from counterparty obligations, physical ownership, contracts, legislation, or constructive policies. Merely holding a general right does not automatically establish that an entity controls an asset.",
+      "terminology": [
+        "Right",
+        "Constructive obligation",
+        "Intellectual property"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Rights corresponding to another party's obligation",
+        "Rights over physical and intellectual property",
+        "Rights established by contract or legislation"
+      ],
+      "exclusion": [
+        "Instantly consumed services where future economic benefits do not persist"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes the legal or constructive entitlement itself from the separate requirement of entity control over that entitlement."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f27648ee-80ce-4efd-818b-a10ddf97867a",
+      "concept_name": "Potential To Produce Economic Benefits",
+      "definition": "An economic resource must possess the present potential to produce future economic benefits, though certainty or high probability of realization is not required. The resource itself is the present right containing that potential rather than the future cash flows or benefits themselves.",
+      "terminology": [
+        "Economic benefits",
+        "Probability",
+        "Timing",
+        "Expenditure"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Rights with low probability of producing economic benefits if the right still exists",
+        "Free or donated rights acquired without direct expenditure"
+      ],
+      "exclusion": [
+        "The future economic inflows themselves, which are distinct from the present right"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes the present underlying right from the uncertain future economic benefits that may or may not flow from exercising that right."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e66497e9-c21f-485a-a0c1-91e1f05ba64a",
+      "concept_name": "Control",
+      "definition": "Control links an economic resource to an entity, requiring the present ability to direct the use of the resource and obtain the economic benefits that may flow from it. This includes the ability to prevent other parties from directing the resource or consuming its benefits.",
+      "terminology": [
+        "Control",
+        "Direct the use",
+        "Economic benefits",
+        "Enforce legal rights"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Present ability to direct resource use in activities",
+        "Present ability to obtain direct or indirect economic benefits",
+        "Ability to restrict other parties from accessing benefits"
+      ],
+      "exclusion": [
+        "Exposure to benefit variations alone without the present ability to direct resource use"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes active present direction and benefit capture from mere exposure to financial volatility or variable returns."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e5f5dd78-449d-4bd8-88c5-83b51ad8a780",
+      "concept_name": "Definition Of A Liability",
+      "definition": "A liability is a present obligation of the entity to transfer an economic resource as a result of past events, where an obligation represents a duty or responsibility that the entity has no practical ability to avoid. These obligations can be legally enforceable via contracts or statutes, or they can arise through constructive practices and policies.",
+      "terminology": [
+        "Liability",
+        "Present obligation",
+        "Transfer economic resource",
+        "Constructive obligation"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Legally enforceable contractual or statutory obligations",
+        "Constructive obligations arising from customary practices or published policies",
+        "Obligations conditional on actions that the entity has no practical ability to avoid"
+      ],
+      "exclusion": [
+        "Future commitments that do not arise from past events and can be practically avoided"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes unavoidable present obligations from discretionary future expenditures that an entity can freely cancel or avoid."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "d9a3230a8dae91b8fd1b36473ee882b4e09be36f1cf1fc9a3628a8b18258e255",
+  "artifact_id": "286aeffb-c1e1-493c-a40f-709922f46d7d",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8416,
+  "output_tokens": 3346,
+  "cost_usd": 0.0108898,
+  "created_at": "2026-10-03T17:47:00.595956+00:00"
+}

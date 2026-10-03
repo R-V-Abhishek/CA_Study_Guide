@@ -1,0 +1,115 @@
+{
+  "descriptors": [
+    {
+      "node_id": "4f077af6-2e64-487b-820d-091f9561c573",
+      "concept_name": "Derivatives and Settlement Framework Context",
+      "definition": "Derivatives can exist as standalone instruments or embedded within other financial and non-financial contracts. Their classification involves evaluating whether settlement occurs through the exchange of own equity instruments based on specific variable criteria.",
+      "terminology": [
+        "Financial liability",
+        "Equity",
+        "Own equity instruments",
+        "Standalone financial instruments"
+      ],
+      "instrument_references": [
+        "Ind AS 109"
+      ],
+      "inclusion": [
+        "Standalone derivative contracts",
+        "Derivatives settled via own equity instruments"
+      ],
+      "exclusion": [
+        "Non-derivative basic financial instruments without equity settlement features"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from pure equity instruments that do not involve variable settlement mechanisms."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3e8bcc70-56a9-4ea6-9ace-c7f61ea06206",
+      "concept_name": "Definition of Derivatives and Underlying Variables",
+      "definition": "A derivative is a financial instrument or contract whose value changes in response to a specified underlying variable, requires little or no initial net investment, and is settled at a future date. Contracts whose values depend on a non-financial variable specific to a party to the contract are explicitly excluded.",
+      "terminology": [
+        "Underlying",
+        "Interest rate swap",
+        "Currency swap",
+        "Commodity futures",
+        "Non-financial variable"
+      ],
+      "instrument_references": [
+        "Ind AS 109.Appendix A",
+        "Ind AS 109 paragraph BA.5"
+      ],
+      "inclusion": [
+        "Interest rate, currency, commodity, and equity swaps",
+        "Purchased or written options and futures linked to market variables"
+      ],
+      "exclusion": [
+        "Contracts referencing non-financial variables specific to one of the contract parties"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from physical asset contracts where value changes reflect the specific condition of the held asset rather than general market prices."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4e377d6e-59e3-43d1-bcc3-4af4b5679e5d",
+      "concept_name": "Derivatives Characteristics and Exclusions",
+      "definition": "Derivatives are contracts whose values fluctuate based on specified market underlyings such as interest rates, financial prices, or commodity indices. Contracts are excluded if their underlying is a non-financial variable specific to one of the contracting parties.",
+      "terminology": [
+        "Underlying variable",
+        "Non-financial variable",
+        "Market prices",
+        "Derivative contracts"
+      ],
+      "instrument_references": [
+        "Ind AS 109.Appendix A",
+        "Ind AS 109 paragraph BA.5"
+      ],
+      "inclusion": [
+        "Financial instruments with values driven by general market indices or rates"
+      ],
+      "exclusion": [
+        "Agreements driven by entity-specific asset conditions or performance"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard non-financial commercial contracts lacking independent market-linked underlying variables."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0dece15e-767f-4200-a70b-b3b23963db3b",
+      "concept_name": "Embedded Derivatives in Hybrid Contracts",
+      "definition": "An embedded derivative is a component of a hybrid contract that also includes a non-financial or non-derivative host, causing some of the combined instrument's cash flows to vary like a standalone derivative. Detachable or independently transferable attachments are treated as separate financial instruments rather than embedded derivatives.",
+      "terminology": [
+        "Hybrid contract",
+        "Host contract",
+        "Embedded derivative",
+        "Convertible bond"
+      ],
+      "instrument_references": [
+        "Ind AS 109 paragraph 4.3.1"
+      ],
+      "inclusion": [
+        "Conversion options in bonds",
+        "Inflation-indexed lease rental adjustments",
+        "Foreign currency forward features in domestic sales contracts"
+      ],
+      "exclusion": [
+        "Contractually transferable attachments with different counterparties",
+        "Fixed price adjustment clauses lacking a true underlying market variable"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standalone derivatives and host contracts that lack cash flow modifications driven by specified market underlyings."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "0278d232a7217a997aaa9fa52d29a2f83cc1e4604255b33afb2e91cbad414b11",
+  "artifact_id": "a6cc9136-0c54-4249-9b6b-a3465df2f048",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 3047,
+  "output_tokens": 1170,
+  "cost_usd": 0.0038391,
+  "created_at": "2026-10-03T18:04:25.416494+00:00"
+}

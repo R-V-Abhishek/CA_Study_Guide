@@ -1,0 +1,330 @@
+{
+  "descriptors": [
+    {
+      "node_id": "9e786820-797c-4696-b09d-539d9c03b389",
+      "concept_name": "Roadmap For Applicability Of Ind As",
+      "definition": "The Ministry of Corporate Affairs mandates a structured, phased transition framework for implementing Indian Accounting Standards across eligible corporate entities. This roadmap outlines specific applicability timelines and net worth criteria for listed and unlisted entities while excluding banking and insurance companies.",
+      "terminology": [
+        "Phase I",
+        "Phase II",
+        "Net Worth",
+        "Listing Status"
+      ],
+      "instrument_references": [
+        "Companies (Indian Accounting Standards) Rules, 2015"
+      ],
+      "inclusion": [
+        "Listed companies meeting net worth thresholds",
+        "Unlisted companies meeting specific net worth limits",
+        "Holding, subsidiary, joint venture, and associate entities of covered companies"
+      ],
+      "exclusion": [
+        "Banking companies",
+        "Insurance companies",
+        "Companies listed on SME exchanges or Institutional Trading Platforms"
+      ],
+      "nearby_distinctions": [
+        "Differs from NBFC-specific phased roadmaps by applying general corporate thresholds rather than specialized financial sector criteria."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a901b34f-e348-4803-a02f-1af7e190b9fc",
+      "concept_name": "For Listed Entities",
+      "definition": "Listed entities are subjected to mandatory Ind AS adoption through a two-tier phased timeline determined by their security listing status and net worth thresholds. Phase I covers entities with a net worth of rupees five hundred crore or more, whereas Phase II captures those with lower net worth values.",
+      "terminology": [
+        "Phase I Listed",
+        "Phase II Listed",
+        "Net Worth Threshold"
+      ],
+      "instrument_references": [
+        "Companies (Indian Accounting Standards) Rules, 2015"
+      ],
+      "inclusion": [
+        "Entities with equity or debt securities listed on Indian or foreign stock exchanges",
+        "Entities in the process of listing their securities"
+      ],
+      "exclusion": [
+        "Entities listed exclusively on SME exchanges",
+        "Entities listed on Institutional Trading Platforms without an initial public offering"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from unlisted entities by lower net worth entry barriers under Phase II."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "dbb4ba9a-0629-49a6-ad6b-3e5739d6328a",
+      "concept_name": "Ind As Roadmap For Non -Banking Financial Companies (Nbfc)",
+      "definition": "Non-banking financial companies follow a distinct two-phase transition timeline for adopting Indian Accounting Standards based on specified net worth brackets and listing attributes. The framework encompasses diverse financial entities such as housing finance companies, microfinance institutions, and core investment companies.",
+      "terminology": [
+        "NBFC Phase I",
+        "NBFC Phase II",
+        "Net Worth Criteria"
+      ],
+      "instrument_references": [
+        "Reserve Bank of India Act, 1934",
+        "Companies (Indian Accounting Standards) Rules, 2015"
+      ],
+      "inclusion": [
+        "Housing finance companies",
+        "Micro finance companies",
+        "Core investment companies",
+        "NBFCs with net worth of 500 crores or more"
+      ],
+      "exclusion": [
+        "Non-financial companies under the primary corporate roadmap",
+        "NBFCs with net worth below two hundred and fifty crores not meeting listing criteria"
+      ],
+      "nearby_distinctions": [
+        "Differs from standard corporate timelines by incorporating financial sector entities under modified asset and listing parameters."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9f1db166-e8f7-4402-ab59-f7681cde50a6",
+      "concept_name": "Ind As Roadmap For Banking And Insurance Companies",
+      "definition": "Banking and insurance entities are currently exempted from applying Indian Accounting Standards until such standards are formally notified by their respective sectoral regulators. Furthermore, voluntary adoption of Ind AS is strictly prohibited for these specific institutional sectors.",
+      "terminology": [
+        "Sectoral Regulators",
+        "Regulatory Notification",
+        "Voluntary Adoption Restriction"
+      ],
+      "instrument_references": [
+        "Companies (Indian Accounting Standards) (Amendment) Rules, 2016"
+      ],
+      "inclusion": [
+        "Banking companies governed by RBI",
+        "Insurance companies governed by IRDA"
+      ],
+      "exclusion": [
+        "Non-banking corporate entities",
+        "Mutual funds operating under separate market regulations"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general corporate entities and NBFCs because statutory timelines depend entirely on direct sector-specific regulatory notifications rather than Ministry of Corporate Affairs phases."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4b12e26b-06bf-49b7-a100-273dd6dd42e3",
+      "concept_name": "Ind As Roadmap For Mutual Funds",
+      "definition": "Mutual fund schemes are mandated to prepare their financial statements and accounts in compliance with Indian Accounting Standards pursuant to specific regulatory amendments. This operational shift enhances transparency and aligns scheme accounting frameworks with prescribed format guidelines.",
+      "terminology": [
+        "MF Regulations",
+        "Scheme Financial Statements",
+        "Regulatory Circular"
+      ],
+      "instrument_references": [
+        "SEBI (Mutual Funds) Regulations, 1996",
+        "SEBI (Mutual Funds) (Amendment) Regulations, 2022"
+      ],
+      "inclusion": [
+        "Mutual fund operational schemes",
+        "Financial accounts governed by market regulatory amendments"
+      ],
+      "exclusion": [
+        "Standard corporate entities under general manufacturing or service roadmaps",
+        "Banking and insurance institutions"
+      ],
+      "nearby_distinctions": [
+        "Differs from corporate entities by deriving its implementation mandate directly from market regulator guidelines rather than standard company law thresholds."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "29ea0287-892e-4285-a54b-2041086ab96e",
+      "concept_name": "Ind As Relevant Statutory Provisions",
+      "definition": "Primary statutory provisions embedded within company legislation govern the definition, adoption, auditing, and corporate compliance of accounting standards. These provisions dictate mandatory inclusions for financial statement presentation, directors' responsibility statements, auditor reports, and corporate restructuring schemes.",
+      "terminology": [
+        "Statutory Compliance",
+        "True and Fair View",
+        "Auditor Certificate"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013",
+        "Section 133",
+        "Section 129",
+        "Section 143"
+      ],
+      "inclusion": [
+        "Financial statement compliance declarations",
+        "Auditor opinions on accounting standards",
+        "Scheme of arrangement conformity certificates"
+      ],
+      "exclusion": [
+        "Non-statutory voluntary disclosures lacking legal backing",
+        "Informal management reporting frameworks"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general accounting guidelines by carrying direct penal and legal consequences under company law for non-compliance."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a225da69-b800-4247-8a9f-e070100bba32",
+      "concept_name": "Relevant Sections Referring To Ind As In The Companies Act, 2013 And Rules",
+      "definition": "Key sections of the primary company statute govern the legal recognition and application of accounting standards, including prescriptions by the Central Government and recommendations by regulatory bodies. These legal references control financial statement disclosures, audit verifications, capital reductions, and corporate mergers.",
+      "terminology": [
+        "Section 133",
+        "Section 129",
+        "Section 230",
+        "Section 66"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013",
+        "Chartered Accountants Act, 1949"
+      ],
+      "inclusion": [
+        "Central Government prescribing standards in consultation with NFRA",
+        "Tribunal sanction requirements for capital reductions and amalgamations"
+      ],
+      "exclusion": [
+        "Unregulated internal accounting policies",
+        "Standards formulated outside statutory consultative frameworks"
+      ],
+      "nearby_distinctions": [
+        "Differs from secondary rules by forming the primary legislative authority empowering the notification of specific accounting frameworks."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7231450f-c7f8-4f12-8e83-fa008b87c94c",
+      "concept_name": "Relevant Sebi Rules And Regulations",
+      "definition": "Capital market regulatory guidelines require listed entities adopting new accounting frameworks to ensure that all submitted periodic financial results and comparative figures are fully compliant. Additionally, these rules dictate the financial history disclosure requirements within public offer documents.",
+      "terminology": [
+        "Listing Regulations",
+        "Quarterly Financial Results",
+        "Offer Documents"
+      ],
+      "instrument_references": [
+        "SEBI (ICDR) Regulations, 2018",
+        "Listing Regulations, 2015"
+      ],
+      "inclusion": [
+        "Comparative quarterly and annual financial statements",
+        "Multi-year financial disclosures in public issue offer documents"
+      ],
+      "exclusion": [
+        "Unlisted companies exempt from market regulator oversight",
+        "Internal management reports not submitted to stock exchanges"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general company law mandates by imposing strict capital market disclosure timelines and filing formats."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8c07655e-dc08-46b4-809b-f467a3fe3830",
+      "concept_name": "Format Of Division II To Schedule III To The Companies Act - Structure",
+      "definition": "Division II prescribes the mandatory financial statement presentation format for companies required to comply with Indian Accounting Standards. The structure categorizes reporting into balance sheet elements, statement of profit and loss items, and general instructions for consolidated financial statements.",
+      "terminology": [
+        "Division II",
+        "Schedule III",
+        "Statement of Changes in Equity"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013",
+        "Companies (Indian Accounting Standards) Rules, 2015"
+      ],
+      "inclusion": [
+        "Balance sheet and statement of changes in equity format",
+        "Statement of profit and loss format",
+        "General instructions for consolidated financial statements"
+      ],
+      "exclusion": [
+        "Insurance and banking companies",
+        "Non-banking financial companies utilizing Division III formats"
+      ],
+      "nearby_distinctions": [
+        "Differs from Division I and Division III formats by being exclusively tailored for non-banking entities adopting Ind AS."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4851f944-afd9-4c6a-8ff9-6114797c26c3",
+      "concept_name": "Introduction",
+      "definition": "Schedule III establishes the statutory presentation structure for financial statements prepared by companies registered under corporate legislation. Financial statements prepared under this framework encompass balance sheets, equity change statements, profit and loss statements, cash flow statements, and explanatory notes.",
+      "terminology": [
+        "Financial Statements",
+        "Schedule III",
+        "Notes to Accounts"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Balance sheet and profit and loss statements",
+        "Cash flow statements and statements of changes in equity"
+      ],
+      "exclusion": [
+        "Schedules governed entirely by separate legislative acts for specialized financial sectors",
+        "Informal financial summaries"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from individual accounting standards by focusing strictly on presentation layout and disclosure structures rather than recognition and measurement rules."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0254ca8c-af2a-4347-b91b-f04276b840df",
+      "concept_name": "Applicability",
+      "definition": "Schedule III presentation rules apply to all companies preparing financial statements in compliance with corporate accounting rules, supported by specialized guidance notes and regulatory circulars. Preparers must incorporate amendments introduced to presentation requirements for financial years commencing on or after specified dates.",
+      "terminology": [
+        "Schedule III Applicability",
+        "Guidance Note",
+        "Statutory Notifications"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013",
+        "Companies Ind AS Rules"
+      ],
+      "inclusion": [
+        "Mandatory Ind AS compliant companies",
+        "Voluntary Ind AS compliant companies"
+      ],
+      "exclusion": [
+        "Entities exempted under specific statutory sector rules",
+        "Non-corporate business entities"
+      ],
+      "nearby_distinctions": [
+        "Differs from initial standard-setting notifications by establishing the ongoing annual presentation framework for active financial reporting."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "57a233f8-4b05-40c0-b655-f291f22e6f07",
+      "concept_name": "Guidance Note On Division II To Schedule III To The Companies Act, 2013",
+      "definition": "The professional institute issues implementation guidance to resolve practical compliance issues arising from the application of financial statement formats for companies under Indian Accounting Standards. This guidance mandates specific classifications, such as presenting land and building as separate asset classes and isolating capital advances under non-current assets.",
+      "terminology": [
+        "Guidance Note",
+        "Property Plant and Equipment",
+        "Capital Advances"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013",
+        "Ind AS 16"
+      ],
+      "inclusion": [
+        "Separate classification of land and building",
+        "Presentation of capital advances under other non-current assets",
+        "Sub-classification disclosures for subsidiary and associate investments"
+      ],
+      "exclusion": [
+        "Grouping land and building together for revaluation purposes under operational standard rules",
+        "Including capital advances within capital work-in-progress"
+      ],
+      "nearby_distinctions": [
+        "Differs from baseline standard texts by enforcing strict schedule layout presentations that override generalized grouping permissions found in specific accounting standards."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "6fb0ad0b0da7fa44cb270c5fa67196fa71da345e3b7c9674397393b08769e2cc",
+  "artifact_id": "d142b3b8-6266-42be-9c40-4c1a0c862073",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 9244,
+  "output_tokens": 3642,
+  "cost_usd": 0.0118782,
+  "created_at": "2026-10-03T17:46:49.191105+00:00"
+}

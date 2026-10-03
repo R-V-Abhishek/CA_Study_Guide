@@ -1,0 +1,326 @@
+{
+  "descriptors": [
+    {
+      "node_id": "1a130c83-02ed-4726-a557-133faa4213a5",
+      "concept_name": "Circumstances in which it is not necessary to calculate both an asset ' s fair value less costs of disposal and its value in use",
+      "definition": "An entity is excused from calculating both fair value less costs of disposal and value in use if either metric alone exceeds the asset carrying amount. Furthermore, if fair value less costs of disposal cannot be reliably estimated, the recoverable amount is based entirely on value in use.",
+      "terminology": [
+        "Fair value less costs of disposal",
+        "Value in use",
+        "Carrying amount",
+        "Recoverable amount"
+      ],
+      "instrument_references": [
+        "Ind AS 36"
+      ],
+      "inclusion": [
+        "Using one recoverable amount measure if it exceeds carrying value",
+        "Relying solely on value in use when fair value cannot be estimated"
+      ],
+      "exclusion": [
+        "Calculating both metrics when neither individually exceeds the carrying amount"
+      ],
+      "nearby_distinctions": [
+        "Differs from general dual calculation rules by applying shortcuts or single-metric reliance under specific conditions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "fc1bce3d-c147-48fc-840c-696adddb7941",
+      "concept_name": "Circumstances in which recoverable amount is determined in the context of CGU",
+      "definition": "Recoverable amounts are assessed for cash-generating units when individual assets fail to generate largely independent cash inflows. However, individual asset testing remains sufficient if its fair value exceeds carrying value or if both measurement bases are closely aligned.",
+      "terminology": [
+        "Cash-generating unit",
+        "Independent cash inflows",
+        "Fair value less costs of disposal",
+        "Carrying amount"
+      ],
+      "instrument_references": [
+        "Ind AS 36"
+      ],
+      "inclusion": [
+        "Determining recoverable amount at the cash-generating unit level",
+        "Individual asset testing when fair value exceeds carrying amount"
+      ],
+      "exclusion": [
+        "Assessing cash-generating units when individual assets have clearly independent cash flows"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes standalone asset impairment testing from group-level cash-generating unit evaluations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3c29cc76-6cdf-46c5-94f0-f3189b3e6d49",
+      "concept_name": "FAIR VALUE LESS COSTS OF DISPOSAL",
+      "definition": "Fair value less costs of disposal is determined by taking the price received to sell an asset in an orderly market transaction and deducting incremental direct disposal costs. Finance costs and income taxes are strictly excluded from these deductible disposal expenses.",
+      "terminology": [
+        "Fair value",
+        "Costs of disposal",
+        "Orderly transaction",
+        "Market participants"
+      ],
+      "instrument_references": [
+        "Ind AS 113",
+        "Ind AS 36"
+      ],
+      "inclusion": [
+        "Incremental costs directly attributable to asset disposal",
+        "Prices established in orderly market transactions"
+      ],
+      "exclusion": [
+        "Finance costs",
+        "Income tax expense"
+      ],
+      "nearby_distinctions": [
+        "Differs from value in use by relying on market participant assumptions rather than entity-specific expectations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "07760678-ad2a-44d7-8ce9-c7d206fb6be5",
+      "concept_name": "Fair value and costs of disposal – definition",
+      "definition": "Fair value represents the exit price between market participants on the measurement date following specific valuation standards. Costs of disposal cover direct incremental expenses incurred to sell an asset, excluding general business reorganization costs.",
+      "terminology": [
+        "Fair value",
+        "Costs of disposal",
+        "Measurement date",
+        "Market participants"
+      ],
+      "instrument_references": [
+        "Ind AS 113",
+        "Ind AS 36"
+      ],
+      "inclusion": [
+        "Direct incremental disposal expenditures",
+        "Market-based transaction prices"
+      ],
+      "exclusion": [
+        "Termination benefits",
+        "Business reorganization expenses following disposal"
+      ],
+      "nearby_distinctions": [
+        "Separates direct transaction costs from post-disposal operational restructuring expenses."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7d3a93f8-1716-4872-a772-55bc5d5a3eaa",
+      "concept_name": "Cost of disposal to be deducted",
+      "definition": "Direct incremental expenses required to make an asset ready for sale, such as legal fees and stamp duty, are deducted to find fair value less costs of disposal. Liabilities already recognized for these items are handled separately to avoid double-counting.",
+      "terminology": [
+        "Legal costs",
+        "Stamp duty",
+        "Incremental costs",
+        "Carrying liabilities"
+      ],
+      "instrument_references": [
+        "Ind AS 36",
+        "Ind AS 19"
+      ],
+      "inclusion": [
+        "Stamp duty and transaction taxes",
+        "Asset removal and preparation costs"
+      ],
+      "exclusion": [
+        "Termination benefits under Ind AS 19",
+        "Business reduction or reorganization costs"
+      ],
+      "nearby_distinctions": [
+        "Differentiates between direct sale-preparation costs and subsequent internal restructuring overheads."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9c930810-ccd1-4d66-9cf8-8d4210287cbe",
+      "concept_name": "Contrasting fair value and value in use",
+      "definition": "Fair value incorporates generalized market participant assumptions, whereas value in use incorporates entity-specific factors. Consequently, fair value excludes private synergies, asset-grouping premiums, and owner-specific legal or tax privileges.",
+      "terminology": [
+        "Market participants",
+        "Entity-specific factors",
+        "Synergies",
+        "Tax benefits"
+      ],
+      "instrument_references": [
+        "Ind AS 36"
+      ],
+      "inclusion": [
+        "General market pricing assumptions",
+        "Universal market parameters"
+      ],
+      "exclusion": [
+        "Owner-specific legal rights or restrictions",
+        "Proprietary asset grouping values and internal synergies"
+      ],
+      "nearby_distinctions": [
+        "Contrasts external market consensus valuation with internal cash-flow-based utility assessments."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "bc6e0009-a0b6-4e67-a195-88c1bf12c88f",
+      "concept_name": "VALUE IN USE",
+      "definition": "Value in use is computed as the present value of estimated future cash flows derived from an asset or cash-generating unit. The computation factors in the time value of money, inherent uncertainty risks, and cash flow variations.",
+      "terminology": [
+        "Present value",
+        "Future cash flows",
+        "Discount rate",
+        "Cash-generating unit"
+      ],
+      "instrument_references": [
+        "Ind AS 36"
+      ],
+      "inclusion": [
+        "Estimated future cash inflows and outflows",
+        "Market risk-free rates and uncertainty pricing"
+      ],
+      "exclusion": [
+        "Financing cash flows",
+        "Income tax receipts or payments"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes entity-specific operational utility valuations from open-market exchange prices."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e6957e66-aadd-4751-91fe-e37d9a2f2a8a",
+      "concept_name": "Value in use – general",
+      "definition": "Value in use measures the present value of expected cash flows generated through continuous utilization and ultimate disposal. It accounts for cash flow variations and risks through weighted averages of possible outcomes.",
+      "terminology": [
+        "Present value",
+        "Continuing use",
+        "Ultimate disposal",
+        "Weighted average"
+      ],
+      "instrument_references": [
+        "Ind AS 36"
+      ],
+      "inclusion": [
+        "Cash inflows and outflows from asset utilization",
+        "Disposal proceeds at the end of useful life"
+      ],
+      "exclusion": [
+        "Future reorganizations uncommitted by management",
+        "Asset performance enhancements"
+      ],
+      "nearby_distinctions": [
+        "Focuses on internal operational generation rather than immediate market liquidation value."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5fb780ad-0379-4f0b-b478-bef154b9303d",
+      "concept_name": "Estimation of expected future cash flows",
+      "definition": "Cash flow projections must rely on reasonable, supportable assumptions reflecting management's best estimates over the remaining useful life, prioritizing external evidence. Projections utilize approved management budgets while excluding uncommitted future enhancements or restructurings.",
+      "terminology": [
+        "Budgets",
+        "Forecasts",
+        "External evidence",
+        "Economic conditions"
+      ],
+      "instrument_references": [
+        "Ind AS 36"
+      ],
+      "inclusion": [
+        "Management's best estimate assumptions",
+        "Most recent approved financial budgets"
+      ],
+      "exclusion": [
+        "Uncommitted future restructuring cash flows",
+        "Enhancements improving future asset performance beyond current state"
+      ],
+      "nearby_distinctions": [
+        "Isolates baseline operational performance from speculative future capital expansions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2f8de2ed-c0e2-4946-88f0-b4c671533e61",
+      "concept_name": "Discount rate",
+      "definition": "The discount rate used for value in use must be a pre-tax rate reflecting current market assessments of the time value of money and asset-specific risks. It should exclude risks already factored into the future cash flow estimates to avoid double counting.",
+      "terminology": [
+        "Pre-tax rate",
+        "Time value of money",
+        "Risk-free rate",
+        "WACC"
+      ],
+      "instrument_references": [
+        "Ind AS 36"
+      ],
+      "inclusion": [
+        "Current market assessments of time value of money",
+        "Asset-specific risk adjustments not already in cash flows"
+      ],
+      "exclusion": [
+        "Risks already accounted for in cash flow projections",
+        "Entity capital structure distortions independent of the asset"
+      ],
+      "nearby_distinctions": [
+        "Separates asset-specific return requirements from general corporate financing cost structures."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "29a4de40-08b5-4e54-adf4-231e70c6cffc",
+      "concept_name": "RECOGNISING AND MEASURING AN IMPAIRMENT LOSS",
+      "definition": "An impairment loss is recognized immediately in profit or loss when an asset carrying amount exceeds its recoverable amount. For revalued assets, the loss is treated as a revaluation decrease against equity surplus rather than profit or loss.",
+      "terminology": [
+        "Carrying amount",
+        "Recoverable amount",
+        "Profit or loss",
+        "Revaluation surplus"
+      ],
+      "instrument_references": [
+        "Ind AS 36",
+        "Ind AS 16",
+        "Ind AS 12"
+      ],
+      "inclusion": [
+        "Immediate profit or loss recognition for cost-model assets",
+        "Offsetting revaluation surplus for revalued assets"
+      ],
+      "exclusion": [
+        "Treating revalued asset impairments as standard profit or loss expenses when surplus exists"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes accounting treatment for assets held under historical cost versus revaluation models."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b83a4485-da9c-437b-898d-cc9b582f01ff",
+      "concept_name": "Recognition and measurement of an impairment loss - Individual Asset",
+      "definition": "When an individual asset carrying amount exceeds its recoverable amount, it is written down via an impairment loss. Subsequent depreciation must be adjusted to allocate the revised carrying amount systematically over the remaining useful life.",
+      "terminology": [
+        "Carrying amount",
+        "Recoverable amount",
+        "Depreciation charge",
+        "Remaining useful life"
+      ],
+      "instrument_references": [
+        "Ind AS 36",
+        "Ind AS 16",
+        "Ind AS 12"
+      ],
+      "inclusion": [
+        "Carrying amount write-downs",
+        "Systematic future depreciation adjustments"
+      ],
+      "exclusion": [
+        "Maintaining unadjusted depreciation schedules after write-downs"
+      ],
+      "nearby_distinctions": [
+        "Links current-period impairment adjustments directly to future periods depreciation allocations."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "8976364b2ae247d6b658fce6398976abad912eff90f0db779b7efa036dd1f09e",
+  "artifact_id": "6fb162ea-fc0d-45ba-a883-8ee4d03cdfb3",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 9002,
+  "output_tokens": 3331,
+  "cost_usd": 0.0110281,
+  "created_at": "2026-10-03T17:49:36.388756+00:00"
+}

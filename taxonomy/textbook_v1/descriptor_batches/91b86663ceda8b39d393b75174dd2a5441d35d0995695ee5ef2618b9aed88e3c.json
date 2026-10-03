@@ -1,0 +1,330 @@
+{
+  "descriptors": [
+    {
+      "node_id": "46b86183-91cf-4a86-9467-c27c7abb91d8",
+      "concept_name": "Objective and Scope of Ind AS 19",
+      "definition": "The standard prescribes accounting and disclosure for employee benefits, requiring entities to recognize a liability for services received and an expense when economic benefits are consumed. Accrual accounting principles govern these obligations so that employment costs are recorded in the periods corresponding to the services rendered.",
+      "terminology": [
+        "Employee Benefits",
+        "Accrual Basis",
+        "Liability",
+        "Expense Recognition"
+      ],
+      "instrument_references": [
+        "Ind AS 19"
+      ],
+      "inclusion": [
+        "Formal employee benefit plans",
+        "Statutory or industry arrangement contributions",
+        "Informal practices creating constructive obligations"
+      ],
+      "exclusion": [
+        "Share-based payment transactions under Ind AS 102",
+        "Reporting by employee benefit plans themselves"
+      ],
+      "nearby_distinctions": [
+        "Unlike equity transactions with owners, employee benefits are operating expenses reflecting consumption of services."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "68f89c5a-b182-4e5a-ba84-89c5032924e5",
+      "concept_name": "Scope",
+      "definition": "Ind AS 19 applies to all employer accounting for employee benefits except those covered under share-based payment standards. The framework encompasses formal agreements, legal mandates, and informal practices that generate constructive obligations.",
+      "terminology": [
+        "Constructive Obligation",
+        "Formal Plans",
+        "Multi-employer Plans",
+        "Share-Based Payment"
+      ],
+      "instrument_references": [
+        "Ind AS 19",
+        "Ind AS 102"
+      ],
+      "inclusion": [
+        "Benefits provided under formal agreements",
+        "Nation, state, or industry multi-employer contributions",
+        "Informal company practices"
+      ],
+      "exclusion": [
+        "Share-based payment transactions",
+        "Financial reporting by employee benefit plans"
+      ],
+      "nearby_distinctions": [
+        "Differs from general liability recognition by specifically addressing obligations arising from human resource deployment and service contracts."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "85876385-9640-4dd0-a825-cedcf047488f",
+      "concept_name": "Employee Benefits Coverage",
+      "definition": "Employee benefits include all forms of consideration given by an entity in exchange for services rendered or for the termination of employment. These provisions extend to payments made directly to employees, their dependents, beneficiaries, or external third parties such as insurance companies.",
+      "terminology": [
+        "Consideration",
+        "Dependants",
+        "Beneficiaries",
+        "Termination of Employment"
+      ],
+      "instrument_references": [
+        "Ind AS 19"
+      ],
+      "inclusion": [
+        "Full-time and part-time employee provisions",
+        "Permanent, casual, and temporary worker benefits",
+        "Payments to third-party insurers"
+      ],
+      "exclusion": [
+        "Equity instruments governed strictly under share-based payment standards"
+      ],
+      "nearby_distinctions": [
+        "Encompasses direct remuneration as well as indirect provisions channeled to family members or insurance providers."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7dafd4fe-f9ba-4d02-b0fd-0138d3a88563",
+      "concept_name": "Definitions",
+      "definition": "Employee benefits are categorized into short-term, post-employment, other long-term, and termination benefits based on their timing and settlement characteristics. Each classification requires distinct measurement rules reflecting when the related service is performed and when the liability is expected to be extinguished.",
+      "terminology": [
+        "Short-term Employee Benefits",
+        "Post-employment Benefits",
+        "Other Long-term Employee Benefits",
+        "Termination Benefits"
+      ],
+      "instrument_references": [
+        "Ind AS 19"
+      ],
+      "inclusion": [
+        "Wages, salaries, and social security contributions",
+        "Retirement pensions and lump-sum payments",
+        "Sabbatical leave and jubilee benefits",
+        "Voluntary retirement scheme compensation"
+      ],
+      "exclusion": [
+        "Transactions addressed by other non-employment accounting standards"
+      ],
+      "nearby_distinctions": [
+        "Distinguished by the expected period of settlement relative to the annual reporting date rather than the nature of the work."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b2379bff-0323-4174-8b67-0e87018b6c83",
+      "concept_name": "Definitions of employee benefits",
+      "definition": "Short-term benefits are expected to be settled wholly before twelve months after the annual reporting period, whereas post-employment and other long-term benefits are payable after completion of employment or over extended periods. Termination benefits specifically arise from the early cessation of an employment contract.",
+      "terminology": [
+        "Short-term Employee Benefits",
+        "Post-employment Benefits",
+        "Termination Benefits",
+        "Other Long-term Benefits"
+      ],
+      "instrument_references": [
+        "Ind AS 19"
+      ],
+      "inclusion": [
+        "Annual salaries and paid sick leave",
+        "Retirement gratuities and pensions",
+        "Retrenchment compensation"
+      ],
+      "exclusion": [
+        "Share-based employee options"
+      ],
+      "nearby_distinctions": [
+        "Separates short-term settlement timelines from post-employment obligations requiring actuarial discounting."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "205304b0-41b0-4ce2-b7df-f7388aeb965c",
+      "concept_name": "Definitions Relating To Classification Of Plans",
+      "definition": "Post-employment benefit plans comprise formal or informal arrangements to provide benefits upon completion of employment, categorized into defined contribution and defined benefit plans. Multi-employer plans pool assets from unrelated entities to provide common benefits without linking contributions to a specific employer's staff profile.",
+      "terminology": [
+        "Defined Contribution Plans",
+        "Defined Benefit Plans",
+        "Multi-employer Plans",
+        "Post-employment Benefit Plans"
+      ],
+      "instrument_references": [
+        "Ind AS 19"
+      ],
+      "inclusion": [
+        "Provident fund arrangements",
+        "Gratuity schemes",
+        "State and industry-managed contribution pools"
+      ],
+      "exclusion": [
+        "Short-term operational bonus agreements"
+      ],
+      "nearby_distinctions": [
+        "Defined contribution plans cap the entity's risk via fixed payments, whereas defined benefit plans expose the entity to actuarial and investment risks."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3b85ec14-e901-43a1-a5f3-21602e75534e",
+      "concept_name": "Definitions Relating To The Net Defined Benefit Liability (Asset)",
+      "definition": "Net defined benefit liability or asset is the plan deficit or surplus adjusted for any asset ceiling limits. Plan assets and qualifying insurance policies are measured at fair value to offset the present value of the defined benefit obligation.",
+      "terminology": [
+        "Net Defined Benefit Liability",
+        "Asset Ceiling",
+        "Plan Assets",
+        "Qualifying Insurance Policy",
+        "Present Value of Defined Benefit Obligation"
+      ],
+      "instrument_references": [
+        "Ind AS 19",
+        "Ind AS 24",
+        "Ind AS 117"
+      ],
+      "inclusion": [
+        "Funds held in legally separate long-term employee benefit entities",
+        "Insurance policies issued by unrelated parties dedicated to funding benefits"
+      ],
+      "exclusion": [
+        "Non-transferable financial instruments issued by the reporting entity itself"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between general corporate assets and restricted plan assets unavailable to general creditors."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "bd828d71-2be6-434a-b753-a9e249a9f4d7",
+      "concept_name": "Definitions Relating To Defined Benefit Cost",
+      "definition": "Defined benefit cost comprises service cost, net interest on the net defined benefit liability or asset, and remeasurements. Service cost includes current service cost, past service cost from plan amendments, and gains or losses on settlements.",
+      "terminology": [
+        "Service Cost",
+        "Net Interest",
+        "Remeasurements",
+        "Actuarial Gains and Losses",
+        "Return on Plan Assets",
+        "Settlement"
+      ],
+      "instrument_references": [
+        "Ind AS 19"
+      ],
+      "inclusion": [
+        "Current period service increases",
+        "Impact of plan amendments and curtailments",
+        "Actuarial experience adjustments and assumption changes"
+      ],
+      "exclusion": [
+        "Standard administrative costs of managing general corporate operations"
+      ],
+      "nearby_distinctions": [
+        "Isolates the time-value interest component and actuarial volatility from standard operational service expenses."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d303006a-8b0a-451f-b6b5-191663a79824",
+      "concept_name": "Short-Term Employee Benefits",
+      "definition": "Short-term employee benefits are undiscounted obligations expected to be settled wholly within twelve months after the end of the annual reporting period. They encompass wages, salaries, paid absences, profit-sharing, and non-monetary perks provided to current workers.",
+      "terminology": [
+        "Undiscounted Basis",
+        "Accumulating Absences",
+        "Profit-sharing",
+        "Accrued Expense"
+      ],
+      "instrument_references": [
+        "Ind AS 19",
+        "Ind AS 2",
+        "Ind AS 16"
+      ],
+      "inclusion": [
+        "Wages and social security contributions",
+        "Paid annual and sick leave",
+        "Short-term bonuses and medical care"
+      ],
+      "exclusion": [
+        "Post-employment retirement benefits requiring actuarial valuation"
+      ],
+      "nearby_distinctions": [
+        "Measured without actuarial discounting because settlement occurs within a short twelve-month horizon."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "fee0ab30-d8d9-4e01-810b-eeb6c34821b5",
+      "concept_name": "Recognition And Measurement Of Short-Term Benefits",
+      "definition": "Short-term benefits are recognized as an undiscounted liability after deducting any amounts already paid, or as a prepaid expense if excess payments generate future economic reductions. Paid absences are categorized into accumulating and non-accumulating types based on whether unused entitlements carry forward.",
+      "terminology": [
+        "Undiscounted Amount",
+        "Prepaid Expense",
+        "Accumulating Paid Absences",
+        "Non-accumulating Paid Absences"
+      ],
+      "instrument_references": [
+        "Ind AS 19"
+      ],
+      "inclusion": [
+        "Accrued salary expenses",
+        "Vesting and non-vesting accumulating leave entitlements"
+      ],
+      "exclusion": [
+        "Long-term sabbatical leaves evaluated under separate multi-period models"
+      ],
+      "nearby_distinctions": [
+        "Requires immediate expense recognition for non-accumulating absences only when the absence actually occurs."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5ed415ec-16ad-42a8-afe7-4be247a69be9",
+      "concept_name": "Short-Term Paid Absences",
+      "definition": "Short-term paid absences allow employees to take time off for holidays, illness, or family milestones while continuing to receive compensation. Accumulating forms carry forward to future periods and may be vesting, granting cash payouts upon exit, or non-vesting.",
+      "terminology": [
+        "Compensated Balances",
+        "Vesting Entitlement",
+        "Non-vesting Entitlement",
+        "Expected Cost"
+      ],
+      "instrument_references": [
+        "Ind AS 19"
+      ],
+      "inclusion": [
+        "Paid annual leave balances",
+        "Sick leave and maternity leave compensations"
+      ],
+      "exclusion": [
+        "Post-employment retirement gratuities"
+      ],
+      "nearby_distinctions": [
+        "Vesting leave provisions create immediate exit-settlement obligations, whereas non-vesting entitlements depend on continued service utilization."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "cc10e2ad-b3a7-4bdc-813f-8df55afe35a8",
+      "concept_name": "Profit-Sharing And Bonus Plans",
+      "definition": "Profit-sharing and bonus obligations are recognized when an entity has a present legal or constructive obligation resulting from past events and a reliable estimate can be made. Because these payments stem from employee service, they are recorded as operating expenses rather than equity distributions.",
+      "terminology": [
+        "Present Obligation",
+        "Constructive Obligation",
+        "Bonus Plans",
+        "Reliable Estimate"
+      ],
+      "instrument_references": [
+        "Ind AS 19"
+      ],
+      "inclusion": [
+        "Formal formula-based bonus schemes",
+        "Informal bonus practices generating constructive obligations"
+      ],
+      "exclusion": [
+        "Dividend distributions to equity shareholders"
+      ],
+      "nearby_distinctions": [
+        "Classified as operating expenses rather than profit distributions because the obligation arises directly from employee labor input."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "91b86663ceda8b39d393b75174dd2a5441d35d0995695ee5ef2618b9aed88e3c",
+  "artifact_id": "10f7a15e-f42d-4012-b67d-f9111f848b13",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8825,
+  "output_tokens": 3465,
+  "cost_usd": 0.01131,
+  "created_at": "2026-10-03T17:58:09.425134+00:00"
+}

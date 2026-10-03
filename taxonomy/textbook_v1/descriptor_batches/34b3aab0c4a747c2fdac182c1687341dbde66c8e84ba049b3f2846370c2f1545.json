@@ -1,0 +1,329 @@
+{
+  "descriptors": [
+    {
+      "node_id": "c8cecaf1-6405-4921-b9bc-58a544c71739",
+      "concept_name": "Deduction At Source And Advance Payment [Section 190]",
+      "definition": "Income tax is primarily taxable in the assessment year following the previous year, but collection occurs within the previous year through tax deduction at source, tax collection at source, and advance tax payments. These collected amounts are deductible from the total tax liability determined when filing the return of income.",
+      "terminology": [
+        "Tax deduction at source",
+        "Tax collection at source",
+        "Advance tax",
+        "Self-assessment tax"
+      ],
+      "instrument_references": [
+        "Section 190",
+        "Section 192",
+        "Section 140A"
+      ],
+      "inclusion": [
+        "TDS",
+        "TCS",
+        "Advance tax"
+      ],
+      "exclusion": [
+        "Post-assessment recovery proceedings initiated without prior collection mechanisms"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard retrospective year-end tax payment by shifting collection obligations into the earning period."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f17f7db7-c53f-4774-b901-8c55727a4c5c",
+      "concept_name": "Direct Payment [Section 191]",
+      "definition": "Assessees must pay tax directly when income is not subject to statutory tax deduction at source or when liable tax is not actually deducted by the deductor. Failure by a deductor to pay withheld or required taxes results in being deemed an assessee-in-default, unless the underlying tax is paid directly by the assessee.",
+      "terminology": [
+        "Assessee-in-default",
+        "Specified security",
+        "Sweat equity shares",
+        "Eligible start-up"
+      ],
+      "instrument_references": [
+        "Section 191",
+        "Section 192(1A)",
+        "Section 80-IAC"
+      ],
+      "inclusion": [
+        "Direct payments on non-deducted incomes",
+        "Deferred tax payments on specified securities or sweat equity shares from eligible start-ups"
+      ],
+      "exclusion": [
+        "Incomes where proper statutory TDS is successfully executed and remitted by the deductor"
+      ],
+      "nearby_distinctions": [
+        "Differs from routine TDS where a third party withholds tax; direct payment places the immediate remittance burden back on the income recipient or penalized deductor."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "54384a3a-c4aa-4d84-90b9-7877684fa43b",
+      "concept_name": "Deduction Of Tax At Source",
+      "definition": "Employers responsible for salary payouts must calculate and deduct income tax at the time of payment based on the employee's estimated total income and selected tax regime. If an employee fails to intimate their tax regime preference, tax must be computed using the default statutory tax rates.",
+      "terminology": [
+        "Average rate of income-tax",
+        "Default tax regime",
+        "Salaries",
+        "Deductor"
+      ],
+      "instrument_references": [
+        "Section 192",
+        "Section 115BAC"
+      ],
+      "inclusion": [
+        "Salary disbursements",
+        "Estimated total income calculations utilizing default or opted tax structures"
+      ],
+      "exclusion": [
+        "Non-salary compensatory streams governed by separate specific TDS sections"
+      ],
+      "nearby_distinctions": [
+        "Distinct from other collection mechanisms due to its mandatory linkage to the timing of actual salary payments rather than mere accrual."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "adfac2b6-6286-4093-8b35-00891bbc904f",
+      "concept_name": "Salary [Section 192]",
+      "definition": "Every person responsible for disbursing salary income is legally obligated to deduct income tax at the time of payment using the applicable average tax rate. Deductors must collect tax regime intentions from employees to correctly apply default or opted tax configurations.",
+      "terminology": [
+        "Salaries",
+        "Average rate of income-tax",
+        "Default tax regime",
+        "Deductor"
+      ],
+      "instrument_references": [
+        "Section 192",
+        "Section 115BAC"
+      ],
+      "inclusion": [
+        "Payments chargeable under the head Salaries"
+      ],
+      "exclusion": [
+        "Income categories falling outside employment remuneration"
+      ],
+      "nearby_distinctions": [
+        "Applies strictly to employer-employee remuneration payouts unlike contract or professional fee deductions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3300f62b-44bb-417b-b6f7-3671fa6fbf2d",
+      "concept_name": "Premature withdrawal from Employees Provident Fund [Section 192A]",
+      "definition": "Premature withdrawals from recognized provident funds before five years of continuous service are subject to tax and require tax deduction at source. Trustees calculate this tax liability by recomputing historical contributions as if directed to an unrecognized provident fund.",
+      "terminology": [
+        "Recognised Provident fund",
+        "Unrecognized provident fund",
+        "Premature withdrawal",
+        "Fourth Schedule"
+      ],
+      "instrument_references": [
+        "Section 192A",
+        "Employees Provident Fund and Miscellaneous Provisions Act 1952",
+        "Fourth Schedule"
+      ],
+      "inclusion": [
+        "Withdrawals made prior to five continuous years of service without approved balances transfer"
+      ],
+      "exclusion": [
+        "Withdrawals after continuous service of five years or due to exempt conditions like ill health or business discontinuance"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard salary TDS by focusing on accumulated provident fund corpus adjustments rather than periodic periodic employment earnings."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "44929798-7619-491f-9a24-243f96e91a94",
+      "concept_name": "Interest on securities [Section 193]",
+      "definition": "Any person paying interest on securities to a resident must deduct income tax at the specified rates upon credit or payment, whichever occurs earlier. Specific government bonds, loans, and notified public sector debentures are exempted from these deduction requirements.",
+      "terminology": [
+        "Interest on securities",
+        "Rates in force",
+        "Credit or payment",
+        "Suspense account"
+      ],
+      "instrument_references": [
+        "Section 193",
+        "Section 2(28B)"
+      ],
+      "inclusion": [
+        "Interest on Central or State Government securities",
+        "Interest on debentures issued by companies or local authorities"
+      ],
+      "exclusion": [
+        "Notified National Defence bonds, loans, and specific capital gains bonds"
+      ],
+      "nearby_distinctions": [
+        "Differs from general bank or corporate interest by applying specifically to formal monetary securities and debentures."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5b3117fe-40ae-425b-a2a4-0163dcf55c4e",
+      "concept_name": "Dividend [Section 194]",
+      "definition": "The principal officer of a domestic company must deduct tax when distributing or paying dividends to resident shareholders. Specific small-value non-cash distributions to individuals and payouts to institutional insurers or specialized IFSC aircraft leasing units are exempt.",
+      "terminology": [
+        "Principal officer",
+        "Domestic company",
+        "Deemed dividend",
+        "IFSC unit"
+      ],
+      "instrument_references": [
+        "Section 194",
+        "Section 2(22)",
+        "Section 197A(1F)"
+      ],
+      "inclusion": [
+        "Actual dividend distributions",
+        "Amounts deemed as dividend under statutory provisions"
+      ],
+      "exclusion": [
+        "Non-cash dividend payments to individuals not exceeding the threshold limit",
+        "Distributions to qualifying institutional insurers and notified IFSC units"
+      ],
+      "nearby_distinctions": [
+        "Restricts tax withholding obligations exclusively to resident shareholders as opposed to foreign recipients."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8537e880-8b5c-47df-bbde-ad03ff6a5d8a",
+      "concept_name": "Interest other than interest on securities [Section 194A]",
+      "definition": "Non-individual assessees, along with large business individuals or HUFs exceeding specific turnover limits, must deduct tax at source on non-security interest paid to residents. Automated core banking software provisioning for macro-monitoring does not constitute constructive credit triggering immediate TDS obligations.",
+      "terminology": [
+        "Time deposits",
+        "Core-branch Banking Solutions",
+        "Constructive credit",
+        "Gross receipts"
+      ],
+      "instrument_references": [
+        "Section 194A"
+      ],
+      "inclusion": [
+        "Interest payments from non-exempt entities to resident payees",
+        "Periodic or maturity-based interest credits on bank time deposits"
+      ],
+      "exclusion": [
+        "Routine daily or monthly macro-monitoring provisioning entries lacking constructive credit in core banking systems"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from interest on securities by excluding formal debentures and government security yields in favor of general bank and commercial interest."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6dc6dbe7-b1f1-43ca-9c69-7aca0505345d",
+      "concept_name": "Winnings from lotteries, crossword puzzles, etc. and horse races [Sections 194B and 194BB]",
+      "definition": "Payer entities must deduct tax at a flat rate of thirty percent on winnings from lotteries, card games, betting, or horse races exceeding statutory thresholds. When winnings are provided partly or wholly in kind without sufficient cash cover, tax must be verified as paid prior to release.",
+      "terminology": [
+        "Winnings from lotteries",
+        "Crossword puzzles",
+        "Bookmaker",
+        "Winnings in kind"
+      ],
+      "instrument_references": [
+        "Section 194B",
+        "Section 194BB",
+        "Section 115BB"
+      ],
+      "inclusion": [
+        "Lottery prizes",
+        "Card game and gambling winnings",
+        "Horse race payouts through licensed bookmakers"
+      ],
+      "exclusion": [
+        "Winnings sourced from online games governed by distinct regulatory frameworks"
+      ],
+      "nearby_distinctions": [
+        "Separated from online gaming winnings by applying strictly to traditional physical lotteries, betting, and real-world racecourse events."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d60a5280-5520-4907-9ee6-6c68dbe110bb",
+      "concept_name": "Winnings from online games [Section 194BA]",
+      "definition": "Entities responsible for paying online gaming winnings must deduct tax at source on net winnings calculated within user accounts at the end of the financial year or upon withdrawal. If payouts include non-cash items lacking sufficient cash balances to cover liabilities, tax payment verification is mandatory prior to release.",
+      "terminology": [
+        "Net winnings",
+        "User account",
+        "Online gaming intermediary",
+        "Computer resource"
+      ],
+      "instrument_references": [
+        "Section 194BA",
+        "Section 115BBJ",
+        "Information Technology Act 2000"
+      ],
+      "inclusion": [
+        "Net winnings withdrawn from user accounts",
+        "Year-end net balances inside digital gaming user accounts"
+      ],
+      "exclusion": [
+        "Traditional physical lotteries and racecourse betting winnings"
+      ],
+      "nearby_distinctions": [
+        "Differs from conventional physical betting rules by focusing on algorithmic net winnings inside internet-accessible digital user accounts."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "90119d0b-f861-4190-ac53-e5aeaeebac6a",
+      "concept_name": "Payments to contractors and sub-contractors [Section 194C]",
+      "definition": "Specified entities and large business operators making payments to resident contractors for carrying out any work must deduct tax at source upon credit or payment. Payments made by individuals or HUFs exclusively for personal purposes are exempt from these withholding obligations.",
+      "terminology": [
+        "Contractor",
+        "Sub-contractor",
+        "Carrying out any work",
+        "Turnover threshold"
+      ],
+      "instrument_references": [
+        "Section 194C"
+      ],
+      "inclusion": [
+        "Contract sums for labor and construction work",
+        "Payments made by qualified businesses, governments, and large enterprises"
+      ],
+      "exclusion": [
+        "Payments made by individuals or HUFs strictly for non-business personal purposes"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from professional fees by applying explicitly to contractual execution of work rather than specialized professional services."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "bb409d67-288d-4621-a337-ceea25391e33",
+      "concept_name": "Insurance Commission [Section 194D]",
+      "definition": "Entities paying remuneration or commission to resident agents for soliciting or procuring insurance business must deduct tax at source when payments exceed statutory financial year limits. Non-compliant sums received under life insurance policies lacking exemption are similarly subjected to specific withholding rates.",
+      "terminology": [
+        "Insurance commission",
+        "Procuring insurance business",
+        "Life insurance policy",
+        "Bonus"
+      ],
+      "instrument_references": [
+        "Section 194D",
+        "Section 194DA",
+        "Section 10(10D)"
+      ],
+      "inclusion": [
+        "Insurance solicitation commissions",
+        "Taxable payouts from non-exempt life insurance policies"
+      ],
+      "exclusion": [
+        "Exempt insurance proceeds fully compliant with statutory conditions"
+      ],
+      "nearby_distinctions": [
+        "Targets insurance remuneration specifically, separating it from standard commercial contract payments and brokerage fees."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "34b3aab0c4a747c2fdac182c1687341dbde66c8e84ba049b3f2846370c2f1545",
+  "artifact_id": "709b89a3-dc01-4355-bec1-d27da08bc4e4",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 9826,
+  "output_tokens": 3644,
+  "cost_usd": 0.012057799999999999,
+  "created_at": "2026-10-03T18:17:38.074173+00:00"
+}

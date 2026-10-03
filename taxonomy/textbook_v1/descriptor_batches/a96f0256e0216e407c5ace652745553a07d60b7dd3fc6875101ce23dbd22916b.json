@@ -1,0 +1,335 @@
+{
+  "descriptors": [
+    {
+      "node_id": "0327595a-a77e-4048-a3bf-232f7de9987b",
+      "concept_name": "Goldratt’s Five-Step Method for Improving Performance",
+      "definition": "A systematic framework designed to identify and eliminate operational bottlenecks that restrict organizational output. It focuses on maximizing throughput by fully utilizing bottleneck activities and subordinating all non-bottleneck processes to pace them accordingly.",
+      "terminology": [
+        "Theory of Constraints",
+        "System Bottlenecks",
+        "Throughput Measures",
+        "Investment Measures",
+        "Operating Expenses"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Identifying system bottlenecks",
+        "Exploiting bottleneck capacity",
+        "Subordinating non-bottleneck activities",
+        "Elevating system bottlenecks"
+      ],
+      "exclusion": [
+        "Traditional local cost accounting efficiency metrics",
+        "Maximizing productivity of non-bottleneck operations independently"
+      ],
+      "nearby_distinctions": [
+        "Differs from conventional cost accounting by treating operating expenses as fixed in the short run and treating inventory accumulation as detrimental."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "fc97e4a6-747c-4b9b-844f-003c76b7b72d",
+      "concept_name": "Advantages and Disadvantages of TOC and TA",
+      "definition": "An evaluation of the Theory of Constraints and Throughput Accounting highlighting benefits like reduced inventory and shorter lead times, alongside drawbacks such as a short-term focus and simplistic treatment of operating expenses as fixed. It positions throughput accounting as a direct costing approach useful primarily for short-term product mix decisions.",
+      "terminology": [
+        "Throughput Accounting",
+        "Theory of Constraints",
+        "Direct Costing",
+        "Operating Expenses",
+        "Product Mix"
+      ],
+      "instrument_references": [
+        "Boyd and Cox, 2002"
+      ],
+      "inclusion": [
+        "Reduction in inventory levels",
+        "Improved customer service and shorter lead times",
+        "Suitability for short-term product mix decisions"
+      ],
+      "exclusion": [
+        "Long-term strategic cost management frameworks like Activity-Based Costing",
+        "Total Quality Management principles focused on quality rather than sheer sales volume"
+      ],
+      "nearby_distinctions": [
+        "Contrasts with traditional full absorption costing and long-term oriented methods like ABC or TQM."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "85e5f7a0-6104-45ed-8da1-da62c1905202",
+      "concept_name": "Conclusion on Theory of Constraints and Environmental Management Accounting Introduction",
+      "definition": "A practical appraisal of constraints management demonstrating how shifting focus from local labor absorption to bottleneck throughput dramatically increases output with minimal investment. It introduces environmental management accounting by noting that poor environmental behavior triggers severe financial, legal, and reputational consequences for businesses.",
+      "terminology": [
+        "Labour Absorption",
+        "Throughput",
+        "Local Output Efficiency",
+        "Environmental Management Accounting",
+        "Corporate Image"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Case insights on constraint investment versus local efficiency",
+        "Overview of environmental risk factors such as fines, lawsuits, and brand damage"
+      ],
+      "exclusion": [
+        "Pure financial accounting standards without operational context",
+        "Unrelated cost-reduction techniques lacking strategic focus"
+      ],
+      "nearby_distinctions": [
+        "Bridges operational throughput management with emerging environmental management accounting requirements."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0c1f7f9b-9e77-415a-9633-25ce067e4806",
+      "concept_name": "What is Environmental Management Accounting",
+      "definition": "The systematic collection and analysis of monetary and physical information relating to environmental costs for internal managerial decision-making. It integrates management accounting with environmental practices to evaluate sustainability, product pricing, budgeting, and project efficiency.",
+      "terminology": [
+        "Environmental Management Accounting",
+        "Environmental Costs",
+        "Monetary Information",
+        "Physical Information",
+        "Internal Decision Making"
+      ],
+      "instrument_references": [
+        "Ranganathan and Ditz (1996)",
+        "Ditz et al (1998)"
+      ],
+      "inclusion": [
+        "Product pricing and budgeting applications",
+        "Investment appraisal for environmental projects",
+        "Evaluation of environmental efficiency and regulatory compliance costs"
+      ],
+      "exclusion": [
+        "External financial reporting detached from internal environmental impact controls",
+        "Sole focus on conventional financial costs without non-financial ecological inputs"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard financial accounting by incorporating internal physical resource flows and environmental impacts into managerial decisions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3abecaaa-8ba7-4a90-b35f-93c3dcc92a6d",
+      "concept_name": "Environmental Information Categories",
+      "definition": "The prerequisite information base for environmental management accounting split into physical flows and monetary costs. Physical information tracks energy, water, materials, wastes, and emissions, while monetary information accounts for expenses, savings, and earnings driven by waste and emission controls.",
+      "terminology": [
+        "Physical Environmental Information",
+        "Monetary Environmental Information",
+        "Non-Product Output",
+        "Environmental Performance Indicators",
+        "Environmental Costs"
+      ],
+      "instrument_references": [
+        "Glossary of Environment Statistics, United Nations (1997)"
+      ],
+      "inclusion": [
+        "Tracking physical input-output flows of energy and water",
+        "Quantifying waste and non-product output emissions",
+        "Accounting for monetary environmental costs and related savings"
+      ],
+      "exclusion": [
+        "General financial overheads completely disconnected from environmental resource usage",
+        "Unverified subjective estimates lacking physical or monetary substantiation"
+      ],
+      "nearby_distinctions": [
+        "Separates raw operational quantities and physical metrics from their corresponding monetary valuations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9f4a14f0-5b8c-4a54-b374-8326296be47d",
+      "concept_name": "Environmental Costs – Meaning and its Classifications",
+      "definition": "Costs connected with the actual or potential deterioration of natural assets due to economic activities, classified to facilitate managerial understanding and control. Structured categorization allows organizations to identify and evaluate diverse ecological impacts originating from their operations.",
+      "terminology": [
+        "Environmental Costs",
+        "Natural Assets",
+        "Deterioration",
+        "Classification",
+        "Business Boundary"
+      ],
+      "instrument_references": [
+        "Glossary of Environment Statistics, United Nations (1997)"
+      ],
+      "inclusion": [
+        "Costs tied to actual or potential natural asset degradation",
+        "Frameworks for structuring environmental expenditures"
+      ],
+      "exclusion": [
+        "Standard production overheads that bear no relation to resource depletion or environmental preservation",
+        "Unrelated general administrative expenditures"
+      ],
+      "nearby_distinctions": [
+        "Serves as an introductory umbrella for specific multi-tiered environmental cost classification systems."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "20814685-6372-4876-b908-52ac7f12c1df",
+      "concept_name": "Classification 1 - Generic Classification of Environmental Costs",
+      "definition": "A business boundary approach that divides environmental costs into internal costs borne directly out of pocket by the organization and external costs shifted to society. An inverse relationship exists where higher internal environmental expenditures generally reduce adverse external environmental impacts.",
+      "terminology": [
+        "Internal Environmental Costs",
+        "External Environmental Costs",
+        "Business Boundary",
+        "Waste Disposal Costs",
+        "Regulatory Costs"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Waste disposal, regulatory compliance, and up-front or back-end facility costs",
+        "Societal costs such as carbon emissions, climate change, and healthcare impacts"
+      ],
+      "exclusion": [
+        "Standard internal prime costs unaffected by environmental compliance or resource extraction",
+        "Unrelated financial transactions and capital financing fees"
+      ],
+      "nearby_distinctions": [
+        "Contrasts direct organizational out-of-pocket expenses against broader societal costs absorbed externally."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3cd2e299-d9a4-4c48-804b-11bbd21a2bdd",
+      "concept_name": "Classification 2 – United States Environmental Protection Agency (US EPA)",
+      "definition": "A four-part categorization of environmental costs comprising conventional costs of materials and utilities, potentially hidden overhead costs, future contingent liabilities, and less tangible relationship or corporate image costs. It identifies expenses that are frequently obscured or misallocated within general corporate accounting systems.",
+      "terminology": [
+        "Conventional Costs",
+        "Potentially Hidden Costs",
+        "Contingent Costs",
+        "Relationship and Corporate Image Costs",
+        "US EPA"
+      ],
+      "instrument_references": [
+        "US EPA (June 1995)"
+      ],
+      "inclusion": [
+        "Raw material and capital goods conventional costs",
+        "Up-front, back-end, and regulatory hidden costs",
+        "Future legal penalties, fines, and cleanup contingent costs",
+        "Intangible public relations and environmental reporting costs"
+      ],
+      "exclusion": [
+        "Standard financial ledger items that have no connection to material resource consumption or environmental regulation",
+        "Non-environmental corporate marketing expenditures"
+      ],
+      "nearby_distinctions": [
+        "Categorizes costs based on how they manifest and get obscured in corporate accounts, ranging from hidden overheads to intangible image impacts."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2354a708-4906-4f60-b9a7-48f1b8efdf1f",
+      "concept_name": "EMA Methodology Related to the Management of Environmental Cost",
+      "definition": "A phased continuous process for managing environmental costs starting with identification of expressed and hidden expenses, followed by allocation to cost centers and units, and concluding with cost control. It recognizes that environmental costs flow throughout corporate operations rather than existing as a separate cost type.",
+      "terminology": [
+        "Identification",
+        "Allocation",
+        "Controlling Environmental Cost",
+        "Hidden Overheads",
+        "Cost Centres"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Phase I identification of expressed and hidden environmental costs",
+        "Phase II allocation to cost centers and cost units",
+        "Phase III controlling environmental costs"
+      ],
+      "exclusion": [
+        "Static financial reporting detached from operational environmental management",
+        "Treating environmental costs as isolated independent ledger accounts"
+      ],
+      "nearby_distinctions": [
+        "Outlines a sequential life-cycle management methodology rather than static cost categorization."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3ed604bf-686c-45d4-82c1-25bca7908178",
+      "concept_name": "Identification and Allocation of Environmental Costs",
+      "definition": "The review of general ledgers to uncover hidden environmental costs and assign them to appropriate cost centers and units to support informed decision-making. It utilizes specific management accounting techniques to trace material inflows, outflows, waste, and resource utilization.",
+      "terminology": [
+        "Full Cost Accounting",
+        "Cost Centres",
+        "Cost Units",
+        "General Ledger",
+        "UNDSD Techniques"
+      ],
+      "instrument_references": [
+        "UNDSD Environmental Management Accounting Procedures and Principles (2003)"
+      ],
+      "inclusion": [
+        "Review of materials, utilities, energy, water, and waste disposal ledgers",
+        "Allocation of identified costs to specific product lines and cost centers",
+        "Analysis of process inputs versus product and waste outputs"
+      ],
+      "exclusion": [
+        "Arbitrary allocation of environmental overheads without input-output tracing",
+        "Exclusion of non-product output costs from product profitability analysis"
+      ],
+      "nearby_distinctions": [
+        "Focuses on tracing and assigning costs internally to units, unlike high-level external cost classifications."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "810d878c-20ac-4da8-8243-9b7dc6f2ba90",
+      "concept_name": "Controlling Environmental Costs",
+      "definition": "The application of targeted tools and organization-wide methods, such as mass balance approaches and Total Quality Management, to regulate and reduce environmental costs. Control strategies focus on individual elements like water and waste, and are heavily influenced by industry-specific environmental cost structures.",
+      "terminology": [
+        "Mass Balance Approach",
+        "Total Quality Management",
+        "Lifecycle Costs",
+        "Non-Product Output",
+        "Landfill Taxes"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Mass balance approach for tracking material waste and product yield",
+        "Integration of TQM objectives such as zero waste, zero spills, and zero pollution",
+        "Control of raw material wastage, landfill taxes, and compliance fines"
+      ],
+      "exclusion": [
+        "Passive reporting of environmental data without corrective operational action",
+        "Standard financial cost-cutting measures that ignore ecological resource efficiency"
+      ],
+      "nearby_distinctions": [
+        "Focuses on active operational regulation and reduction of environmental costs, succeeding their identification and allocation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "fc5d5a01-2264-4e7a-8566-1d53eea32f2d",
+      "concept_name": "Cons and Summary of Environmental Management Accounting",
+      "definition": "An evaluation of the drawbacks associated with environmental management accounting, including rising regulatory compliance costs, top management burden, and severe financial penalties for poor environmental management. It concludes that poor identification and allocation can distort management accounting and cause unsustainable business practices.",
+      "terminology": [
+        "Compliance Costs",
+        "Costs of Failure",
+        "Top Management Burden",
+        "Target Costing",
+        "Cost Reduction"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Costs of complying with legal and environmental regulations",
+        "Administrative burden and diversion of top management from core activities",
+        "Financial consequences of environmental clean-up and policy violations"
+      ],
+      "exclusion": [
+        "Short-term operational efficiency gains that increase long-term ecological risks",
+        "Unchecked management accounting systems that completely omit environmental factors"
+      ],
+      "nearby_distinctions": [
+        "Weighs the practical implementation challenges and cost burdens of EMA against the risks of poor environmental management."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "a96f0256e0216e407c5ace652745553a07d60b7dd3fc6875101ce23dbd22916b",
+  "artifact_id": "43dc3c4a-76df-46d7-996d-f1ef07612524",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 7578,
+  "output_tokens": 3690,
+  "cost_usd": 0.011498399999999999,
+  "created_at": "2026-10-03T18:26:56.541444+00:00"
+}

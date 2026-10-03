@@ -654,6 +654,228 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/taxonomy/versions": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Versions */
+        get: operations["versions_api_v1_taxonomy_versions_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/taxonomy/versions/{version_id}/tree": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Tree */
+        get: operations["tree_api_v1_taxonomy_versions__version_id__tree_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/taxonomy/versions/{version_id}/sources": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Sources */
+        get: operations["sources_api_v1_taxonomy_versions__version_id__sources_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/taxonomy/versions/{version_id}/question-sources": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Question Sources */
+        get: operations["question_sources_api_v1_taxonomy_versions__version_id__question_sources_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/taxonomy/versions/{version_id}/crosswalk": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Crosswalk */
+        get: operations["crosswalk_api_v1_taxonomy_versions__version_id__crosswalk_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/taxonomy/crosswalk/{mapping_id}/approve": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Review Crosswalk */
+        post: operations["review_crosswalk_api_v1_taxonomy_crosswalk__mapping_id__approve_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/taxonomy/versions/{version_id}/report": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Report */
+        get: operations["report_api_v1_taxonomy_versions__version_id__report_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/taxonomy/versions/{version_id}/approve": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Approve */
+        post: operations["approve_api_v1_taxonomy_versions__version_id__approve_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/taxonomy/versions/{version_id}/activate": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Activate */
+        post: operations["activate_api_v1_taxonomy_versions__version_id__activate_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/taxonomy/nodes/{node_id}/descriptor": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Descriptor */
+        get: operations["descriptor_api_v1_taxonomy_nodes__node_id__descriptor_get"];
+        /** Edit Descriptor */
+        put: operations["edit_descriptor_api_v1_taxonomy_nodes__node_id__descriptor_put"];
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/taxonomy/nodes/{node_id}/descriptor/approve": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Review Descriptor */
+        post: operations["review_descriptor_api_v1_taxonomy_nodes__node_id__descriptor_approve_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/taxonomy/nodes/{node_id}/source/approve": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Review Source */
+        post: operations["review_source_api_v1_taxonomy_nodes__node_id__source_approve_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/taxonomy/nodes/{node_id}/history": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** History */
+        get: operations["history_api_v1_taxonomy_nodes__node_id__history_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/health": {
         parameters: {
             query?: never;
@@ -939,6 +1161,11 @@ export interface components {
             /** Invitation Url */
             invitation_url: string;
         };
+        /** CrosswalkReview */
+        CrosswalkReview: {
+            /** Version Id */
+            version_id: string;
+        };
         /** CuratorDecisionResult */
         CuratorDecisionResult: {
             /** Decision Id */
@@ -954,6 +1181,14 @@ export interface components {
             id: number;
             /** Sha256 */
             sha256: string;
+            /** Course Level */
+            course_level?: ("foundation" | "intermediate" | "final") | null;
+            /**
+             * Provenance Status
+             * @default unresolved
+             * @enum {string}
+             */
+            provenance_status: "synthetic" | "unresolved" | "verified";
             /** Title */
             title: string | null;
             /** Scheme Id */
@@ -985,6 +1220,13 @@ export interface components {
         CuratorQueueItem: {
             /** Unit Id */
             unit_id: number;
+            /** Taxonomy Version Id */
+            taxonomy_version_id?: number | null;
+            /**
+             * Publication Ready
+             * @default true
+             */
+            publication_ready: boolean;
             /** Document Id */
             document_id: number;
             /** Attempt Id */
@@ -1020,6 +1262,16 @@ export interface components {
             chapter: components["schemas"]["NodeReference"] | null;
             topic: components["schemas"]["NodeReference"] | null;
             subtopic: components["schemas"]["NodeReference"] | null;
+            module?: components["schemas"]["NodeReference"] | null;
+            unit?: components["schemas"]["NodeReference"] | null;
+            /** Breadcrumbs */
+            breadcrumbs?: components["schemas"]["NodeReference"][];
+            /** Descriptor Revision Id */
+            descriptor_revision_id?: number | null;
+            /** Method */
+            method?: string | null;
+            /** Model Id */
+            model_id?: string | null;
             /** Justification */
             justification?: string | null;
             /** Gist */
@@ -1090,8 +1342,40 @@ export interface components {
             /** Id */
             id: number;
         };
+        /** DescriptorEdit */
+        DescriptorEdit: {
+            /** Definition */
+            definition: string;
+            /** Terminology */
+            terminology?: string[];
+            /** Instrument References */
+            instrument_references?: string[];
+            /** Edition */
+            edition?: string | null;
+            /** Source Ambiguities */
+            source_ambiguities?: string[];
+            /** Inclusion */
+            inclusion?: string[];
+            /** Exclusion */
+            exclusion?: string[];
+            /** Nearby Distinctions */
+            nearby_distinctions?: string[];
+            /** Source Spans */
+            source_spans: components["schemas"]["SourceSpan"][];
+            /** Version Id */
+            version_id: string;
+        };
+        /** DescriptorReview */
+        DescriptorReview: {
+            /** Version Id */
+            version_id: string;
+            /** Revision */
+            revision: number;
+        };
         /** DocumentConfirmRequest */
         DocumentConfirmRequest: {
+            /** Course Level */
+            course_level?: ("foundation" | "intermediate" | "final") | null;
             /** Attempt Id */
             attempt_id?: string | null;
             /** Paper Id */
@@ -1502,6 +1786,10 @@ export interface components {
             name: string;
             /** Chapters */
             chapters: components["schemas"]["ChapterItem"][];
+            /** Taxonomy Version Id */
+            taxonomy_version_id?: number | null;
+            /** Hierarchy */
+            hierarchy?: components["schemas"]["TaxonomyTreeNode"][];
         };
         /** PlanItem */
         PlanItem: {
@@ -1554,6 +1842,13 @@ export interface components {
         };
         /** PriorSignal */
         PriorSignal: {
+            /**
+             * Available
+             * @default true
+             */
+            available: boolean;
+            /** Unavailable Reason */
+            unavailable_reason?: string | null;
             /** Weight Prior W */
             weight_prior_W: number;
             /** Paper Max W */
@@ -1684,6 +1979,38 @@ export interface components {
             /** Is Current */
             is_current: boolean;
         };
+        /** ReleaseActivation */
+        ReleaseActivation: {
+            /** Manifest Hash */
+            manifest_hash: string;
+            /**
+             * Dry Run
+             * @default true
+             */
+            dry_run: boolean;
+        };
+        /** ReleaseApproval */
+        ReleaseApproval: {
+            /** Manifest Hash */
+            manifest_hash: string;
+        };
+        /** ReleaseSummary */
+        ReleaseSummary: {
+            /** Version Id */
+            version_id: string;
+            /** Taxonomy Version Id */
+            taxonomy_version_id: number;
+            /** Target Attempt */
+            target_attempt: string;
+            /** Status */
+            status: string;
+            /** Manifest Hash */
+            manifest_hash: string;
+            /** Approved By */
+            approved_by: number | null;
+            /** Activated At */
+            activated_at: string | null;
+        };
         /** RevisionItem */
         RevisionItem: {
             /** Node Id */
@@ -1778,8 +2105,30 @@ export interface components {
             version: string;
             /** Target Attempt Id */
             target_attempt_id: string;
+            /** Taxonomy Version Id */
+            taxonomy_version_id?: number | null;
             /** Computed At */
             computed_at: string | null;
+        };
+        /** SourceReview */
+        SourceReview: {
+            /** Version Id */
+            version_id: string;
+        };
+        /** SourceSpan */
+        SourceSpan: {
+            /** Artifact Id */
+            artifact_id: string;
+            /** Pdf Page Start */
+            pdf_page_start: number;
+            /** Pdf Page End */
+            pdf_page_end: number;
+            /**
+             * Review Status
+             * @default pending
+             * @enum {string}
+             */
+            review_status: "pending" | "reviewed";
         };
         /** StudyPlan */
         StudyPlan: {
@@ -1907,6 +2256,44 @@ export interface components {
             evaluated_at: string;
             /** Alarms */
             alarms: components["schemas"]["SystemAlarm"][];
+        };
+        /** TaxonomyTreeNode */
+        TaxonomyTreeNode: {
+            /** Id */
+            id: string;
+            /** Paper Id */
+            paper_id: string;
+            /** Parent Id */
+            parent_id: string | null;
+            /** Level */
+            level: string;
+            /** Name */
+            name: string;
+            /** Seq */
+            seq: number;
+            /**
+             * Heading Origin
+             * @default official
+             */
+            heading_origin: string;
+            /** Source Review Status */
+            source_review_status: string;
+            /** Descriptor Revision */
+            descriptor_revision: number | null;
+            /** Descriptor Approved */
+            descriptor_approved: boolean;
+            /** Eligible */
+            eligible: boolean;
+            /** Breadcrumbs */
+            breadcrumbs: {
+                [key: string]: string;
+            }[];
+            /** Sources */
+            sources: {
+                [key: string]: unknown;
+            }[];
+            /** Children */
+            children?: components["schemas"]["TaxonomyTreeNode"][];
         };
         /** TopicItem */
         TopicItem: {
@@ -3012,6 +3399,7 @@ export interface operations {
                 paper_id?: string | null;
                 doc_id?: number | null;
                 bucket?: string | null;
+                version_id?: string | null;
                 /** @description Filter for calibration benchmark units only */
                 benchmark_only?: boolean;
             };
@@ -3126,6 +3514,483 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["RecomputeResult"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    versions_api_v1_taxonomy_versions_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ReleaseSummary"][];
+                };
+            };
+        };
+    };
+    tree_api_v1_taxonomy_versions__version_id__tree_get: {
+        parameters: {
+            query?: {
+                paper_id?: string | null;
+            };
+            header?: never;
+            path: {
+                version_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TaxonomyTreeNode"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    sources_api_v1_taxonomy_versions__version_id__sources_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                version_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        [key: string]: unknown;
+                    }[];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    question_sources_api_v1_taxonomy_versions__version_id__question_sources_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                version_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        [key: string]: unknown;
+                    }[];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    crosswalk_api_v1_taxonomy_versions__version_id__crosswalk_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                version_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        [key: string]: unknown;
+                    }[];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    review_crosswalk_api_v1_taxonomy_crosswalk__mapping_id__approve_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                mapping_id: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["CrosswalkReview"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        [key: string]: unknown;
+                    };
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    report_api_v1_taxonomy_versions__version_id__report_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                version_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        [key: string]: unknown;
+                    };
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    approve_api_v1_taxonomy_versions__version_id__approve_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                version_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ReleaseApproval"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        [key: string]: unknown;
+                    };
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    activate_api_v1_taxonomy_versions__version_id__activate_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                version_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ReleaseActivation"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        [key: string]: unknown;
+                    };
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    descriptor_api_v1_taxonomy_nodes__node_id__descriptor_get: {
+        parameters: {
+            query: {
+                version_id: string;
+            };
+            header?: never;
+            path: {
+                node_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        [key: string]: unknown;
+                    } | null;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    edit_descriptor_api_v1_taxonomy_nodes__node_id__descriptor_put: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                node_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["DescriptorEdit"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        [key: string]: unknown;
+                    };
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    review_descriptor_api_v1_taxonomy_nodes__node_id__descriptor_approve_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                node_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["DescriptorReview"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        [key: string]: unknown;
+                    };
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    review_source_api_v1_taxonomy_nodes__node_id__source_approve_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                node_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SourceReview"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        [key: string]: unknown;
+                    };
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    history_api_v1_taxonomy_nodes__node_id__history_get: {
+        parameters: {
+            query: {
+                version_id: string;
+            };
+            header?: never;
+            path: {
+                node_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        [key: string]: unknown;
+                    };
                 };
             };
             /** @description Validation Error */

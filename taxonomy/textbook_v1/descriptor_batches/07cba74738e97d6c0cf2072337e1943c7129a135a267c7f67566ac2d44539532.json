@@ -1,0 +1,182 @@
+{
+  "descriptors": [
+    {
+      "node_id": "82cf0e09-19a1-4f9c-bbd0-45e96590ca3c",
+      "concept_name": "Accounting by a Non-Joint-Control Party in a Joint Operation",
+      "definition": "A party participating in a joint operation without holding joint control accounts for its interest based on whether it possesses rights to the assets and obligations for the liabilities. If it holds such rights and obligations, it applies the requirements of a joint operator.",
+      "terminology": [
+        "joint operation",
+        "joint control",
+        "assets and obligations"
+      ],
+      "instrument_references": [
+        "Ind AS 111"
+      ],
+      "inclusion": [
+        "Parties participating in a joint operation without joint control"
+      ],
+      "exclusion": [
+        "Parties holding joint control over the arrangement"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from joint operators who possess joint control and direct rights to assets and obligations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6a6bb517-3c4f-4a80-a62d-8639c1fd1b87",
+      "concept_name": "Accounting of Joint Ventures",
+      "definition": "Joint venturers recognize their interest in a joint venture as an investment and apply the equity method in consolidated statements. Separate financial statements account for these interests in accordance with specific separate financial statement standards.",
+      "terminology": [
+        "joint venture",
+        "equity method",
+        "consolidated financial statements"
+      ],
+      "instrument_references": [
+        "Ind AS 28",
+        "Ind AS 27"
+      ],
+      "inclusion": [
+        "Joint venturers recognizing investments in joint ventures"
+      ],
+      "exclusion": [
+        "Joint operations where parties hold direct rights to assets and liabilities"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from joint operations which require recognizing specific shares of assets and liabilities rather than a net investment."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f4596348-1d6d-4e71-84f9-0395d25ff342",
+      "concept_name": "Accounting in the Consolidated Financial Statements for Joint Ventures",
+      "definition": "A joint venturer recognizes its interest in a joint venture as an investment in its consolidated financial statements. This investment is accounted for using the equity method unless specific standard exemptions apply.",
+      "terminology": [
+        "joint venturer",
+        "investment",
+        "equity method"
+      ],
+      "instrument_references": [
+        "Ind AS 28"
+      ],
+      "inclusion": [
+        "Consolidated financial statement recognition of joint venture interests"
+      ],
+      "exclusion": [
+        "Separate financial statement accounting treatments"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from separate financial statements which follow separate measurement rules."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f0633236-158f-41f9-b710-43050a4913ed",
+      "concept_name": "Accounting in the Separate Financial Statements for Joint Ventures",
+      "definition": "In its separate financial statements, a joint venturer accounts for its interest in a joint venture following the designated separate financial statement standard requirements. These rules govern how the entity records its investment independently of group consolidation.",
+      "terminology": [
+        "separate financial statements",
+        "joint venturer",
+        "investment"
+      ],
+      "instrument_references": [
+        "Ind AS 27"
+      ],
+      "inclusion": [
+        "Separate financial statement entries for joint venture interests"
+      ],
+      "exclusion": [
+        "Consolidated group financial reporting"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from consolidated reporting which mandates the equity method."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "527fc6f4-f7e6-4531-880f-73b415abb6b4",
+      "concept_name": "Accounting by a Non-Joint-Control Party in a Joint Venture",
+      "definition": "A party participating in a joint venture without joint control evaluates its level of influence to determine the applicable accounting standard. If significant influence is present, it applies financial instrument or equity standards accordingly.",
+      "terminology": [
+        "joint venture",
+        "significant influence",
+        "joint control"
+      ],
+      "instrument_references": [
+        "Ind AS 109",
+        "Ind AS 27",
+        "Ind AS 28"
+      ],
+      "inclusion": [
+        "Parties participating in joint ventures without joint control"
+      ],
+      "exclusion": [
+        "Parties holding active joint control over the arrangement"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from joint venturers who possess joint control and must use the equity method."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f452fd1d-6d66-4121-b993-889b71639c53",
+      "concept_name": "Accounting for Acquisitions of Interests in Joint Operations",
+      "definition": "When an entity acquires an interest in a joint operation constituting a business, it applies business combination accounting principles to the extent of its share. This includes measuring identifiable assets and liabilities at fair value and recognizing resulting goodwill.",
+      "terminology": [
+        "joint operation",
+        "business combination",
+        "goodwill",
+        "fair value"
+      ],
+      "instrument_references": [
+        "Ind AS 103",
+        "Ind AS 111"
+      ],
+      "inclusion": [
+        "Acquisitions of interests in joint operations constituting a business",
+        "Formation of joint operations involving contributed businesses"
+      ],
+      "exclusion": [
+        "Formations where parties only contribute assets or asset groups that do not constitute businesses"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from simple asset acquisitions by the application of full business combination rules when a business is present."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "63ca59f2-1d99-49bb-bb9c-8b835c376a83",
+      "concept_name": "Significant Differences Between Ind AS 111 and AS 27",
+      "definition": "Ind AS 111 redefines joint ventures into joint operations and joint ventures based on rights and obligations rather than structural categories used in older standards. Furthermore, it mandates the equity method for joint ventures, replacing the proportionate consolidation method.",
+      "terminology": [
+        "joint arrangement",
+        "joint operation",
+        "joint venture",
+        "proportionate consolidation",
+        "equity method"
+      ],
+      "instrument_references": [
+        "Ind AS 111",
+        "Ind AS 28",
+        "AS 27"
+      ],
+      "inclusion": [
+        "Comparative classifications and accounting treatments between Ind AS 111 and AS 27"
+      ],
+      "exclusion": [
+        "Single-standard standalone compliance guides"
+      ],
+      "nearby_distinctions": [
+        "Distinguished by the replacement of AS 27 proportionate consolidation with Ind AS 111 equity accounting for joint ventures."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "07cba74738e97d6c0cf2072337e1943c7129a135a267c7f67566ac2d44539532",
+  "artifact_id": "39b20eed-5619-4f70-901e-f50cbf02f0a4",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 5485,
+  "output_tokens": 1854,
+  "cost_usd": 0.0062805,
+  "created_at": "2026-10-03T18:05:10.638599+00:00"
+}

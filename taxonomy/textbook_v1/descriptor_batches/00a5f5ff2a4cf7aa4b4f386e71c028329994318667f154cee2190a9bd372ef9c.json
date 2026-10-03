@@ -1,0 +1,322 @@
+{
+  "descriptors": [
+    {
+      "node_id": "919c4b80-58d8-493d-b1d6-45bdf934d169",
+      "concept_name": "Determining Stand-Alone Selling Price",
+      "definition": "The stand-alone selling price is established at contract inception as the specific price at which an entity sells promised goods or services separately to customers. Observable standalone pricing serves as the primary evidence, while unobservable prices must be estimated to satisfy transaction allocation objectives.",
+      "terminology": [
+        "stand-alone selling price",
+        "contract inception",
+        "observable price",
+        "relative basis"
+      ],
+      "instrument_references": [
+        "Ind AS 115"
+      ],
+      "inclusion": [
+        "Determining standalone prices at contract inception",
+        "Using observable standalone prices",
+        "Estimating unobservable prices"
+      ],
+      "exclusion": [
+        "Updating standalone prices for intervening market changes without contract modification"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from transaction price allocation changes driven by subsequent variable events"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "91402f1b-f2f2-45ca-a876-64bcbdda59a9",
+      "concept_name": "Changes in the Transaction Price",
+      "definition": "Subsequent changes in the transaction price are allocated to performance obligations on the same basis as established at contract inception without updating historical stand-alone selling prices. Amounts tied to fully satisfied performance obligations are recognized immediately as revenue adjustments in the period of change.",
+      "terminology": [
+        "transaction price changes",
+        "reallocation",
+        "satisfied performance obligation",
+        "variable consideration"
+      ],
+      "instrument_references": [
+        "Ind AS 115",
+        "AS 7",
+        "AS 9"
+      ],
+      "inclusion": [
+        "Allocating post-inception price changes on original bases",
+        "Adjusting revenue for satisfied obligations when prices change"
+      ],
+      "exclusion": [
+        "Reallocating transaction prices to reflect updated stand-alone selling prices"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from initial transaction price determination at contract inception"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "80c0d527-1828-48dd-b15a-d3948fd04f8b",
+      "concept_name": "Satisfying Performance Obligation",
+      "definition": "Revenue is recognized when an entity fulfills a performance obligation by transferring promised assets or services to a customer. The decisive determinant for this transfer is whether the customer acquires control over the underlying asset.",
+      "terminology": [
+        "transfer of control",
+        "performance obligation",
+        "point in time",
+        "over time"
+      ],
+      "instrument_references": [
+        "Ind AS 115"
+      ],
+      "inclusion": [
+        "Evaluating control transfer criteria at contract inception",
+        "Recognizing revenue upon asset transfer"
+      ],
+      "exclusion": [
+        "Recognizing revenue prior to the customer acquiring control"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from contract identification and transaction price steps"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e52ccef1-3108-40f7-90af-56fe296e4126",
+      "concept_name": "Transfer of Control",
+      "definition": "Control of an asset denotes the customer's present ability to direct its use and obtain substantially all remaining benefits while preventing other entities from doing so. Indicators such as legal title, physical possession, and present payment rights help identify when this transfer occurs.",
+      "terminology": [
+        "direct the use",
+        "remaining benefits",
+        "legal title",
+        "physical possession"
+      ],
+      "instrument_references": [
+        "Ind AS 115"
+      ],
+      "inclusion": [
+        "Evaluating customer ability to direct asset use",
+        "Assessing cash flow generation and benefit extraction",
+        "Reviewing transfer indicators like payment rights and legal title"
+      ],
+      "exclusion": [
+        "Treating mere physical possession without control indicators as a transfer"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from physical delivery arrangements that lack customer control"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1b7ff2c7-3bb9-4a2b-a87d-1568ca4f2633",
+      "concept_name": "Transfer of Control Over a Period of Time",
+      "definition": "An entity transfers control and recognizes revenue over time if the customer simultaneously receives and consumes benefits, creates or enhances an asset controlled by the customer, or leaves the entity without an alternative use asset paired with an enforceable payment right. Routine recurring services typically meet the criteria where benefits are simultaneously received and consumed.",
+      "terminology": [
+        "over time",
+        "simultaneous consumption",
+        "alternative use",
+        "enforceable right to payment"
+      ],
+      "instrument_references": [
+        "Ind AS 115"
+      ],
+      "inclusion": [
+        "Recognizing revenue when customers simultaneously receive and consume benefits",
+        "Evaluating asset creation under customer control"
+      ],
+      "exclusion": [
+        "Recognizing revenue at a point in time when none of the over-time criteria are met"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from point-in-time revenue recognition models"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7fbb1c2a-8210-4861-90f1-b9d20132d9db",
+      "concept_name": "Repurchase Agreements",
+      "definition": "A repurchase agreement involves selling an asset while promising or holding an option to repurchase the same or a substantially similar asset. Such transactions are accounted for as leases or financing arrangements rather than outright sales if the customer is restricted from directing the asset's use.",
+      "terminology": [
+        "repurchase agreement",
+        "forward contract",
+        "call option",
+        "put option",
+        "financing arrangement"
+      ],
+      "instrument_references": [
+        "Ind AS 115",
+        "Ind AS 116",
+        "Ind AS 109"
+      ],
+      "inclusion": [
+        "Evaluating forward and call option arrangements",
+        "Classifying repurchases below selling price as leases",
+        "Classifying repurchases at or above selling price as financing arrangements"
+      ],
+      "exclusion": [
+        "Recognizing immediate absolute sales when entity repurchase commitments exist"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard unconditional sales of goods"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "59818d73-003c-4b54-ae69-c725a85ef2ce",
+      "concept_name": "Bill-and-Hold Arrangements",
+      "definition": "Bill-and-hold arrangements allow billing for a product while the entity retains physical possession until a future date. Revenue is recognized when the customer obtains control, provided substantive reasons exist, items are separately identified as belonging to the customer, products are ready for transfer, and the entity cannot redirect the items.",
+      "terminology": [
+        "bill-and-hold",
+        "custodial services",
+        "physical possession",
+        "substantive reason"
+      ],
+      "instrument_references": [
+        "Ind AS 115"
+      ],
+      "inclusion": [
+        "Recognizing revenue when control transfers despite retained physical possession",
+        "Segregating custodial service performance obligations"
+      ],
+      "exclusion": [
+        "Recognizing revenue where goods are unidentifiable or subject to entity redirection"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard delivery-based revenue recognition"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0df355f4-0cf7-4228-a513-8f368fd00265",
+      "concept_name": "Licences of Intellectual Property",
+      "definition": "Licences of intellectual property are evaluated to determine whether the promise provides a right to access intellectual property over time or a right to use it as it exists at a point in time. Access rights result from ongoing entity activities that significantly affect the intellectual property, exposing the customer to positive or negative changes.",
+      "terminology": [
+        "licences",
+        "intellectual property",
+        "right to access",
+        "right to use"
+      ],
+      "instrument_references": [
+        "Ind AS 115"
+      ],
+      "inclusion": [
+        "Evaluating licences of software, technology, media, and franchises",
+        "Recognizing access-right licence revenue over time"
+      ],
+      "exclusion": [
+        "Treating static static-use licences as performance obligations satisfied over time"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from point-in-time right-to-use licences"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6ff457ef-ca0e-40dc-9d05-f3ab6a144691",
+      "concept_name": "Contract Costs",
+      "definition": "Contract costs comprise incremental expenses incurred to obtain contracts and direct costs necessary to fulfill performance obligations. Incremental costs to obtain and fulfill contracts expected to be recovered are capitalized as assets and systematically amortized.",
+      "terminology": [
+        "contract costs",
+        "costs to obtain",
+        "costs to fulfil",
+        "capitalisation"
+      ],
+      "instrument_references": [
+        "Ind AS 115"
+      ],
+      "inclusion": [
+        "Capitalizing incremental contract acquisition costs",
+        "Capitalizing direct contract fulfilment costs"
+      ],
+      "exclusion": [
+        "Expensing non-incremental acquisition costs like routine proposal travel or negotiation legal fees"
+      ],
+      "nearby_distinctions": [
+        "Distinguished between contract acquisition expenses and contract fulfilment resources"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "69b321f6-ecd4-4318-853e-f099b2ff7dbe",
+      "concept_name": "Costs to Obtain a Contract",
+      "definition": "Incremental costs incurred to obtain a contract with a customer that would not have been incurred otherwise are capitalized as assets when expected to be recovered. Costs that would have been incurred regardless of whether the contract was secured must be expensed as incurred.",
+      "terminology": [
+        "incremental costs",
+        "sales commission",
+        "capitalise",
+        "practical expedient"
+      ],
+      "instrument_references": [
+        "Ind AS 115"
+      ],
+      "inclusion": [
+        "Capitalizing commissions paid explicitly and solely upon successful contract signing",
+        "Applying the practical expedient to expense short-amortisation assets"
+      ],
+      "exclusion": [
+        "Capitalizing routine sales salaries, pitch travel expenses, or drafting legal fees"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general marketing and proposal expenses incurred regardless of contract outcome"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a0c81e04-9632-41ae-b343-d9bb9711877d",
+      "concept_name": "Costs to Fulfil a Contract",
+      "definition": "Costs incurred to fulfill a contract that fall outside other accounting standards are recognized as assets if they relate directly to a contract, generate or enhance resources for future satisfaction, and are expected to be recovered. General administrative expenses and wasted resource costs must be expensed as incurred.",
+      "terminology": [
+        "contract fulfilment",
+        "direct labour",
+        "direct materials",
+        "recoverable costs"
+      ],
+      "instrument_references": [
+        "Ind AS 115",
+        "Ind AS 2",
+        "Ind AS 16"
+      ],
+      "inclusion": [
+        "Recognizing assets for direct labour and materials tied to specific contracts",
+        "Including supervision and subcontractor costs"
+      ],
+      "exclusion": [
+        "Capitalizing general administrative overhead or costs of wasted materials"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from contract acquisition costs and costs governed by inventories or property standards"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1ca04667-3492-4f53-a4bc-ffbe8eee57d3",
+      "concept_name": "Amortisation and Impairment",
+      "definition": "Capitalized contract costs are amortized systematically in a manner consistent with the transfer pattern of the related goods or services. Impairment losses are recognized in earnings when carrying amounts exceed remaining expected consideration net of direct costs.",
+      "terminology": [
+        "amortisation",
+        "impairment loss",
+        "carrying amount",
+        "credit risk"
+      ],
+      "instrument_references": [
+        "Ind AS 115",
+        "Ind AS 8"
+      ],
+      "inclusion": [
+        "Systematic amortisation of capitalized contract assets",
+        "Recognizing and reversing contract cost impairments"
+      ],
+      "exclusion": [
+        "Applying variable consideration constraints when calculating expected remaining consideration for impairment"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard tangible asset depreciation models"
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "00a5f5ff2a4cf7aa4b4f386e71c028329994318667f154cee2190a9bd372ef9c",
+  "artifact_id": "87ecba6d-af6e-4b75-8383-a31f2b31cb05",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8414,
+  "output_tokens": 3355,
+  "cost_usd": 0.0109117,
+  "created_at": "2026-10-03T18:03:54.415829+00:00"
+}

@@ -1,0 +1,196 @@
+{
+  "descriptors": [
+    {
+      "node_id": "27238c85-b72a-48b9-ae18-331ec75a7a0b",
+      "concept_name": "Artificial Intelligence in Digital Auditing",
+      "definition": "Artificial intelligence refers to systems utilizing data analysis and algorithms to make decisions based on predictive methods. Auditors must examine the logical flow of processes, assess algorithm effectiveness, and verify that unintended bias or cybersecurity vulnerabilities do not compromise functionality.",
+      "terminology": [
+        "Algorithms",
+        "Predictive methods",
+        "Unintended bias",
+        "Cybersecurity vulnerabilities",
+        "Logical flow"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Review of algorithm logic",
+        "Assessment of unintended bias",
+        "Evaluation of management decision-making reliance",
+        "Cybersecurity bug and vulnerability checks"
+      ],
+      "exclusion": [
+        "Manual processing checks without algorithmic dependency",
+        "Traditional legacy hardware maintenance"
+      ],
+      "nearby_distinctions": [
+        "Differs from Robotic Process Automation by involving predictive decision-making and machine learning rather than strictly emulating repetitive human user actions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c97eea08-9d35-4032-b456-ad1accb3ab11",
+      "concept_name": "Blockchain Technology Audit Considerations",
+      "definition": "Blockchain operates on a decentralized, distributed ledger secured by encryption where transactions are validated by participants and sequenced into blocks. Auditors must evaluate governance, security, cryptographic protocols, data confidentiality, and compliance with data privacy regulations.",
+      "terminology": [
+        "Decentralized ledger",
+        "Distributed ledger",
+        "Encryption",
+        "Cryptography",
+        "Network nodes"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Governance and security around transactions",
+        "Insecure API risk assessment",
+        "Data privacy and regulatory compliance checks",
+        "Contingency planning for irreversible transactions"
+      ],
+      "exclusion": [
+        "Centralized relational database management",
+        "Standard legacy server log verification"
+      ],
+      "nearby_distinctions": [
+        "Distinct from standard distributed systems due to cryptographic sequencing and the inability to reverse transactions without specific network protocols."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ded29a86-0675-4cc1-8897-8abde2319490",
+      "concept_name": "Robotic Process Automation",
+      "definition": "Robotic Process Automation is a software technology consisting of bots that emulate human actions interacting with digital systems and software to automate repetitive processes. These software bots execute tasks around the clock with precision, integrating with applications, validation routines, and payment gateways.",
+      "terminology": [
+        "Software bots",
+        "Process efficiency",
+        "Natural language processing",
+        "Automated interaction",
+        "Execution precision"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Repetitive user process automation",
+        "System and application interaction emulation",
+        "Integration with backend processing and payment gateways"
+      ],
+      "exclusion": [
+        "Self-learning predictive algorithm development",
+        "Decentralized ledger validation"
+      ],
+      "nearby_distinctions": [
+        "Unlike AI which makes independent predictive decisions, RPA emulates defined human actions to execute repetitive operational tasks."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4cff1825-7073-44ec-96af-d28386caaa89",
+      "concept_name": "Control Considerations for Digital Auditing",
+      "definition": "Auditors must evaluate technology risks and test controls over automated systems to ensure accurate data processing and appropriate access restrictions. Key evaluation areas include preventing unauthorized database changes, segregation of duties failures, and master file alterations.",
+      "terminology": [
+        "Technology risks",
+        "Automated application controls",
+        "Segregation of duties",
+        "Master file changes",
+        "Unauthorized access"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Testing accuracy of program data processing",
+        "Evaluating user access privileges and segregation of duties",
+        "Reviewing unauthorized changes to master files and systems",
+        "Assessing third-party service provider risks"
+      ],
+      "exclusion": [
+        "Substantive verification of manual paper vouchers without system dependency",
+        "General corporate governance oversight unrelated to IT"
+      ],
+      "nearby_distinctions": [
+        "Focuses specifically on internal control testing of IT risks rather than general high-level business strategy."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ed9da6b0-0139-4076-a173-9f706f8c239d",
+      "concept_name": "Key Steps for Auditors in a Changing Technology Environment",
+      "definition": "Auditors operating in evolving technical environments must maintain professional skepticism when reviewing management's risk assessments for new systems. They must analyze direct and indirect technology effects on transaction flows and assess internal control over financial reporting systems.",
+      "terminology": [
+        "Professional skepticism",
+        "ICFR systems",
+        "Risk assessment",
+        "Transaction flow",
+        "Audit response"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Evaluating management technology control processes",
+        "Assessing direct and indirect impacts on overall audit risk",
+        "Determining completeness of in-scope ICFR systems"
+      ],
+      "exclusion": [
+        "Direct software code writing",
+        "Independent deployment of enterprise IT architecture"
+      ],
+      "nearby_distinctions": [
+        "Concentrates on the auditor's procedural methodology for adapting to new tech rather than the design of the technology itself."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ab3c09e5-573f-4fa2-ba12-bab7a58d64b1",
+      "concept_name": "Next Generation Audit Emerging Technologies",
+      "definition": "Next generation audit combines emerging technologies like drones, augmented reality, and virtual reality to redefine how audit procedures are performed. Drones enable remote physical examination of large fixed asset and inventory counts using onboard sensors and cameras.",
+      "terminology": [
+        "Next Generation Audit",
+        "Unmanned Aerial Vehicle",
+        "Augmented reality",
+        "Virtual reality",
+        "Sensor payload"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Drone technology for remote stock and fixed asset counts",
+        "Augmented reality digital overlay environments",
+        "Virtual reality simulated environments"
+      ],
+      "exclusion": [
+        "Traditional manual warehouse counting without technical tools",
+        "Standard ledger inspection"
+      ],
+      "nearby_distinctions": [
+        "Utilizes advanced physical and simulated sensory equipment rather than purely software-based data queries or standard analytical reviews."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "989bb31c-d2a2-463e-8f12-a0f27b419299",
+      "concept_name": "Conclusion on Digital Auditing and Assurance",
+      "definition": "Digital audits improve opinion reliability and drive operational efficiencies while exposing enterprises to unique automated and cybersecurity risks. Auditors must understand system architecture, transaction flows, internal control frameworks, and the entity's cybersecurity strategies.",
+      "terminology": [
+        "Digital audit",
+        "Cyber risk strategy",
+        "Automated environment",
+        "IT application",
+        "Control framework"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Identification of risks arising from IT use",
+        "Evaluation of cybersecurity frameworks and strategies",
+        "Integration of technology understanding into audit methodology"
+      ],
+      "exclusion": [
+        "Executing corporate cybersecurity remediation",
+        "Designing entity operational workflows"
+      ],
+      "nearby_distinctions": [
+        "Serves as a summary synthesis of digital audit principles rather than a discrete technical testing procedure."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "028493166177b56908ddfb3de9a17cf0759957c6198aad0e0ee13a06095f0e74",
+  "artifact_id": "d5eee4df-7f69-4426-b9ae-d7bcf28203ad",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 4682,
+  "output_tokens": 1974,
+  "cost_usd": 0.006339600000000001,
+  "created_at": "2026-10-03T18:11:07.013540+00:00"
+}

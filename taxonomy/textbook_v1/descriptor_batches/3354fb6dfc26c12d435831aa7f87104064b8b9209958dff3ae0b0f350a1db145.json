@@ -1,0 +1,238 @@
+{
+  "descriptors": [
+    {
+      "node_id": "d77bdd92-0cfb-427b-86ff-e91b13c63185",
+      "concept_name": "Presentation and Disclosure of Revenue Contracts",
+      "definition": "An entity presents contracts in the balance sheet as a contract liability, contract asset, or receivable based on the relationship between performance and payment. Any unconditional right to consideration must be presented separately as a receivable.",
+      "terminology": [
+        "contract liability",
+        "contract asset",
+        "receivable",
+        "unconditional right",
+        "performance obligation"
+      ],
+      "instrument_references": [
+        "Ind AS 115",
+        "Ind AS 109"
+      ],
+      "inclusion": [
+        "Presentation of contract liabilities when payment is received before performance",
+        "Presentation of contract assets or receivables when performance precedes payment",
+        "Separate presentation of excise duty in the statement of profit and loss"
+      ],
+      "exclusion": [
+        "Revenue from interest and dividends covered under financial instruments standards"
+      ],
+      "nearby_distinctions": [
+        "A contract asset conditions the right to consideration on something other than the passage of time, whereas a receivable represents an unconditional right requiring only the passage of time."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "094c8b4e-a032-4c64-bb34-b853bc8dfc49",
+      "concept_name": "Presentation",
+      "definition": "An entity presents contract balances in its balance sheet as a contract asset, contract liability, or receivable depending on whether goods or services have been transferred relative to customer payments. Unconditional rights to consideration are accounted for as receivables under Ind AS 109.",
+      "terminology": [
+        "contract liability",
+        "contract asset",
+        "receivable",
+        "excise duty"
+      ],
+      "instrument_references": [
+        "Ind AS 115",
+        "Ind AS 109"
+      ],
+      "inclusion": [
+        "Balance sheet classification of contract assets and liabilities",
+        "Separate presentation of excise duty in the statement of profit and loss"
+      ],
+      "exclusion": [
+        "Subsequent measurement rules governed by unrelated accounting standards"
+      ],
+      "nearby_distinctions": [
+        "Contract liabilities arise from advance payments or due dates prior to performance, whereas contract assets and receivables arise after performance occurs."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "620b8d4d-90c1-469e-b226-d03df528eb01",
+      "concept_name": "Disclosure",
+      "definition": "Entities must provide comprehensive disclosures regarding contracts with customers, including disaggregated revenue, contract balances, performance obligations, and transaction prices. These disclosures enable users to understand the nature, amount, timing, and uncertainty of revenue and cash flows.",
+      "terminology": [
+        "disaggregation of revenue",
+        "remaining performance obligations",
+        "significant judgements",
+        "contract balances"
+      ],
+      "instrument_references": [
+        "Ind AS 115",
+        "Ind AS 108"
+      ],
+      "inclusion": [
+        "Disclosures of opening and closing contract balances",
+        "Information about performance obligations and transaction prices",
+        "Judgements made in determining timing and measurement"
+      ],
+      "exclusion": [
+        "General financial statement notes unrelated to customer contracts"
+      ],
+      "nearby_distinctions": [
+        "General disclosures provide high-level totals of revenue and impairments, whereas specific disclosures break down performance obligations, transaction prices, and significant judgements."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e7c532ea-4156-434f-8be7-459c3e8d3e65",
+      "concept_name": "Service Concession Arrangements Overview",
+      "definition": "A service concession arrangement involves a private sector operator constructing or upgrading public infrastructure and operating and maintaining it for a specified period under a contract with a public sector grantor. The operator is contractually obligated to provide public services on behalf of the grantor.",
+      "terminology": [
+        "operator",
+        "grantor",
+        "infrastructure",
+        "public service obligation",
+        "build-operate-transfer"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Arrangements described as build-operate-transfer or rehabilitate-operate-transfer",
+        "Contracts involving public-to-private infrastructure operations"
+      ],
+      "exclusion": [
+        "Infrastructure traditionally constructed and maintained solely by the public sector without private operator involvement"
+      ],
+      "nearby_distinctions": [
+        "Service concession arrangements obligate a private operator to deliver public services and manage infrastructure on behalf of a public grantor, unlike ordinary commercial supply contracts."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d59f8a79-79a0-4db3-bc97-6ee3609a64f8",
+      "concept_name": "About Arrangement",
+      "definition": "Service concession arrangements require an operator to construct, upgrade, operate, and maintain public infrastructure for a set duration while being paid for services through contractual mechanisms. The public sector grantor sets performance standards, pricing adjustment rules, and dispute resolution processes.",
+      "terminology": [
+        "operator",
+        "grantor",
+        "infrastructure",
+        "performance standards"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Private sector management of public infrastructure such as roads, hospitals, and utilities",
+        "Contracts containing specified pricing and arbitration terms"
+      ],
+      "exclusion": [
+        "Arrangements where the private entity acts merely as an agent without management responsibilities"
+      ],
+      "nearby_distinctions": [
+        "The operator takes responsibility for management and operations rather than simply acting as an ordinary commercial agent."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9fb8b6f0-bbb2-41bd-8e06-4b93aca73e36",
+      "concept_name": "Accounting Principles for Service Concession Arrangements",
+      "definition": "Infrastructure is not recognized as the operator's property, plant, and equipment because the arrangement does not convey the right to control its use. The operator accounts for construction and operation services under Ind AS 115, recognizing consideration as a financial asset or intangible asset.",
+      "terminology": [
+        "property, plant and equipment",
+        "construction services",
+        "operation services",
+        "financial asset",
+        "intangible asset"
+      ],
+      "instrument_references": [
+        "Ind AS 115"
+      ],
+      "inclusion": [
+        "Recognition of financial assets when there is an unconditional right to receive cash from or at the direction of the grantor",
+        "Allocation of consideration based on relative fair values of delivered services"
+      ],
+      "exclusion": [
+        "Capitalization of public infrastructure as the operator's own property, plant and equipment"
+      ],
+      "nearby_distinctions": [
+        "The operator holds access rights to run the service rather than control-based ownership of the underlying public infrastructure."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3a9bb78a-8733-4508-a132-35f2f96aee7e",
+      "concept_name": "Service Concession Arrangements Disclosures",
+      "definition": "Operators and grantors must disclose details of service concession arrangements, including arrangement descriptions, significant terms, asset use rights, obligations, and changes occurring during the period. Entities must also disclose revenue and profits or losses recognized from exchanging construction services for financial or intangible assets.",
+      "terminology": [
+        "concession period",
+        "re-pricing dates",
+        "class of service concession arrangements",
+        "exchange of construction services"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Descriptions of significant terms affecting future cash flows",
+        "Nature and extent of renewal, termination, and overhaul obligations",
+        "Individual or class-based aggregation of arrangement disclosures"
+      ],
+      "exclusion": [
+        "Standard disclosures unrelated to public-private service concessions"
+      ],
+      "nearby_distinctions": [
+        "These disclosures specifically address public service concessions, distinct from standard revenue contract disclosures."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1d56a2b8-80ed-479d-b897-2f94d7dde8a1",
+      "concept_name": "Extracts of Financial Statements of Listed Entity",
+      "definition": "Practical illustration material presenting real-world financial statement extracts and accounting policies regarding revenue from contracts with customers from a listed corporate entity.",
+      "terminology": [
+        "financial statements",
+        "revenue from contract with customers",
+        "accounting policy"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Annual report disclosures and policy excerpts from listed entities"
+      ],
+      "exclusion": [
+        "Hypothetical numerical illustrations"
+      ],
+      "nearby_distinctions": [
+        "Provides empirical reporting examples rather than standard-setting text."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5bff295b-a2de-45f3-85a8-d86a59e9f2fb",
+      "concept_name": "Significant Differences in Ind AS 115 vis-à-vis AS 7 and AS 9",
+      "definition": "Ind AS 115 introduces an overarching core principle based on a five-step model centered on transferring control of goods or services at a transaction price. In contrast, older standards like AS 7 and AS 9 lacked comprehensive multiple-element guidance and a unified control-based revenue framework.",
+      "terminology": [
+        "core principle",
+        "five-step model",
+        "control",
+        "transaction price",
+        "multiple elements"
+      ],
+      "instrument_references": [
+        "Ind AS 115",
+        "AS 7",
+        "AS 9"
+      ],
+      "inclusion": [
+        "Comparison of framework definitions and multiple-element handling",
+        "Contrasts in revenue measurement and recognition triggers"
+      ],
+      "exclusion": [
+        "Detailed transition provisions between old and new standards"
+      ],
+      "nearby_distinctions": [
+        "Ind AS 115 mandates a control-based five-step model, whereas AS 7 and AS 9 measure revenue based on gross inflows or stage of completion without an overarching single standard framework."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "3354fb6dfc26c12d435831aa7f87104064b8b9209958dff3ae0b0f350a1db145",
+  "artifact_id": "87ecba6d-af6e-4b75-8383-a31f2b31cb05",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 5964,
+  "output_tokens": 2602,
+  "cost_usd": 0.008294200000000002,
+  "created_at": "2026-10-03T18:03:52.501019+00:00"
+}

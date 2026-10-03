@@ -52,6 +52,8 @@ class SourcePage(Base):
 class Document(Base):
     __tablename__ = "document"
     __table_args__ = (
+        CheckConstraint("course_level IS NULL OR course_level IN ('foundation','intermediate','final')", name="check_document_course_level"),
+        CheckConstraint("provenance_status IN ('synthetic','unresolved','verified')", name="check_document_provenance"),
         CheckConstraint(
             "origin IN ('http','browser','assisted','manual')", name="check_document_origin"
         ),
@@ -73,6 +75,8 @@ class Document(Base):
     blob_path: Mapped[str] = mapped_column(Text, nullable=False)
     bytes: Mapped[int] = mapped_column(BigInteger, nullable=False)
     origin: Mapped[str] = mapped_column(Text, nullable=False)
+    course_level: Mapped[str | None] = mapped_column(Text, nullable=True)
+    provenance_status: Mapped[str] = mapped_column(Text, nullable=False, default="unresolved", server_default="unresolved")
     scheme_id: Mapped[str | None] = mapped_column(Text, ForeignKey("ref.scheme.id"), nullable=True)
     attempt_id: Mapped[str | None] = mapped_column(Text, ForeignKey("ref.attempt.id"), nullable=True)
     paper_id: Mapped[str | None] = mapped_column(Text, ForeignKey("ref.paper.id"), nullable=True)
@@ -167,7 +171,7 @@ class Unit(Base):
             name="check_unit_parse_confidence",
         ),
         CheckConstraint(
-            "classify_status IN ('pending','running','suggested','failed','skipped','decided','excluded')",
+            "classify_status IN ('pending','running','suggested','failed','skipped','decided','excluded','needs_review')",
             name="check_unit_classify_status",
         ),
         UniqueConstraint("document_id", "extract_run_id", "label_path", name="uq_unit_doc_run_label"),
@@ -240,6 +244,8 @@ class TagSuggestion(Base):
     )
 
     id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
+    taxonomy_version_id: Mapped[int | None] = mapped_column(Integer, ForeignKey("ref.taxonomy_version.id"), nullable=True)
+    descriptor_revision_id: Mapped[int | None] = mapped_column(Integer, ForeignKey("ref.descriptor_revision.id"), nullable=True)
     unit_id: Mapped[int] = mapped_column(
         BigInteger, ForeignKey("ingest.unit.id"), nullable=False
     )

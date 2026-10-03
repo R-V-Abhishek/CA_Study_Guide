@@ -1,0 +1,318 @@
+{
+  "descriptors": [
+    {
+      "node_id": "11263c5a-e60a-475e-a9c0-73e75387d864",
+      "concept_name": "Frequency Of Reporting",
+      "definition": "An entity must provide a full set of financial statements covering at least an annual period. When reporting period end dates change resulting in periods longer or shorter than one year, specific disclosures regarding the reasons and non-comparability must be provided.",
+      "terminology": [
+        "Annual reporting period",
+        "Comparative information",
+        "Reporting period alignment"
+      ],
+      "instrument_references": [
+        "Ind AS 1"
+      ],
+      "inclusion": [
+        "Annual financial statement presentation",
+        "Disclosures for non-standard reporting periods"
+      ],
+      "exclusion": [
+        "Interim financial reporting standards"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard twelve-month reporting cycles by covering altered operational calendar spans."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "44411b46-dc8b-40cd-890b-c9c1bae141e1",
+      "concept_name": "Comparative Information",
+      "definition": "Entities must present comparative information for the preceding period for all amounts reported in the current period, along with relevant narrative disclosures. The minimum requirement includes two balance sheets, two statements of profit and loss, two cash flow statements, two statements of changes in equity, and related notes.",
+      "terminology": [
+        "Minimum comparative information",
+        "Preceding period",
+        "Narrative comparative information"
+      ],
+      "instrument_references": [
+        "Ind AS 1"
+      ],
+      "inclusion": [
+        "Prior period numeric data",
+        "Relevant descriptive text from prior periods"
+      ],
+      "exclusion": [
+        "Current period standalone figures without historical context"
+      ],
+      "nearby_distinctions": [
+        "Differs from current period reporting by supplying baseline comparative metrics from immediately preceding cycles."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "117ca193-8427-4447-8c8a-0f72745dc54f",
+      "concept_name": "Consistency Of Presentation",
+      "definition": "An entity must preserve the presentation and classification of financial statement items across periods unless significant operational changes or accounting standards mandate a revised structure. Any modified presentation must enhance relevance and reliability without impairing overall comparability.",
+      "terminology": [
+        "Classification",
+        "Reclassification of comparative information",
+        "Consistency"
+      ],
+      "instrument_references": [
+        "Ind AS 1",
+        "Ind AS 8"
+      ],
+      "inclusion": [
+        "Retaining structure across periods",
+        "Reclassifying comparative information upon presentation changes"
+      ],
+      "exclusion": [
+        "Arbitrary structural changes that impair comparability"
+      ],
+      "nearby_distinctions": [
+        "Differs from basic periodic preparation by focusing on the structural uniformity of line items over time."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "030a3d8b-a874-46d5-ad5c-575d3bb94395",
+      "concept_name": "Structure And Content",
+      "definition": "Financial statements must clearly isolate mandatory disclosures across specific primary statements and notes while adhering to regulatory rounding and currency identification rules. Entities apply systematic ordering to ensure published documents are clearly distinguished and understandable.",
+      "terminology": [
+        "Identification of financial statements",
+        "Rounding off",
+        "Presentation currency"
+      ],
+      "instrument_references": [
+        "Ind AS 1",
+        "Ind AS 7",
+        "Schedule III of the Companies Act 2013"
+      ],
+      "inclusion": [
+        "Prominent display of reporting entity identity",
+        "Uniform rounding units"
+      ],
+      "exclusion": [
+        "Omission of material information due to rounding"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from recognition criteria by governing the visual display, layout, and numerical scaling of data."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ab2587af-7b7a-43f2-a91e-d895cdd48e6a",
+      "concept_name": "Identification of Financial Statements",
+      "definition": "An entity must explicitly separate its financial statements from other published documents by displaying essential identifying markers such as the reporting entity name, individual or group status, and reporting date. These framing rules ensure users can correctly interpret electronic or paper-based general purpose reports.",
+      "terminology": [
+        "Reporting entity identification",
+        "Presentation currency",
+        "Level of rounding"
+      ],
+      "instrument_references": [
+        "Ind AS 1"
+      ],
+      "inclusion": [
+        "Entity name and changes",
+        "Statement period coverage and currency"
+      ],
+      "exclusion": [
+        "Regulatory filings outside financial statements scope"
+      ],
+      "nearby_distinctions": [
+        "Differs from general structural design by focusing exclusively on identifying metadata rather than numerical line items."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1006bb8f-4944-4e5c-8dae-132cc1b1a105",
+      "concept_name": "Balance Sheet",
+      "definition": "The balance sheet must present specific minimum line items covering asset, liability, and equity categories formatted with distinct current and non-current classifications. Additional line items and headings can be adapted based on the entity's specific transactional nature.",
+      "terminology": [
+        "Current assets",
+        "Non-current liabilities",
+        "Minimum line items"
+      ],
+      "instrument_references": [
+        "Ind AS 1",
+        "Ind AS 105",
+        "Ind AS 117",
+        "Ind AS 12"
+      ],
+      "inclusion": [
+        "Property, plant and equipment",
+        "Non-controlling interests",
+        "Issued capital"
+      ],
+      "exclusion": [
+        "Classification of deferred tax assets as current"
+      ],
+      "nearby_distinctions": [
+        "Differs from performance statements by recording static financial position components at a specific reporting date."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "60ee8f0f-17bb-404b-a3f2-affc38fffb91",
+      "concept_name": "Statement of Profit and Loss",
+      "definition": "The statement of profit and loss must segregate profit or loss and other comprehensive income sections while reporting total comprehensive income. Consolidated versions must further allocate these totals between non-controlling interests and owners of the parent.",
+      "terminology": [
+        "Other comprehensive income",
+        "Profit or loss section",
+        "Allocation of profit"
+      ],
+      "instrument_references": [
+        "Ind AS 1",
+        "Ind AS 109",
+        "Ind AS 117"
+      ],
+      "inclusion": [
+        "Interest revenue via effective interest method",
+        "Finance costs",
+        "Impairment losses"
+      ],
+      "exclusion": [
+        "Owner transactions in equity"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from balance sheet positions by summarizing financial performance over a defined temporal interval."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ebf4508f-dc63-4208-b58f-53022fe7d596",
+      "concept_name": "Statement of Changes in Equity",
+      "definition": "This statement encapsulates all equity variations including performance-related results and transactions with owners acting in their capacity as owners. It displays reconciliations for each component of equity from opening to closing balances alongside retrospective accounting adjustments.",
+      "terminology": [
+        "Total comprehensive income",
+        "Transactions with owners",
+        "Retrospective restatement"
+      ],
+      "instrument_references": [
+        "Ind AS 1",
+        "Ind AS 103",
+        "Ind AS 8"
+      ],
+      "inclusion": [
+        "Profit or loss allocation",
+        "Dividends recognized as distributions",
+        "Retrospective error corrections"
+      ],
+      "exclusion": [
+        "Standalone cash flow movements"
+      ],
+      "nearby_distinctions": [
+        "Differs from the statement of profit and loss by tracking changes across all equity components rather than just financial performance."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2c764d4b-ab71-4890-8555-5fd288eafffd",
+      "concept_name": "Statement of Cash Flows",
+      "definition": "Cash flow statements provide users with a basis to evaluate an entity's cash generation capabilities and cash equivalent utilization needs. Entities must present this statement according to the specific framework rules governing cash movements.",
+      "terminology": [
+        "Cash equivalents",
+        "Cash generation capacity",
+        "Cash flows"
+      ],
+      "instrument_references": [
+        "Ind AS 7"
+      ],
+      "inclusion": [
+        "Assessment of cash generation abilities",
+        "Structured liquidity evaluations"
+      ],
+      "exclusion": [
+        "Non-cash accrual adjustments"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from accrual-based performance metrics by focusing strictly on actual cash and cash equivalent inflows and outflows."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c97e37e4-38d4-4bb7-bc01-cde5c4a0f804",
+      "concept_name": "Notes",
+      "definition": "Notes provide systematic supporting disclosures, accounting policies, and basis of preparation details that cross-reference back to the primary financial statements. They must be ordered logically to enhance understandability regarding performance, financial position, and risk management.",
+      "terminology": [
+        "Systematic manner",
+        "Cross-reference",
+        "Material accounting policy information"
+      ],
+      "instrument_references": [
+        "Ind AS 1",
+        "Ind AS 107",
+        "Ind AS 37"
+      ],
+      "inclusion": [
+        "Statement of compliance with Ind AS",
+        "Contingent liabilities and commitments",
+        "Material accounting policies"
+      ],
+      "exclusion": [
+        "Redundant numerical data duplicated directly on statement faces"
+      ],
+      "nearby_distinctions": [
+        "Differs from primary statements by delivering narrative and granular disaggregated details rather than summary totals."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7740107b-a9bb-41e0-9ebd-9b1e5fff7efe",
+      "concept_name": "Significant Differences In Ind As 1 Vis-À-Vis As 1",
+      "definition": "Ind AS 1 governs comprehensive financial statement presentation, whereas older AS 1 standards restricted their scope strictly to accounting policy disclosures. Consequently, Ind AS 1 incorporates broader requirements covering reporting frequency, structural components, and general presentation features.",
+      "terminology": [
+        "Complete set of financial statements",
+        "Explicit statement of compliance",
+        "Off-setting"
+      ],
+      "instrument_references": [
+        "Ind AS 1",
+        "AS 1",
+        "AS 5"
+      ],
+      "inclusion": [
+        "Comparison of framework scopes",
+        "Mandatory general features differences"
+      ],
+      "exclusion": [
+        "Line-by-line comparative computations"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from legacy local standards by enforcing a much wider presentation and disclosure framework."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1a7a6e2a-d057-4d9b-9d01-779c7fafdcfa",
+      "concept_name": "Carve Out In Ind As 1 From Ias 1",
+      "definition": "Ind AS 1 modifies international rules regarding long-term loan breaches by permitting non-current classification if lenders agree post-reporting date but before approval not to demand immediate repayment. This carve-out prevents procedural breaches from misrepresenting long-term debt liabilities as current obligations.",
+      "terminology": [
+        "Long-term loan arrangement",
+        "Breach of a material provision",
+        "Payable on demand"
+      ],
+      "instrument_references": [
+        "Ind AS 1",
+        "IAS 1"
+      ],
+      "inclusion": [
+        "Rectification of loan breaches prior to financial statement approval",
+        "Non-current liability classification exception"
+      ],
+      "exclusion": [
+        "Automatic current classification for post-year-end rectifications under unamended IFRS"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard IAS 1 requirements by allowing subsequent lender waivers to preserve non-current debt status."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "da605e7ecbf0f53dbb1499b6032e17ac2cc1d0878defbd0171a63fd6299214ce",
+  "artifact_id": "344e0233-6162-40cf-9c03-373228b0fb72",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8602,
+  "output_tokens": 3224,
+  "cost_usd": 0.0106406,
+  "created_at": "2026-10-03T17:47:31.731747+00:00"
+}

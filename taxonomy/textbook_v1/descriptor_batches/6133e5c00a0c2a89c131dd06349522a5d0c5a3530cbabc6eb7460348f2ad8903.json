@@ -1,0 +1,112 @@
+{
+  "descriptors": [
+    {
+      "node_id": "a009f963-48e4-43cf-a981-2c0e1c129398",
+      "concept_name": "Risks associated with Blockchain",
+      "definition": "Blockchain technology introduces governance and operational risks due to decentralized control, varying user risk appetites, and consensus vulnerability. It also presents challenges regarding general IT control monitoring over public networks and handling high-volume transaction data.",
+      "terminology": [
+        "consensus mechanism",
+        "public blockchains",
+        "general IT controls",
+        "information overload"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Accountability challenges in decentralized networks",
+        "Tampering risks in underlying consensus mechanisms",
+        "Difficulties in auditing public blockchain general IT controls"
+      ],
+      "exclusion": [
+        "Traditional centralized database security failures",
+        "Standard financial credit risk assessments"
+      ],
+      "nearby_distinctions": [
+        "Differs from conventional centralized IT system risks by lacking a single administrative authority to enforce protocol amendments."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4f0e69f8-f1ad-4602-badb-4e4e96953106",
+      "concept_name": "Meaning of Tokenization",
+      "definition": "Tokenization converts tangible and intangible assets into digital tokens on a blockchain. This digital representation method is increasingly applied to traditional industries such as real estate and artwork.",
+      "terminology": [
+        "blockchain tokens",
+        "tangible assets",
+        "intangible assets",
+        "digital representation"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Digital conversion of real estate assets",
+        "Creation of blockchain tokens for artwork"
+      ],
+      "exclusion": [
+        "Traditional paper-based asset conveyances",
+        "Conventional cash transactions without blockchain backing"
+      ],
+      "nearby_distinctions": [
+        "Focuses on the direct digital representation of assets on a blockchain rather than pooled financial debt restructuring."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "26930ae4-6176-4f4d-9bfb-2f9e1b4e5b15",
+      "concept_name": "Tokenization and Securitization",
+      "definition": "Tokenization shares similarities with securitization because both mechanisms convert traditionally illiquid assets into tradable products. Both approaches inject market liquidity, enable portfolio diversification, and generate fee income opportunities for financial institutions.",
+      "terminology": [
+        "illiquid assets",
+        "liquidity",
+        "diversification",
+        "tradable products"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Injecting liquidity into illiquid markets",
+        "Portfolio diversification benefits for investors",
+        "Fee generation opportunities for financial intermediaries"
+      ],
+      "exclusion": [
+        "Direct corporate equity issuances",
+        "Standard unsecured lending arrangements"
+      ],
+      "nearby_distinctions": [
+        "Unlike traditional securitization of debt receivables, tokenization leverages blockchain architecture to convert diverse asset types directly into digital tradable units."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b1376273-bf4f-4fe4-820b-2cb228c54f5b",
+      "concept_name": "Securitization in India",
+      "definition": "Securitization in India originated with auto loan bundling and expanded to various receivables like sales tax deferrals and aircraft receivables. The regulatory framework includes the SARFAESI Act, 2002, which assists in managing non-performing assets.",
+      "terminology": [
+        "bundling",
+        "Non-Performing Assets",
+        "SARFAESI Act 2002",
+        "commercial mortgage backed securities"
+      ],
+      "instrument_references": [
+        "SARFAESI Act, 2002"
+      ],
+      "inclusion": [
+        "Bundling of auto loans into securitized instruments",
+        "Securitization of aircraft receivables and sales tax deferrals",
+        "Utilization of SARFAESI Act for NPA management"
+      ],
+      "exclusion": [
+        "Unsecured personal consumer lending portfolios",
+        "Pure equity capital market issuances"
+      ],
+      "nearby_distinctions": [
+        "Distinguished by its specific legal framework under Indian jurisdiction and evolution from auto loan receivables to complex commercial mortgage-backed securities and microfinance funding."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "6133e5c00a0c2a89c131dd06349522a5d0c5a3530cbabc6eb7460348f2ad8903",
+  "artifact_id": "7ee0ac3c-c00c-4a19-a0ff-f1b8e3e98682",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 2479,
+  "output_tokens": 1116,
+  "cost_usd": 0.0035337,
+  "created_at": "2026-10-03T18:07:56.007147+00:00"
+}

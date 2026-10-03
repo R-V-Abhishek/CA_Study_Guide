@@ -1,0 +1,396 @@
+{
+  "descriptors": [
+    {
+      "node_id": "4a3de114-222e-4d0e-9716-3391729d2de6",
+      "concept_name": "Updated Return Of Income",
+      "definition": "Assessees can furnish an updated return for any previous year within 24 months from the end of the relevant assessment year, regardless of whether original, belated, or revised returns were previously filed. However, updated returns are prohibited if they report a loss, decrease tax liability, result in or increase refunds, or if search, survey, or related proceedings apply.",
+      "terminology": [
+        "updated return",
+        "relevant assessment year",
+        "loss return",
+        "tax liability"
+      ],
+      "instrument_references": [
+        "Section 139(8A)",
+        "Section 139(1)",
+        "Section 139(4)",
+        "Section 139(5)",
+        "Section 132",
+        "Section 132A",
+        "Section 133A"
+      ],
+      "inclusion": [
+        "Returns filed within 24 months from the end of the relevant assessment year",
+        "Returns furnishing additional income"
+      ],
+      "exclusion": [
+        "Loss returns",
+        "Returns decreasing total tax liability",
+        "Returns creating or increasing refunds",
+        "Cases involving search, requisition, or certain surveys"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from belated returns under section 139(4) and revised returns under section 139(5) by its specific purpose of updating income with additional tax payments and strict non-applicability to loss or refund scenarios."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a064601c-3145-4ebb-a853-52a414c933f7",
+      "concept_name": "Tax On Updated Return",
+      "definition": "Before furnishing an updated return, the assessee must pay the due tax, additional income-tax, interest, and fees. Computations account for advance tax, tax deducted or collected at source, and eligible tax credits or reliefs.",
+      "terminology": [
+        "additional income-tax",
+        "advance tax",
+        "tax deducted at source",
+        "tax collected at source"
+      ],
+      "instrument_references": [
+        "Section 140B",
+        "Section 139(8A)",
+        "Section 139(1)",
+        "Section 139(4)",
+        "Section 140B(1)",
+        "Section 140B(2)",
+        "Section 140B(3)",
+        "Section 234A",
+        "Section 140A(1A)",
+        "Section 89",
+        "Section 90",
+        "Section 91",
+        "Section 90A",
+        "Section 115JAA",
+        "Section 115JD"
+      ],
+      "inclusion": [
+        "Tax payment prior to submission",
+        "Interest and fee calculations",
+        "Adjustments for TDS, TCS, and advance tax"
+      ],
+      "exclusion": [
+        "Returns filed without prior proof of tax and interest payment"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from regular return filing by the mandatory prepayment of an additional income-tax component alongside applicable interest and fees before submission."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a0419322-1bce-4937-97e1-7dc1f8d13161",
+      "concept_name": "Inquiry Before Assessment",
+      "definition": "The Assessing Officer may serve a notice to require a return, production of accounts and documents, or written information regarding assets and liabilities. Account production is restricted to periods not exceeding three years prior to the previous year, and asset statements require joint commissioner approval.",
+      "terminology": [
+        "notice",
+        "accounts or documents",
+        "assets and liabilities",
+        "previous approval"
+      ],
+      "instrument_references": [
+        "Section 142",
+        "Section 142(1)",
+        "Section 142(2)",
+        "Section 139",
+        "Section 139(1)",
+        "Section 153(1)",
+        "Rule 12F"
+      ],
+      "inclusion": [
+        "Issuance of notice to furnish returns",
+        "Production of accounts and documents",
+        "Submission of written information on assets and liabilities"
+      ],
+      "exclusion": [
+        "Requiring accounts relating to a period more than 3 years prior to the previous year"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from summary processing under section 143(1) by involving active inquiries, document production demands, and notices issued directly by tax authorities."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "70b077d8-1f61-4c3d-bfc4-6cfa3a501f64",
+      "concept_name": "Special Audit And Inventory Valuation Under Section 142",
+      "definition": "The Assessing Officer can direct an assessee to get accounts audited by a chartered accountant or inventory valued by a cost accountant based on account complexity, volume, doubts, or business nature. Such direction requires previous approval from specified higher income-tax authorities after providing the assessee an opportunity of being heard.",
+      "terminology": [
+        "special audit",
+        "inventory valuation",
+        "accountant",
+        "cost accountant"
+      ],
+      "instrument_references": [
+        "Section 142",
+        "Section 142(2A)",
+        "Section 142(2B)",
+        "Section 142(2C)",
+        "Section 142(2D)",
+        "Chartered Accountants Act, 1949",
+        "Cost and Works Accountants Act, 1959"
+      ],
+      "inclusion": [
+        "Audit of accounts by a nominated chartered accountant",
+        "Valuation of inventory by a nominated cost accountant"
+      ],
+      "exclusion": [
+        "Unapproved audit directions",
+        "Directions issued without giving the assessee an opportunity of being heard"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from routine statutory audits by requiring specific direction from the Assessing Officer and nomination of the auditor by high-ranking tax authorities in revenue interests."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0cb2fc88-9f92-4a02-9218-fcff9c439563",
+      "concept_name": "Power Of Assessing Officer To Make A Reference To The Valuation Officer [Section 142A]",
+      "definition": "The Assessing Officer can reference a Valuation Officer to estimate the fair market value or value of any asset, property, or investment for assessment purposes. The Valuation Officer must submit the report within six months, and the Assessing Officer utilizes it after granting the assessee a hearing opportunity.",
+      "terminology": [
+        "Valuation Officer",
+        "fair market value",
+        "valuation report",
+        "best of judgment"
+      ],
+      "instrument_references": [
+        "Section 142A",
+        "Section 142B"
+      ],
+      "inclusion": [
+        "Reference for estimating fair market value of assets, properties, or investments",
+        "Best judgment estimation upon non-cooperation"
+      ],
+      "exclusion": [
+        "References made without affording an opportunity of being heard before final assessment integration"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from special audits under section 142(2A) as it focuses strictly on estimating asset, property, or investment values through a specialized Valuation Officer rather than financial account auditing."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "482af031-bbc7-4491-9182-cc7d8e71463c",
+      "concept_name": "Faceless Inquiry & Valuation",
+      "definition": "The Central Government may notify a faceless scheme for conducting inquiries, issuing notices, ordering special audits or inventory valuations, and making valuation references. This aims to eliminate physical interfaces, optimize resource utilization through functional specialization, and introduce team-based processing with dynamic jurisdiction.",
+      "terminology": [
+        "faceless inquiry and valuation scheme",
+        "dynamic jurisdiction",
+        "functional specialisation",
+        "automated allocation"
+      ],
+      "instrument_references": [
+        "Section 142B",
+        "Section 142B(1)",
+        "Section 142B(2)",
+        "Section 142B(3)",
+        "Section 142(1)",
+        "Section 142(2)",
+        "Section 142(2A)",
+        "Section 142A",
+        "Notification no. 19/2022"
+      ],
+      "inclusion": [
+        "Faceless issuance of notices",
+        "Electronic inquiries and audits",
+        "Team-based valuation references"
+      ],
+      "exclusion": [
+        "Physical interface processes not exempted or modified by the official notification"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from traditional physical inquiries by substituting physical interactions with an electronic, team-based framework governed by a notified Central Government scheme."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "711368d6-66db-4a54-b2f4-42e63781ba3b",
+      "concept_name": "Summary Assessment",
+      "definition": "Summary assessment is a computerized preliminary processing of income returns where arithmetical errors, incorrect claims, late-filing loss set-offs, and audit report adjustments are corrected. Intimation is issued to the assessee before adjustments are finalized, allowing a response period of 30 days.",
+      "terminology": [
+        "summary assessment",
+        "intimation",
+        "arithmetical error",
+        "incorrect claim",
+        "adjustments"
+      ],
+      "instrument_references": [
+        "Section 143",
+        "Section 143(1)",
+        "Section 139",
+        "Section 142(1)",
+        "Section 143(1)(a)",
+        "Section 10AA",
+        "Chapter VI-A"
+      ],
+      "inclusion": [
+        "Correction of arithmetical errors",
+        "Rectification of incorrect claims apparent from information",
+        "Disallowance of late-filed loss claims and specific deductions"
+      ],
+      "exclusion": [
+        "Adjustments executed without prior intimation and lapse of the 30-day response window"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from scrutiny or best judgment assessments by being an automated, preliminary computational review rather than a detailed investigative inquiry."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d1121316-ebf3-458b-9ea0-15f820e31153",
+      "concept_name": "Power Of Joint Commissioner To Issue Directions In Certain Cases",
+      "definition": "A Joint Commissioner may examine pending assessment records independently, on reference, or via assessee application to issue binding guidance directions to the Assessing Officer. Prejudicial directions require prior opportunity of being heard for the assessee, excluding general investigative lines.",
+      "terminology": [
+        "Joint Commissioner",
+        "directions",
+        "pending assessment",
+        "prejudicial"
+      ],
+      "instrument_references": [
+        "Section 144A",
+        "Section 143(3)",
+        "Section 144",
+        "Section 143(1)"
+      ],
+      "inclusion": [
+        "Issuance of guidance directions by Joint Commissioners",
+        "Examination of pending assessment records"
+      ],
+      "exclusion": [
+        "Prejudicial directions issued without giving the assessee an opportunity to be heard"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from regular assessment orders by providing internal administrative guidance and binding instructions to the Assessing Officer rather than final liability determinations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "559a71b8-ca51-4f88-9774-5b5fa44083c5",
+      "concept_name": "Faceless Assessment",
+      "definition": "Faceless assessment conducts scrutiny, best judgment, or income escaping assessments electronically through a designated portal via automated case allocation. The National Faceless Assessment Centre coordinates responses, inquiries, and technical assistance between the assessee and specialized assessment, verification, or technical units.",
+      "terminology": [
+        "faceless assessment",
+        "National Faceless Assessment Centre",
+        "assessment unit",
+        "verification unit",
+        "technical unit"
+      ],
+      "instrument_references": [
+        "Section 144B",
+        "Section 144B(1)",
+        "Section 144B(2)",
+        "Section 143(3)",
+        "Section 144",
+        "Section 147",
+        "Section 143(2)",
+        "Section 142(1)"
+      ],
+      "inclusion": [
+        "Automated allocation of cases via NFAC",
+        "Electronic responses and notices",
+        "Cross-functional coordination with verification and technical units"
+      ],
+      "exclusion": [
+        "Manual face-to-face assessment proceedings outside the designated electronic portal"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from traditional physical assessments by operating entirely through electronic portals with segregated functional units rather than a single local Assessing Officer."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "031d107f-c5c2-4488-a29f-465d8634a836",
+      "concept_name": "Reference To Principal Commissioner Or Commissioner In Certain Cases",
+      "definition": "The Assessing Officer can refer an arrangement to the Principal Commissioner or Commissioner to declare it an impermissible avoidance arrangement. The authority issues notices, evaluates objections, and may refer the matter to an Approving Panel which issues binding directions for completion.",
+      "terminology": [
+        "impermissible avoidance arrangement",
+        "Approving Panel",
+        "Principal Commissioner",
+        "Commissioner"
+      ],
+      "instrument_references": [
+        "Section 144BA",
+        "Chapter X-A",
+        "Section 90"
+      ],
+      "inclusion": [
+        "References for declaring arrangements as impermissible avoidance arrangements",
+        "Approving Panel binding directions"
+      ],
+      "exclusion": [
+        "Arrangements finalized without giving the assessee an opportunity of being heard"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard tax evasion inquiries by targeting complex tax avoidance arrangements through a specialized multi-tier review involving the Principal Commissioner and Approving Panel."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ed2d76c7-a7fe-4584-93c0-d30686956bdf",
+      "concept_name": "Reference To Dispute Resolution Panel",
+      "definition": "Eligible assessees facing prejudicial variations in transfer pricing or non-resident assessments can seek alternate dispute resolution through a Dispute Resolution Panel. The panel issues binding guidance directions after reviewing draft orders and assessee objections.",
+      "terminology": [
+        "Dispute Resolution Panel",
+        "eligible assessee",
+        "draft proposed order",
+        "transfer pricing"
+      ],
+      "instrument_references": [
+        "Section 144C",
+        "Chapter XIV-B",
+        "Section 92CA(3)",
+        "Section 158BA(1)",
+        "Section 158BD",
+        "Section 153",
+        "Section 153B"
+      ],
+      "inclusion": [
+        "Draft assessment order forwarding for eligible assessees",
+        "Filing objections with the Dispute Resolution Panel"
+      ],
+      "exclusion": [
+        "Proceedings under Chapter XIV-B for search cases"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from regular assessment appeals by providing a pre-assessment fast-track collegium review mechanism specifically for eligible non-residents and transfer pricing cases."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b81fef63-f0ed-4139-8a2f-415fef1bc752",
+      "concept_name": "Income Escaping Assessment",
+      "definition": "Reassessment provisions govern the assessment of escaping income, while historical search regimes under sections 153A and 153C apply only to searches initiated on or before a specified cutoff date. Subsequent search cases are channeled into a separate block assessment framework under Chapter XIV-B.",
+      "terminology": [
+        "income escaping assessment",
+        "search and seizure",
+        "block assessment",
+        "reassessment"
+      ],
+      "instrument_references": [
+        "Section 147",
+        "Section 148",
+        "Section 148A",
+        "Section 149",
+        "Section 151",
+        "Section 153A",
+        "Section 153C",
+        "Section 132",
+        "Section 132A",
+        "Chapter XIV-B"
+      ],
+      "inclusion": [
+        "Reassessment of escaped income",
+        "Search assessments initiated on or before the statutory cutoff date"
+      ],
+      "exclusion": [
+        "Search cases initiated after the statutory cutoff date under the general reassessment sections"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard scrutiny assessments by requiring specific conditions of income escaping detection, and separated from modern search actions handled under Chapter XIV-B block assessments."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "29bc06452f6e6dea18a0de68b734ce4fb4b6569c48a42ab72f656906aae11661",
+  "artifact_id": "cfc3cd81-0b24-4367-991d-614759cdab3d",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 9710,
+  "output_tokens": 4409,
+  "cost_usd": 0.0139355,
+  "created_at": "2026-10-03T18:22:23.571477+00:00"
+}

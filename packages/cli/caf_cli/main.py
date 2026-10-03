@@ -208,6 +208,31 @@ def db_configure_connections() -> None:
 # ==============================================================================
 # L0 Taxonomy Stubs
 # ==============================================================================
+@taxonomy_app.command("textbook-import")
+def textbook_import(manifest: Path = Path("taxonomy/textbook_v1/manifest.json"),
+                    apply: bool = typer.Option(False, "--apply")) -> None:
+    """Validate independent textbook evidence; optionally persist an unapproved draft."""
+    import json
+    from caf_l0.manifest import load_manifest
+    from caf_l0.releases import import_release
+    with get_session_factory("operations")() as session:
+        result = import_release(session, load_manifest(manifest), dry_run=not apply)
+        if apply:
+            session.commit()
+        console.print_json(json.dumps(result))
+
+
+@taxonomy_app.command("textbook-report")
+def textbook_report(version_id: str = "textbook-v1") -> None:
+    """Report concrete source and review gates without activating a release."""
+    import json
+    from caf_l0.releases import release_report, migrate_exact_progress
+    with get_session_factory("operations")() as session:
+        result = release_report(session, version_id)
+        result["personal_migration"] = "Only reviewed exact one-to-one mappings transfer progress; original notes remain linked"
+        console.print_json(json.dumps(result))
+
+
 @taxonomy_app.command("load")
 def taxonomy_load(apply: bool = typer.Option(False, "--apply", help="Apply changes to database")) -> None:
     """Validate and optionally load taxonomy YAML into ref schema."""
