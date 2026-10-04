@@ -1,0 +1,125 @@
+{
+  "retrieved_at": "2026-10-04T07:21:28.047506+00:00",
+  "audit_status": "partial",
+  "records": [
+    {
+      "id": "9cefb13b-983f-517e-890f-d6a528854d53",
+      "source_family": "mock",
+      "course_level": "Foundation",
+      "scheme_id": "s2023",
+      "attempt_id": "2025-09",
+      "paper_id": null,
+      "paper_ids": [],
+      "series": "1",
+      "artifact_role": "announcement",
+      "doc_type_id": null,
+      "landing_url": "https://boslive.icai.org/education_content.php?p=Mock%20Test%20Papers",
+      "download_url": "https://resource.cdn.icai.org/86583bos-aps1159-fnd-mtp-series-sep2025.pdf",
+      "sha256": null,
+      "page_count": null,
+      "availability": "discovered",
+      "role_review_status": "pending_pdf_verification",
+      "classification_queue": "outside_corpus",
+      "title": "Click Here",
+      "retrieved_at": "2026-10-04T07:21:28.022163+00:00",
+      "navigation_evidence": {
+        "page_sha256": "7950ea845cb6578ef93321c622abf3114b303f49df2328c61f87bdcbc65eac19",
+        "page_path": "data/blobs/navigation/7950ea845cb6578ef93321c622abf3114b303f49df2328c61f87bdcbc65eac19.html",
+        "mode": "browser",
+        "breadcrumb": [
+          "ICAI BoS"
+        ],
+        "final_url": "https://boslive.icai.org/education_content.php?p=Mock%20Test%20Papers"
+      }
+    },
+    {
+      "id": "55af6988-8b98-53c0-a9e6-1eebf8c500d4",
+      "source_family": "mock",
+      "course_level": "Intermediate",
+      "scheme_id": "s2023",
+      "attempt_id": "2025-09",
+      "paper_id": null,
+      "paper_ids": [],
+      "series": "1",
+      "artifact_role": "announcement",
+      "doc_type_id": null,
+      "landing_url": "https://boslive.icai.org/education_content.php?p=Mock%20Test%20Papers",
+      "download_url": "https://resource.cdn.icai.org/86421bos-aps1013-mtp-series-I-II-sep2025-exam.pdf",
+      "sha256": null,
+      "page_count": null,
+      "availability": "discovered",
+      "role_review_status": "pending_pdf_verification",
+      "classification_queue": "outside_corpus",
+      "title": "Click Here",
+      "retrieved_at": "2026-10-04T07:21:28.022163+00:00",
+      "navigation_evidence": {
+        "page_sha256": "7950ea845cb6578ef93321c622abf3114b303f49df2328c61f87bdcbc65eac19",
+        "page_path": "data/blobs/navigation/7950ea845cb6578ef93321c622abf3114b303f49df2328c61f87bdcbc65eac19.html",
+        "mode": "browser",
+        "breadcrumb": [
+          "ICAI BoS"
+        ],
+        "final_url": "https://boslive.icai.org/education_content.php?p=Mock%20Test%20Papers"
+      }
+    },
+    {
+      "id": "03d1806d-91ba-5eee-9da4-09cd9a5ab570",
+      "source_family": "mock",
+      "course_level": "Final",
+      "scheme_id": "s2023",
+      "attempt_id": "2025-09",
+      "paper_id": null,
+      "paper_ids": [],
+      "series": "1",
+      "artifact_role": "announcement",
+      "doc_type_id": null,
+      "landing_url": "https://boslive.icai.org/education_content.php?p=Mock%20Test%20Papers",
+      "download_url": "https://resource.cdn.icai.org/86545bos-aps1122-announcement-mtp-final.pdf",
+      "sha256": null,
+      "page_count": null,
+      "availability": "discovered",
+      "role_review_status": "pending_pdf_verification",
+      "classification_queue": "not_question_artifact",
+      "title": "Click Here",
+      "retrieved_at": "2026-10-04T07:21:28.022163+00:00",
+      "navigation_evidence": {
+        "page_sha256": "7950ea845cb6578ef93321c622abf3114b303f49df2328c61f87bdcbc65eac19",
+        "page_path": "data/blobs/navigation/7950ea845cb6578ef93321c622abf3114b303f49df2328c61f87bdcbc65eac19.html",
+        "mode": "browser",
+        "breadcrumb": [
+          "ICAI BoS"
+        ],
+        "final_url": "https://boslive.icai.org/education_content.php?p=Mock%20Test%20Papers"
+      }
+    }
+  ],
+  "navigation_audits": [
+    {
+      "source_family": "mock",
+      "original_url": "https://boslive.icai.org/education_content.php?p=Mock%20Test%20Papers",
+      "final_url": "https://boslive.icai.org/education_content.php?p=Mock%20Test%20Papers",
+      "http_status": 200,
+      "mode": "browser",
+      "page_sha256": "7950ea845cb6578ef93321c622abf3114b303f49df2328c61f87bdcbc65eac19",
+      "page_path": "data/blobs/navigation/7950ea845cb6578ef93321c622abf3114b303f49df2328c61f87bdcbc65eac19.html",
+      "pdf_links": 3,
+      "retrieved_at": "2026-10-04T07:21:28.022163+00:00",
+      "cache_reverified_at": null
+    }
+  ],
+  "source_gaps": [
+    {
+      "source_family": "mock",
+      "outcome": "zero_documents",
+      "reason": "NO_QUESTION_OR_ANSWER_LINKS"
+    },
+    {
+      "source_family": "mock",
+      "outcome": "missing_expected_artifacts",
+      "reason": "No current dated mock question/answer artifacts confirmed in navigation; PDF roles require review"
+    }
+  ],
+  "previous_browser_audits": [],
+  "human_confirmation_performed": false,
+  "original_inventory_unchanged": true
+}

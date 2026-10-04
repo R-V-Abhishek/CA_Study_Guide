@@ -11,6 +11,26 @@ from caf_common.settings import get_settings
 from caf_db.engine import get_engine
 from caf_db.models.app import Note, Progress, StudySession
 from caf_db.models.core import Appearance, AppearanceTag, Decision
+from caf_common.postgres_sandbox import PostgresSandbox
+
+
+def test_disk_backed_recovery_storage_is_writable_and_removed_with_its_container():
+    with PostgresSandbox('disk-recovery-test',use_tmpfs=False) as sandbox:
+        mounts=json.loads(subprocess.run(['docker','inspect','--format','{{json .Mounts}}',sandbox.name],
+            check=True,capture_output=True,text=True).stdout)
+        storage=next(mount for mount in mounts if mount['Destination']=='/var/lib/postgresql/data')
+        assert storage['Type']=='volume'
+        owned_volume=storage['Name']
+        engine=sa.create_engine(sandbox.url())
+        try:
+            with engine.begin() as connection:
+                connection.execute(sa.text('CREATE TABLE recovery_marker(value text)'))
+                connection.execute(sa.text("INSERT INTO recovery_marker VALUES ('isolated recovery storage')"))
+                assert connection.execute(sa.text('SELECT value FROM recovery_marker')).scalar_one()=='isolated recovery storage'
+        finally:
+            engine.dispose()
+    removed=subprocess.run(['docker','volume','inspect',owned_volume],capture_output=True,text=True)
+    assert removed.returncode!=0 and 'no such volume' in removed.stderr.lower()
 
 
 def seed_protected_records(session):

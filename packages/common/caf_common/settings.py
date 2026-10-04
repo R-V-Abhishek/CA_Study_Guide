@@ -34,6 +34,14 @@ class DatabaseSettings(BaseModel):
         return f"postgresql+psycopg://{self.user}:{self.password}@{self.host}:{self.port}/{self.database}"
 
 
+class OCRSettings(BaseModel):
+    enabled: bool = False
+    language: str = 'eng'
+    dpi: int = Field(default=300, ge=72, le=600)
+    min_native_chars: int = Field(default=10, ge=1)
+    tessdata: str | None = None
+
+
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
         env_file=".env",
@@ -75,6 +83,7 @@ class Settings(BaseSettings):
     app: AppSettings = Field(default_factory=AppSettings)
     storage: StorageSettings = Field(default_factory=StorageSettings)
     database: DatabaseSettings = Field(default_factory=DatabaseSettings)
+    ocr: OCRSettings = Field(default_factory=OCRSettings)
 
     @classmethod
     def load(cls, config_dir: Path = Path("config")) -> "Settings":

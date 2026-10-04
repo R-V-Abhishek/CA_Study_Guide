@@ -11,6 +11,7 @@ from caf_api.auth import Principal, require_account, require_admin
 from caf_db.engine import get_session_factory
 from caf_l1.catalog import confirm_document, reject_document
 from caf_db.models.ingest import Document
+from caf_contracts.extraction import PaperPageRange
 from caf_api.responses import (
     BulkAcceptResult, CuratorDecisionResult, CuratorDocument, CuratorQueueItem,
     DocumentConfirmResult, DocumentEditResult, DocumentStatusResult, RecomputeResult,
@@ -37,6 +38,9 @@ class DocumentEditRequest(BaseModel):
 class DocumentConfirmRequest(BaseModel):
     model_config = ConfigDict(extra="forbid")
     course_level: Literal["foundation", "intermediate", "final"] | None = None
+    scheme_id: str | None = None
+    collection_id: str | None = None
+    paper_page_ranges: list[PaperPageRange] | None = None
     attempt_id: str | None = None
     paper_id: str | None = None
     doc_type_id: str | None = None
@@ -95,7 +99,7 @@ def api_confirm_document(
 ):
     overrides = req.model_dump(exclude_unset=True) if req else None
     try:
-        doc = confirm_document(session, doc_id, overrides=overrides)
+        doc = confirm_document(session, doc_id, overrides=overrides,actor_id=account.id)
         return {
             "id": doc.id,
             "catalog_status": doc.catalog_status,

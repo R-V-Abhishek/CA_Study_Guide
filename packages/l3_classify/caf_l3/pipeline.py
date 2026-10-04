@@ -3,7 +3,7 @@
 from dataclasses import dataclass
 import logging
 from typing import Any
-from sqlalchemy import select
+from sqlalchemy import select, func, or_
 from sqlalchemy.orm import Session
 
 from caf_db.models.ingest import Document, TagSuggestion, TaxonomyGap, Unit, UnitAnswer
@@ -62,13 +62,14 @@ class ClassificationPipeline:
             select(Unit, Document, UnitAnswer.answer_text)
             .join(Document, Unit.document_id == Document.id)
             .join(DocType, DocType.id == Document.doc_type_id)
-            .join(Paper, Paper.id == Document.paper_id)
+            .join(Paper, Paper.id == func.coalesce(Unit.extraction_data['paper_id'].astext,Document.paper_id))
             .outerjoin(UnitAnswer, Unit.id == UnitAnswer.unit_id)
             .where(
                 Unit.current.is_(True),
+                Document.superseded.is_(False),
                 Unit.is_gradable.is_(True),
                 Document.catalog_status == "confirmed",
-                Document.extract_status.in_(["ok", "ok_with_warnings"]),
+                or_(Document.current_revision_id.is_not(None),Document.extract_status.in_(["ok", "ok_with_warnings"])),
                 Document.course_level == "final",
                 Document.provenance_status == "verified",
                 Document.scheme_id == "s2023",
@@ -86,7 +87,7 @@ class ClassificationPipeline:
         if doc_id is not None:
             query = query.where(Document.id == doc_id)
         if paper_id is not None:
-            query = query.where(Document.paper_id == paper_id)
+            query = query.where(func.coalesce(Unit.extraction_data['paper_id'].astext,Document.paper_id) == paper_id)
         if resume:
             query = query.where(~select(TagSuggestion.id).where(
                 TagSuggestion.unit_id == Unit.id,
@@ -114,6 +115,12 @@ class ClassificationPipeline:
 
         for unit, doc, answer_text in results:
             try:
+                if doc.current_revision_id is not None:
+                    from caf_db.models.extraction import ExtractionRevision
+                    from caf_l2.revisions import extraction_ready, flatten_snapshots, complete_answer_text
+                    revision = self.session.get(ExtractionRevision, doc.current_revision_id)
+                    if revision is None or not extraction_ready(self.session, revision):
+                        continue
                 root = unit
                 parents = []
                 seen = {unit.id}
@@ -124,9 +131,17 @@ class ClassificationPipeline:
                     seen.add(parent.id)
                     parents.append(parent.question_text)
                     root = parent
+                if doc.current_revision_id is not None:
+                    question = next((q for q in revision.questions if q['question_id'] == unit.stable_question_id), None)
+                    if question is None:
+                        raise ValueError('Current extraction has no complete root context for this part')
+                    snapshot = next(n for n in revision.parsed_units if n['stable_question_id'] == unit.stable_question_id)
+                    parents = ['\n'.join(n['question_text'] for n in flatten_snapshots([snapshot]))]
+                    if not answer_text:
+                        answer_text = complete_answer_text(question)
                 # Classify (passes answer text if available)
                 res: ClassificationResult = self.classifier.classify_unit(
-                    paper_id=doc.paper_id or "",
+                    paper_id=unit.extraction_data.get('paper_id') or doc.paper_id or "",
                     question_text=unit.question_text,
                     context_text="\n".join(reversed(parents)),
                     answer_text=answer_text or "",
@@ -157,6 +172,8 @@ class ClassificationPipeline:
                         "source_document_sha256": doc.sha256,
                         "main_question_id": root.id,
                         "part_label": unit.label_path,
+                        "extraction_revision_id": doc.current_revision_id,
+                        "stable_question_id": unit.stable_question_id,
                     },
                     is_shadow=is_shadow,
                 )

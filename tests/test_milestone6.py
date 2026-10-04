@@ -53,7 +53,7 @@ def test_practice_profiles_loading():
     # 3. Case Scenarios profile
     cs_prof = resolve_profile(profiles_dir, scheme_id="s2023", doc_type_id="case_scenarios")
     assert cs_prof.doc_type == "case_scenarios"
-    assert cs_prof.paper_max == 30
+    assert cs_prof.paper_max is None
 
 
 def test_cross_doc_answer_pairing():

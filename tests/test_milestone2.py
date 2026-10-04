@@ -68,7 +68,7 @@ def test_manual_importer_and_curate_api(tmp_path: Path):
     pdf_path = tmp_path / "May_2024_Paper_1_Financial_Reporting_suggested_answer.pdf"
     doc = fitz.open()
     page = doc.new_page()
-    page.insert_text((50, 72), "THE INSTITUTE OF CHARTERED ACCOUNTANTS OF INDIA\nSUGGESTED ANSWERS MAY 2024\nFINANCIAL REPORTING")
+    page.insert_text((50, 72), "THE INSTITUTE OF CHARTERED ACCOUNTANTS OF INDIA\nFINAL\nSUGGESTED ANSWERS MAY 2024\nFINANCIAL REPORTING")
     doc.save(str(pdf_path))
     doc.close()
 

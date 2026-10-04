@@ -2,10 +2,9 @@
 
 from dataclasses import dataclass, field
 import re
-from typing import Any
 from caf_l2.pairing import PairedAnswer, flatten_units
 from caf_l2.profiles import ExtractionProfile
-from caf_l2.segmenter import ParsedUnit
+from caf_l2.segmenter import ParsedUnit, attemptable_marks
 
 
 @dataclass
@@ -36,11 +35,11 @@ class DocumentValidator:
     def __init__(
         self,
         profile: ExtractionProfile,
-        has_answers: bool = True,
+        has_answers: bool | None = None,
         optional_pick: int | None = None,
     ):
         self.profile = profile
-        self.has_answers = has_answers
+        self.has_answers = profile.expects_answers if has_answers is None else has_answers
         self.optional_pick = optional_pick
 
     def validate(
@@ -51,13 +50,16 @@ class DocumentValidator:
         all_units = flatten_units(units)
 
         # 1. V1: Contiguous numbering
-        self._check_v1_numbering(units, issues)
+        if self.profile.raw_data.get("numbering_contiguous", True):
+            self._check_v1_numbering(units, issues)
 
         # 2. V2: Every gradable unit has marks
-        self._check_v2_marks(all_units, issues)
+        if self.profile.marks_required and self.profile.document_role != "answers":
+            self._check_v2_marks(all_units, issues)
 
         # 3. V3: Choice-aware total
-        self._check_v3_attemptable_marks(units, issues)
+        if self.profile.paper_max is not None and self.profile.document_role != "answers":
+            self._check_v3_attemptable_marks(units, issues)
 
         # 4. V4: Answer pairing completeness
         if self.has_answers:
@@ -73,6 +75,17 @@ class DocumentValidator:
         self._check_v7_spans(all_units, issues)
 
         # Distribute issue flags to units and assign parse_confidence
+        fidelity_seen: set[tuple[str, int, str]] = set()
+        for unit in all_units:
+            for block in unit.line_blocks:
+                for flag in block.fidelity_flags:
+                    identity = (unit.label_path, block.page, flag)
+                    if identity in fidelity_seen:
+                        continue
+                    fidelity_seen.add(identity)
+                    issues.append(ValidationIssue(code=flag, severity="warn", message=f"Source page {block.page} requires fidelity review", unit_label=unit.label_path))
+            if "AMBIGUOUS_REPEATED_LABEL" in unit.validation_flags:
+                issues.append(ValidationIssue(code="AMBIGUOUS_REPEATED_LABEL", severity="error", message="Repeated label needs scope review", unit_label=unit.label_path))
         self._assign_unit_confidence(all_units, issues)
 
         outcome = "ok"
@@ -87,49 +100,23 @@ class DocumentValidator:
         self, root_units: list[ParsedUnit], issues: list[ValidationIssue]
     ) -> None:
         """V1: Question numbers contiguous 1..N; parts contiguous a.. within question."""
-        q_nums: list[int] = []
+        scopes: dict[str, set[int]] = {}
         for u in root_units:
             if u.kind == "question":
-                m = re.search(r"\d+", u.label_path)
-                if m:
-                    q_nums.append(int(m.group(0)))
-
-            # Check parts within questions
+                match = re.search(r"(?:^|\.)Q(\d+)(?:$|\.alt\d+$)", u.label_path)
+                if match:
+                    scopes.setdefault(u.label_path[:match.start()], set()).add(int(match.group(1)))
             if u.children:
-                part_letters: list[str] = []
-                for c in u.children:
-                    if c.kind == "part":
-                        p_part = c.label_path.split(".")[-1]
-                        if len(p_part) == 1 and p_part.isalpha():
-                            part_letters.append(p_part.lower())
-
-                if part_letters:
-                    expected_ord = ord("a")
-                    for letter in part_letters:
-                        if ord(letter) != expected_ord:
-                            issues.append(
-                                ValidationIssue(
-                                    code="V1_PART_GAP",
-                                    severity="error",
-                                    message=f"Part letter gap: expected '{chr(expected_ord)}', found '{letter}'",
-                                    unit_label=f"{u.label_path}.{letter}",
-                                )
-                            )
-                        expected_ord += 1
-
-        if q_nums:
-            expected = 1
-            for qn in sorted(q_nums):
-                if qn != expected:
-                    issues.append(
-                        ValidationIssue(
-                            code="V1_QUESTION_GAP",
-                            severity="error",
-                            message=f"Question numbering gap: expected Q{expected}, found Q{qn}",
-                            unit_label=f"Q{qn}",
-                        )
-                    )
-                expected += 1
+                letters = list(dict.fromkeys(c.display_label.strip("()") for c in u.children if c.kind == "part"))
+                for offset, letter in enumerate(letters):
+                    expected = chr(ord("a") + offset)
+                    if letter != expected:
+                        issues.append(ValidationIssue(code="V1_PART_GAP", severity="error", message=f"Expected part {expected}, found {letter}", unit_label=f"{u.label_path}.{letter}"))
+                self._check_v1_numbering(u.children, issues)
+        for scope, numbers in scopes.items():
+            for expected, actual in enumerate(sorted(numbers), 1):
+                if actual != expected:
+                    issues.append(ValidationIssue(code="V1_QUESTION_GAP", severity="error", message=f"Question numbering gap: expected Q{expected}, found Q{actual}", unit_label=f"{scope + '.' if scope else ''}Q{actual}"))
 
     def _check_v2_marks(
         self, all_units: list[ParsedUnit], issues: list[ValidationIssue]
@@ -158,8 +145,12 @@ class DocumentValidator:
         compulsory_marks = 0
         optional_marks_list: list[int] = []
 
+        grouped: dict[str, list[ParsedUnit]] = {}
         for q in top_questions:
-            q_mark = q.marks or 0
+            grouped.setdefault(q.or_group or q.label_path, []).append(q)
+        for alternatives in grouped.values():
+            q = alternatives[0]
+            q_mark = max(attemptable_marks(alternative) for alternative in alternatives)
             if q.choice_role == "compulsory":
                 compulsory_marks += q_mark
             else:
@@ -218,7 +209,9 @@ class DocumentValidator:
         missing = 0
         for u in gradables:
             ans = answers.get(u.label_path)
-            has_ans = ans and (ans.answer_text or ans.mcq_correct_option)
+            if ans and ans.status == "ambiguous":
+                issues.append(ValidationIssue(code="V4_AMBIGUOUS_ANSWER", severity="error", message=f"Multiple answers match {u.label_path}", unit_label=u.label_path))
+            has_ans = ans and ans.status != "ambiguous" and (ans.answer_text or ans.mcq_correct_option)
             if not has_ans:
                 missing += 1
                 issues.append(
@@ -244,7 +237,7 @@ class DocumentValidator:
     ) -> None:
         """V5: Unit text length within bounds [min_unit_chars, max_unit_chars]."""
         for u in all_units:
-            text_len = len(u.question_text)
+            text_len = len(u.answer_text if self.profile.document_role == "answers" else u.question_text)
             if text_len == 0 and u.is_gradable:
                 issues.append(
                     ValidationIssue(
@@ -283,7 +276,7 @@ class DocumentValidator:
         for u in all_units:
             if u.kind == "mcq":
                 ans = answers.get(u.label_path)
-                if not u.mcq_options or len(u.mcq_options) < 4:
+                if self.profile.document_role != "answers" and (not u.mcq_options or len(u.mcq_options) < 4):
                     issues.append(
                         ValidationIssue(
                             code="V6_MCQ_OPTIONS_MISSING",
@@ -292,7 +285,7 @@ class DocumentValidator:
                             unit_label=u.label_path,
                         )
                     )
-                if not (ans and ans.mcq_correct_option):
+                if self.has_answers and not (ans and ans.mcq_correct_option):
                     issues.append(
                         ValidationIssue(
                             code="V6_MCQ_KEY_MISSING",

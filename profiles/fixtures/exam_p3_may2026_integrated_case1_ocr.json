@@ -1,0 +1,5748 @@
+{
+  "source_sha256": "ea7dad05d0d10ccf1a38f655eeb41064c3852baefdea814da9ef7d959754378e",
+  "source_file": "data/blobs/ea/7d/ea7dad05d0d10ccf1a38f655eeb41064c3852baefdea814da9ef7d959754378e.pdf",
+  "source_pages": [
+    2,
+    7
+  ],
+  "doc_type": "question_paper",
+  "paper": "s2023.P3",
+  "source_attempt": "2026-05",
+  "ocr_config": {
+    "language": "eng",
+    "dpi": 300
+  },
+  "fixture_scope": "complete integrated caseI question content and5 MCQs; no answers in source",
+  "review_state": "machine_expected; original pages1/2/4 visually inspected; OCR fidelity requires human review; no human approval",
+  "blocks": [
+    {
+      "block_id": "p2-b1",
+      "page": 2,
+      "bbox": [
+        287.0400085449219,
+        65.03997802734375,
+        300.34564208984375,
+        76.57151794433594
+      ],
+      "text": "(2)",
+      "size": 10.108776092529297,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "(2)",
+      "origin": "ocr",
+      "order": 0,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b2",
+      "page": 2,
+      "bbox": [
+        282.9599914550781,
+        86.8800048828125,
+        305.985595703125,
+        96.24935150146484
+      ],
+      "text": "JNY",
+      "size": 11.986629486083984,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "JNY",
+      "origin": "ocr",
+      "order": 1,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b3",
+      "page": 2,
+      "bbox": [
+        264.9599914550781,
+        102.239990234375,
+        327.0719909667969,
+        121.4592056274414
+      ],
+      "text": "PART -I",
+      "size": 19.767621994018555,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "PART -I",
+      "origin": "ocr",
+      "order": 2,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b4",
+      "page": 2,
+      "bbox": [
+        464.1600036621094,
+        102.239990234375,
+        524.1600341796875,
+        121.4592056274414
+      ],
+      "text": "30 Marks",
+      "size": 17.80535888671875,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "30 Marks",
+      "origin": "ocr",
+      "order": 3,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b5",
+      "page": 2,
+      "bbox": [
+        247.67999267578125,
+        128.8800048828125,
+        345.21600341796875,
+        145.69679260253906
+      ],
+      "text": "(MCQ Portion)",
+      "size": 18.55619239807129,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "(MCQ Portion)",
+      "origin": "ocr",
+      "order": 4,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b6",
+      "page": 2,
+      "bbox": [
+        63.839996337890625,
+        156.0,
+        500.4478759765625,
+        177.86180114746094
+      ],
+      "text": "e Answers to MCQs are to be marked on the OMR answer sheet as given on the cover",
+      "size": 19.655969619750977,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "e Answers to MCQs are to be marked on the OMR answer sheet as given on the cover",
+      "origin": "ocr",
+      "order": 5,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b7",
+      "page": 2,
+      "bbox": [
+        77.51998901367188,
+        173.27996826171875,
+        500.7744140625,
+        199.22593688964844
+      ],
+      "text": "page of the descriptive answer book only. Answer to MCOs, if written inside the",
+      "size": 18.870075225830078,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "page of the descriptive answer book only. Answer to MCOs, if written inside the",
+      "origin": "ocr",
+      "order": 6,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b8",
+      "page": 2,
+      "bbox": [
+        1.20001220703125,
+        198.47998046875,
+        5.0184149742126465,
+        219.14064025878906
+      ],
+      "text": "4",
+      "size": 12.554830551147461,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "4",
+      "origin": "ocr",
+      "order": 7,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b9",
+      "page": 2,
+      "bbox": [
+        79.68001556396484,
+        198.47998046875,
+        309.864013671875,
+        219.14064025878906
+      ],
+      "text": "descriptive answer book shall not be evaluated.",
+      "size": 15.718966484069824,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "descriptive answer book shall not be evaluated.",
+      "origin": "ocr",
+      "order": 8,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b10",
+      "page": 2,
+      "bbox": [
+        27.360000610351562,
+        239.760009765625,
+        29.759979248046875,
+        243.60382080078125
+      ],
+      "text": "-",
+      "size": 4.293212413787842,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "-",
+      "origin": "ocr",
+      "order": 9,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b11",
+      "page": 2,
+      "bbox": [
+        66.0,
+        215.760009765625,
+        502.2911682128906,
+        238.82302856445312
+      ],
+      "text": "e Please write and darken correctMCQ booklet number in the OMR answer sheet. The",
+      "size": 20.735979080200195,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "e Please write and darken correctMCQ booklet number in the OMR answer sheet. The",
+      "origin": "ocr",
+      "order": 10,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b12",
+      "page": 2,
+      "bbox": [
+        81.1199951171875,
+        235.20001220703125,
+        460.3127746582031,
+        257.7825622558594
+      ],
+      "text": "correctMCQ booklet number must also be written in the attendance register.",
+      "size": 20.428945541381836,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "correctMCQ booklet number must also be written in the attendance register.",
+      "origin": "ocr",
+      "order": 11,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b13",
+      "page": 2,
+      "bbox": [
+        67.67996215820312,
+        298.55999755859375,
+        226.00796508789062,
+        315.1365661621094
+      ],
+      "text": "Integrated Case Scenario — I",
+      "size": 15.177488327026367,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "Integrated Case Scenario — I",
+      "origin": "ocr",
+      "order": 12,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b14",
+      "page": 2,
+      "bbox": [
+        69.11997985839844,
+        330.239990234375,
+        506.4672546386719,
+        357.62738037109375
+      ],
+      "text": "Myra Developers Ltd ((MDL’) is a prominent, publicly listed conglomerate",
+      "size": 19.538959503173828,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "Myra Developers Ltd ((MDL’) is a prominent, publicly listed conglomerate",
+      "origin": "ocr",
+      "order": 13,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b15",
+      "page": 2,
+      "bbox": [
+        588.0,
+        330.239990234375,
+        588.9575805664062,
+        357.62738037109375
+      ],
+      "text": "|",
+      "size": 7.2387800216674805,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "|",
+      "origin": "ocr",
+      "order": 14,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b16",
+      "page": 2,
+      "bbox": [
+        69.8399658203125,
+        342.239990234375,
+        506.67010498046875,
+        381.39910888671875
+      ],
+      "text": "primarily engaged in the development of“Smart City” infrastructure and large-scale",
+      "size": 22.129610061645508,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "primarily engaged in the development of“Smart City” infrastructure and large-scale",
+      "origin": "ocr",
+      "order": 15,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b17",
+      "page": 2,
+      "bbox": [
+        588.0,
+        342.239990234375,
+        588.7824096679688,
+        381.39910888671875
+      ],
+      "text": "|",
+      "size": 7.823998928070068,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "|",
+      "origin": "ocr",
+      "order": 16,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b18",
+      "page": 2,
+      "bbox": [
+        70.79998779296875,
+        377.5199890136719,
+        509.203125,
+        401.7842102050781
+      ],
+      "text": "urban transit systems. The Company currently manages several high-value projects",
+      "size": 18.619089126586914,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "urban transit systems. The Company currently manages several high-value projects",
+      "origin": "ocr",
+      "order": 17,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b19",
+      "page": 2,
+      "bbox": [
+        71.51995849609375,
+        401.03997802734375,
+        510.4656066894531,
+        424.8237609863281
+      ],
+      "text": "under the Service Concession Arrangement (SCA) model. Effective Financial Year",
+      "size": 17.780363082885742,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "under the Service Concession Arrangement (SCA) model. Effective Financial Year",
+      "origin": "ocr",
+      "order": 18,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b20",
+      "page": 2,
+      "bbox": [
+        72.71994018554688,
+        423.6000061035156,
+        510.6238708496094,
+        449.0654296875
+      ],
+      "text": "2025-26, M/s. MS & Associates, Chartered Accountants were re-appointed as the",
+      "size": 21.73592185974121,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "2025-26, M/s. MS & Associates, Chartered Accountants were re-appointed as the",
+      "origin": "ocr",
+      "order": 19,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b21",
+      "page": 2,
+      "bbox": [
+        588.9599609375,
+        423.6000061035156,
+        589.341552734375,
+        449.0654296875
+      ],
+      "text": "|",
+      "size": 4.406332492828369,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "|",
+      "origin": "ocr",
+      "order": 20,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b22",
+      "page": 2,
+      "bbox": [
+        73.679931640625,
+        447.6000061035156,
+        511.39178466796875,
+        472.3447265625
+      ],
+      "text": "statutory auditors, for a period of five years, with CA Raja as the Engagement",
+      "size": 20.975616455078125,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "statutory auditors, for a period of five years, with CA Raja as the Engagement",
+      "origin": "ocr",
+      "order": 21,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b23",
+      "page": 2,
+      "bbox": [
+        73.919921875,
+        469.44000244140625,
+        512.4791870117188,
+        494.1847229003906
+      ],
+      "text": "Partner. To comply with the firm’s quality control policies for high-risk listed",
+      "size": 18.82619285583496,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "Partner. To comply with the firm’s quality control policies for high-risk listed",
+      "origin": "ocr",
+      "order": 22,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b24",
+      "page": 2,
+      "bbox": [
+        75.11993408203125,
+        493.4400329589844,
+        513.35986328125,
+        518.1847534179688
+      ],
+      "text": "clients, CA Puja was designated as the Engagement Quality Control Reviewer",
+      "size": 21.120779037475586,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "clients, CA Puja was designated as the Engagement Quality Control Reviewer",
+      "origin": "ocr",
+      "order": 23,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b25",
+      "page": 2,
+      "bbox": [
+        76.07989501953125,
+        529.6799926757812,
+        121.23831176757812,
+        543.1334228515625
+      ],
+      "text": "(EQCR).",
+      "size": 13.168458938598633,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "(EQCR).",
+      "origin": "ocr",
+      "order": 24,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b26",
+      "page": 2,
+      "bbox": [
+        76.79989624023438,
+        543.8399658203125,
+        515.0134887695312,
+        568.584716796875
+      ],
+      "text": "The audit environment became increasingly complex during the final quarter ofthe",
+      "size": 17.996431350708008,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "The audit environment became increasingly complex during the final quarter ofthe",
+      "origin": "ocr",
+      "order": 25,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b27",
+      "page": 2,
+      "bbox": [
+        77.2799072265625,
+        563.5199584960938,
+        515.5440673828125,
+        594.5109252929688
+      ],
+      "text": "year. A primary area of concern involved the valuation of Service Concession",
+      "size": 23.981517791748047,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "year. A primary area of concern involved the valuation of Service Concession",
+      "origin": "ocr",
+      "order": 26,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b28",
+      "page": 2,
+      "bbox": [
+        78.47991943359375,
+        589.9199829101562,
+        516.787109375,
+        615.8659057617188
+      ],
+      "text": "Assets, which are valued based on discounted future cash flows from projected toll",
+      "size": 18.32820701599121,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "Assets, which are valued based on discounted future cash flows from projected toll",
+      "origin": "ocr",
+      "order": 27,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b29",
+      "page": 2,
+      "bbox": [
+        79.43991088867188,
+        612.47998046875,
+        518.02783203125,
+        638.6661987304688
+      ],
+      "text": "collections and government subsidies. Due to the high degree of estimation",
+      "size": 19.92286491394043,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "collections and government subsidies. Due to the high degree of estimation",
+      "origin": "ocr",
+      "order": 28,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b30",
+      "page": 2,
+      "bbox": [
+        79.919921875,
+        636.47998046875,
+        518.579833984375,
+        662.1856689453125
+      ],
+      "text": "uncertainty and specialized mathematical models involved, CA Raja determined",
+      "size": 21.485422134399414,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "uncertainty and specialized mathematical models involved, CA Raja determined",
+      "origin": "ocr",
+      "order": 29,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b31",
+      "page": 2,
+      "bbox": [
+        1.679931640625,
+        660.719970703125,
+        17.960330963134766,
+        691.7109375
+      ],
+      "text": "_ *",
+      "size": 22.109867095947266,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "_ *",
+      "origin": "ocr",
+      "order": 30,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b32",
+      "page": 2,
+      "bbox": [
+        80.63993072509766,
+        660.719970703125,
+        518.40966796875,
+        691.7109375
+      ],
+      "text": "this to be a “significant,risk” atea. To address this, the firm engaged a third-party",
+      "size": 20.768604278564453,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "this to be a “significant,risk” atea. To address this, the firm engaged a third-party",
+      "origin": "ocr",
+      "order": 31,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b33",
+      "page": 2,
+      "bbox": [
+        81.59994506835938,
+        682.5599975585938,
+        520.184326171875,
+        708.2656860351562
+      ],
+      "text": "valuation specialist. CA Raja verified the expert’s professional membership and",
+      "size": 21.331403732299805,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "valuation specialist. CA Raja verified the expert’s professional membership and",
+      "origin": "ocr",
+      "order": 32,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b34",
+      "page": 2,
+      "bbox": [
+        82.5599365234375,
+        722.3999633789062,
+        93.08633422851562,
+        743.0606079101562
+      ],
+      "text": "oO",
+      "size": 14.739907264709473,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "oO",
+      "origin": "ocr",
+      "order": 33,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b35",
+      "page": 2,
+      "bbox": [
+        173.27993774414062,
+        722.3999633789062,
+        177.3047332763672,
+        743.0606079101562
+      ],
+      "text": "q",
+      "size": 12.889676094055176,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "q",
+      "origin": "ocr",
+      "order": 34,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b36",
+      "page": 2,
+      "bbox": [
+        304.7999267578125,
+        722.3999633789062,
+        329.1551513671875,
+        743.0606079101562
+      ],
+      "text": "JINY",
+      "size": 15.853883743286133,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "JINY",
+      "origin": "ocr",
+      "order": 35,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p3-b1",
+      "page": 3,
+      "bbox": [
+        317.760009765625,
+        66.719970703125,
+        331.29608154296875,
+        78.01127624511719
+      ],
+      "text": "(3)",
+      "size": 10.089164733886719,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "(3)",
+      "origin": "ocr",
+      "order": 36,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p3-b2",
+      "page": 3,
+      "bbox": [
+        312.0,
+        81.5999755859375,
+        335.93994140625,
+        98.41676330566406
+      ],
+      "text": "JNY",
+      "size": 16.374603271484375,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "JNY",
+      "origin": "ocr",
+      "order": 37,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p3-b3",
+      "page": 3,
+      "bbox": [
+        457.20001220703125,
+        81.5999755859375,
+        457.3680114746094,
+        98.41676330566406
+      ],
+      "text": "|",
+      "size": 2.3758769035339355,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "|",
+      "origin": "ocr",
+      "order": 38,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p3-b4",
+      "page": 3,
+      "bbox": [
+        90.239990234375,
+        109.67999267578125,
+        527.6063232421875,
+        123.13343811035156
+      ],
+      "text": "checked two previous project reports the expert had completed for other firms.",
+      "size": 13.236867904663086,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "checked two previous project reports the expert had completed for other firms.",
+      "origin": "ocr",
+      "order": 39,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p3-b5",
+      "page": 3,
+      "bbox": [
+        89.760009765625,
+        130.55999755859375,
+        528.4200439453125,
+        146.65609741210938
+      ],
+      "text": "However, he chose not to delve into the specific discount rates or growth",
+      "size": 14.292232513427734,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "However, he chose not to delve into the specific discount rates or growth",
+      "origin": "ocr",
+      "order": 40,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p3-b6",
+      "page": 3,
+      "bbox": [
+        90.0,
+        156.0,
+        528.62646484375,
+        169.6936798095703
+      ],
+      "text": "assumptions used in the current model, citing that his decade-long experience in",
+      "size": 12.759847640991211,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "assumptions used in the current model, citing that his decade-long experience in",
+      "origin": "ocr",
+      "order": 41,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p3-b7",
+      "page": 3,
+      "bbox": [
+        89.760009765625,
+        179.27996826171875,
+        528.0601196289062,
+        193.21392822265625
+      ],
+      "text": "construction auditing provided him with enough “intuitive comfort” to accept the",
+      "size": 13.709653854370117,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "construction auditing provided him with enough “intuitive comfort” to accept the",
+      "origin": "ocr",
+      "order": 42,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p3-b8",
+      "page": 3,
+      "bbox": [
+        1.20001220703125,
+        214.79998779296875,
+        5.0303955078125,
+        219.84500122070312
+      ],
+      "text": ",",
+      "size": 6.213702201843262,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": ",",
+      "origin": "ocr",
+      "order": 43,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p3-b9",
+      "page": 3,
+      "bbox": [
+        89.76001739501953,
+        202.32000732421875,
+        385.2000732421875,
+        222.9806671142578
+      ],
+      "text": "expert’s final figures without further technical challenge.",
+      "size": 15.167251586914062,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "expert’s final figures without further technical challenge.",
+      "origin": "ocr",
+      "order": 44,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p3-b10",
+      "page": 3,
+      "bbox": [
+        592.320068359375,
+        202.32000732421875,
+        592.7328491210938,
+        222.9806671142578
+      ],
+      "text": "|",
+      "size": 4.128002643585205,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "|",
+      "origin": "ocr",
+      "order": 45,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p3-b11",
+      "page": 3,
+      "bbox": [
+        27.840087890625,
+        239.27996826171875,
+        30.192094802856445,
+        256.0968322753906
+      ],
+      "text": "j",
+      "size": 8.889750480651855,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "j",
+      "origin": "ocr",
+      "order": 46,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p3-b12",
+      "page": 3,
+      "bbox": [
+        89.28009033203125,
+        239.27996826171875,
+        527.7243041992188,
+        256.0968322753906
+      ],
+      "text": "As the audit progressed into April 2026, the engagement team flagged a transaction",
+      "size": 15.488880157470703,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "As the audit progressed into April 2026, the engagement team flagged a transaction",
+      "origin": "ocr",
+      "order": 47,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p3-b13",
+      "page": 3,
+      "bbox": [
+        79.92007446289062,
+        265.67999267578125,
+        527.8956298828125,
+        281.7760925292969
+      ],
+      "text": ". involving an unsecured, interest-free loan of % 15 crores extended to Emerald",
+      "size": 14.110157012939453,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": ". involving an unsecured, interest-free loan of % 15 crores extended to Emerald",
+      "origin": "ocr",
+      "order": 48,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p3-b14",
+      "page": 3,
+      "bbox": [
+        592.320068359375,
+        265.67999267578125,
+        592.7220458984375,
+        281.7760925292969
+      ],
+      "text": "|",
+      "size": 3.5956010818481445,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "|",
+      "origin": "ocr",
+      "order": 49,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p3-b15",
+      "page": 3,
+      "bbox": [
+        89.28005981445312,
+        286.32000732421875,
+        527.6640625,
+        303.1368103027344
+      ],
+      "text": "Ventures Private Ltd. Investigation revealed that the spouse of MDL’s Managing",
+      "size": 16.026166915893555,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "Ventures Private Ltd. Investigation revealed that the spouse of MDL’s Managing",
+      "origin": "ocr",
+      "order": 50,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p3-b16",
+      "page": 3,
+      "bbox": [
+        592.320068359375,
+        286.32000732421875,
+        592.7400512695312,
+        303.1368103027344
+      ],
+      "text": "|",
+      "size": 3.756591558456421,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "|",
+      "origin": "ocr",
+      "order": 51,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p3-b17",
+      "page": 3,
+      "bbox": [
+        89.28005981445312,
+        312.239990234375,
+        527.884765625,
+        326.17388916015625
+      ],
+      "text": "Director holds a 30% equity stake in Emerald Ventures. The Board was just",
+      "size": 14.532889366149902,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "Director holds a 30% equity stake in Emerald Ventures. The Board was just",
+      "origin": "ocr",
+      "order": 52,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p3-b18",
+      "page": 3,
+      "bbox": [
+        89.28005981445312,
+        335.2799987792969,
+        526.9044799804688,
+        349.45416259765625
+      ],
+      "text": "informed about this transaction without any specific details and the board approvals",
+      "size": 13.2832612991333,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "informed about this transaction without any specific details and the board approvals",
+      "origin": "ocr",
+      "order": 53,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p3-b19",
+      "page": 3,
+      "bbox": [
+        24.960052490234375,
+        353.03997802734375,
+        29.659255981445312,
+        374.4213562011719
+      ],
+      "text": "|",
+      "size": 14.168631553649902,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "|",
+      "origin": "ocr",
+      "order": 54,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p3-b20",
+      "page": 3,
+      "bbox": [
+        89.04005432128906,
+        353.03997802734375,
+        527.6868286132812,
+        374.4213562011719
+      ],
+      "text": "were entirely bypassed. When confronted, the CFO argued that the loan was a",
+      "size": 18.743337631225586,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "were entirely bypassed. When confronted, the CFO argued that the loan was a",
+      "origin": "ocr",
+      "order": 55,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p3-b21",
+      "page": 3,
+      "bbox": [
+        26.88006591796875,
+        373.91998291015625,
+        27.83766746520996,
+        375.3614196777344
+      ],
+      "text": "|",
+      "size": 1.6606918573379517,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "|",
+      "origin": "ocr",
+      "order": 56,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p3-b22",
+      "page": 3,
+      "bbox": [
+        89.76007080078125,
+        380.6399841308594,
+        526.6272583007812,
+        396.0153503417969
+      ],
+      "text": "‘temporary bridge’ for a sub-contractor and that the amount was negligible,",
+      "size": 14.40897274017334,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "‘temporary bridge’ for a sub-contractor and that the amount was negligible,",
+      "origin": "ocr",
+      "order": 57,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p3-b23",
+      "page": 3,
+      "bbox": [
+        591.840087890625,
+        380.6399841308594,
+        592.3009033203125,
+        396.0153503417969
+      ],
+      "text": "|",
+      "size": 3.7624199390411377,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "|",
+      "origin": "ocr",
+      "order": 58,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p3-b24",
+      "page": 3,
+      "bbox": [
+        88.56005859375,
+        405.1199951171875,
+        527.0940551757812,
+        419.2941589355469
+      ],
+      "text": "representing less than 1% of MDL’s total asset base and thus did not warrant any",
+      "size": 14.851137161254883,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "representing less than 1% of MDL’s total asset base and thus did not warrant any",
+      "origin": "ocr",
+      "order": 59,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p3-b25",
+      "page": 3,
+      "bbox": [
+        88.08004760742188,
+        426.0,
+        143.7971954345703,
+        442.0960693359375
+      ],
+      "text": "disclosure.",
+      "size": 12.763093948364258,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "disclosure.",
+      "origin": "ocr",
+      "order": 60,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p3-b26",
+      "page": 3,
+      "bbox": [
+        230.8800506591797,
+        426.0,
+        243.10084533691406,
+        442.0960693359375
+      ],
+      "text": "a",
+      "size": 19.824739456176758,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "a",
+      "origin": "ocr",
+      "order": 61,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p3-b27",
+      "page": 3,
+      "bbox": [
+        333.84002685546875,
+        426.0,
+        335.4480285644531,
+        442.0960693359375
+      ],
+      "text": ".",
+      "size": 7.191188812255859,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": ".",
+      "origin": "ocr",
+      "order": 62,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p3-b28",
+      "page": 3,
+      "bbox": [
+        88.80003356933594,
+        468.9599914550781,
+        526.982421875,
+        482.6536560058594
+      ],
+      "text": "Concurrent with the financial review, the team evaluated MDL’s compliance with",
+      "size": 14.412766456604004,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "Concurrent with the financial review, the team evaluated MDL’s compliance with",
+      "origin": "ocr",
+      "order": 63,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p3-b29",
+      "page": 3,
+      "bbox": [
+        88.32003784179688,
+        492.0,
+        128.38803100585938,
+        504.73272705078125
+      ],
+      "text": "broader",
+      "size": 12.067253112792969,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "broader",
+      "origin": "ocr",
+      "order": 64,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p3-b30",
+      "page": 3,
+      "bbox": [
+        138.48004150390625,
+        492.0,
+        191.90411376953125,
+        504.73272705078125
+      ],
+      "text": "regulatory",
+      "size": 11.658074378967285,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "regulatory",
+      "origin": "ocr",
+      "order": 65,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p3-b31",
+      "page": 3,
+      "bbox": [
+        202.800048828125,
+        492.0,
+        266.463623046875,
+        504.73272705078125
+      ],
+      "text": "frameworks.",
+      "size": 12.13410758972168,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "frameworks.",
+      "origin": "ocr",
+      "order": 66,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p3-b32",
+      "page": 3,
+      "bbox": [
+        278.4000244140625,
+        492.0,
+        316.4340515136719,
+        504.73272705078125
+      ],
+      "text": "It was",
+      "size": 13.034122467041016,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "It was",
+      "origin": "ocr",
+      "order": 67,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p3-b33",
+      "page": 3,
+      "bbox": [
+        327.3600158691406,
+        492.0,
+        383.3280334472656,
+        504.73272705078125
+      ],
+      "text": "discovered",
+      "size": 11.932418823242188,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "discovered",
+      "origin": "ocr",
+      "order": 68,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p3-b34",
+      "page": 3,
+      "bbox": [
+        393.3600158691406,
+        492.0,
+        413.2032470703125,
+        504.73272705078125
+      ],
+      "text": "that",
+      "size": 11.234000205993652,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "that",
+      "origin": "ocr",
+      "order": 69,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p3-b35",
+      "page": 3,
+      "bbox": [
+        423.1200256347656,
+        492.0,
+        439.3380432128906,
+        504.73272705078125
+      ],
+      "text": "the",
+      "size": 11.727261543273926,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "the",
+      "origin": "ocr",
+      "order": 70,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p3-b36",
+      "page": 3,
+      "bbox": [
+        450.0000305175781,
+        492.0,
+        526.0656127929688,
+        504.73272705078125
+      ],
+      "text": "Environmental",
+      "size": 12.200596809387207,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "Environmental",
+      "origin": "ocr",
+      "order": 71,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p3-b37",
+      "page": 3,
+      "bbox": [
+        88.32003784179688,
+        515.5199584960938,
+        526.7999877929688,
+        528.973388671875
+      ],
+      "text": "Management Authority had issued a ‘Show Cause Notice’ to MDL for failing to",
+      "size": 16.01561164855957,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "Management Authority had issued a ‘Show Cause Notice’ to MDL for failing to",
+      "origin": "ocr",
+      "order": 72,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p3-b38",
+      "page": 3,
+      "bbox": [
+        88.320068359375,
+        538.5599975585938,
+        526.56005859375,
+        552.013427734375
+      ],
+      "text": "renew the mandatory operating licenses for three major project sites. These licenses",
+      "size": 13.03056526184082,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "renew the mandatory operating licenses for three major project sites. These licenses",
+      "origin": "ocr",
+      "order": 73,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p3-b39",
+      "page": 3,
+      "bbox": [
+        88.56005859375,
+        561.6000366210938,
+        525.849609375,
+        575.533935546875
+      ],
+      "text": "are fundamental to the Company’s legal right to operate, while these projects",
+      "size": 13.567521095275879,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "are fundamental to the Company’s legal right to operate, while these projects",
+      "origin": "ocr",
+      "order": 74,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p3-b40",
+      "page": 3,
+      "bbox": [
+        88.320068359375,
+        584.6400146484375,
+        526.4856567382812,
+        598.8141479492188
+      ],
+      "text": "continued to generate revenue and no financial penalties had been crystallized by",
+      "size": 13.507782936096191,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "continued to generate revenue and no financial penalties had been crystallized by",
+      "origin": "ocr",
+      "order": 75,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p3-b41",
+      "page": 3,
+      "bbox": [
+        87.84005737304688,
+        607.9199829101562,
+        526.2792358398438,
+        622.0941162109375
+      ],
+      "text": "the balance sheet date. CA Raja noted the non-compliance in the working papers",
+      "size": 15.831348419189453,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "the balance sheet date. CA Raja noted the non-compliance in the working papers",
+      "origin": "ocr",
+      "order": 76,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p3-b42",
+      "page": 3,
+      "bbox": [
+        87.84005737304688,
+        631.199951171875,
+        526.2467651367188,
+        642.4912719726562
+      ],
+      "text": "but concluded that since it had no ‘direct effect’ on the calculation of the current",
+      "size": 12.201184272766113,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "but concluded that since it had no ‘direct effect’ on the calculation of the current",
+      "origin": "ocr",
+      "order": 77,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p3-b43",
+      "page": 3,
+      "bbox": [
+        27.840057373046875,
+        643.199951171875,
+        28.243257522583008,
+        670.1068115234375
+      ],
+      "text": "|",
+      "size": 4.655750751495361,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "|",
+      "origin": "ocr",
+      "order": 78,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p3-b44",
+      "page": 3,
+      "bbox": [
+        87.84005737304688,
+        643.199951171875,
+        526.44482421875,
+        670.1068115234375
+      ],
+      "text": "year’s depreciation or revenue, it did not require specific procedures beyond a",
+      "size": 18.623003005981445,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "year’s depreciation or revenue, it did not require specific procedures beyond a",
+      "origin": "ocr",
+      "order": 79,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p3-b45",
+      "page": 3,
+      "bbox": [
+        1.4400634765625,
+        673.6799926757812,
+        17.991662979125977,
+        691.217529296875
+      ],
+      "text": "_ °",
+      "size": 16.895681381225586,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "_ °",
+      "origin": "ocr",
+      "order": 80,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p3-b46",
+      "page": 3,
+      "bbox": [
+        88.08006286621094,
+        673.6799926757812,
+        311.06036376953125,
+        691.217529296875
+      ],
+      "text": "standard management representation letter.",
+      "size": 15.172768592834473,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "standard management representation letter.",
+      "origin": "ocr",
+      "order": 81,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p3-b47",
+      "page": 3,
+      "bbox": [
+        309.12005615234375,
+        724.5599975585938,
+        333.58203125,
+        760.8362426757812
+      ],
+      "text": "JNY",
+      "size": 24.31053352355957,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "JNY",
+      "origin": "ocr",
+      "order": 82,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p3-b48",
+      "page": 3,
+      "bbox": [
+        541.9200439453125,
+        724.5599975585938,
+        551.3424682617188,
+        760.8362426757812
+      ],
+      "text": "o",
+      "size": 26.133039474487305,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "o",
+      "origin": "ocr",
+      "order": 83,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p3-b49",
+      "page": 3,
+      "bbox": [
+        27.36004638671875,
+        724.5599975585938,
+        27.72244644165039,
+        760.8362426757812
+      ],
+      "text": "|",
+      "size": 5.125110626220703,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "|",
+      "origin": "ocr",
+      "order": 84,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p3-b50",
+      "page": 3,
+      "bbox": [
+        591.3600463867188,
+        724.5599975585938,
+        591.7224731445312,
+        760.8362426757812
+      ],
+      "text": "|",
+      "size": 5.125110626220703,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "|",
+      "origin": "ocr",
+      "order": 85,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p3-b51",
+      "page": 3,
+      "bbox": [
+        27.36004638671875,
+        760.3199462890625,
+        27.808847427368164,
+        768.4881591796875
+      ],
+      "text": "|",
+      "size": 2.706367015838623,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "|",
+      "origin": "ocr",
+      "order": 86,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p3-b52",
+      "page": 3,
+      "bbox": [
+        174.24005126953125,
+        760.3199462890625,
+        179.46246337890625,
+        768.4881591796875
+      ],
+      "text": "EY",
+      "size": 6.528002738952637,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "EY",
+      "origin": "ocr",
+      "order": 87,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p4-b1",
+      "page": 4,
+      "bbox": [
+        280.55999755859375,
+        60.96002197265625,
+        294.43438720703125,
+        72.25126647949219
+      ],
+      "text": "@)",
+      "size": 12.510089874267578,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "@)",
+      "origin": "ocr",
+      "order": 88,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p4-b2",
+      "page": 4,
+      "bbox": [
+        276.239990234375,
+        82.79998779296875,
+        299.68316650390625,
+        91.68887329101562
+      ],
+      "text": "JNY",
+      "size": 11.780657768249512,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "JNY",
+      "origin": "ocr",
+      "order": 89,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p4-b3",
+      "page": 4,
+      "bbox": [
+        24.959991455078125,
+        122.6400146484375,
+        25.439971923828125,
+        123.12047576904297
+      ],
+      "text": ".",
+      "size": 0.6787948608398438,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": ".",
+      "origin": "ocr",
+      "order": 90,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p4-b4",
+      "page": 4,
+      "bbox": [
+        54.4799919128418,
+        100.32000732421875,
+        492.3720397949219,
+        120.74037170410156
+      ],
+      "text": "The audit report was formally signed dated: May 15, 2026. However, a week later,",
+      "size": 18.13188362121582,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "The audit report was formally signed dated: May 15, 2026. However, a week later,",
+      "origin": "ocr",
+      "order": 91,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p4-b5",
+      "page": 4,
+      "bbox": [
+        55.20001220703125,
+        124.32000732421875,
+        493.68011474609375,
+        146.90255737304688
+      ],
+      "text": "on May 22, 2026, before the Company had printed and dispatched the annual",
+      "size": 18.739742279052734,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "on May 22, 2026, before the Company had printed and dispatched the annual",
+      "origin": "ocr",
+      "order": 92,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p4-b6",
+      "page": 4,
+      "bbox": [
+        55.440032958984375,
+        148.08001708984375,
+        494.6363525390625,
+        171.38327026367188
+      ],
+      "text": "reports to the shareholders, a catastrophic fire occurred atthe Company’s central",
+      "size": 17.575990676879883,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "reports to the shareholders, a catastrophic fire occurred atthe Company’s central",
+      "origin": "ocr",
+      "order": 93,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p4-b7",
+      "page": 4,
+      "bbox": [
+        56.4000244140625,
+        174.239990234375,
+        494.84881591796875,
+        196.1018524169922
+      ],
+      "text": "logistics hub. The fire decimated specialized equipment and inventory worth % 40",
+      "size": 17.196853637695312,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "logistics hub. The fire decimated specialized equipment and inventory worth % 40",
+      "origin": "ocr",
+      "order": 94,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p4-b8",
+      "page": 4,
+      "bbox": [
+        1.440032958984375,
+        197.760009765625,
+        5.004029273986816,
+        219.381591796875
+      ],
+      "text": "a",
+      "size": 12.408241271972656,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "a",
+      "origin": "ocr",
+      "order": 95,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p4-b9",
+      "page": 4,
+      "bbox": [
+        37.440032958984375,
+        197.760009765625,
+        495.0240783691406,
+        219.381591796875
+      ],
+      "text": "crores. Since the insurance policy for that specific hub had lapsed two months",
+      "size": 18.071836471557617,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "crores. Since the insurance policy for that specific hub had lapsed two months",
+      "origin": "ocr",
+      "order": 96,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p4-b10",
+      "page": 4,
+      "bbox": [
+        27.360015869140625,
+        223.44000244140625,
+        30.15001678466797,
+        245.78233337402344
+      ],
+      "text": ",",
+      "size": 11.160003662109375,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": ",",
+      "origin": "ocr",
+      "order": 97,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p4-b11",
+      "page": 4,
+      "bbox": [
+        57.12001419067383,
+        223.44000244140625,
+        495.880859375,
+        245.78233337402344
+      ],
+      "text": "prior, the loss was total. When CA Raja requested management to adjust the",
+      "size": 19.963621139526367,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "prior, the loss was total. When CA Raja requested management to adjust the",
+      "origin": "ocr",
+      "order": 98,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p4-b12",
+      "page": 4,
+      "bbox": [
+        58.08001708984375,
+        234.47998046875,
+        496.3608093261719,
+        267.6330871582031
+      ],
+      "text": "financial statements or at least include a detailed note for the subsequent event, the",
+      "size": 19.312108993530273,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "financial statements or at least include a detailed note for the subsequent event, the",
+      "origin": "ocr",
+      "order": 99,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p4-b13",
+      "page": 4,
+      "bbox": [
+        587.0399780273438,
+        234.47998046875,
+        587.8679809570312,
+        267.6330871582031
+      ],
+      "text": "|",
+      "size": 7.405856132507324,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "|",
+      "origin": "ocr",
+      "order": 100,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p4-b14",
+      "page": 4,
+      "bbox": [
+        587.52001953125,
+        265.20001220703125,
+        587.9952392578125,
+        269.52435302734375
+      ],
+      "text": "|",
+      "size": 2.0262629985809326,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "|",
+      "origin": "ocr",
+      "order": 101,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p4-b15",
+      "page": 4,
+      "bbox": [
+        58.55999755859375,
+        272.39996337890625,
+        497.7240905761719,
+        295.9435119628906
+      ],
+      "text": "Board refused, claiming that auditors responsibility for FY 2025-26 accounts ended",
+      "size": 19.678260803222656,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "Board refused, claiming that auditors responsibility for FY 2025-26 accounts ended",
+      "origin": "ocr",
+      "order": 102,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p4-b16",
+      "page": 4,
+      "bbox": [
+        58.79998779296875,
+        272.8800048828125,
+        285.5999755859375,
+        317.3243713378906
+      ],
+      "text": "the momentthe audit reportwas signed off.",
+      "size": 25.116413116455078,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "the momentthe audit reportwas signed off.",
+      "origin": "ocr",
+      "order": 103,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p4-b17",
+      "page": 4,
+      "bbox": [
+        587.52001953125,
+        272.8800048828125,
+        588.8519897460938,
+        317.3243713378906
+      ],
+      "text": "|",
+      "size": 10.875724792480469,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "|",
+      "origin": "ocr",
+      "order": 104,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p4-b18",
+      "page": 4,
+      "bbox": [
+        60.0,
+        339.3599853515625,
+        498.8448486328125,
+        358.09869384765625
+      ],
+      "text": "Based on the above facts, answer the following Q. Nos. 1 to 5 by choosing the most",
+      "size": 15.550000190734863,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "Based on the above facts, answer the following Q. Nos. 1 to 5 by choosing the most",
+      "origin": "ocr",
+      "order": 105,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p4-b19",
+      "page": 4,
+      "bbox": [
+        60.959991455078125,
+        371.2799987792969,
+        162.67198181152344,
+        385.69439697265625
+      ],
+      "text": "appropriate option :",
+      "size": 12.717730522155762,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "appropriate option :",
+      "origin": "ocr",
+      "order": 106,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p4-b20",
+      "page": 4,
+      "bbox": [
+        63.3599853515625,
+        429.1199951171875,
+        71.31597900390625,
+        449.5403747558594
+      ],
+      "text": "1.",
+      "size": 12.739791870117188,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "1.",
+      "origin": "ocr",
+      "order": 107,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p4-b21",
+      "page": 4,
+      "bbox": [
+        90.47998809814453,
+        429.1199951171875,
+        500.58001708984375,
+        449.5403747558594
+      ],
+      "text": "Considering the mandatory requirements for listed entities, which of the",
+      "size": 16.191993713378906,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "Considering the mandatory requirements for listed entities, which of the",
+      "origin": "ocr",
+      "order": 108,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p4-b22",
+      "page": 4,
+      "bbox": [
+        91.19998168945312,
+        454.0799865722656,
+        435.1199645996094,
+        475.2210998535156
+      ],
+      "text": "following represents a lapse in objective evaluation ofan EQCR ?",
+      "size": 19.124969482421875,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "following represents a lapse in objective evaluation ofan EQCR ?",
+      "origin": "ocr",
+      "order": 109,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p4-b23",
+      "page": 4,
+      "bbox": [
+        524.8800048828125,
+        454.0799865722656,
+        530.5823974609375,
+        475.2210998535156
+      ],
+      "text": "2",
+      "size": 15.519963264465332,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "2",
+      "origin": "ocr",
+      "order": 110,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p4-b24",
+      "page": 4,
+      "bbox": [
+        91.91998291015625,
+        481.44000244140625,
+        502.0799865722656,
+        503.06158447265625
+      ],
+      "text": "(A) EQCR has made a review of the financial statements and the proposed",
+      "size": 19.439979553222656,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "(A) EQCR has made a review of the financial statements and the proposed",
+      "origin": "ocr",
+      "order": 111,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p4-b25",
+      "page": 4,
+      "bbox": [
+        120.719970703125,
+        515.280029296875,
+        203.39991760253906,
+        527.7724609375
+      ],
+      "text": "auditor’s report.",
+      "size": 11.301102638244629,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "auditor’s report.",
+      "origin": "ocr",
+      "order": 112,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p4-b26",
+      "page": 4,
+      "bbox": [
+        211.19996643066406,
+        515.280029296875,
+        211.88636779785156,
+        527.7724609375
+      ],
+      "text": "|",
+      "size": 4.139141082763672,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "|",
+      "origin": "ocr",
+      "order": 113,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p4-b27",
+      "page": 4,
+      "bbox": [
+        93.1199722290039,
+        535.199951171875,
+        503.1001281738281,
+        555.620361328125
+      ],
+      "text": "(B) EQCR did not specifically evaluate and document the engagement",
+      "size": 19.027875900268555,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "(B) EQCR did not specifically evaluate and document the engagement",
+      "origin": "ocr",
+      "order": 114,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p4-b28",
+      "page": 4,
+      "bbox": [
+        121.43997192382812,
+        558.719970703125,
+        502.31982421875,
+        577.939208984375
+      ],
+      "text": "team’s assessment ofthe firm’s independence prior to report finalization.",
+      "size": 15.118081092834473,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "team’s assessment ofthe firm’s independence prior to report finalization.",
+      "origin": "ocr",
+      "order": 115,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p4-b29",
+      "page": 4,
+      "bbox": [
+        94.31997680664062,
+        586.5599975585938,
+        504.9239807128906,
+        608.1815795898438
+      ],
+      "text": "(C) _EQCR disagreed with the engagement partner’s reporting conclusion but",
+      "size": 17.547916412353516,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "(C) _EQCR disagreed with the engagement partner’s reporting conclusion but",
+      "origin": "ocr",
+      "order": 116,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p4-b30",
+      "page": 4,
+      "bbox": [
+        123.1199951171875,
+        612.9599609375,
+        474.87237548828125,
+        630.4974975585938
+      ],
+      "text": "escalated the matter to the firm’s technical committee as per policy.",
+      "size": 14.553208351135254,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "escalated the matter to the firm’s technical committee as per policy.",
+      "origin": "ocr",
+      "order": 117,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p4-b31",
+      "page": 4,
+      "bbox": [
+        95.51998901367188,
+        638.3999633789062,
+        505.1136169433594,
+        660.5020751953125
+      ],
+      "text": "(D) EQCR restricted the detailed review to areas involving significant",
+      "size": 19.74895477294922,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "(D) EQCR restricted the detailed review to areas involving significant",
+      "origin": "ocr",
+      "order": 118,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p4-b32",
+      "page": 4,
+      "bbox": [
+        518.4000244140625,
+        660.0,
+        518.875244140625,
+        660.9609375
+      ],
+      "text": "|",
+      "size": 0.9551794528961182,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "|",
+      "origin": "ocr",
+      "order": 119,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p4-b33",
+      "page": 4,
+      "bbox": [
+        1.439971923828125,
+        666.0,
+        17.99517059326172,
+        691.7056884765625
+      ],
+      "text": "7 .",
+      "size": 20.382862091064453,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "7 .",
+      "origin": "ocr",
+      "order": 120,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p4-b34",
+      "page": 4,
+      "bbox": [
+        123.1199722290039,
+        666.0,
+        451.3343200683594,
+        691.7056884765625
+      ],
+      "text": "judgment instead ofreviewing all routine audit documentation.",
+      "size": 17.975994110107422,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "judgment instead ofreviewing all routine audit documentation.",
+      "origin": "ocr",
+      "order": 121,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p4-b35",
+      "page": 4,
+      "bbox": [
+        68.6400146484375,
+        720.0,
+        79.19761657714844,
+        739.9398803710938
+      ],
+      "text": "oO",
+      "size": 14.50197696685791,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "oO",
+      "origin": "ocr",
+      "order": 122,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p4-b36",
+      "page": 4,
+      "bbox": [
+        173.28001403808594,
+        720.0,
+        177.0648193359375,
+        739.9398803710938
+      ],
+      "text": "f",
+      "size": 12.279511451721191,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "f",
+      "origin": "ocr",
+      "order": 123,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p4-b37",
+      "page": 4,
+      "bbox": [
+        291.3599853515625,
+        720.0,
+        314.8656005859375,
+        739.9398803710938
+      ],
+      "text": "JINY",
+      "size": 15.300840377807617,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "JINY",
+      "origin": "ocr",
+      "order": 124,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b1",
+      "page": 5,
+      "bbox": [
+        0.9599999785423279,
+        1.67999267578125,
+        568.2236938476562,
+        10.809107780456543
+      ],
+      "text": "(rer",
+      "size": 50.85981750488281,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "(rer",
+      "origin": "ocr",
+      "order": 125,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b2",
+      "page": 5,
+      "bbox": [
+        134.39999389648438,
+        58.08001708984375,
+        134.8415985107422,
+        69.13103485107422
+      ],
+      "text": "|",
+      "size": 3.12257719039917,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "|",
+      "origin": "ocr",
+      "order": 126,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b3",
+      "page": 5,
+      "bbox": [
+        304.0799865722656,
+        58.08001708984375,
+        317.6591796875,
+        69.13103485107422
+      ],
+      "text": "(5)",
+      "size": 9.997125625610352,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "(5)",
+      "origin": "ocr",
+      "order": 127,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b4",
+      "page": 5,
+      "bbox": [
+        298.55999755859375,
+        78.96002197265625,
+        323.2308044433594,
+        97.45848083496094
+      ],
+      "text": "JNY",
+      "size": 17.433979034423828,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "JNY",
+      "origin": "ocr",
+      "order": 128,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b5",
+      "page": 5,
+      "bbox": [
+        77.04000854492188,
+        99.8399658203125,
+        86.06881713867188,
+        115.69583129882812
+      ],
+      "text": "2.",
+      "size": 11.95895767211914,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "2.",
+      "origin": "ocr",
+      "order": 129,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b6",
+      "page": 5,
+      "bbox": [
+        105.12001037597656,
+        99.8399658203125,
+        514.6080932617188,
+        115.69583129882812
+      ],
+      "text": "Regarding the “Show Cause Notice” and the expired environmental licenses,",
+      "size": 14.943451881408691,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "Regarding the “Show Cause Notice” and the expired environmental licenses,",
+      "origin": "ocr",
+      "order": 130,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b7",
+      "page": 5,
+      "bbox": [
+        105.36001586914062,
+        119.27996826171875,
+        515.9640502929688,
+        133.9346160888672
+      ],
+      "text": "how should the auditor’s responsibility be categorized under the standards on",
+      "size": 14.785689353942871,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "how should the auditor’s responsibility be categorized under the standards on",
+      "origin": "ocr",
+      "order": 131,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b8",
+      "page": 5,
+      "bbox": [
+        106.08001708984375,
+        138.96002197265625,
+        157.627197265625,
+        154.81582641601562
+      ],
+      "text": "auditing ?",
+      "size": 12.965571403503418,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "auditing ?",
+      "origin": "ocr",
+      "order": 132,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b9",
+      "page": 5,
+      "bbox": [
+        366.239990234375,
+        138.96002197265625,
+        367.9031982421875,
+        154.81582641601562
+      ],
+      "text": ";",
+      "size": 7.25878381729126,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": ";",
+      "origin": "ocr",
+      "order": 133,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b10",
+      "page": 5,
+      "bbox": [
+        539.760009765625,
+        138.96002197265625,
+        545.46240234375,
+        154.81582641601562
+      ],
+      "text": "2",
+      "size": 13.440656661987305,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "2",
+      "origin": "ocr",
+      "order": 134,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b11",
+      "page": 5,
+      "bbox": [
+        106.08001708984375,
+        158.6400146484375,
+        516.5040283203125,
+        174.97634887695312
+      ],
+      "text": "(A) The auditor’s responsibility is limited to performing specified audit",
+      "size": 14.778395652770996,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "(A) The auditor’s responsibility is limited to performing specified audit",
+      "origin": "ocr",
+      "order": 135,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b12",
+      "page": 5,
+      "bbox": [
+        134.39999389648438,
+        177.5999755859375,
+        194.45989990234375,
+        194.41676330566406
+      ],
+      "text": "procedures,",
+      "size": 13.54458236694336,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "procedures,",
+      "origin": "ocr",
+      "order": 136,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b13",
+      "page": 5,
+      "bbox": [
+        211.67999267578125,
+        177.5999755859375,
+        271.15191650390625,
+        194.41676330566406
+      ],
+      "text": "specifically",
+      "size": 12.904314994812012,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "specifically",
+      "origin": "ocr",
+      "order": 137,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b14",
+      "page": 5,
+      "bbox": [
+        288.0,
+        177.5999755859375,
+        325.0439453125,
+        194.41676330566406
+      ],
+      "text": "inquiry",
+      "size": 13.334576606750488,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "inquiry",
+      "origin": "ocr",
+      "order": 138,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b15",
+      "page": 5,
+      "bbox": [
+        342.0,
+        177.5999755859375,
+        360.3959655761719,
+        194.41676330566406
+      ],
+      "text": "and",
+      "size": 14.35391616821289,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "and",
+      "origin": "ocr",
+      "order": 139,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b16",
+      "page": 5,
+      "bbox": [
+        376.79998779296875,
+        177.5999755859375,
+        433.1639099121094,
+        194.41676330566406
+      ],
+      "text": "inspection,",
+      "size": 13.121210098266602,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "inspection,",
+      "origin": "ocr",
+      "order": 140,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b17",
+      "page": 5,
+      "bbox": [
+        449.5199890136719,
+        177.5999755859375,
+        459.7679748535156,
+        194.41676330566406
+      ],
+      "text": "to",
+      "size": 13.121210098266602,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "to",
+      "origin": "ocr",
+      "order": 141,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b18",
+      "page": 5,
+      "bbox": [
+        476.8800048828125,
+        177.5999755859375,
+        515.8560791015625,
+        194.41676330566406
+      ],
+      "text": "identify",
+      "size": 12.794489860534668,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "identify",
+      "origin": "ocr",
+      "order": 142,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b19",
+      "page": 5,
+      "bbox": [
+        1.20001220703125,
+        214.79998779296875,
+        5.257194519042969,
+        219.84500122070312
+      ],
+      "text": ":",
+      "size": 6.395015239715576,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": ":",
+      "origin": "ocr",
+      "order": 143,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b20",
+      "page": 5,
+      "bbox": [
+        134.6400146484375,
+        198.0,
+        516.0659790039062,
+        213.61557006835938
+      ],
+      "text": "non-compliance that may have a material effect on the financial",
+      "size": 15.204975128173828,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "non-compliance that may have a material effect on the financial",
+      "origin": "ocr",
+      "order": 144,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b21",
+      "page": 5,
+      "bbox": [
+        134.39999389648438,
+        215.27996826171875,
+        192.29518127441406,
+        235.9406280517578
+      ],
+      "text": "statements.",
+      "size": 14.73991870880127,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "statements.",
+      "origin": "ocr",
+      "order": 145,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b22",
+      "page": 5,
+      "bbox": [
+        588.47998046875,
+        215.27996826171875,
+        588.8927612304688,
+        235.9406280517578
+      ],
+      "text": "|",
+      "size": 4.128002643585205,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "|",
+      "origin": "ocr",
+      "order": 146,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b23",
+      "page": 5,
+      "bbox": [
+        26.8800048828125,
+        237.5999755859375,
+        30.22560691833496,
+        253.93630981445312
+      ],
+      "text": "|",
+      "size": 10.44990348815918,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "|",
+      "origin": "ocr",
+      "order": 147,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b24",
+      "page": 5,
+      "bbox": [
+        107.04000854492188,
+        237.5999755859375,
+        516.7247314453125,
+        253.93630981445312
+      ],
+      "text": "(B) The auditor must obtain sufficient appropriate audit evidence regarding",
+      "size": 14.868233680725098,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "(B) The auditor must obtain sufficient appropriate audit evidence regarding",
+      "origin": "ocr",
+      "order": 148,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b25",
+      "page": 5,
+      "bbox": [
+        135.60000610351562,
+        257.52001953125,
+        517.0223388671875,
+        273.8562927246094
+      ],
+      "text": "compliance because these regulations have a direct effect on the",
+      "size": 14.320694923400879,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "compliance because these regulations have a direct effect on the",
+      "origin": "ocr",
+      "order": 149,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b26",
+      "page": 5,
+      "bbox": [
+        135.83999633789062,
+        278.6400146484375,
+        400.56011962890625,
+        290.6520080566406
+      ],
+      "text": "determination of material amounts and disclosures.",
+      "size": 12.23764705657959,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "determination of material amounts and disclosures.",
+      "origin": "ocr",
+      "order": 150,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b27",
+      "page": 5,
+      "bbox": [
+        107.51998901367188,
+        296.8800048828125,
+        124.41119384765625,
+        313.2163391113281
+      ],
+      "text": "(C)",
+      "size": 13.556416511535645,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "(C)",
+      "origin": "ocr",
+      "order": 151,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b28",
+      "page": 5,
+      "bbox": [
+        136.32000732421875,
+        296.8800048828125,
+        517.5072021484375,
+        313.2163391113281
+      ],
+      "text": "Since the non-compliance is “fundamental to the operating aspects,” the",
+      "size": 13.94382095336914,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "Since the non-compliance is “fundamental to the operating aspects,” the",
+      "origin": "ocr",
+      "order": 152,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b29",
+      "page": 5,
+      "bbox": [
+        136.32000732421875,
+        315.8399658203125,
+        517.6812744140625,
+        331.9360656738281
+      ],
+      "text": "auditor must treat this as a “direct effect” law and perform extensive",
+      "size": 14.561074256896973,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "auditor must treat this as a “direct effect” law and perform extensive",
+      "origin": "ocr",
+      "order": 153,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b30",
+      "page": 5,
+      "bbox": [
+        136.55999755859375,
+        338.1600036621094,
+        382.3007507324219,
+        351.8536682128906
+      ],
+      "text": "substantive testing on all environmental filings.",
+      "size": 13.26324462890625,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "substantive testing on all environmental filings.",
+      "origin": "ocr",
+      "order": 154,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b31",
+      "page": 5,
+      "bbox": [
+        108.239990234375,
+        356.3999938964844,
+        518.2019653320312,
+        372.4960632324219
+      ],
+      "text": "(D) No responsibility exists under the auditing standards because the legal",
+      "size": 16.3984317779541,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "(D) No responsibility exists under the auditing standards because the legal",
+      "origin": "ocr",
+      "order": 155,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b32",
+      "page": 5,
+      "bbox": [
+        27.839996337890625,
+        376.32000732421875,
+        28.78079605102539,
+        399.863525390625
+      ],
+      "text": "|",
+      "size": 6.652457237243652,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "|",
+      "origin": "ocr",
+      "order": 156,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b33",
+      "page": 5,
+      "bbox": [
+        136.55999755859375,
+        376.32000732421875,
+        518.4287719726562,
+        399.863525390625
+      ],
+      "text": "non-compliance had not resulted in a quantified financial penalty or",
+      "size": 17.12281036376953,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "non-compliance had not resulted in a quantified financial penalty or",
+      "origin": "ocr",
+      "order": 157,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b34",
+      "page": 5,
+      "bbox": [
+        137.04000854492188,
+        397.1999816894531,
+        388.8168640136719,
+        410.8936767578125
+      ],
+      "text": "“direct” monetary misstatement by the year-end.",
+      "size": 13.403630256652832,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "“direct” monetary misstatement by the year-end.",
+      "origin": "ocr",
+      "order": 158,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b35",
+      "page": 5,
+      "bbox": [
+        537.1199951171875,
+        397.1999816894531,
+        538.0775756835938,
+        410.8936767578125
+      ],
+      "text": "|",
+      "size": 5.118596076965332,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "|",
+      "origin": "ocr",
+      "order": 159,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b36",
+      "page": 5,
+      "bbox": [
+        80.8800048828125,
+        435.8399963378906,
+        89.63519287109375,
+        451.21533203125
+      ],
+      "text": "3.",
+      "size": 11.596534729003906,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "3.",
+      "origin": "ocr",
+      "order": 160,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b37",
+      "page": 5,
+      "bbox": [
+        108.96000671386719,
+        435.8399963378906,
+        249.42718505859375,
+        451.21533203125
+      ],
+      "text": "Given the dispute over the",
+      "size": 13.993612289428711,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "Given the dispute over the",
+      "origin": "ocr",
+      "order": 161,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b38",
+      "page": 5,
+      "bbox": [
+        257.0400085449219,
+        435.8399963378906,
+        518.6783447265625,
+        451.21533203125
+      ],
+      "text": "= 15 crore loan to a Company in which the MD’s",
+      "size": 15.12783145904541,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "= 15 crore loan to a Company in which the MD’s",
+      "origin": "ocr",
+      "order": 162,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b39",
+      "page": 5,
+      "bbox": [
+        28.32000732421875,
+        455.5199890136719,
+        29.27040672302246,
+        476.6611022949219
+      ],
+      "text": "|",
+      "size": 6.33599853515625,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "|",
+      "origin": "ocr",
+      "order": 163,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b40",
+      "page": 5,
+      "bbox": [
+        109.44001007080078,
+        455.5199890136719,
+        518.476806640625,
+        476.6611022949219
+      ],
+      "text": "spouse held shares, what is the mandatory reporting requirement for M/s. MS",
+      "size": 19.924562454223633,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "spouse held shares, what is the mandatory reporting requirement for M/s. MS",
+      "origin": "ocr",
+      "order": 164,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b41",
+      "page": 5,
+      "bbox": [
+        109.44000244140625,
+        474.9599914550781,
+        288.706787109375,
+        488.6536560058594
+      ],
+      "text": "& Associates under CARO 2020 ?",
+      "size": 16.186384201049805,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "& Associates under CARO 2020 ?",
+      "origin": "ocr",
+      "order": 165,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b42",
+      "page": 5,
+      "bbox": [
+        542.8800048828125,
+        474.9599914550781,
+        548.830810546875,
+        488.6536560058594
+      ],
+      "text": "2",
+      "size": 12.759847640991211,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "2",
+      "origin": "ocr",
+      "order": 166,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b43",
+      "page": 5,
+      "bbox": [
+        28.79998779296875,
+        492.9599914550781,
+        29.249988555908203,
+        510.9779968261719
+      ],
+      "text": "|",
+      "size": 4.0249223709106445,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "|",
+      "origin": "ocr",
+      "order": 167,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b44",
+      "page": 5,
+      "bbox": [
+        109.67999267578125,
+        492.9599914550781,
+        519.7199096679688,
+        510.9779968261719
+      ],
+      "text": "(A) Since the amount is less than 1% of the total assets, it is considered",
+      "size": 16.692514419555664,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "(A) Since the amount is less than 1% of the total assets, it is considered",
+      "origin": "ocr",
+      "order": 168,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b45",
+      "page": 5,
+      "bbox": [
+        138.239990234375,
+        514.3199462890625,
+        458.762451171875,
+        529.21484375
+      ],
+      "text": "“immaterial” for CARO purposes and no mention is required.",
+      "size": 16.300195693969727,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "“immaterial” for CARO purposes and no mention is required.",
+      "origin": "ocr",
+      "order": 169,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b46",
+      "page": 5,
+      "bbox": [
+        109.91998291015625,
+        534.47998046875,
+        519.71630859375,
+        551.0565185546875
+      ],
+      "text": "(B). The auditor must state whether the provisions of Section 185 and 186",
+      "size": 14.995716094970703,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "(B). The auditor must state whether the provisions of Section 185 and 186",
+      "origin": "ocr",
+      "order": 170,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b47",
+      "page": 5,
+      "bbox": [
+        138.239990234375,
+        553.9200439453125,
+        520.003173828125,
+        569.77587890625
+      ],
+      "text": "have been complied with, and since they have not, provide the specific",
+      "size": 14.34372615814209,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "have been complied with, and since they have not, provide the specific",
+      "origin": "ocr",
+      "order": 171,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b48",
+      "page": 5,
+      "bbox": [
+        138.95999145507812,
+        576.0,
+        294.89996337890625,
+        588.732666015625
+      ],
+      "text": "details ofthe non-compliance.",
+      "size": 12.200582504272461,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "details ofthe non-compliance.",
+      "origin": "ocr",
+      "order": 172,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b49",
+      "page": 5,
+      "bbox": [
+        30.239990234375,
+        593.5199584960938,
+        30.677989959716797,
+        611.0574951171875
+      ],
+      "text": "|",
+      "size": 3.9175920486450195,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "|",
+      "origin": "ocr",
+      "order": 173,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b50",
+      "page": 5,
+      "bbox": [
+        110.6399917602539,
+        593.5199584960938,
+        520.3043823242188,
+        611.0574951171875
+      ],
+      "text": "(C) The auditor should report this under the “Related Party Transactions”",
+      "size": 15.473248481750488,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "(C) The auditor should report this under the “Related Party Transactions”",
+      "origin": "ocr",
+      "order": 174,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b51",
+      "page": 5,
+      "bbox": [
+        30.239990234375,
+        613.43994140625,
+        30.679189682006836,
+        628.0946044921875
+      ],
+      "text": "|",
+      "size": 3.586052894592285,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "|",
+      "origin": "ocr",
+      "order": 175,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b52",
+      "page": 5,
+      "bbox": [
+        139.19998168945312,
+        613.43994140625,
+        520.4064331054688,
+        628.0946044921875
+      ],
+      "text": "clause of CARO only if the transaction was not at “arm’s length,”",
+      "size": 16.170408248901367,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "clause of CARO only if the transaction was not at “arm’s length,”",
+      "origin": "ocr",
+      "order": 176,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b53",
+      "page": 5,
+      "bbox": [
+        120.23995971679688,
+        635.0399780273438,
+        336.7343444824219,
+        651.6165161132812
+      ],
+      "text": "__ regardless of Section 185 compliance.",
+      "size": 14.051624298095703,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "__ regardless of Section 185 compliance.",
+      "origin": "ocr",
+      "order": 177,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b54",
+      "page": 5,
+      "bbox": [
+        23.039947509765625,
+        652.7999877929688,
+        23.44194793701172,
+        668.8960571289062
+      ],
+      "text": "J",
+      "size": 3.595597743988037,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "J",
+      "origin": "ocr",
+      "order": 178,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b55",
+      "page": 5,
+      "bbox": [
+        111.11994934082031,
+        652.7999877929688,
+        520.768798828125,
+        668.8960571289062
+      ],
+      "text": "(D) Because the transaction involves a spouse and not the Director directly,",
+      "size": 14.201473236083984,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "(D) Because the transaction involves a spouse and not the Director directly,",
+      "origin": "ocr",
+      "order": 179,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b56",
+      "page": 5,
+      "bbox": [
+        1.43994140625,
+        667.9200439453125,
+        17.89194107055664,
+        691.2232666015625
+      ],
+      "text": "7 °",
+      "size": 19.47744369506836,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "7 °",
+      "origin": "ocr",
+      "order": 180,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b57",
+      "page": 5,
+      "bbox": [
+        140.15994262695312,
+        667.9200439453125,
+        521.0999755859375,
+        691.2232666015625
+      ],
+      "text": "Section 185-is not triggered, and thus no reporting isrequired under",
+      "size": 17.264909744262695,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "Section 185-is not triggered, and thus no reporting isrequired under",
+      "origin": "ocr",
+      "order": 181,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b58",
+      "page": 5,
+      "bbox": [
+        140.15994262695312,
+        694.5599975585938,
+        178.95594787597656,
+        709.2146606445312
+      ],
+      "text": "CARO.",
+      "size": 15.07280158996582,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "CARO.",
+      "origin": "ocr",
+      "order": 182,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b59",
+      "page": 5,
+      "bbox": [
+        31.199935913085938,
+        712.5599975585938,
+        31.637935638427734,
+        730.0975341796875
+      ],
+      "text": "|",
+      "size": 3.917590379714966,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "|",
+      "origin": "ocr",
+      "order": 183,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b60",
+      "page": 5,
+      "bbox": [
+        304.7999267578125,
+        712.5599975585938,
+        329.24029541015625,
+        730.0975341796875
+      ],
+      "text": "JNY",
+      "size": 16.895671844482422,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "JNY",
+      "origin": "ocr",
+      "order": 184,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b61",
+      "page": 5,
+      "bbox": [
+        536.159912109375,
+        712.5599975585938,
+        546.671875,
+        730.0975341796875
+      ],
+      "text": "oO",
+      "size": 13.570930480957031,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "oO",
+      "origin": "ocr",
+      "order": 185,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p6-b1",
+      "page": 6,
+      "bbox": [
+        292.79998779296875,
+        65.760009765625,
+        306.7103271484375,
+        76.81102752685547
+      ],
+      "text": "(6)",
+      "size": 10.118307113647461,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "(6)",
+      "origin": "ocr",
+      "order": 186,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p6-b2",
+      "page": 6,
+      "bbox": [
+        312.0,
+        65.760009765625,
+        312.71759033203125,
+        76.81102752685547
+      ],
+      "text": ":",
+      "size": 3.980520725250244,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": ":",
+      "origin": "ocr",
+      "order": 187,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p6-b3",
+      "page": 6,
+      "bbox": [
+        288.239990234375,
+        87.5999755859375,
+        311.6328125,
+        96.72908782958984
+      ],
+      "text": "JNY",
+      "size": 11.925941467285156,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "JNY",
+      "origin": "ocr",
+      "order": 188,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p6-b4",
+      "page": 6,
+      "bbox": [
+        66.239990234375,
+        92.39996337890625,
+        74.97599792480469,
+        123.63117218017578
+      ],
+      "text": "4.",
+      "size": 16.50949478149414,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "4.",
+      "origin": "ocr",
+      "order": 189,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p6-b5",
+      "page": 6,
+      "bbox": [
+        94.31999206542969,
+        92.39996337890625,
+        503.9998474121094,
+        123.63117218017578
+      ],
+      "text": "Following the warehouse fire on May 22, 2026, and management’s",
+      "size": 22.061738967895508,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "Following the warehouse fire on May 22, 2026, and management’s",
+      "origin": "ocr",
+      "order": 190,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p6-b6",
+      "page": 6,
+      "bbox": [
+        587.52001953125,
+        92.39996337890625,
+        587.988037109375,
+        123.63117218017578
+      ],
+      "text": "|",
+      "size": 5.404000759124756,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "|",
+      "origin": "ocr",
+      "order": 191,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p6-b7",
+      "page": 6,
+      "bbox": [
+        95.04000854492188,
+        129.1199951171875,
+        505.3584289550781,
+        146.17701721191406
+      ],
+      "text": "subsequent refusal to amend the financial statements, which is the most",
+      "size": 15.335980415344238,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "subsequent refusal to amend the financial statements, which is the most",
+      "origin": "ocr",
+      "order": 192,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p6-b8",
+      "page": 6,
+      "bbox": [
+        588.0,
+        129.1199951171875,
+        588.426025390625,
+        146.17701721191406
+      ],
+      "text": "|",
+      "size": 3.8102548122406006,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "|",
+      "origin": "ocr",
+      "order": 193,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p6-b9",
+      "page": 6,
+      "bbox": [
+        95.04000854492188,
+        150.0,
+        316.7039794921875,
+        173.06301879882812
+      ],
+      "text": "appropriate course ofaction for CA Raja ?",
+      "size": 20.478382110595703,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "appropriate course ofaction for CA Raja ?",
+      "origin": "ocr",
+      "order": 194,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p6-b10",
+      "page": 6,
+      "bbox": [
+        528.9600219726562,
+        150.0,
+        534.6047973632812,
+        173.06301879882812
+      ],
+      "text": "2",
+      "size": 16.12798500061035,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "2",
+      "origin": "ocr",
+      "order": 195,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p6-b11",
+      "page": 6,
+      "bbox": [
+        588.0,
+        150.0,
+        588.4608154296875,
+        173.06301879882812
+      ],
+      "text": "|",
+      "size": 4.607995510101318,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "|",
+      "origin": "ocr",
+      "order": 196,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p6-b12",
+      "page": 6,
+      "bbox": [
+        95.27999877929688,
+        174.0,
+        506.1095886230469,
+        191.53753662109375
+      ],
+      "text": "(A) He should issue a “Qualified Opinion” immediately, dating the new",
+      "size": 16.34158706665039,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "(A) He should issue a “Qualified Opinion” immediately, dating the new",
+      "origin": "ocr",
+      "order": 197,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p6-b13",
+      "page": 6,
+      "bbox": [
+        588.0,
+        174.0,
+        588.43798828125,
+        191.53753662109375
+      ],
+      "text": "|",
+      "size": 3.917595386505127,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "|",
+      "origin": "ocr",
+      "order": 198,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p6-b14",
+      "page": 6,
+      "bbox": [
+        1.44000244140625,
+        214.32000732421875,
+        5.0399932861328125,
+        219.1248016357422
+      ],
+      "text": "'",
+      "size": 5.87876033782959,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "'",
+      "origin": "ocr",
+      "order": 199,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p6-b15",
+      "page": 6,
+      "bbox": [
+        123.5999984741211,
+        192.239990234375,
+        467.7120361328125,
+        222.99073791503906
+      ],
+      "text": "report May 22, 2026, to account for the unadjusted inventory loss.",
+      "size": 21.938491821289062,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "report May 22, 2026, to account for the unadjusted inventory loss.",
+      "origin": "ocr",
+      "order": 200,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p6-b16",
+      "page": 6,
+      "bbox": [
+        588.0,
+        192.239990234375,
+        588.4608154296875,
+        222.99073791503906
+      ],
+      "text": "|",
+      "size": 5.320865631103516,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "|",
+      "origin": "ocr",
+      "order": 201,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p6-b17",
+      "page": 6,
+      "bbox": [
+        96.0,
+        218.6400146484375,
+        506.4767761230469,
+        236.417724609375
+      ],
+      "text": "(B) As the report is already signed, he should inform the management that he",
+      "size": 15.983953475952148,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "(B) As the report is already signed, he should inform the management that he",
+      "origin": "ocr",
+      "order": 202,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p6-b18",
+      "page": 6,
+      "bbox": [
+        124.32000732421875,
+        226.79998779296875,
+        506.57293701171875,
+        257.5507507324219
+      ],
+      "text": "will “withdraw” his signature, effectively cancelling the previous report",
+      "size": 19.184654235839844,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "will “withdraw” his signature, effectively cancelling the previous report",
+      "origin": "ocr",
+      "order": 203,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p6-b19",
+      "page": 6,
+      "bbox": [
+        588.0,
+        226.79998779296875,
+        588.4608154296875,
+        257.5507507324219
+      ],
+      "text": "|",
+      "size": 5.320865631103516,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "|",
+      "origin": "ocr",
+      "order": 204,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p6-b20",
+      "page": 6,
+      "bbox": [
+        79.67999267578125,
+        265.44000244140625,
+        94.04158020019531,
+        280.8153381347656
+      ],
+      "text": "6",
+      "size": 21.004465103149414,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "6",
+      "origin": "ocr",
+      "order": 205,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p6-b21",
+      "page": 6,
+      "bbox": [
+        124.55998992919922,
+        265.44000244140625,
+        222.74874877929688,
+        280.8153381347656
+      ],
+      "text": "via a public notice.",
+      "size": 13.30213737487793,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "via a public notice.",
+      "origin": "ocr",
+      "order": 206,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p6-b22",
+      "page": 6,
+      "bbox": [
+        96.71998596191406,
+        285.8399658203125,
+        507.03009033203125,
+        303.85797119140625
+      ],
+      "text": "(C) He must notify those charged with governance not to issue the financial",
+      "size": 16.59518051147461,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "(C) He must notify those charged with governance not to issue the financial",
+      "origin": "ocr",
+      "order": 207,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p6-b23",
+      "page": 6,
+      "bbox": [
+        125.75997924804688,
+        309.1199951171875,
+        507.5039978027344,
+        324.7355651855469
+      ],
+      "text": "statements to third parties; if they are still issued, he must take steps to",
+      "size": 14.126378059387207,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "statements to third parties; if they are still issued, he must take steps to",
+      "origin": "ocr",
+      "order": 208,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p6-b24",
+      "page": 6,
+      "bbox": [
+        287.27996826171875,
+        331.44000244140625,
+        287.75994873046875,
+        332.40093994140625
+      ],
+      "text": "|",
+      "size": 0.959991455078125,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "|",
+      "origin": "ocr",
+      "order": 209,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p6-b25",
+      "page": 6,
+      "bbox": [
+        125.51998901367188,
+        334.79998779296875,
+        281.7840270996094,
+        348.7339172363281
+      ],
+      "text": "prevent reliance on the report.",
+      "size": 13.423974990844727,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "prevent reliance on the report.",
+      "origin": "ocr",
+      "order": 210,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p6-b26",
+      "page": 6,
+      "bbox": [
+        97.91996765136719,
+        346.0799865722656,
+        507.9312438964844,
+        371.5454406738281
+      ],
+      "text": "(D) He should include an “Emphasis ofMatter” paragraph in the next year’s",
+      "size": 19.70574188232422,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "(D) He should include an “Emphasis ofMatter” paragraph in the next year’s",
+      "origin": "ocr",
+      "order": 211,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p6-b27",
+      "page": 6,
+      "bbox": [
+        588.47998046875,
+        346.0799865722656,
+        588.861572265625,
+        371.5454406738281
+      ],
+      "text": "|",
+      "size": 4.406337738037109,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "|",
+      "origin": "ocr",
+      "order": 212,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p6-b28",
+      "page": 6,
+      "bbox": [
+        82.55999755859375,
+        375.8399963378906,
+        82.99199676513672,
+        393.13726806640625
+      ],
+      "text": "|",
+      "size": 3.8639252185821533,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "|",
+      "origin": "ocr",
+      "order": 213,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p6-b29",
+      "page": 6,
+      "bbox": [
+        126.4800033569336,
+        375.8399963378906,
+        508.5311584472656,
+        393.13726806640625
+      ],
+      "text": "audit report (FY 2026-27) to explain the loss that occurred in the",
+      "size": 15.455700874328613,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "audit report (FY 2026-27) to explain the loss that occurred in the",
+      "origin": "ocr",
+      "order": 214,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p6-b30",
+      "page": 6,
+      "bbox": [
+        126.48001098632812,
+        402.47998046875,
+        210.63131713867188,
+        416.1736755371094
+      ],
+      "text": "previous period.",
+      "size": 12.387787818908691,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "previous period.",
+      "origin": "ocr",
+      "order": 215,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p6-b31",
+      "page": 6,
+      "bbox": [
+        71.28001403808594,
+        443.5199890136719,
+        80.09281921386719,
+        460.8172607421875
+      ],
+      "text": "5.",
+      "size": 12.340387344360352,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "5.",
+      "origin": "ocr",
+      "order": 216,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p6-b32",
+      "page": 6,
+      "bbox": [
+        99.1200180053711,
+        443.5199890136719,
+        509.46246337890625,
+        460.8172607421875
+      ],
+      "text": "CA Raja’s reliance on the valuation expert’s findings for the Service",
+      "size": 17.451942443847656,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "CA Raja’s reliance on the valuation expert’s findings for the Service",
+      "origin": "ocr",
+      "order": 217,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p6-b33",
+      "page": 6,
+      "bbox": [
+        99.36001586914062,
+        466.0799865722656,
+        509.60650634765625,
+        481.215087890625
+      ],
+      "text": "Concession Assets was based on his ‘intuitive comfort’ and the expert’s",
+      "size": 14.183813095092773,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "Concession Assets was based on his ‘intuitive comfort’ and the expert’s",
+      "origin": "ocr",
+      "order": 218,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p6-b34",
+      "page": 6,
+      "bbox": [
+        99.36004638671875,
+        488.3999938964844,
+        509.3999938964844,
+        506.4179992675781
+      ],
+      "text": "professional credentials. With reference to relevant Standard on Auditing,",
+      "size": 15.273507118225098,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "professional credentials. With reference to relevant Standard on Auditing,",
+      "origin": "ocr",
+      "order": 219,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p6-b35",
+      "page": 6,
+      "bbox": [
+        99.60006713867188,
+        510.2400207519531,
+        360.39727783203125,
+        527.2970581054688
+      ],
+      "text": "which ofthe following statements is appropriate ?",
+      "size": 14.658370018005371,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "which ofthe following statements is appropriate ?",
+      "origin": "ocr",
+      "order": 220,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p6-b36",
+      "page": 6,
+      "bbox": [
+        533.5200805664062,
+        510.2400207519531,
+        539.4840698242188,
+        527.2970581054688
+      ],
+      "text": "2",
+      "size": 14.256693840026855,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "2",
+      "origin": "ocr",
+      "order": 221,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p6-b37",
+      "page": 6,
+      "bbox": [
+        100.320068359375,
+        533.0399780273438,
+        510.5401306152344,
+        551.0579833984375
+      ],
+      "text": "(A) CA Raja’s approach is appropriate because an auditor is not expected to",
+      "size": 18.08977508544922,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "(A) CA Raja’s approach is appropriate because an auditor is not expected to",
+      "origin": "ocr",
+      "order": 222,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p6-b38",
+      "page": 6,
+      "bbox": [
+        128.64010620117188,
+        555.5999755859375,
+        510.9600830078125,
+        571.936279296875
+      ],
+      "text": "review the assumptions and methods of a specialized valuer and is",
+      "size": 14.320720672607422,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "review the assumptions and methods of a specialized valuer and is",
+      "origin": "ocr",
+      "order": 223,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p6-b39",
+      "page": 6,
+      "bbox": [
+        129.1201171875,
+        572.1599731445312,
+        511.2241516113281,
+        594.7425537109375
+      ],
+      "text": "entitled to rely on the expert’s professional membership as sufficient",
+      "size": 17.032413482666016,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "entitled to rely on the expert’s professional membership as sufficient",
+      "origin": "ocr",
+      "order": 224,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p6-b40",
+      "page": 6,
+      "bbox": [
+        129.60012817382812,
+        603.1199951171875,
+        328.89007568359375,
+        616.3331909179688
+      ],
+      "text": "evidence ofthe reliability ofthe work.",
+      "size": 12.660991668701172,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "evidence ofthe reliability ofthe work.",
+      "origin": "ocr",
+      "order": 225,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p6-b41",
+      "page": 6,
+      "bbox": [
+        101.52011108398438,
+        622.7999877929688,
+        512.3101196289062,
+        640.8179931640625
+      ],
+      "text": "(B) CA Raja failed to meet the requirements ofthe standards because he did",
+      "size": 18.08977508544922,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "(B) CA Raja failed to meet the requirements ofthe standards because he did",
+      "origin": "ocr",
+      "order": 226,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p6-b42",
+      "page": 6,
+      "bbox": [
+        129.84011840820312,
+        645.3599853515625,
+        512.1312866210938,
+        661.2158813476562
+      ],
+      "text": "not evaluate the adequancy of the expert’s work, which includes",
+      "size": 14.167737007141113,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "not evaluate the adequancy of the expert’s work, which includes",
+      "origin": "ocr",
+      "order": 227,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p6-b43",
+      "page": 6,
+      "bbox": [
+        1.68011474609375,
+        666.47998046875,
+        9.114112854003906,
+        691.7052001953125
+      ],
+      "text": "7",
+      "size": 19.35648536682129,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "7",
+      "origin": "ocr",
+      "order": 228,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p6-b44",
+      "page": 6,
+      "bbox": [
+        130.56011962890625,
+        666.47998046875,
+        512.4541015625,
+        691.7052001953125
+      ],
+      "text": "evaluating the. relevance and reasonableness of the expert’s significant",
+      "size": 17.819087982177734,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "evaluating the. relevance and reasonableness of the expert’s significant",
+      "origin": "ocr",
+      "order": 229,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p6-b45",
+      "page": 6,
+      "bbox": [
+        131.04013061523438,
+        693.6000366210938,
+        267.07220458984375,
+        707.293701171875
+      ],
+      "text": "assumptions and methods.",
+      "size": 13.049896240234375,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "assumptions and methods.",
+      "origin": "ocr",
+      "order": 230,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p6-b46",
+      "page": 6,
+      "bbox": [
+        74.40013122558594,
+        725.2799682617188,
+        84.84492492675781,
+        741.6162719726562
+      ],
+      "text": "oO",
+      "size": 13.055999755859375,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "oO",
+      "origin": "ocr",
+      "order": 231,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p6-b47",
+      "page": 6,
+      "bbox": [
+        173.28012084960938,
+        725.2799682617188,
+        177.36012268066406,
+        741.6162719726562
+      ],
+      "text": "E",
+      "size": 11.539981842041016,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "E",
+      "origin": "ocr",
+      "order": 232,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p6-b48",
+      "page": 6,
+      "bbox": [
+        297.1201171875,
+        725.2799682617188,
+        320.6208801269531,
+        741.6162719726562
+      ],
+      "text": "JNY",
+      "size": 15.99026870727539,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "JNY",
+      "origin": "ocr",
+      "order": 233,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p7-b1",
+      "page": 7,
+      "bbox": [
+        0.9599999785423279,
+        1.67999267578125,
+        31.19278335571289,
+        10.809107780456543
+      ],
+      "text": "—",
+      "size": 23.482879638671875,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "—",
+      "origin": "ocr",
+      "order": 234,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p7-b2",
+      "page": 7,
+      "bbox": [
+        69.12000274658203,
+        1.67999267578125,
+        72.95040130615234,
+        10.809107780456543
+      ],
+      "text": "=",
+      "size": 8.358613014221191,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "=",
+      "origin": "ocr",
+      "order": 235,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p7-b3",
+      "page": 7,
+      "bbox": [
+        322.32000732421875,
+        47.52001953125,
+        335.4419860839844,
+        58.330806732177734
+      ],
+      "text": "(7)",
+      "size": 9.719989776611328,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "(7)",
+      "origin": "ocr",
+      "order": 236,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p7-b4",
+      "page": 7,
+      "bbox": [
+        317.2799987792969,
+        69.3599853515625,
+        340.47845458984375,
+        78.00863647460938
+      ],
+      "text": "JNY",
+      "size": 11.559551239013672,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "JNY",
+      "origin": "ocr",
+      "order": 237,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p7-b5",
+      "page": 7,
+      "bbox": [
+        123.1199951171875,
+        90.47998046875,
+        140.34600830078125,
+        103.69319152832031
+      ],
+      "text": "(C)",
+      "size": 12.312151908874512,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "(C)",
+      "origin": "ocr",
+      "order": 238,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p7-b6",
+      "page": 7,
+      "bbox": [
+        151.91998291015625,
+        90.47998046875,
+        535.1040649414062,
+        103.69319152832031
+      ],
+      "text": "The auditor’s reliance is technically deficient because the engagement of",
+      "size": 13.265848159790039,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "The auditor’s reliance is technically deficient because the engagement of",
+      "origin": "ocr",
+      "order": 239,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p7-b7",
+      "page": 7,
+      "bbox": [
+        152.16000366210938,
+        116.15997314453125,
+        533.1647338867188,
+        129.61341857910156
+      ],
+      "text": "a third-party expert for a ‘significant risk’ area automatically requires the",
+      "size": 12.391070365905762,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "a third-party expert for a ‘significant risk’ area automatically requires the",
+      "origin": "ocr",
+      "order": 240,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p7-b8",
+      "page": 7,
+      "bbox": [
+        152.16000366210938,
+        142.08001708984375,
+        533.7119750976562,
+        155.53346252441406
+      ],
+      "text": "Engagement Quality Control Reviewer to perform an independent",
+      "size": 13.168458938598633,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "Engagement Quality Control Reviewer to perform an independent",
+      "origin": "ocr",
+      "order": 241,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p7-b9",
+      "page": 7,
+      "bbox": [
+        151.91998291015625,
+        168.47998046875,
+        294.90484619140625,
+        178.810302734375
+      ],
+      "text": "re-calculation ofthe model.",
+      "size": 11.114988327026367,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "re-calculation ofthe model.",
+      "origin": "ocr",
+      "order": 242,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p7-b10",
+      "page": 7,
+      "bbox": [
+        123.5999755859375,
+        193.91998291015625,
+        533.7503051757812,
+        207.37342834472656
+      ],
+      "text": "(D) CA Raja acted correctly by focusing on the expert’s previous project",
+      "size": 15.61587142944336,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "(D) CA Raja acted correctly by focusing on the expert’s previous project",
+      "origin": "ocr",
+      "order": 243,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p7-b11",
+      "page": 7,
+      "bbox": [
+        1.439971923828125,
+        207.5999755859375,
+        4.905575752258301,
+        244.1165008544922
+      ],
+      "text": ":",
+      "size": 15.901281356811523,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": ":",
+      "origin": "ocr",
+      "order": 244,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p7-b12",
+      "page": 7,
+      "bbox": [
+        27.35997200012207,
+        207.5999755859375,
+        29.73117446899414,
+        244.1165008544922
+      ],
+      "text": "|",
+      "size": 13.15306568145752,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "|",
+      "origin": "ocr",
+      "order": 245,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p7-b13",
+      "page": 7,
+      "bbox": [
+        83.03997039794922,
+        207.5999755859375,
+        83.40476989746094,
+        244.1165008544922
+      ],
+      "text": ".",
+      "size": 5.159056663513184,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": ".",
+      "origin": "ocr",
+      "order": 246,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p7-b14",
+      "page": 7,
+      "bbox": [
+        144.23997497558594,
+        207.5999755859375,
+        534.1343994140625,
+        244.1165008544922
+      ],
+      "text": "reports for other firms, as this fulfils the requirement to obtain a",
+      "size": 21.271337509155273,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "reports for other firms, as this fulfils the requirement to obtain a",
+      "origin": "ocr",
+      "order": 247,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED",
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p7-b15",
+      "page": 7,
+      "bbox": [
+        145.91998291015625,
+        245.760009765625,
+        533.9602661132812,
+        259.45367431640625
+      ],
+      "text": "' sufficient understanding of the expert’s field of expertise to verify the",
+      "size": 12.905678749084473,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "' sufficient understanding of the expert’s field of expertise to verify the",
+      "origin": "ocr",
+      "order": 248,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p7-b16",
+      "page": 7,
+      "bbox": [
+        152.87994384765625,
+        272.15997314453125,
+        269.5486755371094,
+        284.4122009277344
+      ],
+      "text": "final valuation figures.",
+      "size": 11.416702270507812,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "final valuation figures.",
+      "origin": "ocr",
+      "order": 249,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p7-b17",
+      "page": 7,
+      "bbox": [
+        27.839935302734375,
+        330.7200012207031,
+        28.79993438720703,
+        349.9391784667969
+      ],
+      "text": "|",
+      "size": 6.071567535400391,
+      "bold": false,
+      "font": "GlyphLessFont",
+      "raw_text": "|",
+      "origin": "ocr",
+      "order": 250,
+      "region": "question",
+      "fidelity_flags": [
+        "OCR_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    }
+  ],
+  "expected_tree": [
+    {
+      "label_path": "CSI",
+      "question_text_sha256": "b21d31df78d76193086becd247d83e78b5bea17ddae45fdd64268e0ff76e5035",
+      "answer_text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mcq_options": 0,
+      "mcq_key": null,
+      "children": [
+        {
+          "label_path": "CSI.M1",
+          "question_text_sha256": "e93a51294c97ea7a0a7b6749e24202501308bc5ab9802d7de4460391f48935d3",
+          "answer_text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "mcq_options": 4,
+          "mcq_key": null,
+          "children": []
+        },
+        {
+          "label_path": "CSI.M2",
+          "question_text_sha256": "700c370feec9d85825ae3ff9b27e758f40c625710107b96ea913ab33eef3ab4b",
+          "answer_text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "mcq_options": 4,
+          "mcq_key": null,
+          "children": []
+        },
+        {
+          "label_path": "CSI.M3",
+          "question_text_sha256": "7a40f76c9fbaeb091fa4ca226732ce2813efa49d43d5010dd7d11cffaa0aea83",
+          "answer_text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "mcq_options": 3,
+          "mcq_key": null,
+          "children": []
+        },
+        {
+          "label_path": "CSI.M4",
+          "question_text_sha256": "c22cc697a175f89da7e4111d684b06e110ab0a7c22aaa2cc2fed269989ec3346",
+          "answer_text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "mcq_options": 4,
+          "mcq_key": null,
+          "children": []
+        },
+        {
+          "label_path": "CSI.M5",
+          "question_text_sha256": "50c8ec5a29a9ac744098348a8953dfe1a649f52ab5c964ce316ad633e4cf06ae",
+          "answer_text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "mcq_options": 4,
+          "mcq_key": null,
+          "children": []
+        }
+      ]
+    }
+  ]
+}

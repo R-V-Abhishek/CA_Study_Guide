@@ -56,6 +56,7 @@ def apply_grants() -> None:
         grant("caf_curator", "SELECT", shared + [name for name in known if name.startswith("ingest.")])
         grant("caf_curator", "INSERT, UPDATE, DELETE", ["core.decision", "core.appearance", "core.appearance_tag", "core.change_log", "ingest.taxonomy_gap"])
         grant("caf_curator", "INSERT", ["ref.descriptor_revision", "ref.descriptor_approval"])
+        grant("caf_curator", "INSERT", ["ingest.extraction_review"])
         if "app.user_account" in known:
             for role in ("caf_curator", "caf_operations"):
                 conn.execute(text(f"GRANT SELECT (id,role,status) ON app.user_account TO {role}"))
@@ -65,6 +66,7 @@ def apply_grants() -> None:
         operational = [name for name in known if name.split('.')[0] in {"ref", "ingest", "core", "intel", "ops"} and name != "ops.alembic_version"]
         grant("caf_operations", "SELECT, INSERT, UPDATE, DELETE", operational)
         grant("caf_pipeline", "SELECT", [name for name in known if name.startswith("ref.")])
+        grant("caf_pipeline", "SELECT", ["core.appearance", "core.decision"])
         grant("caf_pipeline", "SELECT, INSERT, UPDATE, DELETE", [name for name in known if name.split('.')[0] in {"ingest", "ops"} and name != "ops.alembic_version"])
         grant("caf_backup", "SELECT", known)
         # information_schema.sequences omits GENERATED AS IDENTITY sequences.
@@ -75,7 +77,7 @@ def apply_grants() -> None:
                     role == "caf_backup" or
                     role == "caf_app" and schema == "app" and name.removesuffix("_id_seq") in PERSONAL or
                     role == "caf_identity" and schema == "app" and name.removesuffix("_id_seq") in IDENTITY or
-                    role == "caf_curator" and (schema == "core" or schema == "ref" and name == "descriptor_revision_id_seq") or
+                    role == "caf_curator" and (schema == "core" or schema == "ref" and name == "descriptor_revision_id_seq" or schema == "ingest" and name == "extraction_review_id_seq") or
                     role == "caf_operations" and schema != "app" or
                     role == "caf_pipeline" and schema in {"ingest", "ops"}
                 )

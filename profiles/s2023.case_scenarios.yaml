@@ -2,26 +2,38 @@ id: s2023.case_scenarios.v1
 applies_to:
   scheme: s2023
   doc_type: case_scenarios
-paper_max: 30
+paper_max: null
 patterns:
   case_scenario_start:
-    - re: '^\s*CASE\s+SCENARIO\s*[-–]?\s*(?P<n>[IVX]+|\d+)'
-      require_bold: false
+  - re: ^\s*CASE\s+(?:SCENARIO|STUDY)\s*[-–—]?\s*(?P<n>[IVX]+|\d+)
+    require_bold: false
   mcq_start:
-    - re: '^\s*(?P<n>\d{1,2})\.\s+\S'
+  - re: ^\s*(?P<n>\d{1,2})\.\s+\S
   mcq_option:
-    - re: '^\s*\((?P<o>[A-Da-d])\)\s+'
+  - re: ^\s*\((?P<o>[A-Da-d])\)\s+
   marks:
-    - re: '\((?P<m>\d{1,2})\s*Marks?\)'
-    - re: '(?P<m>\d{1,2})\s*Marks?\s*$'
+  - re: \((?P<m>\d{1,2})\s*Marks?\)
+  - re: (?P<m>\d{1,2})\s*Marks?\s*$
   mcq_key_table_title:
-    - re: '(?i)answers?\s+key'
-    - re: '(?i)answers?\s+to\s+(?:the\s+)?(?:MCQ|multiple\s+choice)'
+  - re: (?i)answers?\s+key
+  - re: (?i)answers?\s+to\s+(?:the\s+)?(?:MCQ|multiple\s+choice)
   mcq_key_row:
-    - re: '^\s*(?P<n>\d{1,2})\s*[.)]?\s*\(?(?P<o>[A-Da-d])\)?\s*$'
+  - re: ^\s*(?P<n>\d{1,2})\s*[.)]?\s*\(?(?P<o>[A-Da-d])\)?\s*$
+  paper_start:
+  - re: ^\s*PAPER\s*[-:]?\s*(?P<n>\d+)\s*[:\-]
+  section_start:
+  - re: ^\s*SECTION\s*[-:]?\s*(?P<n>[A-Z]|\d+)\s*$
 choice_rules: []
 defaults:
   mcq_marks: 2
   min_unit_chars: 15
   max_unit_chars: 25000
 mode: interleaved
+document_role: mixed
+expects_answers: true
+marks_required: false
+numbering_scopes:
+- paper
+- section
+- case
+- alternative

@@ -1,0 +1,31 @@
+{
+  "verified": true,
+  "verified_at": "2026-10-04T10:09:48.247998+00:00",
+  "database_revision": "0005_extraction_revisions",
+  "checkpoint": "data/backups/caf_20261004_100137_472724_563e7780/manifest.json",
+  "dump_file": "data/backups/caf_20261004_100137_472724_563e7780/caf_20261004_100137_472724_563e7780.dump",
+  "dump_sha256": "9b3c3a63998020ff4250be0c137097ba87d7ba8b6bc137ff5392e69a4c10aaac",
+  "detailed_report": "data/backups/caf_20261004_100137_472724_563e7780/verification_38050cc137a9420fbb1d7f413809f300.json",
+  "table_digests_checked": 60,
+  "archived_files_checked": 4317,
+  "mismatches": [],
+  "baseline_schema_drift": {},
+  "extraction_history_counts": {
+    "content_blocks": 1063477,
+    "assets": 24036,
+    "revisions": 877,
+    "reconciliation_links": 48507
+  },
+  "original_data_preservation": {
+    "report": "docs/Phase4_Runtime_Inspection.json",
+    "tables_checked": 29,
+    "all_original_values_preserved": true
+  },
+  "first_attempt": {
+    "verified": false,
+    "report": "data/backups/caf_20261004_100137_472724_563e7780/verification_dca0cc8590e74a9ab0b8d88ac6673a89.json",
+    "reason": "The temporary recovery filesystem exhausted its RAM-backed capacity while pg_restore created the content-block unique index.",
+    "docker_memory_bytes": 2053656576
+  },
+  "recovery_storage": "Owned anonymous disk volume, removed with its disposable PostgreSQL container; no Compose data was removed."
+}

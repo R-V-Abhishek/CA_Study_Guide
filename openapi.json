@@ -2355,6 +2355,928 @@
         }
       }
     },
+    "/api/v1/extraction/documents": {
+      "get": {
+        "tags": [
+          "extraction review"
+        ],
+        "summary": "Documents",
+        "operationId": "documents_api_v1_extraction_documents_get",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1,
+              "title": "Page"
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 25,
+              "title": "Page Size"
+            }
+          },
+          {
+            "name": "paper_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Paper Id"
+            }
+          },
+          {
+            "name": "attempt_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Attempt Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PageResult_ExtractionDocument_"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/extraction/documents/{document_id}/revisions": {
+      "get": {
+        "tags": [
+          "extraction review"
+        ],
+        "summary": "Revisions",
+        "operationId": "revisions_api_v1_extraction_documents__document_id__revisions_get",
+        "parameters": [
+          {
+            "name": "document_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Document Id"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1,
+              "title": "Page"
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 25,
+              "title": "Page Size"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PageResult_RevisionSummary_"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/extraction/revisions/{revision_id}": {
+      "get": {
+        "tags": [
+          "extraction review"
+        ],
+        "summary": "Revision Detail",
+        "operationId": "revision_detail_api_v1_extraction_revisions__revision_id__get",
+        "parameters": [
+          {
+            "name": "revision_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Revision Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RevisionDetail"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/extraction/revisions/{revision_id}/questions": {
+      "get": {
+        "tags": [
+          "extraction review"
+        ],
+        "summary": "Questions",
+        "operationId": "questions_api_v1_extraction_revisions__revision_id__questions_get",
+        "parameters": [
+          {
+            "name": "revision_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Revision Id"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1,
+              "title": "Page"
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 25,
+              "title": "Page Size"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PageResult_ExtractedQuestion_"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/extraction/revisions/{revision_id}/blocks": {
+      "get": {
+        "tags": [
+          "extraction review"
+        ],
+        "summary": "Blocks",
+        "operationId": "blocks_api_v1_extraction_revisions__revision_id__blocks_get",
+        "parameters": [
+          {
+            "name": "revision_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Revision Id"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1,
+              "title": "Page"
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 25,
+              "title": "Page Size"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PageResult_BlockResult_"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/extraction/revisions/{revision_id}/assets": {
+      "get": {
+        "tags": [
+          "extraction review"
+        ],
+        "summary": "Assets",
+        "operationId": "assets_api_v1_extraction_revisions__revision_id__assets_get",
+        "parameters": [
+          {
+            "name": "revision_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Revision Id"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1,
+              "title": "Page"
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 25,
+              "title": "Page Size"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PageResult_AssetResult_"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/extraction/revisions/{revision_id}/reconciliation": {
+      "get": {
+        "tags": [
+          "extraction review"
+        ],
+        "summary": "Reconciliation",
+        "operationId": "reconciliation_api_v1_extraction_revisions__revision_id__reconciliation_get",
+        "parameters": [
+          {
+            "name": "revision_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Revision Id"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1,
+              "title": "Page"
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 25,
+              "title": "Page Size"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PageResult_ReconciliationResult_"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/extraction/revisions/{revision_id}/reviews": {
+      "get": {
+        "tags": [
+          "extraction review"
+        ],
+        "summary": "Reviews",
+        "operationId": "reviews_api_v1_extraction_revisions__revision_id__reviews_get",
+        "parameters": [
+          {
+            "name": "revision_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Revision Id"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1,
+              "title": "Page"
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 25,
+              "title": "Page Size"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PageResult_ReviewResult_"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "extraction review"
+        ],
+        "summary": "Review",
+        "operationId": "review_api_v1_extraction_revisions__revision_id__reviews_post",
+        "parameters": [
+          {
+            "name": "revision_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Revision Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReviewRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReviewResult"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/extraction/revisions/{revision_id}/promote": {
+      "post": {
+        "tags": [
+          "extraction review"
+        ],
+        "summary": "Promote",
+        "operationId": "promote_api_v1_extraction_revisions__revision_id__promote_post",
+        "parameters": [
+          {
+            "name": "revision_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Revision Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PromoteRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PromoteResult"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/extraction/documents/{document_id}/pairs": {
+      "get": {
+        "tags": [
+          "extraction review"
+        ],
+        "summary": "Pairs",
+        "operationId": "pairs_api_v1_extraction_documents__document_id__pairs_get",
+        "parameters": [
+          {
+            "name": "document_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Document Id"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1,
+              "title": "Page"
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 25,
+              "title": "Page Size"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PageResult_PairResult_"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "extraction review"
+        ],
+        "summary": "Pair",
+        "operationId": "pair_api_v1_extraction_documents__document_id__pairs_post",
+        "parameters": [
+          {
+            "name": "document_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Document Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PairRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PairResult"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/extraction/pairs/{pair_id}": {
+      "delete": {
+        "tags": [
+          "extraction review"
+        ],
+        "summary": "Revoke Pair",
+        "operationId": "revoke_pair_api_v1_extraction_pairs__pair_id__delete",
+        "parameters": [
+          {
+            "name": "pair_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Pair Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PairResult"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/extraction/documents/{document_id}/pages/{page}": {
+      "get": {
+        "tags": [
+          "extraction review"
+        ],
+        "summary": "Source Page",
+        "operationId": "source_page_api_v1_extraction_documents__document_id__pages__page__get",
+        "parameters": [
+          {
+            "name": "document_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Document Id"
+            }
+          },
+          {
+            "name": "page",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Page"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              },
+              "image/png": {}
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/extraction/assets/{asset_id}/image": {
+      "get": {
+        "tags": [
+          "extraction review"
+        ],
+        "summary": "Source Asset",
+        "operationId": "source_asset_api_v1_extraction_assets__asset_id__image_get",
+        "parameters": [
+          {
+            "name": "asset_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Asset Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              },
+              "image/png": {}
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/extraction/revisions/{revision_id}/corrections": {
+      "post": {
+        "tags": [
+          "extraction review"
+        ],
+        "summary": "Correction",
+        "operationId": "correction_api_v1_extraction_revisions__revision_id__corrections_post",
+        "parameters": [
+          {
+            "name": "revision_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Revision Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CorrectionRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RevisionSummary"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/health": {
       "get": {
         "summary": "Health",
@@ -2586,6 +3508,162 @@
         ],
         "title": "ActivityItem"
       },
+      "AnswerPairingCandidate": {
+        "properties": {
+          "answer_doc_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Answer Doc Id"
+          },
+          "label_path": {
+            "type": "string",
+            "title": "Label Path"
+          },
+          "answer_text": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Answer Text"
+          },
+          "page_start": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Page Start"
+          },
+          "page_end": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Page End"
+          },
+          "block_start": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Block Start"
+          },
+          "block_end": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Block End"
+          },
+          "mcq_correct_option": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Mcq Correct Option"
+          }
+        },
+        "type": "object",
+        "required": [
+          "answer_doc_id",
+          "label_path",
+          "answer_text",
+          "page_start",
+          "page_end",
+          "block_start",
+          "block_end",
+          "mcq_correct_option"
+        ],
+        "title": "AnswerPairingCandidate"
+      },
+      "AnswerPartV1": {
+        "properties": {
+          "contract_version": {
+            "type": "string",
+            "const": "shared-study.v1",
+            "title": "Contract Version",
+            "default": "shared-study.v1"
+          },
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "question_part_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Question Part Id"
+          },
+          "sequence": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Sequence"
+          },
+          "answer_text": {
+            "type": "string",
+            "title": "Answer Text"
+          },
+          "source_spans": {
+            "items": {
+              "$ref": "#/components/schemas/SourceSpanV1"
+            },
+            "type": "array",
+            "minItems": 1,
+            "title": "Source Spans"
+          },
+          "parts": {
+            "items": {
+              "$ref": "#/components/schemas/AnswerPartV1"
+            },
+            "type": "array",
+            "title": "Parts",
+            "default": []
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "sequence",
+          "answer_text",
+          "source_spans"
+        ],
+        "title": "AnswerPartV1"
+      },
       "AppearanceExplanation": {
         "properties": {
           "appearance_id": {
@@ -2796,6 +3874,57 @@
         ],
         "title": "AppearanceItem"
       },
+      "AssetResult": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "revision_id": {
+            "type": "integer",
+            "title": "Revision Id"
+          },
+          "page": {
+            "type": "integer",
+            "title": "Page"
+          },
+          "kind": {
+            "type": "string",
+            "title": "Kind"
+          },
+          "bbox": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "number"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Bbox"
+          },
+          "concerns": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Concerns"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "revision_id",
+          "page",
+          "kind",
+          "bbox",
+          "concerns"
+        ],
+        "title": "AssetResult"
+      },
       "BackupItem": {
         "properties": {
           "name": {
@@ -2889,6 +4018,62 @@
           "created_at"
         ],
         "title": "BackupResult"
+      },
+      "BlockResult": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "revision_id": {
+            "type": "integer",
+            "title": "Revision Id"
+          },
+          "block_key": {
+            "type": "string",
+            "title": "Block Key"
+          },
+          "sequence": {
+            "type": "integer",
+            "title": "Sequence"
+          },
+          "page": {
+            "type": "integer",
+            "title": "Page"
+          },
+          "bbox": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array",
+            "title": "Bbox"
+          },
+          "raw_text": {
+            "type": "string",
+            "title": "Raw Text"
+          },
+          "normalized_text": {
+            "type": "string",
+            "title": "Normalized Text"
+          },
+          "origin": {
+            "type": "string",
+            "title": "Origin"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "revision_id",
+          "block_key",
+          "sequence",
+          "page",
+          "bbox",
+          "raw_text",
+          "normalized_text",
+          "origin"
+        ],
+        "title": "BlockResult"
       },
       "BucketMetric": {
         "properties": {
@@ -3017,6 +4202,121 @@
           "topics"
         ],
         "title": "ChapterItem"
+      },
+      "CorrectionRequest": {
+        "properties": {
+          "label_path": {
+            "type": "string",
+            "title": "Label Path"
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 10000,
+            "minLength": 1,
+            "title": "Reason"
+          },
+          "question_text": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Question Text"
+          },
+          "answer_text": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Answer Text"
+          },
+          "answer_candidate_label": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 1000,
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Answer Candidate Label"
+          },
+          "page_start": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Page Start"
+          },
+          "page_end": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Page End"
+          },
+          "block_start": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Block Start"
+          },
+          "block_end": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Block End"
+          },
+          "marks": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 100.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Marks"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "label_path",
+          "reason"
+        ],
+        "title": "CorrectionRequest"
       },
       "CoverageValue": {
         "properties": {
@@ -3924,6 +5224,42 @@
             ],
             "title": "Course Level"
           },
+          "scheme_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Scheme Id"
+          },
+          "collection_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Collection Id"
+          },
+          "paper_page_ranges": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/PaperPageRange"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Paper Page Ranges"
+          },
           "attempt_id": {
             "anyOf": [
               {
@@ -4505,6 +5841,376 @@
           "minutes"
         ],
         "title": "ExportStudySession"
+      },
+      "ExtractedQuestion": {
+        "properties": {
+          "contract_version": {
+            "type": "string",
+            "const": "shared-study.v1",
+            "title": "Contract Version",
+            "default": "shared-study.v1"
+          },
+          "question_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Question Id"
+          },
+          "content_revision": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Content Revision"
+          },
+          "paper_id": {
+            "type": "string",
+            "title": "Paper Id"
+          },
+          "source_attempt_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source Attempt Id"
+          },
+          "display_label": {
+            "type": "string",
+            "title": "Display Label"
+          },
+          "common_stem": {
+            "type": "string",
+            "title": "Common Stem"
+          },
+          "question_text": {
+            "type": "string",
+            "title": "Question Text"
+          },
+          "parts": {
+            "items": {
+              "$ref": "#/components/schemas/QuestionPartV1"
+            },
+            "type": "array",
+            "title": "Parts",
+            "default": []
+          },
+          "answers": {
+            "items": {
+              "$ref": "#/components/schemas/AnswerPartV1"
+            },
+            "type": "array",
+            "title": "Answers",
+            "default": []
+          },
+          "answer_status": {
+            "type": "string",
+            "enum": [
+              "complete",
+              "partial",
+              "missing"
+            ],
+            "title": "Answer Status"
+          },
+          "source_spans": {
+            "items": {
+              "$ref": "#/components/schemas/SourceSpanV1"
+            },
+            "type": "array",
+            "minItems": 1,
+            "title": "Source Spans"
+          },
+          "label_path": {
+            "type": "string",
+            "title": "Label Path"
+          },
+          "course_level": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Course Level"
+          },
+          "scheme_id": {
+            "type": "string",
+            "title": "Scheme Id"
+          },
+          "source_family": {
+            "type": "string",
+            "title": "Source Family"
+          },
+          "source_collection_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source Collection Id"
+          },
+          "question_status": {
+            "type": "string",
+            "enum": [
+              "complete",
+              "partial",
+              "unknown"
+            ],
+            "title": "Question Status",
+            "default": "unknown"
+          },
+          "readability_status": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "passed",
+              "concern",
+              "not_applicable"
+            ],
+            "title": "Readability Status",
+            "default": "pending"
+          },
+          "pairing_status": {
+            "type": "string",
+            "enum": [
+              "matched",
+              "missing",
+              "partial",
+              "ambiguous",
+              "not_expected"
+            ],
+            "title": "Pairing Status"
+          },
+          "review_status": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "reviewed"
+            ],
+            "title": "Review Status",
+            "default": "pending"
+          },
+          "choices": {
+            "items": {
+              "$ref": "#/components/schemas/QuestionChoice"
+            },
+            "type": "array",
+            "title": "Choices"
+          },
+          "mcq": {
+            "items": {
+              "$ref": "#/components/schemas/QuestionMCQ"
+            },
+            "type": "array",
+            "title": "Mcq"
+          },
+          "assets": {
+            "items": {
+              "$ref": "#/components/schemas/QuestionAsset"
+            },
+            "type": "array",
+            "title": "Assets"
+          },
+          "source_document_ids": {
+            "items": {
+              "type": "integer"
+            },
+            "type": "array",
+            "title": "Source Document Ids"
+          },
+          "pairing_candidates": {
+            "items": {
+              "$ref": "#/components/schemas/PartPairingCandidates"
+            },
+            "type": "array",
+            "title": "Pairing Candidates"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "question_id",
+          "content_revision",
+          "paper_id",
+          "source_attempt_id",
+          "display_label",
+          "common_stem",
+          "question_text",
+          "answer_status",
+          "source_spans",
+          "label_path",
+          "course_level",
+          "scheme_id",
+          "source_family",
+          "pairing_status"
+        ],
+        "title": "ExtractedQuestion"
+      },
+      "ExtractionDocument": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "title": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Title"
+          },
+          "sha256": {
+            "type": "string",
+            "title": "Sha256"
+          },
+          "course_level": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Course Level"
+          },
+          "scheme_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Scheme Id"
+          },
+          "paper_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Paper Id"
+          },
+          "attempt_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Attempt Id"
+          },
+          "collection_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Collection Id"
+          },
+          "doc_type_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Doc Type Id"
+          },
+          "catalog_status": {
+            "type": "string",
+            "title": "Catalog Status"
+          },
+          "extract_status": {
+            "type": "string",
+            "title": "Extract Status"
+          },
+          "page_count": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Page Count"
+          },
+          "current_revision_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Current Revision Id"
+          },
+          "paper_page_ranges": {
+            "items": {
+              "$ref": "#/components/schemas/PaperPageRange"
+            },
+            "type": "array",
+            "title": "Paper Page Ranges"
+          },
+          "metadata_evidence": {
+            "$ref": "#/components/schemas/ExtractionMetadataEvidence"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "sha256",
+          "course_level",
+          "scheme_id",
+          "paper_id",
+          "attempt_id",
+          "collection_id",
+          "doc_type_id",
+          "catalog_status",
+          "extract_status",
+          "page_count",
+          "current_revision_id"
+        ],
+        "title": "ExtractionDocument"
+      },
+      "ExtractionMetadataEvidence": {
+        "properties": {
+          "conflicts": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Conflicts"
+          }
+        },
+        "additionalProperties": true,
+        "type": "object",
+        "title": "ExtractionMetadataEvidence"
       },
       "FrequencyExplanation": {
         "properties": {
@@ -5102,6 +6808,309 @@
         ],
         "title": "NoteUpdateRequest"
       },
+      "PageResult_AssetResult_": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/AssetResult"
+            },
+            "type": "array",
+            "title": "Items"
+          },
+          "total": {
+            "type": "integer",
+            "title": "Total"
+          },
+          "page": {
+            "type": "integer",
+            "title": "Page"
+          },
+          "page_size": {
+            "type": "integer",
+            "title": "Page Size"
+          }
+        },
+        "type": "object",
+        "required": [
+          "items",
+          "total",
+          "page",
+          "page_size"
+        ],
+        "title": "PageResult[AssetResult]"
+      },
+      "PageResult_BlockResult_": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/BlockResult"
+            },
+            "type": "array",
+            "title": "Items"
+          },
+          "total": {
+            "type": "integer",
+            "title": "Total"
+          },
+          "page": {
+            "type": "integer",
+            "title": "Page"
+          },
+          "page_size": {
+            "type": "integer",
+            "title": "Page Size"
+          }
+        },
+        "type": "object",
+        "required": [
+          "items",
+          "total",
+          "page",
+          "page_size"
+        ],
+        "title": "PageResult[BlockResult]"
+      },
+      "PageResult_ExtractedQuestion_": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/ExtractedQuestion"
+            },
+            "type": "array",
+            "title": "Items"
+          },
+          "total": {
+            "type": "integer",
+            "title": "Total"
+          },
+          "page": {
+            "type": "integer",
+            "title": "Page"
+          },
+          "page_size": {
+            "type": "integer",
+            "title": "Page Size"
+          }
+        },
+        "type": "object",
+        "required": [
+          "items",
+          "total",
+          "page",
+          "page_size"
+        ],
+        "title": "PageResult[ExtractedQuestion]"
+      },
+      "PageResult_ExtractionDocument_": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/ExtractionDocument"
+            },
+            "type": "array",
+            "title": "Items"
+          },
+          "total": {
+            "type": "integer",
+            "title": "Total"
+          },
+          "page": {
+            "type": "integer",
+            "title": "Page"
+          },
+          "page_size": {
+            "type": "integer",
+            "title": "Page Size"
+          }
+        },
+        "type": "object",
+        "required": [
+          "items",
+          "total",
+          "page",
+          "page_size"
+        ],
+        "title": "PageResult[ExtractionDocument]"
+      },
+      "PageResult_PairResult_": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/PairResult"
+            },
+            "type": "array",
+            "title": "Items"
+          },
+          "total": {
+            "type": "integer",
+            "title": "Total"
+          },
+          "page": {
+            "type": "integer",
+            "title": "Page"
+          },
+          "page_size": {
+            "type": "integer",
+            "title": "Page Size"
+          }
+        },
+        "type": "object",
+        "required": [
+          "items",
+          "total",
+          "page",
+          "page_size"
+        ],
+        "title": "PageResult[PairResult]"
+      },
+      "PageResult_ReconciliationResult_": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/ReconciliationResult"
+            },
+            "type": "array",
+            "title": "Items"
+          },
+          "total": {
+            "type": "integer",
+            "title": "Total"
+          },
+          "page": {
+            "type": "integer",
+            "title": "Page"
+          },
+          "page_size": {
+            "type": "integer",
+            "title": "Page Size"
+          }
+        },
+        "type": "object",
+        "required": [
+          "items",
+          "total",
+          "page",
+          "page_size"
+        ],
+        "title": "PageResult[ReconciliationResult]"
+      },
+      "PageResult_ReviewResult_": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/ReviewResult"
+            },
+            "type": "array",
+            "title": "Items"
+          },
+          "total": {
+            "type": "integer",
+            "title": "Total"
+          },
+          "page": {
+            "type": "integer",
+            "title": "Page"
+          },
+          "page_size": {
+            "type": "integer",
+            "title": "Page Size"
+          }
+        },
+        "type": "object",
+        "required": [
+          "items",
+          "total",
+          "page",
+          "page_size"
+        ],
+        "title": "PageResult[ReviewResult]"
+      },
+      "PageResult_RevisionSummary_": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/RevisionSummary"
+            },
+            "type": "array",
+            "title": "Items"
+          },
+          "total": {
+            "type": "integer",
+            "title": "Total"
+          },
+          "page": {
+            "type": "integer",
+            "title": "Page"
+          },
+          "page_size": {
+            "type": "integer",
+            "title": "Page Size"
+          }
+        },
+        "type": "object",
+        "required": [
+          "items",
+          "total",
+          "page",
+          "page_size"
+        ],
+        "title": "PageResult[RevisionSummary]"
+      },
+      "PairRequest": {
+        "properties": {
+          "answer_document_id": {
+            "type": "integer",
+            "title": "Answer Document Id"
+          },
+          "evidence": {
+            "type": "string",
+            "maxLength": 10000,
+            "minLength": 1,
+            "title": "Evidence"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "answer_document_id",
+          "evidence"
+        ],
+        "title": "PairRequest"
+      },
+      "PairResult": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "question_document_id": {
+            "type": "integer",
+            "title": "Question Document Id"
+          },
+          "answer_document_id": {
+            "type": "integer",
+            "title": "Answer Document Id"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "evidence": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Evidence"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "question_document_id",
+          "answer_document_id",
+          "status",
+          "evidence"
+        ],
+        "title": "PairResult"
+      },
       "PaperCoverage": {
         "properties": {
           "coverage_pct": {
@@ -5138,6 +7147,33 @@
           "code"
         ],
         "title": "PaperCoverage"
+      },
+      "PaperPageRange": {
+        "properties": {
+          "paper_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Paper Id"
+          },
+          "page_start": {
+            "type": "integer",
+            "minimum": 1.0,
+            "title": "Page Start"
+          },
+          "page_end": {
+            "type": "integer",
+            "minimum": 1.0,
+            "title": "Page End"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "paper_id",
+          "page_start",
+          "page_end"
+        ],
+        "title": "PaperPageRange"
       },
       "PaperReference": {
         "properties": {
@@ -5294,6 +7330,43 @@
           "chapters"
         ],
         "title": "PaperTree"
+      },
+      "PartPairingCandidates": {
+        "properties": {
+          "part_id": {
+            "type": "string",
+            "title": "Part Id"
+          },
+          "label_path": {
+            "type": "string",
+            "title": "Label Path"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "matched",
+              "missing",
+              "partial",
+              "ambiguous"
+            ],
+            "title": "Status"
+          },
+          "candidates": {
+            "items": {
+              "$ref": "#/components/schemas/AnswerPairingCandidate"
+            },
+            "type": "array",
+            "title": "Candidates"
+          }
+        },
+        "type": "object",
+        "required": [
+          "part_id",
+          "label_path",
+          "status",
+          "candidates"
+        ],
+        "title": "PartPairingCandidates"
       },
       "PlanItem": {
         "properties": {
@@ -5809,6 +7882,256 @@
         ],
         "title": "ProgressUpdateRequest"
       },
+      "PromoteRequest": {
+        "properties": {
+          "expected_current_revision_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Expected Current Revision Id"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "expected_current_revision_id"
+        ],
+        "title": "PromoteRequest"
+      },
+      "PromoteResult": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "document_id": {
+            "type": "integer",
+            "title": "Document Id"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "current_revision_id": {
+            "type": "integer",
+            "title": "Current Revision Id"
+          },
+          "units": {
+            "type": "integer",
+            "title": "Units"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "document_id",
+          "status",
+          "current_revision_id",
+          "units"
+        ],
+        "title": "PromoteResult"
+      },
+      "QuestionAsset": {
+        "properties": {
+          "document_id": {
+            "type": "integer",
+            "title": "Document Id"
+          },
+          "page": {
+            "type": "integer",
+            "title": "Page"
+          },
+          "kind": {
+            "type": "string",
+            "title": "Kind"
+          },
+          "bbox": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "number"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Bbox"
+          },
+          "concerns": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Concerns"
+          }
+        },
+        "type": "object",
+        "required": [
+          "document_id",
+          "page",
+          "kind",
+          "concerns"
+        ],
+        "title": "QuestionAsset"
+      },
+      "QuestionChoice": {
+        "properties": {
+          "label": {
+            "type": "string",
+            "title": "Label"
+          },
+          "role": {
+            "type": "string",
+            "title": "Role"
+          },
+          "or_group": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Or Group"
+          },
+          "marks": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Marks"
+          }
+        },
+        "type": "object",
+        "required": [
+          "label",
+          "role",
+          "or_group",
+          "marks"
+        ],
+        "title": "QuestionChoice"
+      },
+      "QuestionMCQ": {
+        "properties": {
+          "part_id": {
+            "type": "string",
+            "title": "Part Id"
+          },
+          "options": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Options"
+          },
+          "key": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Key"
+          }
+        },
+        "type": "object",
+        "required": [
+          "part_id",
+          "options",
+          "key"
+        ],
+        "title": "QuestionMCQ"
+      },
+      "QuestionPartV1": {
+        "properties": {
+          "contract_version": {
+            "type": "string",
+            "const": "shared-study.v1",
+            "title": "Contract Version",
+            "default": "shared-study.v1"
+          },
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "label": {
+            "type": "string",
+            "title": "Label"
+          },
+          "label_path": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Label Path"
+          },
+          "sequence": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Sequence"
+          },
+          "question_text": {
+            "type": "string",
+            "title": "Question Text"
+          },
+          "marks": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Marks"
+          },
+          "source_spans": {
+            "items": {
+              "$ref": "#/components/schemas/SourceSpanV1"
+            },
+            "type": "array",
+            "minItems": 1,
+            "title": "Source Spans"
+          },
+          "parts": {
+            "items": {
+              "$ref": "#/components/schemas/QuestionPartV1"
+            },
+            "type": "array",
+            "title": "Parts",
+            "default": []
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "label",
+          "sequence",
+          "question_text",
+          "source_spans"
+        ],
+        "title": "QuestionPartV1"
+      },
       "RecomputeResult": {
         "properties": {
           "run_id": {
@@ -5841,6 +8164,59 @@
           "is_current"
         ],
         "title": "RecomputeResult"
+      },
+      "ReconciliationResult": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "revision_id": {
+            "type": "integer",
+            "title": "Revision Id"
+          },
+          "old_unit_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Old Unit Id"
+          },
+          "new_label": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "New Label"
+          },
+          "relation": {
+            "type": "string",
+            "title": "Relation"
+          },
+          "evidence": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Evidence"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "revision_id",
+          "old_unit_id",
+          "new_label",
+          "relation",
+          "evidence"
+        ],
+        "title": "ReconciliationResult"
       },
       "ReleaseActivation": {
         "properties": {
@@ -5931,6 +8307,169 @@
           "activated_at"
         ],
         "title": "ReleaseSummary"
+      },
+      "ReviewRequest": {
+        "properties": {
+          "dimension": {
+            "type": "string",
+            "enum": [
+              "metadata",
+              "questions",
+              "answers",
+              "pairing",
+              "ordering",
+              "marks_choices",
+              "readability",
+              "human_review"
+            ],
+            "title": "Dimension"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "passed",
+              "concern",
+              "not_applicable"
+            ],
+            "title": "Status"
+          },
+          "note": {
+            "type": "string",
+            "maxLength": 10000,
+            "minLength": 1,
+            "title": "Note"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "dimension",
+          "status",
+          "note"
+        ],
+        "title": "ReviewRequest"
+      },
+      "ReviewResult": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "revision_id": {
+            "type": "integer",
+            "title": "Revision Id"
+          },
+          "actor_id": {
+            "type": "integer",
+            "title": "Actor Id"
+          },
+          "content_digest": {
+            "type": "string",
+            "title": "Content Digest"
+          },
+          "dimension": {
+            "type": "string",
+            "title": "Dimension"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "note": {
+            "type": "string",
+            "title": "Note"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "revision_id",
+          "actor_id",
+          "content_digest",
+          "dimension",
+          "status",
+          "note"
+        ],
+        "title": "ReviewResult"
+      },
+      "RevisionDetail": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "document_id": {
+            "type": "integer",
+            "title": "Document Id"
+          },
+          "base_revision_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Base Revision Id"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "content_digest": {
+            "type": "string",
+            "title": "Content Digest"
+          },
+          "profile_id": {
+            "type": "string",
+            "title": "Profile Id"
+          },
+          "quality": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Quality"
+          },
+          "created_at": {
+            "type": "string",
+            "title": "Created At"
+          },
+          "configuration": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Configuration"
+          },
+          "questions": {
+            "items": {
+              "$ref": "#/components/schemas/ExtractedQuestion"
+            },
+            "type": "array",
+            "title": "Questions"
+          },
+          "source_documents": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Source Documents"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "document_id",
+          "base_revision_id",
+          "status",
+          "content_digest",
+          "profile_id",
+          "quality",
+          "created_at",
+          "configuration",
+          "questions"
+        ],
+        "title": "RevisionDetail"
       },
       "RevisionItem": {
         "properties": {
@@ -6096,6 +8635,62 @@
           "last_revised_at"
         ],
         "title": "RevisionResult"
+      },
+      "RevisionSummary": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "document_id": {
+            "type": "integer",
+            "title": "Document Id"
+          },
+          "base_revision_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Base Revision Id"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "content_digest": {
+            "type": "string",
+            "title": "Content Digest"
+          },
+          "profile_id": {
+            "type": "string",
+            "title": "Profile Id"
+          },
+          "quality": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Quality"
+          },
+          "created_at": {
+            "type": "string",
+            "title": "Created At"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "document_id",
+          "base_revision_id",
+          "status",
+          "content_digest",
+          "profile_id",
+          "quality",
+          "created_at"
+        ],
+        "title": "RevisionSummary"
       },
       "ScoreExplanation": {
         "properties": {
@@ -6293,6 +8888,72 @@
           "pdf_page_end"
         ],
         "title": "SourceSpan"
+      },
+      "SourceSpanV1": {
+        "properties": {
+          "contract_version": {
+            "type": "string",
+            "const": "shared-study.v1",
+            "title": "Contract Version",
+            "default": "shared-study.v1"
+          },
+          "document_sha256": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Document Sha256"
+          },
+          "page_start": {
+            "type": "integer",
+            "minimum": 1.0,
+            "title": "Page Start"
+          },
+          "page_end": {
+            "type": "integer",
+            "minimum": 1.0,
+            "title": "Page End"
+          },
+          "block_start": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Block Start"
+          },
+          "block_end": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Block End"
+          },
+          "official_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Official Url"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "document_sha256",
+          "page_start",
+          "page_end"
+        ],
+        "title": "SourceSpanV1"
       },
       "StudyPlan": {
         "properties": {

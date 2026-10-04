@@ -876,6 +876,246 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/extraction/documents": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Documents */
+        get: operations["documents_api_v1_extraction_documents_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/extraction/documents/{document_id}/revisions": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Revisions */
+        get: operations["revisions_api_v1_extraction_documents__document_id__revisions_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/extraction/revisions/{revision_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Revision Detail */
+        get: operations["revision_detail_api_v1_extraction_revisions__revision_id__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/extraction/revisions/{revision_id}/questions": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Questions */
+        get: operations["questions_api_v1_extraction_revisions__revision_id__questions_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/extraction/revisions/{revision_id}/blocks": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Blocks */
+        get: operations["blocks_api_v1_extraction_revisions__revision_id__blocks_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/extraction/revisions/{revision_id}/assets": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Assets */
+        get: operations["assets_api_v1_extraction_revisions__revision_id__assets_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/extraction/revisions/{revision_id}/reconciliation": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Reconciliation */
+        get: operations["reconciliation_api_v1_extraction_revisions__revision_id__reconciliation_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/extraction/revisions/{revision_id}/reviews": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Reviews */
+        get: operations["reviews_api_v1_extraction_revisions__revision_id__reviews_get"];
+        put?: never;
+        /** Review */
+        post: operations["review_api_v1_extraction_revisions__revision_id__reviews_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/extraction/revisions/{revision_id}/promote": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Promote */
+        post: operations["promote_api_v1_extraction_revisions__revision_id__promote_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/extraction/documents/{document_id}/pairs": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Pairs */
+        get: operations["pairs_api_v1_extraction_documents__document_id__pairs_get"];
+        put?: never;
+        /** Pair */
+        post: operations["pair_api_v1_extraction_documents__document_id__pairs_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/extraction/pairs/{pair_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        /** Revoke Pair */
+        delete: operations["revoke_pair_api_v1_extraction_pairs__pair_id__delete"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/extraction/documents/{document_id}/pages/{page}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Source Page */
+        get: operations["source_page_api_v1_extraction_documents__document_id__pages__page__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/extraction/assets/{asset_id}/image": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Source Asset */
+        get: operations["source_asset_api_v1_extraction_assets__asset_id__image_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/extraction/revisions/{revision_id}/corrections": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Correction */
+        post: operations["correction_api_v1_extraction_revisions__revision_id__corrections_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/health": {
         parameters: {
             query?: never;
@@ -986,6 +1226,49 @@ export interface components {
              */
             at: string;
         };
+        /** AnswerPairingCandidate */
+        AnswerPairingCandidate: {
+            /** Answer Doc Id */
+            answer_doc_id: number | null;
+            /** Label Path */
+            label_path: string;
+            /** Answer Text */
+            answer_text: string | null;
+            /** Page Start */
+            page_start: number | null;
+            /** Page End */
+            page_end: number | null;
+            /** Block Start */
+            block_start: string | null;
+            /** Block End */
+            block_end: string | null;
+            /** Mcq Correct Option */
+            mcq_correct_option: string | null;
+        };
+        /** AnswerPartV1 */
+        AnswerPartV1: {
+            /**
+             * Contract Version
+             * @default shared-study.v1
+             * @constant
+             */
+            contract_version: "shared-study.v1";
+            /** Id */
+            id: string;
+            /** Question Part Id */
+            question_part_id?: string | null;
+            /** Sequence */
+            sequence: number;
+            /** Answer Text */
+            answer_text: string;
+            /** Source Spans */
+            source_spans: components["schemas"]["SourceSpanV1"][];
+            /**
+             * Parts
+             * @default []
+             */
+            parts: components["schemas"]["AnswerPartV1"][];
+        };
         /** AppearanceExplanation */
         AppearanceExplanation: {
             /** Appearance Id */
@@ -1050,6 +1333,21 @@ export interface components {
             /** Law Stale */
             law_stale: boolean;
         };
+        /** AssetResult */
+        AssetResult: {
+            /** Id */
+            id: number;
+            /** Revision Id */
+            revision_id: number;
+            /** Page */
+            page: number;
+            /** Kind */
+            kind: string;
+            /** Bbox */
+            bbox: number[] | null;
+            /** Concerns */
+            concerns: string[];
+        };
         /** BackupItem */
         BackupItem: {
             /** Name */
@@ -1091,6 +1389,27 @@ export interface components {
              */
             created_at: string;
         };
+        /** BlockResult */
+        BlockResult: {
+            /** Id */
+            id: number;
+            /** Revision Id */
+            revision_id: number;
+            /** Block Key */
+            block_key: string;
+            /** Sequence */
+            sequence: number;
+            /** Page */
+            page: number;
+            /** Bbox */
+            bbox: number[];
+            /** Raw Text */
+            raw_text: string;
+            /** Normalized Text */
+            normalized_text: string;
+            /** Origin */
+            origin: string;
+        };
         /** BucketMetric */
         BucketMetric: {
             /** Bucket */
@@ -1131,6 +1450,29 @@ export interface components {
             progress_pct: number;
             /** Topics */
             topics: components["schemas"]["TopicItem"][];
+        };
+        /** CorrectionRequest */
+        CorrectionRequest: {
+            /** Label Path */
+            label_path: string;
+            /** Reason */
+            reason: string;
+            /** Question Text */
+            question_text?: string | null;
+            /** Answer Text */
+            answer_text?: string | null;
+            /** Answer Candidate Label */
+            answer_candidate_label?: string | null;
+            /** Page Start */
+            page_start?: number | null;
+            /** Page End */
+            page_end?: number | null;
+            /** Block Start */
+            block_start?: string | null;
+            /** Block End */
+            block_end?: string | null;
+            /** Marks */
+            marks?: number | null;
         };
         /** CoverageValue */
         CoverageValue: {
@@ -1376,6 +1718,12 @@ export interface components {
         DocumentConfirmRequest: {
             /** Course Level */
             course_level?: ("foundation" | "intermediate" | "final") | null;
+            /** Scheme Id */
+            scheme_id?: string | null;
+            /** Collection Id */
+            collection_id?: string | null;
+            /** Paper Page Ranges */
+            paper_page_ranges?: components["schemas"]["PaperPageRange"][] | null;
             /** Attempt Id */
             attempt_id?: string | null;
             /** Paper Id */
@@ -1544,6 +1892,130 @@ export interface components {
             ended_at: string | null;
             /** Minutes */
             minutes: number | null;
+        };
+        /** ExtractedQuestion */
+        ExtractedQuestion: {
+            /**
+             * Contract Version
+             * @default shared-study.v1
+             * @constant
+             */
+            contract_version: "shared-study.v1";
+            /** Question Id */
+            question_id: string;
+            /** Content Revision */
+            content_revision: string;
+            /** Paper Id */
+            paper_id: string;
+            /** Source Attempt Id */
+            source_attempt_id: string | null;
+            /** Display Label */
+            display_label: string;
+            /** Common Stem */
+            common_stem: string;
+            /** Question Text */
+            question_text: string;
+            /**
+             * Parts
+             * @default []
+             */
+            parts: components["schemas"]["QuestionPartV1"][];
+            /**
+             * Answers
+             * @default []
+             */
+            answers: components["schemas"]["AnswerPartV1"][];
+            /**
+             * Answer Status
+             * @enum {string}
+             */
+            answer_status: "complete" | "partial" | "missing";
+            /** Source Spans */
+            source_spans: components["schemas"]["SourceSpanV1"][];
+            /** Label Path */
+            label_path: string;
+            /** Course Level */
+            course_level: string | null;
+            /** Scheme Id */
+            scheme_id: string;
+            /** Source Family */
+            source_family: string;
+            /** Source Collection Id */
+            source_collection_id?: string | null;
+            /**
+             * Question Status
+             * @default unknown
+             * @enum {string}
+             */
+            question_status: "complete" | "partial" | "unknown";
+            /**
+             * Readability Status
+             * @default pending
+             * @enum {string}
+             */
+            readability_status: "pending" | "passed" | "concern" | "not_applicable";
+            /**
+             * Pairing Status
+             * @enum {string}
+             */
+            pairing_status: "matched" | "missing" | "partial" | "ambiguous" | "not_expected";
+            /**
+             * Review Status
+             * @default pending
+             * @enum {string}
+             */
+            review_status: "pending" | "reviewed";
+            /** Choices */
+            choices?: components["schemas"]["QuestionChoice"][];
+            /** Mcq */
+            mcq?: components["schemas"]["QuestionMCQ"][];
+            /** Assets */
+            assets?: components["schemas"]["QuestionAsset"][];
+            /** Source Document Ids */
+            source_document_ids?: number[];
+            /** Pairing Candidates */
+            pairing_candidates?: components["schemas"]["PartPairingCandidates"][];
+        };
+        /** ExtractionDocument */
+        ExtractionDocument: {
+            /** Id */
+            id: number;
+            /** Title */
+            title: string | null;
+            /** Sha256 */
+            sha256: string;
+            /** Course Level */
+            course_level: string | null;
+            /** Scheme Id */
+            scheme_id: string | null;
+            /** Paper Id */
+            paper_id: string | null;
+            /** Attempt Id */
+            attempt_id: string | null;
+            /** Collection Id */
+            collection_id: string | null;
+            /** Doc Type Id */
+            doc_type_id: string | null;
+            /** Catalog Status */
+            catalog_status: string;
+            /** Extract Status */
+            extract_status: string;
+            /** Page Count */
+            page_count: number | null;
+            /** Current Revision Id */
+            current_revision_id: number | null;
+            /** Paper Page Ranges */
+            paper_page_ranges?: components["schemas"]["PaperPageRange"][];
+            metadata_evidence?: components["schemas"]["ExtractionMetadataEvidence"];
+        };
+        /** ExtractionMetadataEvidence */
+        ExtractionMetadataEvidence: {
+            /** Conflicts */
+            conflicts?: {
+                [key: string]: unknown;
+            }[];
+        } & {
+            [key: string]: unknown;
         };
         /** FrequencyExplanation */
         FrequencyExplanation: {
@@ -1733,6 +2205,116 @@ export interface components {
             /** Notes */
             notes: string;
         };
+        /** PageResult[AssetResult] */
+        PageResult_AssetResult_: {
+            /** Items */
+            items: components["schemas"]["AssetResult"][];
+            /** Total */
+            total: number;
+            /** Page */
+            page: number;
+            /** Page Size */
+            page_size: number;
+        };
+        /** PageResult[BlockResult] */
+        PageResult_BlockResult_: {
+            /** Items */
+            items: components["schemas"]["BlockResult"][];
+            /** Total */
+            total: number;
+            /** Page */
+            page: number;
+            /** Page Size */
+            page_size: number;
+        };
+        /** PageResult[ExtractedQuestion] */
+        PageResult_ExtractedQuestion_: {
+            /** Items */
+            items: components["schemas"]["ExtractedQuestion"][];
+            /** Total */
+            total: number;
+            /** Page */
+            page: number;
+            /** Page Size */
+            page_size: number;
+        };
+        /** PageResult[ExtractionDocument] */
+        PageResult_ExtractionDocument_: {
+            /** Items */
+            items: components["schemas"]["ExtractionDocument"][];
+            /** Total */
+            total: number;
+            /** Page */
+            page: number;
+            /** Page Size */
+            page_size: number;
+        };
+        /** PageResult[PairResult] */
+        PageResult_PairResult_: {
+            /** Items */
+            items: components["schemas"]["PairResult"][];
+            /** Total */
+            total: number;
+            /** Page */
+            page: number;
+            /** Page Size */
+            page_size: number;
+        };
+        /** PageResult[ReconciliationResult] */
+        PageResult_ReconciliationResult_: {
+            /** Items */
+            items: components["schemas"]["ReconciliationResult"][];
+            /** Total */
+            total: number;
+            /** Page */
+            page: number;
+            /** Page Size */
+            page_size: number;
+        };
+        /** PageResult[ReviewResult] */
+        PageResult_ReviewResult_: {
+            /** Items */
+            items: components["schemas"]["ReviewResult"][];
+            /** Total */
+            total: number;
+            /** Page */
+            page: number;
+            /** Page Size */
+            page_size: number;
+        };
+        /** PageResult[RevisionSummary] */
+        PageResult_RevisionSummary_: {
+            /** Items */
+            items: components["schemas"]["RevisionSummary"][];
+            /** Total */
+            total: number;
+            /** Page */
+            page: number;
+            /** Page Size */
+            page_size: number;
+        };
+        /** PairRequest */
+        PairRequest: {
+            /** Answer Document Id */
+            answer_document_id: number;
+            /** Evidence */
+            evidence: string;
+        };
+        /** PairResult */
+        PairResult: {
+            /** Id */
+            id: number;
+            /** Question Document Id */
+            question_document_id: number;
+            /** Answer Document Id */
+            answer_document_id: number;
+            /** Status */
+            status: string;
+            /** Evidence */
+            evidence: {
+                [key: string]: unknown;
+            };
+        };
         /** PaperCoverage */
         PaperCoverage: {
             /** Coverage Pct */
@@ -1741,6 +2323,15 @@ export interface components {
             in_progress_pct: number | null;
             /** Code */
             code: string;
+        };
+        /** PaperPageRange */
+        PaperPageRange: {
+            /** Paper Id */
+            paper_id: string;
+            /** Page Start */
+            page_start: number;
+            /** Page End */
+            page_end: number;
         };
         /** PaperReference */
         PaperReference: {
@@ -1790,6 +2381,20 @@ export interface components {
             taxonomy_version_id?: number | null;
             /** Hierarchy */
             hierarchy?: components["schemas"]["TaxonomyTreeNode"][];
+        };
+        /** PartPairingCandidates */
+        PartPairingCandidates: {
+            /** Part Id */
+            part_id: string;
+            /** Label Path */
+            label_path: string;
+            /**
+             * Status
+             * @enum {string}
+             */
+            status: "matched" | "missing" | "partial" | "ambiguous";
+            /** Candidates */
+            candidates: components["schemas"]["AnswerPairingCandidate"][];
         };
         /** PlanItem */
         PlanItem: {
@@ -1966,6 +2571,85 @@ export interface components {
              */
             status: "not_started" | "in_progress" | "done";
         };
+        /** PromoteRequest */
+        PromoteRequest: {
+            /** Expected Current Revision Id */
+            expected_current_revision_id: number | null;
+        };
+        /** PromoteResult */
+        PromoteResult: {
+            /** Id */
+            id: number;
+            /** Document Id */
+            document_id: number;
+            /** Status */
+            status: string;
+            /** Current Revision Id */
+            current_revision_id: number;
+            /** Units */
+            units: number;
+        };
+        /** QuestionAsset */
+        QuestionAsset: {
+            /** Document Id */
+            document_id: number;
+            /** Page */
+            page: number;
+            /** Kind */
+            kind: string;
+            /** Bbox */
+            bbox?: number[] | null;
+            /** Concerns */
+            concerns: string[];
+        };
+        /** QuestionChoice */
+        QuestionChoice: {
+            /** Label */
+            label: string;
+            /** Role */
+            role: string;
+            /** Or Group */
+            or_group: string | null;
+            /** Marks */
+            marks: number | null;
+        };
+        /** QuestionMCQ */
+        QuestionMCQ: {
+            /** Part Id */
+            part_id: string;
+            /** Options */
+            options: string[];
+            /** Key */
+            key: string | null;
+        };
+        /** QuestionPartV1 */
+        QuestionPartV1: {
+            /**
+             * Contract Version
+             * @default shared-study.v1
+             * @constant
+             */
+            contract_version: "shared-study.v1";
+            /** Id */
+            id: string;
+            /** Label */
+            label: string;
+            /** Label Path */
+            label_path?: string | null;
+            /** Sequence */
+            sequence: number;
+            /** Question Text */
+            question_text: string;
+            /** Marks */
+            marks?: number | null;
+            /** Source Spans */
+            source_spans: components["schemas"]["SourceSpanV1"][];
+            /**
+             * Parts
+             * @default []
+             */
+            parts: components["schemas"]["QuestionPartV1"][];
+        };
         /** RecomputeResult */
         RecomputeResult: {
             /** Run Id */
@@ -1978,6 +2662,23 @@ export interface components {
             scoring_version: string;
             /** Is Current */
             is_current: boolean;
+        };
+        /** ReconciliationResult */
+        ReconciliationResult: {
+            /** Id */
+            id: number;
+            /** Revision Id */
+            revision_id: number;
+            /** Old Unit Id */
+            old_unit_id: number | null;
+            /** New Label */
+            new_label: string | null;
+            /** Relation */
+            relation: string;
+            /** Evidence */
+            evidence: {
+                [key: string]: unknown;
+            };
         };
         /** ReleaseActivation */
         ReleaseActivation: {
@@ -2010,6 +2711,69 @@ export interface components {
             approved_by: number | null;
             /** Activated At */
             activated_at: string | null;
+        };
+        /** ReviewRequest */
+        ReviewRequest: {
+            /**
+             * Dimension
+             * @enum {string}
+             */
+            dimension: "metadata" | "questions" | "answers" | "pairing" | "ordering" | "marks_choices" | "readability" | "human_review";
+            /**
+             * Status
+             * @enum {string}
+             */
+            status: "pending" | "passed" | "concern" | "not_applicable";
+            /** Note */
+            note: string;
+        };
+        /** ReviewResult */
+        ReviewResult: {
+            /** Id */
+            id: number;
+            /** Revision Id */
+            revision_id: number;
+            /** Actor Id */
+            actor_id: number;
+            /** Content Digest */
+            content_digest: string;
+            /** Dimension */
+            dimension: string;
+            /** Status */
+            status: string;
+            /** Note */
+            note: string;
+        };
+        /** RevisionDetail */
+        RevisionDetail: {
+            /** Id */
+            id: number;
+            /** Document Id */
+            document_id: number;
+            /** Base Revision Id */
+            base_revision_id: number | null;
+            /** Status */
+            status: string;
+            /** Content Digest */
+            content_digest: string;
+            /** Profile Id */
+            profile_id: string;
+            /** Quality */
+            quality: {
+                [key: string]: unknown;
+            };
+            /** Created At */
+            created_at: string;
+            /** Configuration */
+            configuration: {
+                [key: string]: unknown;
+            };
+            /** Questions */
+            questions: components["schemas"]["ExtractedQuestion"][];
+            /** Source Documents */
+            source_documents?: {
+                [key: string]: unknown;
+            }[];
         };
         /** RevisionItem */
         RevisionItem: {
@@ -2076,6 +2840,27 @@ export interface components {
              */
             last_revised_at: string;
         };
+        /** RevisionSummary */
+        RevisionSummary: {
+            /** Id */
+            id: number;
+            /** Document Id */
+            document_id: number;
+            /** Base Revision Id */
+            base_revision_id: number | null;
+            /** Status */
+            status: string;
+            /** Content Digest */
+            content_digest: string;
+            /** Profile Id */
+            profile_id: string;
+            /** Quality */
+            quality: {
+                [key: string]: unknown;
+            };
+            /** Created At */
+            created_at: string;
+        };
         /** ScoreExplanation */
         ScoreExplanation: {
             /** Node Id */
@@ -2129,6 +2914,27 @@ export interface components {
              * @enum {string}
              */
             review_status: "pending" | "reviewed";
+        };
+        /** SourceSpanV1 */
+        SourceSpanV1: {
+            /**
+             * Contract Version
+             * @default shared-study.v1
+             * @constant
+             */
+            contract_version: "shared-study.v1";
+            /** Document Sha256 */
+            document_sha256: string;
+            /** Page Start */
+            page_start: number;
+            /** Page End */
+            page_end: number;
+            /** Block Start */
+            block_start?: string | null;
+            /** Block End */
+            block_end?: string | null;
+            /** Official Url */
+            official_url?: string | null;
         };
         /** StudyPlan */
         StudyPlan: {
@@ -3991,6 +4797,545 @@ export interface operations {
                     "application/json": {
                         [key: string]: unknown;
                     };
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    documents_api_v1_extraction_documents_get: {
+        parameters: {
+            query?: {
+                page?: number;
+                page_size?: number;
+                paper_id?: string | null;
+                attempt_id?: string | null;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PageResult_ExtractionDocument_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    revisions_api_v1_extraction_documents__document_id__revisions_get: {
+        parameters: {
+            query?: {
+                page?: number;
+                page_size?: number;
+            };
+            header?: never;
+            path: {
+                document_id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PageResult_RevisionSummary_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    revision_detail_api_v1_extraction_revisions__revision_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                revision_id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RevisionDetail"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    questions_api_v1_extraction_revisions__revision_id__questions_get: {
+        parameters: {
+            query?: {
+                page?: number;
+                page_size?: number;
+            };
+            header?: never;
+            path: {
+                revision_id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PageResult_ExtractedQuestion_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    blocks_api_v1_extraction_revisions__revision_id__blocks_get: {
+        parameters: {
+            query?: {
+                page?: number;
+                page_size?: number;
+            };
+            header?: never;
+            path: {
+                revision_id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PageResult_BlockResult_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    assets_api_v1_extraction_revisions__revision_id__assets_get: {
+        parameters: {
+            query?: {
+                page?: number;
+                page_size?: number;
+            };
+            header?: never;
+            path: {
+                revision_id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PageResult_AssetResult_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    reconciliation_api_v1_extraction_revisions__revision_id__reconciliation_get: {
+        parameters: {
+            query?: {
+                page?: number;
+                page_size?: number;
+            };
+            header?: never;
+            path: {
+                revision_id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PageResult_ReconciliationResult_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    reviews_api_v1_extraction_revisions__revision_id__reviews_get: {
+        parameters: {
+            query?: {
+                page?: number;
+                page_size?: number;
+            };
+            header?: never;
+            path: {
+                revision_id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PageResult_ReviewResult_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    review_api_v1_extraction_revisions__revision_id__reviews_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                revision_id: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ReviewRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ReviewResult"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    promote_api_v1_extraction_revisions__revision_id__promote_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                revision_id: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PromoteRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PromoteResult"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    pairs_api_v1_extraction_documents__document_id__pairs_get: {
+        parameters: {
+            query?: {
+                page?: number;
+                page_size?: number;
+            };
+            header?: never;
+            path: {
+                document_id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PageResult_PairResult_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    pair_api_v1_extraction_documents__document_id__pairs_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                document_id: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PairRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PairResult"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    revoke_pair_api_v1_extraction_pairs__pair_id__delete: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                pair_id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PairResult"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    source_page_api_v1_extraction_documents__document_id__pages__page__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                document_id: number;
+                page: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                    "image/png": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    source_asset_api_v1_extraction_assets__asset_id__image_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                asset_id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                    "image/png": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    correction_api_v1_extraction_revisions__revision_id__corrections_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                revision_id: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["CorrectionRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RevisionSummary"];
                 };
             };
             /** @description Validation Error */

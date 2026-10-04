@@ -13,6 +13,7 @@ import { Catalogue } from "./pages/Catalogue";
 import { Taxonomy } from "./pages/Taxonomy";
 import { TextbookExplorer } from "../../student/src/components/TextbookExplorer";
 import { TaxonomyRelease } from "./pages/TaxonomyRelease";
+import { Extraction } from "./pages/Extraction";
 import { System } from "./pages/System";
 import { Diagnostics } from "./components/Diagnostics";
 import { RouteBoundary } from "./components/RouteBoundary";
@@ -31,11 +32,12 @@ function CuratorLayout({ children }: { children: React.ReactNode }) {
     { to: "/queue", label: "Review Queue", icon: ListFilter },
     { to: "/bulk", label: "Bulk Accept", icon: CheckCheck },
     { to: "/documents", label: "Catalogue", icon: FolderOpen },
+    { to: "/extraction", label: "Extraction Review", icon: FileCheck },
     { to: "/taxonomy", label: "Taxonomy", icon: Network },
     { to: "/textbooks", label: "Textbook Taxonomy", icon: Network },
     { to: "/taxonomy-release", label: "Source & Release Review", icon: FileCheck },
     { to: "/system", label: "System Health", icon: Activity },
-  ].filter(item => admin || ["/queue", "/taxonomy", "/textbooks"].includes(item.to));
+  ].filter(item => admin || ["/queue", "/taxonomy", "/textbooks", "/extraction"].includes(item.to));
 
   return (
     <div className="min-h-screen flex bg-[#0F172A] text-[#F8FAFC]">
@@ -117,6 +119,7 @@ export function App() {
             <Route path="/queue" element={<Queue />} />
             <Route path="/bulk" element={<AdminOnly><BulkAccept /></AdminOnly>} />
             <Route path="/documents" element={<AdminOnly><Catalogue /></AdminOnly>} />
+            <Route path="/extraction" element={<Extraction />} />
             <Route path="/taxonomy" element={<Taxonomy />} />
             <Route path="/textbooks" element={<TextbookExplorer curator />} />
             <Route path="/taxonomy-release" element={<AdminOnly><TaxonomyRelease /></AdminOnly>} />

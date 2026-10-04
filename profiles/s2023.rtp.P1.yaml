@@ -1,0 +1,64 @@
+id: s2023.rtp.P1.v1
+applies_to:
+  scheme: s2023
+  doc_type: rtp
+paper_max: null
+patterns:
+  question_start:
+  - re: ^\s*(?P<n>\d{1,2})\.(?:\s+|$)
+    max_x: 130
+  part_start:
+  - re: ^\s*\((?P<p>[a-hA-H])\)\s*
+  subpart_start:
+  - re: ^\s*\((?P<s>i{1,3}|iv|v|vi{0,3}|ix|x)\)\s*
+  marks:
+  - re: \((?P<m>\d{1,2})\s*Marks?\)
+  - re: (?P<m>\d{1,2})\s*Marks?\s*$
+  answer_start:
+  - re: ^\s*(?:SUGGESTED\s+ANSWERS?|ANSWERS?|Answer\s+to\s+Question\s+No\.?)\b
+    require_bold: false
+  or_separator:
+  - re: ^\s*OR\s*$
+    require_bold: false
+  case_scenario_start:
+  - re: ^\s*CASE\s+SCENARIO\s*[-–]?\s*(?P<n>[IVX]+|\d+)
+    require_bold: false
+  mcq_start:
+  - re: ^\s*(?P<n>\d{1,2})\.(?:\s+|$)
+    max_x: 130
+  mcq_option:
+  - re: ^\s*\((?P<o>[A-Da-d])\)(?:\s+|$)
+  mcq_key_table_title:
+  - re: answers?\s+to\s+(?:the\s+)?(?:MCQ|multiple\s+choice)
+  mcq_key_row:
+  - re: ^\s*(?P<n>\d{1,2})\s*[.)]?\s*\(?(?P<o>[A-Da-d])\)?\s*$
+  paper_start:
+  - re: ^\s*PAPER\s*[-:]?\s*(?P<n>\d+)\s*[:\-]
+  section_start:
+  - re: ^\s*SECTION\s*[-:]?\s*(?P<n>[A-Z]|\d+)\s*$
+  content_start:
+  - re: ^\s*QUESTIONS\s*$
+  case_end:
+  - re: ^\s*(?:Professional and Ethical Duty|Ind AS \d|Framework for Preparation)
+  answer_question_start:
+  - re: ^\s*(?P<n>\d{1,2})\.(?:\s+|$)
+    max_x: 130
+    require_bold: true
+  mcq_key_number:
+  - re: ^\s*(?P<n>\d{1,2})\.\s*$
+  mcq_key_option:
+  - re: ^\s*\((?P<o>[A-Da-d])\)\s*$
+choice_rules: []
+defaults:
+  mcq_marks: 2
+  min_unit_chars: 15
+  max_unit_chars: 25000
+mode: interleaved
+document_role: mixed
+expects_answers: true
+marks_required: false
+numbering_scopes:
+- paper
+- section
+- case
+- alternative

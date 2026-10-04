@@ -63,9 +63,15 @@ def infer_metadata(
 
     # 2. Paper inference
     paper_code = None
-    paper_match = PAPER_REGEX.search(combined_text)
-    if paper_match:
-        paper_code = f"P{paper_match.group(1)}"
+    paper_matches = {
+        match.group(1) for match in PAPER_REGEX.finditer(combined_text)
+        if not re.search(r"\b(?:model|mock)\s+test\s*$",
+                         combined_text[max(0, match.start() - 30):match.start()], re.IGNORECASE)
+    }
+    if len(paper_matches) == 1:
+        paper_code = f"P{next(iter(paper_matches))}"
+    elif len(paper_matches) > 1:
+        paper_code = None  # Group PDFs need verified paper-specific page ranges.
     else:
         # Fuzzy match against paper names
         best_code = None
@@ -108,6 +114,8 @@ def infer_metadata(
             doc_type_id = "mtp_answer"
         else:
             doc_type_id = "mtp_question"
+    elif "case study digest" in lower_text:
+        doc_type_id = "ibs_case_study"
     elif "case scenario" in lower_text or "case study" in lower_text or "case_scenario" in lower_text:
         doc_type_id = "case_scenarios"
     elif "study material" in lower_text or "module" in lower_text:
@@ -144,6 +152,8 @@ def infer_metadata(
         "attempt_id": attempt_id,
         "paper_id": paper_id,
         "paper_code": paper_code,
+        "paper_ids": [f"{scheme_hint}.P{code}" for code in sorted(paper_matches)]
+        if course_level not in {"foundation", "intermediate"} else [],
         "doc_type_id": doc_type_id,
         "series": series,
         "catalog_status": catalog_status,

@@ -261,18 +261,21 @@ def taxonomy_load(apply: bool = typer.Option(False, "--apply", help="Apply chang
 @acquire_app.command("discover")
 def acquire_discover(
     source_id: str | None = typer.Option(None, "--source", help="Specific source ID to discover"),
+    limit: int = typer.Option(10, "--limit", min=1, help="Maximum seed sources"),
+    dry_run: bool = typer.Option(False, "--dry-run", help="Show seeds without fetching"),
 ) -> None:
     """Discover official PDF links from configured seed sources."""
     import tomllib
     from caf_common.run_context import open_run
-    from caf_l1.discover import LinkDiscoverer
+    from caf_l1.discover import LinkDiscoverer, DiscoveryFailure
+    from dataclasses import asdict
     from caf_l1.robots import PolitenessManager
 
     settings = get_settings()
     sources_file = Path("config/sources.toml")
     if not sources_file.exists():
         console.print("[red]config/sources.toml not found[/red]")
-        return
+        raise typer.Exit(1)
 
     with open(sources_file, "rb") as f:
         cfg = tomllib.load(f)
@@ -281,6 +284,13 @@ def acquire_discover(
     sources = cfg.get("source", [])
     if source_id:
         sources = [s for s in sources if s.get("id") == source_id]
+    sources = sources[:limit]
+    if not sources:
+        console.print("[red]No matching configured sources[/red]")
+        raise typer.Exit(1)
+    if dry_run:
+        console.print_json(data={"sources": [{"id": s["id"], "url": s["url"], "mode": s.get("mode", "http")} for s in sources]})
+        return
 
     politeness = PolitenessManager(
         user_agent=defaults.get("user_agent", "CAFinalStudyCompanion/0.1"),
@@ -293,17 +303,27 @@ def acquire_discover(
     with open_run("l1.discover", {"sources": [s["id"] for s in sources]}) as run:
         session_factory = get_session_factory("operations")
         total_discovered = 0
+        outcomes = []
         with session_factory() as session:
             for s in sources:
-                count = discoverer.discover_source(s, session, run_id=run.id)
-                total_discovered += count
-            run.stats = {"total_discovered": total_discovered}
+                try:
+                    total_discovered += discoverer.discover_source(s, session, run_id=run.id)
+                except DiscoveryFailure:
+                    pass  # Failure evidence was persisted; continue independent sources.
+                outcomes.append(asdict(discoverer.last_outcome))
+            run.stats = {"total_discovered": total_discovered, "outcomes": outcomes}
+        console.print_json(data=run.stats)
+        if any(o["status"] != "ok" for o in outcomes):
+            raise RuntimeError("Discovery has failed or incomplete sources; inspect the recorded outcomes")
         console.print(f"[bold green]Discovery complete. Discovered {total_discovered} link(s).[/bold green]")
 
 
 @acquire_app.command("fetch")
 def acquire_fetch(
-    limit: int = typer.Option(20, "--limit", help="Maximum documents to download"),
+    limit: int = typer.Option(20, "--limit", min=1, help="Maximum documents to download"),
+    link_id: list[int] | None = typer.Option(None, "--link-id", help="Select link IDs; repeat for more than one"),
+    refetch: bool = typer.Option(False, "--refetch", help="Check changed bytes at downloaded URLs"),
+    dry_run: bool = typer.Option(False, "--dry-run", help="Show selected links without downloading"),
 ) -> None:
     """Fetch pending candidate PDFs using polite rate-limits and store in blob store."""
     import tomllib
@@ -325,12 +345,29 @@ def acquire_fetch(
     )
     blob_store = BlobStore(settings.storage.blob_dir)
     fetcher = DocumentFetcher(blob_store=blob_store, politeness=politeness)
+    if dry_run:
+        from caf_db.models.ingest import DiscoveredLink
+        from datetime import datetime, timezone
+        query = sa.select(DiscoveredLink).where(
+            DiscoveredLink.link_status.in_(["new", "failed", "downloaded"] if refetch else ["new", "failed"]),
+            sa.or_(DiscoveredLink.next_try_at.is_(None), DiscoveredLink.next_try_at <= datetime.now(timezone.utc)))
+        if not refetch:
+            query = query.where(DiscoveredLink.tries < 3)
+        if link_id:
+            query = query.where(DiscoveredLink.id.in_(link_id))
+        with get_session_factory("operations")() as session:
+            links = session.execute(query.order_by(DiscoveredLink.id.desc()).limit(limit)).scalars().all()
+            console.print_json(data={"links": [{"id": link.id, "url": link.url, "status": link.link_status} for link in links]})
+        return
 
     with open_run("l1.fetch", {"limit": limit}) as run:
         session_factory = get_session_factory("operations")
         with session_factory() as session:
-            downloaded = fetcher.fetch_pending(session, limit=limit, run_id=run.id)
-            run.stats = {"downloaded": downloaded}
+            downloaded = fetcher.fetch_pending(session, limit=limit, run_id=run.id, link_ids=link_id, refetch=refetch)
+            run.stats = fetcher.last_report
+        console.print_json(data=run.stats)
+        if run.stats["failures"]:
+            raise RuntimeError("Acquisition has failed downloads; inspect the recorded retry/manual outcomes")
         console.print(f"[bold green]Fetch run complete. Downloaded {downloaded} document(s).[/bold green]")
 
 
@@ -358,6 +395,28 @@ def acquire_import(
                 count = 1 if doc else 0
             run.stats = {"imported_count": count}
         console.print(f"[bold green]Successfully imported {count} document(s).[/bold green]")
+
+
+@acquire_app.command("inventory")
+def acquire_inventory(
+    path: Path = typer.Option(Path("taxonomy/textbook_v1/question_sources.json"), "--path"),
+    limit: int = typer.Option(50, "--limit", min=1),
+    paper_id: str | None = typer.Option(None, "--paper"),
+    attempt_id: str | None = typer.Option(None, "--attempt"),
+    include_older: bool = typer.Option(False, "--include-older"),
+    course_level: str = typer.Option("final", "--level", help="Final, Intermediate or Foundation"),
+    enqueue: bool = typer.Option(False, "--enqueue", help="Persist pending links; default only plans"),
+) -> None:
+    """Plan bounded Phase 3 inventory acquisition without claiming document verification."""
+    from dataclasses import asdict
+    from caf_l1.inventory import plan_inventory, enqueue_inventory
+    items = plan_inventory(path, limit=limit, paper_id=paper_id, attempt_id=attempt_id,
+                           include_older=include_older, course_level=course_level)
+    console.print_json(data={"items": [asdict(item) for item in items]})
+    if enqueue:
+        with get_session_factory("operations")() as session:
+            count = enqueue_inventory(items, session)
+        console.print(f"Enqueued {count} new links. Metadata and content verification remain pending.")
 
 
 @acquire_app.command("catalog")

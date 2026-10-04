@@ -1,7 +1,8 @@
-"""Shared-study contract draft, version 1; no endpoint or ORM bindings.
+"""Shared-study contracts, version 1.
 
 The existing ``caf_contracts.models`` contracts remain the current runtime contract.
-These models describe future C0/C2/C4/C5/C6 payloads; validating a payload does not
+Phase 4 extends C2 as its unpublished runtime extraction response. Other models
+describe future C0/C4/C5/C6 payloads; validating a payload does not
 authenticate its caller, authorize access, or publish database content.
 """
 
@@ -61,6 +62,7 @@ class TaxonomyNodeV1(FutureContractV1):
 class QuestionPartV1(FutureContractV1):
     id: str
     label: str
+    label_path: str | None = None
     sequence: int = Field(ge=0)
     question_text: str
     marks: int | None = Field(default=None, ge=0)
@@ -97,7 +99,7 @@ class CompleteQuestionV1(FutureContractV1):
     question_id: str = Field(min_length=1)
     content_revision: str = Field(min_length=1)
     paper_id: str
-    source_attempt_id: str
+    source_attempt_id: str | None
     display_label: str
     common_stem: str
     question_text: str

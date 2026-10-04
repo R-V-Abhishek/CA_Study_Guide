@@ -16,6 +16,7 @@ from caf_common.db_safety import allow_test_database, disallow_test_database
 @dataclass
 class PostgresSandbox:
     purpose: str
+    use_tmpfs: bool = True
     name: str = field(init=False)
     password: str = field(default_factory=lambda: secrets.token_hex(24))
     port: int = field(init=False, default=0)
@@ -35,9 +36,13 @@ class PostgresSandbox:
 
     def __enter__(self) -> "PostgresSandbox":
         try:
+            # Large restores must not be limited by tmpfs's fraction of VM RAM.
+            # --rm removes this container's own anonymous volume when it exits.
+            storage = (["--tmpfs", "/var/lib/postgresql/data:rw"] if self.use_tmpfs
+                       else ["--volume", "/var/lib/postgresql/data"])
             subprocess.run([
                 "docker", "run", "--detach", "--rm", "--name", self.name,
-                "--label", "caf.disposable=true", "--tmpfs", "/var/lib/postgresql/data:rw",
+                "--label", "caf.disposable=true", *storage,
                 "--publish", "127.0.0.1::5432", "--env", f"POSTGRES_PASSWORD={self.password}",
                 "postgres:16",
             ], check=True, capture_output=True, text=True)

@@ -16,6 +16,7 @@ from sqlalchemy import (
     Text,
     UniqueConstraint,
     func,
+    text,
 )
 from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import Mapped, mapped_column, relationship
@@ -102,6 +103,10 @@ class Document(Base):
     )
     superseded: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False)
     depth_band: Mapped[str | None] = mapped_column(Text, nullable=True)
+    collection_id: Mapped[str | None] = mapped_column(Text, nullable=True)
+    paper_page_ranges: Mapped[list[dict[str, Any]]] = mapped_column(JSONB, nullable=False, default=list, server_default="[]")
+    metadata_evidence: Mapped[dict[str, Any]] = mapped_column(JSONB, nullable=False, default=dict, server_default="{}")
+    current_revision_id: Mapped[int | None] = mapped_column(BigInteger, ForeignKey("ingest.extraction_revision.id", use_alter=True), nullable=True)
     created_run_id: Mapped[int | None] = mapped_column(
         BigInteger, ForeignKey("ops.run.id"), nullable=True
     )
@@ -174,8 +179,10 @@ class Unit(Base):
             "classify_status IN ('pending','running','suggested','failed','skipped','decided','excluded','needs_review')",
             name="check_unit_classify_status",
         ),
-        UniqueConstraint("document_id", "extract_run_id", "label_path", name="uq_unit_doc_run_label"),
+        Index("uq_unit_legacy_doc_run_label", "document_id", "extract_run_id", "label_path", unique=True, postgresql_where=text("revision_id IS NULL")),
+        Index("uq_unit_revision_label", "revision_id", "label_path", unique=True, postgresql_where=text("revision_id IS NOT NULL")),
         Index("ix_ingest_unit_fingerprint", "fingerprint"),
+        Index("ix_unit_revision", "revision_id"),
         {"schema": "ingest"},
     )
 
@@ -207,6 +214,10 @@ class Unit(Base):
     parse_confidence: Mapped[str] = mapped_column(Text, nullable=False)
     validation_flags: Mapped[list[str]] = mapped_column(ARRAY(Text), nullable=False, default=list)
     classify_status: Mapped[str] = mapped_column(Text, nullable=False, default="pending")
+    revision_id: Mapped[int | None] = mapped_column(BigInteger, ForeignKey("ingest.extraction_revision.id"), nullable=True)
+    content_digest: Mapped[str | None] = mapped_column(String(64), nullable=True)
+    stable_question_id: Mapped[str | None] = mapped_column(Text, nullable=True)
+    extraction_data: Mapped[dict[str, Any]] = mapped_column(JSONB, nullable=False, default=dict, server_default="{}")
     current: Mapped[bool] = mapped_column(Boolean, nullable=False, default=True)
 
 

@@ -37,6 +37,9 @@ def critical_tables(revision: str) -> set[str]:
         tables.update({"ref.taxonomy_release", "ref.taxonomy_member", "ref.textbook_artifact",
                        "ref.node_source_span", "ref.descriptor_revision", "ref.descriptor_approval",
                        "ref.taxonomy_crosswalk", "app.progress_migration"})
+    if revision not in {"0001_initial_schema", "0002_score_config_snapshot", "0003_identity", "0004_textbook_taxonomy"}:
+        tables.update({"ingest.extraction_revision", "ingest.content_block", "ingest.extraction_asset",
+                       "ingest.document_pair", "ingest.extraction_review", "ingest.reconciliation_link"})
     return tables
 
 
@@ -273,7 +276,7 @@ def verify_backup(session: Session | None = None, dump_file=None, scratch_db_nam
         if file_checksum(dump_path) != manifest["dump_sha256"]:
             raise ValueError("Dump checksum mismatch")
         _validate_archived_files(root, manifest)
-        with PostgresSandbox("restore") as sandbox:
+        with PostgresSandbox("restore", use_tmpfs=False) as sandbox:
             sandbox.allow(scratch_db_name)
             baseline_name = f"{scratch_db_name}_baseline"
             sandbox.allow(baseline_name)
