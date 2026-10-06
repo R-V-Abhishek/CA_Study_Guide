@@ -91,6 +91,8 @@ def test_every_administrative_api_denies_student(authenticated_client):
     for route_path, methods in app.openapi()["paths"].items():
         admin = route_path.startswith(("/api/v1/admin/", "/api/v1/system/")) or (
             route_path.startswith("/api/v1/curate/") and "/queue" not in route_path and "/decision" not in route_path
+            and not (route_path.startswith("/api/v1/curate/classifications")
+                     and not (route_path.endswith("/bulk") or route_path.endswith("/resolve")))
         )
         if not admin:
             continue

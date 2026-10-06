@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a10cd8-9949-7800-8a7e-6d5b3adcf803"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"{\"question_id\":\"8ee4e17c6821bcddceeb00f38adc76bf15ca5083da6f9fb5bf3d87d8766a162f\",\"input_hash\":\"908dcf57a54083378ee225c09ebcd6270e5a377b5519bb2cf92360c785005ec4\",\"mappings\":[{\"part_id\":\"8ee4e17c6821bcddceeb00f38adc76bf15ca5083da6f9fb5bf3d87d8766a162f\",\"outcome\":\"needs_review\",\"primary_node_id\":null,\"secondary_node_ids\":[],\"evidence\":[],\"note\":\"The part contains only “(B) ` 92 crores”; the question, shared stem, and answer are unavailable, so the tested concept cannot be established from the amount alone.\",\"confidence\":null,\"bucket\":null}]}"}}
+{"type":"turn.completed","usage":{"input_tokens":46224,"cached_input_tokens":0,"cache_write_input_tokens":0,"output_tokens":205,"reasoning_output_tokens":0}}

@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a10cdf-c464-7ea2-9c11-a0d4b5b2a61f"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"{\"question_id\":\"b6d050ccc47003888eb63c4648f2510dd90a56e14dcbe77f4caa005138803017\",\"input_hash\":\"7dca8a4127d925507a781b7b218cbac0e666e9818b0becf32449ec9de760c4b9\",\"mappings\":[{\"part_id\":\"b6d050ccc47003888eb63c4648f2510dd90a56e14dcbe77f4caa005138803017\",\"outcome\":\"none_fits\",\"primary_node_id\":null,\"secondary_node_ids\":[],\"evidence\":[],\"note\":\"Part 4.6 tests eligibility for GST input tax credit across several transactions. The supplied GST candidates cover definitions and the taxable event, not ITC eligibility or blocked credits.\",\"confidence\":0.97,\"bucket\":\"D\"}]}"}}
+{"type":"turn.completed","usage":{"input_tokens":54904,"cached_input_tokens":0,"cache_write_input_tokens":0,"output_tokens":1041,"reasoning_output_tokens":838}}

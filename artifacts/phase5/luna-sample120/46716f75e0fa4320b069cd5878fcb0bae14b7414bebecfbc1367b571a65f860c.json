@@ -1,0 +1,46 @@
+{
+  "result": {
+    "question_id": "46716f75e0fa4320b069cd5878fcb0bae14b7414bebecfbc1367b571a65f860c",
+    "input_hash": "965a98fb4fcbefa9fdf50cd773ecdaceb2c6323cea5d52ed4e460071d6babfdf",
+    "mappings": [
+      {
+        "part_id": "46716f75e0fa4320b069cd5878fcb0bae14b7414bebecfbc1367b571a65f860c:d.repeat26.ii",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "The part asks for TECH M\u2019s actual tax cost at 31 March 2025, but the shared stem only states that the exchange difference is to be treated under ICDS VI and section 43A. The supplied candidates do not cover those income-tax cost rules, and the necessary transaction details are absent.",
+        "confidence": null,
+        "bucket": null
+      },
+      {
+        "part_id": "46716f75e0fa4320b069cd5878fcb0bae14b7414bebecfbc1367b571a65f860c:d.repeat26.iii",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Depreciation depends on the preceding exchange-difference treatment and asset-cost facts, which are not supplied in the visible stem or answer. The available depreciation-adjacent candidates concern unrelated Ind AS topics and do not establish a fit.",
+        "confidence": null,
+        "bucket": null
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "attempt_id": "1791216665981241000",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "e825d4a995a84211896200b0d2badfad1313b166bb3746e13828bd341ed274cc",
+    "schema_generator": "pinned-part-ids-v1",
+    "seconds": 11.013,
+    "usage": [
+      {
+        "input_tokens": 50352,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 352,
+        "reasoning_output_tokens": 0
+      }
+    ],
+    "completed_at": "2026-10-05T16:11:16.994108+00:00"
+  }
+}

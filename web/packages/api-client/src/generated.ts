@@ -574,6 +574,146 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/curate/classifications": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Classification Queue
+         * @description One immutable suggestion per root, retaining the previous publication during review.
+         */
+        get: operations["classification_queue_api_v1_curate_classifications_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/curate/classifications/{suggestion_id}/review": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Classification Review */
+        post: operations["classification_review_api_v1_curate_classifications__suggestion_id__review_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/curate/classifications/bulk": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Classification Bulk */
+        post: operations["classification_bulk_api_v1_curate_classifications_bulk_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/curate/classifications/questions/{question_id}/history": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Classification History */
+        get: operations["classification_history_api_v1_curate_classifications_questions__question_id__history_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/curate/classifications/questions/{question_id}/verify": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Classification Verify */
+        post: operations["classification_verify_api_v1_curate_classifications_questions__question_id__verify_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/curate/classifications/questions/{question_id}/withdraw": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Classification Withdraw */
+        post: operations["classification_withdraw_api_v1_curate_classifications_questions__question_id__withdraw_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/curate/classifications/questions/{question_id}/disputes": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Classification Disputes */
+        get: operations["classification_disputes_api_v1_curate_classifications_questions__question_id__disputes_get"];
+        put?: never;
+        /** Classification Dispute */
+        post: operations["classification_dispute_api_v1_curate_classifications_questions__question_id__disputes_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/curate/classifications/disputes/{dispute_id}/resolve": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Classification Resolve */
+        post: operations["classification_resolve_api_v1_curate_classifications_disputes__dispute_id__resolve_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/curate/queue": {
         parameters: {
             query?: never;
@@ -1451,6 +1591,200 @@ export interface components {
             /** Topics */
             topics: components["schemas"]["TopicItem"][];
         };
+        /** ClassificationBulkRequest */
+        ClassificationBulkRequest: {
+            /** Reviews */
+            reviews: components["schemas"]["ClassificationReviewRequest"][];
+        };
+        /** ClassificationBulkResult */
+        ClassificationBulkResult: {
+            /** Revisions */
+            revisions: components["schemas"]["ClassificationRevisionResult"][];
+        };
+        /** ClassificationDisputeRequest */
+        ClassificationDisputeRequest: {
+            /** Expected Suggestion Revision Id */
+            expected_suggestion_revision_id: number;
+            /** Expected Publication Revision Id */
+            expected_publication_revision_id: number | null;
+            /** Idempotency Key */
+            idempotency_key: string;
+            /** Reason */
+            reason: string;
+            /** Replacement Mappings */
+            replacement_mappings?: components["schemas"]["PartMapping"][] | null;
+        };
+        /** ClassificationDisputeResult */
+        ClassificationDisputeResult: {
+            /** Id */
+            id: number;
+            /** Classification Revision Id */
+            classification_revision_id: number;
+            /** Status */
+            status: string;
+            /** Reason */
+            reason: string;
+        };
+        /** ClassificationHistoryItem */
+        ClassificationHistoryItem: {
+            /** Id */
+            id: number;
+            /** Suggestion Revision Id */
+            suggestion_revision_id: number;
+            /** Document Id */
+            document_id: number;
+            /** Question Id */
+            question_id: string;
+            /** Mappings */
+            mappings: components["schemas"]["PartMapping"][];
+            /** Status */
+            status: string;
+            /** Actor Id */
+            actor_id: number;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /** Verification Count */
+            verification_count: number;
+            /** Note */
+            note?: string | null;
+        };
+        /** ClassificationQueueItem */
+        ClassificationQueueItem: {
+            /** Suggestion Revision Id */
+            suggestion_revision_id: number;
+            /** Document Id */
+            document_id: number;
+            /** Question Id */
+            question_id: string;
+            /** Extraction Revision Id */
+            extraction_revision_id: number;
+            /** Taxonomy Version Id */
+            taxonomy_version_id: number;
+            /** Run Id */
+            run_id: number | null;
+            /** Input Hash */
+            input_hash: string;
+            /** Paper Id */
+            paper_id: string | null;
+            /** Attempt Id */
+            attempt_id: string | null;
+            /** Doc Type Id */
+            doc_type_id: string | null;
+            /** Experimental */
+            experimental: boolean;
+            /** Stale */
+            stale: boolean;
+            /** Publication Ready */
+            publication_ready: boolean;
+            /** Readiness Blockers */
+            readiness_blockers: components["schemas"]["ReadinessBlocker"][];
+            question: components["schemas"]["ExtractedQuestion"];
+            /** Mappings */
+            mappings: components["schemas"]["PartMapping"][];
+            /** Candidates */
+            candidates: {
+                [key: string]: unknown;
+            }[];
+            /** Provenance */
+            provenance: {
+                [key: string]: unknown;
+            };
+            /** Publication Revision Id */
+            publication_revision_id: number | null;
+            /** Publication Suggestion Revision Id */
+            publication_suggestion_revision_id?: number | null;
+            /** Published Mappings */
+            published_mappings?: components["schemas"]["PartMapping"][];
+            published_question?: components["schemas"]["ExtractedQuestion"] | null;
+            /** Verification Count */
+            verification_count: number | null;
+            /**
+             * Verified By Me
+             * @default false
+             */
+            verified_by_me: boolean;
+            /** Dispute Status */
+            dispute_status: string | null;
+            /**
+             * Is Benchmark
+             * @default false
+             */
+            is_benchmark: boolean;
+            /**
+             * Blind
+             * @default false
+             */
+            blind: boolean;
+        };
+        /** ClassificationResolveRequest */
+        ClassificationResolveRequest: {
+            /** Expected Suggestion Revision Id */
+            expected_suggestion_revision_id: number;
+            /** Expected Publication Revision Id */
+            expected_publication_revision_id: number | null;
+            /** Idempotency Key */
+            idempotency_key: string;
+            /**
+             * Resolution
+             * @enum {string}
+             */
+            resolution: "dismiss" | "replace";
+            /** Reason */
+            reason: string;
+            /** Replacement Mappings */
+            replacement_mappings?: components["schemas"]["PartMapping"][] | null;
+        };
+        /** ClassificationReviewRequest */
+        ClassificationReviewRequest: {
+            /** Expected Suggestion Revision Id */
+            expected_suggestion_revision_id: number;
+            /** Expected Publication Revision Id */
+            expected_publication_revision_id: number | null;
+            /** Idempotency Key */
+            idempotency_key: string;
+            /** Mappings */
+            mappings: components["schemas"]["PartMapping"][];
+            /** Note */
+            note: string;
+            /**
+             * Blind
+             * @default false
+             */
+            blind: boolean;
+        };
+        /** ClassificationRevisionResult */
+        ClassificationRevisionResult: {
+            /** Revision Id */
+            revision_id?: number | null;
+            /** Current Revision Id */
+            current_revision_id?: number | null;
+            /**
+             * Verification Count
+             * @default 0
+             */
+            verification_count: number;
+            /**
+             * Pending
+             * @default false
+             */
+            pending: boolean;
+            /** Dispute Id */
+            dispute_id?: number | null;
+            /** Status */
+            status?: string | null;
+        };
+        /** ClassificationVerificationRequest */
+        ClassificationVerificationRequest: {
+            /** Expected Suggestion Revision Id */
+            expected_suggestion_revision_id: number;
+            /** Expected Publication Revision Id */
+            expected_publication_revision_id: number | null;
+            /** Idempotency Key */
+            idempotency_key: string;
+        };
         /** CorrectionRequest */
         CorrectionRequest: {
             /** Label Path */
@@ -1569,6 +1903,17 @@ export interface components {
              * @default true
              */
             publication_ready: boolean;
+            /**
+             * Verification State
+             * @default unknown
+             * @constant
+             */
+            verification_state: "unknown";
+            /**
+             * Requires Re Review
+             * @default false
+             */
+            requires_re_review: boolean;
             /** Document Id */
             document_id: number;
             /** Attempt Id */
@@ -2382,6 +2727,33 @@ export interface components {
             /** Hierarchy */
             hierarchy?: components["schemas"]["TaxonomyTreeNode"][];
         };
+        /** PartMapping */
+        PartMapping: {
+            /** Part Id */
+            part_id: string;
+            /**
+             * Outcome
+             * @enum {string}
+             */
+            outcome: "matched" | "needs_review" | "none_fits";
+            /** Primary Node Id */
+            primary_node_id?: string | null;
+            /** Secondary Node Ids */
+            secondary_node_ids?: string[];
+            /** Evidence */
+            evidence?: {
+                [key: string]: unknown;
+            };
+            /** Confidence */
+            confidence?: number | null;
+            /** Bucket */
+            bucket?: string | null;
+            /**
+             * Excluded
+             * @default false
+             */
+            excluded: boolean;
+        };
         /** PartPairingCandidates */
         PartPairingCandidates: {
             /** Part Id */
@@ -2649,6 +3021,13 @@ export interface components {
              * @default []
              */
             parts: components["schemas"]["QuestionPartV1"][];
+        };
+        /** ReadinessBlocker */
+        ReadinessBlocker: {
+            /** Code */
+            code: string;
+            /** Message */
+            message: string;
         };
         /** RecomputeResult */
         RecomputeResult: {
@@ -4186,6 +4565,317 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["DocumentEditResult"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    classification_queue_api_v1_curate_classifications_get: {
+        parameters: {
+            query?: {
+                paper_id?: string | null;
+                source?: string | null;
+                outcome?: string | null;
+                taxonomy_version_id?: number | null;
+                experimental?: boolean | null;
+                ready?: boolean | null;
+                disputed?: boolean | null;
+                blind?: boolean;
+                benchmark_only?: boolean;
+                limit?: number;
+                offset?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ClassificationQueueItem"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    classification_review_api_v1_curate_classifications__suggestion_id__review_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                suggestion_id: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ClassificationReviewRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ClassificationRevisionResult"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    classification_bulk_api_v1_curate_classifications_bulk_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ClassificationBulkRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ClassificationBulkResult"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    classification_history_api_v1_curate_classifications_questions__question_id__history_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                question_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ClassificationHistoryItem"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    classification_verify_api_v1_curate_classifications_questions__question_id__verify_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                question_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ClassificationVerificationRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ClassificationRevisionResult"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    classification_withdraw_api_v1_curate_classifications_questions__question_id__withdraw_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                question_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ClassificationVerificationRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ClassificationRevisionResult"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    classification_disputes_api_v1_curate_classifications_questions__question_id__disputes_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                question_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ClassificationDisputeResult"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    classification_dispute_api_v1_curate_classifications_questions__question_id__disputes_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                question_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ClassificationDisputeRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ClassificationRevisionResult"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    classification_resolve_api_v1_curate_classifications_disputes__dispute_id__resolve_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                dispute_id: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ClassificationResolveRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ClassificationRevisionResult"];
                 };
             };
             /** @description Validation Error */

@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a10cd8-bb7d-72d3-9ea4-188f45322421"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"{\"question_id\":\"bb3d388040b52ed24669d8ab65cf2ed976146cdcb3092aa11fdd4f3d7421c477\",\"input_hash\":\"7053001e3a1a8fc58b387fd32f17e9c0454a7e05469310d3ec42ac7391ad6bee\",\"mappings\":[{\"part_id\":\"bb3d388040b52ed24669d8ab65cf2ed976146cdcb3092aa11fdd4f3d7421c477\",\"outcome\":\"none_fits\",\"primary_node_id\":null,\"secondary_node_ids\":[],\"evidence\":[],\"note\":\"The answer identifies the tested concept as the exemption for a gift to a spouse under section 56(2)(x). None of the supplied candidates describes that gift exemption or the relevant taxation of gifts.\",\"confidence\":0.98,\"bucket\":\"D\"}]}"}}
+{"type":"turn.completed","usage":{"input_tokens":48079,"cached_input_tokens":0,"cache_write_input_tokens":0,"output_tokens":392,"reasoning_output_tokens":180}}

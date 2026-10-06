@@ -1,0 +1,41 @@
+{
+  "result": {
+    "question_id": "a583b302f8d2aaf3eac6d60202e556bfcabba0182d89c3889aeaf3ab50c08699",
+    "input_hash": "9e9b642183a3b96d7348bae84bd56b831a42182e9ac548fe26c11d3943f2428a",
+    "mappings": [
+      {
+        "part_id": "a583b302f8d2aaf3eac6d60202e556bfcabba0182d89c3889aeaf3ab50c08699",
+        "outcome": "matched",
+        "primary_node_id": "04b72275-b3c2-40c0-a863-ce482d4de7f9",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "04b72275-b3c2-40c0-a863-ce482d4de7f9",
+            "support": "Question 11 tests which elements belong in a performance Audit Design Matrix; this descriptor covers performance audit planning and developing audit design matrices."
+          }
+        ],
+        "note": "The tested concept is the composition of a performance audit design matrix. The other question fragments concern separate scenarios and do not change this part\u2019s focus.",
+        "confidence": 0.96,
+        "bucket": "A"
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "attempt_id": "1791217456612742000",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "00bc06de9f40c335f5d484e99e1c3d07a7f5a747140d0739e98e857c29878fc2",
+    "schema_generator": "pinned-identifiers-v2",
+    "seconds": 24.455,
+    "usage": [
+      {
+        "input_tokens": 51726,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1072,
+        "reasoning_output_tokens": 793
+      }
+    ],
+    "completed_at": "2026-10-05T16:24:41.067667+00:00"
+  }
+}

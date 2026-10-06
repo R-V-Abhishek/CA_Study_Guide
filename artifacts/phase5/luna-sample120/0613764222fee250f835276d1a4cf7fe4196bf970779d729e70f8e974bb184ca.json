@@ -1,0 +1,47 @@
+{
+  "result": {
+    "question_id": "0613764222fee250f835276d1a4cf7fe4196bf970779d729e70f8e974bb184ca",
+    "input_hash": "fe360eebd2790be4fb33b2206c87dc0da48922d401bcc6428012b1f22e1781d2",
+    "mappings": [
+      {
+        "part_id": "0613764222fee250f835276d1a4cf7fe4196bf970779d729e70f8e974bb184ca",
+        "outcome": "matched",
+        "primary_node_id": "d0076545-a700-404b-af55-208cc41549cb",
+        "secondary_node_ids": [
+          "875c966b-01e3-44be-81ca-1fbd39eb7e57"
+        ],
+        "evidence": [
+          {
+            "node_id": "d0076545-a700-404b-af55-208cc41549cb",
+            "support": "Part 5.6 explicitly asks for a marginal-costing reconciliation from budgeted to actual profit, using sales contribution and variable cost variances and fixed cost expenditure variance."
+          },
+          {
+            "node_id": "875c966b-01e3-44be-81ca-1fbd39eb7e57",
+            "support": "The reconciliation separately computes planning and operational sales-volume variances, matching the descriptor\u2019s distinction between revised-standard planning effects and actual-versus-revised operational effects."
+          }
+        ],
+        "note": "Parts 5.7 and 5.8 concern customs duty and interest, and book profit under section 115JB; no supplied candidate describes those concepts.",
+        "confidence": 0.94,
+        "bucket": "A"
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "attempt_id": "1791216987444924000",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "f8cd3803d377f9f60a7478a26701bf97c7975442eaf3af26220ddbe89c8ad2eb",
+    "schema_generator": "pinned-part-ids-v1",
+    "seconds": 18.695,
+    "usage": [
+      {
+        "input_tokens": 52640,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 782,
+        "reasoning_output_tokens": 428
+      }
+    ],
+    "completed_at": "2026-10-05T16:16:46.140145+00:00"
+  }
+}

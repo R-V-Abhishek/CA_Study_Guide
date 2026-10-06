@@ -114,6 +114,7 @@ def reviews(revision_id:int,page:int=Query(1,ge=1),page_size:int=Query(25,ge=1,l
 @router.post('/revisions/{revision_id}/reviews',response_model=ReviewResult)
 def review(revision_id:int,body:ReviewRequest,db:Session=Depends(get_curation_db),account:Principal=Depends(require_account)):
     row=found(db,ExtractionRevision,revision_id)
+    db.execute(sa.text('SELECT pg_advisory_xact_lock(:document_id)'), {'document_id': row.document_id})
     if body.dimension=='metadata' and account.role!='administrator':
         raise HTTPException(403,'Administrator confirms metadata')
     value=ExtractionReview(revision_id=row.id,actor_id=account.id,content_digest=row.content_digest,**body.model_dump())

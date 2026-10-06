@@ -1,0 +1,206 @@
+{
+  "result": {
+    "question_id": "dc0acf8cebc403ad03427443f01967cd08d1e478aa49d829ae27a76096085bd0",
+    "input_hash": "a552e675d0382568eaf97695de1512b3dc80d3652ec16503cae69b028fcf8047",
+    "mappings": [
+      {
+        "part_id": "dc0acf8cebc403ad03427443f01967cd08d1e478aa49d829ae27a76096085bd0:CSII.a",
+        "outcome": "matched",
+        "primary_node_id": "bbaea724-41a4-4ef3-8129-64782e73bf37",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "bbaea724-41a4-4ef3-8129-64782e73bf37",
+            "support": "This is an answer choice for the swap-loss calculation when an exporter takes early delivery under a forward contract; the descriptor covers early delivery and swap differences."
+          }
+        ],
+        "note": "Choice in question 4, which tests the settlement consequences of early delivery under the forward contract.",
+        "confidence": 0.97,
+        "bucket": "A"
+      },
+      {
+        "part_id": "dc0acf8cebc403ad03427443f01967cd08d1e478aa49d829ae27a76096085bd0:CSII.b",
+        "outcome": "matched",
+        "primary_node_id": "bbaea724-41a4-4ef3-8129-64782e73bf37",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "bbaea724-41a4-4ef3-8129-64782e73bf37",
+            "support": "This is an answer choice for the swap-loss calculation when an exporter takes early delivery under a forward contract; the descriptor covers early delivery and swap differences."
+          }
+        ],
+        "note": "Choice in question 4, which tests the settlement consequences of early delivery under the forward contract.",
+        "confidence": 0.97,
+        "bucket": "A"
+      },
+      {
+        "part_id": "dc0acf8cebc403ad03427443f01967cd08d1e478aa49d829ae27a76096085bd0:CSII.c",
+        "outcome": "matched",
+        "primary_node_id": "bbaea724-41a4-4ef3-8129-64782e73bf37",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "bbaea724-41a4-4ef3-8129-64782e73bf37",
+            "support": "This is an answer choice for the swap-loss calculation when an exporter takes early delivery under a forward contract; the descriptor covers early delivery and swap differences."
+          }
+        ],
+        "note": "Choice in question 4, which tests the settlement consequences of early delivery under the forward contract.",
+        "confidence": 0.97,
+        "bucket": "A"
+      },
+      {
+        "part_id": "dc0acf8cebc403ad03427443f01967cd08d1e478aa49d829ae27a76096085bd0:CSII.d",
+        "outcome": "matched",
+        "primary_node_id": "bbaea724-41a4-4ef3-8129-64782e73bf37",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "bbaea724-41a4-4ef3-8129-64782e73bf37",
+            "support": "This is an answer choice for the swap-loss calculation when an exporter takes early delivery under a forward contract; the descriptor covers early delivery and swap differences."
+          }
+        ],
+        "note": "Choice in question 4, which tests the settlement consequences of early delivery under the forward contract.",
+        "confidence": 0.97,
+        "bucket": "A"
+      },
+      {
+        "part_id": "dc0acf8cebc403ad03427443f01967cd08d1e478aa49d829ae27a76096085bd0:CSII.a.repeat2",
+        "outcome": "matched",
+        "primary_node_id": "bbaea724-41a4-4ef3-8129-64782e73bf37",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "bbaea724-41a4-4ef3-8129-64782e73bf37",
+            "support": "This is an answer choice for interest charged on funds paid out because delivery occurs before the forward contract's due date; the descriptor includes interest on outlay for early delivery."
+          }
+        ],
+        "note": "Choice in question 5, testing interest on the bank's outlay arising from early delivery.",
+        "confidence": 0.97,
+        "bucket": "A"
+      },
+      {
+        "part_id": "dc0acf8cebc403ad03427443f01967cd08d1e478aa49d829ae27a76096085bd0:CSII.b.repeat2",
+        "outcome": "matched",
+        "primary_node_id": "bbaea724-41a4-4ef3-8129-64782e73bf37",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "bbaea724-41a4-4ef3-8129-64782e73bf37",
+            "support": "This is an answer choice for interest charged on funds paid out because delivery occurs before the forward contract's due date; the descriptor includes interest on outlay for early delivery."
+          }
+        ],
+        "note": "Choice in question 5, testing interest on the bank's outlay arising from early delivery.",
+        "confidence": 0.97,
+        "bucket": "A"
+      },
+      {
+        "part_id": "dc0acf8cebc403ad03427443f01967cd08d1e478aa49d829ae27a76096085bd0:CSII.c.repeat2",
+        "outcome": "matched",
+        "primary_node_id": "bbaea724-41a4-4ef3-8129-64782e73bf37",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "bbaea724-41a4-4ef3-8129-64782e73bf37",
+            "support": "This is an answer choice for interest charged on funds paid out because delivery occurs before the forward contract's due date; the descriptor includes interest on outlay for early delivery."
+          }
+        ],
+        "note": "Choice in question 5, testing interest on the bank's outlay arising from early delivery.",
+        "confidence": 0.97,
+        "bucket": "A"
+      },
+      {
+        "part_id": "dc0acf8cebc403ad03427443f01967cd08d1e478aa49d829ae27a76096085bd0:CSII.d.repeat2",
+        "outcome": "matched",
+        "primary_node_id": "bbaea724-41a4-4ef3-8129-64782e73bf37",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "bbaea724-41a4-4ef3-8129-64782e73bf37",
+            "support": "This is an answer choice for interest charged on funds paid out because delivery occurs before the forward contract's due date; the descriptor includes interest on outlay for early delivery."
+          }
+        ],
+        "note": "Choice in question 5, testing interest on the bank's outlay arising from early delivery.",
+        "confidence": 0.97,
+        "bucket": "A"
+      },
+      {
+        "part_id": "dc0acf8cebc403ad03427443f01967cd08d1e478aa49d829ae27a76096085bd0:CSII.a.repeat3",
+        "outcome": "matched",
+        "primary_node_id": "bbaea724-41a4-4ef3-8129-64782e73bf37",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "bbaea724-41a4-4ef3-8129-64782e73bf37",
+            "support": "The question asks the exporter\u2019s net conversion rate after receiving foreign currency early under a forward contract; the descriptor covers early delivery and resulting settlement calculations."
+          }
+        ],
+        "note": "Choice in question 6, testing the realized conversion rate under the early-delivery settlement.",
+        "confidence": 0.95,
+        "bucket": "A"
+      },
+      {
+        "part_id": "dc0acf8cebc403ad03427443f01967cd08d1e478aa49d829ae27a76096085bd0:CSII.b.repeat3",
+        "outcome": "matched",
+        "primary_node_id": "bbaea724-41a4-4ef3-8129-64782e73bf37",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "bbaea724-41a4-4ef3-8129-64782e73bf37",
+            "support": "The question asks the exporter\u2019s net conversion rate after receiving foreign currency early under a forward contract; the descriptor covers early delivery and resulting settlement calculations."
+          }
+        ],
+        "note": "Choice in question 6, testing the realized conversion rate under the early-delivery settlement.",
+        "confidence": 0.95,
+        "bucket": "A"
+      },
+      {
+        "part_id": "dc0acf8cebc403ad03427443f01967cd08d1e478aa49d829ae27a76096085bd0:CSII.c.repeat3",
+        "outcome": "matched",
+        "primary_node_id": "bbaea724-41a4-4ef3-8129-64782e73bf37",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "bbaea724-41a4-4ef3-8129-64782e73bf37",
+            "support": "The question asks the exporter\u2019s net conversion rate after receiving foreign currency early under a forward contract; the descriptor covers early delivery and resulting settlement calculations."
+          }
+        ],
+        "note": "Choice in question 6, testing the realized conversion rate under the early-delivery settlement.",
+        "confidence": 0.95,
+        "bucket": "A"
+      },
+      {
+        "part_id": "dc0acf8cebc403ad03427443f01967cd08d1e478aa49d829ae27a76096085bd0:CSII.d.repeat3",
+        "outcome": "matched",
+        "primary_node_id": "bbaea724-41a4-4ef3-8129-64782e73bf37",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "bbaea724-41a4-4ef3-8129-64782e73bf37",
+            "support": "The question asks the exporter\u2019s net conversion rate after receiving foreign currency early under a forward contract; the descriptor covers early delivery and resulting settlement calculations."
+          }
+        ],
+        "note": "Choice in question 6, testing the realized conversion rate under the early-delivery settlement.",
+        "confidence": 0.95,
+        "bucket": "A"
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "attempt_id": "1791216572926956000",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "d2bc43d436270b8b1e0cf4d8bdfb0ecee0750a81495d354d1992abcd841d09f6",
+    "schema_generator": "pinned-part-ids-v1",
+    "seconds": 50.518,
+    "usage": [
+      {
+        "input_tokens": 48554,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2456,
+        "reasoning_output_tokens": 276
+      }
+    ],
+    "completed_at": "2026-10-05T16:10:23.444972+00:00"
+  }
+}

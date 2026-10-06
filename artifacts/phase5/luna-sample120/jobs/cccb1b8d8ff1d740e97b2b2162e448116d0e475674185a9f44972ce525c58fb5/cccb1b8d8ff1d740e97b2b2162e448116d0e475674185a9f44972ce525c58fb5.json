@@ -1,0 +1,35 @@
+{
+  "result": {
+    "question_id": "cccb1b8d8ff1d740e97b2b2162e448116d0e475674185a9f44972ce525c58fb5",
+    "input_hash": "605b7fff319e1138c7b4fa03c9d2483977405543950932f073a07ea299a93352",
+    "mappings": [
+      {
+        "part_id": "cccb1b8d8ff1d740e97b2b2162e448116d0e475674185a9f44972ce525c58fb5",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Only a fragment containing the amount \u201c1,44,000\u201d is available; the root question, shared stem, and answer are missing, so the tested concept cannot be established.",
+        "confidence": null,
+        "bucket": null
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "1ff86c95e3b3a9fa16c02aed876e6436cdbf5606729d1b1e93cd8860cb793324",
+    "schema_generator": "pinned-part-ids-v1",
+    "seconds": 10.306,
+    "usage": [
+      {
+        "input_tokens": 47606,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 281,
+        "reasoning_output_tokens": 75
+      }
+    ],
+    "completed_at": "2026-10-05T15:58:28.296726+00:00"
+  }
+}

@@ -8,6 +8,7 @@ import { ListFilter, CheckCheck, FolderOpen, Activity, Network, FileCheck } from
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import { Queue } from "./pages/Queue";
+import { ClassificationQueue } from "./pages/ClassificationQueue";
 import { BulkAccept } from "./pages/BulkAccept";
 import { Catalogue } from "./pages/Catalogue";
 import { Taxonomy } from "./pages/Taxonomy";
@@ -29,6 +30,7 @@ function CuratorLayout({ children }: { children: React.ReactNode }) {
   const state = useSyncExternalStore(subscribeAuth, authState);
   const admin = state.identity?.capabilities.includes("admin");
   const navItems = [
+    { to: "/classifications", label: "Question Classification", icon: ListFilter },
     { to: "/queue", label: "Review Queue", icon: ListFilter },
     { to: "/bulk", label: "Bulk Accept", icon: CheckCheck },
     { to: "/documents", label: "Catalogue", icon: FolderOpen },
@@ -37,7 +39,7 @@ function CuratorLayout({ children }: { children: React.ReactNode }) {
     { to: "/textbooks", label: "Textbook Taxonomy", icon: Network },
     { to: "/taxonomy-release", label: "Source & Release Review", icon: FileCheck },
     { to: "/system", label: "System Health", icon: Activity },
-  ].filter(item => admin || ["/queue", "/taxonomy", "/textbooks", "/extraction"].includes(item.to));
+  ].filter(item => admin || ["/queue", "/classifications", "/taxonomy", "/textbooks", "/extraction"].includes(item.to));
 
   return (
     <div className="min-h-screen flex bg-[#0F172A] text-[#F8FAFC]">
@@ -115,8 +117,9 @@ export function App() {
       <AuthGate><BrowserRouter basename="/curator">
         <CuratorLayout>
           <Routes>
-            <Route path="/" element={<Queue />} />
+            <Route path="/" element={<ClassificationQueue />} />
             <Route path="/queue" element={<Queue />} />
+            <Route path="/classifications" element={<ClassificationQueue />} />
             <Route path="/bulk" element={<AdminOnly><BulkAccept /></AdminOnly>} />
             <Route path="/documents" element={<AdminOnly><Catalogue /></AdminOnly>} />
             <Route path="/extraction" element={<Extraction />} />

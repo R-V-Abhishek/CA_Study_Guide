@@ -200,7 +200,7 @@ def test_curator_actor_and_concurrent_stale_review(authenticated_client, session
     session.commit()
     assert a.post(f'/api/v1/curate/units/{unit.id}/decision', json={'action': 'bulk_accept', 'primary_node_id': node.id}).status_code == 403
     def review(client):
-        return client.post(f'/api/v1/curate/units/{unit.id}/decision', json={'action': 'accept', 'primary_node_id': node.id})
+        return client.post(f'/api/v1/curate/units/{unit.id}/decision', json={'action': 'none_fits'})
     with ThreadPoolExecutor(max_workers=2) as pool:
         futures = [pool.submit(review, client) for client in (a, b)]
         responses = [future.result() for future in futures]

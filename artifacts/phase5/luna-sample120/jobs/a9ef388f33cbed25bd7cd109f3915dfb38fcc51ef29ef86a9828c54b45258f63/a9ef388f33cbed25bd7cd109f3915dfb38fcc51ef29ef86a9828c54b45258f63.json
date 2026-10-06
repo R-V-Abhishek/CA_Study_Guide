@@ -1,0 +1,35 @@
+{
+  "result": {
+    "question_id": "a9ef388f33cbed25bd7cd109f3915dfb38fcc51ef29ef86a9828c54b45258f63",
+    "input_hash": "5aca3e9bb8d6b89a33a861bb31419a36f094c894656080fdaf6e8975f2367ad2",
+    "mappings": [
+      {
+        "part_id": "a9ef388f33cbed25bd7cd109f3915dfb38fcc51ef29ef86a9828c54b45258f63",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "The supplied text gives exam duration and submission instructions; it does not test any of the candidate accounting or professional concepts. The answer fragment does not clarify a tested concept.",
+        "confidence": 0.99,
+        "bucket": "D"
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "88fee2614433fffdb1efee8479aa00463247843cd0812d14bc7d36135f9dff89",
+    "schema_generator": "pinned-part-ids-v1",
+    "seconds": 9.75,
+    "usage": [
+      {
+        "input_tokens": 48348,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 202,
+        "reasoning_output_tokens": 0
+      }
+    ],
+    "completed_at": "2026-10-05T15:56:34.785687+00:00"
+  }
+}

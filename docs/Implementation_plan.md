@@ -400,6 +400,8 @@ Acceptance:
 
 **Purpose:** Let all invited students maintain one shared set of reviewed labels with useful evidence.
 
+**Implemented 5 October 2026:** Revisioned review/publication, distinct-account verification, disputes, draft Codex/Luna batches and the curator workspace are implemented. The frozen 12-root pilot and 120-root experiment are complete; their 30-root agent comparison remains provisional. [Phase 5 verification](Phase5_Verification.md) records tests, recovery evidence and deferred corpus/student-adjudication gates. This milestone does not approve the live corpus or calibrate model confidence.
+
 Changes:
 
 1. Replace the annotation script’s forced default labels with explicit unresolved/none-fits outcomes. Restrict classification to applicable paper candidates, with intentional cross-paper handling for IBS.

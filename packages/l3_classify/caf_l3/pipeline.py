@@ -151,6 +151,16 @@ class ClassificationPipeline:
                     use_llm=use_llm,
                 )
 
+                if res.outcome != "matched" or res.primary_node_id is None:
+                    self.session.add(TaxonomyGap(unit_id=unit.id, run_id=run_id,
+                        note=f"{res.outcome}: {res.justification}", status="open"))
+                    if not is_shadow:
+                        unit.classify_status = "needs_review"
+                    bucket_counts["D"] += 1
+                    processed_count += 1
+                    self.session.commit()
+                    continue
+
                 # Persist Primary Suggestion
                 prim_sugg = TagSuggestion(
                     model_id=res.evidence.get("model_id"),
@@ -230,7 +240,8 @@ class ClassificationPipeline:
             except Exception as e:
                 logger.error("Error classifying unit ID %s: %s", unit.id, e)
                 self.session.rollback()
-                unit.classify_status = "failed"
+                if not is_shadow:
+                    unit.classify_status = "failed"
                 self.session.commit()
                 failed_count += 1
                 continue

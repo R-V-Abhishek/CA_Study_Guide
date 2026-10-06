@@ -1,0 +1,258 @@
+{
+  "result": {
+    "question_id": "0e68b0253ff3f4e67112b4b018ec5872c6161c85864a5ea790b3c2bc1d20d615",
+    "input_hash": "f9a70dbe7004f8ff1881b046ebf831bae34b0d1d796b5b0a514d46e429b3284a",
+    "mappings": [
+      {
+        "part_id": "0e68b0253ff3f4e67112b4b018ec5872c6161c85864a5ea790b3c2bc1d20d615:Q4.a.i",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Tests assessing a management expert\u2019s competence, capabilities, and objectivity; no candidate descriptor specifically covers evaluating management experts.",
+        "confidence": 0.96,
+        "bucket": null
+      },
+      {
+        "part_id": "0e68b0253ff3f4e67112b4b018ec5872c6161c85864a5ea790b3c2bc1d20d615:Q4.a.ii",
+        "outcome": "matched",
+        "primary_node_id": "df986923-8079-495b-82b8-efe2c7bcad1a",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "df986923-8079-495b-82b8-efe2c7bcad1a",
+            "support": "Understanding the expert\u2019s work contributes to evaluating information prepared by the expert as audit evidence, within this descriptor\u2019s audit-evidence scope."
+          }
+        ],
+        "note": "The candidate covers audit evidence generally, though not management-expert work specifically.",
+        "confidence": 0.71,
+        "bucket": "B"
+      },
+      {
+        "part_id": "0e68b0253ff3f4e67112b4b018ec5872c6161c85864a5ea790b3c2bc1d20d615:Q4.a.iii",
+        "outcome": "matched",
+        "primary_node_id": "df986923-8079-495b-82b8-efe2c7bcad1a",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "df986923-8079-495b-82b8-efe2c7bcad1a",
+            "support": "Evaluating the relevance and reasonableness of the expert\u2019s work as audit evidence for an assertion fits the descriptor\u2019s focus on obtaining sufficient appropriate audit evidence."
+          }
+        ],
+        "note": "The candidate addresses evidence evaluation broadly; the expert-specific procedures are more detailed than its descriptor.",
+        "confidence": 0.78,
+        "bucket": "B"
+      },
+      {
+        "part_id": "0e68b0253ff3f4e67112b4b018ec5872c6161c85864a5ea790b3c2bc1d20d615:Q4.a.i.repeat2",
+        "outcome": "matched",
+        "primary_node_id": "df986923-8079-495b-82b8-efe2c7bcad1a",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "df986923-8079-495b-82b8-efe2c7bcad1a",
+            "support": "Assessing whether expert findings are relevant, reasonable, consistent with other evidence, and reflected in statements evaluates the expert\u2019s information as audit evidence."
+          }
+        ],
+        "note": "The listed evaluation criteria align with the candidate\u2019s general audit-evidence scope.",
+        "confidence": 0.82,
+        "bucket": "B"
+      },
+      {
+        "part_id": "0e68b0253ff3f4e67112b4b018ec5872c6161c85864a5ea790b3c2bc1d20d615:Q4.a.ii.repeat2",
+        "outcome": "matched",
+        "primary_node_id": "df986923-8079-495b-82b8-efe2c7bcad1a",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "df986923-8079-495b-82b8-efe2c7bcad1a",
+            "support": "Reviewing the relevance and reasonableness of assumptions and methods assesses whether expert-prepared information appropriately supports audit evidence."
+          }
+        ],
+        "note": "The candidate matches the broader evidence-evaluation concept; it does not describe expert assumptions and methods in detail.",
+        "confidence": 0.76,
+        "bucket": "B"
+      },
+      {
+        "part_id": "0e68b0253ff3f4e67112b4b018ec5872c6161c85864a5ea790b3c2bc1d20d615:Q4.a.iii.repeat2",
+        "outcome": "matched",
+        "primary_node_id": "df986923-8079-495b-82b8-efe2c7bcad1a",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "df986923-8079-495b-82b8-efe2c7bcad1a",
+            "support": "Testing source-data relevance, completeness, and accuracy evaluates whether information supporting the expert\u2019s work is appropriate audit evidence."
+          }
+        ],
+        "note": "The descriptor covers audit evidence broadly, including supporting information, but not expert source-data procedures specifically.",
+        "confidence": 0.79,
+        "bucket": "B"
+      },
+      {
+        "part_id": "0e68b0253ff3f4e67112b4b018ec5872c6161c85864a5ea790b3c2bc1d20d615:Q4.b",
+        "outcome": "matched",
+        "primary_node_id": "b0b97cbe-af09-4b56-99f4-85cb4b1d1d22",
+        "secondary_node_ids": [
+          "6cb40abd-9da6-4cb8-87a0-96e5feef4c19"
+        ],
+        "evidence": [
+          {
+            "node_id": "b0b97cbe-af09-4b56-99f4-85cb4b1d1d22",
+            "support": "The question asks when a review practitioner must disclaim a conclusion or withdraw, matching the descriptor\u2019s SRE 2400 reporting protocols."
+          },
+          {
+            "node_id": "6cb40abd-9da6-4cb8-87a0-96e5feef4c19",
+            "support": "The refusal concerns requested written representations about management responsibilities and completeness, which this descriptor covers."
+          }
+        ],
+        "note": "The main issue is the SRE 2400 response and reporting consequence; written-representation requirements are also directly involved.",
+        "confidence": 0.94,
+        "bucket": "A"
+      },
+      {
+        "part_id": "0e68b0253ff3f4e67112b4b018ec5872c6161c85864a5ea790b3c2bc1d20d615:Q4.c",
+        "outcome": "matched",
+        "primary_node_id": "4b911bde-227d-4f7a-9061-d11de45a30cb",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "4b911bde-227d-4f7a-9061-d11de45a30cb",
+            "support": "The question concerns environmental impacts from waste, energy use, and carbon emissions, aligning with the descriptor\u2019s sustainability and environmental pillar."
+          }
+        ],
+        "note": "This candidate covers ESG fundamentals and environmental resource issues, though it does not name BRSR Principle 6.",
+        "confidence": 0.76,
+        "bucket": "B"
+      },
+      {
+        "part_id": "0e68b0253ff3f4e67112b4b018ec5872c6161c85864a5ea790b3c2bc1d20d615:Q4.b.repeat2",
+        "outcome": "matched",
+        "primary_node_id": "b0b97cbe-af09-4b56-99f4-85cb4b1d1d22",
+        "secondary_node_ids": [
+          "6cb40abd-9da6-4cb8-87a0-96e5feef4c19"
+        ],
+        "evidence": [
+          {
+            "node_id": "b0b97cbe-af09-4b56-99f4-85cb4b1d1d22",
+            "support": "Discussing refusal, reassessing reliability, and deciding whether to disclaim or withdraw are SRE 2400 response and reporting obligations."
+          },
+          {
+            "node_id": "6cb40abd-9da6-4cb8-87a0-96e5feef4c19",
+            "support": "The refusal is specifically about written representations required from management."
+          }
+        ],
+        "note": "The answer describes both the required response to refusal and the circumstances requiring disclaimer or withdrawal.",
+        "confidence": 0.94,
+        "bucket": "A"
+      },
+      {
+        "part_id": "0e68b0253ff3f4e67112b4b018ec5872c6161c85864a5ea790b3c2bc1d20d615:Q4.c.repeat2.i",
+        "outcome": "matched",
+        "primary_node_id": "4b911bde-227d-4f7a-9061-d11de45a30cb",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "4b911bde-227d-4f7a-9061-d11de45a30cb",
+            "support": "Policies to assess and rectify environmental impacts across a product\u2019s life cycle concern corporate environmental sustainability."
+          }
+        ],
+        "note": "The candidate covers environmental sustainability generally; the listed element is a specific Principle 6 responsibility.",
+        "confidence": 0.75,
+        "bucket": "B"
+      },
+      {
+        "part_id": "0e68b0253ff3f4e67112b4b018ec5872c6161c85864a5ea790b3c2bc1d20d615:Q4.c.repeat2.ii",
+        "outcome": "matched",
+        "primary_node_id": "4b911bde-227d-4f7a-9061-d11de45a30cb",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "4b911bde-227d-4f7a-9061-d11de45a30cb",
+            "support": "Optimizing natural and manmade resource use for sustainability is directly within the descriptor\u2019s natural-resource conservation concept."
+          }
+        ],
+        "note": "The resource-sustainability element aligns with the environmental pillar described by this candidate.",
+        "confidence": 0.84,
+        "bucket": "B"
+      },
+      {
+        "part_id": "0e68b0253ff3f4e67112b4b018ec5872c6161c85864a5ea790b3c2bc1d20d615:Q4.c.repeat2.iii",
+        "outcome": "matched",
+        "primary_node_id": "4b911bde-227d-4f7a-9061-d11de45a30cb",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "4b911bde-227d-4f7a-9061-d11de45a30cb",
+            "support": "Measuring pollution prevention, waste generation, and energy use addresses environmental performance and resource impacts."
+          }
+        ],
+        "note": "These are specific environmental performance areas within the broader ESG sustainability descriptor.",
+        "confidence": 0.88,
+        "bucket": "B"
+      },
+      {
+        "part_id": "0e68b0253ff3f4e67112b4b018ec5872c6161c85864a5ea790b3c2bc1d20d615:Q4.c.repeat2.iv",
+        "outcome": "matched",
+        "primary_node_id": "4b911bde-227d-4f7a-9061-d11de45a30cb",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "4b911bde-227d-4f7a-9061-d11de45a30cb",
+            "support": "Climate-change resilience and national climate commitments are environmental sustainability concerns, matching the descriptor\u2019s corporate climate-policy coverage."
+          }
+        ],
+        "note": "The descriptor addresses climate policy broadly, though not the specific Indian commitments named here.",
+        "confidence": 0.81,
+        "bucket": "B"
+      },
+      {
+        "part_id": "0e68b0253ff3f4e67112b4b018ec5872c6161c85864a5ea790b3c2bc1d20d615:Q4.c.repeat2.v",
+        "outcome": "matched",
+        "primary_node_id": "4b911bde-227d-4f7a-9061-d11de45a30cb",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "4b911bde-227d-4f7a-9061-d11de45a30cb",
+            "support": "Reducing, reusing, and recycling materials and resources advances environmental resource conservation, a concept covered by this sustainability descriptor."
+          }
+        ],
+        "note": "The specific resource-recovery practices are not named in the descriptor but fit its environmental conservation scope.",
+        "confidence": 0.79,
+        "bucket": "B"
+      },
+      {
+        "part_id": "0e68b0253ff3f4e67112b4b018ec5872c6161c85864a5ea790b3c2bc1d20d615:Q4.c.repeat2.vi",
+        "outcome": "matched",
+        "primary_node_id": "4b911bde-227d-4f7a-9061-d11de45a30cb",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "4b911bde-227d-4f7a-9061-d11de45a30cb",
+            "support": "Improving performance on environmental responsibilities concerns the environmental pillar of corporate sustainability."
+          }
+        ],
+        "note": "The candidate matches the broad environmental-sustainability concept addressed by this core element.",
+        "confidence": 0.77,
+        "bucket": "B"
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "attempt_id": "1791216572924826000",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "d7e8a1398bcb1051af6572839d343f7d847b1107e3caf7b8c409ee4fb3c048dc",
+    "schema_generator": "pinned-part-ids-v1",
+    "seconds": 65.875,
+    "usage": [
+      {
+        "input_tokens": 55528,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3345,
+        "reasoning_output_tokens": 516
+      }
+    ],
+    "completed_at": "2026-10-05T16:10:38.799230+00:00"
+  }
+}

@@ -1,0 +1,146 @@
+{
+  "result": {
+    "question_id": "1ee2ef91064a94133eefbc07b5aa8d6af123a165ff227b97e942eceb1de4f4f0",
+    "input_hash": "f4dc064148cd03e617daa42825cd02809da17961b24a74cc30db687f034b2e7b",
+    "mappings": [
+      {
+        "part_id": "1ee2ef91064a94133eefbc07b5aa8d6af123a165ff227b97e942eceb1de4f4f0:d.repeat6.i",
+        "outcome": "matched",
+        "primary_node_id": "e39ef668-deaa-47b6-b925-244d0c61d8e1",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "e39ef668-deaa-47b6-b925-244d0c61d8e1",
+            "support": "Tests whether a firm employee may sign finalized financial statement material under the CA firm\u2019s name, within the employee exception to the restriction on unqualified persons practicing in that name."
+          }
+        ],
+        "note": "The assistant\u2019s authority to issue finalized notes and a cash flow statement is the signing/practice issue raised by the shared stem.",
+        "confidence": 0.79,
+        "bucket": "B"
+      },
+      {
+        "part_id": "1ee2ef91064a94133eefbc07b5aa8d6af123a165ff227b97e942eceb1de4f4f0:d.repeat6.ii",
+        "outcome": "matched",
+        "primary_node_id": "e39ef668-deaa-47b6-b925-244d0c61d8e1",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "e39ef668-deaa-47b6-b925-244d0c61d8e1",
+            "support": "Tests whether an audit assistant may issue a client questionnaire under the CA firm\u2019s name, which concerns the employee exception to the restriction on unqualified persons practicing in that name."
+          }
+        ],
+        "note": "The questionnaire is a task assigned to the assistant in the shared audit scenario.",
+        "confidence": 0.76,
+        "bucket": "B"
+      },
+      {
+        "part_id": "1ee2ef91064a94133eefbc07b5aa8d6af123a165ff227b97e942eceb1de4f4f0:d.repeat6.iii",
+        "outcome": "matched",
+        "primary_node_id": "e39ef668-deaa-47b6-b925-244d0c61d8e1",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "e39ef668-deaa-47b6-b925-244d0c61d8e1",
+            "support": "Tests whether a firm employee may handle routine client correspondence under the CA firm\u2019s name, within the employee exception to the restriction on unqualified persons practicing in that name."
+          }
+        ],
+        "note": "The stem frames this as a task performed by an audit assistant on behalf of the firm.",
+        "confidence": 0.79,
+        "bucket": "B"
+      },
+      {
+        "part_id": "1ee2ef91064a94133eefbc07b5aa8d6af123a165ff227b97e942eceb1de4f4f0:d.repeat6.iv",
+        "outcome": "matched",
+        "primary_node_id": "e39ef668-deaa-47b6-b925-244d0c61d8e1",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "e39ef668-deaa-47b6-b925-244d0c61d8e1",
+            "support": "Tests whether an employee may issue a professional-authentication report under the CA firm\u2019s name, engaging the restriction on unqualified persons practicing in that name."
+          }
+        ],
+        "note": "The tested issue is the assistant\u2019s authority to issue an authentication report, not the report\u2019s substantive subject.",
+        "confidence": 0.82,
+        "bucket": "B"
+      },
+      {
+        "part_id": "1ee2ef91064a94133eefbc07b5aa8d6af123a165ff227b97e942eceb1de4f4f0:d.repeat6.i.repeat2",
+        "outcome": "matched",
+        "primary_node_id": "8ca477cb-64f2-418a-9655-951c210e4338",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "8ca477cb-64f2-418a-9655-951c210e4338",
+            "support": "Tests which notes belong in consolidated rather than separate financial statements, a group presentation and scope distinction."
+          }
+        ],
+        "note": "The part asks whether a disclosure about the source of bonus shares can be omitted from the parent\u2019s consolidated statements.",
+        "confidence": 0.75,
+        "bucket": "B"
+      },
+      {
+        "part_id": "1ee2ef91064a94133eefbc07b5aa8d6af123a165ff227b97e942eceb1de4f4f0:d.repeat6.ii.repeat2",
+        "outcome": "matched",
+        "primary_node_id": "8ca477cb-64f2-418a-9655-951c210e4338",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "8ca477cb-64f2-418a-9655-951c210e4338",
+            "support": "Tests whether an entity-specific disclosure belongs in consolidated rather than separate financial statements, the group-versus-single-entity presentation distinction."
+          }
+        ],
+        "note": "The MSME Act disclosure is considered for omission from the consolidated statements in the shared stem.",
+        "confidence": 0.74,
+        "bucket": "B"
+      },
+      {
+        "part_id": "1ee2ef91064a94133eefbc07b5aa8d6af123a165ff227b97e942eceb1de4f4f0:d.repeat6.iii.repeat2",
+        "outcome": "matched",
+        "primary_node_id": "8ca477cb-64f2-418a-9655-951c210e4338",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "8ca477cb-64f2-418a-9655-951c210e4338",
+            "support": "Tests whether the disclosure of issue-proceeds utilization belongs in consolidated or only separate financial statements, the group presentation distinction."
+          }
+        ],
+        "note": "The utilization disclosure is assessed for inclusion in consolidated financial statements.",
+        "confidence": 0.75,
+        "bucket": "B"
+      },
+      {
+        "part_id": "1ee2ef91064a94133eefbc07b5aa8d6af123a165ff227b97e942eceb1de4f4f0:d.repeat6.iv.repeat2",
+        "outcome": "matched",
+        "primary_node_id": "8ca477cb-64f2-418a-9655-951c210e4338",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "8ca477cb-64f2-418a-9655-951c210e4338",
+            "support": "Tests whether foreign-exchange earnings disclosure belongs in consolidated rather than separate financial statements, the group-versus-individual reporting distinction."
+          }
+        ],
+        "note": "The FOB-basis export disclosure is evaluated for omission from the group statements.",
+        "confidence": 0.74,
+        "bucket": "B"
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "attempt_id": "1791216572926998000",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "d61b7d2bdf189487405e92d9c1970d916a9f65931a4e643adcd59c127313f2c1",
+    "schema_generator": "pinned-part-ids-v1",
+    "seconds": 45.415,
+    "usage": [
+      {
+        "input_tokens": 50931,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2188,
+        "reasoning_output_tokens": 695
+      }
+    ],
+    "completed_at": "2026-10-05T16:10:18.342263+00:00"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "result": {
+    "question_id": "fd3e5c9e5828dd683ebabd1fc93937453b8788266e1d14146c86732486f8b8a0",
+    "input_hash": "23b6732801be298c3d841377652c2561b182aceb6e27f2b853ed11cf13aafe61",
+    "mappings": [
+      {
+        "part_id": "fd3e5c9e5828dd683ebabd1fc93937453b8788266e1d14146c86732486f8b8a0",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Only an answer fragment (\u20b9137.95 lakhs) is available; the root question, tested concept and answer are missing, so no candidate label can be supported.",
+        "confidence": null,
+        "bucket": null
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "attempt_id": "1791217582355531000",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "0cc61eeff6b2f054539d826f086e3454b33d107babd62c05c137b81cec6301f1",
+    "schema_generator": "pinned-identifiers-v2",
+    "seconds": 8.958,
+    "usage": [
+      {
+        "input_tokens": 51025,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 251,
+        "reasoning_output_tokens": 48
+      }
+    ],
+    "completed_at": "2026-10-05T16:26:31.313625+00:00"
+  }
+}

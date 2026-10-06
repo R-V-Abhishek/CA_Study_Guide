@@ -63,7 +63,7 @@ def make_decision(
             TaxonomyRelease.taxonomy_version_id == TaxonomyMember.taxonomy_version_id
         ).where(TaxonomyMember.node_id.in_(selected_ids), TaxonomyRelease.status != "legacy").limit(1))
         if rebuilt:
-            raise ValueError("Textbook classifications remain suggestions until Phase 5 revisioned publication; historical labels are preserved")
+            raise ValueError("Textbook labels require a complete root classification review with expected suggestion and publication revisions; use the revisioned classification review operation")
 
     # 1. Record Decision
     decision = Decision(
@@ -195,62 +195,5 @@ def make_decision(
 
 
 def bulk_accept_bucket_a(session: Session, document_id: int, actor_id: int | None = None) -> int:
-    """Bulk accept all remaining Bucket A suggestions for a confirmed document."""
-    doc = session.get(Document, document_id)
-    if not doc:
-        raise ValueError(f"Document {document_id} not found")
-
-    # Find pending units with Bucket A primary suggestions
-    units = (
-        session.query(Unit)
-        .filter(
-            Unit.document_id == document_id,
-            Unit.current.is_(True),
-            Unit.classify_status == "suggested",
-        )
-        .all()
-    )
-
-    accepted_count = 0
-    for u in units:
-        # Check suggestions
-        suggestions = (
-            session.query(TagSuggestion)
-            .filter(
-                TagSuggestion.unit_id == u.id,
-                TagSuggestion.is_shadow.is_(False),
-            )
-            .all()
-        )
-        primary_sugg = next(
-            (s for s in suggestions if s.role == "primary" and s.bucket == "A"),
-            None,
-        )
-        if not primary_sugg:
-            continue
-
-        secondary_ids = [
-            s.node_id for s in suggestions if s.role == "secondary"
-        ]
-        gist = (
-            primary_sugg.evidence.get("gist")
-            if primary_sugg.evidence
-            else None
-        )
-
-        make_decision(
-            session=session,
-            unit_id=u.id,
-            action="bulk_accept",
-            payload={
-                "primary_node_id": primary_sugg.node_id,
-                "secondary_node_ids": secondary_ids,
-                "gist": gist or u.display_label,
-            },
-            suggestion_run_id=primary_sugg.run_id,
-            actor_id=actor_id,
-            require_pending=True,
-        )
-        accepted_count += 1
-
-    return accepted_count
+    """Retain the historical entry point without automatic model-score publication."""
+    raise ValueError("Automatic bucket publication is disabled; an authenticated administrator must review explicit root revisions in the bulk review workspace")

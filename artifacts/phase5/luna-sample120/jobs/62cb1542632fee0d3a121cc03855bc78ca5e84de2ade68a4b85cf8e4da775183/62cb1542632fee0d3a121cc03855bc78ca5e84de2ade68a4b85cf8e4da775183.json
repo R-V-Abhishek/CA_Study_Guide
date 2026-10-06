@@ -1,0 +1,47 @@
+{
+  "result": {
+    "question_id": "62cb1542632fee0d3a121cc03855bc78ca5e84de2ade68a4b85cf8e4da775183",
+    "input_hash": "b366236e7bbad1f9e0a53c61dd3cbd0eb0e6096b9beb8a5eaa1f1dcc3de4873b",
+    "mappings": [
+      {
+        "part_id": "62cb1542632fee0d3a121cc03855bc78ca5e84de2ade68a4b85cf8e4da775183",
+        "outcome": "matched",
+        "primary_node_id": "24380872-1298-40f2-920e-d5cee655a422",
+        "secondary_node_ids": [
+          "ea9a8d86-cba2-4d8e-b65c-dcb780d76fab"
+        ],
+        "evidence": [
+          {
+            "node_id": "24380872-1298-40f2-920e-d5cee655a422",
+            "support": "Asks for minimum total provisioning on a loan; this descriptor covers provisioning by asset category and secured or unsecured exposure."
+          },
+          {
+            "node_id": "ea9a8d86-cba2-4d8e-b65c-dcb780d76fab",
+            "support": "Also asks for the loan\u2019s asset classification, which is determined under the descriptor\u2019s standard, sub-standard, doubtful, and loss asset norms."
+          }
+        ],
+        "note": "The supplied question identifies the concepts, but the missing answer and loan-performance details prevent determining the specific classification or provision amount.",
+        "confidence": 0.96,
+        "bucket": "A"
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "attempt_id": "1791216618522749000",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "03c0412c855078f87afea1473839cf7854ef0e32e79c38d97b816d648468d436",
+    "schema_generator": "pinned-part-ids-v1",
+    "seconds": 14.667,
+    "usage": [
+      {
+        "input_tokens": 46303,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 540,
+        "reasoning_output_tokens": 191
+      }
+    ],
+    "completed_at": "2026-10-05T16:10:33.189469+00:00"
+  }
+}

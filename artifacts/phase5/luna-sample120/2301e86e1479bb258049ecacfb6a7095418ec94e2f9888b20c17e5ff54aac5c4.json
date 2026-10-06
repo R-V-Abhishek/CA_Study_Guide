@@ -1,0 +1,62 @@
+{
+  "result": {
+    "question_id": "2301e86e1479bb258049ecacfb6a7095418ec94e2f9888b20c17e5ff54aac5c4",
+    "input_hash": "30c18f80aa8cf9bbdc5933bbea5e50d14a1e15ba1d85987f98385561424a1e17",
+    "mappings": [
+      {
+        "part_id": "2301e86e1479bb258049ecacfb6a7095418ec94e2f9888b20c17e5ff54aac5c4:Q6.a.ii",
+        "outcome": "matched",
+        "primary_node_id": "5fbade37-9b84-4b13-9950-3b7c3297b178",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "5fbade37-9b84-4b13-9950-3b7c3297b178",
+            "support": "Assesses whether profit shifting between SEZ and non-SEZ units to obtain a tax deduction warrants invoking General Anti-Avoidance Rules; the descriptor covers aggressive arrangements aimed at tax advantages."
+          }
+        ],
+        "note": "Although the facts also mention specific anti-avoidance provisions, the requested conclusion is whether GAAR should be invoked; the answer says no because those provisions address the tax benefit.",
+        "confidence": 0.97,
+        "bucket": "A"
+      },
+      {
+        "part_id": "2301e86e1479bb258049ecacfb6a7095418ec94e2f9888b20c17e5ff54aac5c4:Q6.b",
+        "outcome": "matched",
+        "primary_node_id": "cff8d7d0-36e0-453a-9ff4-b24d3395cd1e",
+        "secondary_node_ids": [
+          "0e06953b-e550-4d6c-a6b4-44bc42b8cf55"
+        ],
+        "evidence": [
+          {
+            "node_id": "cff8d7d0-36e0-453a-9ff4-b24d3395cd1e",
+            "support": "Tests whether the Board for Advance Rulings can compel production of books of account under its civil-court-equivalent evidence powers, matching the descriptor."
+          },
+          {
+            "node_id": "0e06953b-e550-4d6c-a6b4-44bc42b8cf55",
+            "support": "Also asks whether ABC Ltd. may apply for an advance ruling, addressing the descriptor's Board for Advance Rulings and its jurisdiction over applicants."
+          }
+        ],
+        "note": "The prior ruling for an affiliate is background; the answer relies on the transaction value threshold for eligibility and section 245U for the Board\u2019s power to compel records.",
+        "confidence": 0.92,
+        "bucket": "A"
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "attempt_id": "1791217266753772000",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "c915c3ea71f337a002df90532074182e0d76be11c07c7cc6b977b6405071dc60",
+    "schema_generator": "pinned-identifiers-v2",
+    "seconds": 14.881,
+    "usage": [
+      {
+        "input_tokens": 54866,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 587,
+        "reasoning_output_tokens": 0
+      }
+    ],
+    "completed_at": "2026-10-05T16:21:21.634339+00:00"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "result": {
+    "question_id": "e5133156cdd3da2e7947c9e584022abcddef399a45dd7902bd0a2bd5dbfd39f1",
+    "input_hash": "ff3f73a12d6f289b24935cbafbbb3632b01489bdfabf0f22885bd1608c415b82",
+    "mappings": [
+      {
+        "part_id": "e5133156cdd3da2e7947c9e584022abcddef399a45dd7902bd0a2bd5dbfd39f1",
+        "outcome": "matched",
+        "primary_node_id": "4a2da392-91d2-4a47-885e-66f83f1cb0dd",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "4a2da392-91d2-4a47-885e-66f83f1cb0dd",
+            "support": "Revenue expenditure on scientific research is evaluated as a business-profit deduction under the statutory rules for computing profits and gains. The descriptor covers admissible business expenditure and statutory deductions."
+          }
+        ],
+        "note": "The listed part tests the tax treatment of scientific-research revenue expenditure as a business deduction; the candidates do not offer the more specific scientific-research expenditure rule.",
+        "confidence": 0.84,
+        "bucket": "B"
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "attempt_id": "1791217473179341000",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "a6a1199a8527d65ee3e8ba389b8c607d82f4bb71bc352b531fba87f885a3a5f8",
+    "schema_generator": "pinned-identifiers-v2",
+    "seconds": 9.841,
+    "usage": [
+      {
+        "input_tokens": 50307,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 290,
+        "reasoning_output_tokens": 0
+      }
+    ],
+    "completed_at": "2026-10-05T16:24:43.020893+00:00"
+  }
+}

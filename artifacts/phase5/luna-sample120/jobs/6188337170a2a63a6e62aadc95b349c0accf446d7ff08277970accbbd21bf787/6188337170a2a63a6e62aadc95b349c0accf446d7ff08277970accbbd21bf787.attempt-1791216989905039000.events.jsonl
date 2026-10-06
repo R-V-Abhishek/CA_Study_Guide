@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a10cda-36fe-7723-8d23-118f6ffab487"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"{\"question_id\":\"6188337170a2a63a6e62aadc95b349c0accf446d7ff08277970accbbd21bf787\",\"input_hash\":\"33aaf5cb6c06735268db321bcc83316029f7be56dccb3d5e4134f56fdaa78e6e\",\"mappings\":[{\"part_id\":\"6188337170a2a63a6e62aadc95b349c0accf446d7ff08277970accbbd21bf787\",\"outcome\":\"needs_review\",\"primary_node_id\":null,\"secondary_node_ids\":[],\"evidence\":[],\"note\":\"Only the fragment “(C) Goodwill ₹6,50,000” is available; no complete root question, shared stem, other parts, or answer is provided. The fragment alone does not establish which goodwill concept is tested.\",\"confidence\":null,\"bucket\":null}]}"}}
+{"type":"turn.completed","usage":{"input_tokens":48277,"cached_input_tokens":0,"cache_write_input_tokens":0,"output_tokens":210,"reasoning_output_tokens":0}}

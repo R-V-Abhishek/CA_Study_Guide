@@ -12,6 +12,12 @@ from caf_db.engine import get_session_factory
 from caf_l1.catalog import confirm_document, reject_document
 from caf_db.models.ingest import Document
 from caf_contracts.extraction import PaperPageRange
+from caf_contracts.classification import (
+    ClassificationQueueItem, ClassificationReviewRequest, ClassificationVerificationRequest,
+    ClassificationDisputeRequest, ClassificationResolveRequest, ClassificationRevisionResult,
+    ClassificationHistoryItem, ClassificationDisputeResult, ClassificationBulkRequest,
+    ClassificationBulkResult,
+)
 from caf_api.responses import (
     BulkAcceptResult, CuratorDecisionResult, CuratorDocument, CuratorQueueItem,
     DocumentConfirmResult, DocumentEditResult, DocumentStatusResult, RecomputeResult,
@@ -127,7 +133,9 @@ def api_edit_document(
     session: Session = Depends(get_operations_db),
     account: Principal = Depends(require_admin),
 ):
-    doc = session.get(Document, doc_id)
+    from caf_l1.catalog import lock_document_metadata
+    lock_document_metadata(session, doc_id)
+    doc = session.get(Document, doc_id, populate_existing=True)
     if not doc:
         raise HTTPException(status_code=404, detail=f"Document {doc_id} not found")
 
@@ -142,6 +150,142 @@ def api_edit_document(
 # ==============================================================================
 # Tag Review Queue & Curation Decisions
 # ==============================================================================
+
+
+@router.get('/classifications', response_model=list[ClassificationQueueItem])
+def classification_queue(
+    paper_id: str | None = None, source: str | None = None, outcome: str | None = None,
+    taxonomy_version_id: int | None = None, experimental: bool | None = None,
+    ready: bool | None = None, disputed: bool | None = None, blind: bool = False,
+    benchmark_only: bool = False, limit: int = Query(100, ge=1, le=500), offset: int = Query(0, ge=0),
+    session: Session = Depends(get_curation_db), account: Principal = Depends(require_account),
+):
+    """One immutable suggestion per root, retaining the previous publication during review."""
+    from caf_db.models.classification import (SuggestionRevision, ClassificationRevision,
+        QuestionPublication, ClassificationVerification, ClassificationDispute)
+    from caf_l4.revisions import readiness
+
+    latest_query = sa.select(sa.func.max(SuggestionRevision.id).label('id'))
+    if taxonomy_version_id:
+        latest_query = latest_query.where(SuggestionRevision.taxonomy_version_id == taxonomy_version_id)
+    latest = latest_query.group_by(SuggestionRevision.question_id).subquery()
+    query = sa.select(SuggestionRevision, Document).join(latest, SuggestionRevision.id == latest.c.id).join(Document, Document.id == SuggestionRevision.document_id)
+    if paper_id: query = query.where(SuggestionRevision.context['paper_id'].astext == paper_id)
+    if source: query = query.where(Document.doc_type_id == source)
+    if taxonomy_version_id: query = query.where(SuggestionRevision.taxonomy_version_id == taxonomy_version_id)
+    if experimental is not None: query = query.where(SuggestionRevision.experimental == experimental)
+    result = []
+    skipped = 0
+    for suggestion, document in session.execute(query.order_by(SuggestionRevision.id.desc())):
+        gate = readiness(session, suggestion)
+        if ready is not None and gate['eligible'] != ready: continue
+        if outcome and not any(part['outcome'] == outcome for part in suggestion.mappings): continue
+        benchmark = bool(suggestion.provenance.get('benchmark', False))
+        if benchmark_only and not benchmark: continue
+        publication = session.get(QuestionPublication, suggestion.question_id)
+        current_id = publication.current_revision_id if publication else None
+        current = session.get(ClassificationRevision, current_id) if current_id else None
+        count = session.scalar(sa.select(sa.func.count()).select_from(ClassificationVerification).where(
+            ClassificationVerification.revision_id == current_id, ClassificationVerification.active.is_(True))) if current_id else 0
+        mine = session.scalar(sa.select(ClassificationVerification.id).where(ClassificationVerification.revision_id == current_id,
+            ClassificationVerification.actor_id == account.id, ClassificationVerification.active.is_(True))) if current_id else None
+        dispute = session.scalar(sa.select(ClassificationDispute).where(ClassificationDispute.question_id == suggestion.question_id,
+            ClassificationDispute.status == 'open').order_by(ClassificationDispute.id.desc()).limit(1))
+        if disputed is not None and bool(dispute) != disputed: continue
+        if skipped < offset:
+            skipped += 1
+            continue
+        mappings = suggestion.mappings if not blind else [dict(part_id=part['part_id'], outcome='needs_review') for part in suggestion.mappings]
+        question = {key: value for key, value in suggestion.context.items() if key != 'classification_part_ids'}
+        result.append(dict(suggestion_revision_id=suggestion.id, document_id=document.id, question_id=suggestion.question_id,
+            extraction_revision_id=suggestion.extraction_revision_id, taxonomy_version_id=suggestion.taxonomy_version_id,
+            run_id=None if blind else suggestion.run_id, input_hash=suggestion.input_hash, paper_id=suggestion.context['paper_id'],
+            attempt_id=document.attempt_id, doc_type_id=document.doc_type_id, experimental=suggestion.experimental,
+            stale=gate['stale'], publication_ready=gate['eligible'],
+            readiness_blockers=[dict(code=str(block), message=str(block)) for block in gate['blockers']],
+            question=question, mappings=mappings, candidates=suggestion.candidates,
+            provenance={} if blind else suggestion.provenance, publication_revision_id=current_id,
+            publication_suggestion_revision_id=current.suggestion_revision_id if current else None,
+            published_question={key: value for key, value in current.context.items() if key != 'classification_part_ids'} if current and not blind else None,
+            published_mappings=[] if blind or not current else current.mappings,
+            verification_count=count, verified_by_me=bool(mine), dispute_status=dispute.status if dispute else None,
+            is_benchmark=benchmark, blind=blind))
+        if len(result) >= limit: break
+    return result
+
+
+def classification_mutation(session, operation):
+    from caf_l4.revisions import RevisionConflict, ReadinessError
+    try:
+        result = operation()
+        session.commit()
+        return result
+    except RevisionConflict as exc:
+        session.rollback()
+        raise HTTPException(409, dict(code='stale_revision', message=str(exc), current_revision_id=exc.current_revision_id)) from exc
+    except ReadinessError as exc:
+        session.rollback()
+        raise HTTPException(422, dict(code='readiness_failed', message=str(exc), blockers=exc.blockers)) from exc
+    except ValueError as exc:
+        session.rollback()
+        raise HTTPException(422, dict(code='invalid_classification', message=str(exc))) from exc
+
+
+@router.post('/classifications/{suggestion_id}/review', response_model=ClassificationRevisionResult)
+def classification_review(suggestion_id: int, body: ClassificationReviewRequest,
+    session: Session = Depends(get_curation_db), account: Principal = Depends(require_account)):
+    from caf_l4.revisions import review_classification
+    return classification_mutation(session, lambda: review_classification(session, suggestion_id, account.id,
+        **body.model_dump()))
+
+
+@router.post('/classifications/bulk', response_model=ClassificationBulkResult)
+def classification_bulk(body: ClassificationBulkRequest, session: Session = Depends(get_curation_db),
+    account: Principal = Depends(require_admin)):
+    from caf_l4.revisions import review_classification
+    return classification_mutation(session, lambda: dict(revisions=[review_classification(session,
+        review.expected_suggestion_revision_id, account.id, **review.model_dump()) for review in body.reviews]))
+
+
+@router.get('/classifications/questions/{question_id}/history', response_model=list[ClassificationHistoryItem])
+def classification_history(question_id: str, session: Session = Depends(get_curation_db)):
+    from caf_l4.revisions import history
+    return history(session, question_id)
+
+
+@router.post('/classifications/questions/{question_id}/verify', response_model=ClassificationRevisionResult)
+def classification_verify(question_id: str, body: ClassificationVerificationRequest,
+    session: Session = Depends(get_curation_db), account: Principal = Depends(require_account)):
+    from caf_l4.revisions import verify_classification
+    return classification_mutation(session, lambda: verify_classification(session, question_id, account.id, **body.model_dump()))
+
+
+@router.post('/classifications/questions/{question_id}/withdraw', response_model=ClassificationRevisionResult)
+def classification_withdraw(question_id: str, body: ClassificationVerificationRequest,
+    session: Session = Depends(get_curation_db), account: Principal = Depends(require_account)):
+    from caf_l4.revisions import verify_classification
+    return classification_mutation(session, lambda: verify_classification(session, question_id, account.id, withdraw=True, **body.model_dump()))
+
+
+@router.post('/classifications/questions/{question_id}/disputes', response_model=ClassificationRevisionResult)
+def classification_dispute(question_id: str, body: ClassificationDisputeRequest,
+    session: Session = Depends(get_curation_db), account: Principal = Depends(require_account)):
+    from caf_l4.revisions import submit_dispute
+    return classification_mutation(session, lambda: submit_dispute(session, question_id, account.id, **body.model_dump()))
+
+
+@router.get('/classifications/questions/{question_id}/disputes', response_model=list[ClassificationDisputeResult])
+def classification_disputes(question_id: str, session: Session = Depends(get_curation_db)):
+    from caf_db.models.classification import ClassificationDispute
+    return [dict(id=row.id, classification_revision_id=row.revision_id, status=row.status, reason=row.reason)
+        for row in session.scalars(sa.select(ClassificationDispute).where(ClassificationDispute.question_id == question_id).order_by(ClassificationDispute.id.desc()))]
+
+
+@router.post('/classifications/disputes/{dispute_id}/resolve', response_model=ClassificationRevisionResult)
+def classification_resolve(dispute_id: int, body: ClassificationResolveRequest,
+    session: Session = Depends(get_curation_db), account: Principal = Depends(require_admin)):
+    from caf_l4.revisions import resolve_dispute
+    return classification_mutation(session, lambda: resolve_dispute(session, dispute_id, account.id, **body.model_dump()))
 
 class DecisionRequest(BaseModel):
     model_config = ConfigDict(extra="forbid")
@@ -226,14 +370,19 @@ def list_curate_queue(
         if bucket and prim.bucket != bucket:
             continue
 
-        secondaries = [s for s in suggs if s.role == "secondary"]
+        # A primary and its secondary evidence must describe the same model run.
+        secondaries = [s for s in suggs if s.role == "secondary" and s.run_id == prim.run_id
+                       and s.method == prim.method and s.model_id == prim.model_id
+                       and s.prompt_version == prim.prompt_version]
         ans = session.get(UnitAnswer, u.id)
 
         items.append(
             {
                 "unit_id": u.id,
                 "taxonomy_version_id": taxonomy_version_id,
-                "publication_ready": taxonomy_version_id is None,
+                "publication_ready": False,
+                "verification_state": "unknown",
+                "requires_re_review": True,
                 "document_id": doc.id,
                 "attempt_id": doc.attempt_id,
                 "paper_id": doc.paper_id,
@@ -276,6 +425,9 @@ def api_make_decision(
 
     if req.action in ("bulk_accept", "undo") and account.role != "administrator":
         raise HTTPException(status_code=403, detail="Administrator capability required")
+    if req.action not in ("none_fits", "exclude"):
+        raise HTTPException(422, dict(code='revision_review_required',
+            message='Review the complete root classification through the revision review workspace'))
 
     payload = {
         "primary_node_id": req.primary_node_id,
@@ -311,15 +463,8 @@ def api_bulk_accept_bucket_a(
     account: Principal = Depends(require_admin),
 ):
     """Bulk accept all remaining Bucket A suggestions for a confirmed document."""
-    from caf_l4.publish import bulk_accept_bucket_a, StaleDecisionError
-
-    try:
-        count = bulk_accept_bucket_a(session, doc_id, actor_id=account.id)
-        return {"document_id": doc_id, "accepted_count": count}
-    except StaleDecisionError as exc:
-        raise HTTPException(status_code=409, detail=str(exc))
-    except ValueError as exc:
-        raise HTTPException(status_code=400, detail=str(exc))
+    raise HTTPException(422, dict(code='revision_review_required',
+        message='Select explicit root suggestion and publication revisions in the bulk review workspace'))
 
 
 @router.post("/intel/recompute", response_model=RecomputeResult)

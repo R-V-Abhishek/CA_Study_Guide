@@ -1,0 +1,40 @@
+{
+  "result": {
+    "question_id": "495402d8fad441f1ad1286f848acdcd773cb2f953aae63ff9108a2c52153e753",
+    "input_hash": "8e9003627373042059d23e5df63a65397f58d50feb16eea06c15024ef9e87bca",
+    "mappings": [
+      {
+        "part_id": "495402d8fad441f1ad1286f848acdcd773cb2f953aae63ff9108a2c52153e753",
+        "outcome": "matched",
+        "primary_node_id": "21e30a7c-ae88-4770-bed9-22dd4a722c4b",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "21e30a7c-ae88-4770-bed9-22dd4a722c4b",
+            "support": "Directly asks how enhancing qualitative characteristics improve financial information usefulness, matching this descriptor\u2019s four enhancing traits."
+          }
+        ],
+        "note": "The question tests enhancing qualitative characteristics themselves, not their role in selecting a measurement basis or balancing trade-offs.",
+        "confidence": 0.99,
+        "bucket": "A"
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "791a1981851b1d048cc4c6c7f4616ab13c2a792ec1a65b3a8596879322ea7aa6",
+    "schema_generator": "pinned-part-ids-v1",
+    "seconds": 10.213,
+    "usage": [
+      {
+        "input_tokens": 48075,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 253,
+        "reasoning_output_tokens": 0
+      }
+    ],
+    "completed_at": "2026-10-05T15:56:24.888784+00:00"
+  }
+}

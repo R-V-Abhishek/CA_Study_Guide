@@ -1,0 +1,36 @@
+{
+  "result": {
+    "question_id": "f34a07e04165b8ce5d444d785df145db5a5a9fdb86e59d0a9147e43cc9b0104c",
+    "input_hash": "f1dd4c74fefe388b4d5dfe2374c2f9dc6d7683766d2d3e86bf01b31aa19bff2a",
+    "mappings": [
+      {
+        "part_id": "f34a07e04165b8ce5d444d785df145db5a5a9fdb86e59d0a9147e43cc9b0104c",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "The gradable part asks for a company's enterprise value, but the supplied text gives no valuation method or calculation details. The following foreign-exchange problem does not clarify the tested valuation concept.",
+        "confidence": null,
+        "bucket": null
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "attempt_id": "1791216818752852000",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "3e751caf38c9d89788f4c8bb7d756524fec8176532bf6442a6c4848561c4fd24",
+    "schema_generator": "pinned-part-ids-v1",
+    "seconds": 14.113,
+    "usage": [
+      {
+        "input_tokens": 43591,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 479,
+        "reasoning_output_tokens": 256
+      }
+    ],
+    "completed_at": "2026-10-05T16:13:52.865491+00:00"
+  }
+}

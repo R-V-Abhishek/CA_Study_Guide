@@ -245,6 +245,7 @@ def require_administrator(session: Session, actor_id: int):
 
 
 def revise_descriptor(session: Session, version_id: str, node_id: str, content: dict, actor_id: int):
+    session.execute(sa.text("SELECT pg_advisory_xact_lock(731306)"))
     session.execute(sa.text("SELECT pg_advisory_xact_lock(hashtextextended(:key,0))"), {"key": f"descriptor:{version_id}:{node_id}"})
     release = get_release(session, version_id)
     node = session.get(TaxonomyMember, (release.taxonomy_version_id, node_id))
@@ -268,6 +269,7 @@ def revise_descriptor(session: Session, version_id: str, node_id: str, content: 
 
 
 def approve_descriptor(session: Session, version_id: str, node_id: str, revision: int, actor_id: int):
+    session.execute(sa.text("SELECT pg_advisory_xact_lock(731306)"))
     session.execute(sa.text("SELECT pg_advisory_xact_lock(hashtextextended(:key,0))"), {"key": f"descriptor:{version_id}:{node_id}"})
     release = get_release(session, version_id)
     actor = session.execute(sa.select(UserAccount.status).where(UserAccount.id == actor_id)).first()
@@ -332,6 +334,7 @@ def release_report(session: Session, version_id: str, *, include_personal_counts
 
 
 def approve_release(session: Session, version_id: str, manifest_hash: str, actor_id: int):
+    session.execute(sa.text("SELECT pg_advisory_xact_lock(731306)"))
     require_administrator(session, actor_id)
     release = get_release(session, version_id)
     if release.manifest_hash != manifest_hash:

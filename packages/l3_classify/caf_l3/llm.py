@@ -8,6 +8,7 @@ from pathlib import Path
 import time
 import tomllib
 from typing import Any
+from typing import Literal
 
 from google import genai
 from google.genai import types
@@ -25,10 +26,12 @@ logger = logging.getLogger(__name__)
 class LLMClassificationOutput(BaseModel):
     """Rigid JSON schema enforced for Gemini classification output."""
 
-    primary_node_id: str = Field(
+    primary_node_id: str | None = Field(
         description="Exact canonical node ID from candidate subtopics list, e.g. P1-BXTF71"
     )
     model_id: str | None = None
+    outcome: Literal['matched', 'needs_review', 'none_fits'] = 'matched'
+    label_evidence: dict[str, str] = Field(default_factory=dict)
     secondary_node_ids: list[str] = Field(
         default_factory=list,
         description="Secondary node IDs if the question tests multiple subtopics",
@@ -154,7 +157,8 @@ class GeminiClassifier:
             f"impairment under Ind AS 36, classify under Ind AS 36 (Impairment) unless lease measurement is evaluated.\n"
             f"2. STRICT PAPER BOUNDARY:\n"
             f"   - Select only provided Candidate Subtopics. IBS may use explicitly listed cross-paper concepts.\n"
-            f"   - Return an empty primary_node_id when none fits; never invent or force a match.\n"
+            f"   - Return outcome matched, needs_review or none_fits explicitly. Unresolved outcomes require null primary_node_id and no secondary labels.\n"
+            f"   - Provide label_evidence mapping each selected label ID to brief support in the tested task and descriptor.\n"
             f"3. USE OFFICIAL SOLUTION EVIDENCE:\n"
             f"   - Official solutions often state the governing Standard or Section in the opening paragraph.\n"
             f"4. CONFIDENCE BUCKETS:\n"
@@ -173,7 +177,7 @@ class GeminiClassifier:
         if answer_text and answer_text.strip():
             user_content += (
                 f"--- OFFICIAL MODEL SOLUTION ---\n"
-                f"{answer_text.strip()[:3000]}\n\n"
+                f"{answer_text.strip()}\n\n"
             )
 
         user_content += (
@@ -235,10 +239,23 @@ class GeminiClassifier:
 
                     result = LLMClassificationOutput.model_validate_json(raw_text.strip())
                     result.model_id = model_name
+                    selected = ([result.primary_node_id] if result.primary_node_id else []) + result.secondary_node_ids
+                    if result.outcome != 'matched' and selected:
+                        raise NeedsTaxonomyReview("Unresolved outcome contains labels")
+                    if result.outcome == 'matched' and not result.primary_node_id:
+                        raise NeedsTaxonomyReview("needs taxonomy review: model returned unsupported candidate IDs")
                     # Validate that primary_node_id exists in the paper candidates
                     if any(node_id not in node_map for node_id in
-                           [result.primary_node_id, *result.secondary_node_ids, *result.alternatives]):
+                           [*selected, *result.alternatives]):
                         raise NeedsTaxonomyReview("needs taxonomy review: model returned unsupported candidate IDs")
+                    if len(selected) != len(set(selected)):
+                        raise NeedsTaxonomyReview("Duplicate model labels")
+                    # Single-label historical provider fixtures carry their support
+                    # in justification; multi-label outputs need individual evidence.
+                    if selected and not result.label_evidence and len(selected) == 1:
+                        result.label_evidence = {selected[0]: result.justification}
+                    if set(result.label_evidence) != set(selected) or any(not text.strip() for text in result.label_evidence.values()):
+                        raise NeedsTaxonomyReview("Each model label requires supporting evidence")
 
                     return result
 

@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a10cda-4596-73c2-9620-f97cd84280b6"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"{\"question_id\":\"c5c41a3b65f706733f3bf599a94c61783e9a27ff797844cb09dc6da8e4712dc6\",\"input_hash\":\"8030fedbc3dc6c262157fba87f5e4d3c4f037a46d2dd0f719dcdebb20efbfce4\",\"mappings\":[{\"part_id\":\"c5c41a3b65f706733f3bf599a94c61783e9a27ff797844cb09dc6da8e4712dc6\",\"outcome\":\"none_fits\",\"primary_node_id\":null,\"secondary_node_ids\":[],\"evidence\":[],\"note\":\"The part concerns Robotic Process Automation; none of the supplied candidate descriptors covers that concept.\",\"confidence\":0.99,\"bucket\":null}]}"}}
+{"type":"turn.completed","usage":{"input_tokens":49258,"cached_input_tokens":0,"cache_write_input_tokens":0,"output_tokens":400,"reasoning_output_tokens":203}}

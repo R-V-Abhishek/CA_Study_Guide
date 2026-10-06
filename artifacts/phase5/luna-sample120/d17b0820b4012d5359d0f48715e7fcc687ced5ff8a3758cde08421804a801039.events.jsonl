@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a10cd8-ec5a-7011-b0c0-9289dac539f9"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"{\"question_id\":\"d17b0820b4012d5359d0f48715e7fcc687ced5ff8a3758cde08421804a801039\",\"input_hash\":\"dc1e52d69940a7546478f1efb1d4dc7ae32e013d6233e697cdff1b56b5995dd1\",\"mappings\":[{\"part_id\":\"d17b0820b4012d5359d0f48715e7fcc687ced5ff8a3758cde08421804a801039\",\"outcome\":\"needs_review\",\"primary_node_id\":null,\"secondary_node_ids\":[],\"evidence\":[],\"note\":\"The stem asks which statement is correct based on facts that are not included; the supplied text shows only “(D) `91,000`.” With the answer and shared facts missing, the tested concept cannot be determined.\",\"confidence\":null,\"bucket\":null}]}"}}
+{"type":"turn.completed","usage":{"input_tokens":47486,"cached_input_tokens":0,"cache_write_input_tokens":0,"output_tokens":415,"reasoning_output_tokens":200}}

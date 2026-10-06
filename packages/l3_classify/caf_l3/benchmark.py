@@ -162,10 +162,10 @@ def evaluate_calibration_benchmark(session: Session, threshold: float = 0.80,
     )
     decisions_by_fp = {}
     for decision in decisions:
-        if decision.payload.get("taxonomy_version_id") == taxonomy_version_id:
+        if decision.payload.get("taxonomy_version_id") == taxonomy_version_id and decision.blind:
             decisions_by_fp.setdefault(decision.unit_fingerprint, decision)
 
-    # Fetch latest primary tag suggestions
+    # Fetch suggestions; pair only explicit frozen IDs from blind adjudication.
     suggestions = (
         session.query(TagSuggestion)
         .filter(
@@ -176,9 +176,7 @@ def evaluate_calibration_benchmark(session: Session, threshold: float = 0.80,
         .order_by(TagSuggestion.id.desc())
         .all()
     )
-    sugg_by_unit = {}
-    for suggestion in suggestions:
-        sugg_by_unit.setdefault(suggestion.unit_id, suggestion)
+    sugg_by_id = {suggestion.id: suggestion for suggestion in suggestions}
 
     paper_stats: dict[str, dict[str, int]] = {
         p: {"total": 0, "decided": 0, "matched": 0} for p in ALL_PAPERS
@@ -193,9 +191,9 @@ def evaluate_calibration_benchmark(session: Session, threshold: float = 0.80,
             paper_stats[p_id]["total"] += 1
 
         dec = decisions_by_fp.get(u.fingerprint)
-        sugg = sugg_by_unit.get(u.id)
+        sugg = sugg_by_id.get(dec.payload.get('suggestion_id')) if dec else None
 
-        if dec and sugg:
+        if dec and sugg and sugg.unit_id == u.id:
             curator_primary = dec.payload.get("primary_node_id")
             if curator_primary:
                 total_decided += 1

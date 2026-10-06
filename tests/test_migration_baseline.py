@@ -172,10 +172,10 @@ def test_supplied_connection_migration_baseline_isolated_from_settings(isolated_
 
         monkeypatch.setattr(caf_common.settings, "get_settings", settings_forbidden)
         with destination.connect() as connection:
-            baseline = migrated_schema_snapshot(connection, "0005_extraction_revisions")
+            baseline = migrated_schema_snapshot(connection, "0006_classification_revisions")
             assert compare_schema_snapshots(baseline, before) == {}
             with pytest.raises(ValueError, match="already contains"):
-                migrated_schema_snapshot(connection, "0005_extraction_revisions")
+                migrated_schema_snapshot(connection, "0006_classification_revisions")
         with source.connect() as connection:
             assert schema_snapshot(connection) == before
     finally:

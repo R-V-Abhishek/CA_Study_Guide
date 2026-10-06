@@ -1384,6 +1384,590 @@
         }
       }
     },
+    "/api/v1/curate/classifications": {
+      "get": {
+        "tags": [
+          "curation"
+        ],
+        "summary": "Classification Queue",
+        "description": "One immutable suggestion per root, retaining the previous publication during review.",
+        "operationId": "classification_queue_api_v1_curate_classifications_get",
+        "parameters": [
+          {
+            "name": "paper_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Paper Id"
+            }
+          },
+          {
+            "name": "source",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Source"
+            }
+          },
+          {
+            "name": "outcome",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Outcome"
+            }
+          },
+          {
+            "name": "taxonomy_version_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Taxonomy Version Id"
+            }
+          },
+          {
+            "name": "experimental",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Experimental"
+            }
+          },
+          {
+            "name": "ready",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Ready"
+            }
+          },
+          {
+            "name": "disputed",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Disputed"
+            }
+          },
+          {
+            "name": "blind",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false,
+              "title": "Blind"
+            }
+          },
+          {
+            "name": "benchmark_only",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false,
+              "title": "Benchmark Only"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 500,
+              "minimum": 1,
+              "default": 100,
+              "title": "Limit"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ClassificationQueueItem"
+                  },
+                  "title": "Response Classification Queue Api V1 Curate Classifications Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/curate/classifications/{suggestion_id}/review": {
+      "post": {
+        "tags": [
+          "curation"
+        ],
+        "summary": "Classification Review",
+        "operationId": "classification_review_api_v1_curate_classifications__suggestion_id__review_post",
+        "parameters": [
+          {
+            "name": "suggestion_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Suggestion Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ClassificationReviewRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClassificationRevisionResult"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/curate/classifications/bulk": {
+      "post": {
+        "tags": [
+          "curation"
+        ],
+        "summary": "Classification Bulk",
+        "operationId": "classification_bulk_api_v1_curate_classifications_bulk_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ClassificationBulkRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClassificationBulkResult"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/curate/classifications/questions/{question_id}/history": {
+      "get": {
+        "tags": [
+          "curation"
+        ],
+        "summary": "Classification History",
+        "operationId": "classification_history_api_v1_curate_classifications_questions__question_id__history_get",
+        "parameters": [
+          {
+            "name": "question_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Question Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ClassificationHistoryItem"
+                  },
+                  "title": "Response Classification History Api V1 Curate Classifications Questions  Question Id  History Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/curate/classifications/questions/{question_id}/verify": {
+      "post": {
+        "tags": [
+          "curation"
+        ],
+        "summary": "Classification Verify",
+        "operationId": "classification_verify_api_v1_curate_classifications_questions__question_id__verify_post",
+        "parameters": [
+          {
+            "name": "question_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Question Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ClassificationVerificationRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClassificationRevisionResult"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/curate/classifications/questions/{question_id}/withdraw": {
+      "post": {
+        "tags": [
+          "curation"
+        ],
+        "summary": "Classification Withdraw",
+        "operationId": "classification_withdraw_api_v1_curate_classifications_questions__question_id__withdraw_post",
+        "parameters": [
+          {
+            "name": "question_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Question Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ClassificationVerificationRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClassificationRevisionResult"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/curate/classifications/questions/{question_id}/disputes": {
+      "post": {
+        "tags": [
+          "curation"
+        ],
+        "summary": "Classification Dispute",
+        "operationId": "classification_dispute_api_v1_curate_classifications_questions__question_id__disputes_post",
+        "parameters": [
+          {
+            "name": "question_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Question Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ClassificationDisputeRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClassificationRevisionResult"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "curation"
+        ],
+        "summary": "Classification Disputes",
+        "operationId": "classification_disputes_api_v1_curate_classifications_questions__question_id__disputes_get",
+        "parameters": [
+          {
+            "name": "question_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Question Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ClassificationDisputeResult"
+                  },
+                  "title": "Response Classification Disputes Api V1 Curate Classifications Questions  Question Id  Disputes Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/curate/classifications/disputes/{dispute_id}/resolve": {
+      "post": {
+        "tags": [
+          "curation"
+        ],
+        "summary": "Classification Resolve",
+        "operationId": "classification_resolve_api_v1_curate_classifications_disputes__dispute_id__resolve_post",
+        "parameters": [
+          {
+            "name": "dispute_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Dispute Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ClassificationResolveRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClassificationRevisionResult"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/curate/queue": {
       "get": {
         "tags": [
@@ -4203,6 +4787,620 @@
         ],
         "title": "ChapterItem"
       },
+      "ClassificationBulkRequest": {
+        "properties": {
+          "reviews": {
+            "items": {
+              "$ref": "#/components/schemas/ClassificationReviewRequest"
+            },
+            "type": "array",
+            "maxItems": 100,
+            "minItems": 1,
+            "title": "Reviews"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "reviews"
+        ],
+        "title": "ClassificationBulkRequest"
+      },
+      "ClassificationBulkResult": {
+        "properties": {
+          "revisions": {
+            "items": {
+              "$ref": "#/components/schemas/ClassificationRevisionResult"
+            },
+            "type": "array",
+            "title": "Revisions"
+          }
+        },
+        "type": "object",
+        "required": [
+          "revisions"
+        ],
+        "title": "ClassificationBulkResult"
+      },
+      "ClassificationDisputeRequest": {
+        "properties": {
+          "expected_suggestion_revision_id": {
+            "type": "integer",
+            "minimum": 1.0,
+            "title": "Expected Suggestion Revision Id"
+          },
+          "expected_publication_revision_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Expected Publication Revision Id"
+          },
+          "idempotency_key": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Idempotency Key"
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 10000,
+            "minLength": 1,
+            "title": "Reason"
+          },
+          "replacement_mappings": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/PartMapping"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Replacement Mappings"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "expected_suggestion_revision_id",
+          "expected_publication_revision_id",
+          "idempotency_key",
+          "reason"
+        ],
+        "title": "ClassificationDisputeRequest"
+      },
+      "ClassificationDisputeResult": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "classification_revision_id": {
+            "type": "integer",
+            "title": "Classification Revision Id"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "reason": {
+            "type": "string",
+            "title": "Reason"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "classification_revision_id",
+          "status",
+          "reason"
+        ],
+        "title": "ClassificationDisputeResult"
+      },
+      "ClassificationHistoryItem": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "suggestion_revision_id": {
+            "type": "integer",
+            "title": "Suggestion Revision Id"
+          },
+          "document_id": {
+            "type": "integer",
+            "title": "Document Id"
+          },
+          "question_id": {
+            "type": "string",
+            "title": "Question Id"
+          },
+          "mappings": {
+            "items": {
+              "$ref": "#/components/schemas/PartMapping"
+            },
+            "type": "array",
+            "title": "Mappings"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "actor_id": {
+            "type": "integer",
+            "title": "Actor Id"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At"
+          },
+          "verification_count": {
+            "type": "integer",
+            "title": "Verification Count"
+          },
+          "note": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Note"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "suggestion_revision_id",
+          "document_id",
+          "question_id",
+          "mappings",
+          "status",
+          "actor_id",
+          "created_at",
+          "verification_count"
+        ],
+        "title": "ClassificationHistoryItem"
+      },
+      "ClassificationQueueItem": {
+        "properties": {
+          "suggestion_revision_id": {
+            "type": "integer",
+            "title": "Suggestion Revision Id"
+          },
+          "document_id": {
+            "type": "integer",
+            "title": "Document Id"
+          },
+          "question_id": {
+            "type": "string",
+            "title": "Question Id"
+          },
+          "extraction_revision_id": {
+            "type": "integer",
+            "title": "Extraction Revision Id"
+          },
+          "taxonomy_version_id": {
+            "type": "integer",
+            "title": "Taxonomy Version Id"
+          },
+          "run_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Run Id"
+          },
+          "input_hash": {
+            "type": "string",
+            "title": "Input Hash"
+          },
+          "paper_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Paper Id"
+          },
+          "attempt_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Attempt Id"
+          },
+          "doc_type_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Doc Type Id"
+          },
+          "experimental": {
+            "type": "boolean",
+            "title": "Experimental"
+          },
+          "stale": {
+            "type": "boolean",
+            "title": "Stale"
+          },
+          "publication_ready": {
+            "type": "boolean",
+            "title": "Publication Ready"
+          },
+          "readiness_blockers": {
+            "items": {
+              "$ref": "#/components/schemas/ReadinessBlocker"
+            },
+            "type": "array",
+            "title": "Readiness Blockers"
+          },
+          "question": {
+            "$ref": "#/components/schemas/ExtractedQuestion"
+          },
+          "mappings": {
+            "items": {
+              "$ref": "#/components/schemas/PartMapping"
+            },
+            "type": "array",
+            "title": "Mappings"
+          },
+          "candidates": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Candidates"
+          },
+          "provenance": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Provenance"
+          },
+          "publication_revision_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Publication Revision Id"
+          },
+          "publication_suggestion_revision_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Publication Suggestion Revision Id"
+          },
+          "published_mappings": {
+            "items": {
+              "$ref": "#/components/schemas/PartMapping"
+            },
+            "type": "array",
+            "title": "Published Mappings"
+          },
+          "published_question": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ExtractedQuestion"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "verification_count": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Verification Count"
+          },
+          "verified_by_me": {
+            "type": "boolean",
+            "title": "Verified By Me",
+            "default": false
+          },
+          "dispute_status": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Dispute Status"
+          },
+          "is_benchmark": {
+            "type": "boolean",
+            "title": "Is Benchmark",
+            "default": false
+          },
+          "blind": {
+            "type": "boolean",
+            "title": "Blind",
+            "default": false
+          }
+        },
+        "type": "object",
+        "required": [
+          "suggestion_revision_id",
+          "document_id",
+          "question_id",
+          "extraction_revision_id",
+          "taxonomy_version_id",
+          "run_id",
+          "input_hash",
+          "paper_id",
+          "attempt_id",
+          "doc_type_id",
+          "experimental",
+          "stale",
+          "publication_ready",
+          "readiness_blockers",
+          "question",
+          "mappings",
+          "candidates",
+          "provenance",
+          "publication_revision_id",
+          "verification_count",
+          "dispute_status"
+        ],
+        "title": "ClassificationQueueItem"
+      },
+      "ClassificationResolveRequest": {
+        "properties": {
+          "expected_suggestion_revision_id": {
+            "type": "integer",
+            "minimum": 1.0,
+            "title": "Expected Suggestion Revision Id"
+          },
+          "expected_publication_revision_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Expected Publication Revision Id"
+          },
+          "idempotency_key": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Idempotency Key"
+          },
+          "resolution": {
+            "type": "string",
+            "enum": [
+              "dismiss",
+              "replace"
+            ],
+            "title": "Resolution"
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 10000,
+            "minLength": 1,
+            "title": "Reason"
+          },
+          "replacement_mappings": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/PartMapping"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Replacement Mappings"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "expected_suggestion_revision_id",
+          "expected_publication_revision_id",
+          "idempotency_key",
+          "resolution",
+          "reason"
+        ],
+        "title": "ClassificationResolveRequest"
+      },
+      "ClassificationReviewRequest": {
+        "properties": {
+          "expected_suggestion_revision_id": {
+            "type": "integer",
+            "minimum": 1.0,
+            "title": "Expected Suggestion Revision Id"
+          },
+          "expected_publication_revision_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Expected Publication Revision Id"
+          },
+          "idempotency_key": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Idempotency Key"
+          },
+          "mappings": {
+            "items": {
+              "$ref": "#/components/schemas/PartMapping"
+            },
+            "type": "array",
+            "minItems": 1,
+            "title": "Mappings"
+          },
+          "note": {
+            "type": "string",
+            "maxLength": 10000,
+            "minLength": 1,
+            "title": "Note"
+          },
+          "blind": {
+            "type": "boolean",
+            "title": "Blind",
+            "default": false
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "expected_suggestion_revision_id",
+          "expected_publication_revision_id",
+          "idempotency_key",
+          "mappings",
+          "note"
+        ],
+        "title": "ClassificationReviewRequest"
+      },
+      "ClassificationRevisionResult": {
+        "properties": {
+          "revision_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Revision Id"
+          },
+          "current_revision_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Current Revision Id"
+          },
+          "verification_count": {
+            "type": "integer",
+            "title": "Verification Count",
+            "default": 0
+          },
+          "pending": {
+            "type": "boolean",
+            "title": "Pending",
+            "default": false
+          },
+          "dispute_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Dispute Id"
+          },
+          "status": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status"
+          }
+        },
+        "type": "object",
+        "title": "ClassificationRevisionResult"
+      },
+      "ClassificationVerificationRequest": {
+        "properties": {
+          "expected_suggestion_revision_id": {
+            "type": "integer",
+            "minimum": 1.0,
+            "title": "Expected Suggestion Revision Id"
+          },
+          "expected_publication_revision_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Expected Publication Revision Id"
+          },
+          "idempotency_key": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Idempotency Key"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "expected_suggestion_revision_id",
+          "expected_publication_revision_id",
+          "idempotency_key"
+        ],
+        "title": "ClassificationVerificationRequest"
+      },
       "CorrectionRequest": {
         "properties": {
           "label_path": {
@@ -4653,6 +5851,17 @@
             "type": "boolean",
             "title": "Publication Ready",
             "default": true
+          },
+          "verification_state": {
+            "type": "string",
+            "const": "unknown",
+            "title": "Verification State",
+            "default": "unknown"
+          },
+          "requires_re_review": {
+            "type": "boolean",
+            "title": "Requires Re Review",
+            "default": false
           },
           "document_id": {
             "type": "integer",
@@ -7331,6 +8540,83 @@
         ],
         "title": "PaperTree"
       },
+      "PartMapping": {
+        "properties": {
+          "part_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Part Id"
+          },
+          "outcome": {
+            "type": "string",
+            "enum": [
+              "matched",
+              "needs_review",
+              "none_fits"
+            ],
+            "title": "Outcome"
+          },
+          "primary_node_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Primary Node Id"
+          },
+          "secondary_node_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Secondary Node Ids"
+          },
+          "evidence": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Evidence"
+          },
+          "confidence": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 1.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Confidence"
+          },
+          "bucket": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Bucket"
+          },
+          "excluded": {
+            "type": "boolean",
+            "title": "Excluded",
+            "default": false
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "part_id",
+          "outcome"
+        ],
+        "title": "PartMapping"
+      },
       "PartPairingCandidates": {
         "properties": {
           "part_id": {
@@ -8131,6 +9417,24 @@
           "source_spans"
         ],
         "title": "QuestionPartV1"
+      },
+      "ReadinessBlocker": {
+        "properties": {
+          "code": {
+            "type": "string",
+            "title": "Code"
+          },
+          "message": {
+            "type": "string",
+            "title": "Message"
+          }
+        },
+        "type": "object",
+        "required": [
+          "code",
+          "message"
+        ],
+        "title": "ReadinessBlocker"
       },
       "RecomputeResult": {
         "properties": {

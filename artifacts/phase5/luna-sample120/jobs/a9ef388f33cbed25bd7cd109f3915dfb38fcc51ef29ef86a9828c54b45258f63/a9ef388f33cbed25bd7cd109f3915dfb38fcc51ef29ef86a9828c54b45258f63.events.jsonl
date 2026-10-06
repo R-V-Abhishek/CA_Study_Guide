@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a10cc7-d487-7192-87fe-4bf55dc4a20d"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"{\"question_id\":\"a9ef388f33cbed25bd7cd109f3915dfb38fcc51ef29ef86a9828c54b45258f63\",\"input_hash\":\"5aca3e9bb8d6b89a33a861bb31419a36f094c894656080fdaf6e8975f2367ad2\",\"mappings\":[{\"part_id\":\"a9ef388f33cbed25bd7cd109f3915dfb38fcc51ef29ef86a9828c54b45258f63\",\"outcome\":\"none_fits\",\"primary_node_id\":null,\"secondary_node_ids\":[],\"evidence\":[],\"note\":\"The supplied text gives exam duration and submission instructions; it does not test any of the candidate accounting or professional concepts. The answer fragment does not clarify a tested concept.\",\"confidence\":0.99,\"bucket\":\"D\"}]}"}}
+{"type":"turn.completed","usage":{"input_tokens":48348,"cached_input_tokens":0,"cache_write_input_tokens":0,"output_tokens":202,"reasoning_output_tokens":0}}

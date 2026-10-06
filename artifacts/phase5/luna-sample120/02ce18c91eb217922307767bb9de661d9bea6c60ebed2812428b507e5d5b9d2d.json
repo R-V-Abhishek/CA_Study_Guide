@@ -1,0 +1,113 @@
+{
+  "result": {
+    "question_id": "02ce18c91eb217922307767bb9de661d9bea6c60ebed2812428b507e5d5b9d2d",
+    "input_hash": "e25b74ccee734bf6e2852bdb9292868b3a2e0c9e780b69bd49e97f16bf9c3daf",
+    "mappings": [
+      {
+        "part_id": "02ce18c91eb217922307767bb9de661d9bea6c60ebed2812428b507e5d5b9d2d:Q4.a.i",
+        "outcome": "matched",
+        "primary_node_id": "57ce37fe-a7ff-404c-a458-111e44b6a362",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "57ce37fe-a7ff-404c-a458-111e44b6a362",
+            "support": "Tests section 194Q deduction on a high-turnover buyer\u2019s purchase of goods exceeding the \u20b950 lakh threshold."
+          }
+        ],
+        "note": "The company\u2019s non-resident status and Indian factory are relevant to applying the purchase-of-goods TDS rule in this case.",
+        "confidence": 0.98,
+        "bucket": "A"
+      },
+      {
+        "part_id": "02ce18c91eb217922307767bb9de661d9bea6c60ebed2812428b507e5d5b9d2d:Q4.a.ii",
+        "outcome": "matched",
+        "primary_node_id": "ebf252fa-f5d7-4d88-b8d1-e70d70ffa175",
+        "secondary_node_ids": [
+          "7680f90a-fc77-42c9-947e-64b77c7f66ac"
+        ],
+        "evidence": [
+          {
+            "node_id": "ebf252fa-f5d7-4d88-b8d1-e70d70ffa175",
+            "support": "Tests TDS on sales commission paid to a resident agent, including the applicable threshold and rates."
+          },
+          {
+            "node_id": "7680f90a-fc77-42c9-947e-64b77c7f66ac",
+            "support": "Tests TDS on business benefits or perquisites provided in cash, reimbursement, and kind, including the laptop and travel incentives."
+          }
+        ],
+        "note": "The part separately examines commission and business or professional benefits; the answer applies sections 194H and 194R.",
+        "confidence": 0.99,
+        "bucket": "A"
+      },
+      {
+        "part_id": "02ce18c91eb217922307767bb9de661d9bea6c60ebed2812428b507e5d5b9d2d:Q4.a.iii",
+        "outcome": "matched",
+        "primary_node_id": "37e93cdc-235b-4f96-80fc-4768a47bfa67",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "37e93cdc-235b-4f96-80fc-4768a47bfa67",
+            "support": "Tests an e-commerce operator\u2019s TDS on the gross sale amount facilitated through its online platform."
+          }
+        ],
+        "note": "The portal facilitates the seller\u2019s online sale and collects and transfers the buyer\u2019s payment, matching the section 194-O descriptor.",
+        "confidence": 0.99,
+        "bucket": "A"
+      },
+      {
+        "part_id": "02ce18c91eb217922307767bb9de661d9bea6c60ebed2812428b507e5d5b9d2d:Q4.b.i",
+        "outcome": "matched",
+        "primary_node_id": "a2c79666-6048-43ed-b0c2-989cd044190b",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "a2c79666-6048-43ed-b0c2-989cd044190b",
+            "support": "Tests whether foreign entities qualify as associated enterprises for cross-border transfer pricing, based on voting rights, director appointment, and loan guarantee thresholds."
+          }
+        ],
+        "note": "The question asks for section 92A associated-enterprise status; that status determines whether the related cross-border transactions enter the transfer-pricing framework.",
+        "confidence": 0.88,
+        "bucket": "B"
+      },
+      {
+        "part_id": "02ce18c91eb217922307767bb9de661d9bea6c60ebed2812428b507e5d5b9d2d:Q4.b.ii",
+        "outcome": "matched",
+        "primary_node_id": "a2c79666-6048-43ed-b0c2-989cd044190b",
+        "secondary_node_ids": [
+          "d282d387-93cd-4bb4-b0b8-1e4f42fcbc4e"
+        ],
+        "evidence": [
+          {
+            "node_id": "a2c79666-6048-43ed-b0c2-989cd044190b",
+            "support": "Tests computing an arm\u2019s-length price for an international purchase between associated enterprises using comparable resale transactions and warranty adjustments."
+          },
+          {
+            "node_id": "d282d387-93cd-4bb4-b0b8-1e4f42fcbc4e",
+            "support": "The ALP computation applies independent-party resale margins and adjusts the result for differences in warranty terms, reflecting arm\u2019s-length comparison."
+          }
+        ],
+        "note": "The service transaction with Astroid is described, but Astroid is not an associated enterprise under part (i); the supplied answer computes ALP for the Star GmbH projector transaction.",
+        "confidence": 0.95,
+        "bucket": "A"
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "attempt_id": "1791217259531455000",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "276e1c9bbe3ad303065627f77b4a18d46e01bef5e5e6bc0bfc06d810cbb6fd64",
+    "schema_generator": "pinned-identifiers-v2",
+    "seconds": 29.84,
+    "usage": [
+      {
+        "input_tokens": 57068,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1397,
+        "reasoning_output_tokens": 247
+      }
+    ],
+    "completed_at": "2026-10-05T16:21:29.371462+00:00"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "result": {
+    "question_id": "8ee4e17c6821bcddceeb00f38adc76bf15ca5083da6f9fb5bf3d87d8766a162f",
+    "input_hash": "908dcf57a54083378ee225c09ebcd6270e5a377b5519bb2cf92360c785005ec4",
+    "mappings": [
+      {
+        "part_id": "8ee4e17c6821bcddceeb00f38adc76bf15ca5083da6f9fb5bf3d87d8766a162f",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "The part contains only \u201c(B) ` 92 crores\u201d; the question, shared stem, and answer are unavailable, so the tested concept cannot be established from the amount alone.",
+        "confidence": null,
+        "bucket": null
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "attempt_id": "1791216883981180000",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "c4ca42af4f8f9307fe257c2ca16e78db6eae21f558eb8d2f2f7b6b29dbc6838e",
+    "schema_generator": "pinned-part-ids-v1",
+    "seconds": 8.587,
+    "usage": [
+      {
+        "input_tokens": 46224,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 205,
+        "reasoning_output_tokens": 0
+      }
+    ],
+    "completed_at": "2026-10-05T16:14:52.567865+00:00"
+  }
+}

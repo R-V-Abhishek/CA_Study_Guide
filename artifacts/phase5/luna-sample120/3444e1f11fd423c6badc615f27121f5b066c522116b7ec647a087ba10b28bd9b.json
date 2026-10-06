@@ -1,0 +1,41 @@
+{
+  "result": {
+    "question_id": "3444e1f11fd423c6badc615f27121f5b066c522116b7ec647a087ba10b28bd9b",
+    "input_hash": "cbf6964fcfb80e7d45ebc105e304392efb4940fc0ed1b87f41a1b8501109de8c",
+    "mappings": [
+      {
+        "part_id": "3444e1f11fd423c6badc615f27121f5b066c522116b7ec647a087ba10b28bd9b",
+        "outcome": "matched",
+        "primary_node_id": "8e9846a2-ce6f-45c7-a5ce-b039be97e6f4",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "8e9846a2-ce6f-45c7-a5ce-b039be97e6f4",
+            "support": "The answer identifies information available when the statements were approved and describes restating prior-period comparatives, matching the descriptor\u2019s treatment of prior-period errors."
+          }
+        ],
+        "note": "The supplied answer excerpt points to retrospective correction of a prior-period error; the isolated amount in the question text does not establish another tested concept.",
+        "confidence": 0.87,
+        "bucket": "A"
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "attempt_id": "1791217503083984000",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "f453e261dfd2a3a45701b96033cf99209bd90844e38934f86dffd954bb1d42c4",
+    "schema_generator": "pinned-identifiers-v2",
+    "seconds": 15.92,
+    "usage": [
+      {
+        "input_tokens": 52152,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 586,
+        "reasoning_output_tokens": 301
+      }
+    ],
+    "completed_at": "2026-10-05T16:25:19.004478+00:00"
+  }
+}

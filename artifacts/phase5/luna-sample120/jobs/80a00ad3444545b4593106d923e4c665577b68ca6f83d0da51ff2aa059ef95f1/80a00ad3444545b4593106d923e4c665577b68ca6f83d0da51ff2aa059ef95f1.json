@@ -1,0 +1,99 @@
+{
+  "result": {
+    "question_id": "80a00ad3444545b4593106d923e4c665577b68ca6f83d0da51ff2aa059ef95f1",
+    "input_hash": "fc76571ea48dea3894fc11d736d21e564e04c3a83673558dddd85d373d0fd8e0",
+    "mappings": [
+      {
+        "part_id": "80a00ad3444545b4593106d923e4c665577b68ca6f83d0da51ff2aa059ef95f1:CSIV.Q10",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "This is a shared heading for questions 10\u201312, with no standalone tested concept.",
+        "confidence": null,
+        "bucket": null
+      },
+      {
+        "part_id": "80a00ad3444545b4593106d923e4c665577b68ca6f83d0da51ff2aa059ef95f1:CSIV.M10",
+        "outcome": "matched",
+        "primary_node_id": "ea064aae-7c1d-4de6-ba58-ce560ab351b8",
+        "secondary_node_ids": [
+          "34e1918d-30a7-471e-a06b-75d0b1eb110e"
+        ],
+        "evidence": [
+          {
+            "node_id": "ea064aae-7c1d-4de6-ba58-ce560ab351b8",
+            "support": "The question requires proportionately deriving swap points for an odd 2-month-and-15-day maturity, matching broken-period forward-rate scaling."
+          },
+          {
+            "node_id": "34e1918d-30a7-471e-a06b-75d0b1eb110e",
+            "support": "It uses forward points as increments to calculate the rate for the specified value date."
+          }
+        ],
+        "note": "Calculates the broken-period forward points from the shared spot quote and standard tenor swap points.",
+        "confidence": 0.96,
+        "bucket": "A"
+      },
+      {
+        "part_id": "80a00ad3444545b4593106d923e4c665577b68ca6f83d0da51ff2aa059ef95f1:CSIV.M11",
+        "outcome": "matched",
+        "primary_node_id": "ea064aae-7c1d-4de6-ba58-ce560ab351b8",
+        "secondary_node_ids": [
+          "34e1918d-30a7-471e-a06b-75d0b1eb110e"
+        ],
+        "evidence": [
+          {
+            "node_id": "ea064aae-7c1d-4de6-ba58-ce560ab351b8",
+            "support": "The target exchange rate is for 20 June, an odd-date maturity derived by scaling standard forward margins."
+          },
+          {
+            "node_id": "34e1918d-30a7-471e-a06b-75d0b1eb110e",
+            "support": "The calculation applies the derived forward points to the spot rate to obtain the outright bid and ask rates."
+          }
+        ],
+        "note": "Computes the outright two-way forward exchange rate for the broken-period date.",
+        "confidence": 0.94,
+        "bucket": "A"
+      },
+      {
+        "part_id": "80a00ad3444545b4593106d923e4c665577b68ca6f83d0da51ff2aa059ef95f1:CSIV.M12",
+        "outcome": "matched",
+        "primary_node_id": "68d5e74d-366d-48ca-9077-b827b7720494",
+        "secondary_node_ids": [
+          "ea064aae-7c1d-4de6-ba58-ce560ab351b8"
+        ],
+        "evidence": [
+          {
+            "node_id": "68d5e74d-366d-48ca-9077-b827b7720494",
+            "support": "It annualizes the premium or discount of the forward USD/INR rate relative to spot, the descriptor\u2019s stated premium/discount calculation."
+          },
+          {
+            "node_id": "ea064aae-7c1d-4de6-ba58-ce560ab351b8",
+            "support": "The forward rates used for this annualized comparison are for the non-standard 2-month-and-15-day period."
+          }
+        ],
+        "note": "Classifies and annualizes the forward premium or discount using the average exchange rate.",
+        "confidence": 0.91,
+        "bucket": "A"
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "attempt_id": "1791216843387312000",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "6b501e1a77e0f22da477ff8c161f0a51d1bdfb817c73f5c0ffb340ddb2412426",
+    "schema_generator": "pinned-part-ids-v1",
+    "seconds": 27.831,
+    "usage": [
+      {
+        "input_tokens": 46083,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1298,
+        "reasoning_output_tokens": 390
+      }
+    ],
+    "completed_at": "2026-10-05T16:14:31.218472+00:00"
+  }
+}

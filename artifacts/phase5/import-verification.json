@@ -1,0 +1,13 @@
+{
+  "batch_key": "0c01d1d022e39e8b8f0a962a4e70d87a5424da70d0cff2a8ee833d2eb9e789ed",
+  "roots_checked": 120,
+  "complete_context_candidates_mappings_preserved": true,
+  "answer_states": {
+    "complete": 28,
+    "missing": 60,
+    "partial": 32
+  },
+  "published_roots": 0,
+  "student_verifications": 0,
+  "experimental": true
+}

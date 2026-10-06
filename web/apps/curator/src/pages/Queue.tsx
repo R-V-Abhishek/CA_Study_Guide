@@ -101,6 +101,7 @@ export function Queue() {
   }, [unit, index, items, pickerOpen]);
 
   return <div className="space-y-4">
+    <p className="text-sm text-amber-200">Historical suggestion evidence has an unknown verification state. <a className="underline" href="/curator/classifications">Open whole question classification to review an immutable root revision.</a></p>
     <div className="flex flex-wrap items-center gap-3 border-b border-slate-700 pb-3">
       <h1 className="font-bold mr-auto">Review Queue</h1>
       <label className="text-xs">Bucket <select aria-label="Bucket" value={bucket} disabled={decision.isPending} onChange={e => filter("bucket", e.target.value)} className="ml-2 bg-slate-900 rounded p-2">
@@ -123,6 +124,7 @@ export function Queue() {
     </div> : <div className="grid lg:grid-cols-3 gap-5">
       <div className="lg:col-span-2 bg-slate-800 border border-slate-700 rounded-xl p-5 space-y-5">
         <p className="text-sm">Unit #{unit.unit_id} · {unit.paper_id} · {unit.attempt_id} · {unit.display_label} ({unit.label_path}) {unit.marks !== null && `· ${unit.marks} Marks`}</p>
+        <p className="text-xs text-amber-200">Historical topic verification state: unknown.{unit.requires_re_review && ' Classification provenance requires re-review.'}</p>
         <section><h2 className="text-xs font-bold mb-2">Question Text</h2><div tabIndex={0} role="region" aria-label="Question text" className="p-4 bg-slate-900 rounded whitespace-pre-wrap text-xs max-h-80 overflow-auto">{unit.question_text || "Question text unavailable"}</div></section>
         <section><h2 className="text-xs font-bold mb-2">Model Solution / Answer</h2>
           {unit.answer_text === null ? <p className="text-sm text-amber-300">Answer unavailable</p> : <>

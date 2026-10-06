@@ -208,6 +208,10 @@ def test_curation_api_and_publishing():
     assert res.status_code == 200
     queue_items = res.json()
     assert any(item["unit_id"] == unit_id for item in queue_items)
+    legacy_item = next(item for item in queue_items if item["unit_id"] == unit_id)
+    assert not legacy_item["publication_ready"]
+    assert legacy_item["requires_re_review"]
+    assert legacy_item["verification_state"] == "unknown"
 
     # 2. POST /api/v1/curate/units/{unit_id}/decision
     decision_payload = {
@@ -218,28 +222,16 @@ def test_curation_api_and_publishing():
         "seconds_spent": 8.0,
     }
     dec_res = client.post(f"/api/v1/curate/units/{unit_id}/decision", json=decision_payload)
-    assert dec_res.status_code == 200
-    assert dec_res.json()["action"] == "accept"
+    assert dec_res.status_code == 422
+    assert dec_res.json()["detail"]["code"] == "revision_review_required"
 
-    # 3. Verify published appearance in database
+    # Legacy evidence cannot create a fresh publication through the student API.
     with session_factory() as session:
         u_check = session.get(Unit, unit_id)
-        assert u_check.classify_status == "decided"
+        assert u_check.classify_status == "suggested"
 
         app = session.query(Appearance).filter(Appearance.unit_fingerprint == f"test_fp_curate_{uid}").first()
-        assert app is not None
-        assert app.status == "published"
-        assert app.marks == 12
-
-        tags = session.query(AppearanceTag).filter(AppearanceTag.appearance_id == app.id).all()
-        assert len(tags) == 1
-        assert tags[0].node_id == "P1-WB29V3"
-        assert tags[0].role == "primary"
-        assert tags[0].share == 1.0
-
-        cl = session.query(ChangeLog).filter(ChangeLog.entity_id == str(app.id)).first()
-        assert cl is not None
-        assert cl.change == "publish"
+        assert app is None
 
 
 def test_bulk_accept_bucket_a():
@@ -302,14 +294,16 @@ def test_bulk_accept_bucket_a():
 
     # Call bulk accept endpoint
     res = client.post(f"/api/v1/curate/documents/{doc_id}/bulk_accept_bucket_a")
-    assert res.status_code == 200
-    assert res.json()["accepted_count"] == 3
+    with get_session_factory()() as session:
+        with pytest.raises(ValueError, match='Automatic bucket publication is disabled'):
+            bulk_accept_bucket_a(session, doc_id)
+    assert res.status_code == 422
+    assert res.json()["detail"]["code"] == "revision_review_required"
 
     with session_factory() as session:
-        # All 3 units should be decided and published
+        # Confidence alone cannot authorize new historical publications.
         apps = session.query(Appearance).filter(Appearance.doc_sha256 == f"test_bulk_{uid}").all()
-        assert len(apps) == 3
-        assert all(a.status == "published" for a in apps)
+        assert apps == []
 
 
 def test_law_staleness():

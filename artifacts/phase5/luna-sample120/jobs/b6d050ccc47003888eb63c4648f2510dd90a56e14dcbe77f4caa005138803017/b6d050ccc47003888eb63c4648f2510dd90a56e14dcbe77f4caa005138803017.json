@@ -1,0 +1,36 @@
+{
+  "result": {
+    "question_id": "b6d050ccc47003888eb63c4648f2510dd90a56e14dcbe77f4caa005138803017",
+    "input_hash": "7dca8a4127d925507a781b7b218cbac0e666e9818b0becf32449ec9de760c4b9",
+    "mappings": [
+      {
+        "part_id": "b6d050ccc47003888eb63c4648f2510dd90a56e14dcbe77f4caa005138803017",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Part 4.6 tests eligibility for GST input tax credit across several transactions. The supplied GST candidates cover definitions and the taxable event, not ITC eligibility or blocked credits.",
+        "confidence": 0.97,
+        "bucket": "D"
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "attempt_id": "1791217353767968000",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "03683fb47a764aeaccb748596771a89b0df06fe181688162af7a26a83ca132f2",
+    "schema_generator": "pinned-identifiers-v2",
+    "seconds": 26.139,
+    "usage": [
+      {
+        "input_tokens": 54904,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1041,
+        "reasoning_output_tokens": 838
+      }
+    ],
+    "completed_at": "2026-10-05T16:22:59.906549+00:00"
+  }
+}

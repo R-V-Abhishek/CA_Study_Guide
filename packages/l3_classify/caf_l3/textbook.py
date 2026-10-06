@@ -41,7 +41,11 @@ class TextbookClassifier:
                                          None if paper.code == "P6" else paper_id)
         candidate_map = {candidate.node_id: candidate for candidate in candidates}
         if not candidate_map:
-            raise NeedsTaxonomyReview("needs taxonomy review: no source-reviewed, descriptor-approved subtopics")
+            return ClassificationResult(primary_node_id=None, secondary_node_ids=[],
+                bucket='D', method='anchor', outcome='needs_review',
+                gist=generate_concise_gist(question_text, answer_text),
+                justification='needs taxonomy review: no source-reviewed, descriptor-approved subtopics',
+                evidence={'taxonomy_version_id': self.taxonomy_version_id, 'candidate_set': [], 'uncalibrated': True})
         revisions = {}
         for revision in self.session.scalars(sa.select(DescriptorRevision).where(
             DescriptorRevision.taxonomy_version_id == self.taxonomy_version_id,
@@ -59,6 +63,12 @@ class TextbookClassifier:
             # Unknown IDs fail explicitly; never substitute a first or historical candidate.
             output = self.gemini_classifier.classify_unit(paper_id, f"{context_text}\n{question_text}",
                                                         answer_text, run_id)
+            if output.outcome != 'matched':
+                return ClassificationResult(primary_node_id=None, secondary_node_ids=[],
+                    bucket=output.bucket, method='llm', outcome=output.outcome,
+                    gist=output.gist, justification=output.justification, alternatives=output.alternatives,
+                    evidence={'model_id': output.model_id, 'taxonomy_version_id': self.taxonomy_version_id,
+                        'candidate_set': list(candidate_map), 'uncalibrated': True})
             selected = list(dict.fromkeys([output.primary_node_id, *output.secondary_node_ids]))
             if not selected or any(node_id not in candidate_map for node_id in selected):
                 raise NeedsTaxonomyReview("needs taxonomy review: model selected an unsupported concept")
@@ -81,9 +91,26 @@ class TextbookClassifier:
                 if matches and not excluded:
                     ranked.append((len(matches), node_id, matches))
             ranked.sort(key=lambda item: (-item[0], item[1]))
-            selected = [item[1] for item in ranked]
-            if not selected:
-                raise NeedsTaxonomyReview("needs taxonomy review: no supported descriptor terminology matches")
+            if not ranked:
+                return ClassificationResult(primary_node_id=None, secondary_node_ids=[],
+                    bucket='D', method='anchor', outcome='none_fits',
+                    gist=generate_concise_gist(question_text, answer_text),
+                    justification='no supported descriptor terminology matches; human review still required',
+                    evidence={'taxonomy_version_id': self.taxonomy_version_id,
+                        'candidate_set': list(candidate_map), 'uncalibrated': True})
+            # Phrase occurrences retrieve candidates; they do not prove that all
+            # mentioned concepts are actually tested. Keep ambiguity unresolved.
+            if len(ranked) > 1:
+                return ClassificationResult(primary_node_id=None, secondary_node_ids=[],
+                    bucket="D", method="anchor", outcome="needs_review",
+                    gist=generate_concise_gist(question_text, answer_text),
+                    justification="Multiple descriptor matches require explicit tested-concept review.",
+                    alternatives=[item[1] for item in ranked], evidence={
+                        "taxonomy_version_id": self.taxonomy_version_id,
+                        "descriptor_revisions": {node_id: revisions[node_id].id for _, node_id, _ in ranked},
+                        "matched_terms": {node_id: terms for _, node_id, terms in ranked},
+                        "uncalibrated": True})
+            selected = [ranked[0][1]]
         nodes = {node.id: node for node in version_nodes(self.session, self.taxonomy_version_id)}
         evidence = {
             "taxonomy_version_id": self.taxonomy_version_id,
@@ -96,12 +123,15 @@ class TextbookClassifier:
             "cross_paper_references": [node_id for node_id in selected
                                        if candidate_map[node_id].paper_id != paper_id],
             "model_id": model_id,
+            "uncalibrated": True,
+            "candidate_set": list(candidate_map),
         }
         if method == "anchor":
             evidence["matched_terms"] = {node_id: terms for _, node_id, terms in ranked}
         else:
             evidence["confidence"] = output.confidence
             evidence["core_tested_concept"] = output.core_tested_concept
+            evidence["label_evidence"] = output.label_evidence
         return ClassificationResult(
             primary_node_id=selected[0], secondary_node_ids=selected[1:],
             bucket=bucket, method=method, alternatives=alternatives,

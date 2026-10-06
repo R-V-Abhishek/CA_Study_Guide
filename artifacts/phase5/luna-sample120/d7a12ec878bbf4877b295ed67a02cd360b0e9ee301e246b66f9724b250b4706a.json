@@ -1,0 +1,36 @@
+{
+  "result": {
+    "question_id": "d7a12ec878bbf4877b295ed67a02cd360b0e9ee301e246b66f9724b250b4706a",
+    "input_hash": "c625e5eeb95af3c7b191866f28157b9caffb707cfbbbab9aefe348af92a6452c",
+    "mappings": [
+      {
+        "part_id": "d7a12ec878bbf4877b295ed67a02cd360b0e9ee301e246b66f9724b250b4706a",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "The supplied part only names \u201cInfrastructure Debt Fund\u201d; with the root question, shared stem, and answers missing, its tested concept cannot be determined. No candidate descriptor specifically covers Infrastructure Debt Funds.",
+        "confidence": null,
+        "bucket": null
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "attempt_id": "1791217445239837000",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "24ac33893f4c293b40f7109ebe09950a98337233ee23979d44042432feb185f9",
+    "schema_generator": "pinned-identifiers-v2",
+    "seconds": 11.202,
+    "usage": [
+      {
+        "input_tokens": 49606,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 319,
+        "reasoning_output_tokens": 110
+      }
+    ],
+    "completed_at": "2026-10-05T16:24:16.441836+00:00"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "result": {
+    "question_id": "e386c4bd3425737ddeed944e3db984837fc9a656e22bbb8d04051df3e4463ec2",
+    "input_hash": "726e255667ea9d1c7234428f8aee47346dc88ef772072ebeec14ffd8d80cfe81",
+    "mappings": [
+      {
+        "part_id": "e386c4bd3425737ddeed944e3db984837fc9a656e22bbb8d04051df3e4463ec2",
+        "outcome": "matched",
+        "primary_node_id": "7680f90a-fc77-42c9-947e-64b77c7f66ac",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "7680f90a-fc77-42c9-947e-64b77c7f66ac",
+            "support": "The part states that a salaried person need not deduct TDS under section 194S; it tests whether a benefit/perquisite is covered by the specific business-or-profession TDS provision, matching section 194R\u2019s scope and its exclusion of unrelated income categories."
+          }
+        ],
+        "note": "The answer mentions salary only to distinguish Mr. Priyal\u2019s status from section 194S; it does not ask about salary TDS under section 192. The tested point is the applicability of TDS to benefits/perquisites under section 194S.",
+        "confidence": 0.73,
+        "bucket": "B"
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "attempt_id": "1791217248543551000",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "da3bfef14f5514623985f64fb102f2906c23237fad94c6fad79bb5ef6372cfe5",
+    "schema_generator": "pinned-identifiers-v2",
+    "seconds": 10.81,
+    "usage": [
+      {
+        "input_tokens": 50540,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 321,
+        "reasoning_output_tokens": 0
+      }
+    ],
+    "completed_at": "2026-10-05T16:20:59.353841+00:00"
+  }
+}

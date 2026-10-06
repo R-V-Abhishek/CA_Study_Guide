@@ -338,6 +338,8 @@ dependencies = [
     { name = "caf-common" },
     { name = "caf-contracts" },
     { name = "caf-db" },
+    { name = "caf-l0" },
+    { name = "caf-l2" },
 ]
 
 [package.metadata]
@@ -345,6 +347,8 @@ requires-dist = [
     { name = "caf-common", editable = "packages/common" },
     { name = "caf-contracts", editable = "packages/contracts" },
     { name = "caf-db", editable = "packages/db" },
+    { name = "caf-l0", editable = "packages/l0_taxonomy" },
+    { name = "caf-l2", editable = "packages/l2_extract" },
 ]
 
 [[package]]

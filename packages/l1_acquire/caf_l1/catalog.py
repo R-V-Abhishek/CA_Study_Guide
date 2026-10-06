@@ -7,6 +7,7 @@ from sqlalchemy.orm import Session
 
 from caf_common.logging import get_logger
 from caf_db.models.ingest import Document
+from caf_db.models.extraction import DocumentPair
 from caf_db.models.ref import Attempt, DocType, Paper
 
 logger = get_logger("acquire.catalog")
@@ -30,12 +31,22 @@ def list_pending_documents(
     return session.execute(query).scalars().all()
 
 
+def lock_document_metadata(session: Session, doc_id: int) -> None:
+    """Serialize metadata changes with classifications using this source or answer."""
+    related = session.scalars(sa.select(DocumentPair.question_document_id).where(
+        DocumentPair.answer_document_id == doc_id, DocumentPair.status == 'confirmed'
+    ))
+    for document_id in sorted({doc_id, *related}):
+        session.execute(sa.text('SELECT pg_advisory_xact_lock(:document_id)'), {'document_id': document_id})
+
+
 def confirm_document(
     session: Session,
     doc_id: int,
     overrides: dict[str, Any] | None = None,
     *, actor_id: int | None = None,
 ) -> Document:
+    lock_document_metadata(session, doc_id)
     doc = session.scalar(sa.select(Document).where(Document.id==doc_id).with_for_update().execution_options(populate_existing=True))
     if not doc:
         raise ValueError(f"Document {doc_id} not found")
@@ -92,7 +103,8 @@ def confirm_document(
 
 
 def reject_document(session: Session, doc_id: int, reason: str = "curator_rejected") -> Document:
-    doc = session.get(Document, doc_id)
+    lock_document_metadata(session, doc_id)
+    doc = session.get(Document, doc_id, populate_existing=True)
     if not doc:
         raise ValueError(f"Document {doc_id} not found")
     doc.catalog_status = "rejected"

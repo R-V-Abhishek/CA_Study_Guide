@@ -1,0 +1,47 @@
+{
+  "result": {
+    "question_id": "47d1b1fc0db578da7620cfa40d85f6f32b2a22398a3f92c998a11b8bf3b42acc",
+    "input_hash": "4853aa199fda780bcc007098d384eca4a919cc59c1ae856519223f1dcc2db993",
+    "mappings": [
+      {
+        "part_id": "47d1b1fc0db578da7620cfa40d85f6f32b2a22398a3f92c998a11b8bf3b42acc",
+        "outcome": "matched",
+        "primary_node_id": "114b8ba9-f033-416e-ad13-073540eaa06a",
+        "secondary_node_ids": [
+          "30776630-8f11-48a6-aac6-aa15fb6082d4"
+        ],
+        "evidence": [
+          {
+            "node_id": "114b8ba9-f033-416e-ad13-073540eaa06a",
+            "support": "The auditor's duty to inform those charged with governance matches the descriptor's timely communication of identified matters to appropriate management or governance."
+          },
+          {
+            "node_id": "30776630-8f11-48a6-aac6-aa15fb6082d4",
+            "support": "Keeping documentation of the communication aligns with review engagement requirements to document work and significant matters."
+          }
+        ],
+        "note": "The statement combines governance communication with documenting it; the available answers are missing, so the classification rests on the listed requirement.",
+        "confidence": 0.78,
+        "bucket": "B"
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "attempt_id": "1791216964486833000",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "7d45295943717addf2a9fdf6e014cf65e3057e0d527ab9f6554fb6e92c66a95d",
+    "schema_generator": "pinned-part-ids-v1",
+    "seconds": 10.315,
+    "usage": [
+      {
+        "input_tokens": 45836,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 333,
+        "reasoning_output_tokens": 0
+      }
+    ],
+    "completed_at": "2026-10-05T16:16:14.801998+00:00"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "result": {
+    "question_id": "4c1e45c6bb070bce560ea94ee040daca9ce631dc6955b39abfb2869f7e51b2f3",
+    "input_hash": "087d8769baee148065c575d163393936dcf0a0f28e7e62726380eb3812e3a094",
+    "mappings": [
+      {
+        "part_id": "4c1e45c6bb070bce560ea94ee040daca9ce631dc6955b39abfb2869f7e51b2f3",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "The supplied question text contains only option D, references to subparts (ii) and (iv), and marks; the root question, shared stem, and actual subparts needed to identify the tested concepts are absent. The answer text gives only a multiple-choice heading and question number, so no candidate label can be supported.",
+        "confidence": null,
+        "bucket": null
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "attempt_id": "1791216623604756000",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "e82ad5f799bc0680169a893c7e454c976fd23b0a6067dbf695177b4c99c501a4",
+    "schema_generator": "pinned-part-ids-v1",
+    "seconds": 9.307,
+    "usage": [
+      {
+        "input_tokens": 46497,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 233,
+        "reasoning_output_tokens": 0
+      }
+    ],
+    "completed_at": "2026-10-05T16:10:32.912060+00:00"
+  }
+}

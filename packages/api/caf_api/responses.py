@@ -415,6 +415,8 @@ class CuratorQueueItem(BaseModel):
     unit_id: int
     taxonomy_version_id: int | None = None
     publication_ready: bool = True
+    verification_state: Literal['unknown'] = 'unknown'
+    requires_re_review: bool = False
     document_id: int
     attempt_id: str | None
     paper_id: str | None

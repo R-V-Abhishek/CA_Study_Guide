@@ -35,6 +35,8 @@ def pair_identity(doc: Document) -> tuple:
 
 
 def confirm_pair(session: Session, question_id: int, answer_id: int, actor_id: int, evidence: str) -> DocumentPair:
+    for document_id in sorted({question_id, answer_id}):
+        session.execute(sa.text('SELECT pg_advisory_xact_lock(:document_id)'), {'document_id': document_id})
     # The question row serialises competing confirmations with extraction promotion.
     q = session.scalar(sa.select(Document).where(Document.id==question_id).with_for_update().execution_options(populate_existing=True))
     a = session.get(Document, answer_id, populate_existing=True)
@@ -241,6 +243,11 @@ def promote_revision(session: Session, revision_id: int, expected_current_revisi
     revision = session.get(ExtractionRevision, revision_id)
     if revision is None:
         raise ValueError('Revision not found')
+    document_ids = {revision.document_id, *[pair['answer_document_id'] for pair in revision.configuration.get('pairing', [])]}
+    if revision.configuration.get('predecessor_document_id'):
+        document_ids.add(revision.configuration['predecessor_document_id'])
+    for document_id in sorted(document_ids):
+        session.execute(sa.text('SELECT pg_advisory_xact_lock(:document_id)'), {'document_id': document_id})
     doc = session.scalar(sa.select(Document).where(Document.id == revision.document_id).with_for_update().execution_options(populate_existing=True))
     if doc.catalog_status != 'confirmed':
         raise ValueError('Administrator must confirm document metadata before promotion')

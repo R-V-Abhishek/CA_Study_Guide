@@ -1,0 +1,40 @@
+{
+  "result": {
+    "question_id": "d97f0059bf121355e7e62eb7fb13a67e971823769a72b4c1c4c499f3d4b3080b",
+    "input_hash": "5b88b5c029b893f94b58eabbbcc897a02949fd0281d657dca73a3b85635f174d",
+    "mappings": [
+      {
+        "part_id": "d97f0059bf121355e7e62eb7fb13a67e971823769a72b4c1c4c499f3d4b3080b",
+        "outcome": "matched",
+        "primary_node_id": "c7464eae-06ed-4474-8906-3a4101b61015",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "c7464eae-06ed-4474-8906-3a4101b61015",
+            "support": "Tests whether managing biological transformation is required for agricultural activity: harvesting alone in Contract 1 is distinguished from managing tree growth and harvest in Contract 2."
+          }
+        ],
+        "note": "The central issue is the definition of agricultural activity under Ind AS 41, especially management of biological transformation and harvest.",
+        "confidence": 0.98,
+        "bucket": "A"
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "2e48b3626b62d0ea60ab3ecbe968902b4512bf8f09e57ff5c678407973196751",
+    "schema_generator": "pinned-part-ids-v1",
+    "seconds": 10.133,
+    "usage": [
+      {
+        "input_tokens": 49638,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 281,
+        "reasoning_output_tokens": 0
+      }
+    ],
+    "completed_at": "2026-10-05T15:57:26.898973+00:00"
+  }
+}

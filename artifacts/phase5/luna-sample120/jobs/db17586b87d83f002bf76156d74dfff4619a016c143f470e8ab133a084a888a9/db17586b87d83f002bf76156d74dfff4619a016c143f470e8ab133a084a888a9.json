@@ -1,0 +1,133 @@
+{
+  "result": {
+    "question_id": "db17586b87d83f002bf76156d74dfff4619a016c143f470e8ab133a084a888a9",
+    "input_hash": "7da558924b26350b30dcc9598ea27c4ad544fb9cb4c314567d30323202bf2a63",
+    "mappings": [
+      {
+        "part_id": "db17586b87d83f002bf76156d74dfff4619a016c143f470e8ab133a084a888a9:S194.CSI.M1",
+        "outcome": "matched",
+        "primary_node_id": "b0ff7433-717d-4663-befc-afce3746155d",
+        "secondary_node_ids": [
+          "3b2fb55d-abbb-49bd-a824-7c967430f6e2"
+        ],
+        "evidence": [
+          {
+            "node_id": "b0ff7433-717d-4663-befc-afce3746155d",
+            "support": "Tests the special flat tax rate on a non-resident\u2019s dividend income received in foreign currency from IFSC companies."
+          },
+          {
+            "node_id": "3b2fb55d-abbb-49bd-a824-7c967430f6e2",
+            "support": "Computing liability also requires determining the deduction restrictions for interest expenditure tied to exempt dividend income."
+          }
+        ],
+        "note": "Combines the non-resident special rate for the dividends with the limit on related interest deductions; the IFSC setting is relevant to the income\u2019s tax treatment.",
+        "confidence": 0.83,
+        "bucket": "A"
+      },
+      {
+        "part_id": "db17586b87d83f002bf76156d74dfff4619a016c143f470e8ab133a084a888a9:S194.CSI.M2",
+        "outcome": "matched",
+        "primary_node_id": "b0ff7433-717d-4663-befc-afce3746155d",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "b0ff7433-717d-4663-befc-afce3746155d",
+            "support": "Tests the special tax rate on foreign-currency interest earned by a non-resident from an Indian concern located in IFSC."
+          }
+        ],
+        "note": "The interest on the loan to Gamma Ltd. is the tested income; the IFSC reference identifies its context, while the tax computation concerns the non-resident special-rate rules.",
+        "confidence": 0.89,
+        "bucket": "A"
+      },
+      {
+        "part_id": "db17586b87d83f002bf76156d74dfff4619a016c143f470e8ab133a084a888a9:S194.CSI.M3",
+        "outcome": "matched",
+        "primary_node_id": "b0ff7433-717d-4663-befc-afce3746155d",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "b0ff7433-717d-4663-befc-afce3746155d",
+            "support": "Tests the special tax treatment of foreign-currency interest received by a non-resident from an Indian concern through an IFSC banking unit."
+          }
+        ],
+        "note": "The question asks for the tax on deposit interest, requiring the non-resident special-rate provisions and their applicable IFSC treatment.",
+        "confidence": 0.87,
+        "bucket": "A"
+      },
+      {
+        "part_id": "db17586b87d83f002bf76156d74dfff4619a016c143f470e8ab133a084a888a9:S194.CSI.M4",
+        "outcome": "matched",
+        "primary_node_id": "7f081c07-50a3-4d5a-bffb-09a6de446eb1",
+        "secondary_node_ids": [
+          "b0ff7433-717d-4663-befc-afce3746155d"
+        ],
+        "evidence": [
+          {
+            "node_id": "7f081c07-50a3-4d5a-bffb-09a6de446eb1",
+            "support": "Tests the tax treatment of a company\u2019s dividend distribution, including dividend income as a specific taxable income category."
+          },
+          {
+            "node_id": "b0ff7433-717d-4663-befc-afce3746155d",
+            "support": "The recipient company\u2019s tax computation also invokes the special rates applicable to specified income in the IFSC context."
+          }
+        ],
+        "note": "The core issue is the tax on Gamma Ltd.\u2019s dividend receipt; the recipient\u2019s company status and IFSC circumstances inform the applicable treatment.",
+        "confidence": 0.78,
+        "bucket": "B"
+      },
+      {
+        "part_id": "db17586b87d83f002bf76156d74dfff4619a016c143f470e8ab133a084a888a9:S194.CSI.M5",
+        "outcome": "matched",
+        "primary_node_id": "c20bea10-0b99-44aa-bd88-a2028689b4c9",
+        "secondary_node_ids": [
+          "5b3117fe-40ae-425b-a2a4-0163dcf55c4e"
+        ],
+        "evidence": [
+          {
+            "node_id": "c20bea10-0b99-44aa-bd88-a2028689b4c9",
+            "support": "Tests whether the recipient companies\u2019 section 80LA declarations permit the payer to refrain from deducting tax at source."
+          },
+          {
+            "node_id": "5b3117fe-40ae-425b-a2a4-0163dcf55c4e",
+            "support": "The professional-fee question applies the TDS exemption for qualifying IFSC units, comparing the two recipients\u2019 eligibility."
+          }
+        ],
+        "note": "The relevant distinction is each company\u2019s eligibility to claim the IFSC deduction and the resulting payer-side TDS obligation on professional fees.",
+        "confidence": 0.83,
+        "bucket": "B"
+      },
+      {
+        "part_id": "db17586b87d83f002bf76156d74dfff4619a016c143f470e8ab133a084a888a9:S194.CSI.M6",
+        "outcome": "matched",
+        "primary_node_id": "c1341d5b-3a47-45dd-ad97-bc6080545359",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "c1341d5b-3a47-45dd-ad97-bc6080545359",
+            "support": "Tests the deadline for a qualifying shipping company to elect the tonnage-tax regime, which is governed by the special carry-forward and set-off provision in the section 112 chapter topic."
+          }
+        ],
+        "note": "The question asks when the company can opt for the tonnage-tax scheme after incorporation; the supplied candidates do not include a topic matching that regime, so this is only a broad chapter-level association.",
+        "confidence": 0.28,
+        "bucket": "D"
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "6afab4d5c2c56c6705413220d67225ea0c66960627d7ffcf98395cfa3902aa79",
+    "schema_generator": "pinned-part-ids-v1",
+    "seconds": 29.903,
+    "usage": [
+      {
+        "input_tokens": 51614,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1403,
+        "reasoning_output_tokens": 0
+      }
+    ],
+    "completed_at": "2026-10-05T15:57:17.481892+00:00"
+  }
+}

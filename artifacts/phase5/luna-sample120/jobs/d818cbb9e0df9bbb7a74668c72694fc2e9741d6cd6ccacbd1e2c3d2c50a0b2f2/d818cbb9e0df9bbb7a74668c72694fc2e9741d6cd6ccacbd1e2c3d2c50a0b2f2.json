@@ -1,0 +1,45 @@
+{
+  "result": {
+    "question_id": "d818cbb9e0df9bbb7a74668c72694fc2e9741d6cd6ccacbd1e2c3d2c50a0b2f2",
+    "input_hash": "a8fbd8814b53d382a1e1ab5e1c7f91b26b1d88450530ad968d2bd9576cc42a08",
+    "mappings": [
+      {
+        "part_id": "d818cbb9e0df9bbb7a74668c72694fc2e9741d6cd6ccacbd1e2c3d2c50a0b2f2:Q5.ii",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Tests income-tax rules for an Assessing Officer\u2019s appointment and payment of a CA for inventory valuation under section 142(2A); no candidate describes these statutory provisions.",
+        "confidence": 0.99,
+        "bucket": "D"
+      },
+      {
+        "part_id": "d818cbb9e0df9bbb7a74668c72694fc2e9741d6cd6ccacbd1e2c3d2c50a0b2f2:Q5.iii",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Tests whether distributor discounts constitute commission paid to an agent for purposes of TDS under income-tax section 194H and Supreme Court rulings. The revenue-standard principal-versus-agent candidate concerns control and gross-versus-net revenue recognition, so the shared agency terminology does not establish a match.",
+        "confidence": 0.98,
+        "bucket": "D"
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "ee334fbd4b7135cbcafd2123daee24fc9484ab3868530f544238f59243e6eb7b",
+    "schema_generator": "pinned-part-ids-v1",
+    "seconds": 15.92,
+    "usage": [
+      {
+        "input_tokens": 49628,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 523,
+        "reasoning_output_tokens": 147
+      }
+    ],
+    "completed_at": "2026-10-05T15:56:30.677402+00:00"
+  }
+}

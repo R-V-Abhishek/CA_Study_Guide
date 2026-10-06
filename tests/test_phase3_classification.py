@@ -74,16 +74,16 @@ def test_new_candidates_require_review_and_do_not_leak_into_legacy(session, mani
     assert completeness["textbook_releases"][0]["node_count"] == 30
     assert completeness["textbook_releases"][0]["descriptor_revision_count"] == 6
     assert completeness["textbook_releases"][0]["recorded_descriptor_approval_count"] == 0
-    with pytest.raises(NeedsTaxonomyReview, match="review"):
-        TextbookClassifier(session, release.version_id).classify_unit("s2023.P1", "discounting")
+    unresolved = TextbookClassifier(session, release.version_id).classify_unit("s2023.P1", "discounting")
+    assert unresolved.outcome == 'needs_review' and unresolved.primary_node_id is None
     review_all(session, release.version_id)
     result = TextbookClassifier(session, release.version_id).classify_unit("s2023.P1", "discounting", use_llm=False)
     assert result.primary_node_id not in old_ids
     assert result.evidence["taxonomy_version_id"] == release.taxonomy_version_id
     assert [node["level"] for node in result.evidence["breadcrumbs"][result.primary_node_id]] == [
         "module", "chapter", "unit", "topic", "subtopic"]
-    with pytest.raises(NeedsTaxonomyReview, match="no supported"):
-        TextbookClassifier(session, release.version_id).classify_unit("s2023.P1", "unrelated medical question", use_llm=False)
+    no_fit = TextbookClassifier(session, release.version_id).classify_unit("s2023.P1", "unrelated medical question", use_llm=False)
+    assert no_fit.outcome == 'none_fits' and no_fit.primary_node_id is None
 
 
 def test_recursive_classification_counts_exclude_subtopic_containers(session, manifest):
@@ -116,7 +116,9 @@ def test_multi_subtopic_and_explicit_ibs_references(session, manifest):
     release = prepare(session, manifest)
     classifier = TextbookClassifier(session, release.version_id)
     result = classifier.classify_unit("s2023.P1", "Calculate net present value using discounting", use_llm=False)
-    assert {result.primary_node_id, *result.secondary_node_ids} == {first["id"], second["id"]}
+    assert result.outcome == "needs_review" and result.primary_node_id is None
+    assert set(result.alternatives) == {first["id"], second["id"]}
+    assert not result.secondary_node_ids
     integrated = classifier.classify_unit("s2023.P6", "Calculate net present value", use_llm=False)
     assert integrated.evidence["cross_paper_references"] == [second["id"]]
     prompt, candidates = GeminiClassifier(session, taxonomy_version_id=release.taxonomy_version_id).build_candidate_prompt("s2023.P6")
@@ -196,7 +198,7 @@ def test_pipeline_preserves_root_and_historical_decision(session, manifest, doc_
     repeated = ClassificationPipeline(session, version_id=release.version_id).run_classification(run.id, doc_id=doc.id, use_llm=False)
     assert repeated.total_processed == 0
     from caf_l4.publish import make_decision
-    with pytest.raises(ValueError, match="historical labels"):
+    with pytest.raises(ValueError, match="complete root"):
         make_decision(session, part.id, "accept", {"primary_node_id": suggestion.node_id})
     assert session.get(Decision, decision.id).payload == {"historical": True}
 
@@ -275,9 +277,9 @@ def test_evaluation_requires_decisions_against_the_same_taxonomy(session, manife
         payload={"primary_node_id": accepted_id, "taxonomy_version_id": release.taxonomy_version_id}))
     session.commit()
     report = evaluate_model_on_reviewed_decisions(session, min_samples=1)
-    assert report.total_reviewed == 1 and report.top1_matches == 1
+    assert report.total_reviewed == 0  # Version alone does not freeze suggestion/content evidence.
     assert not report.passed  # A keyword suggestion supplies no Bucket A evidence.
-    assert evaluate_calibration_benchmark(session).total_decided == 1
+    assert evaluate_calibration_benchmark(session).total_decided == 0
     assert session.get(Decision, historical.id).payload == {"primary_node_id": accepted_id}
 
 

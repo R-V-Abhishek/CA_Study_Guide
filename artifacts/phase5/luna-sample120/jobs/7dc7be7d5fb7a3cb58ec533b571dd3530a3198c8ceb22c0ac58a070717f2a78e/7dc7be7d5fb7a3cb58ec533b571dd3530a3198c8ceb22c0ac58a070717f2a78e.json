@@ -1,0 +1,36 @@
+{
+  "result": {
+    "question_id": "7dc7be7d5fb7a3cb58ec533b571dd3530a3198c8ceb22c0ac58a070717f2a78e",
+    "input_hash": "2c0e54dcde75dd7ceb57ee420dcd62cb453565eeb95e27848b9e23853680d68f",
+    "mappings": [
+      {
+        "part_id": "7dc7be7d5fb7a3cb58ec533b571dd3530a3198c8ceb22c0ac58a070717f2a78e",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "The supplied part text is only \u201c(B) ` 4,700/-\u201d; no complete root question, shared stem, other parts, or answer is available. The amount alone does not establish a tested concept, and answer_status is missing.",
+        "confidence": null,
+        "bucket": null
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "attempt_id": "1791216633063389000",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "95b269af7b265ff69af068fc7a69c137bad945a658b3fe47f99c61129be1ac1a",
+    "schema_generator": "pinned-part-ids-v1",
+    "seconds": 8.68,
+    "usage": [
+      {
+        "input_tokens": 47604,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 221,
+        "reasoning_output_tokens": 0
+      }
+    ],
+    "completed_at": "2026-10-05T16:10:41.743605+00:00"
+  }
+}

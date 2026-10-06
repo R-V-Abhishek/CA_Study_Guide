@@ -57,6 +57,8 @@ def apply_grants() -> None:
         grant("caf_curator", "INSERT, UPDATE, DELETE", ["core.decision", "core.appearance", "core.appearance_tag", "core.change_log", "ingest.taxonomy_gap"])
         grant("caf_curator", "INSERT", ["ref.descriptor_revision", "ref.descriptor_approval"])
         grant("caf_curator", "INSERT", ["ingest.extraction_review"])
+        grant("caf_curator", "INSERT", ["core.classification_revision", "core.classification_event"])
+        grant("caf_curator", "INSERT, UPDATE", ["core.question_publication", "core.classification_verification", "core.classification_dispute"])
         if "app.user_account" in known:
             for role in ("caf_curator", "caf_operations"):
                 conn.execute(text(f"GRANT SELECT (id,role,status) ON app.user_account TO {role}"))

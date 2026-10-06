@@ -1,4 +1,4 @@
-import { accountKey } from "@caf/api-client";
+import { accountKey, apiRequest, type components } from "@caf/api-client";
 import { useState, useEffect, useRef } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Search, X, Check } from "lucide-react";
@@ -10,6 +10,7 @@ interface SubtopicOption {
   name: string;
   paperCode: string;
   chapterName: string;
+  topicName: string;
 }
 
 interface NodePickerModalProps {
@@ -17,6 +18,9 @@ interface NodePickerModalProps {
   onClose: () => void;
   onSelect: (nodeId: string) => void;
   currentSelectedId?: string | null;
+  taxonomyVersionId?: number;
+  paperId?: string;
+  candidates?: SubtopicOption[];
 }
 
 export function NodePickerModal({
@@ -24,6 +28,9 @@ export function NodePickerModal({
   onClose,
   onSelect,
   currentSelectedId,
+  taxonomyVersionId,
+  paperId,
+  candidates,
 }: NodePickerModalProps) {
   const [search, setSearch] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
@@ -39,27 +46,38 @@ export function NodePickerModal({
 
   // Query all subtopics across papers
   const { data: allSubtopics = [], isPending, error, refetch } = useQuery({
-    queryKey: ["curator-all-nodes", accountKey()],
+    queryKey: ["curator-all-nodes", accountKey(), taxonomyVersionId, paperId],
     queryFn: async () => {
+      if (taxonomyVersionId) {
+        const releases = await apiRequest<components["schemas"]["ReleaseSummary"][]>("/api/v1/taxonomy/versions");
+        const release = releases.find(value => value.taxonomy_version_id === taxonomyVersionId);
+        if (!release) throw new Error("Pinned taxonomy revision unavailable");
+        const trees = await apiRequest<components["schemas"]["TaxonomyTreeNode"][]>(`/api/v1/taxonomy/versions/${encodeURIComponent(release.version_id)}/tree${paperId ? `?paper_id=${encodeURIComponent(paperId)}` : ""}`);
+        const collect = (tree: components["schemas"]["TaxonomyTreeNode"]): SubtopicOption[] => [
+          ...(tree.level === "topic" || tree.level === "subtopic" ? [{ id: tree.id, name: tree.name, paperCode: tree.paper_id, chapterName: tree.breadcrumbs.map(value => value.name).join(" → "), topicName: "" }] : []),
+          ...(tree.children ?? []).flatMap(collect),
+        ];
+        return trees.flatMap(collect);
+      }
       const papers = requiredData(await curatorClient.GET("/api/v1/papers"));
       const trees = await Promise.all(papers.map(async paper => requiredData(await curatorClient.GET("/api/v1/tree", { params: { query: { paper: paper.id } } }))));
-      const nodes: SubtopicOption[] = trees.flatMap(tree => tree.chapters.flatMap(chapter => chapter.topics.flatMap(topic => topic.subtopics.map(subtopic => ({ id: subtopic.id, name: subtopic.name, paperCode: tree.code, chapterName: chapter.name })))));
+      const nodes: SubtopicOption[] = trees.flatMap(tree => tree.chapters.flatMap(chapter => chapter.topics.flatMap(topic => topic.subtopics.map(subtopic => ({ id: subtopic.id, name: subtopic.name, paperCode: tree.code, chapterName: chapter.name, topicName: topic.name })))));
       nodes.sort((a, b) => a.paperCode.localeCompare(b.paperCode) || a.name.localeCompare(b.name) || a.id.localeCompare(b.id));
       return nodes;
     },
-    enabled: isOpen,
+    enabled: isOpen && !candidates,
   });
 
   if (!isOpen) return null;
 
-  const filtered = allSubtopics.filter((n) => {
+  const filtered = (candidates ?? allSubtopics).filter((n) => {
     if (!search) return true;
     const q = search.toLowerCase();
     return (
       n.name.toLowerCase().includes(q) ||
       n.id.toLowerCase().includes(q) ||
       n.paperCode.toLowerCase().includes(q) ||
-      n.chapterName.toLowerCase().includes(q)
+      n.chapterName.toLowerCase().includes(q) || n.topicName.toLowerCase().includes(q)
     );
   });
 
@@ -100,7 +118,7 @@ export function NodePickerModal({
         {/* Nodes List */}
         <div className="flex-1 overflow-y-auto divide-y divide-slate-800/80 p-2 text-xs">
           <RequestError error={error} retry={() => void refetch()} />
-          {isPending ? <p role="status" className="p-8 text-center">Loading subtopics…</p> : error ? null : filtered.length === 0 ? (
+          {isPending && !candidates ? <p role="status" className="p-8 text-center">Loading subtopics…</p> : error ? null : filtered.length === 0 ? (
             <div className="p-8 text-center text-slate-500">No matching subtopics found.</div>
           ) : (
             filtered.map((item) => {
@@ -130,7 +148,7 @@ export function NodePickerModal({
                       </span>
                     </div>
                     <div className="text-[11px] text-slate-400 truncate">
-                      {item.chapterName} · <span className="font-mono">{item.id}</span>
+                      {item.chapterName}{item.topicName && ` → ${item.topicName}`} · <span className="font-mono">{item.id}</span>
                     </div>
                   </div>
 

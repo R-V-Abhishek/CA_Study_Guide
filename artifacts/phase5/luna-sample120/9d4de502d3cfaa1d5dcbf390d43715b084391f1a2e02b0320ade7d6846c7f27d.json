@@ -1,0 +1,47 @@
+{
+  "result": {
+    "question_id": "9d4de502d3cfaa1d5dcbf390d43715b084391f1a2e02b0320ade7d6846c7f27d",
+    "input_hash": "cfe468587e8058a37a2013b2e573a40503d47c97025ec0e472bcd8e21a88f4be",
+    "mappings": [
+      {
+        "part_id": "9d4de502d3cfaa1d5dcbf390d43715b084391f1a2e02b0320ade7d6846c7f27d",
+        "outcome": "matched",
+        "primary_node_id": "20543227-cd9d-47b1-a4a6-fd8f3198b5cf",
+        "secondary_node_ids": [
+          "354c8fa7-d9d0-4198-b1d9-4327dd7c138a"
+        ],
+        "evidence": [
+          {
+            "node_id": "20543227-cd9d-47b1-a4a6-fd8f3198b5cf",
+            "support": "The demanded penalty and expected unfavourable appeal create the tested issue of recognizing a provision for a present obligation from a past event; this descriptor covers provisions and legal obligations."
+          },
+          {
+            "node_id": "354c8fa7-d9d0-4198-b1d9-4327dd7c138a",
+            "support": "The safety breach and resulting penalty demand concern whether past conduct has created a present obligation requiring future economic-resource transfer."
+          }
+        ],
+        "note": "The joint operation is context. The accounting issue is the penalty obligation and related provision; the reimbursement arrangement is not itself tested as joint-operation classification.",
+        "confidence": 0.86,
+        "bucket": "A"
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "attempt_id": "1791217355998701000",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "85e04fb1d6ee1d07db71a85a49f741d79fa23f27350d7f23cae72845c15be202",
+    "schema_generator": "pinned-identifiers-v2",
+    "seconds": 17.774,
+    "usage": [
+      {
+        "input_tokens": 51466,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 686,
+        "reasoning_output_tokens": 307
+      }
+    ],
+    "completed_at": "2026-10-05T16:22:53.772574+00:00"
+  }
+}

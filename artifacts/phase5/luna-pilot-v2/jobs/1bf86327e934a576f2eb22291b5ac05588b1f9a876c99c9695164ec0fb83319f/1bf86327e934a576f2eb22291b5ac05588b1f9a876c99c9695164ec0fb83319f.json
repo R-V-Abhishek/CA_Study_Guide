@@ -1,0 +1,186 @@
+{
+  "result": {
+    "question_id": "1bf86327e934a576f2eb22291b5ac05588b1f9a876c99c9695164ec0fb83319f",
+    "input_hash": "329672cf884b2170ed81add348772f0a77494fe653807d78385e2f54600b97db",
+    "mappings": [
+      {
+        "part_id": "1bf86327e934a576f2eb22291b5ac05588b1f9a876c99c9695164ec0fb83319f:Q3.a.i",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Interest rate cap hedging is the tested concept, but no supplied candidate describes an interest rate cap or a sufficiently close rate-hedging topic.",
+        "confidence": 0.97,
+        "bucket": "D"
+      },
+      {
+        "part_id": "1bf86327e934a576f2eb22291b5ac05588b1f9a876c99c9695164ec0fb83319f:Q3.a.ii",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "The task calculates settlements under a purchased interest rate cap using annual rates, a strike, and premium; no candidate describes this interest rate option hedge closely enough.",
+        "confidence": 0.96,
+        "bucket": "D"
+      },
+      {
+        "part_id": "1bf86327e934a576f2eb22291b5ac05588b1f9a876c99c9695164ec0fb83319f:Q3.a.iii",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "This compares an interest rate cap with an interest rate collar, including premium and downside settlement tradeoffs. The supplied options descriptors concern generic or other options and do not adequately cover these interest rate hedges.",
+        "confidence": 0.93,
+        "bucket": "D"
+      },
+      {
+        "part_id": "1bf86327e934a576f2eb22291b5ac05588b1f9a876c99c9695164ec0fb83319f:Q3.b.i",
+        "outcome": "matched",
+        "primary_node_id": "2dde1c4d-b04a-46b7-a379-77cf7f7996e0",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "2dde1c4d-b04a-46b7-a379-77cf7f7996e0",
+            "support": "The passage tests how talent and graduates support startup formation and growth, aligning with the descriptor\u2019s general tokenization topic only by chapter; that is not a substantive match."
+          }
+        ],
+        "note": "No supplied candidate describes talent or startup ecosystem drivers.",
+        "confidence": 0.99,
+        "bucket": "D"
+      },
+      {
+        "part_id": "1bf86327e934a576f2eb22291b5ac05588b1f9a876c99c9695164ec0fb83319f:Q3.b.ii",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "The passage tests the availability and cost effectiveness of India\u2019s workforce as a startup driver; no supplied candidate describes this concept.",
+        "confidence": 0.99,
+        "bucket": "D"
+      },
+      {
+        "part_id": "1bf86327e934a576f2eb22291b5ac05588b1f9a876c99c9695164ec0fb83319f:Q3.b.iii",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "The passage tests internet access and adoption as a startup growth driver; no supplied candidate covers this ecosystem factor.",
+        "confidence": 0.99,
+        "bucket": "D"
+      },
+      {
+        "part_id": "1bf86327e934a576f2eb22291b5ac05588b1f9a876c99c9695164ec0fb83319f:Q3.b.iv",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "The passage tests technology and digital infrastructure as drivers of startup growth; no supplied candidate describes these factors.",
+        "confidence": 0.99,
+        "bucket": "D"
+      },
+      {
+        "part_id": "1bf86327e934a576f2eb22291b5ac05588b1f9a876c99c9695164ec0fb83319f:Q3.b.v",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "The passage tests funding sources for startups, including angel investment, venture capital, and foreign investment; no supplied candidate covers startup financing options.",
+        "confidence": 0.99,
+        "bucket": "D"
+      },
+      {
+        "part_id": "1bf86327e934a576f2eb22291b5ac05588b1f9a876c99c9695164ec0fb83319f:Q3.b.alt2",
+        "outcome": "matched",
+        "primary_node_id": "4f0e69f8-f1ad-4602-badb-4e4e96953106",
+        "secondary_node_ids": [
+          "26930ae4-6176-4f4d-9bfb-2f9e1b4e5b15"
+        ],
+        "evidence": [
+          {
+            "node_id": "4f0e69f8-f1ad-4602-badb-4e4e96953106",
+            "support": "The question directly tests tokenization as converting tangible and intangible assets into blockchain tokens, matching the descriptor\u2019s definition and examples of digital asset representation."
+          },
+          {
+            "node_id": "26930ae4-6176-4f4d-9bfb-2f9e1b4e5b15",
+            "support": "It also asks for similarities to securitization, matching the descriptor\u2019s account of shared liquidity, diversification, and fee-generation features."
+          }
+        ],
+        "note": "The tokenization definition and comparison are both central to the requested answer.",
+        "confidence": 0.99,
+        "bucket": "A"
+      },
+      {
+        "part_id": "1bf86327e934a576f2eb22291b5ac05588b1f9a876c99c9695164ec0fb83319f:Q3.b.alt3.i",
+        "outcome": "matched",
+        "primary_node_id": "26930ae4-6176-4f4d-9bfb-2f9e1b4e5b15",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "26930ae4-6176-4f4d-9bfb-2f9e1b4e5b15",
+            "support": "This part tests liquidity injection into otherwise illiquid assets, explicitly included in the descriptor of tokenization and securitization similarities."
+          }
+        ],
+        "note": "The tested similarity is the liquidity benefit of both processes.",
+        "confidence": 0.99,
+        "bucket": "A"
+      },
+      {
+        "part_id": "1bf86327e934a576f2eb22291b5ac05588b1f9a876c99c9695164ec0fb83319f:Q3.b.alt3.ii",
+        "outcome": "matched",
+        "primary_node_id": "26930ae4-6176-4f4d-9bfb-2f9e1b4e5b15",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "26930ae4-6176-4f4d-9bfb-2f9e1b4e5b15",
+            "support": "This part tests how both processes enable portfolio diversification and risk management, directly matching the descriptor\u2019s stated diversification benefit."
+          }
+        ],
+        "note": "The tested similarity is the diversification benefit.",
+        "confidence": 0.99,
+        "bucket": "A"
+      },
+      {
+        "part_id": "1bf86327e934a576f2eb22291b5ac05588b1f9a876c99c9695164ec0fb83319f:Q3.b.alt3.iii",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "This part tests tradability and wealth generation. Although the descriptor notes conversion into tradable products, it does not establish wealth generation as a similarity, so the candidate does not fully support the tested concept.",
+        "confidence": 0.88,
+        "bucket": "C"
+      },
+      {
+        "part_id": "1bf86327e934a576f2eb22291b5ac05588b1f9a876c99c9695164ec0fb83319f:Q3.b.alt3.iv",
+        "outcome": "matched",
+        "primary_node_id": "26930ae4-6176-4f4d-9bfb-2f9e1b4e5b15",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "26930ae4-6176-4f4d-9bfb-2f9e1b4e5b15",
+            "support": "The part tests fee income opportunities for financial institutions, expressly included in the descriptor\u2019s shared benefits."
+          }
+        ],
+        "note": "The tested similarity is fee generation by financial intermediaries.",
+        "confidence": 0.99,
+        "bucket": "A"
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "751a4439c16c90e259a85870f051749fd2e08970d0fc0f4924c10b87a305a5ce",
+    "schema_generator": "pinned-part-ids-v1",
+    "seconds": 40.082,
+    "usage": [
+      {
+        "input_tokens": 52608,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1916,
+        "reasoning_output_tokens": 0
+      }
+    ],
+    "completed_at": "2026-10-05T15:52:28.715648+00:00"
+  }
+}

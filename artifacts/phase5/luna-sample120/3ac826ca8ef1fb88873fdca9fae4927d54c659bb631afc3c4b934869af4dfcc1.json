@@ -1,0 +1,41 @@
+{
+  "result": {
+    "question_id": "3ac826ca8ef1fb88873fdca9fae4927d54c659bb631afc3c4b934869af4dfcc1",
+    "input_hash": "7412fa906cd11c357534bc2b078b660b2b6c998f5ac6d2872055e1e4a107f52a",
+    "mappings": [
+      {
+        "part_id": "3ac826ca8ef1fb88873fdca9fae4927d54c659bb631afc3c4b934869af4dfcc1",
+        "outcome": "matched",
+        "primary_node_id": "72407f6f-8662-4f40-aa8a-204e85bc7b81",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "72407f6f-8662-4f40-aa8a-204e85bc7b81",
+            "support": "The item tests whether packing, outward freight, loading-unloading, and installation incidental to a sale are included in taxable value; the descriptor covers incidental expenses added under Section 15."
+          }
+        ],
+        "note": "The source identifies a single valuation item. The listed ancillary sale expenses are additions to the value of supply.",
+        "confidence": 0.98,
+        "bucket": "A"
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "attempt_id": "1791217483204071000",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "dc757bfa50cd258b50d4ee2879b4c39fb742bda8ae4785e22e01947d66227345",
+    "schema_generator": "pinned-identifiers-v2",
+    "seconds": 11.087,
+    "usage": [
+      {
+        "input_tokens": 43063,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 280,
+        "reasoning_output_tokens": 0
+      }
+    ],
+    "completed_at": "2026-10-05T16:24:54.290941+00:00"
+  }
+}

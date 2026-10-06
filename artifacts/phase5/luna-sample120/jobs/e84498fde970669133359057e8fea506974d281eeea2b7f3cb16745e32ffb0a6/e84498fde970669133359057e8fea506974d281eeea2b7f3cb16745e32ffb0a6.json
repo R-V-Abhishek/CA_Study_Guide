@@ -1,0 +1,36 @@
+{
+  "result": {
+    "question_id": "e84498fde970669133359057e8fea506974d281eeea2b7f3cb16745e32ffb0a6",
+    "input_hash": "9b8a28b69d20a475e865a5fb9b47d1b75bc0a12d897ccf458b33620ba6ed08ce",
+    "mappings": [
+      {
+        "part_id": "e84498fde970669133359057e8fea506974d281eeea2b7f3cb16745e32ffb0a6",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "The supplied question text contains only an option reference, with no question stem or statements to identify the tested concept. The answer key does not establish the concept, and the source pages are flagged for non-text layout review.",
+        "confidence": null,
+        "bucket": null
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "attempt_id": "1791217165455276000",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "929cf6f3d1affbdc944a17476f0cbd7ca61742770d619c5a3b2ed212aee7e572",
+    "schema_generator": "pinned-identifiers-v2",
+    "seconds": 14.07,
+    "usage": [
+      {
+        "input_tokens": 50156,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 484,
+        "reasoning_output_tokens": 274
+      }
+    ],
+    "completed_at": "2026-10-05T16:19:39.525714+00:00"
+  }
+}

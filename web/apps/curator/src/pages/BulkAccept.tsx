@@ -1,112 +1,36 @@
-import { accountKey } from "@caf/api-client";
-import { useState } from "react";
+import { accountKey, authGeneration, classificationApi, type ClassificationReview } from "@caf/api-client";
+import { useRef, useState } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { CheckCheck, Check, FolderOpen } from "lucide-react";
-import { curatorClient, requiredData } from "../lib/client";
 import { RequestError } from "../components/RequestError";
+import { QuestionParts, Answers, LabelPath } from "../components/ClassificationContext";
 
 export function BulkAccept() {
-  const queryClient = useQueryClient();
-  const [successMsg, setSuccessMsg] = useState<string | null>(null);
-
-  // Fetch confirmed documents
-  const { data: documents = [], isLoading, error, refetch } = useQuery({
-    queryKey: ["curate-docs-bulk", accountKey()],
-    queryFn: async () => {
-      return requiredData(await curatorClient.GET("/api/v1/curate/documents", { params: { query: { status: "confirmed" } } }));
-    },
-  });
-
-  // Bulk accept mutation
-  const bulkAcceptMutation = useMutation({
-    mutationFn: async (docId: number) => {
-      const res = await curatorClient.POST(
-        "/api/v1/curate/documents/{doc_id}/bulk_accept_bucket_a",
-        {
-          params: { path: { doc_id: docId } },
-        }
-      );
-      return requiredData(res);
-    },
-    onSuccess: (data) => {
-      queryClient.invalidateQueries({ queryKey: ["curator-queue", accountKey()] });
-      queryClient.invalidateQueries({ queryKey: ["curate-docs-bulk", accountKey()] });
-      setSuccessMsg(
-        `Successfully published ${data.accepted_count} Bucket A units to core.appearance!`
-      );
-      setTimeout(() => setSuccessMsg(null), 5000);
-    },
-  });
-
-  return (
-    <div className="max-w-4xl mx-auto space-y-6 animate-in fade-in duration-150">
-      <div>
-        <h1 className="text-xl font-bold text-white">Bulk Accept — Bucket A Consensus</h1>
-        <p className="text-xs text-slate-400 mt-1">
-          Approve the Bucket A recommendations in a confirmed document.
-        </p>
-      </div>
-
-      <RequestError error={error} retry={() => void refetch()} />
-      <RequestError error={bulkAcceptMutation.error} />
-      {successMsg && (
-        <div className="p-4 rounded-xl bg-emerald-950/60 border border-emerald-700/80 text-emerald-300 text-xs flex items-center gap-2 animate-in fade-in duration-200">
-          <Check className="w-4 h-4 text-emerald-400" />
-          <span>{successMsg}</span>
-        </div>
-      )}
-
-      {isLoading ? (
-        <div className="p-12 text-center text-slate-400 space-y-3">
-          <div className="h-6 w-48 bg-slate-800 rounded animate-pulse mx-auto" />
-          <div className="h-32 w-full bg-slate-800 rounded-2xl animate-pulse" />
-        </div>
-      ) : error ? null : documents.length === 0 ? (
-        <div className="p-12 text-center bg-[#1E293B] rounded-2xl border border-[#334155] space-y-3">
-          <CheckCheck className="w-10 h-10 text-emerald-400 mx-auto" />
-          <h2 className="font-bold text-white text-base">No Confirmed Documents Pending</h2>
-          <p className="text-xs text-slate-400">
-            Confirm catalogue metadata first in the Document Catalogue to unlock bulk approval.
-          </p>
-        </div>
-      ) : (
-        <div className="space-y-4">
-          {documents.map((doc) => (
-            <div
-              key={doc.id}
-              className="p-6 rounded-2xl bg-[#1E293B] border border-[#334155] flex flex-col sm:flex-row sm:items-center justify-between gap-4"
-            >
-              <div className="space-y-1">
-                <div className="flex items-center gap-2">
-                  <span className="font-mono text-xs font-bold px-2 py-0.5 rounded bg-indigo-950 text-indigo-300 border border-indigo-700">
-                    {doc.paper_id ?? "Paper unavailable"}
-                  </span>
-                  <span className="text-xs font-semibold text-white">
-                    {doc.attempt_id ?? "Attempt unavailable"} · {doc.doc_type_id ?? "Document type unavailable"}
-                  </span>
-                </div>
-                <h3 className="font-semibold text-sm text-slate-200">{doc.title ?? "Title unavailable"}</h3>
-                <div className="text-[11px] text-slate-400 flex items-center gap-2">
-                  <FolderOpen className="w-3.5 h-3.5 text-slate-500" />
-                  <span>Document ID #{doc.id}</span>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3 shrink-0">
-                <button
-                  type="button"
-                  onClick={() => { if (!bulkAcceptMutation.isPending) { setSuccessMsg(null); bulkAcceptMutation.mutate(doc.id); } }}
-                  disabled={bulkAcceptMutation.isPending}
-                  className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition-colors shadow-sm disabled:opacity-50 cursor-pointer"
-                >
-                  <CheckCheck className="w-4 h-4" />
-                  <span>Accept All Bucket A Units</span>
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
-  );
+  const cache = useQueryClient();
+  const generation = authGeneration();
+  const [selected, setSelected] = useState<number[]>([]);
+  const [note, setNote] = useState("");
+  const [confirmed, setConfirmed] = useState(false);
+  const [message, setMessage] = useState("");
+  const submitting = useRef(false);
+  const retry = useRef<{ signature: string; keys: Record<number, string> } | null>(null);
+  const queue = useQuery({ queryKey: ["classification-bulk", accountKey()], queryFn: () => classificationApi.queue({ limit: "500" }) });
+  const chosen = queue.data?.filter(item => selected.includes(item.suggestion_revision_id)) ?? [];
+  const bulk = useMutation({ mutationFn: () => {
+    const signature = JSON.stringify({ selected, note, publications: chosen.map(item => item.publication_revision_id) });
+    if (retry.current?.signature !== signature) retry.current = { signature, keys: Object.fromEntries(selected.map(id => [id, crypto.randomUUID()])) };
+    const reviews: ClassificationReview[] = chosen.map(item => ({ expected_suggestion_revision_id: item.suggestion_revision_id, expected_publication_revision_id: item.publication_revision_id, idempotency_key: retry.current!.keys[item.suggestion_revision_id], mappings: item.mappings, note, blind: false }));
+    return classificationApi.bulk(reviews);
+  }, onSuccess: async result => {
+    if (generation !== authGeneration()) return;
+    setMessage(`Published ${result.revisions.length} explicitly reviewed classification revisions.`);
+    setSelected([]); setConfirmed(false); retry.current = null;
+    await cache.invalidateQueries({ queryKey: ["classification-bulk"] });
+    await cache.invalidateQueries({ queryKey: ["classification-queue"] });
+  }, onSettled: () => { submitting.current = false; } });
+  const eligible = chosen.length === selected.length && chosen.every(item => item.publication_ready && !item.stale && !item.experimental && !item.dispute_status && item.mappings.every(part => part.outcome !== "needs_review" || part.excluded));
+  return <div className="space-y-4 max-w-5xl"><h1 className="text-xl font-bold">Bulk Accept — Selected Revisions</h1><p className="text-sm">Select the exact root revisions you reviewed. Model confidence and buckets do not authorize publication.</p>
+    <RequestError error={queue.error} retry={() => void queue.refetch()} /><RequestError error={bulk.error} />{message && <p role="status">{message}</p>}
+    {queue.isPending ? <p role="status">Loading classification revisions…</p> : queue.isError ? null : !queue.data?.length ? <p>No classification suggestions available.</p> : queue.data.map(item => <section key={item.suggestion_revision_id} className="rounded-xl border border-slate-700 bg-slate-800 p-4 space-y-2"><label><input type="checkbox" aria-label={`Select suggestion revision ${item.suggestion_revision_id}`} checked={selected.includes(item.suggestion_revision_id)} disabled={!item.publication_ready || item.stale || item.experimental || !!item.dispute_status || bulk.isPending} onChange={event => { setSelected(values => event.target.checked ? [...values, item.suggestion_revision_id] : values.filter(id => id !== item.suggestion_revision_id)); setConfirmed(false); setMessage(""); }} /> Suggestion revision {item.suggestion_revision_id} · {item.paper_id} · {item.question.display_label} · published revision {item.publication_revision_id ?? "none"}</label><p className="text-xs">Extraction {item.extraction_revision_id} · taxonomy {item.taxonomy_version_id}</p>{item.readiness_blockers.map(block => <p className="text-sm text-amber-200" key={block.code}>{block.message}</p>)}<details><summary>Review whole question, answer and every part label</summary><p className="whitespace-pre-wrap">{item.question.common_stem}</p><p className="whitespace-pre-wrap">{item.question.question_text}</p><QuestionParts parts={item.question.parts} /><h3 className="font-semibold">Available answer · {item.question.answer_status}</h3>{item.question.answers.length ? <Answers parts={item.question.answers} /> : <p>Answer unavailable</p>}<h3 className="font-semibold">Complete part labels</h3>{item.mappings.map(part => <div key={part.part_id} className="border-l border-slate-600 pl-3"><p>{part.part_id.split(":").slice(1).join(":") || item.question.display_label} · {part.excluded ? "Excluded" : part.outcome}</p>{part.primary_node_id && <p>Primary: <LabelPath id={part.primary_node_id} item={item} /></p>}{(part.secondary_node_ids ?? []).map(id => <p key={id}>Secondary: <LabelPath id={id} item={item} /></p>)}</div>)}</details></section>)}
+    <label className="block">Review evidence<textarea aria-label="Bulk review evidence" className="block w-full bg-slate-900 border border-slate-600 p-2" maxLength={10000} value={note} onChange={event => setNote(event.target.value)} /></label><label><input type="checkbox" checked={confirmed} onChange={event => setConfirmed(event.target.checked)} /> I reviewed the complete question, available answer and all labels for every selected revision</label><button className="block rounded bg-emerald-700 px-4 py-3 disabled:opacity-50" disabled={!selected.length || !eligible || !confirmed || !note.trim() || bulk.isPending} onClick={() => { if (submitting.current) return; submitting.current = true; bulk.mutate(); }}>Publish {selected.length} selected revisions</button>
+  </div>;
 }

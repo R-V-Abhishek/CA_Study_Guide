@@ -1,0 +1,66 @@
+{
+  "result": {
+    "question_id": "fb3a3a8ffba7902edd64eac9999aca367290aebcb6968c24f7e2552f0299f359",
+    "input_hash": "e9a60c99eb82d63f495df1160a18cc020bba74a14ffde86c9e1ed7353e58fec5",
+    "mappings": [
+      {
+        "part_id": "fb3a3a8ffba7902edd64eac9999aca367290aebcb6968c24f7e2552f0299f359:d.repeat14.i",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Tests FEMA rules for transferring inherited agricultural land and reinvesting the proceeds; no candidate descriptor covers those rules.",
+        "confidence": null,
+        "bucket": null
+      },
+      {
+        "part_id": "fb3a3a8ffba7902edd64eac9999aca367290aebcb6968c24f7e2552f0299f359:d.repeat14.ii",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Tests FEMA rules for transferring inherited agricultural land and using proceeds to buy a residential flat; no candidate descriptor covers those rules.",
+        "confidence": null,
+        "bucket": null
+      },
+      {
+        "part_id": "fb3a3a8ffba7902edd64eac9999aca367290aebcb6968c24f7e2552f0299f359:d.repeat14.iii",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Tests FEMA rules for remitting sale proceeds from inherited agricultural land abroad; no candidate descriptor covers those rules.",
+        "confidence": null,
+        "bucket": null
+      },
+      {
+        "part_id": "fb3a3a8ffba7902edd64eac9999aca367290aebcb6968c24f7e2552f0299f359:d.repeat14.iv",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Tests FEMA rules on transfer and repatriation of proceeds from inherited agricultural land; no candidate descriptor covers those rules.",
+        "confidence": null,
+        "bucket": null
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "attempt_id": "1791217347775492000",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "fee0e3f3e9d9b0c70de6432c4634941ab7e7e57859292f25ca8f15acc6ae667e",
+    "schema_generator": "pinned-identifiers-v2",
+    "seconds": 20.129,
+    "usage": [
+      {
+        "input_tokens": 54029,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 763,
+        "reasoning_output_tokens": 268
+      }
+    ],
+    "completed_at": "2026-10-05T16:22:47.904317+00:00"
+  }
+}

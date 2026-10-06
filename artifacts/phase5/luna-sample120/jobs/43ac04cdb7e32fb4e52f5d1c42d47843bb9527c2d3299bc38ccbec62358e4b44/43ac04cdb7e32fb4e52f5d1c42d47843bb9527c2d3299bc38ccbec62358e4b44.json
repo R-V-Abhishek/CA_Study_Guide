@@ -1,0 +1,35 @@
+{
+  "result": {
+    "question_id": "43ac04cdb7e32fb4e52f5d1c42d47843bb9527c2d3299bc38ccbec62358e4b44",
+    "input_hash": "3f8426b4dc34b818a68b1f6e0a5f5c9558b3c78c59dc88da3b44105f0699393f",
+    "mappings": [
+      {
+        "part_id": "43ac04cdb7e32fb4e52f5d1c42d47843bb9527c2d3299bc38ccbec62358e4b44",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "The extracted root question contains only an instruction that working notes should form part of the answer; no gradable concept or subparts are available, and the answer is missing.",
+        "confidence": null,
+        "bucket": null
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "5183e090321f0aaf2361d950eefcead7e2b1b15d825fcbabcbe765a379f12723",
+    "schema_generator": "pinned-part-ids-v1",
+    "seconds": 8.833,
+    "usage": [
+      {
+        "input_tokens": 48050,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 214,
+        "reasoning_output_tokens": 0
+      }
+    ],
+    "completed_at": "2026-10-05T15:56:14.574372+00:00"
+  }
+}

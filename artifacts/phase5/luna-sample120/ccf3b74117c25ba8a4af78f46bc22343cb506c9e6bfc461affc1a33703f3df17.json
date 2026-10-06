@@ -1,0 +1,36 @@
+{
+  "result": {
+    "question_id": "ccf3b74117c25ba8a4af78f46bc22343cb506c9e6bfc461affc1a33703f3df17",
+    "input_hash": "e2b58630ae41dc3b980ef4287fe164740a9fe40de4f70ff0210320cd906be3bd",
+    "mappings": [
+      {
+        "part_id": "ccf3b74117c25ba8a4af78f46bc22343cb506c9e6bfc461affc1a33703f3df17",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "The supplied root combines multiple gradable topics: quality-cost analysis, Ind AS 102 share-option accounting, and limited-review procedures. The complete stems for items 2.1\u20132.5 are absent, and no single candidate descriptor covers the full question.",
+        "confidence": 0.96,
+        "bucket": "D"
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "attempt_id": "1791216650283860000",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "85df799246ee27b4d5e993040ee563d9b0b9c1d3e78fffa704d9acaff6562da4",
+    "schema_generator": "pinned-part-ids-v1",
+    "seconds": 15.544,
+    "usage": [
+      {
+        "input_tokens": 52936,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 544,
+        "reasoning_output_tokens": 319
+      }
+    ],
+    "completed_at": "2026-10-05T16:11:05.827865+00:00"
+  }
+}

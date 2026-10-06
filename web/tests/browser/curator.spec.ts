@@ -1,5 +1,6 @@
 import { test, expect, type Page } from "./fixtures";
 import type { components } from "../../packages/api-client/src/generated";
+import { classificationItem } from "./classification-fixture";
 test.beforeEach(async ({ request }) => { await request.post('/__test/login?account_id=3'); });
 
 type QueueItem = components["schemas"]["CuratorQueueItem"];
@@ -14,7 +15,7 @@ const metadata: components["schemas"]["Metadata"] = {
 };
 function unit(id: number, overrides: Partial<QueueItem> = {}): QueueItem {
   return {
-    unit_id: id, publication_ready: true, document_id: 1, attempt_id: "2024-05", paper_id: "fixture.FR", doc_type_id: "exam", label_path: `Q${id}.a`, display_label: `${id}(a)`, is_benchmark: false,
+    unit_id: id, publication_ready: true, verification_state: "unknown", requires_re_review: false, document_id: 1, attempt_id: "2024-05", paper_id: "fixture.FR", doc_type_id: "exam", label_path: `Q${id}.a`, display_label: `${id}(a)`, is_benchmark: false,
     marks: 0, question_text: `Fixture question ${id}`, answer_text: `Fixture answer ${id}`, bucket: "A",
     primary_suggestion: { node_id: `fixture.node.${id}`, node_name: `Real recommendation ${id}`, chapter: { id: "fixture.chapter", name: "Real Chapter" }, topic: { id: "fixture.topic", name: "Real Topic" }, subtopic: { id: `fixture.node.${id}`, name: `Real recommendation ${id}` }, justification: "Actual fixture justification", gist: null, alternatives: [] }, secondary_suggestions: [], ...overrides,
   };
@@ -137,11 +138,12 @@ test.describe("curator controlled responses", () => {
   test("other curator pages report failed loads with usable navigation", async ({ page }) => {
     test.setTimeout(60_000);
     await page.route("**/api/v1/curate/documents**", route => route.fulfill({ status: 503, json: { detail: "Documents unavailable" } }));
+    await page.route("**/api/v1/curate/classifications**", route => route.fulfill({ status: 503, json: { detail: "Classifications unavailable" } }));
     await page.route("**/api/v1/tree**", route => route.fulfill({ status: 503, json: { detail: "Taxonomy unavailable" } }));
     await page.route("**/api/v1/system/health", route => route.fulfill({ status: 503, json: { detail: "Health unavailable" } }));
     await page.route("**/api/v1/system/backups", route => route.fulfill({ status: 503, json: { detail: "Backups unavailable" } }));
     const uncaught: string[] = []; page.on("pageerror", error => uncaught.push(error.message));
-    for (const [route, message] of [["documents", "Documents unavailable"], ["bulk", "Documents unavailable"], ["taxonomy", "Taxonomy unavailable"], ["system", "Health unavailable"]]) {
+    for (const [route, message] of [["documents", "Documents unavailable"], ["bulk", "Classifications unavailable"], ["taxonomy", "Taxonomy unavailable"], ["system", "Health unavailable"]]) {
       await page.goto(`/curator/${route}`);
       await expect(page.getByRole("alert").filter({ hasText: message })).toBeVisible();
       await expect(page.getByRole("link", { name: "Review Queue", exact: true })).toBeVisible();
@@ -160,6 +162,9 @@ test.describe("curator controlled responses", () => {
       ? route.fulfill({ json: [document] })
       : route.fulfill({ status: 500, json: { detail: "Document action failed" } }));
     await page.route("**/api/v1/curate/intel/recompute*", route => route.fulfill({ status: 500, json: { detail: "Recompute failed" } }));
+    await page.route("**/api/v1/curate/classifications**", route => route.request().method() === "GET"
+      ? route.fulfill({ json: [classificationItem] })
+      : route.fulfill({ status: 500, json: { detail: "Bulk action failed" } }));
     await page.route("**/api/v1/system/health", route => route.fulfill({ json: { status: "healthy", evaluated_at: "2026-10-01T00:00:00Z", alarms: [] } satisfies components["schemas"]["SystemHealth"] }));
     await page.route("**/api/v1/system/backups", route => route.fulfill({ json: { count: 0, backups: [] } satisfies components["schemas"]["BackupList"] }));
     await page.goto("/curator/documents");
@@ -170,9 +175,16 @@ test.describe("curator controlled responses", () => {
     await page.getByRole("button", { name: "Reject", exact: true }).click();
     await expect(page.getByRole("alert")).toContainText("Document action failed");
     await page.goto("/curator/bulk");
-    await page.getByRole("button", { name: "Accept All Bucket A Units", exact: true }).click();
-    await expect(page.getByRole("alert")).toContainText("Document action failed");
-    await expect(page.getByText(/Successfully published/)).toHaveCount(0);
+    await page.getByText("Review whole question, answer and every part label", { exact: true }).click();
+    await expect(page.getByText("Company case shared by both parts.", { exact: true })).toBeVisible();
+    await expect(page.getByText("Revenue is 100.", { exact: true })).toBeVisible();
+    await expect(page.getByText("Revenue Chapter → Revenue Topic", { exact: true })).toBeVisible();
+    await page.getByLabel("Select suggestion revision 11").check();
+    await page.getByLabel("Bulk review evidence").fill("Reviewed the complete selected question and all part labels.");
+    await page.getByLabel("I reviewed the complete question, available answer and all labels for every selected revision").check();
+    await page.getByRole("button", { name: "Publish 1 selected revisions", exact: true }).click();
+    await expect(page.getByRole("alert")).toContainText("Bulk action failed");
+    await expect(page.getByText(/Published .*explicitly reviewed/)).toHaveCount(0);
     await page.goto("/curator/system");
     await page.getByRole("button", { name: "Trigger L5 Recompute", exact: true }).click();
     await expect(page.getByRole("alert")).toContainText("Recompute failed");
@@ -186,7 +198,7 @@ test.describe("curator disposable database integration", () => {
 
   test("direct curator routes render actual API contracts without uncaught errors", async ({ page }) => {
     const uncaught: string[] = []; page.on("pageerror", error => uncaught.push(error.message));
-    for (const [route, heading] of [["queue", "Review Queue"], ["documents", "Document Catalogue"], ["bulk", "Bulk Accept — Bucket A Consensus"], ["taxonomy", "Taxonomy Explorer"], ["system", "System Health & Ops Monitor"]]) {
+    for (const [route, heading] of [["queue", "Review Queue"], ["documents", "Document Catalogue"], ["bulk", "Bulk Accept — Selected Revisions"], ["taxonomy", "Taxonomy Explorer"], ["system", "System Health & Ops Monitor"]]) {
       await page.goto(`/curator/${route}`); await expect(page.getByRole("heading", { name: heading, exact: true })).toBeVisible();
       await expect(page.getByRole("link", { name: "Review Queue", exact: true })).toBeVisible();
       await expect(page.getByRole("alert")).toHaveCount(0);
@@ -194,13 +206,14 @@ test.describe("curator disposable database integration", () => {
     expect(uncaught).toEqual([]);
   });
 
-  test("accepted decisions persist across reload and remove only the accepted queue unit", async ({ page, request }) => {
+  test("excluded legacy records persist across reload without publishing unknown evidence", async ({ page, request }) => {
     const fixture = await (await request.get("/__test/fixture")).json() as { unit_id: number; nodes: Array<{ id: string; name: string }> };
     await page.goto("/curator/queue");
     await expect(page.getByRole("region", { name: "Answer text", exact: true })).toContainText("FINAL ANSWER SENTINEL");
     await expect(page.getByText(fixture.nodes[0].name, { exact: true })).toBeVisible();
     const response = page.waitForResponse(res => res.url().includes(`/curate/units/${fixture.unit_id}/decision`) && res.request().method() === "POST");
-    await page.getByRole("button", { name: "[A] Accept Recommendation", exact: true }).click();
+    await expect(page.getByRole("button", { name: "[A] Accept Recommendation", exact: true })).toBeDisabled();
+    await page.getByRole("button", { name: "[X] Exclude", exact: true }).click();
     expect((await response).ok()).toBeTruthy();
     await expect(page.getByRole("heading", { name: "Queue Empty", exact: true })).toBeVisible();
     await page.reload(); await expect(page.getByRole("heading", { name: "Queue Empty", exact: true })).toBeVisible();

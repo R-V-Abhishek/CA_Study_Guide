@@ -1,0 +1,36 @@
+{
+  "result": {
+    "question_id": "b395d5b90866857aabdfa49890cb9f856e37f5b7419e298960ba00812bc968e4",
+    "input_hash": "8632e1a04e037c3d7eddf7e920f69209e333cbcdf7c7fc297c4ed88347dd99f2",
+    "mappings": [
+      {
+        "part_id": "b395d5b90866857aabdfa49890cb9f856e37f5b7419e298960ba00812bc968e4:d.repeat16.v",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "The shared stem covers several distinct tasks: business-income computation (including trading-liability remission and actual-payment deductions), machine cost comparison, and charitable-status consequences. The available answer text also continues into another case study, while the part question itself is absent. The supplied candidates do not clearly cover all these tested concepts, so this part cannot be assigned a supported single mapping.",
+        "confidence": 0.94,
+        "bucket": "D"
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "attempt_id": "1791217591479076000",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "409cd7a1e6f1191a18bf3a6bd54182c03fa24d27235635dbf7f07f26d065c2a2",
+    "schema_generator": "pinned-identifiers-v2",
+    "seconds": 19.557,
+    "usage": [
+      {
+        "input_tokens": 54371,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 790,
+        "reasoning_output_tokens": 544
+      }
+    ],
+    "completed_at": "2026-10-05T16:26:51.035647+00:00"
+  }
+}

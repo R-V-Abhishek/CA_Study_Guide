@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a10ce3-4150-75f0-b6bc-93282b3a19a0"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"{\"question_id\":\"fd3e5c9e5828dd683ebabd1fc93937453b8788266e1d14146c86732486f8b8a0\",\"input_hash\":\"23b6732801be298c3d841377652c2561b182aceb6e27f2b853ed11cf13aafe61\",\"mappings\":[{\"part_id\":\"fd3e5c9e5828dd683ebabd1fc93937453b8788266e1d14146c86732486f8b8a0\",\"outcome\":\"needs_review\",\"primary_node_id\":null,\"secondary_node_ids\":[],\"evidence\":[],\"note\":\"Only an answer fragment (₹137.95 lakhs) is available; the root question, tested concept and answer are missing, so no candidate label can be supported.\",\"confidence\":null,\"bucket\":null}]}"}}
+{"type":"turn.completed","usage":{"input_tokens":51025,"cached_input_tokens":0,"cache_write_input_tokens":0,"output_tokens":251,"reasoning_output_tokens":48}}

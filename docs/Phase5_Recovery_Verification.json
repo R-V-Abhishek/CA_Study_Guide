@@ -1,0 +1,32 @@
+{
+  "verified": true,
+  "verified_at": "2026-10-05T16:38:45.601755+00:00",
+  "database_revision": "0006_classification_revisions",
+  "checkpoint": "data/backups/caf_20261005_163731_934357_ee6e232e/manifest.json",
+  "dump_file": "data/backups/caf_20261005_163731_934357_ee6e232e/caf_20261005_163731_934357_ee6e232e.dump",
+  "dump_sha256": "19ee4883fcc7870598c2ffe09a4b3baddd3b0472867617627964249b44dcdcc9",
+  "detailed_report": "data/backups/caf_20261005_163731_934357_ee6e232e/verification_f1f51ead8cb94a34b14113e105dc410b.json",
+  "table_digests_checked": 66,
+  "archived_files_checked": 4317,
+  "mismatches": [],
+  "baseline_schema_drift": {},
+  "classification_history_counts": {
+    "core.classification_dispute": 0,
+    "core.classification_event": 0,
+    "core.classification_revision": 0,
+    "core.classification_verification": 0,
+    "core.question_publication": 0,
+    "ingest.suggestion_revision": 120
+  },
+  "original_data_preservation": {
+    "report": "docs/Phase5_Normal_Migration.json",
+    "tables_checked": 57,
+    "all_original_values_preserved": true,
+    "operational_append_only_tables": [
+      "ops.run",
+      "ops.event"
+    ]
+  },
+  "authenticated_review_history": "Covered by disposable-database publication/API/recovery tests; live student reviews are not fabricated",
+  "recovery_storage": "Owned disposable PostgreSQL disk volume; persistent Compose data was not modified"
+}

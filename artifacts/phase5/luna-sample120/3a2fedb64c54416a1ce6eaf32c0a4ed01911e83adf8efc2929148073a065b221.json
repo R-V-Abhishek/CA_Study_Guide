@@ -1,0 +1,65 @@
+{
+  "result": {
+    "question_id": "3a2fedb64c54416a1ce6eaf32c0a4ed01911e83adf8efc2929148073a065b221",
+    "input_hash": "ae54f3b60cb27a9ccc78a0ee375d972c5d38a9b86f35930a0d7ac8576beaf787",
+    "mappings": [
+      {
+        "part_id": "3a2fedb64c54416a1ce6eaf32c0a4ed01911e83adf8efc2929148073a065b221:Q1.a",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Tests GST treatment of an inter-division transaction and whether CGST/SGST applies. No candidate covers GST supplies or intra-state tax.",
+        "confidence": 0.99,
+        "bucket": null
+      },
+      {
+        "part_id": "3a2fedb64c54416a1ce6eaf32c0a4ed01911e83adf8efc2929148073a065b221:Q1.b",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Tests whether use of a vacant warehouse constitutes a taxable GST service. No candidate addresses GST on renting or use of property.",
+        "confidence": 0.99,
+        "bucket": null
+      },
+      {
+        "part_id": "3a2fedb64c54416a1ce6eaf32c0a4ed01911e83adf8efc2929148073a065b221:Q1.c",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Tests GST treatment of an inter-division transaction and whether IGST applies. No candidate covers GST supplies or inter-state tax.",
+        "confidence": 0.99,
+        "bucket": null
+      },
+      {
+        "part_id": "3a2fedb64c54416a1ce6eaf32c0a4ed01911e83adf8efc2929148073a065b221:Q1.d",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Tests GST treatment of a transaction involving the company's registered office in another state, including IGST. No candidate addresses GST place-of-supply or tax rules.",
+        "confidence": 0.99,
+        "bucket": null
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "4f319533353c14b84587a3c4e2c68728da06a434fe21a5a20710078f0b3b30f2",
+    "schema_generator": "pinned-part-ids-v1",
+    "seconds": 35.509,
+    "usage": [
+      {
+        "input_tokens": 49312,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 651,
+        "reasoning_output_tokens": 120
+      }
+    ],
+    "completed_at": "2026-10-05T15:57:26.806032+00:00"
+  }
+}

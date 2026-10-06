@@ -1,0 +1,36 @@
+{
+  "result": {
+    "question_id": "25c950a4ce35746409a963c158e84dcdeca5fa7150a5861e73bea6d772d24d8c",
+    "input_hash": "b75def309086af8631c80ab53e58fbf142c267e055efad9659990e538fd53db8",
+    "mappings": [
+      {
+        "part_id": "25c950a4ce35746409a963c158e84dcdeca5fa7150a5861e73bea6d772d24d8c",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "The root question and shared stem are absent, and the answer is marked missing. This fragment states an action involving Articles of Association and a Special Resolution, but does not identify what is being altered or the issue being addressed; the concept cannot be established from this part alone.",
+        "confidence": null,
+        "bucket": null
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "attempt_id": "1791216641908827000",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "ccf217e2dd1c13808ea347d2ca77b96b7aedaab656bea9952113399f35279770",
+    "schema_generator": "pinned-part-ids-v1",
+    "seconds": 8.228,
+    "usage": [
+      {
+        "input_tokens": 51317,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 217,
+        "reasoning_output_tokens": 0
+      }
+    ],
+    "completed_at": "2026-10-05T16:10:50.137065+00:00"
+  }
+}

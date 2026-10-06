@@ -25,6 +25,10 @@ data/audits/
 data/backups/caf_*/
 debug/
 
+# Transient classification batch coordination files
+artifacts/phase5/**/.operator.lock
+artifacts/phase5/**/*.tmp
+
 # Node / Web
 node_modules/
 .pnpm-store/

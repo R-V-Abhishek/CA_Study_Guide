@@ -1,0 +1,207 @@
+{
+  "result": {
+    "question_id": "35a3ffbe6ec2dfd34d79beae09ccbe32d73c2c31715f509fc00d672beef5bac8",
+    "input_hash": "c3c46d137c0c2db74da2602ee4969f7754acf63e2550f163f350d158fe68dfc4",
+    "mappings": [
+      {
+        "part_id": "35a3ffbe6ec2dfd34d79beae09ccbe32d73c2c31715f509fc00d672beef5bac8:Q2.a.i",
+        "outcome": "matched",
+        "primary_node_id": "f8488ba8-b7a7-43e2-92b6-1d5fffe34784",
+        "secondary_node_ids": [
+          "409ef2c5-4a89-4065-95ea-d66c80d90add",
+          "67510bbb-a56d-4a1f-8823-a7aa46415dbe"
+        ],
+        "evidence": [
+          {
+            "node_id": "f8488ba8-b7a7-43e2-92b6-1d5fffe34784",
+            "support": "Tests whether the composite milling and fortification supply meets the exemption threshold, matching composite supply treatment."
+          },
+          {
+            "node_id": "409ef2c5-4a89-4065-95ea-d66c80d90add",
+            "support": "Determines whether the PDS supply qualifies for an exemption from GST."
+          },
+          {
+            "node_id": "67510bbb-a56d-4a1f-8823-a7aa46415dbe",
+            "support": "Determines that supply to Tamil Nadu is inter-State and attracts IGST."
+          }
+        ],
+        "note": "The answer applies the composite supply exemption threshold and identifies the inter-State treatment.",
+        "confidence": 0.96,
+        "bucket": "A"
+      },
+      {
+        "part_id": "35a3ffbe6ec2dfd34d79beae09ccbe32d73c2c31715f509fc00d672beef5bac8:Q2.a.ii",
+        "outcome": "matched",
+        "primary_node_id": "5b2d11e0-d765-49b0-9966-a77b9d177e47",
+        "secondary_node_ids": [
+          "82dd4304-0876-40b0-9fbe-74288cea1777"
+        ],
+        "evidence": [
+          {
+            "node_id": "5b2d11e0-d765-49b0-9966-a77b9d177e47",
+            "support": "Tests whether DSA services supplied by a partnership firm fall under reverse charge or the supplier pays under forward charge."
+          },
+          {
+            "node_id": "82dd4304-0876-40b0-9fbe-74288cea1777",
+            "support": "The answer classifies the service as intra-State based on the supplier and recipient being in Karnataka."
+          }
+        ],
+        "note": "The key issue is charge liability for bank DSA services, with intra-State classification also applied.",
+        "confidence": 0.94,
+        "bucket": "A"
+      },
+      {
+        "part_id": "35a3ffbe6ec2dfd34d79beae09ccbe32d73c2c31715f509fc00d672beef5bac8:Q2.a.iii",
+        "outcome": "matched",
+        "primary_node_id": "5b2d11e0-d765-49b0-9966-a77b9d177e47",
+        "secondary_node_ids": [
+          "9b666289-1245-4dc6-90e1-4d0a4be08bce"
+        ],
+        "evidence": [
+          {
+            "node_id": "5b2d11e0-d765-49b0-9966-a77b9d177e47",
+            "support": "Tests whether tax on an agriculturist\u2019s tobacco leaf supply is payable by the registered recipient under reverse charge."
+          },
+          {
+            "node_id": "9b666289-1245-4dc6-90e1-4d0a4be08bce",
+            "support": "The answer turns on the statutory meaning of agriculturist and the reverse-charge category."
+          }
+        ],
+        "note": "The answer assigns the tax payment obligation to the recipient under reverse charge.",
+        "confidence": 0.94,
+        "bucket": "A"
+      },
+      {
+        "part_id": "35a3ffbe6ec2dfd34d79beae09ccbe32d73c2c31715f509fc00d672beef5bac8:Q2.a.iv",
+        "outcome": "matched",
+        "primary_node_id": "3d05cbcb-c09c-412e-b8e9-b2b96d5de6f9",
+        "secondary_node_ids": [
+          "9aedeffc-4d83-40e6-8ff1-ebec7925d8d1"
+        ],
+        "evidence": [
+          {
+            "node_id": "3d05cbcb-c09c-412e-b8e9-b2b96d5de6f9",
+            "support": "Determines whether the government-funded training service is exempt from GST."
+          },
+          {
+            "node_id": "9aedeffc-4d83-40e6-8ff1-ebec7925d8d1",
+            "support": "The answer applies a service exemption for training where the State Government bears at least 75% of expenditure."
+          }
+        ],
+        "note": "The tested issue is the exemption condition for a government-funded training programme.",
+        "confidence": 0.88,
+        "bucket": "B"
+      },
+      {
+        "part_id": "35a3ffbe6ec2dfd34d79beae09ccbe32d73c2c31715f509fc00d672beef5bac8:Q2.a.v",
+        "outcome": "matched",
+        "primary_node_id": "81f2b41f-d9bf-40cc-9fbb-3a45b699d53a",
+        "secondary_node_ids": [
+          "72407f6f-8662-4f40-aa8a-204e85bc7b81",
+          "82dd4304-0876-40b0-9fbe-74288cea1777"
+        ],
+        "evidence": [
+          {
+            "node_id": "81f2b41f-d9bf-40cc-9fbb-3a45b699d53a",
+            "support": "Tests whether payment for agreeing to refrain from building additional floors constitutes a taxable supply of service."
+          },
+          {
+            "node_id": "72407f6f-8662-4f40-aa8a-204e85bc7b81",
+            "support": "Calculates the taxable value and GST on the compensation received."
+          },
+          {
+            "node_id": "82dd4304-0876-40b0-9fbe-74288cea1777",
+            "support": "The answer treats the transaction as intra-State based on the recipient\u2019s location in Bengaluru."
+          }
+        ],
+        "note": "The payment for refraining from an act is treated as consideration for a taxable service.",
+        "confidence": 0.96,
+        "bucket": "A"
+      },
+      {
+        "part_id": "35a3ffbe6ec2dfd34d79beae09ccbe32d73c2c31715f509fc00d672beef5bac8:Q2.b",
+        "outcome": "matched",
+        "primary_node_id": "81f2b41f-d9bf-40cc-9fbb-3a45b699d53a",
+        "secondary_node_ids": [
+          "72407f6f-8662-4f40-aa8a-204e85bc7b81",
+          "5b2d11e0-d765-49b0-9966-a77b9d177e47"
+        ],
+        "evidence": [
+          {
+            "node_id": "81f2b41f-d9bf-40cc-9fbb-3a45b699d53a",
+            "support": "Tests classification of mounting cabinets on frames as a supply of service under Schedule II."
+          },
+          {
+            "node_id": "72407f6f-8662-4f40-aa8a-204e85bc7b81",
+            "support": "Computes taxable values, including job charges and separately sold metal waste."
+          },
+          {
+            "node_id": "5b2d11e0-d765-49b0-9966-a77b9d177e47",
+            "support": "Applies GST liability to the taxable job-work service and the waste goods supplied by the registered job worker."
+          }
+        ],
+        "note": "The answer distinguishes job-work service charges from the separately taxable sale of waste and excludes the principal\u2019s cabinets from the job charges.",
+        "confidence": 0.91,
+        "bucket": "B"
+      },
+      {
+        "part_id": "35a3ffbe6ec2dfd34d79beae09ccbe32d73c2c31715f509fc00d672beef5bac8:Q2.c.i",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "The tested issue is inclusion of commission to an exporter's local agent in customs assessable value; no supplied candidate describes customs valuation.",
+        "confidence": 0.99,
+        "bucket": "A"
+      },
+      {
+        "part_id": "35a3ffbe6ec2dfd34d79beae09ccbe32d73c2c31715f509fc00d672beef5bac8:Q2.c.ii",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "The tested issue is inclusion of buyer-supplied free materials in customs assessable value; no supplied candidate describes customs valuation.",
+        "confidence": 0.99,
+        "bucket": "A"
+      },
+      {
+        "part_id": "35a3ffbe6ec2dfd34d79beae09ccbe32d73c2c31715f509fc00d672beef5bac8:Q2.c.iii",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "The tested issue is the exchange rate for converting foreign-currency customs valuation; no supplied candidate describes customs valuation or its exchange-rate rule.",
+        "confidence": 0.99,
+        "bucket": "A"
+      },
+      {
+        "part_id": "35a3ffbe6ec2dfd34d79beae09ccbe32d73c2c31715f509fc00d672beef5bac8:Q2.c.iv",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "The tested issue is use of the CBIC-notified exchange rate in customs valuation; no supplied candidate describes customs valuation or its exchange-rate rule.",
+        "confidence": 0.99,
+        "bucket": "A"
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "attempt_id": "1791217308794999000",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "0737da5f75456ca84ffccf2efb9060d6a05e2fcb8ad577ba6e97d6d0a1bd7732",
+    "schema_generator": "pinned-identifiers-v2",
+    "seconds": 58.327,
+    "usage": [
+      {
+        "input_tokens": 53235,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2782,
+        "reasoning_output_tokens": 602
+      }
+    ],
+    "completed_at": "2026-10-05T16:22:47.122447+00:00"
+  }
+}
