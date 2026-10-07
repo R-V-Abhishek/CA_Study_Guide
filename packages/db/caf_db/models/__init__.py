@@ -99,3 +99,6 @@ __all__ = [
     "WeightageMember",
     "WeightageSection",
 ]
+
+from caf_db.models.questions import CorpusGeneration, PublishedQuestion, PublishedSource, QuestionOccurrence
+from caf_db.models.intel import AttemptTaxonomyBinding, CorpusCoverage, ReviewedPrior, RecomputeJob

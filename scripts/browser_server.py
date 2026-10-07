@@ -104,9 +104,11 @@ def main():
                               pairing_method="same_doc"))
             db.add(TagSuggestion(unit_id=unit.id, run_id=1, node_id=nodes[0].id, role="primary",
                                  method="anchor", bucket="A", evidence={"gist": "Synthetic fixture"}, is_shadow=False))
+            from browser_reader import seed_reader
+            reader_fixture = seed_reader(db, nodes)
             db.commit()
             fixture = {"paper_id": "s2023.P1", "nodes": [{"id": n.id, "name": n.name} for n in nodes],
-                       "unit_id": unit.id, "score_run_id": run.id}
+                       "unit_id": unit.id, "score_run_id": run.id, **reader_fixture}
 
         from caf_api.main import app
         from fastapi import FastAPI

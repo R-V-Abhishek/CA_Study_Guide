@@ -30,47 +30,50 @@ def cmd_recompute(
         False, "--shadow", help="Run in shadow mode (do not make current)"
     ),
 ) -> None:
-    """Recompute all intelligence scores (E, P, W, I, F) and ingestion coverage."""
-    session_factory = get_session_factory("operations")
-    with session_factory() as session:
-        console.print(f"[bold cyan]Starting L5 Score Recomputation...[/bold cyan]")
-        try:
-            run = recompute_scores(
-                session, target_attempt_id=target_attempt, shadow=shadow
-            )
-            console.print(
-                f"[bold green]✓ Recompute successful![/bold green] "
-                f"Run ID: [cyan]{run.id}[/cyan], "
-                f"Target Attempt: [bold]{run.target_attempt_id}[/bold], "
-                f"Version: [magenta]{run.scoring_version}[/magenta], "
-                f"Is Current: [bold]{run.is_current}[/bold]"
-            )
+    """Enqueue durable recomputation; publication remains immediately readable."""
+    from caf_l5.jobs import enqueue_recompute
+    with get_session_factory("operations")() as session:
+        if shadow:
+            run = recompute_scores(session, target_attempt_id=target_attempt, shadow=True)
+            console.print(f"Shadow run {run.id}: {run.status}")
+        else:
+            job = enqueue_recompute(session, target_attempt)
+            console.print(f"Queued job {job.id}: {job.status}, generation {job.corpus_generation}")
 
-            # Quick summary table
-            scores_count = (
-                session.query(SubtopicScore)
-                .where(SubtopicScore.score_run_id == run.id)
-                .count()
-            )
-            cov_count = (
-                session.query(IngestionCoverage)
-                .where(
-                    IngestionCoverage.score_run_id == run.id,
-                    IngestionCoverage.exam_published.is_(True),
-                )
-                .count()
-            )
-            console.print(
-                f"Scored Subtopics: [bold]{scores_count}[/bold] | "
-                f"Published Exam Coverages: [bold]{cov_count}[/bold]"
-            )
-        except Exception as exc:
-            console.print(f"[bold red]Recomputation failed:[/bold red] {exc}")
-            raise typer.Exit(code=1)
+
+@app.command("enqueue")
+def cmd_enqueue(target_attempt: str = typer.Option(..., "--target-attempt"),
+                taxonomy_version: int | None = typer.Option(None, "--taxonomy-version")) -> None:
+    from caf_l5.jobs import enqueue_recompute
+    with get_session_factory("operations")() as session:
+        job = enqueue_recompute(session, target_attempt, taxonomy_version)
+        console.print(f"Queued job {job.id}: {job.status}, generation {job.corpus_generation}")
+
+
+@app.command("worker")
+def cmd_worker(once: bool = typer.Option(False, "--once"),
+               owner_token: str | None = typer.Option(None, "--owner-token", hidden=True)) -> None:
+    from caf_l5.jobs import run_worker_once
+    if once:
+        job = run_worker_once(get_session_factory("operations"))
+        console.print(f"Completed job {job}" if job else "Queue is idle")
+    else:
+        from caf_l5.worker import main
+        main()
+
+
+@app.command("status")
+def cmd_status(target_attempt: str = typer.Option(..., "--target-attempt"),
+               taxonomy_version: int | None = typer.Option(None, "--taxonomy-version")) -> None:
+    from caf_l5.jobs import job_status
+    with get_session_factory("operations")() as session:
+        console.print(job_status(session, target_attempt, taxonomy_version))
 
 
 @app.command("report")
 def cmd_report(
+    target_attempt: str = typer.Option(..., "--target-attempt"),
+    taxonomy_version: int | None = typer.Option(None, "--taxonomy-version"),
     paper: str = typer.Option("P1", "--paper", "-p", help="Paper code (e.g. P1, P2)"),
     top: int = typer.Option(15, "--top", "-n", help="Number of top subtopics to show"),
 ) -> None:
@@ -85,12 +88,14 @@ def cmd_report(
             console.print(f"[bold red]Paper '{paper}' not found.[/bold red]")
             raise typer.Exit(code=1)
 
-        current_run = get_current_score_run(session)
+        current_run = get_current_score_run(session, target_attempt, taxonomy_version)
+        if current_run:
+            taxonomy_version = current_run.taxonomy_version_id
         if not current_run:
             console.print("[bold red]No current score run found. Run 'caf intel recompute' first.[/bold red]")
             raise typer.Exit(code=1)
 
-        scores_map = get_subtopic_scores_for_paper(session, p_row.id, current_run.id)
+        scores_map = get_subtopic_scores_for_paper(session, p_row.id, current_run.id, target_attempt_id=target_attempt, taxonomy_version_id=taxonomy_version)
         if not scores_map:
             console.print(f"No scores found for paper {p_row.code}.")
             return
@@ -100,7 +105,7 @@ def cmd_report(
 
         # Sort by importance descending
         sorted_scores = sorted(
-            scores_map.values(), key=lambda s: s.importance, reverse=True
+            scores_map.values(), key=lambda s: s.importance if s.importance is not None else -1, reverse=True
         )[:top]
 
         table = Table(
@@ -123,10 +128,10 @@ def cmd_report(
             table.add_row(
                 s.node_id,
                 node_names.get(s.node_id, s.node_id)[:38],
-                f"{s.importance:.4f}",
-                f"{s.exam_score:.2f}",
-                f"{s.practice_score:.2f}",
-                f"{s.weight_prior:.2f}",
+                f"{s.importance:.4f}" if s.importance is not None else "unavailable",
+                f"{s.exam_score:.2f}" if s.exam_score is not None else "unavailable",
+                f"{s.practice_score:.2f}" if s.practice_score is not None else "unavailable",
+                f"{s.weight_prior:.2f}" if s.weight_prior is not None else "unavailable",
                 f"{s.freq_hits}/{s.freq_window}",
                 str(s.exam_marks_total),
                 str(s.exam_count),
@@ -137,113 +142,30 @@ def cmd_report(
 
 
 @app.command("why")
-def cmd_why(
-    node_id: str = typer.Argument(..., help="Subtopic Node ID (e.g. P1-GDH25Q)"),
-) -> None:
-    """Show detailed mathematical explainability breakdown for a subtopic score."""
-    session_factory = get_session_factory("operations")
-    with session_factory() as session:
-        try:
-            payload = get_subtopic_why(session, node_id)
-        except ValueError as exc:
-            console.print(f"[bold red]Error:[/bold red] {exc}")
-            raise typer.Exit(code=1)
-
-        if "error" in payload:
-            console.print(f"[bold red]{payload['error']}[/bold red]")
-            raise typer.Exit(code=1)
-
-        sub = payload["subtopic"]
-        breakdown = payload["importance_breakdown"]
-        freq = payload["frequency"]
-
-        console.print(f"\n[bold cyan]Explainability Breakdown for {sub['id']}[/bold cyan]")
-        console.print(f"Name: [bold]{sub['name']}[/bold]")
-        if sub.get("paper"):
-            console.print(f"Paper: {sub['paper']['code']} - {sub['paper']['name']}")
-        if sub.get("chapter"):
-            console.print(f"Chapter: {sub['chapter']['name']}")
-
-        # Importance table
-        table = Table(title="Importance Calculation: I = 0.6·Ê + 0.2·P̂ + 0.2·Ŵ")
-        table.add_column("Component", style="bold")
-        table.add_column("Raw Score", justify="right")
-        table.add_column("Paper Max", justify="right")
-        table.add_column("Normalized (Hat)", justify="right")
-        table.add_column("Weight", justify="right")
-        table.add_column("Contribution", style="bold green", justify="right")
-
-        table.add_row(
-            "Exam (E)",
-            f"{breakdown['exam']['score_E']:.4f}",
-            f"{breakdown['exam']['paper_max_E']:.4f}",
-            f"{breakdown['exam']['normalized_E_hat']:.4f}",
-            f"{breakdown['weights']['exam']:.2f}",
-            f"{breakdown['exam']['weighted_contribution']:.4f}",
-        )
-        table.add_row(
-            "Practice (P)",
-            f"{breakdown['practice']['score_P']:.4f}",
-            f"{breakdown['practice']['paper_max_P']:.4f}",
-            f"{breakdown['practice']['normalized_P_hat']:.4f}",
-            f"{breakdown['weights']['practice']:.2f}",
-            f"{breakdown['practice']['weighted_contribution']:.4f}",
-        )
-        table.add_row(
-            "Weight Prior (W)",
-            f"{breakdown['weightage_prior']['weight_prior_W']:.4f}",
-            f"{breakdown['weightage_prior']['paper_max_W']:.4f}",
-            f"{breakdown['weightage_prior']['normalized_W_hat']:.4f}",
-            f"{breakdown['weights']['prior']:.2f}",
-            f"{breakdown['weightage_prior']['weighted_contribution']:.4f}",
-        )
-        table.add_row(
-            "[bold]Total Importance (I)[/bold]",
-            "-",
-            "-",
-            "-",
-            "1.00",
-            f"[bold magenta]{breakdown['importance']:.4f}[/bold magenta]",
-        )
-        console.print(table)
-
-        # Frequency breakdown
-        console.print(f"Frequency: Asked in [bold]{freq['freq_hits_F']}[/bold] of last [bold]{freq['freq_window']}[/bold] exams.")
-        if freq["hit_attempts"]:
-            console.print(f"Hit Attempts: {', '.join(freq['hit_attempts'])}")
-        console.print(f"Window Attempts: {', '.join(freq['window_attempts'])}")
-
-        # Contributing appearances
-        apps = payload.get("appearances", [])
-        if apps:
-            app_table = Table(title=f"Contributing Appearances ({len(apps)} items)")
-            app_table.add_column("App ID", style="cyan")
-            app_table.add_column("Attempt")
-            app_table.add_column("Signal")
-            app_table.add_column("Label")
-            app_table.add_column("Marks", justify="right")
-            app_table.add_column("Share", justify="right")
-            app_table.add_column("m(a,s)", justify="right")
-            app_table.add_column("Age (m)", justify="right")
-            app_table.add_column("Decay", justify="right")
-            app_table.add_column("Contribution", style="bold green", justify="right")
-
-            for a in apps:
-                app_table.add_row(
-                    str(a["appearance_id"]),
-                    a["attempt_id"],
-                    a["signal_class"],
-                    a["display_label"],
-                    str(a["marks"] or 0),
-                    f"{a['share']:.2f}",
-                    f"{a['attributed_marks_m']:.2f}",
-                    str(a["age_months"]),
-                    f"{a['decay']:.4f}",
-                    f"{a['contribution']:.4f}",
-                )
-            console.print(app_table)
+def cmd_why(node_id: str = typer.Argument(...),
+            target_attempt: str = typer.Option(..., "--target-attempt"),
+            taxonomy_version: int | None = typer.Option(None, "--taxonomy-version")) -> None:
+    """Show persisted formula, normalized contributions and exact reviewed window."""
+    import json
+    from caf_l5.context import approved_binding
+    from caf_l5.config import ScoringConfig, load_scoring_config
+    with get_session_factory("operations")() as session:
+        binding = approved_binding(session, target_attempt, taxonomy_version)
+        if binding:
+            taxonomy_version = binding.taxonomy_version_id
+            config = ScoringConfig.model_validate(binding.scoring_config) if binding.scoring_config else load_scoring_config()
         else:
-            console.print("[dim]No historical exam/practice appearances recorded for this subtopic.[/dim]")
+            config = load_scoring_config()
+        try:
+            payload = get_subtopic_why(session, node_id, target_attempt_id=target_attempt,
+                                      taxonomy_version_id=taxonomy_version, config_hash=config.config_hash)
+        except ValueError as exc:
+            console.print(f"[red]{exc}[/red]")
+            raise typer.Exit(code=1)
+        if payload.get("error"):
+            console.print(payload["error"])
+            raise typer.Exit(code=1)
+        console.print_json(json.dumps(payload))
 
 
 @app.command("coverage")
@@ -270,3 +192,21 @@ def cmd_coverage(user_id: int = typer.Option(..., "--user-id", min=1, help="Targ
                 f"{p_data['in_progress_pct']}%",
             )
         console.print(table)
+
+
+@app.command("backfill-reader")
+def cmd_backfill_reader() -> None:
+    """Project existing reviewed publications without creating reviews."""
+    from caf_l4.questions import backfill_publications
+    with get_session_factory("operations")() as session:
+        result = backfill_publications(session)
+        session.commit()
+        console.print(result)
+
+
+@app.command("seed-coverage")
+def cmd_seed_coverage(taxonomy_version: int = typer.Option(..., "--taxonomy-version")) -> None:
+    """Record Phase 4 inventory blockers while leaving official scope unreviewed."""
+    from caf_l5.coverage import seed_coverage
+    with get_session_factory("operations")() as session:
+        console.print(seed_coverage(session, taxonomy_version))

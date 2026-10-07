@@ -13,7 +13,7 @@ test('dashboard distinguishes zero coverage from unavailable and uses real plan 
   const original: components['schemas']['Dashboard'] = await (await request.get('/api/v1/dashboard')).json();
   let data: components['schemas']['Dashboard'] = {
     ...original, done_subtopics: 0, overall_progress_pct: 0,
-    weighted_coverage: { ...original.weighted_coverage, overall_coverage_pct: 0 },
+    weighted_coverage: { ...original.weighted_coverage, basis: 'weighted', overall_coverage_pct: 0 },
   };
   await page.route('**/api/v1/dashboard', route => route.fulfill({ json: data }));
   await page.goto('/');
@@ -24,6 +24,9 @@ test('dashboard distinguishes zero coverage from unavailable and uses real plan 
   data = { ...data, weighted_coverage: { ...data.weighted_coverage, overall_coverage_pct: null } };
   await page.reload();
   await expect(page.getByText('Weighted coverage: Unavailable', { exact: true })).toBeVisible();
+  data = { ...data, weighted_coverage: { ...data.weighted_coverage, basis: 'unweighted', overall_coverage_pct: 25 } };
+  await page.reload();
+  await expect(page.getByText('Personal syllabus progress (unweighted): 25.0%', { exact: true })).toBeVisible();
 });
 
 test('overview and plan return links retain their URL selections', async ({ page, request }) => {

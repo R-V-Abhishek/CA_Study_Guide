@@ -21,6 +21,25 @@ class ScoreRunIdentity(BaseModel):
     target_attempt_id: str
     taxonomy_version_id: int | None = None
     computed_at: datetime | None
+    corpus_generation: int | None = None
+    config_hash: str | None = None
+
+
+class StudyContextIdentity(BaseModel):
+    target_attempt_id: str | None
+    taxonomy_version_id: int | None
+    readiness: str
+    applicability_state: str = 'unresolved'
+    unresolved_node_ids: list[str] = Field(default_factory=list)
+
+
+class ScoreFreshness(BaseModel):
+    publication_generation: int = 0
+    scored_generation: int | None = None
+    computed_at: datetime | None = None
+    status: str = 'unavailable'
+    job_id: int | None = None
+    error: str | None = None
 
 
 class PaperTree(BaseModel):
@@ -30,6 +49,7 @@ class PaperTree(BaseModel):
     chapters: list['ChapterItem']
     taxonomy_version_id: int | None = None
     hierarchy: list[TaxonomyTreeNode] = Field(default_factory=list)
+    context: StudyContextIdentity | None = None
 
 
 class SubtopicItem(BaseModel):
@@ -89,8 +109,8 @@ class PlanItem(BaseModel):
     chapter_id: str
     chapter_name: str
     status: Literal['not_started', 'in_progress', 'done']
-    importance: float
-    priority_score: float
+    importance: float | None
+    priority_score: float | None
     weak: bool
     freq_hits: int
     freq_window: int
@@ -105,6 +125,12 @@ class StudyPlan(BaseModel):
     hours_per_week: float
     minutes_per_subtopic: int
     items: list[PlanItem]
+    basis: Literal['scored', 'syllabus', 'unavailable'] = 'unavailable'
+    allocated_minutes: int = 0
+    unused_minutes: float = 0
+    score_run_id: int | None = None
+    context: StudyContextIdentity | None = None
+    freshness: ScoreFreshness | None = None
 
 
 class RevisionItem(BaseModel):
@@ -153,6 +179,9 @@ class WeightedCoverage(BaseModel):
     overall_in_progress_pct: float | None
     groups: dict[int, CoverageValue]
     papers: dict[str, PaperCoverage]
+    basis: Literal['weighted', 'unweighted', 'unavailable'] = 'unavailable'
+    context: StudyContextIdentity | None = None
+    freshness: ScoreFreshness | None = None
 
 
 class IngestionCoverageItem(BaseModel):
@@ -160,6 +189,43 @@ class IngestionCoverageItem(BaseModel):
     attempt_id: str
     exam_published: bool
     practice_published: bool
+    source_family: str | None = None
+    inventory_reviewed: bool = False
+    expected_sources: int | None = None
+    acquired_sources: int = 0
+    reviewed_roots: int = 0
+    reviewed_parts: int = 0
+    usable_exam: bool = False
+    blockers: list[str] = Field(default_factory=list)
+
+
+class CorpusCoverageItem(BaseModel):
+    paper_id: str
+    attempt_id: str
+    source_family: str
+    inventory_reviewed: bool
+    expected_slots: int | None
+    discovered_count: int
+    acquired_count: int
+    metadata_reviewed: bool
+    extraction_reviewed: bool
+    pairing_reviewed: bool
+    official_scope_confirmed: bool
+    gradable_regions_accounted: bool
+    labels_complete: bool
+    occurrence_resolved: bool
+    reviewed_roots: int
+    reviewed_parts: int
+    published_roots: int
+    missing_answers: int
+    usable_exam: bool
+    blockers: list[str]
+
+
+class CorpusReadiness(BaseModel):
+    context: StudyContextIdentity
+    freshness: ScoreFreshness
+    items: list[CorpusCoverageItem]
 
 
 class ActivityItem(BaseModel):
@@ -173,7 +239,7 @@ class ActivityItem(BaseModel):
 
 class Dashboard(BaseModel):
     score_unavailable_reason: str | None = None
-    target_attempt: str
+    target_attempt: str | None
     score_run_id: int | None
     total_subtopics: int
     done_subtopics: int
@@ -187,6 +253,8 @@ class Dashboard(BaseModel):
     plan_preview: list[PlanItem]
     revision_due_count: int
     recent_activity: list[ActivityItem]
+    context: StudyContextIdentity | None = None
+    freshness: ScoreFreshness | None = None
 
 
 class Metadata(BaseModel):
@@ -195,11 +263,13 @@ class Metadata(BaseModel):
     scoring_version: str | None
     api_version: str
     backend_revision: str
-    target_attempt: str
+    target_attempt: str | None
     score_run_id: int | None
     score_run_computed_at: datetime | None
     score_run: ScoreRunIdentity | None
     ingestion_coverage: list[IngestionCoverageItem]
+    context: StudyContextIdentity | None = None
+    freshness: ScoreFreshness | None = None
 
 
 class Weightage(BaseModel):
@@ -219,6 +289,9 @@ class AppearanceItem(BaseModel):
     page_start: int | None
     page_end: int | None
     law_stale: bool
+    question_id: str | None = None
+    part_id: str | None = None
+    provenance_limitation: str | None = None
 
 
 class SubtopicScoreDetail(BaseModel):
@@ -235,6 +308,11 @@ class SubtopicScoreDetail(BaseModel):
     last_exam_attempt: str | None
     weak: bool
     applicable: bool
+    exam_normalized: float | None = None
+    practice_normalized: float | None = None
+    prior_normalized: float | None = None
+    known_weighted_subtotal: float | None = None
+    applicability_status: str = 'unresolved'
 
 
 class SubtopicDetail(BaseModel):
@@ -252,6 +330,8 @@ class SubtopicDetail(BaseModel):
     score_run: ScoreRunIdentity | None
     score: SubtopicScoreDetail
     appearances: list[AppearanceItem]
+    context: StudyContextIdentity | None = None
+    freshness: ScoreFreshness | None = None
 
 
 class ExplanationSubtopic(BaseModel):
@@ -270,19 +350,23 @@ class ExplanationWeights(BaseModel):
 
 
 class ExamSignal(BaseModel):
-    score_E: float
-    paper_max_E: float
-    normalized_E_hat: float
-    normalized_E_pct: float
+    available: bool = True
+    unavailable_reason: str | None = None
+    score_E: float | None
+    paper_max_E: float | None
+    normalized_E_hat: float | None
+    normalized_E_pct: float | None
     weighted_contribution: float | None
     weighted_contribution_pct: float | None
 
 
 class PracticeSignal(BaseModel):
-    score_P: float
-    paper_max_P: float
-    normalized_P_hat: float
-    normalized_P_pct: float
+    available: bool = True
+    unavailable_reason: str | None = None
+    score_P: float | None
+    paper_max_P: float | None
+    normalized_P_hat: float | None
+    normalized_P_pct: float | None
     weighted_contribution: float | None
     weighted_contribution_pct: float | None
 
@@ -290,10 +374,10 @@ class PracticeSignal(BaseModel):
 class PriorSignal(BaseModel):
     available: bool = True
     unavailable_reason: str | None = None
-    weight_prior_W: float
-    paper_max_W: float
-    normalized_W_hat: float
-    normalized_W_pct: float
+    weight_prior_W: float | None
+    paper_max_W: float | None
+    normalized_W_hat: float | None
+    normalized_W_pct: float | None
     weighted_contribution: float | None
     weighted_contribution_pct: float | None
 
@@ -304,13 +388,16 @@ class ImportanceBreakdown(BaseModel):
     exam: ExamSignal | None
     practice: PracticeSignal | None
     weightage_prior: PriorSignal | None
+    known_weighted_subtotal: float | None = None
+    formula: str | None = None
 
 
 class FrequencyExplanation(BaseModel):
-    freq_hits_F: int
+    freq_hits_F: int | None
     freq_window: int
     window_attempts: list[str]
     hit_attempts: list[str]
+    available: bool = True
 
 
 class WeightageExplanation(Weightage):
@@ -343,9 +430,32 @@ class AppearanceExplanation(BaseModel):
     law_stale: bool
 
 
+class OccurrenceContribution(BaseModel):
+    occurrence_id: int
+    snapshot_id: int
+    part_id: str
+    attempt_id: str
+    signal_class: str
+    marks: float
+    share: float
+    attributed_marks_m: float
+    kappa: float
+    lambda_val: float
+    age_months: int
+    half_life_months: float
+    decay: float
+    contribution: float
+
+
+class CoverageExclusion(BaseModel):
+    paper_id: str
+    attempt_id: str
+    reasons: list[str]
+
+
 class ScoreExplanation(BaseModel):
     node_id: str
-    explanation_status: Literal['available', 'historical_configuration_unavailable', 'score_unavailable', 'no_score_run']
+    explanation_status: Literal['available', 'partial_evidence', 'historical_configuration_unavailable', 'score_unavailable', 'no_score_run']
     error: str | None
     configuration_source: Literal['snapshot', 'matching_current'] | None
     score_run: ScoreRunIdentity | None
@@ -353,7 +463,10 @@ class ScoreExplanation(BaseModel):
     importance_breakdown: ImportanceBreakdown
     frequency: FrequencyExplanation | None
     weightage_section: WeightageExplanation | None
-    appearances: list[AppearanceExplanation]
+    appearances: list[AppearanceExplanation | OccurrenceContribution]
+    prior_source: dict[str, Any] | None = None
+    coverage_exclusions: list[CoverageExclusion] = Field(default_factory=list)
+    historical_evidence_status: Literal['occurrence_inputs_unavailable'] | None = None
 
 
 class ProgressResult(BaseModel):
@@ -483,11 +596,14 @@ class BulkAcceptResult(BaseModel):
 
 
 class RecomputeResult(BaseModel):
-    run_id: int
+    run_id: int | None = None
+    job_id: int | None = None
     status: str
     target_attempt_id: str
     scoring_version: str
-    is_current: bool
+    is_current: bool = False
+    taxonomy_version_id: int | None = None
+    corpus_generation: int | None = None
 
 
 class SystemAlarm(BaseModel):

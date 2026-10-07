@@ -228,7 +228,7 @@ def _revision(session, suggestion, publication, actor_id, mappings, blind=False)
     return row
 
 
-def _project_appearances(session, suggestion, revision):
+def _project_appearances(session, suggestion, revision, snapshot):
     """Keep the existing question-index projection linked to revision evidence."""
     from caf_l4.publish import compute_law_stale
     document = session.get(Document, suggestion.document_id)
@@ -269,7 +269,7 @@ def _project_appearances(session, suggestion, revision):
             continue
         nodes = [mapping['primary_node_id'], *mapping['secondary_node_ids']]
         source_paper = suggestion.context['paper_id']
-        values = dict(source_unit_id=unit.id, doc_sha256=document.sha256, attempt_id=document.attempt_id,
+        values = dict(question_id=suggestion.question_id, part_id=mapping['part_id'], occurrence_id=snapshot.occurrence_id, source_unit_id=unit.id, doc_sha256=document.sha256, attempt_id=document.attempt_id,
             source_paper_id=source_paper, doc_type_id=document.doc_type_id, signal_class=doc_type.signal_class,
             series=document.series, display_label=unit.display_label, marks=unit.marks,
             gist=unit.question_text[:500] or unit.display_label, page_start=unit.page_start, page_end=unit.page_end,
@@ -279,6 +279,7 @@ def _project_appearances(session, suggestion, revision):
             session.add(appearance)
             session.flush()
         else:
+            appearance.question_id, appearance.part_id, appearance.occurrence_id = suggestion.question_id, mapping['part_id'], snapshot.occurrence_id
             appearance.source_unit_id = unit.id
             appearance.doc_sha256 = document.sha256
             appearance.attempt_id = document.attempt_id
@@ -347,7 +348,9 @@ def review_classification(session: Session, suggestion_id: int, actor_id: int, m
         result['note'] = note
         return _event(session, suggestion, actor_id, idempotency_key, 'review', request, result)
     revision = _revision(session, suggestion, publication, actor_id, values, blind)
-    _project_appearances(session, suggestion, revision)
+    from caf_l4.questions import project_question
+    snapshot = project_question(session, suggestion, revision, publication)
+    _project_appearances(session, suggestion, revision, snapshot)
     publication.current_revision_id, publication.updated_at = revision.id, datetime.now(timezone.utc)
     _verify(session, revision, actor_id)
     result = _result(session, publication, revision.id)
@@ -458,7 +461,9 @@ def resolve_dispute(session: Session, dispute_id: int, actor_id: int, expected_p
         if any(m['outcome'] == 'needs_review' and not m['excluded'] for m in values):
             raise ReadinessError(['unresolved_mapping'])
         replacement = _revision(session, suggestion, publication, actor_id, values)
-        _project_appearances(session, suggestion, replacement)
+        from caf_l4.questions import project_question
+        snapshot = project_question(session, suggestion, replacement, publication)
+        _project_appearances(session, suggestion, replacement, snapshot)
         publication.current_revision_id, publication.updated_at = replacement.id, datetime.now(timezone.utc)
         dispute.proposed_revision_id = replacement.id
         _verify(session, replacement, actor_id)

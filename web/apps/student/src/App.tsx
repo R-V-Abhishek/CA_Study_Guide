@@ -25,6 +25,8 @@ import { SessionControls } from "./components/SessionControls";
 import { Profile } from "./pages/Profile";
 import { MockTests } from "./pages/MockTests";
 import { TextbookExplorer } from "./components/TextbookExplorer";
+import { Questions } from "./pages/Questions";
+import { QuestionReader } from "./pages/QuestionReader";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -59,6 +61,7 @@ function Layout({ children }: { children: React.ReactNode }) {
   const navItems = [
     { to: "/", label: "Dashboard", icon: BookOpen },
     { to: "/papers", label: "Papers", icon: BarChart3 },
+    { to: "/questions", label: "Questions", icon: BookOpen },
     { to: "/plan", label: "Study Plan", icon: Calendar },
     { to: "/revision", label: "Revision", icon: RotateCcw },
     { to: "/progress", label: "Coverage", icon: CheckCircle2 },
@@ -123,7 +126,7 @@ function Layout({ children }: { children: React.ReactNode }) {
 
       {/* Mobile Bottom Navigation Bar (md:hidden) */}
       <nav className="md:hidden fixed bottom-0 left-0 right-0 z-30 bg-white/95 dark:bg-[#1C1917]/95 backdrop-blur border-t border-[#E7E5E4] dark:border-[#44403C] flex items-center justify-around py-2 px-1">
-        {navItems.slice(0, 5).map((item) => (
+        {navItems.filter(item => ['/', '/papers', '/plan', '/revision', '/progress'].includes(item.to)).map((item) => (
           <NavLink
             key={item.to}
             to={demoLink(item.to)}
@@ -151,6 +154,8 @@ const router = createBrowserRouter([{ path: '*', element: (
             <Route path="/papers" element={<Papers />} />
             <Route path="/papers/:paperId" element={<PaperDetail />} />
             <Route path="/papers/:paperId/:nodeId" element={<PaperDetail />} />
+            <Route path="/questions" element={<Questions />} />
+            <Route path="/questions/:questionId" element={<QuestionReader />} />
             <Route path="/plan" element={<Plan />} />
             <Route path="/revision" element={<Revision />} />
             <Route path="/progress" element={<Progress />} />

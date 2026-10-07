@@ -141,6 +141,23 @@ export interface paths {
         patch: operations["update_account_api_v1_admin_accounts__account_id__patch"];
         trace?: never;
     };
+    "/api/v1/coverage": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Corpus Readiness */
+        get: operations["get_corpus_readiness_api_v1_coverage_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/papers": {
         parameters: {
             query?: never;
@@ -785,7 +802,7 @@ export interface paths {
         put?: never;
         /**
          * Api Curate Recompute Scores
-         * @description Trigger an L5 intelligence score recomputation.
+         * @description Queue a context-specific recomputation without blocking the request.
          */
         post: operations["api_curate_recompute_scores_api_v1_curate_intel_recompute_post"];
         delete?: never;
@@ -1256,6 +1273,125 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/questions/{question_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Question */
+        get: operations["question_api_v1_questions__question_id__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/questions": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Questions */
+        get: operations["questions_api_v1_questions_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/search": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Search */
+        get: operations["search_api_v1_search_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/appearances/{appearance_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Appearance */
+        get: operations["appearance_api_v1_appearances__appearance_id__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/published-sources/{source_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Source File */
+        get: operations["source_file_api_v1_published_sources__source_id__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/published-sources/{source_id}/pages/{page}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Source Page */
+        get: operations["source_page_api_v1_published_sources__source_id__pages__page__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/published-assets/{asset_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Asset Image */
+        get: operations["asset_image_api_v1_published_assets__asset_id__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/health": {
         parameters: {
             query?: never;
@@ -1472,6 +1608,23 @@ export interface components {
             page_end: number | null;
             /** Law Stale */
             law_stale: boolean;
+            /** Question Id */
+            question_id?: string | null;
+            /** Part Id */
+            part_id?: string | null;
+            /** Provenance Limitation */
+            provenance_limitation?: string | null;
+        };
+        /** AppearanceResolution */
+        AppearanceResolution: {
+            /** Appearance Id */
+            appearance_id: number;
+            /** Question Id */
+            question_id: string | null;
+            /** Part Id */
+            part_id: string | null;
+            /** Provenance Limitation */
+            provenance_limitation: string | null;
         };
         /** AssetResult */
         AssetResult: {
@@ -1487,6 +1640,15 @@ export interface components {
             bbox: number[] | null;
             /** Concerns */
             concerns: string[];
+        };
+        /** AttributedNodeShare */
+        AttributedNodeShare: {
+            /** Node Id */
+            node_id: string;
+            /** Share */
+            share: number;
+            /** Attributed Marks */
+            attributed_marks: number | null;
         };
         /** BackupItem */
         BackupItem: {
@@ -1785,6 +1947,56 @@ export interface components {
             /** Idempotency Key */
             idempotency_key: string;
         };
+        /** CorpusCoverageItem */
+        CorpusCoverageItem: {
+            /** Paper Id */
+            paper_id: string;
+            /** Attempt Id */
+            attempt_id: string;
+            /** Source Family */
+            source_family: string;
+            /** Inventory Reviewed */
+            inventory_reviewed: boolean;
+            /** Expected Slots */
+            expected_slots: number | null;
+            /** Discovered Count */
+            discovered_count: number;
+            /** Acquired Count */
+            acquired_count: number;
+            /** Metadata Reviewed */
+            metadata_reviewed: boolean;
+            /** Extraction Reviewed */
+            extraction_reviewed: boolean;
+            /** Pairing Reviewed */
+            pairing_reviewed: boolean;
+            /** Official Scope Confirmed */
+            official_scope_confirmed: boolean;
+            /** Gradable Regions Accounted */
+            gradable_regions_accounted: boolean;
+            /** Labels Complete */
+            labels_complete: boolean;
+            /** Occurrence Resolved */
+            occurrence_resolved: boolean;
+            /** Reviewed Roots */
+            reviewed_roots: number;
+            /** Reviewed Parts */
+            reviewed_parts: number;
+            /** Published Roots */
+            published_roots: number;
+            /** Missing Answers */
+            missing_answers: number;
+            /** Usable Exam */
+            usable_exam: boolean;
+            /** Blockers */
+            blockers: string[];
+        };
+        /** CorpusReadiness */
+        CorpusReadiness: {
+            context: components["schemas"]["StudyContextIdentity"];
+            freshness: components["schemas"]["ScoreFreshness"];
+            /** Items */
+            items: components["schemas"]["CorpusCoverageItem"][];
+        };
         /** CorrectionRequest */
         CorrectionRequest: {
             /** Label Path */
@@ -1808,12 +2020,30 @@ export interface components {
             /** Marks */
             marks?: number | null;
         };
+        /** CoverageExclusion */
+        CoverageExclusion: {
+            /** Paper Id */
+            paper_id: string;
+            /** Attempt Id */
+            attempt_id: string;
+            /** Reasons */
+            reasons: string[];
+        };
         /** CoverageValue */
         CoverageValue: {
             /** Coverage Pct */
             coverage_pct: number | null;
             /** In Progress Pct */
             in_progress_pct: number | null;
+        };
+        /** CoveredSubtopic */
+        CoveredSubtopic: {
+            /** Node Id */
+            node_id: string;
+            /** Name */
+            name: string;
+            /** Path */
+            path: components["schemas"]["TaxonomyPathItem"][];
         };
         /** CreatedInvitationResponse */
         CreatedInvitationResponse: {
@@ -1971,7 +2201,7 @@ export interface components {
             /** Score Unavailable Reason */
             score_unavailable_reason?: string | null;
             /** Target Attempt */
-            target_attempt: string;
+            target_attempt: string | null;
             /** Score Run Id */
             score_run_id: number | null;
             /** Total Subtopics */
@@ -1997,6 +2227,8 @@ export interface components {
             revision_due_count: number;
             /** Recent Activity */
             recent_activity: components["schemas"]["ActivityItem"][];
+            context?: components["schemas"]["StudyContextIdentity"] | null;
+            freshness?: components["schemas"]["ScoreFreshness"] | null;
         };
         /** DecisionRequest */
         DecisionRequest: {
@@ -2128,14 +2360,21 @@ export interface components {
         };
         /** ExamSignal */
         ExamSignal: {
+            /**
+             * Available
+             * @default true
+             */
+            available: boolean;
+            /** Unavailable Reason */
+            unavailable_reason?: string | null;
             /** Score E */
-            score_E: number;
+            score_E: number | null;
             /** Paper Max E */
-            paper_max_E: number;
+            paper_max_E: number | null;
             /** Normalized E Hat */
-            normalized_E_hat: number;
+            normalized_E_hat: number | null;
             /** Normalized E Pct */
-            normalized_E_pct: number;
+            normalized_E_pct: number | null;
             /** Weighted Contribution */
             weighted_contribution: number | null;
             /** Weighted Contribution Pct */
@@ -2365,13 +2604,18 @@ export interface components {
         /** FrequencyExplanation */
         FrequencyExplanation: {
             /** Freq Hits F */
-            freq_hits_F: number;
+            freq_hits_F: number | null;
             /** Freq Window */
             freq_window: number;
             /** Window Attempts */
             window_attempts: string[];
             /** Hit Attempts */
             hit_attempts: string[];
+            /**
+             * Available
+             * @default true
+             */
+            available: boolean;
         };
         /** HTTPValidationError */
         HTTPValidationError: {
@@ -2386,6 +2630,10 @@ export interface components {
             exam: components["schemas"]["ExamSignal"] | null;
             practice: components["schemas"]["PracticeSignal"] | null;
             weightage_prior: components["schemas"]["PriorSignal"] | null;
+            /** Known Weighted Subtotal */
+            known_weighted_subtotal?: number | null;
+            /** Formula */
+            formula?: string | null;
         };
         /** IngestionCoverageItem */
         IngestionCoverageItem: {
@@ -2397,6 +2645,37 @@ export interface components {
             exam_published: boolean;
             /** Practice Published */
             practice_published: boolean;
+            /** Source Family */
+            source_family?: string | null;
+            /**
+             * Inventory Reviewed
+             * @default false
+             */
+            inventory_reviewed: boolean;
+            /** Expected Sources */
+            expected_sources?: number | null;
+            /**
+             * Acquired Sources
+             * @default 0
+             */
+            acquired_sources: number;
+            /**
+             * Reviewed Roots
+             * @default 0
+             */
+            reviewed_roots: number;
+            /**
+             * Reviewed Parts
+             * @default 0
+             */
+            reviewed_parts: number;
+            /**
+             * Usable Exam
+             * @default false
+             */
+            usable_exam: boolean;
+            /** Blockers */
+            blockers?: string[];
         };
         /** InvitationRequest */
         InvitationRequest: {
@@ -2423,6 +2702,22 @@ export interface components {
             /** Target User Id */
             target_user_id: number | null;
         };
+        /** MarksAllocation */
+        MarksAllocation: {
+            /** Part Id */
+            part_id: string;
+            /** Marks */
+            marks: number | null;
+            /**
+             * Allocation Status
+             * @enum {string}
+             */
+            allocation_status: "reviewed" | "ambiguous";
+            /** Choice Group */
+            choice_group: string | null;
+            /** Node Shares */
+            node_shares: components["schemas"]["AttributedNodeShare"][];
+        };
         /** MeResponse */
         MeResponse: {
             account: components["schemas"]["AccountResponse"];
@@ -2444,7 +2739,7 @@ export interface components {
             /** Backend Revision */
             backend_revision: string;
             /** Target Attempt */
-            target_attempt: string;
+            target_attempt: string | null;
             /** Score Run Id */
             score_run_id: number | null;
             /** Score Run Computed At */
@@ -2452,6 +2747,8 @@ export interface components {
             score_run: components["schemas"]["ScoreRunIdentity"] | null;
             /** Ingestion Coverage */
             ingestion_coverage: components["schemas"]["IngestionCoverageItem"][];
+            context?: components["schemas"]["StudyContextIdentity"] | null;
+            freshness?: components["schemas"]["ScoreFreshness"] | null;
         };
         /** MockTestCreateRequest */
         MockTestCreateRequest: {
@@ -2550,6 +2847,62 @@ export interface components {
             /** Notes */
             notes: string;
         };
+        /** OccurrenceContribution */
+        OccurrenceContribution: {
+            /** Occurrence Id */
+            occurrence_id: number;
+            /** Snapshot Id */
+            snapshot_id: number;
+            /** Part Id */
+            part_id: string;
+            /** Attempt Id */
+            attempt_id: string;
+            /** Signal Class */
+            signal_class: string;
+            /** Marks */
+            marks: number;
+            /** Share */
+            share: number;
+            /** Attributed Marks M */
+            attributed_marks_m: number;
+            /** Kappa */
+            kappa: number;
+            /** Lambda Val */
+            lambda_val: number;
+            /** Age Months */
+            age_months: number;
+            /** Half Life Months */
+            half_life_months: number;
+            /** Decay */
+            decay: number;
+            /** Contribution */
+            contribution: number;
+        };
+        /** OccurrenceResult */
+        OccurrenceResult: {
+            /** Id */
+            id: number;
+            /** Canonical Occurrence Id */
+            canonical_occurrence_id?: number | null;
+            /** Question Id */
+            question_id: string;
+            /** Paper Id */
+            paper_id: string;
+            /** Attempt Id */
+            attempt_id: string | null;
+            /** Source Family */
+            source_family: string;
+            /** Signal Class */
+            signal_class: string;
+            /** Series */
+            series: string | null;
+            /** Identity Status */
+            identity_status: string;
+            /** Pairing Evidence */
+            pairing_evidence: {
+                [key: string]: unknown;
+            };
+        };
         /** PageResult[AssetResult] */
         PageResult_AssetResult_: {
             /** Items */
@@ -2598,6 +2951,17 @@ export interface components {
         PageResult_PairResult_: {
             /** Items */
             items: components["schemas"]["PairResult"][];
+            /** Total */
+            total: number;
+            /** Page */
+            page: number;
+            /** Page Size */
+            page_size: number;
+        };
+        /** PageResult[QuestionSummary] */
+        PageResult_QuestionSummary_: {
+            /** Items */
+            items: components["schemas"]["QuestionSummary"][];
             /** Total */
             total: number;
             /** Page */
@@ -2726,6 +3090,7 @@ export interface components {
             taxonomy_version_id?: number | null;
             /** Hierarchy */
             hierarchy?: components["schemas"]["TaxonomyTreeNode"][];
+            context?: components["schemas"]["StudyContextIdentity"] | null;
         };
         /** PartMapping */
         PartMapping: {
@@ -2788,9 +3153,9 @@ export interface components {
              */
             status: "not_started" | "in_progress" | "done";
             /** Importance */
-            importance: number;
+            importance: number | null;
             /** Priority Score */
-            priority_score: number;
+            priority_score: number | null;
             /** Weak */
             weak: boolean;
             /** Freq Hits */
@@ -2804,14 +3169,21 @@ export interface components {
         };
         /** PracticeSignal */
         PracticeSignal: {
+            /**
+             * Available
+             * @default true
+             */
+            available: boolean;
+            /** Unavailable Reason */
+            unavailable_reason?: string | null;
             /** Score P */
-            score_P: number;
+            score_P: number | null;
             /** Paper Max P */
-            paper_max_P: number;
+            paper_max_P: number | null;
             /** Normalized P Hat */
-            normalized_P_hat: number;
+            normalized_P_hat: number | null;
             /** Normalized P Pct */
-            normalized_P_pct: number;
+            normalized_P_pct: number | null;
             /** Weighted Contribution */
             weighted_contribution: number | null;
             /** Weighted Contribution Pct */
@@ -2827,17 +3199,24 @@ export interface components {
             /** Unavailable Reason */
             unavailable_reason?: string | null;
             /** Weight Prior W */
-            weight_prior_W: number;
+            weight_prior_W: number | null;
             /** Paper Max W */
-            paper_max_W: number;
+            paper_max_W: number | null;
             /** Normalized W Hat */
-            normalized_W_hat: number;
+            normalized_W_hat: number | null;
             /** Normalized W Pct */
-            normalized_W_pct: number;
+            normalized_W_pct: number | null;
             /** Weighted Contribution */
             weighted_contribution: number | null;
             /** Weighted Contribution Pct */
             weighted_contribution_pct: number | null;
+        };
+        /** PrivateNoteResult */
+        PrivateNoteResult: {
+            /** Node Id */
+            node_id: string;
+            /** Content */
+            content: string;
         };
         /** ProfileAttempt */
         ProfileAttempt: {
@@ -2961,6 +3340,55 @@ export interface components {
             /** Units */
             units: number;
         };
+        /** PublishedAssetResult */
+        PublishedAssetResult: {
+            /** Id */
+            id: string;
+            /** Source Id */
+            source_id: number;
+            /** Page */
+            page: number;
+            /** Kind */
+            kind: string;
+            /** Bbox */
+            bbox?: number[] | null;
+            /** Concerns */
+            concerns: string[];
+            /** Url */
+            url: string;
+        };
+        /** PublishedMarks */
+        PublishedMarks: {
+            /** Whole Question Marks */
+            whole_question_marks: number | null;
+            /** Offered Marks */
+            offered_marks: number | null;
+            /** Selectable Marks */
+            selectable_marks: number | null;
+            /** Allocations */
+            allocations: components["schemas"]["MarksAllocation"][];
+            /** Issues */
+            issues: string[];
+        };
+        /** PublishedSourceResult */
+        PublishedSourceResult: {
+            /** Id */
+            id: number;
+            /** Sha256 */
+            sha256: string;
+            /** Title */
+            title: string | null;
+            /** Doc Type Id */
+            doc_type_id: string | null;
+            /** Attempt Id */
+            attempt_id: string | null;
+            /** Page Count */
+            page_count: number | null;
+            /** Url */
+            url: string;
+            /** Page Url */
+            page_url: string;
+        };
         /** QuestionAsset */
         QuestionAsset: {
             /** Document Id */
@@ -3022,6 +3450,65 @@ export interface components {
              */
             parts: components["schemas"]["QuestionPartV1"][];
         };
+        /** QuestionResult */
+        QuestionResult: {
+            /** Question Id */
+            question_id: string;
+            /** Snapshot Id */
+            snapshot_id: number;
+            /** Classification Revision Id */
+            classification_revision_id: number;
+            /** Extraction Revision Id */
+            extraction_revision_id: number;
+            /** Taxonomy Version Id */
+            taxonomy_version_id: number;
+            /** Publication Generation */
+            publication_generation: number;
+            content: components["schemas"]["ExtractedQuestion"];
+            /** Mappings */
+            mappings: {
+                [key: string]: unknown;
+            }[];
+            /** Covered Subtopics */
+            covered_subtopics: components["schemas"]["CoveredSubtopic"][];
+            marks: components["schemas"]["PublishedMarks"];
+            /** Sources */
+            sources: components["schemas"]["PublishedSourceResult"][];
+            /** Assets */
+            assets: components["schemas"]["PublishedAssetResult"][];
+            /** Verification Count */
+            verification_count: number;
+            /** Open Disputes */
+            open_disputes: number;
+            /** Extraction Quality */
+            extraction_quality: {
+                [key: string]: unknown;
+            };
+            occurrence: components["schemas"]["OccurrenceResult"];
+        };
+        /** QuestionSummary */
+        QuestionSummary: {
+            /** Question Id */
+            question_id: string;
+            /** Snapshot Id */
+            snapshot_id: number;
+            /** Paper Id */
+            paper_id: string;
+            /** Attempt Id */
+            attempt_id: string | null;
+            /** Display Label */
+            display_label: string;
+            /** Question Text */
+            question_text: string;
+            /** Common Stem */
+            common_stem: string;
+            /** Answer Status */
+            answer_status: string;
+            /** Source Family */
+            source_family: string;
+            /** Covered Subtopics */
+            covered_subtopics: components["schemas"]["CoveredSubtopic"][];
+        };
         /** ReadinessBlocker */
         ReadinessBlocker: {
             /** Code */
@@ -3032,15 +3519,24 @@ export interface components {
         /** RecomputeResult */
         RecomputeResult: {
             /** Run Id */
-            run_id: number;
+            run_id?: number | null;
+            /** Job Id */
+            job_id?: number | null;
             /** Status */
             status: string;
             /** Target Attempt Id */
             target_attempt_id: string;
             /** Scoring Version */
             scoring_version: string;
-            /** Is Current */
+            /**
+             * Is Current
+             * @default false
+             */
             is_current: boolean;
+            /** Taxonomy Version Id */
+            taxonomy_version_id?: number | null;
+            /** Corpus Generation */
+            corpus_generation?: number | null;
         };
         /** ReconciliationResult */
         ReconciliationResult: {
@@ -3248,7 +3744,7 @@ export interface components {
              * Explanation Status
              * @enum {string}
              */
-            explanation_status: "available" | "historical_configuration_unavailable" | "score_unavailable" | "no_score_run";
+            explanation_status: "available" | "partial_evidence" | "historical_configuration_unavailable" | "score_unavailable" | "no_score_run";
             /** Error */
             error: string | null;
             /** Configuration Source */
@@ -3259,7 +3755,36 @@ export interface components {
             frequency: components["schemas"]["FrequencyExplanation"] | null;
             weightage_section: components["schemas"]["WeightageExplanation"] | null;
             /** Appearances */
-            appearances: components["schemas"]["AppearanceExplanation"][];
+            appearances: (components["schemas"]["AppearanceExplanation"] | components["schemas"]["OccurrenceContribution"])[];
+            /** Prior Source */
+            prior_source?: {
+                [key: string]: unknown;
+            } | null;
+            /** Coverage Exclusions */
+            coverage_exclusions?: components["schemas"]["CoverageExclusion"][];
+            /** Historical Evidence Status */
+            historical_evidence_status?: "occurrence_inputs_unavailable" | null;
+        };
+        /** ScoreFreshness */
+        ScoreFreshness: {
+            /**
+             * Publication Generation
+             * @default 0
+             */
+            publication_generation: number;
+            /** Scored Generation */
+            scored_generation?: number | null;
+            /** Computed At */
+            computed_at?: string | null;
+            /**
+             * Status
+             * @default unavailable
+             */
+            status: string;
+            /** Job Id */
+            job_id?: number | null;
+            /** Error */
+            error?: string | null;
         };
         /** ScoreRunIdentity */
         ScoreRunIdentity: {
@@ -3273,6 +3798,23 @@ export interface components {
             taxonomy_version_id?: number | null;
             /** Computed At */
             computed_at: string | null;
+            /** Corpus Generation */
+            corpus_generation?: number | null;
+            /** Config Hash */
+            config_hash?: string | null;
+        };
+        /** SearchResult */
+        SearchResult: {
+            /** Items */
+            items: components["schemas"]["QuestionSummary"][];
+            /** Total */
+            total: number;
+            /** Page */
+            page: number;
+            /** Page Size */
+            page_size: number;
+            /** Notes */
+            notes?: components["schemas"]["PrivateNoteResult"][];
         };
         /** SourceReview */
         SourceReview: {
@@ -3315,6 +3857,22 @@ export interface components {
             /** Official Url */
             official_url?: string | null;
         };
+        /** StudyContextIdentity */
+        StudyContextIdentity: {
+            /** Target Attempt Id */
+            target_attempt_id: string | null;
+            /** Taxonomy Version Id */
+            taxonomy_version_id: number | null;
+            /** Readiness */
+            readiness: string;
+            /**
+             * Applicability State
+             * @default unresolved
+             */
+            applicability_state: string;
+            /** Unresolved Node Ids */
+            unresolved_node_ids?: string[];
+        };
         /** StudyPlan */
         StudyPlan: {
             /** Score Unavailable Reason */
@@ -3329,6 +3887,26 @@ export interface components {
             minutes_per_subtopic: number;
             /** Items */
             items: components["schemas"]["PlanItem"][];
+            /**
+             * Basis
+             * @default unavailable
+             * @enum {string}
+             */
+            basis: "scored" | "syllabus" | "unavailable";
+            /**
+             * Allocated Minutes
+             * @default 0
+             */
+            allocated_minutes: number;
+            /**
+             * Unused Minutes
+             * @default 0
+             */
+            unused_minutes: number;
+            /** Score Run Id */
+            score_run_id?: number | null;
+            context?: components["schemas"]["StudyContextIdentity"] | null;
+            freshness?: components["schemas"]["ScoreFreshness"] | null;
         };
         /** SubtopicDetail */
         SubtopicDetail: {
@@ -3357,6 +3935,8 @@ export interface components {
             score: components["schemas"]["SubtopicScoreDetail"];
             /** Appearances */
             appearances: components["schemas"]["AppearanceItem"][];
+            context?: components["schemas"]["StudyContextIdentity"] | null;
+            freshness?: components["schemas"]["ScoreFreshness"] | null;
         };
         /** SubtopicItem */
         SubtopicItem: {
@@ -3416,6 +3996,19 @@ export interface components {
             weak: boolean;
             /** Applicable */
             applicable: boolean;
+            /** Exam Normalized */
+            exam_normalized?: number | null;
+            /** Practice Normalized */
+            practice_normalized?: number | null;
+            /** Prior Normalized */
+            prior_normalized?: number | null;
+            /** Known Weighted Subtotal */
+            known_weighted_subtotal?: number | null;
+            /**
+             * Applicability Status
+             * @default unresolved
+             */
+            applicability_status: string;
         };
         /** SystemAlarm */
         SystemAlarm: {
@@ -3441,6 +4034,15 @@ export interface components {
             evaluated_at: string;
             /** Alarms */
             alarms: components["schemas"]["SystemAlarm"][];
+        };
+        /** TaxonomyPathItem */
+        TaxonomyPathItem: {
+            /** Id */
+            id: string;
+            /** Name */
+            name: string;
+            /** Level */
+            level: string;
         };
         /** TaxonomyTreeNode */
         TaxonomyTreeNode: {
@@ -3572,6 +4174,14 @@ export interface components {
             papers: {
                 [key: string]: components["schemas"]["PaperCoverage"];
             };
+            /**
+             * Basis
+             * @default unavailable
+             * @enum {string}
+             */
+            basis: "weighted" | "unweighted" | "unavailable";
+            context?: components["schemas"]["StudyContextIdentity"] | null;
+            freshness?: components["schemas"]["ScoreFreshness"] | null;
         };
     };
     responses: never;
@@ -3821,6 +4431,26 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_corpus_readiness_api_v1_coverage_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CorpusReadiness"];
                 };
             };
         };
@@ -4995,7 +5625,7 @@ export interface operations {
         parameters: {
             query: {
                 target_attempt_id: string;
-                shadow?: boolean;
+                taxonomy_version_id?: number | null;
             };
             header?: never;
             path?: never;
@@ -5004,7 +5634,7 @@ export interface operations {
         requestBody?: never;
         responses: {
             /** @description Successful Response */
-            200: {
+            202: {
                 headers: {
                     [name: string]: unknown;
                 };
@@ -6026,6 +6656,241 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["RevisionSummary"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    question_api_v1_questions__question_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                question_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["QuestionResult"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    questions_api_v1_questions_get: {
+        parameters: {
+            query?: {
+                page?: number;
+                page_size?: number;
+                paper_id?: string | null;
+                subtopic_id?: string | null;
+                attempt_id?: string | null;
+                source_family?: string | null;
+                answer_status?: string | null;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PageResult_QuestionSummary_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    search_api_v1_search_get: {
+        parameters: {
+            query: {
+                q: string;
+                page?: number;
+                page_size?: number;
+                paper_id?: string | null;
+                subtopic_id?: string | null;
+                attempt_id?: string | null;
+                source_family?: string | null;
+                answer_status?: string | null;
+                include_notes?: boolean;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SearchResult"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    appearance_api_v1_appearances__appearance_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                appearance_id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AppearanceResolution"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    source_file_api_v1_published_sources__source_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                source_id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                    "application/pdf": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    source_page_api_v1_published_sources__source_id__pages__page__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                source_id: number;
+                page: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                    "image/png": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    asset_image_api_v1_published_assets__asset_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                asset_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                    "image/png": unknown;
                 };
             };
             /** @description Validation Error */

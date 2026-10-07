@@ -467,26 +467,26 @@ def api_bulk_accept_bucket_a(
         message='Select explicit root suggestion and publication revisions in the bulk review workspace'))
 
 
-@router.post("/intel/recompute", response_model=RecomputeResult)
+@router.post("/intel/recompute", response_model=RecomputeResult, status_code=202)
 def api_curate_recompute_scores(
     target_attempt_id: str = Query(..., min_length=1),
-    shadow: bool = False,
+    taxonomy_version_id: int | None = None,
     session: Session = Depends(get_operations_db),
     account: Principal = Depends(require_admin),
 ):
-    """Trigger an L5 intelligence score recomputation."""
-    from caf_l5 import recompute_scores
+    """Queue a context-specific recomputation without blocking the request."""
+    from caf_l5.jobs import enqueue_recompute
 
     try:
-        run = recompute_scores(session, target_attempt_id=target_attempt_id, shadow=shadow)
+        job = enqueue_recompute(session, target_attempt_id=target_attempt_id,
+                                taxonomy_version_id=taxonomy_version_id)
         return {
-            "run_id": run.id,
-            "status": run.status,
-            "target_attempt_id": run.target_attempt_id,
-            "scoring_version": run.scoring_version,
-            "is_current": run.is_current,
+            "job_id": job.id,
+            "status": job.status,
+            "target_attempt_id": job.target_attempt_id,
+            "scoring_version": job.config_snapshot['version'],
+            "taxonomy_version_id": job.taxonomy_version_id,
+            "corpus_generation": job.corpus_generation,
         }
     except ValueError as exc:
         raise HTTPException(status_code=422, detail=str(exc))
-    except Exception as exc:
-        raise HTTPException(status_code=500, detail=str(exc))

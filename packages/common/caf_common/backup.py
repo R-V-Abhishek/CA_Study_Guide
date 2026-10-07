@@ -40,6 +40,16 @@ def critical_tables(revision: str) -> set[str]:
     if revision not in {"0001_initial_schema", "0002_score_config_snapshot", "0003_identity", "0004_textbook_taxonomy"}:
         tables.update({"ingest.extraction_revision", "ingest.content_block", "ingest.extraction_asset",
                        "ingest.document_pair", "ingest.extraction_review", "ingest.reconciliation_link"})
+    if revision not in {"0001_initial_schema", "0002_score_config_snapshot", "0003_identity",
+                        "0004_textbook_taxonomy", "0005_extraction_revisions"}:
+        tables.update({"ingest.suggestion_revision", "core.classification_revision",
+                       "core.classification_event", "core.classification_verification",
+                       "core.classification_dispute", "core.question_publication"})
+    if revision == "0007_question_reader":
+        tables.update({"core.published_question", "core.published_source", "core.question_occurrence",
+                       "core.corpus_generation", "intel.attempt_taxonomy_binding",
+                       "intel.corpus_coverage", "intel.reviewed_prior", "intel.recompute_job",
+                       "intel.score_run", "intel.subtopic_score"})
     return tables
 
 

@@ -6,7 +6,7 @@ type StudyPlan = components['schemas']['StudyPlan'];
 type PaperSummary = components['schemas']['PaperSummary'];
 type PaperTree = components['schemas']['PaperTree'];
 const paper: PaperSummary = { id: 'synthetic.paper', code: 'P1', name: 'Real returned paper name', group_no: 1, total_subtopics: 2, completed_subtopics: 0, raw_progress_pct: 0, weighted_coverage_pct: 0, average_importance: null, revision_due_count: 0, weak_topic_count: 1 };
-const plan: StudyPlan = { hours_per_week: 2, minutes_per_subtopic: 45, budget_items: 2, total_allocated: 2, items: [
+const plan: StudyPlan = { hours_per_week: 2, minutes_per_subtopic: 45, budget_items: 2, total_allocated: 2, basis: 'scored', allocated_minutes: 90, unused_minutes: 30, items: [
   { node_id: 'synthetic.b', node_name: 'Returned beta topic', paper_id: paper.id, paper_code: paper.code, chapter_id: 'chapter', chapter_name: 'Chapter', status: 'not_started', importance: .5, priority_score: .5, weak: false, freq_hits: 0, freq_window: 0, exam_marks_total: 0, reason: 'Recorded reason' },
   { node_id: 'synthetic.a', node_name: 'Returned alpha topic', paper_id: paper.id, paper_code: paper.code, chapter_id: 'chapter', chapter_name: 'Chapter', status: 'not_started', importance: .5, priority_score: .5, weak: true, freq_hits: 3, freq_window: 5, exam_marks_total: 7.5, reason: 'Recorded reason' },
 ] };
@@ -94,12 +94,12 @@ test('coverage exposes failed paper loads rather than complete totals', async ({
 });
 
 test('integration plan honors settings, navigation and small budgets', async ({ page, request }) => {
-  const data = await fixture(request);
+  const expectedPlan = await (await request.get('/api/v1/plan')).json();
   await page.goto('/');
   await page.getByRole('link', { name: 'Study Plan', exact: true }).click();
   await expect(page.getByLabel('Hours per week')).toHaveValue('2');
   await expect(page.locator('ol li')).toHaveCount(2);
-  await expect(page.locator('ol a').first()).toContainText(data.nodes[0].name);
+  await expect(page.locator('ol a').first()).toContainText(expectedPlan.items[0].node_name);
   await page.getByLabel('Hours per week').fill('0.1');
   await expect(page.getByText('No topics allocated for this budget and selection.')).toBeVisible();
   await page.reload();

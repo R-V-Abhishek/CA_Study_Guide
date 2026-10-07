@@ -166,16 +166,17 @@ def test_supplied_connection_migration_baseline_isolated_from_settings(isolated_
             created = True
         with source.connect() as connection:
             before = schema_snapshot(connection)
+            revision = connection.execute(sa.text('SELECT version_num FROM ops.alembic_version')).scalar_one()
 
         def settings_forbidden():
             raise AssertionError("Supplied migration connection must not resolve application settings")
 
         monkeypatch.setattr(caf_common.settings, "get_settings", settings_forbidden)
         with destination.connect() as connection:
-            baseline = migrated_schema_snapshot(connection, "0006_classification_revisions")
+            baseline = migrated_schema_snapshot(connection, revision)
             assert compare_schema_snapshots(baseline, before) == {}
             with pytest.raises(ValueError, match="already contains"):
-                migrated_schema_snapshot(connection, "0006_classification_revisions")
+                migrated_schema_snapshot(connection, revision)
         with source.connect() as connection:
             assert schema_snapshot(connection) == before
     finally:

@@ -334,6 +334,24 @@
         }
       }
     },
+    "/api/v1/coverage": {
+      "get": {
+        "summary": "Get Corpus Readiness",
+        "operationId": "get_corpus_readiness_api_v1_coverage_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CorpusReadiness"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/papers": {
       "get": {
         "summary": "List Papers",
@@ -2184,7 +2202,7 @@
           "curation"
         ],
         "summary": "Api Curate Recompute Scores",
-        "description": "Trigger an L5 intelligence score recomputation.",
+        "description": "Queue a context-specific recomputation without blocking the request.",
         "operationId": "api_curate_recompute_scores_api_v1_curate_intel_recompute_post",
         "parameters": [
           {
@@ -2198,18 +2216,24 @@
             }
           },
           {
-            "name": "shadow",
+            "name": "taxonomy_version_id",
             "in": "query",
             "required": false,
             "schema": {
-              "type": "boolean",
-              "default": false,
-              "title": "Shadow"
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Taxonomy Version Id"
             }
           }
         ],
         "responses": {
-          "200": {
+          "202": {
             "description": "Successful Response",
             "content": {
               "application/json": {
@@ -3861,6 +3885,515 @@
         }
       }
     },
+    "/api/v1/questions/{question_id}": {
+      "get": {
+        "tags": [
+          "questions"
+        ],
+        "summary": "Question",
+        "operationId": "question_api_v1_questions__question_id__get",
+        "parameters": [
+          {
+            "name": "question_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Question Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/QuestionResult"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/questions": {
+      "get": {
+        "tags": [
+          "questions"
+        ],
+        "summary": "Questions",
+        "operationId": "questions_api_v1_questions_get",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1,
+              "title": "Page"
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 25,
+              "title": "Page Size"
+            }
+          },
+          {
+            "name": "paper_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Paper Id"
+            }
+          },
+          {
+            "name": "subtopic_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Subtopic Id"
+            }
+          },
+          {
+            "name": "attempt_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Attempt Id"
+            }
+          },
+          {
+            "name": "source_family",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Source Family"
+            }
+          },
+          {
+            "name": "answer_status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Answer Status"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PageResult_QuestionSummary_"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/search": {
+      "get": {
+        "tags": [
+          "questions"
+        ],
+        "summary": "Search",
+        "operationId": "search_api_v1_search_get",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 500,
+              "title": "Q"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1,
+              "title": "Page"
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 25,
+              "title": "Page Size"
+            }
+          },
+          {
+            "name": "paper_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Paper Id"
+            }
+          },
+          {
+            "name": "subtopic_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Subtopic Id"
+            }
+          },
+          {
+            "name": "attempt_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Attempt Id"
+            }
+          },
+          {
+            "name": "source_family",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Source Family"
+            }
+          },
+          {
+            "name": "answer_status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Answer Status"
+            }
+          },
+          {
+            "name": "include_notes",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false,
+              "title": "Include Notes"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchResult"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/appearances/{appearance_id}": {
+      "get": {
+        "tags": [
+          "questions"
+        ],
+        "summary": "Appearance",
+        "operationId": "appearance_api_v1_appearances__appearance_id__get",
+        "parameters": [
+          {
+            "name": "appearance_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Appearance Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppearanceResolution"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/published-sources/{source_id}": {
+      "get": {
+        "tags": [
+          "questions"
+        ],
+        "summary": "Source File",
+        "operationId": "source_file_api_v1_published_sources__source_id__get",
+        "parameters": [
+          {
+            "name": "source_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Source Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              },
+              "application/pdf": {}
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/published-sources/{source_id}/pages/{page}": {
+      "get": {
+        "tags": [
+          "questions"
+        ],
+        "summary": "Source Page",
+        "operationId": "source_page_api_v1_published_sources__source_id__pages__page__get",
+        "parameters": [
+          {
+            "name": "source_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Source Id"
+            }
+          },
+          {
+            "name": "page",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Page"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              },
+              "image/png": {}
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/published-assets/{asset_id}": {
+      "get": {
+        "tags": [
+          "questions"
+        ],
+        "summary": "Asset Image",
+        "operationId": "asset_image_api_v1_published_assets__asset_id__get",
+        "parameters": [
+          {
+            "name": "asset_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Asset Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              },
+              "image/png": {}
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/health": {
       "get": {
         "summary": "Health",
@@ -4441,6 +4974,39 @@
           "law_stale": {
             "type": "boolean",
             "title": "Law Stale"
+          },
+          "question_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Question Id"
+          },
+          "part_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Part Id"
+          },
+          "provenance_limitation": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Provenance Limitation"
           }
         },
         "type": "object",
@@ -4457,6 +5023,55 @@
           "law_stale"
         ],
         "title": "AppearanceItem"
+      },
+      "AppearanceResolution": {
+        "properties": {
+          "appearance_id": {
+            "type": "integer",
+            "title": "Appearance Id"
+          },
+          "question_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Question Id"
+          },
+          "part_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Part Id"
+          },
+          "provenance_limitation": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Provenance Limitation"
+          }
+        },
+        "type": "object",
+        "required": [
+          "appearance_id",
+          "question_id",
+          "part_id",
+          "provenance_limitation"
+        ],
+        "title": "AppearanceResolution"
       },
       "AssetResult": {
         "properties": {
@@ -4508,6 +5123,36 @@
           "concerns"
         ],
         "title": "AssetResult"
+      },
+      "AttributedNodeShare": {
+        "properties": {
+          "node_id": {
+            "type": "string",
+            "title": "Node Id"
+          },
+          "share": {
+            "type": "number",
+            "title": "Share"
+          },
+          "attributed_marks": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Attributed Marks"
+          }
+        },
+        "type": "object",
+        "required": [
+          "node_id",
+          "share",
+          "attributed_marks"
+        ],
+        "title": "AttributedNodeShare"
       },
       "BackupItem": {
         "properties": {
@@ -5401,6 +6046,148 @@
         ],
         "title": "ClassificationVerificationRequest"
       },
+      "CorpusCoverageItem": {
+        "properties": {
+          "paper_id": {
+            "type": "string",
+            "title": "Paper Id"
+          },
+          "attempt_id": {
+            "type": "string",
+            "title": "Attempt Id"
+          },
+          "source_family": {
+            "type": "string",
+            "title": "Source Family"
+          },
+          "inventory_reviewed": {
+            "type": "boolean",
+            "title": "Inventory Reviewed"
+          },
+          "expected_slots": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Expected Slots"
+          },
+          "discovered_count": {
+            "type": "integer",
+            "title": "Discovered Count"
+          },
+          "acquired_count": {
+            "type": "integer",
+            "title": "Acquired Count"
+          },
+          "metadata_reviewed": {
+            "type": "boolean",
+            "title": "Metadata Reviewed"
+          },
+          "extraction_reviewed": {
+            "type": "boolean",
+            "title": "Extraction Reviewed"
+          },
+          "pairing_reviewed": {
+            "type": "boolean",
+            "title": "Pairing Reviewed"
+          },
+          "official_scope_confirmed": {
+            "type": "boolean",
+            "title": "Official Scope Confirmed"
+          },
+          "gradable_regions_accounted": {
+            "type": "boolean",
+            "title": "Gradable Regions Accounted"
+          },
+          "labels_complete": {
+            "type": "boolean",
+            "title": "Labels Complete"
+          },
+          "occurrence_resolved": {
+            "type": "boolean",
+            "title": "Occurrence Resolved"
+          },
+          "reviewed_roots": {
+            "type": "integer",
+            "title": "Reviewed Roots"
+          },
+          "reviewed_parts": {
+            "type": "integer",
+            "title": "Reviewed Parts"
+          },
+          "published_roots": {
+            "type": "integer",
+            "title": "Published Roots"
+          },
+          "missing_answers": {
+            "type": "integer",
+            "title": "Missing Answers"
+          },
+          "usable_exam": {
+            "type": "boolean",
+            "title": "Usable Exam"
+          },
+          "blockers": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Blockers"
+          }
+        },
+        "type": "object",
+        "required": [
+          "paper_id",
+          "attempt_id",
+          "source_family",
+          "inventory_reviewed",
+          "expected_slots",
+          "discovered_count",
+          "acquired_count",
+          "metadata_reviewed",
+          "extraction_reviewed",
+          "pairing_reviewed",
+          "official_scope_confirmed",
+          "gradable_regions_accounted",
+          "labels_complete",
+          "occurrence_resolved",
+          "reviewed_roots",
+          "reviewed_parts",
+          "published_roots",
+          "missing_answers",
+          "usable_exam",
+          "blockers"
+        ],
+        "title": "CorpusCoverageItem"
+      },
+      "CorpusReadiness": {
+        "properties": {
+          "context": {
+            "$ref": "#/components/schemas/StudyContextIdentity"
+          },
+          "freshness": {
+            "$ref": "#/components/schemas/ScoreFreshness"
+          },
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/CorpusCoverageItem"
+            },
+            "type": "array",
+            "title": "Items"
+          }
+        },
+        "type": "object",
+        "required": [
+          "context",
+          "freshness",
+          "items"
+        ],
+        "title": "CorpusReadiness"
+      },
       "CorrectionRequest": {
         "properties": {
           "label_path": {
@@ -5516,6 +6303,32 @@
         ],
         "title": "CorrectionRequest"
       },
+      "CoverageExclusion": {
+        "properties": {
+          "paper_id": {
+            "type": "string",
+            "title": "Paper Id"
+          },
+          "attempt_id": {
+            "type": "string",
+            "title": "Attempt Id"
+          },
+          "reasons": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Reasons"
+          }
+        },
+        "type": "object",
+        "required": [
+          "paper_id",
+          "attempt_id",
+          "reasons"
+        ],
+        "title": "CoverageExclusion"
+      },
       "CoverageValue": {
         "properties": {
           "coverage_pct": {
@@ -5547,6 +6360,32 @@
           "in_progress_pct"
         ],
         "title": "CoverageValue"
+      },
+      "CoveredSubtopic": {
+        "properties": {
+          "node_id": {
+            "type": "string",
+            "title": "Node Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "path": {
+            "items": {
+              "$ref": "#/components/schemas/TaxonomyPathItem"
+            },
+            "type": "array",
+            "title": "Path"
+          }
+        },
+        "type": "object",
+        "required": [
+          "node_id",
+          "name",
+          "path"
+        ],
+        "title": "CoveredSubtopic"
       },
       "CreatedInvitationResponse": {
         "properties": {
@@ -6133,7 +6972,14 @@
             "title": "Score Unavailable Reason"
           },
           "target_attempt": {
-            "type": "string",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Target Attempt"
           },
           "score_run_id": {
@@ -6205,6 +7051,26 @@
             },
             "type": "array",
             "title": "Recent Activity"
+          },
+          "context": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/StudyContextIdentity"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "freshness": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ScoreFreshness"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         },
         "type": "object",
@@ -6717,20 +7583,64 @@
       },
       "ExamSignal": {
         "properties": {
+          "available": {
+            "type": "boolean",
+            "title": "Available",
+            "default": true
+          },
+          "unavailable_reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Unavailable Reason"
+          },
           "score_E": {
-            "type": "number",
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Score E"
           },
           "paper_max_E": {
-            "type": "number",
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Paper Max E"
           },
           "normalized_E_hat": {
-            "type": "number",
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Normalized E Hat"
           },
           "normalized_E_pct": {
-            "type": "number",
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Normalized E Pct"
           },
           "weighted_contribution": {
@@ -7424,7 +8334,14 @@
       "FrequencyExplanation": {
         "properties": {
           "freq_hits_F": {
-            "type": "integer",
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Freq Hits F"
           },
           "freq_window": {
@@ -7444,6 +8361,11 @@
             },
             "type": "array",
             "title": "Hit Attempts"
+          },
+          "available": {
+            "type": "boolean",
+            "title": "Available",
+            "default": true
           }
         },
         "type": "object",
@@ -7520,6 +8442,28 @@
                 "type": "null"
               }
             ]
+          },
+          "known_weighted_subtotal": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Known Weighted Subtotal"
+          },
+          "formula": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Formula"
           }
         },
         "type": "object",
@@ -7549,6 +8493,60 @@
           "practice_published": {
             "type": "boolean",
             "title": "Practice Published"
+          },
+          "source_family": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source Family"
+          },
+          "inventory_reviewed": {
+            "type": "boolean",
+            "title": "Inventory Reviewed",
+            "default": false
+          },
+          "expected_sources": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Expected Sources"
+          },
+          "acquired_sources": {
+            "type": "integer",
+            "title": "Acquired Sources",
+            "default": 0
+          },
+          "reviewed_roots": {
+            "type": "integer",
+            "title": "Reviewed Roots",
+            "default": 0
+          },
+          "reviewed_parts": {
+            "type": "integer",
+            "title": "Reviewed Parts",
+            "default": 0
+          },
+          "usable_exam": {
+            "type": "boolean",
+            "title": "Usable Exam",
+            "default": false
+          },
+          "blockers": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Blockers"
           }
         },
         "type": "object",
@@ -7644,6 +8642,60 @@
         ],
         "title": "InvitationResponse"
       },
+      "MarksAllocation": {
+        "properties": {
+          "part_id": {
+            "type": "string",
+            "title": "Part Id"
+          },
+          "marks": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Marks"
+          },
+          "allocation_status": {
+            "type": "string",
+            "enum": [
+              "reviewed",
+              "ambiguous"
+            ],
+            "title": "Allocation Status"
+          },
+          "choice_group": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Choice Group"
+          },
+          "node_shares": {
+            "items": {
+              "$ref": "#/components/schemas/AttributedNodeShare"
+            },
+            "type": "array",
+            "title": "Node Shares"
+          }
+        },
+        "type": "object",
+        "required": [
+          "part_id",
+          "marks",
+          "allocation_status",
+          "choice_group",
+          "node_shares"
+        ],
+        "title": "MarksAllocation"
+      },
       "MeResponse": {
         "properties": {
           "account": {
@@ -7706,7 +8758,14 @@
             "title": "Backend Revision"
           },
           "target_attempt": {
-            "type": "string",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Target Attempt"
           },
           "score_run_id": {
@@ -7748,6 +8807,26 @@
             },
             "type": "array",
             "title": "Ingestion Coverage"
+          },
+          "context": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/StudyContextIdentity"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "freshness": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ScoreFreshness"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         },
         "type": "object",
@@ -8017,6 +9096,163 @@
         ],
         "title": "NoteUpdateRequest"
       },
+      "OccurrenceContribution": {
+        "properties": {
+          "occurrence_id": {
+            "type": "integer",
+            "title": "Occurrence Id"
+          },
+          "snapshot_id": {
+            "type": "integer",
+            "title": "Snapshot Id"
+          },
+          "part_id": {
+            "type": "string",
+            "title": "Part Id"
+          },
+          "attempt_id": {
+            "type": "string",
+            "title": "Attempt Id"
+          },
+          "signal_class": {
+            "type": "string",
+            "title": "Signal Class"
+          },
+          "marks": {
+            "type": "number",
+            "title": "Marks"
+          },
+          "share": {
+            "type": "number",
+            "title": "Share"
+          },
+          "attributed_marks_m": {
+            "type": "number",
+            "title": "Attributed Marks M"
+          },
+          "kappa": {
+            "type": "number",
+            "title": "Kappa"
+          },
+          "lambda_val": {
+            "type": "number",
+            "title": "Lambda Val"
+          },
+          "age_months": {
+            "type": "integer",
+            "title": "Age Months"
+          },
+          "half_life_months": {
+            "type": "number",
+            "title": "Half Life Months"
+          },
+          "decay": {
+            "type": "number",
+            "title": "Decay"
+          },
+          "contribution": {
+            "type": "number",
+            "title": "Contribution"
+          }
+        },
+        "type": "object",
+        "required": [
+          "occurrence_id",
+          "snapshot_id",
+          "part_id",
+          "attempt_id",
+          "signal_class",
+          "marks",
+          "share",
+          "attributed_marks_m",
+          "kappa",
+          "lambda_val",
+          "age_months",
+          "half_life_months",
+          "decay",
+          "contribution"
+        ],
+        "title": "OccurrenceContribution"
+      },
+      "OccurrenceResult": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "canonical_occurrence_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Canonical Occurrence Id"
+          },
+          "question_id": {
+            "type": "string",
+            "title": "Question Id"
+          },
+          "paper_id": {
+            "type": "string",
+            "title": "Paper Id"
+          },
+          "attempt_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Attempt Id"
+          },
+          "source_family": {
+            "type": "string",
+            "title": "Source Family"
+          },
+          "signal_class": {
+            "type": "string",
+            "title": "Signal Class"
+          },
+          "series": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Series"
+          },
+          "identity_status": {
+            "type": "string",
+            "title": "Identity Status"
+          },
+          "pairing_evidence": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Pairing Evidence"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "question_id",
+          "paper_id",
+          "attempt_id",
+          "source_family",
+          "signal_class",
+          "series",
+          "identity_status",
+          "pairing_evidence"
+        ],
+        "title": "OccurrenceResult"
+      },
       "PageResult_AssetResult_": {
         "properties": {
           "items": {
@@ -8171,6 +9407,37 @@
           "page_size"
         ],
         "title": "PageResult[PairResult]"
+      },
+      "PageResult_QuestionSummary_": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/QuestionSummary"
+            },
+            "type": "array",
+            "title": "Items"
+          },
+          "total": {
+            "type": "integer",
+            "title": "Total"
+          },
+          "page": {
+            "type": "integer",
+            "title": "Page"
+          },
+          "page_size": {
+            "type": "integer",
+            "title": "Page Size"
+          }
+        },
+        "type": "object",
+        "required": [
+          "items",
+          "total",
+          "page",
+          "page_size"
+        ],
+        "title": "PageResult[QuestionSummary]"
       },
       "PageResult_ReconciliationResult_": {
         "properties": {
@@ -8529,6 +9796,16 @@
             },
             "type": "array",
             "title": "Hierarchy"
+          },
+          "context": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/StudyContextIdentity"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         },
         "type": "object",
@@ -8690,11 +9967,25 @@
             "title": "Status"
           },
           "importance": {
-            "type": "number",
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Importance"
           },
           "priority_score": {
-            "type": "number",
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Priority Score"
           },
           "weak": {
@@ -8739,20 +10030,64 @@
       },
       "PracticeSignal": {
         "properties": {
+          "available": {
+            "type": "boolean",
+            "title": "Available",
+            "default": true
+          },
+          "unavailable_reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Unavailable Reason"
+          },
           "score_P": {
-            "type": "number",
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Score P"
           },
           "paper_max_P": {
-            "type": "number",
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Paper Max P"
           },
           "normalized_P_hat": {
-            "type": "number",
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Normalized P Hat"
           },
           "normalized_P_pct": {
-            "type": "number",
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Normalized P Pct"
           },
           "weighted_contribution": {
@@ -8808,19 +10143,47 @@
             "title": "Unavailable Reason"
           },
           "weight_prior_W": {
-            "type": "number",
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Weight Prior W"
           },
           "paper_max_W": {
-            "type": "number",
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Paper Max W"
           },
           "normalized_W_hat": {
-            "type": "number",
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Normalized W Hat"
           },
           "normalized_W_pct": {
-            "type": "number",
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Normalized W Pct"
           },
           "weighted_contribution": {
@@ -8856,6 +10219,24 @@
           "weighted_contribution_pct"
         ],
         "title": "PriorSignal"
+      },
+      "PrivateNoteResult": {
+        "properties": {
+          "node_id": {
+            "type": "string",
+            "title": "Node Id"
+          },
+          "content": {
+            "type": "string",
+            "title": "Content"
+          }
+        },
+        "type": "object",
+        "required": [
+          "node_id",
+          "content"
+        ],
+        "title": "PrivateNoteResult"
       },
       "ProfileAttempt": {
         "properties": {
@@ -9222,6 +10603,197 @@
         ],
         "title": "PromoteResult"
       },
+      "PublishedAssetResult": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "source_id": {
+            "type": "integer",
+            "title": "Source Id"
+          },
+          "page": {
+            "type": "integer",
+            "title": "Page"
+          },
+          "kind": {
+            "type": "string",
+            "title": "Kind"
+          },
+          "bbox": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "number"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Bbox"
+          },
+          "concerns": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Concerns"
+          },
+          "url": {
+            "type": "string",
+            "title": "Url"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "source_id",
+          "page",
+          "kind",
+          "concerns",
+          "url"
+        ],
+        "title": "PublishedAssetResult"
+      },
+      "PublishedMarks": {
+        "properties": {
+          "whole_question_marks": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Whole Question Marks"
+          },
+          "offered_marks": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Offered Marks"
+          },
+          "selectable_marks": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Selectable Marks"
+          },
+          "allocations": {
+            "items": {
+              "$ref": "#/components/schemas/MarksAllocation"
+            },
+            "type": "array",
+            "title": "Allocations"
+          },
+          "issues": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Issues"
+          }
+        },
+        "type": "object",
+        "required": [
+          "whole_question_marks",
+          "offered_marks",
+          "selectable_marks",
+          "allocations",
+          "issues"
+        ],
+        "title": "PublishedMarks"
+      },
+      "PublishedSourceResult": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "sha256": {
+            "type": "string",
+            "title": "Sha256"
+          },
+          "title": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Title"
+          },
+          "doc_type_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Doc Type Id"
+          },
+          "attempt_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Attempt Id"
+          },
+          "page_count": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Page Count"
+          },
+          "url": {
+            "type": "string",
+            "title": "Url"
+          },
+          "page_url": {
+            "type": "string",
+            "title": "Page Url"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "sha256",
+          "title",
+          "doc_type_id",
+          "attempt_id",
+          "page_count",
+          "url",
+          "page_url"
+        ],
+        "title": "PublishedSourceResult"
+      },
       "QuestionAsset": {
         "properties": {
           "document_id": {
@@ -9418,6 +10990,173 @@
         ],
         "title": "QuestionPartV1"
       },
+      "QuestionResult": {
+        "properties": {
+          "question_id": {
+            "type": "string",
+            "title": "Question Id"
+          },
+          "snapshot_id": {
+            "type": "integer",
+            "title": "Snapshot Id"
+          },
+          "classification_revision_id": {
+            "type": "integer",
+            "title": "Classification Revision Id"
+          },
+          "extraction_revision_id": {
+            "type": "integer",
+            "title": "Extraction Revision Id"
+          },
+          "taxonomy_version_id": {
+            "type": "integer",
+            "title": "Taxonomy Version Id"
+          },
+          "publication_generation": {
+            "type": "integer",
+            "title": "Publication Generation"
+          },
+          "content": {
+            "$ref": "#/components/schemas/ExtractedQuestion"
+          },
+          "mappings": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Mappings"
+          },
+          "covered_subtopics": {
+            "items": {
+              "$ref": "#/components/schemas/CoveredSubtopic"
+            },
+            "type": "array",
+            "title": "Covered Subtopics"
+          },
+          "marks": {
+            "$ref": "#/components/schemas/PublishedMarks"
+          },
+          "sources": {
+            "items": {
+              "$ref": "#/components/schemas/PublishedSourceResult"
+            },
+            "type": "array",
+            "title": "Sources"
+          },
+          "assets": {
+            "items": {
+              "$ref": "#/components/schemas/PublishedAssetResult"
+            },
+            "type": "array",
+            "title": "Assets"
+          },
+          "verification_count": {
+            "type": "integer",
+            "title": "Verification Count"
+          },
+          "open_disputes": {
+            "type": "integer",
+            "title": "Open Disputes"
+          },
+          "extraction_quality": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Extraction Quality"
+          },
+          "occurrence": {
+            "$ref": "#/components/schemas/OccurrenceResult"
+          }
+        },
+        "type": "object",
+        "required": [
+          "question_id",
+          "snapshot_id",
+          "classification_revision_id",
+          "extraction_revision_id",
+          "taxonomy_version_id",
+          "publication_generation",
+          "content",
+          "mappings",
+          "covered_subtopics",
+          "marks",
+          "sources",
+          "assets",
+          "verification_count",
+          "open_disputes",
+          "extraction_quality",
+          "occurrence"
+        ],
+        "title": "QuestionResult"
+      },
+      "QuestionSummary": {
+        "properties": {
+          "question_id": {
+            "type": "string",
+            "title": "Question Id"
+          },
+          "snapshot_id": {
+            "type": "integer",
+            "title": "Snapshot Id"
+          },
+          "paper_id": {
+            "type": "string",
+            "title": "Paper Id"
+          },
+          "attempt_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Attempt Id"
+          },
+          "display_label": {
+            "type": "string",
+            "title": "Display Label"
+          },
+          "question_text": {
+            "type": "string",
+            "title": "Question Text"
+          },
+          "common_stem": {
+            "type": "string",
+            "title": "Common Stem"
+          },
+          "answer_status": {
+            "type": "string",
+            "title": "Answer Status"
+          },
+          "source_family": {
+            "type": "string",
+            "title": "Source Family"
+          },
+          "covered_subtopics": {
+            "items": {
+              "$ref": "#/components/schemas/CoveredSubtopic"
+            },
+            "type": "array",
+            "title": "Covered Subtopics"
+          }
+        },
+        "type": "object",
+        "required": [
+          "question_id",
+          "snapshot_id",
+          "paper_id",
+          "attempt_id",
+          "display_label",
+          "question_text",
+          "common_stem",
+          "answer_status",
+          "source_family",
+          "covered_subtopics"
+        ],
+        "title": "QuestionSummary"
+      },
       "ReadinessBlocker": {
         "properties": {
           "code": {
@@ -9439,8 +11178,26 @@
       "RecomputeResult": {
         "properties": {
           "run_id": {
-            "type": "integer",
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Run Id"
+          },
+          "job_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Job Id"
           },
           "status": {
             "type": "string",
@@ -9456,16 +11213,37 @@
           },
           "is_current": {
             "type": "boolean",
-            "title": "Is Current"
+            "title": "Is Current",
+            "default": false
+          },
+          "taxonomy_version_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Taxonomy Version Id"
+          },
+          "corpus_generation": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Corpus Generation"
           }
         },
         "type": "object",
         "required": [
-          "run_id",
           "status",
           "target_attempt_id",
-          "scoring_version",
-          "is_current"
+          "scoring_version"
         ],
         "title": "RecomputeResult"
       },
@@ -10006,6 +11784,7 @@
             "type": "string",
             "enum": [
               "available",
+              "partial_evidence",
               "historical_configuration_unavailable",
               "score_unavailable",
               "no_score_run"
@@ -10076,10 +11855,48 @@
           },
           "appearances": {
             "items": {
-              "$ref": "#/components/schemas/AppearanceExplanation"
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/AppearanceExplanation"
+                },
+                {
+                  "$ref": "#/components/schemas/OccurrenceContribution"
+                }
+              ]
             },
             "type": "array",
             "title": "Appearances"
+          },
+          "prior_source": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Prior Source"
+          },
+          "coverage_exclusions": {
+            "items": {
+              "$ref": "#/components/schemas/CoverageExclusion"
+            },
+            "type": "array",
+            "title": "Coverage Exclusions"
+          },
+          "historical_evidence_status": {
+            "anyOf": [
+              {
+                "type": "string",
+                "const": "occurrence_inputs_unavailable"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Historical Evidence Status"
           }
         },
         "type": "object",
@@ -10096,6 +11913,67 @@
           "appearances"
         ],
         "title": "ScoreExplanation"
+      },
+      "ScoreFreshness": {
+        "properties": {
+          "publication_generation": {
+            "type": "integer",
+            "title": "Publication Generation",
+            "default": 0
+          },
+          "scored_generation": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Scored Generation"
+          },
+          "computed_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Computed At"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status",
+            "default": "unavailable"
+          },
+          "job_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Job Id"
+          },
+          "error": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Error"
+          }
+        },
+        "type": "object",
+        "title": "ScoreFreshness"
       },
       "ScoreRunIdentity": {
         "properties": {
@@ -10133,6 +12011,28 @@
               }
             ],
             "title": "Computed At"
+          },
+          "corpus_generation": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Corpus Generation"
+          },
+          "config_hash": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Config Hash"
           }
         },
         "type": "object",
@@ -10143,6 +12043,44 @@
           "computed_at"
         ],
         "title": "ScoreRunIdentity"
+      },
+      "SearchResult": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/QuestionSummary"
+            },
+            "type": "array",
+            "title": "Items"
+          },
+          "total": {
+            "type": "integer",
+            "title": "Total"
+          },
+          "page": {
+            "type": "integer",
+            "title": "Page"
+          },
+          "page_size": {
+            "type": "integer",
+            "title": "Page Size"
+          },
+          "notes": {
+            "items": {
+              "$ref": "#/components/schemas/PrivateNoteResult"
+            },
+            "type": "array",
+            "title": "Notes"
+          }
+        },
+        "type": "object",
+        "required": [
+          "items",
+          "total",
+          "page",
+          "page_size"
+        ],
+        "title": "SearchResult"
       },
       "SourceReview": {
         "properties": {
@@ -10259,6 +12197,55 @@
         ],
         "title": "SourceSpanV1"
       },
+      "StudyContextIdentity": {
+        "properties": {
+          "target_attempt_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Target Attempt Id"
+          },
+          "taxonomy_version_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Taxonomy Version Id"
+          },
+          "readiness": {
+            "type": "string",
+            "title": "Readiness"
+          },
+          "applicability_state": {
+            "type": "string",
+            "title": "Applicability State",
+            "default": "unresolved"
+          },
+          "unresolved_node_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Unresolved Node Ids"
+          }
+        },
+        "type": "object",
+        "required": [
+          "target_attempt_id",
+          "taxonomy_version_id",
+          "readiness"
+        ],
+        "title": "StudyContextIdentity"
+      },
       "StudyPlan": {
         "properties": {
           "score_unavailable_reason": {
@@ -10294,6 +12281,57 @@
             },
             "type": "array",
             "title": "Items"
+          },
+          "basis": {
+            "type": "string",
+            "enum": [
+              "scored",
+              "syllabus",
+              "unavailable"
+            ],
+            "title": "Basis",
+            "default": "unavailable"
+          },
+          "allocated_minutes": {
+            "type": "integer",
+            "title": "Allocated Minutes",
+            "default": 0
+          },
+          "unused_minutes": {
+            "type": "number",
+            "title": "Unused Minutes",
+            "default": 0
+          },
+          "score_run_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Score Run Id"
+          },
+          "context": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/StudyContextIdentity"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "freshness": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ScoreFreshness"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         },
         "type": "object",
@@ -10431,6 +12469,26 @@
             },
             "type": "array",
             "title": "Appearances"
+          },
+          "context": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/StudyContextIdentity"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "freshness": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ScoreFreshness"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         },
         "type": "object",
@@ -10650,6 +12708,55 @@
           "applicable": {
             "type": "boolean",
             "title": "Applicable"
+          },
+          "exam_normalized": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Exam Normalized"
+          },
+          "practice_normalized": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Practice Normalized"
+          },
+          "prior_normalized": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Prior Normalized"
+          },
+          "known_weighted_subtotal": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Known Weighted Subtotal"
+          },
+          "applicability_status": {
+            "type": "string",
+            "title": "Applicability Status",
+            "default": "unresolved"
           }
         },
         "type": "object",
@@ -10725,6 +12832,29 @@
           "alarms"
         ],
         "title": "SystemHealth"
+      },
+      "TaxonomyPathItem": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "level": {
+            "type": "string",
+            "title": "Level"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "level"
+        ],
+        "title": "TaxonomyPathItem"
       },
       "TaxonomyTreeNode": {
         "properties": {
@@ -11072,6 +13202,36 @@
             },
             "type": "object",
             "title": "Papers"
+          },
+          "basis": {
+            "type": "string",
+            "enum": [
+              "weighted",
+              "unweighted",
+              "unavailable"
+            ],
+            "title": "Basis",
+            "default": "unavailable"
+          },
+          "context": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/StudyContextIdentity"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "freshness": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ScoreFreshness"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         },
         "type": "object",

@@ -284,10 +284,21 @@ def test_evaluation_requires_decisions_against_the_same_taxonomy(session, manife
 
 
 def test_attempt_version_scores_and_recursive_leaves(session, manifest):
+    from caf_db.models.app import Settings
+    from caf_db.models.intel import AttemptTaxonomyBinding
+    from caf_l5.config import load_scoring_config
+    for artifact in manifest['textbook_artifacts']:
+        artifact['fallback'] = False
+        artifact['target_applicability'] = 'verified'
     old_run = recompute_scores(session, target_attempt_id="2027-05")
     assert get_current_score_run(session, "2027-05").id == old_run.id
     release = prepare(session, manifest, activate=True)
     assert get_current_score_run(session, "2027-05") is None
+    session.add(AttemptTaxonomyBinding(target_attempt_id='2027-05',
+        taxonomy_version_id=release.taxonomy_version_id, status='reviewed', reviewed_by=9,
+        scoring_config=load_scoring_config().model_dump(mode='json')))
+    session.get(Settings, 1).target_attempt_id = '2027-05'
+    session.commit()
     nodes = {node.id: node for node in version_nodes(session)}
     assert len(nodes) == 30
     assert descendant_leaves(manifest["nodes"][0]["id"], nodes) == [manifest["nodes"][4]["id"]]
@@ -303,11 +314,13 @@ def test_attempt_version_scores_and_recursive_leaves(session, manifest):
     assert get_current_score_run(session, "2026-01") is None
     scores = list(session.scalars(sa.select(SubtopicScore).where(SubtopicScore.score_run_id == run.id)))
     assert len(scores) == 6
-    assert all(score.weight_prior == 0 and score.importance == 0 for score in scores)
+    assert all(score.weight_prior is None and score.importance is None for score in scores)
     from caf_l5.why import get_subtopic_why
-    explanation = get_subtopic_why(session, manifest["nodes"][4]["id"], target_attempt_id="2027-05")
+    explanation = get_subtopic_why(session, manifest["nodes"][4]["id"], target_attempt_id="2027-05",
+                                  taxonomy_version_id=release.taxonomy_version_id)
     prior = explanation["importance_breakdown"]["weightage_prior"]
-    assert prior["available"] is False and "configured weights are unchanged" in prior["unavailable_reason"]
+    assert prior["available"] is False and prior['weight_prior_W'] is None
+    assert explanation['importance_breakdown']['weights'] == {'exam': .6, 'practice': .2, 'prior': .2}
     assert session.get(ScoreRun, old_run.id) is not None
 
 

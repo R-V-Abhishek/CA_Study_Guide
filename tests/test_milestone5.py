@@ -315,7 +315,8 @@ def test_api_subtopic_detail_dashboard_and_why(client, session):
 
     # 4. POST /api/v1/curate/intel/recompute
     res_recompute = client.post("/api/v1/curate/intel/recompute?target_attempt_id=2026-05")
-    assert res_recompute.status_code == 200
+    assert res_recompute.status_code == 202
     rec_data = res_recompute.json()
-    assert rec_data["status"] == "ok"
-    assert rec_data["is_current"] is True
+    assert rec_data["status"] == "pending"
+    assert rec_data["job_id"] is not None and rec_data["run_id"] is None
+    assert rec_data["is_current"] is False

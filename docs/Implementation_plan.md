@@ -441,6 +441,8 @@ Acceptance:
 
 **Purpose:** Make shared content retrievable and personal guidance explainable.
 
+**Implemented 6 October 2026:** Immutable student reader/source projections, canonical occurrence evidence, reviewed attempt/taxonomy contexts, staged completeness, persisted normalized score explanations, durable PostgreSQL jobs and personal syllabus fallback are implemented. [Phase 6 verification](Phase6_Verification.md) records isolated reviewed fixtures, browser checks and migration/recovery evidence. The live rebuilt release remains draft; Phase 5's 120 Luna suggestions remain experimental. Live taxonomy, extraction, metadata, pairing, official priors and corpus-readiness approvals remain deferred for Phase 7/readiness work.
+
 Changes:
 
 1. Add published question snapshots and source references in `core`, sufficient for the student reader. Student requests should not need unrestricted access to staging tables.

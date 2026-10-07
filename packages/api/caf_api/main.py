@@ -13,6 +13,7 @@ from caf_api.curate import router as curate_router
 from caf_api.auth import router as auth_router, allowed_origins, require_account, validate_auth_configuration
 from caf_api.taxonomy import router as taxonomy_router
 from caf_api.extraction import router as extraction_router
+from caf_api.questions import router as questions_router
 from caf_db.engine import get_engine, reset_database
 from caf_api.security_logging import AUTH_ACCESS_FILTER
 
@@ -50,6 +51,7 @@ app.include_router(router)
 app.include_router(curate_router)
 app.include_router(taxonomy_router)
 app.include_router(extraction_router)
+app.include_router(questions_router)
 
 
 @app.middleware("http")

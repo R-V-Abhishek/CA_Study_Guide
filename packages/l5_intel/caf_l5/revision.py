@@ -38,7 +38,8 @@ def get_revision_due_list(
         scores = session.query(SubtopicScore).where(SubtopicScore.score_run_id == current_run.id).all()
         scores_map = {s.node_id: s for s in scores}
 
-    from caf_l0.hierarchy import node_scope
+    from caf_l5.context import resolve_context, context_leaf_ids
+    applicable_nodes = context_leaf_ids(session, resolve_context(session, user_id))
     # 3. Query completed subtopics for this user
     query = (
         session.query(Progress, Node, Paper)
@@ -47,7 +48,7 @@ def get_revision_due_list(
         .where(
             Progress.user_id == user_id,
             Node.paper_id.in_(selected_papers(session, user_id)),
-            node_scope(session),
+            Node.id.in_(applicable_nodes),
             Progress.status == "done",
             Progress.first_done_at.is_not(None),
         )
@@ -128,7 +129,9 @@ def record_revision_outcome(
         raise ValueError(f"Invalid revision outcome '{outcome}'. Must be 'ok' or 'shaky'.")
 
     node = session.get(Node, node_id)
-    if not node or node.level != "subtopic":
+    from caf_l5.context import resolve_context, context_leaf_ids
+    applicable = context_leaf_ids(session, resolve_context(session, user_id))
+    if not node or node.level != "subtopic" or node_id not in applicable:
         raise ValueError(f"Node '{node_id}' not found.")
 
     progress = session.get(Progress, (user_id, node_id))

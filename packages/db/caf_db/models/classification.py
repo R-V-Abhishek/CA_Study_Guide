@@ -46,10 +46,11 @@ class ClassificationRevision(Base):
 
 class QuestionPublication(Base):
     __tablename__ = "question_publication"
-    __table_args__ = {"schema": "core"}
+    __table_args__ = (CheckConstraint("current_snapshot_id IS NULL OR current_snapshot_id = current_revision_id", name="check_publication_snapshot_revision"), {"schema": "core"})
     question_id: Mapped[str] = mapped_column(Text, primary_key=True)
     document_id: Mapped[int] = mapped_column(ForeignKey("ingest.document.id"), nullable=False)
     current_revision_id: Mapped[int | None] = mapped_column(ForeignKey("core.classification_revision.id"))
+    current_snapshot_id: Mapped[int | None] = mapped_column(ForeignKey("core.published_question.id", use_alter=True))
     updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
 
 

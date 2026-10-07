@@ -1,6 +1,7 @@
 """Scoring configuration loader for L5 Intelligence."""
 
 import hashlib
+import json
 from pathlib import Path
 import tomllib
 from typing import Any
@@ -37,11 +38,8 @@ class ScoringConfig(BaseModel):
     @property
     def config_hash(self) -> str:
         """Deterministic 16-character SHA-256 hash of configuration."""
-        if self.raw_bytes:
-            return hashlib.sha256(self.raw_bytes).hexdigest()[:16]
-        # Fallback to model dump serialization
-        dump = f"{self.version}:{self.half_life_exam_months}:{self.half_life_practice_months}:{self.weights.model_dump()}"
-        return hashlib.sha256(dump.encode("utf-8")).hexdigest()[:16]
+        serialized = json.dumps(self.model_dump(mode="json"), sort_keys=True, separators=(",", ":"))
+        return hashlib.sha256(serialized.encode("utf-8")).hexdigest()[:16]
 
 
 def load_scoring_config(config_path: Path | str = "config/scoring.toml") -> ScoringConfig:

@@ -157,6 +157,8 @@ def test_matching_score_run_and_no_cross_attempt_fallback(authenticated_client, 
         return run.id
     first = add_run('2026-05', .3)
     latest = add_run('2026-05', .7)
+    session.get(ScoreRun, latest).is_current = True
+    session.commit()
     add_run('2027-05', .8, shadow=True)
     add_run('2027-05', .9, status='failed')
     assert latest > first
@@ -168,7 +170,8 @@ def test_matching_score_run_and_no_cross_attempt_fallback(authenticated_client, 
     assert b.get('/api/v1/meta').json()['score_run'] is None
     assert b.get(f'/api/v1/why/subtopic/{node.id}').json()['explanation_status'] == 'no_score_run'
     plan = b.get('/api/v1/plan').json()
-    assert plan['items'] == [] and 'target attempt' in plan['score_unavailable_reason']
+    assert plan['basis'] == 'syllabus' and plan['items']
+    assert all(item['importance'] is None for item in plan['items'])
     with pytest.raises(ValueError, match='explicit'):
         recompute_scores(session)
     with pytest.raises(ValueError, match='Unknown target attempt'):

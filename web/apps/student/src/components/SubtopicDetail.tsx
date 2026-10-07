@@ -1,14 +1,16 @@
 import { useEffect, useRef, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { useBlocker } from 'react-router-dom';
+import { Link, useBlocker, useLocation } from 'react-router-dom';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { apiRequest, authGeneration, onIdentityReset } from '@caf/api-client';
+import { apiRequest, accountKey, authGeneration, onIdentityReset } from '@caf/api-client';
 import { getData, mode, jsonOptions, importance } from '../lib/data';
-import { isDemoMode } from '../lib/demo';
+import { isDemoMode, demoLink } from '../lib/demo';
 import { demoUpdate } from '../lib/fixtures';
 import { PageState } from './PageState';
 import type { SubtopicData, WhyData } from '../lib/contracts';
+import { StudyContext, type StudyContextFields } from './StudyContext';
+import { ScoreExplanation } from './ScoreExplanation';
 
 type Status = 'not_started' | 'in_progress' | 'done';
 type Draft = { text: string; saved: string };
@@ -19,8 +21,9 @@ const saves = new Map<string, { text: string; promise: Promise<unknown> }>();
 
 export function SubtopicDetail({ nodeId }: { paperId: string; nodeId: string }) {
   const cache = useQueryClient();
+  const location = useLocation();
   const generation = authGeneration();
-  const key = `${mode()}:${nodeId}`;
+  const key = `${isDemoMode() ? 'demo' : `live:${accountKey()}`}:${nodeId}`;
   const [text, setText] = useState(drafts.get(key)?.text ?? '');
   const [saveStatus, setSaveStatus] = useState<'saved' | 'saving' | 'unsaved' | 'failed'>(drafts.get(key)?.text !== drafts.get(key)?.saved ? 'unsaved' : 'saved');
   const [noteError, setNoteError] = useState('');
@@ -100,11 +103,10 @@ export function SubtopicDetail({ nodeId }: { paperId: string; nodeId: string }) 
     onSuccess: async () => { setStatusSaved(true); await cache.invalidateQueries(); },
   });
   const data = query.data;
-  const breakdown = why.data?.importance_breakdown;
   return <div className="space-y-4"><PageState loading={query.isPending} error={query.error} retry={() => query.refetch()} />{data && <>
-    <section className="card space-y-3"><h2 className="text-xl font-bold">{data.name}</h2><p>{data.paper?.name} / {data.chapter?.name} / {data.topic?.name}</p><p>Importance: {importance(data.score.importance)}</p><div className="controls"><label>Progress <select aria-label="Progress" disabled={progress.isPending} value={data.status} onChange={e => progress.mutate(e.target.value as Status)}><option value="not_started">Not started</option><option value="in_progress">In progress</option><option value="done">Done</option></select></label>{progress.isPending && <span role="status">Saving progress…</span>}{statusSaved && <span role="status">Progress saved.</span>}</div>{progress.error && <p role="alert" className="text-red-700">Progress was not saved: {progress.error.message}</p>}</section>
+    <section className="card space-y-3"><h2 className="text-xl font-bold">{data.name}</h2><p>{data.paper?.name} / {data.chapter?.name} / {data.topic?.name}</p><p>Importance: {importance(data.score.importance)}</p><StudyContext data={data as SubtopicData & StudyContextFields} /><p className="text-sm">Relative historical study signal. Unavailable components remain unavailable.</p><div className="controls"><label>Progress <select aria-label="Progress" disabled={progress.isPending} value={data.status} onChange={e => progress.mutate(e.target.value as Status)}><option value="not_started">Not started</option><option value="in_progress">In progress</option><option value="done">Done</option></select></label>{progress.isPending && <span role="status">Saving progress…</span>}{statusSaved && <span role="status">Progress saved.</span>}</div>{progress.error && <p role="alert" className="text-red-700">Progress was not saved: {progress.error.message}</p>}</section>
     <section className="card space-y-3"><h3 className="font-bold">Notes</h3><button aria-pressed={preview} onClick={() => setPreview(!preview)}>{preview ? 'Edit notes' : 'Preview notes'}</button>{preview ? <div className="prose dark:prose-invert whitespace-pre-wrap"><ReactMarkdown remarkPlugins={[remarkGfm]}>{text || 'No notes yet.'}</ReactMarkdown></div> : <textarea aria-label="Notes" className="field w-full min-h-48" value={text} onChange={e => { const next = e.target.value; latest.current = next; setText(next); const draft = drafts.get(key); drafts.set(key, { text: next, saved: draft?.saved ?? data.notes ?? '' }); setSaveStatus('unsaved'); }} />}<p role="status">{saveStatus === 'failed' ? `Failed to save: ${noteError}` : saveStatus === 'unsaved' ? 'Unsaved changes' : saveStatus === 'saving' ? 'Saving…' : 'Saved'}</p><button className="action" disabled={!dirty || saveStatus === 'saving'} onClick={() => { void save(); }}>Save notes</button></section>
-    <section className="card space-y-3"><button className="font-bold" aria-expanded={whyExpanded} onClick={() => setWhyExpanded(!whyExpanded)}>Why this importance?</button>{whyExpanded && <><PageState loading={why.isPending} error={why.error} retry={() => why.refetch()} />{why.data && <><p>Run {why.data.score_run?.id ?? 'Unavailable'} · {why.data.score_run?.version ?? 'Unavailable'} · Target {why.data.score_run?.target_attempt_id ?? 'Unavailable'} · {why.data.score_run?.computed_at ?? 'Timestamp unavailable'}</p>{why.data.explanation_status !== 'available' ? <p>{why.data.explanation_status === 'historical_configuration_unavailable' ? 'Historical configuration unavailable. Recorded importance is preserved; derived contributions are unavailable.' : 'Score explanation unavailable.'}</p> : breakdown?.exam && breakdown.practice && breakdown.weightage_prior && breakdown.weights && <><table className="w-full text-left text-sm"><caption>Normalized signals (0–100)</caption><thead><tr><th>Signal</th><th>Normalized</th><th>Weight</th><th>Weighted contribution</th></tr></thead><tbody><tr><td>Exam E</td><td>{breakdown.exam.normalized_E_pct}</td><td>{breakdown.weights.exam}</td><td>{breakdown.exam.weighted_contribution_pct}</td></tr><tr><td>Practice P</td><td>{breakdown.practice.normalized_P_pct}</td><td>{breakdown.weights.practice}</td><td>{breakdown.practice.weighted_contribution_pct}</td></tr><tr><td>Weightage W</td><td>{breakdown.weightage_prior.normalized_W_pct}</td><td>{breakdown.weights.prior}</td><td>{breakdown.weightage_prior.weighted_contribution_pct}</td></tr></tbody></table><p>{breakdown.weightage_prior.unavailable_reason}</p><p>Raw exam signal: {breakdown.exam.score_E} (decayed marks); raw practice signal: {breakdown.practice.score_P} (decayed marks); raw weightage prior: {breakdown.weightage_prior.weight_prior_W} (allocated weightage marks per applicable subtopic).</p></>}</>}</>}</section>
-    <section className="card space-y-3"><h3 className="font-bold">Appearances</h3>{data.appearances.length ? data.appearances.map(a => <div key={a.id}><p>{a.display_label} · {a.attempt_id} · {a.marks == null ? 'Marks unavailable' : `${a.marks} marks`} · {a.signal_class}</p>{a.gist && <p className="whitespace-pre-wrap">{a.gist}</p>}{a.official_url && <a className="topic-link" href={a.official_url}>Official source</a>}</div>) : <p>No published appearances.</p>}</section>
+    <section className="card space-y-3"><button className="font-bold" aria-expanded={whyExpanded} onClick={() => setWhyExpanded(!whyExpanded)}>Why this importance?</button>{whyExpanded && <><PageState loading={why.isPending} error={why.error} retry={() => why.refetch()} />{why.data && <ScoreExplanation data={why.data} />}</>}</section>
+    <section className="card space-y-3"><h3 className="font-bold">Appearances</h3>{data.appearances.length ? data.appearances.map(a => { const reader = a as typeof a & { question_id?: string | null; part_id?: string | null; provenance_limitation?: string | null }; return <div key={a.id}><p>{a.display_label} · {a.attempt_id} · {a.marks == null ? 'Marks unavailable' : `${a.marks} marks`} · {a.signal_class}</p>{a.gist && <p className="whitespace-pre-wrap">{a.gist}</p>}{reader.question_id ? <Link className="topic-link" to={demoLink(`/questions/${encodeURIComponent(reader.question_id)}?${new URLSearchParams({ ...(reader.part_id ? { part: reader.part_id } : {}), return: `${location.pathname}${location.search}` })}`)}>Read complete question</Link> : <p className="text-sm">{reader.provenance_limitation ?? 'Legacy appearance: reliable source/revision binding unavailable.'}</p>}{a.official_url && <a className="topic-link ml-3" href={a.official_url}>Official source</a>}</div>; }) : <p>No published appearances.</p>}</section>
   </>}</div>;
 }

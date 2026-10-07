@@ -1,0 +1,10 @@
+import { useQuery } from '@tanstack/react-query';
+import { getData, mode } from '../lib/data';
+import type { components } from '@caf/api-client';
+import { StudyContext } from './StudyContext';
+import { PageState } from './PageState';
+
+export function CorpusCoverage() {
+  const query = useQuery({ queryKey: ['corpus-coverage', mode()], queryFn: () => getData<components['schemas']['CorpusReadiness']>('/api/v1/coverage') });
+  return <section className="card space-y-3"><h2 className="font-bold">Reviewed corpus completeness</h2><PageState loading={query.isPending} error={query.error} retry={() => query.refetch()} />{query.data && <><StudyContext data={query.data} />{query.data.items.length ? query.data.items.map(item => <details key={`${item.paper_id}:${item.attempt_id}:${item.source_family}`}><summary>{item.paper_id} · {item.attempt_id} · {item.source_family} · {item.usable_exam ? 'Usable for exam signals' : 'Complete-attempt exam signals unavailable'}</summary><div className="space-y-1 py-2"><p>Expected source slots: {item.expected_slots ?? 'Unknown'} · Inventory {item.inventory_reviewed ? 'reviewed' : 'unreviewed'} · Discovered {item.discovered_count} · Acquired {item.acquired_count}</p><p>Metadata {item.metadata_reviewed ? 'reviewed' : 'pending'} · Extraction {item.extraction_reviewed ? 'reviewed' : 'pending'} · Pairing {item.pairing_reviewed ? 'reviewed' : 'pending'}</p><p>Official scope {item.official_scope_confirmed ? 'confirmed' : 'unconfirmed'} · Gradable regions {item.gradable_regions_accounted ? 'accounted for' : 'incomplete'} · Labels {item.labels_complete ? 'complete' : 'incomplete'} · Occurrences {item.occurrence_resolved ? 'resolved' : 'unresolved'}</p><p>{item.reviewed_roots} reviewed roots · {item.reviewed_parts} reviewed parts · {item.published_roots} published roots · {item.missing_answers} missing answers</p>{item.blockers.map(reason => <p key={reason}>{reason}</p>)}</div></details>) : <p>Expected source inventory is unavailable for the resolved context.</p>}</>}</section>;
+}

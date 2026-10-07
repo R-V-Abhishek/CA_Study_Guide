@@ -3,6 +3,7 @@ import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { apiRequest, accountKey, refreshIdentity, announceIdentityChange, type components } from '@caf/api-client';
 import { isDemoMode } from '../lib/demo';
 import { PageState } from '../components/PageState';
+import { resetStudyContext } from '../lib/data';
 
 type Settings = components['schemas']['ProfileSettings'];
 export function Profile() {
@@ -22,7 +23,7 @@ export function Profile() {
     try {
       const { groups: _groups, available_attempts: _attempts, available_papers: _papers, ...payload } = draft;
       const saved = await apiRequest<Settings>('/api/v1/me/settings', { method: 'PUT', body: JSON.stringify({ ...payload, revision_intervals: intervals.split(',').map(value => Number(value.trim())) }) });
-      setDraft(saved); await cache.invalidateQueries(); await refreshIdentity(); announceIdentityChange(); setMessage('Profile settings saved.');
+      await cache.cancelQueries(); resetStudyContext(); setDraft(saved); await refreshIdentity(); await cache.invalidateQueries(); announceIdentityChange(); setMessage('Profile settings saved.');
     } catch (error) { setError(error instanceof Error ? error.message : 'Could not save profile.'); }
     finally { setSaving(false); }
   };

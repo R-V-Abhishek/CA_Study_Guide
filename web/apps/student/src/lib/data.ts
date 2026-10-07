@@ -3,7 +3,10 @@ import { apiRequest, accountKey } from '@caf/api-client';
 import { isDemoMode } from './demo';
 import { demoResponse } from './fixtures';
 import type { PaperSummary, PaperTree } from './contracts';
-export const mode = () => isDemoMode() ? 'demo' : `live:${accountKey()}`;
+let contextGeneration = 0;
+export const resetStudyContext = () => { contextGeneration++; };
+if (typeof window !== 'undefined') window.addEventListener('caf-profile-changed', resetStudyContext);
+export const mode = () => isDemoMode() ? 'demo' : `live:${accountKey()}:context:${contextGeneration}`;
 export function getData<T>(url: string): Promise<T> {
   return isDemoMode() ? Promise.resolve(demoResponse<T>(url)) : apiRequest<T>(url);
 }

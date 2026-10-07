@@ -1,184 +1,105 @@
-"""Next-week study planning engine with budget allocation and priority scoring."""
-
+"""Budgeted personal planning with an honest syllabus fallback."""
 import math
 from typing import Any
+
 import sqlalchemy as sa
 from sqlalchemy.orm import Session
-
-from caf_db.models.app import Progress, Settings as AppSettingsModel
+from caf_db.models.app import Progress, Settings
 from caf_db.models.intel import SubtopicScore
-from caf_db.models.ref import Node, Paper, WeightageMember, WeightageSection
-from caf_l5.config import load_scoring_config
-from caf_l5.service import get_account_score_run, selected_papers, is_subtopic_weak
+from caf_db.models.ref import Paper
+from caf_l0.hierarchy import ancestor_at, ancestors
+from caf_l5.context import context_nodes, context_leaf_ids, resolve_context
+from caf_l5.service import selected_papers, is_subtopic_weak
 
 
-def generate_study_plan(
-    session: Session,
-    user_id: int,
-    paper_id: str | None = None,
-    group_no: int | None = None,
-    hours_per_week: float | None = None,
-    minutes_per_subtopic: int | None = None,
-) -> dict[str, Any]:
-    """Generate next-week study plan:
-    
-    1. budget_items = floor(hours_per_week * 60 / minutes_per_subtopic)
-    2. cands = applicable subtopics with status in {not_started, in_progress}
-    3. score(s) = I(s) + weak_boost * [weak(s)] + in_progress_boost * [status=in_progress]
-    4. sort cands by score desc
-    5. pick greedily, skipping s if its chapter already has per_chapter_cap picks, until budget_items
-    6. reason(s) = template from facts
-    """
-    config = load_scoring_config()
-
-    # 1. Resolve budget constraints
-    app_settings = session.query(AppSettingsModel).where(AppSettingsModel.user_id == user_id).first()
-    if hours_per_week is None:
-        hours_per_week = float(app_settings.hours_per_week) if app_settings else 20.0
-    if minutes_per_subtopic is None:
-        minutes_per_subtopic = int(app_settings.minutes_per_subtopic) if app_settings else 45
-
-    if not math.isfinite(hours_per_week) or hours_per_week <= 0:
+def generate_study_plan(session: Session, user_id: int, paper_id: str | None = None,
+                        group_no: int | None = None, hours_per_week: float | None = None,
+                        minutes_per_subtopic: int | None = None) -> dict[str, Any]:
+    settings = session.get(Settings, user_id)
+    context = resolve_context(session, user_id)
+    config = context.config
+    if context.run and context.run.config_snapshot:
+        from caf_l5.config import ScoringConfig
+        config = ScoringConfig.model_validate(context.run.config_snapshot)
+    hours = float(hours_per_week if hours_per_week is not None else settings.hours_per_week)
+    minutes = int(minutes_per_subtopic if minutes_per_subtopic is not None else settings.minutes_per_subtopic)
+    if not math.isfinite(hours) or hours <= 0:
         raise ValueError("Study hours must be finite and positive")
+    if minutes <= 0:
+        raise ValueError("Minutes per subtopic must be positive")
     if group_no not in (None, 1, 2):
         raise ValueError("Group must be 1 or 2")
-    if minutes_per_subtopic <= 0:
-        raise ValueError("Minutes per subtopic must be positive")
-    budget_items = math.floor((hours_per_week * 60) / minutes_per_subtopic)
-
-    # 2. Fetch current ScoreRun
-    current_run = get_account_score_run(session, user_id)
-    if not current_run or budget_items < 1:
-        return {
-            "budget_items": budget_items,
-            "total_allocated": 0,
-            "hours_per_week": hours_per_week,
-            "minutes_per_subtopic": minutes_per_subtopic,
-            "items": [],
-            "score_unavailable_reason": "No successful scoring run exists for your target attempt and taxonomy version." if not current_run else None,
-        }
-
-    # 3. Fetch nodes, topics, chapters, papers, weightages
-    from caf_l0.hierarchy import ancestor_at, version_nodes
-    all_nodes = version_nodes(session, current_run.taxonomy_version_id)
-    nodes_by_id = {n.id: n for n in all_nodes}
-
-    # Weightage section map: chapter_id -> WeightageSection
-    wm_rows = (
-        session.query(WeightageMember.chapter_id, WeightageSection)
-        .join(WeightageSection, WeightageSection.id == WeightageMember.section_id)
-        .all()
-    )
-    ch_to_section = {r[0]: r[1] for r in wm_rows}
-
-    # Query all active subtopic scores under current run
-    query = (
-        session.query(SubtopicScore, Node, Paper, Progress)
-        .join(Node, Node.id == SubtopicScore.node_id)
-        .join(Paper, Paper.id == Node.paper_id)
-        .outerjoin(
-            Progress,
-            sa.and_(Progress.node_id == Node.id, Progress.user_id == user_id),
-        )
-        .where(
-            SubtopicScore.score_run_id == current_run.id,
-            Node.paper_id.in_(selected_papers(session, user_id)),
-            SubtopicScore.applicable.is_(True),
-            Paper.is_current.is_(True),
-            Node.status == "active",
-            Node.level == "subtopic",
-        )
-    )
-
-    if paper_id:
-        # Match either exact ID or paper code
-        query = query.where(
-            (Paper.id == paper_id) | (Paper.code == paper_id.upper())
-        )
-    if group_no is not None:
-        query = query.where(Paper.group_no == group_no)
-
-    results = query.all()
-
+    budget_minutes = math.floor(hours * 60)
+    budget_items = budget_minutes // minutes
+    nodes = context_nodes(session, context)
+    node_map = {node.id: node for node in nodes}
+    terminal_ids = context_leaf_ids(session, context)
+    papers = {paper.id: paper for paper in session.scalars(sa.select(Paper))}
+    allowed = set(selected_papers(session, user_id))
+    progress = {row.node_id: row.status for row in session.scalars(
+        sa.select(Progress).where(Progress.user_id == user_id))}
+    scores = {row.node_id: row for row in session.scalars(sa.select(SubtopicScore).where(
+        SubtopicScore.score_run_id == context.run.id))} if context.run else {}
+    selected_nodes = [node for node in nodes if node.id in terminal_ids
+                      and node.paper_id in allowed
+                      and (paper_id is None or node.paper_id == paper_id or
+                           papers[node.paper_id].code == paper_id.upper())
+                      and (group_no is None or papers[node.paper_id].group_no == group_no)]
+    selected_nodes.sort(key=lambda node: (papers[node.paper_id].code,
+        tuple(ancestor.seq for ancestor in ancestors(node.id, node_map)), node.id))
+    # A partially ranked paper cannot produce a scored plan. Select the syllabus
+    # basis for all selected papers together so comparisons have one meaning.
+    scored = bool(selected_nodes) and all(node.id in scores and
+                scores[node.id].importance is not None for node in selected_nodes)
+    basis = "scored" if scored else ("syllabus" if context.readiness == "ready" and selected_nodes else "unavailable")
     candidates = []
-    for score, node, paper, prog in results:
-        status = prog.status if prog else "not_started"
-        if status not in ("not_started", "in_progress"):
-            # Skip completed subtopics
+    for order, node in enumerate(selected_nodes):
+        status = progress.get(node.id, "not_started")
+        if status not in {"in_progress", "not_started"}:
             continue
-
-        weak = is_subtopic_weak(
-            score.applicable, score.freq_hits, score.freq_window, status, config
-        )
-
-        # Priority score
-        weak_add = config.plan.weak_boost if weak else 0.0
-        in_prog_add = config.plan.in_progress_boost if status == "in_progress" else 0.0
-        priority_score = score.importance + weak_add + in_prog_add
-
-        # Resolve chapter & topic
-        topic = ancestor_at(node.id, nodes_by_id, "topic")
-        chapter = ancestor_at(node.id, nodes_by_id, "chapter")
-        chapter_id = chapter.id if chapter else ""
-        chapter_name = chapter.name if chapter else ""
-        sec = ch_to_section.get(chapter_id)
-
-        # Factual reason generation
-        reason_parts = []
-        if score.freq_window > 0 and score.freq_hits > 0:
-            reason_parts.append(
-                f"Asked in {score.freq_hits} of last {score.freq_window} exams ({score.exam_marks_total} marks)"
-            )
-        elif status == "in_progress":
-            reason_parts.append("Already in progress")
-        else:
-            reason_parts.append("Core syllabus priority")
-
-        if sec:
-            reason_parts.append(
-                f"weightage section {sec.name}: {sec.min_pct:.0f}-{sec.max_pct:.0f}%"
-            )
-
-        reason = "; ".join(reason_parts)
-
-        candidates.append({
-            "node_id": node.id,
-            "node_name": node.name,
-            "paper_id": paper.id,
-            "paper_code": paper.code,
-            "chapter_id": chapter_id,
-            "chapter_name": chapter_name,
-            "status": status,
-            "importance": score.importance,
-            "priority_score": round(priority_score, 4),
-            "weak": weak,
-            "freq_hits": score.freq_hits,
-            "freq_window": score.freq_window,
-            "exam_marks_total": score.exam_marks_total,
-            "reason": reason,
-        })
-
-    # Sort descending by priority_score, then importance
-    candidates.sort(key=lambda c: (-c["priority_score"], -c["importance"], c["node_id"]))
-
-    # Greedy allocation with per_chapter_cap
-    per_cap = config.plan.per_chapter_cap
-    chapter_counts: dict[str, int] = {}
-    allocated: list[dict[str, Any]] = []
-
-    for c in candidates:
-        ch_id = c["chapter_id"]
-        if chapter_counts.get(ch_id, 0) < per_cap:
-            allocated.append(c)
-            chapter_counts[ch_id] = chapter_counts.get(ch_id, 0) + 1
-            if len(allocated) >= budget_items:
-                break
-
-    return {
-        "budget_items": budget_items,
-        "total_allocated": len(allocated),
-        "hours_per_week": hours_per_week,
-        "minutes_per_subtopic": minutes_per_subtopic,
-        "items": allocated,
-        "score_unavailable_reason": None,
-    }
+        score = scores.get(node.id)
+        importance = score.importance if scored else None
+        weak = bool(scored and is_subtopic_weak(score.applicable, score.freq_hits,
+                    score.freq_window, status, config))
+        priority = importance + (config.plan.weak_boost if weak else 0) + (
+            config.plan.in_progress_boost if status == "in_progress" else 0) if scored else None
+        chapter = ancestor_at(node.id, node_map, "chapter")
+        reason = "Already in progress" if status == "in_progress" else "Next in reviewed syllabus order"
+        if scored and score.freq_window:
+            reason = f"Appeared in {score.freq_hits} of {score.freq_window} usable reviewed attempts"
+            if status == "in_progress":
+                reason += "; already in progress"
+        candidates.append({"node_id": node.id, "node_name": node.name,
+            "paper_id": node.paper_id, "paper_code": papers[node.paper_id].code,
+            "chapter_id": chapter.id if chapter else node.id,
+            "chapter_name": chapter.name if chapter else "", "status": status,
+            "importance": importance, "priority_score": round(priority, 4) if priority is not None else None,
+            "weak": weak, "freq_hits": score.freq_hits if scored else 0,
+            "freq_window": score.freq_window if scored else 0,
+            "exam_marks_total": score.exam_marks_total if scored else 0,
+            "reason": reason, "_order": order})
+    if scored:
+        candidates.sort(key=lambda item: (-item["priority_score"], -item["importance"], item["_order"]))
+    else:
+        candidates.sort(key=lambda item: (item["status"] != "in_progress", item["_order"]))
+    allocated = []
+    chapters: dict[str, int] = {}
+    for item in candidates:
+        if len(allocated) >= budget_items:
+            break
+        chapter = item["chapter_id"]
+        if chapters.get(chapter, 0) >= config.plan.per_chapter_cap:
+            continue
+        chapters[chapter] = chapters.get(chapter, 0) + 1
+        item.pop("_order")
+        allocated.append(item)
+    return {"basis": basis, "budget_items": budget_items, "total_allocated": len(allocated),
+            "allocated_minutes": len(allocated) * minutes,
+            "unused_minutes": budget_minutes - len(allocated) * minutes,
+            "hours_per_week": hours, "minutes_per_subtopic": minutes, "items": allocated,
+            "score_run_id": context.run.id if context.run else None, "context": context.identity,
+            "freshness": context.freshness,
+            "score_unavailable_reason": None if scored else (
+                "Historical ranking is unavailable; this plan uses personal progress and reviewed syllabus order."
+                if basis == "syllabus" else ("No applicable terminal subtopics are available in the selected papers."
+                if context.readiness == "ready" else "An approved target-attempt taxonomy binding is unavailable."))}

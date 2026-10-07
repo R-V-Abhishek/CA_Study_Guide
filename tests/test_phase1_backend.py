@@ -50,8 +50,9 @@ def test_empty_null_and_zero_contracts(client, session):
     assert paper['weak_topic_count'] == paper['revision_due_count'] == 0
     dashboard = client.get('/api/v1/dashboard').json()
     assert dashboard['overall_progress_pct'] == 0
-    assert dashboard['weighted_coverage']['overall_coverage_pct'] is None
-    assert dashboard['plan_preview'] == dashboard['weak_subtopics'] == []
+    assert dashboard['weighted_coverage']['basis'] == 'unweighted'
+    assert dashboard['weighted_coverage']['overall_coverage_pct'] == 0
+    assert dashboard['plan_preview'] and dashboard['weak_subtopics'] == []
     sub = session.query(Node).where(Node.level == 'subtopic').first()
     detail = client.get(f'/api/v1/subtopics/{sub.id}').json()
     assert detail['score']['importance'] is None
@@ -59,7 +60,9 @@ def test_empty_null_and_zero_contracts(client, session):
     why = client.get(f'/api/v1/why/subtopic/{sub.id}').json()
     assert why['explanation_status'] == 'no_score_run'
     assert why['importance_breakdown']['weights'] is None
-    assert client.get('/api/v1/plan').json()['items'] == []
+    plan = client.get('/api/v1/plan').json()
+    assert plan['basis'] == 'syllabus' and plan['items']
+    assert all(item['importance'] is None for item in plan['items'])
     assert client.get('/api/v1/revision/due').json() == {'total_due': 0, 'items': []}
 
 
@@ -110,7 +113,7 @@ def test_shadow_runs_are_never_selected(client, session, scored_nodes):
         get_subtopic_why(session, nodes[0].id, shadow.id)
     run.is_current = False
     session.commit()
-    assert get_current_score_run(session).id == run.id
+    assert get_current_score_run(session) is None
 
 
 def test_plan_budget_groups_and_ties(client, session, scored_nodes):
@@ -123,7 +126,10 @@ def test_plan_budget_groups_and_ties(client, session, scored_nodes):
     assert tiny['budget_items'] == tiny['total_allocated'] == 0
     assert tiny['items'] == []
     ordered = generate_study_plan(session, user_id=1, hours_per_week=3, group_no=1, paper_id='P1')
-    assert [item['node_id'] for item in ordered['items']] == sorted(node.id for node in nodes[:2])
+    assert ordered['basis'] == 'syllabus'
+    assert ordered['allocated_minutes'] <= 180
+    assert ordered['allocated_minutes'] + ordered['unused_minutes'] == 180
+    assert all(item['paper_id'] == 's2023.P1' for item in ordered['items'])
     assert generate_study_plan(session, user_id=1, group_no=2, paper_id='P1')['items'] == []
     for value in (-1, 0, float('nan'), float('inf')):
         with pytest.raises(ValueError, match='finite and positive'):
@@ -193,14 +199,16 @@ def test_scored_coverage_zero_and_unavailable_denominators(client, session, scor
     assert coverage['overall_coverage_pct'] == 0
     assert coverage['groups']['1']['coverage_pct'] == 0
     assert coverage['papers']['s2023.P1']['coverage_pct'] == 0
-    assert coverage['groups']['2'] == {'coverage_pct': None, 'in_progress_pct': None}
+    assert coverage['basis'] == 'unweighted'
+    assert coverage['groups']['2'] == {'coverage_pct': 0, 'in_progress_pct': 0}
     session.execute(sa.update(SubtopicScore).where(SubtopicScore.score_run_id == run.id).values(weight_prior=0))
     session.commit()
     coverage = client.get('/api/v1/dashboard').json()['weighted_coverage']
-    assert coverage['overall_coverage_pct'] is None
-    assert coverage['overall_in_progress_pct'] is None
-    assert coverage['groups']['1'] == {'coverage_pct': None, 'in_progress_pct': None}
-    assert coverage['papers']['s2023.P1']['coverage_pct'] is None
+    assert coverage['basis'] == 'unweighted'
+    assert coverage['overall_coverage_pct'] == 0
+    assert coverage['overall_in_progress_pct'] == 0
+    assert coverage['groups']['1'] == {'coverage_pct': 0, 'in_progress_pct': 0}
+    assert coverage['papers']['s2023.P1']['coverage_pct'] == 0
 
 
 def test_recompute_records_effective_snapshot(session):
@@ -271,7 +279,7 @@ def test_forward_migration_preserves_legacy_rows(session, isolated_database):
             command.upgrade(cfg, 'head')
             row = conn.execute(sa.text('SELECT id, config_hash, config_snapshot FROM intel.score_run')).one()
             assert tuple(row) == (before.id, before.config_hash, None)
-            assert conn.execute(sa.text('SELECT version_num FROM ops.alembic_version')).scalar_one() == '0006_classification_revisions'
+            assert conn.execute(sa.text('SELECT version_num FROM ops.alembic_version')).scalar_one() == '0007_question_reader'
     finally:
         engine.dispose()
         with admin.connect() as conn:

@@ -16,6 +16,8 @@ import urllib.error
 import urllib.request
 import webbrowser
 from pathlib import Path
+from uuid import uuid4
+from worker_lifecycle import record_worker, clear_worker
 
 PROJECT_ROOT = Path(__file__).parent.resolve()
 BASE_URL = "http://localhost:8000"
@@ -126,6 +128,11 @@ def main() -> None:
         cwd=PROJECT_ROOT,
     )
 
+    worker_token = uuid4().hex
+    worker_proc = subprocess.Popen([uv_bin, "run", "caf", "intel", "worker",
+                                    "--owner-token", worker_token], cwd=PROJECT_ROOT)
+    record_worker(worker_proc.pid, worker_token)
+
     try:
         # Wait for HTTP readiness
         print("⏳ Waiting for web service to respond...", end="", flush=True)
@@ -151,7 +158,13 @@ def main() -> None:
             print("\n⚠️ Server started but health check timed out. You can try opening http://localhost:8000 manually.")
 
         # Keep running until Ctrl+C
-        server_proc.wait()
+        while server_proc.poll() is None:
+            if worker_proc.poll() is not None:
+                raise RuntimeError(f"Intelligence worker exited with status {worker_proc.returncode}")
+            try:
+                server_proc.wait(timeout=1)
+            except subprocess.TimeoutExpired:
+                continue
 
     except KeyboardInterrupt:
         print("\n\n🛑 Shutting down CA Final Study Companion...")
@@ -161,11 +174,25 @@ def main() -> None:
         except subprocess.TimeoutExpired:
             server_proc.kill()
 
+    finally:
+        server_proc.terminate()
+        worker_proc.terminate()
+        try:
+            worker_proc.wait(timeout=10)
+        except subprocess.TimeoutExpired:
+            worker_proc.kill()
+            worker_proc.wait()
+        clear_worker(worker_token)
+        try:
+            server_proc.wait(timeout=5)
+        except subprocess.TimeoutExpired:
+            server_proc.kill()
+            server_proc.wait()
         if used_docker and docker_bin:
             print("💾 Stopping database container (data safely stored)...")
-            subprocess.run([docker_bin, "compose", "stop"], cwd=PROJECT_ROOT, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-
-        print("✓ All services stopped cleanly. See you next study session!\n")
+            subprocess.run([docker_bin, "compose", "stop"], cwd=PROJECT_ROOT,
+                           stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        print("✓ All services stopped cleanly.")
 
 
 if __name__ == "__main__":

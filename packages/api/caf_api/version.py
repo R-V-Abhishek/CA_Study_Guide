@@ -29,4 +29,6 @@ def score_run_identity(run: ScoreRun | None) -> dict | None:
         'target_attempt_id': run.target_attempt_id,
         'taxonomy_version_id': run.taxonomy_version_id,
         'computed_at': run.finished_at,
+        'corpus_generation': run.corpus_generation,
+        'config_hash': run.config_hash,
     }

@@ -57,7 +57,9 @@ def apply_grants() -> None:
         grant("caf_curator", "INSERT, UPDATE, DELETE", ["core.decision", "core.appearance", "core.appearance_tag", "core.change_log", "ingest.taxonomy_gap"])
         grant("caf_curator", "INSERT", ["ref.descriptor_revision", "ref.descriptor_approval"])
         grant("caf_curator", "INSERT", ["ingest.extraction_review"])
-        grant("caf_curator", "INSERT", ["core.classification_revision", "core.classification_event"])
+        grant("caf_curator", "INSERT", ["core.classification_revision", "core.classification_event", "core.published_question", "core.published_source", "core.question_occurrence"])
+        grant("caf_curator", "UPDATE", ["core.corpus_generation", "core.question_occurrence"])
+        grant("caf_curator", "INSERT, UPDATE", ["intel.recompute_job"])
         grant("caf_curator", "INSERT, UPDATE", ["core.question_publication", "core.classification_verification", "core.classification_dispute"])
         if "app.user_account" in known:
             for role in ("caf_curator", "caf_operations"):
@@ -79,7 +81,7 @@ def apply_grants() -> None:
                     role == "caf_backup" or
                     role == "caf_app" and schema == "app" and name.removesuffix("_id_seq") in PERSONAL or
                     role == "caf_identity" and schema == "app" and name.removesuffix("_id_seq") in IDENTITY or
-                    role == "caf_curator" and (schema == "core" or schema == "ref" and name == "descriptor_revision_id_seq" or schema == "ingest" and name == "extraction_review_id_seq") or
+                    role == "caf_curator" and (schema == "intel" and name == "recompute_job_id_seq" or schema == "core" or schema == "ref" and name == "descriptor_revision_id_seq" or schema == "ingest" and name == "extraction_review_id_seq") or
                     role == "caf_operations" and schema != "app" or
                     role == "caf_pipeline" and schema in {"ingest", "ops"}
                 )
