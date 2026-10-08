@@ -2,48 +2,31 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { PageState } from '../components/PageState';
-import { getData, mode, usePapers, importance } from '../lib/data';
+import { getData, mode, usePapers } from '../lib/data';
 import { useUrlState } from '../lib/url';
 import { demoLink } from '../lib/demo';
 import type { PlanData } from '../lib/contracts';
-import { StudyContext, type StudyContextFields } from '../components/StudyContext';
+import { StudyContext } from '../components/StudyContext';
+export function suggestedWeek(items: PlanData['items'], minutes: number, start = new Date()) {
+  const days = Array.from({ length: 7 }, (_,index) => { const date = new Date(start); date.setDate(start.getDate() + index); return { date, minutes: 0, items: [] as PlanData['items'] }; });
+  for (const item of items) { const day = days.reduce((least,next) => next.minutes < least.minutes ? next : least); day.items.push(item); day.minutes += minutes; }
+  return days;
+}
 export function Plan() {
   const { params, set, search } = useUrlState();
   const hoursText = params.get('hours');
   const hours = hoursText == null ? null : Number(hoursText);
   const group = params.get('group') ?? 'all';
   const paper = params.get('paper') ?? 'all';
-  const destination = (paperId: string, nodeId: string) => demoLink(`/papers/${paperId}/${nodeId}?return=${encodeURIComponent(`/plan${search}`)}`);
-  const valid = (hours == null || (Number.isFinite(hours) && hours > 0)) && ['all', '1', '2'].includes(group);
+  const view = params.get('view') ?? 'list';
+  const valid = (hours == null || (Number.isFinite(hours) && hours > 0)) && ['all','1','2'].includes(group);
   const papersQuery = usePapers();
   const papers = papersQuery.data ?? [];
-  const options = papers.filter(p => group === 'all' || String(p.group_no) === group);
-  useEffect(() => {
-    if (papersQuery.data && paper !== 'all' && !options.some(p => p.id === paper || p.code === paper)) set({ paper: 'all' });
-  }, [papersQuery.data, group, paper]);
-  const query = useQuery({
-    queryKey: ['study-plan', mode(), hours, group, paper], enabled: valid,
-    queryFn: () => {
-      const query = new URLSearchParams();
-      if (hours != null) query.set('hours', String(hours));
-      if (group !== 'all') query.set('group', group);
-      if (paper !== 'all') query.set('paper', paper);
-      return getData<PlanData>(`/api/v1/plan?${query}`);
-    },
-  });
-  const guidance = query.data as (PlanData & StudyContextFields & { basis?: string; allocated_minutes?: number; unused_minutes?: number; score_run_id?: number | null }) | undefined;
-  return <div className="space-y-5"><h1 className="page-title">Weekly Study Plan</h1><p>Study allocation follows your selected syllabus and recorded personal progress. Historical importance is a relative study signal.</p>
-    <div className="controls">
-      <label>Hours per week <input aria-label="Hours per week" type="number" min="0.01" step="any" value={hoursText ?? query.data?.hours_per_week ?? ''} onChange={e => set({ hours: e.target.value })} /></label>
-      <label>Group <select aria-label="Group" value={group} onChange={e => { const next = e.target.value; const compatible = next === 'all' || papers.some(p => (p.id === paper || p.code === paper) && String(p.group_no) === next); set({ group: next, paper: compatible ? paper : 'all' }); }}><option value="all">All groups</option><option value="1">Group 1</option><option value="2">Group 2</option></select></label>
-      <label>Paper <select aria-label="Paper" value={paper} onChange={e => set({ paper: e.target.value })}><option value="all">All papers</option>{options.map(p => <option key={p.id} value={p.id}>{p.code} — {p.name}</option>)}</select></label>
-      <button className="action" disabled={!valid || query.isFetching} onClick={() => query.refetch()}>Refresh plan</button>
-    </div>
-    {!valid && <p role="alert">Enter finite positive hours and a supported group (1 or 2).</p>}
-    <PageState loading={valid && query.isPending} error={query.error ?? papersQuery.error} retry={() => { query.refetch(); papersQuery.refetch(); }} />
-    {query.data && <><StudyContext data={guidance ?? {}} /><p>Plan basis: {guidance?.basis === 'syllabus' ? 'Syllabus-based plan — in-progress items, then reviewed textbook order' : guidance?.basis === 'scored' ? 'Historical importance and personal progress' : 'Historical basis unavailable'}</p><p>{query.data.hours_per_week} hours per week · {query.data.minutes_per_subtopic} minutes per subtopic · {query.data.total_allocated} allocated</p>{guidance?.allocated_minutes != null && <p>{guidance.allocated_minutes} minutes allocated · {guidance.unused_minutes ?? 0} minutes unused · Snapshot {guidance.score_run_id ?? 'Unavailable'}</p>}
-      {query.data.score_unavailable_reason && <p>{query.data.score_unavailable_reason}</p>}
-      {query.data.items.length === 0 ? <p className="card">No topics allocated for this budget and selection.</p> : <ol className="space-y-3">{query.data.items.map((item, index) => <li className="card" key={item.node_id}><Link className="topic-link font-semibold" to={destination(item.paper_id, item.node_id)}>{index + 1}. {item.node_name}</Link><p>{item.paper_code} · {query.data.minutes_per_subtopic} minutes · Importance {importance(item.importance)}</p><p>{item.reason}</p></li>)}</ol>}
-    </>}
-  </div>;
+  const options = papers.filter(item => group === 'all' || String(item.group_no) === group);
+  useEffect(() => { if (papersQuery.data && paper !== 'all' && !options.some(item => item.id === paper || item.code === paper)) set({ paper: 'all' }); }, [papersQuery.data, group, paper]);
+  const query = useQuery({ queryKey: ['study-plan', mode(), hours, group, paper], enabled: valid, queryFn: () => { const filters = new URLSearchParams(); if (hours != null) filters.set('hours',String(hours)); if (group !== 'all') filters.set('group',group); if (paper !== 'all') filters.set('paper',paper); return getData<PlanData>(`/api/v1/plan?${filters}`); } });
+  const data = query.data;
+  const destination = (item: PlanData['items'][number]) => demoLink(`/syllabus?${new URLSearchParams({ paper: item.paper_id, node: item.node_id, return: `/plan${search}` })}`);
+  const itemContent = (item: PlanData['items'][number], index?: number) => <><h3 className="font-semibold">{index != null ? `${index + 1}. ` : ''}{item.node_name}</h3><p className="study-meta">{item.paper_code} / {item.chapter_name} · {data?.minutes_per_subtopic} minutes · {item.status.replace(/_/g,' ')}</p><p>{item.reason}</p><Link className="topic-link" to={destination(item)}>{item.status === 'in_progress' ? 'Continue' : 'Start'}</Link></>;
+  return <div className="space-y-5"><h1 className="page-title">Your study plan</h1><p>Study the next topics in the order and allocation returned for your selected syllabus.</p>{data && <p>{data.basis === 'syllabus' ? 'Syllabus-based' : data.basis === 'scored' ? 'Historically ranked' : 'Plan basis unavailable'} · {data.hours_per_week} hours weekly budget · {data.allocated_minutes} minutes allocated · {data.unused_minutes} minutes unused</p>}<details className="card" open={params.get('adjust') === 'true'}><summary className="font-semibold" onClick={event => { event.preventDefault(); set({ adjust: params.get('adjust') === 'true' ? '' : 'true' }); }}>Adjust plan</summary><div className="controls mt-4"><label>Hours per week <input aria-label="Hours per week" type="number" min="0.01" step="any" value={hoursText ?? data?.hours_per_week ?? ''} onChange={event => set({ hours: event.target.value })} /></label><label>Group <select aria-label="Group" value={group} onChange={event => { const next = event.target.value; const compatible = next === 'all' || papers.some(item => (item.id === paper || item.code === paper) && String(item.group_no) === next); set({ group: next, paper: compatible ? paper : 'all' }); }}><option value="all">All groups</option><option value="1">Group 1</option><option value="2">Group 2</option></select></label><label>Paper <select aria-label="Paper" value={paper} onChange={event => set({ paper: event.target.value })}><option value="all">All papers</option>{options.map(item => <option key={item.id} value={item.id}>{item.code} — {item.name}</option>)}</select></label><p>Block duration: {data?.minutes_per_subtopic ?? 'Not available'} minutes. <Link className="topic-link" to={demoLink('/profile')}>Change study budget in Settings</Link></p><button disabled={!valid || query.isFetching} onClick={() => query.refetch()}>Refresh plan</button></div></details>{!valid && <p role="alert">Enter finite positive hours and a supported group (1 or 2).</p>}<PageState loading={valid && query.isPending} refreshing={query.isFetching && Boolean(data)} error={query.error ?? papersQuery.error} retry={() => { query.refetch(); papersQuery.refetch(); }} />{data && <><StudyContext data={data} />{data.score_unavailable_reason && <p>{data.score_unavailable_reason}</p>}{data.basis === 'unavailable' ? <section className="card"><p>The syllabus for this attempt is awaiting review. A plan requires an approved attempt binding.</p><Link className="topic-link" to={demoLink('/syllabus?preview=draft')}>Preview draft syllabus</Link></section> : data.items.length === 0 ? <p className="card">No topics allocated for this budget and selection.</p> : <><div className="study-tabs" role="tablist" aria-label="Plan presentation"><button role="tab" aria-selected={view === 'list'} onClick={() => set({ view: 'list' })}>Ordered list</button><button role="tab" aria-selected={view === 'week'} onClick={() => set({ view: 'week' })}>Week view</button></div>{view === 'week' ? <><h2 className="text-xl font-semibold">Suggested schedule</h2><p>This arranges the returned blocks across the next seven days. It does not record completion or create a server schedule.</p><div className="plan-week">{suggestedWeek(data.items,data.minutes_per_subtopic).map(day => <section className="card" key={day.date.toDateString()}><h3 className="font-semibold">{day.date.toLocaleDateString(undefined,{ weekday:'short', month:'short', day:'numeric' })}</h3><p className="study-meta">{day.minutes} minutes</p>{day.items.map(item => <div key={item.node_id} className="study-row">{itemContent(item)}</div>)}</section>)}</div></> : <ol className="card">{data.items.map((item,index) => <li className="study-row" key={item.node_id}>{itemContent(item,index)}</li>)}</ol>}</>}</>}</div>;
 }

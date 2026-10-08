@@ -1,34 +1,19 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useQueries } from '@tanstack/react-query';
-import { usePapers, getTree, mode, formatPct, importance } from '../lib/data';
+import { usePapers, formatPct } from '../lib/data';
 import { useUrlState } from '../lib/url';
-import { demoLink } from '../lib/demo';
+import { demoLink, isDemoMode } from '../lib/demo';
+import { exportProfile } from '../lib/export';
 import { PageState } from '../components/PageState';
+import { CorpusCoverage } from '../components/CorpusCoverage';
 export function Progress() {
-  const { params, set, search } = useUrlState();
-  const filter = params.get('status') ?? 'all';
-  const weak = params.get('weak') === 'true' || filter === 'weak';
-  const sort = params.get('sort') ?? 'code';
+  const { params, set } = useUrlState();
+  const tab = params.get('tab') ?? 'personal';
+  const status = params.get('status') ?? 'all';
   const papers = usePapers();
-  const results = useQueries({ queries: (papers.data ?? []).map(p => ({ queryKey: ['paper-tree', mode(), p.id], queryFn: () => getTree(p.id) })) });
-  const pending = results.some(result => result.isPending);
-  const failed = results.some(result => result.isError);
-  const data = (papers.data ?? []).map((paper, index) => ({ paper, query: results[index] })).sort((a, b) => {
-    const coverage = sort === 'coverage_asc' ? a.paper.raw_progress_pct - b.paper.raw_progress_pct : sort === 'coverage_desc' ? b.paper.raw_progress_pct - a.paper.raw_progress_pct : 0;
-    return coverage || a.paper.code.localeCompare(b.paper.code) || a.paper.id.localeCompare(b.paper.id);
-  });
-  const total = papers.data?.reduce((sum, paper) => sum + paper.total_subtopics, 0) ?? 0;
-  const done = papers.data?.reduce((sum, paper) => sum + paper.completed_subtopics, 0) ?? 0;
-  const matches = data.some(({ query }) => query?.data?.chapters.some(ch => ch.topics.some(topic => topic.subtopics.some(s => (filter === 'all' || filter === 'weak' || s.status === filter) && (!weak || s.weak)))));
-  return <div className="space-y-5"><h1 className="page-title">Coverage</h1><p>Your personal syllabus progress. Source-corpus completeness is tracked separately; missing historical evidence does not indicate personal weakness.</p><PageState loading={papers.isPending} error={papers.error} retry={() => papers.refetch()} />
-    {papers.data && !pending && !failed && <p className="card">{done} / {total} topics completed · {formatPct(total ? done / total * 100 : 0)}</p>}
-    {pending && <p role="status">Loading paper coverage…</p>}{failed && <p role="alert">Coverage is incomplete because some papers failed to load. Complete totals are unavailable.</p>}
-    <div className="controls"><label>Status <select aria-label="Status" value={filter} onChange={e => set({ status: e.target.value })}><option value="all">All statuses</option><option value="not_started">Not started</option><option value="in_progress">In progress</option><option value="done">Done</option></select></label><label><input type="checkbox" checked={weak} onChange={e => set({ weak: e.target.checked ? 'true' : '', status: filter === 'weak' ? 'all' : filter })} /> Weak only</label><label>Sort <select aria-label="Sort" value={sort} onChange={e => set({ sort: e.target.value })}><option value="code">Paper code</option><option value="coverage_asc">Lowest coverage</option><option value="coverage_desc">Highest coverage</option></select></label></div>
-    {papers.data && !papers.data.length && <p className="card">No papers available.</p>}
-    {!pending && !failed && papers.data?.length && !matches ? <p className="card">{total ? 'No results match these filters.' : 'No subtopics available.'}</p> : null}
-    {data.map(({ paper, query }) => <section className="card space-y-3" key={paper.id}><h2 className="font-bold">{paper.code} — {paper.name} · {formatPct(paper.raw_progress_pct)}</h2><PageState loading={query?.isPending} error={query?.error} retry={() => query?.refetch()} />{query?.data?.chapters.map(ch => {
-      const subs = ch.topics.flatMap(topic => topic.subtopics).filter(s => (filter === 'all' || filter === 'weak' || s.status === filter) && (!weak || s.weak)).sort((a, b) => a.seq - b.seq || a.id.localeCompare(b.id));
-      return subs.length ? <details key={ch.id} open><summary className="font-semibold">{ch.name}</summary>{subs.map(s => <p key={s.id} className="py-2"><Link className="topic-link" to={demoLink(`/papers/${paper.id}/${s.id}?return=${encodeURIComponent(`/progress${search}`)}`)}>{s.name}</Link> · {s.status.replace(/_/g, ' ')} · Importance {importance(s.importance)}</p>)}</details> : null;
-    })}</section>)}
-  </div>;
+  const [error, setError] = useState('');
+  const [exporting,setExporting] = useState(false);
+  const total = papers.data?.reduce((sum,paper) => sum + paper.total_subtopics,0) ?? 0;
+  const done = papers.data?.reduce((sum,paper) => sum + paper.completed_subtopics,0) ?? 0;
+  return <div className="space-y-5"><h1 className="page-title">Progress</h1><p>See your personal syllabus completion and reviewed question coverage separately.</p><div className="study-tabs" role="tablist" aria-label="Progress views"><button role="tab" aria-selected={tab === 'personal'} onClick={() => set({ tab:'personal' })}>Personal progress</button><button role="tab" aria-selected={tab === 'coverage'} onClick={() => set({ tab:'coverage' })}>Question coverage</button></div>{tab === 'coverage' ? <CorpusCoverage /> : <><PageState loading={papers.isPending} refreshing={papers.isFetching && Boolean(papers.data)} error={papers.error} retry={() => papers.refetch()} />{papers.data && <><section className="card space-y-3"><h2 className="text-xl font-semibold">Personal progress</h2><p>{done} / {total} topics completed · {formatPct(total ? done / total * 100 : 0)}</p><progress className="study-bar" value={done} max={total || 1} aria-label="Overall personal progress" /></section><label>Status <select value={status} onChange={event => set({ status:event.target.value })}><option value="all">All statuses</option><option value="not_started">Not started</option><option value="in_progress">In progress</option><option value="done">Done</option></select></label><div className="card">{papers.data.map(paper => <div key={paper.id} className="study-row"><h2 className="font-semibold">{paper.code} — {paper.name}</h2><p>{paper.completed_subtopics} / {paper.total_subtopics} completed · {formatPct(paper.raw_progress_pct)}</p><progress className="study-bar" value={paper.completed_subtopics} max={paper.total_subtopics || 1} aria-label={`${paper.name} progress`} />{paper.weighted_coverage_pct != null && <p className="study-meta">Weighted progress: {formatPct(paper.weighted_coverage_pct)} · Reviewed scoring basis</p>}<Link className="topic-link" to={demoLink(`/syllabus?${new URLSearchParams({ paper:paper.id,...(status !== 'all' ? { status } : {}) })}`)}>View {status === 'all' ? 'syllabus' : status.replace(/_/g,' ') + ' topics'}</Link></div>)}{!papers.data.length && <p>No papers are available for your selection.</p>}</div></>}</>}<button disabled={isDemoMode() || exporting} onClick={async () => { setExporting(true); setError(''); try { await exportProfile(); } catch (failure) { setError(failure instanceof Error ? failure.message : 'Export failed.'); } finally { setExporting(false); } }}>{exporting ? 'Exporting…' : 'Export my study records'}</button>{error && <p role="alert">Export failed: {error}</p>}</div>;
 }

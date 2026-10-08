@@ -7,8 +7,8 @@ let contextGeneration = 0;
 export const resetStudyContext = () => { contextGeneration++; };
 if (typeof window !== 'undefined') window.addEventListener('caf-profile-changed', resetStudyContext);
 export const mode = () => isDemoMode() ? 'demo' : `live:${accountKey()}:context:${contextGeneration}`;
-export function getData<T>(url: string): Promise<T> {
-  return isDemoMode() ? Promise.resolve(demoResponse<T>(url)) : apiRequest<T>(url);
+export function getData<T>(url: string, signal?: AbortSignal): Promise<T> {
+  return isDemoMode() ? Promise.resolve(demoResponse<T>(url)) : apiRequest<T>(url, { signal });
 }
 export function usePapers() {
   return useQuery({ queryKey: ['papers', mode()], queryFn: () => getData<PaperSummary[]>('/api/v1/papers') });

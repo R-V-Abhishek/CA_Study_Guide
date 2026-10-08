@@ -11,6 +11,9 @@ import { PageState } from './PageState';
 import type { SubtopicData, WhyData } from '../lib/contracts';
 import { StudyContext, type StudyContextFields } from './StudyContext';
 import { ScoreExplanation } from './ScoreExplanation';
+import { useUrlState } from '../lib/url';
+import { rememberDestination } from '../lib/navigation';
+import { Dialog } from '../../../../packages/workspace/Dialog';
 
 type Status = 'not_started' | 'in_progress' | 'done';
 type Draft = { text: string; saved: string };
@@ -22,6 +25,8 @@ const saves = new Map<string, { text: string; promise: Promise<unknown> }>();
 export function SubtopicDetail({ nodeId }: { paperId: string; nodeId: string }) {
   const cache = useQueryClient();
   const location = useLocation();
+  const { params, set } = useUrlState();
+  const tab = params.get('tab') ?? 'questions';
   const generation = authGeneration();
   const key = `${isDemoMode() ? 'demo' : `live:${accountKey()}`}:${nodeId}`;
   const [text, setText] = useState(drafts.get(key)?.text ?? '');
@@ -34,7 +39,7 @@ export function SubtopicDetail({ nodeId }: { paperId: string; nodeId: string }) 
   const latest = useRef(text);
   const queryKey = ['subtopic', mode(), nodeId];
   const query = useQuery({ queryKey, queryFn: () => getData<SubtopicData>(`/api/v1/subtopics/${encodeURIComponent(nodeId)}`) });
-  const why = useQuery({ queryKey: ['why', mode(), nodeId], queryFn: () => getData<WhyData>(`/api/v1/why/subtopic/${encodeURIComponent(nodeId)}`), enabled: whyExpanded });
+  const why = useQuery({ queryKey: ['why', mode(), nodeId], queryFn: () => getData<WhyData>(`/api/v1/why/subtopic/${encodeURIComponent(nodeId)}`), enabled: whyExpanded || tab === 'importance' });
   useEffect(() => { mounted.current = true; return () => { mounted.current = false; }; }, []);
   useEffect(() => {
     if (query.data && !drafts.has(key)) {
@@ -45,12 +50,7 @@ export function SubtopicDetail({ nodeId }: { paperId: string; nodeId: string }) 
   }, [query.data, key]);
   const draft = drafts.get(key);
   const dirty = draft !== undefined && text !== draft.saved;
-  const blocker = useBlocker(({ currentLocation, nextLocation }) => dirty && currentLocation.pathname !== nextLocation.pathname);
-  useEffect(() => {
-    if (blocker.state === 'blocked') {
-      if (window.confirm('You have unsaved notes. Leave this page?')) blocker.proceed(); else blocker.reset();
-    }
-  }, [blocker]);
+  const blocker = useBlocker(({ currentLocation, nextLocation }) => dirty && (currentLocation.pathname !== nextLocation.pathname || new URLSearchParams(currentLocation.search).get('node') !== new URLSearchParams(nextLocation.search).get('node')));
   useEffect(() => {
     if (!dirty) return;
     const beforeLogout = (event: Event) => { if (!window.confirm('You have unsaved notes. Sign out and discard them?')) event.preventDefault(); };
@@ -77,8 +77,8 @@ export function SubtopicDetail({ nodeId }: { paperId: string; nodeId: string }) 
       await cache.invalidateQueries();
     });
     saves.set(key, { text: snapshot, promise: pending });
-    try { await pending; }
-    catch (error) { if (mounted.current) { setSaveStatus('failed'); setNoteError(error instanceof Error ? error.message : 'Save failed'); } }
+    try { await pending; return generation === authGeneration(); }
+    catch (error) { if (mounted.current) { setSaveStatus('failed'); setNoteError(error instanceof Error ? error.message : 'Save failed'); } return false; }
     finally { if (saves.get(key)?.promise === pending) saves.delete(key); }
   };
   useEffect(() => {
@@ -103,10 +103,21 @@ export function SubtopicDetail({ nodeId }: { paperId: string; nodeId: string }) 
     onSuccess: async () => { setStatusSaved(true); await cache.invalidateQueries(); },
   });
   const data = query.data;
-  return <div className="space-y-4"><PageState loading={query.isPending} error={query.error} retry={() => query.refetch()} />{data && <>
-    <section className="card space-y-3"><h2 className="text-xl font-bold">{data.name}</h2><p>{data.paper?.name} / {data.chapter?.name} / {data.topic?.name}</p><p>Importance: {importance(data.score.importance)}</p><StudyContext data={data as SubtopicData & StudyContextFields} /><p className="text-sm">Relative historical study signal. Unavailable components remain unavailable.</p><div className="controls"><label>Progress <select aria-label="Progress" disabled={progress.isPending} value={data.status} onChange={e => progress.mutate(e.target.value as Status)}><option value="not_started">Not started</option><option value="in_progress">In progress</option><option value="done">Done</option></select></label>{progress.isPending && <span role="status">Saving progress…</span>}{statusSaved && <span role="status">Progress saved.</span>}</div>{progress.error && <p role="alert" className="text-red-700">Progress was not saved: {progress.error.message}</p>}</section>
-    <section className="card space-y-3"><h3 className="font-bold">Notes</h3><button aria-pressed={preview} onClick={() => setPreview(!preview)}>{preview ? 'Edit notes' : 'Preview notes'}</button>{preview ? <div className="prose dark:prose-invert whitespace-pre-wrap"><ReactMarkdown remarkPlugins={[remarkGfm]}>{text || 'No notes yet.'}</ReactMarkdown></div> : <textarea aria-label="Notes" className="field w-full min-h-48" value={text} onChange={e => { const next = e.target.value; latest.current = next; setText(next); const draft = drafts.get(key); drafts.set(key, { text: next, saved: draft?.saved ?? data.notes ?? '' }); setSaveStatus('unsaved'); }} />}<p role="status">{saveStatus === 'failed' ? `Failed to save: ${noteError}` : saveStatus === 'unsaved' ? 'Unsaved changes' : saveStatus === 'saving' ? 'Saving…' : 'Saved'}</p><button className="action" disabled={!dirty || saveStatus === 'saving'} onClick={() => { void save(); }}>Save notes</button></section>
-    <section className="card space-y-3"><button className="font-bold" aria-expanded={whyExpanded} onClick={() => setWhyExpanded(!whyExpanded)}>Why this importance?</button>{whyExpanded && <><PageState loading={why.isPending} error={why.error} retry={() => why.refetch()} />{why.data && <ScoreExplanation data={why.data} />}</>}</section>
-    <section className="card space-y-3"><h3 className="font-bold">Appearances</h3>{data.appearances.length ? data.appearances.map(a => { const reader = a as typeof a & { question_id?: string | null; part_id?: string | null; provenance_limitation?: string | null }; return <div key={a.id}><p>{a.display_label} · {a.attempt_id} · {a.marks == null ? 'Marks unavailable' : `${a.marks} marks`} · {a.signal_class}</p>{a.gist && <p className="whitespace-pre-wrap">{a.gist}</p>}{reader.question_id ? <Link className="topic-link" to={demoLink(`/questions/${encodeURIComponent(reader.question_id)}?${new URLSearchParams({ ...(reader.part_id ? { part: reader.part_id } : {}), return: `${location.pathname}${location.search}` })}`)}>Read complete question</Link> : <p className="text-sm">{reader.provenance_limitation ?? 'Legacy appearance: reliable source/revision binding unavailable.'}</p>}{a.official_url && <a className="topic-link ml-3" href={a.official_url}>Official source</a>}</div>; }) : <p>No published appearances.</p>}</section>
-  </>}</div>;
+  useEffect(() => { if (data) rememberDestination({ path: `${location.pathname}${location.search}`, title: data.name, paper: data.paper?.name ?? '', breadcrumb: [data.paper?.name, data.chapter?.name, data.topic?.name].filter(Boolean).join(' / ') }); }, [data, location.pathname, location.search]);
+  const appearances = [...new Map(data?.appearances.map(item => {
+    const reader = item as typeof item & { question_id?: string | null; part_id?: string | null; provenance_limitation?: string | null };
+    return [reader.question_id ?? `legacy:${item.id}`, reader] as const;
+  }) ?? []).values()];
+  return <div className="space-y-4"><PageState loading={query.isPending} refreshing={query.isFetching && Boolean(data)} error={query.error} retry={() => query.refetch()} />{data && <>
+    <section className="card space-y-3"><p className="study-meta">{[data.paper?.name, data.chapter?.name, data.topic?.name].filter(Boolean).join(' / ')}</p><h2 className="text-xl font-semibold">{data.name}</h2><div className="controls"><label>Progress <select aria-label="Progress" disabled={progress.isPending} value={data.status} onChange={e => progress.mutate(e.target.value as Status)}><option value="not_started">Not started</option><option value="in_progress">In progress</option><option value="done">Done</option></select></label>{progress.isPending && <span role="status">Saving progress…</span>}{statusSaved && <span role="status">Progress saved.</span>}</div>{progress.error && <p role="alert">Progress was not saved: {progress.error.message}</p>}</section>
+    <div role="tablist" aria-label="Topic content" className="study-tabs">{[['questions','Questions'],['notes','My notes'],['importance','Importance'],['references','Textbook references']].map(([id,label]) => <button key={id} role="tab" id={`topic-tab-${id}`} aria-controls="topic-panel" aria-selected={tab === id} onClick={() => set({ tab: id })}>{label}</button>)}</div>
+    <section role="tabpanel" id="topic-panel" aria-labelledby={`topic-tab-${tab}`} className="card space-y-3">
+    {tab === 'notes' && <><h3 className="font-semibold">My notes</h3><div className="controls"><button aria-pressed={!preview} onClick={() => setPreview(false)}>Write</button><button aria-pressed={preview} onClick={() => setPreview(true)}>Preview</button><button className="action" disabled={!dirty || saveStatus === 'saving'} onClick={() => { void save(); }}>{saveStatus === 'failed' ? 'Retry save' : 'Save notes'}</button></div>{preview ? <div className="reader-body whitespace-pre-wrap"><ReactMarkdown remarkPlugins={[remarkGfm]}>{text || 'No notes yet.'}</ReactMarkdown></div> : <textarea aria-label="Notes" className="field w-full min-h-48" value={text} onChange={e => { const next = e.target.value; latest.current = next; setText(next); const draft = drafts.get(key); drafts.set(key, { text: next, saved: draft?.saved ?? data.notes ?? '' }); setSaveStatus('unsaved'); }} />}<p role="status">{saveStatus === 'failed' ? `Save failed: ${noteError}` : saveStatus === 'unsaved' ? 'Unsaved' : saveStatus === 'saving' ? 'Saving…' : 'Saved'}</p></>}
+    {tab === 'importance' && <><h3 className="font-semibold">Importance</h3><p>Importance: {importance(data.score.importance)}</p><StudyContext data={data as SubtopicData & StudyContextFields} /><PageState loading={why.isPending} error={why.error} retry={() => why.refetch()} />{why.data && <ScoreExplanation data={why.data} />}<button hidden aria-expanded={whyExpanded} onClick={() => setWhyExpanded(!whyExpanded)}>Why this importance?</button></>}
+    {tab === 'references' && <><h3 className="font-semibold">Textbook references</h3><p>Source references and edition applicability are available in the textbook syllabus evidence.</p><Link className="topic-link" to={demoLink(`/syllabus?preview=draft&paper=${encodeURIComponent(data.paper?.code ?? '')}&node=${encodeURIComponent(nodeId)}`)}>View textbook source references</Link></>}
+    {tab === 'questions' && <><h3 className="font-semibold">Questions</h3>{appearances.length ? appearances.map(reader => <div className="study-row" key={reader.question_id ?? reader.id}><p>{reader.display_label} · {reader.attempt_id} · {reader.signal_class} · {reader.marks == null ? 'Marks not available' : `${reader.marks} marks`}</p>{reader.gist && <p className="question-preview">{reader.gist}</p>}{reader.question_id ? <Link className="topic-link" to={demoLink(`/questions/${encodeURIComponent(reader.question_id)}?${new URLSearchParams({ ...(reader.part_id ? { part: reader.part_id } : {}), return: `${location.pathname}${location.search}` })}`)}>Read complete question</Link> : <p className="study-meta">{reader.provenance_limitation ?? 'Legacy appearance: reliable source evidence is unavailable.'}</p>}{reader.official_url && <a className="topic-link ml-3" href={reader.official_url}>Official source</a>}</div>) : <><p>Reviewed questions will appear here after publication.</p><Link className="topic-link" to={demoLink(`/questions?subtopic_id=${encodeURIComponent(nodeId)}`)}>Browse questions</Link></>}</>}
+    </section>
+  </>}
+  <Dialog open={blocker.state === 'blocked'} title="Unsaved notes" onClose={() => { if (blocker.state === 'blocked') blocker.reset(); }}><p>Your draft has unsaved changes.</p><div className="controls"><button onClick={() => { if (blocker.state === 'blocked') blocker.reset(); }}>Stay</button><button className="action" disabled={saveStatus === 'saving'} onClick={async () => { const saved = await save(); if (saved && blocker.state === 'blocked') blocker.proceed(); }}>Save and leave</button><button disabled={saveStatus === 'saving'} onClick={() => { const draft = drafts.get(key); if (draft) drafts.set(key, { text: draft.saved, saved: draft.saved }); if (blocker.state === 'blocked') blocker.proceed(); }}>Discard and leave</button></div>{saveStatus === 'failed' && <p role="alert">Save failed: {noteError}. Your draft is retained.</p>}</Dialog>
+  </div>;
 }

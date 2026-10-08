@@ -56,11 +56,12 @@ function DescriptorEditor({ node, version, descriptor, close }: { node: string; 
   </form>;
 }
 
-function NodeDetail({ node, version, curator }: { node: TextbookNode; version: string; curator: boolean }) {
+export function TextbookNodeDetail({ node, version, curator }: { node: TextbookNode; version: string; curator: boolean }) {
   const queries = useQueryClient();
   const state = useSyncExternalStore(subscribeAuth, authState);
   const admin = state.identity?.capabilities.includes("admin");
   const [editing, setEditing] = useState(false);
+  const [tab, setTab] = useState("sources");
   const descriptor = useQuery({ queryKey: ["textbook-descriptor", accountKey(), version, node.id], enabled: node.descriptor_revision !== null, retry: false, queryFn: () => taxonomyApi.descriptor(node.id, version) });
   const history = useQuery({ queryKey: ["textbook-history", accountKey(), version, node.id], retry: false, queryFn: () => taxonomyApi.history(node.id, version) });
   const approve = useMutation({ mutationFn: () => taxonomyApi.approveDescriptor(node.id, version, descriptor.data!.revision), onSuccess: async () => {
@@ -72,8 +73,13 @@ function NodeDetail({ node, version, curator }: { node: TextbookNode; version: s
     <nav aria-label="Textbook breadcrumbs">{node.breadcrumbs.map(ancestor => ancestor.name).join(" → ")}</nav>
     <h2>{node.name}</h2><p>{node.level} · Source context: {node.source_review_status} · {node.eligible ? "Classification ready" : "Not eligible for classification"}</p>
     <p>Heading origin: {node.heading_origin === "app_authored" ? "App-authored concept subdivision" : node.heading_origin === "official" ? "Official textbook heading" : node.heading_origin === "legacy" ? "Legacy hierarchy" : "Unrecorded"}</p>
+    <div role="tablist" aria-label="Syllabus evidence" className="study-tabs">{[["sources","Source references"],["descriptor","Descriptor"],["applicability","Applicability"],["history","History"]].map(([id,label]) => <button key={id} role="tab" aria-selected={tab === id} onClick={() => setTab(id)}>{label}</button>)}</div>
+    {tab === "sources" && <>
     {node.sources.length ? <TextbookSources sources={node.sources} /> : <p>Textbook source span unresolved.</p>}
     {curator && admin && node.sources.length > 0 && node.source_review_status !== "reviewed" && <><button type="button" className="textbook-action" disabled={approveSource.isPending || node.sources.some(source => source.availability !== "verified")} onClick={() => approveSource.mutate()}>{approveSource.isPending ? "Recording source review…" : "Approve reviewed textbook source context"}</button><TaxonomyError error={approveSource.error} /></>}
+    </>}
+    {tab === "applicability" && <><h3>Applicability</h3>{node.sources.length ? node.sources.map((source,index) => <p key={index}>{source.edition} · Applicable attempts: {source.applicable_attempts.join(", ") || "Unresolved"} · Target applicability: {source.target_applicability} · {source.fallback ? "Fallback edition—requires applicability review" : "Prescribed source"}</p>) : <p>Edition applicability is unresolved.</p>}</>}
+    {tab === "descriptor" && <>
     <h3>Descriptor</h3>
     <TaxonomyError error={descriptor.error} />
     {descriptor.isFetching && <p role="status">Loading descriptor…</p>}
@@ -84,11 +90,13 @@ function NodeDetail({ node, version, curator }: { node: TextbookNode; version: s
       {!!descriptor.data.source_ambiguities?.length && <div><p>Textbook source issues must be resolved before approval.</p><ul>{descriptor.data.source_ambiguities.map(issue => <li key={issue}>{issue}</li>)}</ul></div>}
       <dl><dt>Terminology</dt><dd>{descriptor.data.terminology.join(", ") || "None recorded"}</dd><dt>Instruments</dt><dd>{descriptor.data.instrument_references?.join(", ") || "None recorded"}</dd>{descriptor.data.edition && <><dt>Textbook edition</dt><dd>{descriptor.data.edition}</dd></>}<dt>Includes</dt><dd>{descriptor.data.inclusion.join("; ")}</dd><dt>Excludes</dt><dd>{descriptor.data.exclusion.join("; ")}</dd><dt>Nearby concepts</dt><dd>{descriptor.data.nearby_distinctions.join("; ")}</dd></dl>
       <ul>{descriptor.data.source_spans.map(span => { const source = node.sources.find(item => item.artifact_id === span.artifact_id); return <li key={`${span.artifact_id}-${span.pdf_page_start}`}>{source ? <a href={`${source.download_url.split("#")[0]}#page=${span.pdf_page_start}`} target="_blank" rel="noreferrer">Descriptor textbook reference, pages {span.pdf_page_start}–{span.pdf_page_end}</a> : `Textbook artifact ${span.artifact_id}, pages ${span.pdf_page_start}–${span.pdf_page_end}`}</li>; })}</ul>
-      {!descriptor.data.approved && <><p>Approval records your review of this revision. Editing it requires a new approval.</p><button className="textbook-action" type="button" disabled={approve.isPending} onClick={() => approve.mutate()}>{approve.isPending ? "Recording approval…" : "Approve reviewed descriptor revision"}</button></>}
-      <p><button type="button" className="textbook-link" disabled={approve.isPending} onClick={() => setEditing(true)}>Edit descriptor</button></p>
-      {editing && <DescriptorEditor node={node.id} version={version} descriptor={descriptor.data} close={() => setEditing(false)} />}
+      {curator && !descriptor.data.approved && <><p>Approval records your review of this revision. Editing it requires a new approval.</p><button className="textbook-action" type="button" disabled={approve.isPending} onClick={() => approve.mutate()}>{approve.isPending ? "Recording approval…" : "Approve reviewed descriptor revision"}</button></>}
+      {curator && <p><button type="button" className="textbook-link" disabled={approve.isPending} onClick={() => setEditing(true)}>Edit descriptor</button></p>}
+      {curator && editing && <DescriptorEditor node={node.id} version={version} descriptor={descriptor.data} close={() => setEditing(false)} />}
       <TaxonomyError error={approve.error} />
     </div>}
+    </>}
+    {tab === "history" && <>
     <h3>Legacy history and predecessor records</h3><TaxonomyError error={history.error} />
     {history.isFetching && <p role="status">Loading your history…</p>}
     {history.data && (history.data.records.length ? <ul>{history.data.records.map(record => <li key={`${record.node_id}-${record.relation}`}>
@@ -96,6 +104,7 @@ function NodeDetail({ node, version, curator }: { node: TextbookNode; version: s
       <p>Original node: {record.node_id} · Progress: {record.progress?.status ?? "No progress recorded"}</p>
       {record.note && <blockquote><p>{record.note.body}</p><cite>Original note for {record.name} · {record.note.updated_at}</cite></blockquote>}
     </li>)}</ul> : <p>No predecessor records for your account.</p>)}
+    </>}
   </section>;
 }
 
@@ -137,7 +146,7 @@ export function TextbookExplorer({ curator = false, demo = false }: { curator?: 
       {tree.isFetching && <p role="status">Loading textbook hierarchy…</p>}
       {tree.data?.length === 0 && <p>No textbook nodes available for this release. Unresolved sources remain in the source inventory.</p>}
       {tree.data && tree.data.length > 0 && <div className="textbook-columns"><section className="textbook-panel" aria-label="Recursive textbook hierarchy"><ul className="textbook-tree">{roots.map(node => <HierarchyNode key={node.id} node={node} select={item => setParams({ version, paper: paperId, node: item.id })} />)}</ul></section>
-        {current ? <NodeDetail key={`${version}-${current.id}`} node={current} version={version} curator={curator} /> : <p>Select a concept to inspect its full ancestry, source span and review.</p>}
+        {current ? <TextbookNodeDetail key={`${version}-${current.id}`} node={current} version={version} curator={curator} /> : <p>Select a concept to inspect its full ancestry, source span and review.</p>}
       </div>}
     </>}
   </div>;
