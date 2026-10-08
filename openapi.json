@@ -4394,6 +4394,242 @@
         }
       }
     },
+    "/api/v1/admin/readiness": {
+      "get": {
+        "tags": [
+          "administrator readiness"
+        ],
+        "summary": "Summary",
+        "operationId": "summary_api_v1_admin_readiness_get",
+        "parameters": [
+          {
+            "name": "target_attempt_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Target Attempt Id"
+            }
+          },
+          {
+            "name": "taxonomy_version_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Taxonomy Version Id"
+            }
+          },
+          {
+            "name": "paper_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Paper Id"
+            }
+          },
+          {
+            "name": "source_family",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Source Family"
+            }
+          },
+          {
+            "name": "blocker_type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Blocker Type"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadinessSummary"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/admin/readiness/bindings": {
+      "put": {
+        "tags": [
+          "administrator readiness"
+        ],
+        "summary": "Binding",
+        "operationId": "binding_api_v1_admin_readiness_bindings_put",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BindingWrite"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadinessWriteResult"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/admin/readiness/inventory": {
+      "put": {
+        "tags": [
+          "administrator readiness"
+        ],
+        "summary": "Inventory",
+        "operationId": "inventory_api_v1_admin_readiness_inventory_put",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InventoryWrite"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadinessWriteResult"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/admin/readiness/priors": {
+      "put": {
+        "tags": [
+          "administrator readiness"
+        ],
+        "summary": "Prior",
+        "operationId": "prior_api_v1_admin_readiness_priors_put",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PriorWrite"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadinessWriteResult"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/health": {
       "get": {
         "summary": "Health",
@@ -4624,6 +4860,35 @@
           "at"
         ],
         "title": "ActivityItem"
+      },
+      "AffectedRecord": {
+        "properties": {
+          "kind": {
+            "type": "string",
+            "title": "Kind"
+          },
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "revision": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Revision"
+          }
+        },
+        "type": "object",
+        "required": [
+          "kind",
+          "id"
+        ],
+        "title": "AffectedRecord"
       },
       "AnswerPairingCandidate": {
         "properties": {
@@ -5154,6 +5419,55 @@
         ],
         "title": "AttributedNodeShare"
       },
+      "AuditDecision": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "actor_id": {
+            "type": "integer",
+            "title": "Actor Id"
+          },
+          "action": {
+            "type": "string",
+            "title": "Action"
+          },
+          "evidence": {
+            "type": "string",
+            "title": "Evidence"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At"
+          },
+          "record_id": {
+            "type": "string",
+            "title": "Record Id"
+          },
+          "before_hash": {
+            "type": "string",
+            "title": "Before Hash"
+          },
+          "after_hash": {
+            "type": "string",
+            "title": "After Hash"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "actor_id",
+          "action",
+          "evidence",
+          "created_at",
+          "record_id",
+          "before_hash",
+          "after_hash"
+        ],
+        "title": "AuditDecision"
+      },
       "BackupItem": {
         "properties": {
           "name": {
@@ -5247,6 +5561,120 @@
           "created_at"
         ],
         "title": "BackupResult"
+      },
+      "BindingRecord": {
+        "properties": {
+          "target_attempt_id": {
+            "type": "string",
+            "title": "Target Attempt Id"
+          },
+          "taxonomy_version_id": {
+            "type": "integer",
+            "title": "Taxonomy Version Id"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "reviewed_by": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reviewed By"
+          },
+          "expected_hash": {
+            "type": "string",
+            "title": "Expected Hash"
+          }
+        },
+        "type": "object",
+        "required": [
+          "target_attempt_id",
+          "taxonomy_version_id",
+          "status",
+          "reviewed_by",
+          "expected_hash"
+        ],
+        "title": "BindingRecord"
+      },
+      "BindingWrite": {
+        "properties": {
+          "expected_hash": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$",
+            "title": "Expected Hash"
+          },
+          "evidence": {
+            "type": "string",
+            "maxLength": 10000,
+            "minLength": 1,
+            "title": "Evidence"
+          },
+          "idempotency_key": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Idempotency Key"
+          },
+          "taxonomy_version_id": {
+            "type": "integer",
+            "minimum": 1.0,
+            "title": "Taxonomy Version Id"
+          },
+          "source_evidence": {
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/TextbookEvidence"
+                },
+                {
+                  "$ref": "#/components/schemas/DocumentEvidence"
+                }
+              ],
+              "discriminator": {
+                "propertyName": "kind",
+                "mapping": {
+                  "document_revision": "#/components/schemas/DocumentEvidence",
+                  "textbook_span": "#/components/schemas/TextbookEvidence"
+                }
+              }
+            },
+            "type": "array",
+            "maxItems": 100,
+            "minItems": 1,
+            "title": "Source Evidence"
+          },
+          "target_attempt_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Target Attempt Id"
+          },
+          "action": {
+            "type": "string",
+            "enum": [
+              "review",
+              "withdraw"
+            ],
+            "title": "Action"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "expected_hash",
+          "evidence",
+          "idempotency_key",
+          "taxonomy_version_id",
+          "source_evidence",
+          "target_attempt_id",
+          "action"
+        ],
+        "title": "BindingWrite"
       },
       "BlockResult": {
         "properties": {
@@ -7563,6 +7991,45 @@
         ],
         "title": "DocumentEditResult"
       },
+      "DocumentEvidence": {
+        "properties": {
+          "kind": {
+            "type": "string",
+            "const": "document_revision",
+            "title": "Kind"
+          },
+          "revision_id": {
+            "type": "integer",
+            "minimum": 1.0,
+            "title": "Revision Id"
+          },
+          "content_digest": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$",
+            "title": "Content Digest"
+          },
+          "pdf_page_start": {
+            "type": "integer",
+            "minimum": 1.0,
+            "title": "Pdf Page Start"
+          },
+          "pdf_page_end": {
+            "type": "integer",
+            "minimum": 1.0,
+            "title": "Pdf Page End"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "kind",
+          "revision_id",
+          "content_digest",
+          "pdf_page_start",
+          "pdf_page_end"
+        ],
+        "title": "DocumentEvidence"
+      },
       "DocumentStatusResult": {
         "properties": {
           "id": {
@@ -8557,6 +9024,146 @@
           "practice_published"
         ],
         "title": "IngestionCoverageItem"
+      },
+      "InventoryRecord": {
+        "properties": {
+          "taxonomy_version_id": {
+            "type": "integer",
+            "title": "Taxonomy Version Id"
+          },
+          "paper_id": {
+            "type": "string",
+            "title": "Paper Id"
+          },
+          "attempt_id": {
+            "type": "string",
+            "title": "Attempt Id"
+          },
+          "source_family": {
+            "type": "string",
+            "title": "Source Family"
+          },
+          "expected_slots": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Expected Slots"
+          },
+          "inventory_reviewed": {
+            "type": "boolean",
+            "title": "Inventory Reviewed"
+          },
+          "expected_hash": {
+            "type": "string",
+            "title": "Expected Hash"
+          }
+        },
+        "type": "object",
+        "required": [
+          "taxonomy_version_id",
+          "paper_id",
+          "attempt_id",
+          "source_family",
+          "expected_slots",
+          "inventory_reviewed",
+          "expected_hash"
+        ],
+        "title": "InventoryRecord"
+      },
+      "InventoryWrite": {
+        "properties": {
+          "expected_hash": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$",
+            "title": "Expected Hash"
+          },
+          "evidence": {
+            "type": "string",
+            "maxLength": 10000,
+            "minLength": 1,
+            "title": "Evidence"
+          },
+          "idempotency_key": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Idempotency Key"
+          },
+          "taxonomy_version_id": {
+            "type": "integer",
+            "minimum": 1.0,
+            "title": "Taxonomy Version Id"
+          },
+          "source_evidence": {
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/TextbookEvidence"
+                },
+                {
+                  "$ref": "#/components/schemas/DocumentEvidence"
+                }
+              ],
+              "discriminator": {
+                "propertyName": "kind",
+                "mapping": {
+                  "document_revision": "#/components/schemas/DocumentEvidence",
+                  "textbook_span": "#/components/schemas/TextbookEvidence"
+                }
+              }
+            },
+            "type": "array",
+            "maxItems": 100,
+            "minItems": 1,
+            "title": "Source Evidence"
+          },
+          "paper_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Paper Id"
+          },
+          "attempt_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Attempt Id"
+          },
+          "source_family": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Source Family"
+          },
+          "expected_slots": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Expected Slots"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "expected_hash",
+          "evidence",
+          "idempotency_key",
+          "taxonomy_version_id",
+          "source_evidence",
+          "paper_id",
+          "attempt_id",
+          "source_family",
+          "expected_slots"
+        ],
+        "title": "InventoryWrite"
       },
       "InvitationRequest": {
         "properties": {
@@ -9651,6 +10258,46 @@
         ],
         "title": "PaperPageRange"
       },
+      "PaperReadiness": {
+        "properties": {
+          "paper_id": {
+            "type": "string",
+            "title": "Paper Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "blocker_count": {
+            "type": "integer",
+            "title": "Blocker Count"
+          },
+          "published_roots": {
+            "type": "integer",
+            "title": "Published Roots"
+          },
+          "expected_slots": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Expected Slots"
+          }
+        },
+        "type": "object",
+        "required": [
+          "paper_id",
+          "name",
+          "blocker_count",
+          "published_roots",
+          "expected_slots"
+        ],
+        "title": "PaperReadiness"
+      },
       "PaperReference": {
         "properties": {
           "id": {
@@ -10124,6 +10771,53 @@
         ],
         "title": "PracticeSignal"
       },
+      "PriorRecord": {
+        "properties": {
+          "taxonomy_version_id": {
+            "type": "integer",
+            "title": "Taxonomy Version Id"
+          },
+          "node_id": {
+            "type": "string",
+            "title": "Node Id"
+          },
+          "value": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Value"
+          },
+          "reviewed_by": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reviewed By"
+          },
+          "expected_hash": {
+            "type": "string",
+            "title": "Expected Hash"
+          }
+        },
+        "type": "object",
+        "required": [
+          "taxonomy_version_id",
+          "node_id",
+          "value",
+          "reviewed_by",
+          "expected_hash"
+        ],
+        "title": "PriorRecord"
+      },
       "PriorSignal": {
         "properties": {
           "available": {
@@ -10219,6 +10913,78 @@
           "weighted_contribution_pct"
         ],
         "title": "PriorSignal"
+      },
+      "PriorWrite": {
+        "properties": {
+          "expected_hash": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$",
+            "title": "Expected Hash"
+          },
+          "evidence": {
+            "type": "string",
+            "maxLength": 10000,
+            "minLength": 1,
+            "title": "Evidence"
+          },
+          "idempotency_key": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Idempotency Key"
+          },
+          "taxonomy_version_id": {
+            "type": "integer",
+            "minimum": 1.0,
+            "title": "Taxonomy Version Id"
+          },
+          "source_evidence": {
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/TextbookEvidence"
+                },
+                {
+                  "$ref": "#/components/schemas/DocumentEvidence"
+                }
+              ],
+              "discriminator": {
+                "propertyName": "kind",
+                "mapping": {
+                  "document_revision": "#/components/schemas/DocumentEvidence",
+                  "textbook_span": "#/components/schemas/TextbookEvidence"
+                }
+              }
+            },
+            "type": "array",
+            "maxItems": 100,
+            "minItems": 1,
+            "title": "Source Evidence"
+          },
+          "node_id": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Node Id"
+          },
+          "value": {
+            "type": "number",
+            "maximum": 1.0,
+            "minimum": 0.0,
+            "title": "Value"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "expected_hash",
+          "evidence",
+          "idempotency_key",
+          "taxonomy_version_id",
+          "source_evidence",
+          "node_id",
+          "value"
+        ],
+        "title": "PriorWrite"
       },
       "PrivateNoteResult": {
         "properties": {
@@ -11157,6 +11923,24 @@
         ],
         "title": "QuestionSummary"
       },
+      "ReadinessAction": {
+        "properties": {
+          "label": {
+            "type": "string",
+            "title": "Label"
+          },
+          "href": {
+            "type": "string",
+            "title": "Href"
+          }
+        },
+        "type": "object",
+        "required": [
+          "label",
+          "href"
+        ],
+        "title": "ReadinessAction"
+      },
       "ReadinessBlocker": {
         "properties": {
           "code": {
@@ -11174,6 +11958,199 @@
           "message"
         ],
         "title": "ReadinessBlocker"
+      },
+      "ReadinessSummary": {
+        "properties": {
+          "target_attempt_id": {
+            "type": "string",
+            "title": "Target Attempt Id"
+          },
+          "taxonomy_version_id": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Taxonomy Version Id"
+          },
+          "papers": {
+            "items": {
+              "$ref": "#/components/schemas/PaperReadiness"
+            },
+            "type": "array",
+            "title": "Papers"
+          },
+          "tasks": {
+            "items": {
+              "$ref": "#/components/schemas/ReadinessTask"
+            },
+            "type": "array",
+            "title": "Tasks"
+          },
+          "bindings": {
+            "items": {
+              "$ref": "#/components/schemas/BindingRecord"
+            },
+            "type": "array",
+            "title": "Bindings"
+          },
+          "inventory": {
+            "items": {
+              "$ref": "#/components/schemas/InventoryRecord"
+            },
+            "type": "array",
+            "title": "Inventory"
+          },
+          "priors": {
+            "items": {
+              "$ref": "#/components/schemas/PriorRecord"
+            },
+            "type": "array",
+            "title": "Priors"
+          },
+          "source_evidence": {
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/TextbookEvidence"
+                },
+                {
+                  "$ref": "#/components/schemas/DocumentEvidence"
+                }
+              ],
+              "discriminator": {
+                "propertyName": "kind",
+                "mapping": {
+                  "document_revision": "#/components/schemas/DocumentEvidence",
+                  "textbook_span": "#/components/schemas/TextbookEvidence"
+                }
+              }
+            },
+            "type": "array",
+            "title": "Source Evidence"
+          },
+          "history": {
+            "items": {
+              "$ref": "#/components/schemas/AuditDecision"
+            },
+            "type": "array",
+            "title": "History"
+          }
+        },
+        "type": "object",
+        "required": [
+          "target_attempt_id",
+          "taxonomy_version_id",
+          "papers",
+          "tasks",
+          "bindings",
+          "inventory",
+          "priors",
+          "source_evidence",
+          "history"
+        ],
+        "title": "ReadinessSummary"
+      },
+      "ReadinessTask": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "paper_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Paper Id"
+          },
+          "stage": {
+            "type": "integer",
+            "title": "Stage"
+          },
+          "stage_name": {
+            "type": "string",
+            "title": "Stage Name"
+          },
+          "blocker": {
+            "type": "string",
+            "title": "Blocker"
+          },
+          "evidence": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Evidence"
+          },
+          "required_role": {
+            "type": "string",
+            "title": "Required Role"
+          },
+          "next_action": {
+            "$ref": "#/components/schemas/ReadinessAction"
+          },
+          "affected_records": {
+            "items": {
+              "$ref": "#/components/schemas/AffectedRecord"
+            },
+            "type": "array",
+            "title": "Affected Records"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "paper_id",
+          "stage",
+          "stage_name",
+          "blocker",
+          "evidence",
+          "required_role",
+          "next_action",
+          "affected_records"
+        ],
+        "title": "ReadinessTask"
+      },
+      "ReadinessWriteResult": {
+        "properties": {
+          "record_id": {
+            "type": "string",
+            "title": "Record Id"
+          },
+          "expected_hash": {
+            "type": "string",
+            "title": "Expected Hash"
+          },
+          "audit_id": {
+            "type": "integer",
+            "title": "Audit Id"
+          },
+          "actor_id": {
+            "type": "integer",
+            "title": "Actor Id"
+          },
+          "corpus_generation": {
+            "type": "integer",
+            "title": "Corpus Generation"
+          }
+        },
+        "type": "object",
+        "required": [
+          "record_id",
+          "expected_hash",
+          "audit_id",
+          "actor_id",
+          "corpus_generation"
+        ],
+        "title": "ReadinessWriteResult"
       },
       "RecomputeResult": {
         "properties": {
@@ -12959,6 +13936,33 @@
           "sources"
         ],
         "title": "TaxonomyTreeNode"
+      },
+      "TextbookEvidence": {
+        "properties": {
+          "kind": {
+            "type": "string",
+            "const": "textbook_span",
+            "title": "Kind"
+          },
+          "span_id": {
+            "type": "integer",
+            "minimum": 1.0,
+            "title": "Span Id"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$",
+            "title": "Sha256"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "kind",
+          "span_id",
+          "sha256"
+        ],
+        "title": "TextbookEvidence"
       },
       "TopicItem": {
         "properties": {

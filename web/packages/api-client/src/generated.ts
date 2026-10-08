@@ -1392,6 +1392,74 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/admin/readiness": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Summary */
+        get: operations["summary_api_v1_admin_readiness_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/admin/readiness/bindings": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        /** Binding */
+        put: operations["binding_api_v1_admin_readiness_bindings_put"];
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/admin/readiness/inventory": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        /** Inventory */
+        put: operations["inventory_api_v1_admin_readiness_inventory_put"];
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/admin/readiness/priors": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        /** Prior */
+        put: operations["prior_api_v1_admin_readiness_priors_put"];
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/health": {
         parameters: {
             query?: never;
@@ -1501,6 +1569,15 @@ export interface components {
              * Format: date-time
              */
             at: string;
+        };
+        /** AffectedRecord */
+        AffectedRecord: {
+            /** Kind */
+            kind: string;
+            /** Id */
+            id: string;
+            /** Revision */
+            revision?: string | null;
         };
         /** AnswerPairingCandidate */
         AnswerPairingCandidate: {
@@ -1650,6 +1727,28 @@ export interface components {
             /** Attributed Marks */
             attributed_marks: number | null;
         };
+        /** AuditDecision */
+        AuditDecision: {
+            /** Id */
+            id: number;
+            /** Actor Id */
+            actor_id: number;
+            /** Action */
+            action: string;
+            /** Evidence */
+            evidence: string;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /** Record Id */
+            record_id: string;
+            /** Before Hash */
+            before_hash: string;
+            /** After Hash */
+            after_hash: string;
+        };
         /** BackupItem */
         BackupItem: {
             /** Name */
@@ -1690,6 +1789,39 @@ export interface components {
              * Format: date-time
              */
             created_at: string;
+        };
+        /** BindingRecord */
+        BindingRecord: {
+            /** Target Attempt Id */
+            target_attempt_id: string;
+            /** Taxonomy Version Id */
+            taxonomy_version_id: number;
+            /** Status */
+            status: string;
+            /** Reviewed By */
+            reviewed_by: number | null;
+            /** Expected Hash */
+            expected_hash: string;
+        };
+        /** BindingWrite */
+        BindingWrite: {
+            /** Expected Hash */
+            expected_hash: string;
+            /** Evidence */
+            evidence: string;
+            /** Idempotency Key */
+            idempotency_key: string;
+            /** Taxonomy Version Id */
+            taxonomy_version_id: number;
+            /** Source Evidence */
+            source_evidence: (components["schemas"]["TextbookEvidence"] | components["schemas"]["DocumentEvidence"])[];
+            /** Target Attempt Id */
+            target_attempt_id: string;
+            /**
+             * Action
+             * @enum {string}
+             */
+            action: "review" | "withdraw";
         };
         /** BlockResult */
         BlockResult: {
@@ -2351,6 +2483,22 @@ export interface components {
             /** Catalog Status */
             catalog_status: string;
         };
+        /** DocumentEvidence */
+        DocumentEvidence: {
+            /**
+             * @description discriminator enum property added by openapi-typescript
+             * @enum {string}
+             */
+            kind: "document_revision";
+            /** Revision Id */
+            revision_id: number;
+            /** Content Digest */
+            content_digest: string;
+            /** Pdf Page Start */
+            pdf_page_start: number;
+            /** Pdf Page End */
+            pdf_page_end: number;
+        };
         /** DocumentStatusResult */
         DocumentStatusResult: {
             /** Id */
@@ -2676,6 +2824,44 @@ export interface components {
             usable_exam: boolean;
             /** Blockers */
             blockers?: string[];
+        };
+        /** InventoryRecord */
+        InventoryRecord: {
+            /** Taxonomy Version Id */
+            taxonomy_version_id: number;
+            /** Paper Id */
+            paper_id: string;
+            /** Attempt Id */
+            attempt_id: string;
+            /** Source Family */
+            source_family: string;
+            /** Expected Slots */
+            expected_slots: number | null;
+            /** Inventory Reviewed */
+            inventory_reviewed: boolean;
+            /** Expected Hash */
+            expected_hash: string;
+        };
+        /** InventoryWrite */
+        InventoryWrite: {
+            /** Expected Hash */
+            expected_hash: string;
+            /** Evidence */
+            evidence: string;
+            /** Idempotency Key */
+            idempotency_key: string;
+            /** Taxonomy Version Id */
+            taxonomy_version_id: number;
+            /** Source Evidence */
+            source_evidence: (components["schemas"]["TextbookEvidence"] | components["schemas"]["DocumentEvidence"])[];
+            /** Paper Id */
+            paper_id: string;
+            /** Attempt Id */
+            attempt_id: string;
+            /** Source Family */
+            source_family: string;
+            /** Expected Slots */
+            expected_slots: number | null;
         };
         /** InvitationRequest */
         InvitationRequest: {
@@ -3042,6 +3228,19 @@ export interface components {
             /** Page End */
             page_end: number;
         };
+        /** PaperReadiness */
+        PaperReadiness: {
+            /** Paper Id */
+            paper_id: string;
+            /** Name */
+            name: string;
+            /** Blocker Count */
+            blocker_count: number;
+            /** Published Roots */
+            published_roots: number;
+            /** Expected Slots */
+            expected_slots: number | null;
+        };
         /** PaperReference */
         PaperReference: {
             /** Id */
@@ -3189,6 +3388,19 @@ export interface components {
             /** Weighted Contribution Pct */
             weighted_contribution_pct: number | null;
         };
+        /** PriorRecord */
+        PriorRecord: {
+            /** Taxonomy Version Id */
+            taxonomy_version_id: number;
+            /** Node Id */
+            node_id: string;
+            /** Value */
+            value: number | null;
+            /** Reviewed By */
+            reviewed_by: number | null;
+            /** Expected Hash */
+            expected_hash: string;
+        };
         /** PriorSignal */
         PriorSignal: {
             /**
@@ -3210,6 +3422,23 @@ export interface components {
             weighted_contribution: number | null;
             /** Weighted Contribution Pct */
             weighted_contribution_pct: number | null;
+        };
+        /** PriorWrite */
+        PriorWrite: {
+            /** Expected Hash */
+            expected_hash: string;
+            /** Evidence */
+            evidence: string;
+            /** Idempotency Key */
+            idempotency_key: string;
+            /** Taxonomy Version Id */
+            taxonomy_version_id: number;
+            /** Source Evidence */
+            source_evidence: (components["schemas"]["TextbookEvidence"] | components["schemas"]["DocumentEvidence"])[];
+            /** Node Id */
+            node_id: string;
+            /** Value */
+            value: number;
         };
         /** PrivateNoteResult */
         PrivateNoteResult: {
@@ -3509,12 +3738,73 @@ export interface components {
             /** Covered Subtopics */
             covered_subtopics: components["schemas"]["CoveredSubtopic"][];
         };
+        /** ReadinessAction */
+        ReadinessAction: {
+            /** Label */
+            label: string;
+            /** Href */
+            href: string;
+        };
         /** ReadinessBlocker */
         ReadinessBlocker: {
             /** Code */
             code: string;
             /** Message */
             message: string;
+        };
+        /** ReadinessSummary */
+        ReadinessSummary: {
+            /** Target Attempt Id */
+            target_attempt_id: string;
+            /** Taxonomy Version Id */
+            taxonomy_version_id: number | null;
+            /** Papers */
+            papers: components["schemas"]["PaperReadiness"][];
+            /** Tasks */
+            tasks: components["schemas"]["ReadinessTask"][];
+            /** Bindings */
+            bindings: components["schemas"]["BindingRecord"][];
+            /** Inventory */
+            inventory: components["schemas"]["InventoryRecord"][];
+            /** Priors */
+            priors: components["schemas"]["PriorRecord"][];
+            /** Source Evidence */
+            source_evidence: (components["schemas"]["TextbookEvidence"] | components["schemas"]["DocumentEvidence"])[];
+            /** History */
+            history: components["schemas"]["AuditDecision"][];
+        };
+        /** ReadinessTask */
+        ReadinessTask: {
+            /** Id */
+            id: string;
+            /** Paper Id */
+            paper_id: string | null;
+            /** Stage */
+            stage: number;
+            /** Stage Name */
+            stage_name: string;
+            /** Blocker */
+            blocker: string;
+            /** Evidence */
+            evidence: string[];
+            /** Required Role */
+            required_role: string;
+            next_action: components["schemas"]["ReadinessAction"];
+            /** Affected Records */
+            affected_records: components["schemas"]["AffectedRecord"][];
+        };
+        /** ReadinessWriteResult */
+        ReadinessWriteResult: {
+            /** Record Id */
+            record_id: string;
+            /** Expected Hash */
+            expected_hash: string;
+            /** Audit Id */
+            audit_id: number;
+            /** Actor Id */
+            actor_id: number;
+            /** Corpus Generation */
+            corpus_generation: number;
         };
         /** RecomputeResult */
         RecomputeResult: {
@@ -4081,6 +4371,18 @@ export interface components {
             }[];
             /** Children */
             children?: components["schemas"]["TaxonomyTreeNode"][];
+        };
+        /** TextbookEvidence */
+        TextbookEvidence: {
+            /**
+             * @description discriminator enum property added by openapi-typescript
+             * @enum {string}
+             */
+            kind: "textbook_span";
+            /** Span Id */
+            span_id: number;
+            /** Sha256 */
+            sha256: string;
         };
         /** TopicItem */
         TopicItem: {
@@ -6891,6 +7193,140 @@ export interface operations {
                 content: {
                     "application/json": unknown;
                     "image/png": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    summary_api_v1_admin_readiness_get: {
+        parameters: {
+            query?: {
+                target_attempt_id?: string | null;
+                taxonomy_version_id?: number | null;
+                paper_id?: string | null;
+                source_family?: string | null;
+                blocker_type?: string | null;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ReadinessSummary"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    binding_api_v1_admin_readiness_bindings_put: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["BindingWrite"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ReadinessWriteResult"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    inventory_api_v1_admin_readiness_inventory_put: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["InventoryWrite"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ReadinessWriteResult"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    prior_api_v1_admin_readiness_priors_put: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PriorWrite"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ReadinessWriteResult"];
                 };
             };
             /** @description Validation Error */
