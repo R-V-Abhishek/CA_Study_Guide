@@ -11,9 +11,10 @@ export function TaxonomyError({ error }: { error: unknown }) {
 
 export function TextbookSources({ sources }: { sources: TextbookSource[] }) {
   return <ul className="textbook-sources">{sources.map((source, index) => <li key={`${source.artifact_id}-${source.pdf_page_start}-${index}`}>
-    <strong>{source.edition}</strong> · {source.fallback ? "January 2026 fallback" : "Selected target textbook"}
+    <strong>{source.edition}</strong> · {source.fallback ? `${source.edition} fallback` : "Prescribed textbook source"}
     <p>Applicable attempts: {source.applicable_attempts.join(", ") || "Unresolved"} · May 2027 applicability: {source.target_applicability}</p>
-    <p>Source review: {source.review_status} · Artifact: {source.availability}</p>
+    <p>Source review: {source.review_status} · Source availability: {source.availability}</p>
+    <p>Source: {source.instrument || 'Official textbook'} · Edition {source.edition}</p>
     {source.instrument && <p>Instrument: {source.instrument}</p>}
     <a href={`${source.download_url.split("#")[0]}#page=${source.pdf_page_start}`} target="_blank" rel="noreferrer">Textbook PDF, pages {source.pdf_page_start}–{source.pdf_page_end}</a>
     {" · "}<a href={source.landing_url} target="_blank" rel="noreferrer">Official source page</a>

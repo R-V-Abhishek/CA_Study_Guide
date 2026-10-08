@@ -1,5 +1,4 @@
-.textbook-explorer { --textbook-border: #d6d3d1; --textbook-surface: #fff; --textbook-link: #4338ca; display: grid; gap: 1rem; font-size: .875rem; }
-.dark .textbook-explorer, .textbook-curator { --textbook-border: #475569; --textbook-surface: #1e293b; --textbook-link: #a5b4fc; }
+.textbook-explorer { --textbook-border: var(--border); --textbook-surface: var(--surface); --textbook-link: var(--accent); display: grid; gap: 1rem; font-size: .875rem; }
 .textbook-explorer h1 { font-size: 1.5rem; font-weight: 700; }
 .textbook-explorer h2 { font-size: 1.125rem; font-weight: 700; margin: .75rem 0; }
 .textbook-explorer h3 { font-weight: 700; margin-top: 1rem; }
@@ -19,11 +18,11 @@
 .textbook-explorer dl dt { font-weight: 600; margin-top: .75rem; }
 .textbook-explorer nav, .textbook-explorer cite { font-size: .75rem; }
 .textbook-explorer blockquote { border-left: 3px solid var(--textbook-border); padding: .5rem; margin: .5rem 0; white-space: pre-wrap; }
-.textbook-action { padding: .5rem .75rem; border-radius: .4rem; background: #4f46e5; color: white; margin-top: .75rem; }
+.textbook-action { padding: .5rem .75rem; border-radius: .4rem; background: var(--accent); color: var(--surface); margin-top: .75rem; }
 .textbook-explorer button { cursor: pointer; }
 .textbook-explorer button:disabled { opacity: .45; cursor: not-allowed; }
-.textbook-error { color: #dc2626; border: 1px solid currentColor; padding: .75rem; border-radius: .4rem; }
-.textbook-curator .textbook-error { color: #fca5a5; }
+.textbook-error { color: var(--error); border: 1px solid currentColor; padding: .75rem; border-radius: .4rem; }
+.textbook-curator .textbook-error { color: var(--error); }
 .textbook-table-wrap { overflow-x: auto; }
 .textbook-explorer table { width: 100%; border-collapse: collapse; }
 .textbook-explorer th, .textbook-explorer td { padding: .75rem; border-bottom: 1px solid var(--textbook-border); text-align: left; vertical-align: top; }

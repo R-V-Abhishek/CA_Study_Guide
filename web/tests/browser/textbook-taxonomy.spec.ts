@@ -20,9 +20,14 @@ async function routes(page: Page) {
   await page.route("**/api/v1/taxonomy/versions/*/question-sources", route => route.fulfill({ json: [{ id: "model-fixture", source_family: "model", course_level: "Final", attempt_id: null, scheme_id: "2023", paper_id: "P4", paper_ids: [], group: "2", series: null, artifact_role: "question", paired_artifact_id: "model-answer-fixture", availability: "discovered", landing_url: source.landing_url, download_url: source.download_url, sha256: null, page_count: null, classification_queue: "final_metadata_review", retrieved_at: "2026-10-03" }, { id: "mock-fixture", source_family: "mock", course_level: "Foundation", attempt_id: "2026-01", scheme_id: null, paper_id: "Foundation.P1", paper_ids: [], group: null, series: "II", artifact_role: "answer", paired_artifact_id: "mock-question-fixture", availability: "missing", landing_url: source.landing_url, download_url: "", sha256: null, page_count: null, classification_queue: "outside_corpus", retrieved_at: "2026-10-03" }] }));
   await page.route("**/api/v1/taxonomy/versions/*/crosswalk", route => route.fulfill({ json: [{ id: 1, old_node_id: "legacy.tax", new_node_id: "fresh.5", relation: "split", evidence: "Textbook subdivision evidence", reviewed_by: null, reviewed_at: null }] }));
 }
-async function selectLeaf(page: Page) {
-  for (const name of labels.slice(1, 5)) await page.locator("summary").filter({ hasText: name }).click();
-  await page.getByRole("button", { name: "subtopic Tax concept Review pending", exact: true }).click();
+async function selectLeaf(page: Page, curator = false) {
+  if (curator) {
+    for (const name of labels.slice(1, 5)) await page.locator("summary").filter({ hasText: name }).click();
+    await page.getByRole("button", { name: "subtopic Tax concept Review pending", exact: true }).click();
+  } else {
+    await page.getByRole("button", { name: "Expand to topics" }).click();
+    await page.getByRole("treeitem", { name: /Tax concept/ }).click();
+  }
 }
 
 test("recursive student explorer distinguishes fallback, applicability and preserved predecessor notes", async ({ page, request }, testInfo) => {
@@ -31,6 +36,9 @@ test("recursive student explorer distinguishes fallback, applicability and prese
   await expect(page.getByText("January 2026 fallback", { exact: false }).first()).toBeVisible();
   await expect(page.getByText(/May 2027 applicability: provision_review_required/).first()).toBeVisible();
   await expect(page.getByRole("link", { name: "Textbook PDF, pages 12–16" }).first()).toHaveAttribute("href", `${source.download_url}#page=12`);
+  await expect(page.getByRole("button", { name: "Approve reviewed descriptor revision" })).toHaveCount(0);
+  await expect(page.getByRole("button", { name: "Edit descriptor", exact: true })).toHaveCount(0);
+  await page.getByRole("tab", { name: "History", exact: true }).click();
   await expect(page.getByText("Original private note", { exact: true })).toBeVisible();
   await expect(page.getByRole("link", { name: "Original tax topic" })).toHaveAttribute("href", "/textbooks?legacy=true&paper=P4&node=legacy.tax");
   await expect(page.getByText(/Not eligible for classification/)).toBeVisible();
@@ -47,7 +55,8 @@ test("editing an approved descriptor creates a cited unapproved revision", async
     payload = route.request().postDataJSON(); current = { ...current, definition: "Updated definition", revision: 2, approved: false };
     return route.fulfill({ json: { revision: 2, approved: false } });
   });
-  await page.goto("/textbooks"); await selectLeaf(page);
+  await page.goto("/curator/textbooks"); await selectLeaf(page, true);
+  await page.getByRole("tab", { name: "Descriptor", exact: true }).click();
   await expect(page.getByText("Revision 1 · Approved")).toBeVisible();
   await page.getByRole("button", { name: "Edit descriptor", exact: true }).click();
   await page.getByLabel("Concept definition", { exact: true }).fill("Updated definition");
@@ -60,7 +69,8 @@ test("descriptor approval records displayed revision and failed approval stays p
   await request.post("/__test/login?account_id=2"); await routes(page);
   let payload: unknown;
   await page.route("**/api/v1/taxonomy/nodes/*/descriptor/approve", route => { payload = route.request().postDataJSON(); return route.fulfill({ status: 409, json: { detail: "Descriptor revision changed" } }); });
-  await page.goto("/textbooks"); await selectLeaf(page);
+  await page.goto("/curator/textbooks"); await selectLeaf(page, true);
+  await page.getByRole("tab", { name: "Descriptor", exact: true }).click();
   await page.getByRole("button", { name: "Approve reviewed descriptor revision" }).click();
   await expect(page.getByRole("alert")).toContainText("Descriptor revision changed");
   expect(payload).toEqual({ version_id: version.version_id, revision: 1 });
@@ -106,12 +116,12 @@ test("legacy explorer selects preserved version explicitly and retains URL selec
   await request.post("/__test/login?account_id=2"); await routes(page);
   await page.route("**/api/v1/taxonomy/versions", route => route.fulfill({ json: [version, { ...version, version_id: "legacy-fixture", status: "legacy", taxonomy_version_id: 1 }] }));
   await page.goto("/textbooks?legacy=true");
-  await expect(page.getByRole("heading", { name: "Legacy Taxonomy History" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Syllabus", exact: true })).toBeVisible();
   await expect(page.getByRole("combobox", { name: "Taxonomy version" })).toHaveValue("legacy-fixture");
   await page.getByRole("combobox", { name: "Taxonomy version" }).selectOption(version.version_id);
   await expect(page).toHaveURL(/version=textbook-fixture/);
   await page.reload();
   await expect(page.getByRole("combobox", { name: "Taxonomy version" })).toHaveValue(version.version_id);
-  await page.getByRole("link", { name: "Legacy syllabus and history" }).click();
-  await expect(page.getByRole("heading", { name: "Legacy Taxonomy History" })).toBeVisible();
+  await page.goto("/textbooks?legacy=true");
+  await expect(page.getByRole("heading", { name: "Syllabus", exact: true })).toBeVisible();
 });

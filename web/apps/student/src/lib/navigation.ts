@@ -11,3 +11,4 @@ export function resumeDestination() { const item = readNavigation<ResumeDestinat
 export function preserveOrigin(path: string, row: string) { writeNavigation(`origin:${path}`, { scroll: window.scrollY, row }); }
 export function restoreOrigin(path: string) { const state = readNavigation<{ scroll: number; row: string } | null>(`origin:${path}`, null); if (state) requestAnimationFrame(() => { document.getElementById(state.row)?.focus({ preventScroll: true }); window.scrollTo(0, state.scroll); }); }
 onIdentityReset(() => { for (let index = sessionStorage.length - 1; index >= 0; index--) { const key = sessionStorage.key(index); if (key?.startsWith('caf-navigation:')) sessionStorage.removeItem(key); } });
+window.addEventListener('caf-profile-changed', () => { sessionStorage.removeItem(prefix() + 'resume'); });

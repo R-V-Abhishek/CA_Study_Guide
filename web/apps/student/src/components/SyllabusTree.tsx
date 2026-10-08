@@ -7,6 +7,11 @@ export function SyllabusTree({ nodes, selected, search, status, scope, select }:
   const pane = useRef<HTMLDivElement>(null);
   useEffect(() => { setExpanded(readNavigation(`tree:${scope}`, nodes.map(node => node.id))); }, [scope]);
   useEffect(() => { writeNavigation(`tree:${scope}`, expanded); }, [scope, expanded]);
+  useEffect(() => {
+    const path: string[] = [];
+    function locate(items: SyllabusNode[]): boolean { for (const node of items) { if (node.id === selected) return true; if (locate(node.children)) { path.push(node.id); return true; } } return false; }
+    if (selected && locate(nodes)) setExpanded(previous => path.some(id => !previous.includes(id)) ? [...new Set([...previous, ...path])] : previous);
+  }, [selected, scope, nodes]);
   const activeFilter = Boolean(search.trim()) || status !== 'all';
   const filtered = useMemo(() => {
     function prune(items: SyllabusNode[], ancestorMatch = false): SyllabusNode[] {
