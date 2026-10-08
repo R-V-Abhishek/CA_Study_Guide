@@ -77,9 +77,22 @@ test('importance explanation uses fixed signal units and technical provenance di
 });
 
 for (const width of [390,768,1280,1440]) test(`student working routes fit ${width}px light and dark without runtime exceptions`,async ({ page },testInfo) => {
-  const errors:string[]=[];page.on('pageerror',error => errors.push(error.message));await page.setViewportSize({ width,height:900 });for (const theme of ['light','dark']) { await page.addInitScript(theme => localStorage.setItem('caf_theme',theme),theme);for (const route of ['/','/papers','/syllabus','/questions','/plan','/revision','/progress','/mock','/profile']) { await page.goto(route);await expect(page.locator('main').first()).toBeVisible();await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1)).toBeTruthy(); }await page.goto('/syllabus?demo=true');await page.screenshot({ path:`test-results/phase7-syllabus-${width}-${theme}-${testInfo.project.name}.png`,fullPage:true }); }expect(errors).toEqual([]);
+  const errors:string[]=[];page.on('pageerror',error => errors.push(error.message));await page.setViewportSize({ width,height:900 });for (const theme of ['light','dark']) { await page.addInitScript(theme => localStorage.setItem('caf_theme',theme),theme);for (const route of ['/','/papers','/syllabus','/questions','/plan','/revision','/progress','/mock','/profile']) { await page.goto(route);await expect(page.getByRole('heading',{ level:1 })).toBeVisible();await page.waitForLoadState('networkidle');await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1)).toBeTruthy(); }await page.goto('/syllabus?demo=true');await page.screenshot({ path:`test-results/phase7-syllabus-${width}-${theme}-${testInfo.project.name}.png`,fullPage:true }); }expect(errors).toEqual([]);
 });
 
 test('explicit demo routes stay separate and generate no API traffic',async ({ page }) => {
   const requests:string[]=[];page.on('request',request => { if (request.url().includes('/api/v1/')) requests.push(request.url()); });for (const route of ['/','/papers','/syllabus','/questions','/plan','/revision','/progress','/mock','/profile']) { await page.goto(`${route}?demo=true`);await expect(page.locator('main').first()).toBeVisible(); }expect(requests).toEqual([]);
+});
+
+test('rapid document navigation cancels pending private queries without runtime errors',async ({ page }) => {
+  const errors:string[]=[];
+  let privateRequests=0;
+  page.on('pageerror',error => errors.push(error.message));
+  await page.route('**/api/v1/me/settings',async route => { privateRequests++;const response=await route.fetch();await new Promise(resolve => setTimeout(resolve,300));await route.fulfill({ response }); });
+  await page.goto('/profile');
+  await expect.poll(() => privateRequests).toBeGreaterThan(0);
+  await page.goto('/syllabus?demo=true');
+  await expect(page.getByRole('heading',{ level:1,name:'Syllabus',exact:true })).toBeVisible();
+  await page.waitForTimeout(350);
+  expect(errors).toEqual([]);
 });

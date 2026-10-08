@@ -6,7 +6,7 @@ import { getData, getTree, mode, usePapers } from '../lib/data';
 import { demoLink, isDemoMode } from '../lib/demo';
 import { useUrlState } from '../lib/url';
 import { PageState } from '../components/PageState';
-import { paperNodes } from './Syllabus';
+import { paperNodes } from '../lib/syllabus';
 import type { SyllabusNode } from '../components/SyllabusTree';
 import { preserveOrigin, restoreOrigin } from '../lib/navigation';
 function topicOptions(nodes: SyllabusNode[], ancestors: string[] = []): { id: string; label: string }[] { return nodes.flatMap(node => node.children.length ? topicOptions(node.children, [...ancestors, node.name]) : [{ id: node.id, label: [...ancestors, node.name].join(' / ') }]); }

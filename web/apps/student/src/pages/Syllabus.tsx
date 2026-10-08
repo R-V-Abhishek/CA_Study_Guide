@@ -10,12 +10,9 @@ import { PageState } from '../components/PageState';
 import { SyllabusTree, type SyllabusNode } from '../components/SyllabusTree';
 import { SubtopicDetail } from '../components/SubtopicDetail';
 import { TextbookNodeDetail } from '../components/TextbookExplorer';
-import type { PaperTree, SubtopicData } from '../lib/contracts';
+import type { SubtopicData } from '../lib/contracts';
+import { paperNodes } from '../lib/syllabus';
 import { preserveOrigin, restoreOrigin } from '../lib/navigation';
-export function paperNodes(tree: PaperTree): SyllabusNode[] {
-  if (tree.hierarchy?.length) { const statuses = new Map(tree.chapters.flatMap(ch => ch.topics.flatMap(topic => topic.subtopics)).map(node => [node.id, node.status])); const adapt = (nodes: NonNullable<PaperTree['hierarchy']>): SyllabusNode[] => nodes.map(node => ({ id: node.id, name: node.name, level: node.level, eligible: node.eligible, status: statuses.get(node.id), children: adapt(node.children ?? []) })); return adapt(tree.hierarchy); }
-  return tree.chapters.map(ch => ({ id: ch.id, name: ch.name, level: 'chapter', children: ch.topics.map(topic => ({ id: topic.id, name: topic.name, level: 'topic', children: topic.subtopics.map(node => ({ id: node.id, name: node.name, level: 'subtopic', eligible: true, status: node.status, children: [] })) })) }));
-}
 function locate<T extends { id: string; children?: T[] }>(nodes: T[], id: string): T | undefined { for (const node of nodes) { if (node.id === id) return node; const child = locate(node.children ?? [], id); if (child) return child; } }
 export function Syllabus() {
   const { params, set, search } = useUrlState();
