@@ -34,11 +34,13 @@ export function NodePickerModal({
 }: NodePickerModalProps) {
   const [search, setSearch] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
+  const dialogRef = useRef<HTMLDialogElement>(null);
 
   // Auto-focus input when opened
   useEffect(() => {
     if (isOpen) {
-      setTimeout(() => inputRef.current?.focus(), 50);
+      dialogRef.current?.showModal();
+      inputRef.current?.focus();
     } else {
       setSearch("");
     }
@@ -82,8 +84,8 @@ export function NodePickerModal({
   });
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-xs animate-in fade-in duration-150">
-      <div role="dialog" aria-modal="true" aria-label="Select Canonical Subtopic" className="bg-[#1E293B] rounded-2xl border border-[#334155] shadow-2xl max-w-2xl w-full max-h-[80vh] flex flex-col overflow-hidden text-slate-100">
+    <dialog ref={dialogRef} onCancel={onClose} aria-label="Select Canonical Subtopic" className="review-dialog max-w-2xl w-full p-0">
+      <div className="bg-slate-800 rounded-xl border border-slate-700 max-h-[80vh] flex flex-col overflow-hidden">
         {/* Modal Header */}
         <div className="p-4 border-b border-[#334155] flex items-center justify-between">
           <div>
@@ -110,7 +112,8 @@ export function NodePickerModal({
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search by subtopic name, section number, chapter or node ID…"
-              className="w-full pl-9 pr-3 py-2 rounded-xl text-xs bg-slate-900 border border-slate-700 text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              aria-label="Search topics"
+              className="w-full pl-9 pr-3 py-2 rounded-xl text-sm bg-slate-900 border border-slate-700 placeholder:text-slate-500 focus:ring-2 focus:ring-indigo-500"
             />
           </div>
         </div>
@@ -159,6 +162,6 @@ export function NodePickerModal({
           )}
         </div>
       </div>
-    </div>
+    </dialog>
   );
 }
