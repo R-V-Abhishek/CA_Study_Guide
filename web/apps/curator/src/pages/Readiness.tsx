@@ -1,0 +1,81 @@
+import { useRef, useState } from "react";
+import { Link, useSearchParams } from "react-router-dom";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { accountKey, ApiError } from "@caf/api-client";
+import { readinessApi, type BindingRecord, type InventoryRecord, type PriorRecord, type ReadinessTask, type SourceEvidence } from "@caf/api-client/src/readiness";
+import { RequestError } from "../components/RequestError";
+import { WorkspaceSkeleton } from "../components/WorkspaceSkeleton";
+import "../components/review-workspace.css";
+
+type Edit = { kind: "binding"; record: BindingRecord } | { kind: "inventory"; record: InventoryRecord } | { kind: "prior"; record: PriorRecord };
+const control = "rounded-lg border border-slate-600 bg-slate-900 p-2 text-sm min-h-10 disabled:opacity-50";
+const panel = "rounded-xl border border-slate-700 bg-slate-800 p-4 space-y-3";
+const families = [{ id: "past_exam", name: "Past examinations" }, { id: "rtp", name: "Revision test papers" }, { id: "mock", name: "Mock test papers" }, { id: "model", name: "Model test papers" }, { id: "case_study", name: "Case studies" }];
+
+export function Readiness() {
+  const [params, setParams] = useSearchParams();
+  const cache = useQueryClient();
+  const [task, setTask] = useState<ReadinessTask | null>(null);
+  const [edit, setEdit] = useState<Edit | null>(null);
+  const [value, setValue] = useState("");
+  const [action, setAction] = useState<"review" | "withdraw">("review");
+  const [reason, setReason] = useState("");
+  const [selectedEvidence, setSelectedEvidence] = useState<number[]>([]);
+  const [confirmed, setConfirmed] = useState(false);
+  const [stale, setStale] = useState(false);
+  const [message, setMessage] = useState("");
+  const detailDialog = useRef<HTMLDialogElement>(null);
+  const editDialog = useRef<HTMLDialogElement>(null);
+  const retry = useRef<{ signature: string; key: string } | null>(null);
+  const summary = useQuery({ queryKey: ["admin-readiness", accountKey(), params.toString()], queryFn: ({ signal }) => readinessApi.summary({
+    target_attempt_id: params.get("target_attempt_id") || undefined,
+    taxonomy_version_id: params.get("taxonomy_version_id") ? Number(params.get("taxonomy_version_id")) : undefined,
+    paper_id: params.get("paper_id") || undefined, source_family: params.get("source_family") || undefined,
+    blocker_type: params.get("blocker_type") || undefined,
+  }, signal), retry: false });
+  const data = summary.data;
+  const label = (editing: Edit) => editing.kind === "binding" ? `Attempt ${editing.record.target_attempt_id}` : editing.kind === "inventory" ? `${editing.record.paper_id} · ${editing.record.attempt_id} · ${families.find(family => family.id === editing.record.source_family)?.name ?? editing.record.source_family}` : editing.record.node_id;
+  const mutation = useMutation({ mutationFn: () => {
+    if (!edit || !data) throw new Error("Select the reviewed record and source evidence.");
+    const sources = selectedEvidence.map(index => data.source_evidence[index]);
+    const signature = JSON.stringify({ edit, value, action, reason, sources });
+    if (retry.current?.signature !== signature) retry.current = { signature, key: crypto.randomUUID() };
+    const base = { expected_hash: edit.record.expected_hash, taxonomy_version_id: edit.record.taxonomy_version_id, evidence: reason.trim(), source_evidence: sources, idempotency_key: retry.current.key };
+    if (edit.kind === "binding") return readinessApi.binding({ ...base, target_attempt_id: edit.record.target_attempt_id, action });
+    if (edit.kind === "inventory") return readinessApi.inventory({ ...base, paper_id: edit.record.paper_id, attempt_id: edit.record.attempt_id, source_family: edit.record.source_family, expected_slots: value.trim() ? Number(value) : null });
+    return readinessApi.prior({ ...base, node_id: edit.record.node_id, value: Number(value) });
+  }, onSuccess: async () => {
+    setMessage("Reviewed decision recorded. Affected scores were marked for recomputation.");
+    setConfirmed(false); retry.current = null; editDialog.current?.close();
+    await cache.invalidateQueries({ queryKey: ["admin-readiness", accountKey()] });
+  }, onError: error => { if ((error as ApiError).status === 409) { setConfirmed(false); setStale(true); } } });
+  const changeFilter = (key: string, nextValue: string) => { const next = new URLSearchParams(params); nextValue ? next.set(key, nextValue) : next.delete(key); setParams(next); setMessage(""); };
+  const openEditor = (next: Edit) => { setEdit(next); setValue(next.kind === "binding" ? "" : String(next.kind === "inventory" ? next.record.expected_slots ?? "" : next.record.value ?? "")); setReason(""); setAction("review"); setSelectedEvidence([]); setConfirmed(false); setStale(false); mutation.reset(); retry.current = null; editDialog.current?.showModal(); };
+  const refreshCurrent = async () => {
+    const current = (await summary.refetch()).data;
+    if (!current || !edit) return;
+    const next = edit.kind === "binding" ? current.bindings.find(record => record.target_attempt_id === edit.record.target_attempt_id && record.taxonomy_version_id === edit.record.taxonomy_version_id) : edit.kind === "inventory" ? current.inventory.find(record => record.paper_id === edit.record.paper_id && record.attempt_id === edit.record.attempt_id && record.source_family === edit.record.source_family) : current.priors.find(record => record.node_id === edit.record.node_id);
+    if (!next) return;
+    setEdit({ ...edit, record: next } as Edit); setStale(false); setConfirmed(false); mutation.reset(); retry.current = null;
+  };
+  const sourceLabel = (source: SourceEvidence, index: number) => source.kind === "textbook_span" ? `Reviewed textbook source context ${index + 1}` : `Reviewed question-source pages ${source.pdf_page_start}–${source.pdf_page_end} (source ${index + 1})`;
+  return <div className="space-y-6"><header><h1 className="text-xl font-bold">Content readiness</h1><p>Review source-backed dependencies in order. Unknown inventory and pending human reviews remain visible.</p></header>
+    <div className="flex flex-wrap gap-3">{data && <>
+      <label>Target attempt <select className={control} value={params.get("target_attempt_id") ?? data.target_attempt_id} onChange={event => changeFilter("target_attempt_id", event.target.value)}>{[...new Set([data.target_attempt_id, ...data.bindings.map(binding => binding.target_attempt_id)])].map(attempt => <option key={attempt} value={attempt}>{attempt}</option>)}</select></label>
+      <label>Taxonomy version <select className={control} value={params.get("taxonomy_version_id") ?? data.taxonomy_version_id ?? ""} onChange={event => changeFilter("taxonomy_version_id", event.target.value)}><option value="">Current attempt context</option>{[...new Set([data.taxonomy_version_id, ...data.bindings.map(binding => binding.taxonomy_version_id)])].filter(version => version !== null).map(version => <option key={version} value={version!}>Version {version}</option>)}</select></label>
+      <label>Paper <select className={control} value={params.get("paper_id") ?? ""} onChange={event => changeFilter("paper_id", event.target.value)}><option value="">All papers</option>{data.papers.map(paper => <option key={paper.paper_id} value={paper.paper_id}>{paper.name}</option>)}</select></label>
+    </>}<label>Source family <select className={control} value={params.get("source_family") ?? ""} onChange={event => changeFilter("source_family", event.target.value)}><option value="">All families</option>{families.map(family => <option key={family.id} value={family.id}>{family.name}</option>)}</select></label>
+      <label>Blocker type <select className={control} value={params.get("blocker_type") ?? ""} onChange={event => changeFilter("blocker_type", event.target.value)}><option value="">All stages</option>{["Textbook edition/source", "Heading taxonomy and descriptors", "Applicability and attempt binding", "Source metadata/ranges", "Extraction and answer pairing", "Classification/publication", "Expected inventory and coverage", "Official priors and scoring freshness"].map((stage, index) => <option key={stage} value={String(index + 1)}>{stage}</option>)}</select></label><button className={control} onClick={() => setParams({})}>Clear filters</button>
+    </div><RequestError error={summary.error} retry={() => void summary.refetch()} />{summary.isPending && <WorkspaceSkeleton label="Loading content readiness…" />}{summary.isFetching && data && <p role="status">Refreshing readiness…</p>}{message && <p role="status">{message}</p>}
+    {data && <><section className={panel}><h2 className="text-lg font-semibold">Paper readiness</h2><div className="overflow-x-auto"><table className="w-full text-left"><thead><tr><th>Paper</th><th>Open blockers</th><th>Published questions</th><th>Expected source slots</th></tr></thead><tbody>{data.papers.map(paper => <tr key={paper.paper_id}><th className="py-3 font-medium">{paper.name}</th><td>{paper.blocker_count}</td><td>{paper.published_roots}</td><td>{paper.expected_slots ?? "Unknown — inventory review required"}</td></tr>)}</tbody></table></div>{!data.papers.length && <p>No papers are available for this context.</p>}</section>
+      <section className={panel}><h2 className="text-lg font-semibold">Review tasks</h2>{!data.tasks.length ? <p>{params.size ? "No readiness tasks match these filters." : "No open readiness tasks were returned for this context."}</p> : <div className="overflow-x-auto"><table className="w-full text-left"><thead><tr><th>Paper</th><th>Stage</th><th>Blocker</th><th>Evidence</th><th>Required role</th><th>Next action</th></tr></thead><tbody>{[...data.tasks].sort((a, b) => a.stage - b.stage).map(row => <tr key={row.id}><td className="py-3 pr-3">{data.papers.find(paper => paper.paper_id === row.paper_id)?.name ?? "All papers"}</td><td className="pr-3">{row.stage}. {row.stage_name}</td><td className="pr-3">{row.blocker}</td><td className="pr-3"><button className={control} onClick={() => { setTask(row); detailDialog.current?.showModal(); }}>View evidence</button></td><td className="pr-3">{row.required_role}</td><td><Link className="underline" to={row.next_action.href.replace(/^\/curator/, "")}>{row.next_action.label}</Link></td></tr>)}</tbody></table></div>}</section>
+      <section className={panel}><h2 className="text-lg font-semibold">Audited administrative decisions</h2><p>Writes require the displayed revision, approved source evidence and your review reason. Completeness derives from reviewed inputs.</p><details><summary>Attempt bindings ({data.bindings.length})</summary>{data.bindings.map(record => <div key={`${record.target_attempt_id}:${record.taxonomy_version_id}`} className="flex flex-wrap gap-3 py-3 items-center"><span>Attempt {record.target_attempt_id} · {record.status}</span><button className={control} onClick={() => openEditor({ kind: "binding", record })}>Review attempt binding</button></div>)}</details><details><summary>Expected inventory ({data.inventory.length})</summary>{data.inventory.map(record => <div key={`${record.paper_id}:${record.attempt_id}:${record.source_family}`} className="flex flex-wrap gap-3 py-3 items-center"><span>{record.paper_id} · {record.attempt_id} · {record.source_family} · {record.expected_slots ?? "Unknown"} · {record.inventory_reviewed ? "Reviewed" : "Awaiting review"}</span><button className={control} onClick={() => openEditor({ kind: "inventory", record })}>Review expected inventory</button></div>)}</details><details><summary>Official priors ({data.priors.length})</summary>{data.priors.map(record => <div key={record.node_id} className="flex flex-wrap gap-3 py-3 items-center"><span>{record.node_id} · {record.value ?? "Unavailable"} · {record.reviewed_by === null ? "Awaiting review" : "Reviewed"}</span><button className={control} onClick={() => openEditor({ kind: "prior", record })}>Review official prior</button></div>)}</details></section>
+    </>}
+    <dialog ref={detailDialog} className="review-dialog" aria-labelledby="readiness-detail-title"><h2 id="readiness-detail-title">Readiness evidence</h2>{task && <><h3>{task.stage_name}</h3><p>{task.blocker}</p><ul>{task.evidence.map((evidence, index) => <li key={index}>{evidence}</li>)}</ul><Link className="underline" to={task.next_action.href.replace(/^\/curator/, "")}>{task.next_action.label}</Link><h3 className="mt-4">Previous decisions</h3>{data?.history.filter(decision => task.affected_records.some(record => record.id === decision.record_id)).map(decision => <div key={decision.id}><p>{decision.action} · {new Date(decision.created_at).toLocaleString()}</p><p>{decision.evidence}</p></div>)}<details><summary>Exact affected records and revisions</summary>{task.affected_records.map(record => <p key={`${record.kind}:${record.id}`}>{record.kind} · {record.id} · revision {record.revision ?? "Unrecorded"}</p>)}</details></>}<button className="mt-4" onClick={() => detailDialog.current?.close()}>Close evidence</button></dialog>
+    <dialog ref={editDialog} className="review-dialog" aria-labelledby="readiness-edit-title"><h2 id="readiness-edit-title">Review administrative decision</h2>{edit && data && <form className="space-y-4" onSubmit={event => { event.preventDefault(); if (!mutation.isPending && !stale) mutation.mutate(); }}><p>{label(edit)}</p><p>Current: {edit.kind === "binding" ? edit.record.status : edit.kind === "inventory" ? edit.record.expected_slots ?? "Unknown" : edit.record.value ?? "Unavailable"}</p>
+      {edit.kind === "binding" ? <label>Proposed binding decision <select className={control} value={action} onChange={event => { setAction(event.target.value as "review" | "withdraw"); setConfirmed(false); }}><option value="review">Review attempt applicability</option><option value="withdraw">Withdraw attempt applicability review</option></select></label> : <label className="block">{edit.kind === "inventory" ? "Expected source slots (leave blank if unknown)" : "Official prior (0 to 1)"}<input className={`${control} block w-full`} type="number" min={0} max={edit.kind === "prior" ? 1 : undefined} step={edit.kind === "prior" ? "any" : 1} required={edit.kind === "prior"} value={value} onChange={event => { setValue(event.target.value); setConfirmed(false); }} /></label>}
+      <fieldset><legend>Approved source evidence</legend>{data.source_evidence.length ? data.source_evidence.map((source, index) => <label className="block py-2" key={index}><input type="checkbox" checked={selectedEvidence.includes(index)} onChange={event => { setSelectedEvidence(current => event.target.checked ? [...current, index] : current.filter(value => value !== index)); setConfirmed(false); }} /> {sourceLabel(source, index)}</label>) : <p>No approved source evidence is available. Review the required source before recording this decision.</p>}</fieldset>
+      <label className="block">Review evidence and reason<textarea className={`${control} block w-full`} required maxLength={10000} value={reason} onChange={event => { setReason(event.target.value); setConfirmed(false); }} /></label><label className="block"><input type="checkbox" checked={confirmed} onChange={event => setConfirmed(event.target.checked)} /> I reviewed the current record, proposed decision and cited approved source evidence.</label><details><summary>Technical revision details</summary><p>Expected hash: {edit.record.expected_hash}</p>{selectedEvidence.map(index => <pre className="text-xs whitespace-pre-wrap break-all" key={index}>{JSON.stringify(data.source_evidence[index], null, 2)}</pre>)}</details>
+      <RequestError error={mutation.error} />{stale && <div role="status"><p>The record changed. Your input is retained. Refresh Current, compare the proposed decision, then confirm again.</p><button type="button" onClick={() => void refreshCurrent()}>Refresh current record for comparison</button></div>}<div className="flex flex-wrap gap-3"><button type="submit" disabled={!confirmed || !reason.trim() || !selectedEvidence.length || mutation.isPending || stale}>{mutation.isPending ? "Recording decision…" : "Record reviewed decision"}</button><button type="button" disabled={mutation.isPending} onClick={() => editDialog.current?.close()}>Keep reviewing</button></div></form>}</dialog>
+  </div>;
+}
