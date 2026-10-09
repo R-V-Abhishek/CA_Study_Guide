@@ -59,6 +59,24 @@ test("review separators support keyboard resizing without publishing", async ({ 
   await page.getByLabel("Review evidence or correction reason").fill("Alt shortcuts remain inert while editing.");
   await page.keyboard.press("Alt+j");
   await expect(page.getByRole("button", { name: "Publish reviewed labels" })).toBeDisabled();
+  await page.getByRole("heading", { name: "Review questions", exact: true }).click();
+  await page.keyboard.press("Alt+l");
+  await expect(page.locator("#review-Labels")).toBeFocused();
+});
+
+test("classification opens complete original pages and restores source-button focus", async ({ page }) => {
+  await queue(page);
+  await page.route("**/api/v1/extraction/revisions/2", route => route.fulfill({ json: { id: 2, source_documents: [{ id: 10, sha256: "a".repeat(64), page_count: 2 }], questions: [], quality: { issues: [] } } }));
+  await page.route("**/api/v1/extraction/documents/10/pages/*", route => route.fulfill({ contentType: "image/svg+xml", body: '<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500"><text x="20" y="30">Original official source fixture</text></svg>' }));
+  await page.goto("/curator/classifications");
+  const source = page.getByRole("button", { name: "View source", exact: true });
+  await source.click();
+  await expect(page.getByRole("dialog", { name: "Original source evidence" })).toBeVisible();
+  await expect(page.getByRole("img", { name: "Original document 10, page 1" })).toBeVisible();
+  await page.getByRole("button", { name: "Next page", exact: true }).click();
+  await expect(page.getByRole("img", { name: "Original document 10, page 2" })).toBeVisible();
+  await page.keyboard.press("Escape");
+  await expect(source).toBeFocused();
 });
 
 test("draft blind benchmark hides model labels until submission and records independent evidence", async ({ page }) => {

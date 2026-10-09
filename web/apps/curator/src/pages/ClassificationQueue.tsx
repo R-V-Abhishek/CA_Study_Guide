@@ -82,7 +82,7 @@ export function ClassificationQueue() {
       const key = event.key.toLowerCase();
       if (key === "j" && index < items.length - 1 && !mutation.isPending) setSelected(items[index + 1].suggestion_revision_id);
       else if (key === "k" && index > 0 && !mutation.isPending) setSelected(items[index - 1].suggestion_revision_id);
-      else if (["q", "a", "l"].includes(key)) setTab(key === "q" ? "Question" : key === "a" ? "Answer" : "Labels");
+      else if (["q", "a", "l"].includes(key)) { const next = key === "q" ? "Question" : key === "a" ? "Answer" : "Labels"; setTab(next); requestAnimationFrame(() => document.getElementById(`review-${next}`)?.focus()); }
       else return;
       event.preventDefault();
     };
