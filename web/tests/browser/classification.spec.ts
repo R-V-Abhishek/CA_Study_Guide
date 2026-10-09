@@ -64,6 +64,14 @@ test("review separators support keyboard resizing without publishing", async ({ 
   await expect(page.locator("#review-Labels")).toBeFocused();
 });
 
+test("source filters use the acquired document type rather than its broad family", async ({ page }) => {
+  await queue(page, { ...item, doc_type_id: "model_question" });
+  await page.goto("/curator/classifications");
+  await page.getByLabel("Source type", { exact: true }).selectOption("model_question");
+  await expect(page).toHaveURL(/source=model_question/);
+  await expect(page.getByText("Company case shared by both parts.", { exact: true })).toBeVisible();
+});
+
 test("classification opens complete original pages and restores source-button focus", async ({ page }) => {
   await queue(page);
   await page.route("**/api/v1/extraction/revisions/2", route => route.fulfill({ json: { id: 2, source_documents: [{ id: 10, sha256: "a".repeat(64), page_count: 2 }], questions: [], quality: { issues: [] } } }));
