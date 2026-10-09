@@ -32,7 +32,7 @@ test("active student reviews complete extracted trees and source fidelity separa
   let review: unknown;
   await page.route("**/api/v1/extraction/revisions/2/reviews", route => { review = route.request().postDataJSON(); return route.fulfill({ json: { id: 7 } }); });
   await page.goto("/curator/extraction");
-  await expect(page.getByRole("link", { name: "Extraction Review" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Extraction", exact: true })).toBeVisible();
   await page.getByRole("button", { name: /^Official model fixture/ }).click();
   await expect(page.getByText("The company reported these balances.", { exact: true })).toHaveCount(1);
   await expect(page.getByText("Compute revenue.", { exact: true })).toBeVisible();
@@ -41,6 +41,7 @@ test("active student reviews complete extracted trees and source fidelity separa
   await expect(page.getByText("Available answers · partial", { exact: true })).toBeVisible();
   await expect(page.getByRole("img", { name: "Original document 10, page 1" })).toBeVisible();
   await expect(page.getByRole("button", { name: "Promote candidate revision" })).toHaveCount(0);
+  await page.getByRole("tab", { name: "Quality checks" }).click();
   await expect(page.getByLabel("Quality dimension").locator("option[value=metadata]")).toHaveCount(0);
   await expect(page.getByLabel("Quality dimension").locator("option[value=pairing]")).toHaveCount(1);
   await page.getByLabel("Quality dimension").selectOption("readability");
@@ -58,9 +59,14 @@ test("administrator compares immutable revisions and promotion retains stale rev
   await page.route("**/api/v1/extraction/revisions/2/promote", route => { promotion = route.request().postDataJSON(); return route.fulfill({ status: 409, json: { detail: "Current revision changed" } }); });
   await page.goto("/curator/extraction"); await page.getByRole("button", { name: /^Official model fixture/ }).click();
   await page.getByLabel("Compare revision").selectOption("1");
+  await page.getByRole("tab", { name: "Revision differences" }).click();
   await expect(page.getByText("Previous question wording.", { exact: true })).toBeVisible();
   await expect(page.getByText("Content differs. Compare question and answer trees before promotion.")).toBeVisible();
+  await page.getByRole("tab", { name: "Quality checks" }).click();
   await page.getByRole("button", { name: "Promote candidate revision" }).click();
+  await expect(page.getByRole("button", { name: "Confirm promotion" })).toBeDisabled();
+  await page.getByLabel("I compared the complete candidate, original sources, quality reviews and revision differences.").check();
+  await page.getByRole("button", { name: "Confirm promotion" }).click();
   await expect(page.getByRole("alert")).toContainText("Current revision changed");
   expect(promotion).toEqual({ expected_current_revision_id: 1 });
   await expect(page.getByText("Candidate promoted. Previous extraction history remains available.")).toHaveCount(0);

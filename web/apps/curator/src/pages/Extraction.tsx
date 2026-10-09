@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState, useSyncExternalStore } from "react";
+import { useRef, useState, useSyncExternalStore } from "react";
+import { useSearchParams } from "react-router-dom";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { accountKey, authState, subscribeAuth } from "@caf/api-client";
 import { extractionApi, type ExtractedQuestion, type ExtractionQuestionPart, type ExtractionAnswerPart, type ExtractionSpan } from "@caf/api-client/src/extraction";
@@ -6,6 +7,7 @@ import { RequestError } from "../components/RequestError";
 import { ExtractionEvidence } from "../components/ExtractionEvidence";
 import { WorkspaceSkeleton } from "../components/WorkspaceSkeleton";
 
+import { SourcePage } from "../components/SourcePage";
 import { ExtractionMetadata } from "../components/ExtractionMetadata";
 import "../components/review-workspace.css";
 
@@ -41,19 +43,9 @@ function Question({ question, open, openDocument }: { question: ExtractedQuestio
   </article>;
 }
 
-function SourcePage({ document, page, pageCount, change }: { document: number; page: number; pageCount: number | null; change: (page: number) => void }) {
-  const [url, setUrl] = useState("");
-  const source = useQuery({ queryKey: ["extraction-source-page", accountKey(), document, page], queryFn: () => extractionApi.page(document, page), retry: false });
-  useEffect(() => {
-    setUrl("");
-    if (!source.data) return;
-    const next = URL.createObjectURL(source.data); setUrl(next);
-    return () => URL.revokeObjectURL(next);
-  }, [source.data]);
-  return <section className={panel} aria-label="Original source page"><h2 className="font-semibold">Original source · document {document}</h2><div className="flex items-center gap-2"><button className={control} disabled={page <= 1} onClick={() => change(page - 1)}>Previous page</button><label>Page <input className={`${control} w-20`} type="number" min={1} max={pageCount ?? undefined} value={page} onChange={event => { const value = Number(event.target.value); if (Number.isInteger(value) && value >= 1 && (pageCount === null || value <= pageCount)) change(value); }} /></label><button className={control} disabled={pageCount !== null && page >= pageCount} onClick={() => change(page + 1)}>Next page</button></div><RequestError error={source.error} retry={() => void source.refetch()} />{source.isFetching && <p role="status">Loading original page…</p>}{url && <img className="w-full bg-white" src={url} alt={`Original document ${document}, page ${page}`} />}</section>;
-}
 
 export function Extraction() {
+  const [params, setParams] = useSearchParams();
   const identity = useSyncExternalStore(subscribeAuth, authState);
   const admin = identity.identity?.capabilities.includes("admin") ?? false;
   const cache = useQueryClient();
@@ -62,11 +54,11 @@ export function Extraction() {
   const [promotionConfirmed, setPromotionConfirmed] = useState(false);
   const [documentPage, setDocumentPage] = useState(1);
   const [revisionPage, setRevisionPage] = useState(1);
-  const [selectedDocument, setSelectedDocument] = useState<number | null>(null);
-  const [selectedRevision, setSelectedRevision] = useState<number | null>(null);
+  const [selectedDocument, setSelectedDocument] = useState<number | null>(params.get("document_id") ? Number(params.get("document_id")) : null);
+  const [selectedRevision, setSelectedRevision] = useState<number | null>(params.get("revision") ? Number(params.get("revision")) : null);
   const [comparison, setComparison] = useState<number | null>(null);
   const [questionPage, setQuestionPage] = useState(1);
-  const [sourceDocument, setSourceDocument] = useState<number | null>(null);
+  const [sourceDocument, setSourceDocument] = useState<number | null>(params.get("document_id") ? Number(params.get("document_id")) : null);
   const [sourcePage, setSourcePage] = useState(1);
   const [sourceError, setSourceError] = useState<Error | null>(null);
   const [dimension, setDimension] = useState(dimensions[0]);
@@ -95,14 +87,14 @@ export function Extraction() {
     }
     setSourceError(null); setSourceDocument(id); setSourcePage(page);
   };
-  const selectDocument = (id: number) => { setTab("Question assembly"); setPromotionConfirmed(false); setSelectedDocument(id); setSelectedRevision(null); setRevisionPage(1); setComparison(null); setQuestionPage(1); setSourceDocument(id); setSourcePage(1); setSourceError(null); review.reset(); promote.reset(); };
+  const selectDocument = (id: number) => { setParams({ document_id: String(id) }); setTab("Question assembly"); setPromotionConfirmed(false); setSelectedDocument(id); setSelectedRevision(null); setRevisionPage(1); setComparison(null); setQuestionPage(1); setSourceDocument(id); setSourcePage(1); setSourceError(null); review.reset(); promote.reset(); };
   return <div className="space-y-5"><h1 className="text-xl font-bold">Extraction</h1><p className="text-sm text-slate-300">Compare complete questions and available answers with the original pages. Extraction quality reviews are recorded separately from topic classification.</p>
     <RequestError error={docs.error} retry={() => void docs.refetch()} />{docs.isPending && <WorkspaceSkeleton label="Loading source documents…" />}
     {docs.data && <section className={panel}><h2 className="font-semibold">Source documents</h2>{docs.data.items.length === 0 ? <p>No acquired source documents are available.</p> : <div className="flex flex-wrap gap-2">{docs.data.items.map(item => <button className={`${control} ${selectedDocument === item.id ? "border-indigo-400" : ""}`} key={item.id} onClick={() => selectDocument(item.id)}>{item.title ?? `Document ${item.id}`} · {item.paper_id ?? "Paper unresolved"} · {item.attempt_id ?? item.collection_id ?? "Undated"} · {item.doc_type_id ?? "Role unresolved"} · {item.catalog_status}</button>)}</div>}<Pagination page={documentPage} total={docs.data.total} size={docs.data.page_size} name="documents" change={page => { setDocumentPage(page); setSelectedDocument(null); setSelectedRevision(null); setComparison(null); setSourceDocument(null); }} /></section>}
     {selectedDocument !== null && <><RequestError error={revisions.error} retry={() => void revisions.refetch()} />{revisions.isPending && <p role="status">Loading extraction revisions…</p>}{revisions.data?.items.length === 0 && <p>No extraction revision has been generated for this document.</p>}
       {document && admin && <ExtractionMetadata key={document.id} document={document} refresh={refresh} />}
       {document && !revision.data && sourceDocument!==null && <SourcePage document={sourceDocument} page={sourcePage} pageCount={document.page_count} change={setSourcePage} />}
-      {revisions.data && revisions.data.items.length > 0 && <section className={panel}><div className="flex gap-4 flex-wrap"><label>Extraction revision <select className={control} value={revisionId ?? ""} onChange={event => { setSelectedRevision(Number(event.target.value)); setQuestionPage(1); review.reset(); promote.reset(); }}>{revisions.data.items.map(item => <option key={item.id} value={item.id}>Revision {item.id} · {item.status}</option>)}</select></label><label>Compare revision <select className={control} value={comparison ?? ""} onChange={event => setComparison(event.target.value ? Number(event.target.value) : null)}><option value="">No comparison</option>{revisions.data.items.filter(item => item.id !== revisionId).map(item => <option key={item.id} value={item.id}>Revision {item.id} · {item.status}</option>)}</select></label></div><Pagination page={revisionPage} total={revisions.data.total} size={revisions.data.page_size} name="revisions" change={page => { setRevisionPage(page); setSelectedRevision(null); setComparison(null); setQuestionPage(1); }} /></section>}
+      {revisions.data && revisions.data.items.length > 0 && <section className={panel}><div className="flex gap-4 flex-wrap"><label>Extraction revision <select className={control} value={revisionId ?? ""} onChange={event => { setSelectedRevision(Number(event.target.value)); setParams({ document_id: String(selectedDocument), revision: event.target.value }); setQuestionPage(1); review.reset(); promote.reset(); }}>{revisions.data.items.map(item => <option key={item.id} value={item.id}>Revision {item.id} · {item.status}</option>)}</select></label><label>Compare revision <select className={control} value={comparison ?? ""} onChange={event => setComparison(event.target.value ? Number(event.target.value) : null)}><option value="">No comparison</option>{revisions.data.items.filter(item => item.id !== revisionId).map(item => <option key={item.id} value={item.id}>Revision {item.id} · {item.status}</option>)}</select></label></div><Pagination page={revisionPage} total={revisions.data.total} size={revisions.data.page_size} name="revisions" change={page => { setRevisionPage(page); setSelectedRevision(null); setComparison(null); setQuestionPage(1); }} /></section>}
       <RequestError error={revision.error} retry={() => void revision.refetch()} />
       {revision.data && <><p>Document: {document?.title ?? "Selected source"} · Candidate revision {revisionId} · Current revision {document?.current_revision_id ?? "None"}</p><div role="tablist" aria-label="Extraction workspace" className="flex flex-wrap gap-2">{["Question assembly", "Answer pairing", "Quality checks", "Revision differences"].map(name => <button type="button" className={control} key={name} role="tab" aria-selected={tab === name} onClick={() => setTab(name)}>{name}</button>)}</div><section hidden={tab !== "Quality checks"} className={panel}><h2 className="font-semibold">Quality evidence · {revision.data.status}</h2><details><summary>Technical details</summary><p className="text-xs break-all">Content digest: {revision.data.content_digest}</p></details><dl className="grid grid-cols-2 gap-2 text-sm">{["metadata", ...dimensions].map(key => <div key={key}><dt className="capitalize text-slate-400">{key.replace(/_/g, " ")}</dt><dd>{revision.data.quality[key as keyof typeof revision.data.quality]?.toString() ?? "Unrecorded"}</dd></div>)}</dl>{revision.data.quality.issues.length > 0 && <div><h3 className="font-semibold">Extraction issues</h3><ul className="space-y-2 text-sm text-amber-200">{revision.data.quality.issues.map((issue, index) => <li key={index}>{issue.message} <span className="text-xs">({issue.severity} · {issue.code})</span></li>)}</ul></div>}
         <form onSubmit={event => { event.preventDefault(); review.mutate(); }} className="space-y-3"><div className="flex gap-3 flex-wrap"><label>Quality dimension <select className={control} value={dimension} onChange={event => setDimension(event.target.value)}>{[...dimensions, ...(admin ? ["metadata"] : [])].map(value => <option key={value} value={value}>{value.replace(/_/g, " ")}</option>)}</select></label><label>Review result <select className={control} value={reviewStatus} onChange={event => setReviewStatus(event.target.value)}><option value="passed">Passed</option><option value="pending">Pending</option><option value="concern">Concern</option><option value="not_applicable">Not applicable</option></select></label></div><label className="block">Review note <textarea className={`${control} block w-full`} value={note} onChange={event => setNote(event.target.value)} required maxLength={10000} /></label><button className={control} disabled={review.isPending}>{review.isPending ? "Recording review…" : "Record extraction quality review"}</button></form><RequestError error={review.error} />{review.isSuccess && <p role="status">Extraction quality review recorded for this revision.</p>}
