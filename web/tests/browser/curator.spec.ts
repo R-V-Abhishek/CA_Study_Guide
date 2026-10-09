@@ -134,7 +134,7 @@ test.describe("curator controlled responses", () => {
     await page.route("**/api/v1/curate/queue**", route => route.fulfill({ json: [] }));
     await page.goto("/curator/queue?token=PRIVATE_TOKEN&notes=PRIVATE_NOTES");
     await openNavigation(page);
-    await page.locator(".curator-account summary").filter({ hasText: "Technical details" }).click();
+    await page.locator(".curator-account summary:visible").filter({ hasText: "Technical details" }).click();
     await page.getByRole("button", { name: "Diagnostics", exact: true }).click();
     const info = JSON.parse(await page.getByRole("textbox", { name: "Diagnostics data", exact: true }).inputValue());
     expect(info.backend).toEqual({ api_version: "fixture-api", revision: "fixture-backend" });
@@ -209,6 +209,7 @@ test.describe("curator disposable database integration", () => {
     const uncaught: string[] = []; page.on("pageerror", error => uncaught.push(error.message));
     for (const [route, heading] of [["queue", "Legacy history"], ["documents", "Source catalogue"], ["bulk", "Bulk review"], ["taxonomy", "Taxonomy Explorer"], ["system", "System"]]) {
       await page.goto(`/curator/${route}`); await expect(page.getByRole("heading", { name: heading, exact: true })).toBeVisible();
+      await openNavigation(page);
       await expect(page.getByRole("link", { name: "Review questions", exact: true })).toBeVisible();
       await expect(page.getByRole("alert")).toHaveCount(0);
     }
