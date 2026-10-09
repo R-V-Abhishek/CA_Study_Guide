@@ -77,3 +77,13 @@ test('explicit question demo works without API traffic', async ({ page }) => {
   await expect(page.getByText(/This is a synthetic demo answer/)).toBeVisible();
   expect(requests).toEqual([]);
 });
+
+test('question summary marks preserve measured zero and distinguish unavailable evidence',async ({ page,request }) => {
+  const response=await (await request.get('/api/v1/questions')).json();
+  const original=response.items[0];
+  const marks={ whole_question_marks:0,offered_marks:0,selectable_marks:null,allocations:[],issues:[] };
+  await page.route('**/api/v1/questions?*',route => route.fulfill({ json:{ ...response,total:2,items:[{ ...original,question_id:'zero-marks',display_label:'Reviewed zero marks',marks },{ ...original,question_id:'unknown-marks',display_label:'Unallocated marks',marks:null }] } }));
+  await page.goto('/questions');
+  await expect(page.getByRole('article').filter({ has:page.getByRole('link',{ name:'Reviewed zero marks' }) })).toContainText('Marks: 0');
+  await expect(page.getByRole('article').filter({ has:page.getByRole('link',{ name:'Unallocated marks' }) })).toContainText('Marks: Not available');
+});

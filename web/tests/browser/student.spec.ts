@@ -32,6 +32,54 @@ test('plan errors retain existing content and expose retry',async ({ page }) => 
   await controlledPapers(page);await page.route('**/api/v1/plan*',route => route.fulfill({ json:plan }));await page.goto('/plan?adjust=true');await expect(page.locator('ol li')).toHaveCount(2);await page.route('**/api/v1/plan*',route => route.fulfill({ status:503,json:{ detail:'Plan unavailable' } }));await page.getByRole('button',{ name:'Refresh plan' }).click();await expect(page.getByRole('alert')).toContainText('Plan unavailable');await expect(page.getByRole('button',{ name:'Retry',exact:true })).toBeVisible();
 });
 
+test('plan block duration requests a new allocation without changing saved settings',async ({ page,request }) => {
+  const settings=await (await request.get('/api/v1/me/settings')).json();
+  const expected=await (await request.get('/api/v1/plan?minutes=17')).json();
+  expect(expected.minutes_per_subtopic).toBe(17);
+  await page.goto('/plan?adjust=true');
+  await expect(page.getByLabel('Block duration (minutes)')).toBeVisible();
+  await page.getByLabel('Block duration (minutes)').fill('17');
+  await expect(page).toHaveURL(/minutes=17/);
+  await expect(page.getByText(new RegExp(`${expected.allocated_minutes} minutes allocated · ${expected.unused_minutes} minutes unused`))).toBeVisible();
+  await expect(page.locator('ol li')).toHaveCount(expected.items.length);
+  if (expected.items.length) await expect(page.locator('ol li').first()).toContainText(expected.items[0].node_name);
+  expect((await (await request.get('/api/v1/me/settings')).json()).minutes_per_subtopic).toBe(settings.minutes_per_subtopic);
+  await page.getByLabel('Block duration (minutes)').fill('1.5');
+  await expect(page.getByRole('alert')).toContainText('positive whole-minute block duration');
+});
+
+test('unreviewed paper progress is unavailable while reviewed zero remains a measured count',async ({ page }) => {
+  const pending:PaperSummary={ ...paper,context:{ target_attempt_id:'unbound',taxonomy_version_id:null,readiness:'missing_binding',applicability_state:'unresolved' } };
+  const ready:PaperSummary={ ...paper,id:'synthetic.ready',name:'Reviewed zero paper',context:{ target_attempt_id:'bound',taxonomy_version_id:1,readiness:'ready',applicability_state:'approved' } };
+  await page.route('**/api/v1/papers',route => route.fulfill({ json:[pending,ready] }));
+  await page.goto('/papers');
+  const blocked=page.getByRole('article').filter({ has:page.getByRole('heading',{ name:paper.name,exact:true }) });
+  await expect(blocked).toContainText('Personal progress: Not available');
+  await expect(blocked).toContainText('Revisions due: Not available');
+  await expect(blocked.getByRole('progressbar')).toHaveCount(0);
+  await expect(page.getByRole('article').filter({ has:page.getByRole('heading',{ name:ready.name,exact:true }) })).toContainText('0 / 2 completed');
+  await page.goto('/progress');
+  await expect(page.getByText('Not available until this attempt’s syllabus is reviewed.')).toBeVisible();
+  await expect(page.getByRole('progressbar',{ name:'Overall personal progress' })).toHaveCount(0);
+  await expect(page.getByText(/Weighted progress:/)).toHaveCount(0);
+});
+
+test('official hierarchy status filters work without a chapter projection and rapid keys select the leaf',async ({ page }) => {
+  const base:components['schemas']['TaxonomyTreeNode']={ id:'unit',paper_id:paper.id,parent_id:null,level:'unit',name:'Official unit',seq:1,heading_origin:'official',source_review_status:'approved',descriptor_revision:1,descriptor_approved:true,eligible:false,status:null,breadcrumbs:[],sources:[],children:[] };
+  const hierarchy=[{ ...base,children:[{ ...base,id:'done-leaf',parent_id:'unit',level:'subtopic',name:'Official done leaf',eligible:true,status:'done' as const },{ ...base,id:'new-leaf',parent_id:'unit',level:'subtopic',name:'Official new leaf',eligible:true,status:'not_started' as const }] }];
+  await controlledPapers(page);
+  await page.route(`**/api/v1/papers/${paper.id}/tree`,route => route.fulfill({ json:{ ...tree,chapters:[],hierarchy } }));
+  await page.goto(`/syllabus?paper=${paper.id}&status=done`);
+  await expect(page.getByRole('treeitem')).toHaveCount(2);
+  await expect(page.getByRole('treeitem',{ name:/Official done leaf/ })).toBeVisible();
+  await expect(page.getByRole('treeitem',{ name:/Official new leaf/ })).toHaveCount(0);
+  await page.getByRole('treeitem',{ name:/Official unit/ }).focus();
+  await page.keyboard.press('End');
+  await expect(page.getByRole('treeitem',{ name:/Official done leaf/ })).toBeFocused();
+  await page.keyboard.press('Enter');
+  await expect(page).toHaveURL(/node=done-leaf/);
+});
+
 test('paper zero progress, unknown reviewed scores and grouped URL filters remain honest',async ({ page }) => {
   await controlledPapers(page);await page.goto('/papers');await expect(page.getByText('0 / 2 completed')).toBeVisible();await expect(page.getByRole('heading',{ name:'Group 1' })).toBeVisible();await expect(page.getByText('Average importance',{ exact:false })).toHaveCount(0);await expect(page.getByRole('link',{ name:'Open syllabus' })).toHaveAttribute('href','/syllabus?paper=synthetic.paper');await page.getByLabel('Group',{ exact:true }).selectOption('2');await expect(page.getByText('No results match these filters.')).toBeVisible();await page.reload();await expect(page.getByLabel('Group',{ exact:true })).toHaveValue('2');
 });
