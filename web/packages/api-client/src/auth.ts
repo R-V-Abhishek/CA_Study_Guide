@@ -8,6 +8,7 @@ let refreshPending: Promise<void> | null = null;
 const listeners = new Set<() => void>();
 const resets = new Set<() => void>();
 const controllers = new Set<AbortController>();
+let pageActive = true;
 const channel = typeof BroadcastChannel !== 'undefined' ? new BroadcastChannel('caf-identity') : null;
 export const authState = () => state;
 export const authGeneration = () => generation;
@@ -73,6 +74,7 @@ export function announceIdentityChange() { announce(true); }
 export const signInUrl = () => `/auth/login?return_to=${encodeURIComponent(window.location.pathname + window.location.search)}`;
 /** Abort in-flight reads and reject late results when the active account changes. */
 export async function authenticatedFetch(input: RequestInfo | URL, init?: RequestInit): Promise<Response> {
+  if (!pageActive) throw new DOMException('Page navigation cancelled the request', 'AbortError');
   const expected = generation;
   const controller = new AbortController();
   controllers.add(controller);
@@ -104,6 +106,11 @@ async function reloadIdentity() {
   await refreshIdentity();
 }
 if (typeof window !== 'undefined') {
+  window.addEventListener('pagehide', () => {
+    pageActive = false;
+    controllers.forEach(controller => controller.abort());
+  });
+  window.addEventListener('pageshow', () => { pageActive = true; });
   const receive = async (event: { accountId: number | null; role: string | null; force?: boolean }) => {
     const matchingAccount = event.accountId === (state.identity?.account.id ?? null) && event.role === (state.identity?.account.role ?? null);
     if (matchingAccount) {

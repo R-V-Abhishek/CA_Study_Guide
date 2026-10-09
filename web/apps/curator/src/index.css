@@ -1,9 +1,34 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@layer base {
-  :root {
-    color-scheme: dark;
-  }
+.curator-workspace { min-height: 100dvh; font-size: 14px; line-height: 22px; }
+.curator-sidebar { width: 224px; position: fixed; inset: 0 auto 0 0; padding: 24px 16px; border-right: 1px solid var(--border); background: var(--surface); display: flex; flex-direction: column; overflow-y: auto; }
+.curator-brand { font-size: 16px; font-weight: 650; display: grid; gap: 4px; margin-bottom: 32px; }
+.curator-brand span { font-size: 13px; color: var(--secondary); font-weight: 400; }
+.curator-navigation { display: grid; gap: 4px; }
+.curator-navigation a { min-height: 40px; display: flex; align-items: center; padding: 8px 12px; border-radius: 8px; color: var(--secondary); }
+.curator-navigation a:hover { background: var(--subtle); }
+.curator-navigation a.active { background: var(--accent-surface); color: var(--accent); font-weight: 600; }
+.secondary-navigation { border-top: 1px solid var(--border); padding-top: 16px; margin-top: 16px; }
+.curator-account { margin-top: auto; padding-top: 24px; display: grid; gap: 12px; font-size: 13px; }
+.curator-account a { color: var(--accent); }
+.curator-account summary { cursor: pointer; min-height: 40px; padding-top: 8px; }
+.session-controls { display: grid; gap: 8px; }
+.session-controls button { text-align: left; }
+.curator-body { margin-left: 224px; min-width: 0; }
+.curator-header { height: 64px; position: sticky; top: 0; z-index: 20; border-bottom: 1px solid var(--border); padding: 0 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; background: var(--surface); font-weight: 600; }
+.curator-content { padding: 24px; min-width: 0; }
+.curator-content h1 { font-size: 28px; line-height: 36px; font-weight: 650; }
+.curator-header .curator-menu { display: none; }
+.curator-navigation-dialog { width: min(360px, calc(100vw - 32px)); margin-left: 16px; }
+.bg-\[\#1E293B\] { background: var(--surface); }
+.border-\[\#334155\] { border-color: var(--border); }
+@media (max-width: 1439px) {
+  .curator-sidebar { display: none; } .curator-body { margin-left: 0; }
+  .curator-header .curator-menu { display: inline-flex; }
+}
+@media (max-width: 767px) {
+  .curator-header { height: 56px; padding: 0 16px; } .curator-content { padding: 16px; }
+  .curator-navigation a { min-height: 44px; }
+  .curator-navigation-dialog { margin: 0; width: 100%; max-width: 100%; height: 100dvh; max-height: 100dvh; border-radius: 0; }
 }

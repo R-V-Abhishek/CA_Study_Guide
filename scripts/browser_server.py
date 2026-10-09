@@ -21,7 +21,8 @@ def main():
     for role in ("APP", "CURATOR", "PIPELINE", "IDENTITY", "OPERATIONS", "BACKUP"):
         os.environ[f"PG_{role}_PASSWORD"] = secrets.token_hex(16)
 
-    base_url = "http://127.0.0.1:8765"
+    port = int(os.environ.get("CAF_BROWSER_PORT", "8765"))
+    base_url = f"http://127.0.0.1:{port}"
     os.environ["AUTH_PUBLIC_BASE_URL"] = base_url
     os.environ["AUTH_LOCAL_DEVELOPMENT"] = "true"
     os.environ["AUTH_ALLOWED_ORIGINS"] = base_url
@@ -166,7 +167,7 @@ def main():
 
         harness.mount("/", app)
         try:
-            uvicorn.run(harness, host="0.0.0.0", port=8765, log_level="warning")
+            uvicorn.run(harness, host="0.0.0.0", port=port, log_level="warning")
         finally:
             reset_database()
 

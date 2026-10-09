@@ -178,6 +178,9 @@ importers:
       '@caf/api-client':
         specifier: workspace:*
         version: link:../../packages/api-client
+      '@caf/workspace':
+        specifier: workspace:*
+        version: link:../../packages/workspace
       '@tanstack/react-query':
         specifier: ^5.62.0
         version: 5.104.0(react@18.3.1)
@@ -239,6 +242,9 @@ importers:
       '@caf/api-client':
         specifier: workspace:*
         version: link:../../packages/api-client
+      '@caf/workspace':
+        specifier: workspace:*
+        version: link:../../packages/workspace
       '@tanstack/react-query':
         specifier: ^5.62.0
         version: 5.104.0(react@18.3.1)
@@ -333,6 +339,16 @@ importers:
         version: 5.9.3
 
   packages/ts-config: {}
+
+  packages/workspace:
+    dependencies:
+      react:
+        specifier: ^18.3.1
+        version: 18.3.1
+    devDependencies:
+      '@types/react':
+        specifier: ^18.3.12
+        version: 18.3.31
 
 packages:
 

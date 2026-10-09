@@ -1,4 +1,4 @@
-import { test, expect, type APIRequestContext } from './fixtures';
+import { test, expect, browserOrigin, type APIRequestContext } from './fixtures';
 
 type ReaderFixture = { question_id: string; reader_part_id: string; source_id: number; paper_id: string; nodes: { id: string; name: string }[] };
 async function fixture(request: APIRequestContext): Promise<ReaderFixture> { return (await request.get('/__test/fixture')).json(); }
@@ -51,7 +51,7 @@ test('part highlight retains sibling parts and rejects external return URLs', as
 test('question search filters and private notes enforce account scope', async ({ page, request }) => {
   const data = await fixture(request);
   const me = await (await request.get('/api/v1/me')).json();
-  await request.put(`/api/v1/subtopics/${data.nodes[0].id}/notes`, { headers: { Origin: 'http://127.0.0.1:8765', 'X-CSRF-Token': me.csrf_token }, data: { notes: 'Synthetic private ownership sentinel' } });
+  await request.put(`/api/v1/subtopics/${data.nodes[0].id}/notes`, { headers: { Origin: browserOrigin, 'X-CSRF-Token': me.csrf_token }, data: { notes: 'Synthetic private ownership sentinel' } });
   await page.goto('/questions?q=Synthetic&include_notes=true');
   await expect(page.getByText('Synthetic private ownership sentinel')).toBeVisible();
   await page.getByLabel('Answer availability').selectOption('missing');
