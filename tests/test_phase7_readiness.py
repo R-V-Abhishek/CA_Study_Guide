@@ -244,3 +244,17 @@ def test_source_revision_conflict_clears_no_approval_or_audit(session,reviewed_c
     assert error.value.current['revision_id'] == suggestion.extraction_revision_id
     session.rollback()
     assert session.scalar(sa.select(sa.func.count(Event.id)).where(Event.code=='readiness_decision')) == 0
+
+
+def test_partial_source_manifest_gap_cannot_disappear_behind_available_artifacts(session,manifest):
+    from caf_l0.releases import import_release
+    manifest['source_gaps'] = [{'paper_id':'s2023.P5','status':'unresolved',
+                               'reason':'Required November 2024 fallback modules unavailable.'}]
+    import_release(session,manifest,dry_run=False)
+    session.commit()
+    response = readiness_summary(session,'2027-05',paper_id='s2023.P5')
+    gap = next(t for t in response['tasks'] if t['blocker']=='source_manifest_gap')
+    assert gap['stage'] == 1
+    assert gap['paper_id'] == 's2023.P5'
+    assert 'fallback' in gap['evidence'][0]
+    assert gap['affected_records'][0]['kind'] == 'taxonomy_release'

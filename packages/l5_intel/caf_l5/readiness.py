@@ -316,6 +316,13 @@ def readiness_summary(session: Session, target_attempt_id: str, taxonomy_version
         spans = list(session.scalars(sa.select(NodeSourceSpan).where(NodeSourceSpan.taxonomy_version_id == version)))
         eligible = {n.node_id for n in eligible_candidates(session, version)}
         members = list(session.scalars(sa.select(TaxonomyMember).where(TaxonomyMember.taxonomy_version_id == version)))
+        for gap in release.manifest.get('source_gaps', []):
+            scope = gap['paper_id'] if gap['paper_id'] != 'all' else None
+            if paper_id and scope not in {None, paper_id}:
+                continue
+            stage = 1 if scope == 's2023.P5' else (3 if scope == 's2023.P6' else 2)
+            task(scope, stage, 'source_manifest_gap', [gap['reason']], '/curator/textbooks',
+                 [{'kind': 'taxonomy_release', 'id': release.version_id, 'revision': release.manifest_hash}])
         for span in spans:
             artifact = next((a for a in artifacts if a.id == span.artifact_id), None)
             if artifact and artifact.sha256 and artifact.availability == 'verified' and span.review_status == 'reviewed' and span.reviewed_by:
