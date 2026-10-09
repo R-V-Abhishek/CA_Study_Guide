@@ -165,3 +165,22 @@ test("concurrent review opens comparison, retains evidence and requires fresh co
   expect(requests[1].expected_publication_revision_id).toBe(9);
   expect(requests[1].idempotency_key).not.toBe(requests[0].idempotency_key);
 });
+
+test("a background refresh clears stale publication confirmation while retaining the proposed labels and reason", async ({ page }) => {
+  let current = item;
+  await page.route("**/api/v1/curate/classifications?**", route => route.fulfill({ json: [current] }));
+  await page.goto("/curator/classifications");
+  await page.getByLabel("Outcome (a)", { exact: true }).selectOption("none_fits");
+  const reason = page.getByLabel("Review evidence or correction reason");
+  await reason.fill("This part does not fit the available descriptor after source comparison.");
+  const confirmation = page.getByLabel("I reviewed the complete question, available answer and every part label");
+  await confirmation.check();
+  current = { ...item, publication_revision_id: 9, verification_count: 1 };
+  // Matching profile updates invalidate shared queries through the existing auth-shell event.
+  await page.evaluate(() => window.dispatchEvent(new Event("caf-profile-changed")));
+  await expect(page.getByRole("status").filter({ hasText: "The current publication changed" })).toBeVisible();
+  await expect(confirmation).not.toBeChecked();
+  await expect(reason).toHaveValue("This part does not fit the available descriptor after source comparison.");
+  await expect(page.getByLabel("Outcome (a)", { exact: true })).toHaveValue("none_fits");
+  await expect(page.getByRole("button", { name: "Publish reviewed labels" })).toBeDisabled();
+});
