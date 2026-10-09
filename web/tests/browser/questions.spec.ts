@@ -1,4 +1,5 @@
 import { test, expect, browserOrigin, type APIRequestContext } from './fixtures';
+import type { PublishedQuestion } from '../../packages/api-client/src/questions';
 
 type ReaderFixture = { question_id: string; reader_part_id: string; source_id: number; paper_id: string; nodes: { id: string; name: string }[] };
 async function fixture(request: APIRequestContext): Promise<ReaderFixture> { return (await request.get('/__test/fixture')).json(); }
@@ -86,4 +87,56 @@ test('question summary marks preserve measured zero and distinguish unavailable 
   await page.goto('/questions');
   await expect(page.getByRole('article').filter({ has:page.getByRole('link',{ name:'Reviewed zero marks' }) })).toContainText('Marks: 0');
   await expect(page.getByRole('article').filter({ has:page.getByRole('link',{ name:'Unallocated marks' }) })).toContainText('Marks: Not available');
+});
+
+test('complete and missing answers remain explicit and changing the question hides the previous answer',async ({ page,request }) => {
+  const data=await fixture(request);
+  const original:PublishedQuestion=await (await request.get(`/api/v1/questions/${data.question_id}`)).json();
+  const answers=original.content.parts.map((part,index) => ({ contract_version:'shared-study.v1' as const,id:`synthetic.complete-answer-${index}`,question_part_id:part.id,sequence:index,answer_text:`Synthetic complete answer for requirement ${index + 1}.`,source_spans:[],parts:[] }));
+  const complete:PublishedQuestion={ ...original,question_id:'synthetic.complete',assets:[],content:{ ...original.content,question_id:'synthetic.complete',display_label:'Synthetic complete answer case',answer_status:'complete',answers,mcq:[] } };
+  const missing:PublishedQuestion={ ...original,question_id:'synthetic.missing',assets:[],content:{ ...original.content,question_id:'synthetic.missing',display_label:'Synthetic missing answer case',answer_status:'missing',answers:[],mcq:[] } };
+  const next:PublishedQuestion={ ...complete,question_id:'synthetic.next',content:{ ...complete.content,question_id:'synthetic.next',display_label:'Synthetic next complete case',answers:answers.map(answer => ({ ...answer,answer_text:'Synthetic next answer must stay hidden.' })) } };
+  const variants=new Map([complete,missing,next].map(question => [question.question_id,question]));
+  await page.route('**/api/v1/questions/synthetic.*',route => route.fulfill({ json:variants.get(new URL(route.request().url()).pathname.split('/').pop()!) }));
+  await page.goto('/questions/synthetic.complete');
+  await expect(page.getByRole('heading',{ name:complete.content.display_label,exact:true })).toBeVisible();
+  await expect(page.getByText(answers[0].answer_text,{ exact:true })).toHaveCount(0);
+  await page.getByRole('button',{ name:'Reveal answer',exact:true }).click();
+  for (const answer of answers) await expect(page.getByText(answer.answer_text,{ exact:true })).toBeVisible();
+  await expect(page.getByText('This answer is partial. Some parts have no reviewed answer.')).toHaveCount(0);
+  // A history navigation keeps the same reader component mounted while its question ID changes.
+  await page.evaluate(() => { document.body.dataset.readerDocument='retained';history.pushState(null,'','/questions/synthetic.next');window.dispatchEvent(new PopStateEvent('popstate')); });
+  await expect(page.getByRole('heading',{ name:next.content.display_label,exact:true })).toBeVisible();
+  expect(await page.evaluate(() => document.body.dataset.readerDocument)).toBe('retained');
+  await expect(page.getByRole('button',{ name:'Reveal answer',exact:true })).toHaveAttribute('aria-expanded','false');
+  await expect(page.getByText('Synthetic next answer must stay hidden.',{ exact:true })).toHaveCount(0);
+  await page.evaluate(() => { history.pushState(null,'','/questions/synthetic.missing');window.dispatchEvent(new PopStateEvent('popstate')); });
+  await expect(page.getByRole('heading',{ name:missing.content.display_label,exact:true })).toBeVisible();
+  await expect(page.getByText('No reviewed answer is available for this question.')).toBeVisible();
+  await expect(page.getByRole('button',{ name:'Reveal answer',exact:true })).toHaveCount(0);
+  await expect(page.getByText('Synthetic first requirement.',{ exact:true })).toBeVisible();
+  await expect(page.getByText('Synthetic second requirement.',{ exact:true })).toBeVisible();
+});
+
+for (const width of [390,1280]) test(`reader retains a long shared case, adjacent OR choices and local table scrolling at ${width}px`,async ({ page,request }) => {
+  const data=await fixture(request);
+  const original:PublishedQuestion=await (await request.get(`/api/v1/questions/${data.question_id}`)).json();
+  const table=['| '+Array.from({ length:6 },(_,index) => `Column ${index + 1}: detailed official comparison heading`).join(' | ')+' |','| '+Array(6).fill('---').join(' | ')+' |','| '+Array.from({ length:6 },(_,index) => `Reviewed evidence and assumptions for scenario ${index + 1}`).join(' | ')+' |'].join('\n');
+  const commonStem=Array.from({ length:45 },(_,index) => `Case paragraph ${index + 1}: the company evaluates the accounting requirements and the supporting source evidence.`).join('\n\n')+'\n\nEnd of the complete shared case sentinel.';
+  const parts=original.content.parts.map((part,index) => ({ ...part,question_text:index === 0 ? `First alternative requirement.\n\n${table}` : 'Second alternative requirement remains visible.' }));
+  const question:PublishedQuestion={ ...original,assets:[],content:{ ...original.content,common_stem:commonStem,parts,choices:parts.map(part => ({ label:part.label_path ?? part.label,role:'alternative',or_group:'A',marks:part.marks ?? null })) } };
+  await page.route(`**/api/v1/questions/${data.question_id}`,route => route.fulfill({ json:question }));
+  await page.setViewportSize({ width,height:900 });
+  await page.goto(`/questions/${data.question_id}?part=${parts[0].id}`);
+  await expect(page.getByText('End of the complete shared case sentinel.',{ exact:true })).toBeVisible();
+  await expect(page.getByText('Case paragraph 1:',{ exact:false })).toBeVisible();
+  for (const part of parts) await expect(page.locator(`[id="part-${part.id}"]`)).toContainText('alternative · OR group A');
+  await expect(page.locator('[data-selected=true]')).toContainText('Selected part');
+  await expect(page.getByText('Second alternative requirement remains visible.',{ exact:true })).toBeVisible();
+  const region=page.getByRole('region',{ name:'Question table',exact:true });
+  await expect(region).toBeVisible();
+  expect(await region.evaluate(element => element.scrollWidth > element.clientWidth)).toBeTruthy();
+  await region.evaluate(element => { element.scrollLeft=element.scrollWidth; });
+  expect(await region.evaluate(element => element.scrollLeft)).toBeGreaterThan(0);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1)).toBeTruthy();
 });
