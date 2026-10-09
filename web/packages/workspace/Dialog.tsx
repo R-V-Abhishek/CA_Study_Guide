@@ -5,11 +5,23 @@ export function Dialog({ open, onClose, title, children, className = '' }: {
   open: boolean; onClose: () => void; title: string; children: ReactNode; className?: string;
 }) {
   const ref = useRef<HTMLDialogElement>(null);
+  const trigger = useRef<HTMLElement | null>(null);
   const titleId = useId();
+  useEffect(() => {
+    if (open) return;
+    // Safari does not focus clicked buttons. Remember the actual launcher.
+    const pointer = (event: PointerEvent) => {
+      trigger.current = (event.target as Element).closest<HTMLElement>('button,a[href],input,select,textarea,[tabindex]');
+    };
+    const keyboard = () => { trigger.current = null; };
+    document.addEventListener('pointerdown', pointer, true);
+    document.addEventListener('keydown', keyboard, true);
+    return () => { document.removeEventListener('pointerdown', pointer, true); document.removeEventListener('keydown', keyboard, true); };
+  }, [open]);
   useEffect(() => {
     const dialog = ref.current!;
     if (!open) { if (dialog.open) dialog.close(); return; }
-    const origin = document.activeElement as HTMLElement | null;
+    const origin = trigger.current ?? document.activeElement as HTMLElement | null;
     if (!dialog.open) dialog.showModal();
     return () => { if (dialog.open) dialog.close(); origin?.focus(); };
   }, [open]);

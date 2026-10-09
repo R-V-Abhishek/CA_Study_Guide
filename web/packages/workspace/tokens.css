@@ -80,7 +80,9 @@ a.topic-link, .textbook-link { color: var(--accent); }
 .textbook-explorer, .dark .textbook-explorer, .textbook-curator { --textbook-border: var(--border); --textbook-surface: var(--surface); --textbook-link: var(--accent); }
 .textbook-error, .textbook-curator .textbook-error { color: var(--error); }
 @media (max-width: 767px) {
-  button, select, input:not([type="checkbox"]):not([type="radio"]), .primary-action, .secondary-action { min-height: 44px; }
+  button, select, input:not([type="checkbox"]):not([type="radio"]), .action, .primary-action, .secondary-action, .textbook-action { min-height: 44px; }
+  a.topic-link, a.textbook-link { display: inline-flex; align-items: center; min-height: 44px; }
+  .syllabus-tree [role="treeitem"][aria-level] { min-height: 44px; }
   .card, .panel, .workspace-dialog { padding: 16px; }
 }
 @media (prefers-reduced-motion: reduce) {

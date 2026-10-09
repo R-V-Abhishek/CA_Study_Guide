@@ -9,7 +9,7 @@ test('provider registration grants no access without a matching invitation', asy
   expect((await request.get('/api/v1/me')).status()).toBe(401);
   await request.post('/__test/login?account_id=3');
   const me = await (await request.get('/api/v1/me')).json();
-  const invitation = await (await request.post('/api/v1/admin/invitations', { headers: { Origin: browserOrigin, 'X-CSRF-Token': me.csrf_token }, data: { email: 'wrong.email@example.test' } })).json();
+  const invitation = await (await request.post('/api/v1/admin/invitations', { headers: { Origin: browserOrigin(), 'X-CSRF-Token': me.csrf_token }, data: { email: 'wrong.email@example.test' } })).json();
   await page.goto(invitation.invitation_url);
   await page.getByRole('link', { name: 'Invited new student' }).click();
   await expect(page.getByRole('heading', { name: 'Invitation email mismatch' })).toBeVisible();
@@ -20,7 +20,7 @@ test('provider registration grants no access without a matching invitation', asy
 test('hosted OIDC invitation creates a private profile with honest unavailable scores', async ({ page, request }) => {
   await request.post('/__test/login?account_id=3');
   const me = await (await request.get('/api/v1/me')).json();
-  const invite = await (await request.post('/api/v1/admin/invitations', { headers: { Origin: browserOrigin, 'X-CSRF-Token': me.csrf_token }, data: { email: 'new.student@example.test' } })).json();
+  const invite = await (await request.post('/api/v1/admin/invitations', { headers: { Origin: browserOrigin(), 'X-CSRF-Token': me.csrf_token }, data: { email: 'new.student@example.test' } })).json();
   await page.goto(invite.invitation_url);
   await expect(page.getByRole('heading', { name: 'Browser harness identity provider' })).toBeVisible();
   await page.getByRole('link', { name: 'Invited new student' }).click();
@@ -41,7 +41,7 @@ test('hosted OIDC invitation creates a private profile with honest unavailable s
 test('two independent sessions keep notes, settings and exports private', async ({ browser, page, request }) => {
   await request.post('/__test/login');
   const fixture = await (await request.get('/__test/fixture')).json();
-  const other = await browser.newContext({ baseURL: browserOrigin });
+  const other = await browser.newContext({ baseURL: browserOrigin() });
   await other.request.post('/__test/login?account_id=2');
   const second = await other.newPage();
   const destination = `/papers/${fixture.paper_id}/${fixture.nodes[0].id}?tab=notes`;
@@ -68,6 +68,7 @@ test('logout clears both application tabs and cancels pending notes', async ({ p
   const fixture = await (await request.get('/__test/fixture')).json();
   await page.goto(`/papers/${fixture.paper_id}/${fixture.nodes[0].id}?tab=notes`);
   const curator = await context.newPage(); await curator.goto('/curator/queue');
+  await curator.getByRole('button', { name: 'Menu', exact: true }).click();
   await expect(curator.getByRole('button', { name: 'Sign out' })).toBeVisible();
   let saves = 0; page.on('request', request => { if (request.method() === 'PUT' && request.url().endsWith('/notes')) saves++; });
   await page.getByRole('textbox', { name: 'Notes', exact: true }).fill('UNSAVED PRIVATE DRAFT');
@@ -112,9 +113,12 @@ test('storage fallback broadcasts an account change to the other application', a
   await page.goto(`/papers/${fixture.paper_id}/${fixture.nodes[0].id}?tab=notes`);
   await expect(page.getByRole('textbox', { name: 'Notes', exact: true })).toHaveValue('');
   const curator = await context.newPage(); await curator.goto('/curator/queue');
+  await curator.getByRole('button', { name: 'Menu', exact: true }).click();
   await expect(curator.getByRole('link', { name: /Browser fixture student · Profile/ })).toBeVisible();
   await request.post('/__test/login?account_id=2');
   await curator.evaluate(() => window.dispatchEvent(new Event('focus')));
+  await expect(curator.getByRole('link', { name: /Browser fixture student · Profile/ })).not.toBeVisible();
+  await curator.getByRole('button', { name: 'Menu', exact: true }).click();
   await expect(curator.getByRole('link', { name: /Student B · Profile/ })).toBeVisible();
   await expect(page.getByRole('link', { name: /Student B · Profile/ })).toBeVisible();
   await expect(page.getByRole('textbox', { name: 'Notes', exact: true })).toHaveValue('');
@@ -137,11 +141,11 @@ test('an unseen cookie switch rejects a stale account read before showing privat
   const me = await (await request.get('/api/v1/me')).json();
   const settings = await (await request.get('/api/v1/me/settings')).json();
   const { groups: _groups, available_papers: _papers, available_attempts: _attempts, ...body } = settings;
-  expect((await request.put('/api/v1/me/settings', { headers: { Origin: browserOrigin, 'X-CSRF-Token': me.csrf_token }, data: { ...body, target_attempt_id: '2027-05' } })).ok()).toBe(true);
+  expect((await request.put('/api/v1/me/settings', { headers: { Origin: browserOrigin(), 'X-CSRF-Token': me.csrf_token }, data: { ...body, target_attempt_id: '2027-05' } })).ok()).toBe(true);
   const mismatch = page.waitForResponse(response => response.url().endsWith('/api/v1/dashboard') && response.status() === 409);
   await page.getByRole('link', { name: 'Today', exact: true }).click(); await mismatch;
   await expect(page.getByRole('link', { name: /Student B · Profile/ })).toBeVisible();
-  await expect(page.getByText(/Target attempt 2027-05/)).toBeVisible();
+  await expect(page.getByText(/Target attempt May 2027/)).toBeVisible();
   release(); await page.unroute('**/api/v1/plan*');
   await page.getByRole('link', { name: 'Plan', exact: true }).click();
   await expect(page.getByText(/^Syllabus-based ·/)).toBeVisible();

@@ -48,6 +48,7 @@ for (const width of [390, 768, 1280, 1440]) for (const theme of ['light', 'dark'
     await expect(page.getByRole('tab', { name: 'My notes' })).toBeVisible();
     await expect(page).toHaveURL(/node=/);
     await contained(page);
+    await capture(page, 'syllabus', width, theme);
     await page.goto(`/questions/${fixture.question_id}?part=${fixture.reader_part_id}&return=${encodeURIComponent('/questions?q=Synthetic&page=1')}`);
     await expect(page.locator('[data-selected=true]')).toContainText('Synthetic first requirement.');
     await expect(page.getByText('Synthetic second requirement.')).toBeVisible();

@@ -45,7 +45,7 @@ def test_curator_spa_serving_and_fallback(client):
     res_curator_root = client.get("/curator")
     assert res_curator_root.status_code == 200
     assert "text/html" in res_curator_root.headers.get("content-type", "")
-    assert "Curator" in res_curator_root.text
+    assert "Shared content review" in res_curator_root.text
 
     res_curator_queue = client.get("/curator/queue")
     assert res_curator_queue.status_code == 200
