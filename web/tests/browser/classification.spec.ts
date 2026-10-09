@@ -72,6 +72,15 @@ test("source filters use the acquired document type rather than its broad family
   await expect(page.getByText("Company case shared by both parts.", { exact: true })).toBeVisible();
 });
 
+test("readiness links select the exact affected question and scope changes clear that selection", async ({ page }) => {
+  await page.route("**/api/v1/curate/classifications?**", route => route.fulfill({ json: [{ ...item, question_id: "scope:other", suggestion_revision_id: 12, question: { ...item.question, question_id: "scope:other", display_label: "Q2", common_stem: "An unselected question shared case." } }, item] }));
+  await page.goto(`/curator/classifications?question_id=${encodeURIComponent(item.question_id)}`);
+  await expect(page.getByText("Company case shared by both parts.", { exact: true })).toBeVisible();
+  await expect(page.getByText("An unselected question shared case.", { exact: true })).toHaveCount(0);
+  await page.getByLabel("Source type", { exact: true }).selectOption("model");
+  await expect(page).not.toHaveURL(/question_id=/);
+});
+
 test("classification opens complete original pages and restores source-button focus", async ({ page }) => {
   await queue(page);
   await page.route("**/api/v1/extraction/revisions/2", route => route.fulfill({ json: { id: 2, source_documents: [{ id: 10, sha256: "a".repeat(64), page_count: 2 }], questions: [], quality: { issues: [] } } }));
