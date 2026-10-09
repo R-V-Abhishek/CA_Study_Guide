@@ -32,7 +32,7 @@ test("active student reviews complete extracted trees and source fidelity separa
   let review: unknown;
   await page.route("**/api/v1/extraction/revisions/2/reviews", route => { review = route.request().postDataJSON(); return route.fulfill({ json: { id: 7 } }); });
   await page.goto("/curator/extraction");
-  await expect(page.getByRole("link", { name: "Extraction", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Extraction", exact: true })).toBeVisible();
   await page.getByRole("button", { name: /^Official model fixture/ }).click();
   await expect(page.getByText("The company reported these balances.", { exact: true })).toHaveCount(1);
   await expect(page.getByText("Compute revenue.", { exact: true })).toBeVisible();
@@ -82,7 +82,7 @@ test("source page errors remain explicit and unavailable extraction is never an 
   await expect(page.getByRole("button", { name: "Next page", exact: true })).toBeDisabled();
   await page.route("**/api/v1/extraction/documents?**", route => route.fulfill({ status: 503, json: { detail: "Extraction database unavailable" } }));
   await page.reload();
-  await expect(page.getByRole("alert")).toContainText("Extraction database unavailable");
+  await expect(page.getByRole("alert").filter({ hasText: "Extraction database unavailable" })).toBeVisible();
   await expect(page.getByText("No acquired source documents are available.")).toHaveCount(0);
 });
 
