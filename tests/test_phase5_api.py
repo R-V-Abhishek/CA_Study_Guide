@@ -232,3 +232,25 @@ def test_selected_reviewed_taxonomy_is_not_superseded_by_foreign_draft_experimen
     assert reviewed.status_code == 200, reviewed.text
     assert reviewed.json()['verification_count'] == 1
     assert session.get(ClassificationRevision, reviewed.json()['revision_id']).taxonomy_version_id == suggestion.taxonomy_version_id
+
+
+def test_exact_question_queue_link_reaches_affected_record_beyond_default_page(session,suggestion,authenticated_client):
+    # Populate genuinely separate synthetic queue roots newer than the selected
+    # record; its exact identity must be applied before the default page limit.
+    for index in range(101):
+        identity = f'exact-link-fixture-{index}'
+        session.add(SuggestionRevision(batch_key=str(uuid4()),input_hash=f'input-{index}',
+            document_id=suggestion.document_id,extraction_revision_id=suggestion.extraction_revision_id,
+            question_id=identity,taxonomy_version_id=suggestion.taxonomy_version_id,run_id=1,
+            experimental=True,context={**suggestion.context,'question_id':identity},
+            candidates=suggestion.candidates,mappings=suggestion.mappings,provenance=suggestion.provenance))
+    session.commit()
+    client = authenticated_client(2,role='student')
+    default = client.get(BASE)
+    assert default.status_code == 200,default.text
+    assert len(default.json()) == 100
+    assert suggestion.question_id not in {item['question_id'] for item in default.json()}
+    linked = client.get(BASE,params={'question_id':suggestion.question_id})
+    assert linked.status_code == 200,linked.text
+    assert [item['suggestion_revision_id'] for item in linked.json()] == [suggestion.id]
+    assert client.get(BASE,params={'question_id':'missing-question'}).json() == []

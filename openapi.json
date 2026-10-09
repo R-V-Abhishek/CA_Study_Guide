@@ -1480,6 +1480,25 @@
             }
           },
           {
+            "name": "question_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Exact affected question identity",
+              "title": "Question Id"
+            },
+            "description": "Exact affected question identity"
+          },
+          {
             "name": "taxonomy_version_id",
             "in": "query",
             "required": false,

@@ -155,6 +155,7 @@ def api_edit_document(
 @router.get('/classifications', response_model=list[ClassificationQueueItem])
 def classification_queue(
     paper_id: str | None = None, source: str | None = None, outcome: str | None = None,
+    question_id: str | None = Query(None, min_length=1, description="Exact affected question identity"),
     taxonomy_version_id: int | None = None, experimental: bool | None = None,
     ready: bool | None = None, disputed: bool | None = None, blind: bool = False,
     benchmark_only: bool = False, limit: int = Query(100, ge=1, le=500), offset: int = Query(0, ge=0),
@@ -168,6 +169,8 @@ def classification_queue(
     latest_query = sa.select(sa.func.max(SuggestionRevision.id).label('id'))
     if taxonomy_version_id:
         latest_query = latest_query.where(SuggestionRevision.taxonomy_version_id == taxonomy_version_id)
+    if question_id:
+        latest_query = latest_query.where(SuggestionRevision.question_id == question_id)
     latest = latest_query.group_by(SuggestionRevision.question_id).subquery()
     query = sa.select(SuggestionRevision, Document).join(latest, SuggestionRevision.id == latest.c.id).join(Document, Document.id == SuggestionRevision.document_id)
     if paper_id: query = query.where(SuggestionRevision.context['paper_id'].astext == paper_id)

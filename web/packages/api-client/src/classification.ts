@@ -1,5 +1,5 @@
 import { apiRequest } from "./client";
-import type { components } from "./generated";
+import type { components, paths } from "./generated";
 
 export type ClassificationQueueItem = components["schemas"]["ClassificationQueueItem"];
 export type PartMapping = components["schemas"]["PartMapping"];
@@ -9,9 +9,11 @@ export type ClassificationDispute = components["schemas"]["ClassificationDispute
 export type ClassificationResolution = components["schemas"]["ClassificationResolveRequest"];
 export type ClassificationResult = components["schemas"]["ClassificationRevisionResult"];
 export type ClassificationHistory = components["schemas"]["ClassificationHistoryItem"];
+export type ClassificationQueueParameters = NonNullable<paths["/api/v1/curate/classifications"]["get"]["parameters"]["query"]>;
 const base = "/api/v1/curate/classifications";
 const post = <T>(path: string, body: unknown) => apiRequest<T>(`${base}${path}`, { method: "POST", body: JSON.stringify(body) });
 export const classificationApi = {
+  /** question_id resolves an affected root before the server applies pagination. */
   queue: (filters: Record<string, string>) => apiRequest<ClassificationQueueItem[]>(`${base}?${new URLSearchParams(filters)}`),
   review: (suggestion: number, body: ClassificationReview) => post<ClassificationResult>(`/${suggestion}/review`, body),
   history: (question: string) => apiRequest<ClassificationHistory[]>(`${base}/questions/${encodeURIComponent(question)}/history`),

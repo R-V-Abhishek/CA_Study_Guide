@@ -5539,6 +5539,8 @@ export interface operations {
                 paper_id?: string | null;
                 source?: string | null;
                 outcome?: string | null;
+                /** @description Exact affected question identity */
+                question_id?: string | null;
                 taxonomy_version_id?: number | null;
                 experimental?: boolean | null;
                 ready?: boolean | null;
