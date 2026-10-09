@@ -79,6 +79,26 @@ test("classification opens complete original pages and restores source-button fo
   await expect(source).toBeFocused();
 });
 
+test("original PDF opens as an authenticated blob and failures retain source and question", async ({ page }) => {
+  await queue(page);
+  await page.route("**/api/v1/extraction/revisions/2", route => route.fulfill({ json: { id: 2, source_documents: [{ id: 10, sha256: "a".repeat(64), page_count: 2 }], questions: [], quality: { issues: [] } } }));
+  await page.route("**/api/v1/extraction/documents/10/pages/*", route => route.fulfill({ contentType: "image/svg+xml", body: '<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500"><text x="20" y="30">Original source</text></svg>' }));
+  await page.route("**/api/v1/extraction/documents/10/pdf", route => route.fulfill({ status: 404, json: { detail: "Original PDF is unavailable" } }));
+  await page.goto("/curator/classifications");
+  await page.getByRole("button", { name: "View source", exact: true }).click();
+  await page.getByRole("button", { name: "Open PDF", exact: true }).click();
+  await expect(page.getByRole("alert")).toContainText("Original PDF is unavailable");
+  await expect(page.getByRole("img", { name: "Original document 10, page 1" })).toBeVisible();
+  await page.route("**/api/v1/extraction/documents/10/pdf", route => route.fulfill({ contentType: "application/pdf", body: "%PDF-1.4\n%%EOF" }));
+  const opened = page.waitForEvent("popup");
+  await page.getByRole("button", { name: "Open PDF", exact: true }).click();
+  const pdf = await opened;
+  await expect(page.getByRole("link", { name: "Open PDF", exact: true })).toHaveAttribute("href", /^blob:/);
+  await pdf.close();
+  await page.getByRole("button", { name: "Close source", exact: true }).click();
+  await expect(page.getByText("Company case shared by both parts.", { exact: true })).toBeVisible();
+});
+
 test("draft blind benchmark hides model labels until submission and records independent evidence", async ({ page }) => {
   await queue(page, { ...item, experimental: true, publication_ready: false, readiness_blockers: [{ code: "draft", message: "Draft inputs require review" }] });
   let request: Record<string, unknown> | undefined;
