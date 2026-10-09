@@ -20,6 +20,11 @@ function unit(id: number, overrides: Partial<QueueItem> = {}): QueueItem {
     primary_suggestion: { node_id: `fixture.node.${id}`, node_name: `Real recommendation ${id}`, chapter: { id: "fixture.chapter", name: "Real Chapter" }, topic: { id: "fixture.topic", name: "Real Topic" }, subtopic: { id: `fixture.node.${id}`, name: `Real recommendation ${id}` }, justification: "Actual fixture justification", gist: null, alternatives: [] }, secondary_suggestions: [], ...overrides,
   };
 }
+async function openNavigation(page: Page) {
+  const menu = page.getByRole("button", { name: "Menu", exact: true });
+  if (await menu.isVisible()) await menu.click();
+}
+
 async function interceptCommon(page: Page) {
   await page.route("**/api/v1/papers", route => route.fulfill({ json: papers }));
   await page.route("**/api/v1/meta", route => route.fulfill({ json: metadata }));
@@ -41,6 +46,7 @@ test.describe("curator controlled responses", () => {
     await page.reload();
     await expect(page.getByRole("alert")).toContainText("Queue unavailable");
     await expect(page.getByRole("heading", { name: "Queue Empty" })).toHaveCount(0);
+    await openNavigation(page);
     await expect(page.getByRole("link", { name: "Source catalogue" })).toBeVisible();
   });
 
@@ -127,6 +133,8 @@ test.describe("curator controlled responses", () => {
   test("diagnostics show tested API identities and exclude route secrets", async ({ page }) => {
     await page.route("**/api/v1/curate/queue**", route => route.fulfill({ json: [] }));
     await page.goto("/curator/queue?token=PRIVATE_TOKEN&notes=PRIVATE_NOTES");
+    await openNavigation(page);
+    await page.locator(".curator-account summary").filter({ hasText: "Technical details" }).click();
     await page.getByRole("button", { name: "Diagnostics", exact: true }).click();
     const info = JSON.parse(await page.getByRole("textbox", { name: "Diagnostics data", exact: true }).inputValue());
     expect(info.backend).toEqual({ api_version: "fixture-api", revision: "fixture-backend" });
@@ -146,6 +154,7 @@ test.describe("curator controlled responses", () => {
     for (const [route, message] of [["documents", "Documents unavailable"], ["bulk", "Classifications unavailable"], ["taxonomy", "Taxonomy unavailable"], ["system", "Health unavailable"]]) {
       await page.goto(`/curator/${route}`);
       await expect(page.getByRole("alert").filter({ hasText: message })).toBeVisible();
+      await openNavigation(page);
       await expect(page.getByRole("link", { name: "Review questions", exact: true })).toBeVisible();
     }
     await expect(page.getByText("healthy", { exact: true })).toHaveCount(0);
