@@ -40,6 +40,7 @@ export function ClassificationQueue() {
   const [message, setMessage] = useState("");
   const retryKey = useRef<{ signature: string; key: string } | null>(null);
   const submitting = useRef(false);
+  const seenPublication = useRef<{ question: string; revision: number | null } | null>(null);
   const generation = authGeneration();
   const blind = params.get("blind") === "true";
   const queue = useQuery({ queryKey: ["classification-queue", accountKey(), params.toString()], queryFn: () => classificationApi.queue(Object.fromEntries(params.entries())) });
@@ -53,6 +54,15 @@ export function ClassificationQueue() {
     setMappings(item?.mappings.map(part => ({ ...part, secondary_node_ids: [...(part.secondary_node_ids ?? [])] })) ?? []);
     setNote(""); setConfirmed(false); setActivePart(null); setSourceDocument(null); setSourcePage(1); setSourceOpen(false); sourceDialog.current?.close(); setPicker(null); setShowHistory(false); retryKey.current = null;
   }, [item?.suggestion_revision_id, blind]);
+  useEffect(() => {
+    if (!item) { seenPublication.current = null; return; }
+    const previous = seenPublication.current;
+    if (previous?.question === item.question_id && previous.revision !== item.publication_revision_id) {
+      setConfirmed(false);
+      setMessage("The current publication changed. Compare Current / Proposed and confirm the complete review again.");
+    }
+    seenPublication.current = { question: item.question_id, revision: item.publication_revision_id };
+  }, [item?.question_id, item?.publication_revision_id]);
   const history = useQuery({ queryKey: ["classification-history", accountKey(), item?.question_id], queryFn: () => classificationApi.history(item!.question_id), enabled: !!item && showHistory });
   const disputes = useQuery({ queryKey: ["classification-disputes", accountKey(), item?.question_id], queryFn: () => classificationApi.disputes(item!.question_id), enabled: !!item && !!item.dispute_status });
   const extraction = useQuery({ queryKey: ["classification-extraction", accountKey(), item?.extraction_revision_id], queryFn: () => extractionApi.revision(item!.extraction_revision_id), enabled: !!item && (evidenceOpen || sourceOpen) });
