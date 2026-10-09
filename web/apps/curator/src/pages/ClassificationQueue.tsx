@@ -80,7 +80,7 @@ export function ClassificationQueue() {
     setMappings(current => current.map(value => value.part_id === part ? { ...value, ...patch, evidence: {}, confidence: null, bucket: null } : value));
     setConfirmed(false); mutation.reset();
   };
-  const filter = (name: string, value: string) => { const next = new URLSearchParams(params); if (name !== "offset") next.delete("offset"); value ? next.set(name, value) : next.delete(name); setParams(next); mutation.reset(); setMessage(""); };
+  const filter = (name: string, value: string) => { const next = new URLSearchParams(params); if (name !== "offset") next.delete("offset"); if (["paper_id", "source", "taxonomy_version_id"].includes(name)) next.delete("question_id"); value ? next.set(name, value) : next.delete(name); setParams(next); mutation.reset(); setMessage(""); };
   useEffect(() => {
     const shortcut = (event: KeyboardEvent) => {
       if (!event.altKey || (event.target as HTMLElement).closest("input, textarea, select, [contenteditable=true]")) return;
