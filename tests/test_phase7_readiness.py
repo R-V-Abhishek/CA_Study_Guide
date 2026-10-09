@@ -120,7 +120,7 @@ def test_inventory_unknown_and_source_family_validation(session, reviewed_contex
     session.rollback()
 
 
-def test_prior_source_contract_drives_real_scoring_and_wrong_document_rejected(session, reviewed_context):
+def test_prior_source_contract_drives_real_scoring_and_wrong_document_rejected(session, reviewed_context, authenticated_client):
     suggestion, target = reviewed_context
     source = approved_document_evidence(session, suggestion)
     node = suggestion.mappings[0]['primary_node_id']
@@ -138,6 +138,9 @@ def test_prior_source_contract_drives_real_scoring_and_wrong_document_rejected(s
     assert prior.source['kind'] == 'official_weightage'
     run = recompute_scores(session,target,taxonomy_version_id=suggestion.taxonomy_version_id)
     assert session.get(SubtopicScore,(run.id,node)).weight_prior == pytest.approx(.4)
+    client = authenticated_client(1,target=target)
+    paper = next(p for p in client.get('/api/v1/papers').json() if p['id']=='s2023.P1')
+    assert paper['weighted_coverage_pct'] == 0
 
 
 def test_concurrent_same_request_has_one_durable_receipt(session, reviewed_context):
@@ -201,3 +204,43 @@ def test_failed_readiness_mutation_retains_scope_and_no_audit(session, reviewed_
     assert session.scalar(sa.select(sa.func.count(Event.id)).where(Event.code == 'readiness_decision')) == 0
     row = session.get(AttemptTaxonomyBinding,(target,suggestion.taxonomy_version_id))
     assert row.status == 'reviewed'
+
+
+def test_original_extraction_pdf_is_authenticated_exact_bytes_and_missing_safe(
+    session, reviewed_context, authenticated_client,
+):
+    from fastapi.testclient import TestClient
+    from caf_api.main import app
+    from caf_common.blob_store import BlobStore
+    from caf_common.settings import get_settings
+    suggestion, target = reviewed_context
+    document = session.get(Document,suggestion.document_id)
+    store = BlobStore(get_settings().storage.blob_dir)
+    original = store.read(document.sha256)
+    url = f'/api/v1/extraction/documents/{document.id}/pdf'
+    anonymous = TestClient(app)
+    anonymous.cookies.clear()
+    assert anonymous.get(url).status_code == 401
+    response = authenticated_client(1,target=target).get(url)
+    assert response.status_code == 200
+    assert response.content == original
+    assert response.headers['content-type'] == 'application/pdf'
+    assert response.headers['cache-control'] == 'no-store'
+    assert authenticated_client(1,target=target).get('/api/v1/extraction/documents/99999999/pdf').status_code == 404
+    # A file at the right content-addressed path must still match its recorded hash.
+    store.get_path(document.sha256).write_bytes(b'%PDF-corrupt')
+    assert authenticated_client(1,target=target).get(url).status_code == 404
+
+
+def test_source_revision_conflict_clears_no_approval_or_audit(session,reviewed_context):
+    suggestion, _ = reviewed_context
+    source = approved_document_evidence(session,suggestion)
+    body = PriorWrite(taxonomy_version_id=suggestion.taxonomy_version_id,
+        node_id=suggestion.mappings[0]['primary_node_id'],value=.4,
+        expected_hash=digest(None),idempotency_key=str(uuid4()),evidence='Exact source page comparison.',
+        source_evidence=[{**source,'content_digest':'0'*64}])
+    with pytest.raises(ReadinessConflict) as error:
+        write_readiness(session,body,9,'prior')
+    assert error.value.current['revision_id'] == suggestion.extraction_revision_id
+    session.rollback()
+    assert session.scalar(sa.select(sa.func.count(Event.id)).where(Event.code=='readiness_decision')) == 0

@@ -38,7 +38,7 @@ export type ExtractionBlock = components["schemas"]["BlockResult"];
 export type ExtractionAsset = components["schemas"]["AssetResult"];
 export type ExtractionReview = components["schemas"]["ReviewResult"];
 const base = "/api/v1/extraction";
-async function sourceImage(url: string, label: string): Promise<Blob> {
+async function sourceBlob(url: string, label: string): Promise<Blob> {
   const response = await authenticatedFetch(url);
   if (!response.ok) {
     const payload: { detail?: string } = await response.json().catch(() => ({}));
@@ -62,6 +62,7 @@ export const extractionApi = {
   correct: (revision: number, correction: ExtractionCorrection) => apiRequest<ExtractionRevisionSummary>(`${base}/revisions/${revision}/corrections`, { method: "POST", body: JSON.stringify(correction) }),
   review: (revision: number, dimension: string, status: string, note: string) => apiRequest(`${base}/revisions/${revision}/reviews`, { method: "POST", body: JSON.stringify({ dimension, status, note }) }),
   promote: (revision: number, expected_current_revision_id: number | null) => apiRequest(`${base}/revisions/${revision}/promote`, { method: "POST", body: JSON.stringify({ expected_current_revision_id }) }),
-  page: (document: number, page: number) => sourceImage(`${base}/documents/${document}/pages/${page}`, "Source page"),
-  asset: (asset: number) => sourceImage(`${base}/assets/${asset}/image`, "Source asset"),
+  pdf: (document: number) => sourceBlob(`${base}/documents/${document}/pdf`, "Source PDF"),
+  page: (document: number, page: number) => sourceBlob(`${base}/documents/${document}/pages/${page}`, "Source page"),
+  asset: (asset: number) => sourceBlob(`${base}/assets/${asset}/image`, "Source asset"),
 };

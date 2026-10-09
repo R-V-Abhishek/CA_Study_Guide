@@ -77,6 +77,9 @@ def validate_sources(session: Session, sources, taxonomy: int, *, paper: str | N
             artifact = session.scalar(sa.select(TextbookArtifact).where(
                 TextbookArtifact.taxonomy_version_id == taxonomy, TextbookArtifact.id == span.artifact_id)
                 .with_for_update().execution_options(populate_existing=True))
+            if artifact.sha256 != source.sha256:
+                current = {'span_id': span.id, 'sha256': artifact.sha256}
+                raise ReadinessConflict(digest(current), current)
             if (span.review_status != 'reviewed' or span.reviewed_by is None or
                     artifact.availability != 'verified' or artifact.sha256 != source.sha256 or
                     not official_url(artifact.metadata_json['download_url'])):
@@ -89,8 +92,12 @@ def validate_sources(session: Session, sources, taxonomy: int, *, paper: str | N
             revision = session.scalar(sa.select(ExtractionRevision).where(
                 ExtractionRevision.id == source.revision_id).with_for_update()
                 .execution_options(populate_existing=True))
-            if revision is None or revision.content_digest != source.content_digest or revision.status != 'current':
+            if revision is None:
                 raise ValueError('Approved current document revision is required')
+            if revision.content_digest != source.content_digest or revision.status != 'current':
+                current = {'revision_id': revision.id, 'content_digest': revision.content_digest,
+                           'status': revision.status}
+                raise ReadinessConflict(digest(current), current)
             document = session.scalar(sa.select(Document).where(Document.id == revision.document_id)
                 .with_for_update().execution_options(populate_existing=True))
             urls = list(session.scalars(sa.select(DiscoveredLink.url).where(
@@ -328,7 +335,11 @@ def readiness_summary(session: Session, target_attempt_id: str, taxonomy_version
         inventories.append(record(row))
         _, blockers = coverage_eligibility(row)
         for blocker in blockers:
-            task(row.paper_id, 7, blocker,
+            stage = {'sources_not_acquired': 4, 'metadata_unreviewed': 4,
+                     'extraction_unreviewed': 5, 'pairing_unreviewed': 5,
+                     'gradable_regions_unaccounted': 5, 'labels_incomplete': 6,
+                     'occurrence_identity_unresolved': 6, 'unpublished_roots': 6}.get(blocker, 7)
+            task(row.paper_id, stage, blocker,
                  [f'{row.attempt_id} / {row.source_family}: expected inventory ' +
                   ('unknown' if row.expected_slots is None else str(row.expected_slots))], '/curator/readiness',
                  [{'kind': 'corpus_coverage', 'id': f'{version}:{row.paper_id}:{row.attempt_id}:{row.source_family}',

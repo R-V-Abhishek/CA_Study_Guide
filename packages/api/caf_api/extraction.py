@@ -1,5 +1,6 @@
 """Authenticated curator extraction workspace, immutable corrections and source access."""
 import copy
+import hashlib
 from typing import Any
 import pymupdf as fitz
 import sqlalchemy as sa
@@ -168,13 +169,29 @@ def revoke_pair(pair_id:int,db:Session=Depends(get_operations_db),admin:Principa
     return {key:row.__dict__[key] for key in ('id','question_document_id','answer_document_id','status','evidence')}
 
 
-def source_pdf(db,document_id):
+def source_bytes(db,document_id):
     doc=found(db,Document,document_id)
     store=BlobStore(get_settings().storage.blob_dir)
     try:
-        return fitz.open(stream=store.read(doc.sha256),filetype='pdf')
+        data = store.read(doc.sha256)
+        if hashlib.sha256(data).hexdigest() != doc.sha256:
+            raise HTTPException(404,'Registered source bytes unavailable')
+        return data
+    except FileNotFoundError as exc:
+        raise HTTPException(404,'Registered source bytes unavailable') from exc
+
+
+def source_pdf(db,document_id):
+    try:
+        return fitz.open(stream=source_bytes(db,document_id),filetype='pdf')
     except (FileNotFoundError,fitz.FileDataError) as exc:
         raise HTTPException(404,'Registered source bytes unavailable') from exc
+
+
+@router.get('/documents/{document_id}/pdf',responses={200:{'content':{'application/pdf':{}}}})
+def original_pdf(document_id:int,db:Session=Depends(get_curation_db)):
+    return Response(source_bytes(db,document_id),media_type='application/pdf',
+        headers={'Content-Disposition':f'inline; filename="document-{document_id}.pdf"'})
 
 
 @router.get('/documents/{document_id}/pages/{page}',responses={200:{'content':{'image/png':{}}}})

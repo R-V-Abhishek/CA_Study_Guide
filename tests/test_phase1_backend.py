@@ -46,7 +46,8 @@ def scored_nodes(session):
 def test_empty_null_and_zero_contracts(client, session):
     paper = client.get('/api/v1/papers').json()[0]
     assert paper['average_importance'] is None
-    assert paper['raw_progress_pct'] == paper['weighted_coverage_pct'] == 0
+    assert paper['raw_progress_pct'] == 0
+    assert paper['weighted_coverage_pct'] is None
     assert paper['weak_topic_count'] == paper['revision_due_count'] == 0
     dashboard = client.get('/api/v1/dashboard').json()
     assert dashboard['overall_progress_pct'] == 0
@@ -175,8 +176,9 @@ def test_paper_weightage_unavailable_does_not_fabricate_coverage(client, session
     def paper_summary():
         return next(p for p in client.get('/api/v1/papers').json() if p['code'] == 'P1')
 
-    # Actual positive fixture weightage and no completions means a legitimate zero.
-    assert paper_summary()['weighted_coverage_pct'] == 0
+    # Seeded chapter ranges have no reviewed prior evidence. Their presence must
+    # never authorize a weighted measure in the redesigned workspace.
+    assert paper_summary()['weighted_coverage_pct'] is None
     if missing_kind == 'zero_weight':
         session.execute(sa.update(WeightageSection).where(
             WeightageSection.paper_id == 's2023.P1',
