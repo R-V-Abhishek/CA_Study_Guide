@@ -32,6 +32,7 @@ export interface PublishedQuestionSummary {
   question_id: string; snapshot_id: number; paper_id: string; attempt_id: string | null;
   display_label: string; question_text: string; common_stem: string;
   answer_status: string; source_family: string; covered_subtopics: CoveredSubtopic[];
+  marks?: PublishedQuestion['marks'] | null;
 }
 export interface QuestionPage {
   items: PublishedQuestionSummary[]; total: number; page: number; page_size: number;

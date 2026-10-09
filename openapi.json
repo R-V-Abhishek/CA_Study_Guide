@@ -729,6 +729,26 @@
               "title": "Hours"
             },
             "description": "Optional override for study hours per week"
+          },
+          {
+            "name": "minutes",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "maximum": 2147483647,
+                  "exclusiveMinimum": 0
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Optional override for minutes per study block",
+              "title": "Minutes"
+            },
+            "description": "Optional override for minutes per study block"
           }
         ],
         "responses": {
@@ -10387,6 +10407,16 @@
           "weak_topic_count": {
             "type": "integer",
             "title": "Weak Topic Count"
+          },
+          "context": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/StudyContextIdentity"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         },
         "type": "object",
@@ -11906,6 +11936,16 @@
             },
             "type": "array",
             "title": "Covered Subtopics"
+          },
+          "marks": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/PublishedMarks"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         },
         "type": "object",
@@ -13893,6 +13933,22 @@
           "eligible": {
             "type": "boolean",
             "title": "Eligible"
+          },
+          "status": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "not_started",
+                  "in_progress",
+                  "done"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status"
           },
           "breadcrumbs": {
             "items": {

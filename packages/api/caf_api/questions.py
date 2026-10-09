@@ -62,7 +62,7 @@ def question_summary(row):
     return QuestionSummary(question_id=row.question_id,snapshot_id=row.id,paper_id=content['paper_id'],
         attempt_id=content['source_attempt_id'],display_label=content['display_label'],question_text=content['question_text'],
         common_stem=content['common_stem'],answer_status=content['answer_status'],source_family=content['source_family'],
-        covered_subtopics=row.covered_subtopics)
+        covered_subtopics=row.covered_subtopics,marks=row.marks)
 
 
 def filtered_questions(paper_id,subtopic_id,attempt_id,source_family,answer_status,q=None):

@@ -3274,6 +3274,7 @@ export interface components {
             revision_due_count: number;
             /** Weak Topic Count */
             weak_topic_count: number;
+            context?: components["schemas"]["StudyContextIdentity"] | null;
         };
         /** PaperTree */
         PaperTree: {
@@ -3737,6 +3738,7 @@ export interface components {
             source_family: string;
             /** Covered Subtopics */
             covered_subtopics: components["schemas"]["CoveredSubtopic"][];
+            marks?: components["schemas"]["PublishedMarks"] | null;
         };
         /** ReadinessAction */
         ReadinessAction: {
@@ -4361,6 +4363,8 @@ export interface components {
             descriptor_approved: boolean;
             /** Eligible */
             eligible: boolean;
+            /** Status */
+            status?: ("not_started" | "in_progress" | "done") | null;
             /** Breadcrumbs */
             breadcrumbs: {
                 [key: string]: string;
@@ -5020,6 +5024,8 @@ export interface operations {
                 group?: number | null;
                 /** @description Optional override for study hours per week */
                 hours?: number | null;
+                /** @description Optional override for minutes per study block */
+                minutes?: number | null;
             };
             header?: never;
             path?: never;

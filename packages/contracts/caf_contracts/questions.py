@@ -102,6 +102,7 @@ class QuestionSummary(BaseModel):
     answer_status: str
     source_family: str
     covered_subtopics: list[CoveredSubtopic]
+    marks: PublishedMarks | None = None
 
 
 class AppearanceResolution(BaseModel):

@@ -79,6 +79,7 @@ class TaxonomyTreeNode(BaseModel):
     descriptor_revision: int | None
     descriptor_approved: bool
     eligible: bool
+    status: Literal['not_started', 'in_progress', 'done'] | None = None
     breadcrumbs: list[dict[str, str]]
     sources: list[dict[str, Any]]
     children: list["TaxonomyTreeNode"] = Field(default_factory=list)

@@ -59,6 +59,7 @@ export interface TextbookNode {
   descriptor_revision: number | null;
   descriptor_approved: boolean;
   eligible: boolean;
+  status?: 'not_started' | 'in_progress' | 'done' | null;
   breadcrumbs: { id: string; name: string; level: string }[];
   sources: TextbookSource[];
   children: TextbookNode[];

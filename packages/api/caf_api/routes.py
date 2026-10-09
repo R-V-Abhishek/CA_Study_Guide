@@ -78,8 +78,9 @@ def _scores(session: Session, account: Principal, paper_id: str):
         target_attempt_id=context.target_attempt_id, taxonomy_version_id=context.taxonomy_version_id)
 
 
-def _applicable_tree(values: list[dict], node_ids: set[str]) -> list[dict]:
-    return [{**value, 'children': _applicable_tree(value['children'], node_ids)}
+def _applicable_tree(values: list[dict], node_ids: set[str], progress: dict) -> list[dict]:
+    return [{**value, 'status': progress[value['id']].status if value['id'] in progress else 'not_started',
+             'children': _applicable_tree(value['children'], node_ids, progress)}
             for value in values if value['id'] in node_ids]
 
 
@@ -147,6 +148,7 @@ def get_corpus_readiness(session: Session = Depends(get_db), account: Principal 
 @router.get("/papers", response_model=list[PaperSummary])
 def list_papers(session: Session = Depends(get_db), account: Principal = Depends(require_account)):
     user_id = account.id
+    context = resolve_context(session, user_id)
 
     papers = session.execute(
         sa.select(Paper).where(Paper.is_current.is_(True)).order_by(Paper.code, Paper.id)
@@ -196,47 +198,16 @@ def list_papers(session: Session = Depends(get_db), account: Principal = Depends
         )
         raw_pct = (completed_count / total_sub * 100.0) if total_sub > 0 else 0.0
 
-        # Compute weighted coverage using chapter weightage midpoints
-        # 1. Fetch chapters and their weightage sections
-        ch_rows = session.execute(
-            sa.select(
-                Node.id,
-                WeightageSection.min_pct,
-                WeightageSection.max_pct,
-            )
-            .join(WeightageMember, WeightageMember.chapter_id == Node.id, isouter=True)
-            .join(WeightageSection, WeightageSection.id == WeightageMember.section_id, isouter=True)
-            .where(Node.paper_id == p.id, Node.level == "chapter", Node.status == "active", _node_scope(session, account))
-        ).all()
-
-        total_weight = 0.0
-        earned_weight = 0.0
-        weightage_complete = True
-
-        for ch_id, min_pct, max_pct in ch_rows:
-            # Subtopics in this chapter
-            ch_subs = descendant_leaves(ch_id, _nodes(session, account))
-
-            if ch_subs:
-                if min_pct is None or max_pct is None:
-                    weightage_complete = False
-                    continue
-                ch_mid = (float(min_pct) + float(max_pct)) / 2.0
-                total_weight += ch_mid
-                done_in_ch = session.execute(
-                    sa.select(sa.func.count(Progress.node_id)).where(
-                        Progress.user_id == user_id,
-                        Progress.node_id.in_(ch_subs),
-                        Progress.status == "done",
-                    )
-                ).scalar() or 0
-                ch_ratio = done_in_ch / len(ch_subs)
-                earned_weight += ch_mid * ch_ratio
-
-        weighted_pct = (
-            round(earned_weight / total_weight * 100.0, 1)
-            if weightage_complete and total_weight > 0 else None
-        )
+        # A reviewed score prior supplies the weighted basis; legacy chapter ranges
+        # do not authorize weighting in an attempt-bound workspace.
+        weighted_pct = None
+        if context.run and sub_ids and all(node in scores and scores[node].weight_prior is not None
+                and scores[node].evidence.get("components", {}).get("prior", {}).get("available", False)
+                for node in sub_ids):
+            total_weight = sum(scores[node].weight_prior for node in sub_ids)
+            earned_weight = sum(scores[node].weight_prior for node in sub_ids
+                                if progress_statuses.get(node) == "done")
+            weighted_pct = round(earned_weight / total_weight * 100, 1) if total_weight else None
 
         summaries.append(
             PaperSummary(
@@ -251,6 +222,7 @@ def list_papers(session: Session = Depends(get_db), account: Principal = Depends
                 average_importance=average_importance,
                 revision_due_count=sum(item["paper_id"] == p.id for item in revision_due),
                 weak_topic_count=weak_count,
+                context=context.identity,
             )
         )
 
@@ -385,7 +357,7 @@ def get_paper_tree(paper_id: str, session: Session = Depends(get_db), account: P
         "name": paper.name,
         "chapters": result_chapters,
         "taxonomy_version_id": release.taxonomy_version_id if release else None,
-        "hierarchy": _applicable_tree(recursive_tree(release.version_id, paper_id, session), set(by_id)) if release else [],
+        "hierarchy": _applicable_tree(recursive_tree(release.version_id, paper_id, session), set(by_id), progress_map) if release else [],
         "context": context.identity,
     }
 
@@ -765,6 +737,8 @@ def api_get_study_plan(
         None, gt=0, allow_inf_nan=False,
         description="Optional override for study hours per week",
     ),
+    minutes: int | None = Query(None, gt=0, le=2147483647,
+        description="Optional override for minutes per study block"),
     session: Session = Depends(get_db), account: Principal = Depends(require_account),
 ):
     """Retrieve next-week study plan with allocated subtopics and factual reasons."""
@@ -776,6 +750,7 @@ def api_get_study_plan(
         paper_id=paper,
         group_no=group,
         hours_per_week=hours,
+        minutes_per_subtopic=minutes,
     )
     return plan
 

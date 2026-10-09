@@ -99,6 +99,7 @@ class PaperSummary(BaseModel):
     average_importance: float | None
     revision_due_count: int
     weak_topic_count: int
+    context: StudyContextIdentity | None = None
 
 
 class PlanItem(BaseModel):
