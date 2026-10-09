@@ -12,16 +12,16 @@ export function System() {
   const backups = useQuery({ queryKey: ["curator-system-backups", accountKey()], queryFn: async () => requiredData(await curatorClient.GET("/api/v1/system/backups")) });
   const recompute = useMutation({
     mutationFn: async () => requiredData(await curatorClient.POST("/api/v1/curate/intel/recompute", { params: { query: { target_attempt_id: targetAttempt } } })),
-    onSuccess: async data => {
-      setMessage(`Score recompute completed. Run ID: ${data.run_id}.`);
+    onSuccess: async () => {
+      setMessage(`Score recompute completed. `);
       await queryClient.invalidateQueries();
     },
   });
   return <div className="max-w-5xl mx-auto space-y-6">
-    <div className="flex items-center justify-between border-b border-slate-700 pb-4">
-      <h1 className="text-lg font-bold">System Health & Ops Monitor</h1>
+    <p>Inspect operational health and backups, and recompute scores for the selected attempt.</p><div className="flex flex-wrap gap-3 items-center justify-between border-b border-slate-700 pb-4">
+      <h1 className="text-lg font-bold">System</h1>
       <label>Scoring target <input aria-label="Scoring target" className="bg-slate-800 rounded p-2" value={targetAttempt} onChange={event => setTargetAttempt(event.target.value)} /></label>
-      <button disabled={recompute.isPending} onClick={() => { if (!recompute.isPending) { setMessage(null); recompute.mutate(); } }} className="bg-indigo-600 rounded-xl px-4 py-2 text-sm disabled:opacity-50">{recompute.isPending ? "Recomputing…" : "Trigger L5 Recompute"}</button>
+      <button disabled={recompute.isPending} onClick={() => { if (!recompute.isPending) { setMessage(null); recompute.mutate(); } }} className="bg-indigo-600 rounded-xl px-4 py-2 text-sm disabled:opacity-50">{recompute.isPending ? "Recomputing…" : "Refresh historical scores"}</button>
     </div>
     <RequestError error={recompute.error} />
     {message && <p role="status" className="text-emerald-300">{message}</p>}

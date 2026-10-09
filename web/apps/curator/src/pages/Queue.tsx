@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { tinykeys } from "tinykeys";
+import { WorkspaceSkeleton } from "../components/WorkspaceSkeleton";
 import type { components } from "@caf/api-client";
 import { NodePickerModal } from "../components/NodePickerModal";
 import { RequestError } from "../components/RequestError";
@@ -93,17 +94,15 @@ export function Queue() {
       event.preventDefault(); callback();
     };
     return tinykeys(window, {
-      a: shortcut(() => submit("accept")), e: shortcut(() => { if (unit && unit.publication_ready !== false && !submitting.current) setPickerOpen(true); }),
-      n: shortcut(() => submit("none_fits")), x: shortcut(() => submit("exclude")),
-      ArrowRight: shortcut(() => move(1)), l: shortcut(() => move(1)),
-      ArrowLeft: shortcut(() => move(-1)), h: shortcut(() => move(-1)),
+      "Alt+j": shortcut(() => move(1)),
+      "Alt+k": shortcut(() => move(-1)),
     });
   }, [unit, index, items, pickerOpen]);
 
   return <div className="space-y-4">
     <p className="text-sm text-amber-200">Historical suggestion evidence has an unknown verification state. <a className="underline" href="/curator/classifications">Open whole question classification to review an immutable root revision.</a></p>
     <div className="flex flex-wrap items-center gap-3 border-b border-slate-700 pb-3">
-      <h1 className="font-bold mr-auto">Review Queue</h1>
+      <h1 className="font-bold mr-auto">Legacy history</h1>
       <label className="text-xs">Bucket <select aria-label="Bucket" value={bucket} disabled={decision.isPending} onChange={e => filter("bucket", e.target.value)} className="ml-2 bg-slate-900 rounded p-2">
         <option value="all">All Buckets</option>{["A", "B", "C", "D"].map(value => <option key={value} value={value}>Bucket {value}</option>)}
       </select></label>
@@ -111,14 +110,14 @@ export function Queue() {
         <option value="all">All Papers</option>{papers.data?.map(item => <option key={item.id} value={item.id}>{item.code} — {item.name}</option>)}
         {paper !== "all" && !papers.data?.some(item => item.id === paper) && <option value={paper}>{paper}</option>}
       </select></label>
-      <button aria-label="Previous unit" onClick={() => move(-1)} disabled={index === 0 || decision.isPending}>←</button>
+      <button aria-label="Previous unit" onClick={() => move(-1)} disabled={index === 0 || decision.isPending}>Previous unit</button>
       <span className="text-xs">{items.length ? index + 1 : 0} / {items.length}</span>
-      <button aria-label="Next unit" onClick={() => move(1)} disabled={index >= items.length - 1 || decision.isPending}>→</button>
+      <button aria-label="Next unit" onClick={() => move(1)} disabled={index >= items.length - 1 || decision.isPending}>Next unit</button>
     </div>
     <RequestError error={papers.error} retry={() => void papers.refetch()} />
     <RequestError error={queue.error} retry={() => void queue.refetch()} />
     <RequestError error={decision.error} />
-    {queue.isPending ? <p role="status">Loading review queue…</p> : queue.isError ? null : !unit ? <div className="p-10 text-center bg-slate-800 rounded-xl">
+    {queue.isPending ? <WorkspaceSkeleton label="Loading review queue…" /> : queue.isError ? null : !unit ? <div className="p-10 text-center bg-slate-800 rounded-xl">
       <h2 className="font-bold">{bucket !== "all" || paper !== "all" ? "No units match these filters" : "Queue Empty"}</h2>
       <p className="text-sm text-slate-400 mt-2">{bucket !== "all" || paper !== "all" ? "Change the paper or bucket to see other pending units." : "There are no pending review units."}</p>
     </div> : <div className="grid lg:grid-cols-3 gap-5">
@@ -142,9 +141,9 @@ export function Queue() {
         </section>
         <section className="bg-slate-800 border border-slate-700 rounded-xl p-5 space-y-3">
           {unit.publication_ready === false && <p className="text-sm text-amber-200">These textbook suggestions await publication review. Your saved historical labels are preserved.</p>}
-          <button onClick={() => submit("accept")} disabled={decision.isPending || unit.publication_ready === false} className="w-full rounded bg-emerald-600 p-3 text-sm font-bold disabled:opacity-50">{decision.isPending ? "Saving decision…" : "[A] Accept Recommendation"}</button>
-          <button onClick={() => setPickerOpen(true)} disabled={decision.isPending || unit.publication_ready === false} className="w-full rounded bg-slate-700 p-3 text-sm">[E] Reclassify (Choose Node)</button>
-          <div className="flex gap-2"><button onClick={() => submit("none_fits")} disabled={decision.isPending} className="flex-1 rounded bg-slate-900 p-3 text-xs">[N] None Fits</button><button onClick={() => submit("exclude")} disabled={decision.isPending} className="flex-1 rounded bg-slate-900 p-3 text-xs text-rose-300">[X] Exclude</button></div>
+          <button onClick={() => submit("accept")} disabled={decision.isPending || unit.publication_ready === false} className="w-full rounded bg-emerald-600 p-3 text-sm font-bold disabled:opacity-50">{decision.isPending ? "Saving decision…" : "Accept historical recommendation"}</button>
+          <button onClick={() => setPickerOpen(true)} disabled={decision.isPending || unit.publication_ready === false} className="w-full rounded bg-slate-700 p-3 text-sm">Change historical label</button>
+          <div className="flex gap-2"><button onClick={() => submit("none_fits")} disabled={decision.isPending} className="flex-1 rounded bg-slate-900 p-3 text-xs">None fits</button><button onClick={() => submit("exclude")} disabled={decision.isPending} className="flex-1 rounded bg-slate-900 p-3 text-xs text-rose-300">Exclude</button></div>
         </section>
       </div>
     </div>}

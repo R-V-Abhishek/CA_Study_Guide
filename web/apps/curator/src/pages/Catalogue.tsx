@@ -1,5 +1,6 @@
 import { accountKey } from "@caf/api-client";
-import { useState } from "react";
+import { Link, useSearchParams } from "react-router-dom";
+import { WorkspaceSkeleton } from "../components/WorkspaceSkeleton";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import {
   FolderOpen,
@@ -13,8 +14,10 @@ import { RequestError } from "../components/RequestError";
 
 export function Catalogue() {
   const queryClient = useQueryClient();
-  const [statusFilter, setStatusFilter] = useState<string>("all");
-  const [paperFilter, setPaperFilter] = useState<string>("all");
+  const [params, setParams] = useSearchParams();
+  const statusFilter = params.get("status") ?? "all";
+  const paperFilter = params.get("paper") ?? "all";
+  const setFilter = (key: string, value: string) => { const next = new URLSearchParams(params); value === "all" ? next.delete(key) : next.set(key, value); setParams(next); };
 
   const { data: documents = [], isLoading, error, refetch } = useQuery({
     queryKey: ["curate-catalogue", accountKey(), statusFilter, paperFilter],
@@ -65,10 +68,10 @@ export function Catalogue() {
         <div>
           <div className="flex items-center gap-2">
             <FolderOpen className="w-5 h-5 text-indigo-400" />
-            <h1 className="text-lg font-bold text-white">Document Catalogue</h1>
+            <h1 className="text-lg font-bold text-white">Source catalogue</h1>
           </div>
           <p className="text-xs text-slate-400 mt-0.5">
-            Verified PDF documents, hash deduplication, and extraction tracking.
+            Inspect acquired documents and review their source identity and extraction evidence.
           </p>
         </div>
 
@@ -79,8 +82,9 @@ export function Catalogue() {
           </div>
 
           <select
+            aria-label="Catalogue status"
             value={statusFilter}
-            onChange={(e) => setStatusFilter(e.target.value)}
+            onChange={(e) => setFilter("status", e.target.value)}
             className="px-2.5 py-1 rounded-lg text-xs bg-slate-900 border border-slate-700 text-slate-200 focus:outline-none"
           >
             <option value="all">All Catalog Statuses</option>
@@ -90,8 +94,9 @@ export function Catalogue() {
           </select>
 
           <select
+            aria-label="Catalogue paper"
             value={paperFilter}
-            onChange={(e) => setPaperFilter(e.target.value)}
+            onChange={(e) => setFilter("paper", e.target.value)}
             className="px-2.5 py-1 rounded-lg text-xs bg-slate-900 border border-slate-700 text-slate-200 focus:outline-none"
           >
             <option value="all">All Papers</option>
@@ -106,10 +111,7 @@ export function Catalogue() {
       {/* Documents Table */}
       <div className="rounded-2xl border border-[#334155] bg-[#1E293B] overflow-hidden shadow-sm">
         {isLoading ? (
-          <div className="p-12 text-center text-slate-400 space-y-3">
-            <div className="h-6 w-48 bg-slate-800 rounded animate-pulse mx-auto" />
-            <div className="h-32 w-full bg-slate-800 rounded animate-pulse" />
-          </div>
+          <WorkspaceSkeleton label="Loading source catalogue…" />
         ) : error ? null : documents.length === 0 ? (
           <div className="p-12 text-center text-xs text-slate-400">
             No documents found matching current filter criteria.
@@ -119,7 +121,7 @@ export function Catalogue() {
             <table className="w-full text-left text-xs text-slate-300">
               <thead className="bg-slate-900/60 border-b border-[#334155] text-slate-400 uppercase font-mono text-[10px]">
                 <tr>
-                  <th className="p-3.5 pl-5">Doc ID</th>
+                  <th className="p-3.5 pl-5">Details</th>
                   <th className="p-3.5">Title</th>
                   <th className="p-3.5">Paper</th>
                   <th className="p-3.5">Attempt</th>
@@ -140,10 +142,10 @@ export function Catalogue() {
                       className="hover:bg-slate-800/40 transition-colors"
                     >
                       <td className="p-3.5 pl-5 font-bold text-slate-200">
-                        #{doc.id}
+                        <details><summary>Technical details</summary>Document {doc.id}</details>
                       </td>
-                      <td className="p-3.5 font-sans font-medium text-white max-w-xs truncate">
-                        {doc.title ?? "Title unavailable"}
+                      <td className="p-3.5 font-sans font-medium text-white max-w-xs">
+                        <Link className="underline" to={`/extraction?document_id=${doc.id}`}>{doc.title ?? "Title unavailable"}</Link>
                       </td>
                       <td className="p-3.5 font-bold text-indigo-400">
                         {doc.paper_id ?? "Unavailable"}

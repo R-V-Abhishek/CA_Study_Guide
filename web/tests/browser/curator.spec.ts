@@ -41,7 +41,7 @@ test.describe("curator controlled responses", () => {
     await page.reload();
     await expect(page.getByRole("alert")).toContainText("Queue unavailable");
     await expect(page.getByRole("heading", { name: "Queue Empty" })).toHaveCount(0);
-    await expect(page.getByRole("link", { name: "Catalogue" })).toBeVisible();
+    await expect(page.getByRole("link", { name: "Source catalogue" })).toBeVisible();
   });
 
   test("combined filters use returned IDs and URL reload/back state", async ({ page }) => {
@@ -76,7 +76,7 @@ test.describe("curator controlled responses", () => {
     const gate = new Promise<void>(resolve => { release = resolve; });
     await page.route("**/api/v1/curate/units/*/decision", async route => { count++; await gate; await route.fulfill({ status: 500, json: { detail: "Decision not accepted" } }); });
     await page.goto("/curator/queue");
-    const accept = page.getByRole("button", { name: "[A] Accept Recommendation", exact: true });
+    const accept = page.getByRole("button", { name: "Accept historical recommendation", exact: true });
     await accept.evaluate(button => { (button as HTMLButtonElement).click(); (button as HTMLButtonElement).click(); });
     await expect(page.getByRole("button", { name: "Saving decision…" })).toBeDisabled();
     await expect.poll(() => count).toBe(1);
@@ -84,7 +84,7 @@ test.describe("curator controlled responses", () => {
     release();
     await expect(page.getByRole("alert")).toContainText("Decision not accepted");
     await expect(page.getByText("Fixture question 1", { exact: true })).toBeVisible();
-    await expect(page.getByRole("button", { name: "[A] Accept Recommendation", exact: true })).toBeEnabled();
+    await expect(page.getByRole("button", { name: "Accept historical recommendation", exact: true })).toBeEnabled();
     await expect(page.getByText("1 / 2", { exact: true })).toBeVisible();
   });
 
@@ -99,10 +99,10 @@ test.describe("curator controlled responses", () => {
     await page.goto("/curator/queue");
     await page.getByRole("button", { name: "Next unit", exact: true }).click();
     await expect(page.getByText("Fixture question 2", { exact: true })).toBeVisible();
-    await page.getByRole("button", { name: "[A] Accept Recommendation", exact: true }).click();
+    await page.getByRole("button", { name: "Accept historical recommendation", exact: true }).click();
     await expect(page.getByText("Fixture question 3", { exact: true })).toBeVisible();
     await expect(page.getByText("2 / 2", { exact: true })).toBeVisible();
-    await page.getByRole("button", { name: "[A] Accept Recommendation", exact: true }).click();
+    await page.getByRole("button", { name: "Accept historical recommendation", exact: true }).click();
     await expect(page.getByText("Fixture question 1", { exact: true })).toBeVisible();
     await expect(page.getByText("1 / 1", { exact: true })).toBeVisible();
   });
@@ -146,7 +146,7 @@ test.describe("curator controlled responses", () => {
     for (const [route, message] of [["documents", "Documents unavailable"], ["bulk", "Classifications unavailable"], ["taxonomy", "Taxonomy unavailable"], ["system", "Health unavailable"]]) {
       await page.goto(`/curator/${route}`);
       await expect(page.getByRole("alert").filter({ hasText: message })).toBeVisible();
-      await expect(page.getByRole("link", { name: "Review Queue", exact: true })).toBeVisible();
+      await expect(page.getByRole("link", { name: "Review questions", exact: true })).toBeVisible();
     }
     await expect(page.getByText("healthy", { exact: true })).toHaveCount(0);
     expect(uncaught).toEqual([]);
@@ -186,7 +186,7 @@ test.describe("curator controlled responses", () => {
     await expect(page.getByRole("alert")).toContainText("Bulk action failed");
     await expect(page.getByText(/Published .*explicitly reviewed/)).toHaveCount(0);
     await page.goto("/curator/system");
-    await page.getByRole("button", { name: "Trigger L5 Recompute", exact: true }).click();
+    await page.getByRole("button", { name: "Refresh historical scores", exact: true }).click();
     await expect(page.getByRole("alert")).toContainText("Recompute failed");
     await expect(page.getByText(/Score recompute completed/)).toHaveCount(0);
     await expect(page.getByText("No backup snapshots returned.", { exact: true })).toBeVisible();
@@ -198,9 +198,9 @@ test.describe("curator disposable database integration", () => {
 
   test("direct curator routes render actual API contracts without uncaught errors", async ({ page }) => {
     const uncaught: string[] = []; page.on("pageerror", error => uncaught.push(error.message));
-    for (const [route, heading] of [["queue", "Review Queue"], ["documents", "Document Catalogue"], ["bulk", "Bulk Accept — Selected Revisions"], ["taxonomy", "Taxonomy Explorer"], ["system", "System Health & Ops Monitor"]]) {
+    for (const [route, heading] of [["queue", "Legacy history"], ["documents", "Source catalogue"], ["bulk", "Bulk review"], ["taxonomy", "Taxonomy Explorer"], ["system", "System"]]) {
       await page.goto(`/curator/${route}`); await expect(page.getByRole("heading", { name: heading, exact: true })).toBeVisible();
-      await expect(page.getByRole("link", { name: "Review Queue", exact: true })).toBeVisible();
+      await expect(page.getByRole("link", { name: "Review questions", exact: true })).toBeVisible();
       await expect(page.getByRole("alert")).toHaveCount(0);
     }
     expect(uncaught).toEqual([]);
@@ -212,8 +212,8 @@ test.describe("curator disposable database integration", () => {
     await expect(page.getByRole("region", { name: "Answer text", exact: true })).toContainText("FINAL ANSWER SENTINEL");
     await expect(page.getByText(fixture.nodes[0].name, { exact: true })).toBeVisible();
     const response = page.waitForResponse(res => res.url().includes(`/curate/units/${fixture.unit_id}/decision`) && res.request().method() === "POST");
-    await expect(page.getByRole("button", { name: "[A] Accept Recommendation", exact: true })).toBeDisabled();
-    await page.getByRole("button", { name: "[X] Exclude", exact: true }).click();
+    await expect(page.getByRole("button", { name: "Accept historical recommendation", exact: true })).toBeDisabled();
+    await page.getByRole("button", { name: "Exclude", exact: true }).click();
     expect((await response).ok()).toBeTruthy();
     await expect(page.getByRole("heading", { name: "Queue Empty", exact: true })).toBeVisible();
     await page.reload(); await expect(page.getByRole("heading", { name: "Queue Empty", exact: true })).toBeVisible();
