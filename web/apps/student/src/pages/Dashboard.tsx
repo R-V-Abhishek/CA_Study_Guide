@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
-import { apiRequest, type QuestionPage, type components } from '@caf/api-client';
+import { apiRequest, accountKey, type QuestionPage, type components } from '@caf/api-client';
 import { getData, mode } from '../lib/data';
 import { demoLink, isDemoMode } from '../lib/demo';
 import { resumeDestination } from '../lib/navigation';
@@ -12,7 +12,7 @@ export function Dashboard() {
   const revision = useQuery({ queryKey: ['revision-due', mode()], queryFn: () => getData<RevisionData>('/api/v1/revision/due') });
   const questions = useQuery({ queryKey: ['reviewed-question-count', mode()], queryFn: () => getData<QuestionPage>('/api/v1/questions?page=1&page_size=1') });
   const coverage = useQuery({ queryKey: ['corpus-coverage', mode()], queryFn: () => getData<components['schemas']['CorpusReadiness']>('/api/v1/coverage') });
-  const settings = useQuery({ queryKey: ['question-filter-settings', mode()], enabled: !isDemoMode(), queryFn: () => apiRequest<components['schemas']['ProfileSettings']>('/api/v1/me/settings') });
+  const settings = useQuery({ queryKey: ['settings', accountKey()], enabled: !isDemoMode(), queryFn: () => apiRequest<components['schemas']['ProfileSettings']>('/api/v1/me/settings') });
   const data = query.data;
   const resume = resumeDestination();
   const awaiting = data?.context && data.context.readiness !== 'ready';
