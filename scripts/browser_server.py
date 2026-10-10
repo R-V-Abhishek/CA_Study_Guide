@@ -11,7 +11,7 @@ import signal
 import tempfile
 
 
-def main():
+def main(acceptance: bool = False, database_port: int = 0):
     # Uvicorn replays shutdown signals after serving. Convert SIGTERM to an
     # exception so the surrounding contexts always stop the owned container.
     signal.signal(signal.SIGTERM, signal.default_int_handler)
@@ -21,7 +21,7 @@ def main():
     for role in ("APP", "CURATOR", "PIPELINE", "IDENTITY", "OPERATIONS", "BACKUP"):
         os.environ[f"PG_{role}_PASSWORD"] = secrets.token_hex(16)
 
-    port = int(os.environ.get("CAF_BROWSER_PORT", "8765"))
+    port = int(os.environ.get("CAF_BROWSER_PORT", "8787" if acceptance else "8765"))
     base_url = f"http://127.0.0.1:{port}"
     os.environ["AUTH_PUBLIC_BASE_URL"] = base_url
     os.environ["AUTH_LOCAL_DEVELOPMENT"] = "true"
@@ -32,7 +32,7 @@ def main():
     os.environ["OIDC_REDIRECT_URI"] = base_url + "/auth/callback"
 
     from caf_common.postgres_sandbox import PostgresSandbox
-    with tempfile.TemporaryDirectory(prefix="caf-browser-") as storage, PostgresSandbox("browser") as sandbox:
+    with tempfile.TemporaryDirectory(prefix="caf-browser-") as storage, PostgresSandbox("browser", published_port=database_port) as sandbox:
         os.environ["CAF_TEST_STORAGE_ROOT"] = storage
         os.environ["CAF_TEST_ARTIFACT_ROOT"] = storage
         os.environ["DATABASE_URL"] = sandbox.url().render_as_string(hide_password=False)
@@ -107,6 +107,14 @@ def main():
                                  method="anchor", bucket="A", evidence={"gist": "Synthetic fixture"}, is_shadow=False))
             from browser_reader import seed_reader
             reader_fixture = seed_reader(db, nodes)
+            if acceptance:
+                # Cookies do not isolate ports. Avoid replacing a real local
+                # application's session while reviewing the synthetic preview.
+                from caf_api import auth as acceptance_auth
+                acceptance_auth.SESSION_COOKIE = "caf_acceptance_session"
+                acceptance_auth.LOGIN_COOKIE = "caf_acceptance_login"
+                from acceptance_preview import seed_acceptance_readers
+                acceptance_readers = seed_acceptance_readers(db, nodes, reader_fixture)
             db.commit()
             fixture = {"paper_id": "s2023.P1", "nodes": [{"id": n.id, "name": n.name} for n in nodes],
                        "unit_id": unit.id, "score_run_id": run.id, **reader_fixture}
@@ -124,6 +132,9 @@ def main():
                 yield
         harness = FastAPI(docs_url=None, openapi_url=None, lifespan=lifespan)
         install_provider(harness, base_url)
+        if acceptance:
+            from acceptance_preview import install_acceptance
+            reset_acceptance = install_acceptance(harness, acceptance_readers, Path(storage))
 
         @harness.post("/__test/login")
         def fixture_login(account_id: int = 1):
@@ -163,17 +174,24 @@ def main():
                 db.add(Progress(user_id=1, node_id=fixture["nodes"][2]["id"], status="done",
                                 first_done_at=old, status_changed_at=old))
                 db.commit()
+            if acceptance:
+                reset_acceptance()
             return {"reset": True}
 
         harness.mount("/", app)
         try:
-            uvicorn.run(harness, host="0.0.0.0", port=port, log_level="warning")
+            # Acceptance has passwordless synthetic identities. Keep this
+            # explicitly local environment off the LAN and the public internet.
+            uvicorn.run(harness, host="127.0.0.1" if acceptance else "0.0.0.0", port=port, log_level="warning")
         finally:
             reset_database()
 
 
 if __name__ == "__main__":
+    import typer
+    cli = typer.Typer(pretty_exceptions_enable=False)
+    cli.command()(main)
     try:
-        main()
+        cli()
     except KeyboardInterrupt:
         pass  # Expected managed-server shutdown, after context cleanup.

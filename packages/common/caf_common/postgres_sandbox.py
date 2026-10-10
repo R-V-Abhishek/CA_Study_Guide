@@ -9,6 +9,7 @@ import subprocess
 import time
 from uuid import uuid4
 
+import psycopg
 from sqlalchemy.engine import URL
 from caf_common.db_safety import allow_test_database, disallow_test_database
 
@@ -17,6 +18,7 @@ from caf_common.db_safety import allow_test_database, disallow_test_database
 class PostgresSandbox:
     purpose: str
     use_tmpfs: bool = True
+    published_port: int = 0
     name: str = field(init=False)
     password: str = field(default_factory=lambda: secrets.token_hex(24))
     port: int = field(init=False, default=0)
@@ -24,6 +26,8 @@ class PostgresSandbox:
     started: bool = False
 
     def __post_init__(self) -> None:
+        if not 0 <= self.published_port <= 65535:
+            raise ValueError("Published database port must be between 0 and 65535")
         self.name = f"caf-{self.purpose}-{uuid4().hex[:12]}"
 
     def url(self, database: str = "postgres") -> URL:
@@ -43,7 +47,7 @@ class PostgresSandbox:
             subprocess.run([
                 "docker", "run", "--detach", "--rm", "--name", self.name,
                 "--label", "caf.disposable=true", *storage,
-                "--publish", "127.0.0.1::5432", "--env", f"POSTGRES_PASSWORD={self.password}",
+                "--publish", f"127.0.0.1:{self.published_port or ''}:5432", "--env", f"POSTGRES_PASSWORD={self.password}",
                 "postgres:16",
             ], check=True, capture_output=True, text=True)
             self.started = True
@@ -52,6 +56,7 @@ class PostgresSandbox:
             self.port = int(mapping.rsplit(":", 1)[1])
             self.allow("postgres")
             deadline = time.monotonic() + 60
+            last_error = None
             while time.monotonic() < deadline:
                 # The image's init server accepts Unix sockets before its final
                 # TCP server starts. Wait for the same TCP endpoint clients use.
@@ -59,9 +64,19 @@ class PostgresSandbox:
                                          "-p", "5432", "-U", "postgres"],
                                         capture_output=True)
                 if result.returncode == 0:
-                    return self
+                    # On desktop Docker, the database can be ready before the
+                    # VM's published host port forwards connections. Verify the
+                    # endpoint consumed by migrations, tests and the API too.
+                    try:
+                        with psycopg.connect(host="127.0.0.1", port=self.port,
+                                             dbname="postgres", user="postgres",
+                                             password=self.password, connect_timeout=1) as connection:
+                            connection.execute("SELECT 1")
+                        return self
+                    except psycopg.OperationalError as exc:
+                        last_error = exc
                 time.sleep(0.25)
-            raise RuntimeError("Disposable PostgreSQL did not become ready in 60 seconds")
+            raise RuntimeError("Disposable PostgreSQL host endpoint did not become ready in 60 seconds") from last_error
         except BaseException:
             self.close()
             raise
