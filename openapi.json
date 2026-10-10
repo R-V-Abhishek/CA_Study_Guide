@@ -9383,6 +9383,24 @@
         ],
         "title": "MarksAllocation"
       },
+      "MatchedQuestionPart": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "label": {
+            "type": "string",
+            "title": "Label"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "label"
+        ],
+        "title": "MatchedQuestionPart"
+      },
       "MeResponse": {
         "properties": {
           "account": {
@@ -12006,6 +12024,13 @@
                 "type": "null"
               }
             ]
+          },
+          "matched_parts": {
+            "items": {
+              "$ref": "#/components/schemas/MatchedQuestionPart"
+            },
+            "type": "array",
+            "title": "Matched Parts"
           }
         },
         "type": "object",

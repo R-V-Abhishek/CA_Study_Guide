@@ -136,6 +136,8 @@ test.describe("curator controlled responses", () => {
     await openNavigation(page);
     await page.locator(".curator-account summary:visible").filter({ hasText: "Technical details" }).click();
     await page.getByRole("button", { name: "Diagnostics", exact: true }).click();
+    await expect.poll(async () => JSON.parse(await page.getByRole("textbox", { name: "Diagnostics data", exact: true }).inputValue()).backend)
+      .toEqual({ api_version: "fixture-api", revision: "fixture-backend" });
     const info = JSON.parse(await page.getByRole("textbox", { name: "Diagnostics data", exact: true }).inputValue());
     expect(info.backend).toEqual({ api_version: "fixture-api", revision: "fixture-backend" });
     expect(info.frontend.app).toBe("curator"); expect(info.frontend.revision).toBeTruthy();

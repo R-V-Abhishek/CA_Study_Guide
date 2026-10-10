@@ -41,7 +41,17 @@ export function QuestionReader() {
   useEffect(() => { if (query.data && selected) document.getElementById(`part-${selected}`)?.scrollIntoView({ block: 'nearest' }); }, [query.data, selected]);
   const data = query.data;
   const current = `${location.pathname}${location.search}`;
-  useEffect(() => { if (data) rememberDestination({ path: current, title: data.content.display_label, paper: data.content.paper_id, breadcrumb: `${data.content.source_attempt_id ?? 'Undated collection'} / ${data.content.source_family}` }); }, [data, current]);
+  useEffect(() => {
+    if (!data) return;
+    const paper = papers.data?.find(item => item.id === data.content.paper_id)?.name
+      ?? settings.data?.available_papers.find(item => item.id === data.content.paper_id)?.name ?? 'Paper name not available';
+    const attempt = data.content.source_attempt_id
+      ? settings.data?.available_attempts.find(item => item.id === data.content.source_attempt_id)?.label ?? 'Attempt name not available'
+      : 'Undated collection';
+    const topic = data.covered_subtopics[0]?.path.map(node => node.name).join(' / ');
+    rememberDestination({ path: current, title: data.content.display_label, paper,
+      breadcrumb: [topic, attempt, data.content.source_family.replace(/_/g, ' ')].filter(Boolean).join(' / ') });
+  }, [data, current, papers.data, settings.data]);
   const parts = allQuestionParts(data?.content.parts ?? []);
   const labels = new Map(parts.map(part => [part.id, part.label]));
   const spans = data ? [...data.content.source_spans, ...parts.flatMap(part => part.source_spans), ...allAnswerParts(data.content.answers ?? []).flatMap(part => part.source_spans)] : [];

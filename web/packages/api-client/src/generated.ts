@@ -2921,6 +2921,13 @@ export interface components {
             /** Node Shares */
             node_shares: components["schemas"]["AttributedNodeShare"][];
         };
+        /** MatchedQuestionPart */
+        MatchedQuestionPart: {
+            /** Id */
+            id: string;
+            /** Label */
+            label: string;
+        };
         /** MeResponse */
         MeResponse: {
             account: components["schemas"]["AccountResponse"];
@@ -3756,6 +3763,8 @@ export interface components {
             /** Covered Subtopics */
             covered_subtopics: components["schemas"]["CoveredSubtopic"][];
             marks?: components["schemas"]["PublishedMarks"] | null;
+            /** Matched Parts */
+            matched_parts?: components["schemas"]["MatchedQuestionPart"][];
         };
         /** ReadinessAction */
         ReadinessAction: {

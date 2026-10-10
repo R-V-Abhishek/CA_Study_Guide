@@ -167,3 +167,34 @@ def test_confirmed_pair_reconciles_existing_occurrences_and_reuse_stays_separate
     assert poc.id not in {qocc.id,aocc.id} and poc.signal_class=='practice'
     pair.status='rejected';session.commit();session.refresh(aocc)
     assert aocc.canonical_occurrence_id is None and aocc.identity_status=='ambiguous'
+
+
+def test_published_topic_rows_return_distinct_scoped_actual_part_labels(session,suggestion,authenticated_client):
+    from caf_api.questions import question_summary
+    result=review(session,suggestion)
+    session.commit()
+    published=session.get(PublishedQuestion,result['revision_id'])
+    node=suggestion.mappings[0]['primary_node_id']
+    expected=[{'id':part['id'],'label':part['label_path'] or part['label']}
+              for part in published.content['parts']]
+    client=authenticated_client()
+    response=client.get('/api/v1/questions',params={'subtopic_id':node})
+    assert response.status_code==200,response.text
+    rows=response.json()['items']
+    assert len(rows)==1
+    assert rows[0]['matched_parts']==expected
+    search=client.get('/api/v1/search',params={'q':'recognition','subtopic_id':node}).json()
+    assert search['items'][0]['matched_parts']==expected
+    assert {part['id'] for part in expected}.issubset(
+        {allocation['part_id'] for allocation in rows[0]['marks']['allocations']})
+    # Exercise duplicate mapping appearances without rewriting immutable history.
+    snapshot=PublishedQuestion(id=published.id,question_id=published.question_id,
+        content=published.content,marks=published.marks,covered_subtopics=published.covered_subtopics,
+        mappings=[published.mappings[0],published.mappings[0],
+                  {**published.mappings[1],'primary_node_id':'another-scope','secondary_node_ids':[]}])
+    scoped=question_summary(snapshot,node).model_dump()
+    assert scoped['matched_parts']==expected[:1]
+    assert question_summary(snapshot,'another-scope').model_dump()['matched_parts']==expected[1:]
+    snapshot.mappings=[{**published.mappings[0],'primary_node_id':'another-scope',
+                       'secondary_node_ids':[node]},published.mappings[0]]
+    assert question_summary(snapshot,node).model_dump()['matched_parts']==expected[:1]

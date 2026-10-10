@@ -57,12 +57,28 @@ def question(question_id: str, db:Session=Depends(get_db_session)):
         extraction_quality=row.quality,occurrence=OccurrenceResult(id=occurrence.id,canonical_occurrence_id=occurrence.canonical_occurrence_id,question_id=occurrence.question_id,paper_id=occurrence.paper_id,attempt_id=occurrence.attempt_id,source_family=occurrence.source_family,signal_class=occurrence.signal_class,series=occurrence.series,identity_status=occurrence.identity_status,pairing_evidence=occurrence.pairing_evidence))
 
 
-def question_summary(row):
+def question_summary(row,subtopic_id=None):
     content=row.content
+    mapped = {mapping['part_id'] for mapping in row.mappings
+              if mapping['outcome']=='matched' and not mapping['excluded'] and
+              (subtopic_id is None or mapping['primary_node_id']==subtopic_id or
+               subtopic_id in mapping['secondary_node_ids'])}
+    matched_parts=[]
+    seen=set()
+    def append_part(part_id,label):
+        if part_id in mapped and part_id not in seen:
+            seen.add(part_id)
+            matched_parts.append({'id':part_id,'label':label})
+    def visit(parts):
+        for part in parts:
+            append_part(part['id'],part['label_path'] or part['label'])
+            visit(part['parts'])
+    append_part(content['question_id'],content['display_label'])
+    visit(content['parts'])
     return QuestionSummary(question_id=row.question_id,snapshot_id=row.id,paper_id=content['paper_id'],
         attempt_id=content['source_attempt_id'],display_label=content['display_label'],question_text=content['question_text'],
         common_stem=content['common_stem'],answer_status=content['answer_status'],source_family=content['source_family'],
-        covered_subtopics=row.covered_subtopics,marks=row.marks)
+        covered_subtopics=row.covered_subtopics,marks=row.marks,matched_parts=matched_parts)
 
 
 def filtered_questions(paper_id,subtopic_id,attempt_id,source_family,answer_status,q=None):
@@ -78,24 +94,24 @@ def filtered_questions(paper_id,subtopic_id,attempt_id,source_family,answer_stat
     return statement
 
 
-def page_questions(db,statement,page,page_size):
+def page_questions(db,statement,page,page_size,subtopic_id=None):
     total=db.scalar(select(func.count()).select_from(statement.subquery())) or 0
     rows=db.scalars(statement.order_by(PublishedQuestion.question_id).offset((page-1)*page_size).limit(page_size))
-    return dict(items=[question_summary(row) for row in rows],total=total,page=page,page_size=page_size)
+    return dict(items=[question_summary(row,subtopic_id) for row in rows],total=total,page=page,page_size=page_size)
 
 
 @router.get('/questions',response_model=PageResult[QuestionSummary])
 def questions(page:int=Query(1,ge=1),page_size:int=Query(25,ge=1,le=100),paper_id:str|None=None,
         subtopic_id:str|None=None,attempt_id:str|None=None,source_family:str|None=None,answer_status:str|None=None,
         db:Session=Depends(get_db_session)):
-    return page_questions(db,filtered_questions(paper_id,subtopic_id,attempt_id,source_family,answer_status),page,page_size)
+    return page_questions(db,filtered_questions(paper_id,subtopic_id,attempt_id,source_family,answer_status),page,page_size,subtopic_id)
 
 
 @router.get('/search',response_model=SearchResult)
 def search(q:str=Query(min_length=1,max_length=500),page:int=Query(1,ge=1),page_size:int=Query(25,ge=1,le=100),
         paper_id:str|None=None,subtopic_id:str|None=None,attempt_id:str|None=None,source_family:str|None=None,
         answer_status:str|None=None,include_notes:bool=False,account:Principal=Depends(require_account),db:Session=Depends(get_db_session)):
-    result=page_questions(db,filtered_questions(paper_id,subtopic_id,attempt_id,source_family,answer_status,q),page,page_size)
+    result=page_questions(db,filtered_questions(paper_id,subtopic_id,attempt_id,source_family,answer_status,q),page,page_size,subtopic_id)
     result['notes']=[]
     if include_notes:
         notes=select(Note).where(Note.user_id==account.id,

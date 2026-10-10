@@ -38,6 +38,9 @@ test('plan block duration requests a new allocation without changing saved setti
   expect(expected.minutes_per_subtopic).toBe(17);
   await page.goto('/plan?adjust=true');
   await expect(page.getByLabel('Block duration (minutes)')).toBeVisible();
+  await page.getByLabel('Block duration (minutes)').fill('');
+  await expect(page.getByLabel('Block duration (minutes)')).toHaveValue('');
+  await expect(page.getByRole('button',{ name:'Refresh plan',exact:true })).toBeDisabled();
   await page.getByLabel('Block duration (minutes)').fill('17');
   await expect(page).toHaveURL(/minutes=17/);
   await expect(page.getByText(new RegExp(`${expected.allocated_minutes} minutes allocated · ${expected.unused_minutes} minutes unused`))).toBeVisible();

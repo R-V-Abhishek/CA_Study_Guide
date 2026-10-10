@@ -91,6 +91,11 @@ class QuestionResult(BaseModel):
     occurrence: OccurrenceResult
 
 
+class MatchedQuestionPart(BaseModel):
+    id: str
+    label: str
+
+
 class QuestionSummary(BaseModel):
     question_id: str
     snapshot_id: int
@@ -103,6 +108,7 @@ class QuestionSummary(BaseModel):
     source_family: str
     covered_subtopics: list[CoveredSubtopic]
     marks: PublishedMarks | None = None
+    matched_parts: list[MatchedQuestionPart] = Field(default_factory=list)
 
 
 class AppearanceResolution(BaseModel):

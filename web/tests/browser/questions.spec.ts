@@ -89,6 +89,33 @@ test('question summary marks preserve measured zero and distinguish unavailable 
   await expect(page.getByRole('article').filter({ has:page.getByRole('link',{ name:'Unallocated marks' }) })).toContainText('Marks: Not available');
 });
 
+test('topic question rows deduplicate matched parts, show their marks and return reader focus without eager reader fetches',async ({ page,request }) => {
+  const data=await fixture(request);
+  const published:PublishedQuestion=await (await request.get(`/api/v1/questions/${data.question_id}`)).json();
+  const response=await (await request.get('/api/v1/questions')).json();
+  const original=response.items.find((question:{ question_id:string }) => question.question_id === data.question_id);
+  const matched=published.content.parts.map(part => ({ id:part.id,label:part.label_path ?? part.label }));
+  const allocations=matched.map((part,index) => ({ part_id:part.id,marks:index === 0 ? 0 : 6,allocation_status:'reviewed' as const,choice_group:null,node_shares:[] }));
+  await page.route('**/api/v1/questions?*',route => {
+    if (new URL(route.request().url()).searchParams.get('subtopic_id') === data.nodes[0].id) return route.fulfill({ json:{ ...response,total:1,items:[{ ...original,matched_parts:[matched[0],matched[0],...matched.slice(1)],marks:{ ...published.marks,allocations } }] } });
+    return route.continue();
+  });
+  let readerRequests=0;
+  page.on('request',request => { if (new URL(request.url()).pathname === `/api/v1/questions/${data.question_id}`) readerRequests++; });
+  await page.goto(`/syllabus?paper=${data.paper_id}&node=${data.nodes[0].id}`);
+  await expect(page.getByText(`Relevant parts: ${matched.map(part => part.label).join(', ')}`,{ exact:true })).toBeVisible();
+  await expect(page.getByText(`${matched[0].label}: 0 marks · ${matched[1].label}: 6 marks`,{ exact:true })).toBeVisible();
+  const link=page.getByRole('link',{ name:'Read complete question',exact:true });
+  expect(new URL((await link.getAttribute('href'))!,page.url()).searchParams.get('part')).toBe(matched[0].id);
+  expect(readerRequests).toBe(0);
+  await link.click();
+  await expect(page.locator('[data-selected=true]')).toContainText('Synthetic first requirement.');
+  await expect(page.getByText('Synthetic second requirement.',{ exact:true })).toBeVisible();
+  await page.getByRole('link',{ name:'← Back to topic',exact:true }).click();
+  await expect(page.getByRole('link',{ name:'Read complete question',exact:true })).toBeFocused();
+  expect(readerRequests).toBe(1);
+});
+
 test('complete and missing answers remain explicit and changing the question hides the previous answer',async ({ page,request }) => {
   const data=await fixture(request);
   const original:PublishedQuestion=await (await request.get(`/api/v1/questions/${data.question_id}`)).json();

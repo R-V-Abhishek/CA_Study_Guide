@@ -33,6 +33,7 @@ export interface PublishedQuestionSummary {
   display_label: string; question_text: string; common_stem: string;
   answer_status: string; source_family: string; covered_subtopics: CoveredSubtopic[];
   marks?: PublishedQuestion['marks'] | null;
+  matched_parts?: { id: string; label: string }[];
 }
 export interface QuestionPage {
   items: PublishedQuestionSummary[]; total: number; page: number; page_size: number;

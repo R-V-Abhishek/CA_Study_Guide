@@ -137,13 +137,29 @@ test('an unseen cookie switch rejects a stale account read before showing privat
   });
   await page.getByText('Adjust plan', { exact: true }).click();
   await page.getByRole('button', { name: 'Refresh plan' }).click(); await intercepted;
+  // Keep automatic identity checks pending so this exercises a genuinely unseen switch.
+  let releaseIdentity!: () => void;
+  const identityGate = new Promise<void>(resolve => { releaseIdentity = resolve; });
+  await page.route('**/api/v1/me', async route => {
+    await identityGate;
+    await route.continue().catch(() => undefined);
+  });
   await request.post('/__test/login?account_id=2');
   const me = await (await request.get('/api/v1/me')).json();
   const settings = await (await request.get('/api/v1/me/settings')).json();
   const { groups: _groups, available_papers: _papers, available_attempts: _attempts, ...body } = settings;
   expect((await request.put('/api/v1/me/settings', { headers: { Origin: browserOrigin(), 'X-CSRF-Token': me.csrf_token }, data: { ...body, target_attempt_id: '2027-05' } })).ok()).toBe(true);
-  const mismatch = page.waitForResponse(response => response.url().endsWith('/api/v1/dashboard') && response.status() === 409);
-  await page.getByRole('link', { name: 'Today', exact: true }).click(); await mismatch;
+  let reportMismatch!: (status: number) => void;
+  const mismatch = new Promise<number>(resolve => { reportMismatch = resolve; });
+  await page.route('**/api/v1/dashboard', async route => {
+    const response = await route.fetch();
+    if (route.request().headers()['x-expected-account-id'] === '1') reportMismatch(response.status());
+    await route.fulfill({ response }).catch(() => undefined);
+  });
+  await page.getByRole('link', { name: 'Today', exact: true }).click();
+  expect(await mismatch).toBe(409);
+  releaseIdentity();
+  await page.unroute('**/api/v1/me');
   await expect(page.getByRole('link', { name: /Student B · Profile/ })).toBeVisible();
   await expect(page.getByText(/Target attempt May 2027/)).toBeVisible();
   release(); await page.unroute('**/api/v1/plan*');
