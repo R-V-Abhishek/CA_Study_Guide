@@ -134,6 +134,28 @@ test("admin corrections create a candidate and preserve scoped source-span evide
   await expect(page.getByLabel("Extraction revision")).toHaveValue("2");
 });
 
+test("grading-role corrections send a boolean and preserve evidence on stale revision failure", async ({ page, request }) => {
+  await request.post("/__test/login?account_id=3"); await routes(page);
+  let submitted: unknown;
+  await page.route("**/api/v1/extraction/revisions/2/corrections", route => {
+    submitted = route.request().postDataJSON();
+    return route.fulfill({ status: 409, json: { detail: "Correction source is stale; select the current revision" } });
+  });
+  await page.goto("/curator/extraction");
+  await page.getByRole("button", { name: /^Official model fixture/ }).click();
+  await page.getByLabel("Scoped question or part").selectOption("Q1.b.i");
+  await page.getByLabel("Correction field").selectOption("is_gradable");
+  await page.getByLabel("Grading role", { exact: true }).selectOption("false");
+  await page.getByLabel("Correction reason").fill("Original page shows an instruction span, not a separate question.");
+  await page.getByRole("button", { name: "Create corrected candidate revision" }).click();
+  await expect(page.getByRole("alert")).toContainText("Correction source is stale");
+  expect(submitted).toEqual({ label_path: "Q1.b.i", is_gradable: false,
+    reason: "Original page shows an instruction span, not a separate question." });
+  await expect(page.getByLabel("Correction reason")).toHaveValue("Original page shows an instruction span, not a separate question.");
+  await expect(page.getByLabel("Grading role", { exact: true })).toHaveValue("false");
+  await expect(page.getByLabel("Extraction revision")).toHaveValue("2");
+});
+
 test("administrator resolves an ambiguous answer using its recorded source candidate", async ({ page, request }) => {
   await request.post("/__test/login?account_id=3"); await routes(page);
   const ambiguous: ExtractedQuestion = { ...question, pairing_status: "ambiguous", answers: [], pairing_candidates: [{

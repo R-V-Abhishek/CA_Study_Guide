@@ -2168,6 +2168,8 @@ export interface components {
             block_end?: string | null;
             /** Marks */
             marks?: number | null;
+            /** Is Gradable */
+            is_gradable?: boolean | null;
         };
         /** CoverageExclusion */
         CoverageExclusion: {

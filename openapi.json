@@ -6801,6 +6801,17 @@
               }
             ],
             "title": "Marks"
+          },
+          "is_gradable": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Is Gradable"
           }
         },
         "additionalProperties": false,

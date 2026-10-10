@@ -226,7 +226,7 @@ def correction(revision_id:int,body:CorrectionRequest,db:Session=Depends(get_ope
     if node is None: raise HTTPException(404,'Part label not found')
     edits=body.model_dump(exclude_unset=True,exclude={'reason','label_path'})
     if not edits or any(value is None for key,value in edits.items() if key!='marks'):
-        raise HTTPException(422,'Corrections require concrete text or source bounds; null is allowed only to clear marks')
+        raise HTTPException(422,'Corrections require concrete text, grading role, marks or source bounds; null is allowed only to clear marks')
     if 'answer_candidate_label' in edits:
         candidates=[candidate for candidate in (node['answer'] or {}).get('candidates',[])
             if candidate['label_path']==edits['answer_candidate_label']]

@@ -128,6 +128,7 @@ class CorrectionRequest(BaseModel):
     block_start: str | None = None
     block_end: str | None = None
     marks: int | None = Field(default=None, ge=0, le=100)
+    is_gradable: bool | None = Field(default=None, strict=True)
 
 
 class ReviewRequest(BaseModel):

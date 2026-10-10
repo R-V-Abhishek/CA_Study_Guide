@@ -10,7 +10,7 @@ from caf_db.models.extraction import ExtractionRevision, ExtractionReview, Recon
 from caf_db.models.core import Decision, Appearance
 from caf_db.models.ops import Run
 from caf_l2.pipeline import ExtractionPipeline
-from caf_l2.revisions import promote_revision, RevisionConflict, confirm_pair
+from caf_l2.revisions import promote_revision, RevisionConflict, confirm_pair, flatten_snapshots
 from test_phase3_release import manifest
 
 
@@ -33,6 +33,38 @@ def extract(session,pipe,doc):
     run=Run(stage='l2_extract',status='running',stats={})
     session.add(run); session.commit()
     return pipe.extract_document(session,doc.id,run.id)
+
+
+def test_grading_role_correction_is_audited_and_keeps_original_revision(session,tmp_path,authenticated_client):
+    doc,pipe=source(session,tmp_path)
+    result=extract(session,pipe,doc)
+    original=session.get(ExtractionRevision,result.revision_id)
+    original_node=next(node for node in flatten_snapshots(original.parsed_units) if node['label_path']=='Q1.a')
+    assert original_node['is_gradable'] is True
+    original_digest=original.content_digest
+    url=f'/api/v1/extraction/revisions/{original.id}/corrections'
+    body={'label_path':'Q1.a','is_gradable':False,'reason':'Compared original page: this span is shared context rather than a separate question.'}
+    assert authenticated_client(role='student').post(url,json=body).status_code==403
+    admin=authenticated_client(role='administrator')
+    for invalid in (None, 'false', 0):
+        assert admin.post(url,json={**body,'is_gradable':invalid}).status_code==422
+    response=admin.post(url,json=body)
+    assert response.status_code==200,response.text
+    candidate=session.get(ExtractionRevision,response.json()['id'])
+    corrected=next(node for node in flatten_snapshots(candidate.parsed_units) if node['label_path']=='Q1.a')
+    assert corrected['is_gradable'] is False
+    assert corrected['question_text']==original_node['question_text']
+    assert candidate.status=='candidate' and candidate.content_digest!=original_digest
+    assert candidate.configuration['correction']['edits']=={'is_gradable':False}
+    assert candidate.configuration['correction']['actor_id']==candidate.created_by
+    assert candidate.configuration['correction']['reason']==body['reason']
+    assert candidate.quality['human_review']=='pending'
+    assert session.scalar(sa.select(sa.func.count()).select_from(ExtractionReview).where(ExtractionReview.revision_id==candidate.id))==0
+    session.expire_all()
+    assert session.get(Document,doc.id).current_revision_id is None
+    preserved=session.get(ExtractionRevision,original.id)
+    assert preserved.content_digest==original_digest
+    assert next(node for node in flatten_snapshots(preserved.parsed_units) if node['label_path']=='Q1.a')['is_gradable'] is True
 
 
 def test_candidate_assembly_pairing_and_duplicate_free_promotion(session,tmp_path):
