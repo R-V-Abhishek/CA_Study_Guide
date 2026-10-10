@@ -1,0 +1,1 @@
+import{b as a,a as n}from"./index-DMgcQ-xU.js";async function i(){const o=await a("/api/v1/me/export"),t=URL.createObjectURL(new Blob([JSON.stringify(o,null,2)],{type:"application/json"})),e=document.createElement("a");e.href=t,e.download=`study-profile-${n()}.json`,e.click(),URL.revokeObjectURL(t)}export{i as e};
