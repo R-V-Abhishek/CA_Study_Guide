@@ -3,6 +3,14 @@
 Date: 10 October 2026. Branch: `feat/phase8-central-deployment`.
 Status: **local baseline acceptance prepared; human approval and central deployment pending**.
 
+## 14 October: actual corpus preview
+
+At the user's request, prepared a [real-data preview](Phase8_Real_Data_Preview.md) using a read-only snapshot of the existing corpus instead of synthetic fixtures. All 74 restored table digests matched before copy-only credentials and paths were changed. The copy contains 521 source documents, 120 classification suggestions and no published study questions. The original source/content approval state is preserved.
+
+Real-data inspection exposed repeated loading of the same taxonomy evidence per question in the review queue. The queue now shares evidence only within a read request; mutations and later requests reload it. Focused API/publication checks passed (22 tests, 11.90 seconds). A real 100-record queue request took 3.533 seconds locally; an original 25-record request exceeded 60 seconds. Central deployment and production latency acceptance remain pending.
+
+The full 120-record queue subsequently loaded in 4.439 seconds. Original PDF bytes and rendered page access were verified, and an actual case-study question was inspected in the browser. After these checks, all 74 original table content digests remained unchanged.
+
 ## Completed in this checkpoint
 
 - Confirmed GitHub repository administrative access and local Auth0 configuration presence without exporting credentials.

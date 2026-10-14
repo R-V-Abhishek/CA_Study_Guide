@@ -2,6 +2,8 @@
 
 Status: baseline preview prepared; human judgments pending. This is not production acceptance.
 
+**14 October update:** the user's review now uses the [real-data preview](Phase8_Real_Data_Preview.md) at http://127.0.0.1:8788/__preview. The synthetic harness below remains available for automated scenarios; it is not the requested human preview.
+
 Open **http://127.0.0.1:8787/__acceptance** on this Mac. The start page provides synthetic Student A, Student B and Administrator buttons, direct reader examples, and a feedback form for each acceptance area. These identities are distinct from real administrator account 1 and the nominated pilot student.
 
 Review navigation, appearance, the complete long case/table, complete/partial/missing answers, topic importance, private notes, progress, plans, revision and access controls. Use **Approved / Changes requested / Not tested**, the affected screen and your observation. Resize the window to inspect mobile layouts; this loopback-only preview is not directly accessible from a phone.

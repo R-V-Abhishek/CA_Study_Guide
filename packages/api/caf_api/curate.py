@@ -164,7 +164,7 @@ def classification_queue(
     """One immutable suggestion per root, retaining the previous publication during review."""
     from caf_db.models.classification import (SuggestionRevision, ClassificationRevision,
         QuestionPublication, ClassificationVerification, ClassificationDispute)
-    from caf_l4.revisions import readiness
+    from caf_l4.revisions import readiness, taxonomy_readiness_evidence
 
     latest_query = sa.select(sa.func.max(SuggestionRevision.id).label('id'))
     if taxonomy_version_id:
@@ -179,8 +179,14 @@ def classification_queue(
     if experimental is not None: query = query.where(SuggestionRevision.experimental == experimental)
     result = []
     skipped = 0
+    # Evidence is shared only within this read request. Mutations always load
+    # current evidence again, so approvals/corrections cannot use stale gates.
+    taxonomy_evidence = {}
     for suggestion, document in session.execute(query.order_by(SuggestionRevision.id.desc())):
-        gate = readiness(session, suggestion)
+        version_id = suggestion.taxonomy_version_id
+        if version_id not in taxonomy_evidence:
+            taxonomy_evidence[version_id] = taxonomy_readiness_evidence(session, version_id)
+        gate = readiness(session, suggestion, taxonomy_evidence[version_id])
         if ready is not None and gate['eligible'] != ready: continue
         if outcome and not any(part['outcome'] == outcome for part in suggestion.mappings): continue
         benchmark = bool(suggestion.provenance.get('benchmark', False))

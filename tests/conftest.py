@@ -68,7 +68,7 @@ def pytest_sessionstart(session):
     socket.socket.connect = guarded_socket_connect
     socket.socket.connect_ex = guarded_socket_connect_ex
     try:
-        _sandbox = PostgresSandbox("tests").__enter__()
+        _sandbox = PostgresSandbox("tests", published_port=int(os.environ.get("CAF_TEST_DATABASE_PORT", "0"))).__enter__()
         _sandbox.allow("caf_template")
         _admin = sa.create_engine(_sandbox.url(), isolation_level="AUTOCOMMIT")
         with _admin.connect() as conn:

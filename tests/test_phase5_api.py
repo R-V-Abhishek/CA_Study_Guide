@@ -25,15 +25,40 @@ def expectation(suggestion, publication_id, key):
         expected_publication_revision_id=publication_id, idempotency_key=key)
 
 
-def clone(session, suggestion, *, experimental=False, mappings=None):
+def clone(session, suggestion, *, experimental=False, mappings=None, question_id=None):
     row = SuggestionRevision(batch_key=str(uuid4()), input_hash=suggestion.input_hash, document_id=suggestion.document_id,
-        extraction_revision_id=suggestion.extraction_revision_id, question_id=suggestion.question_id,
+        extraction_revision_id=suggestion.extraction_revision_id, question_id=question_id or suggestion.question_id,
         taxonomy_version_id=suggestion.taxonomy_version_id, run_id=1, experimental=experimental,
-        context=suggestion.context, candidates=suggestion.candidates, mappings=mappings or suggestion.mappings,
+        context={**suggestion.context, 'question_id': question_id} if question_id else suggestion.context,
+        candidates=suggestion.candidates, mappings=mappings or suggestion.mappings,
         provenance={**suggestion.provenance, 'benchmark': True})
     session.add(row)
     session.commit()
     return row
+
+
+def test_queue_shares_taxonomy_evidence_only_within_one_request(session, suggestion, authenticated_client, monkeypatch):
+    from caf_l4 import revisions
+    clone(session, suggestion, question_id=suggestion.question_id + '.second')
+    calls = []
+    load = revisions.taxonomy_readiness_evidence
+
+    def observe_load(db, version_id):
+        calls.append(version_id)
+        return load(db, version_id)
+
+    monkeypatch.setattr(revisions, 'taxonomy_readiness_evidence', observe_load)
+    client = authenticated_client(user_id=2, role='student')
+    rows = client.get(BASE).json()
+    assert len(rows) == 2
+    assert calls == [suggestion.taxonomy_version_id]
+    release = session.scalar(sa.select(TaxonomyRelease).where(
+        TaxonomyRelease.taxonomy_version_id == suggestion.taxonomy_version_id))
+    release.status = 'draft'
+    session.commit()
+    rows = client.get(BASE).json()
+    assert calls == [suggestion.taxonomy_version_id, suggestion.taxonomy_version_id]
+    assert all('taxonomy_review' in {block['code'] for block in row['readiness_blockers']} for row in rows)
 
 
 def test_authenticated_review_idempotency_revision_conflict_and_identity(session, suggestion, authenticated_client):

@@ -1,6 +1,7 @@
 """Transactional whole-question publication; suggestions never authorize publication."""
 
 from datetime import datetime, timezone
+from dataclasses import dataclass
 import hashlib
 import json
 from sqlalchemy import delete, func, select, text
@@ -12,7 +13,7 @@ from caf_db.models.classification import (SuggestionRevision, ClassificationRevi
 from caf_db.models.extraction import ExtractionRevision
 from caf_db.models.ingest import Document, Unit
 from caf_db.models.core import Appearance, AppearanceTag, ChangeLog, Decision
-from caf_db.models.ref import DocType, Paper
+from caf_db.models.ref import DocType, Paper, Node
 from caf_db.models.taxonomy import DescriptorRevision, TaxonomyMember, TaxonomyRelease
 from caf_l0.hierarchy import ancestors, version_nodes
 from caf_l0.releases import eligible_candidates, source_contexts
@@ -50,7 +51,28 @@ def _snapshot_part_ids(revision: ExtractionRevision, question_id: str) -> list[s
         for part in flatten_snapshots([root]) if part['is_gradable']]
 
 
-def readiness(session: Session, suggestion: SuggestionRevision) -> dict:
+@dataclass
+class TaxonomyReadinessEvidence:
+    release: TaxonomyRelease | None
+    latest: dict[str, DescriptorRevision]
+    eligible: set[str]
+    nodes: dict[str, Node]
+    sources: dict[str, list[dict]]
+
+
+def taxonomy_readiness_evidence(session: Session, taxonomy_version_id: int) -> TaxonomyReadinessEvidence:
+    return TaxonomyReadinessEvidence(
+        release=session.scalar(select(TaxonomyRelease).where(TaxonomyRelease.taxonomy_version_id == taxonomy_version_id)),
+        latest={row.node_id: row for row in session.scalars(select(DescriptorRevision).where(
+            DescriptorRevision.taxonomy_version_id == taxonomy_version_id).order_by(DescriptorRevision.revision))},
+        eligible={node.node_id for node in eligible_candidates(session, taxonomy_version_id)},
+        nodes={node.id: node for node in version_nodes(session, taxonomy_version_id)},
+        sources=source_contexts(session, taxonomy_version_id),
+    )
+
+
+def readiness(session: Session, suggestion: SuggestionRevision,
+              taxonomy_evidence: TaxonomyReadinessEvidence | None = None) -> dict:
     """Recompute gates from pinned evidence and present state; do not rewrite evidence."""
     blockers = []
     stale = False
@@ -97,17 +119,14 @@ def readiness(session: Session, suggestion: SuggestionRevision) -> dict:
         for dimension in ('metadata','questions','answers','pairing','ordering','marks_choices','readability','human_review'):
             if quality.get(dimension) not in {'passed', 'not_applicable'}:
                 blockers.append('extraction_' + dimension)
-    release = session.scalar(select(TaxonomyRelease).where(TaxonomyRelease.taxonomy_version_id == suggestion.taxonomy_version_id))
+    evidence = taxonomy_evidence or taxonomy_readiness_evidence(session, suggestion.taxonomy_version_id)
+    release = evidence.release
     if release is None or release.status not in {'approved', 'active'} or not release.approved_by:
         blockers.append('taxonomy_review')
     if release is not None and suggestion.provenance.get('taxonomy_manifest_hash') != release.manifest_hash:
         blockers.append('stale_taxonomy')
         stale = True
-    latest = {row.node_id: row for row in session.scalars(select(DescriptorRevision).where(
-        DescriptorRevision.taxonomy_version_id == suggestion.taxonomy_version_id).order_by(DescriptorRevision.revision))}
-    eligible = {node.node_id for node in eligible_candidates(session, suggestion.taxonomy_version_id)}
-    nodes = {node.id: node for node in version_nodes(session, suggestion.taxonomy_version_id)}
-    sources = source_contexts(session, suggestion.taxonomy_version_id)
+    latest, eligible, nodes, sources = evidence.latest, evidence.eligible, evidence.nodes, evidence.sources
     for candidate in suggestion.candidates:
         node_id = candidate['node_id']
         descriptor = latest.get(node_id)
