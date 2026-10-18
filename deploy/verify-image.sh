@@ -28,7 +28,7 @@ settings = get_settings()
 assert settings.app.env == "production"
 assert not settings.AUTH_LOCAL_DEVELOPMENT
 assert not settings.GEMINI_API_KEY
-assert not settings.OPENROUTER_API_KEY
+assert not os.environ.get("OPENROUTER_API_KEY")
 assert settings.storage.data_dir == Path("/srv/caf/data")
 probe = settings.storage.data_dir / ".packaging-write-check"
 probe.write_text("ok")

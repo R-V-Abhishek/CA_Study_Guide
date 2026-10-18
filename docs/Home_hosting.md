@@ -6,6 +6,9 @@ Ubuntu remote access, firewall, AC power configuration, Docker Engine, Compose,
 and Buildx have been verified. No application or production database is deployed.
 External recovery storage is deferred; production import remains pending.
 
+See [container verification](Home_hosting_verification.md) for the build source,
+image identity, checks, and limitations of this checkpoint.
+
 The production Dockerfile packages Python 3.12, dependencies from `uv.lock`, both
 interfaces built with pnpm 12.6.0 and its frozen lockfile, Tesseract English OCR,
 and PostgreSQL 16 client tools. It runs as UID/GID 10001. The same image supports
