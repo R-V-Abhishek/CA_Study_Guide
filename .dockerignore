@@ -11,6 +11,11 @@
 !web/**
 !deploy/
 !deploy/settings.toml
+!config/
+!config/scoring.toml
+!config/depth.toml
+!config/sources.toml
+!config/models.toml
 !taxonomy/
 !taxonomy/**
 !prompts/

@@ -38,6 +38,7 @@ COPY --from=python-build /app/.venv .venv/
 COPY --from=python-build /app/packages packages/
 COPY pyproject.toml uv.lock alembic.ini ./
 COPY deploy/settings.toml config/settings.toml
+COPY config/scoring.toml config/depth.toml config/sources.toml config/models.toml config/
 COPY taxonomy/ taxonomy/
 COPY prompts/ prompts/
 COPY profiles/ profiles/

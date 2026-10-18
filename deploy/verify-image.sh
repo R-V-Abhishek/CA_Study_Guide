@@ -23,6 +23,8 @@ for interface in ("student", "curator"):
     assert (root / "index.html").is_file()
     assert list((root / "assets").glob("*.js"))
 assert list(Path("packages/db/caf_db/alembic/versions").glob("*.py"))
+for name in ("scoring", "depth", "sources", "models"):
+    assert Path(f"config/{name}.toml").is_file(), f"Missing runtime config: {name}"
 from caf_common.settings import get_settings
 settings = get_settings()
 assert settings.app.env == "production"
