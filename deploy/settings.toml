@@ -1,0 +1,17 @@
+[app]
+env = "production"
+
+[storage]
+data_dir = "/srv/caf/data"
+blob_dir = "/srv/caf/data/blobs"
+inbox_dir = "/srv/caf/data/inbox"
+debug_dir = "/srv/caf/data/debug"
+log_dir = "/srv/caf/data/logs"
+backup_dir = "/srv/caf/data/backups"
+
+[ocr]
+enabled = false
+language = "eng"
+
+[curate]
+auto_accept_bucket_a = false

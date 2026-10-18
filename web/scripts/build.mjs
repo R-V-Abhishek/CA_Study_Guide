@@ -17,7 +17,7 @@ function addDirectory(directory) {
 addDirectory(resolve(root, "apps"));
 addDirectory(resolve(root, "packages"));
 hash.update(readFileSync(resolve(root, "pnpm-lock.yaml")));
-const revision = execFileSync("git", ["rev-parse", "--short", "HEAD"], { cwd: root, encoding: "utf8" }).trim();
+const revision = process.env.CAF_SOURCE_REVISION || execFileSync("git", ["rev-parse", "--short", "HEAD"], { cwd: root, encoding: "utf8" }).trim();
 const build = `${revision}-${hash.digest("hex").slice(0, 12)}`;
 console.log(`Frontend build: ${build}`);
 const result = spawnSync("pnpm", ["exec", "turbo", "build", "--force"], {
