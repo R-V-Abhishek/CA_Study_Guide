@@ -2,7 +2,9 @@
 
 `compose.production.yml` is independent of the developer `docker-compose.yml`.
 It consumes an already loaded application image and does not build on Ubuntu.
-This checkpoint validates configuration; it has not started a production stack.
+Configuration and an isolated local stack have been verified. See the
+[runtime verification record](Production_stack_verification.md) for evidence and limits.
+No production stack has been installed on Ubuntu.
 
 ## Services and boundaries
 
@@ -80,10 +82,11 @@ boundaries, non-root execution, resource/log limits, disabled AI keys and every
 required input's empty-value failure. It neither contacts a Docker daemon nor
 starts containers, and it does not load the local application's `.env`.
 
-## Commands reserved for the isolated integration step
+## Explicit startup sequence
 
 These describe the intended manual sequence after storage and configuration are
-prepared. They have not yet been exercised together as a Compose deployment:
+prepared. Migrations, grants and startup were exercised together by the isolated
+test harness with synthetic data; the Ubuntu paths and credentials remain untested:
 
 ```sh
 docker compose --env-file /etc/caf/compose.env -f /opt/caf/repo/compose.production.yml config -q
@@ -105,6 +108,5 @@ yet. There are no automatic migrations during normal startup or restart. The web
 healthcheck measures HTTP liveness, not continuous schema/storage readiness;
 worker heartbeat monitoring is also pending.
 
-Next: exercise startup, explicit migrations/grants, role access and service
-restarts with synthetic data in an isolated environment. Production Auth0,
+Next: implement verified release bundles and deployment tooling. Production Auth0,
 Tailscale Serve, recovery storage and production import remain later gates.
