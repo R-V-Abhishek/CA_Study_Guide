@@ -15,6 +15,7 @@ build/
 # Local configs and secrets
 .env
 .env.local
+deploy/*.env
 
 # Data and runtime artifacts
 data/**
