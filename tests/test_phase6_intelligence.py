@@ -257,6 +257,32 @@ def test_unresolved_occurrence_invalidates_claimed_complete_denominator(session,
                for exclusion in score.evidence["coverage_exclusions"])
 
 
+def test_importance_api_preserves_exclusion_with_unknown_attempt(
+    session, reviewed_context, authenticated_client,
+):
+    suggestion, target = reviewed_context
+    occurrence, _ = published_fixture_copy(
+        session, suggestion, signal="exam", identity_key="unknown-attempt", ambiguous=True,
+    )
+    occurrence.attempt_id = None
+    session.commit()
+    run = recompute_scores(session, target, taxonomy_version_id=suggestion.taxonomy_version_id)
+    node_id = suggestion.mappings[0]["primary_node_id"]
+    score = session.get(SubtopicScore, (run.id, node_id))
+    assert any(exclusion["attempt_id"] is None for exclusion in score.evidence["coverage_exclusions"])
+
+    response = authenticated_client(target=target).get(f"/api/v1/why/subtopic/{node_id}")
+
+    assert response.status_code == 200, response.text
+    assert response.json()["explanation_status"] == "partial_evidence"
+    assert response.json()["importance_breakdown"]["importance"] is None
+    assert any(
+        exclusion["attempt_id"] is None
+        and "occurrence_identity_unresolved" in exclusion["reasons"]
+        for exclusion in response.json()["coverage_exclusions"]
+    )
+
+
 def test_expired_unreclaimed_lease_never_promotes(session, reviewed_context):
     suggestion, target = reviewed_context
     job = enqueue_recompute(session, target, suggestion.taxonomy_version_id)

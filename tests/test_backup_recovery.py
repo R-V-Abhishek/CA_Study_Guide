@@ -14,6 +14,16 @@ from caf_db.models.core import Appearance, AppearanceTag, Decision
 from caf_common.postgres_sandbox import PostgresSandbox
 
 
+def test_successive_schema_revisions_preserve_required_backup_tables():
+    from alembic.config import Config
+    from alembic.script import ScriptDirectory
+
+    migrations = ScriptDirectory.from_config(Config("alembic.ini"))
+    for migration in migrations.walk_revisions():
+        if migration.down_revision:
+            assert backup.critical_tables(migration.revision) >= backup.critical_tables(migration.down_revision)
+
+
 def test_disk_backed_recovery_storage_is_writable_and_removed_with_its_container():
     with PostgresSandbox('disk-recovery-test',use_tmpfs=False) as sandbox:
         mounts=json.loads(subprocess.run(['docker','inspect','--format','{{json .Mounts}}',sandbox.name],

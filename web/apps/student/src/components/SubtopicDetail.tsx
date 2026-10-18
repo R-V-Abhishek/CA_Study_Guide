@@ -47,9 +47,9 @@ export function SubtopicDetail({ nodeId }: { paperId: string; nodeId: string }) 
   const query = useQuery({ queryKey, queryFn: () => getData<SubtopicData>(`/api/v1/subtopics/${encodeURIComponent(nodeId)}`) });
   const why = useQuery({ queryKey: ['why', mode(), nodeId], queryFn: () => getData<WhyData>(`/api/v1/why/subtopic/${encodeURIComponent(nodeId)}`), enabled: whyExpanded || tab === 'importance' });
   const published = useQuery({ queryKey: ['topic-questions', mode(), nodeId, questionPage], enabled: tab === 'questions', queryFn: () => getData<QuestionPage>(`/api/v1/questions?subtopic_id=${encodeURIComponent(nodeId)}&page_size=20&page=${questionPage}`) });
-  const versions = useQuery({ queryKey: ['textbook-versions', accountKey()], enabled: !isDemoMode() && query.data?.context?.taxonomy_version_id != null, queryFn: taxonomyApi.versions });
+  const versions = useQuery({ queryKey: ['textbook-versions', accountKey()], enabled: tab === 'references' && !isDemoMode() && query.data?.context?.taxonomy_version_id != null, queryFn: taxonomyApi.versions });
   const version = versions.data?.find(item => item.taxonomy_version_id === query.data?.context?.taxonomy_version_id)?.version_id;
-  const sources = useQuery({ queryKey: ['textbook-tree', accountKey(), version], enabled: Boolean(version), queryFn: () => taxonomyApi.tree(version!) });
+  const sources = useQuery({ queryKey: ['textbook-tree', accountKey(), version], enabled: tab === 'references' && Boolean(version), queryFn: () => taxonomyApi.tree(version!) });
   function locate(items: TextbookNode[]): TextbookNode | undefined { for (const item of items) { if (item.id === nodeId) return item; const child = locate(item.children); if (child) return child; } }
   const sourceNode = locate(sources.data ?? []);
   useEffect(() => { mounted.current = true; return () => { mounted.current = false; }; }, []);
@@ -86,7 +86,8 @@ export function SubtopicDetail({ nodeId }: { paperId: string; nodeId: string }) 
         const queuedText = saves.get(key)?.text;
         setSaveStatus(latest.current === snapshot ? 'saved' : queuedText === latest.current ? 'saving' : 'unsaved');
       }
-      await cache.invalidateQueries();
+      cache.setQueryData<SubtopicData>(queryKey, current => current ? { ...current, notes: snapshot } : current);
+      await cache.invalidateQueries({ predicate: entry => entry.queryKey[0] === 'published-questions' && entry.queryKey.some(value => typeof value === 'string' && value.includes('include_notes=true')) });
     });
     saves.set(key, { text: snapshot, promise: pending });
     try { await pending; return generation === authGeneration() && drafts.get(key)?.saved === latest.current; }
@@ -112,7 +113,7 @@ export function SubtopicDetail({ nodeId }: { paperId: string; nodeId: string }) 
       return previous;
     },
     onError: (_error, _status, previous) => { if (previous && generation === authGeneration()) cache.setQueryData(queryKey, previous); },
-    onSuccess: async () => { setStatusSaved(true); await cache.invalidateQueries(); },
+    onSuccess: async () => { setStatusSaved(true); await Promise.all(['subtopic', 'paper-tree', 'papers', 'dashboard', 'revision-due', 'study-plan'].map(name => cache.invalidateQueries({ queryKey: [name, mode()] }))); },
   });
   const data = query.data;
   useEffect(() => { if (data) rememberDestination({ path: `${location.pathname}${location.search}`, title: data.name, paper: data.paper?.name ?? '', breadcrumb: [data.paper?.name, data.chapter?.name, data.topic?.name].filter(Boolean).join(' / ') }); }, [data, location.pathname, location.search]);

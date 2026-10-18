@@ -1,1 +1,0 @@
-import{j as e}from"./index-CkkJ_YAM.js";function o({error:r,retry:s,retryLabel:t="Retry"}){return r?e.jsxs("div",{role:"alert",className:"p-4 rounded-xl border border-rose-800 bg-rose-950/50 text-rose-200 text-sm",children:[e.jsx("p",{children:r.message}),s&&e.jsx("button",{type:"button",className:"mt-2 underline",onClick:s,children:t})]}):null}export{o as R};

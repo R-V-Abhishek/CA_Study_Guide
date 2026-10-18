@@ -8,6 +8,26 @@ from sqlalchemy.orm import Mapped, mapped_column
 from caf_db.models.base import Base
 
 
+class CandidateCatalog(Base):
+    __tablename__ = 'candidate_catalog'
+    __table_args__ = {'schema': 'ref'}
+    content_hash: Mapped[str] = mapped_column(Text, primary_key=True)
+    candidates: Mapped[list[dict[str, Any]]] = mapped_column(JSONB, nullable=False)
+
+
+class BaselineAdoption(Base):
+    __tablename__ = 'baseline_adoption'
+    __table_args__ = (CheckConstraint("status IN ('prepared','active','inactive')"), {'schema': 'core'})
+    release_id: Mapped[str] = mapped_column(ForeignKey('ref.taxonomy_release.version_id'), primary_key=True)
+    manifest_hash: Mapped[str] = mapped_column(Text, nullable=False)
+    manifest: Mapped[dict[str, Any]] = mapped_column(JSONB, nullable=False)
+    pins: Mapped[dict[str, Any]] = mapped_column(JSONB, nullable=False)
+    status: Mapped[str] = mapped_column(Text, nullable=False, default='prepared')
+    actor_id: Mapped[int] = mapped_column(ForeignKey('app.user_account.id'), nullable=False)
+    previous_state: Mapped[dict[str, Any]] = mapped_column(JSONB, nullable=False, default=dict)
+    activated_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+
+
 class SuggestionRevision(Base):
     __tablename__ = "suggestion_revision"
     __table_args__ = (UniqueConstraint("batch_key", "question_id", "input_hash"), {"schema": "ingest"})
@@ -22,6 +42,7 @@ class SuggestionRevision(Base):
     experimental: Mapped[bool] = mapped_column(Boolean, nullable=False)
     context: Mapped[dict[str, Any]] = mapped_column(JSONB, nullable=False)
     candidates: Mapped[list[dict[str, Any]]] = mapped_column(JSONB, nullable=False)
+    candidate_catalog_hash: Mapped[str | None] = mapped_column(ForeignKey('ref.candidate_catalog.content_hash'))
     mappings: Mapped[list[dict[str, Any]]] = mapped_column(JSONB, nullable=False)
     provenance: Mapped[dict[str, Any]] = mapped_column(JSONB, nullable=False)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())

@@ -5,11 +5,12 @@ const preferenceKey = 'caf_theme';
 const themeEvent = 'caf-theme-changed';
 
 function readPreference(): ThemePreference {
-  const value = localStorage.getItem(preferenceKey);
-  return value === 'light' || value === 'dark' ? value : 'system';
+  let value: string | null = null;
+  try { value = localStorage.getItem(preferenceKey); } catch { return 'dark'; }
+  return value === 'light' || value === 'dark' || value === 'system' ? value : 'dark';
 }
 
-/** Both workspaces follow the OS until a person explicitly chooses a theme. */
+/** Both workspaces default to dark; System is an explicit preference. */
 export function useTheme() {
   const [preference, setPreference] = useState<ThemePreference>(readPreference);
   useEffect(() => {
@@ -30,8 +31,7 @@ export function useTheme() {
     };
   }, []);
   const choose = (next: ThemePreference) => {
-    if (next === 'system') localStorage.removeItem(preferenceKey);
-    else localStorage.setItem(preferenceKey, next);
+    localStorage.setItem(preferenceKey, next);
     window.dispatchEvent(new Event(themeEvent));
   };
   return { preference, choose };

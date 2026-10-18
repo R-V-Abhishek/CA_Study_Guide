@@ -19,13 +19,13 @@ def test_student_spa_serving_and_fallback(client):
     res_root = client.get("/")
     assert res_root.status_code == 200
     assert "text/html" in res_root.headers.get("content-type", "")
-    assert "CA Final" in res_root.text
+    assert "CA Study Companion" in res_root.text
 
     # Deep SPA route (fallback to index.html)
     res_papers = client.get("/papers")
     assert res_papers.status_code == 200
     assert "text/html" in res_papers.headers.get("content-type", "")
-    assert "CA Final" in res_papers.text
+    assert "CA Study Companion" in res_papers.text
 
     # Subtopic deep route
     res_deep = client.get("/papers/P1/some-node-id")
@@ -37,7 +37,7 @@ def test_student_spa_serving_and_fallback(client):
         res = client.get(path)
         assert res.status_code == 200
         assert "text/html" in res.headers.get("content-type", "")
-        assert "CA Final" in res.text
+        assert "CA Study Companion" in res.text
 
 
 def test_curator_spa_serving_and_fallback(client):

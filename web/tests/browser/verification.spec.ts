@@ -76,6 +76,7 @@ test('route boundary leaves navigation and retry controls usable', async ({ page
 });
 test('production diagnostics expose the embedded build identity without private query data', async ({ page }) => {
   await page.goto('/plan?notes=PRIVATE_NOTES&token=PRIVATE_TOKEN');
+  await page.locator('.workspace-sidebar .account-menu > summary').click();
   await page.locator('.workspace-sidebar summary').filter({ hasText: 'Technical details' }).click();
   await page.getByRole('button', { name: 'Diagnostics', exact: true }).click();
   await expect(page.locator('pre')).toContainText('browser-harness');

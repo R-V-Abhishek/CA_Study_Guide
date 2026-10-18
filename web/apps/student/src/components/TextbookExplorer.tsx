@@ -2,7 +2,7 @@ import { useState, useSyncExternalStore } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { accountKey, authState, subscribeAuth } from "@caf/api-client";
-import { taxonomyApi, type TextbookNode, type TextbookSource, type TextbookDescriptor } from "@caf/api-client/src/taxonomy";
+import { taxonomyApi, type TextbookNode, type TextbookSource, type TextbookDescriptor, type TaxonomyDescriptor } from "@caf/api-client/src/taxonomy";
 import "./textbook-explorer.css";
 
 export function TaxonomyError({ error }: { error: unknown }) {
@@ -17,7 +17,7 @@ export function TextbookSources({ sources }: { sources: TextbookSource[] }) {
     <p>Source: {source.instrument || 'Official textbook'} · Edition {source.edition}</p>
     {source.instrument && <p>Instrument: {source.instrument}</p>}
     <a href={`${source.download_url.split("#")[0]}#page=${source.pdf_page_start}`} target="_blank" rel="noreferrer">Textbook PDF, pages {source.pdf_page_start}–{source.pdf_page_end}</a>
-    {" · "}<a href={source.landing_url} target="_blank" rel="noreferrer">Official source page</a>
+    {source.landing_url && <>{" · "}<a href={source.landing_url} target="_blank" rel="noreferrer">Official source page</a></>}
   </li>)}</ul>;
 }
 
@@ -30,7 +30,12 @@ function HierarchyNode({ node, select }: { node: TextbookNode; select: (node: Te
   </details> : <button type="button" className="textbook-node" onClick={() => select(node)}>{label}<span className="textbook-badge">{node.eligible ? "Classification ready" : "Review pending"}</span></button>}</li>;
 }
 
-function DescriptorEditor({ node, version, descriptor, close }: { node: string; version: string; descriptor: TextbookDescriptor; close: () => void }) {
+function DescriptorEditor({ node, version, descriptor: original, sources, close }: { node: string; version: string; descriptor: TaxonomyDescriptor; sources: TextbookSource[]; close: () => void }) {
+  const descriptor: TextbookDescriptor = original.status === "index_derived_draft_requires_review"
+    ? { revision: original.revision, approved: false, definition: "", terminology: original.terminology,
+        edition: original.source_edition, inclusion: [], exclusion: [], nearby_distinctions: [],
+        source_spans: sources.map(({ artifact_id, pdf_page_start, pdf_page_end, review_status }) => ({ artifact_id, pdf_page_start, pdf_page_end, review_status })) }
+    : original;
   const queries = useQueryClient();
   const [definition, setDefinition] = useState(descriptor.definition);
   const [terminology, setTerminology] = useState(descriptor.terminology.join("\n"));
@@ -65,6 +70,8 @@ export function TextbookNodeDetail({ node, version, curator }: { node: TextbookN
   const [tab, setTab] = useState("sources");
   const descriptor = useQuery({ queryKey: ["textbook-descriptor", accountKey(), version, node.id], enabled: node.descriptor_revision !== null, retry: false, queryFn: () => taxonomyApi.descriptor(node.id, version) });
   const history = useQuery({ queryKey: ["textbook-history", accountKey(), version, node.id], retry: false, queryFn: () => taxonomyApi.history(node.id, version) });
+  const indexDescriptor = descriptor.data?.status === "index_derived_draft_requires_review" ? descriptor.data : null;
+  const explanation = descriptor.data?.status === "index_derived_draft_requires_review" ? null : descriptor.data;
   const approve = useMutation({ mutationFn: () => taxonomyApi.approveDescriptor(node.id, version, descriptor.data!.revision), onSuccess: async () => {
     await queries.invalidateQueries({ queryKey: ["textbook-descriptor", accountKey(), version, node.id] });
     await queries.invalidateQueries({ queryKey: ["textbook-tree", accountKey(), version] });
@@ -73,7 +80,7 @@ export function TextbookNodeDetail({ node, version, curator }: { node: TextbookN
   return <section className="textbook-panel" aria-label="Selected textbook concept">
     <nav aria-label="Textbook breadcrumbs">{node.breadcrumbs.map(ancestor => ancestor.name).join(" → ")}</nav>
     <h2>{node.name}</h2><p>{node.level} · Source context: {node.source_review_status} · {node.eligible ? "Classification ready" : "Not eligible for classification"}</p>
-    <p>Heading origin: {node.heading_origin === "app_authored" ? "App-authored concept subdivision" : node.heading_origin === "official" ? "Official textbook heading" : node.heading_origin === "legacy" ? "Legacy hierarchy" : "Unrecorded"}</p>
+    <p>Heading origin: {node.heading_origin === "app_authored" ? "App-authored concept subdivision" : node.heading_origin === "module_index" ? "Official module index heading" : node.heading_origin === "official" ? "Official textbook heading" : node.heading_origin === "legacy" ? "Legacy hierarchy" : "Unrecorded"}</p>
     <div role="tablist" aria-label="Syllabus evidence" className="study-tabs">{[["sources","Source references"],["descriptor","Descriptor"],["applicability","Applicability"],["history","History"]].map(([id,label]) => <button key={id} role="tab" aria-selected={tab === id} onClick={() => setTab(id)}>{label}</button>)}</div>
     {tab === "sources" && <>
     {node.sources.length ? <TextbookSources sources={node.sources} /> : <p>Textbook source span unresolved.</p>}
@@ -87,13 +94,24 @@ export function TextbookNodeDetail({ node, version, curator }: { node: TextbookN
     {node.descriptor_revision === null && <p>No classification descriptor. Containers are not classification labels.</p>}
     {descriptor.data && <div>
       <p>Revision {descriptor.data.revision} · {descriptor.data.approved ? "Approved" : "Review pending"}</p>
-      <p>{descriptor.data.definition}</p>
-      {!!descriptor.data.source_ambiguities?.length && <div><p>Textbook source issues must be resolved before approval.</p><ul>{descriptor.data.source_ambiguities.map(issue => <li key={issue}>{issue}</li>)}</ul></div>}
-      <dl><dt>Terminology</dt><dd>{descriptor.data.terminology.join(", ") || "None recorded"}</dd><dt>Instruments</dt><dd>{descriptor.data.instrument_references?.join(", ") || "None recorded"}</dd>{descriptor.data.edition && <><dt>Textbook edition</dt><dd>{descriptor.data.edition}</dd></>}<dt>Includes</dt><dd>{descriptor.data.inclusion.join("; ")}</dd><dt>Excludes</dt><dd>{descriptor.data.exclusion.join("; ")}</dd><dt>Nearby concepts</dt><dd>{descriptor.data.nearby_distinctions.join("; ")}</dd></dl>
-      <ul>{descriptor.data.source_spans.map(span => { const source = node.sources.find(item => item.artifact_id === span.artifact_id); return <li key={`${span.artifact_id}-${span.pdf_page_start}`}>{source ? <a href={`${source.download_url.split("#")[0]}#page=${span.pdf_page_start}`} target="_blank" rel="noreferrer">Descriptor textbook reference, pages {span.pdf_page_start}–{span.pdf_page_end}</a> : `Textbook artifact ${span.artifact_id}, pages ${span.pdf_page_start}–${span.pdf_page_end}`}</li>; })}</ul>
-      {curator && !descriptor.data.approved && <><p>Approval records your review of this revision. Editing it requires a new approval.</p><button className="textbook-action" type="button" disabled={approve.isPending} onClick={() => approve.mutate()}>{approve.isPending ? "Recording approval…" : "Approve reviewed descriptor revision"}</button></>}
+      {indexDescriptor && <section aria-label="Index heading evidence">
+        <h4>Index heading evidence</h4>
+        <p>This descriptor records the original index heading. A textbook explanation has not been authored or approved.</p>
+        <dl><dt>Core concept</dt><dd>{indexDescriptor.core_concept}</dd><dt>Scope</dt><dd>{indexDescriptor.scope}</dd><dt>Terminology</dt><dd>{indexDescriptor.terminology.join(", ")}</dd><dt>Source edition</dt><dd>{indexDescriptor.source_edition}</dd><dt>Source attempts</dt><dd>{indexDescriptor.applicable_attempts.join(", ") || "Unresolved"}</dd><dt>Recorded status</dt><dd>{indexDescriptor.status}</dd><dt>Recorded applicability</dt><dd>{indexDescriptor.applicability_status}</dd></dl>
+        <p>{indexDescriptor.note}</p>
+        <p>May 2027 applicability requires review of the prescribed source edition.</p>
+        <TextbookSources sources={node.sources} />
+        {curator && <p>Author a textbook explanation before approving a descriptor. Saving creates a new revision requiring review.</p>}
+      </section>}
+      {explanation && <>
+      <p>{explanation.definition}</p>
+      {!!explanation.source_ambiguities?.length && <div><p>Textbook source issues must be resolved before approval.</p><ul>{explanation.source_ambiguities.map(issue => <li key={issue}>{issue}</li>)}</ul></div>}
+      <dl><dt>Terminology</dt><dd>{explanation.terminology.join(", ") || "None recorded"}</dd><dt>Instruments</dt><dd>{explanation.instrument_references?.join(", ") || "None recorded"}</dd>{explanation.edition && <><dt>Textbook edition</dt><dd>{explanation.edition}</dd></>}<dt>Includes</dt><dd>{explanation.inclusion.join("; ")}</dd><dt>Excludes</dt><dd>{explanation.exclusion.join("; ")}</dd><dt>Nearby concepts</dt><dd>{explanation.nearby_distinctions.join("; ")}</dd></dl>
+      <ul>{explanation.source_spans.map(span => { const source = node.sources.find(item => item.artifact_id === span.artifact_id); return <li key={`${span.artifact_id}-${span.pdf_page_start}`}>{source ? <a href={`${source.download_url.split("#")[0]}#page=${span.pdf_page_start}`} target="_blank" rel="noreferrer">Descriptor textbook reference, pages {span.pdf_page_start}–{span.pdf_page_end}</a> : `Textbook artifact ${span.artifact_id}, pages ${span.pdf_page_start}–${span.pdf_page_end}`}</li>; })}</ul>
+      {curator && !explanation.approved && <><p>Approval records your review of this revision. Editing it requires a new approval.</p><button className="textbook-action" type="button" disabled={approve.isPending} onClick={() => approve.mutate()}>{approve.isPending ? "Recording approval…" : "Approve reviewed descriptor revision"}</button></>}
+      </>}
       {curator && <p><button type="button" className="textbook-link" disabled={approve.isPending} onClick={() => setEditing(true)}>Edit descriptor</button></p>}
-      {curator && editing && <DescriptorEditor node={node.id} version={version} descriptor={descriptor.data} close={() => setEditing(false)} />}
+      {curator && editing && <DescriptorEditor node={node.id} version={version} descriptor={descriptor.data} sources={node.sources} close={() => setEditing(false)} />}
       <TaxonomyError error={approve.error} />
     </div>}
     </>}

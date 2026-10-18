@@ -18,6 +18,7 @@ from caf_db.models.taxonomy import DescriptorRevision, TaxonomyMember, TaxonomyR
 from caf_l0.hierarchy import ancestors, version_nodes
 from caf_l0.releases import eligible_candidates, source_contexts
 from caf_l2.revisions import flatten_snapshots, reviewed_quality
+from caf_l4.catalogs import suggestion_candidates
 
 
 class RevisionConflict(ValueError):
@@ -58,9 +59,15 @@ class TaxonomyReadinessEvidence:
     eligible: set[str]
     nodes: dict[str, Node]
     sources: dict[str, list[dict]]
+    baseline_state: dict | None = None
 
 
 def taxonomy_readiness_evidence(session: Session, taxonomy_version_id: int) -> TaxonomyReadinessEvidence:
+    from caf_db.models.classification import BaselineAdoption
+    release = session.scalar(select(TaxonomyRelease).where(TaxonomyRelease.taxonomy_version_id == taxonomy_version_id))
+    if release and session.get(BaselineAdoption, release.version_id):
+        from caf_l4.baseline import baseline_evidence
+        return TaxonomyReadinessEvidence(release, {}, set(), {}, {}, baseline_evidence(session,session.get(BaselineAdoption,release.version_id),taxonomy_version_id))
     return TaxonomyReadinessEvidence(
         release=session.scalar(select(TaxonomyRelease).where(TaxonomyRelease.taxonomy_version_id == taxonomy_version_id)),
         latest={row.node_id: row for row in session.scalars(select(DescriptorRevision).where(
@@ -74,6 +81,9 @@ def taxonomy_readiness_evidence(session: Session, taxonomy_version_id: int) -> T
 def readiness(session: Session, suggestion: SuggestionRevision,
               taxonomy_evidence: TaxonomyReadinessEvidence | None = None) -> dict:
     """Recompute gates from pinned evidence and present state; do not rewrite evidence."""
+    if suggestion.provenance.get('baseline_release_id'):
+        from caf_l4.baseline import baseline_readiness
+        return baseline_readiness(session,suggestion,taxonomy_evidence.baseline_state if taxonomy_evidence else None)
     blockers = []
     stale = False
     if suggestion.experimental:
@@ -111,7 +121,7 @@ def readiness(session: Session, suggestion: SuggestionRevision,
             stale = True
         record = dict(question_id=suggestion.question_id, document_id=document.id, document_sha256=document.sha256,
             extraction_revision_id=revision.id, extraction_digest=revision.content_digest,
-            context=suggestion.context, candidates=suggestion.candidates)
+            context=suggestion.context, candidates=suggestion_candidates(session,suggestion))
         if _hash(record) != suggestion.input_hash:
             blockers.append('stale_input_hash')
             stale = True
@@ -127,7 +137,7 @@ def readiness(session: Session, suggestion: SuggestionRevision,
         blockers.append('stale_taxonomy')
         stale = True
     latest, eligible, nodes, sources = evidence.latest, evidence.eligible, evidence.nodes, evidence.sources
-    for candidate in suggestion.candidates:
+    for candidate in suggestion_candidates(session,suggestion):
         node_id = candidate['node_id']
         descriptor = latest.get(node_id)
         pinned_id = candidate.get('descriptor_revision_id')
@@ -144,15 +154,19 @@ def readiness(session: Session, suggestion: SuggestionRevision,
     return dict(eligible=not blockers, experimental=suggestion.experimental, stale=stale, blockers=sorted(set(blockers)))
 
 
-def validate_mappings(session: Session, suggestion: SuggestionRevision, mappings: list[dict]) -> list[dict]:
+def validate_mappings(session: Session, suggestion: SuggestionRevision, mappings: list[dict], *,
+                      members: dict | None = None, candidate_ids: set | None = None) -> list[dict]:
     values = [PartMapping.model_validate(mapping).model_dump(mode='json') for mapping in mappings]
     revision = session.get(ExtractionRevision, suggestion.extraction_revision_id)
     expected_parts = _snapshot_part_ids(revision, suggestion.question_id)
     if not expected_parts or len(values) != len({mapping['part_id'] for mapping in values}) or {m['part_id'] for m in values} != set(expected_parts):
         raise ValueError('Complete root mapping must contain each gradable part exactly once')
-    members = {member.node_id: member for member in session.scalars(select(TaxonomyMember).where(
-        TaxonomyMember.taxonomy_version_id == suggestion.taxonomy_version_id))}
+    if members is None:
+        members = {member.node_id: member for member in session.scalars(select(TaxonomyMember).where(
+            TaxonomyMember.taxonomy_version_id == suggestion.taxonomy_version_id))}
     paper = suggestion.context['paper_id']
+    if candidate_ids is None:
+        candidate_ids = {candidate['node_id'] for candidate in suggestion_candidates(session,suggestion)}
     for mapping in values:
         ids = [mapping['primary_node_id'], *mapping['secondary_node_ids']]
         for node_id in filter(None, ids):
@@ -163,7 +177,7 @@ def validate_mappings(session: Session, suggestion: SuggestionRevision, mappings
                 raise ValueError('Out-of-paper taxonomy label: ' + node_id)
             # Review edits may select any eligible member, but must pin its evidence
             # by producing a new suggestion if it was outside this candidate set.
-            if node_id not in {candidate['node_id'] for candidate in suggestion.candidates}:
+            if node_id not in candidate_ids:
                 raise ValueError('Label has no pinned candidate evidence: ' + node_id)
     return values
 
@@ -252,8 +266,9 @@ def _project_appearances(session, suggestion, revision, snapshot):
     from caf_l4.publish import compute_law_stale
     document = session.get(Document, suggestion.document_id)
     doc_type = session.get(DocType, document.doc_type_id) if document.doc_type_id else None
+    unit_scope = Unit.revision_id == suggestion.extraction_revision_id if suggestion.provenance.get('baseline_release_id') else Unit.current.is_(True)
     units = list(session.scalars(select(Unit).where(Unit.document_id == suggestion.document_id,
-        Unit.stable_question_id == suggestion.question_id, Unit.current.is_(True), Unit.is_gradable.is_(True))))
+        Unit.stable_question_id == suggestion.question_id, unit_scope, Unit.is_gradable.is_(True))))
     old_appearances = session.scalars(select(Appearance).join(Unit, Appearance.source_unit_id == Unit.id).where(
         Unit.stable_question_id == suggestion.question_id, Unit.current.is_(False), Appearance.status == 'published'))
     for old in old_appearances:
@@ -409,6 +424,8 @@ def verify_classification(session: Session, question_id: str, actor_id: int,
         gates = readiness(session, suggestion)
         if not gates['eligible']:
             raise ReadinessError(gates['blockers'])
+        if any(mapping['outcome']=='needs_review' and not mapping['excluded'] for mapping in revision.mappings):
+            raise ReadinessError(['unresolved_mapping'])
     _verify(session, revision, actor_id, not withdraw)
     return _event(session, suggestion, actor_id, idempotency_key, kind, request, _result(session, publication, revision.id))
 
@@ -502,6 +519,9 @@ def history(session: Session, question_id: str) -> list[dict]:
             ClassificationEvent.kind == 'review').limit(1))
         published = session.scalar(select(ClassificationEvent.id).where(ClassificationEvent.revision_id == revision.id,
             ClassificationEvent.kind.in_(['review', 'resolve'])).limit(1))
+        if not published and suggestion.provenance.get('baseline_release_id'):
+            from caf_db.models.questions import PublishedQuestion
+            published = session.get(PublishedQuestion, revision.id) is not None
         is_benchmark = bool(event and event.payload.get('status') == 'benchmark')
         result.append(dict(id=revision.id, suggestion_revision_id=suggestion.id, document_id=suggestion.document_id,
             question_id=question_id, mappings=revision.mappings, actor_id=revision.actor_id, created_at=revision.created_at,

@@ -1,6 +1,6 @@
 from datetime import date, datetime, timezone
 from typing import Literal
-from fastapi import APIRouter, Depends, HTTPException, Query
+from fastapi import APIRouter, Depends, HTTPException, Query, Request
 from pydantic import BaseModel, Field, ConfigDict, model_validator
 import sqlalchemy as sa
 from sqlalchemy.orm import Session
@@ -46,9 +46,12 @@ from caf_l0.hierarchy import ancestor_at, descendant_leaves
 router = APIRouter(prefix="/api/v1", dependencies=[Depends(require_account)])
 
 
-def get_db():
+def get_db(request: Request):
     factory = get_session_factory("student")
     with factory() as session:
+        # Repeated intelligence helpers share a snapshot only within this GET.
+        # Mutations and pipeline sessions always resolve fresh context.
+        session.info["cache_study_context"] = request.method in {"GET", "HEAD"}
         yield session
 
 
@@ -58,7 +61,7 @@ def get_operations_db():
 
 
 def _nodes(session: Session, account: Principal) -> dict[str, Node]:
-    return {node.id: node for node in context_nodes(session, resolve_context(session, account.id))}
+    return {node.id: node for node in context_nodes(session, resolve_context(session, account.id), study=True)}
 
 
 def _node_scope(session: Session, account: Principal):
@@ -67,15 +70,16 @@ def _node_scope(session: Session, account: Principal):
 
 def _leaf_scope(session: Session, account: Principal):
     context = resolve_context(session, account.id)
-    return Node.id.in_(context_leaf_ids(session, context))
+    return Node.id.in_(context_leaf_ids(session, context, study=True))
 
 
-def _scores(session: Session, account: Principal, paper_id: str):
+def _scores(session: Session, account: Principal, paper_id: str, *, include_evidence: bool = True):
     context = resolve_context(session, account.id)
     if context.run is None:
         return {}
     return get_subtopic_scores_for_paper(session, paper_id, run_id=context.run.id,
-        target_attempt_id=context.target_attempt_id, taxonomy_version_id=context.taxonomy_version_id)
+        target_attempt_id=context.target_attempt_id, taxonomy_version_id=context.taxonomy_version_id,
+        include_evidence=include_evidence)
 
 
 def _applicable_tree(values: list[dict], node_ids: set[str], progress: dict) -> list[dict]:
@@ -155,12 +159,17 @@ def list_papers(session: Session = Depends(get_db), account: Principal = Depends
     ).scalars().all()
 
     revision_due = get_revision_due_list(session, user_id=user_id)
+    leaf_scope = _leaf_scope(session, account)
+    prior_available = dict(session.execute(sa.select(
+        SubtopicScore.node_id,
+        SubtopicScore.evidence["components"]["prior"]["available"],
+    ).where(SubtopicScore.score_run_id == context.run.id)).all()) if context.run else {}
     summaries = []
     for p in papers:
         # Get all subtopics for this paper
         subtopics = session.execute(
             sa.select(Node.id, Node.parent_id).where(
-                Node.paper_id == p.id, _leaf_scope(session, account)
+                Node.paper_id == p.id, leaf_scope
             )
         ).all()
         total_sub = len(subtopics)
@@ -176,7 +185,7 @@ def list_papers(session: Session = Depends(get_db), account: Principal = Depends
                 )
             ).scalar() or 0
 
-        scores = _scores(session, account, p.id)
+        scores = _scores(session, account, p.id, include_evidence=False)
         applicable_scores = [
             scores[node_id] for node_id in sub_ids
             if node_id in scores and scores[node_id].applicable and scores[node_id].importance is not None
@@ -202,7 +211,7 @@ def list_papers(session: Session = Depends(get_db), account: Principal = Depends
         # do not authorize weighting in an attempt-bound workspace.
         weighted_pct = None
         if context.run and sub_ids and all(node in scores and scores[node].weight_prior is not None
-                and scores[node].evidence.get("components", {}).get("prior", {}).get("available", False)
+                and prior_available.get(node, False)
                 for node in sub_ids):
             total_weight = sum(scores[node].weight_prior for node in sub_ids)
             earned_weight = sum(scores[node].weight_prior for node in sub_ids
@@ -286,7 +295,7 @@ def get_paper_tree(paper_id: str, session: Session = Depends(get_db), account: P
                 subtopics_by_parent.setdefault(topic.id, []).append(n)
 
     # Load intelligence scores for this paper
-    scores_map = _scores(session, account, paper_id)
+    scores_map = _scores(session, account, paper_id, include_evidence=False)
 
     result_chapters = []
     for ch_id, ch in sorted(chapters_by_id.items(), key=lambda x: (x[1].seq, x[1].id)):
@@ -580,10 +589,11 @@ def get_dashboard(session: Session = Depends(get_db), account: Principal = Depen
     context = resolve_context(session, user_id)
 
     paper_ids = selected_papers(session, user_id)
+    leaf_scope = _leaf_scope(session, account)
 
     # Overall subtopic counts
     all_subtopics = session.execute(
-        sa.select(Node.id).where(Node.paper_id.in_(paper_ids), _leaf_scope(session, account))
+        sa.select(Node.id).where(Node.paper_id.in_(paper_ids), leaf_scope)
     ).scalars().all()
     total_subtopics = len(all_subtopics)
 
@@ -612,7 +622,7 @@ def get_dashboard(session: Session = Depends(get_db), account: Principal = Depen
     for p in papers:
         g = p.group_no or 1
         p_subs = session.execute(
-            sa.select(Node.id).where(Node.paper_id == p.id, _leaf_scope(session, account))
+            sa.select(Node.id).where(Node.paper_id == p.id, leaf_scope)
         ).scalars().all()
         p_done = session.execute(
             sa.select(sa.func.count(Progress.node_id)).where(
@@ -997,6 +1007,7 @@ class ProfileSettingsUpdate(BaseModel):
     minutes_per_subtopic: int = Field(gt=0, le=2147483647)
     revision_intervals: list[int] = Field(min_length=1)
     exam_start_date: date | None = None
+    include_hindi: bool = False
 
     @model_validator(mode="after")
     def validate_settings(self):
@@ -1026,6 +1037,7 @@ def profile_settings_payload(session: Session, account: Principal) -> dict:
         "minutes_per_subtopic": settings.minutes_per_subtopic,
         "revision_intervals": settings.revision_intervals,
         "exam_start_date": settings.exam_start_date,
+        "include_hindi": settings.include_hindi,
         "available_papers": [{"id": p.id, "code": p.code, "name": p.name, "group_no": p.group_no} for p in papers],
         "available_attempts": [{"id": a.id, "label": a.label} for a in session.scalars(sa.select(Attempt).order_by(Attempt.id))],
     }
@@ -1052,6 +1064,7 @@ def update_profile_settings(req: ProfileSettingsUpdate, session: Session = Depen
     settings.minutes_per_subtopic = req.minutes_per_subtopic
     settings.revision_intervals = req.revision_intervals
     settings.exam_start_date = req.exam_start_date
+    settings.include_hindi = req.include_hindi
     session.commit()
     payload = profile_settings_payload(session, account)
     payload["display_name"] = user.name

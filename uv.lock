@@ -319,6 +319,7 @@ dependencies = [
     { name = "caf-db" },
     { name = "caf-l0" },
     { name = "google-genai" },
+    { name = "httpx" },
 ]
 
 [package.metadata]
@@ -328,6 +329,7 @@ requires-dist = [
     { name = "caf-db", editable = "packages/db" },
     { name = "caf-l0", editable = "packages/l0_taxonomy" },
     { name = "google-genai", specifier = ">=0.1" },
+    { name = "httpx", specifier = ">=0.28.1" },
 ]
 
 [[package]]

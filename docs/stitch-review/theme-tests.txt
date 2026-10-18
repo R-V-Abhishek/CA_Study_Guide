@@ -1,0 +1,34 @@
+$ node --test tests/ui/*.test.cjs
+✔ student: pre-paint missing / OS light (1.221ms)
+✔ student: pre-paint invalid / OS light (0.272959ms)
+✔ student: pre-paint light / OS light (0.232167ms)
+✔ student: pre-paint dark / OS light (0.260083ms)
+✔ student: pre-paint system / OS light (0.255125ms)
+✔ student: pre-paint missing / OS dark (0.221125ms)
+✔ student: pre-paint invalid / OS dark (0.234625ms)
+✔ student: pre-paint light / OS dark (0.239417ms)
+✔ student: pre-paint dark / OS dark (0.313542ms)
+✔ student: pre-paint system / OS dark (0.308875ms)
+✔ student: pre-paint storage failure stays dark (0.291292ms)
+✔ curator: pre-paint missing / OS light (0.221958ms)
+✔ curator: pre-paint invalid / OS light (0.233208ms)
+✔ curator: pre-paint light / OS light (0.223667ms)
+✔ curator: pre-paint dark / OS light (0.222375ms)
+✔ curator: pre-paint system / OS light (0.262792ms)
+✔ curator: pre-paint missing / OS dark (0.208958ms)
+✔ curator: pre-paint invalid / OS dark (0.229791ms)
+✔ curator: pre-paint light / OS dark (0.22325ms)
+✔ curator: pre-paint dark / OS dark (0.203583ms)
+✔ curator: pre-paint system / OS dark (0.234167ms)
+✔ curator: pre-paint storage failure stays dark (0.224708ms)
+✔ theme hook persists System and synchronises storage and same-document events (36.511167ms)
+✔ light: text, secondary, semantic and action contrast meets 4.5:1 (0.706958ms)
+✔ dark: text, secondary, semantic and action contrast meets 4.5:1 (0.903584ms)
+ℹ tests 25
+ℹ suites 0
+ℹ pass 25
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 238.9885

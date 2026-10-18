@@ -3,7 +3,7 @@
 from datetime import date, datetime, timedelta, timezone
 from typing import Any
 import sqlalchemy as sa
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, defer
 
 from caf_db.models.app import Progress, RevisionEvent, Settings as AppSettingsModel
 from caf_db.models.intel import SubtopicScore
@@ -33,10 +33,6 @@ def get_revision_due_list(
 
     # 2. Fetch current ScoreRun for importance scores
     current_run = get_account_score_run(session, user_id)
-    scores_map: dict[str, SubtopicScore] = {}
-    if current_run:
-        scores = session.query(SubtopicScore).where(SubtopicScore.score_run_id == current_run.id).all()
-        scores_map = {s.node_id: s for s in scores}
 
     from caf_l5.context import resolve_context, context_leaf_ids
     applicable_nodes = context_leaf_ids(session, resolve_context(session, user_id))
@@ -60,6 +56,15 @@ def get_revision_due_list(
     completed_rows = query.all()
     if not completed_rows:
         return []
+
+    scores_map: dict[str, SubtopicScore] = {}
+    if current_run:
+        completed_ids = [node.id for _, node, _ in completed_rows]
+        scores = session.query(SubtopicScore).options(defer(SubtopicScore.evidence)).where(
+            SubtopicScore.score_run_id == current_run.id,
+            SubtopicScore.node_id.in_(completed_ids),
+        ).all()
+        scores_map = {score.node_id: score for score in scores}
 
     # 4. Fetch all revision events for this user
     all_events = (

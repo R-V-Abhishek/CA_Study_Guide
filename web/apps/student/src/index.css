@@ -10,7 +10,7 @@
 .workspace-navigation a:hover { background: var(--subtle); }
 .workspace-navigation a.active { color: var(--accent); background: var(--accent-surface); font-weight: 600; }
 .secondary-navigation { padding-top: 24px; margin-top: 24px; border-top: 1px solid var(--border); }
-.workspace-account { margin-top: auto; padding-top: 24px; display: grid; gap: 12px; font-size: 13px; line-height: 20px; }
+.workspace-account { margin-top: auto; padding-top: 24px; display: grid; gap: 12px; font-size: 14px; line-height: 20px; }
 .workspace-account a { color: var(--accent); }
 .workspace-account details { color: var(--secondary); }
 .workspace-account summary { cursor: pointer; min-height: 40px; padding-top: 8px; }
@@ -22,6 +22,8 @@
 .shell-context { display: flex; gap: 12px; min-width: 0; }
 .shell-search { margin-left: auto; gap: 8px; flex-shrink: 0; }
 .workspace-content { width: 100%; max-width: 1264px; margin: 0 auto; padding: 32px; min-width: 0; }
+/* Keep controls clear of the sticky header and wrapped reader toolbar at zoom. */
+.reader-body button { scroll-margin-block: 80px 180px; }
 .workspace-header .tablet-menu, .mobile-navigation { display: none; }
 .navigation-dialog { margin-left: 16px; width: min(360px, calc(100vw - 32px)); }
 @media (min-width: 768px) and (max-width: 1023px) {
@@ -33,13 +35,16 @@
   .workspace-sidebar { display: none; } .workspace-body { margin-left: 0; }
   .workspace-header { height: 56px; padding: 0 16px; gap: 8px; }
   .workspace-content { padding: 16px 16px calc(88px + env(safe-area-inset-bottom)); }
-  .shell-context { font-size: 12px; display: block; line-height: 16px; }
+  .shell-context { font-size: 14px; display: block; line-height: 20px; }
   .shell-context span { display: none; }
-  .shell-search { font-size: 12px; padding: 8px; gap: 4px; }
+  .shell-search { font-size: 14px; padding: 8px; gap: 4px; }
   .shell-search svg { display: none; } .shell-page-name { display: none; }
   .mobile-navigation { position: fixed; bottom: 0; left: 0; right: 0; z-index: 30; background: var(--surface); border-top: 1px solid var(--border); display: flex; justify-content: space-around; padding: 8px 4px calc(8px + env(safe-area-inset-bottom)); }
-  .mobile-navigation a, .mobile-navigation button { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; min-height: 44px; min-width: 52px; font-size: 12px; color: var(--secondary); border-radius: 8px; }
+  .mobile-navigation a, .mobile-navigation button { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; min-height: 44px; min-width: 52px; font-size: 14px; color: var(--secondary); border-radius: 8px; }
   .mobile-navigation a.active { color: var(--accent); background: var(--accent-surface); }
   .reader-toolbar { bottom: calc(68px + env(safe-area-inset-bottom)); }
   .navigation-dialog { margin: auto 0 0; width: 100%; max-width: 100%; border-radius: 12px 12px 0 0; padding-bottom: calc(24px + env(safe-area-inset-bottom)); }
 }
+
+.workspace-brand { font-size: 16px; line-height: 22px; align-items: flex-start; }
+.workspace-brand svg { flex-shrink: 0; }

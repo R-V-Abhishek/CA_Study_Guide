@@ -2,7 +2,7 @@
 
 from typing import Any
 import sqlalchemy as sa
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, defer
 
 from caf_db.models.app import Progress, Settings
 from caf_db.models.intel import IngestionCoverage, ScoreRun, SubtopicScore
@@ -77,7 +77,8 @@ def get_account_score_run(session: Session, user_id: int) -> ScoreRun | None:
 
 
 def get_subtopic_scores_for_paper(
-    session: Session, paper_id: str, run_id: int | None = None, *, target_attempt_id: str | None = None, taxonomy_version_id: int | None = None
+    session: Session, paper_id: str, run_id: int | None = None, *, target_attempt_id: str | None = None, taxonomy_version_id: int | None = None,
+    include_evidence: bool = True,
 ) -> dict[str, SubtopicScore]:
     """Retrieve all SubtopicScore records for a paper under the current or specified run."""
     if run_id is None:
@@ -92,15 +93,17 @@ def get_subtopic_scores_for_paper(
         ):
             return {}
 
-    rows = (
+    query = (
         session.query(SubtopicScore)
         .join(Node, Node.id == SubtopicScore.node_id)
         .where(
             SubtopicScore.score_run_id == run_id,
             Node.paper_id == paper_id,
         )
-        .all()
     )
+    if not include_evidence:
+        query = query.options(defer(SubtopicScore.evidence))
+    rows = query.all()
     return {row.node_id: row for row in rows}
 
 
@@ -209,13 +212,14 @@ def compute_weighted_coverage(session: Session, user_id: int) -> dict[str, Any]:
     terminal_ids = context_leaf_ids(session, context)
     allowed = set(selected_papers(session, user_id))
     leaves = [node for node in nodes if node.id in terminal_ids and node.paper_id in allowed]
-    scores = {row.node_id: row for row in session.scalars(sa.select(SubtopicScore).where(
-        SubtopicScore.score_run_id == context.run.id))} if context.run else {}
+    scores = {row.node_id: row for row in session.execute(sa.select(
+        SubtopicScore.node_id, SubtopicScore.weight_prior,
+        SubtopicScore.evidence["components"]["prior"]["available"].label("prior_available"),
+    ).where(SubtopicScore.score_run_id == context.run.id))} if context.run else {}
     weighted = bool(leaves) and all(node.id in scores and scores[node.id].weight_prior is not None
                                   for node in leaves)
     if context.taxonomy_version_id is not None:
-        weighted = weighted and all(scores[node.id].evidence.get("components", {}).get(
-            "prior", {}).get("available", False) for node in leaves)
+        weighted = weighted and all(scores[node.id].prior_available for node in leaves)
     progress = {row.node_id: row.status for row in session.scalars(sa.select(Progress).where(
         Progress.user_id == user_id))}
     papers = {row.id: row for row in session.scalars(sa.select(Paper))}

@@ -254,9 +254,9 @@ def main() -> None:
         print("  ▶ Run: python3 start.py  (or ./start.sh)")
 
     print("\nYour applications will be available at:")
-    print("  📖 Student Study App: http://localhost:8000")
-    print("  🛠️ Curator Tool:     http://localhost:8000/curator")
-    print("  📚 API Docs:          http://localhost:8000/docs\n")
+    print("  📖 Student Study App: http://127.0.0.1:8788")
+    print("  🛠️ Curator Tool:     http://127.0.0.1:8788/curator")
+    print("  API health:          http://127.0.0.1:8788/api/v1/health\n")
 
 
 if __name__ == "__main__":

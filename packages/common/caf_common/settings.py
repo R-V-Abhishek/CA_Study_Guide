@@ -4,13 +4,13 @@ from pathlib import Path
 import os
 import tomllib
 from typing import Any
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, SecretStr
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class AppSettings(BaseModel):
     env: str = "development"
-    target_attempt_id: str = "2026-05"
+    target_attempt_id: str = "2027-05"
 
 
 class StorageSettings(BaseModel):
@@ -53,13 +53,14 @@ class Settings(BaseSettings):
     OIDC_CLIENT_ID: str | None = None
     OIDC_CLIENT_SECRET: str | None = None
     OIDC_REDIRECT_URI: str | None = None
-    AUTH_PUBLIC_BASE_URL: str = "http://localhost:8000"
+    AUTH_PUBLIC_BASE_URL: str = "http://127.0.0.1:8788"
     AUTH_LOCAL_DEVELOPMENT: bool = False
-    AUTH_ALLOWED_ORIGINS: str = "http://localhost:8000,http://localhost:5173,http://localhost:5174"
+    AUTH_ALLOWED_ORIGINS: str = "http://127.0.0.1:8788,http://localhost:5173,http://localhost:5174"
 
     # Overrides from environment
     DATABASE_URL: str | None = None
     GEMINI_API_KEY: str | None = None
+    OPENROUTER_API_KEY: SecretStr | None = None
     PG_SUPERUSER: str = "postgres"
     PG_SUPERUSER_PASSWORD: str = "postgres_dev_password"
     PG_HOST: str = "127.0.0.1"
@@ -107,6 +108,7 @@ class Settings(BaseSettings):
                 for name in StorageSettings.model_fields
             })
             inst.GEMINI_API_KEY = None
+            inst.OPENROUTER_API_KEY = None
             inst.app.env = "test"
         # Reconcile DB URL if explicitly passed or configured
         if inst.DATABASE_URL:

@@ -25,7 +25,7 @@ const navigation = [
   { to: '/textbooks', label: 'Syllabus & descriptors' },
 ];
 const administratorNavigation = [
-  { to: '/readiness', label: 'Readiness' }, { to: '/documents', label: 'Source catalogue' }, { to: '/bulk', label: 'Bulk review' },
+  { to: '/taxonomy-release', label: 'Taxonomy releases' }, { to: '/readiness', label: 'Readiness' }, { to: '/documents', label: 'Source catalogue' }, { to: '/bulk', label: 'Bulk review' },
   { to: '/accounts', label: 'Accounts' }, { to: '/system', label: 'System' },
 ];
 function AdminOnly({ children }: { children: ReactNode }) {
@@ -40,9 +40,9 @@ function CuratorLayout({ children }: { children: ReactNode }) {
   const title = [...navigation, ...administratorNavigation].find(item => location.pathname.startsWith(item.to))?.label ?? (location.pathname.startsWith('/queue') ? 'Legacy history' : 'Review questions');
   const links = <><nav aria-label="Review navigation" className="curator-navigation">{navigation.map(item => <NavLink key={item.to} to={item.to} onClick={() => setOpen(false)}>{item.label}</NavLink>)}</nav>
     {admin && <nav aria-label="Administration" className="curator-navigation secondary-navigation">{administratorNavigation.map(item => <NavLink key={item.to} to={item.to} onClick={() => setOpen(false)}>{item.label}</NavLink>)}</nav>}
-    <nav aria-label="Review history" className="curator-navigation secondary-navigation"><NavLink to="/queue" onClick={() => setOpen(false)}>Legacy history</NavLink><NavLink to="/taxonomy" onClick={() => setOpen(false)}>Legacy taxonomy</NavLink>{admin && <NavLink to="/taxonomy-release" onClick={() => setOpen(false)}>Source & release review</NavLink>}</nav></>;
-  const account = <div className="curator-account"><Link to="/">Review workspace</Link><a href="/">Study workspace</a><ThemeControl /><SessionControls /><details><summary>Technical details</summary><Diagnostics /></details></div>;
-  return <div className="curator-workspace"><a href="#main-content" className="skip-link">Skip to content</a><aside className="curator-sidebar"><Link to="/classifications" className="curator-brand">CA Final Prep<span>Shared content review</span></Link>{links}{account}</aside>
+    <details className="workspace-history"><summary>History</summary><nav aria-label="Review history" className="curator-navigation secondary-navigation"><NavLink to="/queue" onClick={() => setOpen(false)}>Legacy history</NavLink><NavLink to="/taxonomy" onClick={() => setOpen(false)}>Legacy taxonomy</NavLink></nav></details></>;
+  const account = <details className="account-menu"><summary>Account and settings</summary><div className="curator-account"><Link to="/">Review workspace</Link><a href="/">Study workspace</a><ThemeControl /><SessionControls /><details><summary>Technical details</summary><Diagnostics /></details></div></details>;
+  return <div className="curator-workspace"><a href="#main-content" className="skip-link">Skip to content</a><aside className="curator-sidebar"><Link to="/classifications" className="curator-brand">CA Study Companion<span>Shared content review</span></Link>{links}{account}</aside>
     <div className="curator-body"><header className="curator-header"><button className="curator-menu secondary-action" onClick={() => setOpen(true)} aria-haspopup="dialog">Menu</button><span>{title}</span><span className="metadata">{admin ? 'Administrator' : 'Student reviewer'}</span></header>
       <main id="main-content" tabIndex={-1} className="curator-content"><RouteBoundary>{children}</RouteBoundary></main></div>
     <Dialog title="Review navigation" open={open} onClose={() => setOpen(false)} className="curator-navigation-dialog">{links}{account}</Dialog>

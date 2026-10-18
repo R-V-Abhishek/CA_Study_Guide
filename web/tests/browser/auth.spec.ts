@@ -1,4 +1,12 @@
 import { test, expect, browserOrigin } from './fixtures';
+import type { Page } from './fixtures';
+
+async function expectStudentAccount(page: Page, name: RegExp) {
+  await expect(page.getByRole('link', { name, includeHidden: true })).toBeAttached();
+  const menu = page.locator('.workspace-sidebar .account-menu');
+  if (await menu.getAttribute('open') === null) await menu.locator('summary').first().click();
+  await expect(page.getByRole('link', { name })).toBeVisible();
+}
 
 test.beforeEach(async ({ request }) => { expect((await request.post('/__test/reset')).ok()).toBe(true); });
 
@@ -25,7 +33,7 @@ test('hosted OIDC invitation creates a private profile with honest unavailable s
   await expect(page.getByRole('heading', { name: 'Browser harness identity provider' })).toBeVisible();
   await page.getByRole('link', { name: 'Invited new student' }).click();
   await page.goto('/profile');
-  await expect(page.getByLabel('Target attempt')).toHaveValue('2027-05');
+  await expect(page.getByRole('combobox', { name: /^Target attempt/ })).toHaveValue('2027-05');
   await expect(page.getByLabel('Weekly hours')).toHaveValue('20');
   await expect(page.getByLabel('Revision intervals in days')).toHaveValue('3, 7, 21, 60');
   await page.getByLabel('Display name').fill('New invited profile');
@@ -33,6 +41,7 @@ test('hosted OIDC invitation creates a private profile with honest unavailable s
   await expect(page.getByRole('status')).toHaveText('Settings saved.');
   await page.goto('/plan');
   await expect(page.getByText(/^Syllabus-based ·/)).toBeVisible();
+  await page.locator('.workspace-sidebar .account-menu > summary').click();
   await page.getByRole('button', { name: 'Sign out' }).click();
   await expect(page.getByRole('link', { name: 'Sign in with Auth0' })).toBeVisible();
   await expect.poll(async () => (await request.get('/api/v1/me')).status()).toBe(401);
@@ -68,11 +77,12 @@ test('logout clears both application tabs and cancels pending notes', async ({ p
   const fixture = await (await request.get('/__test/fixture')).json();
   await page.goto(`/papers/${fixture.paper_id}/${fixture.nodes[0].id}?tab=notes`);
   const curator = await context.newPage(); await curator.goto('/curator/queue');
-  await curator.getByRole('button', { name: 'Menu', exact: true }).click();
+  await curator.locator('.curator-sidebar .account-menu > summary').click();
   await expect(curator.getByRole('button', { name: 'Sign out' })).toBeVisible();
   let saves = 0; page.on('request', request => { if (request.method() === 'PUT' && request.url().endsWith('/notes')) saves++; });
   await page.getByRole('textbox', { name: 'Notes', exact: true }).fill('UNSAVED PRIVATE DRAFT');
   page.once('dialog', dialog => dialog.accept());
+  await page.locator('.workspace-sidebar .account-menu > summary').click();
   await page.getByRole('button', { name: 'Sign out' }).click();
   await expect(page.getByRole('link', { name: 'Sign in with Auth0' })).toBeVisible();
   await expect(curator.getByRole('link', { name: 'Sign in with Auth0' })).toBeVisible();
@@ -100,7 +110,7 @@ test('account changes reject late private responses and discard account drafts',
   await intercepted;
   await request.post('/__test/login?account_id=2');
   await page.evaluate(() => window.dispatchEvent(new Event('focus')));
-  await expect(page.getByRole('link', { name: /Student B · Profile/ })).toBeVisible();
+  await expectStudentAccount(page, /Student B · Profile/);
   release();
   await expect(page.getByRole('textbox', { name: 'Notes', exact: true })).toHaveValue('');
   await expect(page.getByText('LATE PRIVATE A RESPONSE')).toHaveCount(0);
@@ -113,14 +123,14 @@ test('storage fallback broadcasts an account change to the other application', a
   await page.goto(`/papers/${fixture.paper_id}/${fixture.nodes[0].id}?tab=notes`);
   await expect(page.getByRole('textbox', { name: 'Notes', exact: true })).toHaveValue('');
   const curator = await context.newPage(); await curator.goto('/curator/queue');
-  await curator.getByRole('button', { name: 'Menu', exact: true }).click();
+  await curator.locator('.curator-sidebar .account-menu > summary').click();
   await expect(curator.getByRole('link', { name: /Browser fixture student · Profile/ })).toBeVisible();
   await request.post('/__test/login?account_id=2');
   await curator.evaluate(() => window.dispatchEvent(new Event('focus')));
   await expect(curator.getByRole('link', { name: /Browser fixture student · Profile/ })).not.toBeVisible();
-  await curator.getByRole('button', { name: 'Menu', exact: true }).click();
+  await curator.locator('.curator-sidebar .account-menu > summary').click();
   await expect(curator.getByRole('link', { name: /Student B · Profile/ })).toBeVisible();
-  await expect(page.getByRole('link', { name: /Student B · Profile/ })).toBeVisible();
+  await expectStudentAccount(page, /Student B · Profile/);
   await expect(page.getByRole('textbox', { name: 'Notes', exact: true })).toHaveValue('');
 });
 
@@ -160,8 +170,8 @@ test('an unseen cookie switch rejects a stale account read before showing privat
   expect(await mismatch).toBe(409);
   releaseIdentity();
   await page.unroute('**/api/v1/me');
-  await expect(page.getByRole('link', { name: /Student B · Profile/ })).toBeVisible();
-  await expect(page.getByText(/Target attempt May 2027/)).toBeVisible();
+  await expectStudentAccount(page, /Student B · Profile/);
+  await expect(page.getByRole('link', { name: /Change target attempt: May 2027/ })).toBeVisible();
   release(); await page.unroute('**/api/v1/plan*');
   await page.getByRole('link', { name: 'Plan', exact: true }).click();
   await expect(page.getByText(/^Syllabus-based ·/)).toBeVisible();
@@ -181,7 +191,7 @@ test('a matching profile update preserves unsaved notes in another tab', async (
   await profile.getByLabel('Display name').fill('Updated own profile');
   await profile.getByRole('button', { name: 'Save settings' }).click();
   await expect(profile.getByRole('status')).toHaveText('Settings saved.');
-  await expect(page.getByRole('link', { name: /Updated own profile · Profile/ })).toBeVisible();
+  await expectStudentAccount(page, /Updated own profile · Profile/);
   await expect(page.getByRole('textbox', { name: 'Notes', exact: true })).toHaveValue('KEEP THIS UNSAVED OWN ACCOUNT DRAFT');
   expect((await (await request.get(`/api/v1/subtopics/${fixture.nodes[0].id}`)).json()).notes).toBeNull();
   await page.route('**/api/v1/me', route => route.abort('failed'));

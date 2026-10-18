@@ -65,6 +65,7 @@ export interface TextbookNode {
   children: TextbookNode[];
 }
 export interface TextbookDescriptor {
+  status?: never;
   revision: number;
   definition: string;
   terminology: string[];
@@ -77,6 +78,19 @@ export interface TextbookDescriptor {
   approved: boolean;
   source_spans: TextbookSpan[];
 }
+export interface IndexHeadingDescriptor {
+  revision: number;
+  status: "index_derived_draft_requires_review";
+  core_concept: string;
+  terminology: string[];
+  scope: string;
+  approved: false;
+  applicability_status: "source_attempts_only_target_release_not_approved";
+  source_edition: string;
+  applicable_attempts: string[];
+  note: string;
+}
+export type TaxonomyDescriptor = TextbookDescriptor | IndexHeadingDescriptor;
 export interface TaxonomyHistory {
   node_id: string;
   records: {
@@ -136,7 +150,7 @@ const nodePath = (id: string) => `/api/v1/taxonomy/nodes/${encodeURIComponent(id
 export const taxonomyApi = {
   versions: () => apiRequest<TaxonomyVersion[]>("/api/v1/taxonomy/versions"),
   tree: (id: string) => apiRequest<TextbookNode[]>(`${versionPath(id)}/tree`),
-  descriptor: (node: string, version: string) => apiRequest<TextbookDescriptor | null>(`${nodePath(node)}/descriptor?version_id=${encodeURIComponent(version)}`),
+  descriptor: (node: string, version: string) => apiRequest<TaxonomyDescriptor | null>(`${nodePath(node)}/descriptor?version_id=${encodeURIComponent(version)}`),
   approveDescriptor: (node: string, version: string, revision: number) => apiRequest(`${nodePath(node)}/descriptor/approve`, { method: "POST", body: JSON.stringify({ version_id: version, revision }) }),
   approveSource: (node: string, version: string) => apiRequest(`${nodePath(node)}/source/approve`, { method: "POST", body: JSON.stringify({ version_id: version }) }),
   editDescriptor: (node: string, version: string, content: Omit<TextbookDescriptor, "revision" | "approved">) => apiRequest(`${nodePath(node)}/descriptor`, { method: "PUT", body: JSON.stringify({ version_id: version, ...content }) }),

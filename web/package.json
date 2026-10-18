@@ -8,7 +8,8 @@
     "lint": "turbo lint",
     "type-check": "turbo type-check && pnpm type-check:browser",
     "type-check:browser": "pnpm --filter student exec tsc -p ../../tsconfig.browser.json",
-    "test:browser": "playwright test"
+    "test:browser": "playwright test",
+    "test:ui": "node --test tests/ui/*.test.cjs"
   },
   "devDependencies": {
     "@playwright/test": "^1.63.0",

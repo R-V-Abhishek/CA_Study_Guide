@@ -3,7 +3,7 @@ import math
 from typing import Any
 
 import sqlalchemy as sa
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, defer
 from caf_db.models.app import Progress, Settings
 from caf_db.models.intel import SubtopicScore
 from caf_db.models.ref import Paper
@@ -38,7 +38,8 @@ def generate_study_plan(session: Session, user_id: int, paper_id: str | None = N
     allowed = set(selected_papers(session, user_id))
     progress = {row.node_id: row.status for row in session.scalars(
         sa.select(Progress).where(Progress.user_id == user_id))}
-    scores = {row.node_id: row for row in session.scalars(sa.select(SubtopicScore).where(
+    scores = {row.node_id: row for row in session.scalars(sa.select(SubtopicScore).options(
+        defer(SubtopicScore.evidence)).where(
         SubtopicScore.score_run_id == context.run.id))} if context.run else {}
     selected_nodes = [node for node in nodes if node.id in terminal_ids
                       and node.paper_id in allowed

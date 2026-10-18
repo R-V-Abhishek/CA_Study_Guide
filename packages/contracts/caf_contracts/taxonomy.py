@@ -65,6 +65,7 @@ class ReleaseSummary(BaseModel):
     manifest_hash: str
     approved_by: int | None
     activated_at: str | None
+    baseline_provenance: dict[str, Any] | None = None
 
 
 class TaxonomyTreeNode(BaseModel):

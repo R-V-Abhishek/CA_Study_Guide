@@ -281,7 +281,8 @@ def test_forward_migration_preserves_legacy_rows(session, isolated_database):
             command.upgrade(cfg, 'head')
             row = conn.execute(sa.text('SELECT id, config_hash, config_snapshot FROM intel.score_run')).one()
             assert tuple(row) == (before.id, before.config_hash, None)
-            assert conn.execute(sa.text('SELECT version_num FROM ops.alembic_version')).scalar_one() == '0007_question_reader'
+            from alembic.script import ScriptDirectory
+            assert conn.execute(sa.text('SELECT version_num FROM ops.alembic_version')).scalar_one() == ScriptDirectory.from_config(cfg).get_current_head()
     finally:
         engine.dispose()
         with admin.connect() as conn:

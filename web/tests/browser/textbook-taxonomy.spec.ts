@@ -1,5 +1,5 @@
 import { test, expect, type Page } from "./fixtures";
-import type { TaxonomyVersion, TextbookNode, TextbookSource, TextbookDescriptor, TaxonomyReleaseReport } from "../../packages/api-client/src/taxonomy";
+import type { TaxonomyVersion, TextbookNode, TextbookSource, TextbookDescriptor, TaxonomyDescriptor, TaxonomyReleaseReport } from "../../packages/api-client/src/taxonomy";
 
 const version: TaxonomyVersion = { version_id: "textbook-fixture", taxonomy_version_id: 2, target_attempt: "2027-05", status: "draft", manifest_hash: "c".repeat(64), approved_by: null, activated_at: null };
 const source: TextbookSource = { artifact_id: "official.fixture", edition: "January 2026", applicable_attempts: ["2026-01"], download_url: "https://resource.cdn.icai.org/fixture.pdf", landing_url: "https://www.icai.org/fixture", fallback: true, target_applicability: "provision_review_required", availability: "verified", pdf_page_start: 12, pdf_page_end: 16, review_status: "pending", instrument: "Income-tax Act, 1961" };
@@ -9,6 +9,35 @@ function hierarchy(depth = 0): TextbookNode {
   return { id: `fresh.${depth}`, paper_id: "P4", parent_id: depth ? `fresh.${depth - 1}` : null, level: levels[depth], name: labels[depth], seq: 1, heading_origin: depth === 5 ? "app_authored" : "official", source_review_status: "pending", descriptor_revision: depth === 5 ? 1 : null, descriptor_approved: false, eligible: false, breadcrumbs: labels.slice(0, depth + 1).map((name, index) => ({ id: `fresh.${index}`, name, level: levels[index] })), sources: [source], children: depth < 5 ? [hierarchy(depth + 1)] : [] };
 }
 const descriptor: TextbookDescriptor = { revision: 1, definition: "A fixture definition from the textbook.", terminology: ["Income-tax Act, 1961"], instrument_references: ["Income-tax Act, 1961"], edition: "January 2026", source_ambiguities: [], inclusion: ["Included fixture concepts"], exclusion: ["Excluded fixture concepts"], nearby_distinctions: ["A nearby concept differs here"], approved: false, source_spans: [{ artifact_id: source.artifact_id, pdf_page_start: source.pdf_page_start, pdf_page_end: source.pdf_page_end, review_status: source.review_status }] };
+
+test("index heading evidence remains distinct until an authored explanation creates a new revision", async ({ page, request }) => {
+  await request.post("/__test/login?account_id=2");
+  await routes(page);
+  let current: TaxonomyDescriptor = { revision: 1, status: "index_derived_draft_requires_review", core_concept: "Original index heading", scope: "Module / Original index heading", terminology: ["Original index heading"], approved: false, applicability_status: "source_attempts_only_target_release_not_approved", source_edition: source.edition, applicable_attempts: source.applicable_attempts, note: "Index heading evidence only; no statutory interpretation or release approval is inferred." };
+  await page.route("**/api/v1/taxonomy/nodes/*/descriptor?**", route => route.fulfill({ json: current }));
+  let saved: Record<string, unknown> | undefined;
+  await page.route("**/api/v1/taxonomy/nodes/*/descriptor", route => {
+    saved = route.request().postDataJSON();
+    current = { ...descriptor, definition: "Authored explanation from cited source", revision: 2 };
+    return route.fulfill({ json: { revision: 2, approved: false } });
+  });
+  await page.goto("/curator/textbooks"); await selectLeaf(page, true);
+  await page.getByRole("tab", { name: "Descriptor", exact: true }).click();
+  const evidence = page.getByRole("region", { name: "Index heading evidence" });
+  await expect(evidence).toContainText("Original index heading");
+  await expect(evidence).toContainText("A textbook explanation has not been authored or approved.");
+  await expect(evidence.getByRole("link", { name: "Textbook PDF, pages 12–16" })).toHaveAttribute("href", `${source.download_url}#page=12`);
+  await expect(page.getByRole("button", { name: "Approve reviewed descriptor revision" })).toHaveCount(0);
+  await page.getByRole("button", { name: "Edit descriptor", exact: true }).click();
+  await expect(page.getByLabel("Concept definition", { exact: true })).toHaveValue("");
+  await expect(page.getByRole("button", { name: "Save new descriptor revision" })).toBeDisabled();
+  await page.getByLabel("Concept definition", { exact: true }).fill("Authored explanation from cited source");
+  await page.getByRole("button", { name: "Save new descriptor revision" }).click();
+  await expect(page.getByText("Revision 2 · Review pending")).toBeVisible();
+  expect(saved?.source_spans).toEqual(descriptor.source_spans);
+  expect(saved?.definition).toBe("Authored explanation from cited source");
+  expect(saved).not.toHaveProperty("core_concept");
+});
 const report: TaxonomyReleaseReport = { version_id: version.version_id, manifest_hash: version.manifest_hash, status: "draft", node_count: 6, eligible_count: 0, source_count: 1, unresolved_sources: ["official.fixture"], unreviewed_descriptors: ["fresh.5"], activation_ready: false, blockers: ["Source applicability unresolved"], legacy_progress_count: 2, legacy_note_count: 1 };
 async function routes(page: Page) {
   await page.route("**/api/v1/taxonomy/versions", route => route.fulfill({ json: [version] }));
@@ -29,6 +58,20 @@ async function selectLeaf(page: Page, curator = false) {
     await page.getByRole("treeitem", { name: /Tax concept/ }).click();
   }
 }
+
+test("index source without an audited landing page retains its PDF without an invented page link", async ({ page, request }) => {
+  await request.post("/__test/login?account_id=2"); await routes(page);
+  const tree = hierarchy();
+  let leaf = tree;
+  while (leaf.children.length) leaf = leaf.children[0];
+  leaf.sources = [{ ...source, landing_url: "", edition: "August 2024" }];
+  await page.route("**/api/v1/taxonomy/versions/*/tree", route => route.fulfill({ json: [tree] }));
+  await page.goto("/curator/textbooks"); await selectLeaf(page, true);
+  const context = page.getByRole("region", { name: "Selected textbook concept" });
+  await expect(context.getByText("August 2024 fallback", { exact: false })).toBeVisible();
+  await expect(context.getByRole("link", { name: "Textbook PDF, pages 12–16" })).toHaveAttribute("href", `${source.download_url}#page=12`);
+  await expect(context.getByRole("link", { name: "Official source page" })).toHaveCount(0);
+});
 
 test("recursive student explorer distinguishes fallback, applicability and preserved predecessor notes", async ({ page, request }, testInfo) => {
   await request.post("/__test/login?account_id=2"); await routes(page); await page.goto("/textbooks"); await selectLeaf(page);

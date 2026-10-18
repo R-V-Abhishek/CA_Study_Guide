@@ -11,7 +11,7 @@ from caf_db.models.app import (
     UserAccount,
 )
 from caf_db.models.base import Base
-from caf_db.models.classification import (SuggestionRevision, ClassificationRevision,
+from caf_db.models.classification import (CandidateCatalog, BaselineAdoption, SuggestionRevision, ClassificationRevision,
     QuestionPublication, ClassificationEvent, ClassificationVerification, ClassificationDispute)
 from caf_db.models.extraction import (ExtractionRevision, ContentBlock, ExtractionAsset,
     DocumentPair, ExtractionReview, ReconciliationLink)

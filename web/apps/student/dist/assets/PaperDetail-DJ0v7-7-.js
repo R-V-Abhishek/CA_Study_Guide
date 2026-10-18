@@ -1,1 +1,0 @@
-import{e as t,f as n,j as o,N as p,d}from"./index-DMgcQ-xU.js";function c(){const{paperId:s="",nodeId:a}=t(),[r]=n(),e=new URLSearchParams(r);return e.set("paper",s),a?e.set("node",a):e.delete("node"),o.jsx(p,{replace:!0,to:d(`/syllabus?${e}`)})}export{c as PaperDetail};

@@ -45,11 +45,13 @@ def critical_tables(revision: str) -> set[str]:
         tables.update({"ingest.suggestion_revision", "core.classification_revision",
                        "core.classification_event", "core.classification_verification",
                        "core.classification_dispute", "core.question_publication"})
-    if revision == "0007_question_reader":
+    if revision in {"0007_question_reader", "0008_baseline_adoption", "0009_question_language"}:
         tables.update({"core.published_question", "core.published_source", "core.question_occurrence",
                        "core.corpus_generation", "intel.attempt_taxonomy_binding",
                        "intel.corpus_coverage", "intel.reviewed_prior", "intel.recompute_job",
                        "intel.score_run", "intel.subtopic_score"})
+    if revision in {"0008_baseline_adoption", "0009_question_language"}:
+        tables.update({'ref.candidate_catalog','core.baseline_adoption'})
     return tables
 
 

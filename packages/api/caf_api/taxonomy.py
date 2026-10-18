@@ -32,7 +32,9 @@ def versions(db: Session = Depends(get_db)):
     return [{"version_id": r.version_id, "taxonomy_version_id": r.taxonomy_version_id,
              "target_attempt": r.target_attempt, "status": r.status,
              "manifest_hash": r.manifest_hash, "approved_by": r.approved_by,
-             "activated_at": r.activated_at.isoformat() if r.activated_at else None}
+             "activated_at": r.activated_at.isoformat() if r.activated_at else None,
+             "baseline_provenance": {"release_id":r.version_id,"manifest_hash":r.manifest_hash,
+                 "scope":r.manifest['adoption_scope']} if r.manifest.get('adoption_scope') else None}
             for r in db.scalars(sa.select(TaxonomyRelease).order_by(TaxonomyRelease.taxonomy_version_id.desc()))]
 
 
@@ -73,7 +75,8 @@ def tree(version_id: str, paper_id: str | None = None, db: Session = Depends(get
 @router.get("/versions/{version_id}/sources", response_model=list[dict[str, Any]])
 def sources(version_id: str, db: Session = Depends(get_operations_db), admin: Principal = Depends(require_admin)):
     release = checked(get_release, db, version_id)
-    return [s.metadata_json for s in db.scalars(sa.select(TextbookArtifact).where(TextbookArtifact.taxonomy_version_id == release.taxonomy_version_id).order_by(TextbookArtifact.paper_id, TextbookArtifact.id))]
+    from caf_l0.releases import artifact_context
+    return [artifact_context(s) for s in db.scalars(sa.select(TextbookArtifact).where(TextbookArtifact.taxonomy_version_id == release.taxonomy_version_id).order_by(TextbookArtifact.paper_id, TextbookArtifact.id))]
 
 
 @router.get("/versions/{version_id}/question-sources", response_model=list[dict[str, Any]])

@@ -107,7 +107,8 @@ def _occurrence(session, document, content):
     return row
 
 
-def project_question(session: Session, suggestion, revision, publication: QuestionPublication) -> PublishedQuestion:
+def project_question(session: Session, suggestion, revision, publication: QuestionPublication,
+                     projection_context: dict | None = None) -> PublishedQuestion:
     """Called inside the classification transaction after all publication gates."""
     extraction = session.get(ExtractionRevision, revision.extraction_revision_id)
     document = session.get(Document, suggestion.document_id)
@@ -115,7 +116,7 @@ def project_question(session: Session, suggestion, revision, publication: Questi
     content.pop('classification_part_ids', None)
     root = next(node for node in extraction.parsed_units if node['stable_question_id'] == revision.question_id)
     occurrence = _occurrence(session, document, content)
-    nodes = {node.id:node for node in version_nodes(session, revision.taxonomy_version_id)}
+    nodes = projection_context['nodes'] if projection_context is not None else {node.id:node for node in version_nodes(session, revision.taxonomy_version_id)}
     covered = []
     ids = {node_id for mapping in revision.mappings if mapping['outcome'] == 'matched' and not mapping['excluded']
         for node_id in [mapping['primary_node_id'], *mapping['secondary_node_ids']]}
@@ -123,7 +124,11 @@ def project_question(session: Session, suggestion, revision, publication: Questi
         node = nodes[node_id]
         covered.append(dict(node_id=node_id, name=node.name,
             path=[dict(id=ancestor.id,name=ancestor.name,level=ancestor.level) for ancestor in ancestors(node_id,nodes)]))
-    source_map = {document_id:_source(session, document_id) for document_id in content['source_document_ids']}
+    source_cache = projection_context['sources'] if projection_context is not None else {}
+    for document_id in content['source_document_ids']:
+        if document_id not in source_cache:
+            source_cache[document_id] = _source(session, document_id)
+    source_map = {document_id:source_cache[document_id] for document_id in content['source_document_ids']}
     assets=[]
     for index, asset in enumerate(content.get('assets', [])):
         source=source_map.get(asset['document_id'])
@@ -139,10 +144,24 @@ def project_question(session: Session, suggestion, revision, publication: Questi
         *[' '.join(filter(None,[source.title,source.doc_type_id,source.attempt_id])) for source in source_map.values()],
         document.series or '', document.collection_id or '',
         content['source_family'],content['paper_id'],content.get('source_attempt_id') or ''])
+    quality = reviewed_quality(session,extraction)
+    marks = marks_projection(root,revision.question_id,revision.mappings)
+    if suggestion.provenance.get('baseline_release_id'):
+        quality = {**quality, 'baseline':dict(release_id=suggestion.provenance['baseline_release_id'],
+            manifest_hash=suggestion.provenance['baseline_manifest_hash'], scope='study_and_review',
+            applicability_status=suggestion.provenance['applicability_status']),
+            'unresolved_parts':[m['part_id'] for m in revision.mappings if m['outcome']!='matched' and not m['excluded']]}
+        if quality.get('marks_choices') not in {'passed','not_applicable'}:
+            marks['issues'].append('baseline_marks_review_pending')
+            marks['selectable_marks'] = None
+            for allocation in marks['allocations']:
+                allocation['allocation_status'] = 'ambiguous'
+                for share in allocation['node_shares']:
+                    share['attributed_marks'] = None
     row=PublishedQuestion(id=revision.id,question_id=revision.question_id,extraction_revision_id=extraction.id,
         taxonomy_version_id=revision.taxonomy_version_id,occurrence_id=occurrence.id,publication_generation=state.generation,
-        content=content,mappings=revision.mappings,covered_subtopics=covered,marks=marks_projection(root,revision.question_id,revision.mappings),
-        quality=reviewed_quality(session,extraction),source_ids=[source.id for source in source_map.values()],assets=assets,search_text=search_text)
+        content=content,mappings=revision.mappings,covered_subtopics=covered,marks=marks,
+        quality=quality,source_ids=[source.id for source in source_map.values()],assets=assets,search_text=search_text)
     session.add(row);session.flush()
     publication.current_snapshot_id=row.id
     publication.current_revision_id=revision.id

@@ -17,6 +17,8 @@ from caf_l3.pipeline import ClassificationPipeline
 
 app = typer.Typer(name="classify", help="L3 Classification commands")
 console = Console()
+from caf_cli.classification_review import app as classification_review_app
+app.add_typer(classification_review_app, name="review")
 
 
 @app.command("export")

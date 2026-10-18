@@ -34,6 +34,8 @@ from caf_cli.depth import app as depth_app
 from caf_cli.backup import app as backup_app
 from caf_cli.audit import app as audit_app
 from caf_cli.auth import app as auth_app
+from caf_cli.taxonomy_index import app as taxonomy_index_app
+from caf_cli.baseline import app as baseline_app
 
 app.add_typer(db_app, name="db")
 app.add_typer(taxonomy_app, name="taxonomy")
@@ -49,6 +51,8 @@ app.add_typer(depth_app, name="depth")
 app.add_typer(backup_app, name="backup")
 app.add_typer(audit_app, name="audit")
 app.add_typer(auth_app, name="auth")
+app.add_typer(taxonomy_index_app, name="taxonomy-index")
+app.add_typer(baseline_app, name="baseline")
 
 console = Console()
 
@@ -474,7 +478,7 @@ def acquire_confirm(doc_id: int = typer.Argument(..., help="Document ID to confi
 @app.command("serve")
 def serve(
     host: str = "127.0.0.1",
-    port: int = 8000,
+    port: int = 8788,
     reload: bool = False,
 ) -> None:
     """Start the FastAPI backend server."""

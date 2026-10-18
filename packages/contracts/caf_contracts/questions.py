@@ -37,6 +37,12 @@ class PublishedAssetResult(BaseModel):
     url: str
 
 
+class PublishedQuestionPage(BaseModel):
+    source_id: int
+    page: int
+    url: str
+
+
 class AttributedNodeShare(BaseModel):
     node_id: str
     share: float
@@ -85,6 +91,8 @@ class QuestionResult(BaseModel):
     marks: PublishedMarks
     sources: list[PublishedSourceResult]
     assets: list[PublishedAssetResult]
+    question_pages: list[PublishedQuestionPage] = Field(default_factory=list)
+    answer_pages: list[PublishedQuestionPage] = Field(default_factory=list)
     verification_count: int
     open_disputes: int
     extraction_quality: dict[str, Any]

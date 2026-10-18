@@ -1,0 +1,90 @@
+[
+  {
+    "question_id": "001d2efaf53eeac4725ea5d8e4df21aae0eb86c2a354dad0d99f8b1e53a2f385",
+    "label": "Q11",
+    "page": 15,
+    "mode": "full",
+    "filename": "source-1-full.png",
+    "cold_ms": 43.54,
+    "warm_ms": 0.22,
+    "bytes": 116163,
+    "equal": true
+  },
+  {
+    "question_id": "001d2efaf53eeac4725ea5d8e4df21aae0eb86c2a354dad0d99f8b1e53a2f385",
+    "label": "Q11",
+    "page": 15,
+    "mode": "crop",
+    "filename": "source-1-crop.png",
+    "cold_ms": 27.55,
+    "warm_ms": 0.21,
+    "bytes": 48344,
+    "equal": true
+  },
+  {
+    "question_id": "0043d241dd406d3507be23e8bd9c840f814d45b57cc16a964e9d9a94a5feb2fd",
+    "label": "c",
+    "page": 7,
+    "mode": "full",
+    "filename": "source-2-full.png",
+    "cold_ms": 32.91,
+    "warm_ms": 0.28,
+    "bytes": 183225,
+    "equal": true
+  },
+  {
+    "question_id": "0043d241dd406d3507be23e8bd9c840f814d45b57cc16a964e9d9a94a5feb2fd",
+    "label": "c",
+    "page": 7,
+    "mode": "crop",
+    "filename": "source-2-crop.png",
+    "cold_ms": 15.83,
+    "warm_ms": 0.24,
+    "bytes": 27992,
+    "equal": true
+  },
+  {
+    "question_id": "0047e9efbc07c56ccaeb3dab3753cfe5938cd835efcb13d4ebeb311e09835658",
+    "label": "d",
+    "page": 26,
+    "mode": "full",
+    "filename": "source-3-full.png",
+    "cold_ms": 44.79,
+    "warm_ms": 0.19,
+    "bytes": 160289,
+    "equal": true
+  },
+  {
+    "question_id": "0047e9efbc07c56ccaeb3dab3753cfe5938cd835efcb13d4ebeb311e09835658",
+    "label": "d",
+    "page": 26,
+    "mode": "crop",
+    "filename": "source-3-crop.png",
+    "cold_ms": 36.07,
+    "warm_ms": 0.22,
+    "bytes": 124692,
+    "equal": true
+  },
+  {
+    "question_id": "005035f7989fe0db97a67567486c30db07a78de203c3424f411dab534ed2431e",
+    "label": "c",
+    "page": 19,
+    "mode": "full",
+    "filename": "source-4-full.png",
+    "cold_ms": 39.37,
+    "warm_ms": 0.22,
+    "bytes": 161703,
+    "equal": true
+  },
+  {
+    "question_id": "005035f7989fe0db97a67567486c30db07a78de203c3424f411dab534ed2431e",
+    "label": "c",
+    "page": 19,
+    "mode": "crop",
+    "filename": "source-4-crop.png",
+    "cold_ms": 18.59,
+    "warm_ms": 0.19,
+    "bytes": 16128,
+    "equal": true
+  }
+]

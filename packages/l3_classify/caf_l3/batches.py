@@ -196,6 +196,12 @@ def validate_manifest(manifest: dict) -> None:
 
 
 def validated_mappings(record: dict, result: dict) -> list[dict]:
+    """Validate raw model output and return mappings for database/render use.
+
+    The returned mappings use normalized evidence objects, not the raw
+    RootOutput evidence-list schema. Keep the original result when writing
+    worker/OpenRouter result files.
+    """
     output = RootOutput.model_validate({k: v for k, v in result.items() if k != "execution"})
     if output.question_id != record["question_id"] or output.input_hash != record["input_hash"]:
         raise ValueError("Output question ID or revision hash mismatch")

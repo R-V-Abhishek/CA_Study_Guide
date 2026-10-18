@@ -1,0 +1,1 @@
+$ pnpm --filter student exec tsc -p ../../tsconfig.browser.json

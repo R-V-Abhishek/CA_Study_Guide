@@ -123,6 +123,7 @@ class ClassificationQueueItem(BaseModel):
     question: ExtractedQuestion
     mappings: list[PartMapping]
     candidates: list[dict[str, Any]]
+    candidate_catalog_hash: str | None = None
     provenance: dict[str, Any]
     publication_revision_id: int | None
     publication_suggestion_revision_id: int | None = None

@@ -17,7 +17,7 @@ function RecommendationPath({ recommendation }: { recommendation: Recommendation
   return <div className="space-y-1">
     <p className="text-xs text-slate-400">{ancestry.map(node => node!.name).join(" → ") || "Ancestry unavailable"}</p>
     <p className="text-sm font-semibold">{recommendation.node_name ?? "Name unavailable"}</p>
-    <p className="text-xs font-mono text-indigo-300">{recommendation.node_id}</p>
+    <p className="text-xs text-indigo-300">{recommendation.node_id}</p>
   </div>;
 }
 

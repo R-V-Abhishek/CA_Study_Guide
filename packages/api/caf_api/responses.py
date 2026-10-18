@@ -450,7 +450,8 @@ class OccurrenceContribution(BaseModel):
 
 class CoverageExclusion(BaseModel):
     paper_id: str
-    attempt_id: str
+    # Unresolved source occurrences can lack an identified exam attempt.
+    attempt_id: str | None
     reasons: list[str]
 
 
@@ -681,6 +682,7 @@ class ProfileSettings(BaseModel):
     minutes_per_subtopic: int
     revision_intervals: list[int]
     exam_start_date: date | None
+    include_hindi: bool = False
     available_papers: list[ProfilePaper]
     available_attempts: list[ProfileAttempt]
 

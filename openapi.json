@@ -1182,6 +1182,210 @@
         }
       }
     },
+    "/api/v1/curate/candidate-catalogs/{catalog_hash}": {
+      "get": {
+        "tags": [
+          "curation"
+        ],
+        "summary": "Candidate Catalog",
+        "operationId": "candidate_catalog_api_v1_curate_candidate_catalogs__catalog_hash__get",
+        "parameters": [
+          {
+            "name": "catalog_hash",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Catalog Hash"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": true
+                  },
+                  "title": "Response Candidate Catalog Api V1 Curate Candidate Catalogs  Catalog Hash  Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/curate/baselines": {
+      "get": {
+        "tags": [
+          "curation"
+        ],
+        "summary": "Baselines",
+        "operationId": "baselines_api_v1_curate_baselines_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  "type": "array",
+                  "title": "Response Baselines Api V1 Curate Baselines Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/curate/baselines/prepare": {
+      "post": {
+        "tags": [
+          "curation"
+        ],
+        "summary": "Prepare Study Baseline",
+        "operationId": "prepare_study_baseline_api_v1_curate_baselines_prepare_post",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "type": "object",
+                  "title": "Response Prepare Study Baseline Api V1 Curate Baselines Prepare Post"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/curate/baselines/{release_id}/activate": {
+      "post": {
+        "tags": [
+          "curation"
+        ],
+        "summary": "Activate Study Baseline",
+        "operationId": "activate_study_baseline_api_v1_curate_baselines__release_id__activate_post",
+        "parameters": [
+          {
+            "name": "release_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Release Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BaselineActivationRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Activate Study Baseline Api V1 Curate Baselines  Release Id  Activate Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/curate/baselines/{release_id}/rollback": {
+      "post": {
+        "tags": [
+          "curation"
+        ],
+        "summary": "Rollback Study Baseline",
+        "operationId": "rollback_study_baseline_api_v1_curate_baselines__release_id__rollback_post",
+        "parameters": [
+          {
+            "name": "release_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Release Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BaselineActivationRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Rollback Study Baseline Api V1 Curate Baselines  Release Id  Rollback Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/curate/documents": {
       "get": {
         "tags": [
@@ -4474,6 +4678,88 @@
         }
       }
     },
+    "/api/v1/questions/{question_id}/pages/{kind}/{source_id}/{page}": {
+      "get": {
+        "tags": [
+          "questions"
+        ],
+        "summary": "Published Question Page",
+        "operationId": "published_question_page_api_v1_questions__question_id__pages__kind___source_id___page__get",
+        "parameters": [
+          {
+            "name": "question_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Question Id"
+            }
+          },
+          {
+            "name": "kind",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "enum": [
+                "question",
+                "answer"
+              ],
+              "type": "string",
+              "title": "Kind"
+            }
+          },
+          {
+            "name": "source_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Source Id"
+            }
+          },
+          {
+            "name": "page",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Page"
+            }
+          },
+          {
+            "name": "crop",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": true,
+              "title": "Crop"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              },
+              "image/png": {}
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/admin/readiness": {
       "get": {
         "tags": [
@@ -5642,6 +5928,20 @@
         ],
         "title": "BackupResult"
       },
+      "BaselineActivationRequest": {
+        "properties": {
+          "manifest_hash": {
+            "type": "string",
+            "title": "Manifest Hash"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "manifest_hash"
+        ],
+        "title": "BaselineActivationRequest"
+      },
       "BindingRecord": {
         "properties": {
           "target_attempt_id": {
@@ -6232,6 +6532,17 @@
             },
             "type": "array",
             "title": "Candidates"
+          },
+          "candidate_catalog_hash": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Candidate Catalog Hash"
           },
           "provenance": {
             "additionalProperties": true,
@@ -6829,7 +7140,14 @@
             "title": "Paper Id"
           },
           "attempt_id": {
-            "type": "string",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Attempt Id"
           },
           "reasons": {
@@ -11291,6 +11609,11 @@
             ],
             "title": "Exam Start Date"
           },
+          "include_hindi": {
+            "type": "boolean",
+            "title": "Include Hindi",
+            "default": false
+          },
           "available_papers": {
             "items": {
               "$ref": "#/components/schemas/ProfilePaper"
@@ -11372,6 +11695,11 @@
               }
             ],
             "title": "Exam Start Date"
+          },
+          "include_hindi": {
+            "type": "boolean",
+            "title": "Include Hindi",
+            "default": false
           }
         },
         "additionalProperties": false,
@@ -11602,6 +11930,29 @@
           "issues"
         ],
         "title": "PublishedMarks"
+      },
+      "PublishedQuestionPage": {
+        "properties": {
+          "source_id": {
+            "type": "integer",
+            "title": "Source Id"
+          },
+          "page": {
+            "type": "integer",
+            "title": "Page"
+          },
+          "url": {
+            "type": "string",
+            "title": "Url"
+          }
+        },
+        "type": "object",
+        "required": [
+          "source_id",
+          "page",
+          "url"
+        ],
+        "title": "PublishedQuestionPage"
       },
       "PublishedSourceResult": {
         "properties": {
@@ -11935,6 +12286,20 @@
             },
             "type": "array",
             "title": "Assets"
+          },
+          "question_pages": {
+            "items": {
+              "$ref": "#/components/schemas/PublishedQuestionPage"
+            },
+            "type": "array",
+            "title": "Question Pages"
+          },
+          "answer_pages": {
+            "items": {
+              "$ref": "#/components/schemas/PublishedQuestionPage"
+            },
+            "type": "array",
+            "title": "Answer Pages"
           },
           "verification_count": {
             "type": "integer",
@@ -12489,6 +12854,18 @@
               }
             ],
             "title": "Activated At"
+          },
+          "baseline_provenance": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Baseline Provenance"
           }
         },
         "type": "object",

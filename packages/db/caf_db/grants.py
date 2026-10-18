@@ -69,6 +69,10 @@ def apply_grants() -> None:
         # Operational workers administer shared corpus/scoring, never profiles.
         operational = [name for name in known if name.split('.')[0] in {"ref", "ingest", "core", "intel", "ops"} and name != "ops.alembic_version"]
         grant("caf_operations", "SELECT, INSERT, UPDATE, DELETE", operational)
+        # Baseline adoption changes only account 1's target, within its corpus
+        # activation transaction. Other personal fields remain inaccessible.
+        if 'app.settings' in known:
+            conn.execute(text('GRANT SELECT (user_id,target_attempt_id), UPDATE (target_attempt_id) ON app.settings TO caf_operations'))
         grant("caf_pipeline", "SELECT", [name for name in known if name.startswith("ref.")])
         grant("caf_pipeline", "SELECT", ["core.appearance", "core.decision"])
         grant("caf_pipeline", "SELECT, INSERT, UPDATE, DELETE", [name for name in known if name.split('.')[0] in {"ingest", "ops"} and name != "ops.alembic_version"])

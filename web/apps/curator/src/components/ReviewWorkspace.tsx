@@ -9,7 +9,7 @@ export function ReviewWorkspace({ queue, question, answer, labels, evidence, foo
   evidence: ReactNode; footer: ReactNode; tab: ReviewTab; changeTab: (tab: ReviewTab) => void;
 }) {
   const [queueWidth, setQueueWidth] = useState(260);
-  const [labelWidth, setLabelWidth] = useState(360);
+  const [labelWidth, setLabelWidth] = useState(340);
   const [queueOpen, setQueueOpen] = useState(false);
   const queueButton = useRef<HTMLButtonElement>(null);
   const queueDialog = useRef<HTMLDialogElement>(null);

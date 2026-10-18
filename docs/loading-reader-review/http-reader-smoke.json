@@ -1,0 +1,11 @@
+{
+  "question_http": 200,
+  "source_page_http": 200,
+  "source_page_milliseconds": [
+    29.88,
+    7.34
+  ],
+  "image_bytes": 34814,
+  "private_response_cache_control": "no-store",
+  "include_hindi_default": false
+}

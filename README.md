@@ -85,9 +85,9 @@ Every day when you sit down to study:
 - **macOS / Linux**: Run `./start.sh` (or `python3 start.py`).
 
 Your default web browser will automatically open:
-- 📖 **Student Study App**: [http://localhost:8000](http://localhost:8000)
-- 🛠️ **Curator Workbench**: [http://localhost:8000/curator](http://localhost:8000/curator)
-- 📚 **Interactive API Docs**: [http://localhost:8000/docs](http://localhost:8000/docs)
+- 📖 **Student Study App**: [http://127.0.0.1:8788](http://127.0.0.1:8788)
+- 🛠️ **Curator Workbench**: [http://127.0.0.1:8788/curator](http://127.0.0.1:8788/curator)
+- **API health**: [http://127.0.0.1:8788/api/v1/health](http://127.0.0.1:8788/api/v1/health)
 
 ### 2. Stop the Companion
 When you finish your study session:
@@ -123,7 +123,7 @@ uv run caf classify run --limit 25
 ```
 
 ### Rapid Review in Curator Workbench (`/curator`):
-Open **http://localhost:8000/curator** in your browser to access the **Review Queue**:
+Open **http://127.0.0.1:8788/curator** in your browser to access the **Review Queue**:
 - **Side-by-Side View**: Official ICAI Question text on the left, model solution on the right.
 - **AI Recommendation**: Primary suggestion badge with confidence score.
 - **Fast Keyboard Shortcuts**:
@@ -145,7 +145,7 @@ uv run caf intel compute
 
 ## 📖 Phase 2: Study Mode
 
-Open **http://localhost:8000** to use your personal study interface:
+Open **http://127.0.0.1:8788** to use your personal study interface:
 
 ### 1. Study Dashboard (`/`)
 - Aggregate completion stats for Group 1 and Group 2.
@@ -188,8 +188,7 @@ Open **http://localhost:8000** to use your personal study interface:
 ## ⚙️ Personalizing Your Setup
 
 ### Change Your Target Exam Attempt
-The future shared-study profiles default to `2027-05` (May 2027). Phase 0 preserves
-existing settings; the current local configuration may still target `2026-05`. Target
+Application defaults and the adopted baseline target `2027-05` (May 2027). Existing personal records are preserved. Target
 attempt, applicable material edition, and historical corpus coverage are separate.
 To change the current local target:
 1. Open `config/settings.toml` in any text editor.

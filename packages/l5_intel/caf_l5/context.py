@@ -9,7 +9,7 @@ from caf_db.models.app import Settings
 from caf_db.models.intel import AttemptTaxonomyBinding, ScoreRun, RecomputeJob
 from caf_db.models.questions import CorpusGeneration
 from caf_db.models.ref import ApplicabilityRule, Node
-from caf_db.models.taxonomy import TaxonomyRelease
+from caf_db.models.taxonomy import NodeSourceSpan, TaxonomyRelease, TextbookArtifact
 from caf_l5.config import ScoringConfig, load_scoring_config
 
 
@@ -73,7 +73,31 @@ def snapshot_freshness(session: Session, target: str | None, taxonomy: int | Non
             "error": job.last_error if job and job.status == "failed" else None}
 
 
+def _unresolved_applicability(session: Session, taxonomy: int) -> list[str]:
+    # Only these flags determine applicability. Loading full artifact metadata
+    # for every source span repeats large heading inventories thousands of times.
+    rows = session.execute(sa.select(
+        NodeSourceSpan.node_id,
+        TextbookArtifact.metadata_json["fallback"],
+        TextbookArtifact.metadata_json["target_applicability"],
+    ).join(TextbookArtifact).where(NodeSourceSpan.taxonomy_version_id == taxonomy))
+    return list(dict.fromkeys(node_id for node_id, fallback, applicability in rows
+                              if fallback and applicability not in {"verified", "applicable"}))
+
+
 def resolve_context(session: Session, user_id: int) -> StudyContext:
+    if session.info.get("cache_study_context"):
+        cache = session.info.setdefault("study_contexts", {})
+        cached = cache.get(user_id)
+        if cached is not None and cached[0] is session.get_transaction():
+            return cached[1]
+    context = _resolve_context(session, user_id)
+    if session.info.get("cache_study_context"):
+        cache[user_id] = (session.get_transaction(), context)
+    return context
+
+
+def _resolve_context(session: Session, user_id: int) -> StudyContext:
     settings = session.get(Settings, user_id)
     config = load_scoring_config()
     if settings is None:
@@ -102,15 +126,25 @@ def resolve_context(session: Session, user_id: int) -> StudyContext:
         ).order_by(ScoreRun.corpus_generation.desc(), ScoreRun.id.desc()).limit(1))
     unresolved = []
     if taxonomy is not None:
-        from caf_l0.releases import source_contexts
-        unresolved = [node_id for node_id, sources in source_contexts(session, taxonomy).items()
-                      if any(source.get("fallback") and source.get("target_applicability") not in
-                             {"verified", "applicable"} for source in sources)]
+        unresolved = _unresolved_applicability(session, taxonomy)
     return StudyContext(target, taxonomy, run, readiness, config,
                         snapshot_freshness(session, target, taxonomy, run, config.config_hash), unresolved)
 
 
-def context_nodes(session: Session, context: StudyContext) -> list[Node]:
+def context_nodes(session: Session, context: StudyContext, *, study: bool = False) -> list[Node]:
+    if session.info.get("cache_study_context"):
+        cache = session.info.setdefault("study_node_scopes", {})
+        key = (context.target_attempt_id, context.taxonomy_version_id, context.readiness, study)
+        cached = cache.get(key)
+        if cached is not None and cached[0] is session.get_transaction():
+            return cached[1]
+    nodes = _context_nodes(session, context, study=study)
+    if session.info.get("cache_study_context"):
+        cache[key] = (session.get_transaction(), nodes)
+    return nodes
+
+
+def _context_nodes(session: Session, context: StudyContext, *, study: bool = False) -> list[Node]:
     if context.readiness != "ready":
         return []
     from caf_l0.hierarchy import version_nodes
@@ -119,12 +153,8 @@ def context_nodes(session: Session, context: StudyContext) -> list[Node]:
     excluded = set(session.scalars(sa.select(ApplicabilityRule.node_id).where(
         ApplicabilityRule.attempt_id == context.target_attempt_id,
         ApplicabilityRule.effect == "exclude")))
-    if context.taxonomy_version_id is not None:
-        from caf_l0.releases import source_contexts
-        for node_id, sources in source_contexts(session, context.taxonomy_version_id).items():
-            if any(source.get("fallback") and source.get("target_applicability") not in
-                   {"verified", "applicable"} for source in sources):
-                excluded.add(node_id)
+    if context.taxonomy_version_id is not None and not study:
+        excluded.update(_unresolved_applicability(session, context.taxonomy_version_id))
     result = []
     for node in nodes:
         current = node
@@ -139,12 +169,25 @@ def context_nodes(session: Session, context: StudyContext) -> list[Node]:
     return result
 
 
-def context_leaf_ids(session: Session, context: StudyContext) -> set[str]:
+def context_leaf_ids(session: Session, context: StudyContext, *, study: bool = False) -> set[str]:
     """Terminal structure is fixed before attempt applicability removes children."""
+    if session.info.get("cache_study_context"):
+        cache = session.info.setdefault("study_leaf_scopes", {})
+        key = (context.target_attempt_id, context.taxonomy_version_id, context.readiness, study)
+        cached = cache.get(key)
+        if cached is not None and cached[0] is session.get_transaction():
+            return cached[1]
+    leaf_ids = _context_leaf_ids(session, context, study=study)
+    if session.info.get("cache_study_context"):
+        cache[key] = (session.get_transaction(), leaf_ids)
+    return leaf_ids
+
+
+def _context_leaf_ids(session: Session, context: StudyContext, *, study: bool = False) -> set[str]:
     if context.readiness != "ready":
         return set()
     from caf_l0.hierarchy import version_nodes
     full_nodes = version_nodes(session, context.taxonomy_version_id)
     structural_parents = {node.parent_id for node in full_nodes}
-    return {node.id for node in context_nodes(session, context) if
+    return {node.id for node in context_nodes(session, context, study=study) if
             node.level == "subtopic" and node.id not in structural_parents}

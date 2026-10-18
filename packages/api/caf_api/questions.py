@@ -13,13 +13,35 @@ from caf_contracts.extraction import PageResult
 from caf_contracts.questions import (AppearanceResolution, OccurrenceResult, PublishedAssetResult,
     PublishedSourceResult, QuestionResult, QuestionSummary, SearchResult, PrivateNoteResult)
 from caf_db.engine import get_db_session
-from caf_db.models.app import Note
+from caf_db.models.app import Note, Settings
 from caf_db.models.classification import ClassificationDispute, ClassificationVerification, QuestionPublication
 from caf_db.models.core import Appearance
 from caf_db.models.questions import PublishedQuestion, PublishedSource, QuestionOccurrence
 from caf_db.models.ref import Node
 
 router=APIRouter(prefix='/api/v1', tags=['questions'], dependencies=[Depends(require_account)])
+HINDI_SCRIPT = '[\u0900-\u097f]'
+HINDI_TITLE = r'(^|[^A-Za-z])hindi([^A-Za-z]|$)'
+
+
+def includes_hindi(db: Session, account: Principal) -> bool:
+    settings = db.get(Settings, account.id)
+    return bool(settings and settings.include_hindi)
+
+
+def hindi_source():
+    return select(PublishedSource.id).where(
+        PublishedQuestion.source_ids.contains(func.jsonb_build_array(PublishedSource.id)),
+        PublishedSource.title.op('~*')(HINDI_TITLE)).exists()
+
+
+def require_question_language(db: Session, account: Principal, row: PublishedQuestion) -> None:
+    if includes_hindi(db, account):
+        return
+    source_is_hindi = db.scalar(select(PublishedSource.id).where(
+        PublishedSource.id.in_(row.source_ids), PublishedSource.title.op('~*')(HINDI_TITLE)).limit(1))
+    if re.search(HINDI_SCRIPT, row.search_text) or source_is_hindi is not None:
+        raise HTTPException(403, 'Hindi questions are hidden. Enable them in Profile preferences to read this question.')
 
 
 def current_questions():
@@ -41,14 +63,17 @@ def source_result(source):
 
 
 @router.get('/questions/{question_id}',response_model=QuestionResult)
-def question(question_id: str, db:Session=Depends(get_db_session)):
+def question(question_id: str, db:Session=Depends(get_db_session), account:Principal=Depends(require_account)):
     row=current_question(db,question_id)
+    require_question_language(db, account, row)
     sources=list(db.scalars(select(PublishedSource).where(PublishedSource.id.in_(row.source_ids)).order_by(PublishedSource.id)))
     occurrence=db.get(QuestionOccurrence,row.occurrence_id)
+    from caf_api.published_pages import question_pages
     return QuestionResult(question_id=row.question_id,snapshot_id=row.id,classification_revision_id=row.id,
         extraction_revision_id=row.extraction_revision_id,taxonomy_version_id=row.taxonomy_version_id,
         publication_generation=row.publication_generation,content=row.content,mappings=row.mappings,
         covered_subtopics=row.covered_subtopics,marks=row.marks,sources=[source_result(source) for source in sources],
+        question_pages=question_pages(row,sources,'question'),answer_pages=question_pages(row,sources,'answer'),
         assets=[PublishedAssetResult(**asset,url=f'/api/v1/published-assets/{asset["id"]}') for asset in row.assets],
         verification_count=db.scalar(select(func.count()).select_from(ClassificationVerification).where(
             ClassificationVerification.revision_id == row.id,ClassificationVerification.active.is_(True))) or 0,
@@ -81,8 +106,10 @@ def question_summary(row,subtopic_id=None):
         covered_subtopics=row.covered_subtopics,marks=row.marks,matched_parts=matched_parts)
 
 
-def filtered_questions(paper_id,subtopic_id,attempt_id,source_family,answer_status,q=None):
+def filtered_questions(paper_id,subtopic_id,attempt_id,source_family,answer_status,q=None,include_hindi=False):
     statement=current_questions()
+    if not include_hindi:
+        statement=statement.where(PublishedQuestion.search_text.op('!~')(HINDI_SCRIPT), ~hindi_source())
     for field,value in [('paper_id',paper_id),('source_attempt_id',attempt_id),('source_family',source_family),('answer_status',answer_status)]:
         if value is not None:
             statement=statement.where(PublishedQuestion.content[field].astext == value)
@@ -103,15 +130,17 @@ def page_questions(db,statement,page,page_size,subtopic_id=None):
 @router.get('/questions',response_model=PageResult[QuestionSummary])
 def questions(page:int=Query(1,ge=1),page_size:int=Query(25,ge=1,le=100),paper_id:str|None=None,
         subtopic_id:str|None=None,attempt_id:str|None=None,source_family:str|None=None,answer_status:str|None=None,
-        db:Session=Depends(get_db_session)):
-    return page_questions(db,filtered_questions(paper_id,subtopic_id,attempt_id,source_family,answer_status),page,page_size,subtopic_id)
+        db:Session=Depends(get_db_session),account:Principal=Depends(require_account)):
+    return page_questions(db,filtered_questions(paper_id,subtopic_id,attempt_id,source_family,answer_status,
+        include_hindi=includes_hindi(db,account)),page,page_size,subtopic_id)
 
 
 @router.get('/search',response_model=SearchResult)
 def search(q:str=Query(min_length=1,max_length=500),page:int=Query(1,ge=1),page_size:int=Query(25,ge=1,le=100),
         paper_id:str|None=None,subtopic_id:str|None=None,attempt_id:str|None=None,source_family:str|None=None,
         answer_status:str|None=None,include_notes:bool=False,account:Principal=Depends(require_account),db:Session=Depends(get_db_session)):
-    result=page_questions(db,filtered_questions(paper_id,subtopic_id,attempt_id,source_family,answer_status,q),page,page_size,subtopic_id)
+    result=page_questions(db,filtered_questions(paper_id,subtopic_id,attempt_id,source_family,answer_status,q,
+        include_hindi=includes_hindi(db,account)),page,page_size,subtopic_id)
     result['notes']=[]
     if include_notes:
         notes=select(Note).where(Note.user_id==account.id,

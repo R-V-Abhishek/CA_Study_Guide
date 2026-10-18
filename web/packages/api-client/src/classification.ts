@@ -1,7 +1,8 @@
 import { apiRequest } from "./client";
 import type { components, paths } from "./generated";
 
-export type ClassificationQueueItem = components["schemas"]["ClassificationQueueItem"];
+export type ClassificationQueueItem = components["schemas"]["ClassificationQueueItem"] & { candidate_catalog_hash?: string | null };
+export type ClassificationCandidate = { node_id: string; path: { id: string; name: string; level: string }[]; descriptor_revision_id: number | null; descriptor: Record<string, unknown>; textbook_references: unknown[] };
 export type PartMapping = components["schemas"]["PartMapping"];
 export type ClassificationReview = components["schemas"]["ClassificationReviewRequest"];
 export type ClassificationExpectation = components["schemas"]["ClassificationVerificationRequest"];
@@ -15,6 +16,7 @@ const post = <T>(path: string, body: unknown) => apiRequest<T>(`${base}${path}`,
 export const classificationApi = {
   /** question_id resolves an affected root before the server applies pagination. */
   queue: (filters: Record<string, string>) => apiRequest<ClassificationQueueItem[]>(`${base}?${new URLSearchParams(filters)}`),
+  candidateCatalog: (hash: string) => apiRequest<ClassificationCandidate[]>(`/api/v1/curate/candidate-catalogs/${encodeURIComponent(hash)}`),
   review: (suggestion: number, body: ClassificationReview) => post<ClassificationResult>(`/${suggestion}/review`, body),
   history: (question: string) => apiRequest<ClassificationHistory[]>(`${base}/questions/${encodeURIComponent(question)}/history`),
   verify: (question: string, body: ClassificationExpectation) => post<ClassificationResult>(`/questions/${encodeURIComponent(question)}/verify`, body),

@@ -3,11 +3,13 @@
 from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
 import hashlib
+import logging
 import secrets
 from urllib.parse import urlencode, urlsplit
 from typing import Literal
 
 from authlib.integrations.starlette_client import OAuth
+import httpx
 from fastapi import APIRouter, Depends, HTTPException, Request
 from fastapi.responses import RedirectResponse, Response
 from pydantic import BaseModel, ConfigDict, Field
@@ -23,6 +25,7 @@ from caf_db.models.ref import Paper
 router = APIRouter(tags=["identity"])
 SESSION_COOKIE = "caf_session"
 LOGIN_COOKIE = "caf_login"
+logger = logging.getLogger(__name__)
 
 
 def utcnow() -> datetime:
@@ -151,7 +154,12 @@ def oidc_client():
 async def login(return_to: str = "/", invitation: str | None = None, db: Session = Depends(get_identity_db)):
     return_to = local_return_to(return_to)
     client = oidc_client()
-    metadata = await client.load_server_metadata()
+    try:
+        metadata = await client.load_server_metadata()
+    except (httpx.RequestError, httpx.HTTPStatusError) as exc:
+        logger.warning("OIDC discovery unavailable: provider=%s failure=%s",
+                       urlsplit(get_settings().OIDC_ISSUER).hostname, type(exc).__name__)
+        raise HTTPException(503, "identity_provider_unavailable") from exc
     if metadata.get("issuer") != get_settings().OIDC_ISSUER:
         raise HTTPException(400, "invalid_identity_provider")
     state, browser, nonce, verifier = (secrets.token_urlsafe(32) for _ in range(4))

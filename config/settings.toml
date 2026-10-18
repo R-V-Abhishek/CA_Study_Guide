@@ -1,7 +1,7 @@
 # config/settings.toml
 [app]
 env = "development"
-target_attempt_id = "2026-05"
+target_attempt_id = "2027-05"
 
 [storage]
 data_dir = "./data"

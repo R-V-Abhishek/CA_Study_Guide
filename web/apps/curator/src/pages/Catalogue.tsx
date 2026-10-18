@@ -109,7 +109,7 @@ export function Catalogue() {
       <RequestError error={papers.error} retry={() => void papers.refetch()} />
       <RequestError error={confirmMutation.error ?? rejectMutation.error} />
       {/* Documents Table */}
-      <div className="rounded-2xl border border-[#334155] bg-[#1E293B] overflow-hidden shadow-sm">
+      <div className="rounded-xl border border-[#334155] bg-[#1E293B] overflow-hidden shadow-sm">
         {isLoading ? (
           <WorkspaceSkeleton label="Loading source catalogue…" />
         ) : error ? null : documents.length === 0 ? (
@@ -118,8 +118,8 @@ export function Catalogue() {
           </div>
         ) : (
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs text-slate-300">
-              <thead className="bg-slate-900/60 border-b border-[#334155] text-slate-400 uppercase font-mono text-[10px]">
+            <table className="catalogue-table w-full text-left text-xs text-slate-300">
+              <thead className="bg-slate-900/60 border-b border-[#334155] text-slate-400 text-sm">
                 <tr>
                   <th className="p-3.5 pl-5">Details</th>
                   <th className="p-3.5">Title</th>
@@ -131,7 +131,7 @@ export function Catalogue() {
                   <th className="p-3.5 pr-5 text-right">Actions</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-800/80 font-mono">
+              <tbody className="divide-y divide-slate-800/80">
                 {documents.map((doc) => {
                   const isConfirmed = doc.catalog_status === "confirmed";
                   const isRejected = doc.catalog_status === "rejected";
@@ -141,27 +141,27 @@ export function Catalogue() {
                       key={doc.id}
                       className="hover:bg-slate-800/40 transition-colors"
                     >
-                      <td className="p-3.5 pl-5 font-bold text-slate-200">
+                      <td data-label="Details" className="p-3.5 pl-5 font-bold text-slate-200">
                         <details><summary>Technical details</summary>Document {doc.id}</details>
                       </td>
-                      <td className="p-3.5 font-sans font-medium text-white max-w-xs">
+                      <td data-label="Title" className="p-3.5 font-sans font-medium text-white max-w-xs">
                         <Link className="underline" to={`/extraction?document_id=${doc.id}`}>{doc.title ?? "Title unavailable"}</Link>
                       </td>
-                      <td className="p-3.5 font-bold text-indigo-400">
+                      <td data-label="Paper" className="p-3.5 font-bold text-indigo-400">
                         {doc.paper_id ?? "Unavailable"}
                       </td>
-                      <td className="p-3.5 text-slate-200">
+                      <td data-label="Attempt" className="p-3.5 text-slate-200">
                         {doc.attempt_id ?? "Unavailable"}
                       </td>
-                      <td className="p-3.5 text-slate-400 uppercase">
+                      <td data-label="Type" className="p-3.5 text-slate-400">
                         {doc.doc_type_id ?? "Unavailable"}
                       </td>
-                      <td className="p-3.5 text-slate-400">
+                      <td data-label="Pages" className="p-3.5 text-slate-400">
                         {doc.page_count === null ? "Unavailable" : `${doc.page_count} pp`}
                       </td>
-                      <td className="p-3.5">
+                      <td data-label="Status" className="p-3.5">
                         <span
-                          className={`inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-bold ${
+                          className={`inline-flex items-center gap-1 px-2 py-0.5 rounded text-sm font-bold ${
                             isConfirmed
                               ? "bg-emerald-950 text-emerald-300 border border-emerald-800"
                               : isRejected
@@ -179,7 +179,7 @@ export function Catalogue() {
                           <span>{doc.catalog_status}</span>
                         </span>
                       </td>
-                      <td className="p-3.5 pr-5 text-right font-sans">
+                      <td data-label="Actions" className="p-3.5 pr-5 text-right font-sans">
                         {!isConfirmed && (
                           <div className="flex items-center justify-end gap-1.5">
                             <button

@@ -351,3 +351,34 @@ def test_legacy_migration_preserves_all_personal_rows_and_large_ids(isolated_dat
         with admin.connect() as conn:
             conn.execute(sa.text(f'DROP DATABASE "{database}"'))
         admin.dispose()
+
+
+@pytest.mark.parametrize("failure", ["dns", "timeout", "http_status"])
+def test_provider_discovery_failure_is_unavailable_without_login_transaction(provider, session, monkeypatch, failure):
+    from caf_api.main import authentication_error
+    from starlette.exceptions import HTTPException as StarletteHTTPException
+
+    client = provider[1]
+    client.app.add_exception_handler(StarletteHTTPException, authentication_error)
+    oauth = auth.oidc_client()
+
+    def unavailable(request):
+        if failure == "dns":
+            raise httpx.ConnectError("Hostname resolution failed", request=request)
+        if failure == "timeout":
+            raise httpx.ConnectTimeout("Provider timed out", request=request)
+        return httpx.Response(503, json={"error": "unavailable"})
+
+    oauth.client_kwargs["transport"] = httpx.MockTransport(unavailable)
+    monkeypatch.setattr(auth, "oidc_client", lambda: oauth)
+    response = client.get("/auth/login", follow_redirects=False)
+    assert response.status_code == 503
+    assert response.json() == {"detail": "identity_provider_unavailable"}
+    assert not response.headers.get("set-cookie")
+    assert session.scalar(sa.select(sa.func.count()).select_from(LoginTransaction)) == 0
+
+    response = client.get("/auth/login", headers={"Accept": "text/html"}, follow_redirects=False)
+    assert response.status_code == 503
+    assert "Sign-in unavailable" in response.text
+    assert "internet connection and DNS" in response.text
+    assert "Internal Server Error" not in response.text

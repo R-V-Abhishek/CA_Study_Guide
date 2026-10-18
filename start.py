@@ -9,6 +9,7 @@ import os
 import platform
 import shutil
 import signal
+import socket
 import subprocess
 import sys
 import time
@@ -20,7 +21,7 @@ from uuid import uuid4
 from worker_lifecycle import record_worker, clear_worker
 
 PROJECT_ROOT = Path(__file__).parent.resolve()
-BASE_URL = "http://localhost:8000"
+BASE_URL = "http://127.0.0.1:8788"
 HEALTH_URL = f"{BASE_URL}/api/v1/health"
 
 
@@ -116,12 +117,19 @@ def main() -> None:
     print("  Starting CA Final Study Companion...")
     print("=" * 60)
 
+    # Do not mistake an existing preview or unrelated process for our server.
+    with socket.socket() as listener:
+        try:
+            listener.bind(("0.0.0.0", 8788))
+        except OSError as error:
+            raise SystemExit("Port 8788 is already occupied; the existing service was left running.") from error
+
     docker_bin, used_docker = ensure_db_running()
     uv_bin = find_uv()
 
     # Launch FastAPI backend + SPA server
-    print("🚀 Launching application server on port 8000...")
-    serve_cmd = [uv_bin, "run", "caf", "serve", "--host", "0.0.0.0", "--port", "8000"]
+    print("🚀 Launching application server on port 8788...")
+    serve_cmd = [uv_bin, "run", "caf", "serve", "--host", "0.0.0.0", "--port", "8788"]
 
     server_proc = subprocess.Popen(
         serve_cmd,
@@ -142,9 +150,9 @@ def main() -> None:
             print("╔══════════════════════════════════════════════════════════════╗")
             print("║             CA Final Study Companion is Live!                ║")
             print("║                                                              ║")
-            print("║  📖 Study App:     http://localhost:8000                     ║")
-            print("║  🛠️  Curator Tool:  http://localhost:8000/curator             ║")
-            print("║  📚 API Reference: http://localhost:8000/docs                ║")
+            print("║  📖 Study App:     http://127.0.0.1:8788                     ║")
+            print("║  🛠️  Curator Tool:  http://127.0.0.1:8788/curator             ║")
+            print("║  API health: http://127.0.0.1:8788/api/v1/health                ║")
             print("║                                                              ║")
             print("║  Press Ctrl+C at any time to safely shut down.               ║")
             print("╚══════════════════════════════════════════════════════════════╝\n")
@@ -155,7 +163,7 @@ def main() -> None:
             except Exception:
                 pass
         else:
-            print("\n⚠️ Server started but health check timed out. You can try opening http://localhost:8000 manually.")
+            print("\n⚠️ Server started but health check timed out. You can try opening http://127.0.0.1:8788 manually.")
 
         # Keep running until Ctrl+C
         while server_proc.poll() is None:

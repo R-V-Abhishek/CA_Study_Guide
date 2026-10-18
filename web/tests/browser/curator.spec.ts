@@ -134,6 +134,7 @@ test.describe("curator controlled responses", () => {
     await page.route("**/api/v1/curate/queue**", route => route.fulfill({ json: [] }));
     await page.goto("/curator/queue?token=PRIVATE_TOKEN&notes=PRIVATE_NOTES");
     await openNavigation(page);
+    await page.locator(".account-menu > summary:visible").click();
     await page.locator(".curator-account summary:visible").filter({ hasText: "Technical details" }).click();
     await page.getByRole("button", { name: "Diagnostics", exact: true }).click();
     await expect.poll(async () => JSON.parse(await page.getByRole("textbox", { name: "Diagnostics data", exact: true }).inputValue()).backend)

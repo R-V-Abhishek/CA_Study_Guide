@@ -11,6 +11,7 @@ test('published undated question reveals complete context and source, preserving
   await page.goto('/questions?q=Synthetic&answer_status=partial&source_family=practice');
   await expect(page.getByRole('link', { name: 'Synthetic reader question' })).toBeVisible();
   await page.getByRole('link', { name: 'Synthetic reader question' }).click();
+  await page.getByRole('tab', { name: 'Extracted text', exact: true }).click();
   await expect(page.getByText('Synthetic shared case: a company considers two accounting requirements.')).toBeVisible();
   await expect(page.getByText('Synthetic first requirement.')).toBeVisible();
   await expect(page.getByText('Synthetic second requirement.')).toBeVisible();
@@ -37,12 +38,15 @@ test('published undated question reveals complete context and source, preserving
 test('part highlight retains sibling parts and rejects external return URLs', async ({ page, request }) => {
   const data = await fixture(request);
   await page.goto(`/questions/${data.question_id}?part=${data.reader_part_id}&return=${encodeURIComponent('//example.test/steal')}`);
+  await page.getByRole('tab', { name: 'Extracted text', exact: true }).click();
   await expect(page.locator('[data-selected=true]')).toContainText('Synthetic first requirement.');
   await expect(page.getByText('Synthetic second requirement.')).toBeVisible();
   await expect(page.locator('[data-selected=true]')).toContainText('4 marks');
   await expect(page.locator('[data-selected=true]')).toContainText('Selected part');
   await expect(page.getByRole('link', { name: '← Back to questions', exact: true })).toHaveAttribute('href', '/questions');
-  await expect(page.getByText('Reading does not change your syllabus progress.')).toBeVisible();
+  await page.getByRole('button', { name: 'Topics and outline', exact: true }).click();
+  await expect(page.getByRole('dialog').getByText('Reading does not change your syllabus progress.')).toBeVisible();
+  await page.keyboard.press('Escape');
   await page.evaluate(() => window.scrollTo(0, 0));
   await page.screenshot({ path: `test-results/phase7-selected-part-${test.info().project.name}.png`, fullPage: true });
   const before = await (await request.get(`/api/v1/subtopics/${data.nodes[0].id}`)).json();
@@ -55,10 +59,14 @@ test('question search filters and private notes enforce account scope', async ({
   await request.put(`/api/v1/subtopics/${data.nodes[0].id}/notes`, { headers: { Origin: browserOrigin(), 'X-CSRF-Token': me.csrf_token }, data: { notes: 'Synthetic private ownership sentinel' } });
   await page.goto('/questions?q=Synthetic&include_notes=true');
   await expect(page.getByText('Synthetic private ownership sentinel')).toBeVisible();
+  await page.getByText('More filters', { exact: true }).click();
   await page.getByLabel('Answer availability').selectOption('missing');
-  await expect(page.getByText('No questions match these filters')).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Synthetic reader question — missing answer' })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Synthetic reader question', exact: true })).toHaveCount(0);
   await page.getByLabel('Answer availability').selectOption('partial');
-  await expect(page.getByRole('link', { name: 'Synthetic reader question' })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Synthetic reader question', exact: true })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Synthetic reader question — missing answer', exact: true })).toHaveCount(0);
+  await expect(page.getByRole('link', { name: 'Synthetic reader question — complete answer', exact: true })).toHaveCount(0);
   await page.getByLabel('Search questions').fill('unfindablesynthetictoken');
   await expect(page.getByText('No matching notes.')).toBeVisible();
   await request.post('/__test/login?account_id=2');
@@ -109,6 +117,7 @@ test('topic question rows deduplicate matched parts, show their marks and return
   expect(new URL((await link.getAttribute('href'))!,page.url()).searchParams.get('part')).toBe(matched[0].id);
   expect(readerRequests).toBe(0);
   await link.click();
+  await page.getByRole('tab', { name: 'Extracted text', exact: true }).click();
   await expect(page.locator('[data-selected=true]')).toContainText('Synthetic first requirement.');
   await expect(page.getByText('Synthetic second requirement.',{ exact:true })).toBeVisible();
   await page.getByRole('link',{ name:'← Back to topic',exact:true }).click();
@@ -126,6 +135,7 @@ test('complete and missing answers remain explicit and changing the question hid
   const variants=new Map([complete,missing,next].map(question => [question.question_id,question]));
   await page.route('**/api/v1/questions/synthetic.*',route => route.fulfill({ json:variants.get(new URL(route.request().url()).pathname.split('/').pop()!) }));
   await page.goto('/questions/synthetic.complete');
+  await page.getByRole('tab', { name: 'Extracted text', exact: true }).click();
   await expect(page.getByRole('heading',{ name:complete.content.display_label,exact:true })).toBeVisible();
   await expect(page.getByText(answers[0].answer_text,{ exact:true })).toHaveCount(0);
   await page.getByRole('button',{ name:'Reveal answer',exact:true }).click();
@@ -139,6 +149,7 @@ test('complete and missing answers remain explicit and changing the question hid
   await expect(page.getByText('Synthetic next answer must stay hidden.',{ exact:true })).toHaveCount(0);
   await page.evaluate(() => { history.pushState(null,'','/questions/synthetic.missing');window.dispatchEvent(new PopStateEvent('popstate')); });
   await expect(page.getByRole('heading',{ name:missing.content.display_label,exact:true })).toBeVisible();
+  await page.getByRole('tab', { name: 'Extracted text', exact: true }).click();
   await expect(page.getByText('No reviewed answer is available for this question.')).toBeVisible();
   await expect(page.getByRole('button',{ name:'Reveal answer',exact:true })).toHaveCount(0);
   await expect(page.getByText('Synthetic first requirement.',{ exact:true })).toBeVisible();
@@ -155,6 +166,7 @@ for (const width of [390,1280]) test(`reader retains a long shared case, adjacen
   await page.route(`**/api/v1/questions/${data.question_id}`,route => route.fulfill({ json:question }));
   await page.setViewportSize({ width,height:900 });
   await page.goto(`/questions/${data.question_id}?part=${parts[0].id}`);
+  await page.getByRole('tab', { name: 'Extracted text', exact: true }).click();
   await expect(page.getByText('End of the complete shared case sentinel.',{ exact:true })).toBeVisible();
   await expect(page.getByText('Case paragraph 1:',{ exact:false })).toBeVisible();
   for (const part of parts) await expect(page.locator(`[id="part-${part.id}"]`)).toContainText('alternative · OR group A');

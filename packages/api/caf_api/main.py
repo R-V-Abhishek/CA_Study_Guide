@@ -14,6 +14,7 @@ from caf_api.auth import router as auth_router, allowed_origins, require_account
 from caf_api.taxonomy import router as taxonomy_router
 from caf_api.extraction import router as extraction_router
 from caf_api.questions import router as questions_router
+from caf_api.published_pages import router as published_pages_router
 from caf_api.readiness import router as readiness_router
 from caf_db.engine import get_engine, reset_database
 from caf_api.security_logging import AUTH_ACCESS_FILTER
@@ -53,6 +54,7 @@ app.include_router(curate_router)
 app.include_router(taxonomy_router)
 app.include_router(extraction_router)
 app.include_router(questions_router)
+app.include_router(published_pages_router)
 app.include_router(readiness_router)
 
 
@@ -62,6 +64,11 @@ async def private_response_headers(request: Request, call_next):
     if request.url.path.startswith(("/api/", "/auth/")):
         response.headers["Cache-Control"] = "no-store"
         response.headers["Referrer-Policy"] = "no-referrer"
+    elif request.url.path.startswith(("/assets/", "/curator/assets/")) and response.status_code == 200:
+        # Vite fingerprints these public build assets; a new build has new URLs.
+        response.headers["Cache-Control"] = "public, max-age=31536000, immutable"
+    elif response.headers.get("content-type", "").startswith("text/html"):
+        response.headers["Cache-Control"] = "no-cache"
     return response
 
 
@@ -74,6 +81,7 @@ async def authentication_error(request: Request, exc: StarletteHTTPException):
             "invitation_email_mismatch": ("Invitation email mismatch", "Sign in using the invitation's email address and verify that address with your provider."),
             "account_disabled": ("Account disabled", "An administrator must restore access to your account."),
             "authentication_not_configured": ("Sign-in unavailable", "Hosted sign-in has not been configured yet."),
+            "identity_provider_unavailable": ("Sign-in unavailable", "The server could not reach the sign-in provider. Check the server's internet connection and DNS, then try again."),
         }
         title, message = messages.get(str(exc.detail), ("Sign-in failed", "The sign-in request could not be verified. Start sign-in again."))
         return HTMLResponse(f'<!doctype html><html><head><meta charset="utf-8"><title>{title}</title></head><body><main><h1>{title}</h1><p>{message}</p><a href="/">Return to CA Final Prep</a></main></body></html>', status_code=exc.status_code)

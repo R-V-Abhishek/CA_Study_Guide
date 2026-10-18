@@ -31,11 +31,11 @@ const primary = [
 const secondary = [{ to: '/progress', label: 'Progress', icon: BarChart3 }, { to: '/mock', label: 'Mock results', icon: FileCheck }];
 function Navigation({ close }: { close?: () => void }) {
   return <><nav aria-label="Study navigation" className="workspace-navigation">{primary.map(item => <NavLink end={item.to === '/'} to={demoLink(item.to)} key={item.to} onClick={close}><item.icon size={18} aria-hidden="true" />{item.label}</NavLink>)}</nav>
-    <nav aria-label="Study records" className="workspace-navigation secondary-navigation">{secondary.map(item => <NavLink to={demoLink(item.to)} key={item.to} onClick={close}><item.icon size={18} aria-hidden="true" />{item.label}</NavLink>)}</nav></>;
+    <nav aria-label="Study records" className="workspace-navigation secondary-navigation">{secondary.map(item => <NavLink to={demoLink(item.to)} key={item.to} onClick={close}><item.icon size={18} aria-hidden="true" />{item.label}</NavLink>)}<a href="/curator/classifications" onClick={close}>Review shared content</a></nav></>;
 }
 function AccountArea({ close }: { close?: () => void }) {
-  return <div className="workspace-account"><Link to={demoLink('/profile')} onClick={close}>Profile and settings</Link><ThemeControl />
-    {!isDemoMode() && <SessionControls />}<a href="/curator/classifications">Review shared content</a><details><summary>Technical details</summary><Diagnostics /></details></div>;
+  return <details className="account-menu"><summary>Account and settings</summary><div className="workspace-account"><Link to={demoLink('/profile')} onClick={close}>Profile and settings</Link><ThemeControl />
+    {!isDemoMode() && <SessionControls />}<details><summary>Technical details</summary><Diagnostics /></details></div></details>;
 }
 function ShellContext() {
   const demo = isDemoMode();
@@ -46,14 +46,14 @@ function ShellContext() {
   const settings = query.data;
   const label = settings.available_attempts.find(a => a.id === settings.target_attempt_id)?.label ?? settings.target_attempt_id;
   const papers = settings.available_papers.filter(p => settings.selected_paper_ids.includes(p.id));
-  return <span className="metadata shell-context">{label}<span>{papers.length ? papers.map(p => p.code).join(', ') : 'No papers selected'}</span></span>;
+  return <Link to="/profile" className="metadata shell-context" aria-label={`Change target attempt: ${label}`}>{label}<span>{papers.length ? papers.map(p => p.code).join(', ') : 'No papers selected'}</span></Link>;
 }
 function Layout({ children }: { children: ReactNode }) {
   const location = useLocation();
   const [menu, setMenu] = useState<'navigation' | 'more' | null>(null);
   const title = [...primary, ...secondary].find(item => item.to === '/' ? location.pathname === '/' : location.pathname.startsWith(item.to))?.label ?? (location.pathname.startsWith('/profile') ? 'Settings' : 'Syllabus');
   return <div className="student-workspace"><a href="#main-content" className="skip-link">Skip to content</a>
-    <aside className="workspace-sidebar"><Link to={demoLink('/')} className="workspace-brand"><BookOpen size={22} aria-hidden="true" />CA Final Prep</Link><Navigation /><AccountArea /></aside>
+    <aside className="workspace-sidebar"><Link to={demoLink('/')} className="workspace-brand"><BookOpen size={22} aria-hidden="true" />CA Study Companion</Link><Navigation /><AccountArea /></aside>
     <div className="workspace-body"><header className="workspace-header"><button className="tablet-menu secondary-action" onClick={() => setMenu('navigation')}><Menu size={18} aria-hidden="true" />Menu</button>
       <span className="shell-page-name">{title}</span><ShellContext />{isDemoMode() && <span className="status-label">Demo Mode</span>}
       <Link className="secondary-action shell-search" to={demoLink('/questions')}><Search size={18} aria-hidden="true" /><span>Search questions</span></Link>

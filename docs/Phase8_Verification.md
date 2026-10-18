@@ -1,7 +1,35 @@
 # Phase 8 verification
 
 Date: 10 October 2026. Branch: `feat/phase8-central-deployment`.
-Status: **local baseline acceptance prepared; human approval and central deployment pending**.
+Status: **October 16 baseline adoption replaces the local acceptance gate; central deployment remains pending**.
+
+## 16 October: baseline study and review
+
+`baseline-2026-10-16` is the accepted starting corpus for study and review targeting May 2027. Import and activation must validate its frozen 3,009 roots, 7,778 gradable parts, 3,300 catalog nodes and source hashes; adoption records administrative authority without fabricating student verifications. Incomplete answers, extraction concerns and uncertain applicability remain visible.
+
+The standard persistent application uses http://127.0.0.1:8788 with normal Auth0 authentication. The disposable real-data launcher, synthetic acceptance landing page, checklist, account buttons and banners are retired. Ordinary automated browser fixtures retain complete/partial/missing answers and full source pages, with study/review regressions in `baseline-study.spec.ts`. Application operation is documented in [local study and review](Phase8_Local_Acceptance.md).
+
+No local experience sign-off is required before further engineering. Cloud deployment, spending controls, encrypted backups/recovery, production authentication, capacity and operational verification remain required. Baseline adoption does not complete Phase 8 central deployment.
+
+### Current local verification
+
+- The baseline/publication/reader/taxonomy/migration suite passed: 66 tests, including 18 adoption and 13 frozen-pack tests. Related API/batch/context/intelligence/readiness checks passed (62 initially); the two environment-blocked worker/recovery checks passed after disabling dependency sync and forwarding the owned restore port.
+- The actual pre-adoption backup independently restored with all 74 table digests, source/config files and schema matching. The retired preview was backed up separately before shutdown. Input archive verification covered all 6,805 pinned files.
+- Exact corpus identities, per-paper coverage, hash authorization, interrupted preparation, transactional activation, retry conflicts, missing answers, unresolved labels, actual database capabilities and preservation of later corrections/personal records have targeted regressions. Operational details are in [the baseline record](Baseline_2026_10_16.md).
+- Persistent activation completed under taxonomy version 9. [Actual data verification](Baseline_2026_10_16_Verification.json) confirms 3,009 published roots, 7,778 parts, all 691 corrected routings, 3,300 labels, 94 question PDFs, the previous 120 suggestions and zero student attestations. Answers remain 409 complete, 189 partial and 2,411 missing.
+- Direct handler measurements with actual database roles: search returned 25 of 687 matching roots in 0.0334 seconds; a 100-root review page took 2.4135 seconds with a 2,286,088-byte JSON response and shared catalog references. These timings exclude HTTP transport and browser rendering. Database size grew from 543,079,447 to 636,574,743 bytes; the 857,913,882-byte source store and its 3,911 files were unchanged. The separately preserved input archive is 1,314,242,560 bytes.
+- The real rollback operation restored the previous publication state inside a transaction; discarding the drill retained the active baseline. [All 12 personal/identity tables](Baseline_2026_10_16_Personal_Preservation.json) match the pre-adoption backup after normalizing account 1's target change. [Restart verification](Baseline_2026_10_16_Restart.json) confirms persistent publications and May 2027 settings; recompute job 1 completed successfully. Its 2,043 scored nodes have zero authoritative importance values, preserving the unresolved coverage/applicability limits.
+- Final launcher/worker health and publication checks passed after a controlled restart. Database size after recomputation and final verification was 645,512,215 bytes, a total increase of 102,432,768 bytes from the initial measurement. The preceding storage/timing figures describe the earlier post-activation, pre-recompute measurement.
+- Workspace and browser TypeScript checks passed.
+- Both production frontend builds passed; the standard application assets were rebuilt.
+- Python launcher/harness compilation and whitespace/diff checks passed.
+- Loaded persistent settings match May 2027, `http://127.0.0.1:8788`, its callback and allowed origin, without changing provider credentials.
+- Replacement browser tests were attempted. A fresh owned PostgreSQL sandbox failed host readiness on its published port (the diagnosed Colima forwarding issue); no test ran. A second attempt against the existing synthetic harness failed before assertions because Chromium's Mach port registration and WebKit startup abort in this execution environment. Browser verification remains pending; historical passes below do not cover the replacement suite.
+- Native-browser inspection of the persistent standard origin showed the ordinary sign-in screen, without preview controls or banners. Clicking “Sign in with Auth0” returned HTTP 500 at the local login route before provider redirection. The server traceback identifies `httpx.ConnectError: [Errno 8]` while resolving Auth0 discovery metadata, matching the host DNS failure also seen for PyPI; this is not evidence of an Auth0 callback allowlist mismatch; provider allowlists and an authenticated study/review screenshot remain unverified. No passwordless bypass or identity changes were used.
+
+## Historical evidence from 10–14 October
+
+The following results describe the earlier disposable environments, which have since been retired. They remain evidence of those checks; their old operating commands and acceptance prerequisite no longer apply.
 
 ## 14 October: actual corpus preview
 
@@ -45,16 +73,13 @@ Frontend application code, production OpenAPI contracts and compiled frontend as
 ```sh
 uv run pytest -q tests/test_phase6_reader.py tests/test_phase2_auth.py
 pnpm --dir web type-check
-uv run scripts/browser_server.py --acceptance
-CAF_BROWSER_PORT=8787 CAF_BROWSER_EXTERNAL=1 pnpm --dir web exec playwright test phase8-acceptance.spec.ts
+pnpm --dir web exec playwright test baseline-study.spec.ts questions.spec.ts
 ```
 
 For existing regression tests, use a separate ordinary `scripts/browser_server.py` instance and its original fixture dataset. The final regression run omitted the already-passed responsive journeys with `--grep-invert 'student working routes'`.
 
-## Remaining gates
+## Remaining deployment work
 
-The user judges the [local experience](Phase8_Local_Acceptance.md) before central provisioning. Record actual judgments and fix/retest requested changes. Eligible publication/verification, simultaneous stale review, extraction correction and successor taxonomy scenarios are explicitly marked pending rather than presented as completed acceptance.
+Isolated staging access/region/capacity validation, private storage adaptation, immutable packaging, bounded cloud jobs, proposed-label feedback, administrator taxonomy preparation/migration preview, staged corpus restore, production HTTPS authentication, recovery drills, measured latency/cost and approved cutover remain to be implemented and verified. Daily encrypted backups and an independent source mirror need a destination decision before production migration. The initial one-student pilot does not yet satisfy the original 5–15-user criterion.
 
-After that gate: isolated staging access/region/capacity validation, private storage adaptation, immutable packaging, bounded cloud jobs, proposed-label feedback, administrator taxonomy preparation/migration preview, staged corpus restore, production HTTPS authentication, recovery drills, measured latency/cost and approved cutover remain to be implemented and verified. Daily encrypted backups and an independent source mirror need a destination decision before production migration. The initial one-student pilot does not yet satisfy the original 5–15-user acceptance criterion.
-
-No application release, source/content approval, production migration, invitation send, paid infrastructure expansion or production latency guarantee is claimed by this report. Deployment and taxonomy-update runbooks will accompany the implemented central workflows; this checkpoint's operator instructions concern the local acceptance harness only.
+The historical acceptance and real-data previews do not establish production migration, invitation delivery, paid infrastructure readiness or production latency guarantees.

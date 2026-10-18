@@ -4,6 +4,7 @@ from dataclasses import dataclass
 from datetime import datetime, timezone
 import json
 import logging
+import math
 from pathlib import Path
 import time
 import tomllib
@@ -64,6 +65,10 @@ class QuotaExhaustedError(Exception):
     pass
 
 
+class BudgetExhaustedError(RuntimeError):
+    """Estimated cumulative spend has reached the configured cutoff."""
+
+
 class GeminiClassifier:
     """Manages LLM API calls with structured output and fallback cascades."""
 
@@ -86,6 +91,8 @@ class GeminiClassifier:
 
         self.pricing = self.models_config.get("pricing", {})
         self.budget_cap = float(self.models_config.get("budget", {}).get("max_usd_per_run", 10.0))
+        if not math.isfinite(self.budget_cap) or self.budget_cap <= 0:
+            raise ValueError("max_usd_per_run must be finite and positive")
         self.total_cost_usd = 0.0
 
     def _load_models_config(self) -> dict[str, Any]:
@@ -189,6 +196,10 @@ class GeminiClassifier:
         last_error = None
         for model_name in self.model_candidates:
             for attempt in range(retries + 1):
+                # Usage is known after each response. This stops subsequent calls;
+                # a single response can exceed the remaining estimated budget.
+                if self.total_cost_usd >= self.budget_cap:
+                    raise BudgetExhaustedError("Classification estimated spend reached max_usd_per_run")
                 start_time = time.time()
                 try:
                     config = types.GenerateContentConfig(

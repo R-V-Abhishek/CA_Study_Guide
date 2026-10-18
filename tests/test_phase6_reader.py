@@ -198,3 +198,47 @@ def test_published_topic_rows_return_distinct_scoped_actual_part_labels(session,
     snapshot.mappings=[{**published.mappings[0],'primary_node_id':'another-scope',
                        'secondary_node_ids':[node]},published.mappings[0]]
     assert question_summary(snapshot,node).model_dump()['matched_parts']==expected[:1]
+
+
+@pytest.mark.parametrize("source_title", ["हिन्दी प्रश्न", "Hindi medium questions"])
+def test_hindi_opt_in_filters_search_topics_and_reader_per_account(session, suggestion, authenticated_client, source_title):
+    client = authenticated_client()
+    from caf_db.models.ingest import Document
+    document = session.get(Document, suggestion.document_id)
+    document.title = source_title
+    session.commit()
+    review(session, suggestion)
+    session.commit()
+    question_id = suggestion.question_id
+    topic_id = suggestion.mappings[0]['primary_node_id']
+    assert client.get('/api/v1/me/settings').json()['include_hindi'] is False
+    assert client.get('/api/v1/questions').json()['total'] == 0
+    assert client.get('/api/v1/questions', params={'subtopic_id': topic_id}).json()['total'] == 0
+    assert client.get('/api/v1/search', params={'q': 'recognition'}).json()['total'] == 0
+    assert client.get(f'/api/v1/questions/{question_id}').status_code == 403
+
+    settings = client.get('/api/v1/me/settings').json()
+    for field in ['groups', 'available_papers', 'available_attempts']:
+        settings.pop(field)
+    settings['include_hindi'] = True
+    response = client.put('/api/v1/me/settings', json=settings)
+    assert response.status_code == 200, response.text
+    assert response.json()['include_hindi'] is True
+    assert client.get('/api/v1/me/settings').json()['include_hindi'] is True
+    assert client.get('/api/v1/questions').json()['total'] == 1
+    assert client.get('/api/v1/search', params={'q': 'recognition'}).json()['total'] == 1
+    assert client.get('/api/v1/questions', params={'subtopic_id': topic_id}).json()['total'] == 1
+    question = client.get(f'/api/v1/questions/{question_id}')
+    assert question.status_code == 200
+    assert question.json()['question_pages']
+    page_url = question.json()['question_pages'][0]['url']
+    assert client.get(page_url).status_code == 200
+
+    from caf_db.models.app import Settings
+    session.add(Settings(user_id=2, target_attempt_id='2026-05'))
+    session.commit()
+    other = authenticated_client(user_id=2)
+    assert other.get('/api/v1/me/settings').json()['include_hindi'] is False
+    assert other.get('/api/v1/questions').json()['total'] == 0
+    assert other.get(f'/api/v1/questions/{question_id}').status_code == 403
+    assert other.get(page_url).status_code == 403

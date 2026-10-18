@@ -57,6 +57,7 @@ class Settings(Base):
     )
     selected_paper_ids: Mapped[list[str] | None] = mapped_column(ARRAY(Text), nullable=True)
     exam_start_date: Mapped[date | None] = mapped_column(Date, nullable=True)
+    include_hindi: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False, server_default="false")
     hours_per_week: Mapped[float] = mapped_column(Numeric(), nullable=False, default=20.0)
     minutes_per_subtopic: Mapped[int] = mapped_column(Integer, nullable=False, default=45)
     revision_intervals: Mapped[list[int]] = mapped_column(

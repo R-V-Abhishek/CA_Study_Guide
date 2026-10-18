@@ -23,6 +23,8 @@ data/**
 !data/**/.gitkeep
 data/audits/
 data/backups/caf_*/
+# Recovery snapshots can contain nested .gitkeep files; never publish snapshots.
+data/backups/*/
 debug/
 
 # Transient classification batch coordination files
@@ -35,6 +37,8 @@ node_modules/
 .turbo/
 web/test-results/
 web/playwright-report/
+# Keep generated visual captures local; selected acceptance evidence is tracked explicitly.
+docs/stitch-review/*.png
 # Pre-built frontends tracked for zero-node portability
 !web/apps/student/dist/**
 !web/apps/curator/dist/**
@@ -42,6 +46,8 @@ web/playwright-report/
 
 # OS and IDE
 .DS_Store
+# Local design export; application assets and font licences are tracked separately.
+stitch_ca_study_companion.zip
 .idea/
 .vscode/
 *.swp

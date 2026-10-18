@@ -10,6 +10,7 @@ from caf_api.routes import get_operations_db
 from caf_api.auth import Principal, require_account, require_admin
 from caf_db.engine import get_session_factory
 from caf_l1.catalog import confirm_document, reject_document
+from caf_l4.catalogs import suggestion_candidates
 from caf_db.models.ingest import Document
 from caf_contracts.extraction import PaperPageRange
 from caf_contracts.classification import (
@@ -29,6 +30,67 @@ router = APIRouter(prefix="/api/v1/curate", tags=["curation"], dependencies=[Dep
 def get_curation_db():
     with get_session_factory("curation")() as session:
         yield session
+
+
+@router.get('/candidate-catalogs/{catalog_hash}', response_model=list[dict])
+def candidate_catalog(catalog_hash: str, session: Session = Depends(get_curation_db)):
+    from caf_db.models.classification import CandidateCatalog
+    row=session.get(CandidateCatalog,catalog_hash)
+    if row is None:
+        raise HTTPException(404,'candidate_catalog_not_found')
+    return row.candidates
+
+
+class BaselineActivationRequest(BaseModel):
+    model_config = ConfigDict(extra='forbid')
+    manifest_hash: str
+
+
+@router.get('/baselines', response_model=list[dict])
+def baselines(session: Session = Depends(get_curation_db), account: Principal = Depends(require_admin)):
+    from caf_db.models.classification import BaselineAdoption
+    return [dict(release_id=row.release_id, manifest_hash=row.manifest_hash, status=row.status,
+        manifest=row.manifest) for row in session.scalars(sa.select(BaselineAdoption))]
+
+
+@router.post('/baselines/prepare', response_model=dict)
+def prepare_study_baseline(session: Session = Depends(get_operations_db), account: Principal = Depends(require_admin)):
+    from pathlib import Path
+    from caf_l3.baseline_pack import freeze_pack
+    from caf_l4.baseline import prepare_baseline
+    try:
+        row=prepare_baseline(session,freeze_pack(Path('data/student_review/luna-papers')),account.id)
+        session.commit()
+        return dict(release_id=row.release_id,manifest_hash=row.manifest_hash,status=row.status)
+    except ValueError as exc:
+        session.rollback()
+        raise HTTPException(409,str(exc)) from exc
+
+
+@router.post('/baselines/{release_id}/activate', response_model=dict)
+def activate_study_baseline(release_id: str, body: BaselineActivationRequest,
+        session: Session = Depends(get_operations_db), account: Principal = Depends(require_admin)):
+    from caf_l4.baseline import activate_baseline
+    try:
+        result=activate_baseline(session,release_id,body.manifest_hash,account.id)
+        session.commit()
+        return result
+    except ValueError as exc:
+        session.rollback()
+        raise HTTPException(409,str(exc)) from exc
+
+
+@router.post('/baselines/{release_id}/rollback', response_model=dict)
+def rollback_study_baseline(release_id: str, body: BaselineActivationRequest,
+        session: Session = Depends(get_operations_db), account: Principal = Depends(require_admin)):
+    from caf_l4.baseline import rollback_baseline
+    try:
+        result=rollback_baseline(session,release_id,body.manifest_hash,account.id)
+        session.commit()
+        return result
+    except ValueError as exc:
+        session.rollback()
+        raise HTTPException(409,str(exc)) from exc
 
 
 class DocumentEditRequest(BaseModel):
@@ -212,7 +274,9 @@ def classification_queue(
             attempt_id=document.attempt_id, doc_type_id=document.doc_type_id, experimental=suggestion.experimental,
             stale=gate['stale'], publication_ready=gate['eligible'],
             readiness_blockers=[dict(code=str(block), message=str(block)) for block in gate['blockers']],
-            question=question, mappings=mappings, candidates=suggestion.candidates,
+            question=question, mappings=mappings,
+            candidates=[] if suggestion.candidate_catalog_hash else suggestion_candidates(session,suggestion),
+            candidate_catalog_hash=suggestion.candidate_catalog_hash,
             provenance={} if blind else suggestion.provenance, publication_revision_id=current_id,
             publication_suggestion_revision_id=current.suggestion_revision_id if current else None,
             published_question={key: value for key, value in current.context.items() if key != 'classification_part_ids'} if current and not blind else None,

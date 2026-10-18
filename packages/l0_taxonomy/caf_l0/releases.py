@@ -50,6 +50,21 @@ def descriptor_approved(session: Session, revision: DescriptorRevision | None) -
     return approval is not None and approval.content_hash == revision.content_hash
 
 
+def artifact_context(artifact: TextbookArtifact) -> dict:
+    metadata = artifact.metadata_json
+    if metadata.get('heading_origin') != 'module_index':
+        return metadata
+    # Index PDFs have a smaller, explicit evidence schema than textbook audits.
+    return {**metadata, 'id':artifact.id, 'paper_id':artifact.paper_id,
+        'course_level':artifact.course_level, 'page_count':artifact.page_count,
+        'sha256':artifact.sha256, 'edition':artifact.edition,
+        'availability':artifact.availability, 'applicable_attempts':[],
+        'landing_url':'', 'instrument':None, 'retrieved_at':'Not recorded',
+        'expected_structure':[], 'edition_evidence':[],
+        'heading_reconciliation':dict(status='pending',expected_count=0,accounted_count=0,
+            unresolved=['Index heading evidence only; textbook body reconciliation remains pending'])}
+
+
 def span_context(span: NodeSourceSpan, artifact: TextbookArtifact) -> dict:
     # Heading inventories belong in the administrator source endpoint. Repeating
     # them in every conceptual node makes a full textbook tree unnecessarily large.
@@ -57,7 +72,8 @@ def span_context(span: NodeSourceSpan, artifact: TextbookArtifact) -> dict:
               "target_applicability", "instrument", "source_context", "sha256",
               "retrieved_at", "page_count", "edition_evidence", "reprint",
               "applicability_basis", "publication_date_status")
-    return {**{key: artifact.metadata_json[key] for key in fields if key in artifact.metadata_json},
+    metadata = artifact_context(artifact)
+    return {**{key: metadata[key] for key in fields if key in metadata},
         "artifact_id": artifact.id, "edition": artifact.edition, "availability": artifact.availability,
         "pdf_page_start": span.pdf_page_start, "pdf_page_end": span.pdf_page_end,
         "review_status": span.review_status}
@@ -69,9 +85,13 @@ def source_context(session: Session, taxonomy_version_id: int, node_id: str) -> 
 
 
 def source_contexts(session: Session, taxonomy_version_id: int) -> dict[str, list[dict]]:
+    # Each artifact contains a full heading inventory. Fetch it once rather than
+    # repeating that JSON for every node source span in a joined result.
+    artifacts = {artifact.id: artifact for artifact in session.scalars(
+        sa.select(TextbookArtifact).where(TextbookArtifact.taxonomy_version_id == taxonomy_version_id))}
     contexts = {}
-    for span, artifact in session.execute(sa.select(NodeSourceSpan, TextbookArtifact).join(TextbookArtifact).where(NodeSourceSpan.taxonomy_version_id == taxonomy_version_id)):
-        contexts.setdefault(span.node_id, []).append(span_context(span, artifact))
+    for span in session.scalars(sa.select(NodeSourceSpan).where(NodeSourceSpan.taxonomy_version_id == taxonomy_version_id)):
+        contexts.setdefault(span.node_id, []).append(span_context(span, artifacts[span.artifact_id]))
     return contexts
 
 
@@ -83,8 +103,10 @@ def eligible_candidates(session: Session, taxonomy_version_id: int, paper_id: st
     latest = {r.node_id: r for r in revisions}
     approved = {a.revision_id: a.content_hash for a in session.scalars(sa.select(DescriptorApproval).join(DescriptorRevision).where(DescriptorRevision.taxonomy_version_id == taxonomy_version_id))}
     sources = {}
-    for span, artifact in session.execute(sa.select(NodeSourceSpan, TextbookArtifact).join(TextbookArtifact).where(NodeSourceSpan.taxonomy_version_id == taxonomy_version_id)):
-        sources.setdefault(span.node_id, []).append((span, artifact))
+    for node_id, review_status, availability in session.execute(sa.select(
+            NodeSourceSpan.node_id, NodeSourceSpan.review_status, TextbookArtifact.availability
+    ).join(TextbookArtifact).where(NodeSourceSpan.taxonomy_version_id == taxonomy_version_id)):
+        sources.setdefault(node_id, []).append((review_status, availability))
     result = []
     for node in members:
         if node.level != "subtopic" or node.node_id in containers:
@@ -96,7 +118,7 @@ def eligible_candidates(session: Session, taxonomy_version_id: int, paper_id: st
         supported = True
         while current:
             spans = sources.get(current.node_id, [])
-            if not spans or any(span.review_status != "reviewed" or artifact.availability != "verified" for span, artifact in spans):
+            if not spans or any(review_status != "reviewed" or availability != "verified" for review_status, availability in spans):
                 supported = False
                 break
             current = by_id.get(current.parent_id)
@@ -278,6 +300,8 @@ def approve_descriptor(session: Session, version_id: str, node_id: str, revision
     latest = latest_descriptor(session, release.taxonomy_version_id, node_id)
     if latest is None or latest.revision != revision:
         raise ValueError("Descriptor revision changed; reload before approving")
+    if latest.content.get('status') == 'index_derived_draft_requires_review':
+        raise ValueError('Index heading evidence requires an authored textbook descriptor revision before approval')
     if latest.content.get("source_ambiguities"):
         raise ValueError("Resolve recorded textbook source issues before approving this descriptor")
     if not session.get(DescriptorApproval, latest.id):
@@ -305,6 +329,13 @@ def release_report(session: Session, version_id: str, *, include_personal_counts
             for s in contexts[n.node_id])]
     blockers = []
     expected_ids = {n["id"] for n in release.manifest.get("nodes", [])}
+    baseline = None
+    if release.manifest.get('adoption_scope'):
+        from caf_db.models.classification import BaselineAdoption, CandidateCatalog
+        baseline = session.get(BaselineAdoption,version_id)
+        expected_ids = {node['id'] for catalog in session.scalars(sa.select(CandidateCatalog).where(
+            CandidateCatalog.content_hash.in_(release.manifest['catalogs'])))
+            for candidate in catalog.candidates for node in candidate['path']}
     if release.status != "legacy" and expected_ids != {n.node_id for n in nodes}:
         blockers.append("Persisted hierarchy differs from the immutable manifest")
     if missing_papers: blockers.append("Missing paper selections: " + ", ".join(missing_papers))
@@ -330,7 +361,7 @@ def release_report(session: Session, version_id: str, *, include_personal_counts
         "descriptors": [(r.node_id, r.revision, r.content_hash, approvals.get(r.id) == r.content_hash) for r in revisions],
         "spans": [(s.node_id, s.artifact_id, s.pdf_page_start, s.pdf_page_end, s.review_status, s.reviewed_by) for s in session.scalars(sa.select(NodeSourceSpan).where(NodeSourceSpan.taxonomy_version_id == release.taxonomy_version_id).order_by(NodeSourceSpan.id))],
         "crosswalk": [(m.old_node_id, m.new_node_id, m.relation, m.evidence, m.reviewed_by) for m in session.scalars(sa.select(TaxonomyCrosswalk).where(TaxonomyCrosswalk.taxonomy_version_id == release.taxonomy_version_id).order_by(TaxonomyCrosswalk.id))]}
-    return dict(version_id=version_id, manifest_hash=release.manifest_hash, review_hash=digest(review_state), approved_review_hash=release.approved_review_hash, status=release.status, node_count=len(nodes), eligible_count=len(eligible), source_count=len(sources), unresolved_sources=unresolved, unreviewed_descriptors=unreviewed, activation_ready=not blockers, blockers=blockers, legacy_progress_count=session.scalar(sa.select(sa.func.count()).select_from(Progress)) if include_personal_counts else None, legacy_note_count=session.scalar(sa.select(sa.func.count()).select_from(Note)) if include_personal_counts else None)
+    return dict(version_id=version_id, manifest_hash=release.manifest_hash, review_hash=digest(review_state), approved_review_hash=release.approved_review_hash, status=release.status, node_count=len(nodes), eligible_count=len(eligible), source_count=len(sources), unresolved_sources=unresolved, unreviewed_descriptors=unreviewed, activation_ready=not blockers, blockers=blockers, baseline_adoption={'status':baseline.status,'manifest_hash':baseline.manifest_hash,'scope':'study_and_review'} if baseline else None, legacy_progress_count=session.scalar(sa.select(sa.func.count()).select_from(Progress)) if include_personal_counts else None, legacy_note_count=session.scalar(sa.select(sa.func.count()).select_from(Note)) if include_personal_counts else None)
 
 
 def approve_release(session: Session, version_id: str, manifest_hash: str, actor_id: int):

@@ -1,6 +1,6 @@
-# Real-data local preview
+# Real-data local preview — historical record
 
-Prepared on 14 October 2026 at http://127.0.0.1:8788/__preview.
+Prepared on 14 October 2026. Retired on 16 October 2026. The disposable launcher and passwordless preview controls have been removed; use the [persistent standard application](Phase8_Local_Acceptance.md) at http://127.0.0.1:8788. The following records the earlier isolated verification, not current operating instructions.
 
 This preview contains a verified copy of the existing local corpus and source PDFs. No synthetic accounts, questions, publications, scores or approvals are added. The actual administrator profile (account 1) is used in the copy. The original database is read only during snapshot preparation; preview edits affect a disposable PostgreSQL container and copied files.
 
@@ -10,9 +10,7 @@ Use **Study / review** in the banner to switch between the student interface and
 
 ## Operator lifecycle
 
-```sh
-uv run scripts/real_data_preview.py --database-port 5442
-```
+The former `scripts/real_data_preview.py` launcher is retired.
 
 The existing backup implementation captures one read-only database snapshot, archives sources with file digests, and restores it into an owned container. All 74 restored tables are compared with the source snapshot's row counts/content digests before preview-specific changes. The copy receives fresh restricted role credentials; imported sessions, pending logins and invitations are invalidated in the copy. Dedicated preview cookies avoid replacing another local app's session.
 

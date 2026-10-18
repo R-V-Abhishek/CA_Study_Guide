@@ -26,6 +26,8 @@ def reader_stem(scenario):
 
 
 def seed_reader(db, nodes, *, scenario='partial'):
+    if get_settings().app.env != 'test':
+        raise RuntimeError('Synthetic reader fixtures require the isolated test environment')
     if scenario not in {'partial', 'complete', 'missing'}:
         raise ValueError('Unknown synthetic reader scenario')
     question_id = 'synthetic.reader' + ('' if scenario == 'partial' else '.' + scenario)

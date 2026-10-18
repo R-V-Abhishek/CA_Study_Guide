@@ -523,6 +523,91 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/curate/candidate-catalogs/{catalog_hash}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Candidate Catalog */
+        get: operations["candidate_catalog_api_v1_curate_candidate_catalogs__catalog_hash__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/curate/baselines": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Baselines */
+        get: operations["baselines_api_v1_curate_baselines_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/curate/baselines/prepare": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Prepare Study Baseline */
+        post: operations["prepare_study_baseline_api_v1_curate_baselines_prepare_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/curate/baselines/{release_id}/activate": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Activate Study Baseline */
+        post: operations["activate_study_baseline_api_v1_curate_baselines__release_id__activate_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/curate/baselines/{release_id}/rollback": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Rollback Study Baseline */
+        post: operations["rollback_study_baseline_api_v1_curate_baselines__release_id__rollback_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/curate/documents": {
         parameters: {
             query?: never;
@@ -1409,6 +1494,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/questions/{question_id}/pages/{kind}/{source_id}/{page}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Published Question Page */
+        get: operations["published_question_page_api_v1_questions__question_id__pages__kind___source_id___page__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/admin/readiness": {
         parameters: {
             query?: never;
@@ -1807,6 +1909,11 @@ export interface components {
              */
             created_at: string;
         };
+        /** BaselineActivationRequest */
+        BaselineActivationRequest: {
+            /** Manifest Hash */
+            manifest_hash: string;
+        };
         /** BindingRecord */
         BindingRecord: {
             /** Target Attempt Id */
@@ -1999,6 +2106,8 @@ export interface components {
             candidates: {
                 [key: string]: unknown;
             }[];
+            /** Candidate Catalog Hash */
+            candidate_catalog_hash?: string | null;
             /** Provenance */
             provenance: {
                 [key: string]: unknown;
@@ -2176,7 +2285,7 @@ export interface components {
             /** Paper Id */
             paper_id: string;
             /** Attempt Id */
-            attempt_id: string;
+            attempt_id: string | null;
             /** Reasons */
             reasons: string[];
         };
@@ -3533,6 +3642,11 @@ export interface components {
             revision_intervals: number[];
             /** Exam Start Date */
             exam_start_date: string | null;
+            /**
+             * Include Hindi
+             * @default false
+             */
+            include_hindi: boolean;
             /** Available Papers */
             available_papers: components["schemas"]["ProfilePaper"][];
             /** Available Attempts */
@@ -3554,6 +3668,11 @@ export interface components {
             revision_intervals: number[];
             /** Exam Start Date */
             exam_start_date?: string | null;
+            /**
+             * Include Hindi
+             * @default false
+             */
+            include_hindi: boolean;
         };
         /** ProgressResult */
         ProgressResult: {
@@ -3625,6 +3744,15 @@ export interface components {
             allocations: components["schemas"]["MarksAllocation"][];
             /** Issues */
             issues: string[];
+        };
+        /** PublishedQuestionPage */
+        PublishedQuestionPage: {
+            /** Source Id */
+            source_id: number;
+            /** Page */
+            page: number;
+            /** Url */
+            url: string;
         };
         /** PublishedSourceResult */
         PublishedSourceResult: {
@@ -3732,6 +3860,10 @@ export interface components {
             sources: components["schemas"]["PublishedSourceResult"][];
             /** Assets */
             assets: components["schemas"]["PublishedAssetResult"][];
+            /** Question Pages */
+            question_pages?: components["schemas"]["PublishedQuestionPage"][];
+            /** Answer Pages */
+            answer_pages?: components["schemas"]["PublishedQuestionPage"][];
             /** Verification Count */
             verification_count: number;
             /** Open Disputes */
@@ -3906,6 +4038,10 @@ export interface components {
             approved_by: number | null;
             /** Activated At */
             activated_at: string | null;
+            /** Baseline Provenance */
+            baseline_provenance?: {
+                [key: string]: unknown;
+            } | null;
         };
         /** ReviewRequest */
         ReviewRequest: {
@@ -5405,6 +5541,157 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["ProfileExport"];
+                };
+            };
+        };
+    };
+    candidate_catalog_api_v1_curate_candidate_catalogs__catalog_hash__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                catalog_hash: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        [key: string]: unknown;
+                    }[];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    baselines_api_v1_curate_baselines_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        [key: string]: unknown;
+                    }[];
+                };
+            };
+        };
+    };
+    prepare_study_baseline_api_v1_curate_baselines_prepare_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        [key: string]: unknown;
+                    };
+                };
+            };
+        };
+    };
+    activate_study_baseline_api_v1_curate_baselines__release_id__activate_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                release_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["BaselineActivationRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        [key: string]: unknown;
+                    };
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    rollback_study_baseline_api_v1_curate_baselines__release_id__rollback_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                release_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["BaselineActivationRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        [key: string]: unknown;
+                    };
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
                 };
             };
         };
@@ -7248,6 +7535,43 @@ export interface operations {
             header?: never;
             path: {
                 asset_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
+                    "image/png": unknown;
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    published_question_page_api_v1_questions__question_id__pages__kind___source_id___page__get: {
+        parameters: {
+            query?: {
+                crop?: boolean;
+            };
+            header?: never;
+            path: {
+                question_id: string;
+                kind: "question" | "answer";
+                source_id: number;
+                page: number;
             };
             cookie?: never;
         };

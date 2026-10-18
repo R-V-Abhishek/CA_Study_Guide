@@ -10,6 +10,30 @@ async function queue(page: Page, value: ClassificationQueueItem = item) {
 }
 test.beforeEach(async ({ request }) => { await request.post("/__test/login?account_id=2"); });
 
+test("shared candidate catalog resolves labels and corrections once across questions", async ({ page }) => {
+  const hash = "a".repeat(64);
+  const shared = { ...item, candidate_catalog_hash: hash, candidates: [] };
+  await page.route("**/api/v1/curate/classifications?**", route => route.fulfill({ json: [shared, { ...shared, suggestion_revision_id: 12, question_id: "scope:q2", question: { ...shared.question, question_id: "scope:q2", display_label: "Q2" } }] }));
+  let loads = 0;
+  await page.route(`**/api/v1/curate/candidate-catalogs/${hash}`, async route => {
+    loads++;
+    await new Promise(resolve => setTimeout(resolve, 100));
+    return route.fulfill({ json: item.candidates });
+  });
+  await page.goto("/curator/classifications");
+  await expect(page.getByText("Revenue Chapter → Revenue Topic").first()).toBeVisible();
+  await page.getByRole("button", { name: "Change primary", exact: true }).click();
+  const picker = page.getByRole("dialog", { name: "Select Canonical Subtopic" });
+  await expect(picker).toContainText("Revenue Topic");
+  await page.keyboard.press("Escape");
+  await page.getByRole("button", { name: "Next question", exact: true }).click();
+  await expect(page.getByRole("heading", { name: "Q2", exact: true })).toBeVisible();
+  await expect(page.getByText("Revenue Chapter → Revenue Topic").first()).toBeVisible();
+  await page.getByRole("button", { name: "Previous question", exact: true }).click();
+  await expect(page.getByRole("heading", { name: "Q1", exact: true })).toBeVisible();
+  expect(loads).toBe(1);
+});
+
 test("whole question preserves shared context, complete available answer and exact verification binding", async ({ page }, testInfo) => {
   await queue(page);
   let request: Record<string, unknown> | undefined;
@@ -35,7 +59,7 @@ for (const width of [390, 768, 1280, 1440]) {
     await page.goto("/curator/classifications");
     await expect(page.getByText("Company case shared by both parts.", { exact: true })).toBeVisible();
     await page.getByLabel("Review evidence or correction reason").fill("Source comparison stays attached to the current review.");
-    if (width < 768) {
+    if (width < 1280) {
       await page.getByRole("tab", { name: "Answer", exact: true }).click();
       await expect(page.getByText("Revenue is 100.", { exact: true })).toBeVisible();
       await page.getByRole("tab", { name: "Labels", exact: true }).click();
@@ -52,10 +76,10 @@ test("review separators support keyboard resizing without publishing", async ({ 
   await page.setViewportSize({ width: 1440, height: 900 });
   await queue(page);
   await page.goto("/curator/classifications");
-  const separator = page.getByRole("separator", { name: "Resize queue pane" });
+  const separator = page.getByRole("separator", { name: "Resize labels pane" });
   await separator.focus();
   await page.keyboard.press("ArrowRight");
-  await expect(separator).toHaveAttribute("aria-valuenow", "280");
+  await expect(separator).toHaveAttribute("aria-valuenow", "320");
   await page.getByLabel("Review evidence or correction reason").fill("Alt shortcuts remain inert while editing.");
   await page.keyboard.press("Alt+j");
   await expect(page.getByRole("button", { name: "Publish reviewed labels" })).toBeDisabled();

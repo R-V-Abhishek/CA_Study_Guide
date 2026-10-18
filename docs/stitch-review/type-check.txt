@@ -1,0 +1,19 @@
+$ turbo type-check && pnpm type-check:browser
+
+   • turbo 2.11.4
+   • Packages in scope: @caf/api-client, @caf/ts-config, @caf/workspace, curator, student
+   • Running type-check in 5 packages
+   • Remote caching disabled
+
+student:type-check: cache miss, executing 5f765c1b9b430a05
+curator:type-check: cache miss, executing a2e4ba92646cc459
+@caf/api-client:type-check: cache hit, replaying logs 7ca7dc6c3f0822bb
+@caf/api-client:type-check: $ tsc --noEmit
+student:type-check: $ tsc --noEmit
+curator:type-check: $ tsc --noEmit
+
+ Tasks:    3 successful, 3 total
+Cached:    1 cached, 3 total
+  Time:    2.518s
+
+$ pnpm --filter student exec tsc -p ../../tsconfig.browser.json

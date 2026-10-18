@@ -15,6 +15,7 @@ export interface PublishedAsset {
   id: string; source_id: number; page: number; kind: string;
   bbox: number[] | null; concerns: string[]; url: string;
 }
+export interface PublishedQuestionPage { source_id: number; page: number; url: string }
 export interface PublishedQuestion {
   question_id: string; snapshot_id: number; classification_revision_id: number;
   extraction_revision_id: number; taxonomy_version_id: number; publication_generation: number;
@@ -24,6 +25,7 @@ export interface PublishedQuestion {
     allocations: { part_id: string; marks: number | null; allocation_status: 'reviewed' | 'ambiguous'; choice_group: string | null; node_shares: { node_id: string; share: number; attributed_marks: number | null }[] }[];
     issues: string[];
   };
+  question_pages?: PublishedQuestionPage[]; answer_pages?: PublishedQuestionPage[];
   sources: PublishedSource[]; assets: PublishedAsset[]; verification_count: number; open_disputes: number;
   extraction_quality: Record<string, unknown>;
   occurrence: { id: number; identity_status: string; signal_class: string } | null;

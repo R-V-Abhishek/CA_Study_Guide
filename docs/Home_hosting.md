@@ -8,6 +8,8 @@ External recovery storage is deferred; production import remains pending.
 
 See [container verification](Home_hosting_verification.md) for the build source,
 image identity, checks, and limitations of this checkpoint.
+The [latest application checkpoint](Application_checkpoint_2026_10_18.md) records
+the subsequent application review, migrations and verification before Compose work.
 
 The production Dockerfile packages Python 3.12, dependencies from `uv.lock`, both
 interfaces built with pnpm 12.6.0 and its frozen lockfile, Tesseract English OCR,
@@ -64,12 +66,11 @@ must be recorded by the future release bundle tooling before production use.
 
 ## Pending incremental steps
 
-1. Review and checkpoint existing application changes separately from packaging.
-2. Add production Compose with internal PostgreSQL and loopback-only web access,
+1. Add production Compose with internal PostgreSQL and loopback-only web access,
    separate role credentials, bounded logs, limits, and persistent host mounts.
-3. Implement and verify release bundles, deployment checks, and recovery tooling.
-4. Configure Auth0 and private HTTPS, then test an isolated restore.
-5. Import production data only after a verified separately stored recovery backup.
+2. Implement and verify release bundles, deployment checks, and recovery tooling.
+3. Configure Auth0 and private HTTPS, then test an isolated restore.
+4. Import production data only after a verified separately stored recovery backup.
 
 Updating a Git branch alone must never activate an application release. Ubuntu
 will load a verified image bundle built on the Mac rather than build dependencies.

@@ -1,6 +1,31 @@
-# Phase 7 — Modern study workspace and complete review workflow
+# Study workspace — Stitch redesign (October 2026)
 
 This specification supersedes the previous single-user, desktop-only curator, divergent branding and gamification design. Phase 6 mechanisms remain authoritative. Hosting/deployment are Phase 8. UI completion and corpus readiness are separate acceptance gates.
+
+## October 2026 redesign authority
+
+This revision supersedes conflicting Phase 7 presentation guidance below. Preserve URLs, account isolation, review history, publication rules and API contracts. The ZIP supplies visual direction, not application data or static replacement screens.
+
+- Dark forest surfaces, restrained green actions, editorial headings and readable sans-serif content. Dark action text is `#003822`.
+- Brand: CA Study Companion. Compact account disclosure contains appearance, settings and sign out. Review shared content is a secondary destination; legacy review lives under History. Administrator destinations remain capability-gated.
+- Desktop sidebar 224px from 1024px, header 64px and 32px gutters. Tablet drawer and 24px gutters; mobile 56px header, 16px gutters, safe-area-aware bottom navigation.
+- Today: compact Continue studying, then three planned items beside revision and personal progress; recent activity follows. Detailed coverage belongs on Progress.
+- Questions: search and Paper visible; remaining filters disclosed. Compact rows with two-line previews, answer state and Open question; full taxonomy paths on demand.
+- Reader: continuous complete document, every sibling and OR choice retained. Answer, Source and Topics tools; inline complete available answer, source drawer, topic-owned notes. No question-note storage or automatic completion.
+- Review: question and answer beside 340px labels above 1280px. Below, Question/Answer/Labels/Evidence panes preserve mounted edits. Queue opens on demand.
+- All other student, review, administration, legacy and authentication routes inherit the same surfaces, typography, controls, responsive tables and accessible states. No fabricated scores, session metrics or examiner commentary.
+
+Visual acceptance requires desktop/mobile dark and desktop light captures for every route, intermediate widths, browser engine coverage, dialog/state inspection and a review log. Build success alone is insufficient.
+
+### Initial-review corrections (17 October 2026)
+
+- Default the reader to original published source pages, retaining every recorded sibling/OR page and available answer. Load later pages near the viewport; allow enlargement and optional cropping. Mark the recorded question start where known. Keep extracted text available on demand. Boundaries and source pairing remain reviewable evidence, not guaranteed correct; keep full pages and a visible limitation notice as the default.
+- Put raw mark issue identifiers, release IDs and hashes in Content details. Keep readable quality and applicability limitations beside the question.
+- Default each account to English content. Profile → Preferences → Include Hindi questions explicitly opts into detected Hindi content. Apply the preference on the server to lists, search, question access and question-page access. Detection uses Devanagari text and Hindi-labelled sources; it is not a complete language classifier.
+- Reuse study context only within an authenticated read request and its database transaction. Fetch only required evidence fields; defer reference trees and extracted-text code until needed. Keep private content out of persistent browser caches and clear in-memory client caches on account changes.
+- Importance explanations preserve unknown attempt IDs as unavailable rather than rejecting the response or inventing an attempt.
+
+Implementation evidence and outstanding visual limitations: [loading and reader review](loading-reader-review/VERIFICATION.md).
 
 ## Objective and actual starting state
 
@@ -16,23 +41,23 @@ Shared tokens live in `web/packages/workspace/tokens.css`; both existing React/V
 
 | Token | Light | Dark |
 | --- | --- | --- |
-| Canvas | `#F6F7F9` | `#111827` |
-| Surface | `#FFFFFF` | `#182230` |
-| Subtle surface | `#EEF1F5` | `#223043` |
-| Text | `#172033` | `#F3F4F6` |
-| Secondary text | `#526074` | `#B8C3D3` |
-| Border | `#DCE2EA` | `#3B4A60` |
-| Accent | `#3157D5` | `#9DB4FF` |
-| Accent surface | `#EEF2FF` | `#243555` |
-| Success text | `#17603A` | `#91D5AB` |
-| Warning text | `#805000` | `#F3CF86` |
-| Error text | `#B42318` | `#FDA29B` |
+| Canvas | `#F5F7F2` | `#101411` |
+| Surface | `#FFFFFF` | `#191D1A` |
+| Subtle surface | `#EBEFE9` | `#232A25` |
+| Text | `#191D1A` | `#E0E3DE` |
+| Secondary text | `#4F6055` | `#BEC9C0` |
+| Border | `#CCD5CC` | `#3F4942` |
+| Accent | `#226A43` | `#85D7AA` |
+| Accent surface | `#DEEDDF` | `#203B2B` |
+| Success text | `#17603A` | `#85D7AA` |
+| Warning text | `#805000` | `#F8BB72` |
+| Error text | `#B42318` | `#FFB4AB` |
 
-System sans-serif only, no remote fonts. Body `15px/24px`; curator body `14px`; reader `17px/29px`, mobile reader `16px/27px`. Page title `28px/36px` weight 650; section title `20px/28px` weight 600; controls `14px/20px`; metadata `13px/20px`. Counts, dates, scores and marks use tabular numerals.
+Locally bundled Source Sans 3 for controls and content; Newsreader for page and major section headings. No runtime remote fonts. Body `16px/26px`; reader `18px/30px`, mobile reader `17px/28px`. Page title `32px/40px`, mobile `28px/36px`; metadata at least `14px/20px`. Counts, dates, scores and marks use tabular numerals.
 
-Spacing: 4, 8, 12, 16, 24, 32, 48px. Panel radius 12px, control radius 8px, chips 6px. Panel padding 24px desktop/16px mobile. Controls minimum 40px, mobile targets 44px. Borders define sections; shadows only overlays/floating menus. Primary actions use accent; secondary surface/border; destructive error styling. Every status includes text. Focus is visible. Hover/focus transitions 120ms, overlays at most 160ms, respect reduced motion.
+Spacing: 4, 8, 12, 16, 24, 32, 48px. Panel radius 10px, control radius 8px, chips 6px. Panel padding 24px desktop/16px mobile. Controls minimum 40px, mobile targets 44px. Borders define sections; shadows only overlays/floating menus. Primary actions use accent; secondary surface/border; destructive error styling. Every status includes text. Focus is visible. Hover/focus transitions 120ms, overlays at most 160ms, respect reduced motion.
 
-No confetti, fabricated streaks, decorative gradients, glowing panels, importance dots, repeated oversized metric cards, illustrations, decorative photography or generated artwork. Theme follows OS until explicit local light/dark choice; offer System to restore OS following.
+No confetti, fabricated streaks, decorative gradients, glowing panels, importance dots, repeated oversized metric cards, illustrations, decorative photography or generated artwork. Dark is the default for absent or invalid preferences, independent of OS. Preserve Light and Dark. Store System explicitly as `caf_theme=system`; follow OS changes only in System. Initialise in both HTML heads before first paint and synchronise tabs and workspaces.
 
 Reusable patterns within each app: page header, filter bar, row, status label, empty state, error panel, content-shaped skeleton, dialog, drawer, disclosure. Page order: title/purpose → context/filters → main content → secondary evidence. IDs, hashes, jobs and raw JSON belong in Technical details.
 
@@ -62,7 +87,7 @@ Separate Group 1/Group 2 sections; desktop three panels/row, tablet two, mobile 
 
 ### Syllabus and topic
 
-Desktop tree 300px independently scrollable, detail remaining space. Below1024 full-width tree; opening a node replaces tree with detail and Back to syllabus. Toolbar paper/search/status All, Not started, In progress, Done; Expand to topics, Collapse all.
+Desktop tree 300px independently scrollable, detail remaining space. Below1280 full-width tree; opening a node replaces tree with detail and Back to syllabus. Toolbar paper/search/status All, Not started, In progress, Done; Expand to topics, Collapse all.
 
 Use actual hierarchy including chapter/unit levels, without fixed module counts. Containers toggle; eligible subtopics open detail. Indent20px/level, row≥40px, selected accent surface/left rule. Search retains ancestors and temporarily expands matching paths; clearing restores prior expansion. Status filters apply to leaves retaining ancestors. Tree keyboard navigation/semantics: Up/Down, Home/End, Left/Right, Enter/Space.
 
@@ -84,7 +109,7 @@ No matches: “No questions match these filters”, Clear filters. No publicatio
 
 ### Complete question reader
 
-Desktop reading≤800px, outline/evidence260px, overall≤1120px. Below1024 outline/evidence drawers. Header: named origin Back → paper/attempt → label/title → compact source-family/marks/answer status.
+Desktop reading≤800px, outline/evidence240px, overall≤1120px. Below1280 outline/evidence drawers. Header: named origin Back → paper/attempt → label/title → compact source-family/marks/answer status.
 
 Shared case first then ordered numbered parts, continuous editorial sections rather than nested cards. Major part spacing/subtle rules; selected part left accent and Selected part text. Siblings/shared case remain visible. Wide tables scroll locally. Images readable natural sizes/captions/enlarge modal. Preserve choice/OR structure beside parts.
 
