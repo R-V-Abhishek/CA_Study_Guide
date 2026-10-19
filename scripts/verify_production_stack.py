@@ -111,6 +111,7 @@ def verify(image: str = typer.Option(...), report: Path = Path("/tmp/caf-stack-i
                 assert details["State"]["Running"]
                 if name == "db":
                     assert not details["HostConfig"]["PortBindings"]
+                    receipt["postgres_image_id"] = details["Image"]
                 else:
                     assert details["Config"]["User"] == "10001:10001"
                     assert details["HostConfig"]["ReadonlyRootfs"] is True

@@ -13,6 +13,9 @@ the subsequent application review, migrations and verification before Compose wo
 The [production Compose checkpoint](Production_compose.md) records the service
 wiring and configuration checks. The [isolated stack verification](Production_stack_verification.md)
 records successful local runtime checks with synthetic data.
+See [application releases](Application_releases.md) for checksummed offline bundles,
+Conventional Commit release PRs and GitHub Actions. Publication remains separate
+from Ubuntu installation and activation.
 
 The production Dockerfile packages Python 3.12, dependencies from `uv.lock`, both
 interfaces built with pnpm 12.6.0 and its frozen lockfile, Tesseract English OCR,

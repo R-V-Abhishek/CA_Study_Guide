@@ -1,0 +1,29 @@
+name: Propose application release
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+concurrency:
+  group: propose-release
+  cancel-in-progress: false
+jobs:
+  propose:
+    runs-on: ubuntu-24.04
+    outputs:
+      created: ${{ steps.release.outputs.release_created }}
+      tag: ${{ steps.release.outputs.tag_name }}
+    steps:
+      - uses: googleapis/release-please-action@5c625bfb5d1ff62eadeeb3772007f7f66fdcf071 # v4
+        id: release
+        with:
+          target-branch: main
+  bundle:
+    needs: propose
+    if: needs.propose.outputs.created == 'true'
+    uses: ./.github/workflows/release-bundle.yml
+    with:
+      tag: ${{ needs.propose.outputs.tag }}

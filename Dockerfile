@@ -46,7 +46,11 @@ COPY overrides/ overrides/
 COPY --from=frontend /build/web/apps/student/dist web/apps/student/dist/
 COPY --from=frontend /build/web/apps/curator/dist web/apps/curator/dist/
 ARG SOURCE_REVISION
-LABEL org.opencontainers.image.revision="$SOURCE_REVISION"
+ARG APPLICATION_VERSION=unreleased
+ARG BUILD_TIMESTAMP=unknown
+LABEL org.opencontainers.image.revision="$SOURCE_REVISION" \
+      org.opencontainers.image.version="$APPLICATION_VERSION" \
+      org.opencontainers.image.created="$BUILD_TIMESTAMP"
 RUN install -d -o caf -g caf /srv/caf/data
 USER 10001:10001
 EXPOSE 8788

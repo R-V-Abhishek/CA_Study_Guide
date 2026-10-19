@@ -1,0 +1,4 @@
+# Only explicitly tested schema compatibility belongs here. An older application
+# may be rolled back only if its own manifest lists the current schema.
+required_schema = "0009_question_language"
+supported_schemas = ["0009_question_language"]

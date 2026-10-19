@@ -8,6 +8,7 @@ __pycache__/
 *$py.class
 *.egg-info/
 build/
+release-output/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/

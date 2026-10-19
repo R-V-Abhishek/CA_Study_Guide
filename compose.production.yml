@@ -44,7 +44,8 @@ x-application: &application
 
 services:
   db:
-    image: postgres:16-bookworm
+    image: ${CAF_POSTGRES_IMAGE:-postgres:16-bookworm}
+    platform: ${CAF_PLATFORM:-linux/amd64}
     restart: unless-stopped
     cpus: 2
     mem_limit: 3g

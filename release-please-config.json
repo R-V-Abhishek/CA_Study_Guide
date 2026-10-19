@@ -1,0 +1,18 @@
+{
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+  "bootstrap-sha": "435e251c50af1adc7043ba66e5923ccd3fedfe40",
+  "packages": {
+    ".": {
+      "release-type": "python",
+      "include-component-in-tag": false,
+      "include-v-in-tag": true,
+      "bump-minor-pre-major": true,
+      "bump-patch-for-minor-pre-major": false,
+      "draft": true,
+      "force-tag-creation": true,
+      "extra-files": [
+        {"type": "toml", "path": "uv.lock", "jsonpath": "$.package[?(@.name.value=='ca-final')].version"}
+      ]
+    }
+  }
+}
