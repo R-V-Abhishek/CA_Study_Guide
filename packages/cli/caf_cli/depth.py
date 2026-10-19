@@ -13,12 +13,13 @@ console = Console()
 
 @app.command("gate")
 def cmd_gate(
+    target_attempt: str = typer.Option(..., "--target-attempt", "-t", help="Explicit scoring target attempt ID"),
     paper: str = typer.Option(..., "--paper", "-p", help="Paper code or ID (e.g. P1, P2)"),
     band: str = typer.Option(..., "--band", "-b", help="Historical band (e.g. s2017:2019)"),
     top_k: int = typer.Option(50, "--top-k", "-k", help="Top-K subtopics for Jaccard and Spearman (default 50)"),
 ) -> None:
     """Run Depth Gate computation comparing baseline vs shadow run with the band."""
-    session_factory = get_session_factory()
+    session_factory = get_session_factory("operations")
     with session_factory() as session:
         console.print(f"[bold cyan]Running Depth Gate computation for paper [bold]{paper}[/bold], band [bold]{band}[/bold] (top-K={top_k})...[/bold cyan]")
         try:
@@ -28,6 +29,7 @@ def cmd_gate(
                 band=band,
                 top_k=top_k,
                 record_report=True,
+                target_attempt_id=target_attempt,
             )
             
             # Format decision with color
@@ -67,7 +69,7 @@ def cmd_report(
     band: str | None = typer.Option(None, "--band", "-b", help="Filter by historical band"),
 ) -> None:
     """List historical Depth Gate reports."""
-    session_factory = get_session_factory()
+    session_factory = get_session_factory("operations")
     with session_factory() as session:
         reports = get_depth_gate_reports(session, paper=paper, band=band)
         if not reports:

@@ -1,0 +1,339 @@
+{
+  "descriptors": [
+    {
+      "node_id": "e5f2b61d-ab2c-4a76-8f91-9e44562e530b",
+      "concept_name": "Credit For Tax Deducted At Source [Section 199]",
+      "definition": "Tax deducted at source and paid to the Central Government is treated as tax payment on behalf of the person from whose income the deduction was made or the owner of the relevant asset. Rule 37BA dictates that credit is given to the actual deductee or an alternate assessable person based on deductor information, aligned with the assessment year of the income.",
+      "terminology": [
+        "deductee",
+        "Rule 37BA",
+        "assessment year",
+        "Central Government"
+      ],
+      "instrument_references": [
+        "Section 199",
+        "Rule 37BA",
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Credit given to the deductee based on deductor reporting",
+        "Proportional credit across multiple years if income is assessable across years"
+      ],
+      "exclusion": [
+        "Direct payment of tax without statutory deduction mechanism",
+        "Credit given without matching deductor information"
+      ],
+      "nearby_distinctions": [
+        "Differs from Section 200 duty to deposit, focusing instead on granting tax credit to the income earner."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "eb2d2a09-d6c2-4edf-8ffc-22fa8fda42e9",
+      "concept_name": "Duty Of Person Deducting Tax [Section 200]",
+      "definition": "Persons responsible for tax deduction must deposit the deducted sums to the Central Government's credit within prescribed timelines. They are also obligated to prepare, verify, and deliver prescribed periodic statements and correction statements for rectification.",
+      "terminology": [
+        "deductor",
+        "correction statement",
+        "challan",
+        "PAO/TO/CDDO"
+      ],
+      "instrument_references": [
+        "Section 200",
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Remitting deducted tax within time",
+        "Filing periodic statements and correction statements"
+      ],
+      "exclusion": [
+        "Direct tax collection by the assessing officer without deductor intermediary",
+        "Tax collection at source mechanisms"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from Section 199 credit mechanisms, as this focuses on the active compliance burden of the deductor rather than the taxpayer's credit."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0dfd59c4-5c7d-4114-bf0e-cd1d3311a07d",
+      "concept_name": "Consequences Of Failure To Deduct Or Pay",
+      "definition": "Failing to deduct or pay tax makes a person a deemed assessee-in-default, attracting mandatory simple interest liabilities. However, an exception applies if the payee has already reported the income, paid the tax, and an accountant's certificate is furnished.",
+      "terminology": [
+        "assessee-in-default",
+        "interest liability",
+        "accountant's certificate"
+      ],
+      "instrument_references": [
+        "Section 201(1)",
+        "Section 201(1A)",
+        "Section 221",
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Interest at 1 percent per month for failure to deduct",
+        "Interest at 1.5 percent per month from deduction to payment date"
+      ],
+      "exclusion": [
+        "Standard tax remittance within statutory due dates",
+        "Penalties charged without proper opportunity of being heard"
+      ],
+      "nearby_distinctions": [
+        "Differs from routine tax compliance by imposing punitive default status and compounding interest rates for non-compliance."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "53594af6-e029-48f1-b5a5-ea6865ad8edb",
+      "concept_name": "Deduction Only One Mode Of Recovery [Section 202]",
+      "definition": "Tax deduction at source represents solely one method available for recovering tax obligations. The Assessing Officer retains the statutory authority to deploy any alternative recovery mechanisms prescribed by law.",
+      "terminology": [
+        "recovery",
+        "Assessing Officer",
+        "alternative methods"
+      ],
+      "instrument_references": [
+        "Section 202",
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Utilization of other recovery modes alongside TDS"
+      ],
+      "exclusion": [
+        "Exclusive reliance on withholding tax mechanisms for tax recovery"
+      ],
+      "nearby_distinctions": [
+        "Contrasts with the bar against direct demand by ensuring recovery powers remain broad and unrestricted by the mere existence of TDS."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c98a145a-2c8a-4530-b431-19c823ff3193",
+      "concept_name": "Certificate For Tax Deducted [Section 203]",
+      "definition": "Deductors must issue a formal certificate specifying the deducted amount, rate, and other particulars to the deductee. Employers paying tax on non-monetary perquisites must similarly furnish a certificate of tax paid within prescribed periods.",
+      "terminology": [
+        "TDS certificate",
+        "Form 16",
+        "Form 16B",
+        "Rule 31"
+      ],
+      "instrument_references": [
+        "Section 203",
+        "Rule 31",
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Issuance of certificates containing deduction rates and amounts",
+        "Adherence to prescribed timelines and forms"
+      ],
+      "exclusion": [
+        "Filing quarterly statements under Section 200(3)",
+        "Allotment of Tax Deduction Account Number"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from statements filed with authorities, as this certificate is provided directly to the payee/deductee."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ae07e225-9077-4da8-a31c-c6953f00257e",
+      "concept_name": "Common Number For Tds And Tcs [Section 203A]",
+      "definition": "Persons responsible for deducting or collecting tax must apply for a unique tax deduction and collection account number. This TAN must be compulsorily quoted across all statutory challans, certificates, statements, and returns.",
+      "terminology": [
+        "TAN",
+        "tax-deduction and collection-account number",
+        "penalty",
+        "Section 272BB"
+      ],
+      "instrument_references": [
+        "Section 203A",
+        "Section 272BB",
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Mandatory quoting of TAN in challans and returns",
+        "Penalties for failure to obtain or willful false quoting of TAN"
+      ],
+      "exclusion": [
+        "Notified cases exempted by the Central Government",
+        "General permanent account numbers used by assesses"
+      ],
+      "nearby_distinctions": [
+        "Differs from individual PAN requirements, focusing specifically on the institutional identifier for entities withholding or collecting tax."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e0f1cea4-300c-404c-855d-b806c1ff6ea4",
+      "concept_name": "Person Responsible For Paying Tax Deducted At Source [Section 204]",
+      "definition": "The statute explicitly defines the specific individuals or entities accountable for withholding tax depending on the nature of payment. This includes employers, corporate principals, authorized remittance agents, and government drawing officers.",
+      "terminology": [
+        "person responsible for paying",
+        "principal officer",
+        "drawing and disbursing officer",
+        "authorized person"
+      ],
+      "instrument_references": [
+        "Section 204",
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Designation of company principals for corporate payments",
+        "Designation of government drawing and disbursing officers"
+      ],
+      "exclusion": [
+        "General third-party commercial debtors lacking statutory withholding obligations"
+      ],
+      "nearby_distinctions": [
+        "Distinct from the general deductee concept, this isolates the legal entity legally mandated to execute the deduction."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5912043c-809e-4ca3-9f7b-c9f8748cf71f",
+      "concept_name": "Bar Against Direct Demand On Assessee [Section 205]",
+      "definition": "Assessees cannot be directly demanded to pay tax themselves to the extent that tax has already been legally deductible at source from their income. This protects taxpayers from direct tax liabilities where the deductor failed to remit withheld amounts.",
+      "terminology": [
+        "direct demand",
+        "deductible at source",
+        "assessee protection"
+      ],
+      "instrument_references": [
+        "Section 205",
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Immunity from direct tax payment demands up to the deductible amount"
+      ],
+      "exclusion": [
+        "Income portions explicitly excluded from statutory tax deduction rules"
+      ],
+      "nearby_distinctions": [
+        "Differs from recovery provisions by restricting the revenue authority from pursuing the payee for tax that was supposed to be withheld by the payer."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "79740bff-05c1-4b14-95af-024eb7a103a4",
+      "concept_name": "Furnishing Of Statements In Respect Of Payment Of Any Income To Residents Without Deduction Of Tax [Section 206A]",
+      "definition": "Banking companies, co-operative societies, and specific housing finance public companies must furnish prescribed statements for resident interest payments not exceeding designated thresholds without tax deduction. Non-compliance invites daily monetary penalties under the statute.",
+      "terminology": [
+        "banking company",
+        "co-operative society",
+        "interest (other than interest on securities)",
+        "correction statement"
+      ],
+      "instrument_references": [
+        "Section 206A",
+        "Section 194A",
+        "Section 272A(2)",
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Reporting sub-threshold interest payments to residents",
+        "Filing correction statements for rectifying reporting mistakes"
+      ],
+      "exclusion": [
+        "Payments subject to full tax deduction at source requirements",
+        "Payments exceeding statutory monetary limits"
+      ],
+      "nearby_distinctions": [
+        "Differs from standard TDS return filing because it specifically tracks exempt or sub-threshold payments made without withholding."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e341720f-3f65-4f07-86a1-9319a510ff6f",
+      "concept_name": "Mandatory Requirement To Furnish Pan [Section 206AA]",
+      "definition": "Deductees must mandatorily provide their permanent account number to the deductor, failing which tax must be withheld at significantly higher statutory rates. Invalid or mismatched PAN submissions are legally treated as non-furnishing of PAN.",
+      "terminology": [
+        "PAN",
+        "higher TDS",
+        "Form 15G",
+        "Form 15H"
+      ],
+      "instrument_references": [
+        "Section 206AA",
+        "Section 197A",
+        "Rule 37BC",
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Tax deduction at higher rates including 20 percent defaults",
+        "Invalidation of fake or mismatched PAN numbers"
+      ],
+      "exclusion": [
+        "Exempted non-resident payments meeting specific conditions under rules"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from regular tax deduction rates by overriding normal thresholds with penal withholding rates for missing identifiers."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a1ea7f2e-21f5-46ce-9cee-44a28c261e54",
+      "concept_name": "Higher Rate Of Tds For Non-Filers Of Income-Tax Return [Section 206AB]",
+      "definition": "Tax must be deducted at higher rates for specified persons who failed to file income tax returns for the immediately preceding previous year and have aggregate withheld taxes exceeding statutory monetary limits. Specified non-residents without permanent establishments or notified entities are excluded.",
+      "terminology": [
+        "specified person",
+        "non-filer",
+        "permanent establishment",
+        "twice the rate"
+      ],
+      "instrument_references": [
+        "Section 206AB",
+        "Section 139(1)",
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Double rate withholding for non-filers meeting previous year TDS/TCS thresholds",
+        "Exclusion of non-residents without Indian permanent establishments"
+      ],
+      "exclusion": [
+        "Standard deductions under exempted sections like salary or lottery winnings"
+      ],
+      "nearby_distinctions": [
+        "Differs from Section 206AA because it penalizes historical tax return non-filing rather than the failure to provide a permanent account number."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b5292842-2274-4d0a-a780-60900c472d57",
+      "concept_name": "Tax Collection At Source",
+      "definition": "Sellers of specified goods and grantors of specific business leases or licenses are legally mandated to collect tax at source from buyers or licensees at prescribed percentages. Exemptions apply when resident buyers provide formal declarations that goods are intended for manufacturing or power generation rather than trading.",
+      "terminology": [
+        "TCS",
+        "seller",
+        "buyer",
+        "parking lot",
+        "toll plaza",
+        "mineral oil"
+      ],
+      "instrument_references": [
+        "Section 206C(1)",
+        "Section 206C(1A)",
+        "Section 206C(1C)",
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Tax collection on specified forest produce, scrap, and minerals",
+        "Tax collection on lease or license of parking lots and mines"
+      ],
+      "exclusion": [
+        "Mining and quarrying of mineral oil",
+        "Transactions covered by manufacturing declarations submitted by resident buyers"
+      ],
+      "nearby_distinctions": [
+        "Differs from tax deduction at source (TDS) as it is collected directly by sellers or licensors from buyers or lessees during commercial sales or transfers."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "a7ae060968158dd3362086f14a123bbf0b31b696e62a13b76b17c0f3c77f5413",
+  "artifact_id": "709b89a3-dc01-4355-bec1-d27da08bc4e4",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 10673,
+  "output_tokens": 3838,
+  "cost_usd": 0.0127969,
+  "created_at": "2026-10-03T18:17:50.153240+00:00"
+}

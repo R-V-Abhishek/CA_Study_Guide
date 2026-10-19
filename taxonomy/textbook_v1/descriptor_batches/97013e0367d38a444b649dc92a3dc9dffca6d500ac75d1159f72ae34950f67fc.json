@@ -1,0 +1,132 @@
+{
+  "descriptors": [
+    {
+      "node_id": "2eaa7113-04f5-49a0-981d-46c081715800",
+      "concept_name": "Classes and Administrative Structure of Income-Tax Authorities",
+      "definition": "The Income-tax Act establishes a hierarchical administrative machinery headed by the Central Board of Direct Taxes, followed by various classes of directors-general, chief commissioners, commissioners, and subordinate officers. The CBDT functions under the Ministry of Finance to exercise statutory control, supervise the department, and frame necessary rules for proper administration.",
+      "terminology": [
+        "CBDT",
+        "Assessing Officer",
+        "Principal Chief Commissioner",
+        "Principal Commissioner",
+        "Tax Recovery Officer"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961",
+        "Central Board of Revenue Act, 1963",
+        "Section 116",
+        "Section 2(7A)"
+      ],
+      "inclusion": [
+        "Central Board of Direct Taxes",
+        "Directorate ranks",
+        "Commissioner ranks",
+        "Assessing Officers including ACIT, DCIT, and authorized ITOs"
+      ],
+      "exclusion": [
+        "Judicial courts outside the income-tax department hierarchy",
+        "Non-statutory bodies without administrative linkage"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from appellate dispute resolution panels and general civil courts by operating purely within the direct tax administrative machinery."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "490e9142-3dcf-4f0c-9dfa-c58b9ea32f3c",
+      "concept_name": "Jurisdiction of Income-Tax Authorities",
+      "definition": "Income-tax authorities must exercise their statutory powers and perform assigned functions in accordance with the regulatory directions issued by the Central Board of Direct Taxes. The CBDT distributes and regulates these administrative authorities based on criteria including territorial area, classes of persons, types of incomes, or specific cases.",
+      "terminology": [
+        "CBDT directions",
+        "Territorial area",
+        "Classes of income",
+        "Deemed directions"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961",
+        "Section 120"
+      ],
+      "inclusion": [
+        "General or special orders assigning officer jurisdiction",
+        "Higher authorities exercising powers of lower authorities under board direction",
+        "Delegation of assessment functions to additional or joint commissioners"
+      ],
+      "exclusion": [
+        "Self-assigned jurisdiction by officers without specific board authorization or statutory backing"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general administrative powers because it specifically governs the territorial and functional distribution of official authority across taxpayers and cases."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "20c3c6fd-87af-4d5c-965d-d8f39db8cafa",
+      "concept_name": "Civil Court Powers and Inquiry Authority of Tax Officials",
+      "definition": "Specific income-tax authorities possess the same powers vested in a Civil Court under the Code of Civil Procedure when handling matters such as discovery, enforcing attendance, and compelling document production. These powers can be invoked for inquiry or investigation purposes even when no active proceeding is pending if tax concealment is suspected.",
+      "terminology": [
+        "Civil Court powers",
+        "Discovery and inspection",
+        "Enforcing attendance",
+        "Examination on oath",
+        "Concealment of income"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961",
+        "Code of Civil Procedure, 1908",
+        "Section 131",
+        "Section 131(1)",
+        "Section 131(1A)"
+      ],
+      "inclusion": [
+        "Issuing commissions",
+        "Compelling production of books of account",
+        "Investigating suspected concealed income prior to formal proceedings"
+      ],
+      "exclusion": [
+        "Arbitrary extra-judicial actions unaligned with formal civil procedure principles"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general survey or search actions by strictly adopting judicial trial powers like examination on oath and discovery under civil procedural rules."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0b69e024-f893-4294-9ba8-d33129eaec47",
+      "concept_name": "Civil Court Powers and Inquiry Authority of Tax Officials (Continuation)",
+      "definition": "Specific income-tax authorities possess the same powers vested in a Civil Court under the Code of Civil Procedure when handling matters such as discovery, enforcing attendance, and compelling document production. These powers can be invoked for inquiry or investigation purposes even when no active proceeding is pending if tax concealment is suspected.",
+      "terminology": [
+        "Civil Court powers",
+        "Discovery and inspection",
+        "Enforcing attendance",
+        "Examination on oath",
+        "Concealment of income"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961",
+        "Code of Civil Procedure, 1908",
+        "Section 131",
+        "Section 131(1)",
+        "Section 131(1A)"
+      ],
+      "inclusion": [
+        "Issuing commissions",
+        "Compelling production of books of account",
+        "Investigating suspected concealed income prior to formal proceedings"
+      ],
+      "exclusion": [
+        "Arbitrary extra-judicial actions unaligned with formal civil procedure principles"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general survey or search actions by strictly adopting judicial trial powers like examination on oath and discovery under civil procedural rules."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "97013e0367d38a444b649dc92a3dc9dffca6d500ac75d1159f72ae34950f67fc",
+  "artifact_id": "2428304f-405e-4bab-bc1f-37467c9899d7",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 3437,
+  "output_tokens": 1432,
+  "cost_usd": 0.004611100000000001,
+  "created_at": "2026-10-03T18:17:57.104632+00:00"
+}

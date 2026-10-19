@@ -41,6 +41,9 @@ class Appearance(Base):
     )
 
     id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
+    question_id: Mapped[str | None] = mapped_column(Text, nullable=True)
+    part_id: Mapped[str | None] = mapped_column(Text, nullable=True)
+    occurrence_id: Mapped[int | None] = mapped_column(BigInteger, ForeignKey("core.question_occurrence.id"), nullable=True)
     unit_fingerprint: Mapped[str] = mapped_column(String(40), unique=True, nullable=False)
     source_unit_id: Mapped[int | None] = mapped_column(BigInteger, nullable=True)
     doc_sha256: Mapped[str] = mapped_column(String(64), nullable=False)
@@ -105,6 +108,7 @@ class Decision(Base):
     )
 
     id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
+    actor_id: Mapped[int | None] = mapped_column(Integer, ForeignKey("app.user_account.id"), nullable=True)
     unit_fingerprint: Mapped[str] = mapped_column(String(40), nullable=False)
     action: Mapped[str] = mapped_column(Text, nullable=False)
     payload: Mapped[dict[str, Any]] = mapped_column(JSONB, nullable=False)

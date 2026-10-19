@@ -1,0 +1,50 @@
+{
+  "descriptors": [
+    {
+      "node_id": "fa469c28-f61c-4d63-8430-033c734f8a82",
+      "concept_name": "Penal Consequences For Failure To Deduct Or Collect Or Pay Tax At Source",
+      "definition": "Statutory penalties and rigorous imprisonment are attracted when a person fails to deduct tax at source, collect tax at source, or remit such withheld amounts to the credit of the Central Government. These provisions apply equivalently whether the underlying consideration is monetary or delivered in kind under specific statutory provisions.",
+      "terminology": [
+        "Failure to deduct",
+        "Failure to collect",
+        "Failure to pay tax",
+        "Joint Commissioner",
+        "Rigorous imprisonment"
+      ],
+      "instrument_references": [
+        "Section 271C",
+        "Section 276B",
+        "Section 271CA",
+        "Section 276BB",
+        "Section 200(3)",
+        "Section 206C",
+        "Section 194B",
+        "Section 194R(1)",
+        "Section 194S(1)",
+        "Section 194BA(2)"
+      ],
+      "inclusion": [
+        "Penalty equal to un-deducted tax under section 271C",
+        "Rigorous imprisonment from 3 months to 7 years with fine for failure to pay deducted tax under section 276B",
+        "Penalty equal to un-collected tax under section 271CA",
+        "Rigorous imprisonment from 3 months to 7 years with fine for failure to pay collected tax under section 276BB",
+        "Penalties for failure to pay or ensure payment when consideration is in kind under relevant provisos"
+      ],
+      "exclusion": [
+        "Prosecution under section 276B if payment is made to the credit of the Central Government on or before the prescribed statement filing time w.e.f. 1.10.2024"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between civil monetary penalties levied by the Joint Commissioner and criminal prosecution involving rigorous imprisonment.",
+        "Distinguishes between defaults relating to tax deduction at source versus tax collection at source."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "79fd80c019f1e6b2af0864ddcdd79e08f574fa67dec4398ae7f308404db89cf1",
+  "artifact_id": "709b89a3-dc01-4355-bec1-d27da08bc4e4",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 1053,
+  "output_tokens": 561,
+  "cost_usd": 0.0017184000000000001,
+  "created_at": "2026-10-03T18:17:54.698629+00:00"
+}

@@ -1,0 +1,41 @@
+{
+  "result": {
+    "question_id": "0a2eb8c0af4723273380ae57ea44daf0f51bc0e22ba1fdfa8a8e09a30b67d53d",
+    "input_hash": "5ba3cde6b85598c3bc7901ffc11a5f78d825563ecb8da27facbeada5b659975a",
+    "mappings": [
+      {
+        "part_id": "0a2eb8c0af4723273380ae57ea44daf0f51bc0e22ba1fdfa8a8e09a30b67d53d",
+        "outcome": "matched",
+        "primary_node_id": "1a4bf2e6-7db3-4198-863a-566537527f6b",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "1a4bf2e6-7db3-4198-863a-566537527f6b",
+            "support": "The stem asks about auditor responses while performing sampling tests and procedures under SA 530; the descriptor covers designing samples, investigating deviations, and evaluating sampling results."
+          }
+        ],
+        "note": "The available text omits the specific situations and answer choices, so classification is based on the explicit SA 530 sampling focus.",
+        "confidence": 0.82,
+        "bucket": "B"
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "attempt_id": "1791217179696105000",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "778d770c1bd5e254363599811301f5610d6ec07cf7f5066b271b26357069ec43",
+    "schema_generator": "pinned-identifiers-v2",
+    "seconds": 12.839,
+    "usage": [
+      {
+        "input_tokens": 48557,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 440,
+        "reasoning_output_tokens": 151
+      }
+    ],
+    "completed_at": "2026-10-05T16:19:52.535406+00:00"
+  }
+}

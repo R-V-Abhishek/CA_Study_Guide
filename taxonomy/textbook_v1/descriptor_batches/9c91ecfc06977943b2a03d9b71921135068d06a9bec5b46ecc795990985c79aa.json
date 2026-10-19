@@ -1,0 +1,319 @@
+{
+  "descriptors": [
+    {
+      "node_id": "e234c599-6e41-4503-b966-2c14b74490d3",
+      "concept_name": "Intangible Assets",
+      "definition": "An intangible asset acquired in a business combination must be recognized separately from goodwill if it satisfies either the contractual-legal criterion or the separability criterion. These assets are identifiable even when they are not transferable or separable from the acquiree.",
+      "terminology": [
+        "Contractual-legal criterion",
+        "Separability criteria",
+        "Identifiable asset",
+        "Operating licence",
+        "Technology patent"
+      ],
+      "instrument_references": [
+        "Ind AS 103"
+      ],
+      "inclusion": [
+        "Licences to operate power plants",
+        "Technology patents",
+        "Assets capable of being separated, sold, licensed, or exchanged"
+      ],
+      "exclusion": [
+        "Unidentifiable future economic benefits grouped inside unallocated goodwill"
+      ],
+      "nearby_distinctions": [
+        "Contractual-legal items do not require transferability, whereas separability requires the asset to be capable of individual exchange."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "25ec789f-4379-4811-b399-be0fc71b7bc2",
+      "concept_name": "Reacquired Rights",
+      "definition": "A reacquired right is an identifiable intangible asset recognized when an acquirer reacquires a right previously granted to the acquiree to use specific assets. Any difference between contract terms and current market transactions is recognized as a settlement gain or loss.",
+      "terminology": [
+        "Reacquired right",
+        "Franchise agreement",
+        "Settlement gain or loss",
+        "Purchase price allocation"
+      ],
+      "instrument_references": [
+        "Ind AS 103"
+      ],
+      "inclusion": [
+        "Rights to use the acquirer's trade name",
+        "Rights to use the acquirer's technology under licensing agreements"
+      ],
+      "exclusion": [
+        "Newly originated rights created directly between the combined parties post-combination"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard acquired intangibles because they originate from a prior contract between the acquirer and acquiree."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2f97c36d-b243-4bbb-97ef-d1191787e231",
+      "concept_name": "Goodwill – Recognition and Measurement",
+      "definition": "Goodwill is recognized at the acquisition date as the excess of the aggregate consideration transferred, non-controlling interest, and previously held equity interests over the net identifiable assets acquired. In rare situations where net assets exceed consideration, a bargain purchase gain is recognized.",
+      "terminology": [
+        "Consideration transferred",
+        "Non-controlling interest",
+        "Bargain purchase",
+        "Capital reserve"
+      ],
+      "instrument_references": [
+        "Ind AS 103"
+      ],
+      "inclusion": [
+        "Purchase consideration fair value",
+        "Non-controlling interest proportional or fair value measurements"
+      ],
+      "exclusion": [
+        "Internal, self-generated goodwill",
+        "Transaction costs associated with the business combination"
+      ],
+      "nearby_distinctions": [
+        "Positive excess results in goodwill assets, whereas excess of net assets over consideration results in bargain purchase capital reserves."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f9c373bd-fc1f-47de-9507-6dd8164b8b79",
+      "concept_name": "Bargain Purchase",
+      "definition": "A bargain purchase occurs when the net identifiable assets acquired exceed the total purchase consideration. The resulting gain is recognized in equity as a capital reserve after the acquirer reassesses the identification and measurement of all acquired items.",
+      "terminology": [
+        "Bargain purchase",
+        "Forced sale",
+        "Capital reserve",
+        "Reassessment"
+      ],
+      "instrument_references": [
+        "Ind AS 103"
+      ],
+      "inclusion": [
+        "Gains from regulatory requirement sales",
+        "Gains from bankruptcy or distressed sales"
+      ],
+      "exclusion": [
+        "Standard acquisitions where purchase consideration exceeds or equals net asset values"
+      ],
+      "nearby_distinctions": [
+        "Unlike standard goodwill generation, bargain purchases yield negative goodwill balances credited directly to capital reserves."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f97e6335-c766-4417-99a7-073f339312cf",
+      "concept_name": "Measurement Period",
+      "definition": "The measurement period is a defined window up to one year following the acquisition date allowing provisional amounts to be retrospectively adjusted for new information. Changes reflecting conditions existing at the acquisition date adjust goodwill, while subsequent changes are treated as errors.",
+      "terminology": [
+        "Measurement period",
+        "Provisional amounts",
+        "Retrospective adjustment",
+        "Ind AS 8"
+      ],
+      "instrument_references": [
+        "Ind AS 103",
+        "Ind AS 8"
+      ],
+      "inclusion": [
+        "Adjustments for facts existing at the acquisition date",
+        "New asset and liability recognitions discovered during the window"
+      ],
+      "exclusion": [
+        "Adjustments driven by events occurring after the acquisition date"
+      ],
+      "nearby_distinctions": [
+        "Limited strictly to a maximum of one year, after which valuation corrections must follow standard error-correction rules."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6d0489d8-8472-4b69-b176-2fbc4ccdb29c",
+      "concept_name": "Determining what is part of the Business Combination Transaction",
+      "definition": "Acquirers must isolate and exclude transactions that are separate from the exchange for the acquiree. Separate transactions are those arranged primarily for the benefit of the acquirer rather than the acquiree prior to combination.",
+      "terminology": [
+        "Pre-existing relationship",
+        "Separate transaction",
+        "Consideration transferred",
+        "Acquisition-related costs"
+      ],
+      "instrument_references": [
+        "Ind AS 103"
+      ],
+      "inclusion": [
+        "Settlements of pre-existing relationships",
+        "Remuneration for post-combination employee services"
+      ],
+      "exclusion": [
+        "Core consideration directly exchanged for the equity interests or assets of the acquiree"
+      ],
+      "nearby_distinctions": [
+        "Differs from consideration transferred by serving acquirer-centric objectives rather than compensating former owners for the business."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "66e39dd4-4663-42fc-8c66-939b2c0f5107",
+      "concept_name": "Contingent Payments to Employees or Selling Shareholders",
+      "definition": "Contingent payments to selling shareholders who become employees are evaluated to determine whether they represent contingent consideration or remuneration for post-combination services. Factors such as employment forfeiture clauses and employment duration help clarify the substance of the payments.",
+      "terminology": [
+        "Contingent consideration",
+        "Continuing employment",
+        "Post-combination services",
+        "Remuneration"
+      ],
+      "instrument_references": [
+        "Ind AS 103"
+      ],
+      "inclusion": [
+        "Payments automatically forfeited upon termination of employment",
+        "Contingent arrangements tied to required employment periods"
+      ],
+      "exclusion": [
+        "Unconditional purchase consideration distributed uniformly to all former owners"
+      ],
+      "nearby_distinctions": [
+        "Classified as post-combination employee expense if dependent on continued employment, rather than part of the purchase price."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4d9cb633-e975-4940-b5dd-fbe352277566",
+      "concept_name": "Acquirer Share Based Payment Awards Exchanged for Awards held by the Acquiree’s Employees",
+      "definition": "Exchanges of share-based payment awards in a business combination are accounted for as award modifications. The portion of the replacement award attributable to pre-combination service is included in measuring consideration transferred, while unearned portions are treated as post-combination remuneration.",
+      "terminology": [
+        "Replacement awards",
+        "Market-based measure",
+        "Pre-combination service",
+        "Ind AS 102"
+      ],
+      "instrument_references": [
+        "Ind AS 103",
+        "Ind AS 102"
+      ],
+      "inclusion": [
+        "Replacement awards mandated by acquisition agreement terms",
+        "Market-based measures remeasured on the acquisition date"
+      ],
+      "exclusion": [
+        "Awards replaced voluntarily by the acquirer when not legally or contractually obliged to do so"
+      ],
+      "nearby_distinctions": [
+        "Mandatory replacements split value between consideration and remuneration, whereas voluntary replacements for expired awards are fully expensed."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4872a303-bba0-48ae-88f2-da170adc7f26",
+      "concept_name": "Non-replacement Awards",
+      "definition": "When an acquirer does not exchange outstanding share-based payment awards of the acquiree, they are measured at their market-based measure. Vested awards and the pre-combination portion of unvested awards form part of the non-controlling interest.",
+      "terminology": [
+        "Non-replacement awards",
+        "Market-based measure",
+        "Non-controlling interest",
+        "Vesting period"
+      ],
+      "instrument_references": [
+        "Ind AS 103",
+        "Ind AS 102"
+      ],
+      "inclusion": [
+        "Vested share awards classified within non-controlling interest",
+        "Pre-combination portions of unvested acquiree awards"
+      ],
+      "exclusion": [
+        "Replacement awards issued directly by the acquirer"
+      ],
+      "nearby_distinctions": [
+        "Unvested non-replacement portions split across non-controlling interest for pre-combination service and employee cost for post-combination service."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d5452833-a04c-47e3-956b-0e143a3d5ed9",
+      "concept_name": "Non-controlling Interest in an Acquiree",
+      "definition": "Non-controlling interest components representing present ownership entitlements can be measured either at fair value or at the proportionate share of identifiable net assets. Valuation differences between the acquirer and non-controlling interests often reflect control premiums or ownership discounts.",
+      "terminology": [
+        "Non-controlling interest",
+        "Fair value",
+        "Control premium",
+        "Discount for lack of control"
+      ],
+      "instrument_references": [
+        "Ind AS 103"
+      ],
+      "inclusion": [
+        "Present ownership interests entitling holders to proportionate net asset shares",
+        "Quoted market price valuations"
+      ],
+      "exclusion": [
+        "Controlling equity interests held directly by the parent acquirer"
+      ],
+      "nearby_distinctions": [
+        "Acquirer per-share values typically incorporate control premiums, whereas non-controlling interests may factor in discounts for lack of control."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "44005c72-08bc-4d7b-b329-06577a2865c5",
+      "concept_name": "SUBSEQUENT MEASUREMENT AND ACCOUNTING",
+      "definition": "Assets and liabilities acquired in a business combination are subsequently accounted for under applicable standards, with specific guidance provided for items like reacquired rights, contingent liabilities, and indemnification assets. Reacquired rights are amortized over remaining contractual terms.",
+      "terminology": [
+        "Subsequent measurement",
+        "Reacquired rights",
+        "Indemnification assets",
+        "Contingent liabilities"
+      ],
+      "instrument_references": [
+        "Ind AS 103",
+        "Ind AS 37",
+        "Ind AS 115"
+      ],
+      "inclusion": [
+        "Amortization of reacquired rights over remaining contract periods",
+        "Subsequent measurement of contingent liabilities at higher of Ind AS 37 and initial amounts"
+      ],
+      "exclusion": [
+        "Initial purchase price allocation adjustments occurring inside the measurement period"
+      ],
+      "nearby_distinctions": [
+        "Governs post-acquisition tracking and rule applications distinct from initial acquisition-date fair value determinations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "feeca730-1354-468f-9d08-fa509cd4d25f",
+      "concept_name": "Reacquired Rights",
+      "definition": "Contingent consideration fair value changes reflecting pre-acquisition facts and circumstances are treated as measurement period adjustments impacting goodwill. Changes arising from post-acquisition events are recognized in profit or loss or equity according to applicable standards.",
+      "terminology": [
+        "Contingent consideration",
+        "Measurement period adjustments",
+        "Fair value changes",
+        "Goodwill adjustment"
+      ],
+      "instrument_references": [
+        "Ind AS 103"
+      ],
+      "inclusion": [
+        "Fair value updates based on pre-acquisition conditions",
+        "Adjustments impacting goodwill during the measurement window"
+      ],
+      "exclusion": [
+        "Changes driven by post-acquisition milestones, earnings targets, or share price achievements"
+      ],
+      "nearby_distinctions": [
+        "Pre-existing condition adjustments modify goodwill, whereas post-combination milestone achievements bypass goodwill and route through earnings or equity."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "9c91ecfc06977943b2a03d9b71921135068d06a9bec5b46ecc795990985c79aa",
+  "artifact_id": "23477958-93cb-402d-93f4-c0ba7dba2199",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8495,
+  "output_tokens": 3474,
+  "cost_usd": 0.0112335,
+  "created_at": "2026-10-03T18:04:52.383576+00:00"
+}

@@ -1,0 +1,321 @@
+{
+  "descriptors": [
+    {
+      "node_id": "2b29314f-fed8-4219-af7c-f0f5d7e8a767",
+      "concept_name": "Value Chain Comparison and Activity Classification",
+      "definition": "Value chain analysis allows firms to evaluate operations relative to competitors for benchmarking and gap analysis. Activities are classified based on value contribution to determine whether to retain, modify, or eliminate them immediately or eventually.",
+      "terminology": [
+        "Value chain",
+        "Process mapping",
+        "Gap analysis",
+        "Benchmarking",
+        "Activity classification"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Evaluating internal value chains against competitors",
+        "Classifying activities into necessary and unnecessary categories",
+        "Deciding on outsourcing non-core or non-value-added activities"
+      ],
+      "exclusion": [
+        "Generic corporate strategy formulation without activity mapping",
+        "Purely financial capital budgeting decisions"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from the wider value system by focusing strictly on internal firm activities and direct competitor comparison rather than extended supplier-customer networks."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f8bac3f4-4a00-4dc2-8740-f0963a85a440",
+      "concept_name": "Linkage of Value Chain Analysis and Performance Management",
+      "definition": "Value chain linkages highlight how interdependent activities generate competitive advantage through coordinated strategies, operations, and information flows. Effective business integration of these linkages increases customer-perceived value and margins, thereby improving overall organizational performance.",
+      "terminology": [
+        "Value drivers",
+        "Linkages",
+        "Business integration",
+        "Sustainable competitive advantage",
+        "Margin"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Aligning strategies with key value drivers",
+        "Smoothing operations through elimination and coordination",
+        "Using information systems to ensure free flow of data"
+      ],
+      "exclusion": [
+        "Isolating individual business functions without analyzing interdependencies",
+        "Purely standalone financial metric tracking"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standalone activity costing by explicitly connecting operational linkages and cross-functional coordination directly to performance management outcomes."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f3dde39a-ee07-4f43-b8c2-cf93738cd169",
+      "concept_name": "McKinsey's 7S Framework",
+      "definition": "McKinsey's 7S framework maps a constellation of interrelated hard and soft subsystems that influence an organization's ability to change and achieve its objectives. All elements are considered equally important, with shared values positioned centrally to reflect organizational culture.",
+      "terminology": [
+        "Constellation",
+        "Hard elements",
+        "Soft elements",
+        "Subsystems",
+        "Shared values"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Mapping internal organizational subsystems",
+        "Evaluating organizational readiness for strategic change",
+        "Identifying organizational blind spots and misalignments"
+      ],
+      "exclusion": [
+        "External market positioning analysis",
+        "Macroeconomic environmental scanning"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from the value chain by assessing holistic organizational alignment across both tangible structures and intangible cultural factors rather than sequential operational activities."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5701c65c-9354-4ae2-b580-9dc531c8b86f",
+      "concept_name": "Elements of 7S Framework",
+      "definition": "The seven elements of the framework are split into hard elements (Strategy, Structure, and System) which are easily quantified and managed, and soft elements (Style, Staff, Skills, and Shared Values) which are rooted in organizational culture. Success depends on the internal alignment of these elements rather than the standalone excellence of any single component.",
+      "terminology": [
+        "Hard S",
+        "Soft S",
+        "Strategy",
+        "Structure",
+        "System"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Evaluating strategy, structure, and systems as hard elements",
+        "Evaluating style, staff, skills, and shared values as soft elements",
+        "Assessing internal alignment across all seven areas"
+      ],
+      "exclusion": [
+        "External competitor performance metrics",
+        "Industry-wide structural evaluations"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general operational frameworks by explicitly segregating change management challenges between easily quantifiable hard rules and intangible cultural soft attributes."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7efee0ed-9eb2-4e5e-96f3-a7da3076a86e",
+      "concept_name": "Strategy Element in 7S Framework",
+      "definition": "Strategy represents the specific plan or method put in place by an organization to deploy scarce resources and achieve a competitive advantage. A sound strategy requires a long-term orientation, clear articulation, and strong reinforcement from mission, vision, and values.",
+      "terminology": [
+        "Strategy",
+        "Competitive advantage",
+        "Resource allocation",
+        "Long-term orientation"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Formulating plans to achieve organizational goals",
+        "Aligning resource allocation with competitive positioning",
+        "Integrating strategy with other hard and soft elements"
+      ],
+      "exclusion": [
+        "Detailed functional departmental hierarchies",
+        "Daily operational routine controls"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from organizational structure by focusing on the conceptual directional plan to achieve goals rather than the formal framework of authority and reporting lines."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f081681f-45ee-4bea-92af-bef53fc488c1",
+      "concept_name": "Structure Element in 7S Framework",
+      "definition": "Structure is the formal framework that dictates how job tasks are divided, grouped, coordinated, and linked across individuals and groups. It outlines individual roles and establishes the pattern of authority and interaction required to achieve organizational goals.",
+      "terminology": [
+        "Organizational structure",
+        "Divisional structure",
+        "Matrix structure",
+        "Authority",
+        "Coordination"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Defining reporting lines and departmental groups",
+        "Designing divisional or matrix structures",
+        "Establishing formal interaction patterns"
+      ],
+      "exclusion": [
+        "Informal cultural norms and leadership styles",
+        "High-level competitive market positioning plans"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from systems by representing the formal organizational skeleton of roles and reporting lines rather than the routine operating procedures and workflows."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a6fe5cc9-52ea-4268-b0ed-3340f168a412",
+      "concept_name": "Effective Use of the 7S Framework for Business Integration",
+      "definition": "Effective application of the 7S framework requires an iterative review process starting from shared values, moving through hard elements, and evaluating soft elements to ensure total alignment. Achieving organizational integration necessitates that all internal subsystems pull in the exact same strategic direction.",
+      "terminology": [
+        "Business integration",
+        "Iterative process",
+        "Change management",
+        "Alignment",
+        "Subsystem evaluation"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Beginning alignment evaluations with shared values",
+        "Reviewing consistency among hard and soft elements",
+        "Iteratively adjusting elements to resolve integration gaps"
+      ],
+      "exclusion": [
+        "Treating individual organizational elements in permanent isolation",
+        "Static once-off administrative audits"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from basic gap analysis by mandating a sequential, multi-step review of cultural values alongside hard structural elements to achieve complete organizational integration."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7168857c-e09d-47ab-80ee-492962c80b27",
+      "concept_name": "McKinsey’s 7S Model and Performance Management Integration",
+      "definition": "Aligning all seven elements of the 7S model directly supports performance management by ensuring organizational subsystems work cohesively toward common objectives. Furthermore, the choice of performance measurement techniques must be tailored to fit the specific structure, culture, and strategy of the business.",
+      "terminology": [
+        "Performance management",
+        "Alignment",
+        "Financial indicators",
+        "Non-financial indicators",
+        "Divisional structure"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Realigning misaligned 7S elements to improve performance",
+        "Matching performance measures to strategy and culture",
+        "Selecting metrics such as ROI or Residual Income based on organizational structure"
+      ],
+      "exclusion": [
+        "Applying uniform performance metrics irrespective of corporate structure",
+        "Ignoring cultural impacts on performance measurement"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard strategic planning by directly linking internal structural alignment to the selection of appropriate financial and non-financial performance measurement tools."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8c8ae39b-4536-4cfb-a62d-c6390914396c",
+      "concept_name": "Complex Business Structures",
+      "definition": "Complex business structures involve cooperative arrangements characterized by diluted control, shared objectives, pooled resources, virtual connections, or diverse cultural interests. These structures emerge to enhance cost-effectiveness and operational performance without requiring heavy capital investments in production capacity.",
+      "terminology": [
+        "Complex business structure",
+        "Diluted control",
+        "Virtual organisation",
+        "Asset lite model",
+        "Network organisations"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Network organizations and strategic alliances",
+        "Joint ventures, franchising, and licensing",
+        "Multinational enterprises and complex supply chains"
+      ],
+      "exclusion": [
+        "Traditional single-entity functional line structures",
+        "Wholly-owned centralized domestic divisions"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from traditional hierarchical structures by relying on collaborative, virtual, or contractual relationships where control is shared rather than vertically unified."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7703606a-fc85-43f3-82e3-41d5951d44aa",
+      "concept_name": "Characteristics and Evolution of Complex Business Structures",
+      "definition": "Complex business structures evolve to enable efficient process execution without incurring massive capital expenditures for physical production capacity. They are identified by features such as shared objectives, virtual connectivity, and distributed control across independent organizational entities.",
+      "terminology": [
+        "Complex business structure",
+        "Virtual organisation",
+        "Assets Lite Model",
+        "Pooled resources"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Operating via asset-lite or virtual premises models",
+        "Utilizing common digital trading and retail platforms",
+        "Fostering cross-entity collaboration for cost efficiency"
+      ],
+      "exclusion": [
+        "Traditional heavy manufacturing plants with fully integrated internal hierarchies",
+        "Single-owner localized retail stores"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from conventional expansion by substituting direct ownership of physical assets with flexible virtual networks and cooperative business arrangements."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2be96276-dca0-40f4-bca7-25af8eb0e631",
+      "concept_name": "Strategic Performance Issues in Complex Business Structures",
+      "definition": "Planning, controlling, and measuring performance in complex structures is complicated by divergent partner values, misaligned risk appetites, and a lack of trust regarding information sharing. Solutions require establishing goal congruence, defining clear accountability, fostering trust, and devising common minimum operational programs.",
+      "terminology": [
+        "Goal congruence",
+        "Accountability",
+        "Trust",
+        "Common minimum programme",
+        "Cultural conflicts"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Addressing divergent partner risk appetites and timescales",
+        "Establishing clear accountability for pooled resources",
+        "Designing mutually agreed control and reporting frameworks"
+      ],
+      "exclusion": [
+        "Performance measurement within single-entity hierarchical command structures",
+        "Unilateral target setting without partner consultation"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from single-firm performance management by needing to resolve cross-organizational trust deficits, cultural friction, and conflicting stakeholder objectives."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ec9022c5-24f6-4acd-832e-7d998dc2dfbf",
+      "concept_name": "Performance Issues in Strategic Alliances, Joint Ventures, and Multinationals",
+      "definition": "Specific complex structures like strategic alliances and joint ventures face performance hurdles due to retained independence or unequal resource distributions, while multinationals encounter coordination barriers across borders. Managing these structures requires navigating confidentiality concerns, diverse foreign reporting frameworks, and external macroeconomic volatility.",
+      "terminology": [
+        "Strategic alliance",
+        "Joint venture",
+        "Multinationals",
+        "Exchange rate movements",
+        "Windfall tax"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Managing information security in strategic alliances",
+        "Assigning performance accountability in unequal joint ventures",
+        "Coordinating foreign subsidiaries across time zones and currency differences"
+      ],
+      "exclusion": [
+        "Domestic single-currency operations with uniform regulatory reporting",
+        "Wholly internalized departmental coordination"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard corporate structures by the presence of international regulatory frictions, cross-border currency exposure, and partner independence limitations."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "597c29de024d32fe08e8ce496832fa81171c8712847f396efe75ea27169a0852",
+  "artifact_id": "0b47355f-36e5-4c59-9049-c07390172694",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8768,
+  "output_tokens": 3487,
+  "cost_usd": 0.0113479,
+  "created_at": "2026-10-03T18:27:40.007703+00:00"
+}

@@ -1,0 +1,317 @@
+{
+  "descriptors": [
+    {
+      "node_id": "e0728846-6b9a-4fa7-96ff-1594cb6198c5",
+      "concept_name": "MCA21 e-Governance Project Overview",
+      "definition": "The MCA21 e-Governance Project is an initiative by the Ministry of Corporate Affairs designed to fully automate compliance and enforcement processes for stakeholders through an online portal. It provides secure electronic access for statutory filings, document inspections, and regulatory approvals.",
+      "terminology": [
+        "MCA21 e-Governance Project",
+        "e-Filing",
+        "Registrar of Companies",
+        "Digital Signature Certificate"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013",
+        "Companies Act, 1956"
+      ],
+      "inclusion": [
+        "Incorporation of new companies",
+        "Filing of Financial Statements and Annual Returns",
+        "Registration of charges",
+        "Director Identification Number services"
+      ],
+      "exclusion": [
+        "Physical offline paper submission without electronic portal routing where electronic mandate applies"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from manual filing systems by its complete automation and anywhere-anytime accessibility."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3df82499-b2f8-4420-8844-ffc360af4ccb",
+      "concept_name": "Provisions Relating to Electronic Filing and Inspection [Section 398]",
+      "definition": "Section 398 empowers the Central Government to mandate the electronic filing, delivery, and maintenance of company applications, documents, and registers. It also governs electronic inspection of records and electronic payment of statutory fees, operating without prejudice to the Information Technology Act, 2000.",
+      "terminology": [
+        "Electronic form",
+        "Authentication",
+        "Electronic maintenance",
+        "Electronic inspection"
+      ],
+      "instrument_references": [
+        "Section 398 of the Companies Act, 2013",
+        "Section 6 of the Information Technology Act, 2000"
+      ],
+      "inclusion": [
+        "Electronic submission of balance sheets, prospectuses, and returns",
+        "Electronic maintenance of registers by the Registrar",
+        "Electronic fee and charge payments"
+      ],
+      "exclusion": [
+        "Provisions specifically restricted to manual paper handling where rules do not authorize electronic forms"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general portal features by its direct statutory backing under Section 398 rule-making authority."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ed12652c-54b9-49a4-875f-2eb3c8b6b4fa",
+      "concept_name": "Registration Requirements for e-Filing",
+      "definition": "Users must register on the MCA21 portal to create a personalized login ID before conducting e-filing operations. Authorized signatories must also register their Digital Signature Certificates, repeating the process upon DSC renewal or replacement.",
+      "terminology": [
+        "Registered user",
+        "Personalised login ID",
+        "Digital Signature Certificate",
+        "Authorized signatory"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "One-time portal registration",
+        "Digital Signature Certificate registration and renewal linkage"
+      ],
+      "exclusion": [
+        "Anonymous or unregistered submissions via the portal"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from form completion and uploading steps as it serves as a mandatory security prerequisite."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "46b8d8e8-a7ac-47d0-9d78-6a3470b0c583",
+      "concept_name": "Downloading of e-Form",
+      "definition": "Users must download the latest notified PDF format e-forms along with their corresponding instruction kits directly from the MCA21 portal. It is essential to ensure that the most current form version is utilized prior to initiating data entry.",
+      "terminology": [
+        "e-Forms",
+        "PDF format",
+        "Instruction kit",
+        "Notified e-Forms"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Downloading PDF e-forms from the portal",
+        "Accessing accompanying instruction kits"
+      ],
+      "exclusion": [
+        "Using outdated form versions previously saved from older portal sessions"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from form completion steps as it represents the initial procurement of blank standardized templates."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0ebc7264-9be4-4b29-8aee-1e97f1d52a7b",
+      "concept_name": "Completion of e-Form",
+      "definition": "Users can fill out tailored e-forms either online or offline using Acrobat Reader, utilizing pre-fill and automated pre-scrutiny facilities. Supporting documents must be attached in PDF format, and all required signatories must digitally sign the document without altering its contents afterward.",
+      "terminology": [
+        "Pre-fill",
+        "Automated pre-scrutiny",
+        "Supporting documents",
+        "Digital Signature Certificate"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Online and offline form filling",
+        "Automated data pre-fill and pre-scrutiny checks",
+        "Digital signing by multiple signatories"
+      ],
+      "exclusion": [
+        "Modifying form contents after applying digital signatures, which invalidates the document"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from submission phases because completion involves data entry, validation, and signing rather than portal upload."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "aba3ead4-efe3-405a-bcab-7ca0ad30f858",
+      "concept_name": "Submission of e-Form",
+      "definition": "Completed e-forms must be uploaded at the MCA21 portal using an active internet connection through specialized portal functionalities. The system screens the uploaded form for defects and either rejects defective filings with error details or routes valid forms to payment processing.",
+      "terminology": [
+        "MCA21 portal",
+        "Defective form",
+        "System rejection",
+        "Internet connection"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Uploading forms via portal functionality",
+        "Automated system defect checking and rejection feedback"
+      ],
+      "exclusion": [
+        "Submitting forms via email attachments, which does not constitute valid e-filing"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from completion and payment stages as it focuses strictly on portal transmission and preliminary system validation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f79d4cf1-ccfa-4970-9c4a-e78c84582884",
+      "concept_name": "Making of Payment and Completion of e-Filing",
+      "definition": "Filing is completed once the system-calculated fee is remitted through electronic payment gateways or physical challan methods. Upon payment authorization, documents are electronically forwarded to the back office of the Registrar of Companies for processing.",
+      "terminology": [
+        "Fee calculation",
+        "Physical challan",
+        "Pay Later",
+        "Service Request Number"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Credit card, internet banking, and NEFT payments",
+        "Challan payments at authorized bank counters",
+        "Generation of Service Request Numbers for tracking"
+      ],
+      "exclusion": [
+        "Unconfirmed bank transactions or unpaid Pay Later filings past their validity dates"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from form upload submission because e-filing officially concludes only after successful fee remittance and bank authorization."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a6639fa9-c8f6-4556-9323-4a0de63458af",
+      "concept_name": "Extensible Business Reporting Language (XBRL)",
+      "definition": "XBRL is a standardized, open software specification language used to electronically communicate and file financial information under regulatory mandates. Managed in India by XBRL India, it enhances data reliability, accuracy, and transparency for corporate business reporting.",
+      "terminology": [
+        "Extensible Business Reporting Language",
+        "XBRL International",
+        "XBRL India",
+        "Financial information"
+      ],
+      "instrument_references": [
+        "Companies (Filing of Documents and Forms in Extensible Business Reporting Language) Rules, 2015",
+        "Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Standardized electronic reporting of financial data",
+        "Adoption and implementation support by XBRL India"
+      ],
+      "exclusion": [
+        "Non-standardized unstructured formats that lack XBRL tagging specifications"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard PDF e-forms by its specialized structured data language tailored for complex financial statements."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b145981b-6079-4fb8-bfbe-f3f3e4ef2143",
+      "concept_name": "Electronic Form Formats and Value-Added Services [Sections 400 and 401]",
+      "definition": "The Central Government may prescribe electronic forms to operate as exclusive, alternative, or supplementary options relative to physical forms under regulatory rules. Additionally, the government may provide value-added services through electronic mediums and levy prescribed fees.",
+      "terminology": [
+        "Exclusive form",
+        "Alternative form",
+        "Physical form",
+        "Value-added services"
+      ],
+      "instrument_references": [
+        "Section 400 of the Companies Act, 2013",
+        "Section 401 of the Companies Act, 2013",
+        "Section 398",
+        "Section 399"
+      ],
+      "inclusion": [
+        "Mandating electronic forms exclusively or as an alternative to physical filing",
+        "Levying fees for governmental value-added electronic services"
+      ],
+      "exclusion": [
+        "Value-added services provided outside prescribed government electronic frameworks"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from basic filing mandates by specifically governing the legal status and exclusivity of electronic versus physical formats."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a9924553-c3d8-4bc8-a381-1696860147be",
+      "concept_name": "Application of Information Technology Act, 2000 [Section 402]",
+      "definition": "Provisions of the Information Technology Act, 2000 concerning electronic records and filing formats apply to electronic records specified under Section 398, provided they are not inconsistent with company law. This ensures legal recognition and harmonization of electronic filings with general IT legal frameworks.",
+      "terminology": [
+        "Electronic records",
+        "Manner and format",
+        "Information Technology Act, 2000"
+      ],
+      "instrument_references": [
+        "Section 402 of the Companies Act, 2013",
+        "Section 398 of the Companies Act, 2013",
+        "Information Technology Act, 2000"
+      ],
+      "inclusion": [
+        "Application of IT Act standards for electronic records and formats",
+        "Harmonization with company law provisions"
+      ],
+      "exclusion": [
+        "IT Act provisions that directly conflict with specific mandates of the Companies Act"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from internal MCA portal procedures by establishing statutory legal interoperability with national IT legislation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "46f5f043-6ad1-4802-a72d-70de152b6d8f",
+      "concept_name": "Application of Information Technology Act, 2000 [Section 402 Duplicate]",
+      "definition": "Provisions of the Information Technology Act, 2000 concerning electronic records and filing formats apply to electronic records specified under Section 398, provided they are not inconsistent with company law. This ensures legal recognition and harmonization of electronic filings with general IT legal frameworks.",
+      "terminology": [
+        "Electronic records",
+        "Manner and format",
+        "Information Technology Act, 2000"
+      ],
+      "instrument_references": [
+        "Section 402 of the Companies Act, 2013",
+        "Section 398 of the Companies Act, 2013",
+        "Information Technology Act, 2000"
+      ],
+      "inclusion": [
+        "Application of IT Act standards for electronic records and formats",
+        "Harmonization with company law provisions"
+      ],
+      "exclusion": [
+        "IT Act provisions that directly conflict with specific mandates of the Companies Act"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from internal MCA portal procedures by establishing statutory legal interoperability with national IT legislation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "35bfc696-7939-4ad3-b039-6303ea0e8ae7",
+      "concept_name": "Fee for Filing, Registration, and Default Penalties [Section 403]",
+      "definition": "Section 403 mandates that company documents and information must be filed within specified timeframes upon payment of prescribed fees. Delayed filings under specific sections like Section 92 or 137 incur statutory additional daily fees, with higher charges applicable for repeat defaults.",
+      "terminology": [
+        "Prescribed fee",
+        "Additional fee",
+        "Default",
+        "Officers in default"
+      ],
+      "instrument_references": [
+        "Section 403 of the Companies Act, 2013",
+        "Section 92 of the Companies Act, 2013",
+        "Section 137 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Timely submission of documents upon fee payment",
+        "Additional daily fee penalties for delayed annual returns and financial statements",
+        "Higher additional fees for multiple filing defaults"
+      ],
+      "exclusion": [
+        "Filings completed strictly within original statutory deadlines without delay"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard portal service fees by imposing punitive daily additional fees specifically for statutory filing delays."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "e28e8724b22a01c9834b7e6091fd83ae9da5a38017472d28547746a618b48cd8",
+  "artifact_id": "3377d24a-bfd4-4da2-9142-bc9f7bb49cb9",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 9646,
+  "output_tokens": 3643,
+  "cost_usd": 0.0120013,
+  "created_at": "2026-10-03T18:24:49.999127+00:00"
+}

@@ -1,0 +1,300 @@
+{
+  "descriptors": [
+    {
+      "node_id": "4f4b0079-0ad0-4530-84b7-b42d14b44be1",
+      "concept_name": "Investment Valuation Fundamentals",
+      "definition": "Investment involves committing funds to obtain returns that compensate for time, inflation, and risk over a specific horizon. Estimating intrinsic value by analyzing future cash flows and market prices is essential for intelligent portfolio choices, business takeovers, and corporate financial decisions.",
+      "terminology": [
+        "Investment Horizon",
+        "Intrinsic Value",
+        "Investment Returns",
+        "Market Price"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Estimation of asset intrinsic value",
+        "Evaluation of future cash flows and market prices"
+      ],
+      "exclusion": [
+        "Non-financial personal expenditures",
+        "Sunk costs without future cash flows"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from market price, which represents the current trading value rather than the fundamental estimated worth."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "005a0391-55f0-4602-98a5-8003b8fa5116",
+      "concept_name": "Return Concepts",
+      "definition": "Sound investment decisions rely on the accurate evaluation of return metrics including the minimum required rate of return, discount rates, and internal rates of return. These return concepts determine present values and asset worth under varying risk and maturity structures.",
+      "terminology": [
+        "Required Rate of Return",
+        "Discount Rate",
+        "Internal Rate of Return",
+        "Term Structure of Interest Rates"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Required rate of return computations",
+        "Discount rate applications",
+        "Internal rate of return evaluations"
+      ],
+      "exclusion": [
+        "Accounting profit computations",
+        "Historical cost accounting"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes required returns from realized historical returns."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c25a5ec6-aeba-4825-bef5-c10aa352b429",
+      "concept_name": "Required Rate of Return",
+      "definition": "The required rate of return is the minimum return an investor expects from an asset over a specified period, functioning as an opportunity cost or cost of capital. It represents the highest expected return forgone from alternative investments carrying similar risk levels.",
+      "terminology": [
+        "Opportunity Cost",
+        "Cost of Capital",
+        "Minimum Rate of Return",
+        "Expected Return"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Minimum expected percentage return",
+        "Alternative investment opportunity costs"
+      ],
+      "exclusion": [
+        "Actual realized return below expectations",
+        "Risk-free rate without adjustments"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from internal rate of return, which equates future cash flows to market price rather than reflecting investor minimum hurdles."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "cef1e6b0-f433-44cd-8531-a1aab2863e41",
+      "concept_name": "Discount Rate",
+      "definition": "The discount rate is the rate utilized to calculate the present value of future cash flows based on the risk-free rate and investment risk premium. Variations in maturity, inflation, and default probabilities cause discount rates to vary across different cash flow streams.",
+      "terminology": [
+        "Present Value",
+        "Risk-Free Rate",
+        "Risk Premium",
+        "Term Structure"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Present value calculations",
+        "Risk premium adjustments"
+      ],
+      "exclusion": [
+        "Undiscounted nominal cash totals",
+        "Accounting depreciation rates"
+      ],
+      "nearby_distinctions": [
+        "Differs from required rate of return by functioning specifically as a mathematical discounting mechanism for cash flows."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "07180a12-17bf-4d6f-b409-475f1ccbd51d",
+      "concept_name": "Internal Rate of Return",
+      "definition": "Internal rate of return is the specific discount rate that equates the present value of a security's future cash flows to its market price. It measures the average annual return earned over the investment period under the assumption that cash flows are reinvested at that same rate.",
+      "terminology": [
+        "IRR",
+        "Reinvestment Rate",
+        "Market Price Equivalence",
+        "Average Annual Return"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Equating present value of inflows to initial outlay",
+        "Reinvestment assumption evaluations"
+      ],
+      "exclusion": [
+        "Required rate of return thresholds set by external markets",
+        "Nominal coupon yields"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from discount rate because IRR is solved internally from market price rather than being an externally imposed benchmark."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "faea1713-cf43-4d80-a205-3475463002f1",
+      "concept_name": "Equity Risk Premium",
+      "definition": "Equity risk premium represents the excess return expected from equity investments over a risk-free rate to compensate for higher equity risks. It is a theoretical concept estimated by observing historical performance across stock markets and government bonds.",
+      "terminology": [
+        "Excess Return",
+        "Risk-Free Rate",
+        "Risk-Reward Trade-Off",
+        "Market Risk"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Excess return over government bonds",
+        "Historical observation models"
+      ],
+      "exclusion": [
+        "Fixed income yields",
+        "Guaranteed sovereign returns"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from market risk premium when analyzing individual stock betas rather than broad market indexes."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3766e881-e662-4bd3-a6c3-84924fe283e7",
+      "concept_name": "Explanation of Equity Risk Premium",
+      "definition": "Equity risk premium compensates investors for bearing high systematic risks associated with company shares over risk-free benchmarks like government bonds. Utilizing capital asset pricing principles, it scales with stock beta and market risk premiums.",
+      "terminology": [
+        "Systematic Risk",
+        "Beta",
+        "Market Risk Premium",
+        "Government Bonds"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Incremental yield over risk-free assets",
+        "Systematic risk scaling via beta"
+      ],
+      "exclusion": [
+        "Unsystematic or diversifiable risks",
+        "Risk-free bond returns"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from total expected return by isolating only the risk premium component above the risk-free rate."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "494f5699-42a9-4199-8bb2-bc6c771ecd9d",
+      "concept_name": "Calculating the Equity Risk Premium",
+      "definition": "The equity risk premium is calculated using the Capital Asset Pricing Model by multiplying the stock beta by the market risk premium. This metric establishes the required compensation for holding specific equity securities relative to risk-free assets.",
+      "terminology": [
+        "Capital Asset Pricing Model",
+        "Beta",
+        "Market Risk Premium",
+        "Expected Return"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "CAPM formula applications",
+        "Beta coefficient evaluations"
+      ],
+      "exclusion": [
+        "Historical dividend-only payout models",
+        "Accounting earnings yields"
+      ],
+      "nearby_distinctions": [
+        "Differs from general market risk premium by incorporating the specific stock beta coefficient."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4842e1e5-7ff7-4feb-956e-872e6bd419e3",
+      "concept_name": "REQUIRED RETURN ON EQUITY",
+      "definition": "The required return on equity is computed using the Capital Asset Pricing Model by adding the risk-free rate to the product of beta and the market risk premium. Investors evaluate asset risk based on its contribution to the systematic risk of their diversified portfolio.",
+      "terminology": [
+        "Capital Asset Pricing Model",
+        "Systematic Risk",
+        "Portfolio Diversification",
+        "Risk Free Return"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "CAPM-based equity return computations",
+        "Systematic risk assessments"
+      ],
+      "exclusion": [
+        "Diversifiable company-specific risks",
+        "Debt claim interest rates"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from weighted average cost of capital because it exclusively targets equity providers rather than all capital providers."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "54fe1f2d-c5e4-4893-a6e8-305bd215780b",
+      "concept_name": "DISCOUNT RATE SELECTION IN RELATION TO CASH FLOWS",
+      "definition": "Discount rate selection depends on whether cash flows target equity shareholders alone or all corporate stakeholders. Equity cash flows require the cost of equity, whereas total stakeholder cash flows utilize the weighted average cost of capital.",
+      "terminology": [
+        "Cost of Capital",
+        "Equity Shareholders",
+        "Stakeholder Claims",
+        "Discount Rate Selection"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Matching discount rates to cash flow availability",
+        "Cost of equity application for equity cash flows"
+      ],
+      "exclusion": [
+        "Applying WACC to equity-only cash flows",
+        "Using borrowing rates for equity valuations"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between cash flows reserved strictly for equity owners versus cash flows servicing all capital providers."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "de1e1e48-e5c7-40e1-b172-31c362f5b516",
+      "concept_name": "Concept of Nominal Cash Flow and Real Cash Flow",
+      "definition": "Nominal cash flows project future revenues and expenses without adjusting for inflation, whereas real cash flows explicitly adjust for changes in purchasing power. Under high inflation, nominal cash flows exceed real cash flows significantly.",
+      "terminology": [
+        "Nominal Cash Flow",
+        "Real Cash Flow",
+        "Inflation Adjustment",
+        "Purchasing Power"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Unadjusted inflation projections",
+        "Inflation-adjusted cash forecasting"
+      ],
+      "exclusion": [
+        "Constant-dollar adjustments applied to nominal tax frameworks",
+        "Discount rate selection parameters"
+      ],
+      "nearby_distinctions": [
+        "Distinguished by whether adjustments are made to account for the eroding effects of inflation on monetary value."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "38c57925-d8cb-4e7e-9556-cdd1f23bf4d3",
+      "concept_name": "Discount rate selection in Equity Valuation",
+      "definition": "Equity valuations exclusively utilize nominal cash flows and nominal discount rates because corporate earnings taxes are stated in nominal terms. Using nominal metrics ensures that corporate taxes and equity cash flows are reflected with complete accuracy.",
+      "terminology": [
+        "Nominal Discount Rate",
+        "Nominal Cash Flow",
+        "Corporate Earnings Tax",
+        "Equity Valuation"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Nominal cash flow valuation approaches",
+        "Nominal after-tax WACC applications"
+      ],
+      "exclusion": [
+        "Real cash flow discounting for equity",
+        "Pre-tax weighted average return rates"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from real cash flow valuation by enforcing nominal metrics to maintain tax calculation alignment."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "06a0146e6938523fdd1bd86dadb395aba33ddc25f158fbdd30057252e70e5007",
+  "artifact_id": "4d109d7a-fd35-43ed-877a-d0a02ff5822e",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8954,
+  "output_tokens": 3088,
+  "cost_usd": 0.0104062,
+  "created_at": "2026-10-03T18:06:40.292007+00:00"
+}

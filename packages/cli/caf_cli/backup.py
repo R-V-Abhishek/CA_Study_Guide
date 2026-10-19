@@ -21,8 +21,8 @@ def cmd_run(
         None, "--target-dir", "-t", help="Secondary sync target (e.g. external volume / cloud sync folder)"
     ),
 ) -> None:
-    """Create a full database dump, sync blobs and configs, and enforce retention."""
-    session_factory = get_session_factory()
+    """Create a unique recovery artifact with a snapshot manifest and archived files."""
+    session_factory = get_session_factory("operations")
     with session_factory() as session:
         console.print("[bold cyan]Starting full system backup...[/bold cyan]")
         try:
@@ -41,7 +41,8 @@ def cmd_run(
             table.add_row("Blobs Synced", str(manifest.blobs_copied))
             table.add_row("Configs Archived", str(manifest.configs_copied))
             table.add_row("Created At", manifest.created_at.strftime("%Y-%m-%d %H:%M:%S UTC"))
-            table.add_row("Retention Policy", "14 daily + 8 weekly preserved")
+            table.add_row("Manifest", str(manifest.manifest_file))
+            table.add_row("Retention Policy", "Existing backups preserved; no automatic rotation")
 
             console.print(table)
             console.print("[bold green]✓ Nightly backup manifest recorded in ops.event (code=BACKUP_OK).[/bold green]")
@@ -59,8 +60,8 @@ def cmd_verify(
         "caf_verify", "--scratch-db", help="Name of temporary scratch database"
     ),
 ) -> None:
-    """Monthly restore drill: restore dump into scratch DB and verify row counts across critical tables."""
-    session_factory = get_session_factory()
+    """Restore in a disposable container and compare content/files to the manifest."""
+    session_factory = get_session_factory("operations")
     with session_factory() as session:
         console.print("[bold cyan]Running monthly backup verification drill...[/bold cyan]")
         try:
@@ -73,7 +74,7 @@ def cmd_verify(
             status_color = "bold green" if res.verified else "bold red"
             table = Table(title=f"Backup Verification Report: {res.dump_file.name}", show_header=True)
             table.add_column("Table", style="cyan")
-            table.add_column("Live Count", justify="right")
+            table.add_column("Manifest Count", justify="right")
             table.add_column("Restored Count", justify="right")
             table.add_column("Status", justify="center")
 
@@ -91,6 +92,7 @@ def cmd_verify(
             console.print(table)
             console.print(f"\nVerification Result: [{status_color}]{'PASSED' if res.verified else 'FAILED'}[/{status_color}]")
             console.print(f"[dim]{res.message}[/dim]")
+            console.print(f"Report: {res.report_file}")
 
             if not res.verified:
                 raise typer.Exit(code=1)

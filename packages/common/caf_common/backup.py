@@ -1,36 +1,58 @@
-"""Backup, verification, and rotation engine for the CA Final study companion."""
+"""Snapshot-consistent recovery artifacts and independent PostgreSQL restore drills."""
 
-from dataclasses import dataclass
+from dataclasses import asdict, dataclass
 from datetime import datetime, timezone
-import logging
+import hashlib
+import json
 import os
 from pathlib import Path
 import re
 import shutil
 import subprocess
 from typing import Any
-from urllib.parse import urlparse
-import sqlalchemy as sa
-from sqlalchemy.orm import Session
+from uuid import uuid4
 
+import sqlalchemy as sa
+from sqlalchemy.engine import make_url
+from sqlalchemy.orm import Session
+from caf_common.db_safety import assert_safe_database, assert_safe_storage
+from caf_common.postgres_sandbox import PostgresSandbox
 from caf_common.settings import get_settings
 from caf_db.models.ops import Event
+from caf_db.schema_baseline import schema_snapshot, compare_schema_snapshots, migrated_schema_snapshot
 
-logger = logging.getLogger(__name__)
-
-# Tables whose row counts must match during verify drills
 CRITICAL_TABLES = [
-    "app.user_account",
-    "app.settings",
-    "app.progress",
-    "app.progress_event",
-    "app.revision_event",
-    "app.mock_test",
-    "core.decision",
-    "core.appearance",
-    "core.appearance_tag",
-    "core.change_log",
+    "app.user_account", "app.settings", "app.progress", "app.progress_event",
+    "app.note", "app.study_session", "app.revision_event", "app.mock_test",
+    "core.decision", "core.appearance", "core.appearance_tag", "core.change_log",
 ]
+SCHEMAS = ["app", "core", "ref", "ingest", "intel", "ops"]
+
+
+def critical_tables(revision: str) -> set[str]:
+    tables = set(CRITICAL_TABLES)
+    if revision not in {"0001_initial_schema", "0002_score_config_snapshot"}:
+        tables.update({"app.invitation", "app.login_transaction", "app.auth_session"})
+    if revision not in {"0001_initial_schema", "0002_score_config_snapshot", "0003_identity"}:
+        tables.update({"ref.taxonomy_release", "ref.taxonomy_member", "ref.textbook_artifact",
+                       "ref.node_source_span", "ref.descriptor_revision", "ref.descriptor_approval",
+                       "ref.taxonomy_crosswalk", "app.progress_migration"})
+    if revision not in {"0001_initial_schema", "0002_score_config_snapshot", "0003_identity", "0004_textbook_taxonomy"}:
+        tables.update({"ingest.extraction_revision", "ingest.content_block", "ingest.extraction_asset",
+                       "ingest.document_pair", "ingest.extraction_review", "ingest.reconciliation_link"})
+    if revision not in {"0001_initial_schema", "0002_score_config_snapshot", "0003_identity",
+                        "0004_textbook_taxonomy", "0005_extraction_revisions"}:
+        tables.update({"ingest.suggestion_revision", "core.classification_revision",
+                       "core.classification_event", "core.classification_verification",
+                       "core.classification_dispute", "core.question_publication"})
+    if revision in {"0007_question_reader", "0008_baseline_adoption", "0009_question_language"}:
+        tables.update({"core.published_question", "core.published_source", "core.question_occurrence",
+                       "core.corpus_generation", "intel.attempt_taxonomy_binding",
+                       "intel.corpus_coverage", "intel.reviewed_prior", "intel.recompute_job",
+                       "intel.score_run", "intel.subtopic_score"})
+    if revision in {"0008_baseline_adoption", "0009_question_language"}:
+        tables.update({'ref.candidate_catalog','core.baseline_adoption'})
+    return tables
 
 
 @dataclass
@@ -41,395 +63,324 @@ class BackupManifest:
     configs_copied: int
     created_at: datetime
     backup_dir: Path
+    manifest_file: Path
 
 
 @dataclass
 class VerificationResult:
     verified: bool
     dump_file: Path
-    live_counts: dict[str, int]
+    live_counts: dict[str, int]  # Compatibility name: captured manifest counts.
     restored_counts: dict[str, int]
     mismatches: list[str]
     message: str
+    report_file: Path
 
 
-def _parse_db_conn_params(db_url: str | None = None) -> dict[str, Any]:
-    """Parse connection parameters from settings or URL string."""
-    if not db_url:
-        settings = get_settings()
-        db_url = settings.DATABASE_URL or settings.database.url
-
-    # Strip dialect prefix if any (e.g. postgresql+psycopg:// -> postgresql://)
-    if "+" in db_url.split("://")[0]:
-        dialect = db_url.split("://")[0].split("+")[0]
-        rest = db_url.split("://", 1)[1]
-        db_url = f"{dialect}://{rest}"
-
-    parsed = urlparse(db_url)
-    return {
-        "host": parsed.hostname or "127.0.0.1",
-        "port": str(parsed.port or 5432),
-        "user": parsed.username or "postgres",
-        "password": parsed.password or "",
-        "database": (parsed.path.lstrip("/") if parsed.path else "caf"),
-    }
+def _database_url(db_url=None):
+    from caf_db.engine import database_url
+    url = make_url(db_url) if db_url else database_url("backup")
+    assert_safe_database(url)
+    return url
 
 
-def rotate_backups(
-    backup_dir: Path | str,
-    max_daily: int = 14,
-    max_weekly: int = 8,
-) -> list[Path]:
-    """Retain up to max_daily daily backups and max_weekly weekly backups; prune older.
-    
-    Returns list of deleted dump file paths.
-    """
-    b_dir = Path(backup_dir)
-    if not b_dir.exists():
-        return []
-
-    dump_files = sorted(
-        [p for p in b_dir.glob("caf_*.dump") if p.is_file()],
-        key=lambda p: p.stat().st_mtime,
-        reverse=True,
-    )
-
-    if not dump_files:
-        return []
-
-    # Map each dump to a calendar date YYYY-MM-DD and calendar week YYYY-WW
-    daily_kept: dict[str, Path] = {}
-    weekly_kept: dict[str, Path] = {}
-    keep_set: set[Path] = set()
-
-    for p in dump_files:
-        dt = datetime.fromtimestamp(p.stat().st_mtime, tz=timezone.utc)
-        day_key = dt.strftime("%Y-%m-%d")
-        week_key = dt.strftime("%Y-%W")
-
-        # Keep latest dump for each day up to max_daily days
-        if len(daily_kept) < max_daily and day_key not in daily_kept:
-            daily_kept[day_key] = p
-            keep_set.add(p)
-
-        # Keep latest dump for each week up to max_weekly weeks
-        if len(weekly_kept) < max_weekly and week_key not in weekly_kept:
-            weekly_kept[week_key] = p
-            keep_set.add(p)
-
-    deleted = []
-    for p in dump_files:
-        if p not in keep_set:
-            try:
-                p.unlink()
-                deleted.append(p)
-                logger.info(f"Rotated stale backup: {p}")
-            except Exception as e:
-                logger.warning(f"Failed to delete stale backup {p}: {e}")
-
-    return deleted
+def _parse_db_conn_params(db_url=None) -> dict[str, Any]:
+    url = _database_url(db_url)
+    return {"host": url.host, "port": str(url.port or 5432), "user": url.username,
+            "password": url.password or "", "database": url.database}
 
 
-def create_backup(
-    session: Session | None = None,
-    backup_dir: Path | str | None = None,
-    blob_dir: Path | str | None = None,
-    target_dir: Path | str | None = None,
-    db_url: str | None = None,
-) -> BackupManifest:
-    """Execute nightly backup: pg_dump, blob sync, config archive, and rotation.
-    
-    1. pg_dump -Fc -d caf -f data/backups/caf_<ts>.dump
-    2. sync data/blobs/ to backup target
-    3. Copy taxonomy/, config/, overrides/
-    4. Rotate backups (keep 14 daily and 8 weekly)
-    5. Write ops.event code=BACKUP_OK
+def _pg_command(binary, url, arguments):
+    assert_safe_database(url)
+    # Do not inherit libpq services or alternate destinations from the shell.
+    env = {k: v for k, v in os.environ.items() if not k.startswith("PG")}
+    env["PGPASSWORD"] = url.password or ""
+    command = [binary, "-h", url.host, "-p", str(url.port or 5432),
+               "-U", url.username, "-d", url.database, *arguments]
+    try:
+        return subprocess.run(command, env=env, check=True, capture_output=True, text=True)
+    except subprocess.CalledProcessError as exc:
+        raise RuntimeError(f"{binary} failed ({exc.returncode}): {exc.stderr.strip()}") from exc
+
+
+def file_checksum(path: Path) -> str:
+    with path.open("rb") as stream:
+        return hashlib.file_digest(stream, "sha256").hexdigest()
+
+
+def database_content(connection, schemas=SCHEMAS) -> dict[str, dict[str, Any]]:
+    """Canonical PostgreSQL JSON rows in UTC, C-sorted, including duplicates."""
+    # timestamptz JSON follows session TimeZone. Normalize presentation before
+    # hashing so an Asia/Kolkata source and UTC restore describe identical bytes.
+    connection.execute(sa.text("SET LOCAL TIME ZONE 'UTC'"))
+    tables = connection.execute(sa.text("""
+        SELECT schemaname, tablename FROM pg_tables
+        WHERE schemaname = ANY(:schemas) ORDER BY schemaname, tablename
+    """), {"schemas": list(schemas)}).all()
+    result = {}
+    quote = connection.dialect.identifier_preparer.quote
+    for schema, name in tables:
+        digest = hashlib.sha256()
+        count = 0
+        rows = connection.execute(sa.text(
+            f'SELECT to_jsonb(t)::text FROM {quote(schema)}.{quote(name)} t '
+            'ORDER BY to_jsonb(t)::text COLLATE "C"'
+        ))
+        for row in rows:
+            digest.update(row[0].encode("utf-8") + b"\n")
+            count += 1
+        result[f"{schema}.{name}"] = {"count": count, "sha256": digest.hexdigest()}
+    return result
+
+
+def _write_json(path, data):
+    path.write_text(json.dumps(data, indent=2, sort_keys=True, default=str) + "\n")
+
+
+def _archive_tree(source: Path, destination: Path, root: Path) -> dict[str, str]:
+    files = {}
+    if not source.is_dir():
+        raise FileNotFoundError(f"Required archive directory missing: {source}")
+    for path in sorted(source.rglob("*")):
+        if path.is_symlink():
+            raise ValueError(f"Archive symlink requires explicit resolution: {path}")
+        if not path.is_file():
+            continue
+        if path.name.startswith(".env") or path.suffix in {".key", ".pem"}:
+            continue
+        target = destination / path.relative_to(source)
+        target.parent.mkdir(parents=True, exist_ok=True)
+        if path.suffix in {".toml", ".yaml", ".yml", ".json"}:
+            content = re.sub(
+                r'(?im)^(\s*[\w-]*(?:password|secret|api_key|token)[\w-]*\s*[=:]\s*).+$',
+                r'\1"[REDACTED]"', path.read_text(),
+            )
+            target.write_text(content)
+        else:
+            shutil.copy2(path, target)
+        files[target.relative_to(root).as_posix()] = file_checksum(target)
+    return files
+
+
+def _record_event(session, code, message, context, verified=True):
+    if session is not None:
+        session.add(Event(level="info" if verified else "alarm", code=code,
+                          message=message, context=context))
+        session.commit()
+
+
+def create_backup(session: Session | None = None, backup_dir=None, blob_dir=None,
+                  target_dir=None, db_url=None) -> BackupManifest:
+    """Capture dump and manifest from one exported read-only snapshot; never rotate.
+
+    Optional secondary copies contain the entire unique recovery artifact.
     """
     settings = get_settings()
-    b_dir = Path(backup_dir) if backup_dir else Path(settings.storage.backup_dir)
-    b_dir.mkdir(parents=True, exist_ok=True)
-
-    b_blobs = Path(blob_dir) if blob_dir else Path(settings.storage.blob_dir)
-
+    url = _database_url(db_url)
+    base = Path(backup_dir or settings.storage.backup_dir)
+    assert_safe_storage(base)
+    assert_safe_storage(Path(blob_dir or settings.storage.blob_dir))
+    if target_dir:
+        assert_safe_storage(Path(target_dir))
+    base.mkdir(parents=True, exist_ok=True)
     now = datetime.now(timezone.utc)
-    ts_str = now.strftime("%Y%m%d_%H%M%S")
-    dump_filename = f"caf_{ts_str}.dump"
-    dump_path = b_dir / dump_filename
-
-    # 1. Run pg_dump
-    conn_params = _parse_db_conn_params(db_url)
-    env = os.environ.copy()
-    if conn_params["password"]:
-        env["PGPASSWORD"] = conn_params["password"]
-
-    pg_dump_cmd = [
-        "pg_dump",
-        "-h", conn_params["host"],
-        "-p", conn_params["port"],
-        "-U", conn_params["user"],
-        "-Fc",
-        "-d", conn_params["database"],
-        "-f", str(dump_path),
-    ]
-
+    identifier = f"caf_{now:%Y%m%d_%H%M%S_%f}_{uuid4().hex[:8]}"
+    root = base / identifier
+    root.mkdir()
+    dump_path = root / f"{identifier}.dump"
+    manifest_path = root / "manifest.json"
+    engine = sa.create_engine(url, isolation_level="REPEATABLE READ")
     try:
-        res = subprocess.run(
-            pg_dump_cmd,
-            env=env,
-            check=True,
-            capture_output=True,
-            text=True,
-        )
-    except FileNotFoundError:
-        # Check /opt/homebrew/bin or /usr/local/bin
-        alt_dump = "/opt/homebrew/bin/pg_dump" if Path("/opt/homebrew/bin/pg_dump").exists() else "/usr/local/bin/pg_dump"
-        pg_dump_cmd[0] = alt_dump
-        res = subprocess.run(
-            pg_dump_cmd,
-            env=env,
-            check=True,
-            capture_output=True,
-            text=True,
-        )
-
-    dump_size = dump_path.stat().st_size
-
-    # 2. Sync blobs
-    blobs_copied = 0
-    blobs_backup_target = (Path(target_dir) / "blobs") if target_dir else (b_dir / "blobs")
-    blobs_backup_target.mkdir(parents=True, exist_ok=True)
-    if b_blobs.exists():
-        for f in b_blobs.rglob("*"):
-            if f.is_file():
-                rel_path = f.relative_to(b_blobs)
-                dest = blobs_backup_target / rel_path
-                dest.parent.mkdir(parents=True, exist_ok=True)
-                if not dest.exists() or dest.stat().st_size != f.stat().st_size:
-                    shutil.copy2(f, dest)
-                    blobs_copied += 1
-
-    # 3. Copy config directories (taxonomy, config, overrides)
-    configs_copied = 0
-    configs_target = b_dir / "configs"
-    configs_target.mkdir(parents=True, exist_ok=True)
-    for cfg_folder_name in ["taxonomy", "config", "overrides", "profiles"]:
-        src = Path(cfg_folder_name)
-        if src.exists() and src.is_dir():
-            dest = configs_target / cfg_folder_name
-            shutil.copytree(src, dest, dirs_exist_ok=True)
-            configs_copied += sum(1 for p in src.rglob("*") if p.is_file())
-
-    # 4. Rotation: keep 14 daily, 8 weekly
-    rotate_backups(b_dir, max_daily=14, max_weekly=8)
-
-    manifest = BackupManifest(
-        dump_file=dump_path,
-        dump_size_bytes=dump_size,
-        blobs_copied=blobs_copied,
-        configs_copied=configs_copied,
-        created_at=now,
-        backup_dir=b_dir,
-    )
-
-    # 5. Record ops.event if session provided
-    if session:
-        try:
-            event = Event(
-                level="info",
-                code="BACKUP_OK",
-                message=f"Backup completed: {dump_filename} ({dump_size} bytes)",
-                context={
-                    "dump_file": str(dump_path),
-                    "dump_size_bytes": dump_size,
-                    "blobs_copied": blobs_copied,
-                    "configs_copied": configs_copied,
-                    "created_at": now.isoformat(),
-                },
-            )
-            session.add(event)
-            session.commit()
-        except Exception as e:
-            logger.warning(f"Could not record ops.event for backup: {e}")
-
-    logger.info(f"Backup created: {dump_path} ({dump_size} bytes)")
+        with engine.connect() as connection, connection.begin():
+            connection.execute(sa.text("SET TRANSACTION READ ONLY"))
+            snapshot = connection.execute(sa.text("SELECT pg_export_snapshot()")).scalar_one()
+            revision = connection.execute(sa.text("SELECT version_num FROM ops.alembic_version")).scalar_one()
+            tables = database_content(connection)
+            missing = sorted(critical_tables(revision) - tables.keys())
+            if missing:
+                raise RuntimeError(f"Protected tables missing: {missing}")
+            schema = schema_snapshot(connection)
+            _pg_command("pg_dump", url, ["--format=custom", f"--snapshot={snapshot}",
+                                         "--file", str(dump_path)])
+    finally:
+        engine.dispose()
+    files = _archive_tree(Path(blob_dir or settings.storage.blob_dir), root / "blobs", root)
+    blobs_copied = len(files)
+    for directory in ("taxonomy", "config", "profiles", "overrides"):
+        files.update(_archive_tree(Path(directory), root / "configs" / directory, root))
+    data = {"format_version": 1, "created_at": now.isoformat(), "database_revision": revision,
+            "dump_file": dump_path.name, "dump_sha256": file_checksum(dump_path),
+            "tables": tables, "schema": schema, "files": files,
+            "digest_format": "PostgreSQL16 to_jsonb text, UTC timezone, C-sort, UTF-8 newline per row",
+            "secrets": "Credential keys redacted; .env, .key and .pem files excluded"}
+    _write_json(manifest_path, data)
+    if target_dir:
+        shutil.copytree(root, Path(target_dir) / identifier)
+    manifest = BackupManifest(dump_path, dump_path.stat().st_size, blobs_copied,
+                              len(files) - blobs_copied, now, root, manifest_path)
+    _record_event(session, "BACKUP_OK", f"Backup completed: {dump_path.name}",
+                  {"dump_file": str(dump_path), "manifest_file": str(manifest_path)})
     return manifest
 
 
-def verify_backup(
-    session: Session,
-    dump_file: Path | str | None = None,
-    scratch_db_name: str = "caf_verify",
-    db_url: str | None = None,
-) -> VerificationResult:
-    """Verify backup by restoring into a scratch database and checking critical table row counts."""
-    settings = get_settings()
-    b_dir = Path(settings.storage.backup_dir)
-
-    if dump_file is None:
-        dumps = sorted(
-            [p for p in b_dir.glob("caf_*.dump") if p.is_file()],
-            key=lambda p: p.stat().st_mtime,
-            reverse=True,
-        )
-        if not dumps:
-            raise FileNotFoundError(f"No backup dumps found in {b_dir} to verify")
-        dump_path = dumps[0]
-    else:
-        dump_path = Path(dump_file)
-        if not dump_path.exists():
-            raise FileNotFoundError(f"Backup dump not found: {dump_path}")
-
-    # 1. Fetch live row counts for critical tables
-    live_counts: dict[str, int] = {}
-    for table_name in CRITICAL_TABLES:
-        try:
-            cnt = session.execute(sa.text(f"SELECT COUNT(*) FROM {table_name};")).scalar() or 0
-            live_counts[table_name] = cnt
-        except Exception:
-            live_counts[table_name] = 0
-
-    # 2. Connect to postgres admin and prepare scratch database
-    conn_params = _parse_db_conn_params(db_url)
-    env = os.environ.copy()
-    if conn_params["password"]:
-        env["PGPASSWORD"] = conn_params["password"]
-
-    admin_url = (
-        f"postgresql+psycopg://{conn_params['user']}:{conn_params['password']}@"
-        f"{conn_params['host']}:{conn_params['port']}/postgres"
-    )
-    admin_engine = sa.create_engine(admin_url, isolation_level="AUTOCOMMIT")
-
-    restored_counts: dict[str, int] = {}
-    mismatches: list[str] = []
-    verified = False
-    message = ""
-
+def _check_scratch_destination(url, name):
+    if not re.fullmatch(r"caf_verify(?:_[a-zA-Z0-9_]+)?", name):
+        raise ValueError("Unsafe scratch destination: use caf_verify or caf_verify_<suffix>")
+    if name in {url.database, "postgres", "template0", "template1"}:
+        raise ValueError("Scratch destination cannot be an application/system database")
+    admin_url = url.set(database="postgres")
+    assert_safe_database(admin_url)
+    admin = sa.create_engine(admin_url)
     try:
-        with admin_engine.connect() as admin_conn:
-            # Drop scratch if exists
-            admin_conn.execute(sa.text(f"DROP DATABASE IF EXISTS {scratch_db_name} WITH (FORCE);"))
-            # Create scratch
-            admin_conn.execute(sa.text(f"CREATE DATABASE {scratch_db_name};"))
-
-        # 3. Restore dump into scratch DB using pg_restore
-        pg_restore_bin = "pg_restore"
-        if not shutil.which(pg_restore_bin):
-            alt_res = "/opt/homebrew/bin/pg_restore" if Path("/opt/homebrew/bin/pg_restore").exists() else "/usr/local/bin/pg_restore"
-            if Path(alt_res).exists():
-                pg_restore_bin = alt_res
-
-        restore_cmd = [
-            pg_restore_bin,
-            "-h", conn_params["host"],
-            "-p", conn_params["port"],
-            "-U", conn_params["user"],
-            "-d", scratch_db_name,
-            "-Fc",
-            "--no-owner",
-            str(dump_path),
-        ]
-
-        # pg_restore may return 1 if minor warnings occurred during restore
-        subprocess.run(
-            restore_cmd,
-            env=env,
-            capture_output=True,
-            check=False,
-        )
-
-        # 4. Connect to scratch DB and count rows
-        scratch_url = (
-            f"postgresql+psycopg://{conn_params['user']}:{conn_params['password']}@"
-            f"{conn_params['host']}:{conn_params['port']}/{scratch_db_name}"
-        )
-        scratch_engine = sa.create_engine(scratch_url)
-
-        with scratch_engine.connect() as scratch_conn:
-            for table_name in CRITICAL_TABLES:
-                try:
-                    cnt = scratch_conn.execute(sa.text(f"SELECT COUNT(*) FROM {table_name};")).scalar() or 0
-                    restored_counts[table_name] = cnt
-                except Exception:
-                    restored_counts[table_name] = 0
-
-                if live_counts[table_name] != restored_counts[table_name]:
-                    mismatches.append(
-                        f"{table_name}: live={live_counts[table_name]} vs restored={restored_counts[table_name]}"
-                    )
-
-        scratch_engine.dispose()
-
-        if not mismatches:
-            verified = True
-            message = f"Backup verification succeeded: all {len(CRITICAL_TABLES)} critical tables match."
-        else:
-            verified = False
-            message = f"Backup verification mismatch: {len(mismatches)} table(s) differ: {', '.join(mismatches)}"
-
+        with admin.connect() as conn:
+            if conn.execute(sa.text("SELECT 1 FROM pg_database WHERE datname = :name"),
+                            {"name": name}).scalar():
+                raise ValueError("Existing scratch database preserved; choose a new destination")
     finally:
-        # 5. Clean up scratch DB
-        try:
-            with admin_engine.connect() as admin_conn:
-                admin_conn.execute(sa.text(f"DROP DATABASE IF EXISTS {scratch_db_name} WITH (FORCE);"))
-            admin_engine.dispose()
-        except Exception as e:
-            logger.warning(f"Could not drop scratch DB {scratch_db_name}: {e}")
+        admin.dispose()
 
-    # 6. Record ops.event
+
+def _validate_archived_files(root, manifest):
+    expected = manifest["files"]
+    actual = {path.relative_to(root).as_posix() for directory in ("blobs", "configs")
+              for path in (root / directory).rglob("*") if path.is_file()}
+    if actual != expected.keys():
+        raise ValueError("Archived file inventory mismatch (missing or unexpected files)")
+    for relative, checksum in expected.items():
+        path = root / relative
+        if path.is_symlink() or not path.resolve().is_relative_to(root.resolve()):
+            raise ValueError("Unsafe archived file path")
+        if file_checksum(path) != checksum:
+            raise ValueError(f"Archived file checksum mismatch: {relative}")
+
+
+def verify_backup(session: Session | None = None, dump_file=None, scratch_db_name="caf_verify",
+                  db_url=None) -> VerificationResult:
+    """Restore in a separate disposable container and compare to captured values."""
+    url = _database_url(db_url)
+    _check_scratch_destination(url, scratch_db_name)
+    if dump_file is None:
+        backups = list_backups()
+        if not backups:
+            raise FileNotFoundError("No backup dumps found")
+        dump_file = backups[0]["path"]
+    dump_path = Path(dump_file)
+    assert_safe_storage(dump_path)
+    if not dump_path.is_file():
+        raise FileNotFoundError(f"Backup dump not found: {dump_path}")
+    root = dump_path.parent
+    report_path = root / f"verification_{uuid4().hex}.json"
+    expected_counts = {}
+    restored_counts = {}
+    mismatches = []
+    manifest_path = root / "manifest.json"
+    restored_schema = None
+    baseline_drift = None
     try:
-        event = Event(
-            level="info" if verified else "alarm",
-            code="BACKUP_VERIFIED_OK" if verified else "BACKUP_VERIFIED_FAILED",
-            message=message,
-            context={
-                "dump_file": str(dump_path),
-                "verified": verified,
-                "mismatches": mismatches,
-                "live_counts": live_counts,
-                "restored_counts": restored_counts,
-            },
-        )
-        session.add(event)
-        session.commit()
-    except Exception as e:
-        logger.warning(f"Could not record verification event: {e}")
+        if not manifest_path.exists():
+            raise ValueError("Legacy backup: no manifest; content verification unavailable")
+        manifest = json.loads(manifest_path.read_text())
+        if manifest["format_version"] != 1 or manifest["dump_file"] != dump_path.name:
+            raise ValueError("Invalid backup manifest")
+        expected_counts = {table: values["count"] for table, values in manifest["tables"].items()}
+        if critical_tables(manifest["database_revision"]) - expected_counts.keys():
+            raise ValueError("Manifest missing protected tables")
+        if file_checksum(dump_path) != manifest["dump_sha256"]:
+            raise ValueError("Dump checksum mismatch")
+        _validate_archived_files(root, manifest)
+        with PostgresSandbox("restore", use_tmpfs=False) as sandbox:
+            sandbox.allow(scratch_db_name)
+            baseline_name = f"{scratch_db_name}_baseline"
+            sandbox.allow(baseline_name)
+            admin = sa.create_engine(sandbox.url(), isolation_level="AUTOCOMMIT")
+            try:
+                with admin.connect() as connection:
+                    connection.execute(sa.text(f'CREATE DATABASE "{scratch_db_name}"'))
+                    connection.execute(sa.text(f'CREATE DATABASE "{baseline_name}"'))
+            finally:
+                admin.dispose()
+            restored_url = sandbox.url(scratch_db_name)
+            _pg_command("pg_restore", restored_url, ["--exit-on-error", "--no-owner", "--no-acl",
+                                                      str(dump_path)])
+            engine = sa.create_engine(restored_url, isolation_level="REPEATABLE READ")
+            try:
+                with engine.connect() as connection, connection.begin():
+                    connection.execute(sa.text("SET TRANSACTION READ ONLY"))
+                    restored = database_content(connection)
+                    restored_counts = {table: values["count"] for table, values in restored.items()}
+                    if restored.keys() != manifest["tables"].keys():
+                        raise ValueError("Restored table inventory mismatch (missing or unexpected tables)")
+                    mismatches = [table for table in restored if restored[table] != manifest["tables"][table]]
+                    if mismatches:
+                        raise ValueError(f"Restored content mismatch: {', '.join(mismatches)}")
+                    revision = connection.execute(sa.text("SELECT version_num FROM ops.alembic_version")).scalar_one()
+                    if revision != manifest["database_revision"]:
+                        raise ValueError("Database revision mismatch")
+                    restored_schema = schema_snapshot(connection)
+                    if compare_schema_snapshots(manifest["schema"], restored_schema):
+                        raise ValueError("Restored schema differs from manifest")
+            finally:
+                engine.dispose()
+            baseline_engine = sa.create_engine(sandbox.url(baseline_name))
+            try:
+                with baseline_engine.connect() as connection:
+                    baseline_schema = migrated_schema_snapshot(connection, manifest["database_revision"])
+                    baseline_drift = compare_schema_snapshots(baseline_schema, restored_schema)
+                    if baseline_drift:
+                        raise ValueError("Restored schema differs from frozen migration baseline; resolve drift before later migrations")
+            finally:
+                baseline_engine.dispose()
+        verified = True
+        message = f"Backup verification succeeded: critical tables match; all {len(restored_counts)} table digests and archived files match the manifest."
+    except (ValueError, KeyError, OSError, RuntimeError, subprocess.CalledProcessError, sa.exc.SQLAlchemyError) as exc:
+        verified = False
+        message = f"Backup verification failed: {exc}"
+        if not mismatches:
+            mismatches = [str(exc)]
+    result = VerificationResult(verified, dump_path, expected_counts, restored_counts,
+                                mismatches, message, report_path)
+    report = asdict(result)
+    report["expected_counts"] = report.pop("live_counts")
+    report["restored_schema"] = restored_schema
+    report["baseline_schema_drift"] = baseline_drift
+    report["verified_at"] = datetime.now(timezone.utc).isoformat()
+    _write_json(report_path, report)
+    _record_event(session, "BACKUP_VERIFIED_OK" if verified else "BACKUP_VERIFIED_FAILED",
+                  message, {"verified": verified, "report_file": str(report_path)}, verified)
+    return result
 
-    return VerificationResult(
-        verified=verified,
-        dump_file=dump_path,
-        live_counts=live_counts,
-        restored_counts=restored_counts,
-        mismatches=mismatches,
-        message=message,
-    )
 
-
-def list_backups(backup_dir: Path | str | None = None) -> list[dict[str, Any]]:
-    """List existing backup dumps with size and timestamp."""
-    settings = get_settings()
-    b_dir = Path(backup_dir) if backup_dir else Path(settings.storage.backup_dir)
-    if not b_dir.exists():
-        return []
-
-    dump_files = sorted(
-        [p for p in b_dir.glob("caf_*.dump") if p.is_file()],
-        key=lambda p: p.stat().st_mtime,
-        reverse=True,
-    )
-
+def list_backups(backup_dir=None) -> list[dict[str, Any]]:
+    """List unique artifacts and identifiable legacy flat dumps."""
+    base = Path(backup_dir or get_settings().storage.backup_dir)
+    paths = [*base.glob("caf_*.dump"), *base.glob("caf_*/caf_*.dump")]
     now = datetime.now(timezone.utc)
-    results = []
-    for p in dump_files:
-        stat = p.stat()
-        mtime = datetime.fromtimestamp(stat.st_mtime, tz=timezone.utc)
-        age_hours = round((now - mtime).total_seconds() / 3600.0, 1)
-        results.append({
-            "name": p.name,
-            "path": str(p),
-            "size_bytes": stat.st_size,
-            "size_mb": round(stat.st_size / (1024 * 1024), 2),
-            "created_at": mtime,
-            "age_hours": age_hours,
-        })
-    return results
+    result = []
+    for path in sorted(paths, key=lambda p: p.stat().st_mtime, reverse=True):
+        stat = path.stat()
+        created = datetime.fromtimestamp(stat.st_mtime, timezone.utc)
+        result.append({"name": path.name, "path": str(path), "size_bytes": stat.st_size,
+                       "size_mb": round(stat.st_size / 1024**2, 2), "created_at": created,
+                       "age_hours": round((now - created).total_seconds() / 3600, 1),
+                       "legacy": not (path.parent / "manifest.json").is_file()})
+    return result
+
+
+def rotate_backups(backup_dir, max_daily=14, max_weekly=8) -> list[Path]:
+    """Explicit legacy flat-dump retention; never invoked by checkpoint creation."""
+    assert_safe_storage(Path(backup_dir))
+    paths = sorted(Path(backup_dir).glob("caf_*.dump"), key=lambda p: p.stat().st_mtime, reverse=True)
+    days, weeks, deleted = set(), set(), []
+    for path in paths:
+        at = datetime.fromtimestamp(path.stat().st_mtime, timezone.utc)
+        day, week = at.strftime("%Y-%m-%d"), at.strftime("%Y-%W")
+        keep_day = len(days) < max_daily and day not in days
+        keep_week = len(weeks) < max_weekly and week not in weeks
+        if keep_day:
+            days.add(day)
+        if keep_week:
+            weeks.add(week)
+        if not (keep_day or keep_week):
+            path.unlink()
+            deleted.append(path)
+    return deleted

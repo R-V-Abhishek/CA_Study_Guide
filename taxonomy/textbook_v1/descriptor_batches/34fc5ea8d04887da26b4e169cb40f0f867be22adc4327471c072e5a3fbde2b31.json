@@ -1,0 +1,62 @@
+{
+  "descriptors": [
+    {
+      "node_id": "5e46b395-1a67-48ce-91ff-da0164b64127",
+      "concept_name": "Challenges to the Efficient Market Theory",
+      "definition": "Market efficiency is challenged by factors such as asymmetric or restricted information availability and human cognitive processing limits under uncertainty. Additional obstacles include non-rational investor behavior that causes prices to deviate from intrinsic values and the monopolistic price influence exerted by dominant market institutions.",
+      "terminology": [
+        "Information inadequacy",
+        "Limited information processing capabilities",
+        "Irrational Behaviour",
+        "Monopolistic Influence"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Deliberate misinformation circulation",
+        "Cognitive processing bottlenecks",
+        "Haphazard market evaluation processes",
+        "Undue price influence by powerful institutions"
+      ],
+      "exclusion": [
+        "Perfect market competition assumptions",
+        "Instantaneous information transmission"
+      ],
+      "nearby_distinctions": [
+        "Contrasts with standard efficient market hypothesis assertions that prices fully reflect all available information rationally."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9a5e2036-c043-4ef6-8223-972fab226d3f",
+      "concept_name": "Equity Research And Tools Available",
+      "definition": "Equity research involves evaluating a company's financial performance and related factors to formulate recommendations on whether to buy, sell, or hold its shares. Furthermore, this analytical process is utilized during mergers and acquisitions to establish appropriate share exchange or swap ratios.",
+      "terminology": [
+        "Equity Research",
+        "Financial performance",
+        "Swap or exchange ratio",
+        "Investment Banking"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Analysis of company financial performance",
+        "Recommendation determination for buying, selling, or holding shares",
+        "Evaluation for merger and acquisition swap ratios"
+      ],
+      "exclusion": [
+        "General macroeconomic policymaking",
+        "Portfolio auditing unrelated to equity valuation"
+      ],
+      "nearby_distinctions": [
+        "Differs from general security market anomaly analysis by focusing directly on firm-level financial performance to guide corporate transactions and investment decisions."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "34fc5ea8d04887da26b4e169cb40f0f867be22adc4327471c072e5a3fbde2b31",
+  "artifact_id": "1e1a48fc-1bff-42e4-8cfd-708e08d6d44a",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 1159,
+  "output_tokens": 571,
+  "cost_usd": 0.0017752,
+  "created_at": "2026-10-03T18:06:24.345954+00:00"
+}

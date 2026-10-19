@@ -1,0 +1,85 @@
+{
+  "descriptors": [
+    {
+      "node_id": "8075cf82-7368-4d6e-8a60-bb9335f5a26b",
+      "concept_name": "Remuneration Of Concurrent Auditor",
+      "definition": "External chartered accountant firms performing concurrent audits receive compensation determined by the bank's Audit Committee. This financial remuneration considers factors such as workload area coverage, required technical skill sets, staff numbers, and allocated audit time.",
+      "terminology": [
+        "Audit Committee of the Board (ACB)",
+        "external firms of Chartered Accountants",
+        "concurrent audit"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Fixation of fees based on area coverage and staffing",
+        "Determination of compensation by the bank's ACB"
+      ],
+      "exclusion": [
+        "Statutory audit fee fixation procedures",
+        "Internal auditor salary structures"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general bank employee remuneration and statutory audit fee determinations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "eed0e9d7-bea7-44da-979d-4df3b55b9bfe",
+      "concept_name": "Reporting Systems",
+      "definition": "Concurrent auditors must utilize structured formats to document and communicate their findings to branch management, controlling offices, and the Audit Committee. Major deficiencies, minor irregularities, and fraudulent transactions require distinct escalation pathways and immediate corrective follow-up actions.",
+      "terminology": [
+        "structured format",
+        "major deficiencies",
+        "Chief Vigilance Officer",
+        "Inspection & Audit Department"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Immediate reporting of fraud to the Chief Vigilance Officer and Head Office",
+        "Quarterly reviews submitted to the Audit Committee",
+        "Discussion of important issues with the branch manager prior to report submission"
+      ],
+      "exclusion": [
+        "General statutory audit reporting under company law standards",
+        "Unverified verbal disclosures without documentation"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard internal audit reviews by its emphasis on immediate fraud escalation and concurrent quarterly compliance tracking."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "dd97df27-f8a4-4a25-80a7-c1612d381f0a",
+      "concept_name": "Audit Committee",
+      "definition": "Banks establish a board-level oversight committee following regulatory guidelines to direct and evaluate the entire internal inspection and audit network. This committee specifically reviews auditor appointments, fee structures, audit quality, and implementation efficacy of follow-up corrective measures.",
+      "terminology": [
+        "Audit Committee of their Board",
+        "RBI guidelines",
+        "internal inspection"
+      ],
+      "instrument_references": [
+        "RBI guidelines"
+      ],
+      "inclusion": [
+        "Overseeing total audit function operations",
+        "Reviewing the appointment systems and remuneration of concurrent auditors",
+        "Periodical meetings with concurrent and statutory auditors"
+      ],
+      "exclusion": [
+        "Direct day-to-day branch operational management",
+        "Direct execution of field audit verification tests"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from executive branch management by its governance role focused on oversight, review, and direction of audit systems."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "515b3bf52b95c467557d886321a1f48d73f734b8abb0adc9c679a23beeb58dd4",
+  "artifact_id": "8d6c146a-10bb-408f-a623-b13038e6664d",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 2347,
+  "output_tokens": 836,
+  "cost_usd": 0.0027941,
+  "created_at": "2026-10-03T18:11:47.612333+00:00"
+}

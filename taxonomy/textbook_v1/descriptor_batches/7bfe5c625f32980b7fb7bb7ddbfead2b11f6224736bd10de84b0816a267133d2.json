@@ -1,0 +1,324 @@
+{
+  "descriptors": [
+    {
+      "node_id": "61cd897a-dc1e-41ff-811d-9f089082a133",
+      "concept_name": "Standard Objective and Scope Overview",
+      "definition": "The standard ensures appropriate recognition criteria and measurement bases are applied to provisions, contingent liabilities, and contingent assets. It also requires sufficient note disclosures regarding their nature, timing, and amount.",
+      "terminology": [
+        "Provisions",
+        "Contingent liabilities",
+        "Contingent assets"
+      ],
+      "instrument_references": [
+        "Ind AS 37"
+      ],
+      "inclusion": [
+        "Provisions",
+        "Contingent liabilities",
+        "Contingent assets"
+      ],
+      "exclusion": [
+        "Financial instruments under Ind AS 109",
+        "Income taxes under Ind AS 12"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between recognized provisions and unrecognised contingent items based on probability and measurement reliability."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e6d5b51c-0cdc-4c47-be1f-4536b30eb55a",
+      "concept_name": "Scope and Exclusions",
+      "definition": "The standard applies to all entities for provisions, contingent liabilities, and contingent assets, excluding items addressed by other specific standards. However, it specifically covers executory contracts only when they become onerous in nature.",
+      "terminology": [
+        "Executory contracts",
+        "Onerous contracts",
+        "Financial instruments"
+      ],
+      "instrument_references": [
+        "Ind AS 37",
+        "Ind AS 109",
+        "Ind AS 115",
+        "Ind AS 12",
+        "Ind AS 116",
+        "Ind AS 19",
+        "Ind AS 117",
+        "Ind AS 103"
+      ],
+      "inclusion": [
+        "Onerous executory contracts",
+        "Onerous leases before commencement date"
+      ],
+      "exclusion": [
+        "Standard financial instruments within Ind AS 109 scope",
+        "Revenue contracts under Ind AS 115 except onerous ones"
+      ],
+      "nearby_distinctions": [
+        "Executory contracts are generally outside the standard unless they result in an onerous obligation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6b318d39-2f7d-478a-9453-62849063373d",
+      "concept_name": "Executory Contracts Treatment",
+      "definition": "Executory contracts are those where neither party has performed any obligations or both have partially performed to an equal extent. Ind AS 37 applies to such contracts exclusively when they become onerous.",
+      "terminology": [
+        "Executory contracts",
+        "Onerous contract",
+        "Equal performance"
+      ],
+      "instrument_references": [
+        "Ind AS 37"
+      ],
+      "inclusion": [
+        "Contracts with unperformed mutual obligations",
+        "Contracts where both parties performed equally"
+      ],
+      "exclusion": [
+        "Contracts where performance is disproportionate creating enforceable liabilities"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from completed or partially completed contracts with unilateral performance imbalances requiring immediate liability recognition."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "fabcf436-19a6-4964-9502-a835a7fa7700",
+      "concept_name": "Provisions Related to Revenue and Expenses",
+      "definition": "Certain provisions relate to revenue recognition, such as fee-based guarantees, which are handled under separate standards. Asset valuation adjustments like depreciation and doubtful debts are excluded from the scope of Ind AS 37.",
+      "terminology": [
+        "Revenue-related provisions",
+        "Asset valuation adjustments",
+        "Restructuring"
+      ],
+      "instrument_references": [
+        "Ind AS 37",
+        "Ind AS 115",
+        "Ind AS 105"
+      ],
+      "inclusion": [
+        "Provisions for restructurings and discontinued operations"
+      ],
+      "exclusion": [
+        "Depreciation",
+        "Impairment of assets",
+        "Doubtful debts"
+      ],
+      "nearby_distinctions": [
+        "Valuation adjustments to asset carrying amounts differ from provisions for liabilities of uncertain timing or amount."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "20543227-cd9d-47b1-a4a6-fd8f3198b5cf",
+      "concept_name": "Definitions of Provisions and Obligations",
+      "definition": "A provision is a liability of uncertain timing or amount arising from a present obligation due to past events. Legal obligations stem from contracts, legislation, or operation of law, whereas constructive obligations arise from an entity's established practices and created expectations.",
+      "terminology": [
+        "Provision",
+        "Legal obligation",
+        "Constructive obligation",
+        "Obligating event"
+      ],
+      "instrument_references": [
+        "Ind AS 37"
+      ],
+      "inclusion": [
+        "Obligations from explicit or implicit contract terms",
+        "Obligations from past practice and published policies"
+      ],
+      "exclusion": [
+        "Future commitments unconnected to past obligating events"
+      ],
+      "nearby_distinctions": [
+        "Legal obligations derive strictly from binding laws or terms, whereas constructive obligations derive from created valid expectations via past actions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c8735c0c-4f6a-40e1-b743-3ba08dcec15a",
+      "concept_name": "Provisions Versus Other Liabilities",
+      "definition": "Provisions differ from trade payables and accruals due to a significantly higher degree of uncertainty regarding timing or amount. Trade payables and accruals represent invoiced or agreed liabilities for received goods and services with minimal estimation variance.",
+      "terminology": [
+        "Trade payables",
+        "Accruals",
+        "Provisions",
+        "Uncertainty"
+      ],
+      "instrument_references": [
+        "Ind AS 37",
+        "Ind AS 109"
+      ],
+      "inclusion": [
+        "Warranty obligations",
+        "Liabilities with uncertain settlement timing or amount"
+      ],
+      "exclusion": [
+        "Utility accruals with known timing",
+        "Uninvoiced goods under agreed trade terms",
+        "Financial guarantees under Ind AS 109"
+      ],
+      "nearby_distinctions": [
+        "Accruals involve minor estimation variance for known invoiced or received services, whereas provisions involve substantial uncertainty over timing and amount."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0aa8819a-fe64-469b-9089-16dcd2248fc4",
+      "concept_name": "Relationship Between Provisions and Contingent Liabilities",
+      "definition": "Provisions are recognized liabilities because an outflow is probable and measurable, whereas contingent liabilities remain unrecgonized due to being possible obligations or failing probability and measurement criteria.",
+      "terminology": [
+        "Provisions",
+        "Contingent liabilities",
+        "Present obligation",
+        "Probable outflow"
+      ],
+      "instrument_references": [
+        "Ind AS 37"
+      ],
+      "inclusion": [
+        "Recognized provisions where outflow is probable",
+        "Contingent liabilities for possible obligations"
+      ],
+      "exclusion": [
+        "Remote possibilities requiring no disclosure"
+      ],
+      "nearby_distinctions": [
+        "Provisions meet the probability and reliability criteria for immediate recognition, while contingent liabilities fail either probability or measurement thresholds."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ed830306-d474-4258-8f19-9d60bcfad45b",
+      "concept_name": "Provision Recognition Criteria",
+      "definition": "An entity must recognize a provision only when it has a present legal or constructive obligation from a past event, a resource outflow is probable, and a reliable estimate of the amount is possible. When a present obligation existence is unclear, available evidence and post-reporting events are evaluated to determine probability.",
+      "terminology": [
+        "Present obligation",
+        "Probable outflow",
+        "Reliable estimate",
+        "Past event"
+      ],
+      "instrument_references": [
+        "Ind AS 37"
+      ],
+      "inclusion": [
+        "Obligations meeting all three recognition tests",
+        "Obligations backed by expert evidence or post-period events"
+      ],
+      "exclusion": [
+        "Future operating losses",
+        "Contingencies failing recognition criteria"
+      ],
+      "nearby_distinctions": [
+        "Unlike contingent liabilities, recognized provisions must satisfy all three strict criteria of past event, probable outflow, and reliable estimation simultaneously."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b1985744-ada8-469f-9a9a-a031ef99c089",
+      "concept_name": "Provisions Recognition Framework",
+      "definition": "Provisions require the cumulative satisfaction of a present obligation from a past event, a probable resource outflow, and a reliable estimate. In ambiguous cases, entities must review post-reporting events and expert opinions to establish if a present obligation exists.",
+      "terminology": [
+        "Present obligation",
+        "Reliable estimate",
+        "Past event",
+        "Probable outflow"
+      ],
+      "instrument_references": [
+        "Ind AS 37"
+      ],
+      "inclusion": [
+        "Liabilities meeting criteria based on post-reporting evidence"
+      ],
+      "exclusion": [
+        "Obligations without confirmed past events"
+      ],
+      "nearby_distinctions": [
+        "Differs from general business risks by requiring a distinct past event creating an enforceable present obligation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "898cb584-2955-4bad-96f0-f1fd968286c9",
+      "concept_name": "Contingent Liabilities Accounting",
+      "definition": "Contingent liabilities are never recognized in financial statements but must be disclosed unless the possibility of a resource outflow is remote. Items are continuously reassessed so that if an outflow becomes probable, a provision is recognized in the period of change.",
+      "terminology": [
+        "Contingent liability",
+        "Remote possibility",
+        "Joint and several liability",
+        "Reassessment"
+      ],
+      "instrument_references": [
+        "Ind AS 37"
+      ],
+      "inclusion": [
+        "Disclosed contingent liabilities for non-remote possibilities",
+        "Portions of joint obligations expected to be met by other parties"
+      ],
+      "exclusion": [
+        "Remote obligations requiring no disclosure",
+        "Probable obligations recognized as provisions"
+      ],
+      "nearby_distinctions": [
+        "Contingent liabilities require disclosure rather than recognition unless the likelihood of resource outflow shifts from possible to probable."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6050c458-06d2-46bf-b540-13805ae61967",
+      "concept_name": "Contingent Assets Treatment",
+      "definition": "Contingent assets are excluded from recognition in financial statements to prevent recognizing unrealized income, requiring disclosure only when an economic benefit inflow is probable. However, once an inflow becomes virtually certain, the asset and related income are recognized.",
+      "terminology": [
+        "Contingent asset",
+        "Virtually certain",
+        "Probable inflow",
+        "Unplanned events"
+      ],
+      "instrument_references": [
+        "Ind AS 37"
+      ],
+      "inclusion": [
+        "Assets with virtually certain economic benefit inflows",
+        "Disclosed contingent assets with probable inflows"
+      ],
+      "exclusion": [
+        "Unrealized contingent assets with remote or merely possible inflows"
+      ],
+      "nearby_distinctions": [
+        "Contingent assets are strictly disclosed until realization becomes virtually certain, unlike provisions which require recognition upon a lower probable threshold."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8a56f8c5-3aa9-4e3d-9308-cd71edebf8b1",
+      "concept_name": "Best Estimate Measurement",
+      "definition": "Provisions are measured at the best estimate of the expenditure required to settle the present obligation at the end of the reporting period, reflecting what an entity would rationally pay. Statistical expected values are used for large populations, while mid-points are applied to continuous outcome ranges.",
+      "terminology": [
+        "Best estimate",
+        "Expected value",
+        "Statistical estimation",
+        "Continuous range"
+      ],
+      "instrument_references": [
+        "Ind AS 37"
+      ],
+      "inclusion": [
+        "Probability-weighted expected values for large populations",
+        "Mid-point estimations for continuous ranges"
+      ],
+      "exclusion": [
+        "Arbitrary estimations unsupported by management judgment or expert reports"
+      ],
+      "nearby_distinctions": [
+        "Differs from fixed invoice valuations by incorporating probability-weighted outcomes and management judgment for uncertain liabilities."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "7bfe5c625f32980b7fb7bb7ddbfead2b11f6224736bd10de84b0816a267133d2",
+  "artifact_id": "e2c5c019-cbd7-4a43-ab38-add3b48555d7",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 9009,
+  "output_tokens": 3349,
+  "cost_usd": 0.0110752,
+  "created_at": "2026-10-03T18:02:54.955991+00:00"
+}

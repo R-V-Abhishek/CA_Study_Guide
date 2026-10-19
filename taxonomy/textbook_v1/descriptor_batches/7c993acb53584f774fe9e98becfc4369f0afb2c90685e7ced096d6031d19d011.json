@@ -1,0 +1,96 @@
+{
+  "descriptors": [
+    {
+      "node_id": "793756e1-b905-4204-9a26-615131db8fb0",
+      "concept_name": "Financial Statement Extracts of Listed Entities",
+      "definition": "Published corporate reports illustrate practical applications such as proposed final dividends subject to shareholder approval and post-reporting period subsidiary share acquisitions. These disclosures demonstrate how entities report significant subsequent events and corporate actions occurring after the reporting date.",
+      "terminology": [
+        "subsequent events",
+        "final dividend",
+        "subsidiary acquisition",
+        "annual report"
+      ],
+      "instrument_references": [
+        "Ind AS 10"
+      ],
+      "inclusion": [
+        "Proposed final dividends pending shareholder approval",
+        "Post-reporting date equity share acquisitions in subsidiaries"
+      ],
+      "exclusion": [
+        "Adjusted figures for non-approvable events prior to reporting date",
+        "Unapproved management estimates without corporate action"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from recognized liabilities by remaining subject to approval at the annual general meeting."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0b7d01f4-27e4-4947-91d9-7f3b007d3b8e",
+      "concept_name": "Comparative Standards: Ind AS 10 Versus AS 4",
+      "definition": "Significant structural variations exist between reporting frameworks regarding material non-adjusting events, going concern implications, loan covenant breaches, and the distribution of non-cash assets. These divergences dictate differing disclosure locations and accounting treatment for events occurring after the balance sheet date.",
+      "terminology": [
+        "material non-adjusting events",
+        "going concern",
+        "long-term loan arrangement",
+        "non-cash assets"
+      ],
+      "instrument_references": [
+        "Ind AS 10",
+        "AS 4",
+        "Ind AS 1",
+        "AS 1"
+      ],
+      "inclusion": [
+        "Treatment differences for non-adjusting events",
+        "Divergent going concern impact rules",
+        "Loan breach waiver adjustments",
+        "Appendix coverage for non-cash distributions"
+      ],
+      "exclusion": [
+        "Identical framework provisions",
+        "Unrelated measurement standards"
+      ],
+      "nearby_distinctions": [
+        "Ind AS 10 requires financial statement disclosure for material non-adjusting events whereas AS 4 mandates disclosure in the approving authority report."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "067fc436-eb81-4272-be7d-508569b2a652",
+      "concept_name": "Carve Out in Ind AS 10 from IAS 10",
+      "definition": "When a material provision of a long-term loan arrangement is breached on or before the reporting date rendering the liability payable on demand, a lender waiver obtained before financial statement approval is classified as an adjusting event. Conversely, international standards do not treat post-period lender waivers regarding covenant breaches as adjusting events.",
+      "terminology": [
+        "long-term loan arrangement",
+        "material provision",
+        "payable on demand",
+        "adjusting event",
+        "waiver"
+      ],
+      "instrument_references": [
+        "Ind AS 10",
+        "IAS 10",
+        "Ind AS 1"
+      ],
+      "inclusion": [
+        "Post-reporting date lender waivers for pre-existing loan breaches treated as adjusting events"
+      ],
+      "exclusion": [
+        "Waivers obtained after financial statement approval for issue",
+        "Non-material provision breaches"
+      ],
+      "nearby_distinctions": [
+        "Unlike IAS 10 which treats post-period non-demand agreements as non-adjusting, Ind AS 10 treats pre-year-end covenant breach waivers secured prior to approval as adjusting."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "7c993acb53584f774fe9e98becfc4369f0afb2c90685e7ced096d6031d19d011",
+  "artifact_id": "94a7f2d3-11a5-4989-b45d-3bb17459567f",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 2343,
+  "output_tokens": 978,
+  "cost_usd": 0.0031479,
+  "created_at": "2026-10-03T17:48:35.859497+00:00"
+}

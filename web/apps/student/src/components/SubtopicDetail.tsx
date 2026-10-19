@@ -1,647 +1,137 @@
-import { useState, useEffect, useRef } from "react";
-import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import confetti from "canvas-confetti";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
-import {
-  CheckCircle2,
-  Circle,
-  Clock,
-  Flag,
-  AlertTriangle,
-  ChevronDown,
-  ChevronUp,
-  FileText,
-  Sparkles,
-  Save,
-  Calendar,
-  Bold,
-  Italic,
-  List,
-  Code,
-  Heading3,
-  Eye,
-  Edit3,
-} from "lucide-react";
-import { ImportanceDots, getImportanceLabel } from "./ImportanceDots";
-import { client } from "../lib/client";
+import { useEffect, useRef, useState } from 'react';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import { Link, useBlocker, useLocation } from 'react-router-dom';
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import { apiRequest, accountKey, authGeneration, onIdentityReset, type QuestionPage, type components } from '@caf/api-client';
+import { taxonomyApi, type TextbookNode } from '@caf/api-client/src/taxonomy';
+import { getData, mode, jsonOptions } from '../lib/data';
+import { isDemoMode, demoLink } from '../lib/demo';
+import { demoUpdate } from '../lib/fixtures';
+import { PageState } from './PageState';
+import type { SubtopicData, WhyData } from '../lib/contracts';
+import { StudyContext, type StudyContextFields } from './StudyContext';
+import { ScoreExplanation } from './ScoreExplanation';
+import { useUrlState } from '../lib/url';
+import { rememberDestination, preserveOrigin, restoreOrigin } from '../lib/navigation';
+import { Dialog } from '../../../../packages/workspace/Dialog';
+import { TextbookSources } from './TextbookExplorer';
 
-export interface SubtopicAppearance {
-  id: number;
-  attempt_id: string;
-  signal_class: "exam" | "practice";
-  display_label: string;
-  marks: number | null;
-  gist?: string;
-  official_url?: string;
-  page_start?: number;
-  page_end?: number;
-  law_stale: boolean;
-}
+type Status = 'not_started' | 'in_progress' | 'done';
+type Draft = { text: string; saved: string };
+const drafts = new Map<string, Draft>();
+const timers = new Set<number>();
+onIdentityReset(() => { timers.forEach(timer => window.clearTimeout(timer)); timers.clear(); drafts.clear(); saves.clear(); });
+const saves = new Map<string, { text: string; promise: Promise<unknown> }>();
 
-export interface SubtopicScoreData {
-  importance: number;
-  exam_score: number;
-  practice_score: number;
-  weight_prior: number;
-  freq_hits: number;
-  freq_window: number;
-  exam_marks_total: number;
-  exam_count: number;
-  practice_count: number;
-  first_exam_attempt?: string | null;
-  last_exam_attempt?: string | null;
-  weak: boolean;
-  applicable: boolean;
-}
-
-export interface SubtopicData {
-  id: string;
-  name: string;
-  paper?: { id: string; code: string; name: string } | null;
-  chapter?: { id: string; name: string } | null;
-  topic?: { id: string; name: string } | null;
-  status: "not_started" | "in_progress" | "done";
-  notes?: string | null;
-  status_changed_at?: string | null;
-  first_done_at?: string | null;
-  last_revised_at?: string | null;
-  weightage?: { section_name?: string; min_pct: number; max_pct: number } | null;
-  score?: SubtopicScoreData;
-  appearances: SubtopicAppearance[];
-}
-
-export interface WhyData {
-  node_id?: string;
-  paper_code?: string;
-  subtopic_name?: string;
-  importance?: number;
-  summary?: string;
-  drivers?: Array<{ name: string; score: number; contribution_pct: number; explanation: string }>;
-}
-
-export interface SubtopicDetailProps {
-  paperId: string;
-  nodeId: string;
-  onStatusChange?: (newStatus: "not_started" | "in_progress" | "done") => void;
-}
-
-export function SubtopicDetail({ paperId, nodeId, onStatusChange }: SubtopicDetailProps) {
-  const queryClient = useQueryClient();
+export function SubtopicDetail({ nodeId }: { paperId: string; nodeId: string }) {
+  const cache = useQueryClient();
+  const location = useLocation();
+  const { params, set } = useUrlState();
+  const tab = params.get('tab') ?? 'questions';
+  const settings = useQuery({ queryKey: ['settings', accountKey()], enabled: !isDemoMode(), queryFn: () => apiRequest<components['schemas']['ProfileSettings']>('/api/v1/me/settings') });
+  const attemptName = (id:string|null) => id ? settings.data?.available_attempts.find(item => item.id === id)?.label ?? 'Attempt name not available' : 'Undated collection';
+  const pageValue = Number(params.get('question_page') ?? '1');
+  const questionPage = Number.isSafeInteger(pageValue) && pageValue > 0 ? pageValue : 1;
+  const generation = authGeneration();
+  const key = `${isDemoMode() ? 'demo' : `live:${accountKey()}`}:${nodeId}`;
+  const [text, setText] = useState(drafts.get(key)?.text ?? '');
+  const [saveStatus, setSaveStatus] = useState<'saved' | 'saving' | 'unsaved' | 'failed'>(drafts.get(key)?.text !== drafts.get(key)?.saved ? 'unsaved' : 'saved');
+  const [noteError, setNoteError] = useState('');
+  const [statusSaved, setStatusSaved] = useState(false);
+  const [preview, setPreview] = useState(false);
   const [whyExpanded, setWhyExpanded] = useState(false);
-  const [notesText, setNotesText] = useState("");
-  const [saveStatus, setSaveStatus] = useState<"saved" | "saving" | "unsaved">("saved");
-  const [previewMode, setPreviewMode] = useState(false);
-  const textareaRef = useRef<HTMLTextAreaElement>(null);
-
-  // Fetch subtopic details
-  const { data: subtopic, isLoading } = useQuery({
-    queryKey: ["subtopic", nodeId],
-    queryFn: async () => {
-      try {
-        const res = await client.GET("/api/v1/subtopics/{node_id}", {
-          params: { path: { node_id: nodeId } },
-        });
-        if (res.data) {
-          return res.data as unknown as SubtopicData;
-        }
-      } catch (err) {
-        console.warn("Failed fetching subtopic:", err);
-      }
-      return null;
-    },
-  });
-
-  // Fetch why explanation
-  const { data: whyData } = useQuery({
-    queryKey: ["why", nodeId],
-    queryFn: async () => {
-      try {
-        const res = await client.GET("/api/v1/why/subtopic/{node_id}", {
-          params: { path: { node_id: nodeId } },
-        });
-        if (res.data) {
-          return res.data as unknown as WhyData;
-        }
-      } catch (err) {
-        console.warn("Failed fetching why data:", err);
-      }
-      return null;
-    },
-  });
-
-  // Sync notes text when subtopic loads
+  const mounted = useRef(true);
+  const latest = useRef(text);
+  const queryKey = ['subtopic', mode(), nodeId];
+  const query = useQuery({ queryKey, queryFn: () => getData<SubtopicData>(`/api/v1/subtopics/${encodeURIComponent(nodeId)}`) });
+  const why = useQuery({ queryKey: ['why', mode(), nodeId], queryFn: () => getData<WhyData>(`/api/v1/why/subtopic/${encodeURIComponent(nodeId)}`), enabled: whyExpanded || tab === 'importance' });
+  const published = useQuery({ queryKey: ['topic-questions', mode(), nodeId, questionPage], enabled: tab === 'questions', queryFn: () => getData<QuestionPage>(`/api/v1/questions?subtopic_id=${encodeURIComponent(nodeId)}&page_size=20&page=${questionPage}`) });
+  const versions = useQuery({ queryKey: ['textbook-versions', accountKey()], enabled: tab === 'references' && !isDemoMode() && query.data?.context?.taxonomy_version_id != null, queryFn: taxonomyApi.versions });
+  const version = versions.data?.find(item => item.taxonomy_version_id === query.data?.context?.taxonomy_version_id)?.version_id;
+  const sources = useQuery({ queryKey: ['textbook-tree', accountKey(), version], enabled: tab === 'references' && Boolean(version), queryFn: () => taxonomyApi.tree(version!) });
+  function locate(items: TextbookNode[]): TextbookNode | undefined { for (const item of items) { if (item.id === nodeId) return item; const child = locate(item.children); if (child) return child; } }
+  const sourceNode = locate(sources.data ?? []);
+  useEffect(() => { mounted.current = true; return () => { mounted.current = false; }; }, []);
   useEffect(() => {
-    if (subtopic?.notes !== undefined) {
-      setNotesText(subtopic.notes || "");
-      setSaveStatus("saved");
+    if (query.data && !drafts.has(key)) {
+      const value = query.data.notes ?? '';
+      drafts.set(key, { text: value, saved: value });
+      latest.current = value; setText(value); setSaveStatus('saved');
     }
-  }, [subtopic?.notes]);
-
-  // Mutation for updating status with optimistic updates and celebratory confetti
-  const statusMutation = useMutation({
-    mutationFn: async (newStatus: "not_started" | "in_progress" | "done") => {
-      const res = await client.PUT("/api/v1/subtopics/{node_id}/progress", {
-        params: { path: { node_id: nodeId } },
-        body: { status: newStatus },
-      });
-      return res.data;
-    },
-    onMutate: async (newStatus) => {
-      await queryClient.cancelQueries({ queryKey: ["subtopic", nodeId] });
-      const previous = queryClient.getQueryData(["subtopic", nodeId]);
-
-      queryClient.setQueryData(["subtopic", nodeId], (old: SubtopicData | null) => {
-        if (!old) return old;
-        return {
-          ...old,
-          status: newStatus,
-        };
-      });
-
-      if (onStatusChange) {
-        onStatusChange(newStatus);
-      }
-
-      if (newStatus === "done") {
-        confetti({
-          particleCount: 80,
-          spread: 60,
-          origin: { y: 0.7 },
-          colors: ["#4F46E5", "#10B981", "#F59E0B", "#EC4899"],
-        });
-      }
-
-      return { previous };
-    },
-    onError: (_err, _newStatus, context) => {
-      if (context?.previous) {
-        queryClient.setQueryData(["subtopic", nodeId], context.previous);
-      }
-    },
-    onSettled: () => {
-      queryClient.invalidateQueries({ queryKey: ["subtopic", nodeId] });
-      queryClient.invalidateQueries({ queryKey: ["paper-tree", paperId] });
-      queryClient.invalidateQueries({ queryKey: ["dashboard"] });
-      queryClient.invalidateQueries({ queryKey: ["papers"] });
-    },
-  });
-
-  // Auto-save notes mutation
-  const notesMutation = useMutation({
-    mutationFn: async (text: string) => {
-      const res = await client.PUT("/api/v1/subtopics/{node_id}/notes", {
-        params: { path: { node_id: nodeId } },
-        body: { notes: text },
-      });
-      return res.data;
-    },
-    onSuccess: () => {
-      setSaveStatus("saved");
-    },
-  });
-
-  // Debounced auto-save effect (2 seconds after typing stops)
+  }, [query.data, key]);
+  const draft = drafts.get(key);
+  const dirty = draft !== undefined && text !== draft.saved;
+  const blocker = useBlocker(({ currentLocation, nextLocation }) => dirty && (currentLocation.pathname !== nextLocation.pathname || new URLSearchParams(currentLocation.search).get('node') !== new URLSearchParams(nextLocation.search).get('node')));
   useEffect(() => {
-    if (saveStatus !== "unsaved") return;
-
-    const timer = setTimeout(() => {
-      setSaveStatus("saving");
-      notesMutation.mutate(notesText);
-    }, 2000);
-
-    return () => clearTimeout(timer);
-  }, [notesText, saveStatus]);
-
-  const handleNotesChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setNotesText(e.target.value);
-    setSaveStatus("unsaved");
+    if (!dirty) return;
+    const beforeLogout = (event: Event) => { if (!window.confirm('You have unsaved notes. Sign out and discard them?')) event.preventDefault(); };
+    window.addEventListener('caf-before-logout', beforeLogout);
+    const unload = (event: BeforeUnloadEvent) => { event.preventDefault(); event.returnValue = ''; };
+    window.addEventListener('beforeunload', unload);
+    return () => { window.removeEventListener('beforeunload', unload); window.removeEventListener('caf-before-logout', beforeLogout); };
+  }, [dirty]);
+  const save = async () => {
+    const snapshot = latest.current;
+    setSaveStatus('saving'); setNoteError('');
+    const previous = saves.get(key)?.promise ?? Promise.resolve();
+    const pending = previous.catch(() => undefined).then(async () => {
+      if (generation !== authGeneration()) return;
+      if (isDemoMode()) demoUpdate(nodeId, { notes: snapshot });
+      else await apiRequest(`/api/v1/subtopics/${encodeURIComponent(nodeId)}/notes`, jsonOptions('PUT', { notes: snapshot }));
+      if (generation !== authGeneration()) return;
+      const draft = drafts.get(key);
+      if (draft) drafts.set(key, { ...draft, saved: snapshot });
+      if (mounted.current) {
+        const queuedText = saves.get(key)?.text;
+        setSaveStatus(latest.current === snapshot ? 'saved' : queuedText === latest.current ? 'saving' : 'unsaved');
+      }
+      cache.setQueryData<SubtopicData>(queryKey, current => current ? { ...current, notes: snapshot } : current);
+      await cache.invalidateQueries({ predicate: entry => entry.queryKey[0] === 'published-questions' && entry.queryKey.some(value => typeof value === 'string' && value.includes('include_notes=true')) });
+    });
+    saves.set(key, { text: snapshot, promise: pending });
+    try { await pending; return generation === authGeneration() && drafts.get(key)?.saved === latest.current; }
+    catch (error) { if (mounted.current) { setSaveStatus('failed'); setNoteError(error instanceof Error ? error.message : 'Save failed'); } return false; }
+    finally { if (saves.get(key)?.promise === pending) saves.delete(key); }
   };
+  useEffect(() => {
+    if (saveStatus !== 'unsaved') return;
+    const timer = window.setTimeout(() => { void save(); }, 1000);
+    timers.add(timer);
+    return () => { window.clearTimeout(timer); timers.delete(timer); };
+  }, [text, saveStatus]);
+  const progress = useMutation({
+    mutationFn: async (status: Status) => {
+      if (isDemoMode()) { demoUpdate(nodeId, { status }); return; }
+      await apiRequest(`/api/v1/subtopics/${encodeURIComponent(nodeId)}/progress`, jsonOptions('PUT', { status }));
+    },
+    onMutate: async status => {
+      setStatusSaved(false);
+      await cache.cancelQueries({ queryKey });
+      const previous = cache.getQueryData<SubtopicData>(queryKey);
+      if (previous) cache.setQueryData(queryKey, { ...previous, status });
+      return previous;
+    },
+    onError: (_error, _status, previous) => { if (previous && generation === authGeneration()) cache.setQueryData(queryKey, previous); },
+    onSuccess: async () => { setStatusSaved(true); await Promise.all(['subtopic', 'paper-tree', 'papers', 'dashboard', 'revision-due', 'study-plan'].map(name => cache.invalidateQueries({ queryKey: [name, mode()] }))); },
+  });
+  const data = query.data;
+  useEffect(() => { if (data) rememberDestination({ path: `${location.pathname}${location.search}`, title: data.name, paper: data.paper?.name ?? '', breadcrumb: [data.paper?.name, data.chapter?.name, data.topic?.name].filter(Boolean).join(' / ') }); }, [data, location.pathname, location.search]);
+  useEffect(() => { if (data && published.data) restoreOrigin(`${location.pathname}${location.search}`); }, [data, published.data, location.pathname, location.search]);
+  const appearances = [...new Map(data?.appearances.map(item => [item.question_id ?? `legacy:${item.id}`, item]) ?? []).values()];
+  const questionRows = published.data?.items ?? [];
+  const tabs = ['questions', 'notes', 'importance', 'references'];
+  return <div className="space-y-4"><PageState loading={query.isPending} refreshing={query.isFetching && Boolean(data)} error={query.error} retry={() => query.refetch()} />{data && <>
+    <section className="card space-y-3"><p className="study-meta">{sourceNode?.breadcrumbs.map(item => item.name).join(' / ') || [data.paper?.name, data.chapter?.name, data.topic?.name].filter(Boolean).join(' / ')}</p><h2 className="text-xl font-semibold">{data.name}</h2><div className="controls"><label>Progress <select aria-label="Progress" disabled={progress.isPending} value={data.status} onChange={e => progress.mutate(e.target.value as Status)}><option value="not_started">Not started</option><option value="in_progress">In progress</option><option value="done">Done</option></select></label>{progress.isPending && <span role="status">Saving progress…</span>}{statusSaved && <span role="status">Progress saved.</span>}</div>{progress.error && <p role="alert">Progress was not saved: {progress.error.message}</p>}</section>
+    <div role="tablist" aria-label="Topic content" className="study-tabs" onKeyDown={event => { const index = tabs.indexOf(tab); const next = event.key === "ArrowRight" ? tabs[(index + 1) % tabs.length] : event.key === "ArrowLeft" ? tabs[(index + tabs.length - 1) % tabs.length] : event.key === "Home" ? tabs[0] : event.key === "End" ? tabs[tabs.length - 1] : ""; if (next) { event.preventDefault(); set({ tab: next }); requestAnimationFrame(() => document.getElementById('topic-tab-' + next)?.focus()); } }}>{[['questions','Questions'],['notes','My notes'],['importance','Importance'],['references','Textbook references']].map(([id,label]) => <button key={id} role="tab" tabIndex={tab === id ? 0 : -1} id={'topic-tab-' + id} aria-controls="topic-panel" aria-selected={tab === id} onClick={() => set({ tab: id })}>{label}</button>)}</div>
+    <section role="tabpanel" id="topic-panel" aria-labelledby={`topic-tab-${tab}`} className="card space-y-3">
+    {tab === 'notes' && <><h3 className="font-semibold">My notes</h3><div className="controls"><button aria-pressed={!preview} onClick={() => setPreview(false)}>Write</button><button aria-pressed={preview} onClick={() => setPreview(true)}>Preview</button><button className="action" disabled={!dirty || saveStatus === 'saving'} onClick={() => { void save(); }}>{saveStatus === 'failed' ? 'Retry save' : 'Save notes'}</button></div>{preview ? <div className="reader-body whitespace-pre-wrap"><ReactMarkdown remarkPlugins={[remarkGfm]}>{text || 'No notes yet.'}</ReactMarkdown></div> : <textarea aria-label="Notes" className="field w-full min-h-48" value={text} onChange={e => { const next = e.target.value; latest.current = next; setText(next); const draft = drafts.get(key); drafts.set(key, { text: next, saved: draft?.saved ?? data.notes ?? '' }); setSaveStatus('unsaved'); }} />}<p role="status">{saveStatus === 'failed' ? `Save failed: ${noteError}` : saveStatus === 'unsaved' ? 'Unsaved' : saveStatus === 'saving' ? 'Saving…' : 'Saved'}</p></>}
+    {tab === 'importance' && <><h3 className="font-semibold">Importance</h3><StudyContext data={data as SubtopicData & StudyContextFields} /><PageState loading={why.isPending} error={why.error} retry={() => why.refetch()} />{why.data && <ScoreExplanation data={why.data} />}<button hidden aria-expanded={whyExpanded} onClick={() => setWhyExpanded(!whyExpanded)}>Why this importance?</button></>}
+    {tab === 'references' && <><h3 className="font-semibold">Textbook references</h3><PageState loading={sources.isLoading || versions.isLoading} error={sources.error ?? versions.error} retry={() => { sources.refetch();versions.refetch(); }} />{sourceNode?.sources.length ? <TextbookSources sources={sourceNode.sources} /> : <><p>Reviewed textbook references are unavailable for this topic’s bound taxonomy.</p><Link className="topic-link" to={demoLink(`/syllabus?preview=draft&paper=${encodeURIComponent(data.paper?.code ?? '')}`)}>Preview textbook sources and edition applicability</Link></>}</>}
+    {tab === 'questions' && <><h3 className="font-semibold">Questions</h3><PageState loading={published.isPending} error={published.error} retry={() => published.refetch()} />{questionRows.map(question => { const related = [...new Map(data.appearances.filter(item => item.question_id === question.question_id).map(item => [item.part_id ?? item.display_label, item])).values()]; const matched = question.matched_parts ? [...new Map(question.matched_parts.map(part => [part.id, part])).values()] : related.map(item => ({ id: item.part_id, label: item.display_label })); const parts = [...new Set(matched.map(part => part.label))]; const marks = matched.length ? matched.map(part => { const allocation = question.marks?.allocations.find(item => item.part_id === part.id); return part.label + ": " + (allocation?.marks == null ? "Marks not available" : String(allocation.marks) + " marks"); }).join(" · ") : question.marks?.whole_question_marks == null ? "Marks not available" : String(question.marks.whole_question_marks) + " marks"; return <div className="study-row" key={question.question_id}><h4 className="font-semibold">{question.display_label}</h4><p className="study-meta">{attemptName(question.attempt_id)} · {question.source_family.replace(/_/g,' ')} · Answer {question.answer_status}</p>{parts.length > 0 && <p>Relevant parts: {parts.join(', ')}</p>}<p className="study-meta">{marks}</p><Link className="topic-link" id={"topic-question-" + question.question_id} onClick={() => preserveOrigin(location.pathname + location.search, "topic-question-" + question.question_id)} to={demoLink(`/questions/${encodeURIComponent(question.question_id)}?${new URLSearchParams({ return: location.pathname + location.search, ...(matched[0]?.id ? { part: matched[0].id } : {}) })}`)}>Read complete question</Link></div>; })}{published.data && published.data.total > 20 && <div className="controls"><button disabled={questionPage <= 1} onClick={() => set({ question_page: String(questionPage - 1) })}>Previous questions</button><span className="study-meta">Page {questionPage} · {published.data.total} questions</span><button disabled={questionPage * 20 >= published.data.total} onClick={() => set({ question_page: String(questionPage + 1) })}>Next questions</button></div>}{!published.isPending && !questionRows.length && <><p>Reviewed questions will appear here after publication.</p><Link className="topic-link" to={demoLink(`/questions?paper_id=${encodeURIComponent(data.paper?.id ?? '')}&subtopic_id=${encodeURIComponent(nodeId)}`)}>Browse questions</Link></>}{appearances.filter(item => !item.question_id).length > 0 && <details><summary>Legacy appearances without reviewed publication</summary>{appearances.filter(item => !item.question_id).map(item => <p key={item.id}>{item.display_label} · {item.attempt_id} · {item.provenance_limitation ?? 'Reliable complete-question source evidence is unavailable.'}</p>)}</details>}</>}
 
-  const handleSaveNotes = () => {
-    if (saveStatus === "unsaved") {
-      setSaveStatus("saving");
-      notesMutation.mutate(notesText);
-    }
-  };
-
-  // Helper to insert markdown tokens
-  const insertFormatting = (prefix: string, suffix: string = "") => {
-    const el = textareaRef.current;
-    if (!el) return;
-
-    const start = el.selectionStart;
-    const end = el.selectionEnd;
-    const selected = notesText.substring(start, end);
-    const replacement = `${prefix}${selected || "text"}${suffix}`;
-
-    const newText = notesText.substring(0, start) + replacement + notesText.substring(end);
-    setNotesText(newText);
-    setSaveStatus("unsaved");
-
-    setTimeout(() => {
-      el.focus();
-      el.setSelectionRange(start + prefix.length, start + prefix.length + (selected ? selected.length : 4));
-    }, 50);
-  };
-
-  if (isLoading && !subtopic) {
-    return (
-      <div className="p-8 space-y-4">
-        <div className="h-4 w-48 bg-stone-200 dark:bg-stone-800 rounded animate-pulse" />
-        <div className="h-8 w-3/4 bg-stone-200 dark:bg-stone-800 rounded animate-pulse" />
-        <div className="h-24 w-full bg-stone-200 dark:bg-stone-800 rounded-xl animate-pulse" />
-      </div>
-    );
-  }
-
-  const currentStatus = subtopic?.status || "not_started";
-  const importanceScore = subtopic?.score?.importance ?? 0.75;
-  const impBadge = getImportanceLabel(importanceScore);
-  const freqHits = subtopic?.score?.freq_hits ?? 0;
-  const freqWindow = subtopic?.score?.freq_window ?? 0;
-  const isWeak = subtopic?.score?.weak || false;
-  const examMarksTotal = subtopic?.score?.exam_marks_total ?? 0;
-  const appearances = subtopic?.appearances || [];
-
-  return (
-    <div className="p-6 md:p-8 space-y-6 max-w-4xl">
-      {/* Breadcrumbs */}
-      <div className="flex items-center gap-1.5 text-xs text-stone-500 font-medium flex-wrap">
-        <span className="font-bold text-indigo-600 dark:text-indigo-400">
-          {subtopic?.paper?.code || paperId}
-        </span>
-        <span>›</span>
-        <span>{subtopic?.chapter?.name || "Chapter"}</span>
-        <span>›</span>
-        <span className="text-stone-800 dark:text-stone-200">{subtopic?.topic?.name || "Topic"}</span>
-      </div>
-
-      {/* Title & Importance Header */}
-      <div className="space-y-3">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-          <h1 className="text-xl md:text-2xl font-bold tracking-tight text-stone-900 dark:text-stone-100">
-            {subtopic?.name || "Subtopic Details"}
-          </h1>
-        </div>
-
-        <div className="flex items-center gap-3 flex-wrap">
-          <ImportanceDots score={importanceScore} size="lg" />
-          <span
-            className={`px-2.5 py-0.5 rounded-full text-xs font-bold border ${impBadge.bg} ${impBadge.color}`}
-          >
-            {impBadge.label}
-          </span>
-          {freqHits > 0 && (
-            <span className="text-xs text-stone-500 font-medium">
-              Asked in {freqHits} of last {freqWindow || 8} exams
-              {examMarksTotal > 0 && ` (${Math.round(examMarksTotal / freqHits)} marks typical)`}
-            </span>
-          )}
-        </div>
-      </div>
-
-      {/* 3-Segment Status Toggle Button Bar */}
-      <div className="p-4 rounded-2xl bg-stone-50 dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 space-y-2">
-        <div className="flex items-center justify-between text-xs font-semibold text-stone-500">
-          <span className="uppercase tracking-wider">STUDY STATUS</span>
-          {subtopic?.last_revised_at && (
-            <span>Last revised: {new Date(subtopic.last_revised_at).toLocaleDateString()}</span>
-          )}
-        </div>
-
-        <div className="grid grid-cols-3 gap-2 p-1 rounded-xl bg-white dark:bg-stone-800/80 border border-stone-200/80 dark:border-stone-700/80">
-          <button
-            type="button"
-            onClick={() => statusMutation.mutate("not_started")}
-            className={`flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-lg text-xs font-bold transition-all ${
-              currentStatus === "not_started"
-                ? "bg-stone-100 dark:bg-stone-700 text-stone-900 dark:text-white shadow-sm"
-                : "text-stone-500 hover:text-stone-800 dark:hover:text-stone-300"
-            }`}
-          >
-            <Circle className="w-3.5 h-3.5 text-stone-400" />
-            <span>Not Started</span>
-          </button>
-
-          <button
-            type="button"
-            onClick={() => statusMutation.mutate("in_progress")}
-            className={`flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-lg text-xs font-bold transition-all ${
-              currentStatus === "in_progress"
-                ? "bg-amber-500 text-white shadow-sm"
-                : "text-stone-500 hover:text-stone-800 dark:hover:text-stone-300"
-            }`}
-          >
-            <Clock className="w-3.5 h-3.5" />
-            <span>In Progress</span>
-          </button>
-
-          <button
-            type="button"
-            onClick={() => statusMutation.mutate("done")}
-            className={`flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-lg text-xs font-bold transition-all ${
-              currentStatus === "done"
-                ? "bg-emerald-600 text-white shadow-sm"
-                : "text-stone-500 hover:text-stone-800 dark:hover:text-stone-300"
-            }`}
-          >
-            <CheckCircle2 className="w-3.5 h-3.5" />
-            <span>Done ✓</span>
-          </button>
-        </div>
-      </div>
-
-      {/* Weak Flag Alert (if applicable) */}
-      {isWeak && (
-        <div className="p-4 rounded-xl bg-orange-50/70 dark:bg-orange-950/30 border-l-4 border-orange-500 dark:border-orange-500 border-r border-t border-b border-orange-200 dark:border-orange-900/50 flex items-start gap-3">
-          <Flag className="w-5 h-5 text-orange-600 dark:text-orange-400 shrink-0 mt-0.5 fill-orange-500" />
-          <div className="space-y-1">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-orange-900 dark:text-orange-300">
-              WEAK COVERAGE ALERT
-            </h4>
-            <p className="text-xs text-orange-800 dark:text-orange-200">
-              This subtopic appeared in {freqHits} of the last {freqWindow} exams, but is currently not marked Done. Prioritize studying this before the upcoming attempt.
-            </p>
-          </div>
-        </div>
-      )}
-
-      {/* WHY IS THIS IMPORTANT? Accordion */}
-      <div className="rounded-2xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900 overflow-hidden shadow-sm">
-        <button
-          type="button"
-          onClick={() => setWhyExpanded(!whyExpanded)}
-          className="w-full p-4 flex items-center justify-between text-left hover:bg-stone-50 dark:hover:bg-stone-800/50 transition-colors"
-        >
-          <div className="flex items-center gap-2">
-            <Sparkles className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
-            <span className="text-xs font-bold uppercase tracking-wider text-stone-800 dark:text-stone-200">
-              WHY IS THIS IMPORTANT?
-            </span>
-          </div>
-          <div className="flex items-center gap-2 text-xs font-semibold text-indigo-600 dark:text-indigo-400">
-            <span>{whyExpanded ? "Hide breakdown" : "See math breakdown"}</span>
-            {whyExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-          </div>
-        </button>
-
-        <div className="px-5 pb-5 space-y-4">
-          <p className="text-xs md:text-sm text-stone-700 dark:text-stone-300 leading-relaxed">
-            {whyData?.summary ||
-              `Exam frequency: ${freqHits} hits in the last ${freqWindow} attempts. Chapter weightage section contributes significant marks in ICAI papers.`}
-          </p>
-
-          {/* Expanded E/P/W/I Math Breakdown */}
-          {whyExpanded && (
-            <div className="p-4 rounded-xl bg-stone-50 dark:bg-stone-800/60 border border-stone-200 dark:border-stone-700/60 space-y-3 animate-in fade-in duration-200">
-              <div className="text-xs font-bold uppercase tracking-wider text-stone-500">
-                Score Drivers (I = 0.50·E + 0.30·P + 0.20·W)
-              </div>
-
-              <div className="space-y-2 text-xs">
-                {/* Exam Frequency Score (E) */}
-                <div>
-                  <div className="flex justify-between font-medium mb-1">
-                    <span>Exam Score (E = 50% weight)</span>
-                    <span className="font-mono font-bold">
-                      {Math.round((subtopic?.score?.exam_score ?? 0.8) * 100)}%
-                    </span>
-                  </div>
-                  <div className="w-full h-1.5 rounded-full bg-stone-200 dark:bg-stone-700 overflow-hidden">
-                    <div
-                      className="h-full bg-indigo-600 rounded-full"
-                      style={{ width: `${(subtopic?.score?.exam_score ?? 0.8) * 100}%` }}
-                    />
-                  </div>
-                </div>
-
-                {/* Practice Frequency Score (P) */}
-                <div>
-                  <div className="flex justify-between font-medium mb-1">
-                    <span>Practice Signal (P = 30% weight)</span>
-                    <span className="font-mono font-bold">
-                      {Math.round((subtopic?.score?.practice_score ?? 0.7) * 100)}%
-                    </span>
-                  </div>
-                  <div className="w-full h-1.5 rounded-full bg-stone-200 dark:bg-stone-700 overflow-hidden">
-                    <div
-                      className="h-full bg-amber-500 rounded-full"
-                      style={{ width: `${(subtopic?.score?.practice_score ?? 0.7) * 100}%` }}
-                    />
-                  </div>
-                </div>
-
-                {/* Weightage Prior Score (W) */}
-                <div>
-                  <div className="flex justify-between font-medium mb-1">
-                    <span>Chapter Weightage Prior (W = 20% weight)</span>
-                    <span className="font-mono font-bold">
-                      {Math.round((subtopic?.score?.weight_prior ?? 0.15) * 100)}%
-                    </span>
-                  </div>
-                  <div className="w-full h-1.5 rounded-full bg-stone-200 dark:bg-stone-700 overflow-hidden">
-                    <div
-                      className="h-full bg-emerald-500 rounded-full"
-                      style={{ width: `${Math.min(100, (subtopic?.score?.weight_prior ?? 0.15) * 300)}%` }}
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
-        </div>
-      </div>
-
-      {/* PAST EXAM & PRACTICE APPEARANCES (Decision D2 compliant: no question text or answer text) */}
-      <div className="rounded-2xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900 p-5 space-y-4 shadow-sm">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Calendar className="w-4 h-4 text-stone-500" />
-            <h3 className="text-xs font-bold uppercase tracking-wider text-stone-800 dark:text-stone-200">
-              PAST EXAM & PRACTICE APPEARANCES ({appearances.length} Total)
-            </h3>
-          </div>
-          <span className="text-[10px] text-stone-400 font-medium">
-            Verified ICAI Suggested Answers & RTPs
-          </span>
-        </div>
-
-        {appearances.length === 0 ? (
-          <p className="text-xs text-stone-500 py-3 text-center">
-            No published appearances catalogued for this subtopic yet.
-          </p>
-        ) : (
-          <div className="space-y-2">
-            {appearances.map((app) => (
-              <div
-                key={app.id}
-                className="flex items-center justify-between p-3 rounded-xl bg-stone-50 dark:bg-stone-800/50 border border-stone-200/70 dark:border-stone-700/60 text-xs"
-              >
-                <div className="flex items-center gap-3">
-                  <span className="font-mono font-bold text-stone-900 dark:text-stone-100">
-                    {app.attempt_id}
-                  </span>
-                  <span
-                    className={`px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ${
-                      app.signal_class === "practice"
-                        ? "bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300"
-                        : "bg-indigo-100 dark:bg-indigo-950/60 text-indigo-800 dark:text-indigo-300"
-                    }`}
-                  >
-                    {app.signal_class || "Exam"}
-                  </span>
-                  <span className="font-semibold text-stone-700 dark:text-stone-300">
-                    {app.display_label}
-                  </span>
-                  {app.law_stale && (
-                    <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded text-[10px] bg-rose-100 dark:bg-rose-950/60 text-rose-700 dark:text-rose-400">
-                      <AlertTriangle className="w-3 h-3" />
-                      <span>Stale Law</span>
-                    </span>
-                  )}
-                </div>
-
-                <div className="flex items-center gap-3">
-                  {app.marks != null && (
-                    <span className="font-bold text-stone-900 dark:text-stone-100">
-                      {app.marks} marks
-                    </span>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
-
-      {/* RICH STUDY NOTES (Auto-saved & Markdown capable) */}
-      <div className="rounded-2xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900 p-5 space-y-3 shadow-sm">
-        <div className="flex items-center justify-between pb-2 border-b border-stone-100 dark:border-stone-800">
-          <div className="flex items-center gap-2">
-            <FileText className="w-4 h-4 text-stone-500" />
-            <h3 className="text-xs font-bold uppercase tracking-wider text-stone-800 dark:text-stone-200">
-              STUDY NOTES
-            </h3>
-          </div>
-
-          <div className="flex items-center gap-3">
-            {/* Edit / Preview Toggle */}
-            <div className="flex items-center rounded-lg bg-stone-100 dark:bg-stone-800 p-0.5 text-xs">
-              <button
-                type="button"
-                onClick={() => setPreviewMode(false)}
-                className={`flex items-center gap-1 px-2.5 py-1 rounded-md transition-colors ${
-                  !previewMode
-                    ? "bg-white dark:bg-stone-700 font-semibold text-stone-900 dark:text-white shadow-xs"
-                    : "text-stone-500 hover:text-stone-800 dark:hover:text-stone-200"
-                }`}
-              >
-                <Edit3 className="w-3 h-3" />
-                <span>Edit</span>
-              </button>
-              <button
-                type="button"
-                onClick={() => setPreviewMode(true)}
-                className={`flex items-center gap-1 px-2.5 py-1 rounded-md transition-colors ${
-                  previewMode
-                    ? "bg-white dark:bg-stone-700 font-semibold text-stone-900 dark:text-white shadow-xs"
-                    : "text-stone-500 hover:text-stone-800 dark:hover:text-stone-200"
-                }`}
-              >
-                <Eye className="w-3 h-3" />
-                <span>Preview</span>
-              </button>
-            </div>
-
-            {saveStatus === "unsaved" && (
-              <button
-                type="button"
-                onClick={handleSaveNotes}
-                className="flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-semibold bg-indigo-600 hover:bg-indigo-700 text-white transition-colors cursor-pointer"
-              >
-                <Save className="w-3 h-3" />
-                <span>Save</span>
-              </button>
-            )}
-
-            <span className="text-[11px] text-stone-400">
-              {saveStatus === "saving"
-                ? "Saving…"
-                : saveStatus === "saved"
-                ? "Auto-saved"
-                : "Unsaved changes"}
-            </span>
-          </div>
-        </div>
-
-        {/* Toolbar (Visible when editing) */}
-        {!previewMode && (
-          <div className="flex items-center gap-1 p-1 bg-stone-100/70 dark:bg-stone-800/50 rounded-xl text-stone-600 dark:text-stone-300">
-            <button
-              type="button"
-              onClick={() => insertFormatting("**", "**")}
-              className="p-1.5 rounded-lg hover:bg-white dark:hover:bg-stone-700 transition-colors"
-              title="Bold (**text**)"
-            >
-              <Bold className="w-3.5 h-3.5" />
-            </button>
-            <button
-              type="button"
-              onClick={() => insertFormatting("*", "*")}
-              className="p-1.5 rounded-lg hover:bg-white dark:hover:bg-stone-700 transition-colors"
-              title="Italic (*text*)"
-            >
-              <Italic className="w-3.5 h-3.5" />
-            </button>
-            <button
-              type="button"
-              onClick={() => insertFormatting("### ")}
-              className="p-1.5 rounded-lg hover:bg-white dark:hover:bg-stone-700 transition-colors"
-              title="Heading (### )"
-            >
-              <Heading3 className="w-3.5 h-3.5" />
-            </button>
-            <button
-              type="button"
-              onClick={() => insertFormatting("- ")}
-              className="p-1.5 rounded-lg hover:bg-white dark:hover:bg-stone-700 transition-colors"
-              title="Bullet list (- )"
-            >
-              <List className="w-3.5 h-3.5" />
-            </button>
-            <button
-              type="button"
-              onClick={() => insertFormatting("`", "`")}
-              className="p-1.5 rounded-lg hover:bg-white dark:hover:bg-stone-700 transition-colors"
-              title="Inline Code (`code`)"
-            >
-              <Code className="w-3.5 h-3.5" />
-            </button>
-          </div>
-        )}
-
-        {/* Editor or Markdown Preview */}
-        {previewMode ? (
-          <div className="p-4 rounded-xl border border-stone-200 dark:border-stone-800 bg-stone-50 dark:bg-stone-900 min-h-[120px] text-xs md:text-sm text-stone-800 dark:text-stone-200 prose dark:prose-invert max-w-none">
-            {notesText ? (
-              <ReactMarkdown remarkPlugins={[remarkGfm]}>{notesText}</ReactMarkdown>
-            ) : (
-              <span className="text-stone-400 italic">No notes written yet. Switch to Edit mode to start writing.</span>
-            )}
-          </div>
-        ) : (
-          <textarea
-            ref={textareaRef}
-            value={notesText}
-            onChange={handleNotesChange}
-            onBlur={handleSaveNotes}
-            placeholder="Record key concepts, formulas, section numbers, or memory hooks for this subtopic… (Markdown supported)"
-            rows={5}
-            className="w-full p-3 rounded-xl border border-stone-200 dark:border-stone-800 bg-stone-50 dark:bg-stone-800/40 text-xs md:text-sm font-mono text-stone-900 dark:text-stone-100 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 resize-y"
-          />
-        )}
-      </div>
-    </div>
-  );
+    </section>
+  </>}
+  <Dialog open={blocker.state === 'blocked'} title="Unsaved notes" onClose={() => { if (blocker.state === 'blocked') blocker.reset(); }}><p>Your draft has unsaved changes.</p><div className="controls"><button onClick={() => { if (blocker.state === 'blocked') blocker.reset(); }}>Stay</button><button className="action" disabled={saveStatus === 'saving'} onClick={async () => { const saved = await save(); if (saved && blocker.state === 'blocked') blocker.proceed(); }}>Save and leave</button><button disabled={saveStatus === 'saving'} onClick={() => { const draft = drafts.get(key); if (draft) drafts.set(key, { text: draft.saved, saved: draft.saved }); if (blocker.state === 'blocked') blocker.proceed(); }}>Discard and leave</button></div>{saveStatus === 'failed' && <p role="alert">Save failed: {noteError}. Your draft is retained.</p>}</Dialog>
+  </div>;
 }

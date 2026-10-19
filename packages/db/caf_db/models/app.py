@@ -12,7 +12,8 @@ from sqlalchemy import (
     Index,
     Integer,
     Numeric,
-    SmallInteger,
+    Identity,
+    UniqueConstraint,
     String,
     Text,
     func,
@@ -24,10 +25,21 @@ from caf_db.models.base import Base
 
 class UserAccount(Base):
     __tablename__ = "user_account"
-    __table_args__ = {"schema": "app"}
+    __table_args__ = (
+        UniqueConstraint("issuer", "subject", name="uq_account_identity"),
+        CheckConstraint("role IN ('student','administrator')", name="check_account_role"),
+        CheckConstraint("status IN ('pending_binding','active','disabled')", name="check_account_status"),
+        {"schema": "app"},
+    )
 
-    id: Mapped[int] = mapped_column(SmallInteger, primary_key=True)
+    id: Mapped[int] = mapped_column(Integer, Identity(), primary_key=True)
     name: Mapped[str] = mapped_column(Text, nullable=False)
+    issuer: Mapped[str | None] = mapped_column(Text, nullable=True)
+    subject: Mapped[str | None] = mapped_column(Text, nullable=True)
+    email: Mapped[str | None] = mapped_column(Text, nullable=True)
+    email_verified: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False)
+    role: Mapped[str] = mapped_column(Text, nullable=False, default="student")
+    status: Mapped[str] = mapped_column(Text, nullable=False, default="pending_binding")
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), nullable=False, server_default=func.now()
     )
@@ -38,13 +50,15 @@ class Settings(Base):
     __table_args__ = {"schema": "app"}
 
     user_id: Mapped[int] = mapped_column(
-        SmallInteger, ForeignKey("app.user_account.id"), primary_key=True
+        Integer, ForeignKey("app.user_account.id"), primary_key=True
     )
     target_attempt_id: Mapped[str | None] = mapped_column(
         Text, ForeignKey("ref.attempt.id"), nullable=True
     )
+    selected_paper_ids: Mapped[list[str] | None] = mapped_column(ARRAY(Text), nullable=True)
     exam_start_date: Mapped[date | None] = mapped_column(Date, nullable=True)
-    hours_per_week: Mapped[float] = mapped_column(Numeric(5, 1), nullable=False, default=20.0)
+    include_hindi: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False, server_default="false")
+    hours_per_week: Mapped[float] = mapped_column(Numeric(), nullable=False, default=20.0)
     minutes_per_subtopic: Mapped[int] = mapped_column(Integer, nullable=False, default=45)
     revision_intervals: Mapped[list[int]] = mapped_column(
         ARRAY(Integer), nullable=False, default=lambda: [3, 7, 21, 60]
@@ -61,7 +75,7 @@ class Progress(Base):
     )
 
     user_id: Mapped[int] = mapped_column(
-        SmallInteger, ForeignKey("app.user_account.id"), primary_key=True
+        Integer, ForeignKey("app.user_account.id"), primary_key=True
     )
     node_id: Mapped[str] = mapped_column(Text, ForeignKey("ref.node.id"), primary_key=True)
     status: Mapped[str] = mapped_column(Text, nullable=False)
@@ -83,7 +97,7 @@ class ProgressEvent(Base):
     )
 
     id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
-    user_id: Mapped[int] = mapped_column(SmallInteger, nullable=False)
+    user_id: Mapped[int] = mapped_column(Integer, ForeignKey("app.user_account.id"), nullable=False)
     node_id: Mapped[str] = mapped_column(Text, ForeignKey("ref.node.id"), nullable=False)
     from_status: Mapped[str | None] = mapped_column(Text, nullable=True)
     to_status: Mapped[str] = mapped_column(Text, nullable=False)
@@ -97,7 +111,7 @@ class Note(Base):
     __table_args__ = {"schema": "app"}
 
     user_id: Mapped[int] = mapped_column(
-        SmallInteger, ForeignKey("app.user_account.id"), primary_key=True
+        Integer, ForeignKey("app.user_account.id"), primary_key=True
     )
     node_id: Mapped[str] = mapped_column(Text, ForeignKey("ref.node.id"), primary_key=True)
     body: Mapped[str] = mapped_column(Text, nullable=False)
@@ -114,7 +128,7 @@ class RevisionEvent(Base):
     )
 
     id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
-    user_id: Mapped[int] = mapped_column(SmallInteger, nullable=False)
+    user_id: Mapped[int] = mapped_column(Integer, ForeignKey("app.user_account.id"), nullable=False)
     node_id: Mapped[str] = mapped_column(Text, ForeignKey("ref.node.id"), nullable=False)
     outcome: Mapped[str] = mapped_column(Text, nullable=False)
     at: Mapped[datetime] = mapped_column(
@@ -130,7 +144,7 @@ class MockTest(Base):
     )
 
     id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
-    user_id: Mapped[int] = mapped_column(SmallInteger, nullable=False)
+    user_id: Mapped[int] = mapped_column(Integer, ForeignKey("app.user_account.id"), nullable=False)
     paper_id: Mapped[str] = mapped_column(Text, ForeignKey("ref.paper.id"), nullable=False)
     attempt_id: Mapped[str | None] = mapped_column(
         Text, ForeignKey("ref.attempt.id"), nullable=True
@@ -147,8 +161,51 @@ class StudySession(Base):
     __table_args__ = {"schema": "app"}
 
     id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
-    user_id: Mapped[int] = mapped_column(SmallInteger, nullable=False)
+    user_id: Mapped[int] = mapped_column(Integer, ForeignKey("app.user_account.id"), nullable=False)
     node_id: Mapped[str | None] = mapped_column(Text, ForeignKey("ref.node.id"), nullable=True)
     started_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)
     ended_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
     minutes: Mapped[int | None] = mapped_column(Integer, nullable=True)
+
+
+class Invitation(Base):
+    __tablename__ = "invitation"
+    __table_args__ = (
+        CheckConstraint("role IN ('student','administrator')", name="check_invitation_role"),
+        {"schema": "app"},
+    )
+    id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
+    token_hash: Mapped[str] = mapped_column(String(64), nullable=False, unique=True)
+    email: Mapped[str] = mapped_column(Text, nullable=False)
+    role: Mapped[str] = mapped_column(Text, nullable=False, default="student")
+    target_user_id: Mapped[int | None] = mapped_column(Integer, ForeignKey("app.user_account.id"), nullable=True)
+    created_by: Mapped[int | None] = mapped_column(Integer, ForeignKey("app.user_account.id"), nullable=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, server_default=func.now())
+    expires_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)
+    consumed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    revoked_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+
+
+class LoginTransaction(Base):
+    __tablename__ = "login_transaction"
+    __table_args__ = {"schema": "app"}
+    state_hash: Mapped[str] = mapped_column(String(64), primary_key=True)
+    browser_hash: Mapped[str] = mapped_column(String(64), nullable=False)
+    nonce: Mapped[str] = mapped_column(Text, nullable=False)
+    code_verifier: Mapped[str] = mapped_column(Text, nullable=False)
+    invitation_hash: Mapped[str | None] = mapped_column(String(64), nullable=True)
+    return_to: Mapped[str] = mapped_column(Text, nullable=False)
+    expires_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)
+    consumed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+
+
+class AuthSession(Base):
+    __tablename__ = "auth_session"
+    __table_args__ = {"schema": "app"}
+    token_hash: Mapped[str] = mapped_column(String(64), primary_key=True)
+    user_id: Mapped[int] = mapped_column(Integer, ForeignKey("app.user_account.id"), nullable=False, index=True)
+    csrf_token: Mapped[str] = mapped_column(Text, nullable=False)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)
+    expires_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)
+    last_seen_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)
+    revoked_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)

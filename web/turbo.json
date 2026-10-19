@@ -3,6 +3,7 @@
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
+      "env": ["VITE_BUILD_REVISION"],
       "outputs": ["dist/**"]
     },
     "dev": {

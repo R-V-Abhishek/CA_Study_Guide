@@ -1,0 +1,134 @@
+{
+  "descriptors": [
+    {
+      "node_id": "4d00531c-271a-40c9-9ecc-1f304f904d96",
+      "concept_name": "Role and Importance of Financial Reporting and Disclosures",
+      "definition": "Financial statements serve as a critical communication barometer for enterprises to report operational performance to diverse stakeholders like investors and regulators. Disclosures supplement these statements by providing essential contextual information to help users interpret financial positions accurately.",
+      "terminology": [
+        "financial reporting",
+        "stakeholders",
+        "disclosures",
+        "barometer"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Communication of entity operations to stakeholders",
+        "Supplementary disclosures aiding financial interpretation"
+      ],
+      "exclusion": [
+        "Standalone regulatory compliance filing without operational context"
+      ],
+      "nearby_distinctions": [
+        "Differs from general business management by focusing strictly on communication of financial well-being to external and internal users."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "db7f5f5e-2654-4638-9906-cfc22f9542e2",
+      "concept_name": "Financial Statements of Corporate Entities under Schedule III",
+      "definition": "Corporate financial statements must follow the vertical format and minimum disclosure requirements set out in Schedule III of the Companies Act, 2013. Schedule III prescribes content and presentation rules but does not dictate underlying accounting treatments, which are governed by notified standards.",
+      "terminology": [
+        "Schedule III",
+        "vertical format",
+        "balance sheet",
+        "statement of profit and loss"
+      ],
+      "instrument_references": [
+        "Schedule III to the Companies Act, 2013",
+        "Section 129(1) of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Vertical balance sheet formatting",
+        "Minimum face-value disclosures and note disclosures"
+      ],
+      "exclusion": [
+        "Horizontal balance sheet formats",
+        "Prescription of specific accounting measurement treatments"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard-setting rules because Schedule III governs presentation formats rather than the accounting recognition and measurement principles."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "60280ceb-caa2-4ce4-baf4-d7fa140050a9",
+      "concept_name": "Characteristics of Good Financial Statements",
+      "definition": "Quality financial statements must present a true and fair view of enterprise affairs while maintaining relevance, understandability, and consistency across periods. They must also ensure regulatory compliance and universality to enable meaningful comparison within and outside the industry.",
+      "terminology": [
+        "true and fair view",
+        "relevance",
+        "understandability",
+        "consistency",
+        "universality"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "True and fair representation of enterprise affairs",
+        "Comparable and consistent periodic reporting formats"
+      ],
+      "exclusion": [
+        "Redundant historical data lacking decision-making utility"
+      ],
+      "nearby_distinctions": [
+        "Distinct from mere statutory form filling by emphasizing qualitative attributes like understandability and decision usefulness for diverse users."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0a3d81a9-ce32-4ec4-9c66-7234995fba22",
+      "concept_name": "Best Practices for Presentation and Disclosure",
+      "definition": "Preparers should ensure financial statements are complete, compliant, and drafted in simple, plain English to avoid ambiguity or cross-questioning. Clear and specific accounting policies enhance effective communication regarding the entity's financial position and performance.",
+      "terminology": [
+        "completeness",
+        "plain English",
+        "effective communication",
+        "specific accounting policies"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Drafting notes in clear and plain language",
+        "Ensuring complete disclosures without vague or ambiguous statements"
+      ],
+      "exclusion": [
+        "Use of vague conditional remarks regarding account balance reconciliations"
+      ],
+      "nearby_distinctions": [
+        "Differs from mandatory minimum legal formats by focusing on stylistic clarity and communicative effectiveness."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e8208ee7-7826-4b41-ba0a-4536e66cee48",
+      "concept_name": "Initial Recognition and Measurement of Employee Loans",
+      "definition": "Financial assets like below-market employee loans must be initially measured at fair value rather than transaction price under applicable accounting standards. Subsequent measurement uses amortised cost with interest income recognized based on the effective interest rate.",
+      "terminology": [
+        "fair value",
+        "amortised cost",
+        "effective rate of interest",
+        "initial recognition"
+      ],
+      "instrument_references": [
+        "Ind AS 109"
+      ],
+      "inclusion": [
+        "Fair value measurement of below-market loans at inception",
+        "Interest income recognition using the effective interest rate"
+      ],
+      "exclusion": [
+        "Recording employee loans initially at face disbursement value",
+        "Recognizing interest income strictly at contracted nominal rates"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from conventional nominal accounting by requiring present value fair valuation adjustments for below-market transactions."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "238cd998c660699c52ab521ea2ffd67c21262d9b07ca6f122c9bb6bf360a713f",
+  "artifact_id": "07e0e8b1-6213-4329-956b-c2c63ff3390e",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 3586,
+  "output_tokens": 1364,
+  "cost_usd": 0.0044858,
+  "created_at": "2026-10-03T18:05:35.929278+00:00"
+}

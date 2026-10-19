@@ -1,0 +1,151 @@
+{
+  "result": {
+    "question_id": "98050d45fe016c050f31d11b95ecb2d0a678fae4044b36255b12660bad2656c0",
+    "input_hash": "cdd790d8d921e26d6ae492c8704db97f6534126d150c89ed0e9eda02476e6dc8",
+    "mappings": [
+      {
+        "part_id": "98050d45fe016c050f31d11b95ecb2d0a678fae4044b36255b12660bad2656c0:Q2.repeat4.a.i",
+        "outcome": "matched",
+        "primary_node_id": "075c2d8d-21b8-49f9-8163-d4076f8ceb8d",
+        "secondary_node_ids": [
+          "def3b51a-0b2a-4a17-9e21-f1289f2cd589"
+        ],
+        "evidence": [
+          {
+            "node_id": "075c2d8d-21b8-49f9-8163-d4076f8ceb8d",
+            "support": "The requested entries initially recognize and split convertible debentures as a compound financial instrument."
+          },
+          {
+            "node_id": "def3b51a-0b2a-4a17-9e21-f1289f2cd589",
+            "support": "The convertible debt also requires initial allocation between liability and equity components under compound instrument accounting."
+          }
+        ],
+        "note": "Initial recognition concerns the compound debenture issue and its accounting entries.",
+        "confidence": 0.87,
+        "bucket": "A"
+      },
+      {
+        "part_id": "98050d45fe016c050f31d11b95ecb2d0a678fae4044b36255b12660bad2656c0:Q2.repeat4.a.ii",
+        "outcome": "matched",
+        "primary_node_id": "def3b51a-0b2a-4a17-9e21-f1289f2cd589",
+        "secondary_node_ids": [
+          "f9d1fce7-ed9b-4993-8cec-b66e874a2ab0"
+        ],
+        "evidence": [
+          {
+            "node_id": "def3b51a-0b2a-4a17-9e21-f1289f2cd589",
+            "support": "Calculating five years of interest expense on convertible debentures uses the effective interest method for the liability component of a compound instrument."
+          },
+          {
+            "node_id": "f9d1fce7-ed9b-4993-8cec-b66e874a2ab0",
+            "support": "Interest expense on the liability component is recognized in profit or loss."
+          }
+        ],
+        "note": "The tested calculation is the liability component's effective interest expense over the debenture term.",
+        "confidence": 0.77,
+        "bucket": "A"
+      },
+      {
+        "part_id": "98050d45fe016c050f31d11b95ecb2d0a678fae4044b36255b12660bad2656c0:Q2.repeat4.a.iii",
+        "outcome": "matched",
+        "primary_node_id": "def3b51a-0b2a-4a17-9e21-f1289f2cd589",
+        "secondary_node_ids": [
+          "4f904778-0625-488f-b0e5-1e1592144335"
+        ],
+        "evidence": [
+          {
+            "node_id": "def3b51a-0b2a-4a17-9e21-f1289f2cd589",
+            "support": "The question asks for entries on repurchase before maturity, testing early settlement and allocation of consideration between the liability and equity components."
+          },
+          {
+            "node_id": "4f904778-0625-488f-b0e5-1e1592144335",
+            "support": "The liability portion is extinguished on repurchase, with any resulting gain or loss recognized."
+          }
+        ],
+        "note": "Repurchase accounting for the convertible debentures is an early settlement of a compound instrument.",
+        "confidence": 0.95,
+        "bucket": "A"
+      },
+      {
+        "part_id": "98050d45fe016c050f31d11b95ecb2d0a678fae4044b36255b12660bad2656c0:Q2.repeat4.b.i",
+        "outcome": "matched",
+        "primary_node_id": "717321c7-f70d-4d80-904d-6f68b3e3c43e",
+        "secondary_node_ids": [
+          "2158958e-a073-492c-b07a-aff8872eb21f"
+        ],
+        "evidence": [
+          {
+            "node_id": "717321c7-f70d-4d80-904d-6f68b3e3c43e",
+            "support": "The unpaid foreign currency trade payable is retranslated at the reporting date, with the exchange gain recognized in profit or loss."
+          },
+          {
+            "node_id": "2158958e-a073-492c-b07a-aff8872eb21f",
+            "support": "The purchase of goods in euros is a foreign currency goods transaction, initially recorded at the transaction date rate."
+          }
+        ],
+        "note": "The assertion concerns subsequent reporting date retranslation of a monetary trade payable.",
+        "confidence": 0.93,
+        "bucket": "A"
+      },
+      {
+        "part_id": "98050d45fe016c050f31d11b95ecb2d0a678fae4044b36255b12660bad2656c0:Q2.repeat4.b.ii",
+        "outcome": "matched",
+        "primary_node_id": "717321c7-f70d-4d80-904d-6f68b3e3c43e",
+        "secondary_node_ids": [
+          "2158958e-a073-492c-b07a-aff8872eb21f"
+        ],
+        "evidence": [
+          {
+            "node_id": "717321c7-f70d-4d80-904d-6f68b3e3c43e",
+            "support": "Settlement of a foreign currency trade receivable creates a monetary-item exchange difference recognized in profit or loss."
+          },
+          {
+            "node_id": "2158958e-a073-492c-b07a-aff8872eb21f",
+            "support": "The sale of goods in US dollars is initially a foreign currency goods transaction recorded at the transaction date rate."
+          }
+        ],
+        "note": "The statement tests foreign currency trade receivable accounting through settlement.",
+        "confidence": 0.92,
+        "bucket": "A"
+      },
+      {
+        "part_id": "98050d45fe016c050f31d11b95ecb2d0a678fae4044b36255b12660bad2656c0:Q2.repeat4.b.iii",
+        "outcome": "matched",
+        "primary_node_id": "a78fbb4c-ec37-42de-8fa3-c1271927c999",
+        "secondary_node_ids": [
+          "f6ae5dc6-c424-41da-a162-02f161c65527"
+        ],
+        "evidence": [
+          {
+            "node_id": "a78fbb4c-ec37-42de-8fa3-c1271927c999",
+            "support": "The requested indirect cash flow treatment must adjust profit for noncash exchange gains and exclude noncash accrual gains from cash flows, while reporting actual related cash transactions appropriately."
+          },
+          {
+            "node_id": "f6ae5dc6-c424-41da-a162-02f161c65527",
+            "support": "The problem explicitly asks for indirect-method reconciliation of profit to operating cash flows."
+          }
+        ],
+        "note": "This part tests cash flow statement treatment of the stated foreign currency transactions under the indirect method.",
+        "confidence": 0.86,
+        "bucket": "A"
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "6ff2ceeff4bce7c55fce1c1b8df40292ba3185c9c870f428289b6d76e3ec59c7",
+    "schema_generator": "pinned-part-ids-v1",
+    "seconds": 32.799,
+    "usage": [
+      {
+        "input_tokens": 52828,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1553,
+        "reasoning_output_tokens": 0
+      }
+    ],
+    "completed_at": "2026-10-05T15:56:38.540358+00:00"
+  }
+}

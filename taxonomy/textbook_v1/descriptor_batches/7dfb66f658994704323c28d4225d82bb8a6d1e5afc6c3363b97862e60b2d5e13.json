@@ -1,0 +1,308 @@
+{
+  "descriptors": [
+    {
+      "node_id": "0fed18dc-bf51-4b2f-8b3d-3ee04aa260b6",
+      "concept_name": "Audit Reporting on Corresponding Figures and Comparative Financial Statements",
+      "definition": "The auditor formats opinions differently depending on whether corresponding figures or comparative financial statements are presented. Specific paragraphs are used when prior period opinions differ or when predecessor auditor reports are referenced.",
+      "terminology": [
+        "Corresponding figures",
+        "Comparative financial statement",
+        "Predecessor auditor",
+        "Other matter paragraph"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Reporting on corresponding figures",
+        "Reporting on comparative financial statements",
+        "Disclosing predecessor auditor involvement"
+      ],
+      "exclusion": [
+        "Current period unverified balances without opening balance checks"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between single period corresponding figures and multi-period comparative financial statements."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b5908200-ee84-4989-b7a5-3d00d1f2defb",
+      "concept_name": "SA 720 The Auditor's Responsibilities Relating to Other Information",
+      "definition": "Auditors must read and evaluate financial and non-financial other information included in an entity's annual report to identify material inconsistencies. This process helps safeguard the credibility of the audited financial statements and the auditor's report.",
+      "terminology": [
+        "Other information",
+        "Annual report",
+        "Material inconsistency"
+      ],
+      "instrument_references": [
+        "SA 720"
+      ],
+      "inclusion": [
+        "Reading annual reports",
+        "Comparing other information with financial statements"
+      ],
+      "exclusion": [
+        "Preliminary announcements of financial information",
+        "Securities offering documents and prospectuses"
+      ],
+      "nearby_distinctions": [
+        "Differs from substantive financial statement testing by focusing on consistency rather than direct verification of non-financial metrics."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "64d8fa39-5d33-4436-82d6-e9a9f2f0456b",
+      "concept_name": "Objectives of Auditing Other Information",
+      "definition": "The auditor aims to detect material inconsistencies between other information and either the financial statements or audit knowledge. Appropriate responses and reporting protocols are initiated when misstatements are identified.",
+      "terminology": [
+        "Material inconsistency",
+        "Auditor knowledge",
+        "Material misstatement"
+      ],
+      "instrument_references": [
+        "SA 720"
+      ],
+      "inclusion": [
+        "Assessing consistency with financial statements",
+        "Evaluating against audit knowledge"
+      ],
+      "exclusion": [
+        "Direct auditing of items outside the annual report scope"
+      ],
+      "nearby_distinctions": [
+        "Targets consistency checks rather than forming an independent assurance conclusion on the other information itself."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "793f1ec1-0800-4c97-8d8f-a9b10883fe1a",
+      "concept_name": "Obtaining and Reading Other Information Procedures",
+      "definition": "The auditor collaborates with management to determine the annual report documents and ensures timely receipt prior to or after the audit report date. While reading, the auditor remains alert for indicators of material misstatements not linked to the financials.",
+      "terminology": [
+        "Annual report documents",
+        "Written representation",
+        "Timing of issuance"
+      ],
+      "instrument_references": [
+        "SA 720"
+      ],
+      "inclusion": [
+        "Discussions with management on report timelines",
+        "Obtaining written representations for delayed reports"
+      ],
+      "exclusion": [
+        "Accepting final documents without review if obtainable prior to report date"
+      ],
+      "nearby_distinctions": [
+        "Focuses on information acquisition and baseline reading rather than modification of the primary opinion."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c42f3e63-ff7d-4dcb-a148-a804f1b7755b",
+      "concept_name": "Responding to Material Inconsistencies or Misstatements in Other Information",
+      "definition": "When potential inconsistencies emerge, the auditor engages with management and executes additional procedures to determine if misstatements exist in the other information or financial statements. Uncorrected errors require escalation to those charged with governance or potential engagement withdrawal.",
+      "terminology": [
+        "Material inconsistency",
+        "Engagement withdrawal",
+        "Those charged with governance"
+      ],
+      "instrument_references": [
+        "SA 720"
+      ],
+      "inclusion": [
+        "Consulting with management",
+        "Evaluating impact on financial statements"
+      ],
+      "exclusion": [
+        "Issuing standard reports when uncorrected material errors persist without evaluation"
+      ],
+      "nearby_distinctions": [
+        "Differentiates responses based on whether the other information was obtained before or after the audit report date."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "61b9dab4-674a-41b6-b599-f3a43b93ca79",
+      "concept_name": "Auditor Actions on Uncorrected Other Information Misstatements",
+      "definition": "If management refuses to correct identified misstatements, the auditor communicates with governance and evaluates reporting implications or legal withdrawal options. For post-report discoveries, the auditor takes appropriate legal steps to bring uncorrected errors to user attention.",
+      "terminology": [
+        "Uncorrected material misstatement",
+        "Post-report discovery",
+        "Engagement withdrawal"
+      ],
+      "instrument_references": [
+        "SA 720"
+      ],
+      "inclusion": [
+        "Post-audit report discovery actions",
+        "Communication with those charged with governance"
+      ],
+      "exclusion": [
+        "Direct alteration of the other information by the auditor"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between pre-report and post-report discovery workflows for uncorrected material items."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "59ae1813-b311-4882-8302-30f7f31b6e10",
+      "concept_name": "Required Other Information Section in Audit Report",
+      "definition": "Auditors must include a designated Other Information section in the audit report under specified entity conditions, outlining management responsibility and stating that no assurance is expressed thereon. It also details whether the auditor has anything to report or needs to describe an uncorrected misstatement.",
+      "terminology": [
+        "Other Information section",
+        "Uncorrected material misstatement",
+        "Listed entity"
+      ],
+      "instrument_references": [
+        "SA 720",
+        "SA 705"
+      ],
+      "inclusion": [
+        "Statements on management responsibility",
+        "Descriptions of auditor responsibilities"
+      ],
+      "exclusion": [
+        "Providing an audit opinion or assurance conclusion on the other information"
+      ],
+      "nearby_distinctions": [
+        "Distinct from the main opinion paragraph, acting as a transparency disclosure rather than an attestation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9e639030-dd9c-4a54-9e66-bcf91629ebb4",
+      "concept_name": "Mandatory Inclusion of Other Information Reporting Section",
+      "definition": "The audit report must feature a dedicated section detailing management obligations, identification of reviewed documents, and an explicit lack of assurance on other information. This requirement triggers based on whether the entity is listed or unlisted and if documents are obtained.",
+      "terminology": [
+        "Listed entity",
+        "Unlisted corporate entity",
+        "Other Information section"
+      ],
+      "instrument_references": [
+        "SA 720"
+      ],
+      "inclusion": [
+        "Mandatory section generation for listed entities expecting other information",
+        "Conditional section generation for unlisted entities"
+      ],
+      "exclusion": [
+        "Omitting the section when other information is neither obtained nor expected for unlisted entities"
+      ],
+      "nearby_distinctions": [
+        "Applies varying triggers depending on the corporate classification of the audited entity."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0e375d4f-523e-4e71-a427-c24cd45515a6",
+      "concept_name": "Statutory Prescription for Other Information Reporting",
+      "definition": "When regulations mandate specific layouts for referencing other information, the auditor may reference Standards on Auditing only if minimum content requirements like scope identification and outcome statements are met. This standard governs the boundaries of auditor liability regarding supplementary disclosures.",
+      "terminology": [
+        "Statutory prescription",
+        "Specific layout",
+        "Minimum content"
+      ],
+      "instrument_references": [
+        "SA 720",
+        "SA 700"
+      ],
+      "inclusion": [
+        "Minimum compliance elements for statutory wording",
+        "References to auditing standards alongside regulatory formats"
+      ],
+      "exclusion": [
+        "Referring to SAs when mandated minimum elements are omitted"
+      ],
+      "nearby_distinctions": [
+        "Balances customized regulatory reporting templates against the baseline requirements of auditing standards."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7891c559-d729-4a7c-9b4b-98feae1bed01",
+      "concept_name": "Auditor Statutory Inquiry Duties Under Section 143",
+      "definition": "Statutory provisions require company auditors to inquire into specific operational matters, such as loan securities, book entries, and share allotments. A separate report to members is necessitated only if the auditor uncovers adverse findings requiring special commentary.",
+      "terminology": [
+        "Section 143",
+        "Loans and advances",
+        "Book entries",
+        "Adverse findings"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Inquiries into security of loans and advances",
+        "Checking cash receipts for share allotments"
+      ],
+      "exclusion": [
+        "Filing positive confirmation reports when statutory inquiries reveal no adverse conditions"
+      ],
+      "nearby_distinctions": [
+        "Differs from general financial statement verification by focusing on specific statutory compliance checks mandated by corporate law."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "355dc232-1f5d-4e7f-8ff2-940ef5be930e",
+      "concept_name": "CARO 2020 Additional Reporting Framework and Applicability",
+      "definition": "Issued under statutory authority, the order mandates additional reporting disclosures for eligible companies alongside the primary audit report. Specific entity types, such as banking companies, insurance entities, and small companies meeting specific criteria, are exempt from these extra requirements.",
+      "terminology": [
+        "CARO 2020",
+        "Exempted classes",
+        "Paid up capital",
+        "Borrowings"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013",
+        "CARO 2020"
+      ],
+      "inclusion": [
+        "Additional reporting for qualifying corporations",
+        "Exemption evaluations for small and private companies"
+      ],
+      "exclusion": [
+        "Banking and insurance company inclusion",
+        "Consolidated financial statement applicability"
+      ],
+      "nearby_distinctions": [
+        "Acts as an supplementary reporting order rather than the standard financial statement audit opinion."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6a25f528-4bdb-44ad-825d-570aa3eadb2f",
+      "concept_name": "Illustrative Audit Report with Emphasis of Matter",
+      "definition": "An independent auditor's report contains structured sections including the opinion, basis of opinion, and key audit matters. An emphasis of matter paragraph draws attention to critical disclosures, such as facility damage, without modifying the core audit opinion.",
+      "terminology": [
+        "Emphasis of matter",
+        "Key audit matters",
+        "Standalone financial statements",
+        "Unmodified opinion"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013",
+        "ICAI Code of Ethics"
+      ],
+      "inclusion": [
+        "Illustrative report formatting",
+        "Emphasis of matter disclosures"
+      ],
+      "exclusion": [
+        "Modifying the auditor opinion due to disclosed emphasis items"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between explanatory emphasis paragraphs and actual modifications or qualifications of the audit opinion."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "7dfb66f658994704323c28d4225d82bb8a6d1e5afc6c3363b97862e60b2d5e13",
+  "artifact_id": "560e543c-b6ce-4364-a5f5-2f339091d917",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8712,
+  "output_tokens": 3222,
+  "cost_usd": 0.0106686,
+  "created_at": "2026-10-03T18:10:28.504617+00:00"
+}

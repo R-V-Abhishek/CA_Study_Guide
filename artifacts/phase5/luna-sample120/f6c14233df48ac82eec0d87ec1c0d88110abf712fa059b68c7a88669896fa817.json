@@ -1,0 +1,119 @@
+{
+  "result": {
+    "question_id": "f6c14233df48ac82eec0d87ec1c0d88110abf712fa059b68c7a88669896fa817",
+    "input_hash": "ee1f88a959dda0766280215f7685ccc19c87d6b6806135f263757838856d05ed",
+    "mappings": [
+      {
+        "part_id": "f6c14233df48ac82eec0d87ec1c0d88110abf712fa059b68c7a88669896fa817:Q3.a",
+        "outcome": "matched",
+        "primary_node_id": "409ef2c5-4a89-4065-95ea-d66c80d90add",
+        "secondary_node_ids": [
+          "3d05cbcb-c09c-412e-b8e9-b2b96d5de6f9"
+        ],
+        "evidence": [
+          {
+            "node_id": "409ef2c5-4a89-4065-95ea-d66c80d90add",
+            "support": "Tests withdrawal of an exemption by notification and the resulting availability of input tax credit."
+          },
+          {
+            "node_id": "3d05cbcb-c09c-412e-b8e9-b2b96d5de6f9",
+            "support": "The item\u2019s exempt-to-taxable status change is relevant to the exempt-supply framework."
+          }
+        ],
+        "note": "ITC on capital goods used for formerly exempt supplies becoming taxable; principal fit is the power to grant exemption and its withdrawal.",
+        "confidence": 0.82,
+        "bucket": "B"
+      },
+      {
+        "part_id": "f6c14233df48ac82eec0d87ec1c0d88110abf712fa059b68c7a88669896fa817:Q3.b.i",
+        "outcome": "matched",
+        "primary_node_id": "81f2b41f-d9bf-40cc-9fbb-3a45b699d53a",
+        "secondary_node_ids": [
+          "17c3fece-e2ed-4c27-aab2-7e263a7b4bd2"
+        ],
+        "evidence": [
+          {
+            "node_id": "81f2b41f-d9bf-40cc-9fbb-3a45b699d53a",
+            "support": "Determines whether lending securities for consideration is a supply of services despite securities being involved."
+          },
+          {
+            "node_id": "17c3fece-e2ed-4c27-aab2-7e263a7b4bd2",
+            "support": "The analysis turns on the legal distinction between securities and services in the statutory definitions."
+          }
+        ],
+        "note": "The shared stem asks whether each transaction amounts to supply; this item applies that test to securities lending.",
+        "confidence": 0.87,
+        "bucket": "A"
+      },
+      {
+        "part_id": "f6c14233df48ac82eec0d87ec1c0d88110abf712fa059b68c7a88669896fa817:Q3.b.ii",
+        "outcome": "matched",
+        "primary_node_id": "81f2b41f-d9bf-40cc-9fbb-3a45b699d53a",
+        "secondary_node_ids": [
+          "17c3fece-e2ed-4c27-aab2-7e263a7b4bd2",
+          "ab16205c-cf85-4475-a1fc-0555f215862c"
+        ],
+        "evidence": [
+          {
+            "node_id": "81f2b41f-d9bf-40cc-9fbb-3a45b699d53a",
+            "support": "Applies Schedule I to decide whether a principal-to-agent transfer without consideration is a supply."
+          },
+          {
+            "node_id": "17c3fece-e2ed-4c27-aab2-7e263a7b4bd2",
+            "support": "The agent relationship and goods transfer engage statutory definitions of principal, agent and goods."
+          },
+          {
+            "node_id": "ab16205c-cf85-4475-a1fc-0555f215862c",
+            "support": "Agent status and consideration are central to determining the treatment of the uncompensated transfer."
+          }
+        ],
+        "note": "The invoice issued by the agent in its own name makes the principal-agent transfer a Schedule I supply; the onward sale is also supply.",
+        "confidence": 0.9,
+        "bucket": "A"
+      },
+      {
+        "part_id": "f6c14233df48ac82eec0d87ec1c0d88110abf712fa059b68c7a88669896fa817:Q3.b.iii",
+        "outcome": "matched",
+        "primary_node_id": "81f2b41f-d9bf-40cc-9fbb-3a45b699d53a",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "81f2b41f-d9bf-40cc-9fbb-3a45b699d53a",
+            "support": "Tests whether payment for a promise to refrain from joining a competitor is a taxable supply of service."
+          }
+        ],
+        "note": "The payment is for forbearance outside the employment relationship, so it is treated as supply under GST.",
+        "confidence": 0.87,
+        "bucket": "A"
+      },
+      {
+        "part_id": "f6c14233df48ac82eec0d87ec1c0d88110abf712fa059b68c7a88669896fa817:Q3.c",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Concerns remission or refund of customs duty on imported goods destroyed before clearance or while warehoused; no candidate describes customs duty remission or refund.",
+        "confidence": 0.99,
+        "bucket": "D"
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "attempt_id": "1791217494435750000",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "f5154db251e15a488d72b07fd7793cde5c4dc9d1c6c601a8bae59638c34a9497",
+    "schema_generator": "pinned-identifiers-v2",
+    "seconds": 31.115,
+    "usage": [
+      {
+        "input_tokens": 48224,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1183,
+        "reasoning_output_tokens": 0
+      }
+    ],
+    "completed_at": "2026-10-05T16:25:25.550438+00:00"
+  }
+}

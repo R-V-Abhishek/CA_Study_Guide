@@ -1,0 +1,306 @@
+{
+  "descriptors": [
+    {
+      "node_id": "69cce976-ab24-4447-9deb-6152061952e0",
+      "concept_name": "Lock-in Exception for Securities Lent for Green Shoe Option",
+      "definition": "Specified securities lent to a stabilising agent for a green shoe option are temporarily exempt from lock-in restrictions from the lending date until they are returned. Upon return to the lender, the securities must be locked-in for the remainder of their original lock-in period.",
+      "terminology": [
+        "stabilising agent",
+        "green shoe option",
+        "lock-in"
+      ],
+      "instrument_references": [
+        "SEBI (ICDR) Regulations, 2018, Regulation 18",
+        "SEBI (ICDR) Regulations, 2018, Regulation 57"
+      ],
+      "inclusion": [
+        "Specified securities lent for green shoe price stabilisation"
+      ],
+      "exclusion": [
+        "Securities not returned by the stabilising agent"
+      ],
+      "nearby_distinctions": [
+        "Differs from permanent lock-in exemptions by mandating resumption of the lock-in for the unexpired duration once returned."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "85091f4c-854e-4b26-a393-2e8ae0d194e4",
+      "concept_name": "Lock-in Duration for Partly-Paid Specified Securities",
+      "definition": "For partly-paid locked-in securities where called-up capital is less than public issue shares, the lock-in continues until three years after they become pari passu with public shares. This rule ensures equity parity between locked-in holders and public investors before the restriction lifts.",
+      "terminology": [
+        "partly paid-up",
+        "pari passu",
+        "called-up amount"
+      ],
+      "instrument_references": [
+        "SEBI (ICDR) Regulations, 2018, Regulation 19"
+      ],
+      "inclusion": [
+        "Partly-paid specified securities subject to lock-in requirements"
+      ],
+      "exclusion": [
+        "Fully paid-up specified securities"
+      ],
+      "nearby_distinctions": [
+        "Differs from standard lock-in timelines by anchoring the expiry to the date when securities become pari passu rather than the date of allotment."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "fab756bc-1bd1-4540-8e24-ce4d9e2817f5",
+      "concept_name": "Marking Non-Transferability of Locked-In Securities",
+      "definition": "Physical certificates of locked-in specified securities must bear a non-transferable inscription along with the lock-in duration. For dematerialised holdings, the issuer must coordinate with the depository to formally record the lock-in status.",
+      "terminology": [
+        "inscription",
+        "non-transferable",
+        "dematerialised"
+      ],
+      "instrument_references": [
+        "SEBI (ICDR) Regulations, 2018, Regulation 20"
+      ],
+      "inclusion": [
+        "Physical certificates with non-transferable markings",
+        "Dematerialised securities with depository lock-in records"
+      ],
+      "exclusion": [
+        "Unrestricted securities eligible for free trading"
+      ],
+      "nearby_distinctions": [
+        "Focuses purely on the mechanical notation of restrictions rather than the imposition criteria of the lock-in itself."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "953295ee-1fd3-473a-a3e2-76e120f845df",
+      "concept_name": "Pledge Eligibility of Locked-In Promoter Securities",
+      "definition": "Locked-in promoter securities, excluding SR equity shares, can be pledged as collateral for loans granted by specified institutional lenders. Following pledge invocation, the transferee remains bound by the unexpired portion of the original lock-in period.",
+      "terminology": [
+        "collateral security",
+        "scheduled commercial bank",
+        "pledge invocation"
+      ],
+      "instrument_references": [
+        "SEBI (ICDR) Regulations, 2018, Regulation 21",
+        "SEBI (ICDR) Regulations, 2018, Regulation 16"
+      ],
+      "inclusion": [
+        "Promoter-held locked-in securities pledged to eligible financial institutions"
+      ],
+      "exclusion": [
+        "SR equity shares held by promoters"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes ordinary locked-in securities from superior voting rights equity shares, which are ineligible for pledging."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1922db36-0913-4ef7-97cb-a65713df429e",
+      "concept_name": "Statutory Disclosures in Draft Offer and Offer Documents",
+      "definition": "Draft offer documents and offer documents must incorporate comprehensive, true, and adequate material disclosures to guide investor decisions. Prospectuses must specifically fulfill requirements outlined under the Companies Act and relevant regulatory schedules.",
+      "terminology": [
+        "red-herring prospectus",
+        "material disclosures",
+        "shelf prospectus"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013",
+        "SEBI (ICDR) Regulations, 2018, Regulation 24"
+      ],
+      "inclusion": [
+        "Draft offer documents",
+        "Red-herring prospectuses and final prospectuses"
+      ],
+      "exclusion": [
+        "Internal management memos and unverified marketing summaries"
+      ],
+      "nearby_distinctions": [
+        "Unlike general corporate disclosures, these are legally mandated public filing instruments specifically designed for capital raising."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6c3a6ae7-0282-4e33-8b7e-42076aca4de6",
+      "concept_name": "Lead Manager Diligence and Document Filing Procedures",
+      "definition": "Lead managers must exercise due diligence to verify disclosure veracity and ensure financial statements inside offer documents are not older than six months from the issue opening. Issuers must file draft offer documents with the Board along with mandatory fees and certified agreements prior to an initial public offer.",
+      "terminology": [
+        "due diligence certificate",
+        "lead manager",
+        "restated audited financial statements"
+      ],
+      "instrument_references": [
+        "SEBI (ICDR) Regulations, 2018, Regulation 24",
+        "SEBI (ICDR) Regulations, 2018, Regulation 25"
+      ],
+      "inclusion": [
+        "Draft offer document submissions with regulatory fees and trustee certificates"
+      ],
+      "exclusion": [
+        "Financial data exceeding the six-month statutory age limit"
+      ],
+      "nearby_distinctions": [
+        "Focuses on intermediary verification duties and filing logistics rather than the substantive content of the disclosures."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "28288f90-474f-4353-aebc-937284b8a388",
+      "concept_name": "Regulatory Review and Observation Process for Draft Offer Documents",
+      "definition": "Stock exchanges receive copies of draft offer documents alongside detailed promoter identification credentials. The Board reviews these filings and may issue observations or mandate changes within thirty days based on receipt dates, regulatory clarifications, or stock exchange in-principle approvals.",
+      "terminology": [
+        "observations",
+        "in-principle approval",
+        "promoter identification details"
+      ],
+      "instrument_references": [
+        "SEBI (ICDR) Regulations, 2018, Regulation 25"
+      ],
+      "inclusion": [
+        "Promoter PAN, bank details, and corporate registration numbers",
+        "Updated draft offer documents incorporating regulatory observations"
+      ],
+      "exclusion": [
+        "Filing offer documents to the Registrar of Companies before addressing Board observations"
+      ],
+      "nearby_distinctions": [
+        "Distinct from initial document drafting, this involves regulatory feedback loops and mandatory compliance amendments."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4a64de42-fa2f-443a-ac7e-219b46eb0f5e",
+      "concept_name": "Public Dissemination of Draft Offer Documents",
+      "definition": "Draft offer documents must remain available on regulatory and intermediary websites for a minimum of twenty-one days to invite public comments. Issuers must also publish public notices across national and regional daily newspapers disclosing the filing details.",
+      "terminology": [
+        "public announcement",
+        "national daily",
+        "public comments"
+      ],
+      "instrument_references": [
+        "SEBI (ICDR) Regulations, 2018, Regulation 26"
+      ],
+      "inclusion": [
+        "Website hosting of draft offer documents for public review",
+        "Newspaper advertisements inviting public comments"
+      ],
+      "exclusion": [
+        "Withholding draft filings from public view during the comment window"
+      ],
+      "nearby_distinctions": [
+        "Separates internal regulatory submission from transparent public stakeholder engagement and feedback collection."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "605c3dc6-25e4-4255-befe-7de2fde33f71",
+      "concept_name": "Pricing and Price Band Regulations for Public Issues",
+      "definition": "Issuers determine share prices or conversion terms either independently or through book building in consultation with lead managers. The price band cap must not exceed 120 percent of the floor price, and the floor price cannot fall below the security's face value.",
+      "terminology": [
+        "book building process",
+        "floor price",
+        "price band cap"
+      ],
+      "instrument_references": [
+        "SEBI (ICDR) Regulations, 2018, Regulation 30"
+      ],
+      "inclusion": [
+        "Fixed price issues and book built issue price bands",
+        "Pre-issue price and financial ratio announcements"
+      ],
+      "exclusion": [
+        "Price bands with caps falling below 105 percent of the floor price"
+      ],
+      "nearby_distinctions": [
+        "Contrasts fixed pricing methods with flexible book building mechanisms subject to statutory percentage thresholds."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ce68dbd0-c471-471e-b6f2-0c8fc74ce929",
+      "concept_name": "Public Issue Operational Conditions and Subscription Rules",
+      "definition": "Public issues must open within twelve months of Board observations and maintain a subscription window between three and ten working days. At least ninety percent of the offer must receive subscriptions, failing which application monies are refunded within four days.",
+      "terminology": [
+        "minimum subscription",
+        "refund of application monies",
+        "bidding period"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013",
+        "SEBI (ICDR) Regulations, 2018, Regulation 44",
+        "SEBI (ICDR) Regulations, 2018, Regulation 45",
+        "SEBI (ICDR) Regulations, 2018, Regulation 46",
+        "SEBI (ICDR) Regulations, 2018, Regulation 47"
+      ],
+      "inclusion": [
+        "Ninety percent minimum subscription requirement",
+        "Mandatory refund timelines for undersubscribed issues"
+      ],
+      "exclusion": [
+        "Offer for sale components regarding the minimum subscription calculation"
+      ],
+      "nearby_distinctions": [
+        "Focuses on execution timing, subscription thresholds, and refund mechanics rather than pricing structures."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9ec1c724-6a14-4ed0-9551-8fecd7e0247c",
+      "concept_name": "Restriction on Further Capital Issues and Green Shoe Options",
+      "definition": "Issuers are barred from making further capital issues between draft document filing and share listing unless full disclosure is made in the offer document. Additionally, issuers may utilize a green shoe option capped at fifteen percent of the issue size for post-listing price stabilisation.",
+      "terminology": [
+        "further capital issue",
+        "green shoe option",
+        "stabilising agent"
+      ],
+      "instrument_references": [
+        "SEBI (ICDR) Regulations, 2018, Regulation 56",
+        "SEBI (ICDR) Regulations, 2018, Regulation 57"
+      ],
+      "inclusion": [
+        "Interim capital issue restrictions",
+        "Post-listing price stabilisation through over-allotment borrowing"
+      ],
+      "exclusion": [
+        "Further issues executed pursuant to employee stock option schemes with prior disclosures"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes standard capital freezing rules during an IPO process from explicit price stabilisation mechanisms."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3f5c762d-a15a-42b0-9d0e-26e94f00ac67",
+      "concept_name": "Eligibility Criteria for Further Public Offers",
+      "definition": "An issuer undertaking a further public offer must satisfy eligibility criteria on the filing dates of both the draft and final offer documents. Issuers that changed their name within the past year must derive at least fifty percent of their revenue from activities matching the new name.",
+      "terminology": [
+        "further public offer",
+        "wilful defaulter",
+        "fugitive economic offender"
+      ],
+      "instrument_references": [
+        "SEBI (ICDR) Regulations, 2018, Regulation 101",
+        "SEBI (ICDR) Regulations, 2018, Regulation 102",
+        "SEBI (ICDR) Regulations, 2018, Regulation 103"
+      ],
+      "inclusion": [
+        "Market access checks for willful defaulters and fugitive economic offenders",
+        "Revenue composition rules following recent name changes"
+      ],
+      "exclusion": [
+        "Entities with historical debarments whose penalty periods have already expired"
+      ],
+      "nearby_distinctions": [
+        "Differentiates initial public offerings from secondary capital expansions by applying distinct track-record and integrity filters."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "5f2e50f869738b092eda91f6536d26e254dec3869a28a07247b9e2a2d77073c7",
+  "artifact_id": "ea684bf0-7c94-4045-a244-75e8b4a2e2df",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 9393,
+  "output_tokens": 3606,
+  "cost_usd": 0.0118329,
+  "created_at": "2026-10-03T18:25:15.257569+00:00"
+}

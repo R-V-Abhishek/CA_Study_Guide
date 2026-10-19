@@ -1,0 +1,315 @@
+{
+  "descriptors": [
+    {
+      "node_id": "58a860c3-b6b9-4954-b000-6d892e6d82dc",
+      "concept_name": "Remeasurements of the net defined benefit liability (asset)",
+      "definition": "Remeasurements of the net defined benefit liability or asset comprise actuarial gains and losses, the return on plan assets excluding amounts included in net interest, and changes in the effect of the asset ceiling excluding net interest amounts. Actuarial gains and losses arise from changes in actuarial assumptions and experience adjustments in measuring the defined benefit obligation.",
+      "terminology": [
+        "Actuarial gains and losses",
+        "Return on plan assets",
+        "Asset ceiling",
+        "Defined benefit obligation"
+      ],
+      "instrument_references": [
+        "Ind AS 19"
+      ],
+      "inclusion": [
+        "Actuarial gains and losses from assumption changes",
+        "Experience adjustments",
+        "Return on plan assets excluding net interest components",
+        "Changes in asset ceiling effect excluding net interest"
+      ],
+      "exclusion": [
+        "Past service cost",
+        "Gains or losses on settlement",
+        "Current service cost",
+        "Net interest on net defined benefit liability"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from past service costs which stem from plan amendments or curtailments rather than demographic or financial assumption variances."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "fd752976-d145-455c-b7b5-40050f99e368",
+      "concept_name": "Presentation",
+      "definition": "Presentation standards for post-employment benefits govern criteria for offsetting assets and liabilities across different plans and dictate adherence to general presentation frameworks. An entity offsets plan assets against liabilities only when it holds a legally enforceable right to use a surplus to settle obligations and intends to settle net or realize simultaneously.",
+      "terminology": [
+        "Offset",
+        "Current and non-current distinction",
+        "Components of defined benefit costs"
+      ],
+      "instrument_references": [
+        "Ind AS 19",
+        "Ind AS 32",
+        "Ind AS 1"
+      ],
+      "inclusion": [
+        "Criteria for offsetting assets and liabilities of separate plans",
+        "General presentation guidelines via other standards"
+      ],
+      "exclusion": [
+        "Mandatory strict bifurcation of current and non-current portions by this standard alone"
+      ],
+      "nearby_distinctions": [
+        "Distinct from disclosure obligations as it governs the face financial statement positioning and offsetting rules."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e4c4bf63-1602-4ad5-9ac0-8c6f434bfa21",
+      "concept_name": "Offset",
+      "definition": "Plan assets and liabilities can be offset if and only if the entity possesses a legally enforceable right to use a surplus in one plan to settle another and intends to settle on a net basis or simultaneously realize and settle. These criteria align with the framework established for financial instruments.",
+      "terminology": [
+        "Legally enforceable right",
+        "Net basis settlement",
+        "Plan surplus"
+      ],
+      "instrument_references": [
+        "Ind AS 19",
+        "Ind AS 32"
+      ],
+      "inclusion": [
+        "Offsetting asset relating to one plan against liability of another under strict conditions"
+      ],
+      "exclusion": [
+        "Offsetting without legal enforceability",
+        "Offsetting lacking simultaneous realization or net settlement intent"
+      ],
+      "nearby_distinctions": [
+        "Distinct from general presentation since it imposes strict legal and operational prerequisites before balances can be netted."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7ac7f11a-0e95-4f51-b180-7efce743bffe",
+      "concept_name": "Current / Non-Current Distinction",
+      "definition": "The standard leaves the separation of current and non-current portions of post-employment benefit assets and liabilities unspecified. Entities determine financial statement presentation categories by applying broader accounting presentation standards.",
+      "terminology": [
+        "Current portion",
+        "Non-current portion"
+      ],
+      "instrument_references": [
+        "Ind AS 19",
+        "Ind AS 1"
+      ],
+      "inclusion": [
+        "Deferral to general presentation standards for classifying employee benefit balances"
+      ],
+      "exclusion": [
+        "Explicit standard-prescribed formulas for splitting benefit assets into current buckets"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from explicit calculation rules since the standard intentionally omits a mandatory classification format."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ea6643ea-db70-4966-97ca-28fe86cb0ae8",
+      "concept_name": "Components Of Defined Benefit Costs",
+      "definition": "The standard does not mandate a specific presentation format for current service cost and net interest cost components of defined benefit liabilities. Entities present these specific cost elements following general financial statement presentation standards.",
+      "terminology": [
+        "Current service cost",
+        "Net interest cost"
+      ],
+      "instrument_references": [
+        "Ind AS 19",
+        "Ind AS 1"
+      ],
+      "inclusion": [
+        "Application of general presentation standards to service and interest cost components"
+      ],
+      "exclusion": [
+        "Prescriptive sub-classifications mandated directly by the employee benefits standard"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from measurement rules because it governs how recognized cost components appear in financial statements."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "79f79365-74b9-475a-be82-c0e148759bbc",
+      "concept_name": "Disclosure",
+      "definition": "Entities must disclose information enabling financial statement users to evaluate the nature of defined benefit plans and the financial effects of changes during the period. Required disclosures cover plan characteristics, associated risks, and potential impacts on future cash flows.",
+      "terminology": [
+        "Plan characteristics",
+        "Risks",
+        "Financial effects"
+      ],
+      "instrument_references": [
+        "Ind AS 19"
+      ],
+      "inclusion": [
+        "Evaluations of plan nature and financial effect",
+        "Explanations of plan characteristics and associated risks"
+      ],
+      "exclusion": [
+        "Unrelated general operational disclosures outside the scope of employee benefit liabilities"
+      ],
+      "nearby_distinctions": [
+        "Distinct from recognition and measurement requirements as it focuses entirely on informative note disclosures for statement users."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "dc7084eb-4d3a-41f8-b9d9-c4176e25b104",
+      "concept_name": "General",
+      "definition": "Entities must provide disclosures explaining plan characteristics, associated risks, and the amounts recognized in financial statements arising from defined benefit plans. Additional supplemental details must be given if standard disclosures are insufficient to meet user evaluation objectives.",
+      "terminology": [
+        "Characteristics",
+        "Risks",
+        "Future cash flows"
+      ],
+      "instrument_references": [
+        "Ind AS 19"
+      ],
+      "inclusion": [
+        "Explanations of plan characteristics and risk concentrations",
+        "Supplemental analyses of defined benefit obligations"
+      ],
+      "exclusion": [
+        "Omission of details when standard disclosures fail to meet user evaluation needs"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from specific numerical reconciliations by serving as qualitative and contextual background for plan obligations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "82150d17-9c65-46c4-910d-afd08240b99a",
+      "concept_name": "Characteristics Of Defined Benefit Plans And Risks Associated With Them",
+      "definition": "Entities must disclose the nature of plan benefits, the operational regulatory framework, governance responsibilities, and unusual plan-specific risks. This includes detailing potential risk concentrations such as heavy asset exposure to specific market classes.",
+      "terminology": [
+        "Regulatory framework",
+        "Minimum funding requirements",
+        "Risk concentrations"
+      ],
+      "instrument_references": [
+        "Ind AS 19"
+      ],
+      "inclusion": [
+        "Nature of plan benefits",
+        "Regulatory framework description and asset ceiling effects",
+        "Governance responsibilities and unusual risk concentrations"
+      ],
+      "exclusion": [
+        "Generic entity-wide business risks unrelated to specific employee benefit plans"
+      ],
+      "nearby_distinctions": [
+        "Distinct from financial reconciliations because it emphasizes qualitative governance, regulatory structures, and risk profiles."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0374b170-8852-4adb-950a-ecc73e477163",
+      "concept_name": "Explanation Of Amounts In The Financial Statements",
+      "definition": "Entities must provide comprehensive opening-to-closing reconciliations for net defined benefit liabilities or assets, plan assets, obligations, and asset ceilings. Disclosures must segregate items like current service costs, interest, remeasurements, past service costs, and disaggregate plan assets by quoted market price availability.",
+      "terminology": [
+        "Reconciliation",
+        "Plan assets disaggregation",
+        "Active market"
+      ],
+      "instrument_references": [
+        "Ind AS 19",
+        "Ind AS 113"
+      ],
+      "inclusion": [
+        "Opening to closing balance reconciliations for net defined benefit items",
+        "Disaggregation of plan assets into quoted and unquoted classes"
+      ],
+      "exclusion": [
+        "Omission of separate past service cost tracking when permitted alongside simultaneous settlement adjustments"
+      ],
+      "nearby_distinctions": [
+        "Distinct from plan characteristic descriptions by focusing on quantitative ledger roll-forwards and financial statement line-item movements."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "50156924-9cba-4fc3-8baa-1e60e6e5674f",
+      "concept_name": "Amount, Timing And Uncertainty Of Future Cash Flows",
+      "definition": "Entities must disclose a sensitivity analysis for each significant actuarial assumption alongside underlying methods and limitations to indicate future cash flow impacts. Furthermore, disclosures must detail funding arrangements, expected contributions for the next period, and the maturity profile of obligations.",
+      "terminology": [
+        "Sensitivity analysis",
+        "Funding arrangements",
+        "Maturity profile",
+        "Weighted average duration"
+      ],
+      "instrument_references": [
+        "Ind AS 19"
+      ],
+      "inclusion": [
+        "Sensitivity analyses for significant actuarial assumptions",
+        "Expected contributions for the next annual period",
+        "Maturity profile and duration of the defined benefit obligation"
+      ],
+      "exclusion": [
+        "General corporate cash flow forecasts unrelated to employee benefit plan obligations"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from historical reconciliations by focusing on predictive metrics, future cash flow impacts, and assumption sensitivity."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7ba9813a-8723-426d-804b-4d748b7b3a88",
+      "concept_name": "Multi-Employer Plans",
+      "definition": "Participating entities in multi-employer defined benefit plans must disclose funding arrangements, potential liabilities for other entities' obligations, and agreed deficit or surplus allocation terms. If accounted for as defined contribution plans due to data limits, specific alternative disclosures regarding deficits and participation levels are required.",
+      "terminology": [
+        "Multi-employer plan",
+        "Minimum funding requirements",
+        "Participation level",
+        "Deficit allocation"
+      ],
+      "instrument_references": [
+        "Ind AS 19"
+      ],
+      "inclusion": [
+        "Funding arrangements and contribution determination methods",
+        "Liabilities for other participating entities' obligations",
+        "Surplus or deficit allocation terms upon wind-up or withdrawal"
+      ],
+      "exclusion": [
+        "Standard single-employer detailed asset and obligation reconciliations when sufficient data is absent and treated as defined contribution"
+      ],
+      "nearby_distinctions": [
+        "Distinct from single-employer plans due to shared risk structures and the need to disclose contingent liabilities involving other participating entities."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6fa0fad0-0833-4fa2-a340-17585efd16ca",
+      "concept_name": "Defined Benefit Plans That Share Risks Between Entities Under Common Control",
+      "definition": "Entities participating in common control defined benefit plans must disclose cost-charging policies, contribution-determining methods, and relevant plan-wide disclosures or cross-references. Disclosures can reference another group entity financial statement if that report separately identifies information and is publicly available.",
+      "terminology": [
+        "Common control",
+        "Cost allocation policy",
+        "Cross-reference"
+      ],
+      "instrument_references": [
+        "Ind AS 19",
+        "Ind AS 24",
+        "Ind AS 37"
+      ],
+      "inclusion": [
+        "Contractual agreements or policies for charging net defined benefit cost",
+        "Policies for determining entity contributions",
+        "Cross-referencing group entity statements under specific availability criteria"
+      ],
+      "exclusion": [
+        "Independent single-entity plans lacking common control risk-sharing arrangements"
+      ],
+      "nearby_distinctions": [
+        "Distinct from multi-employer plans by focusing on corporate group common control dynamics rather than unrelated participating entities."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "54684eb31fb7a40bbd30c2d89c256f9a8c4e8230acfa035daa6e609e13c4c6ef",
+  "artifact_id": "10f7a15e-f42d-4012-b67d-f9111f848b13",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8685,
+  "output_tokens": 3416,
+  "cost_usd": 0.0111455,
+  "created_at": "2026-10-03T18:02:44.315400+00:00"
+}

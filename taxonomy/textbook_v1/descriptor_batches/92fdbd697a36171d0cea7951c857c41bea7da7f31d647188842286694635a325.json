@@ -1,0 +1,326 @@
+{
+  "descriptors": [
+    {
+      "node_id": "6b8f4d6b-1835-4502-9c3b-845534632520",
+      "concept_name": "Scope of Revenue from Contracts with Customers",
+      "definition": "Ind AS 115 applies to all contracts with customers to provide goods or services in the ordinary course of business for consideration. It excludes specific arrangements such as leases, insurance contracts, financial instruments, and certain non-monetary exchanges.",
+      "terminology": [
+        "Customer",
+        "Ordinary course of business",
+        "Consideration",
+        "Outputs"
+      ],
+      "instrument_references": [
+        "Ind AS 115",
+        "Ind AS 116",
+        "Ind AS 117",
+        "Ind AS 109",
+        "Ind AS 110",
+        "Ind AS 111",
+        "Ind AS 27",
+        "Ind AS 28"
+      ],
+      "inclusion": [
+        "Contracts with customers to provide goods or services as ordinary outputs"
+      ],
+      "exclusion": [
+        "Lease contracts",
+        "Insurance contracts",
+        "Financial instruments",
+        "Non-monetary exchanges between entities in the same line of business"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes transactions involving ordinary customers from collaboration arrangements where parties share risks and benefits."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f0738416-cbf0-4310-9dcd-42ffe353a626",
+      "concept_name": "Definitions and Terminology",
+      "definition": "This section sets out foundational terminology used throughout the revenue standard, including contracts, contract assets, contract liabilities, and performance obligations. These terms provide the technical definitions required to execute the five-step revenue recognition model.",
+      "terminology": [
+        "Contract",
+        "Contract asset",
+        "Contract liability",
+        "Customer",
+        "Income",
+        "Performance obligation",
+        "Revenue",
+        "Stand-alone selling price",
+        "Transaction price"
+      ],
+      "instrument_references": [
+        "Ind AS 115",
+        "IFRS 15",
+        "ASU 2014-09"
+      ],
+      "inclusion": [
+        "Standardized accounting definitions for revenue recognition mechanics"
+      ],
+      "exclusion": [
+        "Procedural guidance for step execution"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between contract assets conditioned on factors other than the passage of time versus unconditional rights to consideration."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "00d682de-b5fe-4cab-9a2e-7807927a9881",
+      "concept_name": "Overview and Five-Step Model",
+      "definition": "Ind AS 115 operates on a core principle requiring entities to recognize revenue depicting the transfer of goods or services at expected consideration amounts. This is implemented through a sequential five-step framework spanning contract identification, performance obligation determination, price determination, price allocation, and revenue recognition.",
+      "terminology": [
+        "Core principle",
+        "Five-step model",
+        "Transaction price",
+        "Performance obligations"
+      ],
+      "instrument_references": [
+        "Ind AS 115",
+        "Ind AS 8"
+      ],
+      "inclusion": [
+        "Five sequential steps of revenue recognition",
+        "Full and modified retrospective transition approaches"
+      ],
+      "exclusion": [
+        "Detailed industry-specific application guidance"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes the overarching five-step methodology from individual operational steps."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9fcaeafc-02d1-4900-a237-d10b9c807223",
+      "concept_name": "Transition and Contract Identification",
+      "definition": "Entities apply Ind AS 115 either retrospectively or via a modified retrospective approach with cumulative effects recognized at initial application. The initial step requires identifying enforceable agreements with customers, which can be written, oral, or implied by customary business practices.",
+      "terminology": [
+        "Full retrospective approach",
+        "Modified retrospective approach",
+        "Contract",
+        "Enforceability"
+      ],
+      "instrument_references": [
+        "Ind AS 115",
+        "Ind AS 8"
+      ],
+      "inclusion": [
+        "Transition adjustment mechanics",
+        "Recognition of oral and implied contracts based on customary practices"
+      ],
+      "exclusion": [
+        "Performance obligation allocation methods"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes full restatement of prior periods from cumulative-effect opening retained earnings adjustments."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f45ffacc-aeac-4041-81c6-80bcd70d4f04",
+      "concept_name": "Step 1: Identifying the Contract",
+      "definition": "Step 1 acts as a mandatory gateway requiring an entity to establish that an agreement creates legally enforceable rights and obligations. Entities must evaluate local legal environments to confirm enforceability before applying subsequent steps of the revenue model.",
+      "terminology": [
+        "Enforceability",
+        "Gateway",
+        "Legal environment",
+        "Contract inception"
+      ],
+      "instrument_references": [
+        "Ind AS 115"
+      ],
+      "inclusion": [
+        "Legal enforceability assessment",
+        "Evaluation of written, oral, or implied agreements"
+      ],
+      "exclusion": [
+        "Subsequent performance obligation allocation"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes preliminary negotiations lacking enforceability from binding contracts that pass the Step 1 gateway."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "559be8bc-3f6f-4023-aa1d-fccff8dd10ca",
+      "concept_name": "Criteria for Recognizing a Contract",
+      "definition": "A contract is accounted for under Ind AS 115 only when approval, identification of rights, identification of payment terms, commercial substance, and probable collection of consideration are met. If these criteria fail at inception, no accounting contract exists and non-refundable consideration received is deferred.",
+      "terminology": [
+        "Commercial substance",
+        "Probable collection",
+        "Approval",
+        "Payment terms"
+      ],
+      "instrument_references": [
+        "Ind AS 115"
+      ],
+      "inclusion": [
+        "Five mandatory criteria for contract recognition",
+        "Deferral of non-refundable consideration when criteria are unmet"
+      ],
+      "exclusion": [
+        "Contracts meeting all criteria at inception requiring reassessment without significant factual changes"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes arrangements where collection is probable from high credit-risk arrangements failing initial contract criteria."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "df69bca0-646e-4a27-aa54-ef454292c0f0",
+      "concept_name": "Contracts that do not pass Step 1 and Contract Term",
+      "definition": "Once a contract passes Step 1, existence is not reassessed unless significant facts and circumstances change adversely, such as a customer's credit deterioration. The contract term covers the period in which parties have present enforceable rights and obligations.",
+      "terminology": [
+        "Prospective adjustment",
+        "Contract term",
+        "Significant change",
+        "Enforceable rights and obligations"
+      ],
+      "instrument_references": [
+        "Ind AS 115"
+      ],
+      "inclusion": [
+        "Prospective impact analysis for subsequent collectibility failures",
+        "Contractual period definition"
+      ],
+      "exclusion": [
+        "Retrospective reversal of previously recognized revenues or receivables"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes prospective adjustments on remaining obligations from retrospective restatements of transferred goods."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "fdb5a479-c755-466c-b284-af3d36e6cbd3",
+      "concept_name": "Contract Term and Termination Provisions",
+      "definition": "A contract does not exist if each party can unilaterally terminate a wholly unperformed contract without penalty. Substantive termination penalties establish enforceable rights and obligations throughout the penalty period, determining the accounting contract term.",
+      "terminology": [
+        "Termination penalty",
+        "Wholly unperformed contract",
+        "Contract term",
+        "Unilateral right"
+      ],
+      "instrument_references": [
+        "Ind AS 115"
+      ],
+      "inclusion": [
+        "Evaluation of cancellation clauses and cancellation penalties",
+        "Determination of enforceable contract duration"
+      ],
+      "exclusion": [
+        "Contracts with non-substantive termination penalties extending beyond cancellation dates"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes penalty-free cancellable periods from periods bound by substantive termination penalties."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4564ceed-74ad-4129-8b5a-4777dde11951",
+      "concept_name": "Combining Contracts",
+      "definition": "Entities must combine two or more contracts entered into at or near the same time with the same customer if they share a commercial objective, pricing interdependence, or constitute a single performance obligation. Such arrangements are accounted for as a single contract to reflect their commercial substance.",
+      "terminology": [
+        "Combining contracts",
+        "Commercial objective",
+        "Pricing dependence",
+        "Single performance obligation"
+      ],
+      "instrument_references": [
+        "Ind AS 115"
+      ],
+      "inclusion": [
+        "Aggregation of contracts with linked pricing or single commercial objectives"
+      ],
+      "exclusion": [
+        "Contracts negotiated simultaneously but serving independent commercial objectives with distinct performance obligations"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes integrated packages requiring combined accounting from separate contracts executed concurrently."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4304c047-6448-416a-a608-ec4deb659e4d",
+      "concept_name": "Contract Modifications",
+      "definition": "A contract modification is an approved change in contract scope, price, or both. Modifications are accounted for either as separate distinct contracts, as a termination of the old contract and creation of a new one, or through cumulative catch-up adjustments.",
+      "terminology": [
+        "Contract modification",
+        "Change order",
+        "Variation",
+        "Cumulative catch-up"
+      ],
+      "instrument_references": [
+        "Ind AS 115"
+      ],
+      "inclusion": [
+        "Identification of scope and price amendments",
+        "Separate contract treatment for distinct goods priced at stand-alone values"
+      ],
+      "exclusion": [
+        "Unapproved operational changes lacking legal enforceability"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes modifications treated as separate standalone contracts from those requiring cumulative catch-up adjustments."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e0f93c85-60ba-478c-9f65-ac5518f84bf5",
+      "concept_name": "Step 2: Identifying Performance Obligations",
+      "definition": "Performance obligations serve as the fundamental unit of account in Ind AS 115, dictating when revenue is recognized. Entities must evaluate explicit promises as well as implicit commitments arising from customary business practices or published policies.",
+      "terminology": [
+        "Unit of account",
+        "Multiple element arrangements",
+        "Implicit promises",
+        "Customary business practices"
+      ],
+      "instrument_references": [
+        "Ind AS 115"
+      ],
+      "inclusion": [
+        "Explicit contractual promises",
+        "Implicit promises creating valid customer expectations"
+      ],
+      "exclusion": [
+        "Administrative steps unrelated to transferring promised goods or services"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes explicit contract terms from implied obligations generated by established business policies."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "bc54f1cd-6f04-4a8b-895b-1c6183bca5d6",
+      "concept_name": "Criteria for Identifying Performance Obligations",
+      "definition": "At contract inception, entities assess all promised goods or services to identify distinct performance obligations. Promises can encompass manufactured goods, retail merchandise, consulting tasks, standby availability, asset construction, intellectual property licenses, or future purchase options.",
+      "terminology": [
+        "Distinct goods or services",
+        "Stand-by basis",
+        "Intellectual property",
+        "Option"
+      ],
+      "instrument_references": [
+        "Ind AS 115"
+      ],
+      "inclusion": [
+        "Evaluations of various promised outputs including tasks, licenses, and future options"
+      ],
+      "exclusion": [
+        "Activities that do not transfer a promised good or service to the customer"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes distinct promises evaluated as separate performance obligations from integrated components of a single combined promise."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "92fdbd697a36171d0cea7951c857c41bea7da7f31d647188842286694635a325",
+  "artifact_id": "87ecba6d-af6e-4b75-8383-a31f2b31cb05",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8386,
+  "output_tokens": 3337,
+  "cost_usd": 0.0108583,
+  "created_at": "2026-10-03T18:03:43.531816+00:00"
+}

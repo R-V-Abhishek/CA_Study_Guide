@@ -1,0 +1,59 @@
+{
+  "result": {
+    "question_id": "ca80e7b3b6a65b2c85ccaf8b34ae1abeb94ff3528ac2186511b18c72acfd59b5",
+    "input_hash": "3b979d7be224484f73d783959045bf9e4bea25c10cffd68c4947e89aacfda259",
+    "mappings": [
+      {
+        "part_id": "ca80e7b3b6a65b2c85ccaf8b34ae1abeb94ff3528ac2186511b18c72acfd59b5:Q2.a",
+        "outcome": "matched",
+        "primary_node_id": "0dece15e-767f-4200-a70b-b3b23963db3b",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "0dece15e-767f-4200-a70b-b3b23963db3b",
+            "support": "Tests separation and fair value accounting of a foreign-currency embedded derivative in a sale contract, matching embedded derivatives in hybrid contracts."
+          }
+        ],
+        "note": "The journal entries address the embedded currency forward and its period-end valuation through settlement.",
+        "confidence": 0.97,
+        "bucket": "A"
+      },
+      {
+        "part_id": "ca80e7b3b6a65b2c85ccaf8b34ae1abeb94ff3528ac2186511b18c72acfd59b5:Q2.b",
+        "outcome": "matched",
+        "primary_node_id": "1a7a6e2a-d057-4d9b-9d01-779c7fafdcfa",
+        "secondary_node_ids": [
+          "067fc436-eb81-4272-be7d-508569b2a652"
+        ],
+        "evidence": [
+          {
+            "node_id": "1a7a6e2a-d057-4d9b-9d01-779c7fafdcfa",
+            "support": "Tests current versus non-current loan classification after a covenant breach and the lender\u2019s agreement timing, matching Ind AS 1\u2019s loan breach classification carve-out."
+          },
+          {
+            "node_id": "067fc436-eb81-4272-be7d-508569b2a652",
+            "support": "The timing of a post-reporting-period waiver relative to approval is the Ind AS 10 carve-out tested by this case."
+          }
+        ],
+        "note": "Although the question asks the liability classification, the answer specifically applies Ind AS 1; the subsequent lender agreement\u2019s timing is also framed as an Ind AS 10 carve-out.",
+        "confidence": 0.94,
+        "bucket": "A"
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "seconds": 15.361,
+    "usage": [
+      {
+        "input_tokens": 52151,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 543,
+        "reasoning_output_tokens": 0
+      }
+    ],
+    "completed_at": "2026-10-05T12:05:19.745444+00:00"
+  }
+}

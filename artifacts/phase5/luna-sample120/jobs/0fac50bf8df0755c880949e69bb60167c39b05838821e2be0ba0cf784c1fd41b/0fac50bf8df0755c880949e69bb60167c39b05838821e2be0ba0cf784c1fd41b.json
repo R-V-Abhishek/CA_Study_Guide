@@ -1,0 +1,40 @@
+{
+  "result": {
+    "question_id": "0fac50bf8df0755c880949e69bb60167c39b05838821e2be0ba0cf784c1fd41b",
+    "input_hash": "8a451417574722058913bd311d69ed42ce90b48257226835e3aa22a32351ad2a",
+    "mappings": [
+      {
+        "part_id": "0fac50bf8df0755c880949e69bb60167c39b05838821e2be0ba0cf784c1fd41b",
+        "outcome": "matched",
+        "primary_node_id": "ec1579a6-614f-4edb-9882-edcb0ac36f64",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "ec1579a6-614f-4edb-9882-edcb0ac36f64",
+            "support": "The part tests EQCR review responsibilities: evaluating and documenting the engagement team\u2019s independence assessment before report finalization, which matches the descriptor\u2019s focus on EQC reviewer independence evaluation and documentation adequacy."
+          }
+        ],
+        "note": "The question concerns the engagement quality control reviewer\u2019s required review before report finalization; the descriptor explicitly includes evaluating independence compliance and documentation adequacy.",
+        "confidence": 0.97,
+        "bucket": "A"
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "c57329d8b3d1df8550c87bdb999971be3adbffc35b60d6eb3a8a5d30c6535929",
+    "schema_generator": "pinned-part-ids-v1",
+    "seconds": 10.056,
+    "usage": [
+      {
+        "input_tokens": 46553,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 279,
+        "reasoning_output_tokens": 0
+      }
+    ],
+    "completed_at": "2026-10-05T15:57:37.146062+00:00"
+  }
+}

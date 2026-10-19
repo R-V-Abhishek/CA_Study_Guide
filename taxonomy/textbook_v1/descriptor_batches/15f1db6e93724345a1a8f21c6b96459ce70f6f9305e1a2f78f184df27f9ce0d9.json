@@ -1,0 +1,314 @@
+{
+  "descriptors": [
+    {
+      "node_id": "04a6cc8c-3260-4866-9590-e60209a8740d",
+      "concept_name": "Types of Options",
+      "definition": "Options contracts are categorized into American and European styles determining the exercise window. American options permit exercise at any point prior to expiration whereas European options restrict exercise strictly to the expiration date.",
+      "terminology": [
+        "American option",
+        "European option",
+        "expiration date",
+        "strike price",
+        "premium",
+        "long call",
+        "short call",
+        "long put",
+        "short put"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "American-style options",
+        "European-style options",
+        "Call and put buyer/seller pay-offs"
+      ],
+      "exclusion": [
+        "Futures contracts"
+      ],
+      "nearby_distinctions": [
+        "American options allow early exercise unlike European options which are restricted to maturity."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b3f9848c-3879-4270-bd9f-50d6797c8a49",
+      "concept_name": "Pay-Off Scenarios",
+      "definition": "Option pay-off scenarios outline the financial gains or losses incurred by option buyers and sellers at expiration based on underlying spot prices versus strike prices. Long positions experience limited downside risk restricted to the premium paid while short positions mirror these profiles inversely.",
+      "terminology": [
+        "Long call",
+        "Short call",
+        "Long put",
+        "Short put",
+        "Break even",
+        "Strike price",
+        "Premium"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Call buyer and seller pay-off calculations",
+        "Put buyer and seller pay-off calculations"
+      ],
+      "exclusion": [
+        "Futures margining mechanisms"
+      ],
+      "nearby_distinctions": [
+        "Call options yield profits when spot prices rise above strike prices while put options gain when spot prices fall below strike prices."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "78976e11-8343-499a-98eb-fe6d668b4a81",
+      "concept_name": "Comparison with Single Stock Futures",
+      "definition": "Equity options grant the holder a right without obligation in exchange for a sunk premium cost whereas stock futures obligate investors to square off positions by expiry and require margin deposits. Option values depend on volatility via delta whereas futures track underlying stock movements closely.",
+      "terminology": [
+        "Stock futures",
+        "Equity options",
+        "Right and obligation",
+        "Delta",
+        "Initial margin",
+        "Mark to market margin"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Obligations under futures",
+        "Rights under options",
+        "Margin requirements for futures"
+      ],
+      "exclusion": [
+        "Option valuation models"
+      ],
+      "nearby_distinctions": [
+        "Futures mandate position squaring and margin maintenance unlike options where premiums represent sunk costs."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "64f511aa-d6b3-4504-8729-a4fcd68c9ffd",
+      "concept_name": "Option Valuation Techniques",
+      "definition": "Option valuation determines theoretical prices using analytical or discrete multi-step frameworks where terminal values equal intrinsic values at expiration. Models evaluate potential future price movements discounted at risk-free rates to establish fair present values.",
+      "terminology": [
+        "Intrinsic value",
+        "Expiration date",
+        "Binomial model",
+        "Theoretical value",
+        "Risk-free rate"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "European option valuation at expiration",
+        "Binomial tree branching processes"
+      ],
+      "exclusion": [
+        "Credit default swaps"
+      ],
+      "nearby_distinctions": [
+        "Theoretical option values incorporate time value prior to expiration whereas expiration values are strictly bounded by intrinsic payoffs."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c645884d-5c3e-4cf7-8548-cf336bfb1212",
+      "concept_name": "Binomial Model",
+      "definition": "The binomial model projects discrete future stock price paths through multi-step trees working forward to expiration to price options. It evaluates early exercise opportunities at each node making it effective for pricing American options.",
+      "terminology": [
+        "Binomial tree",
+        "Time intervals",
+        "Steps",
+        "Early exercise",
+        "Terminal option prices"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Multi-period price trees",
+        "Early exercise adjustments for American options"
+      ],
+      "exclusion": [
+        "Continuous time Black-Scholes formula calculations"
+      ],
+      "nearby_distinctions": [
+        "Unlike Black-Scholes, the binomial model accommodates early exercise checks at every step of the tree."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "384294d5-585d-4ff0-bd9d-fb7a4d4ea029",
+      "concept_name": "Risk Neutral Method",
+      "definition": "The risk-neutral valuation method presumes option pricing is independent of risk preferences allowing derivation using risk-neutral probabilities discounted at the risk-free rate. It computes expected payoffs under adjusted probabilities to determine current derivative values.",
+      "terminology": [
+        "Risk-neutral method",
+        "Risk-neutral probabilities",
+        "Expected payout",
+        "Risk-free rate of interest"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Risk-neutral probability computations",
+        "Discounting expected payouts at risk-free rates"
+      ],
+      "exclusion": [
+        "Actual investor risk aversion adjustments"
+      ],
+      "nearby_distinctions": [
+        "This method uses artificial probabilities where expected returns equal the risk-free rate rather than subjective investor risk preferences."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "dd457f76-fcd3-4bfe-88c9-b3faf95fe796",
+      "concept_name": "Black-Scholes Model",
+      "definition": "The Black-Scholes model calculates the theoretical price of European options assuming lognormal stock price distributions, constant volatility, and continuous risk-free rates. It constructs a risk-free hedge portfolio where the option price equals the cost of replicating stock and borrowing components.",
+      "terminology": [
+        "Black-Scholes model",
+        "Volatility",
+        "Continuously compounded risk-free interest rate",
+        "Normal cumulative distribution function",
+        "Hedge ratio"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "European option pricing formula",
+        "Hedge ratio N(d1) and present value borrowing N(d2)"
+      ],
+      "exclusion": [
+        "American options with early exercise features"
+      ],
+      "nearby_distinctions": [
+        "The model assumes continuous trading and constant parameters over the option life unlike discrete binomial steps."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "44289417-4e4f-463d-af42-7c19acf85fd8",
+      "concept_name": "Greeks",
+      "definition": "Greeks represent statistical measures quantifying how option prices respond to shifts in underlying factors such as stock price movements and time decay. They assist investors in evaluating historical performance trends and formulating appropriate option strategies.",
+      "terminology": [
+        "Greeks",
+        "Underlying price movement",
+        "Time till expiry",
+        "Time decay"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Underlying price impact on calls and puts",
+        "Time decay effects on option buyers and sellers"
+      ],
+      "exclusion": [
+        "Credit risk mitigation instruments"
+      ],
+      "nearby_distinctions": [
+        "Time aids stock investments over long periods but acts as a negative factor eroding option buyer values."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "dc1aa679-1f41-4aac-bdb4-1aad906d7a6c",
+      "concept_name": "Exotic Options",
+      "definition": "Exotic options comprise hybrid derivative contracts featuring non-standard structures, tailored exercise rules, and payoff mechanisms distinct from plain vanilla options. They are predominantly transacted within over-the-counter markets.",
+      "terminology": [
+        "Exotic options",
+        "Plain vanilla options",
+        "Chooser options",
+        "Compound options",
+        "Barrier options",
+        "Binary options",
+        "Asian options",
+        "Bermuda option"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Chooser and compound options",
+        "Barrier and binary options",
+        "Asian and Bermuda options"
+      ],
+      "exclusion": [
+        "Standard American and European options"
+      ],
+      "nearby_distinctions": [
+        "Exotic options incorporate path-dependent payoffs or restricted exercise conditions not found in traditional vanilla contracts."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "10c9f25e-90da-41c9-b6a4-1ed83ef9bbba",
+      "concept_name": "Credit Derivatives",
+      "definition": "Credit derivatives are structured financial products designed to transfer credit or default risk from risk-averse institutions to entities willing to assume it. They isolate counterparty default exposure distinct from market risk exposures.",
+      "terminology": [
+        "Credit derivatives",
+        "Market risk",
+        "Credit risk",
+        "Default risk",
+        "Collateralized Debt Obligations",
+        "Credit Default Swap"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Collateralized Debt Obligations",
+        "Credit Default Swaps"
+      ],
+      "exclusion": [
+        "Plain equity and interest rate market risk derivatives"
+      ],
+      "nearby_distinctions": [
+        "Credit derivatives mitigate counterparty default risks whereas traditional financial derivatives hedge market price fluctuations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9f684113-4607-45ec-a492-aeb658828aa6",
+      "concept_name": "Collateralized Debt Obligations (CDOS)",
+      "definition": "Collateralized Debt Obligations are structured finance instruments backed by pools of bonds, asset-backed securities, real estate investment trusts, or other CDOs. They function through cash flow structures or synthetic arrangements that transfer economic credit risk without transferring underlying asset ownership.",
+      "terminology": [
+        "Collateralized Debt Obligations",
+        "Cash flow CDOs",
+        "Synthetic CDOs",
+        "Special Purpose Vehicle",
+        "Unfunded",
+        "Fully funded"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Cash CDOs backed by cash market debt",
+        "Synthetic CDOs transferring economic risk via credit default swaps"
+      ],
+      "exclusion": [
+        "Standard retail loan securitizations backed strictly by receivables"
+      ],
+      "nearby_distinctions": [
+        "Synthetic CDOs transfer economic risk without balance sheet asset removal whereas cash CDOs move collateral assets away from the balance sheet."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3addf93d-37a6-4015-9ea2-80bba45e801f",
+      "concept_name": "Credit Default Swaps (CDSs)",
+      "definition": "A Credit Default Swap is a private bilateral contract where a protection buyer pays periodic premiums to a protection seller in exchange for compensation if an underlying debt defaults. Functionally resembling an insurance arrangement without formal insurance classification, it operates as a non-standardized forward contract.",
+      "terminology": [
+        "Credit Default Swap",
+        "Protection buyer",
+        "Protection seller",
+        "Default risk",
+        "Naked CDS",
+        "ISDA guidelines"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Hedging debt default risks",
+        "Naked CDS positions",
+        "ISDA governing documentation"
+      ],
+      "exclusion": [
+        "Exchange-traded options with explicit exercise choices"
+      ],
+      "nearby_distinctions": [
+        "Unlike options, CDS contracts involve no element of choice upon default occurrence and terminate with zero cash flow if no default transpires."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "15f1db6e93724345a1a8f21c6b96459ce70f6f9305e1a2f78f184df27f9ce0d9",
+  "artifact_id": "5bf089ab-0f93-4de3-8137-3c745d8f3762",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8851,
+  "output_tokens": 3155,
+  "cost_usd": 0.0105428,
+  "created_at": "2026-10-03T18:08:20.379546+00:00"
+}

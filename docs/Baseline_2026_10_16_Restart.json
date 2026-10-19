@@ -1,0 +1,20 @@
+{
+  "restart_persistence": "passed",
+  "health": {
+    "status": "ok",
+    "env": "development",
+    "target_attempt": "2027-05"
+  },
+  "baseline_status": "active",
+  "roots": 3009,
+  "target": "2027-05",
+  "standard_launcher": "running",
+  "owned_worker": "running",
+  "recompute_job": {
+    "id": 1,
+    "status": "ok",
+    "score_run_id": 297
+  },
+  "scored_nodes": 2043,
+  "authoritative_importance_scores": 0
+}

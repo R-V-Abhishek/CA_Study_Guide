@@ -1,0 +1,55 @@
+{
+  "result": {
+    "question_id": "4691b3404b819f70247e0739f023db65d8acce5a9036385dfb4809a4600668f7",
+    "input_hash": "d848b61cfc3e9a12389fea260fe31087e48223135989e872c7047960486ae4af",
+    "mappings": [
+      {
+        "part_id": "4691b3404b819f70247e0739f023db65d8acce5a9036385dfb4809a4600668f7:c.repeat6.i",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "The part lists the \u20b9200 crore preceding-year turnover threshold for a private company under the shared stem, but the available matching candidate describes Audit Committee thresholds for public companies, not this internal auditor applicability rule. The relevant internal-audit descriptor is absent.",
+        "confidence": 0.96,
+        "bucket": "D"
+      },
+      {
+        "part_id": "4691b3404b819f70247e0739f023db65d8acce5a9036385dfb4809a4600668f7:c.repeat6.ii",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "The part gives a bank/public financial institution borrowing threshold for the same private-company rule, but no candidate covers the internal-auditor appointment trigger. Nearby audit and committee descriptors concern different requirements.",
+        "confidence": 0.96,
+        "bucket": "D"
+      },
+      {
+        "part_id": "4691b3404b819f70247e0739f023db65d8acce5a9036385dfb4809a4600668f7:c.repeat6.i.repeat2",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "This part evaluates variable consideration under Ind AS 115 using an incentive award and cost-to-cost progress, unrelated to the shared private-company auditor threshold. No candidate describes this revenue-recognition concept.",
+        "confidence": 0.99,
+        "bucket": "D"
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "723ff4758476eb0f019dff1100657fbb9bec4a4d459755605a75a23cc5d97ee6",
+    "schema_generator": "pinned-part-ids-v1",
+    "seconds": 13.414,
+    "usage": [
+      {
+        "input_tokens": 50924,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 448,
+        "reasoning_output_tokens": 0
+      }
+    ],
+    "completed_at": "2026-10-05T15:52:18.585199+00:00"
+  }
+}

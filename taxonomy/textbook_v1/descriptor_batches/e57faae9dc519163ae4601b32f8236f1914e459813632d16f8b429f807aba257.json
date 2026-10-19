@@ -1,0 +1,309 @@
+{
+  "descriptors": [
+    {
+      "node_id": "e8770105-45a0-421b-9e4c-4c831967a6eb",
+      "concept_name": "Digital Audit Overview",
+      "definition": "Digital audit involves placing assurance on the effectiveness of information technology systems implemented within an organization. It reviews technology-related controls to identify operational gaps, mitigate risks, ensure regulatory compliance, and build stakeholder trust.",
+      "terminology": [
+        "Digital Audit",
+        "Assurance",
+        "IT Systems",
+        "Technology-Related Controls"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Assessing the effectiveness of IT systems",
+        "Reviewing technology controls",
+        "Identifying gaps and risks"
+      ],
+      "exclusion": [
+        "Traditional manual audits without technology integration",
+        "Pure financial balance sheet verification without IT scope"
+      ],
+      "nearby_distinctions": [
+        "Differs from general internal controls evaluation by specifically focusing on underlying digital infrastructure and automated processes."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "df8c702c-402f-43c6-835a-4f128690400e",
+      "concept_name": "Digital Audit Core Concepts",
+      "definition": "Digital audit evaluates organizational IT effectiveness to uncover risks and ensure regulatory adherence. It empowers continuous operational improvement through robust technological security positions.",
+      "terminology": [
+        "Assurance",
+        "Controls and Security",
+        "Regulatory Compliance"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Evaluating IT system effectiveness",
+        "Ensuring compliance through technology"
+      ],
+      "exclusion": [
+        "Non-digital procedural reviews"
+      ],
+      "nearby_distinctions": [
+        "Focuses directly on foundational digital controls rather than end-user output verification."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d385689e-62ca-47a7-b39e-65e6372c8960",
+      "concept_name": "Key Features of a Digital Audit",
+      "definition": "Key attributes include encouraging technological adoption, improving audit opinion quality, and enabling autonomous 24x7 real-time transactions. It standardizes processes and supports forward-looking digital strategies like artificial intelligence and analytics.",
+      "terminology": [
+        "Real-time Transactions",
+        "Standardize Processes",
+        "Audit Opinion Quality"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Autonomous process orchestration",
+        "Standardized risk mitigation controls",
+        "Enhanced analytics capability"
+      ],
+      "exclusion": [
+        "Manual standalone audit methods",
+        "Static historical transaction testing"
+      ],
+      "nearby_distinctions": [
+        "Emphasizes the intrinsic operational characteristics and forward-looking capabilities rather than mere procedural steps."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "15c25101-d463-49cb-9a49-33b9577facc6",
+      "concept_name": "Advantages of Digital Audit",
+      "definition": "Digital audits enhance effectiveness by automating routine tasks, evaluating massive data volumes quickly, and reducing audit costs. They improve analytics and risk assessment, allowing efforts to target high-risk material misstatement sites.",
+      "terminology": [
+        "Effectiveness",
+        "Audit Quality",
+        "Data Analytics",
+        "Risk Assessment"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Automated routine reconciliations",
+        "High-volume transaction evaluation",
+        "Targeted risk-based testing"
+      ],
+      "exclusion": [
+        "Labor-intensive manual sampling",
+        "Traditional subjective error evaluations"
+      ],
+      "nearby_distinctions": [
+        "Focuses on measurable efficiency gains and risk-targeting benefits compared to traditional audits."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4b92105b-c394-4153-a92b-589438b7d9d7",
+      "concept_name": "Consideration and Challenges of Digital Audit",
+      "definition": "Organizations must align automation with broad digitalization strategies, prioritize change management, and standardize processes prior to automation. Proper governance and data security must be maintained within the risk framework to address IT environment changes.",
+      "terminology": [
+        "Change Management",
+        "Standardised Process",
+        "Governance",
+        "Data Security"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Evaluating IT environment changes",
+        "Addressing new technology revenue streams",
+        "Maintaining data governance"
+      ],
+      "exclusion": [
+        "Treating automation as an isolated standalone solution",
+        "Automating unstandardized flawed processes"
+      ],
+      "nearby_distinctions": [
+        "Concentrates on implementation obstacles and governance risks rather than core advantages."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "552848be-6600-41ac-abd9-2e605717b0d8",
+      "concept_name": "Auditing Digitally Concept",
+      "definition": "Auditing digitally deploys technology advancements such as Robotic Process Automation, artificial intelligence, and sampling tools to execute effective audits. It involves leveraging specialized software and digital upskilling to test controls and analyze data accurately.",
+      "terminology": [
+        "Auditing Digitally",
+        "RPA",
+        "Artificial Intelligence",
+        "BOTs"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Using software bots for control reperformance",
+        "Deploying data analytics for fraud identification",
+        "Executing automated sampling"
+      ],
+      "exclusion": [
+        "Purely manual vouching and tracing",
+        "Non-technical audit procedures"
+      ],
+      "nearby_distinctions": [
+        "Refers to how the auditor uses technology to conduct the audit, whereas digital audit evaluates the client's IT systems."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8240765e-3b2f-4784-824f-207ebd8d37e5",
+      "concept_name": "Concept and Application of Auditing Digitally",
+      "definition": "Auditing digitally integrates modern technology tools into audit execution to enhance precision and coverage. Auditors apply automated routines, such as bots pulling vendor change logs, to test management controls efficiently.",
+      "terminology": [
+        "Automation",
+        "Innovation",
+        "Data Analysis",
+        "Bot Testing"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Automated vendor master review testing",
+        "Digital sampling based on materiality",
+        "Specialized software integration"
+      ],
+      "exclusion": [
+        "Manual inspection of physical paper logs",
+        "Ad-hoc unstructured verification"
+      ],
+      "nearby_distinctions": [
+        "Centers on auditor-side tool deployment for engagement delivery rather than evaluating client internal IT systems."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5df75cb5-c4de-4a14-ab91-c071f2aa5c3c",
+      "concept_name": "Key Features or Advantages of Auditing Digitally",
+      "definition": "Key benefits include improved audit quality via full population reviews, decreased human dependency, and enhanced transparency through digital audit trails. Automation and dashboards streamline testing, improve efficiency, and refine risk assessment.",
+      "terminology": [
+        "Full Population Review",
+        "Audit Trail",
+        "Dashboards",
+        "Decreasing Human Dependency"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Reviewing full transaction populations",
+        "Tracing changes via ERP audit trails",
+        "Visualizing data via dashboards"
+      ],
+      "exclusion": [
+        "Restricted sample-based manual testing",
+        "Opaque ledger processing"
+      ],
+      "nearby_distinctions": [
+        "Focuses on audit execution benefits like full population testing and transparency rather than general auditee IT controls."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9552f6b4-4b31-4dd1-b20d-31cb425b9cea",
+      "concept_name": "Considerations in Auditing Digitally",
+      "definition": "Auditors must strategically evaluate technology integration challenges, select appropriate automation tools, and upskill engagement teams. Automated solutions range from macros and business process automation to robotic and intelligent process automation.",
+      "terminology": [
+        "Macros and Scripts",
+        "Business Process Automation",
+        "Robotic Process Automation",
+        "Intelligent Process Automation"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Assessing return on technology investment",
+        "Continuous staff training",
+        "Selecting rule-based or AI automation tools"
+      ],
+      "exclusion": [
+        "Ignoring personnel training requirements",
+        "Adopting tools without integration planning"
+      ],
+      "nearby_distinctions": [
+        "Addresses strategic planning and tool calibration for audit teams rather than client-side operational risks."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "91711cdc-46f9-4098-9ca6-72650cbdfca1",
+      "concept_name": "Understand the IT Environment",
+      "definition": "Auditors must understand how an entity relies on IT and how its infrastructure supports business transactions to identify risks. This assessment covers applications, operating systems, databases, network architecture, and governance structures.",
+      "terminology": [
+        "IT Environment",
+        "IT Infrastructure",
+        "Applications",
+        "Database"
+      ],
+      "instrument_references": [
+        "SA 315"
+      ],
+      "inclusion": [
+        "Documenting application and operating system details",
+        "Assessing IT integration and service organizations",
+        "Identifying automated process flows"
+      ],
+      "exclusion": [
+        "Ignoring underlying database structures",
+        "Treating IT as an isolated back-office function"
+      ],
+      "nearby_distinctions": [
+        "Directly mandated for risk identification under auditing standards, differing from general tech adoption."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6ea3ca91-ff95-44fa-938f-d45f37d96b82",
+      "concept_name": "Key Areas for an Auditor to Understand IT Environment",
+      "definition": "Auditors focus on transaction flows, significant systems identification, and the mix of manual versus automated controls. They must also recognize emerging technologies like blockchain, robotics, and artificial intelligence to evaluate potential reporting risks.",
+      "terminology": [
+        "Flow of Transaction",
+        "Significant Systems",
+        "Automated Controls",
+        "Emerging Technologies"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Tracking transaction flow changes",
+        "Identifying manual and automated control elements",
+        "Evaluating emerging technologies like blockchain or AI"
+      ],
+      "exclusion": [
+        "Reviewing financial outputs without tracking system data flow",
+        "Assuming zero impact from emerging technologies"
+      ],
+      "nearby_distinctions": [
+        "Focuses on specific structural components like transaction flows and control mixes rather than high-level IT architecture overview."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "18e91d98-1cf9-498f-935f-1b7527dbaa7a",
+      "concept_name": "Identifying the Risks Arising from Usage of IT",
+      "definition": "IT usage introduces risks such as unauthorized data access, segregation of duty breakdowns by IT personnel, and inappropriate manual interventions. Additional risks include data corruption, system downtime, cybersecurity breaches, and system integration failures.",
+      "terminology": [
+        "Unauthorized Access",
+        "Segregation of Duties",
+        "Data Corruption",
+        "System Downtime"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Identifying master file unauthorized changes",
+        "Evaluating cybersecurity and data loss risks",
+        "Assessing multi-system integration failures"
+      ],
+      "exclusion": [
+        "Traditional physical inventory miscounts",
+        "Manual arithmetic errors unrelated to systems"
+      ],
+      "nearby_distinctions": [
+        "Focuses strictly on technology-driven vulnerabilities rather than standard business operational risks."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "e57faae9dc519163ae4601b32f8236f1914e459813632d16f8b429f807aba257",
+  "artifact_id": "d5eee4df-7f69-4426-b9ae-d7bcf28203ad",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8058,
+  "output_tokens": 3097,
+  "cost_usd": 0.0101599,
+  "created_at": "2026-10-03T18:10:59.798798+00:00"
+}

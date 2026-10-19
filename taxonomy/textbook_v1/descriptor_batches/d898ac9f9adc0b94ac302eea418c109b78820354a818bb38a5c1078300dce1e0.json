@@ -1,0 +1,152 @@
+{
+  "descriptors": [
+    {
+      "node_id": "9dff1cae-1514-4dff-80bc-53e395e04b70",
+      "concept_name": "General Provisions of Chapter VIII Deductions",
+      "definition": "Chapter VIII permits deductions from gross total income to compute total income, subject to the overall limitation that aggregate deductions cannot exceed the gross total income itself. These provisions prevent double counting by prohibiting member-level deductions for AOP or BOI shares already benefiting from specific sections, and restrict duplicate claims of Part C deductions under alternative provisions.",
+      "terminology": [
+        "Gross total income",
+        "Total income",
+        "AOP/BOI",
+        "Aggregate deductions"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 2025",
+        "Section 122",
+        "Section 123",
+        "Section 138",
+        "Section 153",
+        "Section 154"
+      ],
+      "inclusion": [
+        "Deductions from gross total income",
+        "Restrictions on aggregate deductions exceeding gross total income"
+      ],
+      "exclusion": [
+        "Incomes exempt under section 11",
+        "Carrying forward negative income or losses caused by deductions"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from section 11 exemptions which completely exclude specified incomes from entering the computation process."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "237c4656-0a22-4b5d-8fc0-fe6751ff6a59",
+      "concept_name": "Deduction in respect of investment in specified assets",
+      "definition": "Eligible individuals and Hindu Undivided Families shifting out of the default tax regime can claim a deduction up to 150000 for specified investments and contributions made during the tax year. Qualifying life insurance policy premiums are restricted based on the date of issuance relative to the actual capital sum assured.",
+      "terminology": [
+        "Actual capital sum assured",
+        "Specified assets",
+        "Default tax regime"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 2025",
+        "Section 123",
+        "Section 154",
+        "Section 202(1)",
+        "Schedule XV"
+      ],
+      "inclusion": [
+        "Life insurance premium payments for self, spouse, and children",
+        "Investments enumerated in Schedule XV"
+      ],
+      "exclusion": [
+        "Deferred annuity contracts",
+        "Deductions under the default tax regime"
+      ],
+      "nearby_distinctions": [
+        "Differs from general deductions by explicitly limiting eligibility to non-default tax regime users and capping contributions at statutory thresholds."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f6f5b39b-b5ac-4ead-a34d-33bfd1b68ce6",
+      "concept_name": "Deductions in respect of profits and gains from infrastructure undertakings",
+      "definition": "Assessees deriving profits from eligible infrastructure businesses are allowed a ten-year tax holiday calculated according to historical statutory provisions. Eligible enterprises must develop, operate and maintain new infrastructure facilities under qualifying agreements with government authorities or statutory bodies.",
+      "terminology": [
+        "Infrastructure facility",
+        "Tax holiday",
+        "Eligible business"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961",
+        "Income-tax Act, 2025",
+        "Section 138",
+        "Section 80-IA"
+      ],
+      "inclusion": [
+        "Profits from developing or operating infrastructure facilities",
+        "Unexpired period deductions transferred to new enterprise operators"
+      ],
+      "exclusion": [
+        "Deductions allowed under any other provision of the Act for the same tax year"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from payment-based deductions by targeting specific business enterprise profits rather than personal investment outlays."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "62a40eb9-1701-470d-92f5-9b8658d4f137",
+      "concept_name": "Deduction in respect of interest on deposits",
+      "definition": "Resident individuals and Hindu Undivided Families who opt out of the default tax regime can claim a deduction for interest earned on specific bank, co-operative society, or post office deposits. Senior citizens enjoy higher deduction limits covering all types of deposits, whereas non-senior individuals and Hindu Undivided Families are restricted to savings account interest.",
+      "terminology": [
+        "Savings account",
+        "Time deposits",
+        "Senior citizen"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 2025",
+        "Section 153",
+        "Banking Regulation Act, 1949"
+      ],
+      "inclusion": [
+        "Interest on savings accounts with banks, co-operatives, or post offices",
+        "Interest on time deposits for senior citizens"
+      ],
+      "exclusion": [
+        "Interest derived from bank accounts held on behalf of a firm or AOP/BOI",
+        "Deductions under the default tax regime"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from investment deductions by applying strictly to passive interest earnings rather than active financial contributions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c5592f6e-7f03-43af-9230-81705c4742e5",
+      "concept_name": "Deduction in the case of a person with disability",
+      "definition": "Resident individuals certified by a medical authority as having a disability, autism, cerebral palsy, or multiple disabilities can claim a flat deduction from their gross total income. Claiming this benefit requires furnishing a medical certificate alongside the return of income and obtaining reassessment certificates upon expiry.",
+      "terminology": [
+        "Medical authority",
+        "Severe disability",
+        "Reassessment certificate"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 2025",
+        "Section 154",
+        "Section 263"
+      ],
+      "inclusion": [
+        "Deductions for standard disabilities and severe disabilities",
+        "Conditions involving certified medical documents submitted with income returns"
+      ],
+      "exclusion": [
+        "Deductions claimed under the default tax regime",
+        "Claims made without mandatory medical certification"
+      ],
+      "nearby_distinctions": [
+        "Differs from payment or interest deductions by focusing exclusively on personal medical status rather than financial transactions."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "d898ac9f9adc0b94ac302eea418c109b78820354a818bb38a5c1078300dce1e0",
+  "artifact_id": "02cb3519-e88b-4f8e-a8a8-e073acaec9c7",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 3975,
+  "output_tokens": 1662,
+  "cost_usd": 0.0053475,
+  "created_at": "2026-10-03T18:17:17.986999+00:00"
+}

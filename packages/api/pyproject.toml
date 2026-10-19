@@ -8,15 +8,19 @@ dependencies = [
     "caf-contracts",
     "caf-common",
     "caf-db",
+    "caf-l0",
     "caf-l4",
     "caf-l5",
     "fastapi>=0.110",
     "uvicorn>=0.29",
+    "authlib>=1.6,<2",
+    "httpx>=0.27",
 ]
 
 [tool.uv.sources]
 caf-contracts = { workspace = true }
 caf-common = { workspace = true }
 caf-db = { workspace = true }
+caf-l0 = { workspace = true }
 caf-l4 = { workspace = true }
 caf-l5 = { workspace = true }

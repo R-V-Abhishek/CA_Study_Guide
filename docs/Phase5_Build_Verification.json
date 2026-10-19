@@ -1,0 +1,34 @@
+{
+  "generated_at": "2026-10-05T16:58:09.256108+00:00",
+  "openapi_matches_application": true,
+  "openapi_sha256": "387d4ab2cf248982013c5baac70c109002692ba7a5d06845f08eafc893c846f9",
+  "typescript_contract_sha256": "2a5f7193165a331930444d2d75c48d96e197ba975b11a5b8c2185cd006e369c4",
+  "distributions": {
+    "student": {
+      "build": "f689c88-a2e7e6fb66a8",
+      "assets": [
+        {
+          "path": "web/apps/student/dist/assets/index-CEix7GuI.js",
+          "sha256": "9f4d579320987048b37aee4525a9cff7d930ef86e6db3d65884a3454ebe3bd7f"
+        },
+        {
+          "path": "web/apps/student/dist/assets/index-CtkBG5KD.css",
+          "sha256": "c1cf64ca01b2675520a8af5772acd6c7efc52cdd9fbcdab38dbae1c59453e89f"
+        }
+      ]
+    },
+    "curator": {
+      "build": "f689c88-a2e7e6fb66a8",
+      "assets": [
+        {
+          "path": "web/apps/curator/dist/assets/index-BHT9lH7G.js",
+          "sha256": "b872a468611d8eb83485df69d2c5a6bb3f9d3a7e4acc464834ce003bd4454f52"
+        },
+        {
+          "path": "web/apps/curator/dist/assets/index-DcM9O1iy.css",
+          "sha256": "3129e82353e6ed371f94cecbbff0be3ef8fb01d57df08425a214f8a3276b3bf3"
+        }
+      ]
+    }
+  }
+}

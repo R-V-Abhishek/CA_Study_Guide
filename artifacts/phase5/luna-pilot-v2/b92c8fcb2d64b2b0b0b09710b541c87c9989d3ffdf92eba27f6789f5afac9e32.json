@@ -1,0 +1,35 @@
+{
+  "result": {
+    "question_id": "b92c8fcb2d64b2b0b0b09710b541c87c9989d3ffdf92eba27f6789f5afac9e32",
+    "input_hash": "4502891f2d3875d25e88cada122325ef13418f2228e26909a3410204bc2d8e89",
+    "mappings": [
+      {
+        "part_id": "b92c8fcb2d64b2b0b0b09710b541c87c9989d3ffdf92eba27f6789f5afac9e32",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "The supplied part is only the assertion \u201cNo penalty is leviable on CA firm\u201d; the root question, shared stem, and part-specific answer are not provided. The aggregated answer text does not resolve what legal penalty concept is being tested.",
+        "confidence": null,
+        "bucket": null
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "5ca6c66784c4daab99ab090c37b0e35c54f02aa3b99b0cda5335666e47962a8d",
+    "schema_generator": "pinned-part-ids-v1",
+    "seconds": 16.645,
+    "usage": [
+      {
+        "input_tokens": 51792,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 625,
+        "reasoning_output_tokens": 399
+      }
+    ],
+    "completed_at": "2026-10-05T15:52:17.500415+00:00"
+  }
+}

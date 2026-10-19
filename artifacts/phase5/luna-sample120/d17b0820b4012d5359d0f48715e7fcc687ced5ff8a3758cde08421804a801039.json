@@ -1,0 +1,36 @@
+{
+  "result": {
+    "question_id": "d17b0820b4012d5359d0f48715e7fcc687ced5ff8a3758cde08421804a801039",
+    "input_hash": "dc1e52d69940a7546478f1efb1d4dc7ae32e013d6233e697cdff1b56b5995dd1",
+    "mappings": [
+      {
+        "part_id": "d17b0820b4012d5359d0f48715e7fcc687ced5ff8a3758cde08421804a801039",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "The stem asks which statement is correct based on facts that are not included; the supplied text shows only \u201c(D) `91,000`.\u201d With the answer and shared facts missing, the tested concept cannot be determined.",
+        "confidence": null,
+        "bucket": null
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "attempt_id": "1791216905171232000",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "58f6995033cb479141237424bc6dd3b706eef2887090cf94577eeba8315df6b5",
+    "schema_generator": "pinned-part-ids-v1",
+    "seconds": 31.863,
+    "usage": [
+      {
+        "input_tokens": 47486,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 415,
+        "reasoning_output_tokens": 200
+      }
+    ],
+    "completed_at": "2026-10-05T16:15:37.034252+00:00"
+  }
+}

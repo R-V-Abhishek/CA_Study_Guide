@@ -1,0 +1,219 @@
+{
+  "descriptors": [
+    {
+      "node_id": "3310b45b-5c04-4189-aa2e-d45e7058cbfc",
+      "concept_name": "Macroeconomic Fundamentals of Interest Rates",
+      "definition": "Interest represents the cost of borrowing and compensation for default and inflation risks borne by lenders. Macroeconomic variables such as aggregate money demand and supply, inflation rates, and central bank monetary interventions directly govern market interest rate levels.",
+      "terminology": [
+        "Interest",
+        "Reference Rates",
+        "Open Market Operations",
+        "Inflation Risk"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Borrowing costs",
+        "Default compensation",
+        "Inflation purchasing power protection",
+        "Central bank policy rates"
+      ],
+      "exclusion": [
+        "Micro-level corporate credit ratings",
+        "Derivative valuation models"
+      ],
+      "nearby_distinctions": [
+        "Differs from benchmark reference rates by explaining the underlying macroeconomic drivers rather than providing the actual standard pricing index."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "20ba3059-1e01-4ef7-9491-73244ce8255f",
+      "concept_name": "BENCHMARK RATES",
+      "definition": "Benchmark rates serve as reference indices forming the foundation for floating rate loans, bonds, and various complex derivatives. Following the discontinuation of LIBOR, financial markets transitioned to utilizing region-specific Alternative Reference Rates based on actual secured or unsecured overnight transactions.",
+      "terminology": [
+        "Reference Rates",
+        "LIBOR",
+        "Alternative Reference Rates",
+        "Secured Overnight Financing Rate",
+        "Basis Points"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Domestic and international reference indices",
+        "Alternative Reference Rates across regions",
+        "Spread adjustments using basis points over benchmarks"
+      ],
+      "exclusion": [
+        "Direct central bank policy tools like CRR and SLR",
+        "Specific individual corporate lending rates without reference integration"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from broad macroeconomic interest rate determinants by functioning as explicit transaction pricing benchmarks."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "140b43b5-b336-4a2c-8577-378e17edb2c0",
+      "concept_name": "INTEREST RATE RISK",
+      "definition": "Interest rate risk entails potential adverse impacts on bond prices and net interest income resulting from market interest rate fluctuations. It encompasses both price risk and reinvestment risk exposures across financial assets and liabilities.",
+      "terminology": [
+        "Interest Rate Risk",
+        "Price Risk",
+        "Reinvestment Risk",
+        "Gap Exposure",
+        "Earnings at Risk"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Bond price volatility due to rate changes",
+        "Net interest income sensitivity",
+        "Reinvestment exposure"
+      ],
+      "exclusion": [
+        "Foreign exchange transactional exposure",
+        "Commodity price risk"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from specific gap mismatch exposure by representing the overarching risk category rather than just structural asset-liability maturity timing differences."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "92e9d973-7305-4de7-ac56-3dff594907d3",
+      "concept_name": "Types of Interest Rate Risk",
+      "definition": "Gap exposure arises from holding assets, liabilities, and off-balance sheet items with mismatched principal amounts, maturities, or re-pricing dates. Positive and negative gaps determine whether net interest income expands or contracts following shifts in market interest rates.",
+      "terminology": [
+        "Gap Exposure",
+        "Mismatch Risk",
+        "Interest Rate Sensitive Assets",
+        "Interest Rate Sensitive Liabilities",
+        "Earnings at Risk"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Asset-sensitive positive gaps",
+        "Liability-sensitive negative gaps",
+        "Earnings at Risk quantitative estimation"
+      ],
+      "exclusion": [
+        "General macroeconomic inflation drivers",
+        "Capital adequacy duration matching"
+      ],
+      "nearby_distinctions": [
+        "Focuses strictly on structural maturity and re-pricing mismatches rather than general interest rate risk or derivative hedging mechanics."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "49ce493b-f9ea-4600-aa9a-275f303fb11f",
+      "concept_name": "Measuring Interest Rate Risk",
+      "definition": "Interest rate risk measurement requires identifying and quantifying all material exposures embedded within an institution's balance sheet positions. Quantitative methodologies range from traditional maturity gap analysis and duration to simulation models and value at risk techniques.",
+      "terminology": [
+        "Maturity Gap Analysis",
+        "Duration",
+        "Simulation",
+        "Value at Risk",
+        "Basis Risk"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Gap and mismatch exposures",
+        "Yield curve and basis risks",
+        "Traditional and modern measurement techniques"
+      ],
+      "exclusion": [
+        "Direct execution of balance sheet restructuring",
+        "Macroeconomic monetary policy formulation"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from hedging methods by exclusively addressing the identification and quantification stages preceding risk mitigation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a854dcb6-0210-4f64-8a24-5ecdb8c58315",
+      "concept_name": "Hedging Interest Rate Risk",
+      "definition": "Hedging interest rate risk involves deploying traditional or modern financial techniques to neutralize adverse earnings and valuation impacts from market rate shifts. These methods protect financial institutions by aligning balance sheet structures or utilizing off-balance-sheet derivative instruments.",
+      "terminology": [
+        "Asset and Liability Management",
+        "Forward Rate Agreement",
+        "Interest Rate Futures",
+        "Interest Rate Options",
+        "Interest Rate Swaps"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Traditional asset-liability management frameworks",
+        "Modern derivative hedging instruments",
+        "Net interest income optimization"
+      ],
+      "exclusion": [
+        "Pure risk measurement and gap quantification without mitigation",
+        "General economic forecasting"
+      ],
+      "nearby_distinctions": [
+        "Differs from risk measurement procedures by providing active operational strategies and instruments to alter the institution's risk profile."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b76a1963-3560-4b9d-b30e-53bc2dbc4deb",
+      "concept_name": "Traditional Methods",
+      "definition": "Traditional hedging methods primarily rely on internal balance sheet coordination techniques and forward-based contracting mechanisms like asset-liability management structures. These frameworks manage structural exposures to stabilize net interest margins across varying rate scenarios.",
+      "terminology": [
+        "Asset and Liability Management",
+        "Forward Rate Agreement",
+        "Net Interest Income",
+        "Balance Sheet Structure"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Asset-liability management frameworks",
+        "Forward rate agreements",
+        "Balance sheet maturity alignment"
+      ],
+      "exclusion": [
+        "Exchange-traded futures contracts",
+        "Over-the-counter interest rate options and swaps"
+      ],
+      "nearby_distinctions": [
+        "Contrasts with modern methods by emphasizing structural balance sheet management and traditional bilateral forward contracts rather than standardized exchange-traded derivatives."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5e99bfc3-cba7-4c31-a696-4efac3684f8f",
+      "concept_name": "Modern Methods",
+      "definition": "Modern hedging techniques utilize market-traded derivatives such as futures, options, and swaps to manage interest rate exposure through the inverse relationship between interest rates and bond prices. These methods employ valuation mechanics like conversion factors and cheapest-to-deliver parameters to execute precise risk mitigation.",
+      "terminology": [
+        "Interest Rate Futures",
+        "Conversion Factor",
+        "Cheapest to Deliver",
+        "Mark-to-Market",
+        "Treasury Bill"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Interest rate futures contracts on government securities",
+        "Conversion factor adjustments",
+        "Cheapest to deliver bond identification",
+        "Daily mark-to-market settlement"
+      ],
+      "exclusion": [
+        "Internal balance sheet restructuring",
+        "Asset-liability management policies"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from traditional balance sheet management by leveraging external, market-traded derivative instruments to offset interest rate sensitivity."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "29bc861437d235975d6809a0f62b3894c284f5427ff8728a8cc95d7b415c8c83",
+  "artifact_id": "73afc8a1-cdf4-4981-b257-3f42a95c4e68",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 5623,
+  "output_tokens": 2194,
+  "cost_usd": 0.007171899999999999,
+  "created_at": "2026-10-03T18:08:51.516374+00:00"
+}

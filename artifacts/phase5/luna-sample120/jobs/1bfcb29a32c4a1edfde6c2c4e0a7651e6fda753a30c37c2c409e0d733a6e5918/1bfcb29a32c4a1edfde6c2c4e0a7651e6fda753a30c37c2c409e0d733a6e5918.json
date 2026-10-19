@@ -1,0 +1,36 @@
+{
+  "result": {
+    "question_id": "1bfcb29a32c4a1edfde6c2c4e0a7651e6fda753a30c37c2c409e0d733a6e5918",
+    "input_hash": "41c5be32f6dc81f8a3d72361204ac68a40e9cc2ba2b6b9985d377123849db5b7",
+    "mappings": [
+      {
+        "part_id": "1bfcb29a32c4a1edfde6c2c4e0a7651e6fda753a30c37c2c409e0d733a6e5918",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "The question text is only \u201c(B) Nil\u201d; the answer text lists several apparently unrelated results, but does not establish what this part tests. The tested concept cannot be reliably mapped from the supplied context.",
+        "confidence": null,
+        "bucket": null
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "attempt_id": "1791217281793682000",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "8ee322bf5ffbca18402749ba614a3ed9d515088a3aa0c5db6750e3f5e7f41808",
+    "schema_generator": "pinned-identifiers-v2",
+    "seconds": 16.934,
+    "usage": [
+      {
+        "input_tokens": 43683,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 583,
+        "reasoning_output_tokens": 353
+      }
+    ],
+    "completed_at": "2026-10-05T16:21:38.727737+00:00"
+  }
+}

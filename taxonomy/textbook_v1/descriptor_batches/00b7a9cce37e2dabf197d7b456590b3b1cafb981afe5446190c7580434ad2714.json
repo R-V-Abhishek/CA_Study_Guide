@@ -1,0 +1,192 @@
+{
+  "descriptors": [
+    {
+      "node_id": "34b7a4c9-1fa9-46d9-a753-d8161b8f9351",
+      "concept_name": "Reconciliations",
+      "definition": "An entity must provide reconciliations of reportable segments' totals for revenues, profit or loss, assets, liabilities, and other material items to the corresponding entity amounts. All material reconciling items must be separately identified and described.",
+      "terminology": [
+        "reportable segments",
+        "reconciling items",
+        "segment profit or loss",
+        "intersegment revenues"
+      ],
+      "instrument_references": [
+        "Ind AS 108"
+      ],
+      "inclusion": [
+        "Reconciliation of total segment revenues to entity revenues",
+        "Reconciliation of total segment profit or loss to entity profit or loss before tax",
+        "Reconciliation of segment assets and liabilities if reported",
+        "Reconciliation of other material items"
+      ],
+      "exclusion": [
+        "Disclosed segment amounts without entity-level totals",
+        "Unidentified lump-sum adjustments"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from segment revenue measurement because it bridges internal segment measures to external entity financial statements."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "dc61f441-add7-47a5-a244-e4e334706482",
+      "concept_name": "RESTATEMENT OF PREVIOUSLY REPORTED INFORMATION",
+      "definition": "If an entity changes its internal organizational structure causing reportable segment composition to change, corresponding prior period information must be restated unless information is unavailable and development costs are excessive. When prior period information is not restated, current period segment information must be reported on both old and new bases.",
+      "terminology": [
+        "internal organisation",
+        "composition of reportable segments",
+        "old basis and new basis"
+      ],
+      "instrument_references": [
+        "Ind AS 108"
+      ],
+      "inclusion": [
+        "Restatement of interim and annual corresponding prior period data",
+        "Dual reporting on old and new bases when restatement is impracticable due to excessive cost"
+      ],
+      "exclusion": [
+        "Changes in accounting estimates without structural organization changes"
+      ],
+      "nearby_distinctions": [
+        "Differs from standard prospective application by mandating dual-basis reporting for the change year if historical restatement is excessively costly."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "36387dc6-b37b-4fff-9371-79f292931b54",
+      "concept_name": "ENTITY-WIDE DISCLOSURES",
+      "definition": "Entities must provide entity-wide disclosures regarding products, services, geographical areas, and major customers regardless of how their operating segments are organized. These additional disclosures use financial information utilized to produce the entity's financial statements.",
+      "terminology": [
+        "entity-wide disclosures",
+        "products and services",
+        "geographical areas",
+        "country of domicile"
+      ],
+      "instrument_references": [
+        "Ind AS 108"
+      ],
+      "inclusion": [
+        "Revenues from external customers for products and services",
+        "Geographical revenue and non-current asset disclosures",
+        "Major customer reliance disclosures"
+      ],
+      "exclusion": [
+        "Information already reported directly as part of segment reporting requirements under the standard"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard segment disclosures because they apply universally across the entity regardless of the internal management approach used to identify operating segments."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b569c25b-16ec-43b6-bea8-adc8450ffa28",
+      "concept_name": "Information about products and services",
+      "definition": "An entity should report revenues from external customers for each product and service or group of similar products and services based on financial statement data. Disclosure is excused only if necessary information is unavailable and development costs are excessive.",
+      "terminology": [
+        "external customers",
+        "products and services",
+        "group of similar products"
+      ],
+      "instrument_references": [
+        "Ind AS 108"
+      ],
+      "inclusion": [
+        "Revenues for individual products and services",
+        "Revenues for groups of similar products and services"
+      ],
+      "exclusion": [
+        "Internal intersegment revenues"
+      ],
+      "nearby_distinctions": [
+        "Differs from geographical disclosures by focusing on product lines rather than physical or regional customer locations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7d6069db-b8b3-4766-89ad-f8ae86b3fd72",
+      "concept_name": "Information about geographical areas",
+      "definition": "Entities must disclose external customer revenues and non-current assets attributed to the country of domicile and individual foreign countries, stating the attribution basis used. Material individual foreign country amounts must be presented separately from totals.",
+      "terminology": [
+        "country of domicile",
+        "foreign countries",
+        "non-current assets",
+        "attribution basis"
+      ],
+      "instrument_references": [
+        "Ind AS 108"
+      ],
+      "inclusion": [
+        "Revenues attributed to domicile and foreign countries",
+        "Non-current assets located in domicile and foreign countries"
+      ],
+      "exclusion": [
+        "Financial instruments, deferred tax assets, post-employment benefit assets, and insurance rights from non-current asset totals"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from product disclosures by segregating metrics based on geographic locations of customers and asset holdings."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "dd83b696-7b26-4247-9951-632c9aa77ce6",
+      "concept_name": "Information about major customers",
+      "definition": "An entity must disclose its reliance on major customers if revenues from a single external customer reach or exceed ten percent of total revenues. Common control groups constitute a single customer, while government-controlled entities require judgment regarding economic integration.",
+      "terminology": [
+        "major customers",
+        "single external customer",
+        "common control",
+        "economic integration"
+      ],
+      "instrument_references": [
+        "Ind AS 108"
+      ],
+      "inclusion": [
+        "Disclosure of the fact of dependence when 10% threshold is met",
+        "Total amount of revenues from each such customer",
+        "Identity of the segment reporting the revenues"
+      ],
+      "exclusion": [
+        "Disclosure of the specific identity of the major customer",
+        "Breakdown of revenues each segment earns from that customer"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard segment revenue reporting by establishing specific customer-concentration disclosure thresholds at the entity level."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b19c19ab-488c-4754-ac6e-0d0325420a3a",
+      "concept_name": "Significant Differences In Ind As 108 Vis-A-Vis As 17",
+      "definition": "Ind AS 108 adopts a management approach for identifying segments based on internal reports reviewed by the chief operating decision maker, contrasting with AS 17 which relies on primary and secondary risks and returns. Furthermore, Ind AS 108 measures amounts based on management resource allocation and performance evaluation rather than strict accounting policy conformity.",
+      "terminology": [
+        "management approach",
+        "chief operating decision maker",
+        "risks and returns approach",
+        "aggregation criteria"
+      ],
+      "instrument_references": [
+        "Ind AS 108",
+        "AS 17"
+      ],
+      "inclusion": [
+        "Comparison of segment identification approaches",
+        "Comparison of reporting measurement bases",
+        "Comparison of aggregation criteria and single-segment disclosures"
+      ],
+      "exclusion": [
+        "Detailed procedural instructions for AS 17 application"
+      ],
+      "nearby_distinctions": [
+        "Contrasts current management-driven segment identification with older accounting standard frameworks that forced primary and secondary business versus geographical categorizations."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "00b7a9cce37e2dabf197d7b456590b3b1cafb981afe5446190c7580434ad2714",
+  "artifact_id": "2cbe5530-7c24-4721-b750-0d1359ae989f",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 5184,
+  "output_tokens": 2067,
+  "cost_usd": 0.0067227,
+  "created_at": "2026-10-03T18:03:29.067582+00:00"
+}

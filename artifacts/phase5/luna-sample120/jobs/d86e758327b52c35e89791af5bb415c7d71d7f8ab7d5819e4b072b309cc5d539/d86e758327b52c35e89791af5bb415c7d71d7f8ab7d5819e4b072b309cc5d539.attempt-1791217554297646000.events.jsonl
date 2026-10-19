@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a10ce2-d3b6-7752-9815-40d3c191bd7a"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"{\"question_id\":\"d86e758327b52c35e89791af5bb415c7d71d7f8ab7d5819e4b072b309cc5d539\",\"input_hash\":\"db0fdc1e143dd42b9ee6f99610463ae6088c393ec15855f9595dce73c3ebe0ea\",\"mappings\":[{\"part_id\":\"d86e758327b52c35e89791af5bb415c7d71d7f8ab7d5819e4b072b309cc5d539\",\"outcome\":\"needs_review\",\"primary_node_id\":null,\"secondary_node_ids\":[],\"evidence\":[],\"note\":\"The text states only the applicable GST and Customs law amendment cutoff dates; it contains no gradable question or tested concept to map.\",\"confidence\":null,\"bucket\":null}]}"}}
+{"type":"turn.completed","usage":{"input_tokens":43143,"cached_input_tokens":0,"cache_write_input_tokens":0,"output_tokens":199,"reasoning_output_tokens":0}}

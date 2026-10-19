@@ -1,0 +1,32 @@
+{
+  "openapi_matches_application": true,
+  "distributions": {
+    "student": {
+      "build": "af852f4-a4c4aff64eb5",
+      "assets": [
+        {
+          "path": "web/apps/student/dist/assets/index-Cg_3UoDj.js",
+          "sha256": "7a4e3ca46d320d4a73bb976671e709dacdd885b2a313179c0a90ad90ca6d5a2f"
+        },
+        {
+          "path": "web/apps/student/dist/assets/index-BK2tld-t.css",
+          "sha256": "dcabcdd8356409f876bce6b6eb54373864a123fca9be90e463ada4fe61be3dd4"
+        }
+      ]
+    },
+    "curator": {
+      "build": "af852f4-a4c4aff64eb5",
+      "assets": [
+        {
+          "path": "web/apps/curator/dist/assets/index-C3pDhath.js",
+          "sha256": "3d1801fdf05b6046c8aa407c16da0ee21b41b325477f29347b3db17316f39ca6"
+        },
+        {
+          "path": "web/apps/curator/dist/assets/index-6Luclxn3.css",
+          "sha256": "762ba76aefb48613807099914eea31648e464268ea2a84f904909aa429d631e5"
+        }
+      ]
+    }
+  },
+  "real_provider_evidence": "Phase2_Auth0_Verification.json"
+}

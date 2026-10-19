@@ -1,0 +1,337 @@
+{
+  "descriptors": [
+    {
+      "node_id": "25d11f26-89f0-4edd-a055-1f58425ccac4",
+      "concept_name": "Payment of tax and defaults by the assessee [Section 220]",
+      "definition": "Amounts specified in a notice of demand must be paid within thirty days of service, though the Assessing Officer may extend time, permit installments, or shorten the period if revenue is endangered. Failure to pay within this period triggers simple interest liability for every month or part of a month of default.",
+      "terminology": [
+        "notice of demand",
+        "assessing officer",
+        "default",
+        "interest",
+        "continuity of proceedings"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961 - Section 220"
+      ],
+      "inclusion": [
+        "Demand payments within thirty days",
+        "Interest on unpaid dues",
+        "Reduction or increase of interest resulting from rectification or appellate orders"
+      ],
+      "exclusion": [
+        "Penalty levy mechanisms",
+        "Recovery proceedings through TRO"
+      ],
+      "nearby_distinctions": [
+        "Differs from Section 221 penalties as it deals strictly with statutory payment timelines and compounding interest rather than penal impositions for defaults."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c73998c9-389e-48b9-a971-ecf83b8b03cf",
+      "concept_name": "Penalty Payable [Section 221]",
+      "definition": "When an assessee defaults in paying tax, advance tax, or interest, the Assessing Officer shall impose a monetary penalty after providing a reasonable opportunity of being heard, provided no good and sufficient reason is proven. Subsequent payment of the tax in arrears before penalty imposition does not absolve the assessee from this liability.",
+      "terminology": [
+        "penalty",
+        "tax in arrears",
+        "continuing default",
+        "opportunity of being heard"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961 - Section 221"
+      ],
+      "inclusion": [
+        "Penalties for tax or advance tax default",
+        "Cancellation of penalty if the underlying tax demand is wholly reduced on appeal"
+      ],
+      "exclusion": [
+        "Basic interest computations for delayed tax payments under Section 220"
+      ],
+      "nearby_distinctions": [
+        "Unlike routine interest charged automatically under Section 220, Section 221 imposes a punitive charge requiring a hearing and subjective evaluation of good and sufficient reasons."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1305987d-45c4-499d-aa22-64e4a7d46312",
+      "concept_name": "Certificate to Tax Recovery Officer (TRO) [Section 222]",
+      "definition": "When an assessee is in default, the Tax Recovery Officer draws up a signed statement of arrears and initiates recovery through specific statutory modes such as property attachment and sale, arrest, or appointment of a receiver. Transferred properties to spouses or minor children for inadequate consideration are legally included in the assessee's recoverable pool.",
+      "terminology": [
+        "assessee-in-default",
+        "Tax Recovery Officer",
+        "certificate",
+        "attachment and sale",
+        "receiver"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961 - Section 222",
+        "Second Schedule"
+      ],
+      "inclusion": [
+        "Movable and immovable property attachments",
+        "Arrest and detention",
+        "Inclusion of assets transferred to close relatives without adequate consideration"
+      ],
+      "exclusion": [
+        "Initial demand notices or direct Assessing Officer garnishments without certificates"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from Section 220/221 because it represents an escalated administrative recovery stage executed specifically via a formal certificate drawn up by a designated recovery officer."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c439c283-9b68-4c78-b000-82f2c3f444f3",
+      "concept_name": "Tax Recovery Officer (Tro) By Whom Recovery Is To Be Effected [Section 223]",
+      "definition": "Recovery actions under Section 222 are handled by the Tax Recovery Officer within whose jurisdiction the assessee carries on business, resides, or owns property, with jurisdiction assigned by higher tax authorities. If full recovery cannot be achieved locally or if expedition is required, the certificate may be transferred to another TRO where the assessee holds property.",
+      "terminology": [
+        "jurisdiction",
+        "Tax Recovery Officer",
+        "principal place of business",
+        "transfer of certificate"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961 - Section 223",
+        "Income-tax Act, 1961 - Section 120",
+        "Income-tax Act, 1961 - Section 222"
+      ],
+      "inclusion": [
+        "Assignment of territorial and functional jurisdiction",
+        "Inter-jurisdictional transfer of recovery certificates"
+      ],
+      "exclusion": [
+        "Substantive rules governing asset attachment methods"
+      ],
+      "nearby_distinctions": [
+        "Focuses on geographical and administrative competence for executing recovery rather than the mechanics of the recovery modes themselves."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "78ee5738-22f4-4828-9be6-89ace5157338",
+      "concept_name": "Validity Of Certificate And Cancellation And Amendment Thereof [Section 224]",
+      "definition": "An assessee is barred from disputing the correctness of any recovery certificate drawn up by the Tax Recovery Officer on any ground. However, the Tax Recovery Officer holds the discretionary authority to cancel the certificate or amend clerical and arithmetical mistakes.",
+      "terminology": [
+        "certificate correctness",
+        "clerical mistake",
+        "arithmetical mistake",
+        "cancellation"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961 - Section 224"
+      ],
+      "inclusion": [
+        "Correction of formal errors in certificates",
+        "Discretionary cancellation of certificates by the TRO"
+      ],
+      "exclusion": [
+        "Assessee challenges on substantive tax liabilities during execution"
+      ],
+      "nearby_distinctions": [
+        "Unlike assessment orders which can be contested on merits in appeals, the certificate itself cannot be challenged by the assessee on substantive grounds."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "feb03ec4-9f43-4e43-9694-4d47816bfc5c",
+      "concept_name": "Stay Of Proceedings In Pursuance Of Certificate And Amendment Or Cancellation Thereof [Section 225]",
+      "definition": "The Tax Recovery Officer is authorized to grant time extensions for tax payments, which operates to stay recovery proceedings until that time expires. Additionally, if tax demands are reduced via appellate proceedings that remain subject to further challenge, recovery for the reduced portion must be stayed accordingly.",
+      "terminology": [
+        "stay of proceedings",
+        "grant of time",
+        "appellate reduction",
+        "modification of certificate"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961 - Section 225"
+      ],
+      "inclusion": [
+        "Stays granted upon extension of payment time",
+        "Stays during pending further litigation on reduced appellate demands",
+        "Modification or cancellation of certificates upon final appellate outcomes"
+      ],
+      "exclusion": [
+        "Initial drawing of recovery certificates"
+      ],
+      "nearby_distinctions": [
+        "Distinct from Section 224 as it deals with halting or adjusting active recovery proceedings due to time grants or pending higher-level appeals rather than correcting intrinsic certificate errors."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7f335dc4-5bb2-4041-8f30-3acc55419905",
+      "concept_name": "Other Modes Of Recovery [Section 226 & 227]",
+      "definition": "Income-tax authorities and Tax Recovery Officers can recover tax arrears through alternative statutory channels, including garnishee notices on third parties holding money for the assessee, attachments of funds in court custody, or State Government channels. Objections on oath regarding third-party liabilities carry personal liability consequences if proven false.",
+      "terminology": [
+        "garnishee order",
+        "third-party notice",
+        "court custody",
+        "distraint and sale",
+        "Third Schedule"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961 - Section 226",
+        "Income-tax Act, 1961 - Section 227",
+        "Income-tax Act, 1961 - Third Schedule"
+      ],
+      "inclusion": [
+        "Third-party debt attachments",
+        "Recovery through court-held funds",
+        "State government recovery channels"
+      ],
+      "exclusion": [
+        "Standard movable and immovable property sales managed solely via Second Schedule certificates"
+      ],
+      "nearby_distinctions": [
+        "Provides supplemental direct intervention tools (such as freezing third-party debts) that operate alongside or independently of standard TRO certificate recovery methods."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5cbb7a66-1fff-4a0f-8200-15237d0007b3",
+      "concept_name": "Recovery Of Tax In Pursuance Of Agreements With Foreign Countries [Section 228A]",
+      "definition": "Tax recovery can be executed across international borders via bilateral agreements where foreign tax authorities send certificates to the Central Board of Direct Taxes for local enforcement. Conversely, Indian tax authorities can forward domestic recovery certificates to the Board for execution against residents holding overseas assets in treaty-partner countries.",
+      "terminology": [
+        "foreign tax recovery",
+        "bilateral agreement",
+        "Central Board of Direct Taxes",
+        "foreign certificate"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961 - Section 228A",
+        "Income-tax Act, 1961 - Section 222"
+      ],
+      "inclusion": [
+        "Enforcement of foreign tax certificates in India",
+        "Transmission of Indian tax recovery certificates abroad"
+      ],
+      "exclusion": [
+        "Domestic-only recovery mechanisms lacking international treaty frameworks"
+      ],
+      "nearby_distinctions": [
+        "Differs from standard domestic recovery under Sections 222–226 by establishing a cross-border cooperative recovery mechanism governed by international agreements."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b5b09691-ee00-4afc-a790-5cdb9df15a66",
+      "concept_name": "Tax Clearance Certificate [Section 230]",
+      "definition": "Non-domiciled individuals visiting India for business, profession, or employment must furnish an employer undertaking guaranteeing tax payments before leaving the country. Persons domiciled in India must generally provide their Permanent Account Number or specific certificates at departure unless exempted.",
+      "terminology": [
+        "tax clearance certificate",
+        "non-domiciled",
+        "undertaking",
+        "Permanent Account Number",
+        "no objection certificate"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961 - Section 230",
+        "Income-tax Act, 1961 - Section 139A"
+      ],
+      "inclusion": [
+        "Undertakings for non-domiciled business visitors",
+        "Permanent Account Number disclosures for departing Indian domiciliaries",
+        "Exemptions for foreign tourists"
+      ],
+      "exclusion": [
+        "General domestic tax assessment procedures"
+      ],
+      "nearby_distinctions": [
+        "Acts as a pre-departure regulatory control measure rather than a post-assessment recovery mechanism for tax arrears."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "09b4c1a1-33a2-4c9b-a22c-aff658221c0a",
+      "concept_name": "Faceless Collection And Recovery Of Tax [Section 231]",
+      "definition": "The Central Government is empowered to notify schemes for faceless collection and recovery of tax to eliminate physical interfaces between authorities and assessees. This framework covers lower deduction certificates, default orders, interest waivers, and recovery certificate operations using dynamic jurisdiction.",
+      "terminology": [
+        "faceless collection",
+        "dynamic jurisdiction",
+        "eliminating physical interface",
+        "functional specialization"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961 - Section 231",
+        "Income-tax Act, 1961 - Section 197",
+        "Income-tax Act, 1961 - Section 220",
+        "Income-tax Act, 1961 - Section 222"
+      ],
+      "inclusion": [
+        "Faceless processing of lower deduction or collection certificates",
+        "Digital handling of installment extensions and penalty levies",
+        "Automated resource optimization and team-based assessments"
+      ],
+      "exclusion": [
+        "Traditional physical field enforcement operations not covered under the notified scheme"
+      ],
+      "nearby_distinctions": [
+        "Replaces traditional localized administrative touchpoints with an automated, virtual, team-based jurisdiction model across recovery and deduction functions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "fb28e4ae-4f6a-44ef-808b-b97e1d9551a9",
+      "concept_name": "Recovery By Suit Or Other Law [Section 232]",
+      "definition": "Assessing Officers and the Government maintain the legal right to pursue alternative modes of recovery under any applicable laws or institute civil suits to collect tax arrears. These methods operate as concurrent remedies alongside specialized income-tax recovery provisions.",
+      "terminology": [
+        "civil suit",
+        "alternative law",
+        "government debt recovery",
+        "recourse"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961 - Section 232"
+      ],
+      "inclusion": [
+        "Filing civil suits for tax recovery",
+        "Utilizing general legal mechanisms for recovering government debts"
+      ],
+      "exclusion": [
+        "Exclusive reliance on internal departmental certificates under Section 222"
+      ],
+      "nearby_distinctions": [
+        "Unlike internal departmental recovery steps like TRO certificates, this section enables formal civil litigation and general legal suits outside the direct machinery of the tax statute."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5760b260-30bf-4db0-8a08-ec12ca6ea6f8",
+      "concept_name": "Refunds",
+      "definition": "Assessees are entitled to claim tax refunds when total taxes paid exceed their properly chargeable liability for an assessment year. Such claims typically arise from excess tax deducted at source, advance tax overpayments, or appellate reductions of original tax assessments.",
+      "terminology": [
+        "refund eligibility",
+        "properly chargeable",
+        "excess tax deducted",
+        "advance tax overpayment"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961 - Section 237",
+        "Income-tax Act, 1961 - Section 238",
+        "Income-tax Act, 1961 - Section 239",
+        "Income-tax Act, 1961 - Section 239A",
+        "Income-tax Act, 1961 - Section 195"
+      ],
+      "inclusion": [
+        "Refund claims for excess tax payments",
+        "Claims filed by legal representatives for incapacitated or deceased assessees",
+        "Direct refund applications under Section 195 arrangements"
+      ],
+      "exclusion": [
+        "Tax liabilities matching or exceeding payments made"
+      ],
+      "nearby_distinctions": [
+        "Inverts recovery provisions by addressing the return of excess funds collected by the Government rather than the extraction of tax arrears from the assessee."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "fa89a493a435499128c9d7e8035fa1e83d53bac8bcf8d220a42c6530ca0ba2bf",
+  "artifact_id": "709b89a3-dc01-4355-bec1-d27da08bc4e4",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 9673,
+  "output_tokens": 4071,
+  "cost_usd": 0.0130794,
+  "created_at": "2026-10-03T18:22:10.178671+00:00"
+}

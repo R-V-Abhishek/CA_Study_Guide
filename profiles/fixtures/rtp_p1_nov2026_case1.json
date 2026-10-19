@@ -1,0 +1,2332 @@
+{
+  "source_sha256": "f8f7aa03ddfc7b73142d19966d3e954563f5ce5ad79d50dc4f4b005f33db34f6",
+  "source_file": "data/blobs/f8/f7/f8f7aa03ddfc7b73142d19966d3e954563f5ce5ad79d50dc4f4b005f33db34f6.pdf",
+  "source_pages": [
+    14,
+    16
+  ],
+  "doc_type": "rtp",
+  "paper": "s2023.P1",
+  "fixture_scope": "authentic excerpt; source document context and unrepresented questions remain outside this fixture",
+  "review_state": "machine_expected; representative pages visually inspected; no human approval",
+  "blocks": [
+    {
+      "block_id": "p14-b1",
+      "page": 14,
+      "bbox": [
+        103.22000122070312,
+        112.83197021484375,
+        232.9219970703125,
+        128.2999725341797
+      ],
+      "text": "REVISION TEST PAPER",
+      "size": 12.0,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "REVISION TEST PAPER ",
+      "origin": "pdf",
+      "order": 0,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p14-b2",
+      "page": 14,
+      "bbox": [
+        103.81999969482422,
+        112.83197021484375,
+        240.2419891357422,
+        128.2999725341797
+      ],
+      "text": "REVISION TEST PAPERS",
+      "size": 12.0,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "REVISION TEST PAPERS ",
+      "origin": "pdf",
+      "order": 1,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p14-b4",
+      "page": 14,
+      "bbox": [
+        388.0299987792969,
+        120.27197265625,
+        503.81201171875,
+        135.73997497558594
+      ],
+      "text": "FINAL EXAMINATION",
+      "size": 12.0,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "FINAL EXAMINATION ",
+      "origin": "pdf",
+      "order": 2,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p14-b6",
+      "page": 14,
+      "bbox": [
+        206.80999755859375,
+        154.19081115722656,
+        409.09503173828125,
+        172.28836059570312
+      ],
+      "text": "Part II-Questions and Answers",
+      "size": 14.039999961853027,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "Part II-Questions and Answers ",
+      "origin": "pdf",
+      "order": 3,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p14-b7",
+      "page": 14,
+      "bbox": [
+        158.4199981689453,
+        187.19081115722656,
+        244.91912841796875,
+        205.28836059570312
+      ],
+      "text": "QUESTIONS",
+      "size": 14.039999961853027,
+      "bold": false,
+      "font": "SegoeUIBlack",
+      "raw_text": "QUESTIONS ",
+      "origin": "pdf",
+      "order": 4,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p14-b8",
+      "page": 14,
+      "bbox": [
+        108.0199966430664,
+        226.0678253173828,
+        195.81704711914062,
+        240.2983856201172
+      ],
+      "text": "Case Scenario 1",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "Case Scenario 1 ",
+      "origin": "pdf",
+      "order": 5,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p14-b9",
+      "page": 14,
+      "bbox": [
+        108.0199966430664,
+        246.7078399658203,
+        506.5555419921875,
+        260.9383850097656
+      ],
+      "text": "KK Ltd. prepares its financial statements annually with 31 March as the",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "KK Ltd. prepares its financial statements annually with 31 March as the ",
+      "origin": "pdf",
+      "order": 6,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p14-b10",
+      "page": 14,
+      "bbox": [
+        108.0199966430664,
+        261.34783935546875,
+        506.4608154296875,
+        275.5783996582031
+      ],
+      "text": "reporting date. The financial statements of KK Ltd. are approved for issue on",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "reporting date.  The financial statements of KK Ltd. are approved for issue on ",
+      "origin": "pdf",
+      "order": 7,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p14-b11",
+      "page": 14,
+      "bbox": [
+        108.0199966430664,
+        276.017822265625,
+        178.87496948242188,
+        290.2483825683594
+      ],
+      "text": "25 May 20X2.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "25 May 20X2. ",
+      "origin": "pdf",
+      "order": 8,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p14-b12",
+      "page": 14,
+      "bbox": [
+        108.0199966430664,
+        296.6578369140625,
+        510.2449645996094,
+        310.8883972167969
+      ],
+      "text": "As at 31 March 20X2, KK Ltd. had a trade receivable of ` 10 million from",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "As at 31 March 20X2, KK Ltd. had a trade receivable of ` 10 million from  ",
+      "origin": "pdf",
+      "order": 9,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p14-b13",
+      "page": 14,
+      "bbox": [
+        108.0199966430664,
+        311.2978515625,
+        506.9597473144531,
+        325.5284118652344
+      ],
+      "text": "Z Ltd., which was due for payment on 30 April 20X2. Z Ltd. had been a",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "Z Ltd., which was due for payment on 30 April 20X2.  Z Ltd. had been a ",
+      "origin": "pdf",
+      "order": 10,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p14-b14",
+      "page": 14,
+      "bbox": [
+        108.0199966430664,
+        325.81781005859375,
+        507.10430908203125,
+        340.0483703613281
+      ],
+      "text": "customer of KK Ltd. for several years and had an excellent payment history. At",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "customer of KK Ltd. for several years and had an excellent payment history.  At ",
+      "origin": "pdf",
+      "order": 11,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p14-b15",
+      "page": 14,
+      "bbox": [
+        108.0199966430664,
+        340.45782470703125,
+        506.47528076171875,
+        354.6883850097656
+      ],
+      "text": "31 March 20X2, there was no indication that Z Ltd. would be unable to settle",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "31 March 20X2, there was no indication that Z Ltd. would be unable to settle ",
+      "origin": "pdf",
+      "order": 12,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p14-b16",
+      "page": 14,
+      "bbox": [
+        108.0199966430664,
+        355.0978088378906,
+        506.8741455078125,
+        369.328369140625
+      ],
+      "text": "the amount due. However, on 20 April 20X2, significant doubt arose",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "the amount due.  However, on 20 April 20X2, significant doubt arose ",
+      "origin": "pdf",
+      "order": 13,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p14-b17",
+      "page": 14,
+      "bbox": [
+        108.0199966430664,
+        369.7378234863281,
+        506.21063232421875,
+        383.9683837890625
+      ],
+      "text": "regarding Z Ltd.’s ability to continue as a going concern because of the failure",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "regarding Z Ltd.’s ability to continue as a going concern because of the failure ",
+      "origin": "pdf",
+      "order": 14,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p14-b18",
+      "page": 14,
+      "bbox": [
+        108.0199966430664,
+        384.3778076171875,
+        283.27496337890625,
+        398.6083679199219
+      ],
+      "text": "of certain major business projects.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "of certain major business projects. ",
+      "origin": "pdf",
+      "order": 15,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p14-b19",
+      "page": 14,
+      "bbox": [
+        108.0199966430664,
+        405.017822265625,
+        507.080322265625,
+        419.2483825683594
+      ],
+      "text": "On 1 August 20X1, KK Ltd. supplied products manufactured by it to C Ltd. The",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "On 1 August 20X1, KK Ltd. supplied products manufactured by it to C Ltd.  The ",
+      "origin": "pdf",
+      "order": 16,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p14-b20",
+      "page": 14,
+      "bbox": [
+        108.0199966430664,
+        419.6578369140625,
+        507.0347595214844,
+        433.8883972167969
+      ],
+      "text": "products were subsequently found to be faulty. On 1 October 20X1, C Ltd.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "products were subsequently found to be faulty.  On 1 October 20X1, C Ltd. ",
+      "origin": "pdf",
+      "order": 17,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p14-b21",
+      "page": 14,
+      "bbox": [
+        108.0199966430664,
+        434.2978210449219,
+        506.77386474609375,
+        448.52838134765625
+      ],
+      "text": "commenced legal proceedings against KK Ltd. claiming damages for losses",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "commenced legal proceedings against KK Ltd. claiming damages for losses ",
+      "origin": "pdf",
+      "order": 18,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p14-b22",
+      "page": 14,
+      "bbox": [
+        108.0199966430664,
+        448.95782470703125,
+        273.074951171875,
+        463.1883850097656
+      ],
+      "text": "arising from the faulty products.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "arising from the faulty products. ",
+      "origin": "pdf",
+      "order": 19,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p14-b23",
+      "page": 14,
+      "bbox": [
+        108.0199966430664,
+        469.5978088378906,
+        506.2760314941406,
+        483.828369140625
+      ],
+      "text": "KK Ltd. determined that the products were faulty because of defective raw",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "KK Ltd. determined that the products were faulty because of defective raw ",
+      "origin": "pdf",
+      "order": 20,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p14-b24",
+      "page": 14,
+      "bbox": [
+        108.0199966430664,
+        484.2378234863281,
+        507.0927734375,
+        498.4683837890625
+      ],
+      "text": "materials supplied by Y Ltd. Accordingly, on 1 December 20X1, KK Ltd.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "materials supplied by Y Ltd.  Accordingly, on 1 December 20X1, KK Ltd. ",
+      "origin": "pdf",
+      "order": 21,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p14-b25",
+      "page": 14,
+      "bbox": [
+        108.0199966430664,
+        498.8778076171875,
+        441.7249755859375,
+        513.1083984375
+      ],
+      "text": "commenced legal proceedings against Y Ltd. to recover damages.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "commenced legal proceedings against Y Ltd. to recover damages. ",
+      "origin": "pdf",
+      "order": 22,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p14-b26",
+      "page": 14,
+      "bbox": [
+        108.0199966430664,
+        519.517822265625,
+        506.3445129394531,
+        533.7484130859375
+      ],
+      "text": "KK Ltd. consistently assessed that it was probable that both legal actions",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "KK Ltd. consistently assessed that it was probable that both legal actions ",
+      "origin": "pdf",
+      "order": 23,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p14-b27",
+      "page": 14,
+      "bbox": [
+        108.0199966430664,
+        534.1578369140625,
+        188.11495971679688,
+        548.388427734375
+      ],
+      "text": "would succeed.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "would succeed. ",
+      "origin": "pdf",
+      "order": 24,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p14-b28",
+      "page": 14,
+      "bbox": [
+        108.0199966430664,
+        554.6777954101562,
+        329.3749694824219,
+        568.9083862304688
+      ],
+      "text": "The estimates of damages were as follows:",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "The estimates of damages were as follows: ",
+      "origin": "pdf",
+      "order": 25,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p14-b29",
+      "page": 14,
+      "bbox": [
+        384.42999267578125,
+        576.8778076171875,
+        495.84552001953125,
+        591.1083984375
+      ],
+      "text": "Damages receivable",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "Damages receivable ",
+      "origin": "pdf",
+      "order": 26,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p14-b30",
+      "page": 14,
+      "bbox": [
+        117.86000061035156,
+        576.997802734375,
+        146.3470458984375,
+        591.2283935546875
+      ],
+      "text": "Date",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "Date ",
+      "origin": "pdf",
+      "order": 27,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p14-b31",
+      "page": 14,
+      "bbox": [
+        269.3299865722656,
+        576.8778076171875,
+        367.93914794921875,
+        591.1083984375
+      ],
+      "text": "Damages payable",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "Damages payable ",
+      "origin": "pdf",
+      "order": 28,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p14-b32",
+      "page": 14,
+      "bbox": [
+        264.4100036621094,
+        591.517822265625,
+        372.95703125,
+        605.7484130859375
+      ],
+      "text": "by KK Ltd. to C Ltd.",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "by KK Ltd. to C Ltd. ",
+      "origin": "pdf",
+      "order": 29,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p14-b33",
+      "page": 14,
+      "bbox": [
+        408.2200012207031,
+        591.517822265625,
+        472.467041015625,
+        605.7484130859375
+      ],
+      "text": "from Y Ltd.",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "from Y Ltd. ",
+      "origin": "pdf",
+      "order": 30,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p14-b34",
+      "page": 14,
+      "bbox": [
+        117.86000061035156,
+        608.6777954101562,
+        200.9549560546875,
+        622.9083862304688
+      ],
+      "text": "1 October 20X1",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "1 October 20X1 ",
+      "origin": "pdf",
+      "order": 31,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p14-b35",
+      "page": 14,
+      "bbox": [
+        282.7900085449219,
+        608.6777954101562,
+        354.574951171875,
+        622.9083862304688
+      ],
+      "text": "` 5.00 million",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "Rupee",
+      "raw_text": "` 5.00 million ",
+      "origin": "pdf",
+      "order": 32,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p14-b36",
+      "page": 14,
+      "bbox": [
+        436.4200134277344,
+        608.6777954101562,
+        444.1249694824219,
+        622.9083862304688
+      ],
+      "text": "-",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "- ",
+      "origin": "pdf",
+      "order": 33,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p14-b37",
+      "page": 14,
+      "bbox": [
+        117.86000061035156,
+        625.3578491210938,
+        211.5149688720703,
+        639.5884399414062
+      ],
+      "text": "1 December 20X1",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "1 December 20X1 ",
+      "origin": "pdf",
+      "order": 34,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p14-b38",
+      "page": 14,
+      "bbox": [
+        314.8299865722656,
+        625.3578491210938,
+        322.53497314453125,
+        639.5884399414062
+      ],
+      "text": "-",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "- ",
+      "origin": "pdf",
+      "order": 35,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p14-b39",
+      "page": 14,
+      "bbox": [
+        404.3800048828125,
+        625.3578491210938,
+        476.16497802734375,
+        639.5884399414062
+      ],
+      "text": "` 3.50 million",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "Rupee",
+      "raw_text": "` 3.50 million ",
+      "origin": "pdf",
+      "order": 36,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p14-b40",
+      "page": 14,
+      "bbox": [
+        117.86000061035156,
+        641.9478149414062,
+        197.594970703125,
+        656.1784057617188
+      ],
+      "text": "31 March 20X2",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "31 March 20X2 ",
+      "origin": "pdf",
+      "order": 37,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p14-b41",
+      "page": 14,
+      "bbox": [
+        282.7900085449219,
+        641.9478149414062,
+        354.574951171875,
+        656.1784057617188
+      ],
+      "text": "` 5.20 million",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "Rupee",
+      "raw_text": "` 5.20 million ",
+      "origin": "pdf",
+      "order": 38,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p14-b42",
+      "page": 14,
+      "bbox": [
+        404.3800048828125,
+        641.9478149414062,
+        476.16497802734375,
+        656.1784057617188
+      ],
+      "text": "` 3.60 million",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "Rupee",
+      "raw_text": "` 3.60 million ",
+      "origin": "pdf",
+      "order": 39,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p14-b43",
+      "page": 14,
+      "bbox": [
+        117.86000061035156,
+        658.6278076171875,
+        187.15496826171875,
+        672.8583984375
+      ],
+      "text": "15 May 20X2",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "15 May 20X2 ",
+      "origin": "pdf",
+      "order": 40,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p14-b44",
+      "page": 14,
+      "bbox": [
+        282.7900085449219,
+        658.6278076171875,
+        354.574951171875,
+        672.8583984375
+      ],
+      "text": "` 5.25 million",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "Rupee",
+      "raw_text": "` 5.25 million ",
+      "origin": "pdf",
+      "order": 41,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p14-b45",
+      "page": 14,
+      "bbox": [
+        404.3800048828125,
+        658.6278076171875,
+        476.16497802734375,
+        672.8583984375
+      ],
+      "text": "` 3.70 million",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "Rupee",
+      "raw_text": "` 3.70 million ",
+      "origin": "pdf",
+      "order": 42,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p14-b46",
+      "page": 14,
+      "bbox": [
+        117.86000061035156,
+        675.3078002929688,
+        249.43496704101562,
+        689.5383911132812
+      ],
+      "text": "1 June 20X2 – settlement",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "1 June 20X2 – settlement ",
+      "origin": "pdf",
+      "order": 43,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p14-b47",
+      "page": 14,
+      "bbox": [
+        282.7900085449219,
+        675.3078002929688,
+        354.574951171875,
+        689.5383911132812
+      ],
+      "text": "` 5.30 million",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "Rupee",
+      "raw_text": "` 5.30 million ",
+      "origin": "pdf",
+      "order": 44,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p14-b48",
+      "page": 14,
+      "bbox": [
+        404.3800048828125,
+        675.3078002929688,
+        476.16497802734375,
+        689.5383911132812
+      ],
+      "text": "` 3.75 million",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "Rupee",
+      "raw_text": "` 3.75 million ",
+      "origin": "pdf",
+      "order": 45,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p14-b49",
+      "page": 14,
+      "bbox": [
+        338.95001220703125,
+        722.1078491210938,
+        509.456298828125,
+        736.3384399414062
+      ],
+      "text": "NOVEMBER 2026 EXAMINATION",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "NOVEMBER 2026 EXAMINATION",
+      "origin": "pdf",
+      "order": 46,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p14-b51",
+      "page": 14,
+      "bbox": [
+        108.0199966430664,
+        722.27197265625,
+        125.49200439453125,
+        737.739990234375
+      ],
+      "text": "14",
+      "size": 12.0,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "14 ",
+      "origin": "pdf",
+      "order": 47,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p15-b1",
+      "page": 15,
+      "bbox": [
+        108.62000274658203,
+        113.072021484375,
+        245.0419921875,
+        128.54002380371094
+      ],
+      "text": "REVISION TEST PAPERS",
+      "size": 12.0,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "REVISION TEST PAPERS ",
+      "origin": "pdf",
+      "order": 48,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p15-b3",
+      "page": 15,
+      "bbox": [
+        375.9100036621094,
+        121.30780792236328,
+        501.448974609375,
+        135.5383758544922
+      ],
+      "text": "FINANCIAL REPORTING",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "FINANCIAL REPORTING ",
+      "origin": "pdf",
+      "order": 49,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p15-b5",
+      "page": 15,
+      "bbox": [
+        108.0199966430664,
+        149.74781799316406,
+        510.3649597167969,
+        163.97837829589844
+      ],
+      "text": "The case against C Ltd. was settled on 1 June 20X2, when KK Ltd. paid",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "The case against C Ltd. was settled on 1 June 20X2, when KK Ltd. paid  ",
+      "origin": "pdf",
+      "order": 50,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p15-b6",
+      "page": 15,
+      "bbox": [
+        108.0199966430664,
+        164.26783752441406,
+        510.3649597167969,
+        178.49839782714844
+      ],
+      "text": "` 5.30 million. The case against Y Ltd. was also settled on that date, when",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "Rupee",
+      "raw_text": "` 5.30 million.  The case against Y Ltd. was also settled on that date, when  ",
+      "origin": "pdf",
+      "order": 51,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p15-b7",
+      "page": 15,
+      "bbox": [
+        108.0199966430664,
+        178.90785217285156,
+        290.4949645996094,
+        193.13841247558594
+      ],
+      "text": "Y Ltd. paid ` 3.75 million to KK Ltd.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "Y Ltd. paid ` 3.75 million to KK Ltd. ",
+      "origin": "pdf",
+      "order": 52,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p15-b8",
+      "page": 15,
+      "bbox": [
+        108.0199966430664,
+        199.54786682128906,
+        203.7149658203125,
+        213.77842712402344
+      ],
+      "text": "Other information",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "Other information ",
+      "origin": "pdf",
+      "order": 53,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p15-b9",
+      "page": 15,
+      "bbox": [
+        108.0199966430664,
+        220.1878204345703,
+        506.97283935546875,
+        234.4183807373047
+      ],
+      "text": "During the year, KK Ltd. purchased a machine for ` 2,50,000. Depreciation of",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "During the year, KK Ltd. purchased a machine for ` 2,50,000.  Depreciation of ",
+      "origin": "pdf",
+      "order": 54,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p15-b10",
+      "page": 15,
+      "bbox": [
+        108.0199966430664,
+        234.8278350830078,
+        506.9301452636719,
+        249.0583953857422
+      ],
+      "text": "` 50,000 was charged in arriving at accounting profit. The tax authorities",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "Rupee",
+      "raw_text": "` 50,000 was charged in arriving at accounting profit.  The tax authorities ",
+      "origin": "pdf",
+      "order": 55,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p15-b11",
+      "page": 15,
+      "bbox": [
+        108.0199966430664,
+        249.4678497314453,
+        506.58489990234375,
+        263.6983947753906
+      ],
+      "text": "allowed a deduction of ` 1,00,000 against taxable profits in the current",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "allowed a deduction of ` 1,00,000 against taxable profits in the current ",
+      "origin": "pdf",
+      "order": 56,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p15-b12",
+      "page": 15,
+      "bbox": [
+        108.0199966430664,
+        264.1378173828125,
+        506.4344177246094,
+        278.3683776855469
+      ],
+      "text": "period. The remaining cost will be deductible in future periods, either",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "period.  The remaining cost will be deductible in future periods, either ",
+      "origin": "pdf",
+      "order": 57,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p15-b13",
+      "page": 15,
+      "bbox": [
+        108.0199966430664,
+        278.77783203125,
+        298.77496337890625,
+        293.0083923339844
+      ],
+      "text": "through depreciation or on disposal.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "through depreciation or on disposal. ",
+      "origin": "pdf",
+      "order": 58,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p15-b14",
+      "page": 15,
+      "bbox": [
+        108.0199966430664,
+        299.4178466796875,
+        507.08465576171875,
+        313.6484069824219
+      ],
+      "text": "KK Ltd. also had interest receivable of ` 60,000 on 31 March 20X2. The",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "KK Ltd. also had interest receivable of ` 60,000 on 31 March 20X2.  The ",
+      "origin": "pdf",
+      "order": 59,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p15-b15",
+      "page": 15,
+      "bbox": [
+        108.0199966430664,
+        314.05780029296875,
+        506.243896484375,
+        328.2883605957031
+      ],
+      "text": "related interest income is taxable on a cash basis, i.e., when the interest is",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "related interest income is taxable on a cash basis, i.e., when the interest is ",
+      "origin": "pdf",
+      "order": 60,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p15-b16",
+      "page": 15,
+      "bbox": [
+        108.0199966430664,
+        328.69781494140625,
+        199.27496337890625,
+        342.9283752441406
+      ],
+      "text": "actually received.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "actually received. ",
+      "origin": "pdf",
+      "order": 61,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p15-b17",
+      "page": 15,
+      "bbox": [
+        108.0199966430664,
+        349.33782958984375,
+        506.21051025390625,
+        363.5683898925781
+      ],
+      "text": "Based on the facts given above, choose the most appropriate answer to",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "Based on the facts given above, choose the most appropriate answer to ",
+      "origin": "pdf",
+      "order": 62,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p15-b18",
+      "page": 15,
+      "bbox": [
+        108.0199966430664,
+        363.9778137207031,
+        383.75701904296875,
+        378.2083740234375
+      ],
+      "text": "Questions 1 to 5 below as per the relevant Ind AS.",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "Questions 1 to 5 below as per the relevant Ind AS. ",
+      "origin": "pdf",
+      "order": 63,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p15-b19",
+      "page": 15,
+      "bbox": [
+        108.0199966430664,
+        384.4978332519531,
+        119.92496490478516,
+        398.7283935546875
+      ],
+      "text": "1.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "1. ",
+      "origin": "pdf",
+      "order": 64,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p15-b20",
+      "page": 15,
+      "bbox": [
+        136.82000732421875,
+        384.4978332519531,
+        506.58697509765625,
+        398.7283935546875
+      ],
+      "text": "With respect to the ` 10 million trade receivable from Z Ltd., which of",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "With respect to the ` 10 million trade receivable from Z Ltd., which of ",
+      "origin": "pdf",
+      "order": 65,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p15-b21",
+      "page": 15,
+      "bbox": [
+        136.82000732421875,
+        399.1378173828125,
+        506.4060363769531,
+        413.3683776855469
+      ],
+      "text": "the following is the most appropriate treatment in KK Ltd.’s financial",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "the following is the most appropriate treatment in KK Ltd.’s financial ",
+      "origin": "pdf",
+      "order": 66,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p15-b22",
+      "page": 15,
+      "bbox": [
+        136.82000732421875,
+        413.77783203125,
+        379.77496337890625,
+        428.0083923339844
+      ],
+      "text": "statements for the year ended 31 March 20X2?",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "statements for the year ended 31 March 20X2? ",
+      "origin": "pdf",
+      "order": 67,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p15-b23",
+      "page": 15,
+      "bbox": [
+        136.82000732421875,
+        434.4178161621094,
+        506.47216796875,
+        448.64837646484375
+      ],
+      "text": "(A) No impairment allowance is required based on the information",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "(A)  No impairment allowance is required based on the information ",
+      "origin": "pdf",
+      "order": 68,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p15-b24",
+      "page": 15,
+      "bbox": [
+        165.6199951171875,
+        449.07781982421875,
+        506.8594055175781,
+        463.3083801269531
+      ],
+      "text": "given; however, the material non-adjusting event should be",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "given; however, the material non-adjusting event should be ",
+      "origin": "pdf",
+      "order": 69,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p15-b25",
+      "page": 15,
+      "bbox": [
+        165.6199951171875,
+        463.71783447265625,
+        506.3584899902344,
+        477.9483947753906
+      ],
+      "text": "disclosed if necessary to enable users to understand its financial",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "disclosed if necessary to enable users to understand its financial ",
+      "origin": "pdf",
+      "order": 70,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p15-b26",
+      "page": 15,
+      "bbox": [
+        165.6199951171875,
+        478.3578186035156,
+        203.7149658203125,
+        492.58837890625
+      ],
+      "text": "effect.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "effect.  ",
+      "origin": "pdf",
+      "order": 71,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p15-b27",
+      "page": 15,
+      "bbox": [
+        136.82000732421875,
+        498.9978332519531,
+        506.43597412109375,
+        513.2283935546875
+      ],
+      "text": "(B) Recognise an impairment allowance based on the information",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "(B)  Recognise an impairment allowance based on the information ",
+      "origin": "pdf",
+      "order": 72,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p15-b28",
+      "page": 15,
+      "bbox": [
+        165.6199951171875,
+        513.6378173828125,
+        506.72113037109375,
+        527.868408203125
+      ],
+      "text": "available on 20 April 20X2 because all events occurring before",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "available on 20 April 20X2 because all events occurring before ",
+      "origin": "pdf",
+      "order": 73,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p15-b29",
+      "page": 15,
+      "bbox": [
+        165.6199951171875,
+        528.27783203125,
+        442.324951171875,
+        542.5084228515625
+      ],
+      "text": "approval of financial statements are adjusting events.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "approval of financial statements are adjusting events. ",
+      "origin": "pdf",
+      "order": 74,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p15-b30",
+      "page": 15,
+      "bbox": [
+        136.82000732421875,
+        548.9177856445312,
+        506.3807678222656,
+        563.1483764648438
+      ],
+      "text": "(C) Recognise a full impairment allowance because Z Ltd.’s going",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "(C)  Recognise a full impairment allowance because Z Ltd.’s going ",
+      "origin": "pdf",
+      "order": 75,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p15-b31",
+      "page": 15,
+      "bbox": [
+        165.6199951171875,
+        563.5578002929688,
+        507.0304260253906,
+        577.7883911132812
+      ],
+      "text": "concern status became doubtful before approval of the financial",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "concern status became doubtful before approval of the financial ",
+      "origin": "pdf",
+      "order": 76,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p15-b32",
+      "page": 15,
+      "bbox": [
+        165.6199951171875,
+        578.1978149414062,
+        227.7149658203125,
+        592.4284057617188
+      ],
+      "text": "statements.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "statements. ",
+      "origin": "pdf",
+      "order": 77,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p15-b33",
+      "page": 15,
+      "bbox": [
+        136.82000732421875,
+        598.7178344726562,
+        506.3916320800781,
+        612.9484252929688
+      ],
+      "text": "(D) Derecognise the trade receivable because Z Ltd. may not be able",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "(D)  Derecognise the trade receivable because Z Ltd. may not be able ",
+      "origin": "pdf",
+      "order": 78,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p15-b34",
+      "page": 15,
+      "bbox": [
+        165.6199951171875,
+        613.3578491210938,
+        276.3149719238281,
+        627.5884399414062
+      ],
+      "text": "to settle the amount.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "to settle the amount. ",
+      "origin": "pdf",
+      "order": 79,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p15-b35",
+      "page": 15,
+      "bbox": [
+        108.0199966430664,
+        633.997802734375,
+        119.92496490478516,
+        648.2283935546875
+      ],
+      "text": "2.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "2. ",
+      "origin": "pdf",
+      "order": 80,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p15-b36",
+      "page": 15,
+      "bbox": [
+        136.82000732421875,
+        633.997802734375,
+        422.28497314453125,
+        648.2283935546875
+      ],
+      "text": "What is the tax base of the machine at 31 March 20X2?",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "What is the tax base of the machine at 31 March 20X2? ",
+      "origin": "pdf",
+      "order": 81,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p15-b37",
+      "page": 15,
+      "bbox": [
+        136.82000732421875,
+        654.6677856445312,
+        220.5149688720703,
+        668.8983764648438
+      ],
+      "text": "(A) ` 2,50,000",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "(A)  ` 2,50,000 ",
+      "origin": "pdf",
+      "order": 82,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p15-b38",
+      "page": 15,
+      "bbox": [
+        136.82000732421875,
+        675.3078002929688,
+        220.5149688720703,
+        689.5383911132812
+      ],
+      "text": "(B) ` 2,00,000",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "(B)  ` 2,00,000 ",
+      "origin": "pdf",
+      "order": 83,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p15-b40",
+      "page": 15,
+      "bbox": [
+        333.7900085449219,
+        716.1078491210938,
+        504.2962951660156,
+        730.3384399414062
+      ],
+      "text": "NOVEMBER 2026 EXAMINATION",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "NOVEMBER 2026 EXAMINATION",
+      "origin": "pdf",
+      "order": 84,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p15-b41",
+      "page": 15,
+      "bbox": [
+        114.26000213623047,
+        716.8720092773438,
+        131.73199462890625,
+        732.3400268554688
+      ],
+      "text": "15",
+      "size": 12.0,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "15 ",
+      "origin": "pdf",
+      "order": 85,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p16-b1",
+      "page": 16,
+      "bbox": [
+        103.22000122070312,
+        112.83197021484375,
+        232.9219970703125,
+        128.2999725341797
+      ],
+      "text": "REVISION TEST PAPER",
+      "size": 12.0,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "REVISION TEST PAPER ",
+      "origin": "pdf",
+      "order": 86,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p16-b2",
+      "page": 16,
+      "bbox": [
+        103.81999969482422,
+        112.83197021484375,
+        240.2419891357422,
+        128.2999725341797
+      ],
+      "text": "REVISION TEST PAPERS",
+      "size": 12.0,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "REVISION TEST PAPERS ",
+      "origin": "pdf",
+      "order": 87,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p16-b4",
+      "page": 16,
+      "bbox": [
+        388.0299987792969,
+        120.27197265625,
+        503.81201171875,
+        135.73997497558594
+      ],
+      "text": "FINAL EXAMINATION",
+      "size": 12.0,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "FINAL EXAMINATION ",
+      "origin": "pdf",
+      "order": 88,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p16-b6",
+      "page": 16,
+      "bbox": [
+        136.82000732421875,
+        154.1878204345703,
+        220.5149688720703,
+        168.4183807373047
+      ],
+      "text": "(C) ` 1,50,000",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "(C)  ` 1,50,000 ",
+      "origin": "pdf",
+      "order": 89,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p16-b7",
+      "page": 16,
+      "bbox": [
+        136.82000732421875,
+        174.8278350830078,
+        220.5149688720703,
+        189.0583953857422
+      ],
+      "text": "(D) ` 1,00,000",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "(D)  ` 1,00,000 ",
+      "origin": "pdf",
+      "order": 90,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p16-b8",
+      "page": 16,
+      "bbox": [
+        108.0199966430664,
+        195.4678497314453,
+        119.92496490478516,
+        209.6984100341797
+      ],
+      "text": "3.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "3. ",
+      "origin": "pdf",
+      "order": 91,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p16-b9",
+      "page": 16,
+      "bbox": [
+        136.82000732421875,
+        195.4678497314453,
+        426.1249694824219,
+        209.6984100341797
+      ],
+      "text": "What is the tax base of the ` 60,000 interest receivable?",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "What is the tax base of the ` 60,000 interest receivable? ",
+      "origin": "pdf",
+      "order": 92,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p16-b10",
+      "page": 16,
+      "bbox": [
+        136.82000732421875,
+        216.1078643798828,
+        154.48497009277344,
+        230.3384246826172
+      ],
+      "text": "(A)",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "(A) ",
+      "origin": "pdf",
+      "order": 93,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p16-b11",
+      "page": 16,
+      "bbox": [
+        165.6199951171875,
+        216.1078643798828,
+        211.6349639892578,
+        230.3384246826172
+      ],
+      "text": "` 60,000",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "Rupee",
+      "raw_text": "` 60,000 ",
+      "origin": "pdf",
+      "order": 94,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p16-b12",
+      "page": 16,
+      "bbox": [
+        136.82000732421875,
+        236.74781799316406,
+        153.64495849609375,
+        250.97837829589844
+      ],
+      "text": "(B)",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "(B) ",
+      "origin": "pdf",
+      "order": 95,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p16-b13",
+      "page": 16,
+      "bbox": [
+        165.6199951171875,
+        236.74781799316406,
+        186.43496704101562,
+        250.97837829589844
+      ],
+      "text": "Nil",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "Nil  ",
+      "origin": "pdf",
+      "order": 96,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p16-b14",
+      "page": 16,
+      "bbox": [
+        136.82000732421875,
+        257.3878173828125,
+        211.6349639892578,
+        271.6183776855469
+      ],
+      "text": "(C) ` 30,000",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "(C)  ` 30,000 ",
+      "origin": "pdf",
+      "order": 97,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p16-b15",
+      "page": 16,
+      "bbox": [
+        136.82000732421875,
+        278.05780029296875,
+        351.574951171875,
+        292.2883605957031
+      ],
+      "text": "(D) ` 60,000 less the applicable tax rate",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "(D)  ` 60,000 less the applicable tax rate ",
+      "origin": "pdf",
+      "order": 98,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p16-b16",
+      "page": 16,
+      "bbox": [
+        108.0199966430664,
+        298.57781982421875,
+        119.92496490478516,
+        312.8083801269531
+      ],
+      "text": "4.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "4. ",
+      "origin": "pdf",
+      "order": 99,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p16-b17",
+      "page": 16,
+      "bbox": [
+        136.82000732421875,
+        298.57781982421875,
+        506.6113586425781,
+        312.8083801269531
+      ],
+      "text": "What amount should KK Ltd. recognise as a provision in respect of the",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "What amount should KK Ltd. recognise as a provision in respect of the ",
+      "origin": "pdf",
+      "order": 100,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p16-b18",
+      "page": 16,
+      "bbox": [
+        136.82000732421875,
+        313.21783447265625,
+        506.3618469238281,
+        327.4483947753906
+      ],
+      "text": "legal action brought by C Ltd. in its financial statements for the year",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "legal action brought by C Ltd. in its financial statements for the year ",
+      "origin": "pdf",
+      "order": 101,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p16-b19",
+      "page": 16,
+      "bbox": [
+        136.82000732421875,
+        327.8578186035156,
+        257.2349548339844,
+        342.08837890625
+      ],
+      "text": "ended 31 March 20X2?",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "ended 31 March 20X2? ",
+      "origin": "pdf",
+      "order": 102,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p16-b20",
+      "page": 16,
+      "bbox": [
+        136.82000732421875,
+        348.4978332519531,
+        237.43496704101562,
+        362.7283935546875
+      ],
+      "text": "(A) ` 5.00 million",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "(A)  ` 5.00 million ",
+      "origin": "pdf",
+      "order": 103,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p16-b21",
+      "page": 16,
+      "bbox": [
+        136.82000732421875,
+        369.1378173828125,
+        237.43496704101562,
+        383.3683776855469
+      ],
+      "text": "(B) ` 5.20 million",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "(B)  ` 5.20 million ",
+      "origin": "pdf",
+      "order": 104,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p16-b22",
+      "page": 16,
+      "bbox": [
+        136.82000732421875,
+        389.77783203125,
+        237.43496704101562,
+        404.0083923339844
+      ],
+      "text": "(C) ` 5.25 million",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "(C)  ` 5.25 million ",
+      "origin": "pdf",
+      "order": 105,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p16-b23",
+      "page": 16,
+      "bbox": [
+        136.82000732421875,
+        410.4178161621094,
+        237.43496704101562,
+        424.64837646484375
+      ],
+      "text": "(D) ` 5.30 million",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "(D)  ` 5.30 million ",
+      "origin": "pdf",
+      "order": 106,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p16-b24",
+      "page": 16,
+      "bbox": [
+        108.0199966430664,
+        431.0578308105469,
+        119.92496490478516,
+        445.28839111328125
+      ],
+      "text": "5.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "5. ",
+      "origin": "pdf",
+      "order": 107,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p16-b25",
+      "page": 16,
+      "bbox": [
+        136.82000732421875,
+        431.0578308105469,
+        506.45013427734375,
+        445.28839111328125
+      ],
+      "text": "What is the appropriate accounting treatment for the amount",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "What is the appropriate accounting treatment for the amount ",
+      "origin": "pdf",
+      "order": 108,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p16-b26",
+      "page": 16,
+      "bbox": [
+        136.82000732421875,
+        445.69781494140625,
+        473.28497314453125,
+        459.9283752441406
+      ],
+      "text": "recoverable from Y Ltd. in respect of the defective raw materials?",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "recoverable from Y Ltd. in respect of the defective raw materials? ",
+      "origin": "pdf",
+      "order": 109,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p16-b27",
+      "page": 16,
+      "bbox": [
+        136.82000732421875,
+        466.3578186035156,
+        507.1249694824219,
+        480.58837890625
+      ],
+      "text": "(A) Recognise an asset of ` 3.60 million because recovery is probable.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "(A)  Recognise an asset of ` 3.60 million because recovery is probable. ",
+      "origin": "pdf",
+      "order": 110,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p16-b28",
+      "page": 16,
+      "bbox": [
+        136.82000732421875,
+        486.9978332519531,
+        506.624755859375,
+        501.2283935546875
+      ],
+      "text": "(B) Recognise an asset of ` 3.70 million because this is the estimate",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "(B)  Recognise an asset of ` 3.70 million because this is the estimate ",
+      "origin": "pdf",
+      "order": 111,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p16-b29",
+      "page": 16,
+      "bbox": [
+        165.6199951171875,
+        501.6378173828125,
+        448.0849609375,
+        515.868408203125
+      ],
+      "text": "closest to the date of approval of financial statements.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "closest to the date of approval of financial statements. ",
+      "origin": "pdf",
+      "order": 112,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p16-b30",
+      "page": 16,
+      "bbox": [
+        136.82000732421875,
+        522.27783203125,
+        506.70098876953125,
+        536.5084228515625
+      ],
+      "text": "(C) Recognise an asset of ` 3.75 million because this is the amount",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "(C)  Recognise an asset of ` 3.75 million because this is the amount ",
+      "origin": "pdf",
+      "order": 113,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p16-b31",
+      "page": 16,
+      "bbox": [
+        165.6199951171875,
+        536.9177856445312,
+        268.51495361328125,
+        551.1483764648438
+      ],
+      "text": "ultimately received.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "ultimately received. ",
+      "origin": "pdf",
+      "order": 114,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p16-b32",
+      "page": 16,
+      "bbox": [
+        136.82000732421875,
+        557.4378051757812,
+        506.4138488769531,
+        571.6683959960938
+      ],
+      "text": "(D) Do not recognise an asset; disclose the contingent asset and its",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "(D)  Do not recognise an asset; disclose the contingent asset and its ",
+      "origin": "pdf",
+      "order": 115,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p16-b33",
+      "page": 16,
+      "bbox": [
+        165.6199951171875,
+        572.0778198242188,
+        460.4449768066406,
+        586.3084106445312
+      ],
+      "text": "estimated financial effect because the inflow is probable.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "estimated financial effect because the inflow is probable. ",
+      "origin": "pdf",
+      "order": 116,
+      "region": "question",
+      "fidelity_flags": []
+    }
+  ],
+  "expected_tree": [
+    {
+      "label_path": "CS1",
+      "question_text_sha256": "3dc6022d43200ef47937e94426f7247e992650d7fd09876fe781c8185a289640",
+      "answer_text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mcq_options": 0,
+      "mcq_key": null,
+      "children": [
+        {
+          "label_path": "CS1.M1",
+          "question_text_sha256": "d14422805e996e7b7e9cf856af9896803a8b9bf0b077c2d868a0330e1ae59261",
+          "answer_text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "mcq_options": 4,
+          "mcq_key": null,
+          "children": []
+        },
+        {
+          "label_path": "CS1.M2",
+          "question_text_sha256": "8351a4721672d3cea5bf9dc298afc78149638d4fe9e384e1124331dc315d3fae",
+          "answer_text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "mcq_options": 4,
+          "mcq_key": null,
+          "children": []
+        },
+        {
+          "label_path": "CS1.M3",
+          "question_text_sha256": "9bf6cfce1ad5001d752eefb49cf610a7f0726a1be0f3e546258ceb9a8ba5f6eb",
+          "answer_text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "mcq_options": 4,
+          "mcq_key": null,
+          "children": []
+        },
+        {
+          "label_path": "CS1.M4",
+          "question_text_sha256": "266e321a4ee84c3338d50939b05c9f7434ab6557422bd5f48bcd1ecf0e077b11",
+          "answer_text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "mcq_options": 4,
+          "mcq_key": null,
+          "children": []
+        },
+        {
+          "label_path": "CS1.M5",
+          "question_text_sha256": "24d43e143b675c2b97ff24d983eea3e79db440a0cfba6fe3267361ccdca6756e",
+          "answer_text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "mcq_options": 4,
+          "mcq_key": null,
+          "children": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "result": {
+    "question_id": "0de0b531870598ace40c360ce3eeba5ed497542b1f218691b1605cb53b5d38c3",
+    "input_hash": "a77620660bce567f667120dc186b067596162130c0970a7d62f1df10b0659332",
+    "mappings": [
+      {
+        "part_id": "0de0b531870598ace40c360ce3eeba5ed497542b1f218691b1605cb53b5d38c3:d.repeat8.i",
+        "outcome": "matched",
+        "primary_node_id": "0fa53a94-92b0-4fff-b405-0cbd724aa528",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "0fa53a94-92b0-4fff-b405-0cbd724aa528",
+            "support": "The educational institution\u2019s and hospital\u2019s receipts are supplied to assess the five-crore aggregate-receipts threshold for exemption of qualifying institutions."
+          }
+        ],
+        "note": "The receipt figures directly test the descriptor\u2019s annual-receipts threshold for educational and medical institutions.",
+        "confidence": 0.96,
+        "bucket": "A"
+      },
+      {
+        "part_id": "0de0b531870598ace40c360ce3eeba5ed497542b1f218691b1605cb53b5d38c3:d.repeat8.ii",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Corpus donations and anonymous contributions are the apparent issues, but no candidate descriptor specifically covers their treatment in a charitable trust\u2019s income computation.",
+        "confidence": 0.88,
+        "bucket": "C"
+      },
+      {
+        "part_id": "0de0b531870598ace40c360ce3eeba5ed497542b1f218691b1605cb53b5d38c3:d.repeat8.iii",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "The fact pattern appears to test how a charitable trust treats a capital asset bought using corpus funds, a loan, and voluntary contributions; no candidate describes those application-of-income rules.",
+        "confidence": 0.86,
+        "bucket": "C"
+      },
+      {
+        "part_id": "0de0b531870598ace40c360ce3eeba5ed497542b1f218691b1605cb53b5d38c3:d.repeat8.iv",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "The investment instruments appear relevant to whether corpus funds are invested in permitted forms, a specific issue not described by the candidates.",
+        "confidence": 0.92,
+        "bucket": "C"
+      },
+      {
+        "part_id": "0de0b531870598ace40c360ce3eeba5ed497542b1f218691b1605cb53b5d38c3:d.repeat8.v",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "The donation to another registered trust, including its corpus portion, appears to test charitable-trust application rules that no candidate descriptor specifically covers.",
+        "confidence": 0.87,
+        "bucket": "C"
+      },
+      {
+        "part_id": "0de0b531870598ace40c360ce3eeba5ed497542b1f218691b1605cb53b5d38c3:d.repeat8.vi",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "The fact concerns using a prior-year charitable-purpose accumulation for a donation to another trust; the available candidates do not describe the rules for applying accumulated income through donations.",
+        "confidence": 0.9,
+        "bucket": "C"
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "attempt_id": "1791216633327352000",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "5745de317597f6bf744dc3fcf43486d30f437b74ca62f8536446e510d6b4fd9b",
+    "schema_generator": "pinned-part-ids-v1",
+    "seconds": 32.954,
+    "usage": [
+      {
+        "input_tokens": 50955,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1573,
+        "reasoning_output_tokens": 784
+      }
+    ],
+    "completed_at": "2026-10-05T16:11:06.280856+00:00"
+  }
+}

@@ -1,0 +1,339 @@
+{
+  "descriptors": [
+    {
+      "node_id": "30230dfd-d6c0-495a-98ad-d7ef6f055640",
+      "concept_name": "Key Managerial Personnel and Manager Definitions",
+      "definition": "Key Managerial Personnel include core officers like the Chief Executive Officer, Managing Director, Company Secretary, Whole-time Director, and Chief Financial Officer. A manager is an individual appointed under Board direction to manage the whole or substantially the whole of the company affairs.",
+      "terminology": [
+        "Chief Executive Officer",
+        "Chief Financial Officer",
+        "Company Secretary",
+        "Key Managerial Personnel",
+        "Manager"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013",
+        "Company Secretaries Act, 1980"
+      ],
+      "inclusion": [
+        "Officers designated under specific statutory clauses",
+        "Individuals heading the overall management of company affairs"
+      ],
+      "exclusion": [
+        "Departmental heads managing only specific sections of a company"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes a company-wide manager from sectional departmental heads"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a15be3e5-16e5-4187-930d-1ce883f3d32a",
+      "concept_name": "Appointment of Managing Director, Whole Time Director or Manager [Section 196]",
+      "definition": "Companies can appoint a managing director, whole-time director, or manager for a maximum term of five years at a time. Re-appointments cannot occur earlier than one year before the current term expires, and appointees must meet specific age and directorial qualification criteria.",
+      "terminology": [
+        "Managing Director",
+        "Whole-time Director",
+        "Manager",
+        "Tenure",
+        "Special Resolution"
+      ],
+      "instrument_references": [
+        "Section 196 of the Companies Act, 2013",
+        "Section 164 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Appointments of managing directors, whole-time directors, and managers",
+        "Special resolution requirements for appointees over seventy years old"
+      ],
+      "exclusion": [
+        "Simultaneous appointment of both a managing director and a manager"
+      ],
+      "nearby_distinctions": [
+        "Contrasts general board appointments with statutory tenure limits and age restrictions"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "eeccb40f-dfa9-471b-9d63-769a5f6a52cd",
+      "concept_name": "Appointment of Key Managerial Personnel [Section 203]",
+      "definition": "Specified classes of companies must employ mandatory whole-time key managerial personnel, including listed companies and public or private firms meeting paid-up capital thresholds. Furthermore, an individual cannot hold the dual positions of Chairperson and Managing Director or Chief Executive Officer simultaneously unless exempted by articles or multiple business structures.",
+      "terminology": [
+        "Key Managerial Personnel",
+        "Paid-up Share Capital",
+        "Chairperson",
+        "Managing Director",
+        "Chief Executive Officer"
+      ],
+      "instrument_references": [
+        "Section 203 of the Companies Act, 2013",
+        "Rule 8 and Rule 8A of Companies (Appointment and Remuneration of Managerial Personnel) Rules, 2014"
+      ],
+      "inclusion": [
+        "Listed companies and public companies with high share capital",
+        "Private companies meeting statutory capital thresholds requiring a company secretary"
+      ],
+      "exclusion": [
+        "Firms exempted due to engaging in multiple distinct businesses with separate chief executives"
+      ],
+      "nearby_distinctions": [
+        "Differentiates general executive hiring from mandatory KMP staffing rules"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7cae486a-cb95-4e92-8ccb-55b884258ddd",
+      "concept_name": "Functions of Company Secretary [Section 205]",
+      "definition": "A company secretary is statutorily responsible for reporting compliance with applicable laws, ensuring adherence to secretarial standards, and facilitating board and general meetings. They also provide administrative guidance to directors and maintain official corporate governance records.",
+      "terminology": [
+        "Secretarial Standards",
+        "Compliance",
+        "Minutes",
+        "Corporate Governance",
+        "Board Meetings"
+      ],
+      "instrument_references": [
+        "Section 205 of the Companies Act, 2013",
+        "Rule 10 of Companies (Appointment and Remuneration of Managerial Personnel) Rules, 2014"
+      ],
+      "inclusion": [
+        "Advising directors on powers and duties",
+        "Representing the company before regulatory authorities"
+      ],
+      "exclusion": [
+        "Alteration of independent duties assigned to other statutory functionaries"
+      ],
+      "nearby_distinctions": [
+        "Separates routine administrative duties from statutory secretarial compliance functions"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "43ea5157-5722-432e-990c-f3171a330284",
+      "concept_name": "Company to Fix Limit With Regard to Remuneration [Section 200]",
+      "definition": "Companies lacking profits or having inadequate earnings may establish administrative limits for managerial remuneration within statutory bounds. When fixing such pay, the company must consider its financial position, operating performance, and proportionality relative to other executives.",
+      "terminology": [
+        "Administrative Ceiling",
+        "Inadequate Profits",
+        "Financial Position",
+        "Proportionality",
+        "Statutory Ceiling"
+      ],
+      "instrument_references": [
+        "Section 200 of the Companies Act, 2013",
+        "Rule 6 of Companies (Appointment and Remuneration of Managerial Personnel) Rules, 2014"
+      ],
+      "inclusion": [
+        "Remuneration adjustments during periods of low or zero profit",
+        "Evaluation of professional qualifications and past performance"
+      ],
+      "exclusion": [
+        "Mandatory central government approval for inadequate profit remuneration after the specified effective date"
+      ],
+      "nearby_distinctions": [
+        "Differentiates profit-based payout limits from loss-period administrative ceilings"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "faceaca6-fdae-485f-a3a5-a55c60fa0afa",
+      "concept_name": "Overall Maximum Managerial Remuneration And Managerial Remuneration In Case Of Absence Or Inadequacy Of Profits [Section 197]",
+      "definition": "Public companies are restricted from paying total managerial remuneration exceeding eleven percent of net profits, with specific sub-limits applied to individual directors. These net profits are computed under statutory accounting guidelines specified for managerial compensation.",
+      "terminology": [
+        "Overall Maximum Remuneration",
+        "Net Profits",
+        "Managing Director",
+        "Whole-time Director",
+        "General Meeting"
+      ],
+      "instrument_references": [
+        "Section 197 of the Companies Act, 2013",
+        "Schedule V of the Companies Act, 2013",
+        "Section 198 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Limits applicable to public companies having profits",
+        "Thresholds expandable via special resolutions in general meetings"
+      ],
+      "exclusion": [
+        "Private companies which are exempt from these specific statutory caps"
+      ],
+      "nearby_distinctions": [
+        "Contrasts aggregate company-wide managerial caps with individual director limits"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2f7d10a1-9ff1-4adc-a1a6-fb5f17f576c8",
+      "concept_name": "Recovery Of Managerial Remuneration In Certain Cases [Section 199]",
+      "definition": "When a company must restate its financial statements due to fraud or non-compliance, it is required to recover excess remuneration paid to key personnel during the affected period. Repaying this excess does not shield the defaulting individual from additional liabilities under corporate law.",
+      "terminology": [
+        "Restatement",
+        "Excess Remuneration",
+        "Fraud",
+        "Recovery",
+        "Default"
+      ],
+      "instrument_references": [
+        "Section 199 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Recovery of stock options and cash remuneration received during restated periods",
+        "Continuation of statutory liability despite remuneration payback"
+      ],
+      "exclusion": [
+        "Remuneration earned during accurate, unadjusted financial periods"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes standard remuneration forfeiture from fraud-triggered financial restatement clawbacks"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d9b23672-e800-4d9d-bbc6-88bf74e50bb0",
+      "concept_name": "Calculation Of Profits [Section 198]",
+      "definition": "Net profits for calculating maximum managerial remuneration are derived by adding specific government subsidies and excluding capital profits, share premiums, and unrealized fair value gains. Fixed asset sales contribute to profits only up to the difference between original cost and written-down value.",
+      "terminology": [
+        "Net Profits",
+        "Bounties and Subsidies",
+        "Capital Profits",
+        "Written-down Value",
+        "Unrealized Gains"
+      ],
+      "instrument_references": [
+        "Section 198 of the Companies Act, 2013",
+        "Section 197 of the Companies Act, 2013",
+        "Section 186 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Government bounties and operational subsidies added to profit",
+        "Adjustments for fixed asset sales above written-down value"
+      ],
+      "exclusion": [
+        "Profits from share premiums, forfeited shares, and capital transformations",
+        "Fair value changes and unrealized revaluation gains"
+      ],
+      "nearby_distinctions": [
+        "Differentiates operational profits eligible for managerial commission from capital and unrealized gains"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c992ccf0-0916-4a47-8265-11071e480391",
+      "concept_name": "Forms Of, And Procedure In Relation To, Certain Applications [Section 201]",
+      "definition": "When an appointment of an older managing director fails to secure a special resolution despite majority support, the company must apply to the Central Government. The process requires filing specific forms within ninety days along with proof of publishing general notices in local newspapers.",
+      "terminology": [
+        "Central Government Approval",
+        "Special Resolution",
+        "General Notice",
+        "Newspaper Publication",
+        "Form MR-2"
+      ],
+      "instrument_references": [
+        "Section 201 of the Companies Act, 2013",
+        "Section 196 of the Companies Act, 2013",
+        "Rule 7 of Companies (Appointment and Remuneration of Managerial Personnel) Rules, 2014"
+      ],
+      "inclusion": [
+        "Submitting Form MR-2 within ninety days of appointment",
+        "Mandatory English and regional newspaper publication of notices"
+      ],
+      "exclusion": [
+        "Applications for managerial remuneration which no longer require prior approval"
+      ],
+      "nearby_distinctions": [
+        "Separates standard shareholder-approved appointments from government regularization procedures"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4117b70d-effb-4045-ae96-083dbd2896d5",
+      "concept_name": "Compensation For Loss Of Office Of Managing Or Whole-Time Director Or Manager [Section 202]",
+      "definition": "Companies may compensate managing directors, whole-time directors, or managers for loss of office, restricted to the remuneration they would have earned for the remainder of their term or three years, whichever is shorter. Compensation is prohibited if the departure stems from voluntary resignation, company winding-up due to negligence, or verified fraud.",
+      "terminology": [
+        "Compensation for Loss of Office",
+        "Retirement Consideration",
+        "Amalgamation",
+        "Winding-up",
+        "Gross Negligence"
+      ],
+      "instrument_references": [
+        "Section 202 of the Companies Act, 2013",
+        "Section 167 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Payments made for retirement or premature termination of managerial office",
+        "Capping payout duration at three years or remaining term"
+      ],
+      "exclusion": [
+        "Payments when an officer resigns voluntarily or due to proven fraud and mismanagement"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes legitimate contract termination compensation from forfeiture due to default or fraud"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "69fae50d-56e0-41d6-ac36-523bfac5d858",
+      "concept_name": "Secretarial Audit For Bigger Companies [Section 204]",
+      "definition": "Certain large public companies and all listed entities must conduct a secretarial audit performed by a practicing company secretary. The resulting audit report must be annexed to the board report, with directors required to provide full explanations for any qualifications or observations made.",
+      "terminology": [
+        "Secretarial Audit",
+        "Company Secretary in Practice",
+        "Paid-up Share Capital",
+        "Turnover",
+        "Borrowings"
+      ],
+      "instrument_references": [
+        "Section 204 of the Companies Act, 2013",
+        "Rule 9 of Companies (Appointment and Remuneration of Managerial Personnel) Rules, 2014",
+        "Section 134 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Listed companies and public companies meeting capital, turnover, or loan thresholds",
+        "Mandatory annexing of Form MR-3 audit reports to the board report"
+      ],
+      "exclusion": [
+        "Smaller unlisted companies falling below prescribed financial and borrowing limits"
+      ],
+      "nearby_distinctions": [
+        "Differentiates routine internal compliance checks from formal statutory secretarial audits"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "dae3ef4b-34d6-47aa-995b-c084cc888376",
+      "concept_name": "Managerial Remuneration Under Schedule V Special Circumstances",
+      "definition": "Companies with no or inadequate profits may pay managerial remuneration exceeding standard limits under specific special circumstances. These exceptions apply to newly incorporated entities for seven years, sick or revived companies, and entities executing resolution plans under the insolvency framework.",
+      "terminology": [
+        "Schedule V",
+        "Inadequate Profit",
+        "Newly Incorporated Company",
+        "Sick Company",
+        "Resolution Plan"
+      ],
+      "instrument_references": [
+        "Schedule V of the Companies Act, 2013",
+        "Insolvency and Bankruptcy Code, 2016"
+      ],
+      "inclusion": [
+        "Remuneration flexibility for new businesses during their initial seven years",
+        "Paucity limits overridden by approved revival or insolvency schemes"
+      ],
+      "exclusion": [
+        "Established profitable companies governed strictly by standard profit percentage caps"
+      ],
+      "nearby_distinctions": [
+        "Separates standard profit-based payout rules from rehabilitation-period remuneration exceptions"
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "e6f8f0ad7cd1c05a69ed16db48283b54ea9ae88862e835a5176e90aaf9b49852",
+  "artifact_id": "009c2fed-2e29-4dd3-b8bf-ef89f10a0be0",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 9767,
+  "output_tokens": 3926,
+  "cost_usd": 0.0127451,
+  "created_at": "2026-10-03T18:23:56.484283+00:00"
+}

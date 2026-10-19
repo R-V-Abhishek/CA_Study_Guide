@@ -1,0 +1,86 @@
+{
+  "result": {
+    "question_id": "d5a6873321cd04d72da3e0017aa88f97453b9c9a91badc86d6fbfa1f9c7bc0b9",
+    "input_hash": "7bba8747bef81e9bcb8361788fa7680857c7ca6c6f8f47d15c2309fe82632ded",
+    "mappings": [
+      {
+        "part_id": "d5a6873321cd04d72da3e0017aa88f97453b9c9a91badc86d6fbfa1f9c7bc0b9:d.i",
+        "outcome": "matched",
+        "primary_node_id": "5b2d11e0-d765-49b0-9966-a77b9d177e47",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "5b2d11e0-d765-49b0-9966-a77b9d177e47",
+            "support": "Tests whether an insurance agent's service falls within a specified reverse-charge category and shifts GST liability to the recipient insurer."
+          }
+        ],
+        "note": "Part of the comparison of specified services for reverse-charge liability; the answer key identifies only (ii) and (iii) as not subject to RCM.",
+        "confidence": 0.99,
+        "bucket": "A"
+      },
+      {
+        "part_id": "d5a6873321cd04d72da3e0017aa88f97453b9c9a91badc86d6fbfa1f9c7bc0b9:d.ii",
+        "outcome": "matched",
+        "primary_node_id": "5b2d11e0-d765-49b0-9966-a77b9d177e47",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "5b2d11e0-d765-49b0-9966-a77b9d177e47",
+            "support": "Tests whether recovery-agent services to this trader are among the specified services for which GST liability shifts to the recipient under reverse charge."
+          }
+        ],
+        "note": "The answer key includes (ii) among the services not subject to RCM.",
+        "confidence": 0.99,
+        "bucket": "A"
+      },
+      {
+        "part_id": "d5a6873321cd04d72da3e0017aa88f97453b9c9a91badc86d6fbfa1f9c7bc0b9:d.iii",
+        "outcome": "matched",
+        "primary_node_id": "5b2d11e0-d765-49b0-9966-a77b9d177e47",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "5b2d11e0-d765-49b0-9966-a77b9d177e47",
+            "support": "Tests whether the security and housekeeping service to an unregistered recipient triggers a specified reverse-charge liability."
+          }
+        ],
+        "note": "The answer key includes (iii) among the services not subject to RCM.",
+        "confidence": 0.99,
+        "bucket": "A"
+      },
+      {
+        "part_id": "d5a6873321cd04d72da3e0017aa88f97453b9c9a91badc86d6fbfa1f9c7bc0b9:d.iv",
+        "outcome": "matched",
+        "primary_node_id": "5b2d11e0-d765-49b0-9966-a77b9d177e47",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "5b2d11e0-d765-49b0-9966-a77b9d177e47",
+            "support": "Tests whether renting a passenger motor vehicle with fuel included is a specified service whose tax liability shifts to the recipient under reverse charge."
+          }
+        ],
+        "note": "The answer key excludes (iv) from the services that are not subject to RCM.",
+        "confidence": 0.99,
+        "bucket": "A"
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "attempt_id": "1791217494291908000",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "b4737600b2221a7360f90739550546c213d482e1c8e9f4b56ca1959faedd67eb",
+    "schema_generator": "pinned-identifiers-v2",
+    "seconds": 44.886,
+    "usage": [
+      {
+        "input_tokens": 49042,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1259,
+        "reasoning_output_tokens": 439
+      }
+    ],
+    "completed_at": "2026-10-05T16:25:39.177484+00:00"
+  }
+}

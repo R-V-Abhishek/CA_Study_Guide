@@ -1,0 +1,301 @@
+{
+  "descriptors": [
+    {
+      "node_id": "59a8e7a1-81a7-431f-bbcc-8ebbb2ad636b",
+      "concept_name": "Pass Through Certificates (PTCs)",
+      "definition": "Pass Through Certificates represent direct proportional claims by investors on all assets securitized through a Special Purpose Vehicle, transferring all interest and principal receipts. Consequently, any principal prepayments are distributed proportionately, leading to the simultaneous termination of all securities upon final asset payment.",
+      "terminology": [
+        "Pass Through Certificates",
+        "PTCs",
+        "Originator",
+        "SPV",
+        "Beneficial interest"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Direct claim on all securitized assets",
+        "Proportional distribution of principal prepayments",
+        "Simultaneous termination upon final payment"
+      ],
+      "exclusion": [
+        "Desynchronized cash flow servicing",
+        "Restructured debt tranches with varying maturities"
+      ],
+      "nearby_distinctions": [
+        "Unlike Pay Through Securities, PTCs pass through all cash flows immediately and lack multi-maturity tranche restructuring."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c9943e49-4d8d-41e1-bd2b-4eee540927c9",
+      "concept_name": "Pay Through Security (PTS)",
+      "definition": "Pay Through Securities are debt instruments backed by securitized assets that allow the SPV to desynchronize cash flow servicing and issue multiple tranches with varying maturities. This structure permits surplus funds from early receivables retirement to be reinvested short-term to generate yield.",
+      "terminology": [
+        "Pay Through Security",
+        "PTS",
+        "Tranches",
+        "Desynchronization",
+        "Reinvestment"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Debt securities backed by assets",
+        "Restructuring of different tranches from varying maturities",
+        "Short-term reinvestment of surplus funds"
+      ],
+      "exclusion": [
+        "Immediate pass-through of all cash flows without maturity restructuring"
+      ],
+      "nearby_distinctions": [
+        "Unlike Pass Through Certificates, PTS enables debt tranching and decouples security servicing from underlying asset cash generation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "13b8931a-b722-4d5b-bc33-1f1cc04c9f56",
+      "concept_name": "Stripped Securities",
+      "definition": "Stripped securities are created by dividing the cash flows of underlying assets into separate Interest Only and Principal Only components. Holders of Interest Only securities receive solely interest payments, while Principal Only holders receive solely principal repayments.",
+      "terminology": [
+        "Stripped Securities",
+        "Interest Only Securities",
+        "IO",
+        "Principal Only Securities",
+        "PO"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Division of cash flows into Interest Only portions",
+        "Division of cash flows into Principal Only portions"
+      ],
+      "exclusion": [
+        "Combined standard principal and interest receipt instruments"
+      ],
+      "nearby_distinctions": [
+        "Unlike standard debt instruments combining principal and interest, stripped securities isolate these flows into volatile single-component instruments."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c34392de-9535-4ebb-ae04-935c7e825a43",
+      "concept_name": "PRICING OF THE SECURITIZED INSTRUMENTS",
+      "definition": "Pricing of securitized instruments requires establishing valuations that remain mutually acceptable to both the originators and the investors. The pricing methodology is evaluated distinctly from the perspectives of the originator and the investor.",
+      "terminology": [
+        "Pricing",
+        "Securitized instruments",
+        "Originator's angle",
+        "Investor's angle"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Originator evaluation criteria",
+        "Investor evaluation criteria"
+      ],
+      "exclusion": [],
+      "nearby_distinctions": [
+        "Serves as an umbrella concept encompassing specific valuation angles rather than a single cash flow pricing model."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "150a4782-5263-43d5-a15e-abafebe8f27f",
+      "concept_name": "From Originator’s Angle",
+      "definition": "From the originator's perspective, instruments are priced based on the outflow rate incurred by the originator. This outflow must be capable of amortization over a period through the investment of funds raised via securitization.",
+      "terminology": [
+        "Originator's angle",
+        "Outflow rate",
+        "Amortization",
+        "Securitization proceeds"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Pricing based on originator cash outflows",
+        "Amortization of raised funds"
+      ],
+      "exclusion": [
+        "Discounting expected future cash flows using market yield curves"
+      ],
+      "nearby_distinctions": [
+        "Unlike the investor's perspective which focuses on discounting future cash flows, the originator's perspective centers on cost of outflow and amortization."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "33a18fc6-5088-4d1d-9ddd-eb9b8fcae78e",
+      "concept_name": "From Investor’s Angle",
+      "definition": "From the investor's perspective, security prices are determined by discounting estimated future cash flows using a comparable yield to maturity. This yield is derived from marketable security yield curves adjusted with spread points for credit quality and average life.",
+      "terminology": [
+        "Investor's angle",
+        "Discounting",
+        "Expected future cash flows",
+        "Yield to maturity",
+        "Credit quality"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Discounting best estimate of expected future cash flows",
+        "Using comparable yield to maturity with credit and average life adjustments"
+      ],
+      "exclusion": [
+        "Pricing based purely on originator outflow amortization"
+      ],
+      "nearby_distinctions": [
+        "Unlike the originator perspective focusing on internal outflows, the investor perspective relies on external market yields and expected pool cash flows."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c9780b78-a7a9-418a-a716-203dbe86d28a",
+      "concept_name": "RISKS IN SECURITIZATION",
+      "definition": "Securitization transactions expose investors to multiple categories of risk at various stages of the process. These exposures primarily include credit risks, legal uncertainties, and external market-related risks.",
+      "terminology": [
+        "Securitization risks",
+        "Credit risk",
+        "Legal risk",
+        "Market risk"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Transaction stage risks",
+        "Counterparty and servicer risks",
+        "Macroeconomic and interest rate risks"
+      ],
+      "exclusion": [],
+      "nearby_distinctions": [
+        "Encompasses broad transactional exposures rather than single asset-pricing parameters."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "35ce972a-918b-47db-b7bd-339b9cf79c3e",
+      "concept_name": "Credit risk or Counterparty risk",
+      "definition": "Credit or counterparty risk is a primary exposure where investors face potential losses due to the bankruptcy or non-performance of the servicer. It threatens the uninterrupted collection and transfer of asset pool cash flows.",
+      "terminology": [
+        "Credit risk",
+        "Counterparty risk",
+        "Bankruptcy",
+        "Non-performance of servicer"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Servicer bankruptcy exposure",
+        "Servicer non-performance risk"
+      ],
+      "exclusion": [
+        "Market interest rate fluctuations",
+        "Macroeconomic industry downturns"
+      ],
+      "nearby_distinctions": [
+        "Unlike market risks arising from macroeconomic factors, credit risk specifically relates to counterparty default and servicer failure."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1bcbf235-4f8d-4527-9ec4-f502cbfb1f6a",
+      "concept_name": "Legal risks",
+      "definition": "Legal risk arises from the absence of conclusive judicial precedents or explicit statutory provisions governing securitization transactions. Disputes over the legal ownership of underlying assets create uncertainty regarding timely investor payouts.",
+      "terminology": [
+        "Legal risks",
+        "Judicial precedent",
+        "Statutory provisions",
+        "Legal ownership"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Uncertainty from lack of explicit statutory provisions",
+        "Disputes over legal asset ownership"
+      ],
+      "exclusion": [
+        "Interest rate mismatches",
+        "Servicer non-performance"
+      ],
+      "nearby_distinctions": [
+        "Unlike counterparty credit risk, legal risk stems from regulatory and jurisdictional ambiguities regarding asset transfer validity."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9a9614be-759e-4a7a-88a5-cf882d7c79f5",
+      "concept_name": "Market risks",
+      "definition": "Market risks encompass external factors impacting the overall performance of a securitization transaction. These external elements include macroeconomic industry trends, prepayment behaviors, and interest rate mismatches.",
+      "terminology": [
+        "Market risks",
+        "Macroeconomic risks",
+        "Prepayment risks",
+        "Interest rate risks"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Macroeconomic industry impacts",
+        "Prepayment and reinvestment risks",
+        "Interest rate mismatches"
+      ],
+      "exclusion": [
+        "Servicer bankruptcy",
+        "Lack of statutory legal provisions"
+      ],
+      "nearby_distinctions": [
+        "Unlike internal counterparty risks, market risks originate from external macroeconomic and financial environment shifts affecting pool cash flows."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2dde1c4d-b04a-46b7-a379-77cf7f7996e0",
+      "concept_name": "TOKENIZATION",
+      "definition": "Tokenization builds upon blockchain technology, which functions as a decentralized, shared, append-only open ledger of irreversible transactions verified through cryptography without trusted intermediaries. It enables secure, real-time tracking and automation across various digital and physical asset lifecycles.",
+      "terminology": [
+        "Tokenization",
+        "Blockchain",
+        "Distributed Ledger Technology",
+        "DLT",
+        "Decentralized network"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Decentralized peer-to-peer open ledger systems",
+        "Cryptographic transaction validation",
+        "Immutable append-only database records"
+      ],
+      "exclusion": [
+        "Centralized bank or corporation-controlled ledgers"
+      ],
+      "nearby_distinctions": [
+        "Unlike traditional centralized ledgers controlled by trusted intermediaries, blockchain relies on decentralized networks and immutable blocks."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8b16573f-1b60-4bd4-bac5-d65018136728",
+      "concept_name": "Applications of Blockchain",
+      "definition": "Blockchain technology applies across diverse fields such as financial services, healthcare, government administration, travel, and economic forecasting to automate processes and ensure secure data sharing. These applications improve transparency, reduce overhead costs, and eliminate intermediary interference.",
+      "terminology": [
+        "Applications of Blockchain",
+        "Financial services",
+        "Healthcare data sharing",
+        "Government registries",
+        "Prediction markets"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Automated trade lifecycles",
+        "Secure healthcare interoperability",
+        "Transparent government land and vehicle registries"
+      ],
+      "exclusion": [
+        "Centralized intermediary record keeping"
+      ],
+      "nearby_distinctions": [
+        "Focuses on practical implementation domains rather than core cryptographic ledger architecture mechanics."
+      ],
+      "source_ambiguities": [
+        "The source text contains a fragmented sentence regarding healthcare data and a misplaced workflow description inside the applications section."
+      ]
+    }
+  ],
+  "input_hash": "e54cc2e79ef82db3d1946915da865b6f7cf637c0dc2a524adc05a69488bb8fc3",
+  "artifact_id": "7ee0ac3c-c00c-4a19-a0ff-f1b8e3e98682",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8158,
+  "output_tokens": 3127,
+  "cost_usd": 0.0102649,
+  "created_at": "2026-10-03T18:07:52.800589+00:00"
+}

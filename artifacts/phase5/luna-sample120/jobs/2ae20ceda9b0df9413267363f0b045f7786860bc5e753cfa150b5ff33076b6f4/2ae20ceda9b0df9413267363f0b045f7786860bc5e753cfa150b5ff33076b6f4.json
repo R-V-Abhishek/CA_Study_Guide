@@ -1,0 +1,35 @@
+{
+  "result": {
+    "question_id": "2ae20ceda9b0df9413267363f0b045f7786860bc5e753cfa150b5ff33076b6f4",
+    "input_hash": "66eae1041b4dc4e383212255b712b024a48e723a79d526354ad686fea1697c73",
+    "mappings": [
+      {
+        "part_id": "2ae20ceda9b0df9413267363f0b045f7786860bc5e753cfa150b5ff33076b6f4",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "The part concerns whether company employees or officers are involved in fraud. No candidate descriptor covers that issue; the tax-planning overview expressly excludes fraudulent manipulation, and the civil-court-powers topic only concerns investigation powers.",
+        "confidence": 0.96,
+        "bucket": "D"
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "05280a4de46304e18d68814511838543722dbda0b780d30f8843607d4be890ae",
+    "schema_generator": "pinned-part-ids-v1",
+    "seconds": 14.533,
+    "usage": [
+      {
+        "input_tokens": 47594,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 487,
+        "reasoning_output_tokens": 273
+      }
+    ],
+    "completed_at": "2026-10-05T15:57:16.614016+00:00"
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "result": {
+    "question_id": "bfdb15c25c8b1295040d3e62d21eea994de186b2a43249448014d898dfd299a4",
+    "input_hash": "32960d5c481186d07fb1503e11a9beb75bb51e6945a0bde4efece0df850dd8e5",
+    "mappings": [
+      {
+        "part_id": "bfdb15c25c8b1295040d3e62d21eea994de186b2a43249448014d898dfd299a4:Q3.a.i",
+        "outcome": "matched",
+        "primary_node_id": "3d05cbcb-c09c-412e-b8e9-b2b96d5de6f9",
+        "secondary_node_ids": [
+          "72407f6f-8662-4f40-aa8a-204e85bc7b81"
+        ],
+        "evidence": [
+          {
+            "node_id": "3d05cbcb-c09c-412e-b8e9-b2b96d5de6f9",
+            "support": "Tests whether RWA maintenance receipts qualify for the GST exemption and how the per-apartment threshold applies."
+          },
+          {
+            "node_id": "72407f6f-8662-4f40-aa8a-204e85bc7b81",
+            "support": "Requires determining the taxable maintenance amount after applying the exemption threshold."
+          }
+        ],
+        "note": "The answer applies the monthly per-member exemption ceiling separately to each apartment and treats amounts above it as taxable.",
+        "confidence": 0.88,
+        "bucket": "A"
+      },
+      {
+        "part_id": "bfdb15c25c8b1295040d3e62d21eea994de186b2a43249448014d898dfd299a4:Q3.a.ii",
+        "outcome": "matched",
+        "primary_node_id": "72407f6f-8662-4f40-aa8a-204e85bc7b81",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "72407f6f-8662-4f40-aa8a-204e85bc7b81",
+            "support": "Tests whether common-area electricity collections are excluded from the taxable value as amounts collected as a pure agent."
+          }
+        ],
+        "note": "The answer excludes the electricity charges from both value and the exemption-threshold calculation, assuming pure-agent collection.",
+        "confidence": 0.76,
+        "bucket": "B"
+      },
+      {
+        "part_id": "bfdb15c25c8b1295040d3e62d21eea994de186b2a43249448014d898dfd299a4:Q3.a.iii",
+        "outcome": "matched",
+        "primary_node_id": "81f2b41f-d9bf-40cc-9fbb-3a45b699d53a",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "81f2b41f-d9bf-40cc-9fbb-3a45b699d53a",
+            "support": "Tests whether collecting member contributions for a cultural programme is a taxable supply by the RWA."
+          }
+        ],
+        "note": "The answer treats the programme collections as taxable consideration for a service.",
+        "confidence": 0.7,
+        "bucket": "B"
+      },
+      {
+        "part_id": "bfdb15c25c8b1295040d3e62d21eea994de186b2a43249448014d898dfd299a4:Q3.a.iv",
+        "outcome": "matched",
+        "primary_node_id": "81f2b41f-d9bf-40cc-9fbb-3a45b699d53a",
+        "secondary_node_ids": [
+          "3d05cbcb-c09c-412e-b8e9-b2b96d5de6f9",
+          "72407f6f-8662-4f40-aa8a-204e85bc7b81"
+        ],
+        "evidence": [
+          {
+            "node_id": "81f2b41f-d9bf-40cc-9fbb-3a45b699d53a",
+            "support": "Use of space in society publications for payment is treated as a taxable service supply."
+          },
+          {
+            "node_id": "3d05cbcb-c09c-412e-b8e9-b2b96d5de6f9",
+            "support": "The question also tests whether the RWA's exemption-limit view is correct."
+          },
+          {
+            "node_id": "72407f6f-8662-4f40-aa8a-204e85bc7b81",
+            "support": "Requires adding taxable service amounts to determine the total taxable value."
+          }
+        ],
+        "note": "The answer taxes publication-space charges, totals taxable services, and rejects applying one combined exemption amount across different flat types.",
+        "confidence": 0.82,
+        "bucket": "B"
+      },
+      {
+        "part_id": "bfdb15c25c8b1295040d3e62d21eea994de186b2a43249448014d898dfd299a4:Q3.b",
+        "outcome": "matched",
+        "primary_node_id": "5b2d11e0-d765-49b0-9966-a77b9d177e47",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "5b2d11e0-d765-49b0-9966-a77b9d177e47",
+            "support": "Tests the levy and collection of IGST on imports, including the statutory treatment of notified intangible goods."
+          }
+        ],
+        "note": "The answer distinguishes ordinary imported goods subject to customs-law collection from notified online money gaming actionable claims taxed under IGST.",
+        "confidence": 0.94,
+        "bucket": "A"
+      },
+      {
+        "part_id": "bfdb15c25c8b1295040d3e62d21eea994de186b2a43249448014d898dfd299a4:Q3.c",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "The tested issue is customs-duty remission for imported goods destroyed before or after clearance; no candidate descriptor addresses remission or destruction of goods.",
+        "confidence": 0.97,
+        "bucket": "A"
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "attempt_id": "1791216818755290000",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "d635e965c0bc6162f59763fd2e6ea7ac4128547acfd1023d5860c74bba0d5507",
+    "schema_generator": "pinned-part-ids-v1",
+    "seconds": 37.369,
+    "usage": [
+      {
+        "input_tokens": 46904,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1784,
+        "reasoning_output_tokens": 516
+      }
+    ],
+    "completed_at": "2026-10-05T16:14:16.124439+00:00"
+  }
+}

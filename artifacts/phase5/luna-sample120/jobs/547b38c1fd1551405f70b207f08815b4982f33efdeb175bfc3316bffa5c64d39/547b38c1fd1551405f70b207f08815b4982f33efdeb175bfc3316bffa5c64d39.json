@@ -1,0 +1,55 @@
+{
+  "result": {
+    "question_id": "547b38c1fd1551405f70b207f08815b4982f33efdeb175bfc3316bffa5c64d39",
+    "input_hash": "0844eedb12f594f48fac97e74f721b40d37a1fb9652c7b017f4e22dd05a11117",
+    "mappings": [
+      {
+        "part_id": "547b38c1fd1551405f70b207f08815b4982f33efdeb175bfc3316bffa5c64d39:d.repeat8.i",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Determines the land value included in the tax on a charitable trust\u2019s merger with an ineligible trust. The candidates do not describe this accreted-income tax computation; the valuation-officer label concerns a different procedure.",
+        "confidence": 0.95,
+        "bucket": "D"
+      },
+      {
+        "part_id": "547b38c1fd1551405f70b207f08815b4982f33efdeb175bfc3316bffa5c64d39:d.repeat8.ii",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Determines share values for the same trust-merger tax computation. The candidates cover capital-gains rules and general trust provisions, but not valuation of assets for this accreted-income tax.",
+        "confidence": 0.95,
+        "bucket": "D"
+      },
+      {
+        "part_id": "547b38c1fd1551405f70b207f08815b4982f33efdeb175bfc3316bffa5c64d39:d.repeat8.iii",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Continues the trust-merger computation by introducing the trust fund and liabilities. No candidate describes the accreted-income tax on transfer to an ineligible trust.",
+        "confidence": 0.92,
+        "bucket": "D"
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "95fb87a6c69598a3d6b99c55ee77714a0f6f31470a91352665929f093caac9dd",
+    "schema_generator": "pinned-part-ids-v1",
+    "seconds": 19.021,
+    "usage": [
+      {
+        "input_tokens": 49599,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 801,
+        "reasoning_output_tokens": 356
+      }
+    ],
+    "completed_at": "2026-10-05T15:58:26.841211+00:00"
+  }
+}

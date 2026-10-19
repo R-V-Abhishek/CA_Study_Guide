@@ -1,0 +1,297 @@
+{
+  "descriptors": [
+    {
+      "node_id": "c2d8ce30-6db9-4070-ba79-aefa470e3887",
+      "concept_name": "Introduction to Securitization",
+      "definition": "Securitization is the financial process of repackaging illiquid assets or receivables into marketable tradable securities. It allows firms to manage credit risks and liquidity without altering their traditional debt-to-equity structure through direct borrowing.",
+      "terminology": [
+        "Securitization",
+        "Illiquid assets",
+        "Marketable securities",
+        "Tranching",
+        "Structured finance"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Automobile loans",
+        "Credit card receivables",
+        "Residential mortgages"
+      ],
+      "exclusion": [
+        "Unsecured traditional corporate borrowing",
+        "Standard equity issuances"
+      ],
+      "nearby_distinctions": [
+        "Differs from conventional borrowing because assets are converted directly into securities rather than creating new liabilities on the balance sheet."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c088524f-71bc-4c4f-b4b3-7f1681570a0e",
+      "concept_name": "Concept and Definition of Securitization",
+      "definition": "The mechanism involves pooling various illiquid financial assets and redistributing their underlying credit risks into tradable instruments. This process utilizes bundling and unbundling to establish homogenous securities backed by specific collateral pools.",
+      "terminology": [
+        "Pooling",
+        "Bundling",
+        "Unbundling",
+        "Tranche",
+        "Credit risk redistribution"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Loan receivables pools",
+        "Collateral-backed financial products"
+      ],
+      "exclusion": [
+        "Unpooled individual loans retained entirely on balance sheets"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from generic asset management by the specific transformation of illiquid debt into structured tradable market instruments."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c04cb025-bcf7-41cf-ac9d-8ee638718b74",
+      "concept_name": "Benefits of Securitization",
+      "definition": "Securitization provides originators with off-balance-sheet financing capabilities, improved liquidity, and enhanced capital-to-weighted asset ratios. It also enables investors to achieve portfolio risk diversification and satisfy specific regulatory investment requirements.",
+      "terminology": [
+        "Off-Balance Sheet Financing",
+        "Capital-To-Weighted Asset Ratio",
+        "Credit Enhancement",
+        "Priority Sector Lending"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Capital relief for financial institutions",
+        "Risk diversification for investors"
+      ],
+      "exclusion": [
+        "Internal corporate debt restructuring without asset transfers"
+      ],
+      "nearby_distinctions": [
+        "Differs from standard loan loss provisioning by permanently transferring asset risks and servicing responsibilities away from the originator."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "731b1f03-e78d-496d-bc80-545ad55452d7",
+      "concept_name": "Benefits from the Angle of Originator",
+      "definition": "Originators benefit by releasing capital tied up in illiquid assets, achieving off-balance-sheet financing, and shifting default burdens under non-recourse arrangements. Furthermore, credit enhancement allows securitized papers to be issued at reduced interest rates.",
+      "terminology": [
+        "Originator",
+        "Special Purpose Vehicle",
+        "Non-recourse arrangement",
+        "Spread",
+        "Capital release"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Reduced borrowing costs via credit enhancement",
+        "Improved capital ratios for banks"
+      ],
+      "exclusion": [
+        "Direct borrowing via corporate bond issuance"
+      ],
+      "nearby_distinctions": [
+        "Distinct from retaining loans on-book, as asset transfer permits core business specialization and removes default exposure in non-recourse structures."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "24419b26-b2e6-4cf3-a2b9-0fce14f1ebeb",
+      "concept_name": "Benefits from the Angle of Investor and Primary Participants",
+      "definition": "Investors gain portfolio risk diversification and tools to meet regulatory requirements like priority sector lending while holding asset-backed or mortgage-backed securities. Primary participants include originators transferring assets, special purpose vehicles holding legal titles, and investors purchasing the papers.",
+      "terminology": [
+        "Asset Based Securities",
+        "Mortgage Based Securities",
+        "Priority Sector Lending",
+        "Special Purpose Vehicle",
+        "Originator"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Institutional investors like mutual funds and insurance companies",
+        "Regulatory compliance investments"
+      ],
+      "exclusion": [
+        "Unregulated retail investors purchasing unrated private debt"
+      ],
+      "nearby_distinctions": [
+        "Focuses on external capital market buyers rather than internal corporate stakeholders or originators."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2cb229ab-ec6d-4ffb-8219-ddd5cd278ec3",
+      "concept_name": "Participants in Securitization",
+      "definition": "Securitization involves primary parties such as originators, special purpose vehicles, and investors, alongside secondary participants who facilitate credit assessment and administration. Obligors form the fundamental root by owing the underlying debt transferred into the asset pool.",
+      "terminology": [
+        "Primary Participant",
+        "Secondary Participant",
+        "Obligor",
+        "Special Purpose Vehicle",
+        "Legal title"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Originators and SPVs",
+        "Obligors and rating agencies"
+      ],
+      "exclusion": [
+        "Unassociated external guarantors outside the transaction structure"
+      ],
+      "nearby_distinctions": [
+        "Separates core transactional entities holding legal ownership from supporting professional agents providing administrative or evaluative services."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8110e287-e864-4735-a416-d0e4a0b830e2",
+      "concept_name": "Primary Participants",
+      "definition": "Primary participants comprise the originator who initiates the deal and transfers asset rights, the special purpose vehicle that acquires legal title and issues securities, and the investors who purchase the paper. These core entities execute the structural transfer of receivables out of the originator's balance sheet.",
+      "terminology": [
+        "Originator",
+        "Special Purpose Vehicle",
+        "Investors",
+        "Legal and beneficial interest",
+        "Ring fencing"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Asset transfer agreements",
+        "Upfront payment mechanisms"
+      ],
+      "exclusion": [
+        "Third-party credit enhancers acting strictly as secondary service providers"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from secondary market agents because primary participants directly hold, transfer, or fund the underlying asset pool."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "cd2dd84f-f90e-4040-870d-29317358679a",
+      "concept_name": "Secondary Participants",
+      "definition": "Secondary participants include obligors, rating agencies, receiving and paying agents, trustees, credit enhancers, and structurers who support the securitization transaction. They provide essential functions such as credit evaluation, cash flow servicing, legal oversight, and credit enhancement.",
+      "terminology": [
+        "Receiving and Paying Agent",
+        "Servicer",
+        "Trustee",
+        "Credit Enhancer",
+        "Structurer"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Rating agencies assessing cash flow strength",
+        "Investment bankers acting as structurers"
+      ],
+      "exclusion": [
+        "The primary issuing originator or the ultimate security investors"
+      ],
+      "nearby_distinctions": [
+        "Differentiated from primary participants by acting in an auxiliary, advisory, administrative, or enhancement capacity rather than owning the assets or issuing the securities directly."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1143abec-553c-46e1-a0bb-bbe964078bf2",
+      "concept_name": "Mechanism of Securitization",
+      "definition": "The securitization mechanism involves creating an asset pool, transferring it to a special purpose vehicle, selling structured papers, and sub-contracting asset administration back to the originator. Subsequent steps govern funds repayment, recourse conditions, and instrument credit rating.",
+      "terminology": [
+        "Pool of assets",
+        "Transfer to SPV",
+        "Administration of assets",
+        "Recourse",
+        "Pass Through Security"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Servicing agreements",
+        "Credit rating assignment processes"
+      ],
+      "exclusion": [
+        "Direct corporate equity or unsecured bond issuance workflows"
+      ],
+      "nearby_distinctions": [
+        "Represents the operational workflow pipeline from asset origination and pooling to final investor payout, distinct from static structural definitions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3e352e2d-b47f-4d67-977d-bb6bdfa013de",
+      "concept_name": "Creation of Pool of Assets",
+      "definition": "The securitization process initiates by segregating and grouping assets backed by similar mortgages or receivables based on uniform interest rates, risk profiles, maturities, and concentration units. This homogenized grouping forms the foundation for issuing structured securities.",
+      "terminology": [
+        "Segregation",
+        "Mortgages",
+        "Concentration units",
+        "Maturity matching"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Grouping similar loan assets",
+        "Aligning risk and tenure metrics"
+      ],
+      "exclusion": [
+        "Heterogeneous collections of completely unrelated, un-vetted operational liabilities"
+      ],
+      "nearby_distinctions": [
+        "Differs from general portfolio aggregation by enforcing strict uniformity criteria in risk and maturity to prepare assets for SPV transfer."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "13f4d7c1-6671-4239-85e8-44254bc976e4",
+      "concept_name": "Transfer to SPV",
+      "definition": "Once grouped, the asset pool is legally transferred to a specially created special purpose vehicle to ring-fence the assets from the originator's balance sheet. The SPV subsequently designs and sells structured instruments like pass-through securities or pay-through certificates.",
+      "terminology": [
+        "Special Purpose Vehicle",
+        "Ring fencing",
+        "Pass Through Security",
+        "Pay Through Certificates"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Legal title transfer",
+        "Upfront payment execution"
+      ],
+      "exclusion": [
+        "Retaining asset ownership within the originator's main financial ledgers"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from simple custodial arrangements by executing a complete legal sale that removes assets from the originator's financial statements."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "83b07ce4-b92c-4343-923c-ba7302ffdfd7",
+      "concept_name": "Sale of Securitized Papers",
+      "definition": "Special purpose vehicles design and issue financial instruments tailored to the risk, return, and tenure preferences of investors using the pooled asset cash flows. These instruments typically take the form of pass-through securities or pay-through certificates.",
+      "terminology": [
+        "Pass Through Security",
+        "Pay Through Certificates",
+        "Instrument design",
+        "Tenure structuring"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Pass-through certificates",
+        "Asset-backed debt instruments"
+      ],
+      "exclusion": [
+        "Traditional equity shares issued directly by operating companies"
+      ],
+      "nearby_distinctions": [
+        "Focuses on the creation and distribution of marketable liabilities backed by cash flows, contrasting with the initial asset pooling phase."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "a86e467903277ad50b4c6a30cc083b1feb4bb0f5437b2303b7d1e4da03105bdd",
+  "artifact_id": "7ee0ac3c-c00c-4a19-a0ff-f1b8e3e98682",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8324,
+  "output_tokens": 3136,
+  "cost_usd": 0.010337200000000001,
+  "created_at": "2026-10-03T18:07:32.645651+00:00"
+}

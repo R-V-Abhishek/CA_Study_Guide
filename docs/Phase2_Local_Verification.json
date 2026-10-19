@@ -1,0 +1,59 @@
+{
+  "roles": {
+    "student": {
+      "role": "caf_app",
+      "administrative": false
+    },
+    "identity": {
+      "role": "caf_identity",
+      "administrative": false
+    },
+    "curation": {
+      "role": "caf_curator",
+      "administrative": false
+    },
+    "operations": {
+      "role": "caf_operations",
+      "administrative": false
+    },
+    "backup": {
+      "role": "caf_backup",
+      "administrative": false
+    },
+    "pipeline": {
+      "role": "caf_pipeline",
+      "administrative": false
+    }
+  },
+  "denied_reads": {
+    "student:app.auth_session": "permission_denied",
+    "student:app.user_account": "permission_denied",
+    "curation:app.note": "permission_denied",
+    "operations:app.note": "permission_denied",
+    "identity:app.note": "permission_denied"
+  },
+  "owners": [
+    {
+      "id": 1,
+      "status": "active",
+      "role": "administrator"
+    }
+  ],
+  "pending_bindings": [
+    {
+      "target_user_id": 1,
+      "role": "administrator",
+      "unconsumed": false
+    }
+  ],
+  "unauthenticated_statuses": {
+    "/api/v1/me": 401,
+    "/api/v1/dashboard": 401,
+    "/api/v1/me/export": 401,
+    "/api/v1/curate/queue": 401,
+    "/api/v1/system/backups": 401
+  },
+  "static_routes": "passed",
+  "real_auth0_configured": true,
+  "real_provider_evidence": "Phase2_Auth0_Verification.json"
+}

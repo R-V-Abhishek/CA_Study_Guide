@@ -1,0 +1,315 @@
+{
+  "descriptors": [
+    {
+      "node_id": "a0247f38-8708-4699-90c8-05e8277dc501",
+      "concept_name": "Audit Procedures Responsive to Risks related to Management Override of Controls",
+      "definition": "Auditors must design and perform specific procedures to address the risk of management overriding controls, regardless of the assessed risk level. These mandatory procedures include testing journal entries, reviewing accounting estimates for bias, and evaluating the business rationale of unusual or outside-normal-course significant transactions.",
+      "terminology": [
+        "management override",
+        "journal entry testing",
+        "accounting estimate bias",
+        "unusual transactions"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "testing general ledger journal entries and adjustments",
+        "evaluating accounting estimates for fraudulent bias",
+        "scrutinizing business rationale for significant non-routine transactions"
+      ],
+      "exclusion": [
+        "routine substantive testing of standard account balances",
+        "general internal control design walkthroughs"
+      ],
+      "nearby_distinctions": [
+        "Differs from routine error detection because management override involves intentional manipulation of records requiring targeted fraud-focused testing."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4ae114cb-a27b-4c48-908d-e86cb4038bec",
+      "concept_name": "Evaluation of Audit Evidence",
+      "definition": "The auditor assesses whether overall analytical procedures reveal previously unrecognized fraud risks and evaluates identified misstatements for fraud indicators. If management involvement in suspected fraud is identified, the auditor must re-evaluate the risk assessment and reconsider the reliability of prior evidence and management representations.",
+      "terminology": [
+        "analytical procedures",
+        "fraud indicator",
+        "management involvement",
+        "re-evaluation of risk"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "evaluating final analytical procedures for hidden fraud risks",
+        "reassessing risk when senior management is linked to misstatements",
+        "considering employee or third-party collusion when evaluating evidence reliability"
+      ],
+      "exclusion": [
+        "initial preliminary analytical reviews performed during audit planning",
+        "standard statistical sampling without fraud indicators"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard error evaluation by its explicit focus on management complicity and the systemic impact on audit evidence reliability."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4a02dc2e-9819-4c9e-8bef-7b0717c82bb4",
+      "concept_name": "Auditor is Unable to Continue the Engagement",
+      "definition": "When exceptional circumstances arising from fraud or suspected fraud bring into question the auditor's ability to continue, the auditor must determine professional and legal responsibilities, consider withdrawing from the engagement where legally permitted, and communicate withdrawal and reasons to governance and authorities.",
+      "terminology": [
+        "exceptional circumstances",
+        "engagement withdrawal",
+        "regulatory reporting",
+        "legal responsibilities"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "determining professional and legal reporting obligations upon withdrawal",
+        "communicating withdrawal reasons to management and those charged with governance",
+        "evaluating legal permissibility of engagement termination"
+      ],
+      "exclusion": [
+        "standard voluntary resignation due to fee disagreements",
+        "routine completion of audit mandates without fraud impediments"
+      ],
+      "nearby_distinctions": [
+        "Distinct from standard reporting of uncorrected errors because it involves severe integrity breaches triggering potential engagement abandonment."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "963609d8-aeb7-4eb5-86b2-75993588d57a",
+      "concept_name": "Management Representations",
+      "definition": "Auditors must obtain written representations from management and those charged with governance acknowledging their responsibility for internal controls to prevent and detect fraud. Management must also confirm they have disclosed all known or suspected frauds, related party involvement, and fraud allegations communicated by employees or regulators.",
+      "terminology": [
+        "written representations",
+        "internal control responsibility",
+        "fraud disclosure",
+        "those charged with governance"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "obtaining written acknowledgment of control responsibilities",
+        "securing disclosures regarding known or suspected fraud involving management",
+        "obtaining records of external or internal fraud allegations"
+      ],
+      "exclusion": [
+        "verbal assurances from operating staff without formal documentation",
+        "general management representation letters lacking explicit fraud acknowledgments"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general operational representation letters by its explicit focus on fraud risk awareness, internal control ownership, and disclosure of allegations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "114b8ba9-f033-416e-ad13-073540eaa06a",
+      "concept_name": "Communications to Management and with Those Charged With Governance",
+      "definition": "Auditors must timely communicate identified or suspected fraud to the appropriate management level and escalate matters involving management or key control personnel to those charged with governance. Such communications ensure that parties responsible for prevention and detection receive actionable insights and collaborate on necessary audit procedures.",
+      "terminology": [
+        "timely communication",
+        "governance oversight",
+        "suspected fraud",
+        "escalation"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "notifying operational management of identified fraud issues",
+        "reporting fraud involving senior management to those charged with governance",
+        "discussing the scope and timing of modified audit procedures with governance"
+      ],
+      "exclusion": [
+        "routine operational status updates to project managers",
+        "informal discussions with junior staff regarding clerical errors"
+      ],
+      "nearby_distinctions": [
+        "Differs from routine reporting by requiring specific escalation channels when management itself is implicated in suspected fraud."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c6edbe38-29ff-46b6-89e9-bf41de097414",
+      "concept_name": "Communications to Regulatory and Enforcement Authorities",
+      "definition": "The auditor must evaluate whether statutory or legal responsibilities require reporting identified or suspected fraud to external regulatory authorities, potentially overriding client confidentiality duties. Specific legal mandates, such as bank reporting obligations to supervisory bodies like the central bank, dictate when external disclosure is mandatory.",
+      "terminology": [
+        "regulatory authorities",
+        "statutory duty",
+        "confidentiality override",
+        "supervisory bodies"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "assessing legal requirements to report fraud to outside regulators",
+        "complying with industry-specific statutory reporting duties like bank audits",
+        "reporting uncorrected material misstatements when governance fails to act"
+      ],
+      "exclusion": [
+        "standard voluntary disclosures of immaterial errors to third parties",
+        "internal reporting to management or governance bodies"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from internal governance communications because it breaches client confidentiality obligations based on overriding legal or statutory mandates."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4274d28b-5074-44aa-8184-7ebccb2f2e58",
+      "concept_name": "Documentation",
+      "definition": "Auditors must comprehensively document engagement team discussions regarding fraud susceptibility, identified fraud risks at financial statement and assertion levels, and overall audit responses. Documentation must also cover the results of audit procedures targeting management override, fraud communications, and justifications if revenue recognition fraud presumption is rebutted.",
+      "terminology": [
+        "audit documentation",
+        "risk linkage",
+        "fraud responses",
+        "revenue recognition presumption"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "recording engagement team brainstorming and discussions on fraud",
+        "linking overall responses and assertion-level procedures to assessed fraud risks",
+        "documenting rationales when presuming no fraud risk in revenue recognition"
+      ],
+      "exclusion": [
+        "informal working papers lacking clear linkage to assessed risks",
+        "undocumented verbal consultations with management"
+      ],
+      "nearby_distinctions": [
+        "Differs from general working papers by explicitly requiring structured tracking of fraud risk assessments, override tests, and communication trails."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7ff2bb61-aa2e-46ab-9681-fe5e66858c06",
+      "concept_name": "SA 250 “Consideration of Laws and Regulations in an Audit of Financial Statements”",
+      "definition": "SA 250 governs the auditor's responsibility to consider laws and regulations when performing a financial statement audit, aiming to help identify material misstatements caused by non-compliance. It excludes specific assurance engagements where compliance is independently tested and reported on separately.",
+      "terminology": [
+        "SA 250",
+        "legal framework",
+        "non-compliance",
+        "assurance engagements"
+      ],
+      "instrument_references": [
+        "SA 250"
+      ],
+      "inclusion": [
+        "considering legal and regulatory frameworks during financial audits",
+        "identifying material financial misstatements due to legal non-compliance"
+      ],
+      "exclusion": [
+        "standalone compliance-only assurance engagements",
+        "internal operational audits without financial statement impact"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general audit standards by its exclusive focus on detecting financial statement distortions arising from legal or regulatory breaches."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5e97f9a7-0bb7-40ac-9c1e-4523bc8f0b00",
+      "concept_name": "Effect of Laws and Regulations on Financial Statements of an Entity",
+      "definition": "An entity's legal and regulatory framework has varying effects, with some laws directly dictating reported financial amounts and disclosures while others govern general business operations. Non-compliance can lead to severe consequences such as fines or litigation that create material financial statement misstatements.",
+      "terminology": [
+        "legal and regulatory framework",
+        "direct effect",
+        "operating aspects",
+        "penalties"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "laws directly determining financial statement amounts and disclosures",
+        "regulations governing broader business operations and compliance"
+      ],
+      "exclusion": [
+        "internal management guidelines devoid of legal or regulatory backing",
+        "voluntary corporate policies"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between laws with direct accounting impacts and those regulating general operational conduct that only indirectly affect financials."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "19132dbd-193f-40e9-8ecd-5c99d308e4bf",
+      "concept_name": "Objectives of auditor in accordance with SA 250",
+      "definition": "The auditor seeks to obtain sufficient appropriate evidence regarding compliance with laws having a direct effect on financial statements and perform specified procedures for other relevant laws. Additionally, the auditor must respond appropriately to identified or suspected instances of non-compliance discovered during the audit.",
+      "terminology": [
+        "direct effect laws",
+        "audit evidence",
+        "non-compliance response",
+        "specified procedures"
+      ],
+      "instrument_references": [
+        "SA 250"
+      ],
+      "inclusion": [
+        "gathering evidence on direct-effect legal compliance",
+        "executing procedures to uncover material indirect non-compliance",
+        "responding appropriately to detected non-compliance"
+      ],
+      "exclusion": [
+        "guaranteeing absolute entity-wide legal compliance",
+        "conducting comprehensive legal audits outside financial scope"
+      ],
+      "nearby_distinctions": [
+        "Differs from general error objectives by targeting legally driven misstatements and institutional regulatory adherence."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "cf7c64b4-c0d8-43d4-a920-8c1c09356ca8",
+      "concept_name": "Responsibility of Management for Compliance with Laws and Regulations",
+      "definition": "Management, overseen by those charged with governance, is fundamentally responsible for ensuring that entity operations comply with all applicable laws and regulations. This includes maintaining internal controls, codes of conduct, and monitoring mechanisms to prevent and detect non-compliance.",
+      "terminology": [
+        "management responsibility",
+        "governance oversight",
+        "code of conduct",
+        "internal control systems"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "designing operating procedures to meet legal requirements",
+        "maintaining compliance registers and internal control systems",
+        "engaging legal advisors and enforcing codes of conduct"
+      ],
+      "exclusion": [
+        "auditor responsibility for preventing or detecting all legal breaches",
+        "external auditor legal advisory duties"
+      ],
+      "nearby_distinctions": [
+        "Contrasts with the auditor's role by placing primary operational accountability for legal adherence entirely on management and governance."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d243f3e0-0f08-4362-8248-53e58564b565",
+      "concept_name": "Responsibility of the Auditor",
+      "definition": "The auditor is responsible for obtaining reasonable assurance that financial statements are free from material misstatement caused by fraud or error, while taking the legal framework into account. Due to audit limitations and intentional concealment tactics like collusion or override, the auditor is not expected to detect all non-compliance.",
+      "terminology": [
+        "reasonable assurance",
+        "inherent limitations",
+        "concealment",
+        "direct and indirect laws"
+      ],
+      "instrument_references": [
+        "SA 250"
+      ],
+      "inclusion": [
+        "evaluating compliance with direct-effect laws like tax and labor regulations",
+        "assessing fundamental operating laws essential to business continuity",
+        "accounting for inherent limitations affecting legal non-compliance detection"
+      ],
+      "exclusion": [
+        "guaranteeing total prevention or detection of all legal non-compliance",
+        "making ultimate legal determinations on whether an act constitutes non-compliance"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between direct-effect laws with explicit financial disclosure impact and indirect operational laws where detection risk is higher."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "0acf309341cb49726fbefc79d82a47784a321ec41e189a043151055a27bb7ff3",
+  "artifact_id": "02c94852-2c09-4731-aea2-7bf6b3feb007",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8056,
+  "output_tokens": 3567,
+  "cost_usd": 0.011334299999999999,
+  "created_at": "2026-10-03T18:09:54.202549+00:00"
+}

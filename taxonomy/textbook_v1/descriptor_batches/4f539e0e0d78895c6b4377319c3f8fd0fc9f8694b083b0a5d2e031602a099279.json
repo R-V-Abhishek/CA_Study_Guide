@@ -1,0 +1,212 @@
+{
+  "descriptors": [
+    {
+      "node_id": "76b59074-62d8-4dcb-bc16-519b9648baa0",
+      "concept_name": "Impairment losses recognised or reversed in the period",
+      "definition": "An entity must disclose specific details for each material impairment loss or reversal recognized during the period for individual assets or cash-generating units. Required disclosures include underlying events, financial amounts, asset classification, and fair value hierarchy levels or valuation techniques.",
+      "terminology": [
+        "impairment loss",
+        "reversal",
+        "cash-generating unit",
+        "fair value hierarchy",
+        "recoverable amount"
+      ],
+      "instrument_references": [
+        "Ind AS 36",
+        "Ind AS 108",
+        "Ind AS 113"
+      ],
+      "inclusion": [
+        "events leading to recognition or reversal",
+        "amount of impairment loss or reversal",
+        "nature and segment of individual assets",
+        "description and class breakdown of cash-generating units",
+        "valuation hierarchy levels and key assumptions for fair value less costs of disposal"
+      ],
+      "exclusion": [
+        "immaterial aggregate impairment losses",
+        "general unallocated corporate assets lacking specific impairment events"
+      ],
+      "nearby_distinctions": [
+        "Unlike aggregate disclosures for minor losses, this node mandates granular reporting for individually material impairment events."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1c7cf73b-6fad-4f19-a354-bf7a79a1ac83",
+      "concept_name": "Other impairment losses/reversals material in aggregate to the financial statements",
+      "definition": "When individual impairment losses or reversals are not material on a standalone basis, an entity must disclose aggregate figures if they are material collectively. This includes identifying the primary asset classes affected and the principal economic events driving these aggregate adjustments.",
+      "terminology": [
+        "aggregate impairment losses",
+        "aggregate reversals",
+        "main classes of assets",
+        "material in aggregate"
+      ],
+      "instrument_references": [
+        "Ind AS 36"
+      ],
+      "inclusion": [
+        "aggregate impairment losses for the period",
+        "aggregate impairment reversals for the period",
+        "main classes of affected assets",
+        "main events and circumstances causing the losses and reversals"
+      ],
+      "exclusion": [
+        "material individual impairment losses reported separately",
+        "immaterial items not qualifying as material in aggregate"
+      ],
+      "nearby_distinctions": [
+        "Distinct from itemized disclosures of material individual losses by focusing strictly on pooled figures that become significant only when combined."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "234b5fcd-eb22-4eb4-b9f9-ab446e67b99b",
+      "concept_name": "Unallocated goodwill",
+      "definition": "If a portion of goodwill acquired in a business combination remains unallocated to any cash-generating unit at the end of the reporting period, the entity must disclose that specific amount. Additionally, the entity is required to provide clear reasons explaining why the goodwill allocation has not yet been completed.",
+      "terminology": [
+        "unallocated goodwill",
+        "business combination",
+        "cash-generating unit",
+        "allocation"
+      ],
+      "instrument_references": [
+        "Ind AS 36"
+      ],
+      "inclusion": [
+        "monetary amount of unallocated goodwill at period end",
+        "justifications explaining why the goodwill amount remains unallocated"
+      ],
+      "exclusion": [
+        "goodwill successfully allocated to specific cash-generating units or groups of units"
+      ],
+      "nearby_distinctions": [
+        "Differs from allocated goodwill disclosures because it addresses acquisition synergies that have not yet been successfully assigned to operating cash-generating units."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5f3b36ad-60e4-4b67-bc66-d3ac6c0e7338",
+      "concept_name": "Information to be disclosed for CGUs to which significant goodwill or indefinite – life intangible assets have been allocated",
+      "definition": "Entities holding cash-generating units with significant allocations of goodwill or indefinite-life intangibles must disclose detailed valuation inputs. This includes the basis of recoverable amount determination, growth rates, projection periods, and applied discount rates.",
+      "terminology": [
+        "significant goodwill",
+        "indefinite useful life",
+        "value in use",
+        "discount rate",
+        "key assumptions"
+      ],
+      "instrument_references": [
+        "Ind AS 36"
+      ],
+      "inclusion": [
+        "carrying amount of allocated goodwill and indefinite-life intangibles",
+        "basis of recoverable amount determination",
+        "management's key assumptions and projection approaches",
+        "forecast periods exceeding five years with justifications",
+        "growth rates and discount rates applied to cash flows"
+      ],
+      "exclusion": [
+        "cash-generating units where goodwill or indefinite-life intangibles are insignificant in comparison to total carrying amounts"
+      ],
+      "nearby_distinctions": [
+        "Applies strictly to units with significant carrying amounts of goodwill or indefinite-life intangibles, separating them from minor allocations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a60e0ca4-99c5-4f06-b4ac-aa0a4a005077",
+      "concept_name": "Information to be disclosed for CGUs to which insignificant goodwill or indefinite-life intangible assets have been allocated",
+      "definition": "When goodwill or indefinite-life intangibles are allocated across multiple units where each allocation is insignificant individually but significant in aggregate, specific disclosures are required. Entities must disclose the aggregate carrying amounts, shared key assumptions, and sensitivity details if reasonably possible changes would eliminate the headroom.",
+      "terminology": [
+        "insignificant allocation",
+        "aggregate carrying amount",
+        "key assumption",
+        "sensitivity analysis",
+        "headroom"
+      ],
+      "instrument_references": [
+        "Ind AS 36"
+      ],
+      "inclusion": [
+        "aggregate carrying amounts of insignificant allocations",
+        "description of shared key assumptions and management approaches",
+        "excess of recoverable amount over carrying amount when sensitive",
+        "required change in key assumptions to trigger impairment"
+      ],
+      "exclusion": [
+        "individually significant goodwill or indefinite-life intangible allocations"
+      ],
+      "nearby_distinctions": [
+        "Focuses on pooled insignificant units that share common key assumptions, contrasting with standalone reporting for individually large units."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "82d92efa-a317-4526-9bcd-2c28c0c4b56d",
+      "concept_name": "EXTRACTS OF FINANCIAL STATEMENTS OF LISTED ENTITY",
+      "definition": "This section provides practical illustrations and comparative standard overviews regarding impairment accounting policies applied by listed entities. It serves as a structural transition into comparing Indian Accounting Standards with predecessor accounting rules.",
+      "terminology": [
+        "financial statement extracts",
+        "listed entity",
+        "accounting policy",
+        "impairment"
+      ],
+      "instrument_references": [
+        "Ind AS 36",
+        "AS 28"
+      ],
+      "inclusion": [
+        "annual report references for impairment policies",
+        "comparative framework tables highlighting differences between Ind AS and AS"
+      ],
+      "exclusion": [
+        "hypothetical numerical exercises not drawn from actual financial statements"
+      ],
+      "nearby_distinctions": [
+        "Acts as an empirical application guide preceding technical standard comparisons rather than containing isolated theoretical rules."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "824a58bb-b1a3-447c-8f58-19800fecae28",
+      "concept_name": "SIGNIFICANT DIFFERENCES IN IND AS 36 VIS-À-VIS AS 28",
+      "definition": "This comparative framework details the structural and technical divergences between Ind AS 36 and AS 28 regarding asset scope, annual testing rules, and goodwill reversals. Major differences include mandatory annual testing for goodwill under Ind AS and differing treatments for goodwill impairment reversals.",
+      "terminology": [
+        "Ind AS 36",
+        "AS 28",
+        "goodwill reversal",
+        "annual impairment testing",
+        "financial assets",
+        "bottom-up and top-down test"
+      ],
+      "instrument_references": [
+        "Ind AS 36",
+        "AS 28",
+        "Ind AS 110",
+        "Ind AS 28",
+        "Ind AS 111"
+      ],
+      "inclusion": [
+        "inclusion of specific financial assets and exclusion of biological assets under Ind AS 36",
+        "mandatory annual impairment testing for indefinite-life intangibles and goodwill",
+        "prohibition of goodwill impairment reversals under Ind AS 36 versus allowance under AS 28",
+        "differences in bottom-up and top-down allocation approaches"
+      ],
+      "exclusion": [
+        "harmonized rules where Ind AS 36 and AS 28 maintain identical provisions without divergence"
+      ],
+      "nearby_distinctions": [
+        "Contrasts modern global convergence accounting treatments with legacy local accounting standards for asset impairment."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "4f539e0e0d78895c6b4377319c3f8fd0fc9f8694b083b0a5d2e031602a099279",
+  "artifact_id": "6fb162ea-fc0d-45ba-a883-8ee4d03cdfb3",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 5478,
+  "output_tokens": 2304,
+  "cost_usd": 0.007403399999999999,
+  "created_at": "2026-10-03T17:49:45.564047+00:00"
+}

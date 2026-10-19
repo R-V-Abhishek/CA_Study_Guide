@@ -1,0 +1,66 @@
+{
+  "descriptors": [
+    {
+      "node_id": "db9b9fd1-6960-447e-8be5-488e538309f2",
+      "concept_name": "Introduction to Dispute Resolution and Settlement Commission Cessation",
+      "definition": "The Income-tax Settlement Commission ceased operations from February 2021, and pending cases are handled by Interim Boards for Settlement. A dispute resolution scheme via Dispute Resolution Committees was introduced to provide early tax certainty for small and medium taxpayers.",
+      "terminology": [
+        "Income-tax Settlement Commission",
+        "Interim Boards for Settlement",
+        "Dispute Resolution Committee"
+      ],
+      "instrument_references": [
+        "Section 245C",
+        "Section 245MA",
+        "Notification No. 91 of 2021"
+      ],
+      "inclusion": [
+        "Pending settlement applications as of January 31, 2021",
+        "Disputes eligible for Dispute Resolution Committee"
+      ],
+      "exclusion": [
+        "New applications to the Settlement Commission filed on or after February 1, 2021"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between legacy settlement applications handled by Interim Boards and future dispute prevention handled by Dispute Resolution Committees."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a1719762-749b-4eb3-af21-b869589291de",
+      "concept_name": "Dispute Resolution Committee Constitution and Application",
+      "definition": "The Central Government constitutes regional Dispute Resolution Committees comprising two retired senior revenue officers and one serving commissioner to resolve specified tax variations. Eligible taxpayers can apply to the committee in the prescribed form along with the specified fee.",
+      "terminology": [
+        "Dispute Resolution Committee",
+        "Principal Chief Commissioner",
+        "Specified order"
+      ],
+      "instrument_references": [
+        "Section 245MA",
+        "Rule 44DAA",
+        "Rule 44DAB",
+        "Rule 44DAD"
+      ],
+      "inclusion": [
+        "Taxpayers opting for dispute resolution for variations in specified orders",
+        "Applications accompanied by the prescribed fee"
+      ],
+      "exclusion": [
+        "Taxpayers not fulfilling the specified conditions"
+      ],
+      "nearby_distinctions": [
+        "Contrasts the multi-member panel composition of retired and serving officers with single-officer adjudication authorities."
+      ],
+      "source_ambiguities": [
+        "The source text cuts off mid-sentence while detailing the draft order under section 144C(1)."
+      ]
+    }
+  ],
+  "input_hash": "d70cf69f1ca994b4b8706e39a065e325eee0a111b0f20187d920cd79184321e5",
+  "artifact_id": "e4c69a70-42f0-48af-bd49-9ae23a3eddf6",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 1836,
+  "output_tokens": 654,
+  "cost_usd": 0.0021858000000000003,
+  "created_at": "2026-10-03T18:22:27.161390+00:00"
+}

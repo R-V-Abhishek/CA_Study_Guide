@@ -1,0 +1,308 @@
+{
+  "descriptors": [
+    {
+      "node_id": "4182866c-21a5-46c8-ad3c-1f61893b93b4",
+      "concept_name": "Industry Profitability",
+      "definition": "Industry profitability evaluates the overall growth potential and financial returns of a sector using analytical frameworks like Michael E. Porter's five forces model. Higher competitive intensity within an industry drives rates of return toward a competitive floor, constraining profit margins.",
+      "terminology": [
+        "Competitive floor",
+        "Free market return",
+        "Return on invested capital",
+        "Industry structure"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Assessment of competitive intensity",
+        "Analysis of industry growth trajectories",
+        "Evaluation of market forces impacting returns"
+      ],
+      "exclusion": [
+        "Firm-specific financial accounting statements",
+        "Internal operational efficiency metrics"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from firm-level competitive advantage because it assesses sector-wide conditions rather than an individual organization's specific performance."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f3863431-b9ad-4631-9478-3e6eb5ce492b",
+      "concept_name": "Bargaining Power of Buyers",
+      "definition": "Buyer power represents the capacity of customers to dictate commercial terms and pressure profit margins through lower prices or higher service demands. This influence increases when buyers are concentrated, purchase high volumes, or face minimal switching costs.",
+      "terminology": [
+        "Switching cost",
+        "Buyer concentration",
+        "Price sensitivity",
+        "Undifferentiated products"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Customer concentration ratios",
+        "Switching cost evaluations",
+        "Volume purchase analysis relative to seller sales"
+      ],
+      "exclusion": [
+        "Supplier pricing strategies",
+        "Threats from non-traditional substitute goods"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from supplier bargaining power by focusing exclusively on the customer's leverage over industry participants rather than input providers."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "644f02c7-a7ab-46a4-ad41-60d88c466044",
+      "concept_name": "Bargaining Power of Suppliers",
+      "definition": "Supplier power governs the ability of input providers to influence the cost and quality of resources supplied to an industry. Power intensifies when suppliers are highly concentrated, provide differentiated inputs, or face limited competition from substitute products.",
+      "terminology": [
+        "Input costs",
+        "Supplier concentration",
+        "Differentiation",
+        "Resource dependency"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Analysis of input provider concentration",
+        "Evaluation of alternative resource availability",
+        "Assessment of supplier product differentiation"
+      ],
+      "exclusion": [
+        "Customer purchasing volumes",
+        "Entry barriers for new industry competitors"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from buyer bargaining power by focusing on upstream resource constraints rather than downstream customer demands."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a63899e8-9bfc-4e1e-b3eb-5f68682e9bbe",
+      "concept_name": "Understanding Customers and Markets",
+      "definition": "Market understanding involves analyzing distinct customer groups and operational segments to identify primary areas of business activity. Because operating across every market segment is rarely beneficial, firms rely on segmentation analysis to target optimal operational domains.",
+      "terminology": [
+        "Market segment",
+        "Segmentation analysis",
+        "Target audience",
+        "Operational domain"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Identification of target customer groups",
+        "Evaluation of market segmentation criteria"
+      ],
+      "exclusion": [
+        "Macroeconomic regulatory analysis",
+        "Upstream supplier power assessment"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from broad industry profitability analysis by focusing specifically on customer categorization and market partitioning rather than macro-level competition forces."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5161ca3b-2288-4eb5-898f-b40379bb4b96",
+      "concept_name": "Market, Market Segment and Market Segmentation Analysis",
+      "definition": "Market segmentation partitions a broad customer base into defined sub-groups characterized by shared traits, needs, or behaviors. This analytical process enables organizations to focus marketing efforts and select optimal operating segments within a homogeneous market.",
+      "terminology": [
+        "Market segment",
+        "Homogeneous market",
+        "Customer sub-groups",
+        "Shared characteristics"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Grouping customers by shared traits",
+        "Criteria for recognizing valid market segments"
+      ],
+      "exclusion": [
+        "General industry structure analysis",
+        "Porter's five forces evaluation"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general market definition by emphasizing the structural breakdown of buyers into internally uniform and externally distinct sub-categories."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "52172a5e-652b-4a5e-b754-3ba7c056a669",
+      "concept_name": "Market",
+      "definition": "A market comprises active business firms selling products or rendering services alongside current and potential buyers. Markets may operate through physical brick-and-mortar storefronts or via virtual electronic platforms.",
+      "terminology": [
+        "Physical market",
+        "Virtual market",
+        "Sellers",
+        "Potential buyers"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Physical retail locations",
+        "Virtual electronic platforms",
+        "Current and prospective buyers"
+      ],
+      "exclusion": [
+        "Internal corporate resource allocation",
+        "Proprietary cost accounting systems"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from a market segment by representing the entire aggregate arena of buyers and sellers rather than a specialized sub-category of customers."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b71d2b8c-4786-44b3-ac3e-892a86dddd60",
+      "concept_name": "Segment or Market Segment",
+      "definition": "A market segment represents a distinct category of customers possessing similar preferences within a broader market. To be recognized effectively, segments must be internally homogeneous, externally heterogeneous, identifiable, responsive, and of reasonable scale.",
+      "terminology": [
+        "Internal homogeneity",
+        "External heterogeneity",
+        "Identifiability",
+        "Responsiveness"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Criteria for segment validity",
+        "Demographic and behavioral sub-grouping"
+      ],
+      "exclusion": [
+        "Unsegmented broad aggregate markets",
+        "Generalized industry-wide competitor analysis"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from an unrefined general market by requiring strict internal uniformity and external differentiation across defined customer traits."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ac4f0d3f-f7bc-4c5a-841c-2d0d1a59c0e4",
+      "concept_name": "Segmentation Analysis or Market Segmentation Analysis",
+      "definition": "Segmentation analysis divides a broad target customer base into smaller sub-groups using shared characteristics such as demographics or psychographics. Organizations utilize these distinct customer subsets to formulate targeted marketing and operational strategies.",
+      "terminology": [
+        "Demographic segmentation",
+        "Psychographic segmentation",
+        "Behavioural segmentation",
+        "Product segmentation"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Product feature categorization",
+        "Demographic and psychographic grouping",
+        "Behavioral and geographic classification"
+      ],
+      "exclusion": [
+        "Macro industry environmental scanning",
+        "Supplier bargaining power evaluations"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general market identification by actively applying specific classification parameters to split aggregate consumers into actionable operational targets."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "229ebaa5-446e-4d7d-93cd-167c8b024f5c",
+      "concept_name": "Basis of Segmentation",
+      "definition": "The basis of segmentation establishes the foundational parameters used to categorize customers, spanning product attributes, demographics, psychographics, behaviors, and geographies. Applying these varied metrics allows firms to implement structured segmentation, targeting, and positioning approaches.",
+      "terminology": [
+        "Product segmentation",
+        "Demographic segmentation",
+        "Psychographic segmentation",
+        "Geographic segmentation"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Product and feature categorizations",
+        "Lifestyle and behavioral habit groupings",
+        "Geographic and urbanity classifications"
+      ],
+      "exclusion": [
+        "Financial capital budgeting assessments",
+        "Industry-wide supplier concentration ratios"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from the abstract concept of market segmentation by detailing the concrete operational dimensions and criteria utilized to group buyers."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "150b3754-a645-4f46-9372-e6fa6a958848",
+      "concept_name": "Basis of Competition",
+      "definition": "The basis of competition defines the underlying reasons why customers select a particular business over its market rivals, driven by product features, style, availability, or price. Identifying these drivers allows firms to evaluate current risks and uncover sustainable competitive advantages.",
+      "terminology": [
+        "Strategic competition",
+        "Natural competition",
+        "Customer choice drivers",
+        "Competitive advantage"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Analysis of demand and customer choice factors",
+        "Evaluation of price and cost determinants",
+        "Strategic resource deployment insights"
+      ],
+      "exclusion": [
+        "Routine operational cost accounting",
+        "Internal financial statement auditing"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general industry forces by pinpointing the specific micro-level elements that sway customer preference toward one specific competitor."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f4ed6f54-2d00-4539-bfc5-b04b9a416db2",
+      "concept_name": "Industry Key Success Factors",
+      "definition": "Industry key success factors represent critical elements that an organization must execute effectively to generate and sustain a competitive advantage. These operational priorities are tracked using specific performance indicators and must be periodically reassessed as business environments evolve.",
+      "terminology": [
+        "Critical success factors",
+        "Key performance indicators",
+        "Strategic planning",
+        "Core competencies"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Identification of critical performance drivers",
+        "Attachment of measurable key performance indicators",
+        "Periodic reassessment under dynamic environments"
+      ],
+      "exclusion": [
+        "Static historical financial metrics",
+        "Unrelated administrative overhead tasks"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general strategic goals by focusing strictly on the mandatory operational capabilities required to outperform peers in a specific market."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "01eec86d-98f5-4bfa-8297-8b69f4fc99d6",
+      "concept_name": "Core-Competencies Analysis",
+      "definition": "Core competencies are unique organizational strengths derived from specialized resources and capabilities that enable a firm to deliver distinct customer value and achieve market leadership. An effective core competency must pass specific evaluative parameters regarding relevance, difficulty of imitation, and breadth of application.",
+      "terminology": [
+        "Cost leadership",
+        "Product differentiation",
+        "Difficulty of imitation",
+        "Breadth of application"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Evaluation of resource uniqueness",
+        "Testing for market relevance and imitation difficulty",
+        "Exploitation of competencies across value chains"
+      ],
+      "exclusion": [
+        "Standardized routine operational processes",
+        "Generic industry-wide cost structures"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from key success factors by representing deeply embedded organizational traits that competitors cannot easily copy, rather than broad industry-wide requirements."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "047102caf873cfea59ff20fe6ee460e5b09759a0b73a4443589e17fb752b7b80",
+  "artifact_id": "aefcd45d-6353-4580-9c39-054c3d302731",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8045,
+  "output_tokens": 3157,
+  "cost_usd": 0.010306,
+  "created_at": "2026-10-03T18:25:49.595138+00:00"
+}

@@ -1,0 +1,359 @@
+{
+  "descriptors": [
+    {
+      "node_id": "334f9ae2-d545-4a50-ae83-5cebeba0db75",
+      "concept_name": "Cost of Acquisition for Specific Intangible and Other Rights",
+      "definition": "The cost of acquisition for specified intangible assets and rights purchased from a previous owner is the actual purchase price. For self-generated assets within this category, the cost of acquisition is treated as nil.",
+      "terminology": [
+        "cost of acquisition",
+        "previous owner",
+        "purchase price",
+        "self-generated",
+        "nil"
+      ],
+      "instrument_references": [
+        "Section 90(3)",
+        "Section 90(3)(a)",
+        "Section 90(3)(b)",
+        "Section 90(3)(c)",
+        "Section 32(1)"
+      ],
+      "inclusion": [
+        "Goodwill of a business or profession",
+        "Trademark or brand name",
+        "Right to manufacture, produce or process any article or thing",
+        "Tenancy rights and stage carriage permits"
+      ],
+      "exclusion": [
+        "Tangible assets such as land or buildings",
+        "Assets acquired under circumstances not specified in the section"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from the cost of improvement which is taken as nil for intangible assets under Section 90(1)."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "93277795-2135-4210-bc9b-11386688164e",
+      "concept_name": "Cost of Improvement for Intangible and Other Assets",
+      "definition": "The cost of improvement for goodwill and other specified intangible assets is taken as nil. For other capital assets, it includes capital expenditures incurred on additions or alterations by the previous owner or the assessee depending on the acquisition timeline and mode.",
+      "terminology": [
+        "cost of improvement",
+        "capital expenditure",
+        "addition or alteration",
+        "previous owner"
+      ],
+      "instrument_references": [
+        "Section 90(1)",
+        "Section 90(1)(a)",
+        "Section 90(1)(b)"
+      ],
+      "inclusion": [
+        "Capital expenditures on additions to tangible capital assets after 1.4.2001",
+        "Capital outlays by previous owners where applicable under Section 73"
+      ],
+      "exclusion": [
+        "Goodwill of a business or profession",
+        "Intangible assets like trademarks or manufacturing rights"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from the cost of acquisition, which relates to the initial purchase price or value rather than subsequent capital additions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0ba7ba9a-0d83-4d25-841e-60454955d9d7",
+      "concept_name": "Computation of Capital Gains in Case of Depreciable Assets",
+      "definition": "Capital gains on the transfer of depreciable assets forming part of a block of assets are deemed short-term capital gains when the full value of consideration exceeds the aggregate of transfer expenses, opening written down value, and actual cost of new acquisitions. If an entire block of assets ceases to exist due to full transfer, the resulting excess or deficit is treated accordingly under overriding rules.",
+      "terminology": [
+        "block of assets",
+        "written down value",
+        "short-term capital gains",
+        "full value of consideration",
+        "actual cost"
+      ],
+      "instrument_references": [
+        "Section 74",
+        "Section 75",
+        "Section 2(101)",
+        "Section 33(2)",
+        "Section 72",
+        "Section 73"
+      ],
+      "inclusion": [
+        "Assets forming part of a depreciable block of assets",
+        "Power sector depreciable assets under specific provisions"
+      ],
+      "exclusion": [
+        "Non-depreciable capital assets governed by standard holding period criteria for long-term or short-term classification"
+      ],
+      "nearby_distinctions": [
+        "Overrides standard short-term asset definitions based on holding periods by automatically classifying gains from depreciable asset blocks as short-term."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0f6ef10b-ee4f-4c51-b230-30b87eebbc72",
+      "concept_name": "Computation of Capital Gains for Market Linked Debentures and Specified Mutual Funds",
+      "definition": "Capital gains arising from the transfer, redemption, or maturity of specified mutual fund units, market linked debentures, or unlisted bonds and debentures are mandatorily treated as short-term capital gains. The gain is computed by deducting the cost of acquisition and transfer expenditures from the full value of consideration without allowing deductions for securities transaction tax.",
+      "terminology": [
+        "market linked debenture",
+        "specified mutual fund",
+        "short-term capital gains",
+        "securities transaction tax",
+        "redemption"
+      ],
+      "instrument_references": [
+        "Section 76",
+        "Section 2(101)",
+        "Section 72"
+      ],
+      "inclusion": [
+        "Units of specified mutual funds acquired on or after 1.4.2023",
+        "Market linked debentures",
+        "Unlisted bonds and debentures transferred or redeemed on or after 23.7.2024"
+      ],
+      "exclusion": [
+        "Assets whose classification depends upon the traditional holding period rather than statutory overriding rules"
+      ],
+      "nearby_distinctions": [
+        "Differs from general capital gains provisions by overriding normal holding period requirements and denying securities transaction tax deductions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a94fadfd-ed59-4cf3-9cd6-544230645eeb",
+      "concept_name": "Capital Gains in Respect of Slump Sale",
+      "definition": "A slump sale involves transferring one or more undertakings for a lump sum consideration without assigning values to individual assets and liabilities. The net worth of the undertaking is deemed the cost of acquisition and improvement, while the fair market value serves as the full value of consideration.",
+      "terminology": [
+        "slump sale",
+        "undertaking",
+        "net worth",
+        "lump sum consideration",
+        "fair market value"
+      ],
+      "instrument_references": [
+        "Section 77",
+        "Section 2(103)",
+        "Section 77(3)(a)",
+        "Section 77(3)(b)",
+        "Rule 53"
+      ],
+      "inclusion": [
+        "Transfer of an entire undertaking, division, or business activity for a lump sum",
+        "Assets held for more than 36 months taxed as long-term and 36 months or less as short-term"
+      ],
+      "exclusion": [
+        "Transfer of individual assets or liabilities not constituting an active business undertaking"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from itemized asset sales because individual asset valuation is absent, utilizing undertaking net worth instead."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f1b97323-63f5-488a-81de-8626a98a9e28",
+      "concept_name": "Deemed Full Value of Consideration for Land or Building",
+      "definition": "When land or buildings are transferred at a consideration lower than the stamp duty value, the stamp duty value is deemed to be the full value of consideration if it exceeds 110 percent of the actual consideration. Special alignment rules apply when the agreement date and registration date differ and consideration is paid through specified banking or online modes.",
+      "terminology": [
+        "stamp duty value",
+        "full value of consideration",
+        "agreement date",
+        "registration date",
+        "specified banking or online mode"
+      ],
+      "instrument_references": [
+        "Section 78",
+        "Section 79",
+        "Section 80"
+      ],
+      "inclusion": [
+        "Transfer of land, buildings, or both",
+        "Transactions where stamp duty value exceeds 110 percent of actual proceeds"
+      ],
+      "exclusion": [
+        "Transactions where the stamp duty value is within 110 percent of the actual sale consideration"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard sales where actual consideration received is taken, applying statutory substitution only when thresholds are breached."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "734cf54a-e636-420b-9b9a-51337e6234ce",
+      "concept_name": "Tax Treatment and Cost Adjustment for Advance Money Received",
+      "definition": "Advance money received during negotiations for a capital asset that is subsequently forfeited must be deducted from the cost of acquisition, written down value, or fair market value unless it has been taxed as income under specific provisions. Advances forfeited on or after 1st April 2014 are taxable under income from other sources, preventing double taxation through cost deductions.",
+      "terminology": [
+        "advance money",
+        "forfeited",
+        "cost of acquisition",
+        "income from other sources",
+        "double taxation"
+      ],
+      "instrument_references": [
+        "Section 81",
+        "Section 92(2)(h)",
+        "Section 56(2)(ix)"
+      ],
+      "inclusion": [
+        "Advance money retained following the breakdown of asset transfer negotiations",
+        "Advances forfeited before 1st April 2014 for cost reduction purposes"
+      ],
+      "exclusion": [
+        "Advances received and forfeited by a previous owner rather than the current assessee"
+      ],
+      "nearby_distinctions": [
+        "Distinguished by timing; advances forfeited before 1-4-2014 reduce acquisition cost, whereas later forfeitures are taxed separately as other income."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b9cb3624-4304-42d7-87b0-54d823a3b61e",
+      "concept_name": "Exemptions for US 64 Units and Compulsory Acquisition of Agricultural Land",
+      "definition": "Capital gains arising from the transfer of Unit Scheme 1964 units are exempt from tax. Similarly, capital gains derived by individuals or Hindu Undivided Families from the compulsory acquisition of urban agricultural land used for farming are exempt under specified conditions.",
+      "terminology": [
+        "exemption",
+        "compulsory acquisition",
+        "agricultural land",
+        "Unit Scheme 1964",
+        "compensation"
+      ],
+      "instrument_references": [
+        "Schedule II",
+        "Schedule III"
+      ],
+      "inclusion": [
+        "Income from transfer of US 64 units on or after 1.4.2002",
+        "Compensation from compulsory acquisition of specified urban agricultural land held by individuals or HUFs"
+      ],
+      "exclusion": [
+        "Voluntary sales of agricultural land not governed by compulsory acquisition laws or government approvals"
+      ],
+      "nearby_distinctions": [
+        "Differs from regular taxable capital gains by providing complete statutory exemption based on asset type and acquisition context."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9995d244-f470-4690-9467-4e06bc0b8735",
+      "concept_name": "Reference to Valuation Officer for Capital Assets",
+      "definition": "The Assessing Officer is empowered to refer the valuation of a capital asset to a Valuation Officer to determine its fair market value. This occurs when the value claimed using a registered valuer varies from the true market value or exceeds prescribed percentage and monetary thresholds.",
+      "terminology": [
+        "Valuation Officer",
+        "fair market value",
+        "registered valuer",
+        "Assessing Officer",
+        "prescribed percentage"
+      ],
+      "instrument_references": [
+        "Section 91",
+        "Rule 55"
+      ],
+      "inclusion": [
+        "Valuation references where assessee valuations differ from market estimates",
+        "Discrepancies exceeding 15 percent and ten lakh rupees"
+      ],
+      "exclusion": [
+        "Asset values accepted by the Assessing Officer without variance or suspicion"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from self-assessed valuations by invoking official valuation machinery to verify transactional or historical baseline figures."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b0fe0457-5228-4d97-843c-0a7aa24bda35",
+      "concept_name": "Tax on Short-Term Capital Gains on Specified Securities",
+      "definition": "Short-term capital gains arising from the transfer of equity shares, equity-oriented fund units, or business trust units are chargeable at a concessional rate of 20 percent if subject to securities transaction tax. Resident individuals and HUFs can adjust unexhausted basic exemption limits against these gains.",
+      "terminology": [
+        "short-term capital gains",
+        "concessional rate",
+        "securities transaction tax",
+        "basic exemption limit",
+        "equity share"
+      ],
+      "instrument_references": [
+        "Section 196",
+        "Chapter VII of Finance (No. 2) Act, 2004",
+        "Chapter VIII"
+      ],
+      "inclusion": [
+        "Equity shares in a company",
+        "Units of an equity-oriented fund",
+        "Units of a business trust"
+      ],
+      "exclusion": [
+        "Short-term capital gains not subject to securities transaction tax except specified IFSC transactions"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from ordinary short-term capital gains by offering a flat concessional tax rate and allowing basic exemption adjustments for residents."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "79572dfc-6bca-424d-a60f-2d3c40286672",
+      "concept_name": "Taxation and Indexation of Long-Term Capital Gains",
+      "definition": "Long-term capital gains on general assets are taxable at a concessional rate of 12.5 percent, with resident individuals and HUFs permitted to absorb unexhausted basic exemption limits. Specific indexation benefits apply to land or buildings acquired before a designated threshold date.",
+      "terminology": [
+        "long-term capital gains",
+        "concessional rate",
+        "indexation",
+        "basic exemption limit",
+        "foreign currency fluctuation"
+      ],
+      "instrument_references": [
+        "Section 197",
+        "Section 198",
+        "Section 72(6)",
+        "Chapter VIII"
+      ],
+      "inclusion": [
+        "Long-term capital assets other than those under section 198",
+        "Land or buildings acquired before 23.7.2024 for resident individuals and HUFs"
+      ],
+      "exclusion": [
+        "Short-term capital gains and assets governed by special equity taxation sections"
+      ],
+      "nearby_distinctions": [
+        "Differs from section 198 assets by applying to broader long-term asset categories and incorporating potential indexation adjustments for older real estate."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5103ab66-2be2-471d-98e3-f0921d5c72d6",
+      "concept_name": "Tax on Long-Term Capital Gains on Certain Assets",
+      "definition": "Long-term capital gains exceeding one lakh twenty-five thousand rupees derived from equity shares, equity-oriented funds, or business trust units are taxable at 12.5 percent. This rate applies provided securities transaction tax requirements are fulfilled on both acquisition and transfer, subject to notified exceptions.",
+      "terminology": [
+        "long-term capital gains",
+        "equity share",
+        "equity oriented fund",
+        "business trust",
+        "securities transaction tax"
+      ],
+      "instrument_references": [
+        "Section 198",
+        "Section 197",
+        "Notification No. 60/2018"
+      ],
+      "inclusion": [
+        "Equity shares in a company subject to STT",
+        "Units of equity-oriented funds and business trusts",
+        "Exceeding the threshold of one lakh twenty-five thousand rupees"
+      ],
+      "exclusion": [
+        "Long-term capital gains below the statutory threshold of one lakh twenty-five thousand rupees"
+      ],
+      "nearby_distinctions": [
+        "Distinguished by imposing a specific monetary exemption threshold and strict mandatory securities transaction tax payment conditions for qualification."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "e90c140464fda86ccc281e2c554fbdd8a8acb627084d76e10fe71e5af22ad2db",
+  "artifact_id": "2947dbc8-c1a3-4b69-b5bb-47c41b7adc38",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 9950,
+  "output_tokens": 4174,
+  "cost_usd": 0.01342,
+  "created_at": "2026-10-03T18:17:12.000055+00:00"
+}

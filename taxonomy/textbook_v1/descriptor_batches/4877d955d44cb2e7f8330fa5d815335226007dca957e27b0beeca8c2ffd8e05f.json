@@ -1,0 +1,350 @@
+{
+  "descriptors": [
+    {
+      "node_id": "ee93052b-b55a-4c26-a13d-115b90ecec3c",
+      "concept_name": "TDS on cash withdrawal [Section 194N]",
+      "definition": "Banking institutions, co-operative banks, and post offices must deduct tax at source on cash withdrawals exceeding specific statutory thresholds during a previous year. Higher tax rates and lower withdrawal limits apply to recipients who have failed to file income tax returns for the preceding three assessment years.",
+      "terminology": [
+        "banking company",
+        "co-operative society",
+        "post office",
+        "cash withdrawal",
+        "default in filing return"
+      ],
+      "instrument_references": [
+        "Section 194N",
+        "Section 139(1)",
+        "Banking Regulation Act, 1949"
+      ],
+      "inclusion": [
+        "cash payments exceeding 1 crore rupees generally",
+        "cash payments exceeding 20 lakhs rupees for non-filers of returns"
+      ],
+      "exclusion": [
+        "payments made to the Government",
+        "payments made to specified banking companies or co-operative societies"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard payment-based TDS provisions by targeting physical cash withdrawals from bank accounts based on aggregate annual volume."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "37e93cdc-235b-4f96-80fc-4768a47bfa67",
+      "concept_name": "TDS on certain payment by e-commerce operator to e-commerce participant [Section 194-O]",
+      "definition": "E-commerce operators facilitating the sale of goods or provision of services by participants through digital platforms are required to deduct tax at source on the gross transaction value. Direct payments made by purchasers to participants are deemed to be amounts credited or paid by the e-commerce operator for deduction purposes.",
+      "terminology": [
+        "e-commerce operator",
+        "e-commerce participant",
+        "digital facility",
+        "gross amount",
+        "deemed credit"
+      ],
+      "instrument_references": [
+        "Section 194-O"
+      ],
+      "inclusion": [
+        "gross amount of sales of goods or provision of services facilitated through digital platforms",
+        "direct payments made by purchasers to participants"
+      ],
+      "exclusion": [
+        "sums paid to individual or HUF participants with gross sales up to 5 lakh rupees who have furnished PAN or Aadhaar",
+        "advertisement hosting services not connected with the sale of goods or services"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard business payment deductions by applying specifically to digital platform facilitators governing multi-party e-commerce transactions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e53a41fc-4264-4484-96e8-98234bee4318",
+      "concept_name": "Deduction of tax by a specified bank in case of specified senior citizen [Section 194P]",
+      "definition": "Specified scheduled banks are mandated to compute and deduct tax at source on the total income of resident senior citizens aged 75 years or older who maintain pension and interest income within the same bank. This mechanism relieves eligible senior citizens from the statutory obligation of filing an annual income tax return.",
+      "terminology": [
+        "specified bank",
+        "specified senior citizen",
+        "pension income",
+        "default tax regime",
+        "Form 12BBA"
+      ],
+      "instrument_references": [
+        "Section 194P",
+        "Section 115BAC",
+        "Rule 26D",
+        "Reserve Bank of India Act, 1934"
+      ],
+      "inclusion": [
+        "resident individuals aged 75 years or more receiving pension and interest income from the same bank",
+        "total income computed after Chapter VI-A deductions and section 87A rebates"
+      ],
+      "exclusion": [
+        "senior citizens with income sources outside of pension and interest from the specified bank",
+        "individuals failing to submit the prescribed verification declaration"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from regular employer salary TDS by placing deduction responsibility directly on designated banks for elderly taxpayers with restricted income profiles."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "57ce37fe-a7ff-404c-a458-111e44b6a362",
+      "concept_name": "Deduction of tax at source on purchase of goods [Section 194Q]",
+      "definition": "Large business buyers whose preceding financial year turnover exceeds specified monetary limits must deduct tax at source when purchasing goods from a resident seller exceeding aggregate thresholds. The deduction occurs at the time of credit to the seller's account or actual payment, whichever happens earlier.",
+      "terminology": [
+        "buyer",
+        "resident-seller",
+        "purchase of goods",
+        "turnover",
+        "suspense account"
+      ],
+      "instrument_references": [
+        "Section 194Q",
+        "Section 206C",
+        "Section 206C(1H)"
+      ],
+      "inclusion": [
+        "sum paid or credited for purchasing goods exceeding 50 lakhs rupees in a previous year",
+        "buyers with business turnover exceeding 10 crores rupees in the preceding financial year"
+      ],
+      "exclusion": [
+        "transactions subject to tax deduction under other provisions where section 194Q priority rules apply",
+        "transactions liable to TCS under specific sub-sections of section 206C"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from TCS provisions under section 206C(1H) by placing the compliance burden directly on the high-turnover buyer rather than the seller."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7680f90a-fc77-42c9-947e-64b77c7f66ac",
+      "concept_name": "Deduction of tax at source on benefit or perquisite in respect of business or profession [Section 194R]",
+      "definition": "Any person providing business or professional benefits or perquisites to a resident must ensure tax is deducted at source before release, regardless of whether the benefit is in cash, kind, or partly both. If the benefit is wholly or partly in kind and available cash is insufficient to cover tax, the deductor must ensure tax is paid prior to release.",
+      "terminology": [
+        "benefit or perquisite",
+        "business or profession",
+        "person responsible for providing",
+        "in kind",
+        "resident"
+      ],
+      "instrument_references": [
+        "Section 194R"
+      ],
+      "inclusion": [
+        "benefits or perquisites arising from business or exercise of a profession",
+        "perquisites provided wholly in kind, partly in kind, or in cash"
+      ],
+      "exclusion": [
+        "benefits or perquisites to a resident where aggregate value does not exceed 20,000 rupees in a financial year",
+        "providers being individuals or HUFs whose business turnover or professional receipts do not exceed statutory thresholds"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard monetary income TDS by capturing non-monetary or mixed business advantages provided to trade partners or professionals."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "fdbd3547-da79-4594-a498-255d777bdc7e",
+      "concept_name": "Non-applicability of TDS provisions on payments made to Corporations whose income is exempt under section 10(26BBB) [Circular No.7/2015, dated 23-04-2015]",
+      "definition": "Tax deduction at source is not required for payments made to specific welfare corporations established for ex-servicemen whose income enjoys unconditional statutory exemption and who are exempt from filing returns. This policy aligns with administrative exemptions granted to entities whose total income falls outside the tax net.",
+      "terminology": [
+        "unconditional exemption",
+        "ex-servicemen welfare corporation",
+        "statutory return filing",
+        "tax deduction at source"
+      ],
+      "instrument_references": [
+        "Section 10(26BBB)",
+        "Section 139",
+        "Circular No. 7/2015",
+        "Circular No. 4/2002"
+      ],
+      "inclusion": [
+        "corporations established by central or state acts for the welfare and economic upliftment of ex-servicemen"
+      ],
+      "exclusion": [
+        "entities whose income is taxable under the Act or which are statutorily required to file returns"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general operational exemptions by relying on dual criteria of unconditional income exemption and lack of statutory return filing obligations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8f718ca1-c45e-4284-a34b-96a028c30100",
+      "concept_name": "Income payable “net of tax” [Section 195A]",
+      "definition": "When an agreement stipulates that tax chargeable on income is borne by the payer, the taxable sum must be grossed up to an amount that equals the net payable sum after tax deduction. Even when income is settled on a net basis, the deductor remains legally obligated to issue a valid tax deduction certificate to the payee.",
+      "terminology": [
+        "net of tax",
+        "grossing up",
+        "tax chargeable",
+        "TDS certificate",
+        "payer"
+      ],
+      "instrument_references": [
+        "Section 195A",
+        "Section 192(1A)",
+        "Section 198",
+        "Section 199",
+        "Section 203",
+        "Circular No. 785"
+      ],
+      "inclusion": [
+        "agreements where the payer assumes the tax liability of the payee",
+        "issuance of tax deduction certificates for net-of-tax transactions"
+      ],
+      "exclusion": [
+        "employer-paid tax on non-monetary perquisites under specific statutory exceptions"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard gross deduction by requiring mathematical upward adjustment of income before applying tax rates when tax is contractually absorbed by the payer."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5ed96e44-c023-42e0-acbd-307fbff30f4e",
+      "concept_name": "Interest or dividend or other sums payable to Government, Reserve Bank or certain corporations [Section 196]",
+      "definition": "Tax deduction at source is prohibited on any interest, dividend, or other income sums payable to the Government, the Reserve Bank of India, specific tax-exempt statutory corporations, or specified mutual funds. This exemption applies when such entities own the underlying securities or shares or maintain full beneficial interest.",
+      "terminology": [
+        "Reserve Bank of India",
+        "statutory corporation",
+        "Mutual Fund",
+        "beneficial interest",
+        "non-deduction"
+      ],
+      "instrument_references": [
+        "Section 196",
+        "Section 10(23D)"
+      ],
+      "inclusion": [
+        "sums payable to the Government or Reserve Bank of India",
+        "interest or dividends on securities or shares owned by exempt statutory corporations or specified mutual funds"
+      ],
+      "exclusion": [
+        "payments made to taxable commercial entities or individuals lacking statutory exemption status"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from lower deduction certificates by offering blanket statutory immunity from tax deduction for sovereign and apex institutional bodies."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a80bd724-78c1-4ca8-8c32-f39cb740308a",
+      "concept_name": "CERTIFICATE FOR DEDUCTION OF TAX AT A LOWER RATE [SECTION 197]",
+      "definition": "Assessees can apply to the Assessing Officer for a certificate authorizing tax deduction at reduced rates or zero deduction when their estimated total income justifies it. Once issued, payers must deduct tax according to the certificate terms until the Assessing Officer cancels it.",
+      "terminology": [
+        "Assessing Officer",
+        "lower rate certificate",
+        "non-deduction",
+        "estimated total income",
+        "rates in force"
+      ],
+      "instrument_references": [
+        "Section 197",
+        "Section 194Q"
+      ],
+      "inclusion": [
+        "applications by recipients for reduced or nil TDS certificates across specified income streams"
+      ],
+      "exclusion": [
+        "payments where recipient total income levels render lower deduction unjustified"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from self-declaration mechanisms by requiring formal administrative verification and certification by the Assessing Officer."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c20bea10-0b99-44aa-bd88-a2028689b4c9",
+      "concept_name": "No Deduction In Certain Cases [Section 197A]",
+      "definition": "Resident individuals and non-corporate entities can furnish written declarations confirming that their estimated total income for the year results in a nil tax liability, thereby avoiding tax deduction at source. However, filing such declarations is barred if the aggregate amount of specified income streams exceeds the basic exemption limit.",
+      "terminology": [
+        "declaration",
+        "nil tax liability",
+        "basic exemption limit",
+        "non-corporate entity",
+        "estimated total income"
+      ],
+      "instrument_references": [
+        "Section 197A",
+        "Section 194",
+        "Section 194EE"
+      ],
+      "inclusion": [
+        "declarations by resident individuals for dividends and NSS payments",
+        "declarations by non-company and non-firm entities for interest, rent, and insurance commissions"
+      ],
+      "exclusion": [
+        "cases where aggregate income under specified categories exceeds the basic exemption threshold"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from Section 197 certificates by utilizing taxpayer self-declarations rather than formal Assessing Officer authorization."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "71a1a395-e79a-431d-8189-83d1edff4b94",
+      "concept_name": "MISCELLANEOUS PROVISIONS",
+      "definition": "Tax deducted at source and foreign tax credits are legally deemed to be income received for total income computation, subject to explicit statutory exceptions. Tax remitted to the Central Government is treated as tax paid on behalf of the primary income owner, with credit governed by prescribed administrative rules.",
+      "terminology": [
+        "deemed income received",
+        "tax credit",
+        "Central Government",
+        "deductee",
+        "Rule 37BA"
+      ],
+      "instrument_references": [
+        "Section 198",
+        "Section 199",
+        "Rule 37BA",
+        "Section 192(1A)",
+        "Section 194N"
+      ],
+      "inclusion": [
+        "treating deducted tax amounts as income received for computation purposes",
+        "allocating tax credit to deductees or alternate assessable persons based on reporting rules"
+      ],
+      "exclusion": [
+        "employer-paid tax on non-monetary perquisites and section 194N deductions from being deemed income received"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from primary deduction mechanics by establishing post-deduction tax accounting, income grossing rules, and credit attribution frameworks."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e0089401-9b8c-4786-a99f-53ad52a45f0a",
+      "concept_name": "Tax deducted is income received [Section 198]",
+      "definition": "All taxes deducted under statutory provisions and eligible foreign tax deductions are treated as income received when computing an assessee's total income. Specific statutory outflows, such as non-monetary perquisite taxes paid by employers and certain cash withdrawal deductions, are excluded from this income-inclusion rule.",
+      "terminology": [
+        "deemed income received",
+        "tax deducted",
+        "foreign tax deduction",
+        "computation of income"
+      ],
+      "instrument_references": [
+        "Section 198",
+        "Section 192(1A)",
+        "Section 194N"
+      ],
+      "inclusion": [
+        "all sums deducted under Chapter XVII TDS provisions",
+        "eligible foreign income tax deductions allowed as credit"
+      ],
+      "exclusion": [
+        "employer-paid tax on non-monetary perquisites",
+        "tax deducted under section 194N on cash withdrawals"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from gross cash receipts by legally mandating the addition of withheld tax amounts back into the taxpayer's computed income base."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "4877d955d44cb2e7f8330fa5d815335226007dca957e27b0beeca8c2ffd8e05f",
+  "artifact_id": "709b89a3-dc01-4355-bec1-d27da08bc4e4",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 10308,
+  "output_tokens": 4241,
+  "cost_usd": 0.0136949,
+  "created_at": "2026-10-03T18:17:51.722812+00:00"
+}

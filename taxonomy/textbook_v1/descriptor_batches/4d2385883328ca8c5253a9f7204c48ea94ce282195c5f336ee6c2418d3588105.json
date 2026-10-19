@@ -1,0 +1,228 @@
+{
+  "descriptors": [
+    {
+      "node_id": "4cdaadda-4702-4106-b1e6-21e01f91b717",
+      "concept_name": "Clubbing of Income Introduction and Transfer of Income without Asset",
+      "definition": "Clubbing provisions include the income of another person in the assessee's total income to prevent tax avoidance via asset or income diversions. Specifically, if any person transfers income from an asset without transferring the underlying asset itself, such income is taxed in the transferor's hands regardless of whether the transfer is revocable or irrevocable.",
+      "terminology": [
+        "clubbing provisions",
+        "transferor",
+        "transferee",
+        "progressive tax system",
+        "transfer of income"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 2025",
+        "Sections 96 to 100",
+        "Section 96"
+      ],
+      "inclusion": [
+        "income transferred without transferring the asset",
+        "revocable or irrevocable income transfers"
+      ],
+      "exclusion": [
+        "transfers where both asset and income are legally transferred permanently without retained rights"
+      ],
+      "nearby_distinctions": [
+        "Differs from standard taxation of an assessee's own income by shifting tax liability to the original benefactor under specific anti-avoidance rules."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c771fddd-2f8a-4c4e-a473-dae179dbc4b2",
+      "concept_name": "Revocable Transfers and Exceptions",
+      "definition": "All income arising from a revocable transfer of assets must be included in the transferor's total income, even if only a portion of the income is applied for the transferor's benefit. However, exceptions apply if the transfer is by way of trust or other agreement that is irrevocable during the beneficiary's or transferee's lifetime and yields no direct or indirect benefit to the transferor.",
+      "terminology": [
+        "revocable transfer",
+        "settlement",
+        "covenant",
+        "arrangement",
+        "re-transfer"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 2025",
+        "Section 97",
+        "Section 98",
+        "Section 97(1)",
+        "Section 97(2)"
+      ],
+      "inclusion": [
+        "income from assets subject to direct or indirect re-transfer provisions",
+        "transfers granting power to re-assume control over income or assets"
+      ],
+      "exclusion": [
+        "transfers via trust irrevocable during the lifetime of the beneficiary without transferor benefit"
+      ],
+      "nearby_distinctions": [
+        "Unlike simple income transfers under Section 96, Section 97 specifically targets transactions involving asset transfers that retain revocation rights or re-assumption powers."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ba1e96b6-a18a-4420-896d-a5a7cebc043f",
+      "concept_name": "Remuneration from Concern with Substantial Interest",
+      "definition": "Spousal remuneration received in cash or kind from a concern in which the individual holds a substantial interest is clubbed with the individual's total income. A substantial interest exists if equity voting power or profit entitlement is at least twenty percent, though an exemption applies if the remuneration is solely due to the spouse's professional or technical qualifications.",
+      "terminology": [
+        "substantial interest",
+        "relative",
+        "voting power",
+        "remuneration",
+        "professional qualification"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 2025",
+        "Section 99(1)(a)",
+        "Section 99(1)(a)(i)",
+        "Section 2(94)"
+      ],
+      "inclusion": [
+        "salary, commission, or fees paid to spouse from a concern with individual's substantial interest"
+      ],
+      "exclusion": [
+        "remuneration solely attributable to the technical or professional knowledge and qualifications of the spouse"
+      ],
+      "nearby_distinctions": [
+        "Differs from general asset transfers by focusing specifically on employment or service-based compensation derived from entities influenced by the taxpayer."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f11df7ae-5a22-4586-8823-b8a10c768fc7",
+      "concept_name": "Cross Transfers",
+      "definition": "Cross-transfers occur when two related or connected parties make reciprocal asset transfers to each other's family members to bypass clubbing provisions. Income from such assets is assessed in the hands of the respective indirect transferors if the transactions are mutually dependent and form part of a single tax-avoidance device.",
+      "terminology": [
+        "cross transfers",
+        "mutual transactions",
+        "indirect transferor",
+        "circuitous method",
+        "connected transactions"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 2025",
+        "CIT v. Keshavji Morarji [1967] 66 ITR 142"
+      ],
+      "inclusion": [
+        "inter-connected reciprocal gifts or transfers made to circumvent direct clubbing restrictions"
+      ],
+      "exclusion": [
+        "independent, non-mutual transfers made without pre-arranged orchestration or connection"
+      ],
+      "nearby_distinctions": [
+        "Unlike direct transfers to a spouse or minor child, cross-transfers involve indirect routing through third parties to exploit legal loopholes, neutralized by judicial anti-avoidance doctrines."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "63f63aca-bb5e-4712-a173-4df8b50a1358",
+      "concept_name": "Conversion of Self-Acquired Property into HUF Property",
+      "definition": "When an individual converts self-acquired property into Hindu Undivided Family property through common stock throwing or inadequate consideration transfers, the resulting income remains taxable in the individual's hands. Upon a subsequent partition, any portion received by the individual's spouse is treated as an indirect asset transfer attracting spousal clubbing rules.",
+      "terminology": [
+        "Hindu Undivided Family",
+        "self-acquired property",
+        "common stock",
+        "partition",
+        "adequate consideration"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 2025",
+        "Section 99(3)",
+        "Section 99(1)(a)"
+      ],
+      "inclusion": [
+        "income from self-acquired property thrown into family common stock",
+        "post-partition income assigned to spouse from converted property"
+      ],
+      "exclusion": [
+        "property originally belonging independently to the HUF from inception without individual conversion"
+      ],
+      "nearby_distinctions": [
+        "Differs from direct gifts to family members by utilizing family law mechanisms like common stock amalgamation, yet preserves tax liability for the converting member."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "283ab4e4-5445-45f6-b12b-dd5f8a38f1b8",
+      "concept_name": "Inclusion of Loss in Income Computation",
+      "definition": "For the purposes of clubbing provisions, the statutory definition of income incorporates negative financial results or losses. Consequently, any specified loss arising from transferred assets or arrangements must be factored directly into the total income computation of the individual.",
+      "terminology": [
+        "income includes loss",
+        "computation of total income",
+        "negative financial result"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 2025",
+        "Section 99(5)(d)"
+      ],
+      "inclusion": [
+        "computational inclusion of transferable business or property losses in assessee's aggregate income"
+      ],
+      "exclusion": [
+        "gains or losses explicitly insulated by specific statutory deductions outside clubbing frameworks"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes tax computation under clubbing from general understandings of income by ensuring deficit figures are treated symmetrically with positive earnings."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "db0793da-4f48-4599-b0c5-395ef9f31741",
+      "concept_name": "Distinction Between Section 97 and Section 99",
+      "definition": "Section 97 applies strictly to revocable transfers executed by any person, whereas Section 99 applies to both revocable and irrevocable transfers executed exclusively by individuals. Furthermore, while asset transfer income is clubbed, secondary accretion income generated from the reinvestment of such clubbed income is generally excluded except for minor children.",
+      "terminology": [
+        "revocable transfer",
+        "irrevocable transfer",
+        "accretion of income",
+        "minor child"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 2025",
+        "Section 97",
+        "Section 99"
+      ],
+      "inclusion": [
+        "comparative scope analysis between general revocable rules and individual-specific transfer rules"
+      ],
+      "exclusion": [
+        "secondary investment profits earned on primary clubbed income, barring minor child exceptions"
+      ],
+      "nearby_distinctions": [
+        "Contrasts general entity applicability under Section 97 against individual-only parameters and broader revocability options under Section 99."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6a66dc81-24e4-4fef-bbdd-3612b72f4bba",
+      "concept_name": "Liability for Tax on Clubbed Income",
+      "definition": "While clubbed income is taxed in the hands of the transferor, a notice of demand can legally be served upon the transferee to recover the portion of tax attributable to that specific clubbed income. If the underlying asset is held jointly by multiple transferees, such persons assume joint and several liability for the corresponding tax payment.",
+      "terminology": [
+        "notice of demand",
+        "transferee liability",
+        "joint and several liability",
+        "attributable tax"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 2025",
+        "Section 100",
+        "Section 25(a)"
+      ],
+      "inclusion": [
+        "tax recovery enforcement notices served directly on asset transferees",
+        "joint and several tax liabilities for co-transferees of gifted assets"
+      ],
+      "exclusion": [
+        "tax liabilities unrelated to the specific income clubbed under Sections 96 through 99"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes primary assessment liability (on the transferor) from secondary recovery enforcement power (against the transferee holding the asset)."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "4d2385883328ca8c5253a9f7204c48ea94ce282195c5f336ee6c2418d3588105",
+  "artifact_id": "2374afa0-a972-47aa-bcdc-18e74b57dd83",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 6552,
+  "output_tokens": 2709,
+  "cost_usd": 0.0087381,
+  "created_at": "2026-10-03T18:17:08.029287+00:00"
+}

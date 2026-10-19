@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a10ce1-29fd-7e01-a5fb-e6fdf78d9c54"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"{\"question_id\":\"778e93d0646820fc4df3fb46d990c417f233d5830547b90ceeb387b962d7de38\",\"input_hash\":\"1922083858269f8034275adc6b9b5655ca0db05cde92a63d47e5f8c1d78cf2e9\",\"mappings\":[{\"part_id\":\"778e93d0646820fc4df3fb46d990c417f233d5830547b90ceeb387b962d7de38\",\"outcome\":\"needs_review\",\"primary_node_id\":null,\"secondary_node_ids\":[],\"evidence\":[],\"note\":\"Only an isolated NBFC disclosure fragment is available; the root question, shared stem, other parts, and answer are missing (answer_status: missing), so the tested concept cannot be determined reliably.\",\"confidence\":null,\"bucket\":null}]}"}}
+{"type":"turn.completed","usage":{"input_tokens":49236,"cached_input_tokens":0,"cache_write_input_tokens":0,"output_tokens":652,"reasoning_output_tokens":445}}

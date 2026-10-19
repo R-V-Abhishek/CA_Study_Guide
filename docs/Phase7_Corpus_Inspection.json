@@ -1,0 +1,45 @@
+{
+  "observed_at": "2026-10-10T02:38:30.205514+00:00",
+  "transaction_read_only": true,
+  "counts": {
+    "classification_revision": 0,
+    "suggestion_revision": 120,
+    "published_question": 0,
+    "attempt_taxonomy_binding": 0,
+    "corpus_coverage": 50,
+    "reviewed_prior": 0,
+    "extraction_review": 0,
+    "descriptor_approval": 0
+  },
+  "reviewed_bindings": 0,
+  "reviewed_source_spans": 0,
+  "unknown_expected_inventory_rows": 50,
+  "releases": [
+    {
+      "version_id": "legacy",
+      "status": "legacy",
+      "manifest_hash": "legacy-snapshot-0004",
+      "approved_by": null
+    },
+    {
+      "version_id": "textbook-v1",
+      "status": "draft",
+      "manifest_hash": "3bf74aaa4f44d5cd8518e677ca1741bda75b07dd58614c574f4d3689b71b9e4d",
+      "approved_by": null
+    }
+  ],
+  "frozen_batch_sha256": "2f7063e75a2015c4473c867c7d52cb3d1925afe1842ea11e35a22f5814e9fa26",
+  "instruction_successor": {
+    "document_id": 433,
+    "revision_id": 786,
+    "revision_status": "candidate",
+    "current_revision_id": null,
+    "source_sha256": "b7186fe4856262e55ec6320111e780f367f85b5a39b9ecff08ddec7266997d1b",
+    "label_path": "i",
+    "source_page": 1,
+    "source_image_sha256": "fbde919599bc1d6fa568fa65eca8711a7c3b5652ccbd8a61e0f1f388d10d60e7",
+    "prepared_path": "docs/Phase7_Extraction_Successor_Draft.json"
+  },
+  "writes_to_database": 0,
+  "human_approvals_created": 0
+}

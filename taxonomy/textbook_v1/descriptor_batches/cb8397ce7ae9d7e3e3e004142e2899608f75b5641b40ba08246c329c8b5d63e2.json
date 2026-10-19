@@ -1,0 +1,267 @@
+{
+  "descriptors": [
+    {
+      "node_id": "5b876289-40cd-4fe4-bdfb-5270ba0819ae",
+      "concept_name": "Utility of Transfer Pricing",
+      "definition": "Transfer pricing serves as a vital internal mechanism that establishes profit accountability for decentralized divisions, thereby influencing managerial performance evaluation, employee compensation, resource allocation, and overall company profitability. It also dictates the cross-border tax burden and profit repatriation for multinational enterprises by determining the revenue and cost values assigned to inter-divisional exchanges.",
+      "terminology": [
+        "arms-length price",
+        "profit accountability",
+        "goal congruence",
+        "profit remittance"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Evaluating divisional performance based on profit metrics",
+        "Determining employee compensation linked to divisional results",
+        "Guiding in-house production versus external procurement decisions",
+        "Impact on multinational tax burdens and profit repatriation"
+      ],
+      "exclusion": [
+        "External retail pricing to end consumers",
+        "Statutory financial accounting consolidations unrelated to internal divisions"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from external market pricing because transfer prices specifically govern internal transfers between organizational units rather than transactions with external end-customers."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ae4ad66f-f1e4-44f1-92e6-df699efb16e5",
+      "concept_name": "Market Based Transfer Price",
+      "definition": "Market-based transfer pricing sets the internal transfer value using external market prices for comparable goods, occasionally adjusted for cost savings achieved through internal delivery. This method provides unbiased, competitive benchmarks that foster inter-divisional competitiveness and objective performance evaluation.",
+      "terminology": [
+        "market price",
+        "adjusted market price",
+        "behavioral consequences",
+        "intermediate goods"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Using external market prices for internally transferred goods",
+        "Adjusting external prices for saved selling, distribution, or packaging costs",
+        "Linking divisional performance to competitive benchmarks"
+      ],
+      "exclusion": [
+        "Pricing models completely derived from internal ledger costs",
+        "Arbitrary pricing lacking external market referents"
+      ],
+      "nearby_distinctions": [
+        "Unlike cost-based pricing, market-based pricing relies on external market forces, thereby avoiding internal subjectivity and cost inefficiencies."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "aa7ad366-db79-4442-9695-bc45b45b33a4",
+      "concept_name": "Cost Based Transfer Price",
+      "definition": "Cost-based transfer pricing determines internal transfer values using the supplying division's internal accounting records, such as variable, standard, or full costs. It serves as an alternative when comparable external markets are absent, allowing performance benchmarking against internal budgetary targets.",
+      "terminology": [
+        "variable cost",
+        "standard cost",
+        "full cost",
+        "marginal cost"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Pricing internal transfers using variable or marginal manufacturing costs",
+        "Applying full cost or full cost plus mark-up models",
+        "Benchmarking divisional performance to internal budgetary targets"
+      ],
+      "exclusion": [
+        "Prices directly established by active, unmanipulated external market forces",
+        "Negotiated prices independent of internal cost records"
+      ],
+      "nearby_distinctions": [
+        "Unlike market-based pricing, cost-based pricing depends on internal ledger figures, which can introduce subjectivity and reduce incentives for cost minimization."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "012737dc-7253-40e3-b57e-9f479910311e",
+      "concept_name": "Negotiation Based Transfer Price",
+      "definition": "Negotiation-based transfer pricing allows managers of purchasing and supplying divisions to independently bargain and establish a mutually agreeable internal transfer price. This approach grants managerial autonomy while integrating departments, though it requires sharing cost and market information and can sometimes lead to inter-unit conflict.",
+      "terminology": [
+        "negotiated price",
+        "managerial autonomy",
+        "bargaining power",
+        "goal congruence"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Independent price negotiations between divisional managers",
+        "Autonomous decision-making regarding internal versus external sourcing",
+        "Sharing of internal cost and external market data"
+      ],
+      "exclusion": [
+        "Mandated prices imposed unilaterally by corporate head office without managerial input",
+        "Strict adherence to external market ticker prices"
+      ],
+      "nearby_distinctions": [
+        "Unlike rigid cost or market-based formulas, negotiated transfer prices stem from direct bargaining between division managers, balancing autonomy with organizational goal congruence."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a2389ca2-316c-4691-b0cc-24abb1692885",
+      "concept_name": "Transfer Pricing And Goal Congruence",
+      "definition": "Goal congruence in transfer pricing ensures that decentralized managers acting in their own self-interest also optimize total company profits by establishing an acceptable pricing range. The minimum transfer price is set by the supplying division based on additional outlay and opportunity costs, while the maximum price is capped by the purchasing division at the lower of net marginal revenue or external buy-in price.",
+      "terminology": [
+        "minimum transfer price",
+        "maximum transfer price",
+        "outlay cost",
+        "opportunity cost",
+        "net marginal revenue"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Computing minimum transfer price using additional outlay and opportunity costs",
+        "Determining maximum transfer price based on net marginal revenue or external buy-in price",
+        "Aligning divisional decisions with overall corporate profit maximization"
+      ],
+      "exclusion": [
+        "Arbitrary transfer pricing that triggers sub-optimal resource utilization",
+        "Decisions driven solely by individual divisional performance at company expense"
+      ],
+      "nearby_distinctions": [
+        "Distinct from standard cost allocation, this framework explicitly defines upper and lower boundaries to reconcile divisional autonomy with enterprise-wide optimization."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "38daed36-0c98-4819-85cf-cb068bb7395a",
+      "concept_name": "Different Capacity Levels",
+      "definition": "Divisional capacity levels directly dictate transfer pricing parameters by altering the supplying unit's opportunity costs. When operating with excess capacity, the minimum transfer price equals marginal cost since fixed costs are sunk, whereas full-capacity operations require adding the foregone external contribution as an opportunity cost.",
+      "terminology": [
+        "excess capacity",
+        "full capacity",
+        "sunk cost",
+        "opportunity cost",
+        "marginal cost"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Setting minimum transfer price equal to marginal cost under excess capacity conditions",
+        "Incorporating lost external contributions into minimum transfer price under full capacity constraints",
+        "Evaluating capacity limitations in labor hours or machine units"
+      ],
+      "exclusion": [
+        "Treating fixed costs as incremental outlay costs under excess capacity conditions",
+        "Ignoring external market demand constraints when capacity is fully utilized"
+      ],
+      "nearby_distinctions": [
+        "Unlike excess capacity scenarios where fixed costs are ignored, full capacity scenarios demand the inclusion of opportunity costs due to displaced external sales."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3a3df521-1aa4-4baa-ae87-6588381af3b6",
+      "concept_name": "Different Demand Levels",
+      "definition": "Transfer pricing must account for varying demand levels across internal, external, and special-order channels, where production costs are influenced by economies of scale and capacity thresholds. Fluctuations in demand alter fixed overheads, variable selling expenses, and potential cost savings, which directly impact the valid transfer pricing range.",
+      "terminology": [
+        "economies of scale",
+        "special orders",
+        "production capacity",
+        "variable selling cost",
+        "fixed cost threshold"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Accounting for economies of scale and stepped fixed costs across output tiers",
+        "Adjusting transfer prices for cost savings such as avoided external selling or packaging expenses",
+        "Evaluating trade-offs between internal transfers, external sales, and special orders"
+      ],
+      "exclusion": [
+        "Treating production costs as strictly linear when capacity thresholds generate step-fixed expenses",
+        "Ignoring cost variances between bulk internal transfers and retail external sales"
+      ],
+      "nearby_distinctions": [
+        "Unlike basic capacity models, demand-level analysis explicitly integrates multi-channel order dynamics, cost scale thresholds, and specific cost-saving adjustments."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "465a00fd-c75c-409d-b5a4-e6a03bf6819b",
+      "concept_name": "Dual Rate Transfer Pricing System",
+      "definition": "A dual rate transfer pricing system resolves performance evaluation conflicts by recording transactions using two separate rates: the supplying division is credited with full cost plus a normal profit margin, while the purchasing division is charged only at marginal cost. This structure provides favorable performance incentives and encourages cooperation, though it creates artificial profits and complicates central bookkeeping.",
+      "terminology": [
+        "dual rate",
+        "normal profit margin",
+        "marginal cost",
+        "full cost",
+        "artificial profits"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Crediting supplying divisions with full cost plus profit margin",
+        "Charging purchasing divisions at marginal cost",
+        "Mitigating sub-optimization and improving inter-divisional cooperation"
+      ],
+      "exclusion": [
+        "Single-rate transfer pricing systems where debit and credit values must identically match",
+        "External statutory reporting valuations"
+      ],
+      "nearby_distinctions": [
+        "Unlike single-rate pricing systems, dual rate systems decouple the supplying division's revenue credit from the purchasing division's cost debit to optimize behavioral incentives."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "74f4d900-47c0-4731-93c8-0331687bb1db",
+      "concept_name": "Two Part Transfer Pricing System",
+      "definition": "A two-part transfer pricing system sets the internal price as the marginal cost of production combined with a lump-sum fixed charge. This approach ensures the recovery of additional production costs while enabling the supplying division to recoup a portion of its fixed costs, allowing the purchasing division to acquire inputs below market rates without distorting performance evaluation.",
+      "terminology": [
+        "two part transfer pricing",
+        "lump-sum charge",
+        "marginal cost of production",
+        "fixed cost recovery"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Combining marginal cost with a lump-sum fee for internal transfers",
+        "Enabling supplying divisions to recover fixed costs via lump-sum charges",
+        "Allowing purchasing divisions to secure goods at favorable rates"
+      ],
+      "exclusion": [
+        "Pure marginal cost pricing that fails to recover any fixed overhead",
+        "Unadjusted full cost-plus mark-up models that distort purchasing decisions"
+      ],
+      "nearby_distinctions": [
+        "Unlike standard full-cost pricing, a two-part system separates marginal production outlays from fixed cost recovery via a lump-sum fee, preventing distortion in purchasing decisions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d8edd838-c669-409d-b04d-0c5fa29f02ba",
+      "concept_name": "International Transfer Pricing",
+      "definition": "International transfer pricing governs cross-border transactions of goods, services, intangibles, and loans between divisions of multinational enterprises to optimize global tax burdens and profit repatriation. Multinationals strategically manipulate transfer prices across different tax jurisdictions to shift earnings from high-tax to low-tax regions, subject to regulatory compliance with arm's-length principles.",
+      "terminology": [
+        "multinational enterprises",
+        "profit repatriation",
+        "arm's-length price",
+        "tax jurisdiction",
+        "royalty payments"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Cross-border transfer of goods, services, and intangibles",
+        "Strategic pricing to manage multi-national tax liabilities and profit repatriation",
+        "Regulatory scrutiny regarding arm's-length compliance across tax jurisdictions"
+      ],
+      "exclusion": [
+        "Domestic, single-country inter-divisional transfers lacking cross-border tax implications",
+        "Non-commercial intra-group administrative entries devoid of economic substance"
+      ],
+      "nearby_distinctions": [
+        "Unlike domestic transfer pricing which focuses primarily on internal performance evaluation, international transfer pricing is heavily driven by cross-border tax minimization and regulatory arm's-length compliance."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "cb8397ce7ae9d7e3e3e004142e2899608f75b5641b40ba08246c329c8b5d63e2",
+  "artifact_id": "bed151bb-e78d-49d8-9c81-9779bfb74c67",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 7337,
+  "output_tokens": 3194,
+  "cost_usd": 0.0101861,
+  "created_at": "2026-10-03T18:28:02.009812+00:00"
+}

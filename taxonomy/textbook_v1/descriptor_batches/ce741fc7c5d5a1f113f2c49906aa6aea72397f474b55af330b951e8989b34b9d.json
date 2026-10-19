@@ -1,0 +1,305 @@
+{
+  "descriptors": [
+    {
+      "node_id": "5767f16b-2a2d-44e2-ab0a-debcd9045280",
+      "concept_name": "Administration of assets",
+      "definition": "The administration of securitized assets is subcontracted back to the originator, who collects principal and interest from the underlying debtors and transfers them to the Special Purpose Vehicle. In this administrative capacity, the originator typically functions as a servicer or conduit for an agreed fee.",
+      "terminology": [
+        "Administration of assets",
+        "Servicer",
+        "Conduit",
+        "Originator"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Collection of principal and interest from underlying debtors",
+        "Transfer of collections to the Special Purpose Vehicle",
+        "Servicing fee arrangements"
+      ],
+      "exclusion": [
+        "Direct repayment of funds to investors by the originator",
+        "Independent risk rating by the Special Purpose Vehicle"
+      ],
+      "nearby_distinctions": [
+        "Differs from Repayment of funds, which involves payments made by the Special Purpose Vehicle to the investors rather than asset collections from debtors."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f27ff905-3758-4e37-97b4-ec37551db890",
+      "concept_name": "Recourse to Originator",
+      "definition": "The performance of securitized papers relies directly on the underlying asset performance. Unless specified otherwise, upon debtor default, the receivables revert from the Special Purpose Vehicle back to the originator.",
+      "terminology": [
+        "Recourse to Originator",
+        "Default by debtors",
+        "Receivables"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Return of receivables to the originator upon debtor default",
+        "Dependence of paper performance on underlying assets"
+      ],
+      "exclusion": [
+        "Direct servicing of debt securities by the Special Purpose Vehicle",
+        "Reinvestment of surplus funds"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from Repayment of funds, which governs regular distributions to investors rather than default-driven recourse mechanisms."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9109241a-6635-4dd9-8af7-28d579005040",
+      "concept_name": "Repayment of funds",
+      "definition": "The Special Purpose Vehicle repays funds to the investor in the form of interest and principal derived from the pooled assets. These cash flows originate directly from the underlying receivables administered through the securitization structure.",
+      "terminology": [
+        "Repayment of funds",
+        "Pooled assets",
+        "Interest and principal"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Repayment of principal to investors",
+        "Repayment of interest to investors",
+        "Utilization of pooled asset cash flows"
+      ],
+      "exclusion": [
+        "Collection of debt by originators from underlying debtors",
+        "Pre-sale credit rating assessments"
+      ],
+      "nearby_distinctions": [
+        "Distinct from Administration of assets, which concerns collecting receivables from original debtors rather than distributing returns to investors."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "05a217bc-b3ae-4136-bd94-45eaf44d9e29",
+      "concept_name": "Credit Rating to Instruments",
+      "definition": "Credit rating is conducted prior to the sale of securitized instruments to evaluate the risk profile of the issuer. This assessment provides investors with an indication of the creditworthiness associated with the securitized papers.",
+      "terminology": [
+        "Credit Rating to Instruments",
+        "Risk of the issuer",
+        "Securitized instruments"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Pre-sale risk assessment of the issuer",
+        "Credit rating of securitized instruments"
+      ],
+      "exclusion": [
+        "Subcontracted asset administration",
+        "Repayment of principal and interest to investors"
+      ],
+      "nearby_distinctions": [
+        "Differentiated from Repayment of funds, as rating evaluates prospective risk prior to issuance rather than executing cash distributions post-issuance."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f5c21d2e-4142-4ac2-a5ec-e712a3515861",
+      "concept_name": "Problems In Securitization",
+      "definition": "The growth of securitization instruments faces several operational and structural challenges, particularly in the Indian context. Key obstacles include stamp duty variations, taxation uncertainties, accounting complexities, lack of standardization, underdeveloped debt markets, and ineffective foreclosure laws.",
+      "terminology": [
+        "Problems in securitization",
+        "Indian context",
+        "Obstacles"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Stamp duty and taxation concerns",
+        "Accounting, standardization, and debt market limitations",
+        "Ineffective foreclosure laws"
+      ],
+      "exclusion": [
+        "Standardized operational documentation",
+        "Well-developed secondary debt markets"
+      ],
+      "nearby_distinctions": [
+        "Broad category encompassing specific market frictions, distinct from individual instrument mechanics like Pass Through Certificates."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2b9b05cb-1c3a-45dc-9ad6-5f24fe445b4c",
+      "concept_name": "Stamp Duty",
+      "definition": "Stamp duty is a significant impediment to securitization growth in India, with mortgage debt duties reaching up to twelve percent in certain states. However, pass-through certificates are exempted because they represent receivables rather than debt, and specific states have reduced rates for securitized instruments.",
+      "terminology": [
+        "Stamp Duty",
+        "Transfer of Property Act, 1882",
+        "Mortgage debt",
+        "Pass through certificate"
+      ],
+      "instrument_references": [
+        "Transfer of Property Act, 1882"
+      ],
+      "inclusion": [
+        "High stamp duty on mortgage debt in certain states",
+        "Exemption of pass through certificates from stamp duty",
+        "State-level reductions for securitized instruments"
+      ],
+      "exclusion": [
+        "Income tax liabilities on Special Purpose Vehicles",
+        "Capital gains implications"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from Taxation issues, focusing specifically on statutory transfer levies rather than income or capital gains assessments."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8420127d-3868-4ee1-8f0e-32f64a56807b",
+      "concept_name": "Taxation",
+      "definition": "Taxation of securitized instruments remains contentious due to the absence of specific provisions in the Income Tax Act. Experts hold divergent views regarding whether the Special Purpose Vehicle should be taxed in a representative capacity or if investors should be taxed directly on their share of income.",
+      "terminology": [
+        "Taxation",
+        "Income Tax Act",
+        "Representative capacity",
+        "Capital gain implications"
+      ],
+      "instrument_references": [
+        "Income Tax Act"
+      ],
+      "inclusion": [
+        "Taxation of Special Purpose Vehicle as a trustee in a representative capacity",
+        "Taxation of investors on their share of income",
+        "Capital gain implications on passing payments"
+      ],
+      "exclusion": [
+        "Stamp duty on mortgage debt",
+        "Accounting and reporting of off-balance sheet assets"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from Stamp Duty, focusing on income tax treatment and capital gains rather than transaction-based property transfer levies."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5b7ff681-4ce5-48e1-9f36-7989d22267d8",
+      "concept_name": "Accounting",
+      "definition": "Accounting and reporting for securitized assets in the originator's books presents challenges regarding true off-balance sheet treatment. Difficulties arise particularly when assets are transferred without recourse, complicating the removal of receivables from the originator's balance sheet.",
+      "terminology": [
+        "Accounting",
+        "Off-balance sheet",
+        "Without recourse",
+        "Originator's books"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Reporting of securitized assets in originator books",
+        "Off-balance sheet treatment challenges",
+        "Asset transfers without recourse"
+      ],
+      "exclusion": [
+        "Taxation of investor income",
+        "Stamp duty calculations"
+      ],
+      "nearby_distinctions": [
+        "Distinct from Taxation, focusing on financial statement presentation and derecognition rules rather than statutory tax liabilities."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6e06a273-7c06-43a2-a242-d275179ec458",
+      "concept_name": "Lack of standardization",
+      "definition": "The growth of securitization is impeded because every originator utilizes customized formats for documentation and administration. This absence of uniform practices creates friction in processing and scaling securitized transactions.",
+      "terminology": [
+        "Lack of standardization",
+        "Documentation",
+        "Administration",
+        "Originator format"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Originator-specific documentation formats",
+        "Variations in asset administration practices"
+      ],
+      "exclusion": [
+        "Underdeveloped secondary debt markets",
+        "Ineffective foreclosure laws"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from Inadequate Debt Market, addressing operational documentation divergence rather than secondary market liquidity."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8ada9350-daf5-428d-970f-edc6ef5a800e",
+      "concept_name": "Inadequate Debt Market",
+      "definition": "The absence of a well-developed debt market in India acts as an obstacle to the expansion of the secondary market for securitized or asset-backed securities. This limitation restricts liquidity and trading opportunities for investors holding such instruments.",
+      "terminology": [
+        "Inadequate Debt Market",
+        "Secondary market",
+        "Asset backed securities"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Lack of a well-developed debt market",
+        "Impediments to secondary market growth for asset-backed securities"
+      ],
+      "exclusion": [
+        "Lack of document standardization",
+        "Ineffective legal foreclosure processes"
+      ],
+      "nearby_distinctions": [
+        "Distinct from Lack of Standardization, focusing on market infrastructure liquidity rather than originator documentation variations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "92f67bb4-f0ac-42eb-882d-4343a2b07101",
+      "concept_name": "Ineffective Foreclosure laws",
+      "definition": "Unsupportive foreclosure laws hinder lending institutions by creating difficulties in transferring property when borrowers default. This legal inefficiency diminishes the attractiveness of securitized instruments, particularly mortgage-backed securities.",
+      "terminology": [
+        "Ineffective Foreclosure laws",
+        "Mortgage backed securities",
+        "Default by borrower"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Difficulties in property transfer upon borrower default",
+        "Unsupportive legal frameworks for lending institutions",
+        "Reduced attractiveness of mortgage-backed securities"
+      ],
+      "exclusion": [
+        "Secondary debt market inadequacies",
+        "Documentation format variations"
+      ],
+      "nearby_distinctions": [
+        "Distinct from Inadequate Debt Market, focusing on legal creditor remedies and property transfer rather than secondary trading liquidity."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b96e723e-b4ff-408a-ada4-2341561590eb",
+      "concept_name": "Securitization Instruments",
+      "definition": "Securitization instruments are categorized based on maturity characteristics into Pass Through Certificates, Pay Through Securities, and Stripped Securities. These structures dictate how cash flows, principal repayments, and interest are distributed to investors through the Special Purpose Vehicle.",
+      "terminology": [
+        "Securitization Instruments",
+        "Pass Through Certificates",
+        "Pay Through Security",
+        "Stripped Securities"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Pass Through Certificates",
+        "Pay Through Securities",
+        "Stripped Securities consisting of Interest Only and Principal Only components"
+      ],
+      "exclusion": [
+        "Originator asset administration procedures",
+        "Macroeconomic problems in securitization"
+      ],
+      "nearby_distinctions": [
+        "Represents the broader taxonomy of financial instruments issued in securitization, encompassing specific structures like PTCs and PTS rather than administrative hurdles."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "ce741fc7c5d5a1f113f2c49906aa6aea72397f474b55af330b951e8989b34b9d",
+  "artifact_id": "7ee0ac3c-c00c-4a19-a0ff-f1b8e3e98682",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 7579,
+  "output_tokens": 3242,
+  "cost_usd": 0.010378700000000001,
+  "created_at": "2026-10-03T18:07:56.781198+00:00"
+}

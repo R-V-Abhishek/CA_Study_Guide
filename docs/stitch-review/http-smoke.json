@@ -1,0 +1,136 @@
+[
+  {
+    "route": "/",
+    "status": 200,
+    "dark_bootstrap": true
+  },
+  {
+    "route": "/papers",
+    "status": 200,
+    "dark_bootstrap": true
+  },
+  {
+    "route": "/papers/s2023.P1",
+    "status": 200,
+    "dark_bootstrap": true
+  },
+  {
+    "route": "/syllabus",
+    "status": 200,
+    "dark_bootstrap": true
+  },
+  {
+    "route": "/questions",
+    "status": 200,
+    "dark_bootstrap": true
+  },
+  {
+    "route": "/questions/synthetic.reader",
+    "status": 200,
+    "dark_bootstrap": true
+  },
+  {
+    "route": "/plan",
+    "status": 200,
+    "dark_bootstrap": true
+  },
+  {
+    "route": "/revision",
+    "status": 200,
+    "dark_bootstrap": true
+  },
+  {
+    "route": "/progress",
+    "status": 200,
+    "dark_bootstrap": true
+  },
+  {
+    "route": "/mock",
+    "status": 200,
+    "dark_bootstrap": true
+  },
+  {
+    "route": "/profile",
+    "status": 200,
+    "dark_bootstrap": true
+  },
+  {
+    "route": "/curator/classifications",
+    "status": 200,
+    "dark_bootstrap": true
+  },
+  {
+    "route": "/curator/extraction",
+    "status": 200,
+    "dark_bootstrap": true
+  },
+  {
+    "route": "/curator/textbooks",
+    "status": 200,
+    "dark_bootstrap": true
+  },
+  {
+    "route": "/curator/taxonomy-release",
+    "status": 200,
+    "dark_bootstrap": true
+  },
+  {
+    "route": "/curator/readiness",
+    "status": 200,
+    "dark_bootstrap": true
+  },
+  {
+    "route": "/curator/documents",
+    "status": 200,
+    "dark_bootstrap": true
+  },
+  {
+    "route": "/curator/bulk",
+    "status": 200,
+    "dark_bootstrap": true
+  },
+  {
+    "route": "/curator/accounts",
+    "status": 200,
+    "dark_bootstrap": true
+  },
+  {
+    "route": "/curator/system",
+    "status": 200,
+    "dark_bootstrap": true
+  },
+  {
+    "route": "/curator/queue",
+    "status": 200,
+    "dark_bootstrap": true
+  },
+  {
+    "route": "/curator/taxonomy",
+    "status": 200,
+    "dark_bootstrap": true
+  },
+  {
+    "endpoint": "/api/v1/papers",
+    "status": 200
+  },
+  {
+    "endpoint": "/api/v1/dashboard",
+    "status": 200
+  },
+  {
+    "endpoint": "/api/v1/plan",
+    "status": 200
+  },
+  {
+    "endpoint": "/api/v1/revision/due",
+    "status": 200
+  },
+  {
+    "endpoint": "/api/v1/questions",
+    "status": 200
+  },
+  {
+    "endpoint": "/api/v1/questions/synthetic.reader",
+    "status": 200
+  }
+]

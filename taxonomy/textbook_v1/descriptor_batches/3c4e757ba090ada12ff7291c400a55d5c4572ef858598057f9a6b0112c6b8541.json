@@ -1,0 +1,311 @@
+{
+  "descriptors": [
+    {
+      "node_id": "932c9ed1-0272-48c7-911b-48d13cca4174",
+      "concept_name": "Standard Overview and Objectives",
+      "definition": "Ind AS 116 establishes a single lessee accounting model requiring recognition of assets and liabilities for most leases on the balance sheet. It ensures that both lessees and lessors provide relevant, faithful representation of lease transactions to assess financial position, performance, and cash flows.",
+      "terminology": [
+        "Right-of-use model",
+        "Lease term",
+        "Underlying asset",
+        "Commencement date"
+      ],
+      "instrument_references": [
+        "Ind AS 116",
+        "IFRS 16"
+      ],
+      "inclusion": [
+        "Leases conveying the right to use an asset without transferring ownership"
+      ],
+      "exclusion": [
+        "Fundamental changes to the existing lessor accounting model"
+      ],
+      "nearby_distinctions": [
+        "Differs from erstwhile Ind AS 17, which used a dual classification model separating operating and finance leases"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2420b932-cb9d-4fb0-9f8d-c085e8b7b028",
+      "concept_name": "Lease Identification and Scope",
+      "definition": "Ind AS 116 applies to all leases including sub-leases of right-of-use assets, except for specific exclusions like mineral exploration, biological assets, service concession arrangements, and certain licenses. It requires evaluating contract terms and substance to identify arrangements that convey the right to control the use of an identified asset for consideration.",
+      "terminology": [
+        "Right-of-Use assets",
+        "Sub-lease",
+        "Non-regenerative resources"
+      ],
+      "instrument_references": [
+        "Ind AS 116",
+        "Ind AS 106",
+        "Ind AS 41",
+        "Ind AS 115"
+      ],
+      "inclusion": [
+        "All standard lease contracts conveying asset control"
+      ],
+      "exclusion": [
+        "Leases to explore for minerals, oil, and natural gas",
+        "Leases of biological assets"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes standard lease arrangements from specialized contracts governed by separate standard frameworks like Ind AS 41 or Ind AS 106"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a0564526-3d59-488b-9ae0-c35813430c9d",
+      "concept_name": "Standard Scope",
+      "definition": "The standard governs all lease contracts universally, provided they do not fall under specific category exemptions such as mineral exploration or biological assets. It mandates consistent application across agreements presenting similar characteristics and factual circumstances.",
+      "terminology": [
+        "Scope exclusions",
+        "Service concession arrangements",
+        "Licences of intellectual property"
+      ],
+      "instrument_references": [
+        "Ind AS 116",
+        "Ind AS 106",
+        "Ind AS 41",
+        "Ind AS 38"
+      ],
+      "inclusion": [
+        "Standard property and equipment leases"
+      ],
+      "exclusion": [
+        "Intellectual property licences granted by a lessor",
+        "Motion picture film licensing agreements"
+      ],
+      "nearby_distinctions": [
+        "Excludes intangible asset licensing agreements governed by alternative standards while allowing lessee application for certain intangibles"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "bb5b20f3-87d6-46f2-a42f-c381842b0c19",
+      "concept_name": "Recognition Exemptions",
+      "definition": "Lessees can elect to exempt short-term leases and leases of low-value underlying assets from standard balance sheet recognition requirements. Such exempted lease payments are recognized as an expense on a straight-line or other systematic basis over the lease term.",
+      "terminology": [
+        "Short-term lease",
+        "Low-value asset",
+        "Recognition exemption",
+        "Class of underlying asset"
+      ],
+      "instrument_references": [
+        "Ind AS 116"
+      ],
+      "inclusion": [
+        "Leases with a term of 12 months or less without purchase options",
+        "Leases of low-value assets"
+      ],
+      "exclusion": [
+        "Leases containing a purchase option evaluated at commencement"
+      ],
+      "nearby_distinctions": [
+        "Short-term exemptions apply strictly based on terms determined at commencement rather than subsequent duration reductions"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c4c06676-ed8f-421e-baa5-bbaea6d2c83a",
+      "concept_name": "Definition of a Lease",
+      "definition": "A contract is or contains a lease if it conveys the right to control the use of an identified asset for a period of time in exchange for consideration. This assessment is performed at the inception date, defined as the earlier of the lease agreement date or the date of commitment to principal terms.",
+      "terminology": [
+        "Inception date",
+        "Identified asset",
+        "Right to control",
+        "Consideration"
+      ],
+      "instrument_references": [
+        "Ind AS 116"
+      ],
+      "inclusion": [
+        "Contracts granting rights to use explicitly or implicitly specified assets with economic benefit control"
+      ],
+      "exclusion": [
+        "Agreements lacking an identified asset or failing to grant asset use direction rights"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes pure service contracts from lease arrangements based on control over the underlying asset use"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7159ea4f-d45c-465e-b649-5a0effea2aa9",
+      "concept_name": "Identified Asset Criteria",
+      "definition": "An arrangement requires an identified asset that can be either explicitly specified or implicitly specified when made available to the customer. Assets that are not initially built or whose serial numbers are unstated can still qualify as identified if the supplier must fulfill the contract using a specific asset.",
+      "terminology": [
+        "Explicitly specified",
+        "Implicitly specified",
+        "Rolling stock",
+        "Supplier substitution rights"
+      ],
+      "instrument_references": [
+        "Ind AS 116",
+        "AS 19"
+      ],
+      "inclusion": [
+        "Assets uniquely required to fulfill a contract even if unbuilt at inception"
+      ],
+      "exclusion": [
+        "Assets possessing substantive substitution rights permitting the supplier to swap units freely"
+      ],
+      "nearby_distinctions": [
+        "Unlike AS 19, Ind AS 116 provides explicit criteria for evaluating implicit asset specification and control direction"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "66ed394e-4000-474e-ae10-be65db896cfc",
+      "concept_name": "Separation of Lease and Non-Lease Components",
+      "definition": "Contracts combining multiple asset rights or lease elements with services require component separation if the lessee can benefit from the asset independently and the asset is not highly dependent on or interrelated with other assets. If these conditions fail, the bundle is treated as a single lease component.",
+      "terminology": [
+        "Lease component",
+        "Non-lease component",
+        "Interrelated assets",
+        "Standalone benefit"
+      ],
+      "instrument_references": [
+        "Ind AS 116"
+      ],
+      "inclusion": [
+        "Distinct asset rights usable independently or alongside readily available resources"
+      ],
+      "exclusion": [
+        "Highly dependent or functionally integrated asset groupings treated as single units"
+      ],
+      "nearby_distinctions": [
+        "Separates standalone asset usage rights from heavily integrated ancillary equipment combinations"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "564f8d97-4feb-467e-9e06-e8d420688789",
+      "concept_name": "Contract Combinations and Portfolio Application",
+      "definition": "Multiple contracts entered near the same time with related counterparties are combined into a single contract if negotiated as a package, priced interdependently, or containing single lease components. Additionally, entities may apply a portfolio approach as a practical expedient for similar leases if financial statement impacts remain immaterial.",
+      "terminology": [
+        "Contract combination",
+        "Portfolio application",
+        "Practical expedient",
+        "Commercial objective"
+      ],
+      "instrument_references": [
+        "Ind AS 116",
+        "Ind AS 115"
+      ],
+      "inclusion": [
+        "Contracts negotiated together with interdependent pricing or performance"
+      ],
+      "exclusion": [
+        "Unrelated individual agreements lacking commercial and financial dependency"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes individual contract assessments from aggregated portfolio treatments designed for large volumes of similar assets"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1bd121b3-efef-404c-9c1b-6d9f067c5598",
+      "concept_name": "Commencement Date Mechanics",
+      "definition": "The commencement date is when the lessor makes the underlying asset available for use by the lessee, marking the start of the lease term. This date can precede contractual rent due dates or lease agreement stipulations if the lessee takes possession or modifies the asset beforehand.",
+      "terminology": [
+        "Commencement date",
+        "Underlying asset",
+        "Leasehold improvements",
+        "Possession control"
+      ],
+      "instrument_references": [
+        "Ind AS 116"
+      ],
+      "inclusion": [
+        "Periods where lessees modify leased spaces prior to commercial operations"
+      ],
+      "exclusion": [
+        "Dates strictly defined by financial payment schedules disregarding physical asset availability"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes contractual execution milestones from physical operational readiness and asset control transfer"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "495dc872-e049-4d68-9f17-e02c410fc248",
+      "concept_name": "Key Concepts: Inception versus Commencement",
+      "definition": "Inception date governs contract classification assessments while commencement date triggers initial financial statement recognition. On the commencement date, lessees recognize lease liabilities and right-of-use assets, whereas lessors recognize finance lease net investments.",
+      "terminology": [
+        "Inception date",
+        "Commencement date",
+        "Lease liability",
+        "Right-of-Use Asset"
+      ],
+      "instrument_references": [
+        "Ind AS 116"
+      ],
+      "inclusion": [
+        "Initial asset and liability recognition events occurring on the asset availability date"
+      ],
+      "exclusion": [
+        "Recognition procedures delayed until first payment or formal billing milestones"
+      ],
+      "nearby_distinctions": [
+        "Contrasts the evaluation timing at inception with the actual financial recognition milestone at commencement"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2579ff4c-2ea0-4869-bfe8-fc73f6583049",
+      "concept_name": "Inception and Commencement of Lease Principles",
+      "definition": "Contract evaluation occurs at inception, defined by agreement dates or commitment to principal terms. Asset availability dictates the commencement date, which initiates lease accounting recognition irrespective of payment start dates.",
+      "terminology": [
+        "Commitment date",
+        "Principal terms",
+        "Asset availability",
+        "Net investment"
+      ],
+      "instrument_references": [
+        "Ind AS 116",
+        "AS 19"
+      ],
+      "inclusion": [
+        "Evaluation of lease status based on initial commitment milestones"
+      ],
+      "exclusion": [
+        "Reliance on older accounting standards lacking contract combination guidance"
+      ],
+      "nearby_distinctions": [
+        "Differentiates the administrative commitment phase from the operational delivery phase of leasing arrangements"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8246e490-a7f9-4461-bf83-fcae667c8893",
+      "concept_name": "Lease Term Determination",
+      "definition": "The lease term comprises the non-cancellable period together with rent-free intervals, optional renewal periods reasonably certain to be exercised, and termination option periods reasonably certain not to be triggered. Assessment of extension certainty depends on economic incentives created by contract, asset, entity, or market factors at commencement.",
+      "terminology": [
+        "Lease term",
+        "Non-cancellable period",
+        "Rent-free period",
+        "Extension option",
+        "Economic incentive"
+      ],
+      "instrument_references": [
+        "Ind AS 116"
+      ],
+      "inclusion": [
+        "Periods covered by renewal options with economic incentives for exercise"
+      ],
+      "exclusion": [
+        "Optional periods assessed without supporting economic incentives or based solely on past intentions"
+      ],
+      "nearby_distinctions": [
+        "Separates baseline contractual periods from extended durations contingent on economic viability and operational incentives"
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "3c4e757ba090ada12ff7291c400a55d5c4572ef858598057f9a6b0112c6b8541",
+  "artifact_id": "88097070-1de2-4a88-a4a5-c3ced1b0c92f",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8790,
+  "output_tokens": 3356,
+  "cost_usd": 0.011027,
+  "created_at": "2026-10-03T17:57:57.817311+00:00"
+}

@@ -1,0 +1,70 @@
+{
+  "descriptors": [
+    {
+      "node_id": "881ccdda-a326-4416-90cd-ba4c957b5f4c",
+      "concept_name": "Exemption To Government-Related Entities",
+      "definition": "A reporting entity is exempt from standard related party disclosures concerning transactions, balances, and commitments with a controlling government or other entities controlled by the same government. However, when applying this exemption, the entity must disclose specific details including the identity of the government and qualitative or quantitative information regarding significant transactions.",
+      "terminology": [
+        "Government-related entity",
+        "Control",
+        "Joint control",
+        "Significant influence",
+        "Individually significant transaction"
+      ],
+      "instrument_references": [
+        "Ind AS 24"
+      ],
+      "inclusion": [
+        "Transactions with a government having control, joint control or significant influence",
+        "Transactions with another entity controlled by the same government",
+        "Alternative disclosures detailing the nature and amount of significant transactions"
+      ],
+      "exclusion": [
+        "Standard related party disclosure requirements when the exemption is not elected",
+        "Government assistance disclosures governed by other standards"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard commercial related party transactions by providing relief from full disclosures for entities under common government control, requiring instead targeted qualitative and quantitative transparency."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e7dd2afa-4e9b-4fe7-89c1-39f8139544c2",
+      "concept_name": "Significant Differences In Ind AS 24 Vis-A-Vis AS 18",
+      "definition": "Ind AS 24 expands related party definitions and reporting scopes compared to AS 18 by encompassing wider familial relationships, broader government-related entity frameworks, and extended key management personnel coverage. These divergences result in increased disclosure obligations for reporting entities under the Indian Accounting Standards framework relative to older Accounting Standards.",
+      "terminology": [
+        "Close members of the family",
+        "State-controlled enterprise",
+        "Key management personnel",
+        "Joint venture",
+        "Ind AS 24",
+        "AS 18"
+      ],
+      "instrument_references": [
+        "Ind AS 24",
+        "AS 18"
+      ],
+      "inclusion": [
+        "Comparison of family member definitions",
+        "Comparison of state-controlled and government-related enterprise scopes",
+        "Comparison of key management personnel inclusions",
+        "Comparison of joint venture related party treatments"
+      ],
+      "exclusion": [
+        "Identical disclosure rules between the two frameworks",
+        "General accounting measurement principles"
+      ],
+      "nearby_distinctions": [
+        "Contrasts modern Ind AS reporting requirements with older AS rules, specifically highlighting wider inclusion thresholds for familial ties and government entities."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "e4ac707ac1b81ee437c9174fab5d64900e545aec3bdeb69a1ff731152b0a70f5",
+  "artifact_id": "d0d1a9d1-6b40-4e96-be79-3ef26f6e2b8e",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 1825,
+  "output_tokens": 700,
+  "cost_usd": 0.0022975,
+  "created_at": "2026-10-03T18:03:13.373169+00:00"
+}

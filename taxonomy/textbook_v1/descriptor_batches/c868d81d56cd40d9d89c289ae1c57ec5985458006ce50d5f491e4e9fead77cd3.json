@@ -1,0 +1,351 @@
+{
+  "descriptors": [
+    {
+      "node_id": "b99839d9-e76f-4baa-8115-8125fdec61b7",
+      "concept_name": "General Auditing Principles and Auditor’s Responsibilities Overview",
+      "definition": "The overarching principles governing independent financial statement audits require planning and execution with professional skepticism to identify material misstatements. They encompass specific responsibilities regarding fraud, regulatory compliance, communications with governance, joint audits, and third-party service organizations.",
+      "terminology": [
+        "Professional skepticism",
+        "Material misstatement",
+        "Fraud",
+        "Laws and regulations"
+      ],
+      "instrument_references": [
+        "SA 200",
+        "SA 240",
+        "SA 250",
+        "SA 260",
+        "SA 299",
+        "SA 402"
+      ],
+      "inclusion": [
+        "Responsibilities relating to fraud",
+        "Consideration of laws and regulations",
+        "Communications with governance",
+        "Joint audit considerations",
+        "Outsourced service organization impacts"
+      ],
+      "exclusion": [
+        "Detailed substantive audit testing procedures",
+        "Detailed tax accounting principles"
+      ],
+      "nearby_distinctions": [
+        "Differs from individual auditing standards by providing an overarching summary of multiple related standards rather than a single operational rule."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ccb5fedd-4e30-45ee-b7bd-2c509e7f2007",
+      "concept_name": "Auditor Responsibilities Relating to Fraud in an Audit",
+      "definition": "The standard governs the independent auditor's duties regarding fraud during financial statement audits. It provides requirements to identify and assess material misstatement risks stemming from intentional deception and to design appropriate detection procedures.",
+      "terminology": [
+        "Fraud",
+        "Intentional act",
+        "Deception",
+        "Fraudulent financial reporting",
+        "Misappropriation of assets"
+      ],
+      "instrument_references": [
+        "SA 240"
+      ],
+      "inclusion": [
+        "Identifying and assessing fraud risks",
+        "Designing responses to detected or suspected fraud",
+        "Categorization of intentional misstatements"
+      ],
+      "exclusion": [
+        "Legal determinations of whether fraud has actually occurred",
+        "Unintentional errors in financial statements"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard error evaluations by focusing specifically on intentional acts and deception rather than unintentional mistakes."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c879ada0-0702-4c0c-bcdd-7c3810faa52a",
+      "concept_name": "Objectives of the Auditor in accordance with SA 240",
+      "definition": "The auditor must identify and assess material misstatement risks caused by fraud within financial statements. Additionally, the auditor is required to gather sufficient appropriate evidence through tailored responses and react appropriately to identified or suspected fraud.",
+      "terminology": [
+        "Fraud risk assessment",
+        "Audit evidence",
+        "Incentive or pressure",
+        "Perceived opportunity",
+        "Rationalization"
+      ],
+      "instrument_references": [
+        "SA 240"
+      ],
+      "inclusion": [
+        "Risk identification and assessment for fraud",
+        "Implementation of responsive audit procedures",
+        "Evaluation of incentives, pressures, and rationalizations"
+      ],
+      "exclusion": [
+        "Conducting forensic investigations beyond financial statement scope",
+        "Making formal legal determinations of fraud"
+      ],
+      "nearby_distinctions": [
+        "Focuses on explicit objectives under SA 240 rather than general error detection routines."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "00e046d8-6589-4723-bdac-7e35d9b8e282",
+      "concept_name": "How Fraudulent Financial Reporting may be caused by Entities",
+      "definition": "Fraudulent financial reporting involves intentional misstatements or omissions designed to deceive users by manipulating perceived entity performance and profitability. Perpetrators accomplish this through record falsification, misapplied accounting principles, or management override of normal internal controls.",
+      "terminology": [
+        "Fraudulent financial reporting",
+        "Earnings management",
+        "Management override",
+        "Fictitious journal entries",
+        "Intentional misapplication"
+      ],
+      "instrument_references": [
+        "SA 240"
+      ],
+      "inclusion": [
+        "Manipulation or alteration of accounting records",
+        "Intentional misapplication of accounting principles",
+        "Management override of controls"
+      ],
+      "exclusion": [
+        "Unintentional clerical errors",
+        "Minor variances in accounting estimates lacking intent"
+      ],
+      "nearby_distinctions": [
+        "Differs from asset misappropriation because it focuses on manipulating financial statements to deceive users rather than stealing entity assets."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9e4660a5-89af-4bc2-8554-7c4238065c7b",
+      "concept_name": "How Misappropriation of Assets may be accomplished by Entities",
+      "definition": "Asset misappropriation involves stealing an entity's assets, often perpetrated by employees or disguised by management using false documents. Common methods include embezzling receipts, stealing physical or intellectual property, and causing payments for goods not received.",
+      "terminology": [
+        "Misappropriation of assets",
+        "Embezzling receipts",
+        "Fictitious vendors",
+        "Kickbacks",
+        "Concealment"
+      ],
+      "instrument_references": [
+        "SA 240"
+      ],
+      "inclusion": [
+        "Embezzlement of cash receipts",
+        "Theft of physical inventory or intellectual property",
+        "Disbursement for fictitious goods, services, or employees"
+      ],
+      "exclusion": [
+        "Fraudulent financial reporting designed solely to manipulate earnings metrics",
+        "Unintentional loss of assets"
+      ],
+      "nearby_distinctions": [
+        "Focused on theft and misuse of physical or financial resources rather than deceptive financial statement disclosures."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4bdb5957-c7cc-4d52-b7c0-9ac9a6066de6",
+      "concept_name": "Whose Primary Responsibility is to Prevent and Detect Fraud?",
+      "definition": "The primary duty for preventing and detecting fraud lies directly with the entity's management and those charged with governance. They achieve this by establishing a strong culture of honesty, ethical behavior, and active oversight to reduce fraud opportunities.",
+      "terminology": [
+        "Prevention and detection",
+        "Those charged with governance",
+        "Management",
+        "Fraud deterrence",
+        "Culture of honesty"
+      ],
+      "instrument_references": [
+        "SA 240"
+      ],
+      "inclusion": [
+        "Governance oversight responsibilities",
+        "Establishing fraud deterrence and prevention mechanisms",
+        "Creating ethical internal environments"
+      ],
+      "exclusion": [
+        "Primary auditor responsibility for fraud prevention",
+        "Absolute guarantee of fraud elimination"
+      ],
+      "nearby_distinctions": [
+        "Separates the operational responsibility of management and governance from the independent assurance role of the external auditor."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c5296c22-8ac5-4555-9cc7-6c6a9a7ae0c3",
+      "concept_name": "Responsibilities of the Auditor",
+      "definition": "The auditor must obtain reasonable assurance that financial statements as a whole are free from material misstatement caused by fraud or error. Because of inherent limitations and potential management override, the detection risk is higher for fraud than for error.",
+      "terminology": [
+        "Reasonable assurance",
+        "Inherent limitations",
+        "Management fraud",
+        "Professional skepticism",
+        "Management override"
+      ],
+      "instrument_references": [
+        "SA 240"
+      ],
+      "inclusion": [
+        "Obtaining reasonable assurance regarding material misstatements",
+        "Maintaining continuous professional skepticism",
+        "Evaluating risks related to management override"
+      ],
+      "exclusion": [
+        "Absolute guarantee of detecting all misstatements",
+        "Legal determinations of fraudulent acts"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes auditor responsibilities from management obligations, emphasizing that audit procedures effective for errors may fail against sophisticated fraud."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1bec5283-7d23-4911-a331-8e61bd0f6f80",
+      "concept_name": "Maintaining Professional Skepticism",
+      "definition": "Auditors must maintain a questioning mindset throughout the engagement despite historical beliefs regarding management's integrity. When identified conditions indicate potential document alteration or inconsistent responses, the auditor is obligated to investigate further.",
+      "terminology": [
+        "Professional skepticism",
+        "Management integrity",
+        "Document authenticity",
+        "Inconsistent responses",
+        "Further investigation"
+      ],
+      "instrument_references": [
+        "SA 240"
+      ],
+      "inclusion": [
+        "Maintaining skepticism despite past experiences",
+        "Investigating questionable documents",
+        "Resolving inconsistent management inquiries"
+      ],
+      "exclusion": [
+        "Blindly accepting management representations without challenge",
+        "Assuming dishonesty without identifying conflicting conditions"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between routine document acceptance and mandatory investigation triggered by anomalous conditions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "07e09c0d-6148-48a1-96a0-30569b55f52e",
+      "concept_name": "Discussion among the Engagement Team",
+      "definition": "Engagement team members must collaborate to discuss how and where financial statements are vulnerable to material misstatement from fraud. This discussion remains mandatory regardless of any preconceived notions regarding management's honesty.",
+      "terminology": [
+        "Engagement team discussion",
+        "Vulnerability",
+        "Susceptibility",
+        "Material misstatement"
+      ],
+      "instrument_references": [
+        "SA 240"
+      ],
+      "inclusion": [
+        "Team-wide fraud risk discussions",
+        "Focusing on potential methods of fraud execution"
+      ],
+      "exclusion": [
+        "Relying solely on individual auditor assumptions",
+        "Skipping discussions due to assumed management integrity"
+      ],
+      "nearby_distinctions": [
+        "Mandates explicit collaborative dialogue rather than isolated individual risk assessments."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "02d1a481-e74c-4fba-b68a-3db898920518",
+      "concept_name": "Risk Assessment Procedures and Related Activities be geared towards Obtaining Information for use in Identifying Risk of Material Misstatement due to Fraud",
+      "definition": "Auditors must execute risk assessment procedures targeting fraud by making inquiries of entity personnel and understanding governance oversight. They evaluate internal controls designed to mitigate fraud risks and analyze unexpected relationships identified during analytical procedures.",
+      "terminology": [
+        "Risk assessment procedures",
+        "Inquiries of management",
+        "Governance oversight",
+        "Analytical procedures",
+        "Fraud risk factors"
+      ],
+      "instrument_references": [
+        "SA 240"
+      ],
+      "inclusion": [
+        "Inquiries regarding fraud identification and response",
+        "Evaluation of governance oversight processes",
+        "Analysis of unexpected financial relationships"
+      ],
+      "exclusion": [
+        "Performing substantive tests of details prior to risk identification",
+        "Ignoring anomalous analytical relationships"
+      ],
+      "nearby_distinctions": [
+        "Directs risk assessment specifically toward intentional fraud indicators rather than general business risks."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2d55fd11-2a53-43d2-82f2-706f6dac306c",
+      "concept_name": "Responses to the Assessed Risks of Material Misstatement due to Fraud at the Financial Statement Level",
+      "definition": "To address financial statement level fraud risks, the auditor assigns appropriately skilled personnel and supervises them closely. Additionally, the auditor evaluates subjective accounting policies for potential earnings management and introduces unpredictability into audit procedures.",
+      "terminology": [
+        "Financial statement level",
+        "Personnel assignment",
+        "Accounting policies",
+        "Earnings management",
+        "Unpredictability"
+      ],
+      "instrument_references": [
+        "SA 240"
+      ],
+      "inclusion": [
+        "Appropriate staffing and supervision",
+        "Evaluation of subjective accounting policies",
+        "Incorporating unpredictability into testing"
+      ],
+      "exclusion": [
+        "Relying on standard, highly predictable routine audit tests",
+        "Ignoring management subjective estimates"
+      ],
+      "nearby_distinctions": [
+        "Addresses broad, overall financial statement level strategies rather than assertion-specific transaction testing."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b39936a3-c8a6-4288-8d42-c95e3078ec46",
+      "concept_name": "Audit Procedures Responsive to Assessed Risks of Material Misstatement due to Fraud at the Assertion Level",
+      "definition": "The auditor designs and performs further audit procedures tailored to assertion-level fraud risks by altering the nature, timing, or extent of testing. This includes gathering more reliable evidence, such as expanding external confirmations to include underlying agreement details and delivery terms.",
+      "terminology": [
+        "Assertion level",
+        "Responsive audit procedures",
+        "External confirmations",
+        "Delivery terms",
+        "Corroborative information"
+      ],
+      "instrument_references": [
+        "SA 240"
+      ],
+      "inclusion": [
+        "Modifying audit procedure nature, timing, and extent",
+        "Detail-oriented external confirmations for sales agreements",
+        "Inquiries of non-financial personnel"
+      ],
+      "exclusion": [
+        "Applying identical, unmodified testing across all assertions",
+        "Relying exclusively on standard financial confirmations"
+      ],
+      "nearby_distinctions": [
+        "Targets specific transaction assertions rather than general financial statement level strategies."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "c868d81d56cd40d9d89c289ae1c57ec5985458006ce50d5f491e4e9fead77cd3",
+  "artifact_id": "02c94852-2c09-4731-aea2-7bf6b3feb007",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8132,
+  "output_tokens": 3553,
+  "cost_usd": 0.0113221,
+  "created_at": "2026-10-03T18:09:42.118378+00:00"
+}

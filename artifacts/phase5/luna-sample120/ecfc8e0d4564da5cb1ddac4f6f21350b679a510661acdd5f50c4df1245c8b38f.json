@@ -1,0 +1,101 @@
+{
+  "result": {
+    "question_id": "ecfc8e0d4564da5cb1ddac4f6f21350b679a510661acdd5f50c4df1245c8b38f",
+    "input_hash": "d6ee7671597b5b6c12cb3198004be95a90e25d3cc675b8c457b84d5fb633e2fd",
+    "mappings": [
+      {
+        "part_id": "ecfc8e0d4564da5cb1ddac4f6f21350b679a510661acdd5f50c4df1245c8b38f:d.repeat20.i",
+        "outcome": "matched",
+        "primary_node_id": "6628d896-6b98-45c7-800a-6f6a7c8f6a3b",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "6628d896-6b98-45c7-800a-6f6a7c8f6a3b",
+            "support": "The improving-company scenario compares debenture interest with dividends on short equity, testing the long-debt/short-equity arbitrage strategy in distressed securities."
+          }
+        ],
+        "note": "This is part of the question on earning profit from distressed securities.",
+        "confidence": 0.96,
+        "bucket": "A"
+      },
+      {
+        "part_id": "ecfc8e0d4564da5cb1ddac4f6f21350b679a510661acdd5f50c4df1245c8b38f:d.repeat20.ii",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "This extracted part combines the remaining distressed-securities scenario with GST Rule 86B liability payment and a transition into ITC documentation. The GST cash-versus-credit restriction is not covered by the candidates, so a single label is not reliable.",
+        "confidence": 0.98,
+        "bucket": "D"
+      },
+      {
+        "part_id": "ecfc8e0d4564da5cb1ddac4f6f21350b679a510661acdd5f50c4df1245c8b38f:d.repeat20.i.repeat2",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "This asks for the supplier invoice or revised invoice as an ITC supporting document; no candidate covers the evidentiary documents for claiming ITC.",
+        "confidence": 0.97,
+        "bucket": "D"
+      },
+      {
+        "part_id": "ecfc8e0d4564da5cb1ddac4f6f21350b679a510661acdd5f50c4df1245c8b38f:d.repeat20.ii.repeat2",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "This tests the recipient-issued invoice required to support ITC on a reverse-charge purchase from an unregistered supplier; no candidate covers ITC documentation.",
+        "confidence": 0.97,
+        "bucket": "D"
+      },
+      {
+        "part_id": "ecfc8e0d4564da5cb1ddac4f6f21350b679a510661acdd5f50c4df1245c8b38f:d.repeat20.iii",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "This identifies a supplier debit note as an ITC supporting document, a topic absent from the candidate descriptors.",
+        "confidence": 0.97,
+        "bucket": "D"
+      },
+      {
+        "part_id": "ecfc8e0d4564da5cb1ddac4f6f21350b679a510661acdd5f50c4df1245c8b38f:d.repeat20.iv",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "This identifies a bill of entry as an ITC supporting document for imports; no candidate covers ITC documentation.",
+        "confidence": 0.97,
+        "bucket": "D"
+      },
+      {
+        "part_id": "ecfc8e0d4564da5cb1ddac4f6f21350b679a510661acdd5f50c4df1245c8b38f:d.repeat20.v",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "The extracted text combines an input service distributor document for ITC with the start of an Ind AS 38 intangible-asset disclosure question. Neither tested topic is covered by a candidate, and the part boundary obscures its full scope.",
+        "confidence": 0.94,
+        "bucket": "D"
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "attempt_id": "1791217519161454000",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "8f165fb858569bf6d5ffc43a1d8a05a1cffe39490f5119a6e3529989f14ca818",
+    "schema_generator": "pinned-identifiers-v2",
+    "seconds": 33.916,
+    "usage": [
+      {
+        "input_tokens": 55131,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1499,
+        "reasoning_output_tokens": 516
+      }
+    ],
+    "completed_at": "2026-10-05T16:25:53.077744+00:00"
+  }
+}

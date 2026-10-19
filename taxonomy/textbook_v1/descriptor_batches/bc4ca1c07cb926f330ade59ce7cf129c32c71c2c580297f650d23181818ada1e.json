@@ -1,0 +1,124 @@
+{
+  "descriptors": [
+    {
+      "node_id": "2ed5a1e4-bcf7-4e61-9f79-d17196d0c440",
+      "concept_name": "Discontinuing The Use Of The Equity Method",
+      "definition": "An entity must stop applying the equity method when its investment ceases to qualify as an associate or a joint venture. Any retained interest is then accounted for as a financial asset measured at fair value, with differences recognized in profit or loss.",
+      "terminology": [
+        "equity method",
+        "associate",
+        "joint venture",
+        "fair value",
+        "retained interest",
+        "profit or loss"
+      ],
+      "instrument_references": [
+        "Ind AS 28",
+        "Ind AS 103",
+        "Ind AS 110",
+        "Ind AS 109"
+      ],
+      "inclusion": [
+        "measurement of retained interest at fair value",
+        "recognition of gain or loss on partial disposal and discontinuation in profit or loss"
+      ],
+      "exclusion": [
+        "continued application of the equity method when joint control or significant influence persists",
+        "retaining historical carrying amounts without fair value adjustment for retained financial assets"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from business combinations where previously held interests are revalued upon gaining control versus discontinuation resulting in financial asset classification."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "83416629-d52c-45f0-8051-de4e8d64f035",
+      "concept_name": "Classification Of Investment In Associate Or Joint Venture As Held For Sale",
+      "definition": "Portions of an investment in an associate or joint venture meeting specified criteria must follow the standard for non-current assets held for sale. Any unsold retained portions continue under the equity method until disposal, after which accounting depends on the retention of joint control.",
+      "terminology": [
+        "held for sale",
+        "associate",
+        "joint venture",
+        "equity method",
+        "retained portion"
+      ],
+      "instrument_references": [
+        "Ind AS 105",
+        "Ind AS 28",
+        "Ind AS 109"
+      ],
+      "inclusion": [
+        "applying held-for-sale criteria to portions of investments",
+        "retrospective application of the equity method if classification as held for sale ceases"
+      ],
+      "exclusion": [
+        "immediate derecognition of retained portions before disposal",
+        "applying held-for-sale standards to portions lacking disposal plans"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from permanent discontinuation of the equity method by applying temporary held-for-sale rules and potential retrospective reinstatement."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "fe8ef4f8-d445-4ac2-8151-c2a348fe200d",
+      "concept_name": "Significant Changes In Ind As 28 From Ias 28 Resulting Into Carve Out",
+      "definition": "Ind AS 28 includes an impracticability carve-out from the requirement to use uniform accounting policies between an investor and its associates. This exemption accommodates entities like regional rural banks that cannot feasibly implement advanced accounting standards.",
+      "terminology": [
+        "uniform accounting policies",
+        "carve out",
+        "impracticable",
+        "associate"
+      ],
+      "instrument_references": [
+        "Ind AS 28",
+        "IAS 28"
+      ],
+      "inclusion": [
+        "exempting specific associates from uniform policy adjustments due to practical limitations"
+      ],
+      "exclusion": [
+        "mandatory uniform policy alignment when it is practicable to do so"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from strict IFRS requirements by introducing a localized impracticability exemption for specific categories of associates."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c3fae909-08b0-4f97-9a9f-beef6c6533f3",
+      "concept_name": "Significant Differences Between Ind As 28 And AS 23",
+      "definition": "Ind AS 28 differs from AS 23 regarding the definition and assessment of significant influence, the treatment of potential voting rights, and exemptions for applying the equity method. It also includes specific provisions for fair value measurement through profit or loss and held-for-sale classifications.",
+      "terminology": [
+        "significant influence",
+        "potential voting rights",
+        "equity method",
+        "fair value through profit or loss",
+        "held for sale"
+      ],
+      "instrument_references": [
+        "Ind AS 28",
+        "AS 23",
+        "Ind AS 109"
+      ],
+      "inclusion": [
+        "comparison of criteria for significant influence and potential voting rights",
+        "differences in equity method application exemptions and held-for-sale treatment"
+      ],
+      "exclusion": [
+        "treating old GAAP standards as identical to current Ind AS frameworks"
+      ],
+      "nearby_distinctions": [
+        "Distinguished by contrasting modern Ind AS rules with legacy AS 23 provisions concerning investment definitions and restrictions."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "bc4ca1c07cb926f330ade59ce7cf129c32c71c2c580297f650d23181818ada1e",
+  "artifact_id": "3ae9c60c-1c25-42a1-9b38-d956e3d70a60",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 3430,
+  "output_tokens": 1302,
+  "cost_usd": 0.004284,
+  "created_at": "2026-10-03T18:05:21.867321+00:00"
+}

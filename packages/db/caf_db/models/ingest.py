@@ -16,6 +16,7 @@ from sqlalchemy import (
     Text,
     UniqueConstraint,
     func,
+    text,
 )
 from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import Mapped, mapped_column, relationship
@@ -52,6 +53,8 @@ class SourcePage(Base):
 class Document(Base):
     __tablename__ = "document"
     __table_args__ = (
+        CheckConstraint("course_level IS NULL OR course_level IN ('foundation','intermediate','final')", name="check_document_course_level"),
+        CheckConstraint("provenance_status IN ('synthetic','unresolved','verified')", name="check_document_provenance"),
         CheckConstraint(
             "origin IN ('http','browser','assisted','manual')", name="check_document_origin"
         ),
@@ -73,6 +76,8 @@ class Document(Base):
     blob_path: Mapped[str] = mapped_column(Text, nullable=False)
     bytes: Mapped[int] = mapped_column(BigInteger, nullable=False)
     origin: Mapped[str] = mapped_column(Text, nullable=False)
+    course_level: Mapped[str | None] = mapped_column(Text, nullable=True)
+    provenance_status: Mapped[str] = mapped_column(Text, nullable=False, default="unresolved", server_default="unresolved")
     scheme_id: Mapped[str | None] = mapped_column(Text, ForeignKey("ref.scheme.id"), nullable=True)
     attempt_id: Mapped[str | None] = mapped_column(Text, ForeignKey("ref.attempt.id"), nullable=True)
     paper_id: Mapped[str | None] = mapped_column(Text, ForeignKey("ref.paper.id"), nullable=True)
@@ -98,6 +103,10 @@ class Document(Base):
     )
     superseded: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False)
     depth_band: Mapped[str | None] = mapped_column(Text, nullable=True)
+    collection_id: Mapped[str | None] = mapped_column(Text, nullable=True)
+    paper_page_ranges: Mapped[list[dict[str, Any]]] = mapped_column(JSONB, nullable=False, default=list, server_default="[]")
+    metadata_evidence: Mapped[dict[str, Any]] = mapped_column(JSONB, nullable=False, default=dict, server_default="{}")
+    current_revision_id: Mapped[int | None] = mapped_column(BigInteger, ForeignKey("ingest.extraction_revision.id", use_alter=True), nullable=True)
     created_run_id: Mapped[int | None] = mapped_column(
         BigInteger, ForeignKey("ops.run.id"), nullable=True
     )
@@ -167,11 +176,13 @@ class Unit(Base):
             name="check_unit_parse_confidence",
         ),
         CheckConstraint(
-            "classify_status IN ('pending','running','suggested','failed','skipped','decided','excluded')",
+            "classify_status IN ('pending','running','suggested','failed','skipped','decided','excluded','needs_review')",
             name="check_unit_classify_status",
         ),
-        UniqueConstraint("document_id", "extract_run_id", "label_path", name="uq_unit_doc_run_label"),
+        Index("uq_unit_legacy_doc_run_label", "document_id", "extract_run_id", "label_path", unique=True, postgresql_where=text("revision_id IS NULL")),
+        Index("uq_unit_revision_label", "revision_id", "label_path", unique=True, postgresql_where=text("revision_id IS NOT NULL")),
         Index("ix_ingest_unit_fingerprint", "fingerprint"),
+        Index("ix_unit_revision", "revision_id"),
         {"schema": "ingest"},
     )
 
@@ -203,6 +214,10 @@ class Unit(Base):
     parse_confidence: Mapped[str] = mapped_column(Text, nullable=False)
     validation_flags: Mapped[list[str]] = mapped_column(ARRAY(Text), nullable=False, default=list)
     classify_status: Mapped[str] = mapped_column(Text, nullable=False, default="pending")
+    revision_id: Mapped[int | None] = mapped_column(BigInteger, ForeignKey("ingest.extraction_revision.id"), nullable=True)
+    content_digest: Mapped[str | None] = mapped_column(String(64), nullable=True)
+    stable_question_id: Mapped[str | None] = mapped_column(Text, nullable=True)
+    extraction_data: Mapped[dict[str, Any]] = mapped_column(JSONB, nullable=False, default=dict, server_default="{}")
     current: Mapped[bool] = mapped_column(Boolean, nullable=False, default=True)
 
 
@@ -240,6 +255,8 @@ class TagSuggestion(Base):
     )
 
     id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
+    taxonomy_version_id: Mapped[int | None] = mapped_column(Integer, ForeignKey("ref.taxonomy_version.id"), nullable=True)
+    descriptor_revision_id: Mapped[int | None] = mapped_column(Integer, ForeignKey("ref.descriptor_revision.id"), nullable=True)
     unit_id: Mapped[int] = mapped_column(
         BigInteger, ForeignKey("ingest.unit.id"), nullable=False
     )

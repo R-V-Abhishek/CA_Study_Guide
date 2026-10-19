@@ -1,0 +1,320 @@
+{
+  "descriptors": [
+    {
+      "node_id": "0183ff8f-2c13-4014-b5b7-b0910214799d",
+      "concept_name": "Balanced Scorecard - linkage between performance measures",
+      "definition": "The balanced scorecard evaluates organizational performance across financial, customer, internal, and innovation dimensions by connecting short-term goals with long-term strategy. It emphasizes mobilizing intangible assets alongside physical capital to achieve a competitive advantage in the information age.",
+      "terminology": [
+        "Balanced scorecard",
+        "Financial perspective",
+        "Customer perspective",
+        "Internal business perspective",
+        "Innovation dimension",
+        "Intangible assets"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Financial performance metrics",
+        "Customer satisfaction and retention indicators",
+        "Internal process efficiency",
+        "Human resource and brand awareness metrics"
+      ],
+      "exclusion": [
+        "Exclusive reliance on physical asset investments",
+        "Solely short-term financial reporting"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from traditional financial-only performance models by incorporating non-financial dimensions and intangible asset management."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b5f5962c-e080-4b47-9c92-bfadfdcfc206",
+      "concept_name": "Kaplan and Norton classified performance measures into four business perspectives",
+      "definition": "This framework divides business performance measurement into financial, customer, internal business, and learning perspectives to align operational objectives with corporate strategy. It addresses shareholder expectations while establishing lead and outcome indicators across operational and market segments.",
+      "terminology": [
+        "Financial perspective",
+        "Customer perspective",
+        "Internal business perspective",
+        "Lead indicators",
+        "Outcome measures"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Shareholder value assessment",
+        "Customer delivery and support metrics",
+        "Internal value chain process adjustments"
+      ],
+      "exclusion": [
+        "Single-dimension financial evaluations",
+        "External reporting without internal implementation"
+      ],
+      "nearby_distinctions": [
+        "Differs from the Performance Pyramid by categorizing metrics into four distinct strategic perspectives rather than a hierarchical operational pyramid."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "89c513be-ace5-4758-9276-891ce3d08d4d",
+      "concept_name": "Why does Balanced Scorecard fail to provide the desired results",
+      "definition": "Balanced scorecards can fail when organizations mistakenly treat existing non-financial metrics as a complete scorecard, delegate implementation entirely to middle management, or copy external measures blindly. Additional pitfalls include treating the scorecard merely as an external reporting tool rather than an internal management mechanism linked to employee rewards.",
+      "terminology": [
+        "Scorecard implementation failure",
+        "Internal management tool",
+        "Behavioral change",
+        "Reward linkage"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Misapplication of non-financial metrics",
+        "Improper delegation of scorecard rollout",
+        "Lack of behavioral alignment with rewards"
+      ],
+      "exclusion": [
+        "Successful internal management system deployment",
+        "Tailored strategic metric design"
+      ],
+      "nearby_distinctions": [
+        "Focuses on behavioral and structural implementation pitfalls rather than the structural design of the scorecard perspectives."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4a364923-f02b-40b7-8bf3-2e242812e56e",
+      "concept_name": "The following figure summarizes the ideas of a Balanced Scorecard",
+      "definition": "A balanced scorecard translates organizational strategy into actionable performance measures centered around a common strategic core. It interconnects customer, internal, financial, and innovation perspectives to maintain sustainable performance.",
+      "terminology": [
+        "Strategy translation",
+        "Performance matrix",
+        "Inter-se relations"
+      ],
+      "instrument_references": [
+        "Robert S Kaplan and David P Norton"
+      ],
+      "inclusion": [
+        "Diagrammatic representation of metric linkages",
+        "Strategy-centric performance alignment"
+      ],
+      "exclusion": [
+        "Isolated functional performance metrics"
+      ],
+      "nearby_distinctions": [
+        "Emphasizes the visual and operational translation framework of strategy over individual perspective details."
+      ],
+      "source_ambiguities": [
+        "The source text references a missing figure illustration."
+      ]
+    },
+    {
+      "node_id": "8bafe760-0d13-4987-8b7b-a95565bcedb6",
+      "concept_name": "Linkage between performance measures",
+      "definition": "Organizations link various performance measures to ensure sustainability within a hostile business environment, centered around a unified corporate strategy. This blending of financial, non-financial, internal, and external aspects ensures that measured operational areas receive managerial attention.",
+      "terminology": [
+        "Performance matrix",
+        "Blend of measures",
+        "What gets measured gets done"
+      ],
+      "instrument_references": [
+        "Robert S Kaplan and David P Norton"
+      ],
+      "inclusion": [
+        "Integration of short and long-term objectives",
+        "Flexible metric adjustments over time"
+      ],
+      "exclusion": [
+        "Unmonitored operational activities"
+      ],
+      "nearby_distinctions": [
+        "Focuses on the mutual reinforcement and inter-se relationships among diverse performance indicators rather than a single metric category."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "efd1c7c4-4184-4b09-929e-44f8bfbb8770",
+      "concept_name": "Performance Pyramid - Link Strategy, Operations, and Performance",
+      "definition": "The Strategic Measurement Analysis and Reporting Technique (SMART) performance pyramid integrates corporate vision with operational performance dimensions through a four-level hierarchy. It links external market effectiveness with internal operational efficiency across financial and non-financial measures.",
+      "terminology": [
+        "Performance Pyramid",
+        "SMART",
+        "Corporate vision",
+        "Critical Success Factors",
+        "Operational performance dimensions"
+      ],
+      "instrument_references": [
+        "F. Cross and R. L. Lynch"
+      ],
+      "inclusion": [
+        "Corporate vision definition at Level 1",
+        "Financial and market CSFs at Level 2",
+        "Operational status checks for quality and cycle time at Level 4"
+      ],
+      "exclusion": [
+        "Inclusion of non-shareholder stakeholder groups beyond customers"
+      ],
+      "nearby_distinctions": [
+        "Differs from the Balanced Scorecard by utilizing a rigid hierarchical pyramid structure that focuses primarily on shareholder and customer perspectives."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "49ece7cd-bbb5-4068-ac04-64eea8f19250",
+      "concept_name": "Link Strategy, Operations, and Performance",
+      "definition": "This mechanism connects SBU operational activities to corporate vision, driving operational efficiency by demonstrating how worker efforts aid strategy execution. Objectives flow downward from the top while performance measures flow upward from the bottom of the pyramid.",
+      "terminology": [
+        "Operational efficiency",
+        "Horizontal and vertical interaction",
+        "Flow of objectives",
+        "Flow of measures"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Top-down objective setting",
+        "Bottom-up indicator reporting",
+        "External non-financial and internal financial force balancing"
+      ],
+      "exclusion": [
+        "Uncoordinated operational tasks lacking strategic alignment"
+      ],
+      "nearby_distinctions": [
+        "Superior to the balanced scorecard in enforcing strict organizational level hierarchy and explicitly linking operational measures to corporate vision."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6d831693-4bf5-44a2-80e5-e1b21bf6999a",
+      "concept_name": "Link between the achievement of the corporate strategy and the management of human resources",
+      "definition": "In service industries, aligning human resource management with corporate strategy requires establishing clear, controllable standards and motivating reward systems. The building block model addresses this by linking specific staff targets to strategic goals to foster ownership, achievability, and fairness.",
+      "terminology": [
+        "Building block model",
+        "Motivated workforce",
+        "Controllable factors",
+        "Reward system"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Clear employee performance targets",
+        "Alignment of rewards with strategy",
+        "Service sector workforce engagement"
+      ],
+      "exclusion": [
+        "Vague or uncontrollable performance standards"
+      ],
+      "nearby_distinctions": [
+        "Directly connects staff motivation and reward mechanisms to strategy achievement rather than relying purely on broad financial KPIs."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d8ed4008-19fe-4106-91b1-20500d664906",
+      "concept_name": "Triple Bottom Line (TBL)",
+      "definition": "The Triple Bottom Line framework evaluates business decision sustainability across three dimensions: people, planet, and profit, extending traditional accounting into modern sustainability reporting. It supports meeting present needs without compromising future generations by incorporating environmental and social performance alongside financial returns.",
+      "terminology": [
+        "Triple Bottom Line",
+        "People",
+        "Planet",
+        "Profit",
+        "Sustainable development",
+        "Global Reporting Initiative"
+      ],
+      "instrument_references": [
+        "Brundtland report",
+        "Global Reporting Initiative"
+      ],
+      "inclusion": [
+        "Environmental impact and ecological footprint measurement",
+        "Social equity, governance, and health measures",
+        "Economic profit bottom line"
+      ],
+      "exclusion": [
+        "Exclusive reliance on single-bottom-line economic profit reporting"
+      ],
+      "nearby_distinctions": [
+        "Extends traditional financial reporting by mandating equal evaluation of social and environmental impacts instead of focusing solely on shareholder value."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "63e07201-40ce-4a41-aba1-c179850a1d3c",
+      "concept_name": "Dimension (sets) of TBL",
+      "definition": "Sustainable business decisions are assessed through the interplay of planet, people, and profit dimensions, classifying outcomes into subsets such as bearable, equitable, viable, and sustainable. This stakeholder-oriented approach requires businesses to account for full costs across all three bottom lines.",
+      "terminology": [
+        "Bearable",
+        "Equitable",
+        "Viable",
+        "Sustainable",
+        "Stakeholder approach",
+        "Full cost accounting"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Planet environmental metrics",
+        "People social equity metrics",
+        "Profit economic value metrics"
+      ],
+      "exclusion": [
+        "Shareholder-only performance models"
+      ],
+      "nearby_distinctions": [
+        "Classifies business activities based on multidimensional acceptability criteria rather than financial profitability alone."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2568c22e-ca3d-48e9-b082-b565ecefbf06",
+      "concept_name": "Effect of quality practices on PMS and Quality-related costs",
+      "definition": "Adopting quality practices enhances performance but incurs quality costs divided into conformance costs (prevention and appraisal) and non-conformance costs (internal and external failures). Measuring these costs through a robust costing system modifies worker behavior and optimizes overall performance costs.",
+      "terminology": [
+        "Cost of conformance",
+        "Cost of non-conformance",
+        "Prevention cost",
+        "Appraisal cost",
+        "Internal failure cost",
+        "External failure cost"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Quality circles and inspections",
+        "Conformance and non-conformance cost tracking",
+        "Staff rewards based on quality KPIs"
+      ],
+      "exclusion": [
+        "Unmonitored quality failure losses"
+      ],
+      "nearby_distinctions": [
+        "Differentiates between desirable conformance investments ('good costs') and failure expenses ('bad costs') to drive targeted operational improvements."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e49252b8-305d-4454-9c0c-070e3726d26a",
+      "concept_name": "Role of quality management system as sub-set or support system to PMS",
+      "definition": "A Quality Management System (QMS) directs and controls organizational performance to ensure continuous improvement, maintaining an inverse relationship between its rigor and non-conformance costs. Effective QMS implementations optimize overall quality costs, boost customer satisfaction via perceived value, and empower staff.",
+      "terminology": [
+        "Quality Management System",
+        "Lean production system",
+        "Management Information Systems",
+        "Cost of non-conformance"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "QMS as a support subsystem for PMS",
+        "Lean production waste reduction",
+        "MIS reliability and information quality"
+      ],
+      "exclusion": [
+        "Unstructured quality control activities"
+      ],
+      "nearby_distinctions": [
+        "Serves as an operational support subsystem that directly influences the broader Performance Management System rather than functioning as a standalone strategic framework."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "5b894bd749d4d2adc81e23459528bd702d4e01e1431a3ff1ad1d670f01584057",
+  "artifact_id": "201a434e-abaf-448f-810a-072c372f0ba2",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8314,
+  "output_tokens": 3360,
+  "cost_usd": 0.010894200000000001,
+  "created_at": "2026-10-03T18:27:51.417105+00:00"
+}

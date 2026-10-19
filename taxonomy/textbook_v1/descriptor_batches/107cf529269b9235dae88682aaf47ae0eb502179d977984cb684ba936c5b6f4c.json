@@ -1,0 +1,326 @@
+{
+  "descriptors": [
+    {
+      "node_id": "25b1f23e-d88d-421a-8b41-987adde498a7",
+      "concept_name": "Documentation of Prospective Financial Information",
+      "definition": "The process of retaining crucial evidence to substantiate the examination report of prospective financial information in alignment with specific standards. It confirms that variances between actual outcomes and forecasts are expected due to changing events and hypothetical assumptions.",
+      "terminology": [
+        "prospective financial information",
+        "examination",
+        "hypothetical assumptions",
+        "projection",
+        "evidence"
+      ],
+      "instrument_references": [
+        "SAE 3402"
+      ],
+      "inclusion": [
+        "Recording evidence supporting the examination report",
+        "Documentation demonstrating execution in accordance with relevant standards"
+      ],
+      "exclusion": [
+        "Using prospective financial information for purposes outside intended uses without caution"
+      ],
+      "nearby_distinctions": [
+        "Differs from historical financial statement documentation by incorporating forward-looking assumptions and management actions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ba6eb708-c383-4b54-a211-5f78d04d3d97",
+      "concept_name": "SAE 3402 Assurance Reports on Controls at a Service Organisation",
+      "definition": "An assurance standard governing professional engagements to report on controls at a third-party service organization that affect user entities' internal controls over financial reporting. It assists user auditors in obtaining appropriate evidence regarding outsourced functions and relevant compliance objectives.",
+      "terminology": [
+        "service organization",
+        "user entity",
+        "user auditor",
+        "internal control",
+        "assurance report"
+      ],
+      "instrument_references": [
+        "SAE 3402",
+        "SA 402"
+      ],
+      "inclusion": [
+        "Assurance reports for user entities and their auditors",
+        "Evaluation of controls relevant to financial reporting at a service organization"
+      ],
+      "exclusion": [
+        "Engagements reporting exclusively on whether controls operated as described without design assessment",
+        "Controls unrelated to financial reporting such as production or quality control"
+      ],
+      "nearby_distinctions": [
+        "Complements SA 402 by providing direct assurance reports on service organization controls capable of satisfying user auditor evidence requirements."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6ff46424-7810-49f0-b079-9e811e75b110",
+      "concept_name": "Scope of SAE 3402",
+      "definition": "The standard applies strictly when a service organization is responsible for making assertions regarding the suitable design of controls relevant to financial reporting. It excludes engagements that solely test operational descriptions or evaluate controls unrelated to financial reporting.",
+      "terminology": [
+        "suitable design",
+        "control environment",
+        "information systems",
+        "monitoring",
+        "financial reporting"
+      ],
+      "instrument_references": [
+        "SAE 3402"
+      ],
+      "inclusion": [
+        "Controls affecting user entity financial reporting assertions",
+        "Aspects of information systems and internal control components maintained by the service organization"
+      ],
+      "exclusion": [
+        "Engagements reporting only on whether controls operated as described",
+        "Controls affecting production or operational quality control exclusively"
+      ],
+      "nearby_distinctions": [
+        "Differentiated from general internal control reviews by its specific limitation to third-party services impacting user financial statements."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6770c1db-2cd6-4e45-9ce7-b2ed518b31c4",
+      "concept_name": "Objectives of Service Auditor in Accordance with SAE 3402",
+      "definition": "The service auditor aims to acquire reasonable assurance regarding whether the system description fairly presents the implemented design and whether controls were suitably designed throughout a specified period. Additionally, it encompasses reporting findings on whether operational controls achieved stated control objectives.",
+      "terminology": [
+        "reasonable assurance",
+        "control objectives",
+        "system description",
+        "suitably designed",
+        "service auditor"
+      ],
+      "instrument_references": [
+        "SAE 3402"
+      ],
+      "inclusion": [
+        "Evaluating fair presentation of system descriptions",
+        "Assessing design suitability and operating effectiveness of controls"
+      ],
+      "exclusion": [
+        "Providing opinions on operational areas outside financial reporting internal controls"
+      ],
+      "nearby_distinctions": [
+        "Type 1 focuses on design at a specific date, whereas Type 2 extends to operating effectiveness over a specified period."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "534a8af7-9c3c-44b5-b24a-3b5f459d16f1",
+      "concept_name": "Type 1 Report & Type 2 Report",
+      "definition": "A Type 1 report evaluates a service organization's system description and the suitability of design of its controls as of a specified date. Conversely, a Type 2 report includes an assessment of the operating effectiveness of those controls throughout a specified period alongside testing descriptions and results.",
+      "terminology": [
+        "Type 1 report",
+        "Type 2 report",
+        "system description",
+        "design",
+        "operating effectiveness"
+      ],
+      "instrument_references": [
+        "SAE 3402"
+      ],
+      "inclusion": [
+        "Service organization written assertions",
+        "Service auditor assurance report detailing test results for Type 2"
+      ],
+      "exclusion": [
+        "Unverified service descriptions lacking management assertions"
+      ],
+      "nearby_distinctions": [
+        "Type 1 covers design at a point in time, while Type 2 covers both design and operational performance across a duration."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "02994a58-fe8e-4417-8548-98408e390ed8",
+      "concept_name": "How such an Engagement is Proceeded with?",
+      "definition": "The procedural steps for executing a service organization assurance engagement require complying with ethical requirements, managing governance communications, and verifying professional competence. Furthermore, the practitioner must assess the suitability of criteria, determine materiality, and obtain systemic understanding.",
+      "terminology": [
+        "ethical requirements",
+        "independence",
+        "materiality",
+        "engagement acceptance",
+        "understanding the system"
+      ],
+      "instrument_references": [
+        "SAE 3402"
+      ],
+      "inclusion": [
+        "Evaluating engagement acceptance criteria",
+        "Assessing control criteria suitability and determining materiality"
+      ],
+      "exclusion": [
+        "Proceeding with engagements where scope limitations undermine utility for user entities"
+      ],
+      "nearby_distinctions": [
+        "Establishes a structured chronological progression from initial ethical compliance to systemic understanding and evidence gathering."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d2825df7-4a54-43fa-8e7d-ab78914683f1",
+      "concept_name": "Reporting",
+      "definition": "The formal documentation and communication framework detailing the service auditor's assurance opinion, basic elements, and management representations. It explicitly identifies unverified parts, complementary user controls, and subservice organization activities.",
+      "terminology": [
+        "service auditor's assurance report",
+        "written representation",
+        "complementary user entity controls",
+        "subservice organization",
+        "title"
+      ],
+      "instrument_references": [
+        "SAE 3402"
+      ],
+      "inclusion": [
+        "Basic elements including title and addressee",
+        "Disclosures on non-compliance, fraud, and control design deficiencies"
+      ],
+      "exclusion": [
+        "Distribution to unintended external users outside user entities and their auditors"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard financial statement audit reports by incorporating specific service organization system descriptions and complementary control declarations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "93dbc592-59af-435c-bfa1-168444fa731c",
+      "concept_name": "Documentation",
+      "definition": "The requirement for the service auditor to record engagement procedures, evidence obtained, and significant judgments to enable an experienced practitioner to understand the engagement. If evidence is insufficient or controls are deficient, the auditor must modify the assurance report opinion accordingly.",
+      "terminology": [
+        "documentation",
+        "professional judgments",
+        "modified opinion",
+        "sufficient appropriate evidence",
+        "significant matters"
+      ],
+      "instrument_references": [
+        "SAE 3402"
+      ],
+      "inclusion": [
+        "Records of nature, timing, and extent of procedures",
+        "Clear descriptions of reasons for opinion modifications"
+      ],
+      "exclusion": [
+        "Omitting rationale behind significant professional judgments made during the engagement"
+      ],
+      "nearby_distinctions": [
+        "Focuses specifically on service auditor working papers that validate system design and operational effectiveness findings."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7cb152cc-f759-4d56-96a3-8687d1870d5a",
+      "concept_name": "SAE 3420 Assurance Engagements to Report on the Compilation of Pro Forma Financial Information Included in a Prospectus",
+      "definition": "A standard addressing reasonable assurance engagements where a practitioner reports on a responsible party's compilation of pro forma financial information in a prospectus. It illustrates the impact of an event or transaction on unadjusted financial data as if it occurred earlier.",
+      "terminology": [
+        "pro forma financial information",
+        "prospectus",
+        "reasonable assurance",
+        "unadjusted financial information",
+        "adjustments"
+      ],
+      "instrument_references": [
+        "SAE 3420"
+      ],
+      "inclusion": [
+        "Reporting required by securities laws or stock exchange regulations",
+        "Illustrating transaction impacts on financial positions via pro forma adjustments"
+      ],
+      "exclusion": [
+        "Representing actual historical financial position, performance, or cash flows"
+      ],
+      "nearby_distinctions": [
+        "Differs from prospective financial information by illustrating hypothetical past impacts on existing figures rather than predicting future performance."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c4b5a924-3dc1-489b-a7c6-86c235dd0d6a",
+      "concept_name": "Objectives in Accordance with SAE 3420",
+      "definition": "The practitioner aims to obtain reasonable assurance regarding whether the responsible party compiled pro forma financial information based on applicable criteria. Subsequently, the practitioner issues an appropriate report matching their investigative findings.",
+      "terminology": [
+        "reasonable assurance",
+        "applicable criteria",
+        "compilation",
+        "practitioner",
+        "responsible party"
+      ],
+      "instrument_references": [
+        "SAE 3420"
+      ],
+      "inclusion": [
+        "Obtaining assurance on compilation accuracy",
+        "Reporting in accordance with findings"
+      ],
+      "exclusion": [
+        "Compiling the pro forma financial information directly on behalf of the entity"
+      ],
+      "nearby_distinctions": [
+        "Focuses exclusively on evaluating compilation processes rather than preparing the underlying financial models."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d138c4f4-098d-4868-a242-e537d4d4842d",
+      "concept_name": "Compilation of Pro forma financial information",
+      "definition": "The process where the responsible party gathers, classifies, and summarizes financial data to showcase the simulated impact of significant events. It involves extracting unadjusted figures, making relevant adjustments, and presenting accompanying disclosures.",
+      "terminology": [
+        "compilation",
+        "unadjusted financial information",
+        "pro forma adjustments",
+        "disclosures",
+        "responsible party"
+      ],
+      "instrument_references": [
+        "SAE 3420"
+      ],
+      "inclusion": [
+        "Extracting data from unadjusted financial sources",
+        "Applying specific pro forma adjustments and disclosures"
+      ],
+      "exclusion": [
+        "Independent preparation of financial statements by the reviewing practitioner"
+      ],
+      "nearby_distinctions": [
+        "A preparatory function performed entirely by management or the responsible party rather than the external assurance practitioner."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2f42b72d-887b-48a4-820e-8ed51277a849",
+      "concept_name": "Nature of the Practitioner’s Responsibility",
+      "definition": "The practitioner holds no obligation to compile pro forma information, as compilation rests exclusively with the responsible party. The practitioner's sole duty is to execute a reasonable assurance engagement evaluating whether compilation followed applicable criteria.",
+      "terminology": [
+        "practitioner's responsibility",
+        "reasonable assurance engagement",
+        "applicable criteria",
+        "responsible party",
+        "opinion"
+      ],
+      "instrument_references": [
+        "SAE 3420"
+      ],
+      "inclusion": [
+        "Assessing whether applicable criteria provide a reasonable presentation basis",
+        "Performing procedures to report on compilation integrity"
+      ],
+      "exclusion": [
+        "Directly compiling or formulating the entity's pro forma financial data"
+      ],
+      "nearby_distinctions": [
+        "Separates management's duty to compile data from the practitioner's independent verification and reporting duty."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "107cf529269b9235dae88682aaf47ae0eb502179d977984cb684ba936c5b6f4c",
+  "artifact_id": "ec4ecd3f-1e19-4027-9b3d-5268e9f56a90",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8208,
+  "output_tokens": 3430,
+  "cost_usd": 0.0110374,
+  "created_at": "2026-10-03T18:11:00.063345+00:00"
+}

@@ -1,0 +1,337 @@
+{
+  "descriptors": [
+    {
+      "node_id": "4cd09ac7-029f-41bf-8ab3-df9f744718f2",
+      "concept_name": "Payment Of Debts By Contributory And Extent Of Set-Off [Section 295]",
+      "definition": "The Tribunal may direct any contributory listed during winding up to pay due amounts, excluding regular calls. In unlimited or limited structures under specific conditions, offsets against independent transactions may be permitted.",
+      "terminology": [
+        "contributory",
+        "set-off",
+        "winding up order",
+        "independent dealing"
+      ],
+      "instrument_references": [
+        "Section 295 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "money due from a contributory other than regular calls",
+        "set-offs on independent contracts for unlimited companies or eligible directors",
+        "set-offs against subsequent calls after full creditor settlement"
+      ],
+      "exclusion": [
+        "dividends or profits due to a member",
+        "call money required under the Act prior to full creditor clearance"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from regular share calls under Section 296 which are levied specifically to satisfy debts and liquidation expenses."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "35deb914-a25b-488e-beae-2e63beef9a6a",
+      "concept_name": "Adjustment Of Rights Of Contributories [Section 297]",
+      "definition": "The Tribunal possesses the authority to balance and reconcile mutual rights among contributories during liquidation. Any resulting surplus assets are subsequently distributed to the rightful beneficiaries.",
+      "terminology": [
+        "adjustment of rights",
+        "contributories",
+        "surplus distribution"
+      ],
+      "instrument_references": [
+        "Section 297 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "balancing claims and liabilities among contributories",
+        "distribution of company surplus to entitled persons"
+      ],
+      "exclusion": [
+        "satisfaction of external creditor claims prior to adjustment",
+        "determination of preferential payments under separate sections"
+      ],
+      "nearby_distinctions": [
+        "Distinct from the power to make calls under Section 296, focusing instead on internal equity and surplus allocation among shareholders."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2ddf05f5-e6cd-4f58-a86a-d046d2fe3a69",
+      "concept_name": "Power To Order Costs [Section 298]",
+      "definition": "When corporate assets are inadequate to cover total liabilities, the Tribunal can direct the payment of liquidation expenses out of available funds. Such costs are settled based on an inter se priority determined by the Tribunal.",
+      "terminology": [
+        "costs",
+        "charges",
+        "expenses of winding up",
+        "priority inter se"
+      ],
+      "instrument_references": [
+        "Section 298 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "payment of winding up costs, charges, and expenses from insufficient assets",
+        "fixing inter se priorities for expense settlement"
+      ],
+      "exclusion": [
+        "ordinary operational debts outside liquidation expenses",
+        "unauthorized disbursements not sanctioned by the Tribunal"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general debt settlement rules as it specifically prioritizes administrative winding up costs when assets fall short."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c7e4ad23-9153-4eea-ab7b-0fbd34af300d",
+      "concept_name": "Power To Summon Persons Suspected Of Having Property Of Company, Etc. [Section 299]",
+      "definition": "The Tribunal can summon officers, suspected possessors of company property, or knowledgeable individuals after appointing a provisional liquidator or ordering a winding up. It can examine them on oath, require book production, and order the delivery of assets or payment of debts.",
+      "terminology": [
+        "summon",
+        "examination on oath",
+        "books and papers",
+        "lien"
+      ],
+      "instrument_references": [
+        "Section 299 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "summoning officers or third parties suspected of holding company property or books",
+        "examining summoned persons via word of mouth, interrogatories, or affidavits",
+        "ordering indebted persons to pay or property holders to deliver assets to the liquidator"
+      ],
+      "exclusion": [
+        "prejudicing lawful liens claimed over produced books and papers during determination",
+        "proceedings conducted prior to provisional liquidator appointment or winding up order"
+      ],
+      "nearby_distinctions": [
+        "Differs from Section 300 by focusing broadly on gathering information, recovering hidden assets, and securing books from any suspected persons rather than targeted fraud investigations of promoters."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "67175379-48e1-403f-bddf-8ea9c1db0539",
+      "concept_name": "Power To Order Examination Of Promoters, Directors, Etc. [Section 300]",
+      "definition": "Upon receiving a liquidator report alleging fraud in formation or business conduct, the Tribunal can direct implicated persons to attend and undergo examination on oath. Such individuals are entitled to legal representation and can apply for exculpation from charges.",
+      "terminology": [
+        "fraud report",
+        "examination on oath",
+        "exculpation",
+        "Company Liquidator"
+      ],
+      "instrument_references": [
+        "Section 300 of the Companies Act, 2013",
+        "Section 432 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "directing officers or promoters named in a fraud report to be examined",
+        "permitting professional assistance such as chartered accountants or legal practitioners for the examined person",
+        "liquidator participation and duty to respond to exculpation applications"
+      ],
+      "exclusion": [
+        "general inquiries into company affairs lacking a formal liquidator fraud report",
+        "unrepresented testimonies without access to the foundational report"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from Section 299 general summons because it specifically activates upon a liquidator's fraud report regarding promotion, formation, or business conduct."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "50755852-0856-4c08-a70f-334309275f59",
+      "concept_name": "Arrest Of Person Trying To Leave India Or Abscond [Section 301]",
+      "definition": "The Tribunal may order the detention of a contributory or person holding company assets and seize their movable property if there is an attempt to abscond or conceal assets. This action prevents the evasion of calls or avoidance of company affairs examinations.",
+      "terminology": [
+        "detention",
+        "seizure of property",
+        "absconding",
+        "evading calls"
+      ],
+      "instrument_references": [
+        "Section 301 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "detaining contributories or asset holders about to leave India or abscond",
+        "seizing books, papers, and movable property to prevent concealment"
+      ],
+      "exclusion": [
+        "detention for ordinary civil debts outside winding up contexts",
+        "seizure of immovable property under this specific detention provision"
+      ],
+      "nearby_distinctions": [
+        "Distinct from standard asset recovery proceedings as it provides an emergency preventive arrest and seizure mechanism against flight risk individuals."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "cb96a2df-7b0f-47ff-947c-16520843761f",
+      "concept_name": "Dissolution Of Company By Tribunal [Section 302]",
+      "definition": "When company affairs are completely wound up or when deemed just and reasonable, the Tribunal orders company dissolution upon a liquidator application. A copy of the order is forwarded to the Registrar for recording a minute of dissolution.",
+      "terminology": [
+        "dissolution",
+        "Company Liquidator",
+        "Register",
+        "just and reasonable"
+      ],
+      "instrument_references": [
+        "Section 302 of the Companies Act, 2013",
+        "SARFAESI Act, 2002"
+      ],
+      "inclusion": [
+        "dissolution orders following complete winding up or when just and reasonable",
+        "forwarding dissolution orders to the Registrar within thirty days",
+        "recording minutes of dissolution in the company register"
+      ],
+      "exclusion": [
+        "ongoing liquidation proceedings where assets or liabilities remain unaddressed",
+        "voluntary winding up procedures managed under alternative frameworks"
+      ],
+      "nearby_distinctions": [
+        "Differs from operational winding up steps as it marks the final legal termination of the corporate entity's existence."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "82bb9015-b96e-4046-819b-1cee9385bd0f",
+      "concept_name": "Appeals From Orders Made Before Commencement Of Act [Section 303]",
+      "definition": "Orders made in winding up proceedings immediately prior to the commencement of the current Act remain unaffected by new provisions. Appeals against such legacy orders must be pursued before the competent authority designated prior to commencement.",
+      "terminology": [
+        "retrospective effect",
+        "legacy proceedings",
+        "competent authority",
+        "appeal"
+      ],
+      "instrument_references": [
+        "Section 303 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "preserving the enforcement and operation of pre-existing court winding up orders",
+        "filing appeals before authorities competent prior to the new enactment"
+      ],
+      "exclusion": [
+        "winding up orders initiated and processed under the provisions of the current Act",
+        "maintainable appeals by disqualified stakeholders as per judicial precedent"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from modern winding up rules by protecting historical transitional orders and their legacy appellate pathways."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7026c715-aa92-4890-8e74-e8f90c6545af",
+      "concept_name": "Debts Of All Descriptions To Be Admitted To Proof [Section 324]",
+      "definition": "All claims and contingent, future, or uncertain debts against a company are admissible to proof during winding up. A fair estimation of the value is determined for claims that are uncertain, contingent, or sound only in damages.",
+      "terminology": [
+        "admissible to proof",
+        "contingent debts",
+        "future claims",
+        "just estimate"
+      ],
+      "instrument_references": [
+        "Section 324 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "admitting all present, future, certain, or contingent debts",
+        "claims sounding only in damages",
+        "making a just estimate of uncertain claim values"
+      ],
+      "exclusion": [
+        "debts barred by insolvency rules applicable to insolvent companies where inconsistent",
+        "unsupported claims lacking ascertainable estimation parameters"
+      ],
+      "nearby_distinctions": [
+        "Differs from preferential payments by providing a broad gateway for all creditor claims to enter the proof stage, regardless of their contingent nature."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "bb6530d3-94de-4ba7-81da-dac5fe4a61cb",
+      "concept_name": "Overriding Preferential Payments [Section 326]",
+      "definition": "During winding up, workmen's dues and specific portions of secured creditors' un-realized debts rank above all other claims. These priority sums must be paid in full within a strict timeline from asset sales before general secured debt disbursements.",
+      "terminology": [
+        "workmen's dues",
+        "secured creditor",
+        "pari passu",
+        "overriding priority"
+      ],
+      "instrument_references": [
+        "Section 326 of the Companies Act, 2013",
+        "Section 327 of the Companies Act, 2013",
+        "Industrial Disputes Act, 1947"
+      ],
+      "inclusion": [
+        "prioritizing workmen's dues pari passu with eligible secured creditor shortfalls",
+        "settling specified pre-winding up wages and salary obligations within thirty days of asset sale",
+        "proportional abatement when assets are insufficient"
+      ],
+      "exclusion": [
+        "standard unsecured debts lacking statutory priority status",
+        "payments made to secured creditors prior to settling mandatory workmen portions"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard preferential payments under Section 327 by overriding even secured creditors' charges up to the statutory workmen's portion."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d914fb59-9ccc-4962-a3ba-03ae67482a15",
+      "concept_name": "Preferential Payments [Section 327]",
+      "definition": "Subject to overriding provisions, specific government revenues, employee wages, holiday remuneration, statutory contributions, and welfare fund dues within designated pre-winding up timeframes are paid in priority. These claims represent statutory preference categories during asset distribution.",
+      "terminology": [
+        "preferential payments",
+        "relevant date",
+        "revenues and taxes",
+        "provident fund"
+      ],
+      "instrument_references": [
+        "Section 327 of the Companies Act, 2013",
+        "Section 326 of the Companies Act, 2013",
+        "Employees’ State Insurance Act, 1948",
+        "Workmen’s Compensation Act, 1923"
+      ],
+      "inclusion": [
+        "government taxes, cesses, and rates due within twelve months of the relevant date",
+        "employee wages, salary, and holiday remuneration within statutory limits",
+        "contributions under insurance, compensation, and employee welfare funds"
+      ],
+      "exclusion": [
+        "debts falling outside the specified preceding time windows",
+        "ordinary unsecured commercial claims not designated as preferential"
+      ],
+      "nearby_distinctions": [
+        "Distinct from Section 326 overriding payments because preferential taxes and standard employee dues rank behind workmen overriding charges and secured creditor parity."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b0dc7996-a226-43a1-9989-9d917b1f61ac",
+      "concept_name": "Fraudulent Preference [Section 328]",
+      "definition": "Transactions favoring specific creditors or sureties executed within six months prior to a winding up application that place them in a better liquidation position can be declared invalid by the Tribunal. The Tribunal may order restoration of the original position.",
+      "terminology": [
+        "fraudulent preference",
+        "surety or guarantor",
+        "six months period",
+        "invalid transaction"
+      ],
+      "instrument_references": [
+        "Section 328 of the Companies Act, 2013",
+        "Section 329 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "property transfers, deliveries, payments, or executions favoring creditors or sureties within six months",
+        "Tribunal orders declaring preferential transactions invalid and restoring positions"
+      ],
+      "exclusion": [
+        "transactions occurring outside the six-month statutory window prior to application",
+        "transfers made in good faith and for valuable consideration under ordinary business terms"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from Section 329 transfers not in good faith, focusing specifically on preferential treatment of existing creditors or sureties within a six-month window rather than general one-year non-ordinary transfers."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "159a3972ce7efcfca2d253ba1d53a667bc4c922ee2a3ff63b9afa8ec4da35976",
+  "artifact_id": "13a19cb4-ed8a-4ca9-a470-d04037ece9bf",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 9260,
+  "output_tokens": 4009,
+  "cost_usd": 0.0128005,
+  "created_at": "2026-10-03T18:24:38.077273+00:00"
+}

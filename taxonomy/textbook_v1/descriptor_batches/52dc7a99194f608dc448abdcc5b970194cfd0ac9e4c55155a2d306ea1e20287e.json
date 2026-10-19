@@ -1,0 +1,367 @@
+{
+  "descriptors": [
+    {
+      "node_id": "cec7bdf3-336a-45b1-b8df-01f5e286dbe6",
+      "concept_name": "Revised return [Section 139(5)]",
+      "definition": "A taxpayer who discovers any omission or wrong statement in an initially filed return may submit a revised return prior to three months before the end of the relevant assessment year or before assessment completion, whichever is earlier. The latest submitted revised return entirely supersedes all previous filings made for that assessment year.",
+      "terminology": [
+        "Revised return",
+        "Assessment year",
+        "Omission",
+        "Wrong statement"
+      ],
+      "instrument_references": [
+        "Section 139(5)",
+        "Section 139(1)",
+        "Section 139(4)",
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Returns originally filed under section 139(1) or 139(4)",
+        "Returns filed under sub-sections (1A), (3), (4A) to (4F) of section 139"
+      ],
+      "exclusion": [
+        "Submissions attempted after the statutory time limit or after completion of assessment"
+      ],
+      "nearby_distinctions": [
+        "Distinct from an original return because it corrects prior errors rather than establishing initial filing, and distinct from an updated return."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9a7b1989-6665-4cd7-a5af-53319a64f883",
+      "concept_name": "Particulars to be furnished with the return [section 139(6)]",
+      "definition": "Prescribed return forms require specified categories of taxpayers to disclose comprehensive financial details alongside their income declarations. These mandatory disclosures encompass exempt income, beneficial or other asset holdings, bank accounts, credit cards, and specified high-value outgoings.",
+      "terminology": [
+        "Exempt income",
+        "Beneficial owner",
+        "Assets",
+        "Outgoings"
+      ],
+      "instrument_references": [
+        "Section 139(6)",
+        "Section 139(1)",
+        "Section 139(3)",
+        "Section 142(1)(i)",
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Income exempt from tax",
+        "Assets held as beneficial owner or otherwise",
+        "Bank account and credit card details",
+        "Expenditure exceeding prescribed limits"
+      ],
+      "exclusion": [
+        "General business audit reports governed under separate sub-sections like section 139(6A)"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from basic income computation schedules by focusing on specific asset ownership, bank linkages, and external financial indicators."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "431128b0-fcf7-48c0-8a1c-e7a64488ec00",
+      "concept_name": "Particulars to be furnished with return of income in case of an assessee engaged in business or profession [Section 139(6A)]",
+      "definition": "Taxpayers engaged in any business or profession must submit specific commercial particulars with their return, including statutory audit reports and principal operational locations. Additionally, they must disclose names, addresses, and profit-sharing ratios of all partners or association members.",
+      "terminology": [
+        "Business or profession",
+        "Tax audit report",
+        "Principal place",
+        "Profit share"
+      ],
+      "instrument_references": [
+        "Section 139(6A)",
+        "Section 44AB",
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Tax audit report referred to in section 44AB",
+        "Location and style of principal place of business and branches",
+        "Names and addresses of partners",
+        "Names of members and profit shares in an association of persons or body of individuals"
+      ],
+      "exclusion": [
+        "Non-business individual disclosures such as general personal bank accounts or credit cards"
+      ],
+      "nearby_distinctions": [
+        "Specifically targets commercial entities and professionals requiring structural disclosures like partnership details and audit reports, unlike general asset disclosures under section 139(6)."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "bc9bff39-cfd5-4e0c-97eb-68edeb9eb057",
+      "concept_name": "Defective Return [Section 139(9)]",
+      "definition": "An Assessing Officer may flag a return as defective if mandatory computation schedules, tax payment proofs, or required audit reports are missing or incomplete. The taxpayer is given an opportunity to rectify these defects within fifteen days, extendable upon request, to prevent the return from becoming invalid.",
+      "terminology": [
+        "Defective return",
+        "Intimation",
+        "Rectification",
+        "Invalid return"
+      ],
+      "instrument_references": [
+        "Section 139(9)",
+        "Section 44AB",
+        "Section 203",
+        "Section 206C",
+        "Section 140B",
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Incomplete computation columns or statements",
+        "Missing tax computation statements or tax audit reports",
+        "Absence of tax deduction, collection, or advance tax payment proofs"
+      ],
+      "exclusion": [
+        "Returns where tax deduction certificates were unissued under section 203 or 206C and produced within two years"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from a revised return because it represents a procedural cure initiated by an Assessing Officer notice rather than a voluntary taxpayer correction."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6bfd7ed5-476c-4366-94d4-361e0f42aae5",
+      "concept_name": "Return filed in pursuance of CBDT’s order under section 119(2)(b) [Section 139(9A)]",
+      "definition": "Returns furnished pursuant to a specific order issued by the CBDT under statutory relaxation powers attract the regular provisions of section 139. This mechanism streamlines return processing, curtails legal disputes, and facilitates structured scrutiny selections.",
+      "terminology": [
+        "CBDT order",
+        "Relaxation",
+        "Scrutiny assessment",
+        "Litigation reduction"
+      ],
+      "instrument_references": [
+        "Section 139(9A)",
+        "Section 119(2)(b)",
+        "Section 139",
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Income returns filed under specific administrative orders of the CBDT"
+      ],
+      "exclusion": [
+        "Standard returns filed directly under statutory due dates without administrative relaxation orders"
+      ],
+      "nearby_distinctions": [
+        "Applies specifically to exceptional filings authorized via administrative discretion rather than standard statutory filing windows."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "390c0778-5a6c-41b5-86db-22f2f135899b",
+      "concept_name": "Fee for default in furnishing return of income [Section 234F]",
+      "definition": "A monetary fee is levied when a person mandated to file an income return fails to complete the submission within the specified statutory time limit. A tiered fee structure applies based on whether total income crosses the statutory threshold amount.",
+      "terminology": [
+        "Fee for default",
+        "Time limit",
+        "Total income"
+      ],
+      "instrument_references": [
+        "Section 234F",
+        "Section 139",
+        "Section 139(1)",
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Default in furnishing return of income within the time limit under section 139(1)"
+      ],
+      "exclusion": [
+        "Timely filed returns complying with prescribed deadlines"
+      ],
+      "nearby_distinctions": [
+        "Represents a specific penal fee for filing delays, distinct from substantive tax liabilities or interest calculations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "757d0ae6-368c-49f7-9076-c5bb76713bfe",
+      "concept_name": "Modified return - Effect of order of Tribunal or Court in respect of business reorganisaton [Section 170A]",
+      "definition": "Following a business reorganisation order from a competent judicial or adjudicating authority, a successor entity must submit a modified electronic return in Form ITR-A within six months. The Assessing Officer is then required to modify completed assessments or complete pending proceedings to align with the reorganisation order.",
+      "terminology": [
+        "Business reorganisation",
+        "Modified return",
+        "Form ITR-A",
+        "Successor entity"
+      ],
+      "instrument_references": [
+        "Section 170A",
+        "Section 170A(1)",
+        "Section 170A(2)",
+        "Section 139",
+        "Insolvency and Bankruptcy Code, 2016",
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Entities undergoing business reorganisation under court, tribunal, or IBC orders",
+        "Modified returns filed in Form ITR-A within the stipulated timeline"
+      ],
+      "exclusion": [
+        "Standard voluntary revisions of income returns unrelated to formal business reorganisation judicial orders"
+      ],
+      "nearby_distinctions": [
+        "Distinguished by its mandatory link to external corporate restructuring judicial directives rather than routine self-correction of tax errors."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "bf7a61f2-d23d-4861-904b-0c0a6a06d8bb",
+      "concept_name": "PERMANENT ACCOUNT NUMBER (PAN) [SECTION 139A]",
+      "definition": "Specified categories of taxpayers and entities engaged in high-value financial transactions or meeting income thresholds must mandatorily apply for a Permanent Account Number within prescribed timelines. This requirement extends to key managerial personnel of reporting entities and individuals executing large cash deposits.",
+      "terminology": [
+        "Permanent Account Number",
+        "PAN",
+        "Assessing Officer",
+        "Cash deposit"
+      ],
+      "instrument_references": [
+        "Section 139A",
+        "Section 139A(1)",
+        "Section 139(4A)",
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Persons with income exceeding the maximum unchargeable limit",
+        "Businesses with turnover likely to exceed specified monetary limits",
+        "Entities entering into high-value financial transactions and their key management personnel"
+      ],
+      "exclusion": [
+        "Persons falling entirely below statutory income and transaction thresholds without mandatory application triggers"
+      ],
+      "nearby_distinctions": [
+        "Distinct as an identification number allocation framework, whereas section 139 governs return filing procedures."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d443a9bf-3c1c-42ce-b66e-8043dd4c5a83",
+      "concept_name": "QUOTING OF AADHAAR NUMBER [SECTION 139AA]",
+      "definition": "Eligible individuals must quote their Aadhaar number when applying for a PAN or submitting an income tax return. Failure to link PAN with Aadhaar within designated windows renders the PAN inoperative according to prescribed regulatory mechanisms.",
+      "terminology": [
+        "Aadhaar number",
+        "Enrolment ID",
+        "Inoperative PAN",
+        "Linking"
+      ],
+      "instrument_references": [
+        "Section 139AA",
+        "Section 139AA(1)",
+        "Section 139AA(2)",
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Quota requirements in PAN application forms",
+        "Mandatory quoting in returns of income",
+        "Intimation of Aadhaar to designated systems authorities"
+      ],
+      "exclusion": [
+        "Exempted classes of persons specifically excluded from mandatory Aadhaar quoting rules"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from PAN allocation because it mandates biometric identifier cross-referencing and integration into existing tax databases."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8d92ea9f-9a3f-47da-9cf0-0f43ca28142c",
+      "concept_name": "SCHEME FOR SUBMISSION OF RETURNS THROUGH TAX RETURN PREPARERS [SECTION 139B]",
+      "definition": "The CBDT is empowered to notify a scheme enabling specified classes of small taxpayers to prepare and file their income returns through authorized Tax Return Preparers. Qualified preparers assist eligible individuals and HUFs while being strictly restricted from acting as preparers if they are bank officers, legal practitioners, chartered accountants, or company employees.",
+      "terminology": [
+        "Tax Return Preparer",
+        "CBDT Scheme",
+        "Eligible person",
+        "Authorisation"
+      ],
+      "instrument_references": [
+        "Section 139B",
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Individuals and Hindu Undivided Families utilizing authorized Tax Return Preparers",
+        "Preparation and signature assistance by certified preparers"
+      ],
+      "exclusion": [
+        "Companies and taxpayers whose accounts require mandatory tax audits under section 44AB or other laws"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from self-filing or direct professional representation because it provides a dedicated administrative facilitation scheme for smaller taxpayers."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "05dcc6d4-a667-454b-928b-141f0ad12875",
+      "concept_name": "PERSONS AUTHORISED TO VERIFY RETURN OF INCOME [SECTION 140]",
+      "definition": "Statutory provisions explicitly designate which individuals possess the legal authority to sign and verify income tax returns on behalf of different assessee types. Depending on circumstances such as absence, mental incapacity, winding up, or corporate insolvency, specific representatives like power-of-attorney holders, managing directors, liquidators, or insolvency professionals are authorized.",
+      "terminology": [
+        "Verification",
+        "Power of attorney",
+        "Karta",
+        "Liquidator",
+        "Insolvency professional"
+      ],
+      "instrument_references": [
+        "Section 140",
+        "Section 139",
+        "Insolvency and Bankruptcy Code, 2016",
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Assessee himself for individuals under normal circumstances",
+        "Authorized power-of-attorney holders during absence or incapacity",
+        "Managing directors, liquidators, or insolvency professionals for companies"
+      ],
+      "exclusion": [
+        "Unauthorized third parties lacking specific legal designation or valid power of attorney"
+      ],
+      "nearby_distinctions": [
+        "Focuses strictly on the legal competence to sign and authenticate return documents, separate from the actual preparation or computation of income."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6f01715b-84e3-4f64-8b8f-769e3e2fb3d3",
+      "concept_name": "SELF ASSESSMENT [SECTION 140A]",
+      "definition": "Before submitting any required return of income, an assessee must self-assess and pay any remaining tax liability along with applicable interest and fees. Payments made are adjusted sequentially first against fees, then against interest, and finally towards the underlying tax due.",
+      "terminology": [
+        "Self assessment",
+        "Tax payable",
+        "Assessed tax",
+        "Adjustment order"
+      ],
+      "instrument_references": [
+        "Section 140A",
+        "Section 140A(1)",
+        "Section 140A(2)",
+        "Section 139",
+        "Section 142",
+        "Section 148",
+        "Section 89",
+        "Section 90",
+        "Section 90A",
+        "Section 91",
+        "Section 115JAA",
+        "Section 115JD",
+        "Section 191(2)",
+        "Section 234A",
+        "Section 234B",
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Computation of net tax payable after deducting TDS, advance tax, and eligible tax credits",
+        "Mandatory payment of interest and fees prior to return submission"
+      ],
+      "exclusion": [
+        "Taxes assessed independently by the Assessing Officer through regular scrutiny assessment without prior taxpayer self-computation"
+      ],
+      "nearby_distinctions": [
+        "Represents taxpayer-driven pre-filing tax clearance, differing from post-filing departmental assessments and demand notices."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "52dc7a99194f608dc448abdcc5b970194cfd0ac9e4c55155a2d306ea1e20287e",
+  "artifact_id": "cfc3cd81-0b24-4367-991d-614759cdab3d",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 10145,
+  "output_tokens": 4322,
+  "cost_usd": 0.0138485,
+  "created_at": "2026-10-03T18:22:23.712423+00:00"
+}

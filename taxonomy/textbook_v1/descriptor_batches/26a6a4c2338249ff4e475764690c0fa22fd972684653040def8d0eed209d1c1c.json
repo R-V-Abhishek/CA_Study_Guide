@@ -1,0 +1,321 @@
+{
+  "descriptors": [
+    {
+      "node_id": "fbcc646a-fa1f-4d56-b5a0-2a39887bf935",
+      "concept_name": "Disclosure of Interests in Other Entities Overview",
+      "definition": "Entities must provide disclosures enabling users to evaluate the nature, risks, and financial effects of their involvement with other entities. An interest encompasses contractual and non-contractual involvements exposing the reporting entity to return variability from another entity's performance.",
+      "terminology": [
+        "Contractual involvement",
+        "Non-contractual involvement",
+        "Variability of returns",
+        "Structured entity"
+      ],
+      "instrument_references": [
+        "Ind AS 112",
+        "Ind AS 27"
+      ],
+      "inclusion": [
+        "Holdings of equity instruments",
+        "Holdings of debt instruments",
+        "Provision of funding, liquidity support, credit enhancement, and guarantees"
+      ],
+      "exclusion": [
+        "Typical customer-supplier relationships without return variability exposure"
+      ],
+      "nearby_distinctions": [
+        "Differs from general financial statement measurement standards by focusing specifically on comprehensive qualitative and quantitative disclosures of group and third-party entity exposures."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0357d0f7-c5a6-4c85-a985-341bee2402a5",
+      "concept_name": "Objective of Ind AS 112",
+      "definition": "The standard mandates qualitative and quantitative disclosures so financial statement users can assess the nature and associated risks of interests in other entities. It also requires evaluation of how these involvements impact the entity's financial position, performance, and cash flows.",
+      "terminology": [
+        "Financial position",
+        "Financial performance",
+        "Cash flows",
+        "Nature and risks"
+      ],
+      "instrument_references": [
+        "Ind AS 112"
+      ],
+      "inclusion": [
+        "Evaluation of risks that structured entities were designed to create or pass on"
+      ],
+      "exclusion": [
+        "Purely operational trade transactions devoid of risk absorption characteristics"
+      ],
+      "nearby_distinctions": [
+        "Focuses purely on disclosure objectives rather than recognition or measurement criteria prescribed by other accounting standards."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5ab94ed4-eeb6-4c69-876d-fb2e4e8aa79a",
+      "concept_name": "Scope of Ind AS 112",
+      "definition": "The disclosure requirements apply to reporting entities holding interests in subsidiaries, joint arrangements, associates, and unconsolidated structured entities. Specific exclusions apply to post-employment benefit plans, separate financial statements, non-controlling joint arrangement participations, and standard financial instruments under specific conditions.",
+      "terminology": [
+        "Scope inclusions",
+        "Scope exclusions",
+        "Unconsolidated structured entities",
+        "Disposal group"
+      ],
+      "instrument_references": [
+        "Ind AS 112",
+        "Ind AS 105",
+        "Ind AS 19",
+        "Ind AS 27",
+        "Ind AS 110",
+        "Ind AS 109",
+        "Ind AS 28"
+      ],
+      "inclusion": [
+        "Interests classified as held for sale or discontinued operations",
+        "Interests in associates or joint ventures measured at fair value through profit or loss"
+      ],
+      "exclusion": [
+        "Post-employment or long-term employee benefit plans",
+        "Interests accounted for under financial instruments standards unless exceptions apply"
+      ],
+      "nearby_distinctions": [
+        "Delineates boundaries by exempting standard standalone financial statements and employee benefit trusts while capturing specialized structured and group investment vehicles."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0b60638f-cb2b-49ef-8f38-09420dbfdb60",
+      "concept_name": "Disclosures Related to Interests in Subsidiaries",
+      "definition": "Reporting entities must disclose group composition details, non-controlling interest impacts, and significant access restrictions. Additional requirements govern structured entity risks, ownership changes without loss of control, and consequences of losing subsidiary control.",
+      "terminology": [
+        "Group composition",
+        "Non-controlling interests",
+        "Significant restrictions",
+        "Loss of control"
+      ],
+      "instrument_references": [
+        "Ind AS 112",
+        "Ind AS 110"
+      ],
+      "inclusion": [
+        "Reporting dates and reasons when subsidiary reporting periods differ from the group",
+        "Risks associated with consolidated structured entities"
+      ],
+      "exclusion": [
+        "General operational disclosures unrelated to subsidiary ownership structures"
+      ],
+      "nearby_distinctions": [
+        "Focuses on subsidiary-specific governance, risk, and structural disclosures rather than the primary consolidation mechanics."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "58e5020d-79b4-4250-b37c-5d6ebf4a7cdc",
+      "concept_name": "The Interest that Non-Controlling Interests Have in the Group's Activities and Cash Flows",
+      "definition": "Entities must provide specific subsidiary identifiers, ownership metrics, and financial allocations for material non-controlling interests. Required data ensures users understand the proportion of profits and accumulated balances attributable to external minority stakeholders.",
+      "terminology": [
+        "Principal place of business",
+        "Voting rights",
+        "Accumulated non-controlling interests",
+        "Summarised financial information"
+      ],
+      "instrument_references": [
+        "Ind AS 112"
+      ],
+      "inclusion": [
+        "Subsidiary name and incorporation country",
+        "Profit or loss allocated to non-controlling interests"
+      ],
+      "exclusion": [
+        "Immaterial subsidiaries lacking significant non-controlling interest balances"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes granular minority interest metrics for material subsidiaries from general high-level group consolidation summaries."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7e098328-787f-432a-84a8-d2215e871f34",
+      "concept_name": "Nature of the Risks Associated with an Entity's Interests in Consolidated Structured Entities",
+      "definition": "Entities must disclose contractual support terms, potential loss triggers, and details of any voluntary financial assistance provided to structured entities. Furthermore, significant statutory, regulatory, or contractual restrictions on accessing group assets and settling liabilities must be detailed.",
+      "terminology": [
+        "Contractual arrangements",
+        "Financial support",
+        "Credit rating triggers",
+        "Protective rights"
+      ],
+      "instrument_references": [
+        "Ind AS 112"
+      ],
+      "inclusion": [
+        "Terms requiring liquidity arrangements or asset purchase obligations",
+        "Carrying amounts of restricted assets and liabilities"
+      ],
+      "exclusion": [
+        "Standard operational constraints without legal or contractual backing"
+      ],
+      "nearby_distinctions": [
+        "Targets specialized structured entities and asset-access barriers rather than standard corporate liquidity management."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5ae59c12-5e66-4a52-b764-71fbea005eec",
+      "concept_name": "Consequences of Changes in a Parent's Ownership Interest in a Subsidiary that do not Result in a Loss of Control",
+      "definition": "A parent entity must present a dedicated schedule detailing the financial effects that ownership adjustments have on the equity attributable to the parent's owners when control is maintained. This ensures transparency regarding equity transactions executed with non-controlling stakeholders.",
+      "terminology": [
+        "Equity attributable to owners",
+        "Ownership interest",
+        "Schedule",
+        "Loss of control"
+      ],
+      "instrument_references": [
+        "Ind AS 112",
+        "Ind AS 110"
+      ],
+      "inclusion": [
+        "Tabular schedule showing equity impacts from minority interest percentage modifications"
+      ],
+      "exclusion": [
+        "Transactions resulting in a complete loss or initial acquisition of control"
+      ],
+      "nearby_distinctions": [
+        "Confined strictly to partial equity transfers where control remains unaffected, unlike full deconsolidation events."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "92c8568f-9922-4348-ac91-6791cabb16c3",
+      "concept_name": "Consequences of Losing Control of a Subsidiary During the Reporting Period",
+      "definition": "When control over a subsidiary ceases, the entity must disclose the resulting net gain or loss computation. Additionally, it must specify the portion of the gain or loss attributable to remeasuring any retained investment at fair value alongside its income statement line item location.",
+      "terminology": [
+        "Gain or loss",
+        "Fair value",
+        "Retained investment",
+        "Line item"
+      ],
+      "instrument_references": [
+        "Ind AS 112",
+        "Ind AS 110"
+      ],
+      "inclusion": [
+        "Portion of gain or loss from fair value remeasurement of retained stakes",
+        "Profit or loss presentation line items"
+      ],
+      "exclusion": [
+        "Intra-group reorganizations where consolidated control is preserved"
+      ],
+      "nearby_distinctions": [
+        "Focuses strictly on terminal deconsolidation reporting rather than interim ownership fluctuations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d7dff487-b4a0-4efe-aa38-76c693da8b6e",
+      "concept_name": "Disclosures Related to Interests in Joint Arrangements and Associates",
+      "definition": "Entities must disclose information enabling users to evaluate the nature, extent, and financial effects of their joint arrangements and associates. This encompasses contractual relationships with co-investors and the inherent risk profiles linked to these collaborative structures.",
+      "terminology": [
+        "Joint arrangements",
+        "Associates",
+        "Joint control",
+        "Significant influence"
+      ],
+      "instrument_references": [
+        "Ind AS 112"
+      ],
+      "inclusion": [
+        "Contractual relationships with other joint controllers or significant influencers",
+        "Risks associated with joint ventures and associates"
+      ],
+      "exclusion": [
+        "Subsidiary entities subject to full consolidation control"
+      ],
+      "nearby_distinctions": [
+        "Applies to shared control or significant influence frameworks rather than unilateral subsidiary control or passive investments."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8b1daffb-dea4-4c26-8bcc-15ec0c8a7b3e",
+      "concept_name": "Nature, Extent and Financial Effects of an Entity's Interests in Joint Arrangements and Associates",
+      "definition": "Reporting entities must disclose foundational identifiers, operational relationships, and precise measurement bases for material joint arrangements and associates. Aggregate financial data must also be provided for individually immaterial joint ventures and associates.",
+      "terminology": [
+        "Ownership interest",
+        "Participating share",
+        "Equity method",
+        "Individually immaterial"
+      ],
+      "instrument_references": [
+        "Ind AS 112"
+      ],
+      "inclusion": [
+        "Entity name, principal place of business, and voting proportions",
+        "Quoted market price fair values for equity-accounted investments"
+      ],
+      "exclusion": [
+        "Information exempted for qualifying investment entities"
+      ],
+      "nearby_distinctions": [
+        "Separates material individual partnership disclosures from aggregated summaries of immaterial joint holdings."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "bebc2e16-bc1b-45cf-882f-f43311cfe6f7",
+      "concept_name": "Disclosures of Summarised Financial Information for Subsidiaries, Joint Ventures and Associates",
+      "definition": "Entities are required to disclose structured financial metrics, asset-liability breakdowns, and cash flow data for material non-controlling subsidiaries, joint ventures, and associates. These requirements provide transparency into underlying financial positions before and after required consolidation adjustments.",
+      "terminology": [
+        "Summarised financial information",
+        "Dividends paid",
+        "Comprehensive income",
+        "Inter-company eliminations"
+      ],
+      "instrument_references": [
+        "Ind AS 112"
+      ],
+      "inclusion": [
+        "Dividends paid to non-controlling interests",
+        "Pre-elimination asset and revenue metrics for subsidiaries"
+      ],
+      "exclusion": [
+        "Stand-alone disclosures for non-material external holdings"
+      ],
+      "nearby_distinctions": [
+        "Details explicit quantitative line-item schedules rather than qualitative relationship descriptions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0cc7cc83-a10f-4c5d-ab88-ad5fddb67777",
+      "concept_name": "Disclosures for Subsidiary that has Non-Controlling Interests that are Material",
+      "definition": "For each subsidiary with material non-controlling interests, entities must disclose pre-elimination financial breakdowns including assets, liabilities, revenues, and cash flows. Additional disclosures must capture dividends distributed to external minority owners to clarify cash flow allocations.",
+      "terminology": [
+        "Pre-elimination amounts",
+        "Current assets",
+        "Non-current liabilities",
+        "Total comprehensive income"
+      ],
+      "instrument_references": [
+        "Ind AS 112"
+      ],
+      "inclusion": [
+        "Dividends paid to non-controlling interests",
+        "Summarised financial components like revenue and profit or loss"
+      ],
+      "exclusion": [
+        "Post-elimination consolidated group ledger balances for these specific disclosures"
+      ],
+      "nearby_distinctions": [
+        "Demands raw subsidiary-level financial numbers prior to inter-company adjustments, unlike standard consolidated outputs."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "26a6a4c2338249ff4e475764690c0fa22fd972684653040def8d0eed209d1c1c",
+  "artifact_id": "70d8c7b2-d598-45e8-ba73-6d4b34e9bcec",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8553,
+  "output_tokens": 3476,
+  "cost_usd": 0.0112559,
+  "created_at": "2026-10-03T18:05:28.485139+00:00"
+}

@@ -1,0 +1,777 @@
+{
+  "result": {
+    "question_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab",
+    "input_hash": "adb062161388a9a32668eaa9c973e9604bbb37fa7a34be26a0ace5119f4e9e18",
+    "mappings": [
+      {
+        "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q13",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "This shared stem concerns acquiring one company with shares; no candidate describes merger or acquisition valuation.",
+        "confidence": 0.96,
+        "bucket": null
+      },
+      {
+        "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.M13",
+        "outcome": "matched",
+        "primary_node_id": "c28a1cfb-83b8-4994-9a30-ce3ba9d17aea",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "c28a1cfb-83b8-4994-9a30-ce3ba9d17aea",
+            "support": "Tests EPS before acquisition, a stated earnings-per-share parameter in the earning-based models descriptor."
+          }
+        ],
+        "note": "The acquisition setting supplies context; the requested calculation is EPS.",
+        "confidence": 0.82,
+        "bucket": null
+      },
+      {
+        "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.M14",
+        "outcome": "matched",
+        "primary_node_id": "c28a1cfb-83b8-4994-9a30-ce3ba9d17aea",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "c28a1cfb-83b8-4994-9a30-ce3ba9d17aea",
+            "support": "Tests post-acquisition EPS, which the earning-based models descriptor explicitly includes."
+          }
+        ],
+        "note": "The tested output is EPS after acquisition.",
+        "confidence": 0.83,
+        "bucket": null
+      },
+      {
+        "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.M15",
+        "outcome": "matched",
+        "primary_node_id": "baeb9efc-c2ac-427b-b50e-d829452696fb",
+        "secondary_node_ids": [
+          "c28a1cfb-83b8-4994-9a30-ce3ba9d17aea"
+        ],
+        "evidence": [
+          {
+            "node_id": "baeb9efc-c2ac-427b-b50e-d829452696fb",
+            "support": "Tests the P/E multiple for ABC after acquisition, matching the descriptor's price-earnings multiple valuation."
+          },
+          {
+            "node_id": "c28a1cfb-83b8-4994-9a30-ce3ba9d17aea",
+            "support": "The shared acquisition scenario derives P/E using earnings per share, a descriptor terminology item."
+          }
+        ],
+        "note": "P/E ratio is the direct tested concept; EPS is part of the shared valuation context.",
+        "confidence": 0.91,
+        "bucket": null
+      },
+      {
+        "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q1.a.i",
+        "outcome": "matched",
+        "primary_node_id": "3afd0c40-027b-4e5c-b489-237239710a21",
+        "secondary_node_ids": [
+          "494f5699-42a9-4199-8bb2-bc6c771ecd9d"
+        ],
+        "evidence": [
+          {
+            "node_id": "3afd0c40-027b-4e5c-b489-237239710a21",
+            "support": "Calculates cost of equity with CAPM using the risk-free rate, beta, and market return."
+          },
+          {
+            "node_id": "494f5699-42a9-4199-8bb2-bc6c771ecd9d",
+            "support": "The CAPM calculation includes beta times the market risk premium, matching the descriptor's equity-risk-premium calculation."
+          }
+        ],
+        "note": "CAPM is the explicit requested method for cost of equity.",
+        "confidence": 0.96,
+        "bucket": null
+      },
+      {
+        "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q1.a.ii",
+        "outcome": "matched",
+        "primary_node_id": "c28a1cfb-83b8-4994-9a30-ce3ba9d17aea",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "c28a1cfb-83b8-4994-9a30-ce3ba9d17aea",
+            "support": "Calculates company EPS from profit after tax and outstanding shares, matching the earning-based descriptor's EPS terminology."
+          }
+        ],
+        "note": "The requested measure is earnings per share.",
+        "confidence": 0.92,
+        "bucket": null
+      },
+      {
+        "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q1.a.iii",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Values equity using an EBITDA multiple and deducts debt; no candidate describes EBITDA-multiple equity valuation.",
+        "confidence": 0.88,
+        "bucket": null
+      },
+      {
+        "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q1.a.iv",
+        "outcome": "matched",
+        "primary_node_id": "72d3f509-1b08-4e15-970c-148063b8e828",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "72d3f509-1b08-4e15-970c-148063b8e828",
+            "support": "Calculates enterprise value from market capitalization, debt, and cash, as described by the enterprise-value descriptor."
+          }
+        ],
+        "note": "Direct enterprise-value calculation.",
+        "confidence": 0.98,
+        "bucket": null
+      },
+      {
+        "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q1.b.i",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Calculates expected foreign-exchange loss from a forecasted rate movement; candidates do not describe this expected-loss computation.",
+        "confidence": 0.87,
+        "bucket": null
+      },
+      {
+        "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q1.b.ii",
+        "outcome": "matched",
+        "primary_node_id": "1bbc87d7-274c-4b18-805f-1f9d482f4e1a",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "1bbc87d7-274c-4b18-805f-1f9d482f4e1a",
+            "support": "Computes the cost of a future foreign-currency payment using a forward rate to hedge exchange exposure, matching the forward-contract descriptor."
+          }
+        ],
+        "note": "The requested calculation applies a forward contract to the importer\u2019s future yen liability.",
+        "confidence": 0.95,
+        "bucket": null
+      },
+      {
+        "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q1.b.iii",
+        "outcome": "matched",
+        "primary_node_id": "1bbc87d7-274c-4b18-805f-1f9d482f4e1a",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "1bbc87d7-274c-4b18-805f-1f9d482f4e1a",
+            "support": "Recommends whether to use a forward contract by comparing the hedged and unhedged currency costs."
+          }
+        ],
+        "note": "The recommendation selects a forward-contract hedge against the stated exchange exposure.",
+        "confidence": 0.89,
+        "bucket": null
+      },
+      {
+        "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q1.c",
+        "outcome": "matched",
+        "primary_node_id": "ce0090d9-943c-431f-9f0c-9a526ce607bd",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "ce0090d9-943c-431f-9f0c-9a526ce607bd",
+            "support": "Lists succession-strategy steps: evaluate key leadership roles, map competencies, assess the workforce, and use bridge leaders."
+          }
+        ],
+        "note": "The requested steps align directly with the succession-strategy descriptor.",
+        "confidence": 0.99,
+        "bucket": null
+      },
+      {
+        "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q2.a",
+        "outcome": "matched",
+        "primary_node_id": "f54e9f7b-0cb2-4360-aabd-aed08c3bfae4",
+        "secondary_node_ids": [
+          "3afd0c40-027b-4e5c-b489-237239710a21"
+        ],
+        "evidence": [
+          {
+            "node_id": "f54e9f7b-0cb2-4360-aabd-aed08c3bfae4",
+            "support": "Values a share from dividend and growth assumptions and compares intrinsic value with market price, matching equity-share valuation."
+          },
+          {
+            "node_id": "3afd0c40-027b-4e5c-b489-237239710a21",
+            "support": "Derives required returns from risk-free rate, beta, and market risk premium using CAPM."
+          }
+        ],
+        "note": "This is a dividend-growth share valuation using CAPM-derived required returns.",
+        "confidence": 0.96,
+        "bucket": null
+      },
+      {
+        "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q2.b",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Calculates FRA settlement amounts for interest-rate outcomes; no candidate describes forward rate agreements or their settlement formula.",
+        "confidence": 0.95,
+        "bucket": null
+      },
+      {
+        "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q2.c",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Asks about organizational financial sustainability; no candidate descriptor covers this topic.",
+        "confidence": 0.97,
+        "bucket": null
+      },
+      {
+        "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.M1",
+        "outcome": "matched",
+        "primary_node_id": "f54e9f7b-0cb2-4360-aabd-aed08c3bfae4",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "f54e9f7b-0cb2-4360-aabd-aed08c3bfae4",
+            "support": "The answer compares market price with current and revised dividend-growth equity values to support a sell decision."
+          }
+        ],
+        "note": "This answer fragment belongs to the share-valuation task and applies intrinsic equity valuation.",
+        "confidence": 0.91,
+        "bucket": null
+      },
+      {
+        "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.M2",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "The answer fragment combines an FRA settlement calculation and a financial-sustainability list, so it does not establish one tested concept for this part.",
+        "confidence": 0.98,
+        "bucket": null
+      },
+      {
+        "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q3.a.ii",
+        "outcome": "matched",
+        "primary_node_id": "88c6b2e3-b899-4419-881a-8d534068993a",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "88c6b2e3-b899-4419-881a-8d534068993a",
+            "support": "Uses annual net interest savings, initial outlay, and PVIFA to calculate the NPV of replacing higher-coupon bonds with lower-coupon bonds."
+          }
+        ],
+        "note": "This is the NPV decision stage of a bond-refunding analysis.",
+        "confidence": 0.98,
+        "bucket": null
+      },
+      {
+        "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q3.a.i",
+        "outcome": "matched",
+        "primary_node_id": "88c6b2e3-b899-4419-881a-8d534068993a",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "88c6b2e3-b899-4419-881a-8d534068993a",
+            "support": "Calculates the call cost and net proceeds of a new issue as the initial outlay for replacing existing bonds."
+          }
+        ],
+        "note": "The calculation forms the initial outlay for the stated bond-refunding decision.",
+        "confidence": 0.96,
+        "bucket": null
+      },
+      {
+        "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q3.a.ii.repeat2",
+        "outcome": "matched",
+        "primary_node_id": "88c6b2e3-b899-4419-881a-8d534068993a",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "88c6b2e3-b899-4419-881a-8d534068993a",
+            "support": "Calculates bond-refunding NPV from tax-adjusted savings and initial outlay, then decides whether to redeem and reissue."
+          }
+        ],
+        "note": "This answer fragment directly performs the bond-refunding NPV comparison.",
+        "confidence": 0.99,
+        "bucket": null
+      },
+      {
+        "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q3.b",
+        "outcome": "matched",
+        "primary_node_id": "7adfd1c3-4766-4221-bd22-bd454c45445c",
+        "secondary_node_ids": [
+          "be6f1feb-10b9-4933-9944-29074679b559"
+        ],
+        "evidence": [
+          {
+            "node_id": "7adfd1c3-4766-4221-bd22-bd454c45445c",
+            "support": "Computes holding-period returns for fund distributions and compares outcomes, matching return measurement."
+          },
+          {
+            "node_id": "be6f1feb-10b9-4933-9944-29074679b559",
+            "support": "The return calculation includes dividend and capital-gain distributions against initial investment, as described by the risk-and-return descriptor."
+          }
+        ],
+        "note": "The requested calculation is realized holding-period return under two distribution choices.",
+        "confidence": 0.95,
+        "bucket": null
+      },
+      {
+        "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q3.c",
+        "outcome": "matched",
+        "primary_node_id": "a009f963-48e4-43cf-a981-2c0e1c129398",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "a009f963-48e4-43cf-a981-2c0e1c129398",
+            "support": "Asks for risks associated with blockchain technology; the descriptor covers decentralized accountability, consensus tampering, and public-chain control monitoring."
+          }
+        ],
+        "note": "The tested concept is blockchain-specific risk.",
+        "confidence": 0.98,
+        "bucket": null
+      },
+      {
+        "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q3.b.repeat2.ii",
+        "outcome": "matched",
+        "primary_node_id": "7adfd1c3-4766-4221-bd22-bd454c45445c",
+        "secondary_node_ids": [
+          "be6f1feb-10b9-4933-9944-29074679b559"
+        ],
+        "evidence": [
+          {
+            "node_id": "7adfd1c3-4766-4221-bd22-bd454c45445c",
+            "support": "Computes the return from reinvesting fund distributions and compares the result with the alternative, matching portfolio-return measurement."
+          },
+          {
+            "node_id": "be6f1feb-10b9-4933-9944-29074679b559",
+            "support": "Measures realized return from distributions and closing value relative to initial investment."
+          }
+        ],
+        "note": "This answer fragment calculates the reinvestment option's realized holding-period return.",
+        "confidence": 0.95,
+        "bucket": null
+      },
+      {
+        "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q3.c.repeat2.i",
+        "outcome": "matched",
+        "primary_node_id": "a009f963-48e4-43cf-a981-2c0e1c129398",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "a009f963-48e4-43cf-a981-2c0e1c129398",
+            "support": "Describes differing risk tolerances among blockchain members and unresolved accountability for decentralized risk management."
+          }
+        ],
+        "note": "This is a blockchain governance and accountability risk.",
+        "confidence": 0.98,
+        "bucket": null
+      },
+      {
+        "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q3.c.repeat2.ii",
+        "outcome": "matched",
+        "primary_node_id": "a009f963-48e4-43cf-a981-2c0e1c129398",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "a009f963-48e4-43cf-a981-2c0e1c129398",
+            "support": "Identifies tampering with the underlying consensus mechanism as a threat to ledger accuracy and reliability."
+          }
+        ],
+        "note": "This directly matches the descriptor's consensus-mechanism tampering risk.",
+        "confidence": 0.99,
+        "bucket": null
+      },
+      {
+        "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q3.c.repeat2.iii",
+        "outcome": "matched",
+        "primary_node_id": "a009f963-48e4-43cf-a981-2c0e1c129398",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "a009f963-48e4-43cf-a981-2c0e1c129398",
+            "support": "Describes the lack of central authority to enforce changes and the difficulty auditing public-blockchain general IT controls."
+          }
+        ],
+        "note": "This is the decentralized administration and IT-control monitoring risk.",
+        "confidence": 0.99,
+        "bucket": null
+      },
+      {
+        "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q3.c.repeat2.iv",
+        "outcome": "matched",
+        "primary_node_id": "a009f963-48e4-43cf-a981-2c0e1c129398",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "a009f963-48e4-43cf-a981-2c0e1c129398",
+            "support": "Identifies high-volume data information overload and difficulty staffing effective monitoring controls."
+          }
+        ],
+        "note": "This matches the descriptor's information-overload and monitoring challenges.",
+        "confidence": 0.99,
+        "bucket": null
+      },
+      {
+        "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q4.a.i",
+        "outcome": "matched",
+        "primary_node_id": "5890d70e-4b16-48e2-aa9a-1e04b9b31507",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "5890d70e-4b16-48e2-aa9a-1e04b9b31507",
+            "support": "Decomposes each stock's total variance into beta-based systematic risk and residual unsystematic risk, as specified by the single-index descriptor."
+          }
+        ],
+        "note": "The calculation asks for systematic and unsystematic stock risk using beta and market variance.",
+        "confidence": 0.99,
+        "bucket": null
+      },
+      {
+        "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q4.a.ii",
+        "outcome": "matched",
+        "primary_node_id": "7adfd1c3-4766-4221-bd22-bd454c45445c",
+        "secondary_node_ids": [
+          "5890d70e-4b16-48e2-aa9a-1e04b9b31507"
+        ],
+        "evidence": [
+          {
+            "node_id": "7adfd1c3-4766-4221-bd22-bd454c45445c",
+            "support": "Calculates portfolio variance using weighted constituent variances and covariance."
+          },
+          {
+            "node_id": "5890d70e-4b16-48e2-aa9a-1e04b9b31507",
+            "support": "Derives covariance from the stocks' betas and market-index variance, matching the single-index covariance formulation."
+          }
+        ],
+        "note": "The requested portfolio risk calculation combines individual variances and covariance.",
+        "confidence": 0.99,
+        "bucket": null
+      },
+      {
+        "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q4.a.iii",
+        "outcome": "matched",
+        "primary_node_id": "7adfd1c3-4766-4221-bd22-bd454c45445c",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "7adfd1c3-4766-4221-bd22-bd454c45445c",
+            "support": "Compares portfolio returns and risk under changed asset weights using weighted return, variance, and covariance calculations."
+          }
+        ],
+        "note": "The advice depends on how revised portfolio allocation changes aggregate return and risk.",
+        "confidence": 0.99,
+        "bucket": null
+      },
+      {
+        "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q4.b",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Calculates profit or loss on equity positions hedged with Nifty futures; no candidate describes equity-index futures hedging or its payoff calculation.",
+        "confidence": 0.94,
+        "bucket": null
+      },
+      {
+        "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q4.c",
+        "outcome": "matched",
+        "primary_node_id": "b30741bc-3a59-4c01-bb40-6f1f067dccb6",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "b30741bc-3a59-4c01-bb40-6f1f067dccb6",
+            "support": "Requests favorable and unfavorable arguments for technical analysis, including trend persistence and delayed signals."
+          }
+        ],
+        "note": "Evaluates the merits and criticisms of technical analysis.",
+        "confidence": 0.98,
+        "bucket": null
+      },
+      {
+        "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q4.c.alt2",
+        "outcome": "matched",
+        "primary_node_id": "041f9835-9726-4b74-8200-42f3b548f9c1",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "041f9835-9726-4b74-8200-42f3b548f9c1",
+            "support": "Lists factors used to identify currency risk, including government actions, interest and inflation differentials, and external shocks."
+          }
+        ],
+        "note": "The alternative part asks for currency-risk parameters, which the descriptor explicitly covers.",
+        "confidence": 0.97,
+        "bucket": null
+      },
+      {
+        "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q4.d",
+        "outcome": "matched",
+        "primary_node_id": "b30741bc-3a59-4c01-bb40-6f1f067dccb6",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "b30741bc-3a59-4c01-bb40-6f1f067dccb6",
+            "support": "Asserts technical analysis becomes self-defeating as adoption rises, a stated critique in the descriptor."
+          }
+        ],
+        "note": "The statement tests a criticism of technical analysis.",
+        "confidence": 0.98,
+        "bucket": null
+      },
+      {
+        "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q4.c.repeat2.i",
+        "outcome": "matched",
+        "primary_node_id": "041f9835-9726-4b74-8200-42f3b548f9c1",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "041f9835-9726-4b74-8200-42f3b548f9c1",
+            "support": "Identifies government policy action, using Brexit's effect on sterling, as a currency-risk parameter."
+          }
+        ],
+        "note": "The example links government action to exchange-rate movement.",
+        "confidence": 0.98,
+        "bucket": null
+      },
+      {
+        "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q4.c.repeat2.ii",
+        "outcome": "matched",
+        "primary_node_id": "041f9835-9726-4b74-8200-42f3b548f9c1",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "041f9835-9726-4b74-8200-42f3b548f9c1",
+            "support": "Connects nominal interest-rate differences to exchange rates through interest-rate parity."
+          }
+        ],
+        "note": "This is a currency-risk parameter based on cross-border nominal rates.",
+        "confidence": 0.99,
+        "bucket": null
+      },
+      {
+        "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q4.c.repeat2.iii",
+        "outcome": "matched",
+        "primary_node_id": "041f9835-9726-4b74-8200-42f3b548f9c1",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "041f9835-9726-4b74-8200-42f3b548f9c1",
+            "support": "Connects inflation differences to currency values through purchasing-power parity."
+          }
+        ],
+        "note": "This is the inflation-parity factor in currency-risk assessment.",
+        "confidence": 0.99,
+        "bucket": null
+      },
+      {
+        "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q4.c.repeat2.iv",
+        "outcome": "matched",
+        "primary_node_id": "041f9835-9726-4b74-8200-42f3b548f9c1",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "041f9835-9726-4b74-8200-42f3b548f9c1",
+            "support": "Identifies natural calamities as external shocks that can adversely affect currency values."
+          }
+        ],
+        "note": "The descriptor includes external shocks such as natural disasters.",
+        "confidence": 0.97,
+        "bucket": null
+      },
+      {
+        "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q4.c.repeat2.v",
+        "outcome": "matched",
+        "primary_node_id": "041f9835-9726-4b74-8200-42f3b548f9c1",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "041f9835-9726-4b74-8200-42f3b548f9c1",
+            "support": "Identifies war, coups, and rebellion as geopolitical shocks affecting exchange rates."
+          }
+        ],
+        "note": "These are explicit external political shocks within the currency-risk descriptor.",
+        "confidence": 0.99,
+        "bucket": null
+      },
+      {
+        "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q4.c.repeat2.vi",
+        "outcome": "matched",
+        "primary_node_id": "041f9835-9726-4b74-8200-42f3b548f9c1",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "041f9835-9726-4b74-8200-42f3b548f9c1",
+            "support": "Links a change of government and its foreign-investment stance to currency risk."
+          }
+        ],
+        "note": "Government regime and policy shifts are stated currency-risk drivers.",
+        "confidence": 0.98,
+        "bucket": null
+      },
+      {
+        "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q5.a.i",
+        "outcome": "matched",
+        "primary_node_id": "00c818e4-de2d-4ec0-94b2-2bcf69dea151",
+        "secondary_node_ids": [
+          "9c3e453d-ae55-4ff1-9bfe-2eacf2be2a53"
+        ],
+        "evidence": [
+          {
+            "node_id": "00c818e4-de2d-4ec0-94b2-2bcf69dea151",
+            "support": "Forecasts foreign-currency project cash flows and converts them using forward rates for multinational capital budgeting."
+          },
+          {
+            "node_id": "9c3e453d-ae55-4ff1-9bfe-2eacf2be2a53",
+            "support": "The conversion-rate computation uses inflation differentials consistent with purchasing-power parity."
+          }
+        ],
+        "note": "Computes forward exchange rates for converting Nepalese project cash flows into rupees.",
+        "confidence": 0.96,
+        "bucket": null
+      },
+      {
+        "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q5.a.ii",
+        "outcome": "matched",
+        "primary_node_id": "00c818e4-de2d-4ec0-94b2-2bcf69dea151",
+        "secondary_node_ids": [
+          "9c3e453d-ae55-4ff1-9bfe-2eacf2be2a53"
+        ],
+        "evidence": [
+          {
+            "node_id": "00c818e4-de2d-4ec0-94b2-2bcf69dea151",
+            "support": "Combines host-country and domestic cash flows, exchange-rate conversion, and discounting to evaluate a foreign project NPV."
+          },
+          {
+            "node_id": "9c3e453d-ae55-4ff1-9bfe-2eacf2be2a53",
+            "support": "Uses inflation differences to convert currencies according to a purchasing-power-parity relationship."
+          }
+        ],
+        "note": "This is an NPV appraisal of a multinational project using converted foreign cash flows.",
+        "confidence": 0.98,
+        "bucket": null
+      },
+      {
+        "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q5.b.i",
+        "outcome": "matched",
+        "primary_node_id": "bc7ff11a-452b-4ee8-b22d-858439e5a1e5",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "bc7ff11a-452b-4ee8-b22d-858439e5a1e5",
+            "support": "Determines the initial mutual-fund units from year-end units and reinvested distributions, matching the descriptor's unit and NAV terminology."
+          }
+        ],
+        "note": "The calculation concerns mutual-fund units arising from reinvested distributions.",
+        "confidence": 0.85,
+        "bucket": null
+      },
+      {
+        "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q5.b.ii",
+        "outcome": "matched",
+        "primary_node_id": "a1f8ffb3-e239-4aec-bfa5-3e2a2fc76ef4",
+        "secondary_node_ids": [
+          "bc7ff11a-452b-4ee8-b22d-858439e5a1e5"
+        ],
+        "evidence": [
+          {
+            "node_id": "a1f8ffb3-e239-4aec-bfa5-3e2a2fc76ef4",
+            "support": "Includes the entry load in the initial purchase amount, directly matching the entry-load descriptor."
+          },
+          {
+            "node_id": "bc7ff11a-452b-4ee8-b22d-858439e5a1e5",
+            "support": "Calculates NAV per unit and total investment in mutual-fund units, matching the descriptor's NAV terminology."
+          }
+        ],
+        "note": "The requested initial investment uses beginning NAV and the stated entry load.",
+        "confidence": 0.97,
+        "bucket": null
+      },
+      {
+        "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q5.b.iii",
+        "outcome": "matched",
+        "primary_node_id": "a1f8ffb3-e239-4aec-bfa5-3e2a2fc76ef4",
+        "secondary_node_ids": [
+          "be6f1feb-10b9-4933-9944-29074679b559"
+        ],
+        "evidence": [
+          {
+            "node_id": "a1f8ffb3-e239-4aec-bfa5-3e2a2fc76ef4",
+            "support": "Deducts an exit load from the redemption amount when calculating realized proceeds."
+          },
+          {
+            "node_id": "be6f1feb-10b9-4933-9944-29074679b559",
+            "support": "Calculates realized return against initial investment and adjusts for distributions, matching return-measurement concepts."
+          }
+        ],
+        "note": "Appraises after-load realized return and inflation-adjusted real return.",
+        "confidence": 0.96,
+        "bucket": null
+      },
+      {
+        "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q6.a.i",
+        "outcome": "matched",
+        "primary_node_id": "db113c9a-efc3-462d-9068-f4622d952c9c",
+        "secondary_node_ids": [
+          "cef1e6b0-f433-44cd-8531-a1aab2863e41"
+        ],
+        "evidence": [
+          {
+            "node_id": "db113c9a-efc3-462d-9068-f4622d952c9c",
+            "support": "Values the firm from FCFF, then subtracts debt and preferred stock to derive equity value per share."
+          },
+          {
+            "node_id": "cef1e6b0-f433-44cd-8531-a1aab2863e41",
+            "support": "Discounts expected FCFF using WACC, the discount rate derived for the valuation."
+          }
+        ],
+        "note": "The decision compares market price with per-share equity value derived through FCFF valuation.",
+        "confidence": 0.98,
+        "bucket": null
+      },
+      {
+        "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q6.a.ii",
+        "outcome": "matched",
+        "primary_node_id": "db113c9a-efc3-462d-9068-f4622d952c9c",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "db113c9a-efc3-462d-9068-f4622d952c9c",
+            "support": "Solves for FCFE using the equity value and constant-growth cash-flow valuation formula."
+          }
+        ],
+        "note": "The requested output is equity free cash flow consistent with the given equity value.",
+        "confidence": 0.98,
+        "bucket": null
+      },
+      {
+        "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q6.b",
+        "outcome": "matched",
+        "primary_node_id": "1bbc87d7-274c-4b18-805f-1f9d482f4e1a",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "1bbc87d7-274c-4b18-805f-1f9d482f4e1a",
+            "support": "Compares a forward exchange contract with an alternative hedge to lock in proceeds from a future USD receivable."
+          }
+        ],
+        "note": "The forward contract alternative is directly evaluated as an FX hedge for an exporter\u2019s receivable.",
+        "confidence": 0.95,
+        "bucket": null
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "attempt_id": "1791217165453539000",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "1facc0aa1870bbe7b901ce59f1b9f7e313e99e76caae47c90f399c90a0527c5e",
+    "schema_generator": "pinned-identifiers-v2",
+    "seconds": 173.498,
+    "usage": [
+      {
+        "input_tokens": 90552,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 9335,
+        "reasoning_output_tokens": 981
+      }
+    ],
+    "completed_at": "2026-10-05T16:22:18.951389+00:00"
+  }
+}

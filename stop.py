@@ -9,12 +9,15 @@ import shutil
 import subprocess
 import sys
 from pathlib import Path
+from worker_lifecycle import stop_recorded_worker
 
 PROJECT_ROOT = Path(__file__).parent.resolve()
 
 
 def main() -> None:
     print("Stopping CA Final Study Companion services...")
+    if stop_recorded_worker():
+        print("✓ Intelligence worker stopped. Pending jobs remain in PostgreSQL.")
     docker_bin = shutil.which("docker")
     if docker_bin:
         subprocess.run([docker_bin, "compose", "stop"], cwd=PROJECT_ROOT)

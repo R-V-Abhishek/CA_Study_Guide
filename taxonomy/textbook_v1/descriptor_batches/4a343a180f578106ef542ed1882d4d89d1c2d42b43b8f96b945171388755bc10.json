@@ -1,0 +1,313 @@
+{
+  "descriptors": [
+    {
+      "node_id": "5d963845-e12a-4e92-87a2-5ed44b851b89",
+      "concept_name": "Corporate Restructuring Framework",
+      "definition": "Corporate restructuring involves major organizational changes such as shifts in corporate strategies, expansion, or contraction. It can occur internally through investments, de-mergers, or sell-offs, and externally through mergers, acquisitions, and strategic alliances.",
+      "terminology": [
+        "Restructuring",
+        "Re-organisation",
+        "Mergers and Acquisitions",
+        "Divestment"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Internal organizational changes",
+        "External mergers and acquisitions",
+        "Strategic alliances"
+      ],
+      "exclusion": [
+        "Routine operational transactions",
+        "Day-to-day management decisions"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard operational management by focusing on structural and ownership changes rather than routine business execution."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d8843c38-3ad8-4c2b-9f2e-0a1b1575f6bd",
+      "concept_name": "Rationale For Mergers And Acquisitions",
+      "definition": "Mergers and acquisitions are driven by motives such as achieving synergistic operating economies where combined value exceeds individual values. Other primary justifications include risk reduction through diversification, tax savings via loss carry-forwards, and accelerated corporate growth.",
+      "terminology": [
+        "Synergy",
+        "Economies of scale",
+        "Diversification",
+        "Tax saving"
+      ],
+      "instrument_references": [
+        "Income Tax Act"
+      ],
+      "inclusion": [
+        "Operating synergies",
+        "Large scale economies",
+        "Tax loss set-offs"
+      ],
+      "exclusion": [
+        "Non-strategic asset liquidations",
+        "Routine operational cost-cutting"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from internal growth by achieving value creation through external combinations and integration."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9c80edfe-3567-4a26-bf9f-35c3b9fe03d9",
+      "concept_name": "Forms (Types) Of Mergers",
+      "definition": "Mergers occur in various structural forms based on the business relationship between the participating entities. Major types include horizontal, vertical, conglomerate, congeneric, and reverse mergers, alongside direct acquisitions.",
+      "terminology": [
+        "Horizontal Merger",
+        "Vertical Merger",
+        "Conglomerate Merger",
+        "Congeneric Merger"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Same industry combinations",
+        "Buyer-seller relationship combinations",
+        "Unrelated business combinations"
+      ],
+      "exclusion": [
+        "Internal restructuring without entity fusion",
+        "Pure asset sales without corporate absorption"
+      ],
+      "nearby_distinctions": [
+        "Distinguished by the operational proximity and market relationship between the acquirer and the target company."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8147de05-4634-44cb-b3c3-49efff6c9103",
+      "concept_name": "Financial Framework of Mergers",
+      "definition": "Financial evaluation of mergers identifies economic gains by comparing the combined entity value against the sum of individual stand-alone values. The net gain is calculated by deducting the acquisition premium and integration costs from the total synergy value.",
+      "terminology": [
+        "Combined value",
+        "Synergy",
+        "Acquisition cost",
+        "Net gain"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Synergy valuation",
+        "Premium calculations",
+        "Operating improvements"
+      ],
+      "exclusion": [
+        "Legal drafting of amalgamation schemes",
+        "Secretarial compliance filings"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from legal merger procedures by focusing exclusively on quantitative value creation and financial metrics."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "60c7701f-78af-43df-8508-658a6f6c143d",
+      "concept_name": "Gains from Mergers or Synergy",
+      "definition": "Economic gains materialize when the combined value of merged entities exceeds the sum of their individual stand-alone values. This surplus is primarily generated through synergy, operational improvements, and effective post-merger integration.",
+      "terminology": [
+        "Economic gains",
+        "Synergy value",
+        "Operating improvements",
+        "Abnormal returns"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Value creation through integration",
+        "Managerial talent impact",
+        "Cost reduction benefits"
+      ],
+      "exclusion": [
+        "Sunk transaction costs",
+        "Acquisition premium paid"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from market-wide price movements by specifically isolating the incremental value produced through company combination."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4121b327-ccaa-4a46-b0c9-b0942df4e4ce",
+      "concept_name": "Scheme of Amalgamation or Merger",
+      "definition": "The scheme of amalgamation serves as the core proposal that legally vests all transferor assets and liabilities into the transferee company. It requires clearly defining the effective operational date and establishing share exchange ratios based on audited accounts.",
+      "terminology": [
+        "Scheme of arrangement",
+        "Vesting of assets",
+        "Effective date",
+        "Valuation ratio"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Asset and liability transfer provisions",
+        "Effective date definition",
+        "Share valuation methodologies"
+      ],
+      "exclusion": [
+        "Hostile takeover tender offers",
+        "Market-based open share accumulation"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from informal acquisition agreements by representing the formal legal blueprint submitted for court sanction."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "083cb778-cac4-4a3a-9d3a-aeeb0e3b8c88",
+      "concept_name": "Financial Evaluation",
+      "definition": "Financial evaluation determines the optimal acquisition pricing, potential risk areas, and balance sheet implications. It guides the CFO in structuring the transaction parameters effectively.",
+      "terminology": [
+        "Maximum price",
+        "Risk areas",
+        "Cash flow implications",
+        "Acquisition structuring"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Target company price ceiling analysis",
+        "Risk identification",
+        "Cash flow impact assessment"
+      ],
+      "exclusion": [
+        "Post-merger operational management",
+        "Corporate secretarial filing execution"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from post-merger integration by focusing strictly on pre-acquisition appraisal and deal structuring decisions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5b446e7e-80eb-4d5a-8817-2f7a2c161b33",
+      "concept_name": "Arranging Finance for Acquisition",
+      "definition": "Financing an acquisition requires deciding whether to pay via cash, stock, or a combination based on capital strategy and market share pricing. When significant cash payouts are involved, acquirers utilize bridge financing or plan long-term funding structures.",
+      "terminology": [
+        "Definitive Agreement",
+        "Cash payout",
+        "Bridge financing",
+        "Leveraged buyout"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Consideration mix decisions",
+        "Bridge financing arrangements",
+        "Long-term funding plans"
+      ],
+      "exclusion": [
+        "Target defense mechanisms",
+        "Share valuation exchange ratios"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from target valuation by addressing how transaction consideration is funded rather than determining target worth."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "bc160766-d1b3-475f-948c-40a7f5b4bbfa",
+      "concept_name": "TAKEOVER DEFENSIVE TACTICS",
+      "definition": "Unfriendly acquisitions occur when acquirers bypass the target board and launch direct public tender offers to target shareholders. Target companies deploy strategic actions and defense tactics to deter or complicate hostile takeover attempts.",
+      "terminology": [
+        "Hostile takeover",
+        "Tender Offer",
+        "Poison pill",
+        "Divestiture"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Direct public tender offers",
+        "Street sweep accumulation",
+        "Divestiture defense strategies"
+      ],
+      "exclusion": [
+        "Friendly negotiated mergers",
+        "Consensual amalgamations"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from friendly mergers by the absence of board-level consent, triggering adversarial pursuit and defense tactics."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8db5a5d8-11b3-475d-983f-6b636649b71e",
+      "concept_name": "Take Over Strategies",
+      "definition": "Acquiring companies employ various aggressive strategies beyond standard tender offers to gain control of target firms. These methods include accumulating shares through street sweeps, threatening open offers via bear hugs, and leveraging brand power.",
+      "terminology": [
+        "Street Sweep",
+        "Bear Hug",
+        "Strategic Alliance",
+        "Brand Power"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Pre-offer share accumulation",
+        "Board intimidation tactics",
+        "Brand displacement strategies"
+      ],
+      "exclusion": [
+        "Target-side defensive maneuvers",
+        "Friendly statutory amalgamation"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from target defensive tactics as they represent proactive methods deployed by the acquirer to force control."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c4c4df4c-fae0-415a-9de1-eb29f8d65d80",
+      "concept_name": "Defensive Tactics",
+      "definition": "Target companies implement defensive tactics to make themselves unattractive or unmanageable to hostile bidders. Common strategies include selling crown jewels, issuing poison pills, offering greenmail, or enlisting white knights.",
+      "terminology": [
+        "Crown jewels",
+        "Poison pill",
+        "Greenmail",
+        "White knight"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Asset sell-offs and spin-offs",
+        "Shareholder rights dilution",
+        "Friendly rescue acquisitions"
+      ],
+      "exclusion": [
+        "Acquirer offensive strategies",
+        "Standard statutory merger filings"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from acquirer strategies by being initiated exclusively by the target company management to repel unwanted bids."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6e37b892-1e14-41fb-9ac4-961f8aad8dc4",
+      "concept_name": "REVERSE MERGER",
+      "definition": "A reverse merger involves a smaller or private company gaining control of a larger or public company, often resulting in the prosperous company merging into a sick unit. This mechanism serves as a back-door listing alternative to bypass complex public issue procedures.",
+      "terminology": [
+        "Reverse takeover",
+        "Sick industrial company",
+        "Back door listing",
+        "Divestiture"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Control acquisition by smaller entities",
+        "Public listing via shell companies",
+        "Carry forward loss tax benefits"
+      ],
+      "exclusion": [
+        "Standard horizontal amalgamations",
+        "Friendly same-size corporate mergers"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from conventional mergers where the larger entity absorbs the smaller one, as control flows inversely from a smaller or private entity to a larger target."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "4a343a180f578106ef542ed1882d4d89d1c2d42b43b8f96b945171388755bc10",
+  "artifact_id": "8aaed111-f41f-4733-950f-7550afab6922",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8516,
+  "output_tokens": 3100,
+  "cost_usd": 0.0103048,
+  "created_at": "2026-10-03T18:09:18.315844+00:00"
+}

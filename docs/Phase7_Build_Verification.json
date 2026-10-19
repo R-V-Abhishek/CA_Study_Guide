@@ -1,0 +1,236 @@
+{
+  "generated_at": "2026-10-10T03:03:43.379655+00:00",
+  "openapi_matches_application": true,
+  "required_readiness_paths_present": true,
+  "openapi_sha256": "bed5c6ed92d7a7ffe9be96b5f91035d0dbaa8eac4fde716e3a4670a1ceadd1c3",
+  "typescript_contract_sha256": "d385eccfc22d83d8b52ba7c4d0d5b480c3fc087816fe80868c1886bc276c8133",
+  "distributions": {
+    "student": {
+      "build": "e2f7656-d9f215b722bd",
+      "lazy_references_checked": [
+        "web/apps/student/dist/assets/Dashboard-DXiFY9W4.js",
+        "web/apps/student/dist/assets/MockTests-DzCCXLxo.js",
+        "web/apps/student/dist/assets/PaperDetail-DJ0v7-7-.js",
+        "web/apps/student/dist/assets/Papers-DFDwTMJn.js",
+        "web/apps/student/dist/assets/Plan-D3AIP6A7.js",
+        "web/apps/student/dist/assets/Profile-BB6E74ll.js",
+        "web/apps/student/dist/assets/Progress-6UBNimZj.js",
+        "web/apps/student/dist/assets/QuestionReader-D_aHTylr.js",
+        "web/apps/student/dist/assets/Questions-BAjEfn6I.js",
+        "web/apps/student/dist/assets/Revision-CuCQAmhM.js",
+        "web/apps/student/dist/assets/StudyContext-KV8L8yvT.js",
+        "web/apps/student/dist/assets/Syllabus-COqP9W5R.css",
+        "web/apps/student/dist/assets/Syllabus-DuDtIb3i.js",
+        "web/apps/student/dist/assets/export-QhDYLBgj.js",
+        "web/apps/student/dist/assets/index-DMgcQ-xU.js",
+        "web/apps/student/dist/assets/index-DyQc2SWb.js",
+        "web/apps/student/dist/assets/navigation-BY68VL5o.js",
+        "web/apps/student/dist/assets/syllabus-B-ADo14m.js",
+        "web/apps/student/dist/assets/url-Ce_dhX38.js",
+        "web/apps/student/dist/assets/useMutation-CC4_0xl2.js"
+      ],
+      "assets": [
+        {
+          "path": "web/apps/student/dist/assets/Dashboard-DXiFY9W4.js",
+          "sha256": "4da2ffc237fa009ed4dd9798d79abedea2740075b32ab0cc6c30ccd2626054dd"
+        },
+        {
+          "path": "web/apps/student/dist/assets/MockTests-DzCCXLxo.js",
+          "sha256": "356a76a047111d23bd12d06932c013648adf7cd407ec4022b49662fd99311429"
+        },
+        {
+          "path": "web/apps/student/dist/assets/PaperDetail-DJ0v7-7-.js",
+          "sha256": "0bbd65dcda22218fba7b0c4ba71b3606259ff484dd716e72b2f58e818a6b30fa"
+        },
+        {
+          "path": "web/apps/student/dist/assets/Papers-DFDwTMJn.js",
+          "sha256": "e445ec1bc03e595dcc486d37f21a70475c910fc0424a5adbb7af2b0168a24d96"
+        },
+        {
+          "path": "web/apps/student/dist/assets/Plan-D3AIP6A7.js",
+          "sha256": "08f5166970b430b5b5f0475977d5f5292b06799d4d5e895d539aff13feab3edf"
+        },
+        {
+          "path": "web/apps/student/dist/assets/Profile-BB6E74ll.js",
+          "sha256": "1ac6a6eb385c4384e58c0685912abb1a14f96a7bc2f9cffb86febf0422ed90e2"
+        },
+        {
+          "path": "web/apps/student/dist/assets/Progress-6UBNimZj.js",
+          "sha256": "ce81b5fd99cd87b6f43f022e938fdc6219fc2df5d97b4fcb8acf0456e5030739"
+        },
+        {
+          "path": "web/apps/student/dist/assets/QuestionReader-D_aHTylr.js",
+          "sha256": "0cb33ad30dcf1156466725fe17c1ba9697dea575dbe90fc04e6ba73f99a47c3d"
+        },
+        {
+          "path": "web/apps/student/dist/assets/Questions-BAjEfn6I.js",
+          "sha256": "639338b4974ca001940168e588099f56879a728c5cca7af1d7898e884207f04f"
+        },
+        {
+          "path": "web/apps/student/dist/assets/Revision-CuCQAmhM.js",
+          "sha256": "af8d92bc339af6e6d5303982bc2d18bc28c8d5e0c79da0ce28106d925b6a6905"
+        },
+        {
+          "path": "web/apps/student/dist/assets/StudyContext-KV8L8yvT.js",
+          "sha256": "a49b373e641a7acf3df362fc7954b69231f370a5237a260c7e7352193ca18e00"
+        },
+        {
+          "path": "web/apps/student/dist/assets/Syllabus-COqP9W5R.css",
+          "sha256": "40c28f3ed702c4d7cf73ae5fa7caf2a97790c69289d707ecbf53b455404af8de"
+        },
+        {
+          "path": "web/apps/student/dist/assets/Syllabus-DuDtIb3i.js",
+          "sha256": "6297ade36bcc37d602a7bba2a872a3afab55711e72d4724dbe145dbc0afbf49c"
+        },
+        {
+          "path": "web/apps/student/dist/assets/export-QhDYLBgj.js",
+          "sha256": "d91ad1b8317508f137ea7555da2eee0a9cd4c740c580fbfc64c9baf393629fc5"
+        },
+        {
+          "path": "web/apps/student/dist/assets/index-BjpE0tS2.css",
+          "sha256": "6dde8b47df85a3f67bd250dd20a23ea6b8e07a0ce35cd20c5c985b0c4d6b7681"
+        },
+        {
+          "path": "web/apps/student/dist/assets/index-DMgcQ-xU.js",
+          "sha256": "798b82871548f2ffb128e67b25542302ca49a5bc774c242d37677d6f1b0fe114"
+        },
+        {
+          "path": "web/apps/student/dist/assets/index-DyQc2SWb.js",
+          "sha256": "9668246be6045a89fa243c1316be4ef2fccfac8fa4f5b0019772a5d9e95327b2"
+        },
+        {
+          "path": "web/apps/student/dist/assets/navigation-BY68VL5o.js",
+          "sha256": "c88324fc72e13a80c3cfc270a54fc3619a47928f293c9e63e99f6b66aca57564"
+        },
+        {
+          "path": "web/apps/student/dist/assets/syllabus-B-ADo14m.js",
+          "sha256": "def68186590411b5f68a792bf5c1ac792c4abe4e15d9932d931b7f6655889131"
+        },
+        {
+          "path": "web/apps/student/dist/assets/url-Ce_dhX38.js",
+          "sha256": "e1d64c5a8f87d3acae2200ef50b23710e6bba0a78bda3cce65b8872e93902061"
+        },
+        {
+          "path": "web/apps/student/dist/assets/useMutation-CC4_0xl2.js",
+          "sha256": "98a6c3d14788391fa52b2e5d4be70a72dd299110a366d8e6f86ecd0c16ee6597"
+        }
+      ]
+    },
+    "curator": {
+      "build": "e2f7656-d9f215b722bd",
+      "lazy_references_checked": [
+        "web/apps/curator/dist/assets/Accounts-CtydJueb.js",
+        "web/apps/curator/dist/assets/BulkAccept-DObcM11A.js",
+        "web/apps/curator/dist/assets/Catalogue-Btaoc72j.js",
+        "web/apps/curator/dist/assets/ClassificationContext-d6XwrGGV.js",
+        "web/apps/curator/dist/assets/ClassificationQueue-CtlFRe4m.js",
+        "web/apps/curator/dist/assets/ExtractionEvidence-DziyUKu5.js",
+        "web/apps/curator/dist/assets/NodePickerModal-CPqeakmb.js",
+        "web/apps/curator/dist/assets/Queue-BQDLc_aU.js",
+        "web/apps/curator/dist/assets/Readiness-BlF_q13s.js",
+        "web/apps/curator/dist/assets/RequestError-Bd_QxL6h.js",
+        "web/apps/curator/dist/assets/System-D8JEdacc.js",
+        "web/apps/curator/dist/assets/Taxonomy-BgwO00fm.js",
+        "web/apps/curator/dist/assets/TaxonomyRelease-BgNuHIeJ.js",
+        "web/apps/curator/dist/assets/TextbookExplorer-COqP9W5R.css",
+        "web/apps/curator/dist/assets/TextbookExplorer-DLHsQW3V.js",
+        "web/apps/curator/dist/assets/WorkspaceSkeleton-DsR2aF6v.js",
+        "web/apps/curator/dist/assets/createLucideIcon-DshjM_qE.js",
+        "web/apps/curator/dist/assets/index-CkkJ_YAM.js",
+        "web/apps/curator/dist/assets/review-workspace-C2mIf_Bu.css",
+        "web/apps/curator/dist/assets/taxonomy-D8OgT1VH.js",
+        "web/apps/curator/dist/assets/useMutation-ChptS9Fg.js"
+      ],
+      "assets": [
+        {
+          "path": "web/apps/curator/dist/assets/Accounts-CtydJueb.js",
+          "sha256": "4511633235b66c62796f80786f2d498a4a1ce601f34824155f5c59ff8faff427"
+        },
+        {
+          "path": "web/apps/curator/dist/assets/BulkAccept-DObcM11A.js",
+          "sha256": "cbd7e546f2a7ce594ef856746d35567141e7e501d423415e65d5c459f34c5324"
+        },
+        {
+          "path": "web/apps/curator/dist/assets/Catalogue-Btaoc72j.js",
+          "sha256": "e5e7f34be849d9670a75c44629de782aabefd01f1a4b17c2d73db559cc8f1a47"
+        },
+        {
+          "path": "web/apps/curator/dist/assets/ClassificationContext-d6XwrGGV.js",
+          "sha256": "021cbf71b0735f58a71292ed8b8d400126053eebe728ead4b3895d1f950006bc"
+        },
+        {
+          "path": "web/apps/curator/dist/assets/ClassificationQueue-CtlFRe4m.js",
+          "sha256": "6d29e79f2abede1aba77ed660900dd320ac8fbb484a0fa773c2042626e06ebc9"
+        },
+        {
+          "path": "web/apps/curator/dist/assets/ExtractionEvidence-DziyUKu5.js",
+          "sha256": "f37681ab8b06afb49dbfb1d374a01f34c6a9b609bd180f2a30d60a30fa6ab397"
+        },
+        {
+          "path": "web/apps/curator/dist/assets/NodePickerModal-CPqeakmb.js",
+          "sha256": "8c226c584217f042bf343c050b84fc54fe51c67400885186443b147d44efce90"
+        },
+        {
+          "path": "web/apps/curator/dist/assets/Queue-BQDLc_aU.js",
+          "sha256": "f0657f5736ccac11c7298806bb64cc95f79ee6f4ab99517ef06bf722c4f40c73"
+        },
+        {
+          "path": "web/apps/curator/dist/assets/Readiness-BlF_q13s.js",
+          "sha256": "1a19f129780d7c982cebe0b12f27a5e673b10e401dd62f29b88ae7a6e182b940"
+        },
+        {
+          "path": "web/apps/curator/dist/assets/RequestError-Bd_QxL6h.js",
+          "sha256": "7cbcf89b36e5cfdd6786332541ce2fb72877a7ba949f4ebc4f5e34f2c022f19d"
+        },
+        {
+          "path": "web/apps/curator/dist/assets/System-D8JEdacc.js",
+          "sha256": "dc4afeff9f7cca5bf7ef4fa6fbdcb2d4fb68450bc5b037d27377cc6b1653f19b"
+        },
+        {
+          "path": "web/apps/curator/dist/assets/Taxonomy-BgwO00fm.js",
+          "sha256": "c9695d324f95e78262e0d34046e53c0de6aed3dfc3bc9cfebb0085c6468de3e0"
+        },
+        {
+          "path": "web/apps/curator/dist/assets/TaxonomyRelease-BgNuHIeJ.js",
+          "sha256": "4515ec510395461ec5b597155e8fdf4873a0471a422db6a50a4b5e62aba6177f"
+        },
+        {
+          "path": "web/apps/curator/dist/assets/TextbookExplorer-COqP9W5R.css",
+          "sha256": "40c28f3ed702c4d7cf73ae5fa7caf2a97790c69289d707ecbf53b455404af8de"
+        },
+        {
+          "path": "web/apps/curator/dist/assets/TextbookExplorer-DLHsQW3V.js",
+          "sha256": "24b907ebcf8223177409e9a447f11a088e6edcf6a1449c719ea6919cdb63bc11"
+        },
+        {
+          "path": "web/apps/curator/dist/assets/WorkspaceSkeleton-DsR2aF6v.js",
+          "sha256": "3777bbd0b733662ff4b6372ad701fccccf96de7ce3b7327997db871ea9d61b69"
+        },
+        {
+          "path": "web/apps/curator/dist/assets/createLucideIcon-DshjM_qE.js",
+          "sha256": "6b0abb8cf0ed83baaed9ada9754e96efa9ff85db50a42ee326d4f0a0f2d8a7a8"
+        },
+        {
+          "path": "web/apps/curator/dist/assets/index-CkkJ_YAM.js",
+          "sha256": "124641a360f58546ebd8c5ac73262de9adc187d503b22dc437c08575d9d10b87"
+        },
+        {
+          "path": "web/apps/curator/dist/assets/index-DCnC1lKP.css",
+          "sha256": "1423b1a8437b32c02b83d157df5a6bc94de160be8c0b6d8209fba462cf3e1475"
+        },
+        {
+          "path": "web/apps/curator/dist/assets/review-workspace-C2mIf_Bu.css",
+          "sha256": "32a6df03d05e7b4ee0fc0d8d3b93e1792c5cd77240e6e97fa5f42ac01af9fc4e"
+        },
+        {
+          "path": "web/apps/curator/dist/assets/taxonomy-D8OgT1VH.js",
+          "sha256": "4b9f1eac8eac40a5570a4087c7c60c05aae38815ec6d8e13a03def45ac59f8f8"
+        },
+        {
+          "path": "web/apps/curator/dist/assets/useMutation-ChptS9Fg.js",
+          "sha256": "3ab3af0f36a69faf3169dd67f90d6c765819756dd6f673a952438446c89f5807"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "descriptors": [
+    {
+      "node_id": "46e3ebf5-de09-4dce-b5a2-8d61d083df5c",
+      "concept_name": "Lesser Penalties For One Person Companies Or Small Companies [Section 446B]",
+      "definition": "Certain entities like One Person Companies, small companies, start-up companies, and Producer Companies face reduced penalties for non-compliance under the Act. The imposed penalty cannot exceed half of the specified amount, subject to a maximum cap of two lakh rupees for the company and one lakh rupees for an officer in default or other person.",
+      "terminology": [
+        "One Person Company",
+        "small company",
+        "start-up company",
+        "Producer Company",
+        "officer in default"
+      ],
+      "instrument_references": [
+        "Section 446B of the Companies Act, 2013",
+        "Section 378A of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "One Person Companies",
+        "small companies",
+        "start-up companies",
+        "Producer Companies"
+      ],
+      "exclusion": [
+        "Normal public or private companies not falling under the specified categories"
+      ],
+      "nearby_distinctions": [
+        "Distinct from standard penalties under general provisions, applying specifically capped reduced rates to designated corporate structures."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "422e3efb-5134-4c0b-80ad-39889ed74720",
+      "concept_name": "Adjudication Of Penalties [Section 454]",
+      "definition": "The Central Government appoints officers not below the rank of Registrar as adjudicating officers to determine penalties for non-compliance under the Act. These officers must issue a written show cause notice allowing fifteen to thirty days for an electronic reply before adjudging any penalty.",
+      "terminology": [
+        "adjudicating officers",
+        "Registrar",
+        "show cause notice",
+        "electronic mode"
+      ],
+      "instrument_references": [
+        "Section 454 of the Companies Act, 2013",
+        "Rule 3 of the Companies (Adjudication of Penalties) Rules, 2014"
+      ],
+      "inclusion": [
+        "appointment of officers not below the rank of Registrar",
+        "issuance of written notices",
+        "electronic filing of replies"
+      ],
+      "exclusion": [
+        "judicial court trials for offenses subjected to administrative adjudication by designated officers"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes administrative penalty adjudication by executive officers from judicial proceedings handled by special courts."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "fb66a32a-3192-44bb-bb3a-220d77795211",
+      "concept_name": "Penalty For Repeated Default [Section 454A]",
+      "definition": "When a company, officer, or person commits the same default again within three years of a previous penalty order, they face an increased penalty for the subsequent default. The penalty amount for such repeated non-compliance equals twice the amount originally specified under the relevant provision.",
+      "terminology": [
+        "repeated default",
+        "subsequent defaults",
+        "twice the amount of penalty"
+      ],
+      "instrument_references": [
+        "Section 454A of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "second or subsequent default committed within three years of a prior penalty order"
+      ],
+      "exclusion": [
+        "first-time defaults or offenses occurring after the three-year window"
+      ],
+      "nearby_distinctions": [
+        "Differs from standard single-instance penalties by applying an escalated multiplier specifically for recidivism within a defined temporal window."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "930d452baa826da6ab4f327cba326c47eee89b8e93754c24387c64a0cc049f32",
+  "artifact_id": "e550162b-7c78-46e0-865c-674206d3f6c1",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 2250,
+  "output_tokens": 968,
+  "cost_usd": 0.003095,
+  "created_at": "2026-10-03T18:24:41.896252+00:00"
+}

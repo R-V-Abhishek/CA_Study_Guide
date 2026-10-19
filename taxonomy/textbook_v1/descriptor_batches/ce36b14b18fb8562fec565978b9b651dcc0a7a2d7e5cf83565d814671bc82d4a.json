@@ -1,0 +1,333 @@
+{
+  "descriptors": [
+    {
+      "node_id": "95628207-c22a-43b4-998c-1927cf999664",
+      "concept_name": "Definition and Registration of Non-Banking Financial Companies",
+      "definition": "A non-banking financial company is a corporate financial institution whose principal business involves receiving deposits or lending, determined by financial assets and gross income exceeding fifty percent. Operating such an institution requires obtaining a certificate of registration from the Reserve Bank of India under statutory provisions.",
+      "terminology": [
+        "Financial assets",
+        "Gross income",
+        "Net owned fund",
+        "Certificate of registration"
+      ],
+      "instrument_references": [
+        "Reserve Bank of India (Amendment) Act, 1997",
+        "Reserve Bank of India Act, 1934"
+      ],
+      "inclusion": [
+        "Companies with over fifty percent financial assets and financial income",
+        "Institutions engaged in lending or receiving deposits"
+      ],
+      "exclusion": [
+        "Non-financial commercial entities",
+        "Institutions without mandatory regulatory registration carrying out financial activity"
+      ],
+      "nearby_distinctions": [
+        "Differs from ordinary non-financial companies by asset and income constitution tests rather than commercial trading activities."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d634a63a-31bf-4175-9a38-891a49e17d6c",
+      "concept_name": "Structural Differences Between Banks and NBFCs",
+      "definition": "Non-banking financial companies operate similarly to banks in lending and investing but differ fundamentally in their deposit-taking powers and systemic roles. They cannot accept demand deposits, issue self-drawn cheques, access deposit insurance facilities, or face mandatory priority sector lending exposure.",
+      "terminology": [
+        "Demand deposits",
+        "Term deposits",
+        "Payment and settlement system",
+        "Priority sector"
+      ],
+      "instrument_references": [
+        "Master Direction – Reserve Bank of India (Non-Banking Financial Company – Scale Based Regulation) Directions, 2023"
+      ],
+      "inclusion": [
+        "Term deposit acceptance by eligible NBFCs",
+        "Lending and investment operations akin to banking"
+      ],
+      "exclusion": [
+        "Acceptance of demandable checking deposits",
+        "Participation in direct clearing and payment settlement mechanics"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from commercial banks through structural restrictions on demand liability creation and absence of deposit insurance coverage."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9dfabee9-68b9-4278-92ac-5583c99b3201",
+      "concept_name": "Prudential Norms: Capital Requirements and Tiers",
+      "definition": "Applicable non-banking financial companies must maintain a minimum capital ratio of aggregate risk-weighted assets comprising Tier 1 and Tier 2 capital components. Tier 1 capital forms the primary loss-absorbing equity base, adjusted for specific group investments, while Tier 2 incorporates supplementary elements like revaluation reserves and general provisions.",
+      "terminology": [
+        "Risk weighted assets",
+        "Tier 1 capital",
+        "Tier 2 capital",
+        "Owned fund",
+        "Perpetual debt instruments"
+      ],
+      "instrument_references": [
+        "Master Direction – Reserve Bank of India (Non-Banking Financial Company – Scale Based Regulation) Directions, 2023"
+      ],
+      "inclusion": [
+        "Owned funds adjusted for group exposures",
+        "Eligible perpetual debt and subordinated debt instruments"
+      ],
+      "exclusion": [
+        "Compulsorily convertible preference shares in Tier 1 components",
+        "Excess perpetual debt instruments beyond permitted percentages"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes core permanent equity and disclosed reserves in Tier 1 from hybrid instruments, subordinated debt, and general provisions making up Tier 2."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "60c38928-e027-4a99-aed9-fd628674f0c3",
+      "concept_name": "Capital Requirements Framework",
+      "definition": "Applicable non-banking financial companies must maintain a minimum capital ratio of aggregate risk-weighted assets comprising Tier 1 and Tier 2 capital components. Tier 1 capital forms the primary loss-absorbing equity base, adjusted for specific group investments, while Tier 2 incorporates supplementary elements like revaluation reserves and general provisions.",
+      "terminology": [
+        "Risk weighted assets",
+        "Tier 1 capital",
+        "Tier 2 capital",
+        "Owned fund",
+        "Perpetual debt instruments"
+      ],
+      "instrument_references": [
+        "Master Direction – Reserve Bank of India (Non-Banking Financial Company – Scale Based Regulation) Directions, 2023"
+      ],
+      "inclusion": [
+        "Owned funds adjusted for group exposures",
+        "Eligible perpetual debt and subordinated debt instruments"
+      ],
+      "exclusion": [
+        "Compulsorily convertible preference shares in Tier 1 components",
+        "Excess perpetual debt instruments beyond permitted percentages"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes core permanent equity and disclosed reserves in Tier 1 from hybrid instruments, subordinated debt, and general provisions making up Tier 2."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ea9a8d86-cba2-4d8e-b65c-dcb780d76fab",
+      "concept_name": "Income Recognition and Asset Classification Norms",
+      "definition": "Income on non-performing assets is recognized strictly upon actual realization, requiring the reversal of any previously accrued but unrealized revenue. Credit facilities are systematically categorized into standard, sub-standard, doubtful, or loss assets based on credit weaknesses, repayment defaults, and restructuring histories.",
+      "terminology": [
+        "Non-performing asset",
+        "Standard assets",
+        "Sub-standard assets",
+        "Doubtful assets",
+        "Loss assets"
+      ],
+      "instrument_references": [
+        "Master Direction – Reserve Bank of India (Non-Banking Financial Company – Scale Based Regulation) Directions, 2023"
+      ],
+      "inclusion": [
+        "Realization-based accounting for non-performing asset revenue",
+        "Asset downgrades reflecting default persistence periods"
+      ],
+      "exclusion": [
+        "Accrual-based income booking on active non-performing credit lines",
+        "Automatic asset upgrading without performance satisfaction conditions"
+      ],
+      "nearby_distinctions": [
+        "Contrasts accrual income accounting for healthy standard assets with cash-basis recognition and mandatory reversals for impaired assets."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "24380872-1298-40f2-920e-d5cee655a422",
+      "concept_name": "Provisioning Requirements for Asset Portfolios",
+      "definition": "Institutions must maintain adequate provisions against sub-standard, doubtful, and loss assets to absorb potential credit losses over time. Standard assets require separate contingent provisions that are displayed independently on the balance sheet rather than netted directly from gross advances.",
+      "terminology": [
+        "Loss assets",
+        "Doubtful assets",
+        "Sub-standard assets",
+        "Standard asset provisioning",
+        "Contingent provisions"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Full write-off or provisioning for loss assets",
+        "Percentage-based provisioning for secured and unsecured doubtful portions",
+        "General provisioning for standard and sub-standard exposures"
+      ],
+      "exclusion": [
+        "Netting standard asset provisions directly against gross loan portfolios",
+        "Omitting realistic estimates of security realization values"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes specific asset risk provisions tied to impaired recovery timelines from broad contingent provisions maintained against standard performing assets."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "022b09a7-11a2-4b3e-b964-22b31d20ce05",
+      "concept_name": "Audit Procedures and Business Scrutiny",
+      "definition": "The audit engagement begins by scanning governing corporate documents, board minutes, and management strategies to accurately determine the entity's principal business activities. Auditors must independently evaluate internal control systems and recovery mechanisms to calibrate the nature, timing, and extent of subsequent substantive tests.",
+      "terminology": [
+        "Memorandum of Association",
+        "Principal business",
+        "Internal control system",
+        "Substantive tests"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Reviewing corporate objects and board meeting minutes",
+        "Evaluating internal control adequacy and recovery workflows"
+      ],
+      "exclusion": [
+        "Assuming business scope solely from wide formal memorandum clauses without operational verification",
+        "Omitting evaluations of recovery system efficacy"
+      ],
+      "nearby_distinctions": [
+        "Differentiates foundational strategic business verification from transactional ledger testing performed later in the audit cycle."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d7c32670-357e-41cd-9028-31732cba46ba",
+      "concept_name": "Classification of Frauds and Audit Check-Lists",
+      "definition": "Irregularities and illegal acts are categorized using criminal penal standards to ensure uniform regulatory reporting of misappropriations, forgeries, and unauthorized credit lines. Specific cash shortages and foreign exchange infractions require reporting as fraud when fraudulent intent is proven or presumed under prescribed monetary thresholds.",
+      "terminology": [
+        "Misappropriation",
+        "Criminal breach of trust",
+        "Fraudulent encashment",
+        "Cash shortages"
+      ],
+      "instrument_references": [
+        "Master Direction - Monitoring of Frauds in NBFCs (Reserve Bank) Directions, 2016"
+      ],
+      "inclusion": [
+        "Physical verification of investment securities and broker contracts",
+        "Reporting cash shortages exceeding fixed monetary limits without immediate disclosure"
+      ],
+      "exclusion": [
+        "Treating minor unintentional accounting clerical mistakes as systematic financial fraud",
+        "Lending against the security of an institution's own shares"
+      ],
+      "nearby_distinctions": [
+        "Separates intentional criminal fraudulent acts from operational cash discrepancies, establishing specific thresholds where intent is legally imputed."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4cf2a514-af35-454c-b11a-da03563cfce6",
+      "concept_name": "Audit Check-List and Investment Verification Procedures",
+      "definition": "Auditors must verify physical investment securities, match broker bills with market quotations, and ensure appropriate valuation of current and long-term holdings. Dividend income is generally recognized on a cash basis unless specific legal and accrual criteria are established by corporate bodies.",
+      "terminology": [
+        "Physical verification",
+        "Current investments",
+        "Long-term investments",
+        "Cash basis",
+        "Accrual basis"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Checking market quotations against broker contract notes",
+        "Ensuring unquoted debentures are classified properly as term loans if applicable"
+      ],
+      "exclusion": [
+        "Recognizing dividend income on an accrual basis without meeting formal declaration and right-to-receive conditions",
+        "Treating unquoted debt instruments as equity investments"
+      ],
+      "nearby_distinctions": [
+        "Contrasts cash-basis dividend recognition rules with standard corporate accrual practices for pre-determined interest-bearing bonds."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0c2ef2e4-ed6e-4357-9d9c-a586a63f26d5",
+      "concept_name": "Auditor’s Reporting Duties and Regulatory Compliance",
+      "definition": "Statutory auditors must fulfill extensive reporting obligations to both company boards and the central banking authority on an exception basis alongside standard shareholder reports. Inquiries must confirm whether deposit-holding entities have accurately filed mandated statutory returns under foundational legislative provisions.",
+      "terminology": [
+        "Auditor's report",
+        "Exception reporting",
+        "Statutory returns",
+        "Public deposits"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013",
+        "Reserve Bank of India Act, 1934",
+        "Non-Banking Financial Companies Auditor’s Report (Reserve Bank) Directions, 2016",
+        "Master Direction – Reserve Bank of India (Filing of Supervisory Returns) Directions - 2024"
+      ],
+      "inclusion": [
+        "Submitting additional governance reports to the board of directors",
+        "Inquiring into deposit return filings and making exception reports to the central bank"
+      ],
+      "exclusion": [
+        "Limiting verification solely to general corporate reporting under company law statutes",
+        "Ignoring non-compliance regarding supervisory return submissions"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes standard financial statement audits for shareholders from specialized regulatory compliance reporting directed to the central banking authority."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "df0b478d-cc6b-4ad2-bbdb-3eac7dc8a4e9",
+      "concept_name": "Compliance with NBFC Auditor’s Report RBI Directions",
+      "definition": "Statutory auditors must fulfill extensive reporting obligations to both company boards and the central banking authority on an exception basis alongside standard shareholder reports. Inquiries must confirm whether deposit-holding entities have accurately filed mandated statutory returns under foundational legislative provisions.",
+      "terminology": [
+        "Auditor's report",
+        "Exception reporting",
+        "Statutory returns",
+        "Public deposits"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013",
+        "Reserve Bank of India Act, 1934",
+        "Non-Banking Financial Companies Auditor’s Report (Reserve Bank) Directions, 2016",
+        "Master Direction – Reserve Bank of India (Filing of Supervisory Returns) Directions - 2024"
+      ],
+      "inclusion": [
+        "Submitting additional governance reports to the board of directors",
+        "Inquiring into deposit return filings and making exception reports to the central bank"
+      ],
+      "exclusion": [
+        "Limiting verification solely to general corporate reporting under company law statutes",
+        "Ignoring non-compliance regarding supervisory return submissions"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes standard financial statement audits for shareholders from specialized regulatory compliance reporting directed to the central banking authority."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b5fc0976-eed6-4499-a48b-d14691373a6b",
+      "concept_name": "CARO Compliance and Registration Verification",
+      "definition": "Auditors must evaluate loans, guarantees, and advances for prejudicial terms, overdue repayment schedules, and demand-loan concentrations involving related parties. Additionally, verification must confirm whether the entity holds a valid certificate of registration and satisfies core investment company criteria where applicable.",
+      "terminology": [
+        "CARO 2020",
+        "Loans and advances",
+        "Certificate of registration",
+        "Core Investment Company",
+        "Overdue accounts"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013",
+        "Reserve Bank of India Act, 1934",
+        "CARO 2020"
+      ],
+      "inclusion": [
+        "Reporting on loan terms prejudicial to company interests",
+        "Verifying validity of registration certificates and core investment company criteria"
+      ],
+      "exclusion": [
+        "Omitting review of demand-loan aggregations and related-party exposures",
+        "Failing to report unauthorized financial activities conducted without valid certification"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes broad general company audit disclosures from specific CARO mandates addressing asset security terms, related-party advances, and regulatory registration validity."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "ce36b14b18fb8562fec565978b9b651dcc0a7a2d7e5cf83565d814671bc82d4a",
+  "artifact_id": "3ee1f29f-fd99-4327-9824-70dcba52628e",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 9299,
+  "output_tokens": 3942,
+  "cost_usd": 0.0126447,
+  "created_at": "2026-10-03T18:11:25.220228+00:00"
+}

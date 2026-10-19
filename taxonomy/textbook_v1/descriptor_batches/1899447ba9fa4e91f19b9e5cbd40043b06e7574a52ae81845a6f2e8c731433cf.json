@@ -1,0 +1,333 @@
+{
+  "descriptors": [
+    {
+      "node_id": "84157195-0108-4338-8c10-da6170af1ac3",
+      "concept_name": "Submission Of Report By Company Liquidator [Section 281]",
+      "definition": "The appointed liquidator must present a comprehensive report to the Tribunal within sixty days detailing asset values from registered valuers, capital details, liabilities, debts, guarantees, and promotional fraud inquiries. This document establishes the initial inventory and viability status of the company under liquidation.",
+      "terminology": [
+        "Company Liquidator's Report",
+        "Registered Valuer",
+        "Contributories",
+        "Sub-section (1)",
+        "Viability of Business"
+      ],
+      "instrument_references": [
+        "Section 281"
+      ],
+      "inclusion": [
+        "Asset valuation and inventory details",
+        "Capital structure particulars",
+        "Creditor and liability listings",
+        "Promotion and formation fraud analysis"
+      ],
+      "exclusion": [
+        "Ongoing operational decisions independent of liquidation reporting",
+        "Subsequent periodical progress updates"
+      ],
+      "nearby_distinctions": [
+        "Differs from periodical reports submitted quarterly, focusing instead on the initial comprehensive snapshot of assets and liabilities."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "80d8c709-b3a0-44b3-99c7-c4f04fb25a65",
+      "concept_name": "Directions Of Tribunal On Report Of Company Liquidator [Section 282]",
+      "definition": "The Tribunal evaluates the liquidator report to establish completion timelines, order going concern sales, direct fraud investigations, or initiate protective asset measures. These judicial orders govern the administrative trajectory and safeguarding of corporate property during winding up.",
+      "terminology": [
+        "Sale Committee",
+        "Going Concern",
+        "Time Limit Revision",
+        "Asset Safeguarding",
+        "Section 210 Investigation"
+      ],
+      "instrument_references": [
+        "Section 282",
+        "Section 210",
+        "Sections 339 to 342"
+      ],
+      "inclusion": [
+        "Fixing and revising proceedings time limits",
+        "Ordering asset sales or going concern transfers",
+        "Directing fraud investigations",
+        "Measures to preserve asset value"
+      ],
+      "exclusion": [
+        "Initial drafting of the liquidator report",
+        "Routine day-to-day asset custody actions by the liquidator without tribunal orders"
+      ],
+      "nearby_distinctions": [
+        "Contrasts with the liquidator's reporting duty by empowering the Tribunal to actively command investigative and sales procedures."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f900f005-fa38-4fdc-acdd-65533a106aee",
+      "concept_name": "Custody Of Company'S Properties [Section 283]",
+      "definition": "Upon a winding up order, all corporate property, effects, and actionable claims immediately vest in the custody of the Tribunal and are taken into physical control by the liquidator. Stakeholders like contributories, bankers, and officers are legally mandated to surrender company assets and documents upon demand.",
+      "terminology": [
+        "Custody of Tribunal",
+        "Actionable Claims",
+        "Provisional Liquidator",
+        "Surrender of Property",
+        "Books and Papers"
+      ],
+      "instrument_references": [
+        "Section 283"
+      ],
+      "inclusion": [
+        "Seizure of physical property and effects",
+        "Control over actionable claims",
+        "Tribunal orders demanding surrender of funds or books from officers"
+      ],
+      "exclusion": [
+        "Properties held independently by officers in their personal capacities without corporate entitlement"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general asset management powers by establishing the specific legal fiction and physical act of vesting custody."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "10f5aea8-44cb-4a23-9006-9a50f4e1801c",
+      "concept_name": "Promoters, Directors, Etc., To Cooperate With Company Liquidator [Section 284]",
+      "definition": "Insiders including current and past promoters, directors, officers, and employees must extend full operational cooperation to the company liquidator. Non-compliance permits the liquidator to apply for judicial enforcement compelling adherence to instructions.",
+      "terminology": [
+        "Full Cooperation",
+        "Non-cooperating Person",
+        "Tribunal Directions",
+        "Associated Persons"
+      ],
+      "instrument_references": [
+        "Section 284"
+      ],
+      "inclusion": [
+        "Assistance obligations of past and present employees",
+        "Mandatory compliance with liquidator instructions via tribunal orders"
+      ],
+      "exclusion": [
+        "External third-party creditors not acting as company officers or employees"
+      ],
+      "nearby_distinctions": [
+        "Focuses strictly on personal cooperation duties of insiders rather than general property surrender mechanisms."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b838fa68-a411-48c3-8e0f-3f54f0a874bb",
+      "concept_name": "Settlement Of List Of Contributories And Application Of Assets [Section 285]",
+      "definition": "The Tribunal settles the list of contributories, rectifies member registers, and applies corporate assets toward liability discharge following a winding up order. Members who ceased membership within one year preceding winding up or after debt contraction are generally exempt from contribution.",
+      "terminology": [
+        "List of Contributories",
+        "Rectification of Register",
+        "Present Members",
+        "Past Members Liability",
+        "Company Limited by Shares"
+      ],
+      "instrument_references": [
+        "Section 285"
+      ],
+      "inclusion": [
+        "Settling lists of contributories in their own right or as representatives",
+        "Enforcing share-based or limit-based financial contributions",
+        "Exempting members exiting over one year prior"
+      ],
+      "exclusion": [
+        "Debts contracted after a member has ceased association with the company"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from routine asset sales by defining the personal liability boundaries and member categorization required for contribution."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8d31637a-6b85-4b6e-85f3-f73b19635b6a",
+      "concept_name": "Obligations Of Directors And Managers [Section 286]",
+      "definition": "Directors or managers with unlimited liability in otherwise limited companies must make additional contributions to corporate assets like members of unlimited companies. Such supplemental obligations exclude individuals who departed over a year prior or liabilities incurred post-departure.",
+      "terminology": [
+        "Unlimited Liability",
+        "Director Contribution",
+        "Manager Obligation",
+        "Commencement of Winding Up"
+      ],
+      "instrument_references": [
+        "Section 286"
+      ],
+      "inclusion": [
+        "Additional contributions by directors with unlimited liability provisions",
+        "Tribunal discretion regarding necessity for debt satisfaction"
+      ],
+      "exclusion": [
+        "Directors whose liability remains limited under standard corporate structures"
+      ],
+      "nearby_distinctions": [
+        "Applies strictly to managers and directors carrying unlimited liability statutes, unlike standard limited share contributories."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "413a5a1e-dfa0-4188-aa40-f74494e0fb3c",
+      "concept_name": "Advisory Committee [Section 287]",
+      "definition": "The Tribunal may establish an advisory committee comprising up to twelve creditors and contributories to guide the company liquidator and report on designated matters. Members enjoy inspection rights over corporate books and assets while operating under a liquidator-chaired framework.",
+      "terminology": [
+        "Advisory Committee",
+        "Maximum Twelve Members",
+        "Right to Inspect",
+        "Creditors and Contributories"
+      ],
+      "instrument_references": [
+        "Section 287"
+      ],
+      "inclusion": [
+        "Appointment of up to 12 members by the Tribunal",
+        "Convening meetings within thirty days of winding up orders",
+        "Inspection rights over corporate records and assets"
+      ],
+      "exclusion": [
+        "Committees exceeding twelve members",
+        "Independent executive decision-making bypassing liquidator oversight"
+      ],
+      "nearby_distinctions": [
+        "Contrasts with general bodies of creditors by forming a focused, legally capped advisory subset assisting liquidators."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f59a5304-60d1-40bf-8ac9-09f4a1d39b99",
+      "concept_name": "Submission Of Periodical Reports To Tribunal [Section 288]",
+      "definition": "The company liquidator must submit progress reports to the Tribunal at least at the end of every quarter detailing winding up advancements. These recurring filings allow the Tribunal to review prior orders and enact modifications as necessary.",
+      "terminology": [
+        "Periodical Reports",
+        "End of Each Quarter",
+        "Review of Orders",
+        "Progress of Winding Up"
+      ],
+      "instrument_references": [
+        "Section 288"
+      ],
+      "inclusion": [
+        "Quarterly progress reporting by the liquidator",
+        "Tribunal review and modification of prior orders upon application"
+      ],
+      "exclusion": [
+        "The initial one-time submission report filed within sixty days of the winding up order"
+      ],
+      "nearby_distinctions": [
+        "Differs from the initial asset report under Section 281 by maintaining a continuous, recurring quarterly schedule of operational progress."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "dbd7e75e-7513-4919-a298-aa5386ea0552",
+      "concept_name": "Powers And Duties Of Company Liquidator [Section 290]",
+      "definition": "Subject to tribunal directions, the company liquidator possesses extensive administrative authorities including carrying on business, executing deeds, selling assets, and settling creditor claims. These statutory powers enable the liquidator to effectively realize assets and manage legal proceedings on behalf of the company.",
+      "terminology": [
+        "Carrying on Business",
+        "Going Concern Sale",
+        "Negotiable Instruments",
+        "Settle Claims",
+        "Letters of Administration"
+      ],
+      "instrument_references": [
+        "Section 290"
+      ],
+      "inclusion": [
+        "Selling movable and immovable property or whole undertakings",
+        "Instituting or defending legal proceedings",
+        "Endorsing negotiable instruments and settling claims"
+      ],
+      "exclusion": [
+        "Independent actions executed directly contrary to explicit Tribunal directions"
+      ],
+      "nearby_distinctions": [
+        "Encompasses broad execution and administrative powers distinct from the supervisory and advisory roles of the Tribunal or committee."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3839acb5-d746-4989-a282-6754a5f2e6fe",
+      "concept_name": "PROVISION FOR PROFESSIONAL ASSISTANCE TO COMPANY LIQUIDATOR [SECTION 291]",
+      "definition": "The company liquidator may engage chartered accountants, company secretaries, cost accountants, or legal practitioners with tribunal sanction to assist in discharging duties. Appointed professionals must immediately disclose any conflicts of interest or lack of independence.",
+      "terminology": [
+        "Professional Assistance",
+        "Sanction of Tribunal",
+        "Conflict of Interest",
+        "Chartered Accountants",
+        "Legal Practitioners"
+      ],
+      "instrument_references": [
+        "Section 291"
+      ],
+      "inclusion": [
+        "Appointment of qualified professionals with tribunal approval",
+        "Mandatory disclosure of conflict of interest or independence gaps"
+      ],
+      "exclusion": [
+        "Unsanctioned private appointments made without tribunal permission"
+      ],
+      "nearby_distinctions": [
+        "Focuses on hiring external professional experts rather than utilizing internal company officers or advisory committees."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "cbbf8030-6161-4b09-b9ad-0649552d35f0",
+      "concept_name": "BOOKS TO BE KEPT BY COMPANY LIQUIDATOR [SECTION 293]",
+      "definition": "The company liquidator must maintain proper books recording meeting minutes and proceedings in a prescribed manner subject to creditor and contributory inspection control. The liquidator is also mandated to summon general meetings upon specific creditor or contributory requisitions.",
+      "terminology": [
+        "Minutes Books",
+        "Inspection of Books",
+        "Summoning Meetings",
+        "Prescribed Manner"
+      ],
+      "instrument_references": [
+        "Section 293"
+      ],
+      "inclusion": [
+        "Maintenance of meeting proceedings and minute books",
+        "Creditor and contributory inspection rights",
+        "Obligatory meeting summons based on value thresholds"
+      ],
+      "exclusion": [
+        "Financial receipt and payment ledgers governed exclusively under separate accounting audit sections"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from financial accounting books by specifically targeting meeting records, proceedings, and minute tracking."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9b30f362-9e49-4a68-aa75-0c9b90b342c8",
+      "concept_name": "AUDIT OF COMPANY LIQUIDATOR'S ACCOUNTS [SECTION 294]",
+      "definition": "The company liquidator must maintain regular financial books, presenting receipt and payment accounts to the Tribunal at least twice a year for independent audit. Audited accounts are subsequently filed with the Registrar, delivered to government authorities for government companies, and summarized for all creditors and contributories.",
+      "terminology": [
+        "Books of Account",
+        "Audit of Accounts",
+        "Government Company",
+        "Summary of Accounts",
+        "Filing with Registrar"
+      ],
+      "instrument_references": [
+        "Section 294"
+      ],
+      "inclusion": [
+        "Biannual presentation of receipt and payment accounts to the Tribunal",
+        "Independent audit processing and filing of copies with the Registrar",
+        "Special reporting requirements for government companies and summary circulation"
+      ],
+      "exclusion": [
+        "Non-financial minute books and general administrative meeting records"
+      ],
+      "nearby_distinctions": [
+        "Focuses on formal biannual monetary accounting and auditing workflows distinct from routine daily liquidator powers."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "1899447ba9fa4e91f19b9e5cbd40043b06e7574a52ae81845a6f2e8c731433cf",
+  "artifact_id": "13a19cb4-ed8a-4ca9-a470-d04037ece9bf",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 9354,
+  "output_tokens": 3669,
+  "cost_usd": 0.0119787,
+  "created_at": "2026-10-03T18:24:24.572538+00:00"
+}

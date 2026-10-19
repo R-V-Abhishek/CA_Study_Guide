@@ -1,0 +1,355 @@
+{
+  "descriptors": [
+    {
+      "node_id": "92b9fd52-5b51-4241-98ba-f6a07c7beb52",
+      "concept_name": "Charging Provision and Scope of Capital Gains",
+      "definition": "Profits and gains arising from the transfer of a capital asset effected in a tax year are chargeable to income-tax under the head Capital Gains and deemed as income of that specific year. The core elements driving this charge are the identification of a valid capital asset and a recognized transfer.",
+      "terminology": [
+        "Capital asset",
+        "Transfer",
+        "Tax year",
+        "Chargeable income"
+      ],
+      "instrument_references": [
+        "Section 67",
+        "Section 2(22)",
+        "SEBI regulations",
+        "IFSC Authority Act, 2019",
+        "Schedule II"
+      ],
+      "inclusion": [
+        "Property of any kind held by an assessee",
+        "Securities held by specified Foreign Institutional Investors or investment funds",
+        "Unit linked insurance policies without specific exemptions"
+      ],
+      "exclusion": [
+        "Stock-in-trade held for business or profession",
+        "Consumable stores",
+        "Raw materials held for business"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between items held as business stock-in-trade versus items held as personal investments based on the manner of holding rather than the inherent nature of the asset."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "544a4e9d-0fe3-4824-ac52-424af22c9a44",
+      "concept_name": "Capital Asset Definition and Exclusions",
+      "definition": "A capital asset encompasses property of any kind held by an assessee alongside specific institutional securities and non-exempt unit linked insurance policies, irrespective of business connection. Stock-in-trade, consumable stores, and raw materials held for business are generally excluded from this definition.",
+      "terminology": [
+        "Capital asset",
+        "Stock-in-trade",
+        "Consumable stores",
+        "Raw materials"
+      ],
+      "instrument_references": [
+        "Section 2(22)",
+        "Section 224(10)(a)",
+        "SEBI regulations"
+      ],
+      "inclusion": [
+        "Assessee-held property connected or unconnected with business",
+        "Securities held by qualified Foreign Institutional Investors and investment funds",
+        "Non-exempt unit linked insurance policies"
+      ],
+      "exclusion": [
+        "Business stock-in-trade",
+        "Consumable stores",
+        "Raw materials"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes asset classification purely by the holding intent and manner, making identical physical property either a capital asset under investment or stock-in-trade under trading."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4352a1d4-c330-483e-a0d6-be36aa9ce3e0",
+      "concept_name": "Short Term and Long Term Capital Assets",
+      "definition": "Capital assets are classified based on their holding period preceding transfer into short-term or long-term categories, generally utilizing a twenty-four-month threshold unless specific assets mandate a shorter twelve-month or overriding short-term treatment. Equity-oriented funds and specific financial instruments maintain distinct percentage thresholds for classification.",
+      "terminology": [
+        "Short-term capital asset",
+        "Long-term capital asset",
+        "Period of holding",
+        "Equity oriented fund"
+      ],
+      "instrument_references": [
+        "Section 2(101)",
+        "Section 2(67)",
+        "Section 76",
+        "Section 198(8)",
+        "Schedule VII"
+      ],
+      "inclusion": [
+        "Assets held for more than twenty-four months as long-term",
+        "Listed securities, units of UTI, equity-oriented funds, and zero coupon bonds held for more than twelve months as long-term",
+        "Specific specified mutual funds, market-linked debentures, and unlisted bonds treated strictly as short-term"
+      ],
+      "exclusion": [
+        "Assets not meeting the prescribed holding duration criteria for long-term status"
+      ],
+      "nearby_distinctions": [
+        "Differentiates standard assets requiring a 24-month holding period from listed financial securities requiring a 12-month period and statutory instruments forcing short-term treatment irrespective of duration."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e9e2d184-7b73-48ea-bb42-148f6cea72b5",
+      "concept_name": "Transfer Definition and Scope",
+      "definition": "Transfer encompasses an inclusive range of transactions regarding capital assets, including sales, exchanges, relinquishments, extinguishment of rights, and compulsory acquisitions. It also covers asset conversions to stock-in-trade, zero coupon bond maturities, and arrangements enabling immovable property enjoyment.",
+      "terminology": [
+        "Transfer",
+        "Relinquishment",
+        "Extinguishment",
+        "Compulsory acquisition",
+        "Part-performance"
+      ],
+      "instrument_references": [
+        "Section 2(109)",
+        "Industries (Development and Regulation) Act, 1951",
+        "Transfer of Property Act, 1982"
+      ],
+      "inclusion": [
+        "Sale, exchange, or relinquishment of an asset",
+        "Conversion of capital assets into business stock-in-trade",
+        "Granting possession of immovable property under part-performance contracts"
+      ],
+      "exclusion": [
+        "Transactions explicitly shielded from transfer status under statutory exemptions"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes standard conveyances from constructive transfers such as part-performance possession, corporate conversions, and bond maturities that lack traditional registered deeds."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d911d9d3-e072-4f72-9923-a4bac3e9f87d",
+      "concept_name": "Scope and Year of Chargeability",
+      "definition": "Capital gains are chargeable as income in the specific tax year when the actual sale or transfer takes place rather than the date of an initial agreement to sell. Insurance receipts from insurers due to asset destruction from natural convulsions, riots, or accidents are similarly chargeable under this head.",
+      "terminology": [
+        "Year of chargeability",
+        "Actual date of sale",
+        "Insurance receipts",
+        "Convulsion of nature"
+      ],
+      "instrument_references": [
+        "Section 67",
+        "Section 67(1)",
+        "Section 67(2)",
+        "Alapati Venkataramiah v. CIT",
+        "Principal CIT v. Gujarat State Fertilizers and Chemicals Limited"
+      ],
+      "inclusion": [
+        "Profits from asset transfers effected in the tax year",
+        "Insurance compensation received for asset destruction via natural calamities, riots, or explosions"
+      ],
+      "exclusion": [
+        "Gains governed by specific statutory exemptions outside the charging provisions"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes the exact legal transfer date establishing tax year liability from preliminary execution milestones like sale agreements."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "32a8a70f-40a0-47f4-a12d-6d2c54c3ba3e",
+      "concept_name": "Capital Gains on Distribution of Assets by Companies in Liquidation",
+      "definition": "Asset distributions by a liquidated company to its shareholders are not treated as transfers at the company level, while shareholders face capital gains tax based on the market value of received assets minus accumulated profit components. Portions of distributions attributable to accumulated profits are treated separately as dividend income under other income sources.",
+      "terminology": [
+        "Liquidation",
+        "Deemed dividend",
+        "Cost of acquisition",
+        "Full value of consideration"
+      ],
+      "instrument_references": [
+        "Section 68",
+        "Section 68(1)",
+        "Section 68(2)",
+        "Section 2(40)(c)"
+      ],
+      "inclusion": [
+        "Shareholder capital gains on money or assets received during company liquidation",
+        "Fair market value adoption as cost of acquisition for subsequent asset sales by shareholders"
+      ],
+      "exclusion": [
+        "Distribution events treated as company transfers when liquidators sell assets directly prior to distribution"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes company-level exemption from asset distribution against shareholder-level taxation which splits distributions into deemed dividends and capital gains."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "85180d6c-d2de-4eff-a27b-e85e296a709d",
+      "concept_name": "Capital Gains on Buyback of Shares or Other Securities",
+      "definition": "Consideration received from a company for the buyback of its shares or specified securities is chargeable as capital gains calculated as the difference between consideration and acquisition cost. Promoters face additional income tax and flat surcharges on such capital gains alongside standard tax rates.",
+      "terminology": [
+        "Buyback",
+        "Additional income-tax",
+        "Promoter",
+        "Specified securities"
+      ],
+      "instrument_references": [
+        "Section 69",
+        "Section 72",
+        "Section 196",
+        "Section 197",
+        "Section 198"
+      ],
+      "inclusion": [
+        "Consideration received by shareholders on share and security buybacks",
+        "Additional tax liabilities for promoters on specific short-term and long-term capital gains"
+      ],
+      "exclusion": [
+        "Standard non-promoter share transfers governed strictly by general capital gain rates without additional promoter surcharges"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes standard shareholder tax treatment on buybacks from promoter-specific tax obligations that impose additional tier-based levies and flat surcharges."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e383f3ef-dd72-4b3c-8ad6-fa001dc8b07b",
+      "concept_name": "Corporate Amalgamation and Demerger Definitions",
+      "definition": "Amalgamation denotes the merger of one or more companies into another company where all properties and liabilities transfer to the amalgamated entity and specified majority shareholders transition their holdings. Demerger involves the transfer of undertaking units pursuant to a scheme of arrangement under company law preserving asset and liability continuity.",
+      "terminology": [
+        "Amalgamation",
+        "Demerger",
+        "Amalgamating company",
+        "Amalgamated company",
+        "Resulting company"
+      ],
+      "instrument_references": [
+        "Section 2(6)",
+        "Section 2(35)",
+        "Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Mergers involving complete property and liability absorption",
+        "Demerger schemes transferring undertakings to resulting companies"
+      ],
+      "exclusion": [
+        "Asset purchases or winding-up distributions that fail to meet statutory merger continuity thresholds"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes full corporate amalgamation combining total entities from demerger frameworks transferring specific undertakings while keeping the originating company intact."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "aab922c0-c84d-4e3a-a183-857bdaf7f572",
+      "concept_name": "Transactions Not Regarded as Transfer",
+      "definition": "Specific statutory provisions ensure certain structural reorganizations and family partitions are not treated as transfers for capital gains purposes. These exemptions apply to conditions involving Hindu Undivided Family partitions, gifts, trusts, and qualifying holding-subsidiary or amalgamation transfers.",
+      "terminology": [
+        "Transactions not regarded as transfer",
+        "Partition",
+        "Holding company",
+        "Subsidiary company",
+        "Amalgamation"
+      ],
+      "instrument_references": [
+        "Section 70",
+        "Section 70(1)"
+      ],
+      "inclusion": [
+        "Distributions upon total or partial partition of a Hindu Undivided Family",
+        "Transfers under a will, gift, or irrevocable trust",
+        "Qualifying transfers between Indian holding and wholly owned subsidiary companies"
+      ],
+      "exclusion": [
+        "Transfers involving stock-in-trade under holding-subsidiary arrangements"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes regular taxable asset transfers from statutory non-transfer events like corporate amalgamations and family gifts that defer tax realization."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c48b2c3b-58d6-458d-bcd2-5230bef7b0e7",
+      "concept_name": "Withdrawal of Exemption in Certain Cases",
+      "definition": "Exemptions granted for holding-subsidiary company asset transfers are withdrawn if the transferee converts the asset into stock-in-trade or the parent company ceases to hold the entire share capital within eight years. Similar clawback provisions apply to failed conditions following firm successions or company-to-LLP conversions.",
+      "terminology": [
+        "Withdrawal of exemption",
+        "Clawback",
+        "Stock-in-trade conversion",
+        "Holding company"
+      ],
+      "instrument_references": [
+        "Section 71",
+        "Section 70(1)",
+        "Section 67"
+      ],
+      "inclusion": [
+        "Exemption revocations when transferee converts assets to stock-in-trade within eight years",
+        "Deemed capital gains income realization upon parent company shareholding dilution"
+      ],
+      "exclusion": [
+        "Compliant transfers maintaining holding structures and asset capitalization beyond the statutory eight-year window"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes initial tax-free restructuring transfers from subsequent taxable events triggered by post-transfer statutory condition breaches."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "bf28c6da-c1e8-48d1-ba96-d75db269f6cd",
+      "concept_name": "Mode of Computation of Capital Gains",
+      "definition": "Capital gains income is computed by deducting transfer-related expenditures and the cost of acquisition or improvement from the full value of consideration. For specific long-term capital assets acquired before a designated date by resident individuals or Hindu Undivided Families, tax adjustments ignore excess tax computed without indexation benefits.",
+      "terminology": [
+        "Mode of computation",
+        "Cost inflation index",
+        "Full value of consideration",
+        "Cost of improvement"
+      ],
+      "instrument_references": [
+        "Section 72",
+        "Section 197"
+      ],
+      "inclusion": [
+        "Deductions for exclusive transfer expenditures like brokerage and stamp duty",
+        "Cost inflation index applications for eligible resident individuals and Hindu Undivided Families"
+      ],
+      "exclusion": [
+        "Indexation benefits when computing gross total income figures under the capital gains head"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes raw capital gains income computation from specialized tax-payable computations that incorporate indexation comparison formulas for resident individuals and Hindu Undivided Families."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1bcd1bd0-bc36-4e88-bea2-016866a75e04",
+      "concept_name": "Ascertainment of Cost in Specified Circumstances",
+      "definition": "When an assessee acquires a capital asset through non-purchase methods such as gifts, succession, company liquidation, or structural amalgamations, the cost of acquisition is deemed as the cost incurred by the previous owner. Transferees in these specified circumstances are also permitted to include the previous owner's holding period for classification purposes.",
+      "terminology": [
+        "Cost to previous owner",
+        "Period of holding",
+        "Succession",
+        "Inheritance"
+      ],
+      "instrument_references": [
+        "Section 73",
+        "Section 73(1)",
+        "Section 2(101)(c)",
+        "Section 70(1)"
+      ],
+      "inclusion": [
+        "Asset costs derived from the last previous owner under gifts, wills, and successions",
+        "Inclusion of previous owner holding periods for short-term and long-term asset determination"
+      ],
+      "exclusion": [
+        "Direct market purchases where the acquirer establishes an independent original purchase cost"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes direct purchase cost accounting from derivative cost tracking where asset ownership changes via inheritance, restructuring, or statutory distribution without fresh market acquisition."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "c93f0486817d4bce68c57da6dcdbbd356e939bb5a46768e4a153551733804698",
+  "artifact_id": "2947dbc8-c1a3-4b69-b5bb-47c41b7adc38",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 9313,
+  "output_tokens": 4136,
+  "cost_usd": 0.0131339,
+  "created_at": "2026-10-03T18:16:52.798281+00:00"
+}

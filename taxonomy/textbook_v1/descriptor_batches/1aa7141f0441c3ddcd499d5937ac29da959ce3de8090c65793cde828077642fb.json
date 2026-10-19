@@ -1,0 +1,316 @@
+{
+  "descriptors": [
+    {
+      "node_id": "c51a7f8b-be2a-46e4-8a9c-8e6c81926235",
+      "concept_name": "Performance Management System In Private Sector",
+      "definition": "Private sector performance management acts as a structured four-stage solution aimed at achieving business sustainability. It involves establishing suitable organizational structures, assigning responsibility centers, defining specific financial and non-financial performance targets, and reviewing key dashboards for corrective actions.",
+      "terminology": [
+        "Responsibility Centres",
+        "KPI Dashboard",
+        "Financial and Non-Financial Measures",
+        "Four-Stage Solution"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Organizational structure design",
+        "Responsibility accounting implementation",
+        "Performance metric target setting",
+        "Dashboard performance reviews"
+      ],
+      "exclusion": [
+        "Public sector budgetary controls",
+        "Macroeconomic policy planning"
+      ],
+      "nearby_distinctions": [
+        "Differs from general strategic planning by focusing directly on operationalizing authority, responsibility, and metric tracking."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b2d86ce9-e7b7-428f-92f1-450d741b70a6",
+      "concept_name": "Interlinking Of Critical Success Factors & Key Performance Indicators To Performance Measurement",
+      "definition": "Critical Success Factors represent vital industry-specific operational areas necessary for corporate objective fulfillment. Key Performance Indicators serve as monitoring signals tracked on a dashboard to measure the level of success achieved within those critical areas.",
+      "terminology": [
+        "Critical Success Factors",
+        "Key Performance Indicators",
+        "Performance Matrix",
+        "Average Turnaround Time"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Industry-specific success factors",
+        "Real-time performance tracking indicators",
+        "Performance metric matrices"
+      ],
+      "exclusion": [
+        "General financial accounting reports",
+        "Random operational metrics lacking strategic alignment"
+      ],
+      "nearby_distinctions": [
+        "CSFs designate the vital organizational areas needing attention, whereas KPIs function as the specific quantitative signals tracking progress in those areas."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1965c810-f36b-49c9-93b8-2399ec0d634e",
+      "concept_name": "Pros and Cons of the use of Performance Measures",
+      "definition": "Performance measures clarify organizational goals, establish benchmark targets, and facilitate inter-divisional comparisons to promote stakeholder accountability. However, poorly chosen indicators generate wrong signals that lead to inappropriate management decisions.",
+      "terminology": [
+        "Performance Measures",
+        "Goal Clarification",
+        "Wrong Signaling",
+        "Accountability"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Agreed activity measures",
+        "Process understanding enhancements",
+        "Stakeholder accountability structures"
+      ],
+      "exclusion": [
+        "Unregulated qualitative guesswork",
+        "Unverified operational estimates"
+      ],
+      "nearby_distinctions": [
+        "Contrasts general indicator evaluation benefits against the dysfunctional consequences of misaligned metrics."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "583a2fdb-d05f-4b2e-bd62-783f8f4e6ada",
+      "concept_name": "Financial Performance Measures",
+      "definition": "Financial measures serve as essential indicators of profitability, liquidity, and solvency needed for business survival and growth. They encompass metrics like gross profit and return on capital employed to evaluate operational efficiency.",
+      "terminology": [
+        "Financial Performance",
+        "Profitability",
+        "Solvency",
+        "Gross Profit"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Gross profit tracking",
+        "Return on capital employed",
+        "Statutory financial reporting data"
+      ],
+      "exclusion": [
+        "Qualitative employee morale metrics",
+        "Non-financial customer satisfaction scores"
+      ],
+      "nearby_distinctions": [
+        "Focuses explicitly on monetary and accounting outcomes rather than operational or behavioral achievements."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ab8d7dc6-a0a7-4a75-8ef3-ae92f56c8238",
+      "concept_name": "Gross Profit",
+      "definition": "Gross profit measures the absolute excess of net sales revenue over the cost of goods sold. Utilizing it as a relative percentage ratio helps avoid size distortions when evaluating product profitability and cost fluctuations.",
+      "terminology": [
+        "Cost of Goods Sold",
+        "Gross Profit Margin",
+        "Net Sales",
+        "Product Profitability"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Excess revenue calculations",
+        "Gross profit margin percentages",
+        "Cost variance evaluations"
+      ],
+      "exclusion": [
+        "Operating expense deductions",
+        "Interest and tax considerations"
+      ],
+      "nearby_distinctions": [
+        "Measures direct trading profitability before administrative expenses, unlike broader net operating profit measures."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8930bfe0-75ff-4128-a980-058cebc32a35",
+      "concept_name": "Return On Capital Employed (Roce)",
+      "definition": "Return on capital employed is a relative ratio measuring the overall productivity generated by shareholder capital combined with long-term debt. It divides operating profit before interest and tax by the average capital employed.",
+      "terminology": [
+        "Capital Employed",
+        "PBIT",
+        "Average Capital",
+        "Productivity of Capital"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Operating profit before interest and tax",
+        "Shareholder capital and long-term debt aggregates",
+        "Average asset calculations"
+      ],
+      "exclusion": [
+        "Current liabilities financing",
+        "Short-term operational credit"
+      ],
+      "nearby_distinctions": [
+        "Assesses total long-term capital productivity rather than just short-term trading margins or pure equity earnings."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "903ff38f-5344-4899-868f-899dda3ce197",
+      "concept_name": "Residual Income (Ri)",
+      "definition": "Residual income calculates the excess of controllable profit over a predetermined organization-wide minimum cost of capital charge on divisional assets. This metric encourages managers to accept projects that enhance overall corporate wealth, thereby fostering goal congruence.",
+      "terminology": [
+        "Controllable Contribution",
+        "Hurdle Rate",
+        "Cost of Capital Charge",
+        "Goal Congruence"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Controllable profit calculations",
+        "Minimum rate of return adjustments",
+        "Divisional performance appraisals"
+      ],
+      "exclusion": [
+        "Percentage-based returns without asset cost hurdles",
+        "Uncontrollable corporate overhead allocations"
+      ],
+      "nearby_distinctions": [
+        "Unlike ROI which relies on percentage returns and can reject profitable projects, RI uses an absolute dollar hurdle rate to promote goal congruence."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4bcc927f-27a7-4001-ba69-e7667a91df1f",
+      "concept_name": "Earnings Per Share (EPS)",
+      "definition": "Earnings per share indicates the portion of a company's profit allocated to each outstanding ordinary share. It provides a standardized metric for inter-temporal performance evaluations despite limitations regarding capital structure variations.",
+      "terminology": [
+        "Ordinary Shares",
+        "Weighted Average Shares",
+        "Profit Attributable",
+        "Basic EPS"
+      ],
+      "instrument_references": [
+        "AS 16",
+        "IndAS 33",
+        "Schedule III of the Companies Act 2013"
+      ],
+      "inclusion": [
+        "Basic earnings per share calculations",
+        "Weighted average share adjustments",
+        "Inter-temporal performance tracking"
+      ],
+      "exclusion": [
+        "Diluted earnings per share complexities",
+        "Comprehensive wealth creation metrics"
+      ],
+      "nearby_distinctions": [
+        "Focuses on per-share equity distributions rather than total entity operating productivity or cash flow generation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "84f2249b-2454-421c-8b3a-0d14e4c1c5a3",
+      "concept_name": "Economic Value Added (EVA)",
+      "definition": "Economic Value Added measures true economic profit by deducting the total opportunity cost of invested capital from net operating profit after tax. It addresses accounting profit shortcomings by explicitly incorporating the cost of equity capital.",
+      "terminology": [
+        "NOPAT",
+        "Opportunity Cost of Invested Capital",
+        "WACC",
+        "Economic Profit"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Net operating profit after tax computations",
+        "Capital charge adjustments",
+        "Debt and equity cost weighting"
+      ],
+      "exclusion": [
+        "Conventional accounting profit unadjusted for equity cost",
+        "Cash flow discounting models"
+      ],
+      "nearby_distinctions": [
+        "Differentiates from standard accounting profit by charging for the cost of equity in addition to debt financing costs."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "fc5342c4-25b4-4ee0-a05b-5dd54592a68b",
+      "concept_name": "Calculation of EVA",
+      "definition": "Economic Value Added is computed by subtracting the product of Weighted Average Cost of Capital and invested capital from Net Operating Profit After Tax. Adjustments are made to operating profits and tax calculations to appropriately account for interest tax shields.",
+      "terminology": [
+        "Invested Capital",
+        "NOPAT Adjustments",
+        "Capital Charge",
+        "Tax Benefit of Interest"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Operating profit tax adjustments",
+        "Capital charge deductions",
+        "Historical data computations"
+      ],
+      "exclusion": [
+        "Future cash flow projections",
+        "Market value added estimates"
+      ],
+      "nearby_distinctions": [
+        "Focuses on the exact mechanical computation steps using NOPAT and capital charges rather than conceptual wealth theory."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0b5e2e20-6c90-4b01-b6cd-dde258d48668",
+      "concept_name": "Net Present Value (NPV)",
+      "definition": "Net Present Value represents the excess present value of all cash inflows over outflows from an investment project, fully incorporating the time value of money. It serves as a superior metric because it aligns directly with shareholder wealth maximization.",
+      "terminology": [
+        "Time Value of Money",
+        "Present Value of Cash Inflows",
+        "Sensitivity Analysis",
+        "Shareholder Wealth Maximization"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Discounted cash flow valuations",
+        "Project terminal cash flows",
+        "Sensitivity analysis on discount factors"
+      ],
+      "exclusion": [
+        "Undiscounted accounting profit measures",
+        "Static historical balance sheet ratios"
+      ],
+      "nearby_distinctions": [
+        "Incorporates cash flow timing via discounting, unlike accounting profit metrics that ignore the time value of money."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d52a3be6-13b2-4678-b2af-70180edd7ecc",
+      "concept_name": "Non - Financial Performance Measures",
+      "definition": "Non-financial performance measures overcome the short-term and historical limitations of financial indicators by tracking qualitative operational dimensions. They provide a balanced approach to evaluating long-term viability across areas like human resources, product quality, and brand equity.",
+      "terminology": [
+        "Non-Financial Indicators",
+        "Balanced Scorecard",
+        "Qualitative Data",
+        "Long-Term Viability"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Balanced scorecard frameworks",
+        "Operational quality assessments",
+        "Brand equity indicators"
+      ],
+      "exclusion": [
+        "Purely monetary balance sheet aggregates",
+        "Statutory financial profit statements"
+      ],
+      "nearby_distinctions": [
+        "Focuses on subjective operational and strategic drivers rather than objective historical monetary transactions."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "1aa7141f0441c3ddcd499d5937ac29da959ce3de8090c65793cde828077642fb",
+  "artifact_id": "201a434e-abaf-448f-810a-072c372f0ba2",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8710,
+  "output_tokens": 3177,
+  "cost_usd": 0.0105555,
+  "created_at": "2026-10-03T18:27:50.641801+00:00"
+}

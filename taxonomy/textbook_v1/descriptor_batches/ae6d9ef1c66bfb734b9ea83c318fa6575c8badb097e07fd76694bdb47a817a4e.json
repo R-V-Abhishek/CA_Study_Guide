@@ -1,0 +1,294 @@
+{
+  "descriptors": [
+    {
+      "node_id": "d783136a-ae1c-4eec-95c4-b78b8aa49ecc",
+      "concept_name": "Advanced Manufacturing",
+      "definition": "Advanced manufacturing utilizes innovative technologies and methodologies to enhance competitive advantage in the manufacturing sector. It aims to increase output, quality, responsiveness, and flexibility while reducing cycle times, inventories, and underutilized capital assets.",
+      "terminology": [
+        "Advanced Manufacturing Technologies",
+        "Flexible Manufacturing System",
+        "Computer Integrated Manufacturing",
+        "Group Technology"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Robotics and numeric controlled machine tools",
+        "Manufacturing cells and computer-aided systems",
+        "Linked production systems and computer integrated manufacturing"
+      ],
+      "exclusion": [
+        "Traditional labor-intensive manual manufacturing operations",
+        "Unintegrated standalone traditional workshops"
+      ],
+      "nearby_distinctions": [
+        "Differs from basic unit manufacturing by integrating automated equipment, software systems, and data-driven material management for higher flexibility."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b6698f4b-7fd9-490f-ba20-91533d6eb8a8",
+      "concept_name": "Linked Islands",
+      "definition": "Linked islands refer to an advanced manufacturing integration level where individual production cells are connected into larger automated production systems. These systems typically incorporate computer-aided design and manufacturing, automated storage, and material requirement planning tools.",
+      "terminology": [
+        "CAD/CAM",
+        "Automated Storage and Retrieval Systems",
+        "JIT",
+        "MRP II"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Integration of multiple level-two manufacturing cells",
+        "Automated storage and material retrieval systems"
+      ],
+      "exclusion": [
+        "Isolated standalone manufacturing cells",
+        "Fully untargeted manual factory floors"
+      ],
+      "nearby_distinctions": [
+        "Represents an intermediate integration stage higher than standalone cells but short of full computer integrated manufacturing."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c7a9d0a0-2ef5-4a14-8a72-a7c4cf1f0f33",
+      "concept_name": "Lean Start-up",
+      "definition": "Lean start-up is an approach for building new businesses by focusing on continuous iteration, experimentation, and hypothesis testing through minimum viable products. It seeks to avoid massive upfront resource commitments by discovering a viable business model dynamically.",
+      "terminology": [
+        "Minimum Viable Product",
+        "Hypothesis Driven",
+        "Continuous Improvement",
+        "Discovery-Driven Planning"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Building minimum viable products to test assumptions",
+        "Iterative product development and customer feedback loops"
+      ],
+      "exclusion": [
+        "Rigid traditional business planning and implementation models",
+        "Upfront massive resource allocation without prior testing"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from traditional setups by prioritizing business model discovery and agile validation over static business plans."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "310c9c7b-20ad-4d70-b558-210c8c12d0f9",
+      "concept_name": "Traditional vs. Lean Start-up",
+      "definition": "The comparison highlights structural contrasts where traditional setups rely on static business plans and implementation-driven strategies, whereas lean start-ups utilize hypothesis-driven business models and agile development processes. Lean frameworks emphasize customer development and continuous iterative building over fixed product management structures.",
+      "terminology": [
+        "Business Plan",
+        "Business Model",
+        "Agile Development",
+        "Customer Development"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Comparison of strategic drivers between traditional and lean enterprises",
+        "Contrasting new-product processes and engineering methodologies"
+      ],
+      "exclusion": [
+        "Single-model operational assessments lacking comparative structural analysis"
+      ],
+      "nearby_distinctions": [
+        "Contrasts execution-focused traditional administration directly with discovery-focused startup iterations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "89e44071-41f9-448f-8fef-81d2ed1d478b",
+      "concept_name": "Lean Start-up Methodology",
+      "definition": "The lean start-up methodology centers on a build-measure-learn feedback loop designed to navigate extreme uncertainties using actionable metrics. It incorporates investigative tools like the Five Whys to solve operational problems and triggers strategic pivots when fundamental hypotheses fail.",
+      "terminology": [
+        "Build-Measure-Learn",
+        "Actionable Metrics",
+        "Five Whys",
+        "Pivot"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Creating minimum viable products to initiate learning loops",
+        "Executing structural course corrections or pivots based on metrics"
+      ],
+      "exclusion": [
+        "Fixed execution cycles ignoring ongoing customer metric feedback"
+      ],
+      "nearby_distinctions": [
+        "Focuses specifically on the procedural feedback loop mechanism rather than the broad definition of a lean enterprise."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "dcec1bbe-824d-4ff8-85ff-4350a692f1ba",
+      "concept_name": "Agile Organisations",
+      "definition": "An agile organization is structured around a network of empowered teams designed to respond rapidly to changing market conditions and customer needs. Operating as a living organism rather than a rigid machine, it values transparency, alignment, and accountability.",
+      "terminology": [
+        "Empowered Teams",
+        "Living Organism",
+        "Organizational Paradigm",
+        "Network Structure"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Empowerment of cross-functional collaborative teams",
+        "Structures optimized for dynamic external market responsiveness"
+      ],
+      "exclusion": [
+        "Traditional hierarchical structures with strict vertical command chains",
+        "Silo-based departmental setups with rigid bureaucracy"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from mechanistic hierarchies by relying on fluid, decentralized, and highly collaborative team networks."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3f79927a-bd4a-4f41-9f04-8716ee3eeee9",
+      "concept_name": "Traditional vs. Agile Organisation",
+      "definition": "This contrast evaluates vertical command-driven hierarchies against empowered, collaborative team networks capable of rapid environmental adaptation. Traditional organizations depend on strict silos and formal procedures, whereas agile entities foster open communication and shared visions.",
+      "terminology": [
+        "Vertical Command",
+        "Silos",
+        "Empowered Teams",
+        "Growth Mindset"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Contrasting bureaucratic silos with fluid team collaboration",
+        "Comparison of decision-making speeds and command structures"
+      ],
+      "exclusion": [
+        "Standalone organizational models evaluated without comparative metrics"
+      ],
+      "nearby_distinctions": [
+        "Highlights the operational shift from strict top-down compliance to decentralized, purpose-driven alignment."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "fec802c1-947e-4df7-bce4-6f692b2fbb13",
+      "concept_name": "Characteristics of an Agile Organization",
+      "definition": "Agile organizations exhibit key traits such as decentralized decision-making, customer-centricity, shared organizational purpose, and a continuous learning culture. They replace traditional top-down hierarchies with active collaboration, emotional intelligence, and operational efficiency.",
+      "terminology": [
+        "Customer-Centric",
+        "Growth Mindset",
+        "Emotional Intelligence",
+        "Active Collaboration"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Open communication styles and shared vision across teams",
+        "Proactive employee development and quick decision-making protocols"
+      ],
+      "exclusion": [
+        "Top-down administrative control frameworks",
+        "Inflexible operational routines resistant to feedback"
+      ],
+      "nearby_distinctions": [
+        "Focuses on internal behavioral and cultural attributes rather than just high-level structural networks."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "342c9c97-9170-4177-9b73-3b59c3f4e3dc",
+      "concept_name": "Start-ups vs. Incumbents",
+      "definition": "Start-ups are temporary organizations focused on discovering scalable business models through risk-taking and technological disruption, while incumbents are established, permanent entities executing repeatable models. Incumbents possess extensive assets, customer bases, and brand loyalty, whereas start-ups offer superior flexibility, speed, and agility.",
+      "terminology": [
+        "Temporary Organization",
+        "Incumbent",
+        "Scalable Model",
+        "Disruption"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Structural comparisons of temporary disruptive entities versus permanent market leaders",
+        "Evaluation of asset availability versus operational fluidity"
+      ],
+      "exclusion": [
+        "Homogeneous business models lacking comparative developmental stages"
+      ],
+      "nearby_distinctions": [
+        "Contrasts market exploration mechanics of new entrants with market defense mechanisms of established giants."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b4d3320a-8baf-4d7d-8eeb-9f4a63c9e2ab",
+      "concept_name": "Stages a start-up goes through while transforming into Unicorn (and then into Incumbent)",
+      "definition": "Start-ups transition through three primary developmental phases starting from a problem-solution fit in the pre-start-up stage, moving to customer validation in the product-market fit stage, and finally achieving sustainable cash flows and growth in the scale-up stage. Each milestone progressively builds market validation and expands the customer base toward unicorn and incumbent status.",
+      "terminology": [
+        "Problem-Solution Fit",
+        "Product-Market Fit",
+        "Scale-FIT",
+        "Scale-up"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Pre-start-up ideation and problem scoping",
+        "Start-up customer validation and iteration",
+        "Scale-up profitable cash flow optimization"
+      ],
+      "exclusion": [
+        "Static operational models bypassing early developmental iteration stages"
+      ],
+      "nearby_distinctions": [
+        "Traces sequential evolutionary milestones rather than comparing static business organizational archetypes."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2ce00708-700a-4228-bf6e-cf7d94d0ae25",
+      "concept_name": "Difference between Start-Up vis-à-vis Incumbents",
+      "definition": "The operational models of start-ups and incumbents differ significantly across production volumes, distribution channels, risk processes, and media expenditure monitoring. Start-ups utilize lean production, online distribution, and digital channels with tight ROI monitoring, while incumbents rely on large offline retail networks and traditional media.",
+      "terminology": [
+        "Minimum Viable Market Size",
+        "Distribution Network",
+        "Digital Media Channels",
+        "Traditional Media"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Comparison of online versus offline sales strategies",
+        "Differences in advertising expenditure and risk management processes"
+      ],
+      "exclusion": [
+        "Internal structural taxonomies excluding operational channel indicators"
+      ],
+      "nearby_distinctions": [
+        "Focuses on practical operating models, market entry size thresholds, and distribution channel utilization."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ebf63e73-839d-413d-a9de-808dfa607b3c",
+      "concept_name": "Organization structure",
+      "definition": "Start-ups feature lean organizational designs with cross-functional teams, end-to-end visibility, and empowered decision-making, whereas incumbents maintain hierarchical silos with restricted local autonomy. This structural variance directly governs the speed of decision-making and cross-departmental accountability.",
+      "terminology": [
+        "Lean Structure",
+        "Cross-functional Teams",
+        "Hierarchical Structure",
+        "Silo Working"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Evaluation of team empowerment and cross-functional visibility",
+        "Contrasting hierarchical constraints with decentralized execution"
+      ],
+      "exclusion": [
+        "Corporate culture metrics disconnected from formal organizational hierarchy"
+      ],
+      "nearby_distinctions": [
+        "Isolates structural hierarchy and authority distribution from broader cultural or operating model behaviors."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "ae6d9ef1c66bfb734b9ea83c318fa6575c8badb097e07fd76694bdb47a817a4e",
+  "artifact_id": "93270a60-645c-46b1-b75f-5a66ce49fc26",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8601,
+  "output_tokens": 3207,
+  "cost_usd": 0.0105978,
+  "created_at": "2026-10-03T18:27:07.224089+00:00"
+}

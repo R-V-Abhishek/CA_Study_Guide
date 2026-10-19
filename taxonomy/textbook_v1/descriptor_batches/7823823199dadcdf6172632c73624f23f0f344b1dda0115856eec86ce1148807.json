@@ -1,0 +1,288 @@
+{
+  "descriptors": [
+    {
+      "node_id": "3eceee4b-2e0a-42f0-b66a-e079cf2e2447",
+      "concept_name": "Just-in-Time (JIT)",
+      "definition": "A demand-driven pull system focused on producing or procuring components exactly when required to systematically eliminate operational waste. It positively impacts product costs by reducing inventory buffers and streamlining production flows.",
+      "terminology": [
+        "Pull system",
+        "JIT production",
+        "JIT purchasing",
+        "Waste elimination"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Procuring raw materials for exact time usage",
+        "Producing finished goods based on actual customer demand"
+      ],
+      "exclusion": [
+        "Push systems relying on inventory stock buffers"
+      ],
+      "nearby_distinctions": [
+        "Unlike push systems that use stock buffers, JIT strictly responds to immediate demand."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7a46b7c3-aa17-425a-b443-46b79d27d7d1",
+      "concept_name": "Sequence of JIT Initiatives",
+      "definition": "An operational rollout plan structured into purchasing, production, and support phases to ensure raw materials arrive precisely when needed and work-in-process is minimized. It coordinates direct shop floor deliveries, supplier site evaluations, and accounting system modifications.",
+      "terminology": [
+        "JIT purchase",
+        "JIT production",
+        "JIT support",
+        "EDI system"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Direct delivery to production floors",
+        "Supplier site visits by engineering staff",
+        "Shortening setup times"
+      ],
+      "exclusion": [
+        "Traditional long production runs with large inventory buffers"
+      ],
+      "nearby_distinctions": [
+        "Differs from general lean principles by explicitly sequencing purchasing, production, and support tasks."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "73c7255b-2c68-45d0-b4e9-10d4a0f7ca46",
+      "concept_name": "Features of the JIT System",
+      "definition": "Core operational characteristics that organize manufacturing into dedicated cells, employ multi-skilled workers, and apply total quality management to eliminate defects. These features drive down setup times, material-handling costs, and inventory levels.",
+      "terminology": [
+        "Manufacturing cells",
+        "Multi-skilled workers",
+        "Total quality management",
+        "Set-up time reduction"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Grouping equipment into manufacturing cells",
+        "Preventive maintenance and defect elimination"
+      ],
+      "exclusion": [
+        "High variety of goods and unpredictable demand patterns"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard production by focusing on cellular layout and multi-skilling rather than functional specialization."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "939a7529-8ff5-4e72-a06a-a73b4e621d71",
+      "concept_name": "Impact of the JIT System on Costs and Prices",
+      "definition": "The systemic financial effect of JIT implementation resulting in reduced waste, lower overhead costs, and potential product price premiums due to enhanced quality. Warehouse space and associated facility costs decrease as inventory and material handling requirements drop.",
+      "terminology": [
+        "Costs of waste",
+        "Overhead costs",
+        "Product prices",
+        "Back-flushing"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Reduction in storage space and warehouse staff overhead",
+        "Price adjustments based on high quality and delivery reliability"
+      ],
+      "exclusion": [
+        "Standard absorption costing adjustments unlinked to waste reduction"
+      ],
+      "nearby_distinctions": [
+        "Focuses on macro-level cost pool and pricing shifts rather than shop-floor sequencing mechanics."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3919d434-0022-49ef-8474-ed487c4e07d5",
+      "concept_name": "Back-flushing in a JIT System",
+      "definition": "An accounting simplification method that delays all inventory data entry until finished goods are completed, applying the bill of materials to calculate component usage. It eliminates transaction logs during intermediate stages but requires accurate production reporting and scrap tracking.",
+      "terminology": [
+        "Back-flushing",
+        "Bill of materials",
+        "Production reporting",
+        "Lot tracing"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Multiplying finished product counts by bill of materials quantities",
+        "Deducting components from beginning inventory in bulk"
+      ],
+      "exclusion": [
+        "Traditional sequential stage-by-stage inventory picking and logging"
+      ],
+      "nearby_distinctions": [
+        "Unlike standard costing which records transactions at each step, back-flushing delays all ledger entries until completion."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9922f1e1-6be2-4c96-aa61-1bc08ac4513f",
+      "concept_name": "Kaizen Costing",
+      "definition": "A continuous cost reduction system utilizing small, incremental improvements to achieve cost targets based on actual prior period results. It involves cross-functional teams repeatedly refining processes to maintain target profit margins against competitive price pressures.",
+      "terminology": [
+        "Kaizen",
+        "Continuous improvement",
+        "Kaizen cost target",
+        "Value analysis"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Elimination of waste in production and distribution processes",
+        "Establishing periodic cost reduction goals"
+      ],
+      "exclusion": [
+        "Radical one-off operational changes like business process re-engineering"
+      ],
+      "nearby_distinctions": [
+        "Differs from business process re-engineering by pursuing gradual incremental changes rather than radical overhauls."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6bde9196-89d0-4834-9cb8-35398014b093",
+      "concept_name": "Kaizen Costing Process",
+      "definition": "A structured implementation mechanism involving setting cost reduction goals, determining gaps against actual costs, and executing plans through value analysis. It assumes continuous improvement conditions and assesses missing targets rather than calculating standard variances.",
+      "terminology": [
+        "Kaizen cost target",
+        "Gap analysis",
+        "Gemba",
+        "Jidoka"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Establishing a kaizen cost target",
+        "Formulating action plans via value analysis"
+      ],
+      "exclusion": [
+        "Long-term standard cost variance reporting"
+      ],
+      "nearby_distinctions": [
+        "Unlike standard costing which analyzes variances under static conditions, Kaizen costing addresses performance gaps under continuous improvement."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0b61549d-05ae-4fb8-b9a3-310e0387ba44",
+      "concept_name": "Sort (Seiri)",
+      "definition": "The first phase of the 5S methodology that involves dividing workplace items into categories based on necessity and urgency of use. It utilizes visual management tools such as red and yellow tags to identify and eliminate obsolete, defective, or unnecessary items.",
+      "terminology": [
+        "Seiri",
+        "Sort",
+        "Red tag",
+        "Yellow tag"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Categorizing materials as not needed, needed later, or misplaced",
+        "Applying red and yellow identification tags"
+      ],
+      "exclusion": [
+        "Systemic arrangement or cleaning of retained items"
+      ],
+      "nearby_distinctions": [
+        "Focuses exclusively on separating necessary from unnecessary items before organizing or cleaning them."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1fc914c5-abb9-4efc-984a-c503f1f76adc",
+      "concept_name": "Set in Order (Seiton)",
+      "definition": "The second phase of the 5S methodology that arranges necessary items into efficient, accessible locations following the principle that everything has a designated place. Its primary purpose is to eliminate search time and motion waste through visual management and structured placement.",
+      "terminology": [
+        "Seiton",
+        "Set in order",
+        "Motion waste",
+        "Visual management"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Placing frequently used components near workstations",
+        "Indexing and labelling items for rapid retrieval"
+      ],
+      "exclusion": [
+        "Discarding unneeded items or cleaning equipment surfaces"
+      ],
+      "nearby_distinctions": [
+        "Distinct from sorting by organizing retained items rather than discarding unneeded ones."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "255d9bec-bcce-4292-9eff-2ddaca474988",
+      "concept_name": "Shine (Seiso)",
+      "definition": "The third phase of the 5S methodology that mandates daily workstation cleanliness and comprehensive facility inspections to ensure safety and prevent accidents. Workers systematically clean and inspect all aspects of tools, machinery, and workspace surfaces.",
+      "terminology": [
+        "Seiso",
+        "Shine",
+        "Daily monitoring",
+        "Facility inspection"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Daily workstation cleaning by workers",
+        "Multi-aspect inspection of machinery and tools"
+      ],
+      "exclusion": [
+        "Establishing formal organization-wide standard operating procedures"
+      ],
+      "nearby_distinctions": [
+        "Focuses on physical cleanliness and asset inspection rather than sorting or layout arrangement."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c18df4c5-59cf-478b-bbf9-60d2a7362a46",
+      "concept_name": "Standardise (Seiketsu)",
+      "definition": "The fourth phase of the 5S methodology that integrates best workplace practices into organization-wide standard operating procedures. It maintains SMART standards to ensure that sorting, set-in-order, and shine activities become habitual routines.",
+      "terminology": [
+        "Seiketsu",
+        "Standardise",
+        "Standard operating procedures",
+        "SMART standards"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Creating formal procedures for orderliness",
+        "Embedding best practices into daily work habits"
+      ],
+      "exclusion": [
+        "Initial sorting or physical cleaning tasks"
+      ],
+      "nearby_distinctions": [
+        "Institutionalizes previous 5S steps into formal procedures rather than executing physical sorting or cleaning."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a220f19f-b697-4cdd-bc4e-1f4952555d7d",
+      "concept_name": "Sustain (Shitsuke)",
+      "definition": "The final phase of the 5S methodology that maintains established standards through continuous monitoring, periodic audits, and employee engagement. It relies on assigned responsibilities, visual communication, and ongoing training to preserve lean disciplines.",
+      "terminology": [
+        "Shitsuke",
+        "Sustain",
+        "Periodic audits",
+        "Visual communication"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Periodic audits at all organizational levels",
+        "Continuous training and staff motivation"
+      ],
+      "exclusion": [
+        "Initial formulation of standard operating procedures"
+      ],
+      "nearby_distinctions": [
+        "Focuses on long-term compliance and monitoring rather than the initial creation of standards."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "7823823199dadcdf6172632c73624f23f0f344b1dda0115856eec86ce1148807",
+  "artifact_id": "08037659-2521-4ecd-93eb-dc549ec30fef",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8254,
+  "output_tokens": 3026,
+  "cost_usd": 0.0100412,
+  "created_at": "2026-10-03T18:26:10.597644+00:00"
+}

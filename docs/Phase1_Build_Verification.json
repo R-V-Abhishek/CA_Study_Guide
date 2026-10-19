@@ -1,0 +1,42 @@
+{
+  "passed": true,
+  "routes": {
+    "/": 200,
+    "/plan": 200,
+    "/papers/P1": 200,
+    "/curator": 200,
+    "/curator/queue": 200,
+    "/curator/taxonomy": 200,
+    "/api/v1/dashboard": 200,
+    "/api/v1/papers": 200,
+    "/api/v1/meta": 200,
+    "/api/v1/plan?group=1": 200,
+    "/api/v1/plan?group=2": 200,
+    "/api/v1/curate/queue": 200
+  },
+  "backend": {
+    "api_version": "v1",
+    "revision": "2dee4165853e",
+    "target_attempt": "2026-05",
+    "score_run": {
+      "id": 291,
+      "version": "v1",
+      "target_attempt_id": "2026-05",
+      "computed_at": "2026-09-28T21:35:25.512776+05:30"
+    }
+  },
+  "selected_explanation_status": "available",
+  "frontends": {
+    "student": {
+      "build_identity": "2dee416-f23a1c58b4f7",
+      "asset": "web/apps/student/dist/assets/index-rXaX1o-_.js",
+      "sha256": "cc0c9611edef8c0edbbe29786549dbdf0d93f9df3505852b3ece4fe81b26781c"
+    },
+    "curator": {
+      "build_identity": "2dee416-f23a1c58b4f7",
+      "asset": "web/apps/curator/dist/assets/index-B3VgPtio.js",
+      "sha256": "4c1281c70f124c02da4c6ba3f7ae72610794631951511d9b145ceca7bf17d98f"
+    }
+  },
+  "openapi_matches_application": true
+}

@@ -1,0 +1,2081 @@
+{
+  "source_sha256": "342376b225a6eae7c330d9292a8e7da906e292747b7da14bd1c7426bc5edc05c",
+  "source_file": "data/blobs/34/23/342376b225a6eae7c330d9292a8e7da906e292747b7da14bd1c7426bc5edc05c.pdf",
+  "source_pages": [
+    334,
+    336
+  ],
+  "doc_type": "model_answer",
+  "paper": "s2023.P1",
+  "fixture_scope": "authentic excerpt; source document context and unrepresented questions remain outside this fixture",
+  "review_state": "machine_expected; representative pages visually inspected; no human approval",
+  "blocks": [
+    {
+      "block_id": "p334-b1",
+      "page": 334,
+      "bbox": [
+        215.88290405273438,
+        146.02127075195312,
+        420.7852783203125,
+        161.83055114746094
+      ],
+      "text": "PART – II DESCRIPTIVE QUESTIONS",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "PART – II DESCRIPTIVE QUESTIONS ",
+      "origin": "pdf",
+      "order": 0,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p334-b2",
+      "page": 334,
+      "bbox": [
+        108.0,
+        167.97982788085938,
+        120.7843246459961,
+        183.7891082763672
+      ],
+      "text": "1.",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "1. ",
+      "origin": "pdf",
+      "order": 1,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p334-b3",
+      "page": 334,
+      "bbox": [
+        136.79232788085938,
+        167.97982788085938,
+        376.1395568847656,
+        183.7891082763672
+      ],
+      "text": "Statement showing Cost of production line:",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "Statement showing Cost of production line: ",
+      "origin": "pdf",
+      "order": 2,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p334-b4",
+      "page": 334,
+      "bbox": [
+        462.9599914550781,
+        203.67837524414062,
+        500.8291320800781,
+        218.7479705810547
+      ],
+      "text": "10,000",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "10,000 ",
+      "origin": "pdf",
+      "order": 3,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p334-b5",
+      "page": 334,
+      "bbox": [
+        493.9200134277344,
+        217.35836791992188,
+        500.8310546875,
+        232.42796325683594
+      ],
+      "text": "-",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "- ",
+      "origin": "pdf",
+      "order": 4,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p334-b7",
+      "page": 334,
+      "bbox": [
+        478.8062438964844,
+        244.59408569335938,
+        500.8310546875,
+        259.6636962890625
+      ],
+      "text": "800",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "800 ",
+      "origin": "pdf",
+      "order": 5,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p334-b10",
+      "page": 334,
+      "bbox": [
+        478.8062438964844,
+        285.6298522949219,
+        500.8310546875,
+        300.699462890625
+      ],
+      "text": "600",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "600 ",
+      "origin": "pdf",
+      "order": 6,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p334-b11",
+      "page": 334,
+      "bbox": [
+        478.8062438964844,
+        299.1869812011719,
+        500.8310546875,
+        314.256591796875
+      ],
+      "text": "500",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "500 ",
+      "origin": "pdf",
+      "order": 7,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p334-b13",
+      "page": 334,
+      "bbox": [
+        469.2014465332031,
+        326.54412841796875,
+        500.8310546875,
+        341.6137390136719
+      ],
+      "text": "1,360",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "1,360 ",
+      "origin": "pdf",
+      "order": 8,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p334-b14",
+      "page": 334,
+      "bbox": [
+        149.39999389648438,
+        188.26174926757812,
+        211.50912475585938,
+        204.07102966308594
+      ],
+      "text": "Particulars",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "Particulars ",
+      "origin": "pdf",
+      "order": 9,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p334-b15",
+      "page": 334,
+      "bbox": [
+        423.8399963378906,
+        188.38174438476562,
+        500.8291320800781,
+        204.19102478027344
+      ],
+      "text": "Amount `’000",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "Amount `’000 ",
+      "origin": "pdf",
+      "order": 10,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p334-b16",
+      "page": 334,
+      "bbox": [
+        149.39999389648438,
+        203.67837524414062,
+        224.82911682128906,
+        218.7479705810547
+      ],
+      "text": "Purchase cost",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "Purchase cost ",
+      "origin": "pdf",
+      "order": 11,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p334-b17",
+      "page": 334,
+      "bbox": [
+        149.39999389648438,
+        217.23837280273438,
+        413.6982116699219,
+        232.30796813964844
+      ],
+      "text": "Goods and services tax – recoverable goods and",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "Goods and services tax – recoverable goods and ",
+      "origin": "pdf",
+      "order": 12,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p334-b18",
+      "page": 334,
+      "bbox": [
+        149.39999389648438,
+        229.95840454101562,
+        277.98394775390625,
+        245.0279998779297
+      ],
+      "text": "services tax not included",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "services tax not included ",
+      "origin": "pdf",
+      "order": 13,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p334-b19",
+      "page": 334,
+      "bbox": [
+        149.39999389648438,
+        243.51840209960938,
+        413.6845397949219,
+        258.5880126953125
+      ],
+      "text": "Employment costs during the period of getting the",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "Employment costs during the period of getting the ",
+      "origin": "pdf",
+      "order": 14,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p334-b20",
+      "page": 334,
+      "bbox": [
+        149.39999389648438,
+        256.2383728027344,
+        413.6899108886719,
+        271.3079833984375
+      ],
+      "text": "production line ready for use (1,200 x 2 months / 3",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "production line ready for use (1,200 x 2 months / 3 ",
+      "origin": "pdf",
+      "order": 15,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p334-b21",
+      "page": 334,
+      "bbox": [
+        149.39999389648438,
+        268.9564514160156,
+        193.62623596191406,
+        284.02606201171875
+      ],
+      "text": "months)",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "months) ",
+      "origin": "pdf",
+      "order": 16,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p334-b22",
+      "page": 334,
+      "bbox": [
+        149.39999389648438,
+        282.6383972167969,
+        330.8976135253906,
+        297.7080078125
+      ],
+      "text": "Other overheads – abnormal costs",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "Other overheads – abnormal costs  ",
+      "origin": "pdf",
+      "order": 17,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p334-b23",
+      "page": 334,
+      "bbox": [
+        149.38897705078125,
+        296.0740661621094,
+        413.6954040527344,
+        311.1436767578125
+      ],
+      "text": "Payment to external advisors – directly attributable",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "Payment to external advisors – directly attributable ",
+      "origin": "pdf",
+      "order": 18,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p334-b24",
+      "page": 334,
+      "bbox": [
+        149.38897705078125,
+        308.9136047363281,
+        173.4561767578125,
+        323.98321533203125
+      ],
+      "text": "cost",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "cost ",
+      "origin": "pdf",
+      "order": 19,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p334-b25",
+      "page": 334,
+      "bbox": [
+        149.39999389648438,
+        322.4783935546875,
+        413.6976318359375,
+        337.5480041503906
+      ],
+      "text": "Dismantling costs – recognized at present value",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "Dismantling costs – recognized at present value ",
+      "origin": "pdf",
+      "order": 20,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p334-b26",
+      "page": 334,
+      "bbox": [
+        149.39999389648438,
+        335.1983947753906,
+        358.1443176269531,
+        350.26800537109375
+      ],
+      "text": "where an obligation exists (2,000 x 0.68)",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "where an obligation exists (2,000 x 0.68) ",
+      "origin": "pdf",
+      "order": 21,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p334-b27",
+      "page": 334,
+      "bbox": [
+        149.39999389648438,
+        353.5583801269531,
+        177.90911865234375,
+        368.62799072265625
+      ],
+      "text": "Total",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "Total ",
+      "origin": "pdf",
+      "order": 22,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p334-b28",
+      "page": 334,
+      "bbox": [
+        462.9599914550781,
+        353.5583801269531,
+        500.8291320800781,
+        368.62799072265625
+      ],
+      "text": "13,260",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "13,260 ",
+      "origin": "pdf",
+      "order": 23,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p334-b29",
+      "page": 334,
+      "bbox": [
+        144.0,
+        376.9017639160156,
+        455.108642578125,
+        392.7110290527344
+      ],
+      "text": "Carrying value of production line as on 31st March, 20X2:",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "Carrying value of production line as on 31st March, 20X2: ",
+      "origin": "pdf",
+      "order": 24,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p334-b30",
+      "page": 334,
+      "bbox": [
+        149.39999389648438,
+        400.3017578125,
+        214.74911499023438,
+        416.11102294921875
+      ],
+      "text": "Particulars",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "Particulars  ",
+      "origin": "pdf",
+      "order": 25,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p334-b31",
+      "page": 334,
+      "bbox": [
+        416.8800048828125,
+        400.3017578125,
+        497.109130859375,
+        416.11102294921875
+      ],
+      "text": "Amount ` ’000",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "Amount ` ’000 ",
+      "origin": "pdf",
+      "order": 26,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p334-b32",
+      "page": 334,
+      "bbox": [
+        149.39999389648438,
+        420.03839111328125,
+        267.7775573730469,
+        435.1080017089844
+      ],
+      "text": "Cost of Production line",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "Cost of Production line ",
+      "origin": "pdf",
+      "order": 27,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p334-b33",
+      "page": 334,
+      "bbox": [
+        459.239990234375,
+        420.03839111328125,
+        497.10174560546875,
+        435.1080017089844
+      ],
+      "text": "13,260",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "13,260 ",
+      "origin": "pdf",
+      "order": 28,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p334-b34",
+      "page": 334,
+      "bbox": [
+        149.39999389648438,
+        437.0783996582031,
+        289.7491149902344,
+        452.14801025390625
+      ],
+      "text": "Less: Depreciation (W.N.1)",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "Less: Depreciation (W.N.1) ",
+      "origin": "pdf",
+      "order": 29,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p334-b35",
+      "page": 334,
+      "bbox": [
+        457.79998779296875,
+        437.0783996582031,
+        497.109130859375,
+        452.14801025390625
+      ],
+      "text": "(1,694)",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "(1,694) ",
+      "origin": "pdf",
+      "order": 30,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p334-b36",
+      "page": 334,
+      "bbox": [
+        149.39999389648438,
+        456.51837158203125,
+        376.5038146972656,
+        471.5879821777344
+      ],
+      "text": "Net carrying value carried to Balance Sheet",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "Net carrying value carried to Balance Sheet  ",
+      "origin": "pdf",
+      "order": 31,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p334-b37",
+      "page": 334,
+      "bbox": [
+        459.2375793457031,
+        456.51837158203125,
+        497.0993347167969,
+        471.5879821777344
+      ],
+      "text": "11,566",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "11,566 ",
+      "origin": "pdf",
+      "order": 32,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p334-b38",
+      "page": 334,
+      "bbox": [
+        144.0,
+        480.8217468261719,
+        315.1862487792969,
+        496.6310119628906
+      ],
+      "text": "Provision for dismantling cost:",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "Provision for dismantling cost: ",
+      "origin": "pdf",
+      "order": 33,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p334-b39",
+      "page": 334,
+      "bbox": [
+        149.39999389648438,
+        502.0617370605469,
+        214.74575805664062,
+        517.8710327148438
+      ],
+      "text": "Particulars",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "Particulars  ",
+      "origin": "pdf",
+      "order": 34,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p334-b40",
+      "page": 334,
+      "bbox": [
+        416.8800048828125,
+        502.1817321777344,
+        497.109130859375,
+        517.9910278320312
+      ],
+      "text": "Amount ` ’000",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "Amount ` ’000 ",
+      "origin": "pdf",
+      "order": 35,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p334-b41",
+      "page": 334,
+      "bbox": [
+        149.39999389648438,
+        519.5183715820312,
+        259.74481201171875,
+        534.5880126953125
+      ],
+      "text": "Non-current liabilities",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "Non-current liabilities ",
+      "origin": "pdf",
+      "order": 36,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p334-b42",
+      "page": 334,
+      "bbox": [
+        149.39999389648438,
+        534.0383911132812,
+        280.02911376953125,
+        549.1080322265625
+      ],
+      "text": "Add: Finance cost (WN3)",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "Add: Finance cost (WN3) ",
+      "origin": "pdf",
+      "order": 37,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p334-b43",
+      "page": 334,
+      "bbox": [
+        465.4800109863281,
+        519.5183715820312,
+        497.109619140625,
+        534.5880126953125
+      ],
+      "text": "1,360",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "1,360 ",
+      "origin": "pdf",
+      "order": 38,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p334-b44",
+      "page": 334,
+      "bbox": [
+        481.44000244140625,
+        534.0383911132812,
+        497.109130859375,
+        549.1080322265625
+      ],
+      "text": "57",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "57 ",
+      "origin": "pdf",
+      "order": 39,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p334-b45",
+      "page": 334,
+      "bbox": [
+        149.39999389648438,
+        551.318359375,
+        357.1838073730469,
+        566.3880004882812
+      ],
+      "text": "Net book value carried to Balance Sheet",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "Net book value carried to Balance Sheet ",
+      "origin": "pdf",
+      "order": 40,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p334-b46",
+      "page": 334,
+      "bbox": [
+        465.47515869140625,
+        551.318359375,
+        497.1047668457031,
+        566.3880004882812
+      ],
+      "text": "1,417",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "1,417 ",
+      "origin": "pdf",
+      "order": 41,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p334-b47",
+      "page": 334,
+      "bbox": [
+        144.0,
+        575.501708984375,
+        346.3917541503906,
+        591.31103515625
+      ],
+      "text": "Extract of Statement of Profit & Loss",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "Extract of Statement of Profit & Loss ",
+      "origin": "pdf",
+      "order": 42,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p334-b48",
+      "page": 334,
+      "bbox": [
+        153.83999633789062,
+        599.021728515625,
+        219.18576049804688,
+        614.8310546875
+      ],
+      "text": "Particulars",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "Particulars  ",
+      "origin": "pdf",
+      "order": 43,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p334-b49",
+      "page": 334,
+      "bbox": [
+        417.0,
+        599.021728515625,
+        497.21868896484375,
+        614.8310546875
+      ],
+      "text": "Amount ` ’000",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "Amount ` ’000 ",
+      "origin": "pdf",
+      "order": 44,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p334-b50",
+      "page": 334,
+      "bbox": [
+        153.83999633789062,
+        618.6383666992188,
+        263.5886535644531,
+        633.7080078125
+      ],
+      "text": "Depreciation (W.N.1)",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "Depreciation (W.N.1) ",
+      "origin": "pdf",
+      "order": 45,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p334-b51",
+      "page": 334,
+      "bbox": [
+        465.59857177734375,
+        618.6383666992188,
+        497.2281799316406,
+        633.7080078125
+      ],
+      "text": "1,694",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "1,694 ",
+      "origin": "pdf",
+      "order": 46,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p334-b52",
+      "page": 334,
+      "bbox": [
+        153.8400115966797,
+        635.7944946289062,
+        264.184814453125,
+        650.8641357421875
+      ],
+      "text": "Finance cost (W.N.2)",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "Finance cost (W.N.2) ",
+      "origin": "pdf",
+      "order": 47,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p334-b53",
+      "page": 334,
+      "bbox": [
+        481.5624084472656,
+        635.7944946289062,
+        497.2281799316406,
+        650.8641357421875
+      ],
+      "text": "57",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "57 ",
+      "origin": "pdf",
+      "order": 48,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p334-b54",
+      "page": 334,
+      "bbox": [
+        153.83999633789062,
+        655.2383422851562,
+        389.1134338378906,
+        670.3079833984375
+      ],
+      "text": "Amounts carried to Statement of Profit & Loss",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "Amounts carried to Statement of Profit & Loss ",
+      "origin": "pdf",
+      "order": 49,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p334-b55",
+      "page": 334,
+      "bbox": [
+        465.6095886230469,
+        655.2383422851562,
+        497.23919677734375,
+        670.3079833984375
+      ],
+      "text": "1,751",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "1,751 ",
+      "origin": "pdf",
+      "order": 50,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p334-b58",
+      "page": 334,
+      "bbox": [
+        288.4830017089844,
+        724.8885498046875,
+        306.83099365234375,
+        740.6405639648438
+      ],
+      "text": "329",
+      "size": 11.0,
+      "bold": true,
+      "font": "Arial,Bold",
+      "raw_text": "329",
+      "origin": "pdf",
+      "order": 51,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p335-b1",
+      "page": 335,
+      "bbox": [
+        144.00140380859375,
+        146.02127075195312,
+        280.86431884765625,
+        161.83055114746094
+      ],
+      "text": "Extract of Balance Sheet",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "Extract of Balance Sheet ",
+      "origin": "pdf",
+      "order": 52,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p335-b2",
+      "page": 335,
+      "bbox": [
+        153.83999633789062,
+        169.54177856445312,
+        219.18911743164062,
+        185.35105895996094
+      ],
+      "text": "Particulars",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "Particulars  ",
+      "origin": "pdf",
+      "order": 53,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p335-b3",
+      "page": 335,
+      "bbox": [
+        416.8800048828125,
+        169.54177856445312,
+        497.109130859375,
+        185.35105895996094
+      ],
+      "text": "Amount ` ’000",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "Amount ` ’000 ",
+      "origin": "pdf",
+      "order": 54,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p335-b4",
+      "page": 335,
+      "bbox": [
+        153.83999633789062,
+        188.98171997070312,
+        194.2220916748047,
+        204.79100036621094
+      ],
+      "text": "Assets",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "Assets ",
+      "origin": "pdf",
+      "order": 55,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p335-b6",
+      "page": 335,
+      "bbox": [
+        153.83999633789062,
+        208.11837768554688,
+        253.3876953125,
+        223.18797302246094
+      ],
+      "text": "Non-current assets",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "Non-current assets ",
+      "origin": "pdf",
+      "order": 56,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p335-b8",
+      "page": 335,
+      "bbox": [
+        153.83999633789062,
+        227.19839477539062,
+        319.8705749511719,
+        242.2679901123047
+      ],
+      "text": "Property, plant and equipment",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "   Property, plant and equipment ",
+      "origin": "pdf",
+      "order": 57,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p335-b9",
+      "page": 335,
+      "bbox": [
+        459.2395324707031,
+        227.19839477539062,
+        497.1012878417969,
+        242.2679901123047
+      ],
+      "text": "11,566",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "11,566 ",
+      "origin": "pdf",
+      "order": 58,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p335-b10",
+      "page": 335,
+      "bbox": [
+        153.83999633789062,
+        245.98171997070312,
+        267.6734313964844,
+        261.7909851074219
+      ],
+      "text": "Equity and liabilities",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "Equity and liabilities ",
+      "origin": "pdf",
+      "order": 59,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p335-b12",
+      "page": 335,
+      "bbox": [
+        153.83999633789062,
+        265.1184997558594,
+        264.184814453125,
+        280.1881103515625
+      ],
+      "text": "Non-current liabilities",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "Non-current liabilities ",
+      "origin": "pdf",
+      "order": 60,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p335-b14",
+      "page": 335,
+      "bbox": [
+        153.83999633789062,
+        284.1983947753906,
+        242.22622680664062,
+        299.26800537109375
+      ],
+      "text": "Other liabilities",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "   Other liabilities ",
+      "origin": "pdf",
+      "order": 61,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p335-b16",
+      "page": 335,
+      "bbox": [
+        153.83999633789062,
+        303.1583557128906,
+        328.7467346191406,
+        318.22796630859375
+      ],
+      "text": "Provision for dismantling cost",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "       Provision for dismantling cost ",
+      "origin": "pdf",
+      "order": 62,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p335-b17",
+      "page": 335,
+      "bbox": [
+        468.722900390625,
+        303.1583557128906,
+        497.10675048828125,
+        318.22796630859375
+      ],
+      "text": "1417",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "1417 ",
+      "origin": "pdf",
+      "order": 63,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p335-b18",
+      "page": 335,
+      "bbox": [
+        144.0,
+        327.5817565917969,
+        234.42864990234375,
+        343.3910217285156
+      ],
+      "text": "Working Notes:",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "Working Notes:  ",
+      "origin": "pdf",
+      "order": 64,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p335-b19",
+      "page": 335,
+      "bbox": [
+        144.0,
+        349.5403137207031,
+        159.9086456298828,
+        365.3495788574219
+      ],
+      "text": "1.",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "1.  ",
+      "origin": "pdf",
+      "order": 65,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p335-b20",
+      "page": 335,
+      "bbox": [
+        172.80335998535156,
+        349.5403137207031,
+        362.9552307128906,
+        365.3495788574219
+      ],
+      "text": "Calculation of depreciation charge",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "Calculation of depreciation charge ",
+      "origin": "pdf",
+      "order": 66,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p335-b21",
+      "page": 335,
+      "bbox": [
+        176.39999389648438,
+        374.0217590332031,
+        241.74575805664062,
+        389.8310241699219
+      ],
+      "text": "Particulars",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "Particulars  ",
+      "origin": "pdf",
+      "order": 67,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p335-b22",
+      "page": 335,
+      "bbox": [
+        416.8800048828125,
+        374.0217590332031,
+        497.09869384765625,
+        389.8310241699219
+      ],
+      "text": "Amount ` ’000",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "Amount ` ’000 ",
+      "origin": "pdf",
+      "order": 68,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p335-b26",
+      "page": 335,
+      "bbox": [
+        475.0843200683594,
+        449.78399658203125,
+        497.109130859375,
+        464.8536071777344
+      ],
+      "text": "625",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "625 ",
+      "origin": "pdf",
+      "order": 69,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p335-b27",
+      "page": 335,
+      "bbox": [
+        176.39999389648438,
+        395.7983703613281,
+        402.658203125,
+        410.86798095703125
+      ],
+      "text": "In accordance with Ind AS 16 the asset is",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "In accordance with Ind AS 16 the asset is ",
+      "origin": "pdf",
+      "order": 70,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p335-b28",
+      "page": 335,
+      "bbox": [
+        176.39999389648438,
+        410.7983703613281,
+        402.6517028808594,
+        425.86798095703125
+      ],
+      "text": "split into two depreciable components: Out",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "split into two depreciable components: Out ",
+      "origin": "pdf",
+      "order": 71,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p335-b29",
+      "page": 335,
+      "bbox": [
+        176.39999389648438,
+        425.7983703613281,
+        402.67584228515625,
+        440.86798095703125
+      ],
+      "text": "of the total capitalization amount of 13,260,",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "of the total capitalization amount of 13,260, ",
+      "origin": "pdf",
+      "order": 72,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p335-b30",
+      "page": 335,
+      "bbox": [
+        176.39999389648438,
+        440.7983703613281,
+        243.6622772216797,
+        455.86798095703125
+      ],
+      "text": "Depreciation",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "Depreciation ",
+      "origin": "pdf",
+      "order": 73,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p335-b31",
+      "page": 335,
+      "bbox": [
+        252.59254455566406,
+        440.7983703613281,
+        268.9792175292969,
+        455.86798095703125
+      ],
+      "text": "for",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "for ",
+      "origin": "pdf",
+      "order": 74,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p335-b32",
+      "page": 335,
+      "bbox": [
+        278.0320129394531,
+        440.7983703613281,
+        309.532470703125,
+        455.86798095703125
+      ],
+      "text": "3,000",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "3,000 ",
+      "origin": "pdf",
+      "order": 75,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p335-b33",
+      "page": 335,
+      "bbox": [
+        318.58526611328125,
+        440.7983703613281,
+        341.93157958984375,
+        455.86798095703125
+      ],
+      "text": "with",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "with ",
+      "origin": "pdf",
+      "order": 76,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p335-b34",
+      "page": 335,
+      "bbox": [
+        350.8629455566406,
+        440.7983703613281,
+        360.169677734375,
+        455.86798095703125
+      ],
+      "text": "a",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "a ",
+      "origin": "pdf",
+      "order": 77,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p335-b35",
+      "page": 335,
+      "bbox": [
+        369.22247314453125,
+        440.7983703613281,
+        402.6460876464844,
+        455.86798095703125
+      ],
+      "text": "useful",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "useful ",
+      "origin": "pdf",
+      "order": 78,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p335-b36",
+      "page": 335,
+      "bbox": [
+        176.39999389648438,
+        455.7983703613281,
+        402.6596984863281,
+        470.86798095703125
+      ],
+      "text": "economic life (UEL) of four years (3,000 x",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "economic life (UEL) of four years  (3,000 x ",
+      "origin": "pdf",
+      "order": 79,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p335-b37",
+      "page": 335,
+      "bbox": [
+        176.39999389648438,
+        470.7983703613281,
+        236.71151733398438,
+        485.86798095703125
+      ],
+      "text": "1⁄4 x 10/12).",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "¼ x 10/12). ",
+      "origin": "pdf",
+      "order": 80,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p335-b38",
+      "page": 335,
+      "bbox": [
+        176.39999389648438,
+        488.7983703613281,
+        402.6603698730469,
+        503.86798095703125
+      ],
+      "text": "This is related to a major overhaul to",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "This is related to a major overhaul to ",
+      "origin": "pdf",
+      "order": 81,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p335-b39",
+      "page": 335,
+      "bbox": [
+        176.39999389648438,
+        503.7983703613281,
+        402.6538391113281,
+        518.8679809570312
+      ],
+      "text": "ensure that it generates economic benefits",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "ensure that it generates economic benefits ",
+      "origin": "pdf",
+      "order": 82,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p335-b40",
+      "page": 335,
+      "bbox": [
+        176.39999389648438,
+        518.6217041015625,
+        353.44415283203125,
+        534.4310302734375
+      ],
+      "text": "for the second half of its useful life",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "ArialMT",
+      "raw_text": "for the second half of its useful life ",
+      "origin": "pdf",
+      "order": 83,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p335-b41",
+      "page": 335,
+      "bbox": [
+        465.4800109863281,
+        540.2783813476562,
+        497.109619140625,
+        555.3480224609375
+      ],
+      "text": "1,069",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "1,069 ",
+      "origin": "pdf",
+      "order": 84,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p335-b42",
+      "page": 335,
+      "bbox": [
+        176.39999389648438,
+        540.2783813476562,
+        196.62750244140625,
+        555.3480224609375
+      ],
+      "text": "For",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "For ",
+      "origin": "pdf",
+      "order": 85,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p335-b43",
+      "page": 335,
+      "bbox": [
+        205.91876220703125,
+        540.2783813476562,
+        248.94384765625,
+        555.3480224609375
+      ],
+      "text": "balance",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "balance ",
+      "origin": "pdf",
+      "order": 86,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p335-b44",
+      "page": 335,
+      "bbox": [
+        258.1180725097656,
+        540.2783813476562,
+        302.2261657714844,
+        555.3480224609375
+      ],
+      "text": "amount,",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "amount, ",
+      "origin": "pdf",
+      "order": 87,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p335-b45",
+      "page": 335,
+      "bbox": [
+        311.51629638671875,
+        540.2783813476562,
+        376.980224609375,
+        555.3480224609375
+      ],
+      "text": "depreciation",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "depreciation ",
+      "origin": "pdf",
+      "order": 88,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p335-b46",
+      "page": 335,
+      "bbox": [
+        386.1544494628906,
+        540.2783813476562,
+        402.6625671386719,
+        555.3480224609375
+      ],
+      "text": "for",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "for ",
+      "origin": "pdf",
+      "order": 89,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p335-b47",
+      "page": 335,
+      "bbox": [
+        176.39999389648438,
+        555.2783813476562,
+        402.6327819824219,
+        570.3480224609375
+      ],
+      "text": "10,260 with an useful economic life (UEL)",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "10,260 with an useful economic life (UEL) ",
+      "origin": "pdf",
+      "order": 90,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p335-b48",
+      "page": 335,
+      "bbox": [
+        176.39999389648438,
+        570.2783813476562,
+        393.6420593261719,
+        585.3480224609375
+      ],
+      "text": "of eight years will be: 10,260 x 1/8 x 10/12",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "of eight years will be: 10,260 x 1/8 x 10/12 ",
+      "origin": "pdf",
+      "order": 91,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p335-b49",
+      "page": 335,
+      "bbox": [
+        465.4747314453125,
+        591.7550048828125,
+        497.1043395996094,
+        606.8246459960938
+      ],
+      "text": "1,694",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "1,694 ",
+      "origin": "pdf",
+      "order": 92,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p335-b50",
+      "page": 335,
+      "bbox": [
+        176.39999389648438,
+        591.7583618164062,
+        402.66827392578125,
+        606.8280029296875
+      ],
+      "text": "Total (To Statement of Profit & Loss for the",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "Total (To Statement of Profit & Loss for the ",
+      "origin": "pdf",
+      "order": 93,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p335-b51",
+      "page": 335,
+      "bbox": [
+        176.39999389648438,
+        606.7583618164062,
+        326.7019348144531,
+        621.8313598632812
+      ],
+      "text": "year ended 31st March 20X2)",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "year ended 31st March 20X2) ",
+      "origin": "pdf",
+      "order": 94,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p335-b52",
+      "page": 335,
+      "bbox": [
+        144.0,
+        632.021728515625,
+        156.67391967773438,
+        647.8310546875
+      ],
+      "text": "2.",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "2. ",
+      "origin": "pdf",
+      "order": 95,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p335-b53",
+      "page": 335,
+      "bbox": [
+        172.80335998535156,
+        632.021728515625,
+        251.81881713867188,
+        647.8310546875
+      ],
+      "text": "Finance costs",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "Finance costs ",
+      "origin": "pdf",
+      "order": 96,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p335-b54",
+      "page": 335,
+      "bbox": [
+        176.39999389648438,
+        656.6217041015625,
+        241.74575805664062,
+        672.4310302734375
+      ],
+      "text": "Particulars",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "Particulars  ",
+      "origin": "pdf",
+      "order": 97,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p335-b55",
+      "page": 335,
+      "bbox": [
+        413.1600036621094,
+        656.6217041015625,
+        493.3786926269531,
+        672.4310302734375
+      ],
+      "text": "Amount ` ’000",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "Amount ` ’000 ",
+      "origin": "pdf",
+      "order": 98,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p335-b56",
+      "page": 335,
+      "bbox": [
+        176.39999389648438,
+        678.1017456054688,
+        402.6834411621094,
+        693.9110717773438
+      ],
+      "text": "Unwinding of discount (Statement of",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "Unwinding of discount (Statement of ",
+      "origin": "pdf",
+      "order": 99,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p335-b57",
+      "page": 335,
+      "bbox": [
+        477.7200012207031,
+        678.2783813476562,
+        493.3857727050781,
+        693.3480224609375
+      ],
+      "text": "57",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "57 ",
+      "origin": "pdf",
+      "order": 100,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p335-b58",
+      "page": 335,
+      "bbox": [
+        288.4830017089844,
+        724.8885498046875,
+        306.83099365234375,
+        740.6405639648438
+      ],
+      "text": "330",
+      "size": 11.0,
+      "bold": true,
+      "font": "Arial,Bold",
+      "raw_text": "330",
+      "origin": "pdf",
+      "order": 101,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p336-b1",
+      "page": 336,
+      "bbox": [
+        176.39999389648438,
+        145.54177856445312,
+        402.66339111328125,
+        161.35105895996094
+      ],
+      "text": "Profit and Loss – finance cost) 1,360 x",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "Profit and Loss – finance cost) 1,360 x ",
+      "origin": "pdf",
+      "order": 102,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p336-b2",
+      "page": 336,
+      "bbox": [
+        176.39999389648438,
+        160.71841430664062,
+        236.46200561523438,
+        175.7880096435547
+      ],
+      "text": "5% x 10/12",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "5% x 10/12 ",
+      "origin": "pdf",
+      "order": 103,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p336-b3",
+      "page": 336,
+      "bbox": [
+        477.7200012207031,
+        182.19839477539062,
+        493.3857727050781,
+        197.2679901123047
+      ],
+      "text": "57",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "57 ",
+      "origin": "pdf",
+      "order": 104,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p336-b4",
+      "page": 336,
+      "bbox": [
+        176.39999389648438,
+        182.19839477539062,
+        402.65380859375,
+        197.2679901123047
+      ],
+      "text": "To Statement of Profit & Loss for the year",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "To Statement of Profit & Loss for the year ",
+      "origin": "pdf",
+      "order": 105,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p336-b5",
+      "page": 336,
+      "bbox": [
+        176.39999389648438,
+        197.19839477539062,
+        297.29644775390625,
+        212.2679901123047
+      ],
+      "text": "ended 31st March 20X2",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "ended 31st March 20X2 ",
+      "origin": "pdf",
+      "order": 106,
+      "region": "answer",
+      "fidelity_flags": []
+    }
+  ],
+  "expected_tree": [
+    {
+      "label_path": "Q1",
+      "question_text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "answer_text_sha256": "8327013f8672ed6307c77042a9d81e190b36b7b353216b2be3376dfba7b5eb9e",
+      "mcq_options": 0,
+      "mcq_key": null,
+      "children": []
+    }
+  ]
+}

@@ -71,7 +71,7 @@ def test_load_depth_config():
 def test_shadow_recompute_with_provisional_appearances(session):
     """Verify that provisional items generate valid shadow scores without affecting current run."""
     # 1. Baseline run
-    base_run = recompute_scores(session, shadow=False)
+    base_run = recompute_scores(session, target_attempt_id="2026-05", shadow=False)
     assert base_run.is_current is True
     assert base_run.shadow is False
 
@@ -107,6 +107,7 @@ def test_shadow_recompute_with_provisional_appearances(session):
     # 3. Shadow recompute
     shadow_run = recompute_scores(
         session,
+        target_attempt_id="2026-05",
         shadow=True,
         provisional_items=[(prov_app, prov_tag)],
     )
@@ -197,6 +198,7 @@ def test_compute_depth_gate_workflow(session):
     report = compute_depth_gate(
         session=session,
         paper="P1",
+        target_attempt_id="2026-05",
         band=band_name,
         top_k=25,
         record_report=True,
@@ -222,7 +224,7 @@ def test_compute_depth_gate_workflow(session):
 def test_cli_depth_commands(session):
     """Verify caf depth gate and caf depth report CLI commands."""
     # 1. Gate command on P1
-    res_gate = runner.invoke(cli_app, ["depth", "gate", "--paper", "P1", "--band", "s2017:2019", "--top-k", "10"])
+    res_gate = runner.invoke(cli_app, ["depth", "gate", "--target-attempt", "2026-05", "--paper", "P1", "--band", "s2017:2019", "--top-k", "10"])
     assert res_gate.exit_code == 0
     assert "Depth Gate Report" in res_gate.output
     assert "P1" in res_gate.output
@@ -248,9 +250,9 @@ practice_value = false
 """)
 
     # 1. High stability (jaccard >= 0.9, new nodes < 10) on P1 (practice_value=True) -> continue_practice_value
-    rep_p1 = compute_depth_gate(session, paper="P1", band="empty_band", top_k=50, record_report=False, config_path=cfg_file)
+    rep_p1 = compute_depth_gate(session, paper="P1", target_attempt_id="2026-05", band="empty_band", top_k=50, record_report=False, config_path=cfg_file)
     assert rep_p1.decision == "continue_practice_value"
 
     # 2. High stability on P4 (practice_value=False) -> stop
-    rep_p4 = compute_depth_gate(session, paper="P4", band="empty_band", top_k=50, record_report=False, config_path=cfg_file)
+    rep_p4 = compute_depth_gate(session, paper="P4", target_attempt_id="2026-05", band="empty_band", top_k=50, record_report=False, config_path=cfg_file)
     assert rep_p4.decision == "stop"

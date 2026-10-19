@@ -1,0 +1,106 @@
+{
+  "release_id": "baseline-2026-10-16",
+  "manifest_hash": "c59e12cb4f9696adbcc4647b0775542693517aa23870e37edfca753497370973",
+  "taxonomy_version_id": 9,
+  "database_bytes": 636574743,
+  "database_bytes_before": 543079447,
+  "database_growth_bytes": 93495296,
+  "roots": 3009,
+  "parts": 7778,
+  "prior_suggestions": 120,
+  "student_verifications": 0,
+  "catalog_nodes": 3300,
+  "hierarchy_nodes": 6638,
+  "question_sources": 94,
+  "per_paper": {
+    "s2023.P1": {
+      "roots": 414,
+      "parts": 1164
+    },
+    "s2023.P2": {
+      "roots": 193,
+      "parts": 880
+    },
+    "s2023.P3": {
+      "roots": 505,
+      "parts": 1030
+    },
+    "s2023.P4": {
+      "roots": 649,
+      "parts": 1327
+    },
+    "s2023.P5": {
+      "roots": 428,
+      "parts": 1158
+    },
+    "s2023.P6": {
+      "roots": 820,
+      "parts": 2219
+    }
+  },
+  "mapping_outcomes": {
+    "needs_review": 224,
+    "none_fits": 747,
+    "matched": 6807
+  },
+  "answer_statuses": {
+    "complete": 409,
+    "partial": 189,
+    "missing": 2411
+  },
+  "corrected_paper_roots": 691,
+  "study_target": "2027-05",
+  "uncertain_applicability_nodes": 2401,
+  "reader_samples": [
+    {
+      "question_id": "001d2efaf53eeac4725ea5d8e4df21aae0eb86c2a354dad0d99f8b1e53a2f385",
+      "answer_status": "complete",
+      "source_id": 1,
+      "page": 15,
+      "page_bytes": 116041,
+      "pdf_bytes": 467961
+    },
+    {
+      "question_id": "0043d241dd406d3507be23e8bd9c840f814d45b57cc16a964e9d9a94a5feb2fd",
+      "answer_status": "missing",
+      "source_id": 2,
+      "page": 7,
+      "page_bytes": 183090,
+      "pdf_bytes": 395032
+    },
+    {
+      "question_id": "02ce18c91eb217922307767bb9de661d9bea6c60ebed2812428b507e5d5b9d2d",
+      "answer_status": "partial",
+      "source_id": 25,
+      "page": 26,
+      "page_bytes": 121528,
+      "pdf_bytes": 959782
+    }
+  ],
+  "search": {
+    "seconds": 0.0334,
+    "total": 687,
+    "returned": 25
+  },
+  "review_queue": {
+    "seconds": 2.4135,
+    "roots": 100,
+    "json_bytes": 2286088,
+    "shared_catalogs": 1
+  },
+  "rollback_drill": "passed; transaction discarded, active baseline retained",
+  "source_storage": {
+    "before": {
+      "files": 3911,
+      "bytes": 857913882
+    },
+    "after": {
+      "files": 3911,
+      "bytes": 857913882
+    },
+    "growth_bytes": 0
+  },
+  "measurement_stage": "Read-path/storage/rollback measurements taken after activation and before recomputation",
+  "database_bytes_after_recompute_and_final_restart": 645512215,
+  "database_growth_after_recompute_and_final_restart_bytes": 102432768
+}

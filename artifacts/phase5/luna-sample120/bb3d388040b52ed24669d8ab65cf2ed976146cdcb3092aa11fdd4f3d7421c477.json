@@ -1,0 +1,36 @@
+{
+  "result": {
+    "question_id": "bb3d388040b52ed24669d8ab65cf2ed976146cdcb3092aa11fdd4f3d7421c477",
+    "input_hash": "7053001e3a1a8fc58b387fd32f17e9c0454a7e05469310d3ec42ac7391ad6bee",
+    "mappings": [
+      {
+        "part_id": "bb3d388040b52ed24669d8ab65cf2ed976146cdcb3092aa11fdd4f3d7421c477",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "The answer identifies the tested concept as the exemption for a gift to a spouse under section 56(2)(x). None of the supplied candidates describes that gift exemption or the relevant taxation of gifts.",
+        "confidence": 0.98,
+        "bucket": "D"
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "attempt_id": "1791216892708239000",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "4d6e6fab5c7a01e9431b01c640c193f1f35664d607a54ba0229d62d33aac7cc2",
+    "schema_generator": "pinned-part-ids-v1",
+    "seconds": 12.295,
+    "usage": [
+      {
+        "input_tokens": 48079,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 392,
+        "reasoning_output_tokens": 180
+      }
+    ],
+    "completed_at": "2026-10-05T16:15:05.003445+00:00"
+  }
+}

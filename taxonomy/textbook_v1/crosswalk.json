@@ -1,0 +1,4182 @@
+[
+  {
+    "old_node_id": "P1-00JFY0",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Reverse acquisitions mechanics",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-093VHQ",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Ind AS 116: Leases",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "chapter",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-09J16J",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Manufacturer or dealer lessor accounting",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-1279FE",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Share Based Payment (Ind AS 102)",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-2AST7H",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Lessee Accounting",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-3RMFHN",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Step 3: Determining the transaction price",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-3V89JD",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Defined contribution vs defined benefit plans",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-49C3JG",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Income Taxes (Ind AS 12)",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-4WFAAD",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Associates and Joint Arrangements",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-5GVJKT",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Step 5: Recognizing revenue over time vs at a point in time",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-66GM5Y",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Ind AS 33: Basic and diluted earnings per share",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-6FZMSQ",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Finance lease initial and subsequent accounting",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-6SB1HV",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Short-term and other long-term benefits",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-705SZS",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Assessment of control under Ind AS 110",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-7HNJZK",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Equity-settled share based payment transactions",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-7Q61BF",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Actuarial assumptions and remeasurement gains/losses in OCI",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-7X95AZ",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Step 4: Allocating transaction price to performance obligations",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-7Y5BAJ",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Ind AS on Balance Sheet Items (Ind AS 16, 38, 36, 40, 2, 23)",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "chapter",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-8MHTQD",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Current tax and deferred tax calculation",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-8QYDJQ",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Consolidated Financial Statements (Ind AS 110, 111, 28)",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "chapter",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-AHMPX1",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Ind AS 108: Operating segments identification",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-AJZWYW",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Common Control and Step Acquisitions",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-ANDWRH",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Uniform accounting policies and intra-group eliminations",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-ATAZYK",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Joint ventures vs joint operations under Ind AS 111",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-AZRMK5",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Impairment and Hedge Accounting",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-BXTF71",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Initial measurement of ROU asset and lease liability",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-C4W8NW",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Recognition of deferred tax asset and unused tax losses",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-C5WSPK",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Foreign Exchange & Disclosures",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-C653J0",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Five-Step Model Core",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-C6MRTH",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Contract costs: incremental costs of obtaining a contract",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-CEC1SQ",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Expected credit loss (ECL) model: 3-stage approach",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-CMF927",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Ind AS on Employee Benefits & Share Based Payment (Ind AS 19, 102)",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "chapter",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-CRPZDZ",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Lessor Accounting",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-CYTE4V",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Principal vs agent considerations",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-D7831K",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Sale and leaseback transactions",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-DEGMDP",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Share-based payment with cash alternatives",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-DF57T0",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Classification and Measurement",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-EQ3KR1",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Classification into operating vs finance lease",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-EQB42H",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "De-recognition of financial assets and liabilities",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-F4MNE6",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Warranties and customer options for additional goods/services",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-G16RPA",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Ind AS 36: Identifying Cash Generating Units (CGU)",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-GDH25Q",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Identifying a lease contract",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-HPXKB2",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Tax base vs carrying amount and temporary differences",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-J1FZNQ",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Tangible and Intangible Assets",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-J966FP",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Cash-settled share based payment transactions",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-JM0JAD",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Calculation of goodwill or gain on bargain purchase",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-JSP3PE",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Step acquisitions and re-measurement of existing interest",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-JXA7TS",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Ind AS 21: Functional currency and foreign operations translation",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-K0RHM9",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Consolidation Procedures",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-KPTKRQ",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Disposal of subsidiary and loss of control",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-KX2ANZ",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Financial asset classification: Amortised cost, FVTOCI, FVTPL",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-KX50N8",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Changes in parent's ownership interest without loss of control",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-M34QG4",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Hedging instruments, hedged items and qualifying criteria",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-M47A3X",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Non-controlling interest (NCI) valuation: Proportionate vs Fair value",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-MA0108",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Specific Revenue Scenarios",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-MCN819",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Recognizing and measuring identifiable assets and liabilities",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-MD6XEY",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Ind AS 36: Impairment testing and reversal of impairment",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-MGSCAD",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Business combinations under common control (Appendix C)",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-MXYFWJ",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Employee Benefits (Ind AS 19)",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-NAYYJC",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Ind AS 2: Valuation of inventories and NRV testing",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-NFZ39R",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Purchase consideration and contingent consideration",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-P425DG",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Ind AS 115: Revenue from Contracts with Customers",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "chapter",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-PZR6WV",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Step 1: Identifying the contract with customer",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-Q1H8KK",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Ind AS 105: Non-current assets held for sale and discontinued ops",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-Q7RVEC",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Ind AS on Income Taxes and Other Standards (Ind AS 12, 21, 24, 33)",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "chapter",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-QKB8AJ",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Ind AS 38: Intangible assets and R&D expenditure",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-R1MA46",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Business model and contractual cash flow (SPPI) test",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-R7237M",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Ind AS 23: Borrowing costs capitalisation criteria",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-RKXB7S",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Ind AS 24: Related party disclosures",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-V06V8A",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Financial liability classification and compound instruments",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-V3ACEQ",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Licensing agreements and intellectual property",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-VN48MT",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Ind AS 40: Investment property accounting",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-VRQZAW",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Step 2: Identifying performance obligations",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-VVKQY4",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Acquisition Method",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-VVMAJ0",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Valuation and Impairment",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-W810KT",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Lease modifications and scope decrease",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-WB29V3",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Business Combinations & Corporate Restructuring (Ind AS 103)",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "chapter",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-WNPWF3",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Scope and Recognition Exemptions",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-XBJTFT",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Ind AS 16: PPE recognition, component depreciation, revaluation",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-Y40P0R",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Identifying the acquirer and acquisition date",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-Y5EWJ7",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Cash flow hedge vs fair value hedge mechanics",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-YKK814",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Equity method of accounting under Ind AS 28",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-YM4GXE",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Short-term leases and low-value asset exemptions",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-ZEJT68",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Subsequent measurement and depreciation of ROU asset",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-ZQTNXC",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Ind AS on Financial Instruments (Ind AS 32, 109, 107)",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "chapter",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-ZXTZB0",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Fair value option and reclassifications",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P1-ZXWVWH",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Separating components of a contract",
+      "legacy_paper_id": "s2023.P1",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-07C20K",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Business Valuation and Corporate Restructuring",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "chapter",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-1TPM9X",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Free Cash Flow to Firm (FCFF) and to Equity (FCFE)",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-1VNYFQ",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Portfolio rebalancing strategies: Constant mix, CPPI",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-1XQT09",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Capital rationing and project indivisibility",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-1YXX0Q",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Takeover defenses and reverse mergers",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-2BKGEW",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Bond yield: YTM, YTC and spot rates",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-2X1DQZ",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "NPV, IRR and Modified IRR comparison",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-31RGXT",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Security Analysis and Valuation",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "chapter",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-3BDZZF",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Mergers and Acquisitions",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-4HVW52",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Decision tree analysis and certainty equivalent method",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-58SDBE",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Interest Rate Risk Management",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "chapter",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-5CJCXX",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Duration, modified duration and convexity",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-5CP62A",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Interest Rate Derivatives",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-6BNAKK",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Economic Value Added (EVA) and Market Value Added (MVA)",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-6KX323",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Dividend discount models and Walter model",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-6RQ7RY",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Binomial option pricing model",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-6VQRHV",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Derivatives Analysis and Valuation",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "chapter",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-7572EV",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Capital Asset Pricing Model (CAPM) and Beta estimation",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-7V0HRG",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Forward Rate Agreements (FRAs)",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-81HBRE",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Arbitrage Pricing Theory (APT) and multi-factor models",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-85P9GR",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Hedging strategies using stock and index futures",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-8A0KN6",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Interest rate caps, floors and collars",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-8AEHAB",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Cash flow forecasting and inflation adjustments",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-8VNH80",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Forex Hedging Techniques",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-95Z1BN",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Option Contracts and Strategies",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-99T1PW",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "External hedging: Forward contracts, money market cover, options",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-9H93D9",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Commodity futures and roll yield",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-ABNS7T",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Foreign Exchange Exposure and Risk Management",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "chapter",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-APGYJK",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Purchasing Power Parity (PPP) and Interest Rate Parity (IRP)",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-AX2H57",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Pricing of forwards and futures contracts",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-BJ2K1Q",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Transaction, translation and economic exposure",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-BTC0J7",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "International Fisher Effect (IFE)",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-FFEJYD",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Futures and Forwards",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-FXZF4N",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Sharpe, Treynor and Jensen performance measures",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-GZ1SWQ",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Financial evaluation of M&A: Swap ratio determination",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-HDA93G",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Risk and Uncertainty in Capital Budgeting",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-HZS7AX",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Portfolio Performance and Rebalancing",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-J0YCTN",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Exchange Rate Arithmetic",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-M4Z9JR",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Bond and Fixed Income Valuation",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-MEFVSR",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Equity Valuation",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-NCGAEB",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Post-merger EPS and market price impact",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-Q7YA3Z",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Direct vs indirect quotes, cross rates and bid-ask spreads",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-QA376K",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Portfolio Theory and Capital Asset Pricing",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-R0JR88",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Startup Finance and Securitization",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-R4FH1R",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Sensitivity analysis and scenario analysis",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-T072K3",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Interest rate futures and hedging debt portfolios",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-TH79HK",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Option payoff diagrams and combination strategies",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-TSK9KZ",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Real options in capital budgeting",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-TZ0SBN",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Startup valuation methods: Scorecard, Berkus, Venture capital method",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-V8MJX9",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Project Evaluation Techniques",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-V9V74T",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Black-Scholes-Merton model and Option Greeks",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-W4K7BP",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Relative valuation multiples (P/E, P/B, EV/EBITDA)",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-W4PX2B",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Fama decomposition of portfolio return",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-W7SVJM",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Portfolio Management",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "chapter",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-WDYJK7",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Internal hedging: Leading, lagging, netting, matching",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-WE2AV6",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Securitization mechanism and pass-through certificates",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-WK9XC7",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Markowitz portfolio selection and efficient frontier",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-X90CSW",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Term structure of interest rates and immunization",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-XT6ZV2",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Interest rate swaps: Comparative advantage argument",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-Y6J9WH",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Advanced Capital Budgeting Decisions",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "chapter",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P2-Z8WT4V",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Pitch deck, bootstrapping and venture capital stages",
+      "legacy_paper_id": "s2023.P2",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-004M4M",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "SA 315: Identifying and assessing risks of material misstatement",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-0Y2BN4",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Understanding Entity and Environment",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-0YNZFK",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "SA 220: Quality management for an audit of financial statements",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-168XFQ",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Due diligence: Financial, commercial and operational review",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-1KMBR2",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Part III & IV: Misconduct generally and other misconduct",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-1N7A32",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "First Schedule to CA Act, 1949",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-206NMQ",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Audit Opinions",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-26668J",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "SA 530: Audit sampling and evaluation of sample results",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-2JFHH3",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "SA 580: Written representations limitations and reliability",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-3PNCQR",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Determination of KAM vs matters requiring modification",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-3XRN0S",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "SA 720: The auditor's responsibilities relating to other information",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-4AYY60",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "SA 300: Planning an audit of financial statements",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-4ECQJQ",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Monitoring and remediation processes",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-4KAPHT",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Part I: Professional misconduct for members in practice",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-5789RF",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "SA 700: Forming an opinion and reporting on financial statements",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-59Y1QB",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Leadership responsibilities for quality within the firm",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-5ABB95",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "SA 330: The auditor's responses to assessed risks",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-5G5CKR",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Relevant ethical requirements and independence policies",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-78XSMG",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Documentation of the system of quality management",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-7ATWTQ",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Fundamental Principles",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-7DGV02",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Coordinating with Others",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-7Z7K1Z",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Quality Management (SQC 1, SQM 1, SQM 2)",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "chapter",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-81ZPFG",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "ICAI Code of Ethics: Fundamental principles and threats/safeguards",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-8G7SXS",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "SA 210: Agreeing the terms of audit engagements",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-8TRA3V",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "SA 706: Emphasis of matter and other matter paragraphs",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-9FNFSM",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "SA 550: Related parties identification and undisclosed relationships",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-9VX79Y",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "SA 230: Audit documentation and assembly of final audit file",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-A7J1FT",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Key Audit Matters and Other Information",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-A7R5V0",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Acceptance and continuance of client relationships",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-ACX58A",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Leadership and Firm Governance",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-AEM94G",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Audit Conclusions and Reporting (SA 700 series)",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "chapter",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-BMW7E9",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "General Auditing Principles and Planning (SA 200, 300 series)",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "chapter",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-BYGRV2",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "SA 701: Communicating Key Audit Matters (KAM) in the report",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-C484AV",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "SA 450: Evaluation of misstatements identified during the audit",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-CGCH93",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Part I: Serious misconduct for members in practice",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-CQJRFM",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "SA 520: Analytical procedures in substantive testing",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-D2BZ3A",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Forensic investigation techniques and red flags",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-DYVP8B",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "SA 320: Materiality in planning and performing an audit",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-EX1ZM1",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Digital auditing tools: Data analytics and automated test routines",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-EZPA26",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Using Work of Others and Group Audits (SA 600 series)",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "chapter",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-FYVZM3",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "SA 200: Overall objectives and professional skepticism",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-FZCZ1Q",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Risk Assessment and Internal Control (SA 315, 330, 240)",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "chapter",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-G95S2J",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Test of controls vs substantive audit procedures",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-H876RD",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Specialized Audits",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-J2AW1T",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Audit Planning and Materiality",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-J5BB3H",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Second Schedule and Council Guidelines",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-J92N3R",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Specialized Audits, Digital Auditing and Due Diligence",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "chapter",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-JAQT1Q",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Audit Evidence and Sampling (SA 500 series)",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "chapter",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-JN0HD9",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "SA 600: Using the work of another auditor in group audits",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-K8MHNV",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "IT general controls (ITGC) and application controls",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-KBMFBB",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Performance materiality and revision as audit progresses",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-KWZBF7",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "SA 570: Going concern evaluation and material uncertainty",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-KZ93R6",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "SA 560: Subsequent events: Facts known before vs after report date",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-MC9P5H",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "SA 610: Using the work of internal auditors",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-MH8X4B",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Forensic Accounting and Digital Assurance",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-MMSXDP",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Engagement quality review (EQR) eligibility and procedures",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-NRF8N4",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Part II: Professional misconduct for members in service",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-NT315M",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Estimates, Related Parties and Subsequent Events",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-NZKY6B",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "SA 500: Audit evidence sources and reliability",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-P5592D",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Obtaining Sufficient Appropriate Evidence",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-PA34YF",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Part II & III: General misconduct and disciplinary mechanisms",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-PT2XZ0",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "SA 620: Using the work of an auditor's expert",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-SA9FA5",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Principal auditor responsibilities and component auditors",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-SCV6RW",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Audit of Public Sector Undertakings (PSU) and C&AG role",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-SV7X67",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Audit of NBFCs and RBI prudential regulations",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-V0F5N4",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Responding to Assessed Risks and Fraud",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-V1FZHN",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Professional Ethics and Code of Conduct",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "chapter",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-W11CS7",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Audit of Banks: IRAC norms and NPA classification",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-WCV172",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Fraud risk factors and auditor's inquiry of management",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-WNMK8Q",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "SA 240: The auditor's responsibilities relating to fraud",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-WW7T22",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Engagement Performance and Monitoring",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-X9XBKV",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Understanding the entity's internal control system",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-XE264H",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "SA 505: External confirmations procedures and negative confirmations",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-YENNHT",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "SA 705: Modifications to the opinion: Qualified, Adverse, Disclaimer",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-Z3N4HK",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "SA 501: Inventory count attendance and litigation inquiries",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-ZEP7W1",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "ESG assurance: Frameworks and auditor readiness",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P3-ZHZJ6D",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "SA 540: Auditing accounting estimates and fair value disclosures",
+      "legacy_paper_id": "s2023.P3",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P4-08TY54",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Arm's length price determination methods",
+      "legacy_paper_id": "s2023.P4",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P4-1HHAZQ",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Appeals before CIT(A), ITAT, High Court and Supreme Court",
+      "legacy_paper_id": "s2023.P4",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P4-1Y2TGB",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Depreciation under section 32 and additional depreciation",
+      "legacy_paper_id": "s2023.P4",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P4-3T1JFM",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Associated enterprise definition and international transactions",
+      "legacy_paper_id": "s2023.P4",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P4-42F6FJ",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Presumptive taxation under sections 44AD, 44ADA, 44AE",
+      "legacy_paper_id": "s2023.P4",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P4-4G6YK9",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Double Taxation Relief under section 90/91 and MLI provisions",
+      "legacy_paper_id": "s2023.P4",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P4-5MMQY8",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Concessional tax regimes for domestic companies (Sec 115BAA/115BAB)",
+      "legacy_paper_id": "s2023.P4",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P4-5NTAF2",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Depreciation and Business Deductions",
+      "legacy_paper_id": "s2023.P4",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P4-5TKVW4",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Exit tax on accreted income of trusts (Sec 115TD)",
+      "legacy_paper_id": "s2023.P4",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P4-6621B7",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Share premium in excess of fair value (Sec 56(2)(viib))",
+      "legacy_paper_id": "s2023.P4",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P4-71Y7NW",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "TDS on contract payments, professional fees and rent",
+      "legacy_paper_id": "s2023.P4",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P4-7GV8E3",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "General Anti-Avoidance Rules (GAAR) provisions and applicability",
+      "legacy_paper_id": "s2023.P4",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P4-97WRQR",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Scientific research expenditure (Sec 35) and capital investments",
+      "legacy_paper_id": "s2023.P4",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P4-9BRFXF",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "TDS, TCS, Assessment and Dispute Resolution",
+      "legacy_paper_id": "s2023.P4",
+      "legacy_level": "chapter",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P4-ABJ73N",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Transfer pricing documentation, master file and CbCR",
+      "legacy_paper_id": "s2023.P4",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P4-AV9JW0",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Taxation of Business Trusts (REITs/InvITs) and Securitization Trusts",
+      "legacy_paper_id": "s2023.P4",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P4-AYTVBD",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Corporate and Entity Taxation",
+      "legacy_paper_id": "s2023.P4",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P4-B37ERH",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Equalisation levy on online advertising and e-commerce supply",
+      "legacy_paper_id": "s2023.P4",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P4-B563PD",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "TDS on purchase of goods (Sec 194Q) and TCS on sale of goods (Sec 206C(1H))",
+      "legacy_paper_id": "s2023.P4",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P4-BTPBYM",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Capital Gains and Other Sources",
+      "legacy_paper_id": "s2023.P4",
+      "legacy_level": "chapter",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P4-CJEJR9",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Specific allowable deductions under sections 30 to 37",
+      "legacy_paper_id": "s2023.P4",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P4-D6DR2F",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "TDS on benefit or perquisite in business (Sec 194R)",
+      "legacy_paper_id": "s2023.P4",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P4-DHRPQD",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "TDS and TCS Mechanisms",
+      "legacy_paper_id": "s2023.P4",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P4-E5D6KZ",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Minimum Alternate Tax (MAT) under section 115JB",
+      "legacy_paper_id": "s2023.P4",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P4-EWGG0E",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Residential status and Significant Economic Presence (SEP)",
+      "legacy_paper_id": "s2023.P4",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P4-F4RYAE",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Capital gains exemptions: Section 54, 54EC, 54F",
+      "legacy_paper_id": "s2023.P4",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P4-FETR7T",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Secondary adjustment under section 92CE and thin capitalization (Sec 94B)",
+      "legacy_paper_id": "s2023.P4",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P4-FQ1CQ9",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Penalties for under-reporting and misreporting of income (Sec 270A)",
+      "legacy_paper_id": "s2023.P4",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P4-G0R974",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Taxation of royalty, FTS and capital gains for non-residents",
+      "legacy_paper_id": "s2023.P4",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P4-H68XGH",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Taxation of virtual digital assets (VDA) under section 115BBH",
+      "legacy_paper_id": "s2023.P4",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P4-HF98DD",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Disallowances and Special Provisions",
+      "legacy_paper_id": "s2023.P4",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P4-HPYPYG",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Transfer definition and slump sale under section 50B",
+      "legacy_paper_id": "s2023.P4",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P4-JQN3AG",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Charitable and Religious Trusts",
+      "legacy_paper_id": "s2023.P4",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P4-JXNJNB",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Capital Gains Computation",
+      "legacy_paper_id": "s2023.P4",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P4-JZV9H7",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Section 43B statutory dues and recent MSME payment rules",
+      "legacy_paper_id": "s2023.P4",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P4-KACH80",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Application of income, accumulation rules and Form 9A/10",
+      "legacy_paper_id": "s2023.P4",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P4-KCEC1Z",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Buyback of shares and capital reduction tax treatment",
+      "legacy_paper_id": "s2023.P4",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P4-MBYH9Y",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Assessment, Appeals and Penalties",
+      "legacy_paper_id": "s2023.P4",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P4-MPH82R",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Registration regime under sections 12AB and 10(23C)",
+      "legacy_paper_id": "s2023.P4",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P4-MWTXW8",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "International Taxation and Transfer Pricing",
+      "legacy_paper_id": "s2023.P4",
+      "legacy_level": "chapter",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P4-PAY9DP",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Profits and Gains of Business or Profession (PGBP)",
+      "legacy_paper_id": "s2023.P4",
+      "legacy_level": "chapter",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P4-RCRCZ3",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Transfer Pricing",
+      "legacy_paper_id": "s2023.P4",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P4-S6HVBK",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Dividend income taxation and deductions allowable",
+      "legacy_paper_id": "s2023.P4",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P4-SJYENR",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Non-Resident Taxation & Treaties",
+      "legacy_paper_id": "s2023.P4",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P4-TF8K38",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Taxation of firms, LLPs and Alternate Minimum Tax (AMT)",
+      "legacy_paper_id": "s2023.P4",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P4-VZBQES",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Assessment of Various Entities & Charitable Trusts",
+      "legacy_paper_id": "s2023.P4",
+      "legacy_level": "chapter",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P4-X4K8P8",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Taxation of gifts and undervalued property (Sec 56(2)(x))",
+      "legacy_paper_id": "s2023.P4",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P4-Y2ZG7A",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Faceless assessment scheme and reassessment under section 147/148",
+      "legacy_paper_id": "s2023.P4",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P4-Y47ETD",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Income from Other Sources",
+      "legacy_paper_id": "s2023.P4",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P4-YKAAF6",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Section 40(a) disallowances: TDS default, payment to non-residents",
+      "legacy_paper_id": "s2023.P4",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P4-YSFQBT",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Section 40A(2) payments to relatives and 40A(3) cash payments",
+      "legacy_paper_id": "s2023.P4",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P4-ZKPHP1",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Safe harbour rules and Advance Pricing Agreements (APA)",
+      "legacy_paper_id": "s2023.P4",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-0ZJA1T",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Special ITC Scenarios",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-1XC1G2",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Deemed exports and relevant date for refund calculation",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-2FKTRB",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Schedule I: Activities without consideration",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-3T166Y",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Valuation rules for related party and distinct person supplies",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-42X4VD",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Time and Value of Supply",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-4R5CV4",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Section 17(1) & 17(2): Apportionment of credit and Rule 42/43 mechanics",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-4RKS1C",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Supply, Charge of Tax and Exemptions under GST",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "chapter",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-5P61W4",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Foreign Trade Policy: Advance Authorization and EPCG schemes",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-5ST6HY",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Section 12 & 13 CGST: Time of supply of goods and services",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-78HCSK",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Customs Procedures and FTP",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-7V8R3X",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Refunds and Zero Rated Supply",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-8H2RK5",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Place, Time and Value of Supply",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "chapter",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-9B6DDP",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Demands, Penalties and Appeals",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-A0YK5Q",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Audit, Demands, Penalties and Appeals under GST",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "chapter",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-ADN4NV",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Levy and types of customs duties (BCD, SWS, Anti-dumping, Safeguard)",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-BNVQ7Q",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "GST Procedures, Returns and Refunds",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "chapter",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-C53XBX",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Charge and Exemptions",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-C9ZMZ2",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Manufacture in warehouse (MOOWR scheme)",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-CD7TXX",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Invoicing and Payment",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-CEFCHX",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Assessment and Audit",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-D1EQ5M",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Appeals hierarchy: Appellate Authority, GSTAT, High Court",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-EF17V3",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Eligibility and Apportionment",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-ENAVB5",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Online Information Database Access and Retrieval (OIDAR) services",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-FKTPKZ",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "E-invoicing applicability and exceptions",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-GBF9B9",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Concept of Supply",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-GMNJH7",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Payment of tax, electronic ledgers and order of utilization",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-GVRSFT",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Customs Law and Foreign Trade Policy (FTP)",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "chapter",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-GYR13B",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Penalties, general offences and detention/confiscation rules",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-GZ91J8",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Section 18: ITC on switchover to/from composition and exempt supplies",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-HR0M7R",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Schedule III: Non-supplies / negative list",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-JAA48B",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Section 73 & 74: Demands for non-fraud vs fraud cases",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-JFFJGT",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Advance ruling provisions and rectification of orders",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-JWB44P",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Section 7: Meaning and scope of supply with consideration",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-JZA3TC",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Input Service Distributor (ISD) mechanism and distribution rules",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-KB9BDK",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Departmental audit (Sec 65) and special audit (Sec 66)",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-M0ATSB",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Section 15 CGST: Transaction value and inclusions/exclusions",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-MD3QJM",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Place of Supply",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-MS6ST6",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Schedule II: Classification as supply of goods vs services",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-NES9JE",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Composition levy under section 10 and eligibility criteria",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-NX5VZG",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Customs valuation: Transaction value and Rule 3 to 10 adjustments",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-PASSB2",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Section 13 IGST: Place of supply where supplier or recipient is outside India",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-Q010WN",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Section 16: Eligibility and conditions for claiming ITC",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-Q0J6JZ",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Input Tax Credit (ITC)",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "chapter",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-Q0RB8H",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Section 10 & 11 IGST: Place of supply of goods (domestic and import/export)",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-QVVTNM",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Refund under zero-rated supplies: LUT vs payment of IGST",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-RRHN1T",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Mega exemptions notification for goods and services",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-SQEA05",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "E-way bill rules and verification in transit",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-SXW6T0",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Inspection, search, seizure and arrest powers",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-V1JHCH",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Duty drawback under sections 74 and 75",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-VRK6ER",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Clearance of imported goods for home consumption vs warehousing",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-W045PA",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Section 12 IGST: Place of supply of services (both supplier and recipient in India)",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-WBZM4J",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Job work provisions and ITC on goods sent for job work",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-WFCSBY",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Refund of unutilized ITC due to inverted duty structure",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-WP56YR",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Section 17(5): Blocked credit list and specific exceptions",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-WXPC5D",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Section 9: Forward charge and reverse charge mechanism (RCM)",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-X41G3H",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Self-assessment, provisional assessment and scrutiny of returns",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-XHB5P8",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Customs Valuation and Classification",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P5-XS06VP",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Export valuation rules and classification principles",
+      "legacy_paper_id": "s2023.P5",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P6-055TQG",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Enterprise Turnaround and Distress",
+      "legacy_paper_id": "s2023.P6",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P6-0JMHRM",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Optimizing ITC recovery and mitigating inverted duty impact",
+      "legacy_paper_id": "s2023.P6",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P6-1Z7DCE",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Debt restructuring, one-time settlement and haircut accounting",
+      "legacy_paper_id": "s2023.P6",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P6-250CHX",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Tax-optimized business restructuring: Mergers, demergers, slump sales",
+      "legacy_paper_id": "s2023.P6",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P6-3AK0J7",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Multi-regulatory compliance: Companies Act, SEBI, FEMA, Competition Act",
+      "legacy_paper_id": "s2023.P6",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P6-43FYM2",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Comprehensive Integrated Case Studies",
+      "legacy_paper_id": "s2023.P6",
+      "legacy_level": "chapter",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P6-554SDS",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Direct and International Tax Strategy",
+      "legacy_paper_id": "s2023.P6",
+      "legacy_level": "chapter",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P6-6V1SSE",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Managing permanent establishment and SEP exposure",
+      "legacy_paper_id": "s2023.P6",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P6-73VQSG",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Customs duty mitigation via Free Trade Agreements (FTA)",
+      "legacy_paper_id": "s2023.P6",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P6-7PWVFN",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "GST Structuring",
+      "legacy_paper_id": "s2023.P6",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P6-9V872R",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Export competitiveness: Advance authorization vs GST refunds",
+      "legacy_paper_id": "s2023.P6",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P6-BMW3NN",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Valuation in Complex Business Situations",
+      "legacy_paper_id": "s2023.P6",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P6-C7V708",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "BEPS alignment, substance requirements and treaty shopping risks",
+      "legacy_paper_id": "s2023.P6",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P6-DEE6B9",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Capital restructuring, dividend decisions and leverage optimization",
+      "legacy_paper_id": "s2023.P6",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P6-DJZXD5",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Corporate Financial Strategy",
+      "legacy_paper_id": "s2023.P6",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P6-DPR9FZ",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Regulatory dispute management in multi-jurisdictional supply",
+      "legacy_paper_id": "s2023.P6",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P6-E71KJX",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Internal financial control evaluation and reporting",
+      "legacy_paper_id": "s2023.P6",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P6-EWWZNS",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Complex Accounting & Audit Issues",
+      "legacy_paper_id": "s2023.P6",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P6-EZX3YX",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Forecasting sustainable growth rate and financial distress",
+      "legacy_paper_id": "s2023.P6",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P6-F3EEPY",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Auditor reporting dilemmas and KAM formulation in crises",
+      "legacy_paper_id": "s2023.P6",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P6-G384KS",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Cross-Border Tax Planning",
+      "legacy_paper_id": "s2023.P6",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P6-GEJBJ5",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Evaluating complex Ind AS revenue and lease structures",
+      "legacy_paper_id": "s2023.P6",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P6-J7C5AJ",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Cross-border M&A and currency risk integration",
+      "legacy_paper_id": "s2023.P6",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P6-JV9ZRT",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Financial Analysis and Strategic Financial Management",
+      "legacy_paper_id": "s2023.P6",
+      "legacy_level": "chapter",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P6-K4665Y",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Forensic review and proactive fraud risk management",
+      "legacy_paper_id": "s2023.P6",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P6-KBY3XY",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Insolvency and Bankruptcy Code (IBC) financial and tax implications",
+      "legacy_paper_id": "s2023.P6",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P6-KRGA9E",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Board oversight, Audit Committee responsibilities and LODR compliance",
+      "legacy_paper_id": "s2023.P6",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P6-N3GSK7",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "GAAR evaluation for corporate holding structures",
+      "legacy_paper_id": "s2023.P6",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P6-P61J40",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Stakeholder negotiation and turnaround strategy implementation",
+      "legacy_paper_id": "s2023.P6",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P6-P83W74",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Evaluating strategic investments and hurdle rates",
+      "legacy_paper_id": "s2023.P6",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P6-PG1GXR",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Cross-Border Expansion and IPO Readiness",
+      "legacy_paper_id": "s2023.P6",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P6-PHYBCT",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Auditing, Internal Controls and Corporate Governance",
+      "legacy_paper_id": "s2023.P6",
+      "legacy_level": "chapter",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P6-Q6ZK3K",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Customs and FTP Integration",
+      "legacy_paper_id": "s2023.P6",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P6-Q8C8JM",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Governance and Risk Oversight",
+      "legacy_paper_id": "s2023.P6",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P6-R86H2R",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Indirect Tax Optimization and Supply Chain Strategy",
+      "legacy_paper_id": "s2023.P6",
+      "legacy_level": "chapter",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P6-RSEYFZ",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Integrated reporting and ESG governance implementation",
+      "legacy_paper_id": "s2023.P6",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P6-RVZFM7",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Group audit considerations and overseas subsidiary oversight",
+      "legacy_paper_id": "s2023.P6",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P6-S3TMY4",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Special Economic Zones (SEZ) and bonded warehouse logistics",
+      "legacy_paper_id": "s2023.P6",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P6-TAK6QC",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Supply chain transfer pricing optimization and APA strategy",
+      "legacy_paper_id": "s2023.P6",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P6-W2SSRR",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Supply chain design: Cross-charge vs ISD vs branch transfers",
+      "legacy_paper_id": "s2023.P6",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P6-W5V7QS",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Comprehensive DCF and relative valuation under uncertainty",
+      "legacy_paper_id": "s2023.P6",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P6-XTR512",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Domestic Tax Structuring",
+      "legacy_paper_id": "s2023.P6",
+      "legacy_level": "topic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P6-Y6SZ9J",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Brand and intangible asset valuation in M&A",
+      "legacy_paper_id": "s2023.P6",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P6-YCYR7K",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Preparing financial statements for global listing / IPO",
+      "legacy_paper_id": "s2023.P6",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  },
+  {
+    "old_node_id": "P6-YEF3AV",
+    "new_node_id": null,
+    "relation": "unresolved",
+    "evidence": {
+      "legacy_name": "Interplay between corporate tax regimes and MAT credit",
+      "legacy_paper_id": "s2023.P6",
+      "legacy_level": "subtopic",
+      "review_note": "No reviewed equivalence; independently constructed textbook nodes require source-based crosswalk review"
+    }
+  }
+]

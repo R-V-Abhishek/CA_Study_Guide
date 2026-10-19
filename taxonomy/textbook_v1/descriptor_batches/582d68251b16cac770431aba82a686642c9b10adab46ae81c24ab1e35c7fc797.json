@@ -1,0 +1,294 @@
+{
+  "descriptors": [
+    {
+      "node_id": "96e2e498-b489-4a09-a381-cee097848cd9",
+      "concept_name": "Test of core competency contains three parameters",
+      "definition": "Core competencies are evaluated using three essential parameters: relevance to customer choice, difficulty of imitation by competitors, and breadth of application across potential markets. Together, these criteria determine whether an organizational capability can successfully sustain competitive advantage and significant growth.",
+      "terminology": [
+        "Relevance",
+        "Difficulty of imitation",
+        "Breadth of application",
+        "Core competency"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Competences that strongly influence customer choices",
+        "Skills that are technically difficult for rivals to copy",
+        "Capabilities that open multiple potential markets"
+      ],
+      "exclusion": [
+        "Competencies with no effect on competitive position",
+        "Capabilities limited to small niche markets"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from generic business resources by its multi-market application and high imitation barriers."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "22f8b3c2-0f4b-46a6-8c10-77f0502d277f",
+      "concept_name": "IT/ IS and Porter’s Five Forces",
+      "definition": "Information technology and information systems directly influence the competitive environment by altering industry forces such as threat of new entrants, supplier bargaining power, buyer bargaining power, threat of substitutes, and competitive rivalry. Organizations leverage these digital tools to counteract competitive pressures and reshape their market position.",
+      "terminology": [
+        "Porter's Five Forces",
+        "Information Technology",
+        "Information Systems",
+        "Competitive environment"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Impact of IT on industry forces",
+        "Strategic application of digital tools to counter competition"
+      ],
+      "exclusion": [
+        "General operational IT usage unrelated to competitive forces"
+      ],
+      "nearby_distinctions": [
+        "Focuses specifically on external competitive dynamics rather than internal value chain activities."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a6011471-3ccb-4c9d-8ea1-728a1dbf60d0",
+      "concept_name": "The Threat of New Entrants",
+      "definition": "New market entrants introduce extra capacity and intensify competition, with the degree of threat depending on entry barriers and existing competitor responses. Information technology can be deployed either by incumbents to raise capital investment hurdles or by new players as a weapon to bypass traditional barriers.",
+      "terminology": [
+        "Threat of New Entrants",
+        "Barriers to entry",
+        "Economies of scale"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Sophisticated IT applications creating investment hurdles",
+        "Alternative distribution channels reducing setup costs for new entrants"
+      ],
+      "exclusion": [
+        "Bargaining power of existing suppliers or buyers"
+      ],
+      "nearby_distinctions": [
+        "Distinct from substitute threats as it involves new firms entering with similar capacity rather than alternative product classes."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "570074b2-89af-4022-8e8f-9ba6898a1aa7",
+      "concept_name": "Creating barriers (existing players)",
+      "definition": "Existing market players utilize sophisticated and expensive information technology applications to establish high barriers against potential new entrants. Such computer-controlled production methods require substantial capital investment and technical mastery, deterring market entry.",
+      "terminology": [
+        "Creating barriers",
+        "Computer-controlled production",
+        "Economies of scale"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Expensive IT applications",
+        "Technically challenging production systems"
+      ],
+      "exclusion": [
+        "New entrant tools bypassing branch networks"
+      ],
+      "nearby_distinctions": [
+        "Differentiated from breaking down barriers by focusing on incumbent defense strategies rather than entrant offensive tactics."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9e02dd09-1ded-49cc-bb63-55c122fc104d",
+      "concept_name": "Breaking Down The Barriers (New Entrants)",
+      "definition": "New entrants deploy information technology as a tactical weapon to circumvent traditional operational hurdles like physical branch networks. This approach establishes alternative distribution channels free from the operational control of established market players.",
+      "terminology": [
+        "Internet banking",
+        "Mobile banking",
+        "Automated teller machines",
+        "Distribution channel"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Saving branch establishment costs via digital channels",
+        "Utilizing mobile and internet platforms as tactical weapons"
+      ],
+      "exclusion": [
+        "Incumbent capital-intensive production barriers"
+      ],
+      "nearby_distinctions": [
+        "Focuses on how entrants bypass existing infrastructure advantages rather than how incumbents protect them."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "12842edc-f204-4e48-ab02-a83a7814e788",
+      "concept_name": "Supplier’s Bargaining Power",
+      "definition": "Suppliers exert influence over input costs, quality, and availability based on market factors like substitute availability and switching costs. Organizations use information technology tools such as e-procurement systems, commercial databases, and integrated supply chains to identify alternative suppliers and prevent cartelisation.",
+      "terminology": [
+        "Supplier bargaining power",
+        "E-procurement",
+        "Integrated supply chain",
+        "Cartelisation"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Paid purchases databases for price scanning",
+        "Automated order rotation among vendors",
+        "Extended ERP access for vendor integration"
+      ],
+      "exclusion": [
+        "Customer-facing retention and data mining techniques"
+      ],
+      "nearby_distinctions": [
+        "Focuses on upstream input market dynamics rather than downstream customer demand."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6b8f91d1-8cc9-4ae4-8276-9fc962d5ccd0",
+      "concept_name": "Buyer’s Bargaining Power",
+      "definition": "Buyers influence enterprise revenue streams by dictating terms when switching costs are low or purchasing volumes are high. Businesses deploy information technology to counter this power through data warehousing, targeted marketing, and customer retention lock-in mechanisms.",
+      "terminology": [
+        "Buyer bargaining power",
+        "Customer Data Warehousing",
+        "Lock the Customer",
+        "Switching cost"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Customer data mining for targeted marketing",
+        "Product compatibility configurations ensuring high switching costs",
+        "Loyalty rewards and promotional app discounts"
+      ],
+      "exclusion": [
+        "Upstream vendor management and e-procurement systems"
+      ],
+      "nearby_distinctions": [
+        "Concentrates on downstream customer relationships rather than upstream supplier negotiations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2b15e97e-e959-4e70-b244-6dd4c5f1ae61",
+      "concept_name": "Threat of Substitutes",
+      "definition": "Substitute products or services from various industries can cause revenue loss or higher customer retention costs when they offer cheaper or superior alternatives. Organizations counter this threat by using technological tools like specialist software and computer-aided design to pioneer and patent new products ahead of rivals.",
+      "terminology": [
+        "Threat of Substitutes",
+        "Switching cost",
+        "Patents",
+        "Computer-aided design"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Cross-industry and intra-industry substitutes",
+        "Specialist software for rapid product discovery",
+        "Intellectual property protection via patents"
+      ],
+      "exclusion": [
+        "Direct competitor rivalry within the same product category"
+      ],
+      "nearby_distinctions": [
+        "Differentiated from competitive rivalry by addressing alternative functional offerings from different segments rather than direct peers."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d80bd34e-9c4f-47ac-9512-2e39a89f9335",
+      "concept_name": "Competitive Rivalry",
+      "definition": "Competitive rivalry arises when market forces combine to intensify competition among existing firms, affecting profitability and market share. Organizations deploy information technology resources, including cost leadership applications and collaborative partnerships, to maintain market presence and customer engagement.",
+      "terminology": [
+        "Competitive rivalry",
+        "JIT",
+        "ERP",
+        "MRP",
+        "Collaborative ventures"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Using IT to support just-in-time and enterprise resource planning systems",
+        "Strategic partnerships across complementary industries",
+        "Client relationship building to reduce rival threats"
+      ],
+      "exclusion": [
+        "Initial market entry barriers for new participants"
+      ],
+      "nearby_distinctions": [
+        "Focuses on head-to-head competition among established peers rather than entry, supplier, or substitute forces."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d7812574-9a46-4ce5-9390-d1545ccdaf42",
+      "concept_name": "Secondary Activities",
+      "definition": "Secondary activities support the value chain through firm infrastructure, technology development, human resource management, and procurement. Information technology integrates these support functions via intranets, office automation, automated HR workflows, and electronic data interchange.",
+      "terminology": [
+        "Firm infrastructure",
+        "Technology development",
+        "Human resource management",
+        "Procurement",
+        "HR Tech"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Intranets and ERP for firm infrastructure workflow",
+        "Online booking and AI-driven HR management tools",
+        "Electronic data interchange for vendor procurement"
+      ],
+      "exclusion": [
+        "Primary sequential operations directly handling physical product delivery"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from primary activities by providing enterprise-wide infrastructural and administrative support rather than direct operational conversion."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4255b11b-92d4-41a7-8863-25fb834f3aa0",
+      "concept_name": "The Transforming Role of the Management Accountant",
+      "definition": "Management accountants have evolved from traditional roles focused on stewardship and routine reporting into strategic business leaders. Operating at the crossroads of technology, financial analysis, and strategy, they translate high-level goals into operational actions and guide C-suite decision-making.",
+      "terminology": [
+        "Stewardship Accounting",
+        "Management Information System",
+        "C-Suite",
+        "Strategic business leader"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Long-term and short-term planning",
+        "Cross-functional guidance combining technology and financial analysis"
+      ],
+      "exclusion": [
+        "Strictly historical bookkeeping without analytical interpretation"
+      ],
+      "nearby_distinctions": [
+        "Differentiated from traditional record-keeping accountants by active participation in C-suite strategic execution."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "46ce0b10-8e4d-4044-a9e1-f34d544b9b3f",
+      "concept_name": "Analysis - To offer new insights and vision",
+      "definition": "Management accountants analyze financial and non-financial information to uncover underlying trends and provide actionable business insights. These insights guide senior leadership in crafting strategies related to total quality management, supply chains, and customer profitability.",
+      "terminology": [
+        "Financial analysis",
+        "Non-financial information",
+        "Total Quality Management",
+        "Customer profitability"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Uncovering data meanings for strategic planning",
+        "Providing insights on supply chains and innovations"
+      ],
+      "exclusion": [
+        "Routine operational data entry without interpretive analysis"
+      ],
+      "nearby_distinctions": [
+        "Distinct from general financial reporting by focusing on forward-looking interpretations and strategic vision."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "582d68251b16cac770431aba82a686642c9b10adab46ae81c24ab1e35c7fc797",
+  "artifact_id": "aefcd45d-6353-4580-9c39-054c3d302731",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8273,
+  "output_tokens": 3132,
+  "cost_usd": 0.010311899999999999,
+  "created_at": "2026-10-03T18:25:49.362418+00:00"
+}

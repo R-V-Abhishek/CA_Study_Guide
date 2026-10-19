@@ -6,11 +6,9 @@ from rich.table import Table
 import typer
 from sqlalchemy import func, select
 
-from caf_common.run_context import open_run
 from caf_db.engine import get_session_factory
 from caf_db.models.core import Appearance, AppearanceTag, Decision
 from caf_db.models.ingest import Document, TagSuggestion, Unit
-from caf_l4.publish import bulk_accept_bucket_a
 
 app = typer.Typer(name="curate", help="L4 Curation commands")
 console = Console()
@@ -23,7 +21,7 @@ def curate_queue(
     limit: Annotated[int, typer.Option("--limit", help="Max units to list")] = 20,
 ) -> None:
     """List pending units in the human review queue."""
-    session_factory = get_session_factory()
+    session_factory = get_session_factory("curation")
     with session_factory() as session:
         query = (
             select(Unit, Document)
@@ -86,18 +84,15 @@ def curate_queue(
 def curate_bulk_accept(
     doc_id: Annotated[int, typer.Option("--doc", help="Document ID whose Bucket A units to publish")] = ...,
 ) -> None:
-    """Bulk accept all remaining Bucket A suggestions for a confirmed document."""
-    session_factory = get_session_factory()
-    with session_factory() as session:
-        with open_run(stage="l4_bulk_accept", args={"doc_id": doc_id}) as run:
-            count = bulk_accept_bucket_a(session, doc_id)
-            console.print(f"[bold green]Successfully bulk-accepted and published {count} Bucket A units for document {doc_id}.[/bold green]")
+    """Historical command; explicit authenticated root review is now required."""
+    console.print('[red]Automatic bucket publication is disabled. Review selected root revisions as an authenticated administrator in /curator/bulk.[/red]')
+    raise typer.Exit(1)
 
 
 @app.command("stats")
 def curate_stats() -> None:
     """Display overall knowledge store statistics and curation progress."""
-    session_factory = get_session_factory()
+    session_factory = get_session_factory("curation")
     with session_factory() as session:
         pub_appearances = session.query(func.count(Appearance.id)).filter(Appearance.status == "published").scalar() or 0
         pub_tags = session.query(func.count(AppearanceTag.appearance_id)).scalar() or 0

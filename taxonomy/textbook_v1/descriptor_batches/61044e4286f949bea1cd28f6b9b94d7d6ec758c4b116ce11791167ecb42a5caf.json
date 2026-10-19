@@ -1,0 +1,121 @@
+{
+  "descriptors": [
+    {
+      "node_id": "ce9d02a2-fae2-4814-aacf-700f73f964a1",
+      "concept_name": "Fundamentals of Insolvency and Bankruptcy",
+      "definition": "Insolvency represents a financial or business failure state where a debtor defaults on due payments, whereas bankruptcy is the conclusive legal state where liabilities exceed asset values for individuals. Untreated insolvency leads to individual bankruptcy or corporate liquidation through statutory resolution mechanisms.",
+      "terminology": [
+        "Insolvency",
+        "Bankruptcy",
+        "Default",
+        "Liquidation",
+        "Avoidance Transactions"
+      ],
+      "instrument_references": [
+        "Insolvency and Bankruptcy Code, 2016"
+      ],
+      "inclusion": [
+        "Corporate liquidation",
+        "Individual bankruptcy",
+        "Preferential and undervalued transactions"
+      ],
+      "exclusion": [
+        "Successful debt restructuring without default",
+        "Solvent business wind-ups"
+      ],
+      "nearby_distinctions": [
+        "Insolvency is an unfulfilled payment state, whereas bankruptcy is a formal legal conclusion of insolvency."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "39483988-dcd6-466b-ae59-989203e9d864",
+      "concept_name": "Important Definitions",
+      "definition": "Statutory definitions under the code establish key regulatory terms including the governing board, corporate person status, claims, and debts. These provisions outline the precise legal boundaries for creditors, charges, and financial or operational obligations.",
+      "terminology": [
+        "Board",
+        "Charge",
+        "Claim",
+        "Corporate Person",
+        "Corporate Debtor",
+        "Creditor",
+        "Debt"
+      ],
+      "instrument_references": [
+        "Insolvency and Bankruptcy Code, 2016"
+      ],
+      "inclusion": [
+        "Financial debt",
+        "Operational debt",
+        "Secured and unsecured creditors"
+      ],
+      "exclusion": [
+        "Financial service providers from corporate person definition"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between financial debts disbursed for time value of money and general operational claims."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4e5f2895-3764-4bbe-8b2c-92fc64f8a541",
+      "concept_name": "Corporate Insolvency Resolution Process Overview",
+      "definition": "The corporate insolvency resolution process is a time-bound collective mechanism enabling lenders to evaluate business viability and pursue rescue options. Failed resolution attempts directly trigger asset liquidation to distribute realizations among stakeholders.",
+      "terminology": [
+        "Committee of Creditors",
+        "Going Concern",
+        "Moratorium",
+        "Resolution Plan",
+        "Fast-track Resolution"
+      ],
+      "instrument_references": [
+        "Insolvency and Bankruptcy Code, 2016"
+      ],
+      "inclusion": [
+        "Application filing and adjudication",
+        "Moratorium and public announcements",
+        "Time limits up to 330 days"
+      ],
+      "exclusion": [
+        "Direct company liquidation without prior resolution attempts"
+      ],
+      "nearby_distinctions": [
+        "CIRP focuses on business rescue and viability assessment, whereas liquidation focuses strictly on asset realization and distribution."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "07bd11d6-6511-4221-94df-60ff7628e9bf",
+      "concept_name": "Liquidation Process",
+      "definition": "Liquidation is triggered only after a corporate insolvency resolution process fails due to missing plans, committee rejections, or plan contraventions. The adjudicating authority issues an order directing the corporate debtor into liquidation as governed by statute.",
+      "terminology": [
+        "Liquidation Order",
+        "Resolution Plan Rejection",
+        "Contravention",
+        "Adjudicating Authority"
+      ],
+      "instrument_references": [
+        "Insolvency and Bankruptcy Code, 2016"
+      ],
+      "inclusion": [
+        "Liquidation upon receiving no resolution plan",
+        "Liquidation due to committee decision approval",
+        "Liquidation following plan contravention"
+      ],
+      "exclusion": [
+        "Direct initiation of liquidation without a preceding resolution phase"
+      ],
+      "nearby_distinctions": [
+        "Liquidation mandates asset realization, differing from CIRP's primary emphasis on business revival and continuation."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "61044e4286f949bea1cd28f6b9b94d7d6ec758c4b116ce11791167ecb42a5caf",
+  "artifact_id": "cbb748d2-1245-483b-963d-2d2d865eb4de",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 3315,
+  "output_tokens": 1137,
+  "cost_usd": 0.003837,
+  "created_at": "2026-10-03T18:25:31.301763+00:00"
+}

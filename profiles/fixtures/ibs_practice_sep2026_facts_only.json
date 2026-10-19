@@ -1,0 +1,1779 @@
+{
+  "source_file": "data/blobs/48/66/48668e5ff2ebd5bdc191521d76178548df8281a86f3af622c771d68bdbdd0e75.pdf",
+  "source_sha256": "48668e5ff2ebd5bdc191521d76178548df8281a86f3af622c771d68bdbdd0e75",
+  "source_url": "https://resource.cdn.icai.org/94373bos-aps638-cs1.pdf",
+  "source_pages": [
+    1,
+    2
+  ],
+  "paper": "s2023.P6",
+  "doc_type": "case_scenarios",
+  "blocks": [
+    {
+      "block_id": "p1-b1",
+      "page": 1,
+      "bbox": [
+        263.760009765625,
+        60.204254150390625,
+        351.20965576171875,
+        77.30452728271484
+      ],
+      "text": "Case Study -1",
+      "size": 14.973974227905273,
+      "bold": true,
+      "font": "CIDFont+F1",
+      "raw_text": "Case Study -1 ",
+      "origin": "pdf",
+      "order": 0,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p1-b2",
+      "page": 1,
+      "bbox": [
+        66.0,
+        88.50032806396484,
+        550.5923461914062,
+        100.21517181396484
+      ],
+      "text": "India\u2019s Smartphone market shipped 8 million smartphones in 2023 with a normal one percent growth year-on-year basis.",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F2",
+      "raw_text": "India\u2019s Smartphone market shipped 8 million smartphones in 2023 with a normal one percent growth year-on-year basis.  ",
+      "origin": "pdf",
+      "order": 1,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p1-b3",
+      "page": 1,
+      "bbox": [
+        66.0,
+        103.62033081054688,
+        548.0233154296875,
+        115.33517456054688
+      ],
+      "text": "Market size was valued at USD 169.72 billion in 2023 and is expected to reach USD 341.40 billion by 2030 as per",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F2",
+      "raw_text": "Market size was valued at USD 169.72 billion in 2023 and is expected to reach USD 341.40 billion by 2030 as per ",
+      "origin": "pdf",
+      "order": 2,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p1-b4",
+      "page": 1,
+      "bbox": [
+        66.0,
+        118.62033081054688,
+        321.5332336425781,
+        130.33517456054688
+      ],
+      "text": "International Data Corporation Report dated February 13,2024.",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F2",
+      "raw_text": "International Data Corporation Report dated February 13,2024.   ",
+      "origin": "pdf",
+      "order": 3,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p1-b5",
+      "page": 1,
+      "bbox": [
+        66.0,
+        139.26031494140625,
+        548.021484375,
+        150.97515869140625
+      ],
+      "text": "Soft Tech Limited (STL), an Indian company, started its operations three years ago to manufacture Smart Phones and",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F2",
+      "raw_text": "Soft Tech Limited (STL), an Indian company, started its operations three years ago to manufacture Smart Phones and ",
+      "origin": "pdf",
+      "order": 4,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p1-b6",
+      "page": 1,
+      "bbox": [
+        66.0,
+        154.3803253173828,
+        548.0201416015625,
+        166.0951690673828
+      ],
+      "text": "provision of IT-software services. The objective of the company was to catch the market-share of the growing smartphone",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F2",
+      "raw_text": "provision of IT-software services.  The objective of the company was to catch the market-share of the growing smartphone ",
+      "origin": "pdf",
+      "order": 5,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p1-b7",
+      "page": 1,
+      "bbox": [
+        66.0,
+        169.3803253173828,
+        107.14263916015625,
+        181.0951690673828
+      ],
+      "text": "industry.",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F2",
+      "raw_text": "industry.   ",
+      "origin": "pdf",
+      "order": 6,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p1-b8",
+      "page": 1,
+      "bbox": [
+        66.0,
+        190.02032470703125,
+        548.103759765625,
+        201.73516845703125
+      ],
+      "text": "The STL company has entered into contract with its sole-distributor MJ & Co. in North India to supply Smartphone and",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F2",
+      "raw_text": "The STL company has entered into contract with its sole-distributor MJ & Co. in North India to supply Smartphone and ",
+      "origin": "pdf",
+      "order": 7,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p1-b9",
+      "page": 1,
+      "bbox": [
+        66.0,
+        205.14031982421875,
+        548.0709228515625,
+        216.85516357421875
+      ],
+      "text": "Software license. The software may be substantially customised to add significant new functionality to enable the software",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F2",
+      "raw_text": "Software license.  The software may be substantially customised to add significant new functionality to enable the software ",
+      "origin": "pdf",
+      "order": 8,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p1-b10",
+      "page": 1,
+      "bbox": [
+        66.0,
+        220.14031982421875,
+        548.0621948242188,
+        231.85516357421875
+      ],
+      "text": "to integrate with smartphone applications used by the customers. The company also sells the smartphones and the software",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F2",
+      "raw_text": "to integrate with smartphone applications used by the customers.  The company also sells the smartphones and the software ",
+      "origin": "pdf",
+      "order": 9,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p1-b11",
+      "page": 1,
+      "bbox": [
+        66.0,
+        235.14031982421875,
+        548.0216064453125,
+        246.85516357421875
+      ],
+      "text": "license separately to other distributors in the country. Customers can also buy smartphones and software license separately",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F2",
+      "raw_text": "license separately to other distributors in the country.  Customers can also buy smartphones and software license separately ",
+      "origin": "pdf",
+      "order": 10,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p1-b12",
+      "page": 1,
+      "bbox": [
+        66.0,
+        250.26031494140625,
+        204.0099334716797,
+        261.97515869140625
+      ],
+      "text": "from other vendors in the country.",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F2",
+      "raw_text": "from other vendors in the country.  ",
+      "origin": "pdf",
+      "order": 11,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p1-b13",
+      "page": 1,
+      "bbox": [
+        66.0,
+        270.90032958984375,
+        548.0336303710938,
+        282.61517333984375
+      ],
+      "text": "STL has entered into a one-year contract on 1st April of current financial year (FY) with Distributor MJ to deliver Smartphones",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F2",
+      "raw_text": "STL has entered into a one-year contract on 1st April of current financial year (FY) with Distributor MJ to deliver Smartphones ",
+      "origin": "pdf",
+      "order": 12,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p1-b14",
+      "page": 1,
+      "bbox": [
+        66.0,
+        285.90032958984375,
+        444.79852294921875,
+        297.61517333984375
+      ],
+      "text": "with customised software by offering discounted prices for certain volumes as given hereunder:",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F2",
+      "raw_text": "with customised software by offering discounted prices for certain volumes as given hereunder:  ",
+      "origin": "pdf",
+      "order": 13,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p1-b15",
+      "page": 1,
+      "bbox": [
+        125.04000091552734,
+        303.69921875,
+        223.0343475341797,
+        316.3359375
+      ],
+      "text": "Price per Smartphone",
+      "size": 10.357950210571289,
+      "bold": true,
+      "font": "CIDFont+F3",
+      "raw_text": "Price per Smartphone  ",
+      "origin": "pdf",
+      "order": 14,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p1-b16",
+      "page": 1,
+      "bbox": [
+        311.0147705078125,
+        303.69921875,
+        450.2315979003906,
+        316.3359375
+      ],
+      "text": "Cumulative sales volume (units)",
+      "size": 10.357950210571289,
+      "bold": true,
+      "font": "CIDFont+F3",
+      "raw_text": "Cumulative sales volume (units) ",
+      "origin": "pdf",
+      "order": 15,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p1-b17",
+      "page": 1,
+      "bbox": [
+        125.04000091552734,
+        319.6592102050781,
+        163.70216369628906,
+        332.2959289550781
+      ],
+      "text": "` 10,000",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F4",
+      "raw_text": "` 10,000 ",
+      "origin": "pdf",
+      "order": 16,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p1-b18",
+      "page": 1,
+      "bbox": [
+        311.13726806640625,
+        319.6592102050781,
+        349.3973693847656,
+        332.2959289550781
+      ],
+      "text": "1 \u2013 2500",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F5",
+      "raw_text": "1 \u2013 2500 ",
+      "origin": "pdf",
+      "order": 17,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p1-b19",
+      "page": 1,
+      "bbox": [
+        125.04000091552734,
+        335.4992370605469,
+        156.17489624023438,
+        348.1359558105469
+      ],
+      "text": "` 9,500",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F4",
+      "raw_text": "` 9,500",
+      "origin": "pdf",
+      "order": 18,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p1-b20",
+      "page": 1,
+      "bbox": [
+        311.1600036621094,
+        335.4992370605469,
+        363.0559997558594,
+        348.1359558105469
+      ],
+      "text": "2501 \u2013 5000",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F5",
+      "raw_text": "2501 \u2013 5000",
+      "origin": "pdf",
+      "order": 19,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p1-b21",
+      "page": 1,
+      "bbox": [
+        125.04000091552734,
+        351.459228515625,
+        158.45237731933594,
+        364.095947265625
+      ],
+      "text": "` 9,000",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F4",
+      "raw_text": "` 9,000 ",
+      "origin": "pdf",
+      "order": 20,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p1-b22",
+      "page": 1,
+      "bbox": [
+        311.1700134277344,
+        351.459228515625,
+        382.9239196777344,
+        364.095947265625
+      ],
+      "text": "5001 and above",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F5",
+      "raw_text": "5001 and above  ",
+      "origin": "pdf",
+      "order": 21,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p1-b23",
+      "page": 1,
+      "bbox": [
+        66.0,
+        370.7403259277344,
+        548.0654907226562,
+        382.4551696777344
+      ],
+      "text": "Volume is determined based on sales during the FY. There are no minimum purchase requirements. STL has estimated",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F2",
+      "raw_text": "Volume is determined based on sales during the FY.  There are no minimum purchase requirements.  STL has estimated ",
+      "origin": "pdf",
+      "order": 22,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p1-b24",
+      "page": 1,
+      "bbox": [
+        66.0,
+        385.8603515625,
+        550.3374633789062,
+        397.5751953125
+      ],
+      "text": "that total sales volume to distributor MJ for the current FY would be 4000 units based on its experience with similar contracts.",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F2",
+      "raw_text": "that total sales volume to distributor MJ for the current FY would be 4000 units based on its experience with similar contracts.  ",
+      "origin": "pdf",
+      "order": 23,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p1-b25",
+      "page": 1,
+      "bbox": [
+        66.0,
+        406.50030517578125,
+        547.984375,
+        418.21514892578125
+      ],
+      "text": "STL company has estimated that 8,500 units of Smartphones (including 4000 units to MJ Distributor) would be sold in",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F2",
+      "raw_text": "STL company has estimated that 8,500 units of Smartphones (including 4000 units to MJ Distributor) would be sold in ",
+      "origin": "pdf",
+      "order": 24,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p1-b26",
+      "page": 1,
+      "bbox": [
+        66.0,
+        421.50030517578125,
+        548.0861206054688,
+        433.21514892578125
+      ],
+      "text": "current FY with market share of 1%, and the average contribution of ` 2000 per unit will be achieved. However, at end of",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F2",
+      "raw_text": "current FY with market share of 1%, and the average contribution of ` 2000 per unit will be achieved.  However, at end of ",
+      "origin": "pdf",
+      "order": 25,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p1-b27",
+      "page": 1,
+      "bbox": [
+        66.0,
+        436.6203308105469,
+        547.9736938476562,
+        448.3351745605469
+      ],
+      "text": "current FY, the STL company actually sold 10,000 units of Smartphones (including 4500 units to MJ Distributor) by achieving",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F2",
+      "raw_text": "current FY, the STL company actually sold 10,000 units of Smartphones (including 4500 units to MJ Distributor) by achieving ",
+      "origin": "pdf",
+      "order": 26,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p1-b28",
+      "page": 1,
+      "bbox": [
+        66.0,
+        451.6203308105469,
+        167.7803497314453,
+        463.3351745605469
+      ],
+      "text": "market share of 1.25 %.",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F2",
+      "raw_text": "market share of 1.25 %.   ",
+      "origin": "pdf",
+      "order": 27,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p1-b29",
+      "page": 1,
+      "bbox": [
+        66.0,
+        472.2603454589844,
+        547.9667358398438,
+        483.9751892089844
+      ],
+      "text": "Recently, smartphone users have been experiencing issues with app crashes, which has become a significant concern for",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F2",
+      "raw_text": "Recently, smartphone users have been experiencing issues with app crashes, which has become a significant concern for ",
+      "origin": "pdf",
+      "order": 28,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p1-b30",
+      "page": 1,
+      "bbox": [
+        66.0,
+        487.38031005859375,
+        548.0451049804688,
+        499.09515380859375
+      ],
+      "text": "the company. In response, the company is planning to enhance not only the operating system but also the touch screen of",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F2",
+      "raw_text": "the company. In response, the company is planning to enhance not only the operating system but also the touch screen of ",
+      "origin": "pdf",
+      "order": 29,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p1-b31",
+      "page": 1,
+      "bbox": [
+        66.0,
+        502.38031005859375,
+        548.0233154296875,
+        514.0951538085938
+      ],
+      "text": "its devices. By improving these aspects, the company aims to provide a more responsive and reliable user experience,",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F2",
+      "raw_text": "its devices. By improving these aspects, the company aims to provide a more responsive and reliable user experience, ",
+      "origin": "pdf",
+      "order": 30,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p1-b32",
+      "page": 1,
+      "bbox": [
+        66.0,
+        517.3803100585938,
+        264.7512512207031,
+        529.0951538085938
+      ],
+      "text": "potentially reducing the frequency of app crashes.",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F2",
+      "raw_text": "potentially reducing the frequency of app crashes. ",
+      "origin": "pdf",
+      "order": 31,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p1-b33",
+      "page": 1,
+      "bbox": [
+        66.0,
+        538.1403198242188,
+        548.0655517578125,
+        549.8551635742188
+      ],
+      "text": "The CFO of the STL company wishes to increase its market share to 2% in next five years. For this purpose, he wants to",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F2",
+      "raw_text": "The CFO of the STL company wishes to increase its market share to 2% in next five years.  For this purpose, he wants to ",
+      "origin": "pdf",
+      "order": 32,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p1-b34",
+      "page": 1,
+      "bbox": [
+        66.0,
+        553.1403198242188,
+        547.9786987304688,
+        564.8551635742188
+      ],
+      "text": "double the production of smartphones for which additional funds are required. Bank is ready to finance for expansion of",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F2",
+      "raw_text": "double the production of smartphones for which additional funds are required.  Bank is ready to finance for expansion of ",
+      "origin": "pdf",
+      "order": 33,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p1-b35",
+      "page": 1,
+      "bbox": [
+        66.0,
+        568.1403198242188,
+        547.9619140625,
+        579.8551635742188
+      ],
+      "text": "smartphone operations of the company but maximum up to 60% of valuation of smartphone business. The CFO has been",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F2",
+      "raw_text": "smartphone operations of the company but maximum up to 60% of valuation of smartphone business.  The CFO has been ",
+      "origin": "pdf",
+      "order": 34,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p1-b36",
+      "page": 1,
+      "bbox": [
+        66.0,
+        583.2603759765625,
+        372.2684326171875,
+        594.9752197265625
+      ],
+      "text": "provided the following information of the company by the Accounts Manager:",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F2",
+      "raw_text": "provided the following information of the company by the Accounts Manager:  ",
+      "origin": "pdf",
+      "order": 35,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p1-b37",
+      "page": 1,
+      "bbox": [
+        219.59999084472656,
+        604.7792358398438,
+        267.6033020019531,
+        617.4159545898438
+      ],
+      "text": "Particulars",
+      "size": 10.357950210571289,
+      "bold": true,
+      "font": "CIDFont+F3",
+      "raw_text": "Particulars ",
+      "origin": "pdf",
+      "order": 36,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p1-b38",
+      "page": 1,
+      "bbox": [
+        408.1199951171875,
+        604.7792358398438,
+        450.6095275878906,
+        617.4159545898438
+      ],
+      "text": "` in lakhs",
+      "size": 10.357950210571289,
+      "bold": true,
+      "font": "CIDFont+F4",
+      "raw_text": "` in lakhs ",
+      "origin": "pdf",
+      "order": 37,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p1-b39",
+      "page": 1,
+      "bbox": [
+        125.04000091552734,
+        625.419189453125,
+        327.9989318847656,
+        638.055908203125
+      ],
+      "text": "Property, Plant and Equipment (PPE) employed",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F5",
+      "raw_text": "Property, Plant and Equipment (PPE) employed  ",
+      "origin": "pdf",
+      "order": 38,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p1-b40",
+      "page": 1,
+      "bbox": [
+        420.3599853515625,
+        625.419189453125,
+        438.37939453125,
+        638.055908203125
+      ],
+      "text": "300",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F5",
+      "raw_text": "300 ",
+      "origin": "pdf",
+      "order": 39,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p1-b41",
+      "page": 1,
+      "bbox": [
+        125.04000091552734,
+        641.6192016601562,
+        195.61997985839844,
+        654.2559204101562
+      ],
+      "text": "Working capital",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F5",
+      "raw_text": "Working capital  ",
+      "origin": "pdf",
+      "order": 40,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p1-b42",
+      "page": 1,
+      "bbox": [
+        420.3599853515625,
+        641.6192016601562,
+        438.37939453125,
+        654.2559204101562
+      ],
+      "text": "200",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F5",
+      "raw_text": "200 ",
+      "origin": "pdf",
+      "order": 41,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p1-b43",
+      "page": 1,
+      "bbox": [
+        125.04000091552734,
+        658.17919921875,
+        156.14585876464844,
+        670.81591796875
+      ],
+      "text": "Equity",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F5",
+      "raw_text": "Equity  ",
+      "origin": "pdf",
+      "order": 42,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p1-b44",
+      "page": 1,
+      "bbox": [
+        420.3599853515625,
+        658.17919921875,
+        438.37939453125,
+        670.81591796875
+      ],
+      "text": "200",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F5",
+      "raw_text": "200 ",
+      "origin": "pdf",
+      "order": 43,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b1",
+      "page": 2,
+      "bbox": [
+        125.04000091552734,
+        60.459228515625,
+        165.00331115722656,
+        73.09593200683594
+      ],
+      "text": "9% Debt",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F5",
+      "raw_text": "9% Debt  ",
+      "origin": "pdf",
+      "order": 44,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b3",
+      "page": 2,
+      "bbox": [
+        125.04000091552734,
+        76.77922821044922,
+        207.04832458496094,
+        89.41593170166016
+      ],
+      "text": "Corporate tax rate",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F5",
+      "raw_text": "Corporate tax rate  ",
+      "origin": "pdf",
+      "order": 46,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b4",
+      "page": 2,
+      "bbox": [
+        418.08001708984375,
+        76.77922821044922,
+        440.6897277832031,
+        89.41593170166016
+      ],
+      "text": "30 %",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F5",
+      "raw_text": "30 % ",
+      "origin": "pdf",
+      "order": 47,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b5",
+      "page": 2,
+      "bbox": [
+        125.04000091552734,
+        93.09922790527344,
+        226.1520538330078,
+        105.73593139648438
+      ],
+      "text": "Risk-free rate of return",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F5",
+      "raw_text": "Risk-free rate of return  ",
+      "origin": "pdf",
+      "order": 48,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b6",
+      "page": 2,
+      "bbox": [
+        420.72003173828125,
+        93.09922790527344,
+        438.0065612792969,
+        105.73593139648438
+      ],
+      "text": "6 %",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F5",
+      "raw_text": "6 % ",
+      "origin": "pdf",
+      "order": 49,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b7",
+      "page": 2,
+      "bbox": [
+        125.04000091552734,
+        109.53922271728516,
+        219.31480407714844,
+        122.1759262084961
+      ],
+      "text": "Asset beta of Industry",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F5",
+      "raw_text": "Asset beta of Industry ",
+      "origin": "pdf",
+      "order": 50,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b8",
+      "page": 2,
+      "bbox": [
+        421.67999267578125,
+        109.53922271728516,
+        437.0644226074219,
+        122.1759262084961
+      ],
+      "text": "0.6",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F5",
+      "raw_text": "0.6 ",
+      "origin": "pdf",
+      "order": 51,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b9",
+      "page": 2,
+      "bbox": [
+        125.04000091552734,
+        125.9792251586914,
+        283.12164306640625,
+        138.6159210205078
+      ],
+      "text": "Market rate of return in the industry",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F5",
+      "raw_text": "Market rate of return in the industry  ",
+      "origin": "pdf",
+      "order": 52,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b10",
+      "page": 2,
+      "bbox": [
+        418.08001708984375,
+        125.9792251586914,
+        440.6897277832031,
+        138.6159210205078
+      ],
+      "text": "10 %",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F5",
+      "raw_text": "10 % ",
+      "origin": "pdf",
+      "order": 53,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b11",
+      "page": 2,
+      "bbox": [
+        125.04000091552734,
+        142.2992401123047,
+        228.2511749267578,
+        154.93592834472656
+      ],
+      "text": "NOPAT for current year",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F5",
+      "raw_text": "NOPAT for current year  ",
+      "origin": "pdf",
+      "order": 54,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b12",
+      "page": 2,
+      "bbox": [
+        420.3599853515625,
+        142.2992401123047,
+        438.37939453125,
+        154.93592834472656
+      ],
+      "text": "200",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F5",
+      "raw_text": "200 ",
+      "origin": "pdf",
+      "order": 55,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b13",
+      "page": 2,
+      "bbox": [
+        125.04000091552734,
+        158.61923217773438,
+        256.531982421875,
+        171.25592041015625
+      ],
+      "text": "Sales revenue for current year",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F5",
+      "raw_text": "Sales revenue for current year  ",
+      "origin": "pdf",
+      "order": 56,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b14",
+      "page": 2,
+      "bbox": [
+        417.72003173828125,
+        158.61923217773438,
+        440.9183654785156,
+        171.25592041015625
+      ],
+      "text": "1000",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F5",
+      "raw_text": "1000 ",
+      "origin": "pdf",
+      "order": 57,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b15",
+      "page": 2,
+      "bbox": [
+        66.0,
+        184.62033081054688,
+        547.8915405273438,
+        196.33517456054688
+      ],
+      "text": "The PPE is being depreciated at the rate of 20% p.a. on opening balances; the sale revenue and Net Operating Profit After",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F2",
+      "raw_text": "The PPE is being depreciated at the rate of 20% p.a. on opening balances; the sale revenue and Net Operating Profit After ",
+      "origin": "pdf",
+      "order": 58,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b16",
+      "page": 2,
+      "bbox": [
+        66.0,
+        199.62033081054688,
+        548.1072387695312,
+        211.33517456054688
+      ],
+      "text": "Tax (NOPAT) would grow at the rate of 20% p.a. for next 3 years. Sales revenue will be stable from 4th year onwards and",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F2",
+      "raw_text": "Tax (NOPAT) would grow at the rate of 20% p.a. for next 3 years.  Sales revenue will be stable from 4th year onwards and ",
+      "origin": "pdf",
+      "order": 59,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b17",
+      "page": 2,
+      "bbox": [
+        66.0,
+        214.62033081054688,
+        547.9204711914062,
+        226.33517456054688
+      ],
+      "text": "incremental capital expenditure will be offset by depreciation. Assets (PPE) and working capital turnover ratio shall remain",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F2",
+      "raw_text": "incremental capital expenditure will be offset by depreciation.  Assets (PPE) and working capital turnover ratio shall remain ",
+      "origin": "pdf",
+      "order": 60,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b18",
+      "page": 2,
+      "bbox": [
+        66.0,
+        229.74032592773438,
+        179.9811248779297,
+        241.45516967773438
+      ],
+      "text": "constant all over the years.",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F2",
+      "raw_text": "constant all over the years.   ",
+      "origin": "pdf",
+      "order": 61,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b19",
+      "page": 2,
+      "bbox": [
+        66.0,
+        250.38031005859375,
+        548.0474853515625,
+        262.09515380859375
+      ],
+      "text": "JB Ltd, Canada, holds 25% equity in STL company. Further JB Ltd has appointed 30% directors of STL company; has",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F2",
+      "raw_text": "JB Ltd, Canada, holds 25% equity in STL company.  Further JB Ltd has appointed 30% directors of STL company; has ",
+      "origin": "pdf",
+      "order": 62,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b20",
+      "page": 2,
+      "bbox": [
+        66.0,
+        265.38031005859375,
+        548.0533447265625,
+        277.09515380859375
+      ],
+      "text": "advanced loan amounting to 25% of book value of total assets of STL Company of ` 500 lakhs and has guaranteed 25%",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F2",
+      "raw_text": "advanced loan amounting to 25% of book value of total assets of STL Company of ` 500 lakhs and has guaranteed 25% ",
+      "origin": "pdf",
+      "order": 63,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b21",
+      "page": 2,
+      "bbox": [
+        66.0,
+        280.5003356933594,
+        548.060546875,
+        292.2151794433594
+      ],
+      "text": "of total borrowings (total debt ` 300 lakhs) of STL company. During current financial year, STL company has sold 1000",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F2",
+      "raw_text": "of total borrowings (total debt ` 300 lakhs) of STL company.  During current financial year, STL company has sold 1000 ",
+      "origin": "pdf",
+      "order": 64,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b22",
+      "page": 2,
+      "bbox": [
+        66.0,
+        295.5003356933594,
+        548.0733032226562,
+        307.2151794433594
+      ],
+      "text": "units of Smartphones @ ` 7000 to JB Ltd. The total costs (direct and indirect) for these 1000 units transferred amounted",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F2",
+      "raw_text": "units of Smartphones @ ` 7000 to JB Ltd. The total costs (direct and indirect) for these 1000 units transferred amounted ",
+      "origin": "pdf",
+      "order": 65,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b23",
+      "page": 2,
+      "bbox": [
+        66.0,
+        310.5003356933594,
+        548.06103515625,
+        322.2151794433594
+      ],
+      "text": "to ` 60,00,000. However, STL company billed CD Ltd, India (unrelated to STL company) at the rate of ` 9500 per unit of",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F2",
+      "raw_text": "to ` 60,00,000.  However, STL company billed CD Ltd, India (unrelated to STL company) at the rate of ` 9500 per unit of ",
+      "origin": "pdf",
+      "order": 66,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b24",
+      "page": 2,
+      "bbox": [
+        66.0,
+        325.6203308105469,
+        548.1033325195312,
+        337.3351745605469
+      ],
+      "text": "smartphone and earned a gross profit of 50% on its costs. The transactions of STL company with JB Ltd and CD Ltd are",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F2",
+      "raw_text": "smartphone and earned a gross profit of 50% on its costs.  The transactions of STL company with JB Ltd and CD Ltd are ",
+      "origin": "pdf",
+      "order": 67,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b25",
+      "page": 2,
+      "bbox": [
+        66.0,
+        340.6203308105469,
+        261.0428161621094,
+        352.3351745605469
+      ],
+      "text": "comparable, subject to the following differences:",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F2",
+      "raw_text": "comparable, subject to the following differences:  ",
+      "origin": "pdf",
+      "order": 68,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b26",
+      "page": 2,
+      "bbox": [
+        125.04000091552734,
+        358.2992248535156,
+        135.59706115722656,
+        370.9359436035156
+      ],
+      "text": "a)",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F5",
+      "raw_text": "a) ",
+      "origin": "pdf",
+      "order": 69,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b27",
+      "page": 2,
+      "bbox": [
+        154.3863983154297,
+        358.2992248535156,
+        463.562255859375,
+        370.9359436035156
+      ],
+      "text": "STL company derives technology support from JB Ltd but there is no such",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F5",
+      "raw_text": "STL company derives technology support from JB Ltd but there is no such ",
+      "origin": "pdf",
+      "order": 70,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b28",
+      "page": 2,
+      "bbox": [
+        154.44000244140625,
+        371.9792175292969,
+        480.2624206542969,
+        384.6159362792969
+      ],
+      "text": "support from CD Ltd. The value of technology support is estimated at 12% of",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F5",
+      "raw_text": "support from CD Ltd.  The value of technology support is estimated at 12% of ",
+      "origin": "pdf",
+      "order": 71,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b29",
+      "page": 2,
+      "bbox": [
+        154.44000244140625,
+        385.6592102050781,
+        239.62913513183594,
+        398.2959289550781
+      ],
+      "text": "normal gross profit.",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F5",
+      "raw_text": "normal gross profit. ",
+      "origin": "pdf",
+      "order": 72,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b30",
+      "page": 2,
+      "bbox": [
+        125.04000091552734,
+        407.25921630859375,
+        135.97801208496094,
+        419.89593505859375
+      ],
+      "text": "b)",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F5",
+      "raw_text": "b) ",
+      "origin": "pdf",
+      "order": 73,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b31",
+      "page": 2,
+      "bbox": [
+        154.4565887451172,
+        407.25921630859375,
+        455.11212158203125,
+        419.89593505859375
+      ],
+      "text": "JB Ltd gives business in large volumes. STL company offered to JB Ltd a",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F5",
+      "raw_text": "JB Ltd gives business in large volumes.  STL company offered to JB Ltd a ",
+      "origin": "pdf",
+      "order": 74,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b32",
+      "page": 2,
+      "bbox": [
+        154.44000244140625,
+        420.8192138671875,
+        388.7973327636719,
+        433.4559326171875
+      ],
+      "text": "quantity discount valued at 8% of normal gross profits.",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F5",
+      "raw_text": "quantity discount valued at 8% of normal gross profits.  ",
+      "origin": "pdf",
+      "order": 75,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b33",
+      "page": 2,
+      "bbox": [
+        125.04000091552734,
+        442.419189453125,
+        132.63238525390625,
+        455.055908203125
+      ],
+      "text": "c)",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F5",
+      "raw_text": "c)",
+      "origin": "pdf",
+      "order": 76,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b34",
+      "page": 2,
+      "bbox": [
+        154.44000244140625,
+        442.419189453125,
+        471.7285461425781,
+        455.055908203125
+      ],
+      "text": "For supply of smartphones to JB Ltd, STL company neither runs any risk nor",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F5",
+      "raw_text": "For supply of smartphones to JB Ltd, STL company neither runs any risk nor ",
+      "origin": "pdf",
+      "order": 77,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b35",
+      "page": 2,
+      "bbox": [
+        154.44000244140625,
+        456.0992431640625,
+        485.3824768066406,
+        468.7359619140625
+      ],
+      "text": "incurs any marketing costs but in case of supply to CD Ltd, STL company has to",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F5",
+      "raw_text": "incurs any marketing costs but in case of supply to CD Ltd, STL company has to ",
+      "origin": "pdf",
+      "order": 78,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b36",
+      "page": 2,
+      "bbox": [
+        154.44000244140625,
+        469.6592102050781,
+        458.38751220703125,
+        482.2959289550781
+      ],
+      "text": "assume all the risk and costs associated with the marketing function are",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F5",
+      "raw_text": "assume all the risk and costs associated with the marketing function are ",
+      "origin": "pdf",
+      "order": 79,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b37",
+      "page": 2,
+      "bbox": [
+        154.44000244140625,
+        483.3392028808594,
+        348.7296142578125,
+        495.9759216308594
+      ],
+      "text": "estimated at 10% of the normal gross profits.",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F5",
+      "raw_text": "estimated at 10% of the normal gross profits.  ",
+      "origin": "pdf",
+      "order": 80,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b38",
+      "page": 2,
+      "bbox": [
+        125.04000091552734,
+        504.93927001953125,
+        135.97801208496094,
+        517.5759887695312
+      ],
+      "text": "d)",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F5",
+      "raw_text": "d) ",
+      "origin": "pdf",
+      "order": 81,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b39",
+      "page": 2,
+      "bbox": [
+        154.4565887451172,
+        504.93927001953125,
+        487.4610900878906,
+        517.5759887695312
+      ],
+      "text": "STL company offered three-months credit to JB Ltd. The cost of providing such",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F5",
+      "raw_text": "STL company offered three-months credit to JB Ltd.  The cost of providing such ",
+      "origin": "pdf",
+      "order": 82,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b40",
+      "page": 2,
+      "bbox": [
+        154.44000244140625,
+        518.6192016601562,
+        484.2679138183594,
+        531.2559204101562
+      ],
+      "text": "credit may be valued at 2% p.m. of the gross profits. No such credit was given",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F5",
+      "raw_text": "credit may be valued at 2% p.m. of the gross profits.  No such credit was given ",
+      "origin": "pdf",
+      "order": 83,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p2-b41",
+      "page": 2,
+      "bbox": [
+        154.44000244140625,
+        532.17919921875,
+        202.7418975830078,
+        544.81591796875
+      ],
+      "text": "to CD Ltd.",
+      "size": 10.357950210571289,
+      "bold": false,
+      "font": "CIDFont+F5",
+      "raw_text": "to CD Ltd.   ",
+      "origin": "pdf",
+      "order": 84,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": ""
+    }
+  ],
+  "expected_tree": [
+    {
+      "label_path": "CS1",
+      "question_text_sha256": "ce7b8ee779e7fa81130b77896522a6add8c654b2e03a955af65b0024b8959fa4",
+      "answer_text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mcq_options": 0,
+      "mcq_key": null,
+      "children": []
+    }
+  ],
+  "review_status": "agent_checked_human_review_pending",
+  "source_availability": "Case facts without attemptable question parts"
+}

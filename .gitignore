@@ -8,6 +8,7 @@ __pycache__/
 *$py.class
 *.egg-info/
 build/
+release-output/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
@@ -15,18 +16,31 @@ build/
 # Local configs and secrets
 .env
 .env.local
+deploy/*.env
 
 # Data and runtime artifacts
 data/**
 !data/
 !data/**/
 !data/**/.gitkeep
+data/audits/
+data/backups/caf_*/
+# Recovery snapshots can contain nested .gitkeep files; never publish snapshots.
+data/backups/*/
 debug/
+
+# Transient classification batch coordination files
+artifacts/phase5/**/.operator.lock
+artifacts/phase5/**/*.tmp
 
 # Node / Web
 node_modules/
 .pnpm-store/
 .turbo/
+web/test-results/
+web/playwright-report/
+# Keep generated visual captures local; selected acceptance evidence is tracked explicitly.
+docs/stitch-review/*.png
 # Pre-built frontends tracked for zero-node portability
 !web/apps/student/dist/**
 !web/apps/curator/dist/**
@@ -34,6 +48,8 @@ node_modules/
 
 # OS and IDE
 .DS_Store
+# Local design export; application assets and font licences are tracked separately.
+stitch_ca_study_companion.zip
 .idea/
 .vscode/
 *.swp

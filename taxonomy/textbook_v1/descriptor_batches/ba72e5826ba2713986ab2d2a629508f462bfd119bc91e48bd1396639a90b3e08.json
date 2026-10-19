@@ -1,0 +1,327 @@
+{
+  "descriptors": [
+    {
+      "node_id": "1815d113-6610-472c-a09a-b8836532fc13",
+      "concept_name": "Non-Current Assets and Disposal Groups Classified as Held for Sale",
+      "definition": "Entities must present non-current assets and disposal groups held for sale separately from other assets and liabilities in the balance sheet without offsetting them. Major classes of these assets and liabilities require separate disclosure, and cumulative income or expense in other comprehensive income must be presented distinctly.",
+      "terminology": [
+        "disposal group",
+        "held for sale",
+        "balance sheet presentation",
+        "cumulative income"
+      ],
+      "instrument_references": [
+        "Ind AS 105"
+      ],
+      "inclusion": [
+        "Separate balance sheet presentation of assets and liabilities",
+        "Separate presentation of cumulative OCI items",
+        "Disclosure of major classes of assets and liabilities"
+      ],
+      "exclusion": [
+        "Offsetting assets and liabilities of a disposal group as a single net amount",
+        "Re-presentation of comparative balance sheet amounts for prior periods"
+      ],
+      "nearby_distinctions": [
+        "Differs from standard non-current asset presentation by requiring distinct balance sheet grouping and specific measurement rules."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4ad19547-a27b-45e5-b612-251f30712391",
+      "concept_name": "Presentation",
+      "definition": "Financial statements must display non-current assets and disposal groups held for sale in a manner that allows users to evaluate their financial effects. Assets and liabilities within a disposal group must be shown separately without netting them against each other.",
+      "terminology": [
+        "presentation",
+        "financial effects",
+        "separate line items",
+        "non-current assets"
+      ],
+      "instrument_references": [
+        "Ind AS 105"
+      ],
+      "inclusion": [
+        "Separate presentation of held for sale assets",
+        "Separate presentation of held for sale liabilities"
+      ],
+      "exclusion": [
+        "Netting off disposal group assets against liabilities"
+      ],
+      "nearby_distinctions": [
+        "Focuses specifically on balance sheet arrangement and layout rules rather than measurement or note disclosure."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5e6c45ee-dffc-413a-babc-2a08ad0843c3",
+      "concept_name": "Disclosures",
+      "definition": "Entities must provide comprehensive notes detailing the description, facts, circumstances, and expected timing of disposal for assets or disposal groups classified as held for sale. Additional required disclosures include recognized gains or losses, operating segment information, and the operational impacts of any cancelled sale plans.",
+      "terminology": [
+        "notes to financial statements",
+        "description of facts",
+        "gain or loss",
+        "change of plan"
+      ],
+      "instrument_references": [
+        "Ind AS 105",
+        "Ind AS 108"
+      ],
+      "inclusion": [
+        "Descriptions of non-current assets or disposal groups",
+        "Circumstances and timing of expected disposal",
+        "Segment reporting classifications"
+      ],
+      "exclusion": [
+        "Face of balance sheet line-item values",
+        "Cash flow statement line items"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from balance sheet presentation by requiring qualitative descriptive narratives and supplementary details within the notes."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "92e2b869-f896-4596-86d4-df4156cfb159",
+      "concept_name": "Discontinued Operations",
+      "definition": "A discontinued operation is a component of an entity that has either been disposed of or classified as held for sale and represents a separate major line of business or geographical area. It can also be part of a single coordinated disposal plan or represent an exclusive resale-oriented subsidiary acquisition.",
+      "terminology": [
+        "discontinued operation",
+        "component of an entity",
+        "major line of business",
+        "geographical area"
+      ],
+      "instrument_references": [
+        "Ind AS 105"
+      ],
+      "inclusion": [
+        "Disposed components representing major lines of business",
+        "Components classified as held for sale under a coordinated plan",
+        "Subsidiaries acquired exclusively for resale"
+      ],
+      "exclusion": [
+        "Operations merely winding down existing contracts while continuing revenue-earning activities",
+        "Ongoing core operations without a formal disposal plan"
+      ],
+      "nearby_distinctions": [
+        "Distinct from general asset sales because it requires the component to represent a separate major line of business or distinct geographical area."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0aeaac39-7cba-4be6-8e01-d7becdfce317",
+      "concept_name": "Discontinued Operation Definition",
+      "definition": "A discontinued operation is defined as a component of an entity that is disposed of or classified as held for sale, provided it constitutes a separate major line of business or geographic area. It also encompasses subsidiaries acquired exclusively with a view to resale.",
+      "terminology": [
+        "component",
+        "disposal",
+        "major line of business",
+        "geographical area"
+      ],
+      "instrument_references": [
+        "Ind AS 105"
+      ],
+      "inclusion": [
+        "Major operating segments disposed of or held for sale",
+        "Geographically distinct operational areas",
+        "Subsidiaries acquired solely for resale"
+      ],
+      "exclusion": [
+        "Minor business units that do not constitute a major line of business",
+        "Wind-down phases where revenue earning continues normally"
+      ],
+      "nearby_distinctions": [
+        "Narrower than general asset disposals, applying strictly to significant operational components or major segments."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2d4079b6-06e6-44fd-9d53-77f01206ffaa",
+      "concept_name": "Separate Presentation of Discontinued Operations",
+      "definition": "Entities must separate discontinued operations from continuing operations in financial reports to help users evaluate future cash generation capabilities. Prior period comparative figures must be re-presented to reflect operations discontinued by the end of the latest reporting period.",
+      "terminology": [
+        "discontinued operations",
+        "continuing operations",
+        "comparative figures",
+        "re-presented"
+      ],
+      "instrument_references": [
+        "Ind AS 105",
+        "Ind AS 12"
+      ],
+      "inclusion": [
+        "Post-tax profit or loss of discontinued operations",
+        "Post-tax fair value or disposal gains and losses",
+        "Re-presentation of prior comparative periods"
+      ],
+      "exclusion": [
+        "Merging discontinued operational metrics directly into continuing operational totals"
+      ],
+      "nearby_distinctions": [
+        "Focuses on comparative restatements and segregating past performance from continuing business lines."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "997b1dc9-a275-445c-a5db-19638019d92b",
+      "concept_name": "Presentation in the Statement of Profit and Loss",
+      "definition": "The statement of profit and loss must feature a single composite amount representing post-tax results of discontinued operations combined with post-tax disposal or fair value remeasurement gains. An accompanying breakdown of revenues, expenses, pre-tax results, and related income taxes must be provided either on the face or in the notes.",
+      "terminology": [
+        "statement of profit and loss",
+        "post-tax profit or loss",
+        "pre-tax profit",
+        "income tax expense"
+      ],
+      "instrument_references": [
+        "Ind AS 105",
+        "Ind AS 12",
+        "Ind AS 33"
+      ],
+      "inclusion": [
+        "Single line item for discontinued operations results",
+        "Detailed revenue and expense breakdown",
+        "Attributable income disclosures for parent owners"
+      ],
+      "exclusion": [
+        "Detailed line-item breakdown for newly acquired subsidiaries meeting held-for-sale criteria on acquisition"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between the aggregate single-line disclosure on the income statement face and the detailed supporting analysis."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6a2c2f0c-9dad-4763-ad05-49b86b311d2e",
+      "concept_name": "Disclosures in the Statement of Cash Flows",
+      "definition": "Entities must disclose net operating, investing, and financing cash flows attributable to discontinued operations either within the financial statements or notes. Earnings per share figures for discontinued operations must also be presented with equal prominence alongside continuing operations.",
+      "terminology": [
+        "cash flows",
+        "operating activities",
+        "investing activities",
+        "earnings per share"
+      ],
+      "instrument_references": [
+        "Ind AS 105",
+        "Ind AS 33"
+      ],
+      "inclusion": [
+        "Net cash flows of discontinued operations",
+        "Basic and diluted earnings per share for discontinued operations"
+      ],
+      "exclusion": [
+        "Cash flow disclosures for newly acquired subsidiaries meeting held-for-sale criteria at acquisition"
+      ],
+      "nearby_distinctions": [
+        "Extends reporting requirements beyond the income statement to cash flow tracking and per-share performance metrics."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6d83f854-c552-451c-9cdc-ed0af4019806",
+      "concept_name": "Disclosures of Earnings per Share",
+      "definition": "Basic and diluted earnings per share metrics for discontinued operations must be disclosed separately in the statement of profit and loss or notes. These figures are presented alongside continuing operations metrics with equal prominence.",
+      "terminology": [
+        "earnings per share",
+        "basic EPS",
+        "diluted EPS",
+        "equal prominence"
+      ],
+      "instrument_references": [
+        "Ind AS 105",
+        "Ind AS 33"
+      ],
+      "inclusion": [
+        "Basic EPS for discontinued operations",
+        "Diluted EPS for discontinued operations"
+      ],
+      "exclusion": [
+        "Combining discontinued EPS directly into a single blended EPS total without separate disclosure"
+      ],
+      "nearby_distinctions": [
+        "Applies per-share calculation rules distinctively to discontinued segments rather than aggregate company performance alone."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "904cac8d-c89a-4c02-8110-1a3f06505236",
+      "concept_name": "Adjustment to Prior Period Disposals",
+      "definition": "Current period adjustments directly linked to prior period discontinued operations must be classified separately within discontinued operations with disclosed natures and amounts. Such adjustments typically arise from resolving transaction purchase prices, indemnifications, or retained environmental, warranty, and employee benefit obligations.",
+      "terminology": [
+        "prior period disposals",
+        "purchase price adjustments",
+        "indemnification",
+        "warranty obligations"
+      ],
+      "instrument_references": [
+        "Ind AS 105"
+      ],
+      "inclusion": [
+        "Resolution of purchase price uncertainties",
+        "Indemnification and warranty settlements",
+        "Employee benefit plan settlements directly tied to the disposal"
+      ],
+      "exclusion": [
+        "Adjustments unrelated to the original disposal transaction or prior component operations"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from normal current-year operating adjustments by their retrospective origin tied directly to historical discontinued transactions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d04dc63b-7c43-4e63-8ffb-3b7a02d9d66b",
+      "concept_name": "Change to a Plan of Sale",
+      "definition": "When an entity abandons its held-for-sale classification for a component, it must reclassify prior results previously shown under discontinued operations into income from continuing operations for all presented periods. The prior amounts must be clearly described as re-presented.",
+      "terminology": [
+        "change of plan",
+        "reclassification",
+        "continuing operations",
+        "re-presented"
+      ],
+      "instrument_references": [
+        "Ind AS 105"
+      ],
+      "inclusion": [
+        "Reclassification of historical operational results",
+        "Updating all presented comparative periods"
+      ],
+      "exclusion": [
+        "Keeping historical results categorized under discontinued operations after a sale plan is cancelled"
+      ],
+      "nearby_distinctions": [
+        "Applies when operational intent reverses, requiring retrospective reclassification rather than prospective adjustments."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1d68d2df-72cc-48c4-a695-6f2d6e616605",
+      "concept_name": "Loss of Control in Subsidiary",
+      "definition": "Entities committed to sale plans that involve losing control over a subsidiary must disclose relevant discontinued operation information when the subsidiary qualifies as a disposal group. This ensures transparent reporting of structural changes affecting group composition.",
+      "terminology": [
+        "loss of control",
+        "subsidiary",
+        "sale plan",
+        "disposal group"
+      ],
+      "instrument_references": [
+        "Ind AS 105"
+      ],
+      "inclusion": [
+        "Disclosures for subsidiaries meeting discontinued operation criteria upon losing control"
+      ],
+      "exclusion": [
+        "Subsidiary sales that do not result in a loss of control or fail to meet the definition of a discontinued operation"
+      ],
+      "nearby_distinctions": [
+        "Focuses specifically on ownership control loss events rather than standard asset sales or internal operational restructuring."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "ba72e5826ba2713986ab2d2a629508f462bfd119bc91e48bd1396639a90b3e08",
+  "artifact_id": "915adacd-0f7e-4d7b-bfdd-6f9ff4b58a59",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8487,
+  "output_tokens": 3498,
+  "cost_usd": 0.0112911,
+  "created_at": "2026-10-03T17:57:58.141625+00:00"
+}

@@ -1,0 +1,330 @@
+{
+  "descriptors": [
+    {
+      "node_id": "384de132-c29b-4ef7-9bb6-b1038f5b39d3",
+      "concept_name": "Earnings Per Share Introduction",
+      "definition": "Earnings per share measures an entity's profitability and resource utilization efficiency by dividing net earnings by ordinary shares. It assists equity shareholders in gauging returns relative to business risks compared to debt-holders.",
+      "terminology": [
+        "Earnings per share",
+        "Ordinary shares",
+        "Price-earnings ratio",
+        "Profitability",
+        "Systematic risks"
+      ],
+      "instrument_references": [
+        "Ind AS 33"
+      ],
+      "inclusion": [
+        "Measures profitability",
+        "Serves as basis for price-earnings ratio",
+        "Assesses entity current net earnings"
+      ],
+      "exclusion": [
+        "Debt-holder return calculations",
+        "Direct asset valuation"
+      ],
+      "nearby_distinctions": [
+        "Distinct from debt yields because equity holders undertake residual business and financial risks."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "021facea-45ba-4aed-bdc6-e85e9b2504d8",
+      "concept_name": "Earnings Per Share Objective",
+      "definition": "The standard prescribes principles for determining and presenting earnings per share to enable performance comparisons across different entities for the same period or across different periods for the same entity. It outlines detailed guidelines for calculating earnings, weighted average shares, and both basic and diluted metrics.",
+      "terminology": [
+        "Basic earnings per share",
+        "Diluted earnings per share",
+        "Weighted average number of shares",
+        "Performance comparison"
+      ],
+      "instrument_references": [
+        "Ind AS 33",
+        "Ind AS 110",
+        "Ind AS 27"
+      ],
+      "inclusion": [
+        "Guidelines for calculating basic earnings per share",
+        "Guidelines for calculating diluted earnings per share",
+        "Mandatory disclosures in consolidated and separate financial statements"
+      ],
+      "exclusion": [
+        "Non-standardized management performance metrics"
+      ],
+      "nearby_distinctions": [
+        "Differs from general financial statement objectives by focusing exclusively on per-share performance comparability."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "12d0165a-ba4b-48b2-b9c3-18b6fb07424b",
+      "concept_name": "Limitation of EPS",
+      "definition": "Earnings per share data can be constrained because different entities may apply varied accounting policies when determining net earnings. Such discrepancies can impact the comparability of per-share metrics across companies.",
+      "terminology": [
+        "Accounting policies",
+        "Earnings determination",
+        "Data limitations"
+      ],
+      "instrument_references": [
+        "Ind AS 33"
+      ],
+      "inclusion": [
+        "Variations arising from diverse accounting policies",
+        "Impacts on inter-company comparability"
+      ],
+      "exclusion": [
+        "Computational errors in weighted average shares"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from calculation rules by highlighting qualitative inconsistencies in underlying accounting policies."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3ef31303-1b69-4e7c-8317-33e122b218d1",
+      "concept_name": "Scope of Ind AS 33",
+      "definition": "This standard applies to companies that have issued ordinary shares and are subject to notified Ind AS under the Companies Act. Entities presenting both consolidated and separate financial statements must include the required disclosures in both statements based on their respective information sources.",
+      "terminology": [
+        "Ordinary shares",
+        "Consolidated financial statements",
+        "Separate financial statements",
+        "Companies Act"
+      ],
+      "instrument_references": [
+        "Ind AS 33",
+        "Ind AS 110",
+        "Ind AS 27",
+        "Ind AS 32"
+      ],
+      "inclusion": [
+        "Entities issuing ordinary shares",
+        "Disclosures in consolidated financial statements",
+        "Disclosures in separate financial statements"
+      ],
+      "exclusion": [
+        "Entities without ordinary shares issuing only debt instruments"
+      ],
+      "nearby_distinctions": [
+        "Applies universally to all entities issuing ordinary shares that report under notified Ind AS frameworks."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "aa398543-9d6d-46dc-8997-fa8f378dbc0d",
+      "concept_name": "Definitions",
+      "definition": "An ordinary share represents a subordinate equity instrument participating in profits only after other share classes, while potential ordinary shares include convertible instruments, options, or warrants that may entitle holders to ordinary shares. Dilution denotes a reduction in earnings per share or an increase in loss per share assuming conversion or exercise of potential ordinary shares.",
+      "terminology": [
+        "Ordinary share",
+        "Potential ordinary share",
+        "Dilution",
+        "Antidilution",
+        "Options and warrants",
+        "Put options"
+      ],
+      "instrument_references": [
+        "Ind AS 32",
+        "Ind AS 33"
+      ],
+      "inclusion": [
+        "Subordinate equity instruments",
+        "Convertible financial liabilities and equity instruments",
+        "Share options and warrants",
+        "Contingently issuable shares"
+      ],
+      "exclusion": [
+        "Senior equity instruments like fixed-rate preference shares prior to profit participation"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes basic equity ownership from potential future dilution sources like warrants and options."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "72828c89-6dee-47e7-9661-a7b13f821ea2",
+      "concept_name": "Measurement Overview",
+      "definition": "Measurement governs the systematic calculation of basic and diluted earnings per share, incorporating adjustments for potential dilutive instruments, options, warrants, and retrospective adjustments. It establishes how numerators and denominators are derived for reporting periods.",
+      "terminology": [
+        "Basic earnings per share",
+        "Diluted earnings per share",
+        "Retrospective adjustments",
+        "Contingently issuable shares"
+      ],
+      "instrument_references": [
+        "Ind AS 33"
+      ],
+      "inclusion": [
+        "Basic EPS earnings and share calculations",
+        "Diluted EPS adjustments",
+        "Treatment of options and warrants"
+      ],
+      "exclusion": [
+        "Non-financial operational performance metrics"
+      ],
+      "nearby_distinctions": [
+        "Encompasses both the fundamental basic metric structure and complex dilutive modifications."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5ef08263-5ab4-477b-a7c6-02235ac1eb8c",
+      "concept_name": "Measurement of Basic Earnings Per Share",
+      "definition": "Basic earnings per share is calculated by dividing the profit or loss for the period attributable to ordinary equity holders by the weighted average number of ordinary shares outstanding. The numerator reflects adjustments for preference dividends and equity classifications under relevant standards.",
+      "terminology": [
+        "Basic earnings per share",
+        "Numerator",
+        "Denominator",
+        "Weighted average number of ordinary shares",
+        "Preference dividend"
+      ],
+      "instrument_references": [
+        "Ind AS 32",
+        "Ind AS 33"
+      ],
+      "inclusion": [
+        "Profit or loss attributable to ordinary equity holders",
+        "Weighted average ordinary shares denominator calculation"
+      ],
+      "exclusion": [
+        "Potential ordinary share impacts"
+      ],
+      "nearby_distinctions": [
+        "Excludes potential dilution effects which are reserved for diluted EPS calculations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a37055df-d3c8-4df3-a560-f0e54c10de3a",
+      "concept_name": "Meaning and Formula",
+      "definition": "Basic earnings per share measures the interest of each ordinary share in parent entity performance by dividing attributable earnings by the weighted average shares. The resulting ratio standardizes per-share profitability for reporting periods.",
+      "terminology": [
+        "Basic earnings per share",
+        "Weighted average number of ordinary shares",
+        "Profit attributable to equity share holders"
+      ],
+      "instrument_references": [
+        "Ind AS 33"
+      ],
+      "inclusion": [
+        "Mathematical formula for basic EPS",
+        "Attributable profit determination"
+      ],
+      "exclusion": [
+        "Diluted share adjustments"
+      ],
+      "nearby_distinctions": [
+        "Represents the core unadjusted per-share performance metric."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "692a9519-66ea-43eb-ab87-6b22eaa74a40",
+      "concept_name": "Measurement of Earnings",
+      "definition": "Earnings for basic EPS adjust parent entity profit or loss for after-tax preference dividends, settlement differences, and items credited or debited to reserves instead of profit or loss. Cumulative and non-cumulative preference dividend adjustments are factored in depending on declaration status.",
+      "terminology": [
+        "Preference dividend",
+        "Cumulative preference dividend",
+        "Non-cumulative preference dividend",
+        "Securities premium account",
+        "Profit or loss"
+      ],
+      "instrument_references": [
+        "Ind AS 32",
+        "Ind AS 33"
+      ],
+      "inclusion": [
+        "After-tax preference dividend adjustments",
+        "Deductions for items routed through reserves",
+        "Cumulative preference dividend accruals"
+      ],
+      "exclusion": [
+        "Preference shares classified as liabilities where dividends are treated as finance costs"
+      ],
+      "nearby_distinctions": [
+        "Differentiates between equity-classified preference dividends requiring numerator adjustments and liability-classified preference dividends handled via finance costs."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "485cf55e-320f-4a39-8ee6-65754277598b",
+      "concept_name": "Weighted Average Number of Shares",
+      "definition": "The weighted average number of ordinary shares reflects the shares outstanding at the beginning of a period adjusted by shares issued or bought back, multiplied by a time-weighting factor. This factor proportions the duration days the shares remain outstanding against total days in the period.",
+      "terminology": [
+        "Weighted average number of ordinary shares",
+        "Time-weighting factor",
+        "Shares bought back",
+        "Shares issued"
+      ],
+      "instrument_references": [
+        "Ind AS 33"
+      ],
+      "inclusion": [
+        "Opening ordinary shares",
+        "Time-weighted adjustments for share issuances",
+        "Time-weighted deductions for share buybacks"
+      ],
+      "exclusion": [
+        "Simple unweighted closing share balances"
+      ],
+      "nearby_distinctions": [
+        "Replaces simple period-end share counts with a time-apportioned average reflecting capital changes during the period."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "87911f5d-395f-4b3f-bdca-3ca54debf6fc",
+      "concept_name": "Diluted Earnings Per Share",
+      "definition": "Diluted earnings per share adjusts both the attributable profit numerator and the weighted average share denominator for the effects of all dilutive potential ordinary shares. Its objective is to measure ordinary share performance while accounting for potential future issuances.",
+      "terminology": [
+        "Diluted earnings per share",
+        "Dilutive potential ordinary shares",
+        "Numerator adjustment",
+        "Weighted average shares"
+      ],
+      "instrument_references": [
+        "Ind AS 33"
+      ],
+      "inclusion": [
+        "Inclusion of after-tax dividends and interest on potential shares",
+        "Addition of converted shares to weighted average denominator"
+      ],
+      "exclusion": [
+        "Antidilutive potential ordinary shares"
+      ],
+      "nearby_distinctions": [
+        "Extends basic EPS by factoring in hypothetical conversions that reduce per-share earnings."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4f69780f-7b71-4188-aa53-7bc4c96bc321",
+      "concept_name": "Scope, Meaning and Formula",
+      "definition": "Entities must calculate diluted earnings per share by adjusting profit attributable to ordinary equity holders and outstanding shares for all dilutive potential ordinary shares. The formula increases attributable profit by recognized interest and dividends on dilutive instruments and expands the share denominator by assumed conversions.",
+      "terminology": [
+        "Diluted earnings per share",
+        "Dilutive potential ordinary shares",
+        "Weighted average shares"
+      ],
+      "instrument_references": [
+        "Ind AS 33"
+      ],
+      "inclusion": [
+        "Profit adjustments for dilutive instrument interest and dividends",
+        "Denominator expansion for assumed conversions"
+      ],
+      "exclusion": [
+        "Basic unadjusted share computations"
+      ],
+      "nearby_distinctions": [
+        "Focuses on prospective dilution mechanics rather than historical weighted share balances."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "3883a31c50316efc18a81019a4831f9512cf986fc4e0e4a7fd86a7e00d1f1e7e",
+  "artifact_id": "cdaf4f60-ab59-4b7b-b2f7-2a8d12656ab7",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8143,
+  "output_tokens": 3341,
+  "cost_usd": 0.0107954,
+  "created_at": "2026-10-03T18:03:20.997681+00:00"
+}

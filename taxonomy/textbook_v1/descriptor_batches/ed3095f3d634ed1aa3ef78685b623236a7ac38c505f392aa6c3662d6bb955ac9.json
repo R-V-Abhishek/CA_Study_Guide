@@ -1,0 +1,359 @@
+{
+  "descriptors": [
+    {
+      "node_id": "7f92f00c-607b-4666-87ab-34f2b5435873",
+      "concept_name": "Concept Of Set Off And Carry Forward Of Losses",
+      "definition": "Set-off refers to adjusting current-year losses against eligible income from another source or head in the same tax year. When losses cannot be fully absorbed due to insufficient eligible income, they are carried forward to subsequent tax years for adjustment.",
+      "terminology": [
+        "Set-off",
+        "Carry forward",
+        "Inter-source adjustments",
+        "Tax year"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 2025 - Chapter VII",
+        "Section 108",
+        "Section 94",
+        "Section 113(1)"
+      ],
+      "inclusion": [
+        "Adjustment of losses against eligible income within the same tax year",
+        "Carrying forward unabsorbed losses to future tax years"
+      ],
+      "exclusion": [
+        "Set-off of losses against casual income",
+        "Set-off of long-term capital losses against short-term capital gains"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes current year intra-head/inter-head set-off mechanisms from subsequent year carry-forward rules."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3f883263-9aae-464f-8de5-cf41abb93cfd",
+      "concept_name": "INTER SOURCE ADJUSTMENTS [SECTION 108]",
+      "definition": "Losses incurred from any source under a specific head of income can generally be offset against income from another source under the same head during the same tax year. However, certain restrictions apply to specific categories such as capital losses, speculation business, specified activities, and casual winnings.",
+      "terminology": [
+        "Inter-source adjustments",
+        "Same head of income",
+        "Speculation business",
+        "Specified activity"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 2025 - Section 108",
+        "Section 94",
+        "Section 113(1)",
+        "Section 115(1)",
+        "Section 114(1)",
+        "Section 46"
+      ],
+      "inclusion": [
+        "Set-off of loss from one house property against another house property",
+        "Set-off of loss from one non-speculation business against another non-speculation business"
+      ],
+      "exclusion": [
+        "Inter-source set-off against casual income like lotteries and betting",
+        "Set-off of long-term capital loss against short-term capital gain"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes source-level adjustments within a single income head from inter-head adjustments across different income heads."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3f9018ae-39c9-4d6e-9cce-2e9494647e88",
+      "concept_name": "INTER HEAD ADJUSTMENTS [SECTION 109]",
+      "definition": "Losses computed under one head of income may be adjusted against income under another head within the same tax year, excluding capital gains. Specific restrictions apply, such as business losses not being adjustable against salary income and house property losses being capped or restricted depending on the tax regime.",
+      "terminology": [
+        "Inter-head adjustments",
+        "Default tax regime",
+        "Concessional rates",
+        "Unabsorbed loss"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 2025 - Section 109",
+        "Section 46",
+        "Section 110",
+        "Section 202(1)"
+      ],
+      "inclusion": [
+        "Adjusting business losses against other heads except salaries",
+        "Setting off house property loss up to specified monetary limits against other heads under the default regime"
+      ],
+      "exclusion": [
+        "Setting off capital gains losses against any other head",
+        "Setting off business losses against salary income"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes inter-head adjustments from inter-source adjustments restricted strictly within the same head."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "580e3a1b-c271-4782-9401-e7f59869f60a",
+      "concept_name": "CARRY FORWARD AND SET OFF OF LOSS FROM HOUSE PROPERTY [SECTION 110]",
+      "definition": "Unabsorbed losses under the head of income from house property can be carried forward for up to eight successive tax years following the year of computation. Once carried forward, such losses are restricted exclusively to set-off against income derived from the same head in subsequent years.",
+      "terminology": [
+        "House property loss",
+        "Unabsorbed loss",
+        "Default tax regime",
+        "Succeeding tax year"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 2025 - Section 110",
+        "Section 200",
+        "Section 201",
+        "Section 203",
+        "Section 204",
+        "Section 202(1)"
+      ],
+      "inclusion": [
+        "Carrying forward unabsorbed house property losses for up to 8 years",
+        "Initial inter-head set-off up to specified limits depending on the applicable tax regime"
+      ],
+      "exclusion": [
+        "Set-off of carried-forward house property losses against heads other than house property",
+        "Inter-head set-off of house property losses when opting out under specific non-default regimes"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes current-year inter-head limits from subsequent-year single-head restriction rules for house property losses."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7dd9870e-67a9-41b4-ace9-891366ae4f23",
+      "concept_name": "CARRY FORWARD & SET OFF OF LOSSES FROM CAPITAL GAINS [SECTION 111]",
+      "definition": "Unabsorbed capital losses can be carried forward for up to eight tax years succeeding the year in which the loss was first computed. Carried forward short-term capital losses offset any capital gains, whereas long-term capital losses are restricted exclusively to long-term capital gains.",
+      "terminology": [
+        "Short-term capital loss",
+        "Long-term capital loss",
+        "Capital gains",
+        "Equity-oriented fund"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 2025 - Section 111",
+        "Section 198",
+        "Section 108(2)",
+        "Section 197"
+      ],
+      "inclusion": [
+        "Carry forward of short-term and long-term capital losses for up to 8 years",
+        "Set-off of short-term capital loss against short-term and long-term capital gains"
+      ],
+      "exclusion": [
+        "Set-off of net capital losses against income under any non-capital-gains head",
+        "Set-off of long-term capital loss against short-term capital gains"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes treatment flexibility of short-term capital losses over long-term capital losses against diverse capital gain types."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c1341d5b-3a47-45dd-ad97-bc6080545359",
+      "concept_name": "CARRY FORWARD AND SET OFF OF BUSINESS LOSSES [SECTION 112]",
+      "definition": "Unabsorbed business or profession losses may be carried forward for up to eight tax years following the year of origin. Such losses can only be offset against subsequent profits under the head of profits and gains of business or profession by the same assessee who incurred them.",
+      "terminology": [
+        "Business loss",
+        "Profits and gains of business or profession",
+        "Unabsorbed loss",
+        "Succession by inheritance"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 2025 - Section 112",
+        "Section 109"
+      ],
+      "inclusion": [
+        "Carry forward of non-speculative business losses for a maximum of 8 years",
+        "Set-off of carried-forward business loss against any business or professional income of the same assessee"
+      ],
+      "exclusion": [
+        "Carry forward of business losses by business successors except through inheritance",
+        "Set-off of carried forward business losses against income from heads other than business or profession"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes general business loss carry-forward rules from specialized rules governing speculation or specified business losses."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e126695c-9612-4dbd-b316-71bb4d8f681c",
+      "concept_name": "LOSSES IN SPECULATION BUSINESS [SECTION 113]",
+      "definition": "Losses sustained in a speculation business are treated distinctly and cannot be offset against non-speculation income in the same year. Unabsorbed speculation losses can be carried forward for a maximum of four tax years to be set off exclusively against profits from a speculation business.",
+      "terminology": [
+        "Speculation business",
+        "Speculative transaction",
+        "Derivatives",
+        "Deeming provision"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 2025 - Section 113",
+        "Section 66(31)",
+        "Section 113(1)"
+      ],
+      "inclusion": [
+        "Carry forward of speculation losses for up to 4 years",
+        "Set-off of speculation losses exclusively against profits of another speculation business"
+      ],
+      "exclusion": [
+        "Set-off of speculation losses against non-speculation business income or other heads in the same year",
+        "Classification of derivative trading losses as speculative losses"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes the restricted 4-year carry-forward window for speculation losses from the 8-year window permitted for normal business losses."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f982412e-914a-4485-a48c-85616ccb9433",
+      "concept_name": "CARRY FORWARD & SET OFF OF LOSSES FROM SPECIFIED BUSINESSES [SECTION 114]",
+      "definition": "Losses computed from a specified business under section 46 can only be offset against profits from another specified business. Any unabsorbed losses may be carried forward indefinitely for set-off against future profits of any specified business.",
+      "terminology": [
+        "Specified business",
+        "Unabsorbed loss",
+        "Default tax regime",
+        "Indefinite carry forward"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 2025 - Section 114",
+        "Section 46",
+        "Section 200",
+        "Section 201",
+        "Section 203",
+        "Section 204",
+        "Section 202(1)"
+      ],
+      "inclusion": [
+        "Indefinite carry forward of specified business losses",
+        "Set-off of specified business losses against profits of any other specified business"
+      ],
+      "exclusion": [
+        "Set-off of specified business losses against non-specified business income or other heads of income",
+        "Deduction eligibility under section 46 for entities opting into specified concessional tax regimes"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes the indefinite carry-forward period of specified business losses from the finite caps applicable to normal business or speculation losses."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d8528b3f-3d76-47c1-9b8f-2f921dd2997a",
+      "concept_name": "LOSSES FROM THE SPECIFIED ACTIVITY [SECTION 115]",
+      "definition": "Losses incurred from the specific activity of owning and maintaining race horses are calculated as the shortfall of stake money against eligible non-capital expenditures. Such losses can only be offset against income from the same specified activity and carried forward for a maximum of four tax years.",
+      "terminology": [
+        "Specified activity",
+        "Stake money",
+        "Owning and maintaining race horses",
+        "Revenue expenditure"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 2025 - Section 115"
+      ],
+      "inclusion": [
+        "Carry forward of losses from owning and maintaining race horses for up to 4 years",
+        "Set-off of specified activity losses exclusively against income from the same specified activity"
+      ],
+      "exclusion": [
+        "Set-off of specified activity losses against casual winnings from betting or horse race wagering",
+        "Inclusion of capital expenditures in computing specified activity loss"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes losses from the structured maintenance of race horses from casual gambling winnings or general business losses."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5ca596e1-8902-43b0-af7d-ce9e7471feb7",
+      "concept_name": "CARRY FORWARD AND SET OFF OF ACCUMULATED BUSINESS LOSSES AND UNABSORBED DEPRECIATION IN AMALGAMATION OR DEMERGER, ETC. [SECTION 116]",
+      "definition": "In qualifying corporate amalgamations involving industrial undertakings, ships, hotels, banking institutions, or public sector enterprises under strategic disinvestment, accumulated losses and unabsorbed depreciation of the amalgamating company transfer to the amalgamated company. The amalgamated company is legally deemed to incur these items for the relevant tax year, preserving carry-forward benefits.",
+      "terminology": [
+        "Amalgamation",
+        "Strategic disinvestment",
+        "Accumulated loss",
+        "Unabsorbed depreciation",
+        "Amalgamated company"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 2025 - Section 116"
+      ],
+      "inclusion": [
+        "Transfer of accumulated losses and unabsorbed depreciation upon qualifying industrial, banking, or public sector amalgamations",
+        "Application of statutory carry-forward and set-off rules to the successor entity"
+      ],
+      "exclusion": [
+        "Transfer of losses in amalgamations failing to satisfy strategic disinvestment timeframe conditions",
+        "Automatic loss carry-forward without fulfilling structural holding criteria"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes general industrial and public sector strategic amalgamation provisions from specialized banking or co-operative reorganization rules."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3cf7efda-ef8a-4c71-a036-5693390d0958",
+      "concept_name": "CARRY FORWARD AND SET OFF OF ACCUMULATED BUSINESS LOSSES AND UNABSORBED DEPRECIATION IN SCHEME OF AMALGAMATION IN CERTAIN CASES [SECTION 117]",
+      "definition": "Under specified government-sanctioned schemes, accumulated losses and unabsorbed depreciation of merging banking companies, corresponding new banks, or government companies transfer to the successor institution. These transferred amounts are treated as losses or unabsorbed depreciation of the resulting entity for the amalgamation tax year.",
+      "terminology": [
+        "Scheme of amalgamation",
+        "Banking company",
+        "Corresponding new bank",
+        "Government company",
+        "Unabsorbed depreciation"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 2025 - Section 117",
+        "Banking Regulation Act, 1949 - Section 45(7)",
+        "Banking Companies (Acquisition and Transfer of Undertakings) Act, 1970 - Section 9",
+        "Banking Companies (Acquisition and Transfer of Undertakings) Act, 1980 - Section 9",
+        "General Insurance Business (Nationalisation) Act, 1972 - Section 16"
+      ],
+      "inclusion": [
+        "Transfer of accumulated losses and unabsorbed depreciation in government-sanctioned banking and insurance amalgamations",
+        "Deeming provisions treating predecessor losses as those of the amalgamated institution"
+      ],
+      "exclusion": [
+        "Amalgamations executed outside official government sanction or statutory statutory schemes",
+        "Loss carry-forwards bypassing statutory post-2025 framework requirements"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes specific statutory banking and government enterprise amalgamations from standard commercial industrial amalgamations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b11c765a-5716-45be-8550-9ec6505affbe",
+      "concept_name": "CARRY FORWARD AND SET OFF OF ACCUMULATED LOSS AND UNABSORBED DEPRECIATION IN BUSINESS REORGANISATION OF CO-OPERATIVE BANKS [SECTION 118]",
+      "definition": "Following a business reorganisation or amalgamation of a co-operative bank, the successor co-operative bank is permitted to set off accumulated losses and unabsorbed depreciation of the predecessor, subject to strict asset-holding and operational continuity conditions. In demergners, allowable losses are allocated directly based on the specific undertaking transferred.",
+      "terminology": [
+        "Co-operative bank",
+        "Business reorganisation",
+        "Predecessor",
+        "Successor",
+        "Demerger",
+        "Unabsorbed depreciation"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 2025 - Section 118"
+      ],
+      "inclusion": [
+        "Set-off of accumulated losses and unabsorbed depreciation by successor co-operative banks upon amalgamation or demerger",
+        "Direct relation allocation of losses in co-operative bank demergers"
+      ],
+      "exclusion": [
+        "Availing tax benefits where fixed asset holding thresholds or business continuity durations are violated",
+        "Unrestricted loss transfer without fulfilling predecessor operational history requirements"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes specialized co-operative bank reorganisation and demerger criteria from corporate company amalgamations."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "ed3095f3d634ed1aa3ef78685b623236a7ac38c505f392aa6c3662d6bb955ac9",
+  "artifact_id": "9bcdc9ea-a6b3-4675-8242-97083f010429",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 9916,
+  "output_tokens": 4554,
+  "cost_usd": 0.014359799999999999,
+  "created_at": "2026-10-03T18:17:25.834248+00:00"
+}

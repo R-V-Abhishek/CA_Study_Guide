@@ -1,0 +1,324 @@
+{
+  "descriptors": [
+    {
+      "node_id": "fc0d3808-c037-48fa-83e6-d898d8a4981f",
+      "concept_name": "Transfers Not In Good Faith To Be Void [Section 329]",
+      "definition": "Property transfers or goods deliveries made by a company within one year before a winding-up petition are void against the liquidator unless executed in the ordinary course of business or for valuable consideration in good faith. Such transactions designed to siphon off assets or evade impending liquidation proceedings are legally invalid.",
+      "terminology": [
+        "transfer of property",
+        "good faith",
+        "valuable consideration",
+        "Company Liquidator",
+        "winding up petition"
+      ],
+      "instrument_references": [
+        "Section 329 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Transfers of movable or immovable property within one year before the winding up petition presentation",
+        "Delivery of goods made prior to winding up without good faith or valuable consideration"
+      ],
+      "exclusion": [
+        "Transfers or deliveries made in the ordinary course of business",
+        "Transfers made in favor of a purchaser or encumbrancer in good faith and for valuable consideration"
+      ],
+      "nearby_distinctions": [
+        "Distinct from general post-commencement transfers under Section 334, as Section 329 covers pre-petition transactions executed within one year under lack of good faith."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2ab2a8a8-3891-462c-8133-ce51dca3ca48",
+      "concept_name": "Certain Transfers To Be Void [Section 330]",
+      "definition": "Any transfer or assignment executed by a company transferring all its properties or assets to trustees for the absolute benefit of all its creditors is legally void. This prevents generalized blanket conveyances outside formal insolvency resolution frameworks.",
+      "terminology": [
+        "transfer or assignment",
+        "trustees",
+        "benefit of all creditors",
+        "void"
+      ],
+      "instrument_references": [
+        "Section 330 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Assignment of all company assets to trustees for creditors"
+      ],
+      "exclusion": [
+        "Specific property transfers for partial debt settlements not covering the entirety of assets to trustees for all creditors"
+      ],
+      "nearby_distinctions": [
+        "Unlike fraudulent preferences under Section 328 or bad faith transfers under Section 329, Section 330 specifically voids universal asset assignments to trustees for creditors regardless of individual transaction intent."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d0cd7087-b843-425e-a571-5cf2facb8333",
+      "concept_name": "Liabilities And Rights Of Certain Persons Fraudulently Preferred [Section 331]",
+      "definition": "When a fraudulent preference involving a property-mortgaged debt is invalidated during winding up, the preferred person bears liabilities and rights as if they were a personal surety. Their liability is limited to the mortgage charge extent or the value of their interest, whichever is less.",
+      "terminology": [
+        "fraudulent preference",
+        "mortgage or charge",
+        "surety",
+        "value of interest"
+      ],
+      "instrument_references": [
+        "Section 331 of the Companies Act, 2013",
+        "Section 328 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Determination of rights and liabilities of preferred persons as sureties",
+        "Tribunal jurisdiction to determine questions and grant relief regarding payments or transactions"
+      ],
+      "exclusion": [
+        "Preferences not related to property mortgaged or secured for company debt under Section 328"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general fraudulent preference rules by establishing explicit surety-equivalent liabilities for persons holding security interests over preferred company property."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "dcb91601-36a8-415f-836e-e7c26a55fd9d",
+      "concept_name": "Effect Of Floating Charge [Section 332]",
+      "definition": "A floating charge created on a company's undertaking or property within twelve months before the commencement of winding up is invalid unless solvency immediately after creation is proved. However, it remains valid for the amount of cash paid concurrently or subsequently with interest at five percent per annum or notified rates.",
+      "terminology": [
+        "floating charge",
+        "commencement of winding up",
+        "solvent",
+        "cash paid"
+      ],
+      "instrument_references": [
+        "Section 332 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Floating charges created within 12 months preceding winding up commencement",
+        "Exceptions for contemporaneous or subsequent cash consideration with statutory interest"
+      ],
+      "exclusion": [
+        "Fixed charges or floating charges created earlier than 12 months prior to winding up commencement"
+      ],
+      "nearby_distinctions": [
+        "Differs from fixed charges by applying a strict 12-month retrospective vulnerability window and solvency proof requirement for validity during winding up."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "49d8e974-5be6-4f3e-a42b-cd22a5df173d",
+      "concept_name": "Disclaimer Of Onerous Property [Section 333]",
+      "definition": "The Company Liquidator may disclaim onerous property, burdened land, unsaleable shares, or unprofitable contracts within twelve months of winding up commencement with Tribunal leave. This disclaimer terminates the company's rights and liabilities in the property without affecting other persons' independent rights.",
+      "terminology": [
+        "Company Liquidator",
+        "disclaim",
+        "onerous property",
+        "Tribunal leave",
+        "unsaleable"
+      ],
+      "instrument_references": [
+        "Section 333 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Land burdened with onerous covenants",
+        "Shares or stocks in companies",
+        "Property that is unsaleable or not readily saleable"
+      ],
+      "exclusion": [
+        "Properties where an interested person's written request to decide on disclaimer is ignored within the statutory timeframe"
+      ],
+      "nearby_distinctions": [
+        "Unlike void transfers which invalidate unlawful asset disposals, disclaimer allows lawful shedding of burdensome obligations and liabilities attached to specific assets."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "90e1920d-e99c-476d-b75f-32d5bd689ace",
+      "concept_name": "Transfers, Etc., After Commencement Of Winding Up To Be Void [Section 334]",
+      "definition": "Any disposition of a company's property, actionable claims, share transfers, or member status alterations made after the commencement of a tribunal-ordered winding up are void unless the Tribunal orders otherwise. This preserves the status quo of assets following the initiation of formal winding up proceedings.",
+      "terminology": [
+        "disposition of property",
+        "actionable claims",
+        "transfer of shares",
+        "commencement of winding up"
+      ],
+      "instrument_references": [
+        "Section 334 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Property dispositions after winding up commencement",
+        "Share transfers and member status changes post-commencement"
+      ],
+      "exclusion": [
+        "Dispositions validated by a specific Tribunal order"
+      ],
+      "nearby_distinctions": [
+        "Unlike Section 329 which handles pre-petition bad faith transfers within a one-year lookback, Section 334 applies strictly to dispositions executed after the commencement of winding up."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "160ec651-70d5-4667-b408-c8b07ddb832a",
+      "concept_name": "Certain Attachments, Executions, Etc., In Winding Up By Tribunal To Be Void [Section 335]",
+      "definition": "Attachments, distress, executions, or property sales put in force against a company's estate without Tribunal leave after winding up commencement are void. However, this restriction exempts proceedings initiated for the recovery of government taxes, imposts, or dues.",
+      "terminology": [
+        "attachment",
+        "distress",
+        "execution",
+        "sale",
+        "leave of the Tribunal"
+      ],
+      "instrument_references": [
+        "Section 335 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Attachments or executions put in force without tribunal leave post-commencement",
+        "Sales of company effects executed without tribunal leave"
+      ],
+      "exclusion": [
+        "Proceedings for the recovery of tax, impost, or government dues"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general property transfers by targeting creditor-driven legal process executions, attachments, and forced sales rather than voluntary company dispositions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9127c629-6e6f-40a2-ab0d-478183e7bee1",
+      "concept_name": "Offences By Officers Of Companies In Liquidation [Section 336]",
+      "definition": "Officers of a company being wound up commit punishable offences if they fail to fully disclose assets, deliver property, or surrender books and papers to the liquidator. Penalized acts include concealing assets valued at one thousand rupees or more, destroying records, making false entries, or using fraud.",
+      "terminology": [
+        "officer of a company",
+        "Company Liquidator",
+        "non-disclosure of assets",
+        "falsification",
+        "false representation"
+      ],
+      "instrument_references": [
+        "Section 336 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Failure to disclose property and disposal details",
+        "Failure to deliver movable property and books",
+        "Concealment, destruction or falsification of books and papers",
+        "Fraudulent removal of property worth 1,000 rupees or more"
+      ],
+      "exclusion": [
+        "Dispositions and disclosures made in the ordinary course of business or permitted by law"
+      ],
+      "nearby_distinctions": [
+        "Unlike civil invalidation provisions for asset transfers, Section 336 imposes criminal liability on individual officers for active obstruction, concealment, or fraudulent non-cooperation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "34356463-e5b1-4fd9-8b6a-d2cb37a424e8",
+      "concept_name": "Statement That Company Is In Liquidation [Section 344]",
+      "definition": "Every invoice, order for goods, or business letter issued by or on behalf of a company in liquidation, its liquidator, receiver, or manager must explicitly state that the company is being wound up. Contravention of this disclosure requirement attracts monetary penalties for the company, officers, and liquidator.",
+      "terminology": [
+        "invoice",
+        "order for goods",
+        "business letter",
+        "company is being wound up",
+        "Company Liquidator"
+      ],
+      "instrument_references": [
+        "Section 344 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Invoices issued during winding up",
+        "Goods orders and business letters bearing company name during liquidation"
+      ],
+      "exclusion": [
+        "Documents issued by companies not undergoing active winding up proceedings"
+      ],
+      "nearby_distinctions": [
+        "Differs from internal asset disclosure duties by enforcing external commercial transparency on all outward-facing transaction documents and correspondence."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "408ce2af-790f-4d6e-b3f4-bf158dee3eae",
+      "concept_name": "Books And Papers Of Company To Be Evidence [Section 345]",
+      "definition": "During a company winding up, all books and papers of the company and its liquidator serve as prima facie evidence of the truth of all recorded matters as between contributories. This evidentiary status facilitates the settlement of contributories' rights and liabilities without exhaustive independent proof for every entry.",
+      "terminology": [
+        "books and papers",
+        "prima facie evidence",
+        "contributories",
+        "truth of all matters"
+      ],
+      "instrument_references": [
+        "Section 345 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Books and papers of the company during winding up",
+        "Records maintained by the Company Liquidator"
+      ],
+      "exclusion": [
+        "Conclusive evidence outside disputes strictly between contributories without rebuttal opportunity"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard corporate record-keeping rules by granting a statutory prima facie evidentiary presumption specifically in winding-up proceedings among contributories."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "407d549a-ade1-40a4-b8a9-e20e965870da",
+      "concept_name": "Inspection Of Books And Papers By Creditors And Contributories [Section 346]",
+      "definition": "Creditors and contributories may inspect a company's books and papers after a tribunal winding-up order, subject to prescribed rules. However, these restrictions do not limit inspection rights conferred by law on central or state governments, authorities, officers, or their agents.",
+      "terminology": [
+        "inspection",
+        "creditor",
+        "contributory",
+        "books and papers",
+        "Tribunal winding up order"
+      ],
+      "instrument_references": [
+        "Section 346 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Inspection by creditors and contributories under prescribed rules",
+        "Unrestricted inspection rights of government authorities and officers"
+      ],
+      "exclusion": [
+        "Unrestricted inspection by general public members without creditor or contributory status"
+      ],
+      "nearby_distinctions": [
+        "Differs from general evidentiary provisions by regulating the procedural access rights of stakeholders to inspect liquidation records rather than their court admissibility."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ea058b09-3bf4-46e8-9e3a-914c3affdbd0",
+      "concept_name": "Disposal Of Books And Papers Of Company [Section 347]",
+      "definition": "Upon complete winding up and prior to dissolution, a company's and liquidator's books and papers are disposed of as directed by the Tribunal. No responsibility devolves on the company, liquidator, or custodian for missing records after five years from the company's dissolution.",
+      "terminology": [
+        "disposal of books and papers",
+        "dissolution",
+        "Tribunal directions",
+        "five years",
+        "Company Liquidation Dividend and Undistributed Assets Account"
+      ],
+      "instrument_references": [
+        "Section 347 of the Companies Act, 2013",
+        "Section 352 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Disposal directions by Tribunal upon complete winding up",
+        "Immunity from record production liability after five years post-dissolution",
+        "Deposit of unpaid dividends and undistributed assets into scheduled bank accounts"
+      ],
+      "exclusion": [
+        "Destruction violating rules framed by the Central Government during the mandatory retention period"
+      ],
+      "nearby_distinctions": [
+        "Distinct from active liquidation inspection rights by governing the terminal archiving, retention limits, and ultimate destruction or deposit protocols post-dissolution."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "a811dbb74d9de5390c68272b8ef3ac795817323522f03d2340c7299450b0be2b",
+  "artifact_id": "13a19cb4-ed8a-4ca9-a470-d04037ece9bf",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8581,
+  "output_tokens": 3967,
+  "cost_usd": 0.012491799999999999,
+  "created_at": "2026-10-03T18:24:37.374637+00:00"
+}

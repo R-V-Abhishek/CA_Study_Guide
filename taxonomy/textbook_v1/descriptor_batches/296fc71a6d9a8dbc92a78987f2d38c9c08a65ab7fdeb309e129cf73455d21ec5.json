@@ -1,0 +1,320 @@
+{
+  "descriptors": [
+    {
+      "node_id": "acba40b1-a838-4b9c-b212-d82994f645d8",
+      "concept_name": "Significance of the Certificate of Practice",
+      "definition": "Members of the Institute must hold a valid certificate of practice issued by the Council to legally engage in professional practice within India or elsewhere. A member whose name is removed due to misconduct cannot bypass this restriction by appearing before tax authorities in a different capacity.",
+      "terminology": [
+        "Certificate of Practice",
+        "Chartered Accountant",
+        "Council",
+        "Professional Misconduct"
+      ],
+      "instrument_references": [
+        "Section 6 of the Chartered Accountants Act, 1949"
+      ],
+      "inclusion": [
+        "Practising as a chartered accountant",
+        "Appearing before tax authorities and tribunals in professional capacity"
+      ],
+      "exclusion": [
+        "Members not holding a valid certificate of practice offering reserved services"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from basic membership of the Institute, which alone does not confer the right to practice."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3b8edb4f-a120-4276-a1cb-ae034e10c6b5",
+      "concept_name": "Cancellation and Restoration of Certificate of Practice",
+      "definition": "A certificate of practice is liable to cancellation under specific statutory conditions such as removal from the register, issuance based on incorrect information, cessation of practice, or non-payment of annual fees. Such cancelled certificates may be restored by application and fee payment prior to the expiry of the relevant year under prescribed rules.",
+      "terminology": [
+        "Certificate of Practice",
+        "Cancellation",
+        "Restoration",
+        "Annual Fee"
+      ],
+      "instrument_references": [
+        "Regulation 10",
+        "Regulation 11"
+      ],
+      "inclusion": [
+        "Surrendering cancelled certificates to the Secretary",
+        "Applying for restoration on approved forms"
+      ],
+      "exclusion": [
+        "Voluntary retention of cancelled certificates without surrender"
+      ],
+      "nearby_distinctions": [
+        "Differs from permanent removal of membership, as fee-based cancellations allow for administrative restoration."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "452176b2-325a-4241-ae86-13bebb78c1ad",
+      "concept_name": "Members Deemed to be in Practice",
+      "definition": "Members are deemed to be in practice when they engage in accountancy, auditing, financial verification, or rendering professional accounting services for remuneration either individually or in recognized partnerships. Salaried employees under practicing chartered accountants are also deemed to be in practice for the limited purpose of training articled assistants.",
+      "terminology": [
+        "Deemed to be in practice",
+        "Articled Assistants",
+        "Management Consultancy and other Services"
+      ],
+      "instrument_references": [
+        "Section 2(2) of the Chartered Accountants Act, 1949"
+      ],
+      "inclusion": [
+        "Auditing and verification of financial transactions",
+        "Rendering accounting and procedural professional assistance"
+      ],
+      "exclusion": [
+        "Statutory or periodical audits falling outside permitted management consultancy scope"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from members in service who are employed in non-practice sectors like commerce and industry."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b701772c-472b-41a3-8445-8a8e382f0040",
+      "concept_name": "Companies not to Engage in Accountancy",
+      "definition": "Corporate entities and limited liability partnerships having a company as a partner are strictly prohibited from practicing as chartered accountants. Contravention of this rule attracts statutory fines for officers knowingly party to the violation alongside restrictions on audit firm appointments.",
+      "terminology": [
+        "Company",
+        "Limited Liability Partnership",
+        "Practise as Chartered Accountants"
+      ],
+      "instrument_references": [
+        "Section 25 of the Chartered Accountants Act, 1949",
+        "Section 141(2) of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "LLPs without corporate partners taking audit assignments",
+        "Penalties for officers knowingly participating in corporate practice violations"
+      ],
+      "exclusion": [
+        "LLPs having a company as a partner from engaging in practice"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from individual practitioners and partner-only firms permitted to undertake statutory audit work."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b5ac5994-f62c-4776-b291-829f57c8de8d",
+      "concept_name": "Member in Practice Prohibited from using a Designation other than Chartered Accountant",
+      "definition": "Practicing members are barred from using any designation or description other than that of a chartered accountant, subject to exceptions for recognized accountancy qualifications. Specific non-practice roles like political positions or company directorships cannot be displayed in a manner violating statutory naming restrictions.",
+      "terminology": [
+        "Designation",
+        "Chartered Accountant",
+        "Merchant Banker",
+        "Section 7"
+      ],
+      "instrument_references": [
+        "Section 7 of the Chartered Accountants Act, 1949"
+      ],
+      "inclusion": [
+        "Using the prefix CA before names",
+        "Indicating recognized alternate accountancy institute qualifications"
+      ],
+      "exclusion": [
+        "Prominent display of non-professional titles or club positions on letterheads"
+      ],
+      "nearby_distinctions": [
+        "Differs from non-practicing members who are permitted to use other descriptions provided they do not use the CA designation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ef3bee4c-64c1-4850-9e98-4a61e8cbc14c",
+      "concept_name": "Maintenance of Branch Offices",
+      "definition": "Practitioners or firms maintaining more than one office in India must place each branch under the separate active charge of a qualified member of the Institute. Active charge requires minimum residency or physical attendance thresholds at the branch location, with specific seasonal exemptions provided for hill areas.",
+      "terminology": [
+        "Branch Offices",
+        "Separate Charge",
+        "Hill Areas",
+        "Active Association"
+      ],
+      "instrument_references": [
+        "Section 27 of the Chartered Accountants Act, 1949"
+      ],
+      "inclusion": [
+        "Assigning a whole-time partner or paid assistant to manage a branch office",
+        "Filing mandatory opening and closing intimations for seasonal hill area offices"
+      ],
+      "exclusion": [
+        "Operating unstaffed or unattended additional business locations"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from a single primary practice office which does not require a secondary branch-in-charge compliance structure."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "49c949d2-5ea0-47df-90b2-ee9baba64e7f",
+      "concept_name": "KYC Norms for CA in Practice",
+      "definition": "Practicing members undertaking attestation functions are mandated by Council guidelines to collect and verify comprehensive Know Your Client information. These norms require capturing specific general, engagement, and regulatory details depending on whether the client is an individual, corporate, or non-corporate entity.",
+      "terminology": [
+        "KYC Norms",
+        "Attestation Functions",
+        "Engagement Information",
+        "PAN"
+      ],
+      "instrument_references": [
+        "ICAI Council Guidelines"
+      ],
+      "inclusion": [
+        "Obtaining PAN or Aadhaar card numbers for individual clients",
+        "Collecting company identification numbers and director details for corporate clients"
+      ],
+      "exclusion": [
+        "Waiving KYC documentation for attestation engagements"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from non-attestation management consultancy engagements where mandatory council KYC formats may not apply uniformly."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4591f6ba-bbc7-4a46-9f86-6e3fd167c420",
+      "concept_name": "Chartered Accountants in Service",
+      "definition": "A chartered accountant in service is a professional employed or contracted in executive or non-executive capacities across commercial, public, educational, or regulatory sectors. Such members are governed by professional ethics provisions applicable to members generally and those in non-practice roles.",
+      "terminology": [
+        "Chartered Accountant in Service",
+        "Professional Accountant",
+        "Executive Capacity"
+      ],
+      "instrument_references": [
+        "Code of Ethics"
+      ],
+      "inclusion": [
+        "Employment in commerce, industry, public sector, and education",
+        "Contracted professional engagements with regulatory bodies"
+      ],
+      "exclusion": [
+        "Holding a certificate of practice and engaging in public attestation work"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from members in practice who offer independent verification services to the general public."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "71bfbd4c-069e-47ee-8f7c-299cc7a83bc9",
+      "concept_name": "Disciplinary Procedure",
+      "definition": "Allegations of professional or other misconduct against members are processed through a structured regulatory framework involving the Disciplinary Directorate, Board of Discipline, and Disciplinary Committee. Aggrieved parties can appeal decisions made by these disciplinary bodies to the designated Appellate Authority within stipulated timelines.",
+      "terminology": [
+        "Disciplinary Directorate",
+        "Board of Discipline",
+        "Disciplinary Committee",
+        "Appellate Authority"
+      ],
+      "instrument_references": [
+        "Section 21",
+        "Section 21A",
+        "Section 21B",
+        "Section 21C",
+        "Section 22-A",
+        "Section 22-G",
+        "Chartered Accountants (Procedure of Investigations of Professional and Other Misconduct of Cases) Rules, 2007"
+      ],
+      "inclusion": [
+        "Investigating complaints and information regarding member misconduct",
+        "Filing appeals against disciplinary orders within ninety days"
+      ],
+      "exclusion": [
+        "Direct court litigation bypassing statutory investigative authorities"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from internal firm quality reviews, as disciplinary procedures deal specifically with statutory penalties and ethical breaches."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "34b9a818-45d0-4ce9-9249-68110c97e590",
+      "concept_name": "Types of Misconduct: Professional or Other Misconduct",
+      "definition": "Members are subject to disciplinary action if found guilty of professional misconduct defined in the schedules or other misconduct occurring outside professional duties. Other misconduct encompasses personal integrity failures, such as forgery or convictions for crimes involving moral turpitude.",
+      "terminology": [
+        "Professional Misconduct",
+        "Other Misconduct",
+        "Moral Turpitude",
+        "Schedules"
+      ],
+      "instrument_references": [
+        "Section 21",
+        "Section 22",
+        "Section 8(v) of the Chartered Accountants Act, 1949"
+      ],
+      "inclusion": [
+        "Acts or omissions listed in the First and Second Schedules",
+        "Personal criminal convictions and non-professional integrity breaches"
+      ],
+      "exclusion": [
+        "Technical oversights devoid of dishonest intent or moral turpitude"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between professional misconduct arising from audit work and other misconduct arising from non-professional personal behavior."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6c2fa1d9-c735-42c1-a4df-7ab26433305e",
+      "concept_name": "Professional Misconduct",
+      "definition": "Professional misconduct involves specific acts or omissions categorized across multiple parts of the First and Second Schedules affecting members in practice, service, or general standing. These provisions ensure that accountants maintain independence and ethical standards appropriate to their professional engagements.",
+      "terminology": [
+        "First Schedule",
+        "Second Schedule",
+        "Professional Misconduct",
+        "Members Generally"
+      ],
+      "instrument_references": [
+        "Section 22 of the Chartered Accountants Act, 1949"
+      ],
+      "inclusion": [
+        "Misconduct by members in practice compromising independence",
+        "Misconduct by members in service and general practice roles"
+      ],
+      "exclusion": [
+        "Personal infractions completely unrelated to professional duties covered under other misconduct schedules"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from other misconduct by its direct connection to professional duties, rules, and attestation responsibilities."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6a0da162-5189-468a-bc37-22296041e515",
+      "concept_name": "Other Misconduct",
+      "definition": "Other misconduct empowers the Council to investigate personal acts or omissions of members that occur outside professional work to uphold personal integrity standards. Examples include committing forgery in private affairs or facing criminal convictions for offenses involving moral turpitude.",
+      "terminology": [
+        "Other Misconduct",
+        "Moral Turpitude",
+        "Personal Integrity",
+        "Council"
+      ],
+      "instrument_references": [
+        "Section 21",
+        "Section 22",
+        "Section 8(v) of the Chartered Accountants Act, 1949"
+      ],
+      "inclusion": [
+        "Forging private documents or wills",
+        "Court convictions for non-technical offenses involving moral turpitude"
+      ],
+      "exclusion": [
+        "Technical professional errors governed strictly by operational auditing standards"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from professional misconduct because it applies to private non-professional actions reflecting negatively on the profession's reputation."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "296fc71a6d9a8dbc92a78987f2d38c9c08a65ab7fdeb309e129cf73455d21ec5",
+  "artifact_id": "733e0f0d-c084-4da9-8f70-4170c74976bb",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8712,
+  "output_tokens": 3555,
+  "cost_usd": 0.0115011,
+  "created_at": "2026-10-03T18:16:35.969203+00:00"
+}

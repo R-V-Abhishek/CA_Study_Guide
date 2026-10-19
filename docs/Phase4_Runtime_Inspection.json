@@ -1,0 +1,6151 @@
+{
+  "generated_at": "2026-10-04T10:01:42.444241+00:00",
+  "database_writes": false,
+  "completion_gate_passed": false,
+  "source_inventory_count": 494,
+  "acquired_artifact_associations": 280,
+  "distinct_acquired_hashes": 262,
+  "extraction_outcomes": {
+    "metadata_review": 80,
+    "candidate": 199,
+    "provenance_review": 1
+  },
+  "coverage": [
+    {
+      "paper_id": "combined_or_unresolved",
+      "attempt_or_collection": "2023-05",
+      "family": "mock",
+      "profile": "unresolved",
+      "state": "older_inventory",
+      "count": 15
+    },
+    {
+      "paper_id": "combined_or_unresolved",
+      "attempt_or_collection": "2024-05",
+      "family": "past_exam",
+      "profile": "unresolved",
+      "state": "metadata_review",
+      "count": 2
+    },
+    {
+      "paper_id": "combined_or_unresolved",
+      "attempt_or_collection": "2024-05",
+      "family": "rtp",
+      "profile": "unresolved",
+      "state": "metadata_review",
+      "count": 2
+    },
+    {
+      "paper_id": "combined_or_unresolved",
+      "attempt_or_collection": "2024-05",
+      "family": "rtp",
+      "profile": "unresolved",
+      "state": "outside_corpus",
+      "count": 9
+    },
+    {
+      "paper_id": "combined_or_unresolved",
+      "attempt_or_collection": "2024-06",
+      "family": "rtp",
+      "profile": "unresolved",
+      "state": "outside_corpus",
+      "count": 4
+    },
+    {
+      "paper_id": "combined_or_unresolved",
+      "attempt_or_collection": "2024-09",
+      "family": "rtp",
+      "profile": "unresolved",
+      "state": "outside_corpus",
+      "count": 12
+    },
+    {
+      "paper_id": "combined_or_unresolved",
+      "attempt_or_collection": "2024-11",
+      "family": "past_exam",
+      "profile": "unresolved",
+      "state": "metadata_review",
+      "count": 2
+    },
+    {
+      "paper_id": "combined_or_unresolved",
+      "attempt_or_collection": "2024-11",
+      "family": "rtp",
+      "profile": "s2023.rtp.v1",
+      "state": "candidate",
+      "count": 2
+    },
+    {
+      "paper_id": "combined_or_unresolved",
+      "attempt_or_collection": "2024-11",
+      "family": "rtp",
+      "profile": "unresolved",
+      "state": "metadata_review",
+      "count": 2
+    },
+    {
+      "paper_id": "combined_or_unresolved",
+      "attempt_or_collection": "2025-01",
+      "family": "rtp",
+      "profile": "unresolved",
+      "state": "outside_corpus",
+      "count": 20
+    },
+    {
+      "paper_id": "combined_or_unresolved",
+      "attempt_or_collection": "2025-05",
+      "family": "past_exam",
+      "profile": "unresolved",
+      "state": "metadata_review",
+      "count": 4
+    },
+    {
+      "paper_id": "combined_or_unresolved",
+      "attempt_or_collection": "2025-05",
+      "family": "rtp",
+      "profile": "s2023.rtp.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "combined_or_unresolved",
+      "attempt_or_collection": "2025-05",
+      "family": "rtp",
+      "profile": "unresolved",
+      "state": "metadata_review",
+      "count": 2
+    },
+    {
+      "paper_id": "combined_or_unresolved",
+      "attempt_or_collection": "2025-05",
+      "family": "rtp",
+      "profile": "unresolved",
+      "state": "outside_corpus",
+      "count": 14
+    },
+    {
+      "paper_id": "combined_or_unresolved",
+      "attempt_or_collection": "2025-09",
+      "family": "mock",
+      "profile": "unresolved",
+      "state": "not_question_artifact",
+      "count": 1
+    },
+    {
+      "paper_id": "combined_or_unresolved",
+      "attempt_or_collection": "2025-09",
+      "family": "mock",
+      "profile": "unresolved",
+      "state": "outside_corpus",
+      "count": 2
+    },
+    {
+      "paper_id": "combined_or_unresolved",
+      "attempt_or_collection": "2025-09",
+      "family": "past_exam",
+      "profile": "unresolved",
+      "state": "metadata_review",
+      "count": 6
+    },
+    {
+      "paper_id": "combined_or_unresolved",
+      "attempt_or_collection": "2025-09",
+      "family": "past_exam",
+      "profile": "unresolved",
+      "state": "outside_corpus",
+      "count": 7
+    },
+    {
+      "paper_id": "combined_or_unresolved",
+      "attempt_or_collection": "2025-09",
+      "family": "rtp",
+      "profile": "unresolved",
+      "state": "metadata_review",
+      "count": 2
+    },
+    {
+      "paper_id": "combined_or_unresolved",
+      "attempt_or_collection": "2025-09",
+      "family": "rtp",
+      "profile": "unresolved",
+      "state": "outside_corpus",
+      "count": 14
+    },
+    {
+      "paper_id": "combined_or_unresolved",
+      "attempt_or_collection": "2026-01",
+      "family": "past_exam",
+      "profile": "unresolved",
+      "state": "metadata_review",
+      "count": 6
+    },
+    {
+      "paper_id": "combined_or_unresolved",
+      "attempt_or_collection": "2026-01",
+      "family": "past_exam",
+      "profile": "unresolved",
+      "state": "not_question_artifact",
+      "count": 1
+    },
+    {
+      "paper_id": "combined_or_unresolved",
+      "attempt_or_collection": "2026-01",
+      "family": "past_exam",
+      "profile": "unresolved",
+      "state": "outside_corpus",
+      "count": 8
+    },
+    {
+      "paper_id": "combined_or_unresolved",
+      "attempt_or_collection": "2026-01",
+      "family": "rtp",
+      "profile": "s2023.rtp.P1.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "combined_or_unresolved",
+      "attempt_or_collection": "2026-01",
+      "family": "rtp",
+      "profile": "unresolved",
+      "state": "metadata_review",
+      "count": 2
+    },
+    {
+      "paper_id": "combined_or_unresolved",
+      "attempt_or_collection": "2026-01",
+      "family": "rtp",
+      "profile": "unresolved",
+      "state": "outside_corpus",
+      "count": 23
+    },
+    {
+      "paper_id": "combined_or_unresolved",
+      "attempt_or_collection": "2026-05",
+      "family": "past_exam",
+      "profile": "unresolved",
+      "state": "metadata_review",
+      "count": 2
+    },
+    {
+      "paper_id": "combined_or_unresolved",
+      "attempt_or_collection": "2026-05",
+      "family": "past_exam",
+      "profile": "unresolved",
+      "state": "outside_corpus",
+      "count": 6
+    },
+    {
+      "paper_id": "combined_or_unresolved",
+      "attempt_or_collection": "2026-05",
+      "family": "rtp",
+      "profile": "unresolved",
+      "state": "metadata_review",
+      "count": 2
+    },
+    {
+      "paper_id": "combined_or_unresolved",
+      "attempt_or_collection": "2026-05",
+      "family": "rtp",
+      "profile": "unresolved",
+      "state": "outside_corpus",
+      "count": 13
+    },
+    {
+      "paper_id": "combined_or_unresolved",
+      "attempt_or_collection": "2026-09",
+      "family": "past_exam",
+      "profile": "unresolved",
+      "state": "outside_corpus",
+      "count": 13
+    },
+    {
+      "paper_id": "combined_or_unresolved",
+      "attempt_or_collection": "2026-09",
+      "family": "rtp",
+      "profile": "unresolved",
+      "state": "outside_corpus",
+      "count": 13
+    },
+    {
+      "paper_id": "combined_or_unresolved",
+      "attempt_or_collection": "2026-11",
+      "family": "rtp",
+      "profile": "s2023.rtp.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "combined_or_unresolved",
+      "attempt_or_collection": "2026-11",
+      "family": "rtp",
+      "profile": "unresolved",
+      "state": "metadata_review",
+      "count": 2
+    },
+    {
+      "paper_id": "combined_or_unresolved",
+      "attempt_or_collection": "Model Test Paper 3-A May 2026 Onwards",
+      "family": "model",
+      "profile": "unresolved",
+      "state": "outside_corpus",
+      "count": 1
+    },
+    {
+      "paper_id": "combined_or_unresolved",
+      "attempt_or_collection": "Model Test Papers",
+      "family": "model",
+      "profile": "unresolved",
+      "state": "outside_corpus",
+      "count": 3
+    },
+    {
+      "paper_id": "combined_or_unresolved",
+      "attempt_or_collection": "Model Test Papers Group I",
+      "family": "model",
+      "profile": "unresolved",
+      "state": "metadata_review",
+      "count": 1
+    },
+    {
+      "paper_id": "combined_or_unresolved",
+      "attempt_or_collection": "Model Test Papers Group II",
+      "family": "model",
+      "profile": "unresolved",
+      "state": "metadata_review",
+      "count": 1
+    },
+    {
+      "paper_id": "combined_or_unresolved",
+      "attempt_or_collection": "undated",
+      "family": "past_exam",
+      "profile": "unresolved",
+      "state": "outside_corpus",
+      "count": 35
+    },
+    {
+      "paper_id": "s2023.P1",
+      "attempt_or_collection": "2024-05",
+      "family": "past_exam",
+      "profile": "s2023.suggested_answer.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P1",
+      "attempt_or_collection": "2024-05",
+      "family": "rtp",
+      "profile": "unresolved",
+      "state": "metadata_review",
+      "count": 2
+    },
+    {
+      "paper_id": "s2023.P1",
+      "attempt_or_collection": "2024-05",
+      "family": "rtp",
+      "profile": "unresolved",
+      "state": "provenance_review",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P1",
+      "attempt_or_collection": "2024-11",
+      "family": "past_exam",
+      "profile": "s2023.suggested_answer.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P1",
+      "attempt_or_collection": "2024-11",
+      "family": "rtp",
+      "profile": "s2023.rtp.P1.v1",
+      "state": "candidate",
+      "count": 4
+    },
+    {
+      "paper_id": "s2023.P1",
+      "attempt_or_collection": "2024-11",
+      "family": "rtp",
+      "profile": "unresolved",
+      "state": "metadata_review",
+      "count": 2
+    },
+    {
+      "paper_id": "s2023.P1",
+      "attempt_or_collection": "2025-05",
+      "family": "past_exam",
+      "profile": "s2023.suggested_answer.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P1",
+      "attempt_or_collection": "2025-05",
+      "family": "rtp",
+      "profile": "s2023.rtp.P1.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P1",
+      "attempt_or_collection": "2025-05",
+      "family": "rtp",
+      "profile": "unresolved",
+      "state": "metadata_review",
+      "count": 2
+    },
+    {
+      "paper_id": "s2023.P1",
+      "attempt_or_collection": "2025-09",
+      "family": "past_exam",
+      "profile": "s2023.suggested_answer.v1",
+      "state": "candidate",
+      "count": 2
+    },
+    {
+      "paper_id": "s2023.P1",
+      "attempt_or_collection": "2025-09",
+      "family": "rtp",
+      "profile": "s2023.rtp.P1.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P1",
+      "attempt_or_collection": "2025-09",
+      "family": "rtp",
+      "profile": "unresolved",
+      "state": "metadata_review",
+      "count": 2
+    },
+    {
+      "paper_id": "s2023.P1",
+      "attempt_or_collection": "2026-01",
+      "family": "past_exam",
+      "profile": "s2023.suggested_answer.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P1",
+      "attempt_or_collection": "2026-01",
+      "family": "rtp",
+      "profile": "s2023.rtp.P1.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P1",
+      "attempt_or_collection": "2026-01",
+      "family": "rtp",
+      "profile": "unresolved",
+      "state": "metadata_review",
+      "count": 2
+    },
+    {
+      "paper_id": "s2023.P1",
+      "attempt_or_collection": "2026-05",
+      "family": "past_exam",
+      "profile": "s2023.question_paper.v1",
+      "state": "candidate",
+      "count": 5
+    },
+    {
+      "paper_id": "s2023.P1",
+      "attempt_or_collection": "2026-05",
+      "family": "past_exam",
+      "profile": "unresolved",
+      "state": "metadata_review",
+      "count": 2
+    },
+    {
+      "paper_id": "s2023.P1",
+      "attempt_or_collection": "2026-05",
+      "family": "rtp",
+      "profile": "s2023.rtp.P1.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P1",
+      "attempt_or_collection": "2026-05",
+      "family": "rtp",
+      "profile": "unresolved",
+      "state": "metadata_review",
+      "count": 2
+    },
+    {
+      "paper_id": "s2023.P1",
+      "attempt_or_collection": "2026-11",
+      "family": "rtp",
+      "profile": "s2023.rtp.P1.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P1",
+      "attempt_or_collection": "2026-11",
+      "family": "rtp",
+      "profile": "unresolved",
+      "state": "metadata_review",
+      "count": 2
+    },
+    {
+      "paper_id": "s2023.P1",
+      "attempt_or_collection": "undated",
+      "family": "past_exam",
+      "profile": "s2023.question_paper.v1",
+      "state": "candidate",
+      "count": 23
+    },
+    {
+      "paper_id": "s2023.P1",
+      "attempt_or_collection": "undated",
+      "family": "past_exam",
+      "profile": "unresolved",
+      "state": "metadata_review",
+      "count": 7
+    },
+    {
+      "paper_id": "s2023.P2",
+      "attempt_or_collection": "2024-05",
+      "family": "past_exam",
+      "profile": "s2023.suggested_answer.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P2",
+      "attempt_or_collection": "2024-11",
+      "family": "past_exam",
+      "profile": "s2023.suggested_answer.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P2",
+      "attempt_or_collection": "2025-05",
+      "family": "past_exam",
+      "profile": "s2023.suggested_answer.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P2",
+      "attempt_or_collection": "2025-09",
+      "family": "past_exam",
+      "profile": "s2023.suggested_answer.v1",
+      "state": "candidate",
+      "count": 2
+    },
+    {
+      "paper_id": "s2023.P2",
+      "attempt_or_collection": "2026-01",
+      "family": "past_exam",
+      "profile": "s2023.suggested_answer.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P2",
+      "attempt_or_collection": "2026-05",
+      "family": "past_exam",
+      "profile": "s2023.suggested_answer.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P3",
+      "attempt_or_collection": "2024-05",
+      "family": "past_exam",
+      "profile": "s2023.suggested_answer.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P3",
+      "attempt_or_collection": "2024-11",
+      "family": "past_exam",
+      "profile": "s2023.suggested_answer.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P3",
+      "attempt_or_collection": "2025-05",
+      "family": "past_exam",
+      "profile": "s2023.suggested_answer.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P3",
+      "attempt_or_collection": "2025-09",
+      "family": "past_exam",
+      "profile": "s2023.suggested_answer.v1",
+      "state": "candidate",
+      "count": 2
+    },
+    {
+      "paper_id": "s2023.P3",
+      "attempt_or_collection": "2026-01",
+      "family": "past_exam",
+      "profile": "s2023.suggested_answer.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P3",
+      "attempt_or_collection": "2026-05",
+      "family": "past_exam",
+      "profile": "s2023.suggested_answer.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P4",
+      "attempt_or_collection": "2024-05",
+      "family": "past_exam",
+      "profile": "s2023.suggested_answer.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P4",
+      "attempt_or_collection": "2024-05",
+      "family": "rtp",
+      "profile": "unresolved",
+      "state": "metadata_review",
+      "count": 3
+    },
+    {
+      "paper_id": "s2023.P4",
+      "attempt_or_collection": "2024-11",
+      "family": "past_exam",
+      "profile": "s2023.suggested_answer.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P4",
+      "attempt_or_collection": "2024-11",
+      "family": "rtp",
+      "profile": "s2023.rtp.v1",
+      "state": "candidate",
+      "count": 4
+    },
+    {
+      "paper_id": "s2023.P4",
+      "attempt_or_collection": "2024-11",
+      "family": "rtp",
+      "profile": "unresolved",
+      "state": "metadata_review",
+      "count": 2
+    },
+    {
+      "paper_id": "s2023.P4",
+      "attempt_or_collection": "2025-05",
+      "family": "past_exam",
+      "profile": "s2023.suggested_answer.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P4",
+      "attempt_or_collection": "2025-05",
+      "family": "rtp",
+      "profile": "s2023.rtp.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P4",
+      "attempt_or_collection": "2025-05",
+      "family": "rtp",
+      "profile": "unresolved",
+      "state": "metadata_review",
+      "count": 2
+    },
+    {
+      "paper_id": "s2023.P4",
+      "attempt_or_collection": "2025-09",
+      "family": "past_exam",
+      "profile": "s2023.suggested_answer.v1",
+      "state": "candidate",
+      "count": 2
+    },
+    {
+      "paper_id": "s2023.P4",
+      "attempt_or_collection": "2025-09",
+      "family": "rtp",
+      "profile": "s2023.rtp.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P4",
+      "attempt_or_collection": "2025-09",
+      "family": "rtp",
+      "profile": "unresolved",
+      "state": "metadata_review",
+      "count": 2
+    },
+    {
+      "paper_id": "s2023.P4",
+      "attempt_or_collection": "2026-01",
+      "family": "past_exam",
+      "profile": "s2023.suggested_answer.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P4",
+      "attempt_or_collection": "2026-01",
+      "family": "rtp",
+      "profile": "s2023.rtp.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P4",
+      "attempt_or_collection": "2026-01",
+      "family": "rtp",
+      "profile": "unresolved",
+      "state": "metadata_review",
+      "count": 2
+    },
+    {
+      "paper_id": "s2023.P4",
+      "attempt_or_collection": "2026-05",
+      "family": "past_exam",
+      "profile": "s2023.suggested_answer.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P4",
+      "attempt_or_collection": "2026-05",
+      "family": "rtp",
+      "profile": "s2023.rtp.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P4",
+      "attempt_or_collection": "2026-05",
+      "family": "rtp",
+      "profile": "unresolved",
+      "state": "metadata_review",
+      "count": 2
+    },
+    {
+      "paper_id": "s2023.P4",
+      "attempt_or_collection": "2026-11",
+      "family": "rtp",
+      "profile": "unresolved",
+      "state": "metadata_review",
+      "count": 3
+    },
+    {
+      "paper_id": "s2023.P5",
+      "attempt_or_collection": "2024-05",
+      "family": "past_exam",
+      "profile": "s2023.suggested_answer.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P5",
+      "attempt_or_collection": "2024-11",
+      "family": "past_exam",
+      "profile": "s2023.suggested_answer.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P5",
+      "attempt_or_collection": "2025-05",
+      "family": "past_exam",
+      "profile": "s2023.suggested_answer.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P5",
+      "attempt_or_collection": "2025-09",
+      "family": "past_exam",
+      "profile": "s2023.suggested_answer.v1",
+      "state": "candidate",
+      "count": 2
+    },
+    {
+      "paper_id": "s2023.P5",
+      "attempt_or_collection": "2026-01",
+      "family": "past_exam",
+      "profile": "s2023.suggested_answer.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P5",
+      "attempt_or_collection": "2026-05",
+      "family": "past_exam",
+      "profile": "unresolved",
+      "state": "metadata_review",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "2024-05",
+      "family": "past_exam",
+      "profile": "s2023.suggested_answer.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "2024-11",
+      "family": "past_exam",
+      "profile": "s2023.suggested_answer.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "2025-05",
+      "family": "past_exam",
+      "profile": "s2023.suggested_answer.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "2025-09",
+      "family": "past_exam",
+      "profile": "s2023.suggested_answer.v1",
+      "state": "candidate",
+      "count": 2
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "2026-01",
+      "family": "past_exam",
+      "profile": "s2023.suggested_answer.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "2026-05",
+      "family": "past_exam",
+      "profile": "unresolved",
+      "state": "metadata_review",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "BharatTech3D- Revolutionizing Affordable Housing through 3D Construction Technology (8 August, 2025)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Caber Cabs: Competing in a Disruptive Landscape (02 May, 2025)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 & 2 (February, 2024 Student' Journal)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 & 2 (January, 2025 Students' Journal)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 & 2 Q&A (February, 2025 Student's Journal)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 (01 Aug, 2025)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 (02 May, 2025)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 (05 June, 2026)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 (06 June, 2025)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 (10 April, 2026)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 (10 July, 2026)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 (11 April, 2025)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 (11 July, 2025)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 (11 Sep, 2026)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 (12 June, 2026)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 (13 June, 2025)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 (13 March, 2026)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 (14 Aug, 2026)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 (14 July, 2025)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 (14 Nov, 2025)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 (15 May, 2026)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 (16 May 2025)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 (17 April, 2026)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 (17 Jul, 2025)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 (17 July, 2026)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 (17 October, 2025)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 (18 April, 2025)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 (18 Sep, 2026)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 (19 Dec, 2025)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 (19 June, 2026)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 (2 Jan, 2026)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 (20 March, 2026)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 (21 Aug, 2026)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 (22 August, 2025)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 (22 May, 2026)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 (23 Jan, 2026)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 (23 May, 2025)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 (24 April, 2026)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 (24 July, 2026)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 (24 October, 2025)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 (24 Sep, 2026)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 (25 April, 2025)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 (25 July, 2025)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 (26\u00a0Dec, 2025)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 (27 March, 2026)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 (27\u00a0Feb, 2026)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 (28 Aug, 2026)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 (29 August, 2025)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 (29 May, 2026)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 (30 May, 2025)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 (31 July, 2026)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 (31st October, 2025)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 (5 Dec, 2025)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 (5 September, 2025)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 (6 March, 2026)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 (6\u00a0Feb, 2026)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 (8 August, 2025)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 (8 May, 2026)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 (9 May, 2025)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 1 (9\u00a0Jan, 2026)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 2 (05 June, 2026)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 2 (06 June, 2025)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 2 (10 April, 2026)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 2 (10 July, 2026)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 2 (11 April, 2025)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 2 (11 Sep, 2026)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 2 (12 June, 2026)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 2 (13 June, 2025)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 2 (13 March, 2026)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 2 (14 Aug, 2026)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 2 (17 April, 2026)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 2 (17 Jul, 2025)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 2 (17 July, 2026)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 2 (17 October, 2025)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 2 (18 April, 2025)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 2 (2 Jan, 2026)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 2 (20 March, 2026)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 2 (21 Aug, 2026)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 2 (22 August, 2025)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 2 (22 May, 2026)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 2 (23 May, 2025)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 2 (24 July, 2026)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 2 (24 Sep, 2026)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 2 (26\u00a0Dec, 2025)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 2 (29 August, 2025)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 2 (30 May, 2025)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 2 (5 Dec, 2025)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 2 (6 March, 2026)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 2 (6\u00a0Feb, 2026)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 2 (8 May, 2026)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 2 (9\u00a0Jan, 2026)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 3 (06 June, 2025)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 3 (14 Aug, 2026)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 3 (24 Sep, 2026)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study 3 (February, 2024 Students' Journal)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study on WMPL- From Audit Insights to Investment Strategy (29 August, 2025)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study, Pharmaceutical Industry, (June 2026 Students' Journal)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study, Pharmaceutical Industry, (October 2025 Students' Journal)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study, Pharmaceutical Industry, Q&A (August 2026 Student's Journal)",
+      "family": "case_study",
+      "profile": "unresolved",
+      "state": "metadata_review",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Case Study, Pharmaceutical Industry,\u00a0 Q&A (November 2025 Student's Journal)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Elegant Hotels Limited- Strategic Expansion in Hospitality Sector (4 Jul, 2025)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Green Energy Ltd. (GEL)- Empowering the Future with Sustainable Storage Solutions \u00a0(16 May 2025)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "IBS Case Study Digest",
+      "family": "case_study",
+      "profile": "s2023.ibs_case_study.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "IBS Case Study Digest Volume-II",
+      "family": "case_study",
+      "profile": "s2023.ibs_case_study.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "KG Airlines- A Strategic Case (25 April, 2025)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Maximo Ltd.- Balancing Compliance and Global Ambitions\u00a0 (29 August, 2025)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "SG\u2019s Edge in the Fast Fashion Industry (9 May, 2025)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Suraj Pharma- Navigating Market Disruption through Innovation (25 July, 2025)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "The Discount Disruption: Daily Mart\u2019s 99-Point Turnaround (01 Aug, 2025)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "VEN Private Limited - Reshaping Horizons (20 Jun, 2025)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "attempt_or_collection": "Wings of Change- Navigating Strategy, Compliance, and Growth at YIAL (05 September, 2025)",
+      "family": "case_study",
+      "profile": "s2023.case_scenarios.v1",
+      "state": "candidate",
+      "count": 1
+    }
+  ],
+  "quality_states": [
+    {
+      "dimension": "answers",
+      "state": "concern",
+      "count": 61
+    },
+    {
+      "dimension": "answers",
+      "state": "not_applicable",
+      "count": 28
+    },
+    {
+      "dimension": "answers",
+      "state": "pending",
+      "count": 92
+    },
+    {
+      "dimension": "human_review",
+      "state": "pending",
+      "count": 181
+    },
+    {
+      "dimension": "marks_choices",
+      "state": "concern",
+      "count": 64
+    },
+    {
+      "dimension": "marks_choices",
+      "state": "pending",
+      "count": 117
+    },
+    {
+      "dimension": "metadata",
+      "state": "pending",
+      "count": 181
+    },
+    {
+      "dimension": "ordering",
+      "state": "concern",
+      "count": 73
+    },
+    {
+      "dimension": "ordering",
+      "state": "pending",
+      "count": 108
+    },
+    {
+      "dimension": "pairing",
+      "state": "concern",
+      "count": 61
+    },
+    {
+      "dimension": "pairing",
+      "state": "not_applicable",
+      "count": 28
+    },
+    {
+      "dimension": "pairing",
+      "state": "pending",
+      "count": 92
+    },
+    {
+      "dimension": "questions",
+      "state": "concern",
+      "count": 121
+    },
+    {
+      "dimension": "questions",
+      "state": "pending",
+      "count": 60
+    },
+    {
+      "dimension": "readability",
+      "state": "concern",
+      "count": 181
+    }
+  ],
+  "whole_question_contracts": {
+    "questions_validated": 2909,
+    "answer_missing": 2327,
+    "pairing_not_expected": 533,
+    "answer_complete": 396,
+    "answer_partial": 186,
+    "pairing_matched": 353,
+    "pairing_partial": 177,
+    "pairing_missing": 1846
+  },
+  "candidates": [
+    {
+      "document_id": 278,
+      "revision_id": 697,
+      "profile": "s2023.question_paper.v1",
+      "paper_id": "s2023.P1",
+      "attempt_id": "2026-05",
+      "family": "examination",
+      "root_count": 21,
+      "part_count": 120,
+      "quality": {
+        "answers": "not_applicable",
+        "outcome": "needs_review",
+        "pairing": "not_applicable",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 280,
+      "revision_id": 698,
+      "profile": "s2023.question_paper.v1",
+      "paper_id": "s2023.P1",
+      "attempt_id": "2026-05",
+      "family": "examination",
+      "root_count": 40,
+      "part_count": 107,
+      "quality": {
+        "answers": "not_applicable",
+        "outcome": "needs_review",
+        "pairing": "not_applicable",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 281,
+      "revision_id": 699,
+      "profile": "s2023.question_paper.v1",
+      "paper_id": "s2023.P1",
+      "attempt_id": "2026-05",
+      "family": "examination",
+      "root_count": 52,
+      "part_count": 130,
+      "quality": {
+        "answers": "not_applicable",
+        "outcome": "needs_review",
+        "pairing": "not_applicable",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 282,
+      "revision_id": 700,
+      "profile": "s2023.question_paper.v1",
+      "paper_id": "s2023.P1",
+      "attempt_id": "2026-05",
+      "family": "examination",
+      "root_count": 37,
+      "part_count": 133,
+      "quality": {
+        "answers": "not_applicable",
+        "outcome": "needs_review",
+        "pairing": "not_applicable",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 283,
+      "revision_id": 701,
+      "profile": "s2023.question_paper.v1",
+      "paper_id": "s2023.P1",
+      "attempt_id": "2026-05",
+      "family": "examination",
+      "root_count": 27,
+      "part_count": 141,
+      "quality": {
+        "answers": "not_applicable",
+        "outcome": "needs_review",
+        "pairing": "not_applicable",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 284,
+      "revision_id": 702,
+      "profile": "s2023.question_paper.v1",
+      "paper_id": "s2023.P1",
+      "attempt_id": null,
+      "family": "examination",
+      "root_count": 19,
+      "part_count": 34,
+      "quality": {
+        "answers": "not_applicable",
+        "outcome": "needs_review",
+        "pairing": "not_applicable",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 286,
+      "revision_id": 703,
+      "profile": "s2023.question_paper.v1",
+      "paper_id": "s2023.P1",
+      "attempt_id": null,
+      "family": "examination",
+      "root_count": 19,
+      "part_count": 39,
+      "quality": {
+        "answers": "not_applicable",
+        "outcome": "needs_review",
+        "pairing": "not_applicable",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 287,
+      "revision_id": 704,
+      "profile": "s2023.question_paper.v1",
+      "paper_id": "s2023.P1",
+      "attempt_id": null,
+      "family": "examination",
+      "root_count": 17,
+      "part_count": 46,
+      "quality": {
+        "answers": "not_applicable",
+        "outcome": "needs_review",
+        "pairing": "not_applicable",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 289,
+      "revision_id": 705,
+      "profile": "s2023.question_paper.v1",
+      "paper_id": "s2023.P1",
+      "attempt_id": null,
+      "family": "examination",
+      "root_count": 7,
+      "part_count": 110,
+      "quality": {
+        "answers": "not_applicable",
+        "outcome": "needs_review",
+        "pairing": "not_applicable",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 290,
+      "revision_id": 706,
+      "profile": "s2023.question_paper.v1",
+      "paper_id": "s2023.P1",
+      "attempt_id": null,
+      "family": "examination",
+      "root_count": 21,
+      "part_count": 60,
+      "quality": {
+        "answers": "not_applicable",
+        "outcome": "needs_review",
+        "pairing": "not_applicable",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 291,
+      "revision_id": 707,
+      "profile": "s2023.question_paper.v1",
+      "paper_id": "s2023.P1",
+      "attempt_id": null,
+      "family": "examination",
+      "root_count": 20,
+      "part_count": 41,
+      "quality": {
+        "answers": "not_applicable",
+        "outcome": "needs_review",
+        "pairing": "not_applicable",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 292,
+      "revision_id": 708,
+      "profile": "s2023.question_paper.v1",
+      "paper_id": "s2023.P1",
+      "attempt_id": null,
+      "family": "examination",
+      "root_count": 19,
+      "part_count": 35,
+      "quality": {
+        "answers": "not_applicable",
+        "outcome": "needs_review",
+        "pairing": "not_applicable",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 293,
+      "revision_id": 709,
+      "profile": "s2023.question_paper.v1",
+      "paper_id": "s2023.P1",
+      "attempt_id": null,
+      "family": "examination",
+      "root_count": 19,
+      "part_count": 50,
+      "quality": {
+        "answers": "not_applicable",
+        "outcome": "needs_review",
+        "pairing": "not_applicable",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 295,
+      "revision_id": 710,
+      "profile": "s2023.question_paper.v1",
+      "paper_id": "s2023.P1",
+      "attempt_id": null,
+      "family": "examination",
+      "root_count": 3,
+      "part_count": 28,
+      "quality": {
+        "answers": "not_applicable",
+        "outcome": "needs_review",
+        "pairing": "not_applicable",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 296,
+      "revision_id": 711,
+      "profile": "s2023.question_paper.v1",
+      "paper_id": "s2023.P1",
+      "attempt_id": null,
+      "family": "examination",
+      "root_count": 20,
+      "part_count": 47,
+      "quality": {
+        "answers": "not_applicable",
+        "outcome": "needs_review",
+        "pairing": "not_applicable",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 298,
+      "revision_id": 712,
+      "profile": "s2023.question_paper.v1",
+      "paper_id": "s2023.P1",
+      "attempt_id": null,
+      "family": "examination",
+      "root_count": 16,
+      "part_count": 39,
+      "quality": {
+        "answers": "not_applicable",
+        "outcome": "needs_review",
+        "pairing": "not_applicable",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 299,
+      "revision_id": 713,
+      "profile": "s2023.question_paper.v1",
+      "paper_id": "s2023.P1",
+      "attempt_id": null,
+      "family": "examination",
+      "root_count": 19,
+      "part_count": 49,
+      "quality": {
+        "answers": "not_applicable",
+        "outcome": "needs_review",
+        "pairing": "not_applicable",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 301,
+      "revision_id": 714,
+      "profile": "s2023.question_paper.v1",
+      "paper_id": "s2023.P1",
+      "attempt_id": null,
+      "family": "examination",
+      "root_count": 0,
+      "part_count": 0,
+      "quality": {
+        "answers": "not_applicable",
+        "outcome": "needs_review",
+        "pairing": "not_applicable",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 302,
+      "revision_id": 715,
+      "profile": "s2023.question_paper.v1",
+      "paper_id": "s2023.P1",
+      "attempt_id": null,
+      "family": "examination",
+      "root_count": 26,
+      "part_count": 51,
+      "quality": {
+        "answers": "not_applicable",
+        "outcome": "needs_review",
+        "pairing": "not_applicable",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 304,
+      "revision_id": 716,
+      "profile": "s2023.question_paper.v1",
+      "paper_id": "s2023.P1",
+      "attempt_id": null,
+      "family": "examination",
+      "root_count": 11,
+      "part_count": 15,
+      "quality": {
+        "answers": "not_applicable",
+        "outcome": "needs_review",
+        "pairing": "not_applicable",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 305,
+      "revision_id": 717,
+      "profile": "s2023.question_paper.v1",
+      "paper_id": "s2023.P1",
+      "attempt_id": null,
+      "family": "examination",
+      "root_count": 23,
+      "part_count": 49,
+      "quality": {
+        "answers": "not_applicable",
+        "outcome": "needs_review",
+        "pairing": "not_applicable",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 306,
+      "revision_id": 718,
+      "profile": "s2023.question_paper.v1",
+      "paper_id": "s2023.P1",
+      "attempt_id": null,
+      "family": "examination",
+      "root_count": 18,
+      "part_count": 50,
+      "quality": {
+        "answers": "not_applicable",
+        "outcome": "needs_review",
+        "pairing": "not_applicable",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 307,
+      "revision_id": 719,
+      "profile": "s2023.question_paper.v1",
+      "paper_id": "s2023.P1",
+      "attempt_id": null,
+      "family": "examination",
+      "root_count": 0,
+      "part_count": 0,
+      "quality": {
+        "answers": "not_applicable",
+        "outcome": "needs_review",
+        "pairing": "not_applicable",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 308,
+      "revision_id": 720,
+      "profile": "s2023.question_paper.v1",
+      "paper_id": "s2023.P1",
+      "attempt_id": null,
+      "family": "examination",
+      "root_count": 18,
+      "part_count": 38,
+      "quality": {
+        "answers": "not_applicable",
+        "outcome": "needs_review",
+        "pairing": "not_applicable",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 309,
+      "revision_id": 721,
+      "profile": "s2023.question_paper.v1",
+      "paper_id": "s2023.P1",
+      "attempt_id": null,
+      "family": "examination",
+      "root_count": 19,
+      "part_count": 41,
+      "quality": {
+        "answers": "not_applicable",
+        "outcome": "needs_review",
+        "pairing": "not_applicable",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 310,
+      "revision_id": 722,
+      "profile": "s2023.question_paper.v1",
+      "paper_id": "s2023.P1",
+      "attempt_id": null,
+      "family": "examination",
+      "root_count": 20,
+      "part_count": 37,
+      "quality": {
+        "answers": "not_applicable",
+        "outcome": "needs_review",
+        "pairing": "not_applicable",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 311,
+      "revision_id": 723,
+      "profile": "s2023.question_paper.v1",
+      "paper_id": "s2023.P1",
+      "attempt_id": null,
+      "family": "examination",
+      "root_count": 22,
+      "part_count": 37,
+      "quality": {
+        "answers": "not_applicable",
+        "outcome": "needs_review",
+        "pairing": "not_applicable",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 313,
+      "revision_id": 724,
+      "profile": "s2023.question_paper.v1",
+      "paper_id": "s2023.P1",
+      "attempt_id": null,
+      "family": "examination",
+      "root_count": 0,
+      "part_count": 0,
+      "quality": {
+        "answers": "not_applicable",
+        "outcome": "needs_review",
+        "pairing": "not_applicable",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 314,
+      "revision_id": 725,
+      "profile": "s2023.ibs_case_study.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs_case_study",
+      "root_count": 35,
+      "part_count": 427,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 315,
+      "revision_id": 726,
+      "profile": "s2023.ibs_case_study.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs_case_study",
+      "root_count": 53,
+      "part_count": 602,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 316,
+      "revision_id": 727,
+      "profile": "s2023.rtp.P1.v1",
+      "paper_id": "s2023.P1",
+      "attempt_id": "2026-11",
+      "family": "rtp",
+      "root_count": 12,
+      "part_count": 35,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 318,
+      "revision_id": 728,
+      "profile": "s2023.rtp.v1",
+      "paper_id": "s2023.P2",
+      "attempt_id": "2026-11",
+      "family": "rtp",
+      "root_count": 0,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 325,
+      "revision_id": 729,
+      "profile": "s2023.rtp.P1.v1",
+      "paper_id": "s2023.P1",
+      "attempt_id": "2026-05",
+      "family": "rtp",
+      "root_count": 16,
+      "part_count": 41,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 328,
+      "revision_id": 730,
+      "profile": "s2023.rtp.v1",
+      "paper_id": "s2023.P4",
+      "attempt_id": "2026-05",
+      "family": "rtp",
+      "root_count": 22,
+      "part_count": 61,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 333,
+      "revision_id": 731,
+      "profile": "s2023.rtp.P1.v1",
+      "paper_id": "s2023.P1",
+      "attempt_id": "2026-01",
+      "family": "rtp",
+      "root_count": 22,
+      "part_count": 41,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 334,
+      "revision_id": 732,
+      "profile": "s2023.rtp.P1.v1",
+      "paper_id": "s2023.P1",
+      "attempt_id": "2026-01",
+      "family": "rtp",
+      "root_count": 0,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 337,
+      "revision_id": 733,
+      "profile": "s2023.rtp.v1",
+      "paper_id": "s2023.P4",
+      "attempt_id": "2026-01",
+      "family": "rtp",
+      "root_count": 22,
+      "part_count": 60,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 342,
+      "revision_id": 734,
+      "profile": "s2023.rtp.P1.v1",
+      "paper_id": "s2023.P1",
+      "attempt_id": "2025-09",
+      "family": "rtp",
+      "root_count": 22,
+      "part_count": 48,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 345,
+      "revision_id": 735,
+      "profile": "s2023.rtp.v1",
+      "paper_id": "s2023.P4",
+      "attempt_id": "2025-09",
+      "family": "rtp",
+      "root_count": 22,
+      "part_count": 41,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 350,
+      "revision_id": 736,
+      "profile": "s2023.rtp.P1.v1",
+      "paper_id": "s2023.P1",
+      "attempt_id": "2025-05",
+      "family": "rtp",
+      "root_count": 22,
+      "part_count": 34,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 353,
+      "revision_id": 737,
+      "profile": "s2023.rtp.v1",
+      "paper_id": "s2023.P4",
+      "attempt_id": "2025-05",
+      "family": "rtp",
+      "root_count": 28,
+      "part_count": 55,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 355,
+      "revision_id": 738,
+      "profile": "s2023.rtp.v1",
+      "paper_id": "s2023.P5",
+      "attempt_id": "2025-05",
+      "family": "rtp",
+      "root_count": 0,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 359,
+      "revision_id": 739,
+      "profile": "s2023.rtp.P1.v1",
+      "paper_id": "s2023.P1",
+      "attempt_id": "2024-11",
+      "family": "rtp",
+      "root_count": 0,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 360,
+      "revision_id": 740,
+      "profile": "s2023.rtp.P1.v1",
+      "paper_id": "s2023.P1",
+      "attempt_id": "2024-11",
+      "family": "rtp",
+      "root_count": 0,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 361,
+      "revision_id": 741,
+      "profile": "s2023.rtp.P1.v1",
+      "paper_id": "s2023.P1",
+      "attempt_id": "2024-11",
+      "family": "rtp",
+      "root_count": 0,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 362,
+      "revision_id": 742,
+      "profile": "s2023.rtp.v1",
+      "paper_id": "s2023.P4",
+      "attempt_id": "2024-11",
+      "family": "rtp",
+      "root_count": 44,
+      "part_count": 138,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 363,
+      "revision_id": 743,
+      "profile": "s2023.rtp.v1",
+      "paper_id": "s2023.P4",
+      "attempt_id": "2024-11",
+      "family": "rtp",
+      "root_count": 33,
+      "part_count": 121,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 364,
+      "revision_id": 744,
+      "profile": "s2023.rtp.v1",
+      "paper_id": "s2023.P4",
+      "attempt_id": "2024-11",
+      "family": "rtp",
+      "root_count": 87,
+      "part_count": 100,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 365,
+      "revision_id": 745,
+      "profile": "s2023.rtp.P1.v1",
+      "paper_id": "s2023.P1",
+      "attempt_id": "2024-11",
+      "family": "rtp",
+      "root_count": 22,
+      "part_count": 68,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 367,
+      "revision_id": 746,
+      "profile": "s2023.rtp.v1",
+      "paper_id": "s2023.P2",
+      "attempt_id": "2024-11",
+      "family": "rtp",
+      "root_count": 0,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 369,
+      "revision_id": 747,
+      "profile": "s2023.rtp.v1",
+      "paper_id": "s2023.P4",
+      "attempt_id": "2024-11",
+      "family": "rtp",
+      "root_count": 23,
+      "part_count": 59,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 371,
+      "revision_id": 748,
+      "profile": "s2023.rtp.v1",
+      "paper_id": "s2023.P5",
+      "attempt_id": "2024-11",
+      "family": "rtp",
+      "root_count": 0,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 374,
+      "revision_id": 749,
+      "profile": "s2023.suggested_answer.v1",
+      "paper_id": "s2023.P2",
+      "attempt_id": "2026-05",
+      "family": "examination",
+      "root_count": 5,
+      "part_count": 83,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 375,
+      "revision_id": 750,
+      "profile": "s2023.suggested_answer.v1",
+      "paper_id": "s2023.P3",
+      "attempt_id": "2026-05",
+      "family": "examination",
+      "root_count": 66,
+      "part_count": 143,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 376,
+      "revision_id": 751,
+      "profile": "s2023.suggested_answer.v1",
+      "paper_id": "s2023.P4",
+      "attempt_id": "2026-05",
+      "family": "examination",
+      "root_count": 69,
+      "part_count": 107,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 383,
+      "revision_id": 752,
+      "profile": "s2023.suggested_answer.v1",
+      "paper_id": "s2023.P1",
+      "attempt_id": "2026-01",
+      "family": "examination",
+      "root_count": 3,
+      "part_count": 103,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 384,
+      "revision_id": 753,
+      "profile": "s2023.suggested_answer.v1",
+      "paper_id": "s2023.P2",
+      "attempt_id": "2026-01",
+      "family": "examination",
+      "root_count": 4,
+      "part_count": 110,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 385,
+      "revision_id": 754,
+      "profile": "s2023.suggested_answer.v1",
+      "paper_id": "s2023.P3",
+      "attempt_id": "2026-01",
+      "family": "examination",
+      "root_count": 66,
+      "part_count": 130,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 386,
+      "revision_id": 755,
+      "profile": "s2023.suggested_answer.v1",
+      "paper_id": "s2023.P4",
+      "attempt_id": "2026-01",
+      "family": "examination",
+      "root_count": 66,
+      "part_count": 112,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 387,
+      "revision_id": 756,
+      "profile": "s2023.suggested_answer.v1",
+      "paper_id": "s2023.P5",
+      "attempt_id": "2026-01",
+      "family": "examination",
+      "root_count": 71,
+      "part_count": 136,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 388,
+      "revision_id": 757,
+      "profile": "s2023.suggested_answer.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": "2026-01",
+      "family": "examination",
+      "root_count": 109,
+      "part_count": 169,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 393,
+      "revision_id": 758,
+      "profile": "s2023.suggested_answer.v1",
+      "paper_id": "s2023.P1",
+      "attempt_id": "2025-09",
+      "family": "examination",
+      "root_count": 81,
+      "part_count": 81,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 394,
+      "revision_id": 759,
+      "profile": "s2023.suggested_answer.v1",
+      "paper_id": "s2023.P2",
+      "attempt_id": "2025-09",
+      "family": "examination",
+      "root_count": 51,
+      "part_count": 51,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 395,
+      "revision_id": 760,
+      "profile": "s2023.suggested_answer.v1",
+      "paper_id": "s2023.P3",
+      "attempt_id": "2025-09",
+      "family": "examination",
+      "root_count": 59,
+      "part_count": 59,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 396,
+      "revision_id": 761,
+      "profile": "s2023.suggested_answer.v1",
+      "paper_id": "s2023.P4",
+      "attempt_id": "2025-09",
+      "family": "examination",
+      "root_count": 52,
+      "part_count": 52,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 397,
+      "revision_id": 762,
+      "profile": "s2023.suggested_answer.v1",
+      "paper_id": "s2023.P5",
+      "attempt_id": "2025-09",
+      "family": "examination",
+      "root_count": 71,
+      "part_count": 71,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 398,
+      "revision_id": 763,
+      "profile": "s2023.suggested_answer.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": "2025-09",
+      "family": "examination",
+      "root_count": 54,
+      "part_count": 54,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 401,
+      "revision_id": 764,
+      "profile": "s2023.suggested_answer.v1",
+      "paper_id": "s2023.P1",
+      "attempt_id": "2025-09",
+      "family": "examination",
+      "root_count": 2,
+      "part_count": 132,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 402,
+      "revision_id": 765,
+      "profile": "s2023.suggested_answer.v1",
+      "paper_id": "s2023.P2",
+      "attempt_id": "2025-09",
+      "family": "examination",
+      "root_count": 5,
+      "part_count": 92,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 403,
+      "revision_id": 766,
+      "profile": "s2023.suggested_answer.v1",
+      "paper_id": "s2023.P3",
+      "attempt_id": "2025-09",
+      "family": "examination",
+      "root_count": 72,
+      "part_count": 138,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 404,
+      "revision_id": 767,
+      "profile": "s2023.suggested_answer.v1",
+      "paper_id": "s2023.P4",
+      "attempt_id": "2025-09",
+      "family": "examination",
+      "root_count": 66,
+      "part_count": 101,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 405,
+      "revision_id": 768,
+      "profile": "s2023.suggested_answer.v1",
+      "paper_id": "s2023.P5",
+      "attempt_id": "2025-09",
+      "family": "examination",
+      "root_count": 45,
+      "part_count": 142,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 406,
+      "revision_id": 769,
+      "profile": "s2023.suggested_answer.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": "2025-09",
+      "family": "examination",
+      "root_count": 113,
+      "part_count": 155,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 412,
+      "revision_id": 770,
+      "profile": "s2023.suggested_answer.v1",
+      "paper_id": "s2023.P1",
+      "attempt_id": "2025-05",
+      "family": "examination",
+      "root_count": 69,
+      "part_count": 114,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 413,
+      "revision_id": 771,
+      "profile": "s2023.suggested_answer.v1",
+      "paper_id": "s2023.P2",
+      "attempt_id": "2025-05",
+      "family": "examination",
+      "root_count": 4,
+      "part_count": 90,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 414,
+      "revision_id": 772,
+      "profile": "s2023.suggested_answer.v1",
+      "paper_id": "s2023.P3",
+      "attempt_id": "2025-05",
+      "family": "examination",
+      "root_count": 71,
+      "part_count": 148,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 416,
+      "revision_id": 773,
+      "profile": "s2023.suggested_answer.v1",
+      "paper_id": "s2023.P4",
+      "attempt_id": "2025-05",
+      "family": "examination",
+      "root_count": 66,
+      "part_count": 96,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 417,
+      "revision_id": 774,
+      "profile": "s2023.suggested_answer.v1",
+      "paper_id": "s2023.P5",
+      "attempt_id": "2025-05",
+      "family": "examination",
+      "root_count": 46,
+      "part_count": 121,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 418,
+      "revision_id": 775,
+      "profile": "s2023.suggested_answer.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": "2025-05",
+      "family": "examination",
+      "root_count": 112,
+      "part_count": 143,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 421,
+      "revision_id": 776,
+      "profile": "s2023.suggested_answer.v1",
+      "paper_id": "s2023.P1",
+      "attempt_id": "2024-11",
+      "family": "examination",
+      "root_count": 12,
+      "part_count": 62,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 422,
+      "revision_id": 777,
+      "profile": "s2023.suggested_answer.v1",
+      "paper_id": "s2023.P2",
+      "attempt_id": "2024-11",
+      "family": "examination",
+      "root_count": 4,
+      "part_count": 67,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 423,
+      "revision_id": 778,
+      "profile": "s2023.suggested_answer.v1",
+      "paper_id": "s2023.P3",
+      "attempt_id": "2024-11",
+      "family": "examination",
+      "root_count": 40,
+      "part_count": 88,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 424,
+      "revision_id": 779,
+      "profile": "s2023.suggested_answer.v1",
+      "paper_id": "s2023.P4",
+      "attempt_id": "2024-11",
+      "family": "examination",
+      "root_count": 11,
+      "part_count": 64,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 425,
+      "revision_id": 780,
+      "profile": "s2023.suggested_answer.v1",
+      "paper_id": "s2023.P5",
+      "attempt_id": "2024-11",
+      "family": "examination",
+      "root_count": 10,
+      "part_count": 54,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 426,
+      "revision_id": 781,
+      "profile": "s2023.suggested_answer.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": "2024-11",
+      "family": "examination",
+      "root_count": 121,
+      "part_count": 158,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 429,
+      "revision_id": 782,
+      "profile": "s2023.suggested_answer.v1",
+      "paper_id": "s2023.P1",
+      "attempt_id": "2024-05",
+      "family": "examination",
+      "root_count": 6,
+      "part_count": 55,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 430,
+      "revision_id": 783,
+      "profile": "s2023.suggested_answer.v1",
+      "paper_id": "s2023.P2",
+      "attempt_id": "2024-05",
+      "family": "examination",
+      "root_count": 6,
+      "part_count": 41,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 431,
+      "revision_id": 784,
+      "profile": "s2023.suggested_answer.v1",
+      "paper_id": "s2023.P3",
+      "attempt_id": "2024-05",
+      "family": "examination",
+      "root_count": 6,
+      "part_count": 52,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 432,
+      "revision_id": 785,
+      "profile": "s2023.suggested_answer.v1",
+      "paper_id": "s2023.P4",
+      "attempt_id": "2024-05",
+      "family": "examination",
+      "root_count": 6,
+      "part_count": 20,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 433,
+      "revision_id": 786,
+      "profile": "s2023.suggested_answer.v1",
+      "paper_id": "s2023.P5",
+      "attempt_id": "2024-05",
+      "family": "examination",
+      "root_count": 9,
+      "part_count": 78,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 434,
+      "revision_id": 787,
+      "profile": "s2023.suggested_answer.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": "2024-05",
+      "family": "examination",
+      "root_count": 93,
+      "part_count": 112,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "concern",
+        "questions": "pending",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "concern"
+      }
+    },
+    {
+      "document_id": 438,
+      "revision_id": 788,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 0,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 439,
+      "revision_id": 789,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 0,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 440,
+      "revision_id": 790,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 0,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 441,
+      "revision_id": 791,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 0,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 442,
+      "revision_id": 792,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 0,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 443,
+      "revision_id": 793,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 2,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 444,
+      "revision_id": 794,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 445,
+      "revision_id": 795,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 446,
+      "revision_id": 796,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 447,
+      "revision_id": 797,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 448,
+      "revision_id": 798,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 449,
+      "revision_id": 799,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 450,
+      "revision_id": 800,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 451,
+      "revision_id": 801,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 0,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 452,
+      "revision_id": 802,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 2,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 453,
+      "revision_id": 803,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 454,
+      "revision_id": 804,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 455,
+      "revision_id": 805,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 456,
+      "revision_id": 806,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 457,
+      "revision_id": 807,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 458,
+      "revision_id": 808,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 459,
+      "revision_id": 809,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 460,
+      "revision_id": 810,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 461,
+      "revision_id": 811,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 462,
+      "revision_id": 812,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 463,
+      "revision_id": 813,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 464,
+      "revision_id": 814,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 465,
+      "revision_id": 815,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 466,
+      "revision_id": 816,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 467,
+      "revision_id": 817,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 468,
+      "revision_id": 818,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 469,
+      "revision_id": 819,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 470,
+      "revision_id": 820,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 471,
+      "revision_id": 821,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 472,
+      "revision_id": 822,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 473,
+      "revision_id": 823,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 474,
+      "revision_id": 824,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 475,
+      "revision_id": 825,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 476,
+      "revision_id": 826,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 3,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 477,
+      "revision_id": 827,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 478,
+      "revision_id": 828,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 479,
+      "revision_id": 829,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 480,
+      "revision_id": 830,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 481,
+      "revision_id": 831,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 482,
+      "revision_id": 832,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 0,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 483,
+      "revision_id": 833,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 0,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 484,
+      "revision_id": 834,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 485,
+      "revision_id": 835,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 486,
+      "revision_id": 836,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 487,
+      "revision_id": 837,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 488,
+      "revision_id": 838,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 489,
+      "revision_id": 839,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 490,
+      "revision_id": 840,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 491,
+      "revision_id": 841,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 492,
+      "revision_id": 842,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 493,
+      "revision_id": 843,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 0,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 494,
+      "revision_id": 844,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 0,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 495,
+      "revision_id": 845,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 0,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 496,
+      "revision_id": 846,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 497,
+      "revision_id": 847,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 498,
+      "revision_id": 848,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 499,
+      "revision_id": 849,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 500,
+      "revision_id": 850,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 0,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 501,
+      "revision_id": 851,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 0,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 502,
+      "revision_id": 852,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 503,
+      "revision_id": 853,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 0,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 504,
+      "revision_id": 854,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 505,
+      "revision_id": 855,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 506,
+      "revision_id": 856,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 507,
+      "revision_id": 857,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 0,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 508,
+      "revision_id": 858,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 509,
+      "revision_id": 859,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 2,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 510,
+      "revision_id": 860,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 511,
+      "revision_id": 861,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 512,
+      "revision_id": 862,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 513,
+      "revision_id": 863,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 514,
+      "revision_id": 864,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 5,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 515,
+      "revision_id": 865,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 4,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 516,
+      "revision_id": 866,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 4,
+      "quality": {
+        "answers": "concern",
+        "outcome": "needs_review",
+        "pairing": "concern",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 517,
+      "revision_id": 867,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 0,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 518,
+      "revision_id": 868,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 0,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 519,
+      "revision_id": 869,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 0,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 520,
+      "revision_id": 870,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 0,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 521,
+      "revision_id": 871,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 522,
+      "revision_id": 872,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 0,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 523,
+      "revision_id": 873,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 0,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 524,
+      "revision_id": 874,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 0,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 525,
+      "revision_id": 875,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 526,
+      "revision_id": 876,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    },
+    {
+      "document_id": 527,
+      "revision_id": 877,
+      "profile": "s2023.case_scenarios.v1",
+      "paper_id": "s2023.P6",
+      "attempt_id": null,
+      "family": "ibs",
+      "root_count": 1,
+      "part_count": 0,
+      "quality": {
+        "answers": "pending",
+        "outcome": "needs_review",
+        "pairing": "pending",
+        "metadata": "pending",
+        "ordering": "pending",
+        "questions": "concern",
+        "readability": "concern",
+        "human_review": "pending",
+        "marks_choices": "pending"
+      }
+    }
+  ],
+  "actual_extraction_reviews": 0,
+  "preservation": {
+    "checkpoint": "data/backups/caf_20261004_065300_623687_62ed5893/manifest.json",
+    "tables_checked": 29,
+    "all_original_values_preserved": true,
+    "tables": {
+      "app.auth_session": {
+        "count": 3,
+        "sha256": "ddae4b95d8c0c2d344ad841239c8cec59170a6877fcb730a98369cb1ea104d1b"
+      },
+      "app.invitation": {
+        "count": 1,
+        "sha256": "63719361574282ae99fd214470fe278bda6701671894c524a26ab2f2798b8818"
+      },
+      "app.login_transaction": {
+        "count": 4,
+        "sha256": "04daeb65f68188b6bbbe15dd5606396babaaa6a191611c4a901abc536df74e5a"
+      },
+      "app.mock_test": {
+        "count": 3,
+        "sha256": "b932433dc1d03fd503a460216f0f1ea3623a656f295d7d87a1e19594d0a25af4"
+      },
+      "app.note": {
+        "count": 1,
+        "sha256": "ef71ffaae20616ee215778b0ee74b752ae0f7a6d20a3bd2932f74b60b528323b"
+      },
+      "app.progress": {
+        "count": 4,
+        "sha256": "59a3a04e14212152c15833640faecfc2dd41d8b7a529c00e89a0242d5147654c"
+      },
+      "app.progress_event": {
+        "count": 79,
+        "sha256": "a9d32c2104938acb0c27385ef0fc955a471cf13846c2cd3f8e070e57e7eb7917"
+      },
+      "app.progress_migration": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "app.revision_event": {
+        "count": 6,
+        "sha256": "291f1749ea257ae8eee2ebcc96432a5e116254c18563eab8dc9e8f57e5a754ae"
+      },
+      "app.settings": {
+        "count": 1,
+        "sha256": "095d5a1545a030487fd681ad83987e897d9b8c4391d016914690c2e0408d6bbd"
+      },
+      "app.study_session": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "app.user_account": {
+        "count": 1,
+        "sha256": "ba6f67d8c6798e18c1ee3b44055a89329cd5b6131711efc3c0f1cb47478ed821"
+      },
+      "core.appearance": {
+        "count": 25,
+        "sha256": "51c72c79d4d92e70e3aa5899017ec1c97e9f582ef5b9f0a739c11cc0e5f83b73"
+      },
+      "core.appearance_tag": {
+        "count": 25,
+        "sha256": "4fef6dd0376484b5f51f9d4f82f7372b9adf9716c36ac54ed8df1630f4d1577c"
+      },
+      "core.change_log": {
+        "count": 20,
+        "sha256": "f844e04db44e054fc94ff4936901447f943b515d1593cf373969d8397902d0d0"
+      },
+      "core.decision": {
+        "count": 195,
+        "sha256": "88b62e624c28533c6624de202786a4c71e8fce4116b577de6bdcaaf3b2151fa0"
+      },
+      "ingest.tag_suggestion": {
+        "count": 1429,
+        "sha256": "5d8b534996a76a254bc30da238809f8a378a0f3b6d789ca7deb9c879b27443ee"
+      },
+      "ingest.unit": {
+        "count": 1596,
+        "sha256": "e9185abc02d47bb434f8ae1dd9c4411a5e466e160ae4343fd61fb143957e2aca"
+      },
+      "ingest.unit_answer": {
+        "count": 360,
+        "sha256": "31967369b3a210c9efb4a51a5e02357f978758a37bdcc182eac9bfbf184b44fe"
+      },
+      "ingest.unit_gist": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "ref.descriptor_approval": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "ref.descriptor_revision": {
+        "count": 3037,
+        "sha256": "8350c18ce5c6f5aad91bdb0ca98ef3238dbcdd1192442a89396266366ee82a84"
+      },
+      "ref.node": {
+        "count": 6762,
+        "sha256": "1416373a56eea4c1c6d196e10fb24766b901415ce9c9ce2fa4f051f4ad51c328"
+      },
+      "ref.node_source_span": {
+        "count": 6570,
+        "sha256": "81c3eeb42a218cea6ea52a5fbb56e7433c1c2da0e40283bd38a068ae1d5f0ad7"
+      },
+      "ref.node_version_link": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "ref.taxonomy_crosswalk": {
+        "count": 380,
+        "sha256": "f56684a3fd836f68f5e607bec27d2126c48cbfc5ec8682afd5c7ac5c251d19a1"
+      },
+      "ref.taxonomy_member": {
+        "count": 6762,
+        "sha256": "6ca944c08eac9e8574b47181395cf685f5ab6e3d1e9bfdf42e8eece6c17b545b"
+      },
+      "ref.taxonomy_release": {
+        "count": 2,
+        "sha256": "7fe363c927d310c714b29068d490d9fdad1798f93b6e9630db1d0a05a213bdf6"
+      },
+      "ref.textbook_artifact": {
+        "count": 167,
+        "sha256": "df775ac6a25e340fef55cfae96c87071b7b5dd836a311a80f2861caaddad3db9"
+      }
+    }
+  },
+  "taxonomy_classification_readiness": [
+    {
+      "version_id": "textbook-v1",
+      "status": "draft",
+      "target_attempt": "2027-05",
+      "eligible_by_paper": {
+        "s2023.P1": 0,
+        "s2023.P2": 0,
+        "s2023.P3": 0,
+        "s2023.P4": 0,
+        "s2023.P5": 0,
+        "s2023.P6": 0
+      }
+    }
+  ],
+  "authentic_fixtures": [
+    {
+      "fixture": "profiles/fixtures/exam_p3_may2026_integrated_case1_ocr.json",
+      "paper_id": "s2023.P3",
+      "doc_type": "question_paper",
+      "source_sha256": "ea7dad05d0d10ccf1a38f655eeb41064c3852baefdea814da9ef7d959754378e",
+      "source_pages": [
+        2,
+        7
+      ],
+      "source_hash_verified": true,
+      "expected_tree": "agent_checked_regression",
+      "authenticated_human_review": "pending"
+    },
+    {
+      "fixture": "profiles/fixtures/ibs_digest_volume2_case1.json",
+      "paper_id": "s2023.P6",
+      "doc_type": "ibs_case_study",
+      "source_sha256": "986558da42a3d51ef3b89b03efc68de48b6a9dbd9f86101a35ddb51b2407ac19",
+      "source_pages": [
+        8,
+        35
+      ],
+      "source_hash_verified": true,
+      "expected_tree": "agent_checked_regression",
+      "authenticated_human_review": "pending"
+    },
+    {
+      "fixture": "profiles/fixtures/ibs_practice_sep2026_facts_only.json",
+      "paper_id": "s2023.P6",
+      "doc_type": "case_scenarios",
+      "source_sha256": "48668e5ff2ebd5bdc191521d76178548df8281a86f3af622c771d68bdbdd0e75",
+      "source_pages": [
+        1,
+        2
+      ],
+      "source_hash_verified": true,
+      "expected_tree": "agent_checked_regression",
+      "authenticated_human_review": "pending"
+    },
+    {
+      "fixture": "profiles/fixtures/model_p1_collection2025_answer1.json",
+      "paper_id": "s2023.P1",
+      "doc_type": "model_answer",
+      "source_sha256": "342376b225a6eae7c330d9292a8e7da906e292747b7da14bd1c7426bc5edc05c",
+      "source_pages": [
+        334,
+        336
+      ],
+      "source_hash_verified": true,
+      "expected_tree": "agent_checked_regression",
+      "authenticated_human_review": "pending"
+    },
+    {
+      "fixture": "profiles/fixtures/model_p1_collection2025_case1_mixed.json",
+      "paper_id": "s2023.P1",
+      "doc_type": "model_question",
+      "source_sha256": "342376b225a6eae7c330d9292a8e7da906e292747b7da14bd1c7426bc5edc05c",
+      "source_pages": [
+        5,
+        333
+      ],
+      "source_hash_verified": true,
+      "expected_tree": "agent_checked_regression",
+      "authenticated_human_review": "pending"
+    },
+    {
+      "fixture": "profiles/fixtures/model_p1_collection2025_question1.json",
+      "paper_id": "s2023.P1",
+      "doc_type": "model_question",
+      "source_sha256": "342376b225a6eae7c330d9292a8e7da906e292747b7da14bd1c7426bc5edc05c",
+      "source_pages": [
+        12,
+        14
+      ],
+      "source_hash_verified": true,
+      "expected_tree": "agent_checked_regression",
+      "authenticated_human_review": "pending"
+    },
+    {
+      "fixture": "profiles/fixtures/rtp_p1_nov2026_case1.json",
+      "paper_id": "s2023.P1",
+      "doc_type": "rtp",
+      "source_sha256": "f8f7aa03ddfc7b73142d19966d3e954563f5ce5ad79d50dc4f4b005f33db34f6",
+      "source_pages": [
+        14,
+        16
+      ],
+      "source_hash_verified": true,
+      "expected_tree": "agent_checked_regression",
+      "authenticated_human_review": "pending"
+    },
+    {
+      "fixture": "profiles/fixtures/rtp_p1_nov2026_question11.json",
+      "paper_id": "s2023.P1",
+      "doc_type": "rtp",
+      "source_sha256": "f8f7aa03ddfc7b73142d19966d3e954563f5ce5ad79d50dc4f4b005f33db34f6",
+      "source_pages": [
+        14,
+        31
+      ],
+      "source_hash_verified": true,
+      "expected_tree": "agent_checked_regression",
+      "authenticated_human_review": "pending"
+    }
+  ],
+  "authentic_fixture_matrix": [
+    {
+      "paper_id": "s2023.P1",
+      "doc_type": "rtp",
+      "fixtures": [
+        "profiles/fixtures/rtp_p1_nov2026_case1.json",
+        "profiles/fixtures/rtp_p1_nov2026_question11.json"
+      ],
+      "status": "agent_checked_human_review_pending"
+    },
+    {
+      "paper_id": "s2023.P1",
+      "doc_type": "mtp_question",
+      "fixtures": [],
+      "status": "authentic_fixture_gap"
+    },
+    {
+      "paper_id": "s2023.P1",
+      "doc_type": "mtp_answer",
+      "fixtures": [],
+      "status": "authentic_fixture_gap"
+    },
+    {
+      "paper_id": "s2023.P1",
+      "doc_type": "model_question",
+      "fixtures": [
+        "profiles/fixtures/model_p1_collection2025_case1_mixed.json",
+        "profiles/fixtures/model_p1_collection2025_question1.json"
+      ],
+      "status": "agent_checked_human_review_pending"
+    },
+    {
+      "paper_id": "s2023.P1",
+      "doc_type": "model_answer",
+      "fixtures": [
+        "profiles/fixtures/model_p1_collection2025_answer1.json"
+      ],
+      "status": "agent_checked_human_review_pending"
+    },
+    {
+      "paper_id": "s2023.P1",
+      "doc_type": "question_paper",
+      "fixtures": [],
+      "status": "authentic_fixture_gap"
+    },
+    {
+      "paper_id": "s2023.P1",
+      "doc_type": "suggested_answer",
+      "fixtures": [],
+      "status": "authentic_fixture_gap"
+    },
+    {
+      "paper_id": "s2023.P2",
+      "doc_type": "rtp",
+      "fixtures": [],
+      "status": "authentic_fixture_gap"
+    },
+    {
+      "paper_id": "s2023.P2",
+      "doc_type": "mtp_question",
+      "fixtures": [],
+      "status": "authentic_fixture_gap"
+    },
+    {
+      "paper_id": "s2023.P2",
+      "doc_type": "mtp_answer",
+      "fixtures": [],
+      "status": "authentic_fixture_gap"
+    },
+    {
+      "paper_id": "s2023.P2",
+      "doc_type": "model_question",
+      "fixtures": [],
+      "status": "authentic_fixture_gap"
+    },
+    {
+      "paper_id": "s2023.P2",
+      "doc_type": "model_answer",
+      "fixtures": [],
+      "status": "authentic_fixture_gap"
+    },
+    {
+      "paper_id": "s2023.P2",
+      "doc_type": "question_paper",
+      "fixtures": [],
+      "status": "authentic_fixture_gap"
+    },
+    {
+      "paper_id": "s2023.P2",
+      "doc_type": "suggested_answer",
+      "fixtures": [],
+      "status": "authentic_fixture_gap"
+    },
+    {
+      "paper_id": "s2023.P3",
+      "doc_type": "rtp",
+      "fixtures": [],
+      "status": "authentic_fixture_gap"
+    },
+    {
+      "paper_id": "s2023.P3",
+      "doc_type": "mtp_question",
+      "fixtures": [],
+      "status": "authentic_fixture_gap"
+    },
+    {
+      "paper_id": "s2023.P3",
+      "doc_type": "mtp_answer",
+      "fixtures": [],
+      "status": "authentic_fixture_gap"
+    },
+    {
+      "paper_id": "s2023.P3",
+      "doc_type": "model_question",
+      "fixtures": [],
+      "status": "authentic_fixture_gap"
+    },
+    {
+      "paper_id": "s2023.P3",
+      "doc_type": "model_answer",
+      "fixtures": [],
+      "status": "authentic_fixture_gap"
+    },
+    {
+      "paper_id": "s2023.P3",
+      "doc_type": "question_paper",
+      "fixtures": [
+        "profiles/fixtures/exam_p3_may2026_integrated_case1_ocr.json"
+      ],
+      "status": "agent_checked_human_review_pending"
+    },
+    {
+      "paper_id": "s2023.P3",
+      "doc_type": "suggested_answer",
+      "fixtures": [],
+      "status": "authentic_fixture_gap"
+    },
+    {
+      "paper_id": "s2023.P4",
+      "doc_type": "rtp",
+      "fixtures": [],
+      "status": "authentic_fixture_gap"
+    },
+    {
+      "paper_id": "s2023.P4",
+      "doc_type": "mtp_question",
+      "fixtures": [],
+      "status": "authentic_fixture_gap"
+    },
+    {
+      "paper_id": "s2023.P4",
+      "doc_type": "mtp_answer",
+      "fixtures": [],
+      "status": "authentic_fixture_gap"
+    },
+    {
+      "paper_id": "s2023.P4",
+      "doc_type": "model_question",
+      "fixtures": [],
+      "status": "authentic_fixture_gap"
+    },
+    {
+      "paper_id": "s2023.P4",
+      "doc_type": "model_answer",
+      "fixtures": [],
+      "status": "authentic_fixture_gap"
+    },
+    {
+      "paper_id": "s2023.P4",
+      "doc_type": "question_paper",
+      "fixtures": [],
+      "status": "authentic_fixture_gap"
+    },
+    {
+      "paper_id": "s2023.P4",
+      "doc_type": "suggested_answer",
+      "fixtures": [],
+      "status": "authentic_fixture_gap"
+    },
+    {
+      "paper_id": "s2023.P5",
+      "doc_type": "rtp",
+      "fixtures": [],
+      "status": "authentic_fixture_gap"
+    },
+    {
+      "paper_id": "s2023.P5",
+      "doc_type": "mtp_question",
+      "fixtures": [],
+      "status": "authentic_fixture_gap"
+    },
+    {
+      "paper_id": "s2023.P5",
+      "doc_type": "mtp_answer",
+      "fixtures": [],
+      "status": "authentic_fixture_gap"
+    },
+    {
+      "paper_id": "s2023.P5",
+      "doc_type": "model_question",
+      "fixtures": [],
+      "status": "authentic_fixture_gap"
+    },
+    {
+      "paper_id": "s2023.P5",
+      "doc_type": "model_answer",
+      "fixtures": [],
+      "status": "authentic_fixture_gap"
+    },
+    {
+      "paper_id": "s2023.P5",
+      "doc_type": "question_paper",
+      "fixtures": [],
+      "status": "authentic_fixture_gap"
+    },
+    {
+      "paper_id": "s2023.P5",
+      "doc_type": "suggested_answer",
+      "fixtures": [],
+      "status": "authentic_fixture_gap"
+    },
+    {
+      "paper_id": "s2023.P6",
+      "doc_type": "rtp",
+      "fixtures": [],
+      "status": "authentic_fixture_gap"
+    },
+    {
+      "paper_id": "s2023.P6",
+      "doc_type": "mtp_question",
+      "fixtures": [],
+      "status": "authentic_fixture_gap"
+    },
+    {
+      "paper_id": "s2023.P6",
+      "doc_type": "mtp_answer",
+      "fixtures": [],
+      "status": "authentic_fixture_gap"
+    },
+    {
+      "paper_id": "s2023.P6",
+      "doc_type": "model_question",
+      "fixtures": [],
+      "status": "authentic_fixture_gap"
+    },
+    {
+      "paper_id": "s2023.P6",
+      "doc_type": "model_answer",
+      "fixtures": [],
+      "status": "authentic_fixture_gap"
+    },
+    {
+      "paper_id": "s2023.P6",
+      "doc_type": "question_paper",
+      "fixtures": [],
+      "status": "authentic_fixture_gap"
+    },
+    {
+      "paper_id": "s2023.P6",
+      "doc_type": "suggested_answer",
+      "fixtures": [],
+      "status": "authentic_fixture_gap"
+    },
+    {
+      "paper_id": "s2023.P6",
+      "doc_type": "ibs_case_study",
+      "fixtures": [
+        "profiles/fixtures/ibs_digest_volume2_case1.json"
+      ],
+      "status": "agent_checked_human_review_pending"
+    },
+    {
+      "paper_id": "s2023.P6",
+      "doc_type": "case_scenarios",
+      "fixtures": [
+        "profiles/fixtures/ibs_practice_sep2026_facts_only.json"
+      ],
+      "status": "agent_checked_human_review_pending"
+    }
+  ],
+  "issues": []
+}

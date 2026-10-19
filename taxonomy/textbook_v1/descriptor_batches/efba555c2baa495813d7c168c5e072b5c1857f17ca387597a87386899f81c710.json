@@ -1,0 +1,314 @@
+{
+  "descriptors": [
+    {
+      "node_id": "f13dd0aa-1023-4ee6-a26f-e636f40c7f59",
+      "concept_name": "Introduction to Statement of Cash Flows",
+      "definition": "The statement of cash flows tracks only the actual inflows and outflows of cash and cash equivalents for a reporting period. It provides essential data regarding how an entity generates and deploys liquid resources compared to accrual-based financial statements.",
+      "terminology": [
+        "cash inflows",
+        "cash outflows",
+        "cash equivalents",
+        "accrual basis"
+      ],
+      "instrument_references": [
+        "Ind AS 7"
+      ],
+      "inclusion": [
+        "receipts and payments of cash",
+        "transactions affecting cash equivalents"
+      ],
+      "exclusion": [
+        "non-cash transactions",
+        "accrual-based profit and loss items"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from the balance sheet, which is a static snapshot of resources and obligations at a specific point in time."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "95e533fa-cda6-4dd9-b6e9-94f4f5d30dd6",
+      "concept_name": "Meaning of Statement of Cash Flows",
+      "definition": "A financial report that reconciles opening and closing balances of cash and cash equivalents by accounting for generated cash and applied payments during a reporting period. It categorizes these movements into operating, investing, and financing activities.",
+      "terminology": [
+        "opening balance",
+        "closing balance",
+        "cash generated",
+        "cash payments"
+      ],
+      "instrument_references": [
+        "Ind AS 7"
+      ],
+      "inclusion": [
+        "operating cash flows",
+        "investing cash flows",
+        "financing cash flows"
+      ],
+      "exclusion": [
+        "non-cash operational adjustments"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from broader financial performance statements by strictly monitoring liquid resource generation and application."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "663ed179-6bdf-4546-be63-94655d9931bf",
+      "concept_name": "Objectives of Statement of Cash Flows",
+      "definition": "The standard establishes principles to report historical cash changes and evaluate an entity's liquidity, solvency, and operational efficiency. It enables stakeholders to assess past cash trends, timing certainty, and the capacity to meet short-term obligations.",
+      "terminology": [
+        "historical changes",
+        "timing and certainty",
+        "liquidity",
+        "solvency"
+      ],
+      "instrument_references": [
+        "Ind AS 7"
+      ],
+      "inclusion": [
+        "historical cash flow data",
+        "assessment of debt-servicing capability"
+      ],
+      "exclusion": [
+        "forward-looking budgetary mandates without historical backing"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general profitability metrics by focusing explicitly on cash availability for liability settlement."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2518d2b1-6421-4c44-950f-82f96ad22669",
+      "concept_name": "To provide information about historical changes in cash and cash equivalents",
+      "definition": "The cash flow statement details how cash was created and utilized across the current reporting period and the immediate previous period. It provides a historical accounting of liquid resource movements.",
+      "terminology": [
+        "historical changes",
+        "cash utilization",
+        "current year",
+        "previous year"
+      ],
+      "instrument_references": [
+        "Ind AS 7"
+      ],
+      "inclusion": [
+        "historical cash generation records",
+        "historical cash utilization records"
+      ],
+      "exclusion": [
+        "speculative future cash projections"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from current financial positioning statements by focusing entirely on past transactional cash movements."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "264e35aa-b20a-4637-a12b-746183b134d1",
+      "concept_name": "To assess the ability to generate cash and cash equivalents",
+      "definition": "This objective evaluates a company's operational efficiency in producing liquid assets to cover debts and creditor payments. It examines the relationship between reported accounting profits and actual net cash inflows.",
+      "terminology": [
+        "efficiency",
+        "debt payment",
+        "net cash flow",
+        "profitability"
+      ],
+      "instrument_references": [
+        "Ind AS 7"
+      ],
+      "inclusion": [
+        "creditor payment analysis",
+        "profitability versus cash flow correlation"
+      ],
+      "exclusion": [
+        "non-cash profitability figures"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from profit and loss assessments by measuring actual liquidity rather than theoretical earnings."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a43b1fcc-6fe9-4b26-b68b-3fce89b391c9",
+      "concept_name": "To understand the timing and certainty of their generation",
+      "definition": "Historical cash flow analysis establishes recurring trends regarding the periods in which a company successfully generates cash. This evaluation helps stakeholders gauge the statistical probability of future cash generation.",
+      "terminology": [
+        "historical analysis",
+        "trend",
+        "probability",
+        "timing"
+      ],
+      "instrument_references": [
+        "Ind AS 7"
+      ],
+      "inclusion": [
+        "trend identification in cash generation",
+        "probability assessment"
+      ],
+      "exclusion": [
+        "random, non-recurring accounting accruals"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from static liquidity measures by emphasizing temporal patterns and predictability of cash inflows."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b0be3fad-0cb0-462e-9993-701c485df14b",
+      "concept_name": "Benefits of Cash Flow Information",
+      "definition": "Cash flow statements offer critical insights enabling stakeholders to evaluate changes in an entity's net assets, financial structure, liquidity, and solvency. They establish a comparable base across entities by neutralizing differing accounting policies and profit definitions.",
+      "terminology": [
+        "net assets",
+        "financial structure",
+        "liquidity",
+        "solvency"
+      ],
+      "instrument_references": [
+        "Ind AS 7"
+      ],
+      "inclusion": [
+        "evaluation of financial structure",
+        "comparative entity efficiency analysis"
+      ],
+      "exclusion": [
+        "entity-specific accounting policy biases"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from internal profit reports by offering a uniform metric unskewed by varied accounting assumptions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "421f3fed-be88-41b4-9d5f-40d33851990f",
+      "concept_name": "Provides information enabling evaluation of changes in net assets and financial structure (Liquidity and solvency)",
+      "definition": "By reconciling opening and closing cash balances with clear explanations of operational changes, the statement illustrates liquid flows. This empowers stakeholders to evaluate an entity's overall liquidity and solvency positions.",
+      "terminology": [
+        "reconciliation",
+        "cash inflows",
+        "cash outflows",
+        "financial structure"
+      ],
+      "instrument_references": [
+        "Ind AS 7"
+      ],
+      "inclusion": [
+        "reconciliation of opening and closing cash balances",
+        "breakdown of period inflows and outflows"
+      ],
+      "exclusion": [
+        "undisclosed changes in non-cash asset classes"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from isolated balance sheet reviews by dynamically mapping the underlying causes of net asset fluctuations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3f91469a-cc13-479a-b907-93713924bba7",
+      "concept_name": "Assesses the ability to manage the cash",
+      "definition": "This benefit highlights how funds are sourced and utilized, shedding light on management efficiency and operational stability. Negative operational cash flows, for example, reveal an inability to generate sustainable cash from core business activities.",
+      "terminology": [
+        "source of generation",
+        "negative cash flow",
+        "operational efficiency",
+        "fund utilization"
+      ],
+      "instrument_references": [
+        "Ind AS 7"
+      ],
+      "inclusion": [
+        "core business activity cash generation analysis",
+        "fund utilization tracking"
+      ],
+      "exclusion": [
+        "fictitious paper profits lacking cash backing"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general solvency checks by specifically highlighting operational management performance versus financing lifelines."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a406666e-2efb-4657-80a9-ddfa567e1f21",
+      "concept_name": "Assess and compare the present value of future cash flows",
+      "definition": "Historical cash flow trends assist entities in predicting future inflows and outflows for capital budgeting and asset valuation. This predictive baseline allows managers to apply discounting techniques when evaluating prospective projects.",
+      "terminology": [
+        "past trends",
+        "capital budgeting",
+        "valuation of shares",
+        "discounting techniques"
+      ],
+      "instrument_references": [
+        "Ind AS 7"
+      ],
+      "inclusion": [
+        "future cash flow projections",
+        "capital budgeting evaluations"
+      ],
+      "exclusion": [
+        "unsubstantiated financial forecasting models"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from retrospective historical reporting by utilizing past trends strictly as a forecasting foundation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "106cc68f-9b1d-4628-b391-e862a47a0f9c",
+      "concept_name": "Compares the efficiency of different entities",
+      "definition": "While accounting profits vary due to subjective policies, cash flows apply a standardized measurement technique. This common denominator allows stakeholders to objectively compare operating efficiency across entirely different companies.",
+      "terminology": [
+        "accounting profits",
+        "assumptions",
+        "common comparable base",
+        "technique"
+      ],
+      "instrument_references": [
+        "Ind AS 7"
+      ],
+      "inclusion": [
+        "cross-entity comparison",
+        "standardized cash metric computation"
+      ],
+      "exclusion": [
+        "disparate entity-specific profit recognition rules"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from net income comparisons, which can be distorted by differing accounting policies and definitions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3dbaace5-5862-4da9-861f-50be56413550",
+      "concept_name": "Scope of Statement of Cash Flows",
+      "definition": "Every entity, regardless of size, industry, or operational focus, must prepare and present a statement of cash flows as an integral part of its financial statements. This mandate applies equally to commercial businesses, service organizations, and financial institutions.",
+      "terminology": [
+        "integral part",
+        "financial statements",
+        "all entities",
+        "banks and financial institutions"
+      ],
+      "instrument_references": [
+        "Ind AS 7"
+      ],
+      "inclusion": [
+        "manufacturing organizations",
+        "trading concerns",
+        "banks and financial institutions"
+      ],
+      "exclusion": [
+        "entities exempt from general purpose financial statement presentation"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from optional supplementary schedules by being a mandatory, integral component of required financial reporting."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "efba555c2baa495813d7c168c5e072b5c1857f17ca387597a87386899f81c710",
+  "artifact_id": "7ee89275-e26a-48bc-b94b-0383b62f6f19",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8580,
+  "output_tokens": 3055,
+  "cost_usd": 0.0102115,
+  "created_at": "2026-10-03T17:47:53.030334+00:00"
+}

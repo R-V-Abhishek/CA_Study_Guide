@@ -1,0 +1,61 @@
+{
+  "status": "frozen_unapproved_draft",
+  "composite_manifest_hash": "3bf74aaa4f44d5cd8518e677ca1741bda75b07dd58614c574f4d3689b71b9e4d",
+  "node_count": 6382,
+  "source_count": 167,
+  "descriptor_count": 3037,
+  "source_issue_count": 25,
+  "source_approvals": 0,
+  "descriptor_approvals": 0,
+  "activation_authorized": false,
+  "phase3_completion_gate": "not_satisfied",
+  "verification": {
+    "source_tests": "11 passed",
+    "hashes_and_pdf_pages": "independently verified for167 selected artifacts",
+    "placeholder_definitions": 0
+  },
+  "sidecar_sha256": {
+    "manifest.json": "0505512ae7625ea2534ea50363e8ee0b1d03f331a8c754f25fa26306fece7550",
+    "question_sources.json": "0254ec352268ce1694275b68c5441e42feec3d520abf6453c60e59579aacff6c",
+    "weightage_sources.json": "f02cd311490d0a164d6de6a67e2dcfac7c6ef814ea5310029480ac2979e7c9a7",
+    "crosswalk.json": "d9d14473ca7d22775e5830dbe60add2754da5b603077b8804990da32ed7b56f6",
+    "existing_corpus_inventory.json": "ac6ebc3bbc0cc7c275f4a62729bbbc3f37ca139a21ccea856a915baf8af003f9",
+    "descriptor_repairs.json": "e8ee79f2a5e48b9377bf4b2fb4ecdb1e3dbb5a1d76cd169a26aeb71184929c0d",
+    "identities.json": "667fdad4036764a9a2a804af65963c0de0bba7780607fd723c994285ffdb1bce"
+  },
+  "remaining_gaps": [
+    {
+      "paper_id": "s2023.P6",
+      "status": "unresolved",
+      "reason": "Verified April2023 SetA and October2023 SetB source-reference branches are drafted from substantive textbook headings; integrated boundaries and complete contents/body reconciliation await review. Prescribed amendment83835bos67607.pdf is verified but provision-level bindings remain pending. January2026 study-guideline download and May2027 Final IBS applicability are unresolved."
+    },
+    {
+      "paper_id": "s2023.P5",
+      "status": "unresolved",
+      "reason": "Only May2027 module1 chapters1-6 released. Official January2026 announcement expects4 modules; November2024 fallback download landing not yet verified. Do not substitute September2025/May2026 files."
+    },
+    {
+      "paper_id": "all",
+      "status": "pending_review",
+      "reason": "Display-heading extraction is a draft. Contents, outlines, numbered body headings and substantive boundaries require full reconciliation; descriptor approval and source review are not inferred from download success."
+    },
+    {
+      "paper_id": "all",
+      "status": "pending_review",
+      "reason": "Every drafted classification subtopic now has a source-section semantic descriptor draft. Authenticated source/descriptor review, recorded ambiguity resolution and administrator structural approval remain pending; machine generation does not establish eligibility."
+    },
+    {
+      "source_family": "mock",
+      "course_level": "Final",
+      "availability": "missing",
+      "reason": "Current s2023 Mock Test question/answer artifacts were not exposed by the audited BoS page. May2023 s2017 papers are separately preserved and require scheme review, not passed to the new six-paper classifier."
+    },
+    {
+      "course_level": "Final",
+      "source_family": "mock",
+      "availability": "inaccessible",
+      "landing_url": "https://bosmtp.icai.org/",
+      "reason": "Modern mock-paper portal requires student registration. Schedules are announcement artifacts; actual s2023 question/answer download not verified."
+    }
+  ]
+}

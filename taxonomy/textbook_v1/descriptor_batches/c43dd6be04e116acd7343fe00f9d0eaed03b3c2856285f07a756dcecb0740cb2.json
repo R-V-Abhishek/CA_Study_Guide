@@ -1,0 +1,316 @@
+{
+  "descriptors": [
+    {
+      "node_id": "bcb9fa86-8c9d-4d18-b371-b6e84f4b5769",
+      "concept_name": "Advanced Role of CFO in Various Matters Including Value Creation",
+      "definition": "Modern chief financial officers have evolved from traditional compliance and control functions into strategic leaders driving sustainable value creation. Their expanded responsibilities encompass risk management, supply chain financial viability, corporate restructuring, and environmental, social, and governance financing.",
+      "terminology": [
+        "Value creation",
+        "Strategic decision making",
+        "Risk management framework",
+        "ESG financing"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Risk management oversight",
+        "Supply chain financial viability assessment",
+        "Mergers and acquisitions strategy",
+        "ESG financing integration"
+      ],
+      "exclusion": [
+        "Strictly narrow bookkeeping tasks",
+        "Purely administrative record keeping"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from the traditional CFO role which concentrated exclusively on historical financial reporting and basic compliance."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8893a34c-bd4f-4b75-bd30-3e7db1184548",
+      "concept_name": "Strategic Financial Decision-Making Framework",
+      "definition": "Strategic financial management applies financial techniques to long-term strategic decisions aimed at maximizing stakeholder market value through optimal resource allocation. It combines dynamic financial management with robust business strategy to balance risk and expected return.",
+      "terminology": [
+        "Strategic financial management",
+        "Risk-return trade-off",
+        "Resource configuration",
+        "Shareholder wealth maximization"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Long-term resource allocation",
+        "Risk and return evaluation",
+        "Strategic planning integration"
+      ],
+      "exclusion": [
+        "Short-term operational budgeting",
+        "Routine accounting entries"
+      ],
+      "nearby_distinctions": [
+        "Differs from routine accounting by focusing on forward-looking value maximization rather than historical reporting."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "77894b93-3003-45e4-9a6a-56cabf0063dc",
+      "concept_name": "Meaning of Strategic Financial Management",
+      "definition": "Strategic financial management is the integration of financial techniques into corporate strategy to identify opportunities that maximize market value. It coordinates scarce capital allocation, strategy implementation, and performance monitoring across enterprise operations.",
+      "terminology": [
+        "Market value maximization",
+        "Capital allocation",
+        "Strategic planning",
+        "Financing decisions"
+      ],
+      "instrument_references": [
+        "Strategic Financial Management: Exercises, Robert Alan Hill"
+      ],
+      "inclusion": [
+        "Identification of value-maximizing strategies",
+        "Allocation of scarce capital resources",
+        "Implementation and monitoring of strategic plans"
+      ],
+      "exclusion": [
+        "Isolated bookkeeping transactions",
+        "Non-strategic tactical scheduling"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from operational financial planning by its long-term horizon and senior management governance."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e0b6a89c-bf0d-4cf8-863d-d8fe31bb5c6c",
+      "concept_name": "Functions of Strategic Financial Management",
+      "definition": "Strategic financial management encompasses core functions including continual investment opportunity searches, optimal capital structure determination, and internal control establishment. It addresses key financing, investment, dividend, and portfolio decisions to achieve corporate objectives.",
+      "terminology": [
+        "Financing decisions",
+        "Investment decisions",
+        "Dividend decisions",
+        "Portfolio decisions"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Evaluating long-term capital projects",
+        "Determining debt and equity mix",
+        "Managing earnings distribution and reinvestment"
+      ],
+      "exclusion": [
+        "Day-to-day cash handling",
+        "Routine clerical accounting"
+      ],
+      "nearby_distinctions": [
+        "Unlike isolated operational budgeting, portfolio decisions evaluate investments based on aggregate corporate performance contribution."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f117264f-0593-44c9-bc9c-7f5093e85999",
+      "concept_name": "Strategy At Different Hierarchy Levels",
+      "definition": "Corporate strategy is structured across corporate, business unit, and functional levels to address distinct planning requirements. Corporate strategy evaluates overall business portfolio suitability, feasibility, and acceptability.",
+      "terminology": [
+        "Corporate level strategy",
+        "Business unit strategy",
+        "Functional level strategy",
+        "Strategic Business Unit"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Business portfolio selection",
+        "Resource feasibility analysis",
+        "Stakeholder acceptability assessment"
+      ],
+      "exclusion": [
+        "Isolated departmental task scheduling",
+        "Tactical routine supervision"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from business unit and functional strategies by its organization-wide scope rather than operating unit focus."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8b3f4c60-aa3e-4a9f-8875-3c65e5282dba",
+      "concept_name": "Corporate Level Strategy",
+      "definition": "Corporate level strategy involves selecting competitive business arenas and coordinating the overall enterprise portfolio. It ensures strategies satisfy suitability, feasibility, and stakeholder acceptability criteria.",
+      "terminology": [
+        "Portfolio coordination",
+        "Suitability",
+        "Feasibility",
+        "Acceptability"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Evaluation of multi-business portfolios",
+        "Assessment of resource requirements",
+        "Coordination across operating divisions"
+      ],
+      "exclusion": [
+        "Departmental operational execution",
+        "Single product line tactics"
+      ],
+      "nearby_distinctions": [
+        "Focuses on enterprise-wide business selection compared to business unit competitive advantage creation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3fcdf5c3-9c2e-4bd0-9237-e8d935b89f05",
+      "concept_name": "Business Unit Level Strategy",
+      "definition": "Business unit level strategy focuses on the practical coordination of operating profit centers and the development of sustainable competitive advantages. It aligns individual product and service divisions with broader corporate aims.",
+      "terminology": [
+        "Strategic Business Unit",
+        "Profit center",
+        "Competitive advantage",
+        "Operating coordination"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Independent unit planning",
+        "Competitive advantage formulation",
+        "Operating unit coordination"
+      ],
+      "exclusion": [
+        "Broad multi-industry corporate portfolio selection",
+        "Micro departmental task allocation"
+      ],
+      "nearby_distinctions": [
+        "Operates below the corporate level by targeting specific market segments and product competition rather than overall enterprise scope."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "52adaff2-851f-46e4-a290-99d72c361606",
+      "concept_name": "Functional Level Strategy",
+      "definition": "Functional level strategy guides operating divisions and departments to effectively execute higher-level business strategies through aligned value chain processes. It coordinates functional capabilities in finance, marketing, R&D, and operations.",
+      "terminology": [
+        "Functional level",
+        "Value chain",
+        "Discrete action plans",
+        "Resource coordination"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Translating corporate strategy into departmental actions",
+        "Managing functional value chain processes",
+        "Providing ground-level feedback to upper management"
+      ],
+      "exclusion": [
+        "Overall multi-business portfolio selection",
+        "Enterprise-wide capital allocation"
+      ],
+      "nearby_distinctions": [
+        "Operates at the departmental level to execute strategies, whereas corporate and business levels formulate overarching direction."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9e47912b-90ee-4e68-9669-ce6486634a77",
+      "concept_name": "Financial Planning",
+      "definition": "Financial planning serves as the backbone of business planning by defining feasible operational boundaries and integrating financial resources, tools, and goals. It generates critical performance measures, financial objectives, and decision-making frameworks.",
+      "terminology": [
+        "Financial resources",
+        "Financial tools",
+        "Financial goals",
+        "Planning framework"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Defining operational boundaries",
+        "Establishing financial objectives",
+        "Utilizing performance measures like ratio analysis"
+      ],
+      "exclusion": [
+        "Ad-hoc cash management without goals",
+        "Non-financial human resource appraisals"
+      ],
+      "nearby_distinctions": [
+        "Focuses on structuring the quantitative planning architecture rather than executing discrete operational transactions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b110ae33-2151-4ba1-b2f7-fec6d84c8544",
+      "concept_name": "Interface Of Financial Policy And Strategic Management",
+      "definition": "The interface between financial policy and strategic management connects organizational inception and expansion through targeted fund mobilization and capital structure design. It coordinates debt-equity norms and asset investment policies to support strategic goals.",
+      "terminology": [
+        "Fund mobilization",
+        "Capital structure",
+        "Debt-equity ratio",
+        "Asset investment policy"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Balancing ownership and borrowed capital sources",
+        "Establishing target debt-equity ratios",
+        "Regulating fixed and current asset investments"
+      ],
+      "exclusion": [
+        "Operational inventory handling",
+        "Non-financial strategic marketing plans"
+      ],
+      "nearby_distinctions": [
+        "Integrates high-level corporate intent directly with monetary resource acquisition and allocation constraints."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "520eda05-ff91-4190-adc1-57066db6d5a7",
+      "concept_name": "Balancing Financial Goals Vis-A-Vis Sustainable Growth",
+      "definition": "Balancing financial goals with sustainable growth ensures sales increases align with a firm's operating and financial policies. It prevents conflicts between short-term expansion targets and long-term enterprise survival under resource constraints.",
+      "terminology": [
+        "Sustainable growth",
+        "Stable growth strategy",
+        "Resource constraints",
+        "Financial autonomy"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Aligning sales growth with financial policies",
+        "Adopting stable growth strategies under resource limits",
+        "Evaluating multi-stakeholder intergenerational resource use"
+      ],
+      "exclusion": [
+        "Unchecked aggressive sales expansion",
+        "Short-term profit maximization ignoring solvency"
+      ],
+      "nearby_distinctions": [
+        "Prioritizes long-term enterprise health and resource conservation over aggressive unconstrained sales growth."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "608c64d5-aba5-4c42-aeb5-bd78ea08b2f7",
+      "concept_name": "Sustainable Growth Rate",
+      "definition": "The sustainable growth rate measures the maximum annual percentage increase in sales a firm can achieve without issuing new equity, based on profitability, asset utilization, and financial leverage. It models growth assuming target capital structures and dividend payout ratios are maintained.",
+      "terminology": [
+        "Sustainable growth rate",
+        "Retention rate",
+        "Asset turnover ratio",
+        "Return on equity"
+      ],
+      "instrument_references": [
+        "Robert C. Higgins SGR model"
+      ],
+      "inclusion": [
+        "Calculating maximum sales growth without new equity",
+        "Integrating profit margin, asset turnover, and retention rates",
+        "Maintaining target capital structures and dividend ratios"
+      ],
+      "exclusion": [
+        "Growth funded through unlimited new equity issuances",
+        "Short-term spikes ignoring infrastructure capacity"
+      ],
+      "nearby_distinctions": [
+        "Unlike absolute sales targets, SGR explicitly bounds growth by internal financing capacity and target leverage."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "c43dd6be04e116acd7343fe00f9d0eaed03b3c2856285f07a756dcecb0740cb2",
+  "artifact_id": "cffd993f-8c29-4620-b885-3448ef21f488",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 7759,
+  "output_tokens": 3132,
+  "cost_usd": 0.0101577,
+  "created_at": "2026-10-03T18:05:54.223133+00:00"
+}

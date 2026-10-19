@@ -1,0 +1,288 @@
+{
+  "descriptors": [
+    {
+      "node_id": "504b8036-aa5b-4603-815c-5930651d685c",
+      "concept_name": "Differences between ABC and ABM",
+      "definition": "Activity Based Costing determines the cost of activities and outputs through the logical distribution of overhead based on resource consumption. In contrast, Activity Based Management is a broader managerial philosophy focusing on planning, execution, and measuring activities to achieve a competitive advantage.",
+      "terminology": [
+        "Activity Based Costing",
+        "Activity Based Management",
+        "Overhead Distribution",
+        "Strategic Cost Management"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Technique for determining activity and output costs",
+        "Management philosophy focusing on planning and measuring activities"
+      ],
+      "exclusion": [
+        "Traditional functional-based budgeting approaches"
+      ],
+      "nearby_distinctions": [
+        "ABC focuses purely on cost assignment and data generation, whereas ABM uses those cost insights for broader organizational planning and process execution."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f3d2852b-a203-416a-8e49-524acfbeb547",
+      "concept_name": "Activity Based Budgeting (ABB)",
+      "definition": "Activity Based Budgeting is a planning and controlling process that derives a cost-effective budget by forecasting expected activities, workloads, and strategic goals. It essentially reverses the activity-based costing process to determine financial plans and required resource quantities based on business processes.",
+      "terminology": [
+        "Activity Based Budgeting",
+        "Workload Forecast",
+        "Strategic Goals",
+        "Resource Requirements"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Type of work or activity to be performed",
+        "Quantity and cost of work to be performed",
+        "Financial and non-financial requirements"
+      ],
+      "exclusion": [
+        "Traditional functional-based budgeting linked strictly to organizational units like departments"
+      ],
+      "nearby_distinctions": [
+        "Unlike traditional functional budgeting that budgets costs by organizational units, ABB focuses on business processes and expected activity outputs."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c449843f-0913-4ab4-bf22-cbb43a882150",
+      "concept_name": "Activity Flexible Budgeting",
+      "definition": "Activity flexible budgeting predicts how activity costs will change as activity output changes using specific activity drivers. It enhances traditional budgetary performance reporting by applying multiple cost formulas tied to underlying drivers rather than relying on a single unit-based driver.",
+      "terminology": [
+        "Activity Flexible Budgeting",
+        "Activity Drivers",
+        "Variance Analysis",
+        "Cost Behavior"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Prediction of activity costs as output changes",
+        "Cost formulas based on specific activity drivers"
+      ],
+      "exclusion": [
+        "Traditional flexible budgets based only on single unit-based drivers like direct labor hours"
+      ],
+      "nearby_distinctions": [
+        "Activity flexible budgeting utilizes activity drivers for cost formulas, whereas traditional flexible budgets rely strictly on unit-based metrics like direct labor hours."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "40f5d880-703e-4910-8b86-3074ffcfac3b",
+      "concept_name": "ABC: A Decision - Making Tool",
+      "definition": "Activity Based Costing acts as a decision-making tool by modeling costs back to specific activities across market lines, products, or customers. It provides granular quantitative data that improves operational insights for initiatives like total quality management, facility expansion, and resource allocation.",
+      "terminology": [
+        "Decision-Making Tool",
+        "Total Quality Management",
+        "Overhead Burden",
+        "Cost Modeling"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Analysis of specific segments like market lines, products, or customers",
+        "Complementary tool for Total Quality Management"
+      ],
+      "exclusion": [
+        "Enterprise-based financial data that obscures specific cost elements"
+      ],
+      "nearby_distinctions": [
+        "Unlike traditional financial data that equally distributes overhead across product lines, ABC accurately models cost burdens back to the specific activity."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4be082a1-091a-477f-8cdd-8b07910aef54",
+      "concept_name": "Pareto Analysis as Management Tool",
+      "definition": "Pareto Analysis is a control mechanism that ranks problem causes in descending order of their effect using the law of diminishing returns. It assists management in establishing top priorities by focusing attention on the vital few causes that generate the highest potential payoff.",
+      "terminology": [
+        "Pareto Analysis",
+        "Vital Few",
+        "Trivial Many",
+        "Value Index"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Ranking causes in descending order of value index",
+        "Identification of vital few priorities for control"
+      ],
+      "exclusion": [
+        "Trivial many items with lower probability of payoff"
+      ],
+      "nearby_distinctions": [
+        "Pareto Analysis isolates the vital few high-impact causes from the trivial many low-impact factors using frequency ranking."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d0d1b492-37de-418a-a976-53078afcb98b",
+      "concept_name": "Pros and Cons of Pareto Analysis",
+      "definition": "Pareto Analysis is a control mechanism that breaks down complex problems to identify significant root causes and optimize scarce resources. Its limitations stem primarily from data dependency, potential exclusion of initially small problems, and the risk of misidentifying underlying causes.",
+      "terminology": [
+        "Control Mechanism",
+        "Root Causes",
+        "Resource Optimization",
+        "Limitations"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Breakdown of big problems into root causes",
+        "Optimal use of scarce resources"
+      ],
+      "exclusion": [
+        "Unverified data sources lacking sufficient classification"
+      ],
+      "nearby_distinctions": [
+        "The benefits center on prioritization and resource allocation, whereas shortcomings involve data quality dependencies and oversight of small emerging problems."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "37ee43ea-c12a-4d02-814e-6b5d3f3d088b",
+      "concept_name": "Applications of Pareto Analysis",
+      "definition": "Pareto Analysis can be applied across various business situations to present performance indicator data and select representative process characteristics. It helps organizations prioritize focus areas such as product pricing, customer profitability, and stock control.",
+      "terminology": [
+        "Performance Indicators",
+        "Business Situations",
+        "Process Characteristics",
+        "Prioritization"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Selection of representative process characteristics",
+        "Application to product pricing, customer profitability, and stock control"
+      ],
+      "exclusion": [
+        "Comprehensive analysis of every minor operational variable without prioritization"
+      ],
+      "nearby_distinctions": [
+        "Unlike general problem-solving frameworks, applications of Pareto Analysis target specific commercial domains like revenue concentration and inventory valuation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3577147a-ba90-4c73-9646-f2451b542cb5",
+      "concept_name": "Pricing of a Product",
+      "definition": "Pareto analysis applied to product pricing assists management in identifying the vital few products that drive the majority of sales revenue. This allows firms to apply sophisticated pricing methods to high-revenue items while delegating or using cost-based pricing for the remaining products.",
+      "terminology": [
+        "Sales Revenue",
+        "Vital Few Products",
+        "Cost-Based Pricing",
+        "Trivial Many"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Analysis of estimated sales revenues from various products",
+        "Delegation of pricing decisions for lower-tier products"
+      ],
+      "exclusion": [
+        "Exhaustive cost-profit-price-volume analysis for every individual product line"
+      ],
+      "nearby_distinctions": [
+        "Focuses specifically on revenue-generating product stratification rather than general manufacturing cost allocation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "59a7d382-8008-4f40-8ef8-93c2076050bd",
+      "concept_name": "Customer Profitability Analysis",
+      "definition": "Customer profitability analysis utilizes Pareto principles to evaluate an organization's customer portfolio and relative profitability. It typically reveals that a vital few customers generate the vast majority of profits, guiding decisions regarding customer retention and promotional expenditures.",
+      "terminology": [
+        "Customer Profitability Analysis",
+        "Customer Portfolio",
+        "Promotion Expenses",
+        "Vital Few Customers"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Evaluation of relative customer profitability",
+        "Decision making on serving specific customer groups"
+      ],
+      "exclusion": [
+        "Treating all customer relationships as equally profitable"
+      ],
+      "nearby_distinctions": [
+        "Shifts the Pareto concentration metric from products or stock items directly to individual client profitability."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "64b5207a-bd8b-4216-a861-daf047f5b8f1",
+      "concept_name": "ABC Analysis- Stock Control",
+      "definition": "ABC analysis in stock control applies Pareto principles to inventory management by identifying the small proportion of stock items that account for most inventory value. By concentrating on these high-value items, firms can effectively control the majority of their monetary investment in stock.",
+      "terminology": [
+        "ABC Analysis",
+        "Stock Control",
+        "Inventory Value",
+        "Monetary Investment"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Identification of stock items comprising most inventory value",
+        "Concentration on small proportions of stock for control"
+      ],
+      "exclusion": [
+        "Treating all inventory quantities with equal monitoring weight"
+      ],
+      "nearby_distinctions": [
+        "Focuses strictly on monetary investment in material stock rather than defect rates or customer revenue distribution."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "cc412373-54f9-465a-88d4-6b1c8fd24123",
+      "concept_name": "Application in Activity Based Costing",
+      "definition": "Applying Pareto analysis within activity-based costing identifies that a small percentage of cost drivers are responsible for the vast majority of total cost pools. Monitoring and controlling these specific cost drivers allows management to gain better control over organizational overheads.",
+      "terminology": [
+        "Cost Drivers",
+        "Cost Pool",
+        "Overhead Control",
+        "Activity Based Costing"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Analysis of cost drivers responsible for major cost pools",
+        "Monitoring high-impact overhead drivers"
+      ],
+      "exclusion": [
+        "Equal weighting of all organizational cost drivers"
+      ],
+      "nearby_distinctions": [
+        "Targets internal cost drivers and overhead pools rather than external sales revenues or customer segments."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "bee8dba4-e089-466d-ac99-2b1efd40b72c",
+      "concept_name": "Quality Control",
+      "definition": "Pareto analysis in quality control isolates the vital few underlying causes responsible for the majority of reported defects or customer complaints. Concentrating rectification efforts on these specific causes enables organizations to achieve the greatest immediate impact on product quality.",
+      "terminology": [
+        "Quality Control",
+        "Defect Reports",
+        "Customer Complaints",
+        "Underlying Causes"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Analysis of defect reports and complaints",
+        "Targeting underlying causes responsible for most problems"
+      ],
+      "exclusion": [
+        "Treating all operational defects with identical corrective priority"
+      ],
+      "nearby_distinctions": [
+        "Applies Pareto principles specifically to error and defect mitigation rather than financial valuation or inventory management."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "0b40a07bac2f2327ce191e6fd91ac88ba9a1c09a0ff99caf1b473476d5cab180",
+  "artifact_id": "34b24b68-e907-41e1-8066-3ec1a0fb9b63",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8314,
+  "output_tokens": 3135,
+  "cost_usd": 0.010331700000000001,
+  "created_at": "2026-10-03T18:27:28.931725+00:00"
+}

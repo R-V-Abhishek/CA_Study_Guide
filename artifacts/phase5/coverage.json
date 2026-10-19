@@ -1,0 +1,1092 @@
+{
+  "frozen_seed": 42,
+  "available_unique_roots": 2498,
+  "available_strata": [
+    {
+      "paper_id": "s2023.P1",
+      "source_family": "examination",
+      "attempt": "2024-05",
+      "difficulty": "case",
+      "available_unique_roots": 5,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P1",
+      "source_family": "examination",
+      "attempt": "2024-05",
+      "difficulty": "complete",
+      "available_unique_roots": 1,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P1",
+      "source_family": "examination",
+      "attempt": "2024-11",
+      "difficulty": "case",
+      "available_unique_roots": 7,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P1",
+      "source_family": "examination",
+      "attempt": "2024-11",
+      "difficulty": "missing",
+      "available_unique_roots": 5,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P1",
+      "source_family": "examination",
+      "attempt": "2025-05",
+      "difficulty": "case",
+      "available_unique_roots": 8,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P1",
+      "source_family": "examination",
+      "attempt": "2025-05",
+      "difficulty": "complete",
+      "available_unique_roots": 1,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P1",
+      "source_family": "examination",
+      "attempt": "2025-05",
+      "difficulty": "missing",
+      "available_unique_roots": 60,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P1",
+      "source_family": "examination",
+      "attempt": "2025-09",
+      "difficulty": "case",
+      "available_unique_roots": 2,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P1",
+      "source_family": "examination",
+      "attempt": "2025-09",
+      "difficulty": "missing",
+      "available_unique_roots": 81,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P1",
+      "source_family": "examination",
+      "attempt": "2026-01",
+      "difficulty": "case",
+      "available_unique_roots": 3,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P1",
+      "source_family": "examination",
+      "attempt": "2026-05",
+      "difficulty": "case",
+      "available_unique_roots": 60,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P1",
+      "source_family": "examination",
+      "attempt": "2026-05",
+      "difficulty": "complete",
+      "available_unique_roots": 7,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P1",
+      "source_family": "examination",
+      "attempt": "2026-05",
+      "difficulty": "missing",
+      "available_unique_roots": 82,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P1",
+      "source_family": "examination",
+      "attempt": null,
+      "difficulty": "case",
+      "available_unique_roots": 91,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P1",
+      "source_family": "examination",
+      "attempt": null,
+      "difficulty": "complete",
+      "available_unique_roots": 4,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P1",
+      "source_family": "examination",
+      "attempt": null,
+      "difficulty": "missing",
+      "available_unique_roots": 121,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P1",
+      "source_family": "examination",
+      "attempt": null,
+      "difficulty": "partial",
+      "available_unique_roots": 1,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P1",
+      "source_family": "rtp",
+      "attempt": "2024-11",
+      "difficulty": "case",
+      "available_unique_roots": 9,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P1",
+      "source_family": "rtp",
+      "attempt": "2024-11",
+      "difficulty": "complete",
+      "available_unique_roots": 3,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P1",
+      "source_family": "rtp",
+      "attempt": "2025-05",
+      "difficulty": "case",
+      "available_unique_roots": 3,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P1",
+      "source_family": "rtp",
+      "attempt": "2025-05",
+      "difficulty": "complete",
+      "available_unique_roots": 9,
+      "sampled_roots": 0
+    },
+    {
+      "paper_id": "s2023.P1",
+      "source_family": "rtp",
+      "attempt": "2025-09",
+      "difficulty": "case",
+      "available_unique_roots": 5,
+      "sampled_roots": 0
+    },
+    {
+      "paper_id": "s2023.P1",
+      "source_family": "rtp",
+      "attempt": "2025-09",
+      "difficulty": "complete",
+      "available_unique_roots": 5,
+      "sampled_roots": 0
+    },
+    {
+      "paper_id": "s2023.P1",
+      "source_family": "rtp",
+      "attempt": "2025-09",
+      "difficulty": "partial",
+      "available_unique_roots": 1,
+      "sampled_roots": 0
+    },
+    {
+      "paper_id": "s2023.P1",
+      "source_family": "rtp",
+      "attempt": "2026-01",
+      "difficulty": "case",
+      "available_unique_roots": 4,
+      "sampled_roots": 0
+    },
+    {
+      "paper_id": "s2023.P1",
+      "source_family": "rtp",
+      "attempt": "2026-01",
+      "difficulty": "complete",
+      "available_unique_roots": 9,
+      "sampled_roots": 0
+    },
+    {
+      "paper_id": "s2023.P1",
+      "source_family": "rtp",
+      "attempt": "2026-05",
+      "difficulty": "case",
+      "available_unique_roots": 7,
+      "sampled_roots": 0
+    },
+    {
+      "paper_id": "s2023.P1",
+      "source_family": "rtp",
+      "attempt": "2026-05",
+      "difficulty": "complete",
+      "available_unique_roots": 9,
+      "sampled_roots": 0
+    },
+    {
+      "paper_id": "s2023.P1",
+      "source_family": "rtp",
+      "attempt": "2026-11",
+      "difficulty": "case",
+      "available_unique_roots": 7,
+      "sampled_roots": 0
+    },
+    {
+      "paper_id": "s2023.P1",
+      "source_family": "rtp",
+      "attempt": "2026-11",
+      "difficulty": "complete",
+      "available_unique_roots": 4,
+      "sampled_roots": 0
+    },
+    {
+      "paper_id": "s2023.P1",
+      "source_family": "rtp",
+      "attempt": "2026-11",
+      "difficulty": "partial",
+      "available_unique_roots": 1,
+      "sampled_roots": 0
+    },
+    {
+      "paper_id": "s2023.P2",
+      "source_family": "examination",
+      "attempt": "2024-05",
+      "difficulty": "case",
+      "available_unique_roots": 6,
+      "sampled_roots": 3
+    },
+    {
+      "paper_id": "s2023.P2",
+      "source_family": "examination",
+      "attempt": "2024-11",
+      "difficulty": "case",
+      "available_unique_roots": 4,
+      "sampled_roots": 3
+    },
+    {
+      "paper_id": "s2023.P2",
+      "source_family": "examination",
+      "attempt": "2025-05",
+      "difficulty": "case",
+      "available_unique_roots": 4,
+      "sampled_roots": 3
+    },
+    {
+      "paper_id": "s2023.P2",
+      "source_family": "examination",
+      "attempt": "2025-09",
+      "difficulty": "case",
+      "available_unique_roots": 5,
+      "sampled_roots": 3
+    },
+    {
+      "paper_id": "s2023.P2",
+      "source_family": "examination",
+      "attempt": "2025-09",
+      "difficulty": "missing",
+      "available_unique_roots": 51,
+      "sampled_roots": 3
+    },
+    {
+      "paper_id": "s2023.P2",
+      "source_family": "examination",
+      "attempt": "2026-01",
+      "difficulty": "case",
+      "available_unique_roots": 4,
+      "sampled_roots": 3
+    },
+    {
+      "paper_id": "s2023.P2",
+      "source_family": "examination",
+      "attempt": "2026-05",
+      "difficulty": "case",
+      "available_unique_roots": 5,
+      "sampled_roots": 2
+    },
+    {
+      "paper_id": "s2023.P3",
+      "source_family": "examination",
+      "attempt": "2024-05",
+      "difficulty": "case",
+      "available_unique_roots": 6,
+      "sampled_roots": 2
+    },
+    {
+      "paper_id": "s2023.P3",
+      "source_family": "examination",
+      "attempt": "2024-11",
+      "difficulty": "case",
+      "available_unique_roots": 6,
+      "sampled_roots": 2
+    },
+    {
+      "paper_id": "s2023.P3",
+      "source_family": "examination",
+      "attempt": "2024-11",
+      "difficulty": "complete",
+      "available_unique_roots": 1,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P3",
+      "source_family": "examination",
+      "attempt": "2024-11",
+      "difficulty": "missing",
+      "available_unique_roots": 33,
+      "sampled_roots": 2
+    },
+    {
+      "paper_id": "s2023.P3",
+      "source_family": "examination",
+      "attempt": "2025-05",
+      "difficulty": "case",
+      "available_unique_roots": 9,
+      "sampled_roots": 2
+    },
+    {
+      "paper_id": "s2023.P3",
+      "source_family": "examination",
+      "attempt": "2025-05",
+      "difficulty": "complete",
+      "available_unique_roots": 4,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P3",
+      "source_family": "examination",
+      "attempt": "2025-05",
+      "difficulty": "missing",
+      "available_unique_roots": 58,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P3",
+      "source_family": "examination",
+      "attempt": "2025-09",
+      "difficulty": "case",
+      "available_unique_roots": 8,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P3",
+      "source_family": "examination",
+      "attempt": "2025-09",
+      "difficulty": "complete",
+      "available_unique_roots": 5,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P3",
+      "source_family": "examination",
+      "attempt": "2025-09",
+      "difficulty": "missing",
+      "available_unique_roots": 117,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P3",
+      "source_family": "examination",
+      "attempt": "2026-01",
+      "difficulty": "case",
+      "available_unique_roots": 9,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P3",
+      "source_family": "examination",
+      "attempt": "2026-01",
+      "difficulty": "complete",
+      "available_unique_roots": 5,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P3",
+      "source_family": "examination",
+      "attempt": "2026-01",
+      "difficulty": "missing",
+      "available_unique_roots": 45,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P3",
+      "source_family": "examination",
+      "attempt": "2026-05",
+      "difficulty": "case",
+      "available_unique_roots": 6,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P3",
+      "source_family": "examination",
+      "attempt": "2026-05",
+      "difficulty": "complete",
+      "available_unique_roots": 5,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P3",
+      "source_family": "examination",
+      "attempt": "2026-05",
+      "difficulty": "missing",
+      "available_unique_roots": 55,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P4",
+      "source_family": "examination",
+      "attempt": "2024-05",
+      "difficulty": "case",
+      "available_unique_roots": 6,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P4",
+      "source_family": "examination",
+      "attempt": "2024-11",
+      "difficulty": "case",
+      "available_unique_roots": 2,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P4",
+      "source_family": "examination",
+      "attempt": "2024-11",
+      "difficulty": "missing",
+      "available_unique_roots": 9,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P4",
+      "source_family": "examination",
+      "attempt": "2025-05",
+      "difficulty": "case",
+      "available_unique_roots": 5,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P4",
+      "source_family": "examination",
+      "attempt": "2025-05",
+      "difficulty": "complete",
+      "available_unique_roots": 6,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P4",
+      "source_family": "examination",
+      "attempt": "2025-05",
+      "difficulty": "missing",
+      "available_unique_roots": 54,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P4",
+      "source_family": "examination",
+      "attempt": "2025-09",
+      "difficulty": "case",
+      "available_unique_roots": 6,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P4",
+      "source_family": "examination",
+      "attempt": "2025-09",
+      "difficulty": "complete",
+      "available_unique_roots": 6,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P4",
+      "source_family": "examination",
+      "attempt": "2025-09",
+      "difficulty": "missing",
+      "available_unique_roots": 105,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P4",
+      "source_family": "examination",
+      "attempt": "2026-01",
+      "difficulty": "case",
+      "available_unique_roots": 7,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P4",
+      "source_family": "examination",
+      "attempt": "2026-01",
+      "difficulty": "complete",
+      "available_unique_roots": 5,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P4",
+      "source_family": "examination",
+      "attempt": "2026-01",
+      "difficulty": "missing",
+      "available_unique_roots": 54,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P4",
+      "source_family": "examination",
+      "attempt": "2026-05",
+      "difficulty": "case",
+      "available_unique_roots": 9,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P4",
+      "source_family": "examination",
+      "attempt": "2026-05",
+      "difficulty": "complete",
+      "available_unique_roots": 5,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P4",
+      "source_family": "examination",
+      "attempt": "2026-05",
+      "difficulty": "missing",
+      "available_unique_roots": 55,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P4",
+      "source_family": "rtp",
+      "attempt": "2024-11",
+      "difficulty": "case",
+      "available_unique_roots": 47,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P4",
+      "source_family": "rtp",
+      "attempt": "2024-11",
+      "difficulty": "missing",
+      "available_unique_roots": 118,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P4",
+      "source_family": "rtp",
+      "attempt": "2025-05",
+      "difficulty": "case",
+      "available_unique_roots": 2,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P4",
+      "source_family": "rtp",
+      "attempt": "2025-05",
+      "difficulty": "complete",
+      "available_unique_roots": 12,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P4",
+      "source_family": "rtp",
+      "attempt": "2025-05",
+      "difficulty": "missing",
+      "available_unique_roots": 4,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P4",
+      "source_family": "rtp",
+      "attempt": "2025-09",
+      "difficulty": "case",
+      "available_unique_roots": 2,
+      "sampled_roots": 0
+    },
+    {
+      "paper_id": "s2023.P4",
+      "source_family": "rtp",
+      "attempt": "2026-01",
+      "difficulty": "case",
+      "available_unique_roots": 2,
+      "sampled_roots": 0
+    },
+    {
+      "paper_id": "s2023.P4",
+      "source_family": "rtp",
+      "attempt": "2026-05",
+      "difficulty": "case",
+      "available_unique_roots": 2,
+      "sampled_roots": 0
+    },
+    {
+      "paper_id": "s2023.P4",
+      "source_family": "rtp",
+      "attempt": "2026-05",
+      "difficulty": "complete",
+      "available_unique_roots": 1,
+      "sampled_roots": 0
+    },
+    {
+      "paper_id": "s2023.P5",
+      "source_family": "examination",
+      "attempt": "2024-05",
+      "difficulty": "case",
+      "available_unique_roots": 6,
+      "sampled_roots": 2
+    },
+    {
+      "paper_id": "s2023.P5",
+      "source_family": "examination",
+      "attempt": "2024-05",
+      "difficulty": "missing",
+      "available_unique_roots": 3,
+      "sampled_roots": 2
+    },
+    {
+      "paper_id": "s2023.P5",
+      "source_family": "examination",
+      "attempt": "2024-11",
+      "difficulty": "case",
+      "available_unique_roots": 7,
+      "sampled_roots": 2
+    },
+    {
+      "paper_id": "s2023.P5",
+      "source_family": "examination",
+      "attempt": "2024-11",
+      "difficulty": "missing",
+      "available_unique_roots": 3,
+      "sampled_roots": 2
+    },
+    {
+      "paper_id": "s2023.P5",
+      "source_family": "examination",
+      "attempt": "2025-05",
+      "difficulty": "case",
+      "available_unique_roots": 8,
+      "sampled_roots": 2
+    },
+    {
+      "paper_id": "s2023.P5",
+      "source_family": "examination",
+      "attempt": "2025-05",
+      "difficulty": "complete",
+      "available_unique_roots": 4,
+      "sampled_roots": 2
+    },
+    {
+      "paper_id": "s2023.P5",
+      "source_family": "examination",
+      "attempt": "2025-05",
+      "difficulty": "missing",
+      "available_unique_roots": 32,
+      "sampled_roots": 2
+    },
+    {
+      "paper_id": "s2023.P5",
+      "source_family": "examination",
+      "attempt": "2025-09",
+      "difficulty": "case",
+      "available_unique_roots": 8,
+      "sampled_roots": 2
+    },
+    {
+      "paper_id": "s2023.P5",
+      "source_family": "examination",
+      "attempt": "2025-09",
+      "difficulty": "complete",
+      "available_unique_roots": 4,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P5",
+      "source_family": "examination",
+      "attempt": "2025-09",
+      "difficulty": "missing",
+      "available_unique_roots": 104,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P5",
+      "source_family": "examination",
+      "attempt": "2026-01",
+      "difficulty": "case",
+      "available_unique_roots": 11,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P5",
+      "source_family": "examination",
+      "attempt": "2026-01",
+      "difficulty": "missing",
+      "available_unique_roots": 58,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "source_family": "examination",
+      "attempt": "2024-05",
+      "difficulty": "case",
+      "available_unique_roots": 5,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "source_family": "examination",
+      "attempt": "2024-05",
+      "difficulty": "complete",
+      "available_unique_roots": 5,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "source_family": "examination",
+      "attempt": "2024-05",
+      "difficulty": "missing",
+      "available_unique_roots": 82,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "source_family": "examination",
+      "attempt": "2024-05",
+      "difficulty": "partial",
+      "available_unique_roots": 1,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "source_family": "examination",
+      "attempt": "2024-11",
+      "difficulty": "case",
+      "available_unique_roots": 5,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "source_family": "examination",
+      "attempt": "2024-11",
+      "difficulty": "complete",
+      "available_unique_roots": 3,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "source_family": "examination",
+      "attempt": "2024-11",
+      "difficulty": "missing",
+      "available_unique_roots": 113,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "source_family": "examination",
+      "attempt": "2025-05",
+      "difficulty": "case",
+      "available_unique_roots": 10,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "source_family": "examination",
+      "attempt": "2025-05",
+      "difficulty": "complete",
+      "available_unique_roots": 4,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "source_family": "examination",
+      "attempt": "2025-05",
+      "difficulty": "missing",
+      "available_unique_roots": 85,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "source_family": "examination",
+      "attempt": "2025-09",
+      "difficulty": "case",
+      "available_unique_roots": 6,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "source_family": "examination",
+      "attempt": "2025-09",
+      "difficulty": "complete",
+      "available_unique_roots": 5,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "source_family": "examination",
+      "attempt": "2025-09",
+      "difficulty": "missing",
+      "available_unique_roots": 153,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "source_family": "examination",
+      "attempt": "2026-01",
+      "difficulty": "case",
+      "available_unique_roots": 17,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "source_family": "examination",
+      "attempt": "2026-01",
+      "difficulty": "complete",
+      "available_unique_roots": 3,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "source_family": "examination",
+      "attempt": "2026-01",
+      "difficulty": "missing",
+      "available_unique_roots": 69,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "source_family": "examination",
+      "attempt": "2026-01",
+      "difficulty": "partial",
+      "available_unique_roots": 2,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "source_family": "ibs",
+      "attempt": null,
+      "difficulty": "case",
+      "available_unique_roots": 4,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "source_family": "ibs",
+      "attempt": null,
+      "difficulty": "missing",
+      "available_unique_roots": 2,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "source_family": "ibs_case_study",
+      "attempt": null,
+      "difficulty": "case",
+      "available_unique_roots": 85,
+      "sampled_roots": 1
+    },
+    {
+      "paper_id": "s2023.P6",
+      "source_family": "ibs_case_study",
+      "attempt": null,
+      "difficulty": "complete",
+      "available_unique_roots": 1,
+      "sampled_roots": 0
+    }
+  ],
+  "available_but_unsampled": [
+    {
+      "paper_id": "s2023.P1",
+      "source_family": "rtp",
+      "attempt": "2025-05",
+      "difficulty": "complete",
+      "available_unique_roots": 9,
+      "sampled_roots": 0
+    },
+    {
+      "paper_id": "s2023.P1",
+      "source_family": "rtp",
+      "attempt": "2025-09",
+      "difficulty": "case",
+      "available_unique_roots": 5,
+      "sampled_roots": 0
+    },
+    {
+      "paper_id": "s2023.P1",
+      "source_family": "rtp",
+      "attempt": "2025-09",
+      "difficulty": "complete",
+      "available_unique_roots": 5,
+      "sampled_roots": 0
+    },
+    {
+      "paper_id": "s2023.P1",
+      "source_family": "rtp",
+      "attempt": "2025-09",
+      "difficulty": "partial",
+      "available_unique_roots": 1,
+      "sampled_roots": 0
+    },
+    {
+      "paper_id": "s2023.P1",
+      "source_family": "rtp",
+      "attempt": "2026-01",
+      "difficulty": "case",
+      "available_unique_roots": 4,
+      "sampled_roots": 0
+    },
+    {
+      "paper_id": "s2023.P1",
+      "source_family": "rtp",
+      "attempt": "2026-01",
+      "difficulty": "complete",
+      "available_unique_roots": 9,
+      "sampled_roots": 0
+    },
+    {
+      "paper_id": "s2023.P1",
+      "source_family": "rtp",
+      "attempt": "2026-05",
+      "difficulty": "case",
+      "available_unique_roots": 7,
+      "sampled_roots": 0
+    },
+    {
+      "paper_id": "s2023.P1",
+      "source_family": "rtp",
+      "attempt": "2026-05",
+      "difficulty": "complete",
+      "available_unique_roots": 9,
+      "sampled_roots": 0
+    },
+    {
+      "paper_id": "s2023.P1",
+      "source_family": "rtp",
+      "attempt": "2026-11",
+      "difficulty": "case",
+      "available_unique_roots": 7,
+      "sampled_roots": 0
+    },
+    {
+      "paper_id": "s2023.P1",
+      "source_family": "rtp",
+      "attempt": "2026-11",
+      "difficulty": "complete",
+      "available_unique_roots": 4,
+      "sampled_roots": 0
+    },
+    {
+      "paper_id": "s2023.P1",
+      "source_family": "rtp",
+      "attempt": "2026-11",
+      "difficulty": "partial",
+      "available_unique_roots": 1,
+      "sampled_roots": 0
+    },
+    {
+      "paper_id": "s2023.P4",
+      "source_family": "rtp",
+      "attempt": "2025-09",
+      "difficulty": "case",
+      "available_unique_roots": 2,
+      "sampled_roots": 0
+    },
+    {
+      "paper_id": "s2023.P4",
+      "source_family": "rtp",
+      "attempt": "2026-01",
+      "difficulty": "case",
+      "available_unique_roots": 2,
+      "sampled_roots": 0
+    },
+    {
+      "paper_id": "s2023.P4",
+      "source_family": "rtp",
+      "attempt": "2026-05",
+      "difficulty": "case",
+      "available_unique_roots": 2,
+      "sampled_roots": 0
+    },
+    {
+      "paper_id": "s2023.P4",
+      "source_family": "rtp",
+      "attempt": "2026-05",
+      "difficulty": "complete",
+      "available_unique_roots": 1,
+      "sampled_roots": 0
+    },
+    {
+      "paper_id": "s2023.P6",
+      "source_family": "ibs_case_study",
+      "attempt": null,
+      "difficulty": "complete",
+      "available_unique_roots": 1,
+      "sampled_roots": 0
+    }
+  ],
+  "unavailable_expected_sources": [
+    {
+      "paper_id": "s2023.P1",
+      "source_family": "mock"
+    },
+    {
+      "paper_id": "s2023.P1",
+      "source_family": "model"
+    },
+    {
+      "paper_id": "s2023.P2",
+      "source_family": "rtp"
+    },
+    {
+      "paper_id": "s2023.P2",
+      "source_family": "mock"
+    },
+    {
+      "paper_id": "s2023.P2",
+      "source_family": "model"
+    },
+    {
+      "paper_id": "s2023.P3",
+      "source_family": "rtp"
+    },
+    {
+      "paper_id": "s2023.P3",
+      "source_family": "mock"
+    },
+    {
+      "paper_id": "s2023.P3",
+      "source_family": "model"
+    },
+    {
+      "paper_id": "s2023.P4",
+      "source_family": "mock"
+    },
+    {
+      "paper_id": "s2023.P4",
+      "source_family": "model"
+    },
+    {
+      "paper_id": "s2023.P5",
+      "source_family": "rtp"
+    },
+    {
+      "paper_id": "s2023.P5",
+      "source_family": "mock"
+    },
+    {
+      "paper_id": "s2023.P5",
+      "source_family": "model"
+    },
+    {
+      "paper_id": "s2023.P6",
+      "source_family": "rtp"
+    },
+    {
+      "paper_id": "s2023.P6",
+      "source_family": "mock"
+    },
+    {
+      "paper_id": "s2023.P6",
+      "source_family": "model"
+    }
+  ],
+  "sample_unchanged": true,
+  "note": "Unavailable means absent from these latest extracted draft snapshots; no coverage is fabricated."
+}

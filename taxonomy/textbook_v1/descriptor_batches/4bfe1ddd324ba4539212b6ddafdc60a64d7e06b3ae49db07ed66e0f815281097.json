@@ -1,0 +1,284 @@
+{
+  "descriptors": [
+    {
+      "node_id": "753c069b-52ef-4abb-a05d-419bf64cd256",
+      "concept_name": "Faithful representation",
+      "definition": "Recognition of an asset or liability requires providing relevant information alongside a faithful representation of the item and its financial effects. High measurement uncertainty may complicate this, though reasonable estimates remain useful when accurately explained.",
+      "terminology": [
+        "measurement uncertainty",
+        "cash-flow-based measurement",
+        "reliability"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Asset and liability recognition criteria",
+        "Evaluation of estimation uncertainty"
+      ],
+      "exclusion": [
+        "Uncertainty unrelated to measurement"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from relevance by focusing on whether financial phenomena are faithfully depicted rather than whether they influence economic decisions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d66164ce-b2b8-4899-b758-4f8269e6b597",
+      "concept_name": "DERECOGNITION",
+      "definition": "Derecognition removes all or part of a recognised asset or liability from the balance sheet, typically when control or a present obligation is lost. Retained components become separate units of account, while transferred components trigger the recognition of associated gains or losses.",
+      "terminology": [
+        "transferred component",
+        "retained component",
+        "control",
+        "present obligation"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Removal of expired, consumed, or transferred items",
+        "Presentation of retained components"
+      ],
+      "exclusion": [
+        "Assets transferred while retaining significant positive or negative economic variations"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from initial recognition by extinguishing existing balance sheet elements rather than incorporating new ones."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "eb43d45b-6640-4e63-9344-090260bfe89c",
+      "concept_name": "Measurement Bases Of An Asset Or A Liability",
+      "definition": "Measurement bases quantify monetary information for assets, liabilities, and related financial elements using either historical cost or current value approaches. Historical costs derive from transaction prices, whereas current values reflect updated conditions at the measurement date.",
+      "terminology": [
+        "historical cost",
+        "current value",
+        "fair value",
+        "fulfilment value"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Historical cost valuation components",
+        "Current value valuation frameworks"
+      ],
+      "exclusion": [
+        "Unrecognized contingent items"
+      ],
+      "nearby_distinctions": [
+        "Historical cost uses past transaction data without subsequent value updates, unlike current value, which updates metrics to measurement-date conditions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f940a7ca-ba57-4ccd-b8c9-d4c4ae12540d",
+      "concept_name": "Historical cost",
+      "definition": "Historical cost measures assets using consideration paid plus transaction costs, and liabilities using consideration received net of transaction costs. Subsequent measurements adjust for consumption, impairment, onerous obligations, and the accrual of interest.",
+      "terminology": [
+        "amortised cost",
+        "consideration",
+        "depreciation",
+        "impairment"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Transaction-based initial costs",
+        "Amortised cost updates for financial instruments"
+      ],
+      "exclusion": [
+        "Unrealized market value gains"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from current value because it does not reflect changes in market prices subsequent to acquisition or incurrence."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "814caf83-0d32-432b-b733-ca158da56b41",
+      "concept_name": "Current value",
+      "definition": "Current value measurement bases provide monetary information updated to reflect conditions at the measurement date. They encompass exit values like fair value, value in use, and fulfilment value, as well as entry values like current cost.",
+      "terminology": [
+        "exit value",
+        "entry value",
+        "fair value",
+        "fulfilment value",
+        "current cost"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Market participant exit pricing",
+        "Entity-specific value in use and fulfilment values"
+      ],
+      "exclusion": [
+        "Static transaction prices unadjusted for subsequent market changes"
+      ],
+      "nearby_distinctions": [
+        "Unlike historical cost, current value actively incorporates changes in cash flow estimates and market factors since the previous measurement date."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e640eb60-eeeb-48af-af0f-5f7fdf9db43e",
+      "concept_name": "Information Provided By Particular Measurement Bases",
+      "definition": "Selecting a measurement basis requires evaluating the specific nature of the financial information it produces for both the balance sheet and the statement of profit and loss. Different bases handle transaction costs, interest income, and value changes through distinct recognition and expense mechanisms.",
+      "terminology": [
+        "carrying amount",
+        "statement of profit and loss",
+        "transaction costs"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Balance sheet carrying amounts across bases",
+        "Statement of profit and loss event treatments"
+      ],
+      "exclusion": [
+        "Non-financial operational performance metrics"
+      ],
+      "nearby_distinctions": [
+        "Compares balance sheet presentation and income statement volatility generated by historical cost versus current value alternatives."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e8e73079-7160-4845-9c22-2a820fe1b24f",
+      "concept_name": "Assets",
+      "definition": "Asset measurement bases dictate how carrying amounts, transaction costs, and value changes are presented in financial statements. Historical and current cost bases track unconsumed resources, whereas fair value and value in use incorporate market or entity-specific pricing.",
+      "terminology": [
+        "carrying amount",
+        "impairment",
+        "value in use"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Asset carrying value derivations",
+        "Income and expense event mappings for assets"
+      ],
+      "exclusion": [
+        "Liability obligations and settlements"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from liability measurement by focusing on economic resources controlled rather than obligations owed."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e8bc7645-8f79-4b8f-ad3a-febb77674338",
+      "concept_name": "Liabilities",
+      "definition": "Liability measurement bases determine how unfulfilled obligations, transaction costs, and onerous events appear in financial statements. They contrast historical consideration received with current transfer prices, fair values, and present value fulfilment flows.",
+      "terminology": [
+        "fulfilment value",
+        "onerous liability",
+        "carrying amount"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Liability carrying amount determinations",
+        "Interest expense and onerous contract adjustments"
+      ],
+      "exclusion": [
+        "Asset resource valuations"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from asset measurement by tracking obligations to transfer economic resources rather than rights to economic benefits."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a8867492-0c80-4009-9682-d3288aff0b5d",
+      "concept_name": "Factors To Consider When Selecting A Measurement Basis For Initial Recognition And Subsequent Measurement Of An Asset Or A Liability",
+      "definition": "Choosing an appropriate measurement basis requires balancing relevance, faithful representation, consistency, and certainty. The selection depends heavily on the intrinsic characteristics of the asset or liability and how cash flows contribute to financial utility.",
+      "terminology": [
+        "relevance",
+        "faithful representation",
+        "consistency",
+        "measurement uncertainty"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Asset and liability cash flow characteristics",
+        "Qualitative constraints on measurement"
+      ],
+      "exclusion": [
+        "Arbitrary selection without regard to user needs"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general qualitative characteristics by applying specifically to quantitative measurement choices."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2169a07a-b775-4c73-983c-ce9224913a06",
+      "concept_name": "Relevance",
+      "definition": "Relevance in measurement depends on the variability of cash flows and the sensitivity of an asset or liability to market risks. Historical cost may obscure risk exposures for sensitive instruments like derivatives, whereas fair value changes might lack predictive value if assets are held solely for use.",
+      "terminology": [
+        "predictive value",
+        "confirmatory value",
+        "market factors",
+        "derivatives"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Cash flow variability assessment",
+        "Risk sensitivity analysis"
+      ],
+      "exclusion": [
+        "Static valuation of non-financial items held for internal use"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from verifiability by emphasizing the decision-usefulness of value changes over the independence of measurement inputs."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "00703816-43cd-422d-aec6-86b580bef62a",
+      "concept_name": "Faithful Representation",
+      "definition": "Faithful representation in measurement requires avoiding accounting mismatches through consistent bases for related cash flows and managing measurement uncertainty. Excessive estimation uncertainty can undermine faithful representation, distinguishing it from outcome and existence uncertainties.",
+      "terminology": [
+        "accounting mismatch",
+        "measurement uncertainty",
+        "outcome uncertainty",
+        "existence uncertainty"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Consistency in linked cash flows",
+        "Analysis of measurement uncertainty versus outcome and existence uncertainties"
+      ],
+      "exclusion": [
+        "Uncertainties completely unrelated to financial estimation"
+      ],
+      "nearby_distinctions": [
+        "Measurement uncertainty relates to estimation difficulty, whereas outcome uncertainty concerns timing and amount, and existence uncertainty concerns whether an item exists."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5bb14a63-c800-4acd-9a15-277c1481576d",
+      "concept_name": "Implications Of Enhancing Qualitative Characteristics For The Selection Of Measurement Basis",
+      "definition": "Enhancing qualitative characteristics like comparability, understandability, and verifiability guide measurement selection by promoting consistent methods and independently verifiable inputs. While multiplying measurement bases increases complexity, verifiability ensures measures can be directly or indirectly corroborated.",
+      "terminology": [
+        "comparability",
+        "understandability",
+        "verifiability",
+        "timeliness"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Impact of consistent measurement on comparability",
+        "Verification of model inputs"
+      ],
+      "exclusion": [
+        "Direct operational impacts on cash generation"
+      ],
+      "nearby_distinctions": [
+        "Contrasts with fundamental characteristics by refining how useful information is presented rather than determining core relevance."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "4bfe1ddd324ba4539212b6ddafdc60a64d7e06b3ae49db07ed66e0f815281097",
+  "artifact_id": "286aeffb-c1e1-493c-a40f-709922f46d7d",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8245,
+  "output_tokens": 2961,
+  "cost_usd": 0.009876,
+  "created_at": "2026-10-03T17:47:11.015355+00:00"
+}

@@ -1,0 +1,106 @@
+{
+  "descriptors": [
+    {
+      "node_id": "9ad275cc-2367-4278-b710-896d859ca502",
+      "concept_name": "Netting",
+      "definition": "Netting is an optimization technique used by multinational corporations to minimize the volume of inter-company cash flows and reduce currency conversion costs. It consolidates receipts and disbursements between units to settle only net balances, lowering administrative overhead and cross-border transaction expenses.",
+      "terminology": [
+        "Bilateral Netting System",
+        "Multilateral Netting System",
+        "Net Receiver",
+        "Net Payer"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Transactions between a parent company and subsidiaries",
+        "Transactions between multiple subsidiaries"
+      ],
+      "exclusion": [
+        "Gross settlement of all individual invoices without offsetting"
+      ],
+      "nearby_distinctions": [
+        "Bilateral netting covers transactions between two specific entities, whereas multilateral netting consolidates cash flows across multiple affiliates through a centralized system."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "923e631f-debe-4656-abd7-de199249add7",
+      "concept_name": "Investing Excess Cash",
+      "definition": "Investing excess cash involves deploying temporary surplus funds of multinational corporations into international money markets like Eurocurrency deposits and foreign treasury bills. Centralized cash management pools these funds across subsidiaries to earn higher returns and meet short-term financing needs while managing exchange rate risks.",
+      "terminology": [
+        "Euro Currency Market",
+        "Euro Dollar Deposits",
+        "Foreign Currency Deposit",
+        "Centralized Cash Management"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Euro currency deposits",
+        "Foreign treasury bills and commercial papers",
+        "Portfolio diversification across currencies"
+      ],
+      "exclusion": [
+        "Long-term capital investments unrelated to temporary surplus cash management"
+      ],
+      "nearby_distinctions": [
+        "Temporary excess cash placement in international money markets is distinguished from long-term capital budgeting by its focus on short-term liquidity and yield optimization."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ba1a0618-5a34-475b-8065-147de566b54f",
+      "concept_name": "International Inventory Management",
+      "definition": "International inventory management involves maintaining higher stock levels than standard economic order quantity models, known as stock piling, to hedge against supply chain interruptions and currency depreciations. Global firms evaluate cumulative carrying costs against expected price increases and longer lead times driven by geographic dispersion and customs formalities.",
+      "terminology": [
+        "Stock Piling",
+        "Carrying Cost",
+        "Lead Time",
+        "Re-order Point"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Maintaining inventory levels above standard economic order quantity",
+        "Assessing import bottlenecks and political disturbances",
+        "Evaluating customs delay factors on re-order points"
+      ],
+      "exclusion": [
+        "Domestic-only inventory management models operating under localized short lead times"
+      ],
+      "nearby_distinctions": [
+        "International inventory management accounts for extended global lead times and currency risks, whereas domestic inventory management relies on stable local supply chains and shorter replenishment cycles."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6fe8e2b4-35a5-4142-bb4b-65017c422136",
+      "concept_name": "International Receivables Management",
+      "definition": "International receivables management addresses account receivables generated from cross-border credit sales by determining optimal currency denominations and payment terms. Exporters balance preferences for strong invoice currencies against debt retirement needs and competitive market pressures requiring liberal credit terms.",
+      "terminology": [
+        "Inter firm Sales",
+        "Intra firm Sales",
+        "Account Receivables",
+        "Currency Denomination"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Inter-firm and intra-firm credit sales",
+        "Currency selection for invoicing export transactions",
+        "Credit term structuring based on market competition"
+      ],
+      "exclusion": [
+        "Cash-only domestic sales transactions without receivables exposure"
+      ],
+      "nearby_distinctions": [
+        "International receivables management incorporates foreign exchange risks and cross-border debt matching, unlike domestic receivables management which operates within a single currency framework."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "31f7762f39523ca40f2585bce7e382c24f62a8c9728278516dd5071b68e1da41",
+  "artifact_id": "9046c95c-1f44-4d83-ab04-e11cc27d7c20",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 2648,
+  "output_tokens": 1108,
+  "cost_usd": 0.0035644,
+  "created_at": "2026-10-03T18:08:48.249413+00:00"
+}

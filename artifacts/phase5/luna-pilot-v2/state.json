@@ -1,0 +1,32 @@
+{
+  "batch_key": "bb644519b9319ed404c9ac2da379053ec92472e720f754fe1fc6d7c221d6b109",
+  "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+  "completed": [
+    "05453c7dba9d821b90f5e6881dfc30fa8cf107e6338bbecf118f6227f2d581c5",
+    "1bf86327e934a576f2eb22291b5ac05588b1f9a876c99c9695164ec0fb83319f",
+    "4691b3404b819f70247e0739f023db65d8acce5a9036385dfb4809a4600668f7",
+    "4dc608fd5f02f6f516e34ea2a9cdb30bd3648a322cbb379772149cda1f945af5",
+    "5a8d5a5919472c95dc6ec8b33179ee8be0c6d6e797639d1f61a71c322c08d68b",
+    "6fd31aebc7ce0165828a80739afd945a2eb70c718e0cd03aa515a91b59c7ecf2",
+    "7bb7f7a8891d0ec2b58e2da87cda188de64877f140a3b22161363ef7babc385d",
+    "8456bdb7212a2277cc953c101597ea33bebe95a682e489a500d1bee8966f7fe8",
+    "b92c8fcb2d64b2b0b0b09710b541c87c9989d3ffdf92eba27f6789f5afac9e32",
+    "ca80e7b3b6a65b2c85ccaf8b34ae1abeb94ff3528ac2186511b18c72acfd59b5",
+    "cde001879d7f520e4c368410dfd3277472279382b89acf8c9d59c6c6a4a8fbd3",
+    "d0f587b578d7bad25602278fe73c4dbcd09656210e55872da3c13a47dad8a29a"
+  ],
+  "failures": [
+    {
+      "question_id": "7bb7f7a8891d0ec2b58e2da87cda188de64877f140a3b22161363ef7babc385d",
+      "error": "Output must map every gradable part exactly once",
+      "seconds": 140.513
+    },
+    {
+      "question_id": "1bf86327e934a576f2eb22291b5ac05588b1f9a876c99c9695164ec0fb83319f",
+      "error": "Unsupported or duplicate label",
+      "seconds": 48.504
+    }
+  ],
+  "pending": [],
+  "execution_failed": false
+}

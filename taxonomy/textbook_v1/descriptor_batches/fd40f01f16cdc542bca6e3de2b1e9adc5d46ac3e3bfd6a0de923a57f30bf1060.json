@@ -1,0 +1,315 @@
+{
+  "descriptors": [
+    {
+      "node_id": "e999585c-f8a8-4856-9771-e718f77b2808",
+      "concept_name": "Derivatives Market Fundamentals",
+      "definition": "A derivative is a financial instrument whose value derives from underlying assets, indices, or rates carrying market risk. These contracts facilitate risk hedging, asset allocation, yield enhancement, and arbitrage without requiring upfront full cash outlays.",
+      "terminology": [
+        "underlying",
+        "bases",
+        "contango",
+        "cash market",
+        "futures and options",
+        "margin money"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Equity derivatives",
+        "Forex derivatives",
+        "Commodity derivatives",
+        "Index contracts"
+      ],
+      "exclusion": [
+        "Direct spot market purchases of physical consumption assets",
+        "Tangible asset cash transactions"
+      ],
+      "nearby_distinctions": [
+        "Differs from the cash market where tangible assets are traded with full upfront payment and depository accounts rather than broker margin accounts."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "fa7cb108-6656-4f4c-b5cb-16cae7b1f2cd",
+      "concept_name": "Forward Contract",
+      "definition": "A forward contract is a customized, non-standardized bilateral agreement obligating a buyer to purchase and a seller to deliver a specified asset at a pre-negotiated future date and price. Contracting parties negotiate every contract detail directly without exchange standardisation.",
+      "terminology": [
+        "forward transaction",
+        "delivery",
+        "pre-negotiated price",
+        "customised contract"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Bilateral commodity delivery agreements",
+        "Customized asset sale contracts"
+      ],
+      "exclusion": [
+        "Exchange-traded standardized futures contracts",
+        "Spot market transactions"
+      ],
+      "nearby_distinctions": [
+        "Unlike standardized futures, forward contracts are negotiated privately between parties with no exchange mediation and custom delivery terms."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f17c3ad3-47cd-43e3-9c3c-cf77a9ab9dec",
+      "concept_name": "Future Contract",
+      "definition": "A futures contract is an exchange-traded agreement committing parties to buy or sell an underlying financial instrument or commodity at a specific price on a future date. It features daily mark-to-market adjustments through margin accounts and can be settled via physical delivery, cash settlement, or prior offset.",
+      "terminology": [
+        "marking-to-market",
+        "settlement price",
+        "good faith money",
+        "margin account",
+        "offset"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Commodity futures",
+        "Financial instrument futures",
+        "Daily equity index futures adjustments"
+      ],
+      "exclusion": [
+        "Bilateral custom forward contracts",
+        "Spot cash market transactions"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from forward contracts by being traded in competitive exchange arenas with standardized specifications and daily mark-to-market margin mechanisms."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "20363969-b5a1-4844-83bf-7c589f2e65e2",
+      "concept_name": "Pricing And Valuation Of Forwards And Futures",
+      "definition": "Futures and forward prices are determined using the cost-of-carry model, adjusted for carrying costs and cash returns like dividends. Pricing divergences from this arbitrage-free model generate market basis behaviors known as contango or backwardation.",
+      "terminology": [
+        "basis",
+        "cost-of-carry",
+        "contango market",
+        "backwardation market",
+        "convergence",
+        "theoretical minimum price"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Cost-of-carry model calculations",
+        "Arbitrage-free price determinations",
+        "Spot and futures convergence analysis"
+      ],
+      "exclusion": [
+        "Unadjusted spot pricing",
+        "Non-arbitrage pure speculation pricing"
+      ],
+      "nearby_distinctions": [
+        "Unlike basic spot valuation, forward pricing explicitly accounts for time value, carrying costs, and expected returns such as dividends over the expiration period."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "18dd16e4-e07a-4f39-a196-94141d95dc41",
+      "concept_name": "Types Of Futures Contracts",
+      "definition": "Futures contracts are categorized primarily into single stock futures and index futures, representing obligations to buy or sell specific equities or aggregate market levels. They provide high liquidity, allow offset trading mechanisms, and require initial and continuous maintenance margins.",
+      "terminology": [
+        "single stock futures",
+        "index futures",
+        "notional value",
+        "offsetting position"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Individual company equity futures",
+        "Stock index level futures"
+      ],
+      "exclusion": [
+        "Customized forward agreements",
+        "Physical commodity spot purchases"
+      ],
+      "nearby_distinctions": [
+        "Single stock futures involve individual equity delivery or offset, whereas index futures are strictly cash-settled based on aggregate market benchmarks."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "de552e12-96ef-4242-b749-5e91cd1b36b9",
+      "concept_name": "Single Stock Futures",
+      "definition": "Single stock futures are standardized contracts obligating parties to buy or sell specific shares at a pre-agreed future date and price. These contracts are typically settled via offset or physical delivery of the underlying shares.",
+      "terminology": [
+        "stock futures",
+        "long position",
+        "short position",
+        "notional value",
+        "offset"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Individual equity futures contracts",
+        "Stock delivery obligations"
+      ],
+      "exclusion": [
+        "Cash-settled index futures",
+        "Physical commodity futures"
+      ],
+      "nearby_distinctions": [
+        "Unlike index futures which settle exclusively in cash, single stock futures can be settled through the physical delivery of actual shares at expiration."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9188e675-69bd-49b5-9e6c-46d5c90c4abf",
+      "concept_name": "Index Futures",
+      "definition": "Index futures are derivative contracts whose values are tied to a specific stock market index and are settled exclusively in cash rather than physical goods. They are utilized for broad market speculation or portfolio hedging against general market declines.",
+      "terminology": [
+        "stock index futures",
+        "cash settlement",
+        "contract size",
+        "continuous margin"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Nifty index contracts",
+        "Sensex index contracts",
+        "Cash-settled index hedge portfolios"
+      ],
+      "exclusion": [
+        "Physical stock delivery contracts",
+        "Tangible commodity futures"
+      ],
+      "nearby_distinctions": [
+        "Contrasts with single stock futures by lacking physical delivery mechanisms, requiring mandatory cash settlement and adherence to liquidity requirements."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9f87f116-ead9-45d5-baf1-55fa6321fb46",
+      "concept_name": "Options Fundamentals",
+      "definition": "An option is a contract granting the buyer the right, but not the obligation, to buy or sell an underlying asset at an agreed strike price within a specified timeframe. Buyers pay a non-refundable premium for this privilege, capping their downside risk while retaining asymmetric return potential.",
+      "terminology": [
+        "call option",
+        "put option",
+        "strike price",
+        "premium",
+        "exercise"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Stock call options",
+        "Stock put options",
+        "Index option contracts"
+      ],
+      "exclusion": [
+        "Bilateral forward commitments",
+        "Mandatory delivery futures contracts"
+      ],
+      "nearby_distinctions": [
+        "Unlike futures or forwards which impose absolute bilateral obligations to trade, options provide unilateral rights to the buyer without obligation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f91e4328-a167-4a41-8eb3-df95d0c1a89d",
+      "concept_name": "Stock Options",
+      "definition": "Stock options are derivative contracts granting the holder the right to buy or sell specific corporate shares at a fixed strike price without creating company ownership. Investors use them for speculation or portfolio hedging to achieve limited risk exposure with smaller initial capital.",
+      "terminology": [
+        "stock options",
+        "call option",
+        "put option",
+        "strike price"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Individual equity call options",
+        "Individual equity put options"
+      ],
+      "exclusion": [
+        "Direct equity share ownership",
+        "Stock index options"
+      ],
+      "nearby_distinctions": [
+        "Differs from direct stock ownership by being temporary contracts providing trading rights rather than fractional company equity or voting privileges."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "78c0d44b-e5ca-403c-bb4e-732c7f9e887f",
+      "concept_name": "Stock Index Option",
+      "definition": "A stock index option is a call or put option referencing a financial index, allowing portfolio managers to hedge downside market risk or speculate on broad market movements. Settlements involve cash payouts reflecting aggregate index level deviations relative to the strike price.",
+      "terminology": [
+        "stock index option",
+        "portfolio insurance",
+        "downside risk",
+        "exercise price"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Index put protection strategies",
+        "Broad market basket options"
+      ],
+      "exclusion": [
+        "Single stock options",
+        "Physical delivery commodity options"
+      ],
+      "nearby_distinctions": [
+        "Unlike single stock options tied to individual corporate equities, index options reflect baskets of stocks representing broader market indices."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "55c598a4-82b7-4113-87a3-bff98bcd2c88",
+      "concept_name": "Parties To The Options",
+      "definition": "Option transactions involve a buyer who purchases rights for a premium and an option writer who creates and sells the contract assuming delivery obligations. Option buyers face strictly limited loss exposure equal to the premium paid, whereas unhedged option writers face potentially unlimited losses.",
+      "terminology": [
+        "writer of the option",
+        "premium",
+        "call writer",
+        "put writer",
+        "unlimited risk"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Long call and long put positions",
+        "Short call and short put writing obligations"
+      ],
+      "exclusion": [
+        "Symmetric futures counterparties",
+        "Spot market traders"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from futures where both parties take binding obligations; option structures divide roles into risk-capped buyers and obligation-bound writers."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7749a778-5b14-42ea-a35a-84913075de37",
+      "concept_name": "Premium And Styles Of Options",
+      "definition": "Option pricing and exercise styles dictate that American-style options can be exercised anytime before expiration, whereas European-style options are restricted to expiration day only. Option sellers collect premiums to assume obligation risks, leading to distinct non-linear payoff profiles for buyers and sellers.",
+      "terminology": [
+        "American option",
+        "European option",
+        "premium",
+        "break-even",
+        "pay-off profile"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "American-style exercise rules",
+        "European-style exercise rules",
+        "Long and short option pay-off calculations"
+      ],
+      "exclusion": [
+        "Linear futures pay-off structures",
+        "Spot transaction pricing models"
+      ],
+      "nearby_distinctions": [
+        "American options permit early exercise throughout the contract lifespan, whereas European options restrict exercise strictly to the final expiration date."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "fd40f01f16cdc542bca6e3de2b1e9adc5d46ac3e3bfd6a0de923a57f30bf1060",
+  "artifact_id": "5bf089ab-0f93-4de3-8137-3c745d8f3762",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 9050,
+  "output_tokens": 3217,
+  "cost_usd": 0.0107575,
+  "created_at": "2026-10-03T18:08:09.829363+00:00"
+}

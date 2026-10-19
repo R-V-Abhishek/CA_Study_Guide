@@ -1,0 +1,35 @@
+{
+  "result": {
+    "question_id": "d09cfb38b501b60938c83ed6fc8f03d3628fba627ce2fc26207abf203aa4af5d",
+    "input_hash": "4d58b464e9f3f6807138a800b7608695bccb3240dddced837dd23d3278e7c3d2",
+    "mappings": [
+      {
+        "part_id": "d09cfb38b501b60938c83ed6fc8f03d3628fba627ce2fc26207abf203aa4af5d",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Only fragment shown: \u201cMr. Krishan was required to make TDS @ 0.1% on \u20b990 lakhs.\u201d The complete question and remaining parts are unavailable, so the tested TDS concept cannot be established from the supplied text.",
+        "confidence": null,
+        "bucket": null
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "84bb5a9994a0fd352bba8f4ee970dd230a45e9f0539359c1d7cac2c8f1d9e06d",
+    "schema_generator": "pinned-part-ids-v1",
+    "seconds": 8.961,
+    "usage": [
+      {
+        "input_tokens": 48209,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 221,
+        "reasoning_output_tokens": 0
+      }
+    ],
+    "completed_at": "2026-10-05T15:58:07.657129+00:00"
+  }
+}

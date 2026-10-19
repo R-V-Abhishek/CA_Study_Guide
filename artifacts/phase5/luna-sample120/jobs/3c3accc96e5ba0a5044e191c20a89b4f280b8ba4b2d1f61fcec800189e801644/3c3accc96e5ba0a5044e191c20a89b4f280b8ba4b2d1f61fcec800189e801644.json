@@ -1,0 +1,41 @@
+{
+  "result": {
+    "question_id": "3c3accc96e5ba0a5044e191c20a89b4f280b8ba4b2d1f61fcec800189e801644",
+    "input_hash": "058e772c2bacabf47b6d20e44892df2cc732e649a590d291c0b7465a3c6086c4",
+    "mappings": [
+      {
+        "part_id": "3c3accc96e5ba0a5044e191c20a89b4f280b8ba4b2d1f61fcec800189e801644",
+        "outcome": "matched",
+        "primary_node_id": "72407f6f-8662-4f40-aa8a-204e85bc7b81",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "72407f6f-8662-4f40-aa8a-204e85bc7b81",
+            "support": "The item gives local taxes paid as a monetary amount, testing whether this third-party tax levy is included in taxable value under the value-of-supply additions rule."
+          }
+        ],
+        "note": "The wider question context is absent and the answer status is missing; this classification relies on the supplied part text, which directly tests inclusion of local taxes in value of supply.",
+        "confidence": 0.74,
+        "bucket": "B"
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "attempt_id": "1791217481233564000",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "1819794545d4c0ad36738cd89d345eaf0b19ffd9f85a3ae1b4e7f3367fbebc6b",
+    "schema_generator": "pinned-identifiers-v2",
+    "seconds": 12.892,
+    "usage": [
+      {
+        "input_tokens": 43074,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 297,
+        "reasoning_output_tokens": 0
+      }
+    ],
+    "completed_at": "2026-10-05T16:24:54.125855+00:00"
+  }
+}

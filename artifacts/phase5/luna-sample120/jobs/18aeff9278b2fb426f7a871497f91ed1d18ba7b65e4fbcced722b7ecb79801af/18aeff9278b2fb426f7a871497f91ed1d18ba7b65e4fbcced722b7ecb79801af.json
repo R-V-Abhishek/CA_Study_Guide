@@ -1,0 +1,36 @@
+{
+  "result": {
+    "question_id": "18aeff9278b2fb426f7a871497f91ed1d18ba7b65e4fbcced722b7ecb79801af",
+    "input_hash": "4870a1556f8f5dbfabd4d90e264e34cde27f5c68d22b40c442b07f7a179ce986",
+    "mappings": [
+      {
+        "part_id": "18aeff9278b2fb426f7a871497f91ed1d18ba7b65e4fbcced722b7ecb79801af",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "The part tests statutory transfer requirements for unspent CSR funds to a Schedule VII fund. No candidate descriptor covers CSR compliance or unspent-fund transfers.",
+        "confidence": 0.97,
+        "bucket": "D"
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "attempt_id": "1791216871379316000",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "e84cde0da14c62367e8b025772effe5dff42f6228ef436a405caf43d868baebc",
+    "schema_generator": "pinned-part-ids-v1",
+    "seconds": 12.453,
+    "usage": [
+      {
+        "input_tokens": 48736,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 422,
+        "reasoning_output_tokens": 214
+      }
+    ],
+    "completed_at": "2026-10-05T16:14:43.832606+00:00"
+  }
+}

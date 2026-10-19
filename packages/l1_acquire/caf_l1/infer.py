@@ -63,9 +63,15 @@ def infer_metadata(
 
     # 2. Paper inference
     paper_code = None
-    paper_match = PAPER_REGEX.search(combined_text)
-    if paper_match:
-        paper_code = f"P{paper_match.group(1)}"
+    paper_matches = {
+        match.group(1) for match in PAPER_REGEX.finditer(combined_text)
+        if not re.search(r"\b(?:model|mock)\s+test\s*$",
+                         combined_text[max(0, match.start() - 30):match.start()], re.IGNORECASE)
+    }
+    if len(paper_matches) == 1:
+        paper_code = f"P{next(iter(paper_matches))}"
+    elif len(paper_matches) > 1:
+        paper_code = None  # Group PDFs need verified paper-specific page ranges.
     else:
         # Fuzzy match against paper names
         best_code = None
@@ -83,7 +89,21 @@ def infer_metadata(
     # 3. Doc type inference
     doc_type_id = None
     lower_text = combined_text.lower()
-    if "suggested answer" in lower_text or "suggested_answer" in lower_text:
+    # Level comes from the official branch, never from paper number alone.
+    level_matches = {
+        level for level in ("foundation", "intermediate", "final")
+        if re.search(rf"\b{level}\b", lower_text)
+    }
+    course_level = next(iter(level_matches)) if len(level_matches) == 1 else None
+    if course_level in {"foundation", "intermediate"}:
+        paper_id = None  # Their paper numbers do not identify Final papers.
+    is_model = "model test paper" in lower_text
+    is_mock = "mock test paper" in lower_text or bool(re.search(r"\bmtp\b", lower_text))
+    if is_model:
+        doc_type_id = "model_answer" if "answer" in lower_text or "solution" in lower_text else "model_question"
+    elif is_mock:
+        doc_type_id = "mtp_answer" if "answer" in lower_text or "solution" in lower_text else "mtp_question"
+    elif "suggested answer" in lower_text or "suggested_answer" in lower_text:
         doc_type_id = "suggested_answer"
     elif "question paper" in lower_text or "question_paper" in lower_text:
         doc_type_id = "question_paper"
@@ -94,6 +114,8 @@ def infer_metadata(
             doc_type_id = "mtp_answer"
         else:
             doc_type_id = "mtp_question"
+    elif "case study digest" in lower_text:
+        doc_type_id = "ibs_case_study"
     elif "case scenario" in lower_text or "case study" in lower_text or "case_scenario" in lower_text:
         doc_type_id = "case_scenarios"
     elif "study material" in lower_text or "module" in lower_text:
@@ -121,14 +143,17 @@ def infer_metadata(
 
     # 5. Catalog status resolution
     # All fields resolved uniquely -> 'inferred', otherwise 'needs_curation'
-    is_complete = bool(attempt_id and paper_id and doc_type_id)
+    is_complete = bool((attempt_id or is_model) and paper_id and doc_type_id and course_level)
     catalog_status = "inferred" if is_complete else "needs_curation"
 
     return {
         "scheme_id": scheme_hint,
+        "course_level": course_level,
         "attempt_id": attempt_id,
         "paper_id": paper_id,
         "paper_code": paper_code,
+        "paper_ids": [f"{scheme_hint}.P{code}" for code in sorted(paper_matches)]
+        if course_level not in {"foundation", "intermediate"} else [],
         "doc_type_id": doc_type_id,
         "series": series,
         "catalog_status": catalog_status,

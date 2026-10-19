@@ -1,0 +1,298 @@
+{
+  "descriptors": [
+    {
+      "node_id": "be26ebbf-840d-4c9b-83ec-a980b5f92b97",
+      "concept_name": "Fundamental Analysis",
+      "definition": "Fundamental analysis determines a security's intrinsic value by calculating the present value of its expected future cash flows and dividends. Securities priced below their intrinsic value represent buying opportunities, whereas those priced above it should be sold.",
+      "terminology": [
+        "intrinsic value",
+        "dividend growth model",
+        "discount rate",
+        "compounded rate"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "expected future dividends",
+        "discounted cash flow calculations"
+      ],
+      "exclusion": [
+        "historical price charts",
+        "demand and supply positioning"
+      ],
+      "nearby_distinctions": [
+        "Unlike technical analysis which examines price graphs and trends, fundamental analysis evaluates risk-return characteristics and underlying economic value drivers."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "baeb9efc-c2ac-427b-b50e-d829452696fb",
+      "concept_name": "Dividend Growth Model and the PE Multiple",
+      "definition": "Financial analysts connect stock price to earnings using price-earnings multiples by expressing expected dividends as a fraction of earnings per share. This approach evaluates whether a security is over or underpriced relative to its estimated fundamental value.",
+      "terminology": [
+        "P/E multiple",
+        "dividend payout ratio",
+        "earnings per share",
+        "fundamental price-earnings multiple"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "earnings per share parameters",
+        "payout ratio adjustments"
+      ],
+      "exclusion": [
+        "pure technical chart analysis"
+      ],
+      "nearby_distinctions": [
+        "Relates dividend-based valuation directly to corporate earnings and market price ratios rather than general economic indicators alone."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "78064e05-baab-4cd3-b6f0-6ef6ff3703c4",
+      "concept_name": "Economic Analysis",
+      "definition": "Economic analysis assesses macro-economic factors, growth rates of national income, and industrial sectors to determine their impact on corporate profits and share prices. Techniques utilize measures like Gross National Product and inflation indexes to forecast overall economic activity.",
+      "terminology": [
+        "macro-economic factors",
+        "real growth rate",
+        "inflation",
+        "Gross National Product"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "national income trends",
+        "consumer price indices",
+        "monsoon impact"
+      ],
+      "exclusion": [
+        "company-specific balance sheets",
+        "firm-level cost controls"
+      ],
+      "nearby_distinctions": [
+        "Focuses on broad economy-wide variables rather than specific industry constraints or individual company fundamentals."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ddc0a786-0476-4a9d-98ee-14bdea0837c7",
+      "concept_name": "Industry Analysis",
+      "definition": "Industry analysis examines sector-specific factors such as demand-supply gaps, cost structures, and barriers to entry that influence corporate profitability. It evaluates the life-cycle stage and competitive dynamics of an industry to judge its relative investment prospects.",
+      "terminology": [
+        "product life-cycle",
+        "demand supply gap",
+        "barriers to entry",
+        "state of competition"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "industry life cycle stages",
+        "regulatory attitudes",
+        "market competition types"
+      ],
+      "exclusion": [
+        "broad macroeconomic GDP forecasting"
+      ],
+      "nearby_distinctions": [
+        "Concentrates on sector-wide conditions rather than macroeconomic aggregates or individual company financial statements."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "cf8952ee-9f40-4e4a-9493-a6d035b3a996",
+      "concept_name": "Company Analysis",
+      "definition": "Company analysis evaluates a firm's quantitative and qualitative fundamentals, including net worth, fund flows, and financial ratios, against industry benchmarks. It helps investors appraise company size, ranking, and operational risk within its economic environment.",
+      "terminology": [
+        "net worth",
+        "book value",
+        "funds flow analysis",
+        "common-sized statement"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "balance sheet asset evaluations",
+        "comparative financial statement ratios"
+      ],
+      "exclusion": [
+        "aggregate macroeconomic trend forecasting"
+      ],
+      "nearby_distinctions": [
+        "Examines firm-specific financial health and asset backing rather than general industry structures or market-wide economic indicators."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "eb23d440-0e16-4b47-9a74-6a96b56e9530",
+      "concept_name": "Technical Analysis",
+      "definition": "Technical analysis studies share price movements, graphs, and charts on the premise that trends are repetitive due to consistent investor psychology. It relies on visual and statistical techniques to determine discernible price trends and potential trend reversals.",
+      "terminology": [
+        "price graphs",
+        "charts",
+        "investor psychology",
+        "trend reversal"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "historical price patterns",
+        "market demand and supply behavior"
+      ],
+      "exclusion": [
+        "balance sheet financial statements",
+        "intrinsic dividend discount modeling"
+      ],
+      "nearby_distinctions": [
+        "Focuses on market price behavior and chart patterns instead of underlying company fundamentals or financial statement metrics."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8e38b9e3-2c68-4424-8fa0-2f28a395d9df",
+      "concept_name": "Meaning",
+      "definition": "Technical analysis evaluates past price charts and trading volumes, assuming that investor behavioral patterns cause price trends to repeat over time. Analysts employ visual and statistical methods to identify ongoing price movements and forecast trend shifts.",
+      "terminology": [
+        "price trends",
+        "chart analysis",
+        "visual methods",
+        "statistical procedures"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "historical price series",
+        "chart pattern identification"
+      ],
+      "exclusion": [
+        "corporate earnings statements",
+        "fundamental valuation metrics"
+      ],
+      "nearby_distinctions": [
+        "Investigates market psychology and price charts directly rather than utilizing fundamental financial performance data."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b72c852b-8fd7-42e6-96eb-fd9779a271c3",
+      "concept_name": "Assumptions",
+      "definition": "Technical analysis operates on the assumptions that stock market values are driven by supply and demand, prices move in persistent trends, and historical chart patterns repeat. These core tenets bypass traditional balance sheet analysis in favor of tracking market and behavioral activity.",
+      "terminology": [
+        "supply and demand",
+        "trend persistence",
+        "chart analysis",
+        "rational or irrational factors"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "market supply-demand interactions",
+        "repetitive price patterns"
+      ],
+      "exclusion": [
+        "profit and loss accounting data"
+      ],
+      "nearby_distinctions": [
+        "Relies strictly on market action principles rather than intrinsic corporate value estimates."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "473977f8-527d-476d-a765-fb7e5e13906a",
+      "concept_name": "Principles of Technical Analysis",
+      "definition": "Technical analysis principles maintain that the market discounts all available information, prices travel in continuous trends, and historical patterns tend to repeat. These guidelines justify using chart movements and market data to forecast future price directions.",
+      "terminology": [
+        "market discounts everything",
+        "price moves in trends",
+        "history repeats",
+        "chart patterns"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "market efficiency reflections in price",
+        "chart pattern continuity"
+      ],
+      "exclusion": [
+        "standalone fundamental research reports"
+      ],
+      "nearby_distinctions": [
+        "Assumes prices already encapsulate all fundamental information, prioritizing pattern recognition over fundamental auditing."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0861b0ab-7edc-4779-bd92-dc7c3135cfbe",
+      "concept_name": "Theories of Technical Analysis",
+      "definition": "Technical theories like the Dow Theory utilize market indices to identify primary trends, secondary corrections, and daily fluctuations to gauge overall stock market direction. Higher successive peaks denote a bull market, while lower successive peaks indicate a bear market across distinct cyclical phases.",
+      "terminology": [
+        "Dow Theory",
+        "primary movement",
+        "secondary movement",
+        "bull and bear market"
+      ],
+      "instrument_references": [
+        "Dow Jones Industrial Average",
+        "Dow Jones Transportation Average"
+      ],
+      "inclusion": [
+        "market index tracking",
+        "accumulation and speculation stages"
+      ],
+      "exclusion": [
+        "individual company fundamental profitability ratios"
+      ],
+      "nearby_distinctions": [
+        "Applies aggregate market index movements to determine macro trends rather than analyzing individual stock fundamentals."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7266499d-eb74-4feb-b884-0dcddeeed276",
+      "concept_name": "Charting Techniques",
+      "definition": "Charting techniques use line charts, bar charts, Japanese candlesticks, and point-and-figure charts to visually display historical price metrics like opening, closing, high, and low values. These visual formats assist analysts in recognizing market trends, sentiment colors, and reversal triggers.",
+      "terminology": [
+        "line chart",
+        "bar chart",
+        "Japanese candlestick chart",
+        "point and figure chart"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "open-high-low-close plotting",
+        "Doji candlestick patterns",
+        "box size and reversal criteria"
+      ],
+      "exclusion": [
+        "fundamental cash flow valuation models"
+      ],
+      "nearby_distinctions": [
+        "Focuses exclusively on graphical and geometric representations of price data rather than numeric accounting reports."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1d228eb6-0f8a-49b5-91fe-088e050b480c",
+      "concept_name": "Market Indicators",
+      "definition": "Market indicators evaluate broad trading metrics such as breadth indices, transaction volumes, confidence indexes, and relative strength to confirm market trends and timing. These auxiliary metrics gauge overall investor willingness to take risks and support primary technical tools.",
+      "terminology": [
+        "breadth index",
+        "volume of transactions",
+        "confidence index",
+        "relative strength analysis"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "advance-decline ratios",
+        "bond yield spreads",
+        "trading volume shifts"
+      ],
+      "exclusion": [
+        "internal company managerial efficiency metrics"
+      ],
+      "nearby_distinctions": [
+        "Analyzes collective market-wide trading behavior and sentiment indicators rather than isolated price charts or individual security fundamentals."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "3299e469bc93cc06f9b1cc2350cc02db4fc0e1e624d83e2f43359973b7d8220a",
+  "artifact_id": "1e1a48fc-1bff-42e4-8cfd-708e08d6d44a",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8368,
+  "output_tokens": 2985,
+  "cost_usd": 0.0099729,
+  "created_at": "2026-10-03T18:06:41.129732+00:00"
+}

@@ -1,0 +1,272 @@
+{
+  "descriptors": [
+    {
+      "node_id": "3d803e36-5d44-4fbc-ae45-2fd84ae62f8d",
+      "concept_name": "Documenting the Audit Plan",
+      "definition": "The auditor must formally record the overall audit strategy, the detailed audit plan, and any subsequent significant modifications along with their justifications. This documentation serves as a foundational record of key decisions, planned risk assessment procedures, and appropriate engagement adjustments.",
+      "terminology": [
+        "Overall audit strategy",
+        "Audit plan",
+        "Significant changes",
+        "Risk assessment procedures"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Record of key decisions",
+        "Record of nature, timing, and extent of risk assessment procedures",
+        "Documentation of reasons for strategy changes"
+      ],
+      "exclusion": [
+        "Standard audit programs without engagement-specific tailoring"
+      ],
+      "nearby_distinctions": [
+        "Unlike the high-level strategy, the audit plan documents detailed procedures at the assertion level."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "75f8507a-2d74-45d8-9954-1bd93bc086ea",
+      "concept_name": "Relationship between the Overall Audit Strategy and the Audit Plan",
+      "definition": "The overall audit strategy and the detailed audit plan are closely inter-related, where changes in one directly necessitate adjustments in the other. The strategy establishes the general scope and guidelines, providing the essential basis for developing the specific nature, timing, and extent of audit procedures in the plan.",
+      "terminology": [
+        "Audit strategy",
+        "Audit plan",
+        "Inter-related",
+        "Materiality levels"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Modifying strategy before altering plans due to new risk findings",
+        "Incorporating materiality and risk linkages"
+      ],
+      "exclusion": [
+        "Independent execution of audit plans without strategic alignment"
+      ],
+      "nearby_distinctions": [
+        "The audit strategy is formulated before the audit plan and remains broader in scope."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "cffc2f1b-19c8-4d81-be6f-4314079e8192",
+      "concept_name": "Audit Programme",
+      "definition": "An audit programme is a structured list of audit procedures and instructions prepared to allocate work assignments and estimate completion timelines for engagement team members. It outlines specific audit objectives for each operational area to ensure a systematic and purposeful examination.",
+      "terminology": [
+        "Audit programme",
+        "Audit procedures",
+        "Audit objectives",
+        "Allocation of work"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "List of procedures and instructions for team members",
+        "Time estimates for tasks"
+      ],
+      "exclusion": [
+        "High-level strategic planning documents devoid of specific instructions"
+      ],
+      "nearby_distinctions": [
+        "An audit programme acts as an operational instruction manual for assistants, whereas an audit plan outlines broader risk assessment procedures."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "671a400d-a55f-4e1f-9213-c50383b186c4",
+      "concept_name": "Formulating an Audit Programme",
+      "definition": "Formulating an audit programme requires establishing clear audit objectives for every area to link procedures properly and ensure a purposeful review. The auditor must consider the business nature, adhere to the overall framework, and evaluate internal control systems.",
+      "terminology": [
+        "Audit objectives",
+        "Nature of business",
+        "Internal control",
+        "Overall plan"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Examination of financial and accounting organisation",
+        "Study of internal control and accounting procedures"
+      ],
+      "exclusion": [
+        "Divergence from the overall plan without prior strategy modification"
+      ],
+      "nearby_distinctions": [
+        "Formulation focuses on customizing instructions based on client setup, whereas execution applies those instructions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f1b6235e-f0ef-439a-928e-451491f9dc70",
+      "concept_name": "Drawing up the Audit Programme",
+      "definition": "Drawing up an audit programme involves determining covered areas, detailed checks versus test checks, and specific audit procedures suited to the entity's operational conditions. For first-time engagements, the programme is developed in stages from broad outlines to detailed checklists and specialized opening balance procedures.",
+      "terminology": [
+        "Test checks",
+        "Specific audit procedures",
+        "First time engagement",
+        "Special procedures"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Broad outline development",
+        "Review of internal and accounting procedures",
+        "Special procedures for opening balances"
+      ],
+      "exclusion": [
+        "Static programs applied uniformly across distinct entities without review"
+      ],
+      "nearby_distinctions": [
+        "Drawing up is the developmental phase of structuring specific verification steps, distinct from general strategy formulation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f559e935-69ce-4e20-87e8-0632e12b6821",
+      "concept_name": "AUDIT EXECUTION",
+      "definition": "Audit execution encompasses the practical deployment of the audit roadmap through structured phases including execution planning, risk and control evaluation, testing, and reporting. It ensures that the engagement is conducted effectively, efficiently, and leads to reliable conclusions for forming an audit opinion.",
+      "terminology": [
+        "Execution planning",
+        "Risk and control evaluation",
+        "Testing",
+        "Reporting"
+      ],
+      "instrument_references": [
+        "SA 700"
+      ],
+      "inclusion": [
+        "Preliminary surveys and manpower allocation",
+        "Operating effectiveness testing of controls"
+      ],
+      "exclusion": [
+        "Pre-engagement strategic planning and high-level scope setting"
+      ],
+      "nearby_distinctions": [
+        "Execution focuses on field testing and operational procedures, whereas planning focuses on overall strategy formulation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2027f6bd-6083-4a97-be34-235100ee81b8",
+      "concept_name": "Execution Planning",
+      "definition": "Execution planning lays down the roadmap for carrying out an audit engagement effectively, efficiently, and within a timely manner. It involves determining manpower requirements, qualifications, and time elements using preliminary surveys and detailed audit programs.",
+      "terminology": [
+        "Roadmap",
+        "Preliminary survey",
+        "Manpower requirement",
+        "Audit approach"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Laying down audit objectives, scope, and approach",
+        "Gathering information via preliminary surveys"
+      ],
+      "exclusion": [
+        "Direct substantive testing of account balances prior to planning"
+      ],
+      "nearby_distinctions": [
+        "Execution planning creates the immediate operational roadmap, whereas initial audit planning sets high-level strategy."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ba891292-baef-4871-9db2-e63058b080e7",
+      "concept_name": "Risk and Control Evaluation",
+      "definition": "Risk and control evaluation involves conducting a detailed assessment for each audit segment to identify relevant risks, existing or needed controls, and corresponding testing work steps. Materiality levels must be factored into this assessment due to their direct link with audit risks.",
+      "terminology": [
+        "Risk and control assessment",
+        "Control effectiveness",
+        "Materiality levels",
+        "Audit risks"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Listing reviewed risks per segment",
+        "Capturing safeguards and necessary controls"
+      ],
+      "exclusion": [
+        "Final substantive verification of financial statement line items without risk identification"
+      ],
+      "nearby_distinctions": [
+        "This evaluation targets specific segment risks and controls, unlike general planning which sets broad scopes."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "642b9e0c-de92-4f6e-8b95-c6e013b2d930",
+      "concept_name": "Testing",
+      "definition": "Testing involves applying multiple test methods to evaluate the operating effectiveness of internal controls once a comprehensive understanding of key risks is achieved. It determines whether controls operate as originally designed within a given audit area.",
+      "terminology": [
+        "Operating effectiveness",
+        "Test methods",
+        "Key risks",
+        "Controls"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Evaluating control operations against design",
+        "Using multiple test methods"
+      ],
+      "exclusion": [
+        "Initial preliminary surveys or pure document walk-throughs"
+      ],
+      "nearby_distinctions": [
+        "Testing validates whether operational controls function, whereas risk evaluation merely identifies and lists those controls."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "11bea6c8-f775-462c-b9aa-d58a63799087",
+      "concept_name": "Reporting",
+      "definition": "Reporting involves reviewing and assessing audit evidence conclusions to express a clear written opinion on financial statements taken as a whole. It ensures financial statements comply with applicable reporting frameworks, statutory requirements, and relevant accounting standards.",
+      "terminology": [
+        "Auditor's report",
+        "Audit evidence",
+        "Financial reporting framework",
+        "Statutory requirements"
+      ],
+      "instrument_references": [
+        "SA 700"
+      ],
+      "inclusion": [
+        "Reviewing conclusions drawn from evidence",
+        "Checking compliance with company law and accounting standards"
+      ],
+      "exclusion": [
+        "Interim fieldwork execution steps and control testing"
+      ],
+      "nearby_distinctions": [
+        "Reporting is the final culmination phase of expressing an opinion, distinct from the preceding field testing phase."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f90fc56e-088f-44cb-95c0-6f8c57c3b971",
+      "concept_name": "Other Important Considerations",
+      "definition": "Other important considerations guide the principal auditor when delegating work or utilizing work performed by other component auditors and experts. The principal auditor maintains overall responsibility for the opinion while being entitled to rely on others provided adequate skill and care are exercised.",
+      "terminology": [
+        "Principal auditor",
+        "Other auditor",
+        "Component",
+        "Financial information"
+      ],
+      "instrument_references": [
+        "SA 600"
+      ],
+      "inclusion": [
+        "Relying on work of branch auditors or component auditors",
+        "Expressly stating reliance in statutory appointments"
+      ],
+      "exclusion": [
+        "Instances involving joint auditors or predecessor auditors"
+      ],
+      "nearby_distinctions": [
+        "SA 600 governs principal-other auditor relationships, explicitly excluding joint auditors or predecessor auditor interactions."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "713682f4effe8c85f7c6d02d8ab35bab53bc2a04285ebd5d16b6ae5bef6d05e4",
+  "artifact_id": "5e4d4353-2617-4339-ad5e-6031c3e4f133",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 7561,
+  "output_tokens": 2840,
+  "cost_usd": 0.0093683,
+  "created_at": "2026-10-03T18:10:03.981813+00:00"
+}

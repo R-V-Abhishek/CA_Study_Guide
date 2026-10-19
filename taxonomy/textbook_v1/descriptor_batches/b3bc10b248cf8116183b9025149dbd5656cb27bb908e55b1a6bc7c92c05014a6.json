@@ -1,0 +1,316 @@
+{
+  "descriptors": [
+    {
+      "node_id": "3db566d6-6ddd-4ead-8cdc-82a8c859ef93",
+      "concept_name": "Step 2: Compute tax base",
+      "definition": "The tax base of an asset or liability is the specific amount attributed to it for income tax purposes. It represents the deductible amount against taxable economic benefits that will flow to the entity upon recovering the carrying amount.",
+      "terminology": [
+        "Tax base",
+        "Carrying amount",
+        "Taxable economic benefits",
+        "Deductible amount"
+      ],
+      "instrument_references": [
+        "Ind AS 12"
+      ],
+      "inclusion": [
+        "Amount deductible against future taxable economic benefits",
+        "Cost less cumulative tax depreciation"
+      ],
+      "exclusion": [
+        "Accounting revaluations ignored for tax purposes"
+      ],
+      "nearby_distinctions": [
+        "Carrying amount reflects financial reporting value, whereas tax base is strictly determined by taxation laws."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b9a14584-02fe-4f87-8602-2bb89ce25ded",
+      "concept_name": "Step 3: Compute temporary differences",
+      "definition": "Temporary differences are calculated as the difference between the carrying amount of an asset or liability in the balance sheet and its corresponding tax base. These differences ultimately reverse over time, resulting in a cumulative impact of zero.",
+      "terminology": [
+        "Temporary difference",
+        "Carrying amount",
+        "Tax base",
+        "Reversal"
+      ],
+      "instrument_references": [
+        "Ind AS 12"
+      ],
+      "inclusion": [
+        "Differences between balance sheet carrying amount and tax base",
+        "Timing differences"
+      ],
+      "exclusion": [
+        "Permanent differences that never reverse"
+      ],
+      "nearby_distinctions": [
+        "Temporary differences encompass timing differences but are broader because they also capture balance sheet carrying value adjustments like revaluations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b314bb40-f99c-4b83-9c67-a87bb5776c9e",
+      "concept_name": "Step 4: Classify temporary differences",
+      "definition": "Temporary differences are categorized into taxable temporary differences, which increase future tax liabilities, and deductible temporary differences, which reduce them. This classification dictates whether a deferred tax liability or asset should be recognized.",
+      "terminology": [
+        "Taxable temporary difference",
+        "Deductible temporary difference",
+        "Deferred tax liability",
+        "Deferred tax asset"
+      ],
+      "instrument_references": [
+        "Ind AS 12"
+      ],
+      "inclusion": [
+        "Taxable temporary differences arising when asset carrying amount exceeds tax base",
+        "Deductible temporary differences arising when liability carrying amount exceeds tax base"
+      ],
+      "exclusion": [
+        "Permanent differences"
+      ],
+      "nearby_distinctions": [
+        "Taxable temporary differences result in future taxable amounts, whereas deductible temporary differences generate future tax deductions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "be9b3b18-16ba-4401-ba01-131d1ff94b7b",
+      "concept_name": "Step 5: Identify exceptions",
+      "definition": "Specific exceptions apply to the general recognition rules for deferred taxes, such as the initial recognition of goodwill in a business combination. In jurisdictions where goodwill is not tax-deductible, its tax base is nil and no deferred tax liability is recognized to avoid circular computations.",
+      "terminology": [
+        "Goodwill",
+        "Business combination",
+        "Tax base",
+        "Deferred tax liability"
+      ],
+      "instrument_references": [
+        "Ind AS 12",
+        "Ind AS 103"
+      ],
+      "inclusion": [
+        "Goodwill arising from business combinations where tax base is nil and not deductible"
+      ],
+      "exclusion": [
+        "Standard asset and liability temporary differences subject to routine deferred tax accounting"
+      ],
+      "nearby_distinctions": [
+        "Goodwill exceptions prevent the circular inflation of carrying values that would occur if deferred tax liabilities were recognized on residual goodwill."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ef36220c-77fc-4724-b544-8c6a5fd9d900",
+      "concept_name": "Step 6: Assess (also reassess) deductible temporary differences, tax losses and tax credits",
+      "definition": "Deductible temporary differences and unused tax losses only provide economic benefits if the entity expects future taxable profits against which they can be utilized. Entities must assess and reassess the probability of sufficient future taxable profits to recognize deferred tax assets.",
+      "terminology": [
+        "Deductible temporary differences",
+        "Unused tax losses",
+        "Taxable profit",
+        "Deferred tax asset"
+      ],
+      "instrument_references": [
+        "Ind AS 12"
+      ],
+      "inclusion": [
+        "Unused trading losses available for carry forward within legal limits",
+        "Assessment of future taxable profits"
+      ],
+      "exclusion": [
+        "Tax losses exceeding statutory carry-forward time limits"
+      ],
+      "nearby_distinctions": [
+        "Unlike taxable temporary differences that automatically create liabilities, deductible temporary differences and tax losses require positive profit evidence for asset recognition."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b1a532e4-bc8d-4d01-bb0c-ac3b02394f4d",
+      "concept_name": "Step 7: Determine the tax rate (law)",
+      "definition": "Deferred tax assets and liabilities must be measured using the tax rates and laws that have been enacted or substantively enacted by the end of the reporting period. These rates must reflect the expected manner of recovery or settlement of the asset or liability's carrying amount.",
+      "terminology": [
+        "Enacted tax rate",
+        "Substantively enacted",
+        "Manner of recovery",
+        "Settlement"
+      ],
+      "instrument_references": [
+        "Ind AS 12"
+      ],
+      "inclusion": [
+        "Tax rates expected to apply during realization or settlement",
+        "Rates reflecting expected manner of asset recovery or liability settlement"
+      ],
+      "exclusion": [
+        "Tax rates enacted after the reporting period end"
+      ],
+      "nearby_distinctions": [
+        "Tax rates applied depend on whether an asset is recovered through use or sale if different statutory rates apply to each mode."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4c736dd3-1742-4462-bb9a-bc6f5461e48b",
+      "concept_name": "Step 8: Calculate and recognise deferred tax",
+      "definition": "Deferred tax balances are computed by multiplying taxable or deductible temporary differences by the applicable enacted tax rates. Recognized deferred tax assets must be reviewed at each reporting date and reduced if sufficient future taxable profits are no longer probable.",
+      "terminology": [
+        "Deferred tax liability",
+        "Deferred tax asset",
+        "Temporary difference",
+        "Non-discounting"
+      ],
+      "instrument_references": [
+        "Ind AS 12"
+      ],
+      "inclusion": [
+        "Multiplication of temporary differences by applicable tax rates",
+        "Periodic review and adjustment of deferred tax asset carrying amounts"
+      ],
+      "exclusion": [
+        "Discounting of deferred tax assets and liabilities to present value"
+      ],
+      "nearby_distinctions": [
+        "Calculation yields gross temporary impacts that are strictly prohibited from being discounted under standard rules."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "60f645e8-3060-4fb2-8a7c-0f6eff8ffb92",
+      "concept_name": "Step 9: Accounting of deferred tax",
+      "definition": "The accounting treatment for deferred tax effects must align with the underlying transaction or event, being recognized in profit or loss, other comprehensive income, or directly in equity. Subsequent changes in deferred tax balances driven by tax rate changes are also routed through profit or loss unless tied to prior non-P&L items.",
+      "terminology": [
+        "Statement of profit and loss",
+        "Other comprehensive income",
+        "Equity",
+        "Pro rata allocation"
+      ],
+      "instrument_references": [
+        "Ind AS 12",
+        "Ind AS 16",
+        "Ind AS 8"
+      ],
+      "inclusion": [
+        "Tax effects recognized in profit or loss, OCI, or equity",
+        "Pro rata allocation for complex items recognized outside profit or loss"
+      ],
+      "exclusion": [
+        "Disconnecting tax accounting from the classification of the underlying economic event"
+      ],
+      "nearby_distinctions": [
+        "Items originating in equity or OCI mandate that their corresponding deferred tax adjustments bypass the statement of profit and loss."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "19fc2609-2c77-4950-a331-2e959384e052",
+      "concept_name": "Step 10: Offsetting deferred tax assets and deferred tax liabilities",
+      "definition": "Entities can offset deferred tax assets against deferred tax liabilities only if they possess a legally enforceable right to set off current tax assets against current tax liabilities. Furthermore, both deferred balances must relate to income taxes levied by the same taxation authority on the same taxable entity or qualifying distinct entities.",
+      "terminology": [
+        "Offsetting",
+        "Legally enforceable right",
+        "Current tax assets",
+        "Taxation authority"
+      ],
+      "instrument_references": [
+        "Ind AS 12"
+      ],
+      "inclusion": [
+        "Net presentation when legally enforceable set-off rights exist",
+        "Taxes levied by the same authority on the same or intentionally simultaneous settling entities"
+      ],
+      "exclusion": [
+        "Offsetting across different unrelated taxation authorities without legal rights"
+      ],
+      "nearby_distinctions": [
+        "Offsetting is restricted solely to instances with legal enforceability and matching tax jurisdictions, avoiding arbitrary aggregation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4f9bf0c1-1f66-492a-a57c-d82b66703b1e",
+      "concept_name": "PART D: PRACTICAL APPLICATION",
+      "definition": "Practical application of income tax standards involves recognizing deferred tax assets and liabilities arising from fair value adjustments in business combinations. These recognized tax balances directly affect the determination of goodwill or bargain purchase gains on the acquisition date.",
+      "terminology": [
+        "Business combination",
+        "Fair value adjustments",
+        "Goodwill",
+        "Acquisition date"
+      ],
+      "instrument_references": [
+        "Ind AS 12",
+        "Ind AS 103"
+      ],
+      "inclusion": [
+        "Deferred tax impacts from asset and liability fair value uplifts in acquisitions",
+        "Adjustments to goodwill calculations"
+      ],
+      "exclusion": [
+        "Deferred tax liabilities on initial goodwill recognition exceptions"
+      ],
+      "nearby_distinctions": [
+        "Acquisition-date fair value adjustments create temporary differences that directly alter consolidated goodwill, distinguishing them from routine standalone asset shifts."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "93d184d8-640d-45ef-8732-b84945743451",
+      "concept_name": "Deferred tax arising from a business combination",
+      "definition": "Temporary differences arising from fair value adjustments of identifiable assets and liabilities in a business combination require the recognition of resulting deferred tax assets or liabilities. These tax balances impact the quantum of goodwill or bargain purchase gain recognized at acquisition.",
+      "terminology": [
+        "Business combination",
+        "Identifiable assets",
+        "Liabilities",
+        "Goodwill"
+      ],
+      "instrument_references": [
+        "Ind AS 12",
+        "Ind AS 103"
+      ],
+      "inclusion": [
+        "Deferred tax on fair value adjustments of property, plant, equipment, and inventory",
+        "Impact on goodwill or bargain purchase"
+      ],
+      "exclusion": [
+        "Deferred tax liabilities on initial recognition of un-deductible goodwill"
+      ],
+      "nearby_distinctions": [
+        "Unlike routine internal asset revaluations, business combination fair valuation adjustments instantly integrate tax effects into acquisition accounting and goodwill."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e4175182-a879-4833-ab9d-a04441f904d6",
+      "concept_name": "Current and deferred tax arising from share-based payment transactions",
+      "definition": "Share-based payment remuneration expenses recognized under accounting standards often generate tax deductions in later periods or based on future share prices. The difference between the future tax deduction tax base and the nil carrying amount creates a deductible temporary difference and associated deferred tax asset.",
+      "terminology": [
+        "Share-based payment",
+        "Remuneration expense",
+        "Tax deduction",
+        "Deductible temporary difference"
+      ],
+      "instrument_references": [
+        "Ind AS 12",
+        "Ind AS 102"
+      ],
+      "inclusion": [
+        "Tax deductions linked to employee share options",
+        "Deferred tax assets derived from estimated future share-price-based deductions"
+      ],
+      "exclusion": [
+        "Deductions exceeding cumulative remuneration expense which must be routed to equity"
+      ],
+      "nearby_distinctions": [
+        "Excess tax deductions over cumulative accounting remuneration expenses are segregated and recognized directly in equity rather than profit or loss."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "b3bc10b248cf8116183b9025149dbd5656cb27bb908e55b1a6bc7c92c05014a6",
+  "artifact_id": "76ced5cf-1caf-4bf6-9e6f-068c7efe2df0",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 9439,
+  "output_tokens": 3440,
+  "cost_usd": 0.011431700000000001,
+  "created_at": "2026-10-03T18:03:08.068230+00:00"
+}

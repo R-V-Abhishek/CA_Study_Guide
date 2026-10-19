@@ -1,0 +1,77 @@
+{
+  "result": {
+    "question_id": "956f39abba4e0877f33c7352bef0c4eb49a25574361f6fc61b2f3afa26106c8f",
+    "input_hash": "2f9df3d39bc396da4d7705c0b05e2414364625909f517fe0cdd113987690842b",
+    "mappings": [
+      {
+        "part_id": "956f39abba4e0877f33c7352bef0c4eb49a25574361f6fc61b2f3afa26106c8f:Q1.a",
+        "outcome": "matched",
+        "primary_node_id": "f54e9f7b-0cb2-4360-aabd-aed08c3bfae4",
+        "secondary_node_ids": [
+          "3afd0c40-027b-4e5c-b489-237239710a21"
+        ],
+        "evidence": [
+          {
+            "node_id": "f54e9f7b-0cb2-4360-aabd-aed08c3bfae4",
+            "support": "Values the share by discounting forecast dividends using required return and growth, then compares intrinsic and market prices to advise hold."
+          },
+          {
+            "node_id": "3afd0c40-027b-4e5c-b489-237239710a21",
+            "support": "Calculates required return from risk-free rate plus beta times market risk premium as an input to the share valuation."
+          }
+        ],
+        "note": "The central task is dividend-based equity valuation and a buy, hold, or sell recommendation; CAPM supplies the required return.",
+        "confidence": 0.97,
+        "bucket": "A"
+      },
+      {
+        "part_id": "956f39abba4e0877f33c7352bef0c4eb49a25574361f6fc61b2f3afa26106c8f:Q1.b",
+        "outcome": "matched",
+        "primary_node_id": "bc7ff11a-452b-4ee8-b22d-858439e5a1e5",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "bc7ff11a-452b-4ee8-b22d-858439e5a1e5",
+            "support": "Calculates mutual fund NAV per unit at purchase from investment amount, holding-period return, dividends, ending NAV, and units."
+          }
+        ],
+        "note": "The question asks for historical purchase NAV per unit for three mutual fund schemes.",
+        "confidence": 0.99,
+        "bucket": "A"
+      },
+      {
+        "part_id": "956f39abba4e0877f33c7352bef0c4eb49a25574361f6fc61b2f3afa26106c8f:Q1.c",
+        "outcome": "matched",
+        "primary_node_id": "b110ae33-2151-4ba1-b2f7-fec6d84c8544",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "b110ae33-2151-4ba1-b2f7-fec6d84c8544",
+            "support": "Explains how fund mobilization, capital structure, investment allocation, and dividend policy connect financial policy with organizational strategy and growth."
+          }
+        ],
+        "note": "The explanation directly concerns the interface between strategic management and financial policy.",
+        "confidence": 0.99,
+        "bucket": "A"
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "attempt_id": "1791217535351645000",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "569c957fd24899456f96c689f6655105b77ea7a3dce8b2360fd03756509a301c",
+    "schema_generator": "pinned-identifiers-v2",
+    "seconds": 18.798,
+    "usage": [
+      {
+        "input_tokens": 49729,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 765,
+        "reasoning_output_tokens": 72
+      }
+    ],
+    "completed_at": "2026-10-05T16:25:54.149926+00:00"
+  }
+}

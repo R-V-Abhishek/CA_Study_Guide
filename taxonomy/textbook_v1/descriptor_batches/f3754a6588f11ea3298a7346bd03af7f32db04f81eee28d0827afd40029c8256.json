@@ -1,0 +1,315 @@
+{
+  "descriptors": [
+    {
+      "node_id": "bfe9d932-aabe-4ea7-9cd9-0d5196a47215",
+      "concept_name": "Consolidated Financial Statements Overview",
+      "definition": "Consolidated financial statements present the financial position and results of operations for a group of entities under a single parent. They include a balance sheet, statement of profit and loss, changes in equity, cash flows, and notes prepared in compliance with applicable standards.",
+      "terminology": [
+        "Consolidated balance sheet",
+        "Consolidated statement of profit and loss",
+        "Non-controlling interest",
+        "Parent"
+      ],
+      "instrument_references": [
+        "Division II of Schedule III to the Companies Act, 2013",
+        "Ind AS 27",
+        "Ind AS 112"
+      ],
+      "inclusion": [
+        "Consolidated balance sheet and profit and loss",
+        "Consolidated statement of changes in equity and cash flows"
+      ],
+      "exclusion": [
+        "Standalone financial statements of individual group entities"
+      ],
+      "nearby_distinctions": [
+        "Distinct from separate financial statements which account for investments at cost or fair value rather than consolidating underlying assets and liabilities."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "17dd24d6-7435-4186-9c31-6d9e9dbdc406",
+      "concept_name": "Consolidation Procedure For Subsidiaries",
+      "definition": "Consolidation of an investee begins on the exact date the investor acquires control and terminates when control is lost. The process requires combining financial statements line-by-line while applying uniform accounting policies and eliminating intra-group transactions.",
+      "terminology": [
+        "Control",
+        "Investee",
+        "Investor",
+        "Consolidation procedure"
+      ],
+      "instrument_references": [
+        "Ind AS 27",
+        "Ind AS 112"
+      ],
+      "inclusion": [
+        "Consolidation from date of obtaining control",
+        "Cessation of consolidation upon loss of control"
+      ],
+      "exclusion": [
+        "Consolidation of entities where control is absent"
+      ],
+      "nearby_distinctions": [
+        "Differs from equity accounting used for associates and joint ventures where line-by-line aggregation is not performed."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4f785c49-0b9f-4ae3-aa95-def9c50bc488",
+      "concept_name": "Calculation of Goodwill and Non-Controlling Interest",
+      "definition": "Goodwill is determined on the acquisition date as the excess of consideration transferred plus non-controlling interest and prior held stakes over the net identifiable assets acquired. The resulting amounts establish the baseline for subsequent group accounting and non-controlling interest attribution.",
+      "terminology": [
+        "Goodwill",
+        "Capital reserve",
+        "Non-controlling interest",
+        "Consideration transferred"
+      ],
+      "instrument_references": [
+        "Ind AS 103"
+      ],
+      "inclusion": [
+        "Consideration transferred at fair value",
+        "Identifiable assets acquired and liabilities assumed"
+      ],
+      "exclusion": [
+        "Goodwill generated internally within the group"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from bargain purchase gains which arise when net identifiable assets exceed the aggregate consideration and non-controlling interest."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c2f9c950-21d3-4ce9-8ec8-7cdaec8b5aa9",
+      "concept_name": "Step Acquisition and Remeasurement",
+      "definition": "In a business combination achieved in stages, the acquirer must remeasure its previously held equity interest at fair value on the acquisition date. Any resulting gain or loss is recognized directly in profit or loss or other comprehensive income as appropriate.",
+      "terminology": [
+        "Step acquisition",
+        "Previously held equity interest",
+        "Remeasurement",
+        "Fair value"
+      ],
+      "instrument_references": [
+        "Ind AS 103"
+      ],
+      "inclusion": [
+        "Remeasurement of prior non-controlling stakes upon obtaining control",
+        "Recognition of gain or loss in profit or loss"
+      ],
+      "exclusion": [
+        "Adjustments where control was already held prior to the additional stake purchase"
+      ],
+      "nearby_distinctions": [
+        "Differs from single-date acquisitions where no pre-existing equity interest requires fair value remeasurement through profit or loss."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4ef7d6bd-d8b0-4283-9553-178fc12e6db1",
+      "concept_name": "Control Obtained Without Transfer of Consideration",
+      "definition": "When an investor obtains control without transferring consideration, the fair value of its existing interest is substituted in the goodwill calculation formula. Such business combinations can occur through share repurchases, the lapse of minority veto rights, or contracts alone.",
+      "terminology": [
+        "Contract alone",
+        "Stapling arrangement",
+        "Dual listed corporation",
+        "Existing interest"
+      ],
+      "instrument_references": [
+        "Ind AS 103"
+      ],
+      "inclusion": [
+        "Combinations via share repurchases by the acquiree",
+        "Combinations by contract alone without equity transfer"
+      ],
+      "exclusion": [
+        "Acquisitions involving direct cash or share consideration transfers"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard acquisitions by the total absence of transferred consideration and the attribution of 100% net assets to non-controlling interest where no equity is held."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "efba6b0a-b10a-42b7-93ea-19246f946cc0",
+      "concept_name": "Uniform Accounting Policies",
+      "definition": "Parents must compile consolidated financial statements using consistent accounting policies for identical transactions and events under similar circumstances. Financial statements of group members prepared under different frameworks or policies require appropriate conversion adjustments prior to consolidation.",
+      "terminology": [
+        "Uniform accounting policies",
+        "Conversion adjustments",
+        "Group accounting policies"
+      ],
+      "instrument_references": [
+        "Ind AS 110",
+        "Ind AS 16",
+        "Ind AS 8"
+      ],
+      "inclusion": [
+        "Adjustments to convert subsidiary policies to group standards",
+        "Consistent application for like transactions"
+      ],
+      "exclusion": [
+        "Changes in depreciation methods treated as accounting estimates rather than policy changes"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from accounting estimates like depreciation methods, which reflect consumption patterns and do not mandate uniform group-wide selection."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "23eb39c4-86f9-4aca-9ded-0e37c6c4debd",
+      "concept_name": "Measurement of Income and Expense of Subsidiary",
+      "definition": "Income and expenses of a subsidiary are incorporated into consolidated financial statements starting from the exact date control is gained until control ceases. These measurement amounts depend directly on the recognized fair values of the subsidiary's assets and liabilities established on the acquisition date.",
+      "terminology": [
+        "Acquisition date fair value",
+        "Carrying value",
+        "Depreciation expense"
+      ],
+      "instrument_references": [
+        "Ind AS 110"
+      ],
+      "inclusion": [
+        "Incorporation of revenue and expenses post-acquisition date",
+        "Depreciation calculated on acquisition-date fair values"
+      ],
+      "exclusion": [
+        "Pre-acquisition income and expenses of the subsidiary"
+      ],
+      "nearby_distinctions": [
+        "Differs from pre-acquisition asset carrying values used in the subsidiary's standalone books, which are superseded by acquisition-date fair values for group consolidation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0e9ee863-b935-470b-b77e-352c5c314786",
+      "concept_name": "Accounting of Potential Voting Rights Held in Subsidiary",
+      "definition": "Potential voting rights are generally excluded from allocation proportions, which are determined strictly by existing ownership interests and accounted for under financial instruments standards. However, if an entity holds an existing ownership interest in substance that currently grants access to economic returns, potential voting rights are factored into the allocation.",
+      "terminology": [
+        "Potential voting rights",
+        "Existing ownership interest",
+        "Derivatives"
+      ],
+      "instrument_references": [
+        "Ind AS 109"
+      ],
+      "inclusion": [
+        "Allocation based on existing ownership interests",
+        "Consideration of options granting current access to returns"
+      ],
+      "exclusion": [
+        "Hypothetical exercise of potential voting rights lacking current access to returns"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard derivative instruments because substantive existing economic access overrides standard financial instrument categorization."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b02448a1-ceb2-4314-b0a5-f255f46d0e6f",
+      "concept_name": "Reporting Period of Parent and Subsidiary",
+      "definition": "Financial statements of the parent and its subsidiaries used for consolidation must share the same reporting date. If a subsidiary has a different reporting date, it must prepare additional financial information matching the parent's date unless impracticable, in which case the most recent statements adjusted for significant intervening transactions are used within a maximum three-month gap.",
+      "terminology": [
+        "Reporting date",
+        "Impracticable",
+        "Intervening transactions",
+        "Restatement"
+      ],
+      "instrument_references": [
+        "Ind AS 110"
+      ],
+      "inclusion": [
+        "Additional financial information for matching reporting dates",
+        "Adjustments for significant transactions within a three-month limit"
+      ],
+      "exclusion": [
+        "Reporting date gaps exceeding three months"
+      ],
+      "nearby_distinctions": [
+        "Differs from situations where reporting periods align perfectly, eliminating the need for interim adjustments or restatements of comparatives."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3c4bf89e-45db-483f-9ed2-be26e5d2e653",
+      "concept_name": "Accounting of Dividend from Subsidiary",
+      "definition": "An investor recognizes dividends received from a subsidiary as income in its separate financial statements when the right to receive payment is established. In group consolidation, these intra-group dividend distributions are fully eliminated against equity and investment accounts.",
+      "terminology": [
+        "Dividend income",
+        "Right to receive payment",
+        "Separate financial statements"
+      ],
+      "instrument_references": [
+        "Ind AS 109",
+        "Ind AS 27",
+        "Ind AS 36",
+        "Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Dividend recognition upon establishment of payment right",
+        "Impairment indicator evaluation upon dividend declaration"
+      ],
+      "exclusion": [
+        "Direct recognition of subsidiary profits as parent dividend income without formal declaration"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from consolidated financial statements where dividend income from subsidiaries is eliminated to prevent double-counting of group earnings."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9d865c54-85d6-46ec-9d1a-0a95d552b5a4",
+      "concept_name": "Elimination of Intra-Group Transactions",
+      "definition": "All intra-group balances, transactions, and resulting unrealized profits or losses must be eliminated in full when preparing consolidated financial statements. Unrealized profits embedded in asset carrying amounts like inventories or property, plant, and equipment are removed down to the group's true cost.",
+      "terminology": [
+        "Intra-group transactions",
+        "Unrealized profit",
+        "Elimination",
+        "Group cost"
+      ],
+      "instrument_references": [
+        "Ind AS 110"
+      ],
+      "inclusion": [
+        "Elimination of intra-group sales and balances",
+        "Removal of unrealized profit in closing inventories and non-current assets"
+      ],
+      "exclusion": [
+        "Elimination of unrealized losses where the related asset's cost cannot be recovered"
+      ],
+      "nearby_distinctions": [
+        "Differs from transactions with external third parties which generate recognized profits and losses that remain unadjusted in consolidation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "00f92412-920e-46c5-ba42-550541f25521",
+      "concept_name": "Allocating Share in Profit or Loss to Non-Controlling Interest",
+      "definition": "An entity must attribute total comprehensive income, profit or loss, and equity components between the owners of the parent and the non-controlling interests. Total comprehensive income is attributed to non-controlling interests even if it creates a deficit balance.",
+      "terminology": [
+        "Non-controlling interests",
+        "Comprehensive income",
+        "Attribution",
+        "Deficit balance"
+      ],
+      "instrument_references": [
+        "Ind AS 110"
+      ],
+      "inclusion": [
+        "Allocation of profit and loss to non-controlling interest",
+        "Attribution of comprehensive income resulting in deficit balances"
+      ],
+      "exclusion": [
+        "Restricting non-controlling interest losses once a zero balance is reached"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from parent equity allocations since non-controlling interests are presented separately within equity in the consolidated balance sheet."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "f3754a6588f11ea3298a7346bd03af7f32db04f81eee28d0827afd40029c8256",
+  "artifact_id": "a35b6db4-1240-4a21-bd26-5c191e554d9a",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 9386,
+  "output_tokens": 3473,
+  "cost_usd": 0.0114983,
+  "created_at": "2026-10-03T18:05:04.958915+00:00"
+}

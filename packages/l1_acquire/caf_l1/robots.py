@@ -6,6 +6,7 @@ from urllib.parse import urlparse
 import urllib.robotparser
 import httpx
 from caf_common.logging import get_logger
+from caf_common.db_safety import assert_acquisition_allowed
 
 logger = get_logger("acquire.robots")
 
@@ -27,6 +28,7 @@ class PolitenessManager:
         return urlparse(url).netloc
 
     def is_allowed(self, url: str) -> bool:
+        assert_acquisition_allowed()
         host = self.get_host(url)
         if host not in self._parsers:
             rp = urllib.robotparser.RobotFileParser()

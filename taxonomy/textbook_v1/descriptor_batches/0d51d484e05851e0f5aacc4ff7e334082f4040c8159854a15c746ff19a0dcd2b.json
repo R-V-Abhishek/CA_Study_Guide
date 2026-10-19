@@ -1,0 +1,334 @@
+{
+  "descriptors": [
+    {
+      "node_id": "25241966-5464-4a6a-a732-fce13cb09d0b",
+      "concept_name": "Fundamentals of Corporate Restructuring",
+      "definition": "A compromise involves a mutual settlement of an existing dispute through concessions by parties, whereas an arrangement modifies rights without a necessary dispute. Reconstruction alters and reorganizes a single company's capital or structure, while amalgamation blends two or more entities into one.",
+      "terminology": [
+        "Compromise",
+        "Arrangement",
+        "Amalgamation",
+        "Reconstruction",
+        "Transferor Company",
+        "Transferee Company"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Debt waiver and debt-to-equity conversions",
+        "Reduction of share capital",
+        "Mergers and demergers of undertakings"
+      ],
+      "exclusion": [
+        "Standard operational asset sales outside a restructuring scheme",
+        "Ordinary course of business debt settlements"
+      ],
+      "nearby_distinctions": [
+        "Compromise requires a dispute unlike an arrangement",
+        "Reconstruction applies to a single entity unlike amalgamation involving multiple entities"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4ff1da3f-9053-4bec-9b7f-b66a23271067",
+      "concept_name": "Power To Compromise Or Make Arrangements With Creditors And Members [Section 230]",
+      "definition": "The Tribunal is empowered to order and direct meetings of creditors, members, or classes thereof upon receiving an application from eligible stakeholders. Eligible applicants include the company, creditors, members, or a liquidator in cases of voluntary liquidation.",
+      "terminology": [
+        "Tribunal",
+        "Class of creditors",
+        "Class of members",
+        "Liquidator",
+        "Reorganization of share capital"
+      ],
+      "instrument_references": [
+        "Section 230 of Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Applications by company or liquidators",
+        "Meetings of specific classes of members or creditors",
+        "Consolidation and division of share classes"
+      ],
+      "exclusion": [
+        "Direct corporate actions executed without Tribunal meeting orders where statutory paths differ"
+      ],
+      "nearby_distinctions": [
+        "Differs from Section 232 merger approvals by focusing on initial meeting ordering and basic compromise frameworks"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d49567e0-41fb-4356-8eb1-7e1d50afde4c",
+      "concept_name": "Power Of Tribunal To Enforce Compromise Or Arrangement [Section 231]",
+      "definition": "The Tribunal possesses supervisory authority over the implementation of sanctioned compromises and can issue directions or modifications. If a scheme cannot be satisfactorily implemented and the company is unable to pay its debts, the Tribunal may order a winding up.",
+      "terminology": [
+        "Supervision of implementation",
+        "Modification of scheme",
+        "Winding up order",
+        "Composite scheme of arrangement"
+      ],
+      "instrument_references": [
+        "Section 231 of Companies Act, 2013",
+        "Section 273 of Companies Act, 2013",
+        "Section 230(4) of Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Supervising scheme execution",
+        "Issuing necessary implementation directions",
+        "Directing company winding up due to implementation failure"
+      ],
+      "exclusion": [
+        "Initial ordering of meetings under Section 230"
+      ],
+      "nearby_distinctions": [
+        "Focuses on post-sanction enforcement and supervision rather than initial scheme formulation"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b6880899-e150-4622-9a77-97077be1b4f3",
+      "concept_name": "Merger And Amalgamation Of Companies [Section 232]",
+      "definition": "The Tribunal may order meetings and sanction schemes involving corporate reconstruction, mergers, or the transfer of undertakings between companies. Merging companies must circulate specific disclosures, including director reports, valuation reports, and share exchange ratios, prior to such meetings.",
+      "terminology": [
+        "Transferor company",
+        "Transferee company",
+        "Share exchange ratio",
+        "Valuation report",
+        "Draft scheme"
+      ],
+      "instrument_references": [
+        "Section 232 of Companies Act, 2013",
+        "Section 230 of Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Reconstruction schemes involving mergers",
+        "Transfer of property or liabilities to one or more companies",
+        "Circulation of expert valuation and director explanation reports"
+      ],
+      "exclusion": [
+        "Stand-alone debt compromises without structural amalgamation elements"
+      ],
+      "nearby_distinctions": [
+        "Specifically governs structural mergers and undertakings transfers leveraging Section 230 meeting procedures"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "fba95dbd-ea3d-4d05-928f-e89a5403937e",
+      "concept_name": "Power To Acquire Shares Of Shareholders Dissenting From Scheme Or Contract Approved By Majority [Section 235]",
+      "definition": "A transferee company can acquire shares of dissenting minority shareholders when a share transfer scheme is approved by holders of at least nine-tenths in value within four months. The acquiring company must issue a notice within two months after that period to buy out the remaining shares.",
+      "terminology": [
+        "Dissenting shareholder",
+        "Transferor company",
+        "Transferee company",
+        "Nine-tenths in value approval"
+      ],
+      "instrument_references": [
+        "Section 235 of Companies Act, 2013",
+        "Rule 26 of Companies (Compromises, Arrangements and Amalgamations) Rules, 2016"
+      ],
+      "inclusion": [
+        "Compulsory acquisition of dissenting shares upon high-threshold majority approval",
+        "Tribunal applications by dissenting shareholders objecting to acquisition notices"
+      ],
+      "exclusion": [
+        "Shares already held by the transferee company or its subsidiaries at the offer date"
+      ],
+      "nearby_distinctions": [
+        "Applies specifically to contractual share transfer schemes approved by 90 percent majority rather than general demergers"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6d1c374d-f287-41c4-b811-4be5d0340990",
+      "concept_name": "Purchase Of Minority Shareholding [Section 236]",
+      "definition": "An acquirer or group holding ninety percent or more of a company's equity share capital must notify their intention to buy out remaining shares from minority shareholders. Both majorities and minorities can trigger buyouts at a price determined by a registered valuer.",
+      "terminology": [
+        "Ninety percent majority",
+        "Minority shareholders",
+        "Registered valuer",
+        "Person acting in concert"
+      ],
+      "instrument_references": [
+        "Section 236 of Companies Act, 2013",
+        "Rule 27 of Companies (Compromises, Arrangements and Amalgamations) Rules, 2016"
+      ],
+      "inclusion": [
+        "Mandatory notifications by ninety percent holders",
+        "Valuation-based minority share purchases",
+        "Deposit of acquisition amounts in separate bank accounts"
+      ],
+      "exclusion": [
+        "Acquisitions falling below the statutory ninety percent threshold"
+      ],
+      "nearby_distinctions": [
+        "Triggered automatically upon reaching a ninety percent holding threshold via any route, unlike Section 235 scheme approvals"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4df92b37-b33f-4087-890c-2f22318d4115",
+      "concept_name": "Power Of Central Government To Provide For Amalgamation Of Companies In Public Interest [Section 237]",
+      "definition": "The Central Government may order the amalgamation of companies in the public interest by notification in the Official Gazette. Affected members and creditors are entitled to equivalent rights in the transferee entity or compensation if their interests are diminished.",
+      "terminology": [
+        "Public interest",
+        "Official Gazette",
+        "Compensation assessment",
+        "Transferor companies"
+      ],
+      "instrument_references": [
+        "Section 237 of Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Government-mandated public interest amalgamations",
+        "Continuation of pending legal proceedings",
+        "Compensation rights for diminished member or creditor interests"
+      ],
+      "exclusion": [
+        "Voluntary company-driven schemes processed via the Tribunal"
+      ],
+      "nearby_distinctions": [
+        "Executed directly by the Central Government based on public interest rather than through standard Tribunal petition processes"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0d87402f-5935-4e46-909d-23baab9c0a8d",
+      "concept_name": "Registration Of Offer Of Schemes Involving Transfer Of Shares [Section 238]",
+      "definition": "Circulars containing share transfer offers and board recommendations under Section 235 must be presented to the Registrar for registration with mandatory cash availability disclosures. Issuing unregistered circulars attracts personal financial penalties for responsible directors.",
+      "terminology": [
+        "Circular",
+        "Registrar",
+        "Registration of offer",
+        "Penalty"
+      ],
+      "instrument_references": [
+        "Section 238 of Companies Act, 2013",
+        "Section 235 of Companies Act, 2013",
+        "Rule 28 of Companies (Compromises, Arrangements and Amalgamations) Rules, 2016"
+      ],
+      "inclusion": [
+        "Mandatory registration of offer circulars with the Registrar",
+        "Cash availability disclosures by the transferee company",
+        "Appeals to the Tribunal against Registrar refusal"
+      ],
+      "exclusion": [
+        "Internal corporate communications unrelated to share transfer scheme offers"
+      ],
+      "nearby_distinctions": [
+        "Focuses on administrative pre-requisites and registration of offer documentation rather than substantive scheme sanctioning"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "929a19d7-a554-400c-938a-037c77e066c0",
+      "concept_name": "Preservation Of Books And Papers Of Amalgamated Companies [Section 239]",
+      "definition": "Books and papers of companies involved in amalgamations or share acquisitions cannot be disposed of without prior Central Government permission. The Central Government may inspect these documents to uncover evidence of offences related to formation or management.",
+      "terminology": [
+        "Books and papers",
+        "Prior permission",
+        "Central Government",
+        "Inspection"
+      ],
+      "instrument_references": [
+        "Section 239 of Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Restriction on document disposal without government consent",
+        "Appointment of examiners to investigate historical corporate records"
+      ],
+      "exclusion": [
+        "Routine destruction of operational documents outside the scope of statutory amalgamations or acquisitions"
+      ],
+      "nearby_distinctions": [
+        "Applies specifically to records of amalgamated or acquired entities to preserve legal accountability"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1e5bc6ad-4366-4fe9-806b-42c8ccf80617",
+      "concept_name": "Liability Of Officers In Respect Of Offences Committed Prior To Merger, Amalgamation, Etc. [Section 240]",
+      "definition": "Officers in default remain personally liable for offences committed under the Act prior to a company's merger, amalgamation, or acquisition. This liability survives despite structural corporate changes and overrides other conflicting laws.",
+      "terminology": [
+        "Officer in default",
+        "Retrospective liability",
+        "Prior offences"
+      ],
+      "instrument_references": [
+        "Section 240 of Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Continuation of statutory penalties and liabilities for past default offences after restructuring"
+      ],
+      "exclusion": [
+        "Absolution of officer accountability resulting from structural corporate blending"
+      ],
+      "nearby_distinctions": [
+        "Targets individual officer liability rather than corporate entity liabilities"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b8030c4c-65a1-42b0-b828-f20deba6df17",
+      "concept_name": "Fast Track Mode Of Merger Or Amalgamation Of Certain Companies [Section 233]",
+      "definition": "Specific entities like small companies, start-ups, and holding-subsidiary pairs can execute mergers through an expedited administrative process without Tribunal petitions. The scheme requires creditor and member approvals, declarations of solvency, and confirmation from the Regional Director.",
+      "terminology": [
+        "Small company",
+        "Start-up company",
+        "Declaration of solvency",
+        "Official Liquidator",
+        "Regional Director"
+      ],
+      "instrument_references": [
+        "Section 233 of Companies Act, 2013",
+        "Rule 25 of Companies (Compromises, Arrangements and Amalgamations) Rules, 2016"
+      ],
+      "inclusion": [
+        "Mergers between small companies or start-ups",
+        "Holding and wholly-owned subsidiary amalgamations",
+        "Regional Director confirmation procedures"
+      ],
+      "exclusion": [
+        "Standard corporate mergers involving large non-qualifying public companies requiring NCLT adjudication"
+      ],
+      "nearby_distinctions": [
+        "Operates via regional administrative clearance rather than traditional NCLT petition mechanisms"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d4584ce7-dc66-41bb-9771-f1ef72fd7bb3",
+      "concept_name": "Cross Border Mergers and Amalgamations [Section 234]",
+      "definition": "Indian companies and foreign bodies corporate can engage in cross-border mergers subject to prior regulatory approvals and specific statutory rules. Foreign companies may merge into Indian entities, and Indian entities can merge into foreign counterparts located in permitted jurisdictions.",
+      "terminology": [
+        "Foreign company",
+        "Cross border merger",
+        "Depository Receipts",
+        "Reserve Bank of India"
+      ],
+      "instrument_references": [
+        "Section 234 of Companies Act, 2013",
+        "Rule 25A of Companies (Compromises, Arrangements and Amalgamations) Rules, 2016"
+      ],
+      "inclusion": [
+        "Inbound mergers of foreign companies into Indian companies",
+        "Outbound mergers of Indian companies into foreign jurisdictions",
+        "Consideration paid in cash or Depository Receipts"
+      ],
+      "exclusion": [
+        "Stand-alone cross-border demergers or compromises not classified as structural mergers"
+      ],
+      "nearby_distinctions": [
+        "Governs international corporate combinations involving foreign jurisdictions rather than purely domestic reorganizations"
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "0d51d484e05851e0f5aacc4ff7e334082f4040c8159854a15c746ff19a0dcd2b",
+  "artifact_id": "e258e8ac-7d29-4b43-8ebe-4c5e1585a6d9",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 9202,
+  "output_tokens": 3854,
+  "cost_usd": 0.0123956,
+  "created_at": "2026-10-03T18:24:24.558318+00:00"
+}

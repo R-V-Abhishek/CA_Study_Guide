@@ -1,0 +1,321 @@
+{
+  "descriptors": [
+    {
+      "node_id": "0c32396e-5b12-40d5-9946-985c50ae0433",
+      "concept_name": "The Price",
+      "definition": "Fair value represents the exit price received to sell an asset or paid to transfer a liability in an orderly transaction between market participants at the measurement date under current market conditions. Measurements prioritize principal market prices or, if unavailable, the most advantageous market prices, irrespective of whether the price is directly observable.",
+      "terminology": [
+        "exit price",
+        "principal market",
+        "most advantageous market",
+        "orderly transaction",
+        "measurement date"
+      ],
+      "instrument_references": [
+        "Ind AS 113",
+        "para 24 of Ind AS 113",
+        "para 72 of the standard"
+      ],
+      "inclusion": [
+        "prices from the principal market",
+        "prices from the most advantageous market when principal market is absent",
+        "directly observable or estimated valuation technique outputs"
+      ],
+      "exclusion": [
+        "entry prices that do not reflect exit conditions",
+        "forced transactions or distressed sales"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from entry prices which represent the price paid to acquire an asset or received to assume a liability in an exchange transaction."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1a8ca02a-bd99-46ce-a3cd-2b2a6c87cfe8",
+      "concept_name": "Transaction cost",
+      "definition": "Transaction costs are characteristic of a specific transaction rather than inherent characteristics of an asset or liability. Consequently, these costs are excluded from the determination of fair value in principal markets.",
+      "terminology": [
+        "transaction cost",
+        "characteristic of the transaction",
+        "principal market"
+      ],
+      "instrument_references": [
+        "Ind AS 113"
+      ],
+      "inclusion": [
+        "incremental costs directly attributable to the acquisition or disposal of an asset or assumption of a liability"
+      ],
+      "exclusion": [
+        "transport costs",
+        "inherent asset or liability characteristics"
+      ],
+      "nearby_distinctions": [
+        "Unlike transport costs which change an asset's location characteristic, transaction costs arise solely from the mechanics of executing a transaction and do not alter the item's inherent properties."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1706ad5c-09a5-4d95-b803-3558258d4aa8",
+      "concept_name": "Transport cost",
+      "definition": "Transport costs represent expenses incurred to move an asset from its current location to its principal or most advantageous market. Because location can be an inherent characteristic of certain items like commodities, prices in the principal market must be adjusted for these transport expenses.",
+      "terminology": [
+        "transport cost",
+        "location",
+        "principal market",
+        "most advantageous market"
+      ],
+      "instrument_references": [
+        "Ind AS 113"
+      ],
+      "inclusion": [
+        "costs incurred to transport an asset from current location to the principal market when location is an asset characteristic"
+      ],
+      "exclusion": [
+        "transaction costs arising purely from deal execution"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from transaction costs because transport costs alter the physical location characteristic of an asset, whereas transaction costs are strictly procedural expenses of a trade."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ac04cebf-2f80-47cb-8ccb-07e4d8a4f7b1",
+      "concept_name": "Applying Fair Value Rules On Non-Financial Assets",
+      "definition": "Fair valuation of non-financial assets like property, plant, and equipment requires assessing their highest and best use by market participants. This approach evaluates market participant capabilities to maximize economic benefits through optimal asset utilization or transfer.",
+      "terminology": [
+        "non-financial assets",
+        "highest and best use",
+        "market participants",
+        "economic benefits"
+      ],
+      "instrument_references": [
+        "Ind AS 113"
+      ],
+      "inclusion": [
+        "buildings and other property, plant, and equipment",
+        "alternative uses analysis from a market participant perspective"
+      ],
+      "exclusion": [
+        "entity-specific intended uses that diverge from standard market participant behavior"
+      ],
+      "nearby_distinctions": [
+        "Unlike financial assets which possess rigid contractual terms preventing alternative uses without modification, non-financial assets are evaluated based on their flexible maximum potential utility."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d28d9f9a-ddff-4c11-b7e6-ea6974a0b7a8",
+      "concept_name": "Highest and best use",
+      "definition": "Highest and best use is a valuation framework for non-financial assets ensuring that the chosen utilization is physically possible, legally permissible, and financially feasible. The determination relies strictly on market participant perspectives regardless of an entity's internal operational intentions.",
+      "terminology": [
+        "physically possible",
+        "legally permissible",
+        "financially feasible",
+        "market participant perspective"
+      ],
+      "instrument_references": [
+        "Ind AS 113"
+      ],
+      "inclusion": [
+        "real estate and other non-financial asset valuations",
+        "current use evaluation when potential best use data is absent"
+      ],
+      "exclusion": [
+        "entity-specific restrictions or subjective internal management plans"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from entity-specific use intent, focusing instead on what independent market participants would determine as the most lucrative legitimate application."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f924393a-d06e-4af8-8d89-daa019e1de2c",
+      "concept_name": "Valuation premise",
+      "definition": "The valuation premise dictates whether a non-financial asset is measured on a standalone basis or in combination with other assets and liabilities. Combination valuation is mandated when market participants typically utilize the asset alongside complementary items to maximize its utility.",
+      "terminology": [
+        "valuation premise",
+        "in combination with other assets",
+        "standalone basis",
+        "complementary asset"
+      ],
+      "instrument_references": [
+        "Ind AS 113"
+      ],
+      "inclusion": [
+        "intangible assets valued alongside supporting technological updates or rights",
+        "groups of complementary assets widely used together by market participants"
+      ],
+      "exclusion": [
+        "isolated valuations where combined use is not customary among market participants"
+      ],
+      "nearby_distinctions": [
+        "Differs from standalone asset valuation by bundling interdependent items together to reflect true economic synergy recognized by market participants."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "833d9710-b9b0-477a-9340-a1a770bc295e",
+      "concept_name": "Applying Fair Value Rules To Liabilities And An Entity’S Own Equity Instruments",
+      "definition": "Fair value measurement of liabilities and equity instruments assumes the item is transferred to a market participant at the measurement date while remaining outstanding. Entities must prioritize observable direct market prices and minimize unobservable inputs.",
+      "terminology": [
+        "transfer to a market participant",
+        "measurement date",
+        "observable inputs",
+        "unobservable inputs"
+      ],
+      "instrument_references": [
+        "Ind AS 113"
+      ],
+      "inclusion": [
+        "financial and non-financial liabilities",
+        "entity equity instruments issued as business combination consideration"
+      ],
+      "exclusion": [
+        "extinguishment or settlement values that diverge from transfer assumptions"
+      ],
+      "nearby_distinctions": [
+        "Unlike asset valuation which measures items held, liability and equity valuation measures the price required to transfer an existing obligation or claim to a third party."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "120fadc8-7ebd-43d9-ad1f-263ff752f491",
+      "concept_name": "When Liability And Equity Instruments Are Held By Other Parties As Assets",
+      "definition": "When direct quoted prices for liabilities or equity instruments are absent, an entity utilizes the quoted price of an identical item held by another party as an asset. If such asset prices are unavailable, the entity applies other observable inputs or accepted valuation techniques.",
+      "terminology": [
+        "held by other parties as assets",
+        "quoted prices",
+        "observable inputs",
+        "valuation techniques"
+      ],
+      "instrument_references": [
+        "Ind AS 113"
+      ],
+      "inclusion": [
+        "quoted prices of identical items held by market participants as assets",
+        "income and market valuation approaches"
+      ],
+      "exclusion": [
+        "entity-specific settlement amounts ignoring market counterparty perspectives"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from instances where instruments are not held externally, shifting the metric from mirror-asset prices to direct issuer-side valuation techniques."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d5a6e92d-5800-48be-891f-b935164029c1",
+      "concept_name": "When Liability And Equity Instruments Are Not Held By Other Parties As Assets",
+      "definition": "When a liability or equity instrument is not held by another party as an asset, fair value is determined using valuation techniques from the perspective of the market participant that owes the liability or issued the claim. This requires relying on active market quotes, observable inputs, or income and market approaches.",
+      "terminology": [
+        "not held by other parties",
+        "valuation techniques",
+        "income approach",
+        "market approach"
+      ],
+      "instrument_references": [
+        "Ind AS 113"
+      ],
+      "inclusion": [
+        "issuer perspective valuation models",
+        "income approach metrics",
+        "market approach metrics"
+      ],
+      "exclusion": [
+        "mirror-asset prices from external holders when no such holders exist"
+      ],
+      "nearby_distinctions": [
+        "Differs from cases with external asset holders because valuation must be modeled strictly from the obligor or issuer standpoint without reference to counterparties' asset quotations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "56a5f052-b943-4bd3-94b8-f193a45cb8c1",
+      "concept_name": "Applying Fair Value Rules To Financial Asset & Financial Liability With Offsetting Position In Market Risk Or Counterparty Risk",
+      "definition": "An entity managing groups of financial assets and liabilities on a net risk exposure basis may apply an exception to measure fair value on a net long or net short position. This permits pricing net risk exposures consistently with market participant practices for identical risk types and durations.",
+      "terminology": [
+        "net basis",
+        "net exposure",
+        "market risk",
+        "counterparty risk",
+        "net long position",
+        "net short position"
+      ],
+      "instrument_references": [
+        "Ind AS 113"
+      ],
+      "inclusion": [
+        "groups of derivatives and offsetting financial contracts managed on a net exposure basis",
+        "net counterparty credit risk and market risk evaluations"
+      ],
+      "exclusion": [
+        "netting disparate risk types such as combining interest rate risk with commodity price risk",
+        "combining positions with misaligned durations"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from individual gross asset and liability fair valuation by shifting the unit of account to a combined net risk portfolio when market practice supports it."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "285de876-5c02-47d8-b543-c598ea91cd25",
+      "concept_name": "Fair Value At Initial Recognition",
+      "definition": "Initial transaction prices represent entry prices which may or may not equal fair value exit prices depending on transaction specifics. Factors such as related-party terms, duress, mismatched units of account, or different markets can cause initial transaction prices to diverge from fair value.",
+      "terminology": [
+        "initial recognition",
+        "entry price",
+        "exit price",
+        "transaction price",
+        "related parties",
+        "duress"
+      ],
+      "instrument_references": [
+        "Ind AS 113"
+      ],
+      "inclusion": [
+        "exchange transactions where entry and exit prices coincide",
+        "adjustments for related party terms or forced selling conditions"
+      ],
+      "exclusion": [
+        "assumptions that transaction prices automatically equal fair value without evaluating contextual factors"
+      ],
+      "nearby_distinctions": [
+        "Contrasts the entry price paid or received at transaction inception with the exit price required for fair value measurement, highlighting conditions causing them to differ."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b7c0221b-26b8-4728-a256-f22af313678f",
+      "concept_name": "VALUATION TECHNIQUES",
+      "definition": "Valuation techniques estimate the price of an orderly transaction between market participants at the measurement date by maximizing observable inputs and minimizing unobservable inputs. Entities can select single or multiple approaches based on available data and appropriate professional judgment.",
+      "terminology": [
+        "valuation techniques",
+        "market approach",
+        "observable inputs",
+        "unobservable inputs",
+        "market multiples"
+      ],
+      "instrument_references": [
+        "Ind AS 113"
+      ],
+      "inclusion": [
+        "market approach techniques utilizing comparable asset and liability pricing",
+        "income and discounted cash flow models when appropriate"
+      ],
+      "exclusion": [
+        "valuation approaches when active market quoted prices are directly available"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from direct active market quotes by serving as estimation mechanisms deployed only when direct identical quotes are missing or insufficient."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "004699e37df3aaa6290e402c660558cda0c2fc9cf14e0a4b13772d63507045e3",
+  "artifact_id": "89f5b79c-a65b-4596-846e-255b7b33b5b7",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8568,
+  "output_tokens": 3512,
+  "cost_usd": 0.0113504,
+  "created_at": "2026-10-03T17:48:54.150654+00:00"
+}

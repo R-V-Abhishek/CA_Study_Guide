@@ -1,0 +1,182 @@
+{
+  "descriptors": [
+    {
+      "node_id": "673a7e58-1a9c-4573-9add-58d6d3bdfdd8",
+      "concept_name": "Split accounting for compound financial instruments",
+      "definition": "Split accounting allocates the initial carrying amount of a compound financial instrument between its liability and equity components without generating any initial gain or loss. The liability component is determined by discounting its cash flows at a market rate for a similar non-convertible liability, while the equity component is assigned the residual amount.",
+      "terminology": [
+        "Compound financial instrument",
+        "Liability component",
+        "Equity component",
+        "Residual amount",
+        "Perpetual loan"
+      ],
+      "instrument_references": [
+        "Ind AS 109",
+        "Ind AS 32.31"
+      ],
+      "inclusion": [
+        "Instruments containing both liability and equity components",
+        "Perpetual loans with mandatory interest"
+      ],
+      "exclusion": [
+        "Simple financial instruments with only liability or equity features",
+        "Non-compound financial assets"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from single-category instruments by separately measuring debt obligations and residual equity stakes on initial recognition rather than classifying the entire instrument under one category."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "42436abd-958a-4ce0-a39c-6e0604085b72",
+      "concept_name": "Separation of non-equity embedded derivatives",
+      "definition": "Non-equity embedded derivative features, such as an issuer's call option contained within a compound financial instrument, are categorized and included as part of the liability component. The residual value after deducting the combined liability and derivative obligations is then allocated to the equity component.",
+      "terminology": [
+        "Embedded derivative",
+        "Issuer's call option",
+        "Non-equity embedded derivatives",
+        "Redemption option"
+      ],
+      "instrument_references": [
+        "Ind AS 32.31",
+        "Ind AS 32 AG31"
+      ],
+      "inclusion": [
+        "Issuer call options",
+        "Early redemption features in convertible instruments"
+      ],
+      "exclusion": [
+        "Equity conversion options meeting equity classification criteria",
+        "Stand-alone derivative contracts"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard equity conversion options because non-equity derivatives like issuer call options are grouped with the liability component rather than assigned to equity."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "def3b51a-0b2a-4a17-9e21-f1289f2cd589",
+      "concept_name": "Conversion or early settlement of compound financial instruments",
+      "definition": "Conversion at maturity involves derecognizing the liability component and transferring it directly to equity without generating a gain or loss. Early settlement requires allocating consideration paid based on current fair values of the remaining liability and equity components, recognizing any resulting gain or loss for the liability portion.",
+      "terminology": [
+        "Conversion",
+        "Early settlement",
+        "Extinguishment",
+        "Repurchase",
+        "Redemption"
+      ],
+      "instrument_references": [
+        "Ind AS 32.30",
+        "Ind AS 32 AG33",
+        "Ind AS 32 AG34"
+      ],
+      "inclusion": [
+        "Conversion of convertible instruments at maturity",
+        "Early repurchase or redemption before maturity"
+      ],
+      "exclusion": [
+        "Initial recognition and allocation of compound instruments",
+        "Standard subsequent measurement of pure financial liabilities"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from maturity conversion by early settlement requiring the immediate allocation of repurchase consideration and recognition of associated liability gains or losses."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "07f6950f-84f2-4d61-8663-cebe1608c437",
+      "concept_name": "Treasury Shares",
+      "definition": "When an entity reacquires its own equity instruments, the consideration paid is deducted directly from equity without recognizing any gain or loss in profit or loss. Such treasury shares are never recognized as financial assets regardless of the acquisition motive.",
+      "terminology": [
+        "Treasury shares",
+        "Reacquired equity instruments",
+        "Consolidated financial statements",
+        "Agency relationship"
+      ],
+      "instrument_references": [
+        "Ind AS 32"
+      ],
+      "inclusion": [
+        "Entity's own equity instruments reacquired and held",
+        "Treasury shares held by consolidated group members"
+      ],
+      "exclusion": [
+        "Financial assets investment portfolio",
+        "Shares held purely in a fiduciary agency capacity on behalf of external clients"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from financial assets because an entity's own equity instruments can never be recognized as financial assets upon reacquisition."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f9d1fce7-ed9b-4993-8cec-b66e874a2ab0",
+      "concept_name": "Interest, Dividends, Losses And Gains",
+      "definition": "The classification of a financial instrument dictates whether related returns and value changes flow through profit or loss or directly into equity. Specifically, liabilities generate expenses or income in profit or loss, whereas equity distributions are recognized directly in equity.",
+      "terminology": [
+        "Interest",
+        "Dividends",
+        "Losses and gains",
+        "Transaction costs",
+        "Income tax"
+      ],
+      "instrument_references": [
+        "Ind AS 32.35-41",
+        "Ind AS 12",
+        "Ind AS 1"
+      ],
+      "inclusion": [
+        "Interest and dividends on financial liabilities",
+        "Distributions to equity holders",
+        "Incremental transaction costs of equity and compound transactions"
+      ],
+      "exclusion": [
+        "Fair value changes of an entity's own equity instruments",
+        "Abandoned equity transaction costs recognized as expense"
+      ],
+      "nearby_distinctions": [
+        "Distinguished by instrument classification, routing liability-related returns through profit or loss while recording equity distributions directly through equity reserves."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0549b1e9-e073-4b7e-88e5-a6ec1742e087",
+      "concept_name": "OFFSETTING A FINANCIAL ASSET AND A FINANCIAL LIABILITY",
+      "definition": "Financial assets and liabilities are offset to present a net amount in the balance sheet only when an entity has a currently enforceable legal right of set-off and intends either to settle on a net basis or realize and settle simultaneously. This offsetting treatment is distinct from derecognition and does not inherently generate a gain or loss.",
+      "terminology": [
+        "Offsetting",
+        "Legally enforceable right of set-off",
+        "Net settlement",
+        "Derecognition",
+        "Gross settlement"
+      ],
+      "instrument_references": [
+        "Ind AS 32.42",
+        "Ind AS 32.44",
+        "Ind AS 32.45",
+        "Ind AS 32.49",
+        "Ind AS 32 AG38A"
+      ],
+      "inclusion": [
+        "Net presentation of recognized financial assets and liabilities under strict enforceability and settlement intent criteria",
+        "Three-party agreements establishing valid debtor set-off rights"
+      ],
+      "exclusion": [
+        "Derecognition of financial instruments",
+        "Separate financial instruments merely emulating net outcomes without legal set-off rights"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from derecognition because offsetting retains both gross items on or off the books via net presentation without generating gains or losses, whereas derecognition removes items and can trigger profit or loss recognition."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "efa3f45d1cbbc7191a3a751c0495c52d06ba800233b233a7c13e33edbe991d48",
+  "artifact_id": "f5b78a1f-9b1c-456a-ba7c-57c8d7adbfda",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 4643,
+  "output_tokens": 1971,
+  "cost_usd": 0.0063203999999999995,
+  "created_at": "2026-10-03T18:04:27.705156+00:00"
+}

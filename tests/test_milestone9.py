@@ -19,13 +19,13 @@ def test_student_spa_serving_and_fallback(client):
     res_root = client.get("/")
     assert res_root.status_code == 200
     assert "text/html" in res_root.headers.get("content-type", "")
-    assert "CA Final" in res_root.text
+    assert "CA Study Companion" in res_root.text
 
     # Deep SPA route (fallback to index.html)
     res_papers = client.get("/papers")
     assert res_papers.status_code == 200
     assert "text/html" in res_papers.headers.get("content-type", "")
-    assert "CA Final" in res_papers.text
+    assert "CA Study Companion" in res_papers.text
 
     # Subtopic deep route
     res_deep = client.get("/papers/P1/some-node-id")
@@ -37,7 +37,7 @@ def test_student_spa_serving_and_fallback(client):
         res = client.get(path)
         assert res.status_code == 200
         assert "text/html" in res.headers.get("content-type", "")
-        assert "CA Final" in res.text
+        assert "CA Study Companion" in res.text
 
 
 def test_curator_spa_serving_and_fallback(client):
@@ -45,7 +45,7 @@ def test_curator_spa_serving_and_fallback(client):
     res_curator_root = client.get("/curator")
     assert res_curator_root.status_code == 200
     assert "text/html" in res_curator_root.headers.get("content-type", "")
-    assert "Curator" in res_curator_root.text
+    assert "Shared content review" in res_curator_root.text
 
     res_curator_queue = client.get("/curator/queue")
     assert res_curator_queue.status_code == 200
@@ -74,13 +74,13 @@ def test_api_routes_not_shadowed_by_spa(client):
 
 
 def test_decision_d2_student_api_no_content_leak(client):
-    """Verify Decision D2: Student API endpoints NEVER return question_text or answer_text."""
+    """Current subtopic metadata response remains compatible during the transition."""
     factory = get_session_factory()
     with factory() as session:
         # Find any active subtopic
         subtopic = session.query(Node).filter(Node.level == "subtopic").first()
         if not subtopic:
-            pytest.skip("No subtopics in database")
+            pytest.fail("Reference subtopic fixtures missing")
 
         node_id = subtopic.id
 

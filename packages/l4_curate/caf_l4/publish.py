@@ -2,12 +2,16 @@
 
 from datetime import datetime, timezone
 from typing import Any
-from sqlalchemy import delete, select, update
+from sqlalchemy import delete, select
 from sqlalchemy.orm import Session
 
 from caf_db.models.core import Appearance, AppearanceTag, ChangeLog, Decision
 from caf_db.models.ingest import Document, TagSuggestion, Unit
 from caf_db.models.ref import DocType, LawBoundary
+
+
+class StaleDecisionError(ValueError):
+    """The suggestion was already reviewed by another request."""
 
 
 def compute_law_stale(
@@ -35,19 +39,36 @@ def make_decision(
     suggestion_run_id: int | None = None,
     seconds_spent: float | None = None,
     blind: bool = False,
+    actor_id: int | None = None,
+    require_pending: bool = False,
 ) -> Decision:
     """Record curator decision and publish appearance to core.* atomically."""
-    unit = session.get(Unit, unit_id)
+    unit = session.scalars(
+        select(Unit).where(Unit.id == unit_id).with_for_update()
+        .execution_options(populate_existing=True)
+    ).one_or_none()
     if not unit:
         raise ValueError(f"Unit {unit_id} not found")
+
+    if require_pending and (not unit.current or unit.classify_status != "suggested"):
+        raise StaleDecisionError("This suggestion has already been reviewed or superseded; refresh the queue.")
 
     doc = session.get(Document, unit.document_id)
     if not doc:
         raise ValueError(f"Document {unit.document_id} not found")
+    if action not in ("none_fits", "exclude"):
+        from caf_db.models.taxonomy import TaxonomyMember, TaxonomyRelease
+        selected_ids = [payload.get("primary_node_id"), *payload.get("secondary_node_ids", [])]
+        rebuilt = session.scalar(select(TaxonomyMember.node_id).join(TaxonomyRelease,
+            TaxonomyRelease.taxonomy_version_id == TaxonomyMember.taxonomy_version_id
+        ).where(TaxonomyMember.node_id.in_(selected_ids), TaxonomyRelease.status != "legacy").limit(1))
+        if rebuilt:
+            raise ValueError("Textbook labels require a complete root classification review with expected suggestion and publication revisions; use the revisioned classification review operation")
 
     # 1. Record Decision
     decision = Decision(
         unit_fingerprint=unit.fingerprint,
+        actor_id=actor_id,
         action=action,
         payload=payload,
         suggestion_run_id=suggestion_run_id,
@@ -173,61 +194,6 @@ def make_decision(
     return decision
 
 
-def bulk_accept_bucket_a(session: Session, document_id: int) -> int:
-    """Bulk accept all remaining Bucket A suggestions for a confirmed document."""
-    doc = session.get(Document, document_id)
-    if not doc:
-        raise ValueError(f"Document {document_id} not found")
-
-    # Find pending units with Bucket A primary suggestions
-    units = (
-        session.query(Unit)
-        .filter(
-            Unit.document_id == document_id,
-            Unit.current.is_(True),
-            Unit.classify_status == "suggested",
-        )
-        .all()
-    )
-
-    accepted_count = 0
-    for u in units:
-        # Check suggestions
-        suggestions = (
-            session.query(TagSuggestion)
-            .filter(
-                TagSuggestion.unit_id == u.id,
-                TagSuggestion.is_shadow.is_(False),
-            )
-            .all()
-        )
-        primary_sugg = next(
-            (s for s in suggestions if s.role == "primary" and s.bucket == "A"),
-            None,
-        )
-        if not primary_sugg:
-            continue
-
-        secondary_ids = [
-            s.node_id for s in suggestions if s.role == "secondary"
-        ]
-        gist = (
-            primary_sugg.evidence.get("gist")
-            if isinstance(primary_sugg.evidence, dict)
-            else None
-        )
-
-        make_decision(
-            session=session,
-            unit_id=u.id,
-            action="bulk_accept",
-            payload={
-                "primary_node_id": primary_sugg.node_id,
-                "secondary_node_ids": secondary_ids,
-                "gist": gist or u.display_label,
-            },
-            suggestion_run_id=primary_sugg.run_id,
-        )
-        accepted_count += 1
-
-    return accepted_count
+def bulk_accept_bucket_a(session: Session, document_id: int, actor_id: int | None = None) -> int:
+    """Retain the historical entry point without automatic model-score publication."""
+    raise ValueError("Automatic bucket publication is disabled; an authenticated administrator must review explicit root revisions in the bulk review workspace")

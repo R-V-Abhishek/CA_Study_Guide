@@ -1,0 +1,321 @@
+{
+  "descriptors": [
+    {
+      "node_id": "7a19e03f-ebf5-4447-9238-16cb6963bfa6",
+      "concept_name": "Objective of Income Taxes Accounting",
+      "definition": "The standard prescribes accounting treatment for income taxes, addressing timing differences between book profits and taxable profits caused by accelerated tax deductions. It ensures financial statements properly reflect future tax liabilities arising from these temporary divergences over asset useful lives.",
+      "terminology": [
+        "Current Tax",
+        "Deferred Tax",
+        "Book Profit",
+        "Taxable Profit",
+        "Accelerated Depreciation"
+      ],
+      "instrument_references": [
+        "Ind AS 12"
+      ],
+      "inclusion": [
+        "Accounting for tax consequences of current period events",
+        "Future tax consequences from recovery or settlement of carrying amounts"
+      ],
+      "exclusion": [
+        "Methods of accounting for government grants",
+        "Methods of accounting for investment tax credits"
+      ],
+      "nearby_distinctions": [
+        "Differs from pure cash-flow tax accounting by recognizing prospective tax liabilities and assets."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "68bf0940-95e9-46f4-869f-3ffb65a13711",
+      "concept_name": "Scope and Fundamental Principle",
+      "definition": "The standard governs domestic and foreign taxes based on taxable profits, including withholding taxes on distributions. The core principle requires recognizing a deferred tax liability or asset when the recovery or settlement of an asset or liability's carrying amount makes future tax payments larger or smaller.",
+      "terminology": [
+        "Withholding Taxes",
+        "Taxable Temporary Difference",
+        "Deductible Temporary Difference",
+        "Carrying Amount"
+      ],
+      "instrument_references": [
+        "Ind AS 12"
+      ],
+      "inclusion": [
+        "Domestic income taxes",
+        "Foreign income taxes",
+        "Withholding taxes payable on profit distributions by subsidiaries, associates, or joint ventures"
+      ],
+      "exclusion": [
+        "General accounting treatments for government grants unconnected to tax base differences"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between current operational tax consequences and future recovery-driven tax consequences."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b65065d9-73b9-4473-9bfe-a3f4afdc97fb",
+      "concept_name": "Definitions",
+      "definition": "Defines key financial elements including accounting profit, taxable profit, tax expense, temporary differences, and tax bases. Unlike older standards employing a profit and loss timing-difference approach, this standard utilizes a balance sheet approach comparing asset and liability carrying amounts to their tax bases.",
+      "terminology": [
+        "Accounting Profit",
+        "Taxable Profit",
+        "Tax Expense",
+        "Deferred Tax Liability",
+        "Deferred Tax Asset",
+        "Temporary Differences",
+        "Tax Base",
+        "Timing Differences"
+      ],
+      "instrument_references": [
+        "Ind AS 12",
+        "AS 22"
+      ],
+      "inclusion": [
+        "Definitions for current and deferred tax components",
+        "Classification of temporary differences into taxable and deductible types"
+      ],
+      "exclusion": [
+        "Detailed recognition rules outside standard definitions"
+      ],
+      "nearby_distinctions": [
+        "Contrasts Ind AS 12 balance-sheet temporary differences with AS 22 profit-and-loss timing differences."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "374fea3a-33eb-4b30-b639-3c708c475d4c",
+      "concept_name": "Part A: Tax Expense (Tax Income)",
+      "definition": "Tax expense or tax income represents the aggregate amount included in determining the profit or loss for a period. It combines both current tax and deferred tax components and can result in either a positive expense or negative tax income.",
+      "terminology": [
+        "Tax Expense",
+        "Tax Income",
+        "Current Tax",
+        "Deferred Tax"
+      ],
+      "instrument_references": [
+        "Ind AS 12"
+      ],
+      "inclusion": [
+        "Aggregation of current tax amounts",
+        "Aggregation of deferred tax amounts within profit or loss"
+      ],
+      "exclusion": [
+        "Taxes recognized directly in equity or other comprehensive income"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from cash tax paid by incorporating non-cash deferred tax adjustments."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3428be76-1cab-4214-9fd3-975d2715e12a",
+      "concept_name": "Current Tax Recognition and Measurement",
+      "definition": "Current tax liabilities and assets for current and prior periods are measured at the amount expected to be paid to or recovered from taxation authorities. Computations rely on enacted or substantively enacted tax rates and laws, treating any revisions resulting from uncertain tax positions as changes in estimates.",
+      "terminology": [
+        "Current Tax Liability",
+        "Current Tax Asset",
+        "Advance Tax",
+        "Tax Deducted at Source",
+        "Enacted Tax Rate"
+      ],
+      "instrument_references": [
+        "Ind AS 12",
+        "Ind AS 8"
+      ],
+      "inclusion": [
+        "Unpaid current tax recognized as a liability",
+        "Excess advance tax or TDS recognized as an asset",
+        "Use of statistical tools for uncertain tax interpretations"
+      ],
+      "exclusion": [
+        "Deferred tax asset calculations"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes current period tax obligations settled via cash from future timing-based tax allocations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "843ef3ea-26d4-4e59-b4e6-148e9cc196d3",
+      "concept_name": "Current Tax",
+      "definition": "Current tax is defined as the specific amount of income taxes payable or recoverable relating to the taxable profit or loss generated during a specific reporting period. It forms the primary baseline for calculating short-term fiscal obligations owed to tax authorities.",
+      "terminology": [
+        "Taxable Profit",
+        "Tax Loss",
+        "Current Tax Liability",
+        "Current Tax Asset"
+      ],
+      "instrument_references": [
+        "Ind AS 12"
+      ],
+      "inclusion": [
+        "Income taxes payable on current period taxable profits"
+      ],
+      "exclusion": [
+        "Long-term deferred tax impacts"
+      ],
+      "nearby_distinctions": [
+        "Represents immediate period obligations rather than cumulative temporary difference reversals."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5ecf205c-930d-469d-80a7-6d27c62f7be4",
+      "concept_name": "Recognition",
+      "definition": "Unpaid current tax for current and prior periods is recognized as a liability, while prepaid amounts exceeding actual dues are recognized as assets. The definitive liability crystallizes upon finalizing financial statements at the end of the reporting period.",
+      "terminology": [
+        "Current Tax Liability",
+        "Current Tax Asset",
+        "Advance Tax",
+        "TDS"
+      ],
+      "instrument_references": [
+        "Ind AS 12"
+      ],
+      "inclusion": [
+        "Recognition of tax liabilities net of advance tax and TDS",
+        "Recognition of tax refund assets"
+      ],
+      "exclusion": [
+        "Recognition rules for permanent differences"
+      ],
+      "nearby_distinctions": [
+        "Focuses strictly on balance sheet recognition criteria for short-term tax balances."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8b58ae59-7339-4e2e-abd8-d5ba7525d2a4",
+      "concept_name": "Measurement",
+      "definition": "Current tax assets and liabilities are measured using enacted or substantively enacted tax rates and laws expected to apply upon settlement. Uncertain tax positions require estimation based on expected outcomes, with subsequent changes treated as changes in accounting estimates.",
+      "terminology": [
+        "Enacted Tax Rate",
+        "Uncertain Tax Position",
+        "Change in Estimate"
+      ],
+      "instrument_references": [
+        "Ind AS 12",
+        "Ind AS 8"
+      ],
+      "inclusion": [
+        "Measurement using rates enacted by the balance sheet date",
+        "Statistical evaluations for uncertain tax interpretations"
+      ],
+      "exclusion": [
+        "Discounting of current tax assets and liabilities"
+      ],
+      "nearby_distinctions": [
+        "Contrasts enacted tax rates with tentative legislative proposals lacking formal enactment."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b5f1b83e-9b53-4041-9194-62499bee4c39",
+      "concept_name": "Accounting of Current Tax Effects",
+      "definition": "The accounting treatment for current tax effects must directly mirror the underlying transaction or event generating it. If an underlying item is recognized within the statement of profit or loss, its corresponding current tax effect must also be recognized there.",
+      "terminology": [
+        "Statement of Profit or Loss",
+        "Current Tax Effect"
+      ],
+      "instrument_references": [
+        "Ind AS 12"
+      ],
+      "inclusion": [
+        "Matching tax effects to the financial statement component housing the original transaction"
+      ],
+      "exclusion": [
+        "Independent tax treatments disconnected from source transactions"
+      ],
+      "nearby_distinctions": [
+        "Ensures consistency between primary transaction classification and subsequent tax allocation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "01c7b58d-016e-4a61-b668-5ea9e58d6528",
+      "concept_name": "Offsetting Current Tax Assets and Current Tax Liabilities",
+      "definition": "Entities can offset current tax assets and liabilities only if they possess a legally enforceable right to set off recognized amounts and intend either to settle net or simultaneously. Consolidated group entities must similarly demonstrate a legally enforceable right to make single net payments across member entities.",
+      "terminology": [
+        "Legally Enforceable Right",
+        "Net Settlement",
+        "Consolidated Financial Statements"
+      ],
+      "instrument_references": [
+        "Ind AS 12",
+        "Ind AS 32"
+      ],
+      "inclusion": [
+        "Offsetting taxes levied by the same authority with single net payment permission",
+        "Intra-group tax offsetting under strict legal enforceability"
+      ],
+      "exclusion": [
+        "Offsetting taxes across completely separate taxation authorities without legal clearance"
+      ],
+      "nearby_distinctions": [
+        "Applies strict criteria analogous to financial instrument offsetting under Ind AS 32."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b410c8bf-809c-40d6-8dbe-838cd95efda3",
+      "concept_name": "Deferred Tax Recognition, Measurement and Presentation Workflow",
+      "definition": "Deferred tax accounting follows a structured multi-step process involving the computation of carrying amounts, tax bases, and temporary differences. It requires classifying differences, evaluating exceptions and tax credits, determining tax rates, and correctly recognizing and offsetting resultant deferred balances.",
+      "terminology": [
+        "Carrying Amount",
+        "Tax Base",
+        "Temporary Difference",
+        "Taxable Temporary Difference",
+        "Deductible Temporary Difference",
+        "Deferred Tax Asset",
+        "Deferred Tax Liability"
+      ],
+      "instrument_references": [
+        "Ind AS 12"
+      ],
+      "inclusion": [
+        "Step-by-step framework for calculating deferred tax items",
+        "Offsetting deferred tax assets and liabilities"
+      ],
+      "exclusion": [
+        "Standalone current tax computations"
+      ],
+      "nearby_distinctions": [
+        "Provides an exhaustive procedural workflow distinct from simple current tax liability assessments."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5d8a820c-02ef-45aa-a6e7-3ceda0826ce5",
+      "concept_name": "Step 1: Compute Carrying Amount",
+      "definition": "The carrying amount represents the balance sheet value at which an asset or liability is recognized after accounting for subsequent adjustments such as depreciation and impairment. It reflects the ledger balance determined under applicable accounting standards rather than tax rules.",
+      "terminology": [
+        "Carrying Amount",
+        "Depreciation",
+        "Impairment",
+        "Ledger Balance"
+      ],
+      "instrument_references": [
+        "Ind AS 12"
+      ],
+      "inclusion": [
+        "Balance sheet values adjusted for accounting depreciation",
+        "Balance sheet values adjusted for asset impairment"
+      ],
+      "exclusion": [
+        "Values computed purely under income tax depreciation schedules"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes book values from tax base values utilized in temporary difference calculations."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "5043bc6072f63be50ae1e3838c2159a3ce6bd36539d67aad6dd9dc87eed9350b",
+  "artifact_id": "76ced5cf-1caf-4bf6-9e6f-068c7efe2df0",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 9420,
+  "output_tokens": 3283,
+  "cost_usd": 0.0110335,
+  "created_at": "2026-10-03T18:02:54.902828+00:00"
+}

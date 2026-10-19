@@ -1,0 +1,231 @@
+{
+  "descriptors": [
+    {
+      "node_id": "6dadf0f3-0c28-41a0-ad82-076184738e71",
+      "concept_name": "Objective of Inventories Standard",
+      "definition": "The standard prescribes accounting treatment for inventories, specifically addressing cost determination, expense recognition, and write-downs to net realizable value. It provides guidance on measurement techniques and cost formulas.",
+      "terminology": [
+        "determination of cost",
+        "net realisable value",
+        "expense recognition",
+        "cost formulas"
+      ],
+      "instrument_references": [
+        "Ind AS 2",
+        "Ind AS 32",
+        "Ind AS 109",
+        "Ind AS 41"
+      ],
+      "inclusion": [
+        "guidance for determining inventory cost",
+        "guidance for subsequent recognition as an expense",
+        "measurement techniques like standard cost and retail method"
+      ],
+      "exclusion": [
+        "financial instruments",
+        "biological assets related to agricultural activity"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between general inventory accounting and specialized financial instrument or biological asset frameworks."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b8ae64b7-4ac2-4a79-88f5-e325d0c6d0a6",
+      "concept_name": "SCOPE",
+      "definition": "The standard applies to all inventories except financial instruments, biological assets at the point of harvest, and certain producer or broker-trader inventories measured at fair value. It outlines the boundaries of applicability for different asset classes.",
+      "terminology": [
+        "financial instruments",
+        "biological assets",
+        "agricultural produce",
+        "commodity broker-traders"
+      ],
+      "instrument_references": [
+        "Ind AS 2",
+        "Ind AS 32",
+        "Ind AS 109",
+        "Ind AS 41"
+      ],
+      "inclusion": [
+        "all general inventories",
+        "harvested agricultural produce after initial fair value recognition"
+      ],
+      "exclusion": [
+        "financial instruments under Ind AS 32 and Ind AS 109",
+        "biological assets under Ind AS 41"
+      ],
+      "nearby_distinctions": [
+        "Differentiates between standard inventories and scoped-out items such as financial instruments and biological assets."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "06d3fb8d-4a87-4878-944c-bbe1bfe359bd",
+      "concept_name": "RELEVANT DEFINITIONS",
+      "definition": "Inventories comprise assets held for sale in the ordinary course of business, in the process of production for such sale, or as materials to be consumed in production or service rendering. Net realisable value represents estimated selling price less estimated costs of completion and disposal.",
+      "terminology": [
+        "finished goods",
+        "work in progress",
+        "raw material",
+        "net realisable value"
+      ],
+      "instrument_references": [
+        "Ind AS 2",
+        "Ind AS 115"
+      ],
+      "inclusion": [
+        "goods held for resale",
+        "finished goods and work in progress",
+        "materials and supplies awaiting production use"
+      ],
+      "exclusion": [
+        "costs to fulfill a contract accounted under Ind AS 115 that do not form inventories",
+        "secondary packing materials and publicity materials"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between primary packing material included in inventory and secondary packing or publicity costs excluded from inventory."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "db28014e-6192-4c17-a995-c8b8692c2922",
+      "concept_name": "MEASUREMENT OF INVENTORIES",
+      "definition": "Inventories must be measured at the lower of cost and net realisable value. Total cost comprises purchase costs, conversion costs, and other expenses incurred in bringing the items to their present location and condition.",
+      "terminology": [
+        "lower of cost and net realisable value",
+        "costs of purchase",
+        "costs of conversion",
+        "fixed production overheads"
+      ],
+      "instrument_references": [
+        "Ind AS 2"
+      ],
+      "inclusion": [
+        "purchase price and import duties",
+        "transport and handling charges",
+        "direct and systematic allocation of production overheads"
+      ],
+      "exclusion": [
+        "trade discounts and rebates deducted from purchase price",
+        "taxes recoverable from taxing authorities"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes purchase price components from subsequent handling and conversion expenditures."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e8fe7c07-8453-4c11-a477-52d91637bbe9",
+      "concept_name": "RECOGNITION AS AN EXPENSE",
+      "definition": "Inventory carrying amounts are recognized as an expense in the period when the related revenue is recognized or when write-downs and losses occur. Reversals of previous write-downs reduce the expense amount in the period they occur.",
+      "terminology": [
+        "carrying amount",
+        "write-down",
+        "reversal",
+        "self-constructed property"
+      ],
+      "instrument_references": [
+        "Ind AS 2",
+        "Ind AS 16"
+      ],
+      "inclusion": [
+        "carrying amount of sold inventory recognized as expense",
+        "losses and write-downs to net realisable value",
+        "allocations to other asset accounts like property, plant and equipment"
+      ],
+      "exclusion": [
+        "immediate direct expensing when allocated to self-constructed assets before depreciation"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes immediate expense recognition from capitalization into other asset accounts such as property, plant and equipment."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "eebfc00e-117f-48be-868b-627fb581f5ca",
+      "concept_name": "DISCLOSURE",
+      "definition": "Financial statements must disclose accounting policies for inventory measurement, cost formulas, carrying amount breakdowns, and amounts recognized in profit or loss. Additional disclosures cover inventories carried at fair value less costs to sell and items pledged as security.",
+      "terminology": [
+        "accounting policies",
+        "carrying amount",
+        "pledged as security",
+        "profit or loss"
+      ],
+      "instrument_references": [
+        "Ind AS 2"
+      ],
+      "inclusion": [
+        "cost formulas used",
+        "carrying amounts categorized by merchandise, supplies, materials, work in progress, and finished goods",
+        "write-down reversals and pledged assets"
+      ],
+      "exclusion": [
+        "unrelated non-inventory asset disclosures"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes classification-based disclosures from general accounting policy narratives."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "64043ee6-eac2-491f-af99-1511874cefc2",
+      "concept_name": "EXTRACTS OF FINANCIAL STATEMENTS OF LISTED ENTITY",
+      "definition": "Listed entities apply specific accounting policies where inventories are stated at the lower of cost and net realisable value determined on an item-by-item basis. Cost calculation methods vary by inventory type, utilizing options such as FIFO, moving weighted average, or full absorption cost.",
+      "terminology": [
+        "item-by-item basis",
+        "first-in-first-out",
+        "moving weighted average",
+        "full absorption cost"
+      ],
+      "instrument_references": [
+        "Ind AS 2"
+      ],
+      "inclusion": [
+        "gold valued on FIFO basis",
+        "stores, spares, and raw materials valued on moving weighted average rate",
+        "work-in-progress and finished goods valued on full absorption cost"
+      ],
+      "exclusion": [
+        "unfixed gold prices yet to be determined with suppliers"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between moving weighted average valuation for raw materials and full absorption costing for work-in-progress."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a4e6bc25-992a-4d70-b90b-d409fc67b467",
+      "concept_name": "SIGNIFICANT DIFFERENCES IN IND AS 2 VIS-À-VIS AS 2",
+      "definition": "Ind AS 2 differs from AS 2 by explicitly covering subsequent expense recognition, excluding commodity broker-traders measured at fair value less costs to sell, and defining fair value distinctions. It also provides detailed guidelines for assessing net realisable value write-down reversals and requires consistent cost formulas.",
+      "terminology": [
+        "subsequent recognition",
+        "commodity broker-traders",
+        "fair value",
+        "cost formulae"
+      ],
+      "instrument_references": [
+        "Ind AS 2",
+        "AS 2"
+      ],
+      "inclusion": [
+        "rules on write-down reversals",
+        "explicit fair value and net realisable value distinctions",
+        "mandatory consistent cost formulas for similar items"
+      ],
+      "exclusion": [
+        "provisions absent in older AS frameworks"
+      ],
+      "nearby_distinctions": [
+        "Contrasts Ind AS 2 write-down reversal allowances and fair value definitions with the lack of such provisions in AS 2."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "cc0614453835bd5432dedfca8d8cfc70b9328fb6a5c188c075dc12746bd53a64",
+  "artifact_id": "2cab07c5-0ebd-45bb-b077-c5a1386be8f3",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 5609,
+  "output_tokens": 2402,
+  "cost_usd": 0.0076877,
+  "created_at": "2026-10-03T17:49:01.544044+00:00"
+}

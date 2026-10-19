@@ -1,0 +1,64 @@
+{
+  "descriptors": [
+    {
+      "node_id": "84791439-69bf-4f7a-a36c-f2f74ea59832",
+      "concept_name": "Artificial Intelligence in Accounting",
+      "definition": "Artificial Intelligence simulates human capabilities in machines to automate tasks, process extensive transaction data, and execute predictive analytics. It transforms accounting functions by enhancing forecasting, enabling automated data entry, and supporting fraud detection mechanisms.",
+      "terminology": [
+        "Artificial Intelligence",
+        "Machine Learning",
+        "Predictive Analytics",
+        "Automated Data Entry"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Automated processing of invoices and receipts",
+        "Fraud pattern recognition",
+        "Financial performance forecasting"
+      ],
+      "exclusion": [
+        "Tasks exclusively dependent on unassisted human judgment",
+        "Rule-free processing environments"
+      ],
+      "nearby_distinctions": [
+        "Differentiated from manual data processing by its algorithmic learning capacity and automated prediction features."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9d0cf1aa-7940-4a4e-92fc-ab4ec91002a7",
+      "concept_name": "Indian Accounting Standards and Information Technology Integration",
+      "definition": "Indian Accounting Standards operate as a principle-based framework where technology facilitates transaction validation and financial report generation through rule-based configurations. Proper account-level configuration ensures automated compliance checks, whereas improper setup shifts validation reliance toward manual spreadsheet applications or trained artificial intelligence tools.",
+      "terminology": [
+        "Ind AS",
+        "Principle-based framework",
+        "Rule-based validations",
+        "Account level configuration"
+      ],
+      "instrument_references": [
+        "Ind AS"
+      ],
+      "inclusion": [
+        "Automated report generation with pre-defined validation rules",
+        "ERP-based financial transaction processing",
+        "Spreadsheet-based post-generation compliance checks"
+      ],
+      "exclusion": [
+        "Purely manual reporting without technological configuration or validation tools"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between automated account-level rule configuration and post-generation manual spreadsheet validations."
+      ],
+      "source_ambiguities": [
+        "The provided text cuts off mid-sentence at the end of Illustration 1, leaving the final condition incomplete."
+      ]
+    }
+  ],
+  "input_hash": "365c214500608c3ffffa4b2f12f3dc02d6bc11f2a0e5c97a646303dd6f7d74fd",
+  "artifact_id": "6c1de2b8-81fe-44a1-9a3a-fc99a7fb25d3",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 1540,
+  "output_tokens": 586,
+  "cost_usd": 0.001927,
+  "created_at": "2026-10-03T18:05:46.461755+00:00"
+}

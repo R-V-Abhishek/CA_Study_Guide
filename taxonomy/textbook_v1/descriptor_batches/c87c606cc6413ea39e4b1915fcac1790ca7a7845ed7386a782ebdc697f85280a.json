@@ -1,0 +1,218 @@
+{
+  "descriptors": [
+    {
+      "node_id": "2a5d6b34-9a9d-47b5-8995-924443ccf1bb",
+      "concept_name": "ELECTRICITY DERIVATIVES",
+      "definition": "Electricity derivatives are financial instruments linked to spot electricity prices designed to hedge price volatility and provide certainty for generators and buyers. They operate through custom-tailored supply contracts or standard exchange-traded forms to absorb fluctuating spot prices.",
+      "terminology": [
+        "Power Purchase Agreements",
+        "Spot Electricity Prices",
+        "Load Serving Entities",
+        "Vanilla Forms"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Electricity forwards",
+        "Electricity futures",
+        "Electricity swaps"
+      ],
+      "exclusion": [
+        "Non-energy financial commodities"
+      ],
+      "nearby_distinctions": [
+        "Unlike standard financial derivatives, electricity underlying changes characteristics across different times and delivery periods."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a836cb77-1253-4ea7-8971-487f580b0f3b",
+      "concept_name": "Electricity Forwards",
+      "definition": "Electricity forward contracts obligate a buyer and seller to trade a fixed amount of power at a pre-specified forward price and future maturity date. They are custom-tailored over-the-counter agreements settled against an average spot price calculated over the delivery period.",
+      "terminology": [
+        "Forward Price",
+        "Expiration Time",
+        "Custom-Tailored",
+        "Over-The-Counter"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Bilateral custom power supply contracts"
+      ],
+      "exclusion": [
+        "Exchange-traded standardized contracts"
+      ],
+      "nearby_distinctions": [
+        "Unlike electricity futures, electricity forwards involve larger delivery quantities and are traded over the counter rather than on organized exchanges."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f4a68c96-b947-4102-85f0-09d57682910d",
+      "concept_name": "Electricity Futures",
+      "definition": "Electricity futures are standardized exchange-traded contracts for delivering a specified quantity of power at a future date and price. They feature daily margin settlements and high price transparency with lower credit risks compared to forwards.",
+      "terminology": [
+        "Standardized Contracts",
+        "Exchange-Traded",
+        "Daily Payouts",
+        "Margin Requirements"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Organized exchange power contracts"
+      ],
+      "exclusion": [
+        "Custom bilateral forward agreements"
+      ],
+      "nearby_distinctions": [
+        "Unlike forwards, electricity futures use daily settlement of gains and losses and feature smaller specified contract quantities."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0502bda9-e170-4e75-905d-dc6c0426ce44",
+      "concept_name": "Electricity Swap",
+      "definition": "Electricity swaps are financial agreements allowing holders to exchange floating spot prices for a fixed price over a contracted duration. They function similarly to a series of forward contracts providing short-to-medium term price certainty.",
+      "terminology": [
+        "Floating Price",
+        "Strip of Forwards",
+        "Locational Basis Swaps",
+        "Variable Spot Price"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Locational basis swaps"
+      ],
+      "exclusion": [
+        "Single-settlement forward contracts"
+      ],
+      "nearby_distinctions": [
+        "Locational basis swaps lock in prices across different geographic locations, whereas standard electricity swaps reference a uniform spot price location."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "55f6b4d9-b6cd-4b6d-8a04-6dfe3978bb6d",
+      "concept_name": "Derivative Mishaps And Lessons",
+      "definition": "Derivative mishaps illustrate how the speculative use of complex financial instruments, combined with high leverage and inadequate controls, can cause catastrophic losses for municipalities and institutions. These historical events highlight the vital need for strict risk management and internal oversight.",
+      "terminology": [
+        "Speculation",
+        "Yield Curve Play",
+        "Inverse Floaters",
+        "Margin Calls"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Leveraged structured notes",
+        "Repo market borrowing"
+      ],
+      "exclusion": [
+        "Plain risk-free hedging transactions"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes calculated hedging practices from speculative positioning that relies on aggressive leverage."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d966cdf4-c9d4-436d-b21f-cfa531854367",
+      "concept_name": "Orange County’S Case",
+      "definition": "The Orange County case details how a municipal treasurer leveraged fund positions threefold using repo markets and inverse floaters to speculate on interest rate yield curves. Subsequent Federal Reserve rate hikes triggered massive margin calls, forcing collateral sell-offs and substantial fund losses.",
+      "terminology": [
+        "Yield Curve Play",
+        "Inverse Floaters",
+        "Repo Market",
+        "Margin Calls"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Structured notes",
+        "Leveraged municipal portfolios"
+      ],
+      "exclusion": [
+        "Conservative treasury operations"
+      ],
+      "nearby_distinctions": [
+        "Focuses on municipal interest rate yield curve speculation via repo leverage rather than corporate currency or equity trading errors."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "51140533-6d86-4408-b54c-dffd2ea66d83",
+      "concept_name": "Barings Bank’S Case",
+      "definition": "Barings Bank's collapse demonstrates the severe risks that emerge when an arbitrage trader transitions to unmonitored speculation and conceals losses through defective back-office controls. This mishap catalyzed global emphasis on operational risk and formal capital requirements under international banking guidelines.",
+      "terminology": [
+        "Operational Risk",
+        "Arbitrage to Speculation",
+        "Error Account",
+        "Market Risk"
+      ],
+      "instrument_references": [
+        "Basel II Guidelines"
+      ],
+      "inclusion": [
+        "Nikkei 225 futures speculation",
+        "Back-office collusion"
+      ],
+      "exclusion": [
+        "Authorized low-risk index arbitrage"
+      ],
+      "nearby_distinctions": [
+        "Emphasizes operational vulnerabilities and lack of structural separation between trading and settlement operations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "44d1806c-38e5-440f-a2dd-d6c17b5e56ab",
+      "concept_name": "Protector & Gamble (P&G) And Gibson Greetings’ Case",
+      "definition": "This case highlights the hazards of complex structured derivatives sold inappropriately by financial institutions to corporate clients with mismatched risk appetites. Leveraged and ratio swaps magnified interest rate movements, resulting in massive, compounding losses for the corporate users.",
+      "terminology": [
+        "Leveraged Swap",
+        "Ratio Swap",
+        "Power Swap",
+        "Multiplying Factor"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Ratio swaps",
+        "Basis swaps"
+      ],
+      "exclusion": [
+        "Plain vanilla interest rate swaps"
+      ],
+      "nearby_distinctions": [
+        "Unlike standard swaps, leveraged swaps multiply payment obligations by a factor that causes exponential losses during adverse interest rate shifts."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4ac60a60-b10e-4238-82ec-67561cf1e230",
+      "concept_name": "Lessons From Derivative Mishaps",
+      "definition": "Core operational lessons from major derivative failures include avoiding products that are poorly understood, preventing treasury departments from operating as unchecked profit centers, and enforcing strict risk limits. Effective governance further mandates the complete structural separation of front, middle, and back offices.",
+      "terminology": [
+        "Due Diligence",
+        "Risk Limits",
+        "Firewall",
+        "In-House Valuation"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Independent risk monitoring",
+        "Office segregation"
+      ],
+      "exclusion": [
+        "Unmonitored trader discretion"
+      ],
+      "nearby_distinctions": [
+        "Focuses on internal governance and structural controls rather than the specific mathematical pricing models of individual instruments."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "c87c606cc6413ea39e4b1915fcac1790ca7a7845ed7386a782ebdc697f85280a",
+  "artifact_id": "5bf089ab-0f93-4de3-8137-3c745d8f3762",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 6407,
+  "output_tokens": 2221,
+  "cost_usd": 0.0074746000000000005,
+  "created_at": "2026-10-03T18:08:17.792016+00:00"
+}

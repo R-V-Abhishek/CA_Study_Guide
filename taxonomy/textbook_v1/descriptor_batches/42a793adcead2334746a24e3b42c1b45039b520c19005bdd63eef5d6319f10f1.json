@@ -1,0 +1,332 @@
+{
+  "descriptors": [
+    {
+      "node_id": "12ab970e-1bb9-408e-a5a7-0ca19b75c857",
+      "concept_name": "Long-term Loan Arrangements",
+      "definition": "A lender's agreement before the approval of financial statements not to demand payment for a material loan covenant breach occurring on or before the reporting date is classified as an adjusting event. Consequently, the loan liability remains non-current rather than being reclassified as payable on demand.",
+      "terminology": [
+        "adjusting event",
+        "material provision",
+        "long-term loan arrangement",
+        "payable on demand"
+      ],
+      "instrument_references": [
+        "Ind AS 10"
+      ],
+      "inclusion": [
+        "Breach of material loan covenant occurring on or before the reporting period end",
+        "Lender agreement obtained before financial statements are approved for issue"
+      ],
+      "exclusion": [
+        "Lender agreements obtained after the approval of financial statements for issue"
+      ],
+      "nearby_distinctions": [
+        "Differs from standard non-adjusting events because specific standard provisions mandate treating the post-period lender waiver as an adjusting condition affecting classification."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e6dfc78f-56f2-4822-b168-446348795926",
+      "concept_name": "Going Concern",
+      "definition": "An entity must abandon the going concern basis of accounting if management decides after the reporting period to liquidate, cease trading, or has no realistic alternative. This fundamental accounting change replaces the original measurement basis and requires comprehensive disclosures under Ind AS 1.",
+      "terminology": [
+        "going concern",
+        "liquidation",
+        "cease trading",
+        "material uncertainties"
+      ],
+      "instrument_references": [
+        "Ind AS 10",
+        "Ind AS 1"
+      ],
+      "inclusion": [
+        "Post-period decision by management to liquidate or cease trading",
+        "Severe post-period deterioration in operating results or financial position"
+      ],
+      "exclusion": [
+        "Minor operational fluctuations that do not threaten entity survival"
+      ],
+      "nearby_distinctions": [
+        "Differs from adjusting events that modify specific localized amounts because a going concern failure triggers a pervasive fundamental change across all financial statement measurements."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e28f5ce6-f3cd-42ba-9c1e-816cbe995ee4",
+      "concept_name": "Dividends",
+      "definition": "Equity dividends declared after the reporting period but prior to financial statement approval are not recognized as liabilities at the reporting date because no obligation existed then. Such distributions are instead disclosed in the notes to the financial statements.",
+      "terminology": [
+        "equity instruments",
+        "dividend declaration",
+        "notes to accounts",
+        "present obligation"
+      ],
+      "instrument_references": [
+        "Ind AS 10",
+        "Ind AS 32",
+        "Ind AS 1"
+      ],
+      "inclusion": [
+        "Dividends declared after the reporting period to holders of equity instruments"
+      ],
+      "exclusion": [
+        "Dividends declared and representing a legal obligation existing on or before the end of the reporting period"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from adjusting events because post-period equity dividend declarations fail to provide evidence of conditions existing at the balance sheet date."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ddd2dc20-e8fa-49d9-b132-c808058100b7",
+      "concept_name": "DISCLOSURE REQUIRED UNDER IND AS 10",
+      "definition": "Entities must provide clear timeline scopes and transparent updates for both adjusting and non-adjusting events after the reporting period. This includes disclosing the exact date of financial statement approval and updating contingent liability disclosures based on new post-period information.",
+      "terminology": [
+        "date of approval for issue",
+        "contingent liability",
+        "updating disclosures"
+      ],
+      "instrument_references": [
+        "Ind AS 10",
+        "Ind AS 37"
+      ],
+      "inclusion": [
+        "Disclosure of financial statement approval date",
+        "Updating disclosures for pre-existing conditions based on new post-period evidence"
+      ],
+      "exclusion": [
+        "Undocumented reporting timelines or omitted approvals"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from primary financial statement line-item adjustments by focusing exclusively on explanatory narrative transparency regarding reporting periods and pre-existing exposures."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ba8fd001-899f-4e19-82ab-dcc8588708f4",
+      "concept_name": "Date of approval for issue",
+      "definition": "An entity must explicitly disclose the exact date when financial statements are approved for issue along with the authorizing authority. This disclosure establishes the precise time boundary after which events are excluded from the financial statements.",
+      "terminology": [
+        "approval for issue",
+        "authorizing authority",
+        "scope in terms of time"
+      ],
+      "instrument_references": [
+        "Ind AS 10"
+      ],
+      "inclusion": [
+        "Disclosure of approval date",
+        "Identification of governing authority granting approval",
+        "Disclosure of power to amend post-issue"
+      ],
+      "exclusion": [
+        "Omission of governing authorization details"
+      ],
+      "nearby_distinctions": [
+        "Differs from general reporting period end dates by marking the absolute cutoff boundary up to which subsequent events must be evaluated and captured."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9d1267d8-ef05-4aab-bf66-93a4f1c842db",
+      "concept_name": "Updating Disclosure About Conditions At The End Of The Reporting Period",
+      "definition": "Entities must revise and update existing disclosures when new post-period information emerges regarding conditions that were present at the reporting date. This ensures stakeholders understand adjustments made or changes concerning pre-existing exposures like contingent liabilities.",
+      "terminology": [
+        "adjusting events",
+        "contingent liability",
+        "new information",
+        "updating disclosures"
+      ],
+      "instrument_references": [
+        "Ind AS 10",
+        "Ind AS 37"
+      ],
+      "inclusion": [
+        "Information received post-period regarding pre-existing conditions",
+        "Updated disclosures for contingent liabilities"
+      ],
+      "exclusion": [
+        "New disclosures stemming entirely from conditions originating after the reporting period"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from recording new non-adjusting events because updating disclosures strictly targets information clarifying underlying conditions already active at the balance sheet date."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "17a49c8c-aee7-4327-a718-93d0185f12a9",
+      "concept_name": "Disclosure Of Non-Adjusting Events After The Reporting Period",
+      "definition": "When non-adjusting post-reporting events are material enough to influence user decisions, entities must disclose the nature of the event and an estimate of its financial effect. Required disclosures encompass major business combinations, asset destructions, restructuring announcements, and significant foreign exchange rate fluctuations.",
+      "terminology": [
+        "non-adjusting events",
+        "materiality",
+        "financial effect estimate",
+        "general-purpose financial statements"
+      ],
+      "instrument_references": [
+        "Ind AS 10",
+        "Ind AS 103",
+        "Ind AS 105",
+        "Ind AS 37",
+        "Ind AS 33",
+        "Ind AS 12"
+      ],
+      "inclusion": [
+        "Nature of the material non-adjusting event",
+        "Estimate of financial effect or statement that estimation is impossible"
+      ],
+      "exclusion": [
+        "Immaterial events that cannot influence user decisions"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from adjusting events because non-adjusting events do not receive numerical adjustments inside the core financial statements, requiring narrative and estimation disclosures instead."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b02a6f47-58a4-4c6a-ad39-877b1f1014b7",
+      "concept_name": "DISTRIBUTION OF NON-CASH ASSETS TO OWNERS",
+      "definition": "Guidance applies to non-reciprocal distributions of non-cash assets or cash alternatives made equally to all owners of the same equity class acting in that capacity. It excludes transactions involving assets ultimately controlled by the same party before and after distribution, or distributions of subsidiary interests that retain control.",
+      "terminology": [
+        "non-cash assets",
+        "non-reciprocal distributions",
+        "equity shareholders",
+        "common control"
+      ],
+      "instrument_references": [
+        "Ind AS 10",
+        "Ind AS 1",
+        "Ind AS 103",
+        "Ind AS 105",
+        "Ind AS 110"
+      ],
+      "inclusion": [
+        "Equal non-cash asset distributions to owners of the same equity class",
+        "Distributions providing owners a choice between non-cash assets and cash"
+      ],
+      "exclusion": [
+        "Distributions of assets ultimately controlled by the same party before and after the distribution",
+        "Distributions of subsidiary ownership interests where parent control is retained"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard cash dividend distributions by requiring asset fair value tracking and specific common-control scoping exclusions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "327772f3-9ba9-470e-b476-f58d81d7f2a2",
+      "concept_name": "Applicability",
+      "definition": "The standard appendix governs non-reciprocal non-cash distributions and cash-alternative choices provided equally to all members of a specific equity class. It expressly excludes common-control transactions, retained-control subsidiary distributions, and recipient-side accounting treatments.",
+      "terminology": [
+        "non-reciprocal distributions",
+        "non-cash assets",
+        "equity instruments",
+        "common control"
+      ],
+      "instrument_references": [
+        "Ind AS 10",
+        "Ind AS 103",
+        "Ind AS 105",
+        "Ind AS 110"
+      ],
+      "inclusion": [
+        "Equally treated non-cash asset distributions to equity owners",
+        "Distributions offering cash or non-cash options"
+      ],
+      "exclusion": [
+        "Common control transactions",
+        "Shareholder-side accounting procedures"
+      ],
+      "nearby_distinctions": [
+        "Differs from general standard scope by isolating entity-level non-cash distribution accounting and excluding recipient-level ledger entries."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "69a4a126-da01-43cb-8be1-2ce11603b120",
+      "concept_name": "Non-Applicability",
+      "definition": "The distribution guidelines exclude transactions involving assets under ultimate common control before and after the transfer across separate and consolidated financial statements. Similarly, distributions that retain subsidiary control or address shareholder-side accounting are excluded from its provisions.",
+      "terminology": [
+        "common control",
+        "subsidiary",
+        "non-controlling interest",
+        "consolidated financial statements"
+      ],
+      "instrument_references": [
+        "Ind AS 10",
+        "Ind AS 110"
+      ],
+      "inclusion": [
+        "Distributions of non-cash assets under identical ultimate control",
+        "Partial subsidiary interest distributions retaining overall control"
+      ],
+      "exclusion": [
+        "Distributions lacking common control elements where ownership changes hands completely"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from applicable distributions by identifying transactions where underlying economic control structures remain unaltered or where recipient accounting must take precedence."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b73c2fd6-b25d-4b46-8672-46aafd3fdc32",
+      "concept_name": "Issues addressed by Appendix A to Ind AS 10",
+      "definition": "The framework establishes precise rules for when an entity must recognize a dividend payable obligation, how to measure that liability, and how to account for settlement differences. It mandates liability recognition upon authorization and fair value measurement for non-cash distributions.",
+      "terminology": [
+        "dividend payable",
+        "fair value",
+        "settlement date",
+        "carrying amount"
+      ],
+      "instrument_references": [
+        "Ind AS 10"
+      ],
+      "inclusion": [
+        "Recognition criteria for dividend payables",
+        "Measurement rules for non-cash asset distributions and alternatives",
+        "Settlement difference adjustments"
+      ],
+      "exclusion": [
+        "General cash-only dividend guidelines outside specialized non-cash frameworks"
+      ],
+      "nearby_distinctions": [
+        "Differs from standard equity disclosures by operationalizing active fair value liability tracking and periodic settlement adjustments for asset transfers."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "cf396d69-d8d2-4021-9153-ae9e81f56b9f",
+      "concept_name": "Accounting Principles enunciated by Appendix A to Ind AS 10",
+      "definition": "Entities must recognize dividend liabilities upon authorization when discretion is removed, measuring non-cash distributions at fair value with ongoing period adjustments routed through equity. Any difference between distributed asset carrying amounts and dividend liability values upon settlement is recognized directly in profit or loss.",
+      "terminology": [
+        "dividend payable",
+        "fair value",
+        "profit or loss",
+        "carrying amount",
+        "equity adjustment"
+      ],
+      "instrument_references": [
+        "Ind AS 10"
+      ],
+      "inclusion": [
+        "Liability recognition upon authorization",
+        "Fair value measurement of non-cash distributions",
+        "Profit or loss recognition of settlement variances"
+      ],
+      "exclusion": [
+        "Direct recognition of settlement differences inside equity reserves"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard equity transactions by requiring settlement variances to pass through profit or loss as a separate line item rather than modifying equity balances directly."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "42a793adcead2334746a24e3b42c1b45039b520c19005bdd63eef5d6319f10f1",
+  "artifact_id": "94a7f2d3-11a5-4989-b45d-3bb17459567f",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 9015,
+  "output_tokens": 3629,
+  "cost_usd": 0.011777,
+  "created_at": "2026-10-03T17:48:31.895248+00:00"
+}

@@ -1,0 +1,36 @@
+{
+  "result": {
+    "question_id": "afbd33c97d09cf1d7f7b1d4826b96d7af12f8f7af62f8dcf981f3d579f489afa",
+    "input_hash": "58ac74792c4608d06c1cc77c48940dd9cfbf14b483511f71b762e9c17552916c",
+    "mappings": [
+      {
+        "part_id": "afbd33c97d09cf1d7f7b1d4826b96d7af12f8f7af62f8dcf981f3d579f489afa",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Only an answer-choice fragment is provided; the root question, stem, gradable parts, and answer are unavailable, so the tested concept cannot be established.",
+        "confidence": null,
+        "bucket": null
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "attempt_id": "1791217339134363000",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "6199b277343d0f17794b1d2e66975c789723852f08d1bdb486c320a8f306f0a7",
+    "schema_generator": "pinned-identifiers-v2",
+    "seconds": 8.476,
+    "usage": [
+      {
+        "input_tokens": 51334,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 209,
+        "reasoning_output_tokens": 0
+      }
+    ],
+    "completed_at": "2026-10-05T16:22:27.610630+00:00"
+  }
+}

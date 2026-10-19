@@ -1,0 +1,332 @@
+{
+  "descriptors": [
+    {
+      "node_id": "f19c2033-91ee-407d-b7b8-889f5cbf712f",
+      "concept_name": "Best Estimate",
+      "definition": "The provision amount recognized must be the best estimate of the expenditure needed to settle the present obligation at the end of the reporting period. Management determines this by using professional judgment, historical transaction experience, and expected value probability weightings for large populations of items.",
+      "terminology": [
+        "Expected value",
+        "Probability weighting",
+        "Continuous range",
+        "Mid-point"
+      ],
+      "instrument_references": [
+        "Ind AS 37"
+      ],
+      "inclusion": [
+        "Expenditure required to settle present obligations",
+        "Probability-weighted outcomes for large populations",
+        "Mid-points of continuous outcome ranges"
+      ],
+      "exclusion": [
+        "Contingent assets",
+        "Arbitrary provisions without historical or expert support"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from generic guesswork by requiring statistical expected value models or objective management judgment."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "68b5afc2-8408-45a1-b14a-ee6a6767c219",
+      "concept_name": "Risks and Uncertainties",
+      "definition": "Risks and uncertainties surrounding events and circumstances must be factored into the best estimate of a provision. Entities can adjust for outcome variability by adding risk allowances to expected present value outflows, modifying future cash flow estimates, or altering the discount rate.",
+      "terminology": [
+        "Variability of outcome",
+        "Risk adjustment",
+        "Expected present value",
+        "Prudent basis"
+      ],
+      "instrument_references": [
+        "Ind AS 37"
+      ],
+      "inclusion": [
+        "Risk adjustments for liability uncertainty",
+        "Modifications to discount rates for specific liability risks",
+        "Disclosures concerning underlying expenditure uncertainties"
+      ],
+      "exclusion": [
+        "Deliberate overstatement of liabilities",
+        "Duplicate adjustments for the same risk and uncertainty"
+      ],
+      "nearby_distinctions": [
+        "Differs from standard expected value estimation by explicitly accounting for the variability premium that entities would pay beyond base expected flows.",
+        "source_ambiguities"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "15baf839-e3d5-4977-9eb8-f343dc7982e5",
+      "concept_name": "Present Value",
+      "definition": "When the effect of the time value of money is material, provisions must be discounted to the present value of expected settlement expenditures. The applied discount rate must be a pre-tax rate reflecting current market assessments of the time value of money and specific liability risks without duplicating cash flow adjustments.",
+      "terminology": [
+        "Time value of money",
+        "Discounted basis",
+        "Pre-tax rate",
+        "Onerous cash outflows"
+      ],
+      "instrument_references": [
+        "Ind AS 37"
+      ],
+      "inclusion": [
+        "Discounting cash flows where materiality thresholds are met",
+        "Pre-tax discount rates matching current market assessments"
+      ],
+      "exclusion": [
+        "Discounting provisions where the time value impact is immaterial",
+        "Reflecting risks in discount rates already adjusted in future cash flows"
+      ],
+      "nearby_distinctions": [
+        "Differs from undiscounted best estimates by explicitly incorporating financial discounting to account for timing differences in cash outflows."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e2406657-b348-4caa-b1f4-a31028c04927",
+      "concept_name": "Future Events",
+      "definition": "Expected future events that impact the settlement amount should be incorporated into provisions when supported by sufficient objective evidence. Anticipation of existing technology refinements or new legislation is permitted only if objective documentation confirms enactment or reliable technical evolution is virtually certain.",
+      "terminology": [
+        "Objective evidence",
+        "Technically qualified observers",
+        "Virtually certain",
+        "Cost reductions"
+      ],
+      "instrument_references": [
+        "Ind AS 37"
+      ],
+      "inclusion": [
+        "Refinements or adaptations of existing technologies backed by evidence",
+        "New legislation impacts when enactment is virtually certain"
+      ],
+      "exclusion": [
+        "Speculative creation of completely new, unproven technologies",
+        "Pending legislation without sufficient objective implementation evidence"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from pure speculation by requiring documented objective evidence or virtual certainty of enactment."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "562aa489-ae07-41fe-8115-bdc863ff7d10",
+      "concept_name": "Expected Disposal of Assets",
+      "definition": "Gains expected from the disposal of assets must be excluded from the measurement of a provision, even when closely linked to the triggering event. Such asset sale gains must be recognized separately under the specific accounting standard governing the asset category.",
+      "terminology": [
+        "Expected disposal",
+        "Closure costs",
+        "Derecognition criteria",
+        "Ind AS 16"
+      ],
+      "instrument_references": [
+        "Ind AS 37",
+        "Ind AS 16"
+      ],
+      "inclusion": [
+        "Full recognition of committed restructuring or closure liabilities",
+        "Separate asset derecognition accounting"
+      ],
+      "exclusion": [
+        "Netting expected asset sale gains against provision liabilities",
+        "Premature recognition of asset gains before standard criteria are met"
+      ],
+      "nearby_distinctions": [
+        "Separates liability measurement from asset derecognition principles, preventing premature offsets against provisions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1117e598-70f7-4069-b817-43af9c98d41a",
+      "concept_name": "Reimbursements",
+      "definition": "Expected settlement reimbursements from third parties must be recognized as a separate asset only when receipt is virtually certain upon the entity settling the obligation. The recognized reimbursement amount cannot exceed the total associated provision, though related expenses may be presented net in profit or loss.",
+      "terminology": [
+        "Virtually certain",
+        "Separate asset",
+        "Indemnity clauses",
+        "Joint and several liability"
+      ],
+      "instrument_references": [
+        "Ind AS 37"
+      ],
+      "inclusion": [
+        "Separate asset for expected third-party reimbursements",
+        "Net presentation of provision expense in profit or loss"
+      ],
+      "exclusion": [
+        "Reimbursement assets exceeding the corresponding provision liability",
+        "Recording reimbursements when receipt is merely probable"
+      ],
+      "nearby_distinctions": [
+        "Differs from contingent assets by being tied directly to an established provision where recovery is virtually certain."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "19d1b1d8-d0c7-4392-8e7b-227f0addfab2",
+      "concept_name": "CHANGES IN PROVISIONS",
+      "definition": "Provisions must be reviewed at each reporting period and adjusted to reflect current best estimates, with balances reversed if an outflow is no longer probable. When obligation amounts crystallize without uncertainty or discounting passes time, balances are reclassified to liabilities or recognized as finance costs.",
+      "terminology": [
+        "Crystallised obligation",
+        "Passage of time",
+        "Borrowing cost",
+        "Reclassification"
+      ],
+      "instrument_references": [
+        "Ind AS 37"
+      ],
+      "inclusion": [
+        "Periodic reviews of provisions at reporting dates",
+        "Reversal of provisions when outflows cease to be probable",
+        "Accretion of discount recognized as borrowing or finance cost"
+      ],
+      "exclusion": [
+        "Maintaining provisions after underlying settlement amounts are completely finalized",
+        "Omitting periodic updates to estimates"
+      ],
+      "nearby_distinctions": [
+        "Transitions provisions into standard liabilities once amounts and uncertainties are fully resolved and finalized."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "509d4a0d-e2f9-403f-9ae7-a414a85f7bed",
+      "concept_name": "USE OF PROVISIONS",
+      "definition": "Provisions must be utilized exclusively for the specific expenditures for which they were originally recognized, strictly prohibiting repurposing. Setting unrelated expenses against an established provision distorts reporting by concealing the true impact of distinct operational events.",
+      "terminology": [
+        "Repurposing",
+        "Original provision",
+        "Distinct events",
+        "Expenditure matching"
+      ],
+      "instrument_references": [
+        "Ind AS 37"
+      ],
+      "inclusion": [
+        "Application of provisions only to their designated original liabilities",
+        "Direct matching of related expenditures"
+      ],
+      "exclusion": [
+        "Repurposing existing provisions for unrelated operational expenditures",
+        "Absorbing losses from separate events into pre-existing balances"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general reserves by enforcing strict targeting to the exact liability incurred."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9666348b-a478-4ef8-bcd1-525ee53e9fd3",
+      "concept_name": "Application Of The Recognition And Measurement Rules",
+      "definition": "Provisions are governed by strict criteria preventing their recognition for future operating losses or non-onerous executory contracts. Expected operating losses instead signal potential asset impairments requiring evaluation under relevant asset impairment standards.",
+      "terminology": [
+        "Future operating losses",
+        "Impairment of assets",
+        "Ind AS 36",
+        "Executory contracts"
+      ],
+      "instrument_references": [
+        "Ind AS 37",
+        "Ind AS 36"
+      ],
+      "inclusion": [
+        "Assessment of asset impairment during anticipated operational downturns",
+        "Exclusion of un-arisen operational losses"
+      ],
+      "exclusion": [
+        "Recognition of provisions for future operating losses",
+        "Liability creation without a preceding past obligating event"
+      ],
+      "nearby_distinctions": [
+        "Differentiates general future business losses from valid present obligations arising from past events."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1625019f-cdc9-4e97-9f18-4a80129a423b",
+      "concept_name": "Future Operating Losses",
+      "definition": "Entities are strictly prohibited from recognizing provisions for future operating losses because they do not represent present obligations stemming from past events. Anticipated losses of this nature instead indicate that related operational assets may require impairment testing.",
+      "terminology": [
+        "Future operating losses",
+        "Past event",
+        "Impairment testing",
+        "Ind AS 36"
+      ],
+      "instrument_references": [
+        "Ind AS 37",
+        "Ind AS 36"
+      ],
+      "inclusion": [
+        "Impairment testing of assets under dedicated standards",
+        "Identification of operational loss indicators"
+      ],
+      "exclusion": [
+        "Provision creation for anticipated future operating losses",
+        "Including projected segment losses inside restructuring provisions"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from restructuring provisions by failing the past obligating event requirement."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2a3284aa-b8cd-4269-9daa-a5edc99939ad",
+      "concept_name": "Onerous Contracts",
+      "definition": "Contracts where unavoidable meeting costs exceed expected economic benefits are classified as onerous, requiring present obligations to be recognized as provisions. Unavoidable costs represent the least net cost of exiting the contract, determined by comparing fulfillment costs against failure penalties.",
+      "terminology": [
+        "Onerous contract",
+        "Unavoidable costs",
+        "Incremental costs",
+        "Executory contracts"
+      ],
+      "instrument_references": [
+        "Ind AS 37",
+        "Ind AS 36"
+      ],
+      "inclusion": [
+        "Provision recognition for contracts where fulfillment costs exceed benefits",
+        "Inclusion of incremental and directly attributable contract fulfillment costs",
+        "Prior asset impairment testing under Ind AS 36"
+      ],
+      "exclusion": [
+        "Non-onerous executory contracts",
+        "Contracts cancelable without financial penalty"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from routine executory contracts by the presence of net economic loss where unavoidable obligations exceed incoming benefits."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "eedd61cd-87be-412c-a378-09bcce0b33e9",
+      "concept_name": "Restructuring",
+      "definition": "Restructuring provisions require a constructive obligation established by a detailed formal plan and a valid expectation raised among affected parties through implementation start or announcement. Qualifying restructuring events include business line sales, facility closures, management changes, and fundamental operational reorganizations.",
+      "terminology": [
+        "Constructive obligation",
+        "Detailed formal plan",
+        "Valid expectation",
+        "Closure of business"
+      ],
+      "instrument_references": [
+        "Ind AS 37"
+      ],
+      "inclusion": [
+        "Provisions for sales or terminations of business lines",
+        "Closure or relocation of business locations with communicated plans"
+      ],
+      "exclusion": [
+        "Internal management decisions not communicated or acted upon before reporting dates",
+        "Future operating losses linked to restructuring groups"
+      ],
+      "nearby_distinctions": [
+        "Differs from internal management intentions by requiring outward communication or implementation to establish a constructive obligation."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "a876ae6bebba99375e0e9156ea9b85e9e23566e0f902862a63435241c4255840",
+  "artifact_id": "e2c5c019-cbd7-4a43-ab38-add3b48555d7",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 9060,
+  "output_tokens": 3480,
+  "cost_usd": 0.011418,
+  "created_at": "2026-10-03T18:02:56.693974+00:00"
+}

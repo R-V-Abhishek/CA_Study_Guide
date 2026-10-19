@@ -1,0 +1,58 @@
+{
+  "descriptors": [
+    {
+      "node_id": "495f0166-5435-414c-8602-fa1177b1b48b",
+      "concept_name": "Passively Managed Funds",
+      "definition": "Passively managed funds focus on matching an underlying index return while maintaining minimal tracking error. The fund manager oversees regulatory compliances, continuously monitors performance, and executes research-backed wealth creation strategies.",
+      "terminology": [
+        "Tracking Error",
+        "Fund Manager",
+        "Regulatory Compliances",
+        "Fundamental Analysis"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Index matching strategies",
+        "Compliance monitoring and reporting",
+        "Continuous performance evaluation"
+      ],
+      "exclusion": [
+        "Active security selection designed to beat the market benchmark"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from actively managed funds by prioritizing index tracking and low tracking error over active alpha generation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "42159d1e-2892-4bad-8075-9e33f5279ded",
+      "concept_name": "Role Of Fiis In Mutual Funds",
+      "definition": "Foreign Institutional Investors are large foreign entities that invest substantial capital into domestic equity markets and mutual funds. Their participation enhances corporate governance, increases market competition, and drives foreign currency inflows.",
+      "terminology": [
+        "Foreign Institutional Investors",
+        "Due Diligence",
+        "Corporate Governance",
+        "Foreign Exchange"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Direct mutual fund unit purchases from issuers",
+        "Stock exchange purchases via registered brokers"
+      ],
+      "exclusion": [
+        "Domestic retail investor transactions"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from domestic investors by their large foreign capital pools and rigorous due diligence standards on corporate governance."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "dfbf99574ef883c48934bdc0809a5e340ce8def156d7bc41d11ec6b25c15fba5",
+  "artifact_id": "9262d70d-22d9-4ff1-9136-3cc7ee2d5f15",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 1365,
+  "output_tokens": 500,
+  "cost_usd": 0.0016595,
+  "created_at": "2026-10-03T18:08:02.837360+00:00"
+}

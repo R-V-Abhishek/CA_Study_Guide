@@ -1,0 +1,95 @@
+{
+  "descriptors": [
+    {
+      "node_id": "78b2e8aa-3fd0-4825-9ff6-537293b9a1c7",
+      "concept_name": "Auditor Responsibilities for Subsequent Events",
+      "definition": "The auditor must perform specific procedures to identify events occurring between the financial statement date and the auditor's report date requiring adjustment or disclosure. Additionally, the auditor must appropriately respond to facts discovered after the report date that might have caused report amendment if known earlier.",
+      "terminology": [
+        "Subsequent Events",
+        "Date of the financial statements",
+        "Date of the auditor's report",
+        "Written Representation"
+      ],
+      "instrument_references": [
+        "SA 560"
+      ],
+      "inclusion": [
+        "Events occurring between financial statement date and auditor report date",
+        "Facts becoming known to the auditor after the date of the auditor's report"
+      ],
+      "exclusion": [
+        "General continuous monitoring outside the defined subsequent event review window without specific triggers"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general audit procedures performed during interim fieldwork because it specifically targets the period close to and following the financial statement date up to report issuance."
+      ],
+      "source_ambiguities": [
+        "The source text is truncated at the very end regarding facts that become known to the auditor after."
+      ]
+    },
+    {
+      "node_id": "5ee398d6-db1c-4c5b-9b23-56d1935b43e4",
+      "concept_name": "Auditor Responsibilities and Reporting on Going Concern",
+      "definition": "The auditor must obtain sufficient appropriate audit evidence regarding the appropriateness of management's use of the going concern basis of accounting and conclude whether a material uncertainty exists. Depending on disclosure adequacy and the validity of the going concern assumption, the auditor determines the specific impact on the auditor's report.",
+      "terminology": [
+        "Going Concern",
+        "Material Uncertainty",
+        "Cash Flow Forecast",
+        "Adverse Opinion",
+        "Emphasis of Matter"
+      ],
+      "instrument_references": [
+        "SA 570"
+      ],
+      "inclusion": [
+        "Evaluation of management's assessment of going concern",
+        "Analysis of cash flow forecasts and future action plans",
+        "Reporting implications for inadequate disclosures or inappropriate going concern usage"
+      ],
+      "exclusion": [
+        "Providing a guarantee regarding the entity's ability to survive indefinitely"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard unmodified reporting by requiring specific separate report sections or modified opinions when material uncertainties or inappropriate accounting bases are identified."
+      ],
+      "source_ambiguities": [
+        "The source text is truncated at the end of the section concerning delays in financial statement approval."
+      ]
+    },
+    {
+      "node_id": "6cb40abd-9da6-4cb8-87a0-96e5feef4c19",
+      "concept_name": "Auditor Responsibilities for Obtaining Written Representations",
+      "definition": "The auditor must obtain written representations from management and, where appropriate, those charged with governance to confirm fulfillment of their financial statement responsibilities and support other audit evidence. Although necessary, these representations do not provide sufficient appropriate audit evidence on their own and must be evaluated for reliability.",
+      "terminology": [
+        "Written Representations",
+        "Management Responsibility",
+        "Audit Evidence",
+        "TCWG"
+      ],
+      "instrument_references": [
+        "SA 580"
+      ],
+      "inclusion": [
+        "Obtaining written confirmation of preparation responsibilities and information completeness",
+        "Evaluating consistency of written representations with other audit evidence",
+        "Procedures when requested representations are not provided"
+      ],
+      "exclusion": [
+        "Treating written representations as standalone sufficient appropriate audit evidence for specific assertions"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from other forms of audit evidence like inspection or observation because it constitutes formal written statements from management rather than independent verification."
+      ],
+      "source_ambiguities": [
+        "The source text cuts off at the end of the discussion regarding unprovided requested written representations."
+      ]
+    }
+  ],
+  "input_hash": "6a4449bca2ad6a36344c0a4f203db0bb1b34ff07758a50f447403110cca4deba",
+  "artifact_id": "4bb2e4d1-b6a7-4a96-9323-cc16f26ebee2",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 2288,
+  "output_tokens": 1008,
+  "cost_usd": 0.0032064,
+  "created_at": "2026-10-03T18:10:10.016772+00:00"
+}

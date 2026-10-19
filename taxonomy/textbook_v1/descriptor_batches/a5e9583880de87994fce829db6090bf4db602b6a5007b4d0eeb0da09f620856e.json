@@ -1,0 +1,319 @@
+{
+  "descriptors": [
+    {
+      "node_id": "293f106a-b415-43de-a3cf-22c973a4129d",
+      "concept_name": "Contingent Liabilities",
+      "definition": "Following a business combination, an acquirer must measure recognized contingent liabilities at the higher of the amount determined under Ind AS 37 or the initially recognized amount less cumulative income recognized under Ind AS 115. This valuation persists until the liability is settled, cancelled, or expires.",
+      "terminology": [
+        "contingent liability",
+        "settled",
+        "cancelled",
+        "expires",
+        "cumulative amount of income"
+      ],
+      "instrument_references": [
+        "Ind AS 37",
+        "Ind AS 115",
+        "Ind AS 103"
+      ],
+      "inclusion": [
+        "contingent liabilities recognized in a business combination"
+      ],
+      "exclusion": [
+        "contingent consideration arrangements",
+        "indemnification assets"
+      ],
+      "nearby_distinctions": [
+        "Contingent liabilities apply subsequent measurement rules based on Ind AS 37 and Ind AS 115, whereas contingent consideration follows separate fair value or equity classification rules."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "83635b23-65b5-4aa4-915d-9515924da66d",
+      "concept_name": "Indemnification Assets",
+      "definition": "An indemnification asset recognized at the acquisition date must be measured at the end of each subsequent reporting period on the same basis as the indemnified liability or asset. This measurement remains subject to contractual limits and management assessment of collectability when fair value measurement does not apply.",
+      "terminology": [
+        "indemnification asset",
+        "subsequent reporting period",
+        "contractual limitations",
+        "collectability",
+        "derecognise"
+      ],
+      "instrument_references": [
+        "Ind AS 103"
+      ],
+      "inclusion": [
+        "indemnification assets recognized at the acquisition date"
+      ],
+      "exclusion": [
+        "contingent consideration not subject to indemnification agreements"
+      ],
+      "nearby_distinctions": [
+        "Indemnification assets are linked to the valuation basis of the specific indemnified item, unlike general contingent consideration."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9b892e0f-8f02-4dde-b217-688807101a19",
+      "concept_name": "Contingent Consideration",
+      "definition": "Changes in fair value of contingent consideration resulting from post-acquisition events are not measurement period adjustments and must be accounted for appropriately. Equity-classified contingent consideration is not remeasured, while other types are measured at fair value with changes recognized in profit or loss.",
+      "terminology": [
+        "contingent consideration",
+        "measurement period adjustments",
+        "fair value",
+        "equity-classified",
+        "profit or loss"
+      ],
+      "instrument_references": [
+        "Ind AS 109",
+        "Ind AS 103"
+      ],
+      "inclusion": [
+        "contingent consideration classified as equity",
+        "contingent consideration within or outside Ind AS 109 scope"
+      ],
+      "exclusion": [
+        "measurement period adjustments reflecting pre-acquisition conditions"
+      ],
+      "nearby_distinctions": [
+        "Post-acquisition performance milestones trigger fair value changes through profit or loss or remain within equity, whereas pre-acquisition facts adjust goodwill."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d0da23a0-cac4-4590-9648-88f715b8eacd",
+      "concept_name": "Disclosures",
+      "definition": "An acquirer must disclose comprehensive qualitative and quantitative information enabling financial statement users to evaluate the nature and financial effects of business combinations. Required disclosures include acquiree details, primary acquisition reasons, goodwill factors, and consideration breakdowns.",
+      "terminology": [
+        "disclosures",
+        "reporting period",
+        "goodwill",
+        "consideration transferred",
+        "contingent consideration arrangements"
+      ],
+      "instrument_references": [
+        "Ind AS 103"
+      ],
+      "inclusion": [
+        "business combinations occurring during the current reporting period",
+        "business combinations occurring after reporting period before approval"
+      ],
+      "exclusion": [
+        "unrelated corporate restructurings outside business combinations"
+      ],
+      "nearby_distinctions": [
+        "Disclosure requirements mandate granular breakdown of consideration classes and valuation ranges, distinct from recognition mechanics."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c1f2dfdc-068c-44a1-92d5-f5fd750dc428",
+      "concept_name": "Common Control Transactions Including Merger",
+      "definition": "Common control transactions involve combinations where all participating entities or businesses are ultimately controlled by the same party or parties both before and after the combination on a non-transitory basis. Appendix C of the standard provides specific accounting guidance for these types of corporate reorganizations.",
+      "terminology": [
+        "common control business combination",
+        "transferor",
+        "transferee",
+        "reserve",
+        "transitory control"
+      ],
+      "instrument_references": [
+        "Ind AS 103 Appendix C"
+      ],
+      "inclusion": [
+        "transfer of subsidiaries or businesses between entities within a group"
+      ],
+      "exclusion": [
+        "combinations where ultimate control is transitory or held by independent parties"
+      ],
+      "nearby_distinctions": [
+        "Common control combinations look to ultimate group control regardless of non-controlling interest levels, distinguishing them from third-party business combinations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "59739d98-0dff-4764-adbf-2b4f696c165f",
+      "concept_name": "Definitions",
+      "definition": "Core terminology for common control transactions includes transferors, transferees, specific management reserves, and business combinations under common control. These definitions establish the boundaries for identifying entities under ultimate non-transitory control by the same party or parties.",
+      "terminology": [
+        "transferor",
+        "transferee",
+        "reserve",
+        "common control business combination"
+      ],
+      "instrument_references": [
+        "Ind AS 103"
+      ],
+      "inclusion": [
+        "definitions of entities and reserves relevant to group reorganizations"
+      ],
+      "exclusion": [
+        "independent third-party acquisitions"
+      ],
+      "nearby_distinctions": [
+        "Defines specific structural entities unique to group-level transfers rather than general acquisition accounting terms."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "cdec74df-56f4-4fe3-a129-96d795cdb1ff",
+      "concept_name": "Common Control Business Combinations",
+      "definition": "Transactions where combining entities are ultimately controlled by the same party before and after the combination are treated as common control combinations when control is not transitory. Assessing whether common control is transitory requires careful judgment to prevent structuring transactions solely to bypass standard acquisition rules.",
+      "terminology": [
+        "common control business combinations",
+        "group reorganisation",
+        "transitory control",
+        "non-controlling interests"
+      ],
+      "instrument_references": [
+        "Ind AS 103"
+      ],
+      "inclusion": [
+        "internal group reorganizations and transfers of subsidiaries"
+      ],
+      "exclusion": [
+        "combinations with transitory common control designed to avoid standard acquisition accounting"
+      ],
+      "nearby_distinctions": [
+        "Varying levels of non-controlling interest do not prevent a transaction from qualifying as common control as long as ultimate parent control remains intact."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "29d89dc3-37cb-4773-a42a-98373e206507",
+      "concept_name": "Method of Accounting for Common Control Business Combinations",
+      "definition": "Business combinations under common control must be accounted for using the pooling of interest method, reflecting assets and liabilities at existing carrying amounts without recognizing new fair value adjustments. Prior period financial information is restated as if the combination occurred from the beginning of the earliest presented period.",
+      "terminology": [
+        "pooling of interest method",
+        "carrying amounts",
+        "restatement",
+        "identity of reserves",
+        "retained earnings"
+      ],
+      "instrument_references": [
+        "Ind AS 103"
+      ],
+      "inclusion": [
+        "reflection of assets and liabilities at carrying amounts",
+        "preservation of reserve identities and retained earnings aggregation"
+      ],
+      "exclusion": [
+        "acquisition method fair value recognition for assets and liabilities"
+      ],
+      "nearby_distinctions": [
+        "Prohibits recording new asset fair values or goodwill, preserving prior carrying values and reserve classifications instead."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f9424bde-f9bf-4dd5-aa75-37f7a405af1c",
+      "concept_name": "EXTRACTS FROM THE FINANCIAL STATEMENTS OF LISTED ENTITIES",
+      "definition": "Practical examples and disclosures derived from the annual financial reports of major listed entities illustrate the application of amalgamation accounting standards. These statements provide real-world references for corporate business combinations under regulatory frameworks.",
+      "terminology": [
+        "annual report",
+        "standalone financial statements",
+        "amalgamation",
+        "financial extracts"
+      ],
+      "instrument_references": [
+        "Ind AS 103"
+      ],
+      "inclusion": [
+        "published financial statement disclosures from selected listed companies"
+      ],
+      "exclusion": [
+        "hypothetical textbook illustrations"
+      ],
+      "nearby_distinctions": [
+        "Represents empirical reporting extracts from corporate annual filings rather than theoretical standard text."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "340fe73a-a1f5-4626-91a2-cd9040d6165d",
+      "concept_name": "SIGNIFICANT DIFFERENCES BETWEEN IND AS 103 AND AS 14",
+      "definition": "Ind AS 103 provides a comprehensive framework emphasizing fair value recognition for business combinations and wider scope applicability compared to older Indian GAAP standards. Unlike older rules, Ind AS 103 requires recognizing identifiable assets and assumed liabilities at acquisition-date fair values.",
+      "terminology": [
+        "Indian GAAP",
+        "pooling-of-interest method",
+        "fair values",
+        "acquisition method",
+        "goodwill"
+      ],
+      "instrument_references": [
+        "Ind AS 103",
+        "AS 14",
+        "AS 21"
+      ],
+      "inclusion": [
+        "comparative analysis between Ind AS 103 and legacy accounting standards"
+      ],
+      "exclusion": [
+        "standalone application guidance without comparative context"
+      ],
+      "nearby_distinctions": [
+        "Contrasts modern fair-value-driven business combination principles with legacy form-dependent amalgamation accounting."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4de46793-6b9f-48f0-b2fd-1cf0d654b3d4",
+      "concept_name": "CARVE OUT IN IND AS 103 FROM IFRS 3",
+      "definition": "Unlike IFRS 3 which requires recognizing bargain purchase gains in profit or loss, Ind AS 103 mandates recognizing such gains in other comprehensive income and accumulating them in equity as a capital reserve. This treatment preserves historical Indian GAAP practices regarding bargain purchases arising in business combinations.",
+      "terminology": [
+        "bargain purchase gain",
+        "other comprehensive income",
+        "capital reserve",
+        "carve out",
+        "IFRS 3"
+      ],
+      "instrument_references": [
+        "Ind AS 103",
+        "IFRS 3",
+        "Ind AS 28"
+      ],
+      "inclusion": [
+        "bargain purchase gains recognized directly in equity as capital reserve"
+      ],
+      "exclusion": [
+        "bargain purchase gains recognized as income in profit or loss under IFRS"
+      ],
+      "nearby_distinctions": [
+        "Diverges from IFRS by routing acquisition gains through equity reserves instead of the statement of profit or loss."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4542842f-08f2-423b-af48-101683152792",
+      "concept_name": "Carve-In In Ind As 103 From Ifrs 3",
+      "definition": "While IFRS 3 excludes common control business combinations from its scope, Ind AS 103 includes specific guidance via Appendix C to govern these transactions. This addition provides mandatory local rules for group reorganizations that are omitted in international standards.",
+      "terminology": [
+        "carve-in",
+        "common control",
+        "Appendix C",
+        "IFRS 3"
+      ],
+      "instrument_references": [
+        "Ind AS 103 Appendix C",
+        "IFRS 3"
+      ],
+      "inclusion": [
+        "guidance for common control business combinations within Ind AS 103"
+      ],
+      "exclusion": [
+        "scope exclusions found in international standard equivalents"
+      ],
+      "nearby_distinctions": [
+        "Incorporates domestic regulatory instructions for common control transfers where international standards remain silent."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "a5e9583880de87994fce829db6090bf4db602b6a5007b4d0eeb0da09f620856e",
+  "artifact_id": "23477958-93cb-402d-93f4-c0ba7dba2199",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 7405,
+  "output_tokens": 3430,
+  "cost_usd": 0.0107965,
+  "created_at": "2026-10-03T18:05:03.772213+00:00"
+}

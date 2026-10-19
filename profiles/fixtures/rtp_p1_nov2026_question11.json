@@ -1,0 +1,3721 @@
+{
+  "source_sha256": "f8f7aa03ddfc7b73142d19966d3e954563f5ce5ad79d50dc4f4b005f33db34f6",
+  "source_file": "data/blobs/f8/f7/f8f7aa03ddfc7b73142d19966d3e954563f5ce5ad79d50dc4f4b005f33db34f6.pdf",
+  "source_pages": [
+    14,
+    31
+  ],
+  "doc_type": "rtp",
+  "paper": "s2023.P1",
+  "fixture_scope": "complete Q11 question/answer tree with authentic QUESTIONS and SUGGESTED ANSWERS anchors; other questions omitted",
+  "review_state": "machine_expected; source pages18/19/29 visually inspected; no human approval",
+  "blocks": [
+    {
+      "block_id": "p14-b7",
+      "page": 14,
+      "bbox": [
+        158.4199981689453,
+        187.19081115722656,
+        244.91912841796875,
+        205.28836059570312
+      ],
+      "text": "QUESTIONS",
+      "size": 14.039999961853027,
+      "bold": false,
+      "font": "SegoeUIBlack",
+      "raw_text": "QUESTIONS ",
+      "origin": "pdf",
+      "order": 548,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p18-b47",
+      "page": 18,
+      "bbox": [
+        108.0199966430664,
+        659.9478149414062,
+        126.16496276855469,
+        674.1784057617188
+      ],
+      "text": "11.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "11. ",
+      "origin": "pdf",
+      "order": 751,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p18-b48",
+      "page": 18,
+      "bbox": [
+        136.82000732421875,
+        659.9478149414062,
+        506.4812316894531,
+        674.1784057617188
+      ],
+      "text": "AlphaTech Ltd., a listed company, manufactures specialised industrial",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "AlphaTech Ltd., a listed company, manufactures specialised industrial ",
+      "origin": "pdf",
+      "order": 752,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p18-b49",
+      "page": 18,
+      "bbox": [
+        136.82000732421875,
+        674.5878295898438,
+        506.295654296875,
+        688.8184204101562
+      ],
+      "text": "equipment and prepares its financial statements under Ind AS. For the",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "equipment and prepares its financial statements under Ind AS.  For the ",
+      "origin": "pdf",
+      "order": 753,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p18-b50",
+      "page": 18,
+      "bbox": [
+        338.95001220703125,
+        722.1078491210938,
+        509.456298828125,
+        736.3384399414062
+      ],
+      "text": "NOVEMBER 2026 EXAMINATION",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "NOVEMBER 2026 EXAMINATION",
+      "origin": "pdf",
+      "order": 754,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p18-b52",
+      "page": 18,
+      "bbox": [
+        108.0199966430664,
+        722.27197265625,
+        125.49200439453125,
+        737.739990234375
+      ],
+      "text": "18",
+      "size": 12.0,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "18 ",
+      "origin": "pdf",
+      "order": 755,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p19-b1",
+      "page": 19,
+      "bbox": [
+        108.62000274658203,
+        113.072021484375,
+        245.0419921875,
+        128.54002380371094
+      ],
+      "text": "REVISION TEST PAPERS",
+      "size": 12.0,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "REVISION TEST PAPERS ",
+      "origin": "pdf",
+      "order": 756,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p19-b3",
+      "page": 19,
+      "bbox": [
+        375.9100036621094,
+        121.30780792236328,
+        501.448974609375,
+        135.5383758544922
+      ],
+      "text": "FINANCIAL REPORTING",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "FINANCIAL REPORTING ",
+      "origin": "pdf",
+      "order": 757,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p19-b5",
+      "page": 19,
+      "bbox": [
+        136.82000732421875,
+        149.74781799316406,
+        506.2958068847656,
+        163.97837829589844
+      ],
+      "text": "year ended 31 March 20X5, its reported revenue before the following",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "year ended 31 March 20X5, its reported revenue before the following ",
+      "origin": "pdf",
+      "order": 758,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p19-b6",
+      "page": 19,
+      "bbox": [
+        136.82000732421875,
+        164.26783752441406,
+        510.3649597167969,
+        178.49839782714844
+      ],
+      "text": "transaction was ` 492 crore, against management's guidance of",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "transaction was ` 492 crore, against management's guidance of  ",
+      "origin": "pdf",
+      "order": 759,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p19-b7",
+      "page": 19,
+      "bbox": [
+        136.82000732421875,
+        178.90785217285156,
+        200.11495971679688,
+        193.13841247558594
+      ],
+      "text": "` 500 crore.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "Rupee",
+      "raw_text": "` 500 crore. ",
+      "origin": "pdf",
+      "order": 760,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p19-b8",
+      "page": 19,
+      "bbox": [
+        136.82000732421875,
+        198.5878448486328,
+        510.3649597167969,
+        212.8184051513672
+      ],
+      "text": "On 25 March 20X5, AlphaTech received an order of ` 30 crore from",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "On 25 March 20X5, AlphaTech received an order of ` 30 crore from  ",
+      "origin": "pdf",
+      "order": 761,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p19-b9",
+      "page": 19,
+      "bbox": [
+        136.82000732421875,
+        213.2278594970703,
+        506.340087890625,
+        227.4584197998047
+      ],
+      "text": "Beta Industries Ltd. The equipment was delivered on 28 March 20X5",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "Beta Industries Ltd.  The equipment was delivered on 28 March 20X5 ",
+      "origin": "pdf",
+      "order": 762,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p19-b10",
+      "page": 19,
+      "bbox": [
+        136.82000732421875,
+        227.86781311035156,
+        506.8861999511719,
+        242.09837341308594
+      ],
+      "text": "and management recognised the entire ` 30 crore as revenue",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "and management recognised the entire ` 30 crore as revenue ",
+      "origin": "pdf",
+      "order": 763,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p19-b11",
+      "page": 19,
+      "bbox": [
+        136.82000732421875,
+        242.50782775878906,
+        205.39495849609375,
+        256.7383728027344
+      ],
+      "text": "immediately.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "immediately. ",
+      "origin": "pdf",
+      "order": 764,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p19-b12",
+      "page": 19,
+      "bbox": [
+        136.82000732421875,
+        262.09783935546875,
+        506.4061279296875,
+        276.3283996582031
+      ],
+      "text": "CA Rohan Mehta, responsible for financial reporting, noted the",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "CA Rohan Mehta, responsible for financial reporting, noted the ",
+      "origin": "pdf",
+      "order": 765,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p19-b13",
+      "page": 19,
+      "bbox": [
+        136.82000732421875,
+        276.73779296875,
+        190.27496337890625,
+        290.9683532714844
+      ],
+      "text": "following:",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "following: ",
+      "origin": "pdf",
+      "order": 766,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p19-b14",
+      "page": 19,
+      "bbox": [
+        136.82000732421875,
+        298.3202209472656,
+        144.50888061523438,
+        310.48138427734375
+      ],
+      "text": "•",
+      "size": 9.960000038146973,
+      "bold": false,
+      "font": "SymbolMT",
+      "raw_text": "• ",
+      "origin": "pdf",
+      "order": 767,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED",
+        "FORMULA_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p19-b15",
+      "page": 19,
+      "bbox": [
+        165.6199951171875,
+        296.4178466796875,
+        506.7493591308594,
+        310.6484069824219
+      ],
+      "text": "Beta Industries had a 90-day contractual right to return the",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "Beta Industries had a 90-day contractual right to return the ",
+      "origin": "pdf",
+      "order": 768,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p19-b16",
+      "page": 19,
+      "bbox": [
+        165.6199951171875,
+        311.05780029296875,
+        466.5649719238281,
+        325.2883605957031
+      ],
+      "text": "equipment if it did not meet its production requirements.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "equipment if it did not meet its production requirements.  ",
+      "origin": "pdf",
+      "order": 769,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p19-b17",
+      "page": 19,
+      "bbox": [
+        136.82000732421875,
+        332.52020263671875,
+        144.50888061523438,
+        344.6813659667969
+      ],
+      "text": "•",
+      "size": 9.960000038146973,
+      "bold": false,
+      "font": "SymbolMT",
+      "raw_text": "• ",
+      "origin": "pdf",
+      "order": 770,
+      "region": "question",
+      "fidelity_flags": [
+        "FORMULA_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p19-b18",
+      "page": 19,
+      "bbox": [
+        165.6199951171875,
+        330.6178283691406,
+        506.46905517578125,
+        344.848388671875
+      ],
+      "text": "The equipment was highly customised and could not readily be",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "The equipment was highly customised and could not readily be ",
+      "origin": "pdf",
+      "order": 771,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p19-b19",
+      "page": 19,
+      "bbox": [
+        165.6199951171875,
+        345.2578125,
+        473.52496337890625,
+        359.4883728027344
+      ],
+      "text": "sold to another customer without substantial modification.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "sold to another customer without substantial modification.  ",
+      "origin": "pdf",
+      "order": 772,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p19-b20",
+      "page": 19,
+      "bbox": [
+        136.82000732421875,
+        366.8402099609375,
+        144.50888061523438,
+        379.0013732910156
+      ],
+      "text": "•",
+      "size": 9.960000038146973,
+      "bold": false,
+      "font": "SymbolMT",
+      "raw_text": "• ",
+      "origin": "pdf",
+      "order": 773,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED",
+        "FORMULA_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p19-b21",
+      "page": 19,
+      "bbox": [
+        165.6199951171875,
+        364.9378356933594,
+        510.3649597167969,
+        379.16839599609375
+      ],
+      "text": "Installation and acceptance testing were not completed as at",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "Installation and acceptance testing were not completed as at  ",
+      "origin": "pdf",
+      "order": 774,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p19-b22",
+      "page": 19,
+      "bbox": [
+        165.6199951171875,
+        379.57781982421875,
+        251.35496520996094,
+        393.8083801269531
+      ],
+      "text": "31 March 20X5.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "31 March 20X5.  ",
+      "origin": "pdf",
+      "order": 775,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p19-b23",
+      "page": 19,
+      "bbox": [
+        136.82000732421875,
+        401.0401916503906,
+        144.50888061523438,
+        413.20135498046875
+      ],
+      "text": "•",
+      "size": 9.960000038146973,
+      "bold": false,
+      "font": "SymbolMT",
+      "raw_text": "• ",
+      "origin": "pdf",
+      "order": 776,
+      "region": "question",
+      "fidelity_flags": [
+        "FORMULA_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p19-b24",
+      "page": 19,
+      "bbox": [
+        165.6199951171875,
+        399.1378173828125,
+        506.4247741699219,
+        413.3683776855469
+      ],
+      "text": "The sales team had separately assured Beta Industries that",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "The sales team had separately assured Beta Industries that ",
+      "origin": "pdf",
+      "order": 777,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p19-b25",
+      "page": 19,
+      "bbox": [
+        165.6199951171875,
+        413.77783203125,
+        506.40264892578125,
+        428.0083923339844
+      ],
+      "text": "AlphaTech would take back the equipment and provide a full",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "AlphaTech would take back the equipment and provide a full ",
+      "origin": "pdf",
+      "order": 778,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p19-b26",
+      "page": 19,
+      "bbox": [
+        165.6199951171875,
+        428.4178161621094,
+        506.3805847167969,
+        442.64837646484375
+      ],
+      "text": "refund if it did not perform as expected although this assurance",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "refund if it did not perform as expected although this assurance ",
+      "origin": "pdf",
+      "order": 779,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p19-b27",
+      "page": 19,
+      "bbox": [
+        165.6199951171875,
+        443.0578308105469,
+        418.5649719238281,
+        457.28839111328125
+      ],
+      "text": "was not expressly included in the main contract.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "was not expressly included in the main contract.  ",
+      "origin": "pdf",
+      "order": 780,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p19-b28",
+      "page": 19,
+      "bbox": [
+        136.82000732421875,
+        464.6601867675781,
+        144.50888061523438,
+        476.82135009765625
+      ],
+      "text": "•",
+      "size": 9.960000038146973,
+      "bold": false,
+      "font": "SymbolMT",
+      "raw_text": "• ",
+      "origin": "pdf",
+      "order": 781,
+      "region": "question",
+      "fidelity_flags": [
+        "FORMULA_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p19-b29",
+      "page": 19,
+      "bbox": [
+        165.6199951171875,
+        462.7578125,
+        506.6941833496094,
+        476.9883728027344
+      ],
+      "text": "The consideration of ` 30 crore was not received; payment was",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "The consideration of ` 30 crore was not received; payment was ",
+      "origin": "pdf",
+      "order": 782,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p19-b30",
+      "page": 19,
+      "bbox": [
+        165.6199951171875,
+        477.3978271484375,
+        442.324951171875,
+        491.6283874511719
+      ],
+      "text": "due 120 days after final acceptance by the customer.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "due 120 days after final acceptance by the customer.  ",
+      "origin": "pdf",
+      "order": 783,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p19-b31",
+      "page": 19,
+      "bbox": [
+        136.82000732421875,
+        498.8601989746094,
+        144.50888061523438,
+        511.0213623046875
+      ],
+      "text": "•",
+      "size": 9.960000038146973,
+      "bold": false,
+      "font": "SymbolMT",
+      "raw_text": "• ",
+      "origin": "pdf",
+      "order": 784,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED",
+        "FORMULA_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p19-b32",
+      "page": 19,
+      "bbox": [
+        165.6199951171875,
+        496.95782470703125,
+        506.43585205078125,
+        511.1883850097656
+      ],
+      "text": "The CFO stated that AlphaTech had historically recognised",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "The CFO stated that AlphaTech had historically recognised ",
+      "origin": "pdf",
+      "order": 785,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p19-b33",
+      "page": 19,
+      "bbox": [
+        165.6199951171875,
+        511.59783935546875,
+        507.0333557128906,
+        525.8284301757812
+      ],
+      "text": "revenue on dispatch and asked Rohan to approve the ` 30 crore",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "revenue on dispatch and asked Rohan to approve the ` 30 crore ",
+      "origin": "pdf",
+      "order": 786,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p19-b34",
+      "page": 19,
+      "bbox": [
+        165.6199951171875,
+        526.2378540039062,
+        415.0849609375,
+        540.4684448242188
+      ],
+      "text": "revenue to meet the company's revenue target.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "revenue to meet the company's revenue target.  ",
+      "origin": "pdf",
+      "order": 787,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p19-b35",
+      "page": 19,
+      "bbox": [
+        136.82000732421875,
+        545.9177856445312,
+        506.4169921875,
+        560.1483764648438
+      ],
+      "text": "On 15 April 20X5, Beta Industries informed AlphaTech that the",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "On 15 April 20X5, Beta Industries informed AlphaTech that the ",
+      "origin": "pdf",
+      "order": 788,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p19-b36",
+      "page": 19,
+      "bbox": [
+        136.82000732421875,
+        560.5578002929688,
+        506.37298583984375,
+        574.7883911132812
+      ],
+      "text": "equipment had failed acceptance testing and exercised its right to",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "equipment had failed acceptance testing and exercised its right to ",
+      "origin": "pdf",
+      "order": 789,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p19-b37",
+      "page": 19,
+      "bbox": [
+        136.82000732421875,
+        575.1978149414062,
+        429.6049499511719,
+        589.4284057617188
+      ],
+      "text": "return it. The equipment was returned on 25 April 20X5.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "return it.  The equipment was returned on 25 April 20X5. ",
+      "origin": "pdf",
+      "order": 790,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p19-b38",
+      "page": 19,
+      "bbox": [
+        136.82000732421875,
+        594.7578125,
+        510.3649597167969,
+        608.9884033203125
+      ],
+      "text": "The CFO instructed Rohan not to reconsider the financial year",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "The CFO instructed Rohan not to reconsider the financial year  ",
+      "origin": "pdf",
+      "order": 791,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p19-b39",
+      "page": 19,
+      "bbox": [
+        136.82000732421875,
+        609.3978271484375,
+        506.48638916015625,
+        623.62841796875
+      ],
+      "text": "20X4-20X5 revenue, stating that the return occurred in the next",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "20X4-20X5 revenue, stating that the return occurred in the next ",
+      "origin": "pdf",
+      "order": 792,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p19-b40",
+      "page": 19,
+      "bbox": [
+        136.82000732421875,
+        624.037841796875,
+        210.43496704101562,
+        638.2684326171875
+      ],
+      "text": "financial year.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "financial year. ",
+      "origin": "pdf",
+      "order": 793,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p19-b41",
+      "page": 19,
+      "bbox": [
+        136.82000732421875,
+        643.747802734375,
+        188.7149658203125,
+        657.9783935546875
+      ],
+      "text": "Required:",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "Required: ",
+      "origin": "pdf",
+      "order": 794,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p19-b42",
+      "page": 19,
+      "bbox": [
+        136.82000732421875,
+        664.267822265625,
+        152.9691162109375,
+        678.4984130859375
+      ],
+      "text": "(a)",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "(a) ",
+      "origin": "pdf",
+      "order": 795,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p19-b43",
+      "page": 19,
+      "bbox": [
+        165.6199951171875,
+        664.267822265625,
+        507.0318603515625,
+        678.4984130859375
+      ],
+      "text": "Whether the ` 30 crore revenue should be recognised in financial",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "Whether the ` 30 crore revenue should be recognised in financial ",
+      "origin": "pdf",
+      "order": 796,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p19-b44",
+      "page": 19,
+      "bbox": [
+        165.6199951171875,
+        678.9078369140625,
+        260.594970703125,
+        693.138427734375
+      ],
+      "text": "year 20X4-20X5?;",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "year 20X4-20X5?;  ",
+      "origin": "pdf",
+      "order": 797,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p19-b46",
+      "page": 19,
+      "bbox": [
+        333.7900085449219,
+        716.1078491210938,
+        504.2962951660156,
+        730.3384399414062
+      ],
+      "text": "NOVEMBER 2026 EXAMINATION",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "NOVEMBER 2026 EXAMINATION",
+      "origin": "pdf",
+      "order": 798,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p19-b47",
+      "page": 19,
+      "bbox": [
+        114.26000213623047,
+        716.8720092773438,
+        131.73199462890625,
+        732.3400268554688
+      ],
+      "text": "19",
+      "size": 12.0,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "19 ",
+      "origin": "pdf",
+      "order": 799,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p20-b1",
+      "page": 20,
+      "bbox": [
+        103.22000122070312,
+        112.83197021484375,
+        232.9219970703125,
+        128.2999725341797
+      ],
+      "text": "REVISION TEST PAPER",
+      "size": 12.0,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "REVISION TEST PAPER ",
+      "origin": "pdf",
+      "order": 800,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p20-b2",
+      "page": 20,
+      "bbox": [
+        103.81999969482422,
+        112.83197021484375,
+        240.2419891357422,
+        128.2999725341797
+      ],
+      "text": "REVISION TEST PAPERS",
+      "size": 12.0,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "REVISION TEST PAPERS ",
+      "origin": "pdf",
+      "order": 801,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p20-b4",
+      "page": 20,
+      "bbox": [
+        388.0299987792969,
+        120.27197265625,
+        503.81201171875,
+        135.73997497558594
+      ],
+      "text": "FINAL EXAMINATION",
+      "size": 12.0,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "FINAL EXAMINATION ",
+      "origin": "pdf",
+      "order": 802,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p20-b6",
+      "page": 20,
+      "bbox": [
+        136.82000732421875,
+        154.1878204345703,
+        153.9291229248047,
+        168.4183807373047
+      ],
+      "text": "(b)",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "(b) ",
+      "origin": "pdf",
+      "order": 803,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p20-b7",
+      "page": 20,
+      "bbox": [
+        165.6199951171875,
+        154.1878204345703,
+        506.4027099609375,
+        168.4183807373047
+      ],
+      "text": "How the subsequent failure of acceptance testing and return of",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "How the subsequent failure of acceptance testing and return of ",
+      "origin": "pdf",
+      "order": 804,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p20-b8",
+      "page": 20,
+      "bbox": [
+        165.6199951171875,
+        168.8278350830078,
+        388.77496337890625,
+        183.0583953857422
+      ],
+      "text": "the equipment should be considered? and",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "the equipment should be considered? and  ",
+      "origin": "pdf",
+      "order": 805,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p20-b9",
+      "page": 20,
+      "bbox": [
+        136.82000732421875,
+        189.4678497314453,
+        152.48912048339844,
+        203.6984100341797
+      ],
+      "text": "(c)",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "(c) ",
+      "origin": "pdf",
+      "order": 806,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p20-b10",
+      "page": 20,
+      "bbox": [
+        165.6199951171875,
+        189.4678497314453,
+        448.5649719238281,
+        203.6984100341797
+      ],
+      "text": "What should CA Rohan do in the given circumstances?",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "What should CA Rohan do in the given circumstances? ",
+      "origin": "pdf",
+      "order": 807,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p20-b11",
+      "page": 20,
+      "bbox": [
+        136.82000732421875,
+        210.1078643798828,
+        153.9291229248047,
+        224.3384246826172
+      ],
+      "text": "(d)",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "(d) ",
+      "origin": "pdf",
+      "order": 808,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p20-b12",
+      "page": 20,
+      "bbox": [
+        165.6199951171875,
+        210.1078643798828,
+        506.8179626464844,
+        224.3384246826172
+      ],
+      "text": "What would be the consequences of failure by CA. Rohan to",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "What would be the consequences of failure by CA. Rohan to ",
+      "origin": "pdf",
+      "order": 809,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p20-b13",
+      "page": 20,
+      "bbox": [
+        165.6199951171875,
+        224.74781799316406,
+        378.6949768066406,
+        238.97837829589844
+      ],
+      "text": "discharge his professional responsibility?",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "discharge his professional responsibility? ",
+      "origin": "pdf",
+      "order": 810,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p28-b36",
+      "page": 28,
+      "bbox": [
+        162.86000061035156,
+        529.4808349609375,
+        326.65911865234375,
+        547.5784301757812
+      ],
+      "text": "SUGGESTED ANSWERS",
+      "size": 14.039999961853027,
+      "bold": false,
+      "font": "SegoeUIBlack",
+      "raw_text": "SUGGESTED ANSWERS ",
+      "origin": "pdf",
+      "order": 1221,
+      "region": "question",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p29-b5",
+      "page": 29,
+      "bbox": [
+        108.0199966430664,
+        149.74781799316406,
+        127.62704467773438,
+        163.97837829589844
+      ],
+      "text": "11.",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "11. ",
+      "origin": "pdf",
+      "order": 1247,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p29-b6",
+      "page": 29,
+      "bbox": [
+        136.82000732421875,
+        149.74781799316406,
+        154.86705017089844,
+        163.97837829589844
+      ],
+      "text": "(a)",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "(a) ",
+      "origin": "pdf",
+      "order": 1248,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p29-b7",
+      "page": 29,
+      "bbox": [
+        165.6199951171875,
+        149.74781799316406,
+        506.4244689941406,
+        163.97837829589844
+      ],
+      "text": "Correct Accounting treatment under Ind AS 115 ‘Revenue",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "Correct Accounting treatment under Ind AS 115 ‘Revenue ",
+      "origin": "pdf",
+      "order": 1249,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p29-b8",
+      "page": 29,
+      "bbox": [
+        165.6199951171875,
+        164.38783264160156,
+        341.9970397949219,
+        178.61839294433594
+      ],
+      "text": "from Contracts with Customers’",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "from Contracts with Customers’ ",
+      "origin": "pdf",
+      "order": 1250,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p29-b9",
+      "page": 29,
+      "bbox": [
+        165.6199951171875,
+        184.90785217285156,
+        506.4028625488281,
+        199.13841247558594
+      ],
+      "text": "Under Ind AS 115, revenue is recognised when, or as, a",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "Under Ind AS 115, revenue is recognised when, or as, a ",
+      "origin": "pdf",
+      "order": 1251,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p29-b10",
+      "page": 29,
+      "bbox": [
+        165.6199951171875,
+        199.54786682128906,
+        506.380615234375,
+        213.77842712402344
+      ],
+      "text": "performance obligation is satisfied by transferring control of the",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "performance obligation is satisfied by transferring control of the ",
+      "origin": "pdf",
+      "order": 1252,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p29-b11",
+      "page": 29,
+      "bbox": [
+        165.6199951171875,
+        214.1878204345703,
+        506.3589172363281,
+        228.4183807373047
+      ],
+      "text": "promised goods or service to the customer. Accordingly, physical",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "promised goods or service to the customer.  Accordingly, physical ",
+      "origin": "pdf",
+      "order": 1253,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p29-b12",
+      "page": 29,
+      "bbox": [
+        165.6199951171875,
+        228.8278350830078,
+        506.4468994140625,
+        243.0583953857422
+      ],
+      "text": "delivery or dispatch alone does not necessarily establish that",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "delivery or dispatch alone does not necessarily establish that ",
+      "origin": "pdf",
+      "order": 1254,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p29-b13",
+      "page": 29,
+      "bbox": [
+        165.6199951171875,
+        243.4678497314453,
+        329.2549743652344,
+        257.6983947753906
+      ],
+      "text": "revenue should be recognised.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "revenue should be recognised.  ",
+      "origin": "pdf",
+      "order": 1255,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p29-b14",
+      "page": 29,
+      "bbox": [
+        165.6199951171875,
+        264.1378173828125,
+        444.2449645996094,
+        278.3683776855469
+      ],
+      "text": "In the present case, the following factors are relevant:",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "In the present case, the following factors are relevant: ",
+      "origin": "pdf",
+      "order": 1256,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p29-b15",
+      "page": 29,
+      "bbox": [
+        165.6199951171875,
+        285.94317626953125,
+        176.57887268066406,
+        298.7816162109375
+      ],
+      "text": "1.",
+      "size": 9.960000038146973,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "1. ",
+      "origin": "pdf",
+      "order": 1257,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p29-b16",
+      "page": 29,
+      "bbox": [
+        194.4499969482422,
+        284.77783203125,
+        510.3649597167969,
+        299.0083923339844
+      ],
+      "text": "Acceptance testing: Testing had not been completed by",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "Acceptance testing: Testing had not been completed by  ",
+      "origin": "pdf",
+      "order": 1258,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p29-b17",
+      "page": 29,
+      "bbox": [
+        194.4499969482422,
+        299.4178466796875,
+        506.4736328125,
+        313.6484069824219
+      ],
+      "text": "31 March 20X5. If the acceptance condition is substantive",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "31 March 20X5.  If the acceptance condition is substantive ",
+      "origin": "pdf",
+      "order": 1259,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p29-b18",
+      "page": 29,
+      "bbox": [
+        194.4499969482422,
+        314.05780029296875,
+        506.55078125,
+        328.2883605957031
+      ],
+      "text": "and control cannot be considered to have transferred",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "and control cannot be considered to have transferred ",
+      "origin": "pdf",
+      "order": 1260,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p29-b19",
+      "page": 29,
+      "bbox": [
+        194.4499969482422,
+        328.69781494140625,
+        500.28497314453125,
+        342.9283752441406
+      ],
+      "text": "before successful acceptance, revenue should be deferred.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "before successful acceptance, revenue should be deferred.  ",
+      "origin": "pdf",
+      "order": 1261,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p29-b20",
+      "page": 29,
+      "bbox": [
+        165.6199951171875,
+        350.503173828125,
+        176.57887268066406,
+        363.34161376953125
+      ],
+      "text": "2.",
+      "size": 9.960000038146973,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "2. ",
+      "origin": "pdf",
+      "order": 1262,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p29-b21",
+      "page": 29,
+      "bbox": [
+        194.4499969482422,
+        349.33782958984375,
+        506.6586608886719,
+        363.5683898925781
+      ],
+      "text": "Right of return: Beta Industries had a contractual right to",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "Right of return: Beta Industries had a contractual right to ",
+      "origin": "pdf",
+      "order": 1263,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p29-b22",
+      "page": 29,
+      "bbox": [
+        194.4499969482422,
+        363.9778137207031,
+        506.4515686035156,
+        378.2083740234375
+      ],
+      "text": "return the equipment. Accordingly, if control had otherwise",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "return the equipment.  Accordingly, if control had otherwise ",
+      "origin": "pdf",
+      "order": 1264,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p29-b23",
+      "page": 29,
+      "bbox": [
+        194.4499969482422,
+        378.4978332519531,
+        506.495849609375,
+        392.7283935546875
+      ],
+      "text": "transferred, AlphaTech would recognise revenue only to the",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "transferred, AlphaTech would recognise revenue only to the ",
+      "origin": "pdf",
+      "order": 1265,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p29-b24",
+      "page": 29,
+      "bbox": [
+        194.4499969482422,
+        393.1378173828125,
+        506.4626159667969,
+        407.3683776855469
+      ],
+      "text": "extent to which it expects to be entitled, together with a",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "extent to which it expects to be entitled, together with a ",
+      "origin": "pdf",
+      "order": 1266,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p29-b25",
+      "page": 29,
+      "bbox": [
+        194.4499969482422,
+        407.77783203125,
+        506.4956359863281,
+        422.0083923339844
+      ],
+      "text": "refund liability and an asset for its right to recover the",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "refund liability and an asset for its right to recover the ",
+      "origin": "pdf",
+      "order": 1267,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p29-b26",
+      "page": 29,
+      "bbox": [
+        194.4499969482422,
+        422.4178161621094,
+        316.41497802734375,
+        436.64837646484375
+      ],
+      "text": "product, as applicable.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "product, as applicable.  ",
+      "origin": "pdf",
+      "order": 1268,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p29-b27",
+      "page": 29,
+      "bbox": [
+        165.6199951171875,
+        444.2231750488281,
+        176.57887268066406,
+        457.0616149902344
+      ],
+      "text": "3.",
+      "size": 9.960000038146973,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "3. ",
+      "origin": "pdf",
+      "order": 1269,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p29-b28",
+      "page": 29,
+      "bbox": [
+        194.4499969482422,
+        443.0578308105469,
+        506.6780700683594,
+        457.28839111328125
+      ],
+      "text": "Other terms: The equipment was highly customised,",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "Other terms: The equipment was highly customised, ",
+      "origin": "pdf",
+      "order": 1270,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p29-b29",
+      "page": 29,
+      "bbox": [
+        194.4499969482422,
+        457.71783447265625,
+        506.5177001953125,
+        471.9483947753906
+      ],
+      "text": "payment was conditional upon final acceptance, and the",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "payment was conditional upon final acceptance, and the ",
+      "origin": "pdf",
+      "order": 1271,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p29-b30",
+      "page": 29,
+      "bbox": [
+        194.4499969482422,
+        472.3578186035156,
+        506.4073486328125,
+        486.58837890625
+      ],
+      "text": "sales team had assured the customer of a full refund. These",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "sales team had assured the customer of a full refund.  These ",
+      "origin": "pdf",
+      "order": 1272,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p29-b31",
+      "page": 29,
+      "bbox": [
+        194.4499969482422,
+        486.9978332519531,
+        506.5397644042969,
+        501.2283935546875
+      ],
+      "text": "facts are relevant in determining the substance of the",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "facts are relevant in determining the substance of the ",
+      "origin": "pdf",
+      "order": 1273,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p29-b32",
+      "page": 29,
+      "bbox": [
+        194.4499969482422,
+        501.6378173828125,
+        458.76495361328125,
+        515.868408203125
+      ],
+      "text": "arrangement and whether control had transferred.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "arrangement and whether control had transferred.  ",
+      "origin": "pdf",
+      "order": 1274,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p29-b33",
+      "page": 29,
+      "bbox": [
+        165.6199951171875,
+        522.27783203125,
+        507.0362243652344,
+        536.5084228515625
+      ],
+      "text": "Therefore, AlphaTech cannot recognise the entire ` 30 crore",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "Therefore, AlphaTech cannot recognise the entire ` 30 crore ",
+      "origin": "pdf",
+      "order": 1275,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p29-b34",
+      "page": 29,
+      "bbox": [
+        165.6199951171875,
+        536.9177856445312,
+        203.24432373046875,
+        551.1483764648438
+      ],
+      "text": "merely",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "merely ",
+      "origin": "pdf",
+      "order": 1276,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p29-b35",
+      "page": 29,
+      "bbox": [
+        217.1326446533203,
+        536.9177856445312,
+        261.712158203125,
+        551.1483764648438
+      ],
+      "text": "because",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "because ",
+      "origin": "pdf",
+      "order": 1277,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p29-b36",
+      "page": 29,
+      "bbox": [
+        275.6004638671875,
+        536.9177856445312,
+        295.15228271484375,
+        551.1483764648438
+      ],
+      "text": "the",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "the ",
+      "origin": "pdf",
+      "order": 1278,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p29-b37",
+      "page": 29,
+      "bbox": [
+        309.04058837890625,
+        536.9177856445312,
+        367.530517578125,
+        551.1483764648438
+      ],
+      "text": "equipment",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "equipment ",
+      "origin": "pdf",
+      "order": 1279,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p29-b38",
+      "page": 29,
+      "bbox": [
+        381.2973937988281,
+        536.9177856445312,
+        403.3774108886719,
+        551.1483764648438
+      ],
+      "text": "was",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "was ",
+      "origin": "pdf",
+      "order": 1280,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p29-b39",
+      "page": 29,
+      "bbox": [
+        417.2657470703125,
+        536.9177856445312,
+        476.4732971191406,
+        551.1483764648438
+      ],
+      "text": "dispatched",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "dispatched ",
+      "origin": "pdf",
+      "order": 1281,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p29-b40",
+      "page": 29,
+      "bbox": [
+        490.24017333984375,
+        536.9177856445312,
+        510.3649597167969,
+        551.1483764648438
+      ],
+      "text": "on",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "on  ",
+      "origin": "pdf",
+      "order": 1282,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p29-b41",
+      "page": 29,
+      "bbox": [
+        165.6199951171875,
+        551.5578002929688,
+        506.4138488769531,
+        565.7883911132812
+      ],
+      "text": "28 March 20X5. It must first establish whether control had",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "28 March 20X5.  It must first establish whether control had ",
+      "origin": "pdf",
+      "order": 1283,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p29-b42",
+      "page": 29,
+      "bbox": [
+        165.6199951171875,
+        566.1978149414062,
+        507.0702209472656,
+        580.4284057617188
+      ],
+      "text": "transferred by 31 March 20X5 and apply the right-of-return",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "transferred by 31 March 20X5 and apply the right-of-return ",
+      "origin": "pdf",
+      "order": 1284,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p29-b43",
+      "page": 29,
+      "bbox": [
+        165.6199951171875,
+        580.8378295898438,
+        311.9749755859375,
+        595.0684204101562
+      ],
+      "text": "requirements, as applicable.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "requirements, as applicable. ",
+      "origin": "pdf",
+      "order": 1285,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p29-b44",
+      "page": 29,
+      "bbox": [
+        136.82000732421875,
+        601.3578491210938,
+        155.70704650878906,
+        615.5884399414062
+      ],
+      "text": "(b)",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "(b) ",
+      "origin": "pdf",
+      "order": 1286,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p29-b45",
+      "page": 29,
+      "bbox": [
+        165.6199951171875,
+        601.3578491210938,
+        452.3070373535156,
+        615.5884399414062
+      ],
+      "text": "Subsequent failure of acceptance testing and return",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "Subsequent failure of acceptance testing and return ",
+      "origin": "pdf",
+      "order": 1287,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p29-b46",
+      "page": 29,
+      "bbox": [
+        165.6199951171875,
+        621.997802734375,
+        506.4247131347656,
+        636.2283935546875
+      ],
+      "text": "The fact that Beta Industries failed the acceptance test shortly",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "The fact that Beta Industries failed the acceptance test shortly ",
+      "origin": "pdf",
+      "order": 1288,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p29-b47",
+      "page": 29,
+      "bbox": [
+        165.6199951171875,
+        636.6677856445312,
+        460.324951171875,
+        650.8983764648438
+      ],
+      "text": "after year-end and returned the equipment is significant.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "after year-end and returned the equipment is significant. ",
+      "origin": "pdf",
+      "order": 1289,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p29-b48",
+      "page": 29,
+      "bbox": [
+        165.6199951171875,
+        657.3078002929688,
+        262.7549743652344,
+        671.5383911132812
+      ],
+      "text": "At 31 March 20X5:",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "At 31 March 20X5: ",
+      "origin": "pdf",
+      "order": 1290,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p29-b49",
+      "page": 29,
+      "bbox": [
+        165.6199951171875,
+        679.1131591796875,
+        176.57887268066406,
+        691.9515991210938
+      ],
+      "text": "1.",
+      "size": 9.960000038146973,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "1. ",
+      "origin": "pdf",
+      "order": 1291,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p29-b50",
+      "page": 29,
+      "bbox": [
+        194.4499969482422,
+        677.9478149414062,
+        367.65496826171875,
+        692.1784057617188
+      ],
+      "text": "acceptance testing was pending;",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "acceptance testing was pending;  ",
+      "origin": "pdf",
+      "order": 1292,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p29-b52",
+      "page": 29,
+      "bbox": [
+        333.7900085449219,
+        716.1078491210938,
+        504.2962951660156,
+        730.3384399414062
+      ],
+      "text": "NOVEMBER 2026 EXAMINATION",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "NOVEMBER 2026 EXAMINATION",
+      "origin": "pdf",
+      "order": 1293,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p29-b53",
+      "page": 29,
+      "bbox": [
+        114.26000213623047,
+        716.8720092773438,
+        131.73199462890625,
+        732.3400268554688
+      ],
+      "text": "29",
+      "size": 12.0,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "29 ",
+      "origin": "pdf",
+      "order": 1294,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p30-b1",
+      "page": 30,
+      "bbox": [
+        103.22000122070312,
+        112.83197021484375,
+        232.9219970703125,
+        128.2999725341797
+      ],
+      "text": "REVISION TEST PAPER",
+      "size": 12.0,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "REVISION TEST PAPER ",
+      "origin": "pdf",
+      "order": 1295,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p30-b2",
+      "page": 30,
+      "bbox": [
+        103.81999969482422,
+        112.83197021484375,
+        240.2419891357422,
+        128.2999725341797
+      ],
+      "text": "REVISION TEST PAPERS",
+      "size": 12.0,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "REVISION TEST PAPERS ",
+      "origin": "pdf",
+      "order": 1296,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p30-b4",
+      "page": 30,
+      "bbox": [
+        388.0299987792969,
+        120.27197265625,
+        503.81201171875,
+        135.73997497558594
+      ],
+      "text": "FINAL EXAMINATION",
+      "size": 12.0,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "FINAL EXAMINATION ",
+      "origin": "pdf",
+      "order": 1297,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p30-b6",
+      "page": 30,
+      "bbox": [
+        165.6199951171875,
+        155.35313415527344,
+        176.57887268066406,
+        168.1915740966797
+      ],
+      "text": "2.",
+      "size": 9.960000038146973,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "2. ",
+      "origin": "pdf",
+      "order": 1298,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p30-b7",
+      "page": 30,
+      "bbox": [
+        194.4499969482422,
+        154.1878204345703,
+        480.3649597167969,
+        168.4183807373047
+      ],
+      "text": "the customer already had a contractual right of return;",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "the customer already had a contractual right of return;  ",
+      "origin": "pdf",
+      "order": 1299,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p30-b8",
+      "page": 30,
+      "bbox": [
+        165.6199951171875,
+        175.99314880371094,
+        176.57887268066406,
+        188.8315887451172
+      ],
+      "text": "3.",
+      "size": 9.960000038146973,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "3. ",
+      "origin": "pdf",
+      "order": 1300,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p30-b9",
+      "page": 30,
+      "bbox": [
+        194.4499969482422,
+        174.8278350830078,
+        469.9249572753906,
+        189.0583953857422
+      ],
+      "text": "payment was conditional upon final acceptance; and",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "payment was conditional upon final acceptance; and  ",
+      "origin": "pdf",
+      "order": 1301,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p30-b10",
+      "page": 30,
+      "bbox": [
+        165.6199951171875,
+        196.63316345214844,
+        176.57887268066406,
+        209.4716033935547
+      ],
+      "text": "4.",
+      "size": 9.960000038146973,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "4. ",
+      "origin": "pdf",
+      "order": 1302,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p30-b11",
+      "page": 30,
+      "bbox": [
+        194.4499969482422,
+        195.4678497314453,
+        506.5287170410156,
+        209.6984100341797
+      ],
+      "text": "the equipment had not successfully passed acceptance",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "the equipment had not successfully passed acceptance ",
+      "origin": "pdf",
+      "order": 1303,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p30-b12",
+      "page": 30,
+      "bbox": [
+        194.4499969482422,
+        210.1078643798828,
+        238.87496948242188,
+        224.3384246826172
+      ],
+      "text": "testing.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "testing.  ",
+      "origin": "pdf",
+      "order": 1304,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p30-b13",
+      "page": 30,
+      "bbox": [
+        165.6199951171875,
+        230.74781799316406,
+        506.4910888671875,
+        244.97837829589844
+      ],
+      "text": "Accordingly, the subsequent failure may provide additional",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "Accordingly, the subsequent failure may provide additional ",
+      "origin": "pdf",
+      "order": 1305,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p30-b14",
+      "page": 30,
+      "bbox": [
+        165.6199951171875,
+        245.38783264160156,
+        506.43585205078125,
+        259.6183776855469
+      ],
+      "text": "evidence about conditions existing at the reporting date, rather",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "evidence about conditions existing at the reporting date, rather ",
+      "origin": "pdf",
+      "order": 1306,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p30-b15",
+      "page": 30,
+      "bbox": [
+        165.6199951171875,
+        260.02783203125,
+        506.391845703125,
+        274.2583923339844
+      ],
+      "text": "than representing an entirely new condition arising in Financial",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "than representing an entirely new condition arising in Financial ",
+      "origin": "pdf",
+      "order": 1307,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p30-b16",
+      "page": 30,
+      "bbox": [
+        165.6199951171875,
+        274.69781494140625,
+        252.7949676513672,
+        288.9283752441406
+      ],
+      "text": "Year 20X5-20X6.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "Year 20X5-20X6. ",
+      "origin": "pdf",
+      "order": 1308,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p30-b17",
+      "page": 30,
+      "bbox": [
+        165.6199951171875,
+        295.21783447265625,
+        506.4469909667969,
+        309.4483947753906
+      ],
+      "text": "Therefore, the return cannot simply be ignored on the ground",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "Therefore, the return cannot simply be ignored on the ground ",
+      "origin": "pdf",
+      "order": 1309,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p30-b18",
+      "page": 30,
+      "bbox": [
+        165.6199951171875,
+        309.85784912109375,
+        506.9006042480469,
+        324.0884094238281
+      ],
+      "text": "that it physically occurred after year-end. It should be",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "that it physically occurred after year-end.  It should be ",
+      "origin": "pdf",
+      "order": 1310,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p30-b19",
+      "page": 30,
+      "bbox": [
+        165.6199951171875,
+        324.4978332519531,
+        225.07041931152344,
+        338.7283935546875
+      ],
+      "text": "considered",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "considered ",
+      "origin": "pdf",
+      "order": 1311,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p30-b20",
+      "page": 30,
+      "bbox": [
+        233.9134521484375,
+        324.4978332519531,
+        246.52113342285156,
+        338.7283935546875
+      ],
+      "text": "in",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "in ",
+      "origin": "pdf",
+      "order": 1312,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p30-b21",
+      "page": 30,
+      "bbox": [
+        255.36416625976562,
+        324.4978332519531,
+        320.919677734375,
+        338.7283935546875
+      ],
+      "text": "determining",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "determining ",
+      "origin": "pdf",
+      "order": 1313,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p30-b22",
+      "page": 30,
+      "bbox": [
+        329.7627258300781,
+        324.4978332519531,
+        374.3422546386719,
+        338.7283935546875
+      ],
+      "text": "whether",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "whether ",
+      "origin": "pdf",
+      "order": 1314,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p30-b23",
+      "page": 30,
+      "bbox": [
+        383.3067321777344,
+        324.4978332519531,
+        402.8585510253906,
+        338.7283935546875
+      ],
+      "text": "the",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "the ",
+      "origin": "pdf",
+      "order": 1315,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p30-b24",
+      "page": 30,
+      "bbox": [
+        411.8230285644531,
+        324.4978332519531,
+        453.896484375,
+        338.7283935546875
+      ],
+      "text": "original",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "original ",
+      "origin": "pdf",
+      "order": 1316,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p30-b25",
+      "page": 30,
+      "bbox": [
+        462.7395324707031,
+        324.4978332519531,
+        506.47998046875,
+        338.7283935546875
+      ],
+      "text": "revenue",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "revenue ",
+      "origin": "pdf",
+      "order": 1317,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p30-b26",
+      "page": 30,
+      "bbox": [
+        165.6199951171875,
+        339.1378173828125,
+        461.76495361328125,
+        353.3683776855469
+      ],
+      "text": "recognition in Financial Year 20X4-20X5 was appropriate.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "recognition in Financial Year 20X4-20X5 was appropriate. ",
+      "origin": "pdf",
+      "order": 1318,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p30-b27",
+      "page": 30,
+      "bbox": [
+        136.82000732421875,
+        359.77783203125,
+        154.1470489501953,
+        374.0083923339844
+      ],
+      "text": "(c)",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "(c) ",
+      "origin": "pdf",
+      "order": 1319,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p30-b28",
+      "page": 30,
+      "bbox": [
+        165.6199951171875,
+        359.77783203125,
+        316.7970275878906,
+        374.0083923339844
+      ],
+      "text": "Responsibility of CA Rohan",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "Responsibility of CA Rohan ",
+      "origin": "pdf",
+      "order": 1320,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p30-b29",
+      "page": 30,
+      "bbox": [
+        165.6199951171875,
+        380.4178161621094,
+        506.7883605957031,
+        394.64837646484375
+      ],
+      "text": "Rohan should not approve the `30 crore revenue merely to",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "Rohan should not approve the `30 crore revenue merely to ",
+      "origin": "pdf",
+      "order": 1321,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p30-b30",
+      "page": 30,
+      "bbox": [
+        165.6199951171875,
+        395.0578308105469,
+        506.42474365234375,
+        409.28839111328125
+      ],
+      "text": "enable AlphaTech to achieve its revenue target. Management's",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "enable AlphaTech to achieve its revenue target.  Management's ",
+      "origin": "pdf",
+      "order": 1322,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p30-b31",
+      "page": 30,
+      "bbox": [
+        165.6199951171875,
+        409.69781494140625,
+        458.16497802734375,
+        423.9283752441406
+      ],
+      "text": "revenue target is not a criterion for revenue recognition.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "revenue target is not a criterion for revenue recognition. ",
+      "origin": "pdf",
+      "order": 1323,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p30-b32",
+      "page": 30,
+      "bbox": [
+        165.6199951171875,
+        430.33782958984375,
+        223.39495849609375,
+        444.5683898925781
+      ],
+      "text": "He should:",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "He should: ",
+      "origin": "pdf",
+      "order": 1324,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p30-b33",
+      "page": 30,
+      "bbox": [
+        165.6199951171875,
+        452.1631774902344,
+        176.57887268066406,
+        465.0016174316406
+      ],
+      "text": "1.",
+      "size": 9.960000038146973,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "1. ",
+      "origin": "pdf",
+      "order": 1325,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p30-b34",
+      "page": 30,
+      "bbox": [
+        194.4499969482422,
+        450.9978332519531,
+        506.50653076171875,
+        465.2283935546875
+      ],
+      "text": "apply Ind AS 115 based on the facts and substance of the",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "apply Ind AS 115 based on the facts and substance of the ",
+      "origin": "pdf",
+      "order": 1326,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p30-b35",
+      "page": 30,
+      "bbox": [
+        194.4499969482422,
+        465.6378173828125,
+        260.594970703125,
+        479.8683776855469
+      ],
+      "text": "transaction;",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "transaction;  ",
+      "origin": "pdf",
+      "order": 1327,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p30-b36",
+      "page": 30,
+      "bbox": [
+        165.6199951171875,
+        487.44317626953125,
+        176.57887268066406,
+        500.2816162109375
+      ],
+      "text": "2.",
+      "size": 9.960000038146973,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "2. ",
+      "origin": "pdf",
+      "order": 1328,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p30-b37",
+      "page": 30,
+      "bbox": [
+        194.4499969482422,
+        486.27783203125,
+        506.4847412109375,
+        500.5083923339844
+      ],
+      "text": "exercise professional integrity, objectivity and professional",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "exercise professional integrity, objectivity and professional ",
+      "origin": "pdf",
+      "order": 1329,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p30-b38",
+      "page": 30,
+      "bbox": [
+        194.4499969482422,
+        500.91778564453125,
+        258.9149475097656,
+        515.1483764648438
+      ],
+      "text": "judgement;",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "judgement;  ",
+      "origin": "pdf",
+      "order": 1330,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p30-b39",
+      "page": 30,
+      "bbox": [
+        165.6199951171875,
+        522.6031494140625,
+        176.57887268066406,
+        535.4415893554688
+      ],
+      "text": "3.",
+      "size": 9.960000038146973,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "3. ",
+      "origin": "pdf",
+      "order": 1331,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p30-b40",
+      "page": 30,
+      "bbox": [
+        194.4499969482422,
+        521.4378051757812,
+        506.56182861328125,
+        535.6683959960938
+      ],
+      "text": "explain to management why the proposed accounting",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "explain to management why the proposed accounting ",
+      "origin": "pdf",
+      "order": 1332,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p30-b41",
+      "page": 30,
+      "bbox": [
+        194.4499969482422,
+        536.0778198242188,
+        401.64495849609375,
+        550.3084106445312
+      ],
+      "text": "treatment may not comply with Ind AS;",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "treatment may not comply with Ind AS;  ",
+      "origin": "pdf",
+      "order": 1333,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p30-b42",
+      "page": 30,
+      "bbox": [
+        165.6199951171875,
+        557.8831787109375,
+        176.57887268066406,
+        570.7216186523438
+      ],
+      "text": "4.",
+      "size": 9.960000038146973,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "4. ",
+      "origin": "pdf",
+      "order": 1334,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p30-b43",
+      "page": 30,
+      "bbox": [
+        194.4499969482422,
+        556.7178344726562,
+        492.844970703125,
+        570.9484252929688
+      ],
+      "text": "document his assessment and the relevant evidence; and",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "document his assessment and the relevant evidence; and  ",
+      "origin": "pdf",
+      "order": 1335,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p30-b44",
+      "page": 30,
+      "bbox": [
+        165.6199951171875,
+        578.523193359375,
+        176.57887268066406,
+        591.3616333007812
+      ],
+      "text": "5.",
+      "size": 9.960000038146973,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "5. ",
+      "origin": "pdf",
+      "order": 1336,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p30-b45",
+      "page": 30,
+      "bbox": [
+        194.4499969482422,
+        577.3578491210938,
+        506.50665283203125,
+        591.5884399414062
+      ],
+      "text": "if management refuses to make an appropriate adjustment,",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "if management refuses to make an appropriate adjustment, ",
+      "origin": "pdf",
+      "order": 1337,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p30-b46",
+      "page": 30,
+      "bbox": [
+        194.4499969482422,
+        591.997802734375,
+        506.52874755859375,
+        606.2283935546875
+      ],
+      "text": "escalate the matter to the Audit Committee or those",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "escalate the matter to the Audit Committee or those ",
+      "origin": "pdf",
+      "order": 1338,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p30-b47",
+      "page": 30,
+      "bbox": [
+        194.4499969482422,
+        606.6378173828125,
+        413.52496337890625,
+        620.868408203125
+      ],
+      "text": "charged with governance, as appropriate.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "charged with governance, as appropriate.  ",
+      "origin": "pdf",
+      "order": 1339,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p30-b48",
+      "page": 30,
+      "bbox": [
+        165.6199951171875,
+        627.27783203125,
+        506.39166259765625,
+        641.5084228515625
+      ],
+      "text": "Rohan should not allow management pressure or revenue targets",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "Rohan should not allow management pressure or revenue targets ",
+      "origin": "pdf",
+      "order": 1340,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p30-b49",
+      "page": 30,
+      "bbox": [
+        165.6199951171875,
+        641.9478149414062,
+        506.3917236328125,
+        656.1784057617188
+      ],
+      "text": "to override the requirements of Ind AS 115 and his professional",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "to override the requirements of Ind AS 115 and his professional ",
+      "origin": "pdf",
+      "order": 1341,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p30-b50",
+      "page": 30,
+      "bbox": [
+        165.6199951171875,
+        656.5878295898438,
+        248.11495971679688,
+        670.8184204101562
+      ],
+      "text": "responsibilities.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "responsibilities. ",
+      "origin": "pdf",
+      "order": 1342,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p30-b51",
+      "page": 30,
+      "bbox": [
+        338.95001220703125,
+        722.1078491210938,
+        509.456298828125,
+        736.3384399414062
+      ],
+      "text": "NOVEMBER 2026 EXAMINATION",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "NOVEMBER 2026 EXAMINATION",
+      "origin": "pdf",
+      "order": 1343,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p30-b53",
+      "page": 30,
+      "bbox": [
+        108.0199966430664,
+        722.27197265625,
+        125.49200439453125,
+        737.739990234375
+      ],
+      "text": "30",
+      "size": 12.0,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "30 ",
+      "origin": "pdf",
+      "order": 1344,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p31-b1",
+      "page": 31,
+      "bbox": [
+        108.62000274658203,
+        113.072021484375,
+        245.0419921875,
+        128.54002380371094
+      ],
+      "text": "REVISION TEST PAPERS",
+      "size": 12.0,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "REVISION TEST PAPERS ",
+      "origin": "pdf",
+      "order": 1345,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p31-b3",
+      "page": 31,
+      "bbox": [
+        375.9100036621094,
+        121.30780792236328,
+        501.448974609375,
+        135.5383758544922
+      ],
+      "text": "FINANCIAL REPORTING",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "FINANCIAL REPORTING ",
+      "origin": "pdf",
+      "order": 1346,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p31-b5",
+      "page": 31,
+      "bbox": [
+        136.82000732421875,
+        149.74781799316406,
+        155.70704650878906,
+        163.97837829589844
+      ],
+      "text": "(d)",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "(d) ",
+      "origin": "pdf",
+      "order": 1347,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p31-b6",
+      "page": 31,
+      "bbox": [
+        165.6199951171875,
+        149.74781799316406,
+        245.295654296875,
+        163.97837829589844
+      ],
+      "text": "Consequences",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "Consequences ",
+      "origin": "pdf",
+      "order": 1348,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p31-b7",
+      "page": 31,
+      "bbox": [
+        259.04046630859375,
+        149.74781799316406,
+        273.5801696777344,
+        163.97837829589844
+      ],
+      "text": "of",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "of ",
+      "origin": "pdf",
+      "order": 1349,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p31-b8",
+      "page": 31,
+      "bbox": [
+        287.2035217285156,
+        149.74781799316406,
+        325.6778564453125,
+        163.97837829589844
+      ],
+      "text": "failure",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "failure ",
+      "origin": "pdf",
+      "order": 1350,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p31-b9",
+      "page": 31,
+      "bbox": [
+        339.30120849609375,
+        149.74781799316406,
+        353.96234130859375,
+        163.97837829589844
+      ],
+      "text": "to",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "to ",
+      "origin": "pdf",
+      "order": 1351,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p31-b10",
+      "page": 31,
+      "bbox": [
+        367.585693359375,
+        149.74781799316406,
+        423.0837707519531,
+        163.97837829589844
+      ],
+      "text": "discharge",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "discharge ",
+      "origin": "pdf",
+      "order": 1352,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p31-b11",
+      "page": 31,
+      "bbox": [
+        436.7071228027344,
+        149.74781799316406,
+        506.4246826171875,
+        163.97837829589844
+      ],
+      "text": "professional",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "professional ",
+      "origin": "pdf",
+      "order": 1353,
+      "region": "answer",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "block_id": "p31-b12",
+      "page": 31,
+      "bbox": [
+        165.6199951171875,
+        164.38783264160156,
+        245.97703552246094,
+        178.61839294433594
+      ],
+      "text": "responsibility:",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "SegoeUI-Bold",
+      "raw_text": "responsibility: ",
+      "origin": "pdf",
+      "order": 1354,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p31-b13",
+      "page": 31,
+      "bbox": [
+        165.6199951171875,
+        184.90785217285156,
+        506.4578857421875,
+        199.13841247558594
+      ],
+      "text": "In case CA Rohan succumbs to the undue influence of the CFO",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "In case CA Rohan succumbs to the undue influence of the CFO ",
+      "origin": "pdf",
+      "order": 1355,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p31-b14",
+      "page": 31,
+      "bbox": [
+        165.6199951171875,
+        199.54786682128906,
+        506.5130310058594,
+        213.77842712402344
+      ],
+      "text": "and knowingly approves an accounting treatment that is not in",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "and knowingly approves an accounting treatment that is not in ",
+      "origin": "pdf",
+      "order": 1356,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p31-b15",
+      "page": 31,
+      "bbox": [
+        165.6199951171875,
+        214.1878204345703,
+        506.4469909667969,
+        228.4183807373047
+      ],
+      "text": "accordance with Ind AS, he may be liable for professional",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "accordance with Ind AS, he may be liable for professional ",
+      "origin": "pdf",
+      "order": 1357,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p31-b16",
+      "page": 31,
+      "bbox": [
+        165.6199951171875,
+        228.8278350830078,
+        506.3697204589844,
+        243.0583953857422
+      ],
+      "text": "misconduct under Clause 1 of Part II of the Second Schedule to",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "misconduct under Clause 1 of Part II of the Second Schedule to ",
+      "origin": "pdf",
+      "order": 1358,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p31-b17",
+      "page": 31,
+      "bbox": [
+        165.6199951171875,
+        243.4678497314453,
+        506.3475341796875,
+        257.6983947753906
+      ],
+      "text": "the Chartered Accountants Act, 1949. The Clause 1 states that a",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "the Chartered Accountants Act, 1949.  The Clause 1 states that a ",
+      "origin": "pdf",
+      "order": 1359,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p31-b18",
+      "page": 31,
+      "bbox": [
+        165.6199951171875,
+        258.10784912109375,
+        506.4139099121094,
+        272.3384094238281
+      ],
+      "text": "member of the Institute, whether in practice or not, shall be",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "member of the Institute, whether in practice or not, shall be ",
+      "origin": "pdf",
+      "order": 1360,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p31-b19",
+      "page": 31,
+      "bbox": [
+        165.6199951171875,
+        272.77783203125,
+        506.391845703125,
+        287.0083923339844
+      ],
+      "text": "deemed to be guilty of professional misconduct, for contravening",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "deemed to be guilty of professional misconduct, for contravening ",
+      "origin": "pdf",
+      "order": 1361,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p31-b20",
+      "page": 31,
+      "bbox": [
+        165.6199951171875,
+        287.4178466796875,
+        506.358642578125,
+        301.6484069824219
+      ],
+      "text": "the provisions of this Act or the regulations made thereunder or",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "the provisions of this Act or the regulations made thereunder or ",
+      "origin": "pdf",
+      "order": 1362,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p31-b21",
+      "page": 31,
+      "bbox": [
+        165.6199951171875,
+        302.05780029296875,
+        506.4469299316406,
+        316.2883605957031
+      ],
+      "text": "any guidelines issued by the Council. As per the Guidelines",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "any guidelines issued by the Council.  As per the Guidelines ",
+      "origin": "pdf",
+      "order": 1363,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p31-b22",
+      "page": 31,
+      "bbox": [
+        165.6199951171875,
+        316.69781494140625,
+        506.4470520019531,
+        330.9283752441406
+      ],
+      "text": "issued by the Council, a member of the Institute who is an",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "issued by the Council, a member of the Institute who is an ",
+      "origin": "pdf",
+      "order": 1364,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p31-b23",
+      "page": 31,
+      "bbox": [
+        165.6199951171875,
+        331.33782958984375,
+        506.42498779296875,
+        345.5683898925781
+      ],
+      "text": "employee shall exercise due diligence and shall not be grossly",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "employee shall exercise due diligence and shall not be grossly ",
+      "origin": "pdf",
+      "order": 1365,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p31-b24",
+      "page": 31,
+      "bbox": [
+        165.6199951171875,
+        345.9778137207031,
+        363.6949768066406,
+        360.2083740234375
+      ],
+      "text": "negligent in the conduct of his duties.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "negligent in the conduct of his duties. ",
+      "origin": "pdf",
+      "order": 1366,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p31-b25",
+      "page": 31,
+      "bbox": [
+        136.82000732421875,
+        366.4978332519531,
+        506.3509521484375,
+        380.7283935546875
+      ],
+      "text": "Accordingly, Rohan must exercise due care and professional judgment",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "Accordingly, Rohan must exercise due care and professional judgment ",
+      "origin": "pdf",
+      "order": 1367,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p31-b26",
+      "page": 31,
+      "bbox": [
+        136.82000732421875,
+        381.1378173828125,
+        506.4059753417969,
+        395.3683776855469
+      ],
+      "text": "and should not allow management pressure or undue influence to",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "and should not allow management pressure or undue influence to ",
+      "origin": "pdf",
+      "order": 1368,
+      "region": "answer",
+      "fidelity_flags": []
+    },
+    {
+      "block_id": "p31-b27",
+      "page": 31,
+      "bbox": [
+        136.82000732421875,
+        395.77783203125,
+        348.6949768066406,
+        410.0083923339844
+      ],
+      "text": "override his professional responsibilities.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "SegoeUI",
+      "raw_text": "override his professional responsibilities. ",
+      "origin": "pdf",
+      "order": 1369,
+      "region": "answer",
+      "fidelity_flags": []
+    }
+  ],
+  "expected_tree": [
+    {
+      "label_path": "Q11",
+      "question_text_sha256": "8345c1e3ab827a5d838ebfeb79b949d04e5010c8b3a03ae1d58a79b9486e7653",
+      "answer_text_sha256": "5bc524c305ccad938fddf68f69a6c86dcb48f4725e4fbc5c1adc6948dcd8a368",
+      "mcq_options": 0,
+      "mcq_key": null,
+      "children": [
+        {
+          "label_path": "Q11.a",
+          "question_text_sha256": "d242d6dc2cfb39c813912c2dc73df8906deef843804bae84188e01db27dbce33",
+          "answer_text_sha256": "c95b1df6ce11c21224086df771971972afcc49e3874ecd0013b3491ff37cc951",
+          "mcq_options": 0,
+          "mcq_key": null,
+          "children": []
+        },
+        {
+          "label_path": "Q11.b",
+          "question_text_sha256": "05659204a6a66107c3c76667c16af1cd0d50767f76f684f76cb7c8c9c15ea136",
+          "answer_text_sha256": "5838f22d651860af436918816b4a7075821831e305d297bccb0ca94b147b2e17",
+          "mcq_options": 0,
+          "mcq_key": null,
+          "children": []
+        },
+        {
+          "label_path": "Q11.c",
+          "question_text_sha256": "e16f31bdfb5885673c6747952968daf2e7e3668109f6058c5a67189a41242ca7",
+          "answer_text_sha256": "53e4f46382390f8779501546add82ce7cfbe436dac8f7a67c9932a59237c017e",
+          "mcq_options": 0,
+          "mcq_key": null,
+          "children": []
+        },
+        {
+          "label_path": "Q11.d",
+          "question_text_sha256": "3e0420afe4b036038cb820113e7dc715b2987588a3e88ebfa3836117bb506568",
+          "answer_text_sha256": "551beedff14cce7dbbf2b5c6490682d70fbdbc3431a4b47009cd4ad919a79836",
+          "mcq_options": 0,
+          "mcq_key": null,
+          "children": []
+        }
+      ]
+    }
+  ]
+}

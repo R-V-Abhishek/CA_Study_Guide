@@ -1,0 +1,327 @@
+{
+  "descriptors": [
+    {
+      "node_id": "f54e9f7b-0cb2-4360-aabd-aed08c3bfae4",
+      "concept_name": "Valuation Of Equity Shares",
+      "definition": "Equity valuation determines the intrinsic value of an ordinary share by discounting expected future cash streams at the required rate of return. Analysts employ dividend-based, earning-based, and cash flow-based models depending on payout policies and growth patterns.",
+      "terminology": [
+        "Cost of Equity",
+        "Dividend Discount Model",
+        "Holding Period",
+        "Ex-dividend Price"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Dividend based valuation models",
+        "Holding period valuations",
+        "Growth models including zero, constant, and variable growth"
+      ],
+      "exclusion": [
+        "Fixed income debt instruments",
+        "Preference share valuation",
+        "Enterprise value calculations"
+      ],
+      "nearby_distinctions": [
+        "Distinct from debt security valuation by utilizing equity cost of return and variable cash flows.",
+        "Differs from preference share valuation due to absence of fixed cumulative dividend obligations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "849293f9-d9e6-4787-8809-b383c40fe020",
+      "concept_name": "Dividend Based Models",
+      "definition": "Dividend-based models estimate equity share value by discounting anticipated annual dividend streams using the investor's required rate of return. They rely on specific assumptions regarding payment timing and ex-dividend pricing under varying growth patterns.",
+      "terminology": [
+        "Gordon Growth Model",
+        "Constant Growth",
+        "Zero Growth",
+        "Variable Growth"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "One-year holding period valuation",
+        "Infinite multi-holding period dividend discounting",
+        "Gordon growth formulations"
+      ],
+      "exclusion": [
+        "Earnings-based multiplier models",
+        "Free cash flow to firm techniques",
+        "Retained earnings reinvestment returns"
+      ],
+      "nearby_distinctions": [
+        "Focuses directly on distributed cash dividends rather than total firm earnings or cash flows.",
+        "Differs from earning-based approaches that account for undistributed retained profits."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c28a1cfb-83b8-4994-9a30-ce3ba9d17aea",
+      "concept_name": "Earning Based Models",
+      "definition": "Earning-based models value equity shares by focusing on corporate earnings or retained earnings reinvestment rates rather than distributed cash dividends. These approaches incorporate retention ratios, returns on equity, and price-earnings multiples to derive share value.",
+      "terminology": [
+        "Gordon Model",
+        "Walter's Approach",
+        "Price Earning Ratio",
+        "Retention Ratio",
+        "Earnings Per Share"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Gordon model utilizing retention ratios",
+        "Walter's approach formulas",
+        "PE ratio multiplier valuation"
+      ],
+      "exclusion": [
+        "Direct dividend discounting models",
+        "Firm-wide debt discounting metrics",
+        "Enterprise value summation"
+      ],
+      "nearby_distinctions": [
+        "Prioritizes earnings capacity and reinvestment growth instead of immediate cash distributions.",
+        "Distinguished from dividend models by incorporating earnings retention factors directly into the valuation formula."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "db113c9a-efc3-462d-9068-f4622d952c9c",
+      "concept_name": "Cash Flow Based Models",
+      "definition": "Free cash flow valuation models determine security or firm value by discounting cash streams available after fulfilling long-term capital expenditures and working capital requirements. They separate valuations into firm-wide perspectives using overall cost of capital and equity-specific perspectives using cost of equity.",
+      "terminology": [
+        "Free Cash Flow to Firm",
+        "Free Cash Flow to Equity",
+        "Capital Expenditure",
+        "Net Working Capital"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "FCFF calculation methodologies",
+        "FCFE integration",
+        "Adjustments for non-cash working capital and capex"
+      ],
+      "exclusion": [
+        "Simple dividend distribution models",
+        "Nominal earnings per share capitalization",
+        "Book value asset valuations"
+      ],
+      "nearby_distinctions": [
+        "Accounts for reinvestment needs like capex and working capital unlike standard dividend discount models.",
+        "Distinguishes between total firm claim valuation via FCFF and equity claim valuation via FCFE."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "27eee5e8-82c1-41e4-94f6-b23baef29ed4",
+      "concept_name": "Dividend Discount Model versus Free Cash Flow to Equity Model",
+      "definition": "This comparative evaluation contrasts models based on distributed cash dividends against models using cash available after meeting all reinvestment needs. Using free cash flow to equity provides a superior valuation measure when healthy cash balances are retained instead of being paid out as dividends.",
+      "terminology": [
+        "Dividend Payout Ratio",
+        "Intrinsic Value",
+        "Reinvestment Needs",
+        "Fair Value"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Comparative assessment of DDM and FCFE",
+        "Impact of low payout ratios on stock valuation",
+        "Inclusion of incremental working capital and capex"
+      ],
+      "exclusion": [
+        "Free Cash Flow to Firm calculations",
+        "Debt-weighted enterprise value metrics"
+      ],
+      "nearby_distinctions": [
+        "DDM relies strictly on actual cash distributed as dividends while FCFE evaluates total cash available after capital reinvestment.",
+        "Prevents stock undervaluation caused by low dividend payout policies through cash flow adjustment."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "72d3f509-1b08-4e15-970c-148063b8e828",
+      "concept_name": "Enterprise Value",
+      "definition": "Enterprise value represents the true economic value of a business by combining market capitalization, debt, and minority interest while subtracting cash equivalents and non-operating assets. It measures the company as a whole and is categorized into total, operating, and core enterprise values.",
+      "terminology": [
+        "Market Capitalization",
+        "Minority Interest",
+        "Operating Enterprise Value",
+        "Core Enterprise Value",
+        "Enterprise Multiples"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Calculation using market cap, debt, and minority interest less cash",
+        "Deduction of non-operating and non-core assets",
+        "Enterprise value multiples such as EV to sales and EV to EBITDA"
+      ],
+      "exclusion": [
+        "Standalone equity valuation multiples",
+        "Pure dividend discount models"
+      ],
+      "nearby_distinctions": [
+        "Considers claims of all claimholders on cash flows rather than focusing solely on equity claims.",
+        "Less affected by the firm's specific capital structure compared to equity multiples."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "78a8edf8-6c14-422a-802c-4fbe4c896637",
+      "concept_name": "Valuation of Rights",
+      "definition": "Rights valuation determines the theoretical ex-right price and the per-share value of a rights offering made to existing shareholders. It incorporates pre-issue share prices, subscription amounts, and the number of existing and new shares.",
+      "terminology": [
+        "Theoretical Ex-Right Price",
+        "Subscription Price",
+        "Ex-Right Price",
+        "Subscription Amount"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "TERP computational formulas",
+        "Per-shareholding theoretical value computation"
+      ],
+      "exclusion": [
+        "General secondary market equity valuations",
+        "Bond valuation models"
+      ],
+      "nearby_distinctions": [
+        "Specific to corporate actions involving discounted share offerings to current equity holders.",
+        "Differs from standard equity models by explicitly factoring in the capital injection and share dilution from new issues."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "205806e6-fb15-4606-8d92-515d6c7d3497",
+      "concept_name": "VALUATION OF PREFERENCE SHARES",
+      "definition": "Preference share valuation computes the present value of expected future dividend payments and maturity redemption amounts discounted at the required return on preference shares. Non-redeemable preference shares are valued as perpetual instruments, whereas redeemable variants factor in explicit finite maturities.",
+      "terminology": [
+        "Redeemable Preference Share",
+        "Irredeemable Preference Share",
+        "Stated Dividend Rate",
+        "Maturity Value"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Present value formula for redeemable preference shares",
+        "Perpetuity valuation formula for irredeemable preference shares"
+      ],
+      "exclusion": [
+        "Ordinary equity share valuation models",
+        "Enterprise value computations"
+      ],
+      "nearby_distinctions": [
+        "Combines fixed dividend streams with a specified maturity redemption value similar to debt instruments.",
+        "Differs from equity shares due to predetermined dividend rates and priority claims over ordinary shareholders."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2407c3f3-307b-4f87-bf53-8e520bbd620c",
+      "concept_name": "Valuation Of Debentures And Bonds",
+      "definition": "Bond valuation calculates the intrinsic worth of a debt security by discounting its periodic coupon interest payments and principal repayment at the prevailing yield to maturity. It encompasses foundational bond attributes, pricing theorems, semi-annual compounding adjustments, and price-yield dynamics.",
+      "terminology": [
+        "Par Value",
+        "Coupon Rate",
+        "Yield to Maturity",
+        "Bullet Redemption",
+        "Discount Factor"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Bond valuation mathematical models",
+        "Semi-annual interest compounding formulas",
+        "Bond value theorems and price-yield relationships"
+      ],
+      "exclusion": [
+        "Equity dividend discount models",
+        "Free cash flow frameworks",
+        "Enterprise value multiples"
+      ],
+      "nearby_distinctions": [
+        "Applies contractual fixed cash flow obligations rather than variable earnings or dividends.",
+        "Differs from equity valuation by anchoring prices to a fixed par value at maturity."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e11bc1fa-8e27-4e7a-89fb-6c1a0cb14da9",
+      "concept_name": "Some Basics Of A Bond",
+      "definition": "Basic bond characteristics establish the fundamental parameters required for fixed-income security valuation and analysis. These elements outline face values, periodic coupon payment schedules, total maturity durations, and bullet redemption structures.",
+      "terminology": [
+        "Par Value",
+        "Coupon Rate",
+        "Maturity Period",
+        "Bullet Redemption"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Par value definitions",
+        "Coupon frequency specifications",
+        "Redemption structures"
+      ],
+      "exclusion": [
+        "Complex bond pricing equations",
+        "Yield to maturity derivations"
+      ],
+      "nearby_distinctions": [
+        "Defines structural contract terms rather than valuation pricing computations.",
+        "Provides foundational inputs required for executing comprehensive bond valuation models."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9a266cb3-678d-41ae-8b59-f068398c1e45",
+      "concept_name": "Bond Valuation Model",
+      "definition": "The bond valuation model computes the theoretical price of a bond by discounting future annual coupon payments and the principal redemption amount at the required yield to maturity. It utilizes present value annuity and single-sum discounting factors.",
+      "terminology": [
+        "Yield to Maturity",
+        "PVIFA",
+        "PVIF",
+        "Annual Interest"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Summation formulas using present value factors",
+        "Discounting annual coupon flows and maturity principal"
+      ],
+      "exclusion": [
+        "Semi-annual compounding adjustments",
+        "Equity dividend growth models"
+      ],
+      "nearby_distinctions": [
+        "Focuses on annual cash flow discounting equations rather than semi-annual adjustments.",
+        "Directly equates bond price to discounted contractual debt obligations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c9593a0c-9375-4ea7-adb6-5aadb536ad35",
+      "concept_name": "Bond Value Theorems",
+      "definition": "Bond value theorems describe the inverse relationship between bond prices, required rates of return, and maturity durations under varying market conditions. They dictate whether a bond trades at par, discount, or premium relative to its coupon rate.",
+      "terminology": [
+        "Coupon Rate",
+        "Discount",
+        "Premium",
+        "Maturity Sensitivity"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Par, discount, and premium price rules based on YTM comparisons",
+        "Maturity length sensitivity principles"
+      ],
+      "exclusion": [
+        "Equity share valuation theorems",
+        "Cash flow generation models"
+      ],
+      "nearby_distinctions": [
+        "Provides qualitative and directional rules for price movements rather than exact pricing equations.",
+        "Connects yield disparities directly to market pricing position without requiring full cash flow recalculation."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "f78c8027c6e987a71a8935e9b815f103bc0d87433f73a43c6485f908a888edc1",
+  "artifact_id": "4d109d7a-fd35-43ed-877a-d0a02ff5822e",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 9131,
+  "output_tokens": 3453,
+  "cost_usd": 0.0113718,
+  "created_at": "2026-10-03T18:06:57.640968+00:00"
+}

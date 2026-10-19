@@ -4,11 +4,15 @@
   "private": true,
   "scripts": {
     "dev": "turbo dev",
-    "build": "turbo build",
+    "build": "node scripts/build.mjs",
     "lint": "turbo lint",
-    "type-check": "turbo type-check"
+    "type-check": "turbo type-check && pnpm type-check:browser",
+    "type-check:browser": "pnpm --filter student exec tsc -p ../../tsconfig.browser.json",
+    "test:browser": "playwright test",
+    "test:ui": "node --test tests/ui/*.test.cjs"
   },
   "devDependencies": {
+    "@playwright/test": "^1.63.0",
     "turbo": "^2.4.4"
   },
   "packageManager": "pnpm@12.6.0"

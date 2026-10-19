@@ -1,0 +1,62 @@
+{
+  "descriptors": [
+    {
+      "node_id": "18d367b6-5cc6-4e45-8d9d-4604498d1e34",
+      "concept_name": "Interest Rate Risk",
+      "definition": "Interest rate risk arises from macro-level monetary policies, economic growth indicators, and capital market fluctuations. It reflects the vulnerability of financial positions to shifts in benchmark lending and borrowing rates driven by government and market actions.",
+      "terminology": [
+        "Monetary Policy",
+        "Economic Growth",
+        "Industrial Data",
+        "Stock Market Changes"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Government monetary policy actions",
+        "Economic growth data releases",
+        "Foreign investment flows and stock market changes"
+      ],
+      "exclusion": [
+        "Foreign exchange rate fluctuations",
+        "Direct operational credit defaults"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from currency risk by focusing on borrowing costs and yield changes rather than exchange rate parity variations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "041f9835-9726-4b74-8200-42f3b548f9c1",
+      "concept_name": "Currency Risk",
+      "definition": "Currency risk represents the potential for adverse exchange rate movements driven by geopolitical events, macroeconomic differentials, and government policy shifts. It is evaluated through parameters such as nominal interest rate parity, inflation differentials, and external shocks like natural disasters or political instability.",
+      "terminology": [
+        "Nominal Interest Rate",
+        "Inflation Rate",
+        "Purchasing Power Parity",
+        "Government Action"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Government policy decisions and regime changes",
+        "Nominal interest rate differentials via interest rate parity",
+        "Inflation rate variations via purchasing power parity",
+        "External shocks including war, coup, and natural calamities"
+      ],
+      "exclusion": [
+        "Domestic interest rate yield curve shifts unaccompanied by foreign exchange exposure",
+        "Domestic market equity price movements"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from domestic interest rate risk by specifically evaluating cross-border exchange rate vulnerabilities and parity theories."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "61068c20cf8e934b0d1445a171abb4c48b030416c3d2b371aa4048c516f74fec",
+  "artifact_id": "f96af2e9-9dd3-49ec-b3b8-c355bcba1aff",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 1203,
+  "output_tokens": 570,
+  "cost_usd": 0.0017859,
+  "created_at": "2026-10-03T18:06:04.037715+00:00"
+}

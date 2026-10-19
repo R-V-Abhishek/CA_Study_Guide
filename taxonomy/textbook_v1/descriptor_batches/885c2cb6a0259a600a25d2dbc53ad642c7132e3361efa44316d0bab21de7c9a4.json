@@ -1,0 +1,342 @@
+{
+  "descriptors": [
+    {
+      "node_id": "7d1cece2-59f7-40bc-8343-99b487a9832d",
+      "concept_name": "Appearance By Registered Valuers [Section 287A]",
+      "definition": "Taxpayers are permitted to appear through a registered valuer before any income tax authority or the Appellate Tribunal regarding asset valuation matters. This representation right excludes personal attendance mandates required under section 131 for examination on oath or affirmation.",
+      "terminology": [
+        "Registered valuer",
+        "Valuation",
+        "Appellate Tribunal"
+      ],
+      "instrument_references": [
+        "Section 287A",
+        "Section 131",
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Representation before tax authorities for asset valuation",
+        "Representation before the Appellate Tribunal for valuation matters"
+      ],
+      "exclusion": [
+        "Personal attendance ordered under section 131 for examination on oath or affirmation"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general authorized representation under section 288 by being specifically restricted to valuation proceedings."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ff280a15-7f01-4c64-bc64-71ca6685d8e0",
+      "concept_name": "Appearance By Authorised Representative [Section 288]",
+      "definition": "Assessees may attend proceedings before income tax authorities or the Appellate Tribunal through a written authorized representative. Eligible representatives include relatives, regular employees, scheduled bank officers, legal practitioners, and qualified chartered accountants meeting specific independence criteria.",
+      "terminology": [
+        "Authorised representative",
+        "Accountant",
+        "Legal practitioner"
+      ],
+      "instrument_references": [
+        "Section 288",
+        "Section 131",
+        "Income-tax Act, 1961",
+        "Chartered Accountants Act, 1949",
+        "Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Written authorization for legal and financial representation",
+        "Qualified accountants and legal practitioners acting on behalf of assessees"
+      ],
+      "exclusion": [
+        "Personal attendance required under section 131",
+        "Auditor-disqualified individuals acting as company accountants"
+      ],
+      "nearby_distinctions": [
+        "Unlike registered valuers who focus solely on valuation, authorized representatives can handle general proceedings under the Act."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d05ac352-210f-4f25-a9ba-1d0249973a6f",
+      "concept_name": "Power To Tender Immunity From Prosecution [Section 291]",
+      "definition": "The Central Government can grant immunity from prosecution and penalties if deemed necessary in the public interest to obtain direct or indirect evidence of income concealment or tax evasion. Non-compliance with conditions or willful concealment allows the government to withdraw the immunity and initiate trial or penalties.",
+      "terminology": [
+        "Immunity",
+        "Prosecution",
+        "Concealment of income",
+        "Penalty"
+      ],
+      "instrument_references": [
+        "Section 291",
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Grants of immunity from prosecution and penalties by the Central Government",
+        "Withdrawal of immunity upon breach of conditions or false evidence"
+      ],
+      "exclusion": [
+        "Situations where conditions of immunity are fully met without concealment"
+      ],
+      "nearby_distinctions": [
+        "Differs from general appeals and dispute resolution mechanisms as it is a discretionary executive power specifically tied to securing cooperative evidence."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "57ac2b32-1f33-4a75-a5c7-35db40d4102c",
+      "concept_name": "Cognizance Of Offences And Bar Of Suits In Civil Courts [Sections 292 And 293]",
+      "definition": "Offences under the Act can only be tried by a Presidency Magistrate or a Magistrate of the first class. Civil courts are barred from entertaining suits to set aside or modify proceedings or orders, and protection is granted to government officers for actions taken in good faith.",
+      "terminology": [
+        "Cognizance",
+        "Magistrate of the first class",
+        "Civil Court",
+        "Good faith"
+      ],
+      "instrument_references": [
+        "Section 292",
+        "Section 293",
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Jurisdiction restrictions for criminal trials under the Act",
+        "Immunity from civil suits and legal protection for official acts done in good faith"
+      ],
+      "exclusion": [
+        "Trials by courts inferior to a first-class magistrate",
+        "Proceedings or suits where official action lacks good faith"
+      ],
+      "nearby_distinctions": [
+        "Distinct from tax assessment provisions by establishing judicial boundaries and immunities for enforcement authorities."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "88c8ff5d-126e-4985-b809-7265dd91220e",
+      "concept_name": "Certain Laws Not To Apply [Section 292A]",
+      "definition": "The probation and admonition provisions under specific criminal procedure and probation laws are rendered inapplicable to individuals convicted of offences under this Act. An exception is carved out for convicted persons who are under eighteen years of age.",
+      "terminology": [
+        "Probation",
+        "Conviction",
+        "Offence"
+      ],
+      "instrument_references": [
+        "Section 292A",
+        "Section 360 of the Code of Criminal Procedure, 1973",
+        "Probation of Offenders Act, 1958",
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Exclusion of general probation laws for tax offence convicts",
+        "Age-based exception for offenders under 18 years"
+      ],
+      "exclusion": [
+        "Convicts under 18 years of age",
+        "Non-tax criminal offences governed by general criminal statutes"
+      ],
+      "nearby_distinctions": [
+        "Differs from general sentencing provisions by explicitly overriding standard criminal probation benefits for tax law violations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f9e51e10-929a-4b74-adea-4f3fa4a47e0a",
+      "concept_name": "Return Of Income Etc. Not To Become Invalid [Section 292B]",
+      "definition": "Returns, assessments, notices, and other proceedings are not invalidated merely due to mistakes, defects, or omissions if they substantially conform to the intent and purpose of the Act. This provision prevents technical procedural errors from voiding administrative documents that achieve their intended statutory purpose.",
+      "terminology": [
+        "Mistake",
+        "Defect",
+        "Substantial conformity",
+        "Invalidity"
+      ],
+      "instrument_references": [
+        "Section 292B",
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Typographical, arithmetical, and minor procedural errors in notices or returns",
+        "Documents that align in substance and effect with the statutory intent"
+      ],
+      "exclusion": [
+        "Defects or mistakes that fundamentally alter the substance or violate the primary intent of the Act"
+      ],
+      "nearby_distinctions": [
+        "Focused on substantive conformity of written documentation, whereas section 292BB deals specifically with the procedural curing of notice service defects."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1e389150-e3ff-4618-a7f2-5f8b7d08293e",
+      "concept_name": "Notice Deemed To Be Valid In Certain Circumstances [Section 292Bb]",
+      "definition": "An assessee who participates in assessment or reassessment proceedings is precluded from later challenging the validity, timeliness, or manner of notice service. This deeming provision does not apply if the assessee raises a specific objection regarding service defects prior to the completion of the assessment or reassessment.",
+      "terminology": [
+        "Deemed service",
+        "Co-operation",
+        "Reassessment",
+        "Objection"
+      ],
+      "instrument_references": [
+        "Section 292BB",
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Curing of defective, delayed, or unserved notices through assessee participation",
+        "Waiver of service objections upon cooperation in proceedings"
+      ],
+      "exclusion": [
+        "Cases where the assessee formally objects to service defects before assessment completion"
+      ],
+      "nearby_distinctions": [
+        "Distinct from document-level errors under section 292B by specifically addressing personal notice service and recipient participation waivers."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "810c5404-c6f5-4ad5-865b-303ae3c2be8f",
+      "concept_name": "Presumption As To Assets, Books Of Account, Etc. [Section 292C]",
+      "definition": "Books of account, documents, money, and assets found during searches, surveys, or requisition proceedings are legally presumed to belong to the person in possession. Further presumptions apply that document contents are true, signatures and handwriting belong to the purported authors, and executed documents were duly stamped and executed.",
+      "terminology": [
+        "Presumption",
+        "Books of account",
+        "Search and survey",
+        "Possession"
+      ],
+      "instrument_references": [
+        "Section 292C",
+        "Section 132",
+        "Section 132(4A)",
+        "Section 132A",
+        "Section 133A",
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Evidentiary presumptions regarding ownership of seized assets and documents",
+        "Assumptions of truth and correct execution for books of account and records"
+      ],
+      "exclusion": [
+        "Materials and assets not found in the possession or control of the person during search, survey, or requisition"
+      ],
+      "nearby_distinctions": [
+        "Extends the evidentiary presumptions originally created for search operations to regular assessments and survey proceedings."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c262d4c5-a483-479a-ad98-236453fa4a98",
+      "concept_name": "Authority Empowered To Grant An Approval Under The Income Tax Act, 1961 Deemed To Have Power To Withdraw The Approval Granted [Section 293C]",
+      "definition": "Statutory authorities that grant approvals for tax incentive benefits inherently possess the authority to withdraw such approvals at any time. Any withdrawal requires recording written reasons and providing the concerned assessee with a reasonable opportunity to show cause.",
+      "terminology": [
+        "Approval",
+        "Withdrawal",
+        "Show cause",
+        "Recorded reasons"
+      ],
+      "instrument_references": [
+        "Section 293C",
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Revocation of prior tax incentive approvals by the granting authority",
+        "Mandatory issuance of a show-cause notice and recording of reasons prior to withdrawal"
+      ],
+      "exclusion": [
+        "Withdrawal of approvals without granting an opportunity of being heard"
+      ],
+      "nearby_distinctions": [
+        "Differs from regular assessment powers by targeting specific incentive approvals and establishing a uniform revocation mechanism."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "70ed7618-b214-450b-a499-ab84ce90ca59",
+      "concept_name": "Act To Have Effect Pending Legislative Provision For Charge Of Tax [Section 294]",
+      "definition": "If a Central Act fails to enact income tax charging provisions by April 1st of an assessment year, the existing tax act remains operational. It continues to function using either the preceding year provisions or the current parliamentary bill proposals, whichever proves more favourable to the assessee.",
+      "terminology": [
+        "Charging provision",
+        "Assessment year",
+        "Central Act",
+        "Favourable provision"
+      ],
+      "instrument_references": [
+        "Section 294",
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Continuation of tax collection mechanisms during legislative delays",
+        "Application of the more beneficial tax rate between prior laws and pending bills"
+      ],
+      "exclusion": [
+        "Scenarios where regular charging provisions are enacted on or before April 1st"
+      ],
+      "nearby_distinctions": [
+        "Acts as a temporary transitional safeguard specifically for tax charging continuity rather than general administrative rule-making."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "12ffecdf-90c6-4433-bbae-733f2721c171",
+      "concept_name": "Rules [Sections 295 And 296]",
+      "definition": "The Central Board of Direct Taxes is empowered to formulate subordinate rules under central government control to implement the Act, which must be placed before Parliament. These rules carry statutory force equivalent to enactment sections provided they remain consistent with, supplementary to, and non-derogatory of the primary statute.",
+      "terminology": [
+        "CBDT",
+        "Income-tax Rules",
+        "Subordinate legislation",
+        "Parliamentary placement"
+      ],
+      "instrument_references": [
+        "Section 295",
+        "Section 296",
+        "Income-tax Act, 1961",
+        "Income-tax Rules, 1962"
+      ],
+      "inclusion": [
+        "Rule-making authority of the Board",
+        "Statutory force and parliamentary oversight of formulated rules"
+      ],
+      "exclusion": [
+        "Rules that conflict with, restrict, or adversely affect the operative effect of parent act sections"
+      ],
+      "nearby_distinctions": [
+        "Differs from primary legislative acts by being subordinate executive regulations that must strictly conform to the parent statute's mandate."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2c5ed8c0-71da-4ab7-af87-328a23fd3390",
+      "concept_name": "Schedules To The Income Tax Act, 1961",
+      "definition": "The fourteen schedules appended to the primary legislation provide specialized operational frameworks for specific tax computations and administrative procedures. Notable schedules govern insurance business profit computations, tax recovery procedures, distraint actions, and recognized provident or superannuation funds.",
+      "terminology": [
+        "Schedules",
+        "Insurance business",
+        "Recovery of tax",
+        "Provident funds"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961",
+        "Schedule I",
+        "Schedule II",
+        "Schedule III",
+        "Schedule IV",
+        "Schedule VII",
+        "Section 44",
+        "Section 35E"
+      ],
+      "inclusion": [
+        "Specialized computational rules for insurance profits",
+        "Procedures for tax recovery, distraint, and approved retirement funds"
+      ],
+      "exclusion": [
+        "Core charging sections and general administrative provisions located in the main body of the Act"
+      ],
+      "nearby_distinctions": [
+        "Serves as statutory appendices that detail procedural and computational mechanisms supplementing core sections."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "885c2cb6a0259a600a25d2dbc53ad642c7132e3361efa44316d0bab21de7c9a4",
+  "artifact_id": "00264bc9-2623-48eb-89d0-f6a75a69ff07",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 9712,
+  "output_tokens": 3948,
+  "cost_usd": 0.0127836,
+  "created_at": "2026-10-03T18:22:37.377219+00:00"
+}

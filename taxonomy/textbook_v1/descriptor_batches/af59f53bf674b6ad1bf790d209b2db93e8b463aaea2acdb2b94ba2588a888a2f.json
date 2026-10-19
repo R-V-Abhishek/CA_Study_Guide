@@ -1,0 +1,308 @@
+{
+  "descriptors": [
+    {
+      "node_id": "9621a073-d233-48f1-aced-4d4990e20305",
+      "concept_name": "Cost Control",
+      "definition": "Cost control involves regulating operational costs through executive action by establishing benchmarks for managers of designated cost centers. It entails continuous comparative analysis between actual results and established standards or budgets to enforce performance regulation.",
+      "terminology": [
+        "cost centers",
+        "standard costing",
+        "budgetary control",
+        "benchmarking"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "setting yardsticks for managers",
+        "continuous comparison of actual figures against standards or budgets"
+      ],
+      "exclusion": [
+        "permanent structural redesign without reference to standard limits",
+        "cost reduction focused on optimal untethered levels"
+      ],
+      "nearby_distinctions": [
+        "Unlike cost reduction which seeks permanent structural decreases without preset ceilings, cost control relies on adherence to predefined standards or budgets."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "763948f2-76c6-4ac9-ad4e-f41d6f37c22e",
+      "concept_name": "Types of Targets",
+      "definition": "Targets utilized for cost control functions can be categorized as either external or internal benchmarks determined by an organization's benchmarking framework. In-house target establishment predominantly relies on standard costing and budgetary control techniques.",
+      "terminology": [
+        "external targets",
+        "internal targets",
+        "benchmarking",
+        "standard costing"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "external target setting",
+        "internal target formulation via standard costing and budgetary control"
+      ],
+      "exclusion": [
+        "unbenchmarked unstructured cost cutting",
+        "arbitrary expense slashing without managerial targets"
+      ],
+      "nearby_distinctions": [
+        "Differs from general cost reduction by focusing specifically on structured yardsticks used for regulating operational performance."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5fa7cad0-d044-40a7-b6d4-32721ee2d4fd",
+      "concept_name": "Prerequisite of Cost Control",
+      "definition": "Prerequisites for effective cost control include clear assignment of cost center responsibilities, defined objectives, appropriate motivation, timely reporting, actionable recommendations, and systematic follow-up. These organizational elements ensure that performance variations are actively tracked and corrected.",
+      "terminology": [
+        "delegation of authority",
+        "cost centre",
+        "efficient reporting",
+        "follow-up system"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "effective delegation and responsibility assignment",
+        "agreed planning objectives",
+        "timely reporting and systematic follow-up"
+      ],
+      "exclusion": [
+        "unstructured cost reduction activities",
+        "value engineering initiatives"
+      ],
+      "nearby_distinctions": [
+        "Focuses on the administrative and operational preconditions necessary for maintaining compliance against standards rather than discovering new operational methods."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "070f4165-d6f5-4fcb-aa70-9fec9263f0ac",
+      "concept_name": "Cost Reduction",
+      "definition": "Cost reduction is the real and permanent decrease in unit manufacturing or service costs without impairing the utility of the item for its intended use. It functions as a continuous endeavor driven by standardization and savings across manufacturing, administration, and distribution.",
+      "terminology": [
+        "permanent reduction",
+        "optimal level",
+        "standardization",
+        "change management"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "real and permanent unit cost decreases",
+        "continuous critical examination of operations",
+        "standardization of components"
+      ],
+      "exclusion": [
+        "temporary cost savings",
+        "cost cutting that reduces product utility or quality"
+      ],
+      "nearby_distinctions": [
+        "Unlike cost control which regulates costs relative to static standards or budgets, cost reduction targets an optimal cost level through permanent structural changes."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2acde45e-2569-4d47-b069-d4eb983fc461",
+      "concept_name": "Scope of Cost Reduction",
+      "definition": "The scope of cost reduction encompasses major operational areas like product design where a large percentage of production costs become committed. Concentrating efforts on efficient layout, organizational structures, and equipment utilization helps eliminate waste and secure enduring savings.",
+      "terminology": [
+        "product design",
+        "committed cost",
+        "factory layout",
+        "waste elimination"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "product design modifications",
+        "organizational efficiency improvements",
+        "factory layout and equipment utilization analysis"
+      ],
+      "exclusion": [
+        "routine variance investigation against fixed budgetary limits",
+        "temporary expense containment"
+      ],
+      "nearby_distinctions": [
+        "Focuses broadly on structural life-cycle drivers like design and layout rather than narrow administrative variance reporting."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4b0255af-36cc-432d-a595-34e5e3348d72",
+      "concept_name": "Tools and Techniques",
+      "definition": "Cost reduction employs dedicated frameworks such as value analysis, inventory management systems like Just-in-Time, business process reengineering, and component standardization. These tools identify operational inefficiencies and drive permanent savings across the value chain.",
+      "terminology": [
+        "Value Analysis",
+        "Just in Time",
+        "Business Process Reengineering",
+        "Target Costing",
+        "Kaizen Costing"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Value Analysis",
+        "Inventory Management techniques",
+        "Business Process Reengineering",
+        "Target and Kaizen Costing"
+      ],
+      "exclusion": [
+        "traditional variance analysis based strictly on predetermined budgets",
+        "static cost compliance checks"
+      ],
+      "nearby_distinctions": [
+        "Applies specialized strategic management engineering methods rather than standard variance-based accounting controls."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "14c5d5e5-3625-4ba0-ae79-217fc37d51ea",
+      "concept_name": "Difference between Cost Control and Cost Reduction Cost Reduction Cost Control",
+      "definition": "Cost control regulates expenditures by comparing actual outcomes against predefined standards, whereas cost reduction achieves permanent structural decreases in unit costs without compromising utility. Cost control is a less dynamic, compliance-oriented approach, while cost reduction is a continuous, dynamic optimization process.",
+      "terminology": [
+        "variance investigation",
+        "permanent reduction",
+        "utility retention",
+        "dynamic approach"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "comparative tabular analysis of operational mechanisms",
+        "contrasting permanence versus temporary variance management"
+      ],
+      "exclusion": [
+        "mixed hybrid costing definitions",
+        "unilateral operational execution"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes administrative compliance with static targets from dynamic, continuous structural cost minimization."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b28b3efb-55cb-4a99-ac98-569f78cc8883",
+      "concept_name": "Definition, Features, and Scope",
+      "definition": "Target costing determines the allowable cost of a proposed product with specific functionality to ensure desired profitability at an anticipated market-driven selling price. It operates as a strategic profit management technique applied during early research and design phases across the value chain.",
+      "terminology": [
+        "market-driven price",
+        "allowable cost",
+        "profit margin",
+        "value chain"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "market-price minus desired margin calculation",
+        "product development life-cycle cost management"
+      ],
+      "exclusion": [
+        "cost-plus pricing models ignoring market competitor pricing",
+        "post-production cost adjustment without design changes"
+      ],
+      "nearby_distinctions": [
+        "Reverses traditional cost-plus pricing by deriving production cost limits from anticipated market prices rather than adding margins to unknown costs."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7bafce9b-65b3-4efc-aba3-16a5944a7875",
+      "concept_name": "Step of Target Costing",
+      "definition": "Target costing proceeds through structured stages including reorienting culture toward customer needs, establishing market-driven prices and volume, deducting desired profits to find target costs, and allocating costs to subsystems. Subsequent phases involve building cost models, brainstorming design alternatives, and implementing value engineering tools.",
+      "terminology": [
+        "market-driven target price",
+        "target cost allocation",
+        "product cost models",
+        "value engineering"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "market requirement identification",
+        "target cost derivation and allocation",
+        "design alternative brainstorming and modeling"
+      ],
+      "exclusion": [
+        "arbitrary top-down budget cuts devoid of customer feature balancing",
+        "post-manufacture variance accounting"
+      ],
+      "nearby_distinctions": [
+        "Provides a sequential procedural roadmap for pre-production cost engineering compared to post-production performance monitoring."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2d2969a7-ee8a-4466-a8ed-aba2c8221f40",
+      "concept_name": "Principles of Target Costing",
+      "definition": "Target costing principles dictate leading through target selling prices, centering on customer requirements, utilizing teamwork, reducing life-cycle costs, focusing on design stages, and involving the entire value chain. These principles align simultaneous profitability planning with product engineering.",
+      "terminology": [
+        "Leadership of Target Selling Price",
+        "Focusing on Customer",
+        "Product Life Cycle",
+        "Value Chain"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "market price leadership",
+        "cross-functional teamwork integration",
+        "life-cycle and value chain focus"
+      ],
+      "exclusion": [
+        "isolated manufacturing cost minimization",
+        "internal standard cost adherence without market anchoring"
+      ],
+      "nearby_distinctions": [
+        "Establishes foundational operational tenets emphasizing customer-driven market pricing over internal historical cost baselines."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e4132de8-f71b-486b-921d-e27ee58cca34",
+      "concept_name": "Pros and Cons of Target Costing",
+      "definition": "Target costing fosters proactive pre-production planning, employee empowerment, supplier partnerships, and value-added activity optimization. However, it can potentially lengthen the product development cycle due to multiple design iterations required to meet strict target cost thresholds.",
+      "terminology": [
+        "proactive approach",
+        "supplier partnerships",
+        "value-added activities",
+        "design iterations"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "advantages of early cost planning and innovation",
+        "disadvantages of design delays and iteration loops"
+      ],
+      "exclusion": [
+        "traditional reactive variance control evaluations",
+        "straightforward cost-plus margin markups"
+      ],
+      "nearby_distinctions": [
+        "Highlights strategic advantages and iteration risks of market-oriented pre-production planning against traditional reactive accounting controls."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "cd8044b1-cbee-473d-a752-d79cefe93429",
+      "concept_name": "Pros",
+      "definition": "The advantages of target costing include driving top-to-bottom innovation, enabling proactive pre-production planning, empowering employees, and fostering supplier partnerships. It focuses planning resources on value-creating features that align directly with customer price and quality expectations.",
+      "terminology": [
+        "top-to-bottom commitment",
+        "proactive approach",
+        "employee empowerment",
+        "trade-offs"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "reinforcement of product innovation",
+        "enhanced employee and supplier engagement",
+        "customer-aligned quality-price trade-offs"
+      ],
+      "exclusion": [
+        "development cycle delays",
+        "design iteration bottlenecks"
+      ],
+      "nearby_distinctions": [
+        "Centers exclusively on the strategic benefits of early value-driven planning rather than its operational implementation challenges."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "af59f53bf674b6ad1bf790d209b2db93e8b463aaea2acdb2b94ba2588a888a2f",
+  "artifact_id": "43dc3c4a-76df-46d7-996d-f1ef07612524",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 7371,
+  "output_tokens": 3199,
+  "cost_usd": 0.010208799999999999,
+  "created_at": "2026-10-03T18:26:12.599188+00:00"
+}

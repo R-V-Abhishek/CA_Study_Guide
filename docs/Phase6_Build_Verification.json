@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-10-07T04:27:02.656547+00:00",
+  "openapi_matches_application": true,
+  "required_reader_paths_present": true,
+  "openapi_sha256": "5f6940f246e7b3064c1a8e5a88997219888b445fa939368df86dc913fb1af99a",
+  "typescript_contract_sha256": "ee64a8c1548944a55c097e92125cbb5096d0d33d007f9632dadaae45313d8b7e",
+  "distributions": {
+    "student": {
+      "build": "1b9677d-0831ab18bf7e",
+      "assets": [
+        {
+          "path": "web/apps/student/dist/assets/index-R1ecDqJ1.js",
+          "sha256": "47d0b8fbd3f2b1a0d0f0c5dc811471cfa58b0706b55268667b442498ab0c6119"
+        },
+        {
+          "path": "web/apps/student/dist/assets/index-DYF7B5lg.css",
+          "sha256": "8e1f358a236fd4131f78a290bab8d07f2577b70e71fd975f4c36b031f2f849ca"
+        }
+      ]
+    },
+    "curator": {
+      "build": "1b9677d-0831ab18bf7e",
+      "assets": [
+        {
+          "path": "web/apps/curator/dist/assets/index-C5-edoeO.js",
+          "sha256": "a8058fe4ca44e86d76061658768a2ff9756438dc93b86d7cc92c80cafe482f2d"
+        },
+        {
+          "path": "web/apps/curator/dist/assets/index-DcM9O1iy.css",
+          "sha256": "3129e82353e6ed371f94cecbbff0be3ef8fb01d57df08425a214f8a3276b3bf3"
+        }
+      ]
+    }
+  }
+}

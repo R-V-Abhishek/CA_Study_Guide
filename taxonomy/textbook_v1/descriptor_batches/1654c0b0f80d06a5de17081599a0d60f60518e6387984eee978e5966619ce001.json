@@ -1,0 +1,318 @@
+{
+  "descriptors": [
+    {
+      "node_id": "0cbb21ac-c7c1-40c9-8cce-afcac8ed5c86",
+      "concept_name": "Internal Audit Fundamentals",
+      "definition": "Internal audit is an independent appraisal function established within an organization to examine and evaluate internal controls, risk management, and governance processes. It focuses on error prevention and system strengthening to provide reliable financial and operational information to stakeholders.",
+      "terminology": [
+        "Internal Audit Standard Board",
+        "Standards on Internal Audit",
+        "Error prevention",
+        "Risk-based approach"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Review of internal control systems",
+        "Examination of financial and non-financial records",
+        "Process-focused operational evaluations"
+      ],
+      "exclusion": [
+        "Taking direct operational decisions",
+        "External statutory audit opinions"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from external audit by its primary orientation toward internal management and operational governance rather than external reporting."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d8a9ae29-1e47-4c88-a8c3-06273f8cf312",
+      "concept_name": "Management Functions And Scope Of Internal Auditing",
+      "definition": "Management utilizes internal audit to help ensure resources are optimally used to attain enterprise goals within legal and economic constraints. The scope of internal auditing encompasses systematic reviews of all business processes, covering both financial and operational activities based on underlying risks.",
+      "terminology": [
+        "Audit Committee",
+        "Audit plan",
+        "Risk appetite",
+        "Auditable areas"
+      ],
+      "instrument_references": [
+        "Section 138 of the Companies Act, 2013",
+        "Rule 13(2) of Companies (Accounts) Rules 2014"
+      ],
+      "inclusion": [
+        "Formulating scope and periodicity with the Audit Committee",
+        "Reviewing financial and operational business processes",
+        "Evaluating managerial functions"
+      ],
+      "exclusion": [
+        "Unilateral scope determination by the internal auditor without governance consultation"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general management execution by functioning as an independent review mechanism rather than direct operational implementation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "29b57a50-8c9d-4bf5-971e-c73c50567bbb",
+      "concept_name": "Integrity, Objectivity And Independence Of Internal Auditor",
+      "definition": "Internal auditors must maintain uncompromising independence in mind and appearance, free from undue influences, pressures, or conflicts of interest. They are required to conduct their work honestly, maintain high personal integrity, and remain unbiased when gathering and evaluating evidence.",
+      "terminology": [
+        "Independence in mind and appearance",
+        "Conflict of interest",
+        "Unbiased evaluation",
+        "Those charged with governance"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Direct reporting lines to the Audit Committee",
+        "Resisting management interference in setting audit scope",
+        "Avoiding review of previously managed activities"
+      ],
+      "exclusion": [
+        "Seeking undue personal benefits or advantages",
+        "Allowing prejudice to override professional conclusions"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard professional courtesy by requiring strict structural and mental detachment from operational duties."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "fab8b767-02c1-4025-a059-a970b8e42518",
+      "concept_name": "Qualities Of Internal Auditor",
+      "definition": "An internal auditor must possess comprehensive multi-disciplinary expertise covering accounting, finance, operational controls, and information technology systems. Strong communication skills and a strict commitment to maintaining information confidentiality are also essential for effective performance.",
+      "terminology": [
+        "Control systems expertise",
+        "EDP systems",
+        "Information confidentiality",
+        "Management principles"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Evaluation of financial and accounting controls",
+        "Understanding of ERP systems and software applications",
+        "Application of commercial and legal knowledge"
+      ],
+      "exclusion": [
+        "Disclosure of sensitive organizational information without authorization"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general financial accountants through required proficiencies in operational technology, risk evaluation, and behavioral management."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "efae36fa-b619-4665-91b4-80a7bbb90340",
+      "concept_name": "Performing Internal Audit Engagement",
+      "definition": "Executing an internal audit engagement requires following a structured five-step sequential process starting with business understanding and planning. This involves assessing regulatory landscapes, analyzing underlying risks, and utilizing approved work plans to test controls.",
+      "terminology": [
+        "Opening meeting",
+        "Standard Operating Procedures",
+        "Work plan",
+        "Risk evaluation"
+      ],
+      "instrument_references": [
+        "SIA 310 Planning the Internal Audit Assignment"
+      ],
+      "inclusion": [
+        "Meetings with key stakeholders and board members",
+        "Reviewing IT landscapes and ERP systems",
+        "Preparing detailed risk-based audit schedules"
+      ],
+      "exclusion": [
+        "Performing audit checks without an approved audit plan or scope"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from ad-hoc operational reviews by adhering to a formal, sequential methodology governed by professional auditing standards."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ff4fe935-79ff-473c-a883-68190ee74570",
+      "concept_name": "Internal Audit Report",
+      "definition": "Internal audit reporting is conducted in stages, involving assignment-specific reports on findings alongside comprehensive periodic summaries for governance bodies. The auditor must issue clear, well-documented reports based on evaluated evidence while immediately escalating any actual or suspected frauds.",
+      "terminology": [
+        "Internal Audit Report",
+        "Chief Internal Auditor",
+        "Audit Committee",
+        "Remedial action"
+      ],
+      "instrument_references": [
+        "SIA 370 Reporting Results"
+      ],
+      "inclusion": [
+        "Issuing assignment-specific reports to local and executive management",
+        "Submitting periodic comprehensive summaries to the Audit Committee",
+        "Immediate disclosure of asset misappropriation or fraud"
+      ],
+      "exclusion": [
+        "Concealing suspected irregularities from executive management"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from broad entity-level quarterly reports by focusing on specific functional assignments and localized operational observations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1099f755-6881-4c9a-9d57-5950d0658b15",
+      "concept_name": "Follow-up",
+      "definition": "The internal audit function must continuously monitor the closure of prior audit issues through a formal tracking mechanism for implementation status. The internal auditor evaluates corrective actions taken by management and reports any unresolved or pending matters to those charged with governance.",
+      "terminology": [
+        "Action Taken Report",
+        "Prior audit issues",
+        "Monitoring and reporting",
+        "Corrective actions"
+      ],
+      "instrument_references": [
+        "SIA 390 Monitoring and Reporting of Prior Audit Issues"
+      ],
+      "inclusion": [
+        "Tracking management implementation of past recommendations",
+        "Maintaining cross-referenced draft and final reports",
+        "Ascertaining reasons for unacted suggestions"
+      ],
+      "exclusion": [
+        "Assuming direct operational responsibility for executing management action plans"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from initial audit testing by focusing specifically on evaluating subsequent remediation efforts tied to historical findings."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "05121baa-420f-4a36-b2c8-4735a89443c9",
+      "concept_name": "Relationship Between Internal And External Auditors",
+      "definition": "The statutory auditor must examine the scope, effectiveness, and independence of the internal audit function to determine its impact on external audit procedures. While internal and external audit scopes often overlap, statutory auditors evaluate internal audit work to appropriately adjust the nature, timing, and extent of their compliance and substantive testing.",
+      "terminology": [
+        "Statutory auditor",
+        "Compliance and substantive procedures",
+        "Internal control system",
+        "Section 138"
+      ],
+      "instrument_references": [
+        "Section 138 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Evaluating internal audit staff qualifications and department structure",
+        "Assessing internal control reliability for external audit reliance",
+        "Modifying external audit testing intensity based on internal evaluations"
+      ],
+      "exclusion": [
+        "Delegating the statutory auditor's ultimate legal opinion responsibility entirely to internal personnel"
+      ],
+      "nearby_distinctions": [
+        "Distinguished by the external auditor's primary focus on financial statement attestation versus the internal auditor's ongoing internal governance and operational focus."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "dbff492f-d659-49a2-9a4f-0f99beb44375",
+      "concept_name": "Determining Whether, in Which Areas, and to What Extent the Work of the Internal Audit Function Can Be Used",
+      "definition": "External auditors must evaluate the objectivity, competence, and systematic quality control approach of the internal audit function before deciding to use its work. The external auditor is prohibited from utilizing internal audit work if organizational status fails to support objectivity or if technical competence is insufficient.",
+      "terminology": [
+        "Organizational status",
+        "Systematic and disciplined approach",
+        "Objectivity",
+        "Competence"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Appraisal of internal control effectiveness",
+        "Review of internal audit documentation standards",
+        "Assessment of technical proficiency and quality control"
+      ],
+      "exclusion": [
+        "Using internal audit work when objective safeguards are inadequate"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from direct assistance provisions by focusing on utilizing pre-existing internal audit work products rather than deploying internal staff directly."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7925c127-d0c7-4e0f-a503-bf4225ef04b7",
+      "concept_name": "Determining The Nature And Extent Of Work Of The Internal Audit Function That Can Be Used",
+      "definition": "When determining the scope of internal audit work to utilize, external auditors evaluate the relevance of the activities to overall audit strategy and risk assessments. Direct assistance assignments must be carefully structured around judgment levels and the significance of identified threats to objectivity.",
+      "terminology": [
+        "Direct assistance",
+        "Risk of material misstatement",
+        "Audit strategy",
+        "Significance of threats"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Assessing amounts of professional judgment required",
+        "Evaluating the presence of threats to internal auditor objectivity",
+        "Aligning external audit planning with internal findings"
+      ],
+      "exclusion": [
+        "Assigning internal auditors to make significant audit judgments"
+      ],
+      "nearby_distinctions": [
+        "Distinguished by restricting direct assistance deployment where high risks of material misstatement demand exclusive external auditor judgment."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b61f98cb-2c82-411a-968e-7229272f9021",
+      "concept_name": "Determining Whether, In Which Areas, And To What Extent Internal Auditors Can Be Used To Provide Direct Assistance",
+      "definition": "External auditors must maintain sufficient involvement in the audit when using internal auditors for direct assistance, retaining sole responsibility for the audit opinion. Internal auditors providing direct assistance must not be assigned tasks involving significant judgments or higher assessed risks of material misstatement.",
+      "terminology": [
+        "Direct assistance",
+        "Sole responsibility",
+        "Significant judgments",
+        "Audit documentation"
+      ],
+      "instrument_references": [
+        "SA 610",
+        "SA 230"
+      ],
+      "inclusion": [
+        "Documenting evaluations of objectivity threats and competence levels",
+        "Recording written agreements with entity representatives",
+        "Retaining supervisory review work papers"
+      ],
+      "exclusion": [
+        "Using direct assistance for decisions required to be made by the external auditor under SA 610"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from routine reliance on internal audit reports by involving direct operational support and supervision under external auditor direction."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ef08688b-c380-4a9e-982a-45954566bee9",
+      "concept_name": "If the External Auditor uses Internal Auditors to Provide Direct Assistance on the Audit, the External Auditor shall include in the Audit Documentation",
+      "definition": "When deploying internal auditors for direct assistance, the external auditor is required to maintain comprehensive audit documentation supporting the engagement. This documentation must explicitly record threat evaluations, competence assessments, work allocation bases, written agreements, and supervisory review records.",
+      "terminology": [
+        "Audit Documentation",
+        "Competence evaluation",
+        "Written agreements",
+        "Working papers"
+      ],
+      "instrument_references": [
+        "SA 230 Audit Documentation",
+        "SA 610 Using the work of Internal Auditor"
+      ],
+      "inclusion": [
+        "Documenting who reviewed the work and the extent of the review",
+        "Archiving working papers prepared by assisting internal auditors",
+        "Recording the basis for decisions concerning work extent"
+      ],
+      "exclusion": [
+        "Omitting supervisory review signatures and evaluation notes from working papers"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard audit work papers by requiring specific tracking and sign-off elements dedicated to the oversight of internal audit staff."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "1654c0b0f80d06a5de17081599a0d60f60518e6387984eee978e5966619ce001",
+  "artifact_id": "bc6ebee2-6f68-4654-8109-d6b678d26c60",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8193,
+  "output_tokens": 3533,
+  "cost_usd": 0.011290399999999999,
+  "created_at": "2026-10-03T18:11:59.733323+00:00"
+}

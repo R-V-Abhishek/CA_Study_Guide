@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a10cc9-4266-7212-a56c-5a31985ce174"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"{\"question_id\":\"d09cfb38b501b60938c83ed6fc8f03d3628fba627ce2fc26207abf203aa4af5d\",\"input_hash\":\"4d58b464e9f3f6807138a800b7608695bccb3240dddced837dd23d3278e7c3d2\",\"mappings\":[{\"part_id\":\"d09cfb38b501b60938c83ed6fc8f03d3628fba627ce2fc26207abf203aa4af5d\",\"outcome\":\"needs_review\",\"primary_node_id\":null,\"secondary_node_ids\":[],\"evidence\":[],\"note\":\"Only fragment shown: “Mr. Krishan was required to make TDS @ 0.1% on ₹90 lakhs.” The complete question and remaining parts are unavailable, so the tested TDS concept cannot be established from the supplied text.\",\"confidence\":null,\"bucket\":null}]}"}}
+{"type":"turn.completed","usage":{"input_tokens":48209,"cached_input_tokens":0,"cache_write_input_tokens":0,"output_tokens":221,"reasoning_output_tokens":0}}

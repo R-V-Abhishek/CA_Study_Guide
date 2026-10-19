@@ -1,0 +1,350 @@
+{
+  "descriptors": [
+    {
+      "node_id": "36cb4b12-7c78-42f2-a09e-8cd856ff3b6d",
+      "concept_name": "Prior Intimation Of Board Meeting",
+      "definition": "A listed entity must provide advance notice to stock exchanges before its board convenes for financial results or specific corporate proposals. Different timeframes apply depending on whether the meeting discusses quarterly results, corporate actions like buybacks, or structural security alterations.",
+      "terminology": [
+        "Prior intimation",
+        "Record date",
+        "Working days",
+        "Corporate action"
+      ],
+      "instrument_references": [
+        "SEBI (Listing Obligations and Disclosure Requirements) Regulations, 2015 Regulation 29",
+        "SEBI (Listing Obligations and Disclosure Requirements) Regulations, 2015 Regulation 42"
+      ],
+      "inclusion": [
+        "Financial results considerations",
+        "Proposals for buybacks, delisting, fund raising, and bonus issues",
+        "Record date notifications for dividends and rights issues"
+      ],
+      "exclusion": [
+        "Routine board meetings without price-sensitive proposals",
+        "General operational discussions not requiring exchange disclosure"
+      ],
+      "nearby_distinctions": [
+        "Differs from annual compliance reports by requiring specific event-based advance scheduling rather than periodic year-end filings."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a8703a8f-7315-4692-94a0-e7faa79da545",
+      "concept_name": "ANNUAL / YEARLY COMPLIANCES",
+      "definition": "Listed entities are mandated to execute specific disclosures and report submissions at the conclusion of each financial year. These encompass submitting audited standalone financial results, dispatching annual reports to security holders, and filing corporate governance reports within designated statutory deadlines.",
+      "terminology": [
+        "Audited standalone financial results",
+        "Annual report",
+        "Statement on Impact of Audit Qualifications",
+        "Corporate governance"
+      ],
+      "instrument_references": [
+        "SEBI (Listing Obligations and Disclosure Requirements) Regulations, 2015 Regulation 33",
+        "SEBI (Listing Obligations and Disclosure Requirements) Regulations, 2015 Regulation 34",
+        "SEBI (Listing Obligations and Disclosure Requirements) Regulations, 2015 Regulation 36"
+      ],
+      "inclusion": [
+        "Submission of annual audited standalone financial results within 60 days",
+        "Distribution of annual reports to shareholders prior to the annual general meeting",
+        "Filing annual compliance reports on corporate governance"
+      ],
+      "exclusion": [
+        "Quarterly financial reporting obligations",
+        "Ad-hoc event-driven stock exchange intimations"
+      ],
+      "nearby_distinctions": [
+        "Unlike quarterly intimations, these compliances focus exclusively on comprehensive full-year financial performance, shareholder communications, and governance evaluations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "32c52034-f9bb-45c2-afed-7c0359bf1fd6",
+      "concept_name": "CORPORATE GOVERNANCE",
+      "definition": "This framework governs the structural management practices of listed entities, particularly focusing on related party transactions and compliance reporting. It establishes precise definitions for related parties and transactions to safeguard corporate resources from improper transfers.",
+      "terminology": [
+        "Related party",
+        "Related party transaction",
+        "Promoter group",
+        "Compliance report"
+      ],
+      "instrument_references": [
+        "SEBI (Listing Obligations and Disclosure Requirements) Regulations, 2015 Regulation 23",
+        "Companies Act, 2013 Section 2(76)"
+      ],
+      "inclusion": [
+        "Identification of promoters and significant equity holders as related parties",
+        "Approval processes for material related party contracts",
+        "Submission of quarterly and annual compliance reports"
+      ],
+      "exclusion": [
+        "Preferential issue of specified securities",
+        "Units issued by mutual funds listed on recognized stock exchanges"
+      ],
+      "nearby_distinctions": [
+        "Focuses on internal relationship governance and transaction approvals rather than external capital issuance rules."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e64a8182-89a9-455e-b902-28d387dcd9af",
+      "concept_name": "Types Of Committees Under Lodr Regulations",
+      "definition": "Listed entities are required to establish specialized board committees, such as an audit committee, structured with independent directors and financial literacy requirements. These committees operate under specific mandates to oversee financial reporting, internal audits, and corporate governance functions.",
+      "terminology": [
+        "Audit committee",
+        "Independent director",
+        "Financial literacy",
+        "Quorum"
+      ],
+      "instrument_references": [
+        "SEBI (Listing Obligations and Disclosure Requirements) Regulations, 2015 Regulation 18",
+        "Companies Act, 2013 Section 177"
+      ],
+      "inclusion": [
+        "Constitution of an audit committee with minimum three directors",
+        "Mandatory inclusion of financially literate members and a chairperson who is an independent director",
+        "Holding meetings at least four times annually with specified maximum gaps"
+      ],
+      "exclusion": [
+        "General executive management operations handled directly by whole-time directors",
+        "Non-statutory ad-hoc committees lacking formal regulatory oversight terms"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from broader board management by its narrow focus on statutory audit oversight, financial review, and investigative powers."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e0cda23d-116e-417c-a2a2-faebc9db36eb",
+      "concept_name": "Securities And Exchange Board Of India (Issue Of Capital And Disclosure Requirements) Regulations,",
+      "definition": "These regulations govern the issuance and offer of capital instruments by Indian companies to balance issuer development with investor protection. They classify capital issuances into categories such as public issues, rights issues, bonus issues, and private placements.",
+      "terminology": [
+        "Public issue",
+        "Initial public offer",
+        "Further public offer",
+        "Rights issue",
+        "Composite issue"
+      ],
+      "instrument_references": [
+        "SEBI (Issue of Capital and Disclosure Requirements) Regulations, 2018"
+      ],
+      "inclusion": [
+        "Initial public offers by unlisted issuers",
+        "Further public offers by listed issuers",
+        "Rights and composite issues to existing or new investors"
+      ],
+      "exclusion": [
+        "Secondary market trading transactions between investors",
+        "Unregulated private borrowing arrangements"
+      ],
+      "nearby_distinctions": [
+        "Focuses on primary market capital formation rules rather than continuous listing obligations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a0ffc1af-48d9-457d-a4cc-4a794bd5e097",
+      "concept_name": "Introduction",
+      "definition": "Capital market regulations oversee primary security offerings to safeguard investors while facilitating corporate growth. Issuances are categorized structurally into public offerings, rights offerings, bonus allotments, and private placements.",
+      "terminology": [
+        "Public issue",
+        "Rights issue",
+        "Bonus issue",
+        "Private placement"
+      ],
+      "instrument_references": [
+        "SEBI (Issue of Capital and Disclosure Requirements) Regulations, 2018"
+      ],
+      "inclusion": [
+        "Public issues targeting new market investors",
+        "Bonus issues funded from free reserves or share premium accounts"
+      ],
+      "exclusion": [
+        "Secondary market share transfers",
+        "Debt instruments devoid of capital raising context"
+      ],
+      "nearby_distinctions": [
+        "Provides foundational definitions for issue classifications rather than specific eligibility metrics."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8ce76baa-0ef2-4e18-abea-8796a2060685",
+      "concept_name": "Other Relevant Definitions (Regulation 2)",
+      "definition": "The regulations provide standardized terminology for core market mechanisms used during capital raises. These terms outline specific procedural processes like price discovery, instrument characteristics, and post-listing stabilization options.",
+      "terminology": [
+        "Book building",
+        "Convertible security",
+        "Designated stock exchange",
+        "Green shoe option",
+        "Offer document"
+      ],
+      "instrument_references": [
+        "SEBI (Issue of Capital and Disclosure Requirements) Regulations, 2018 Regulation 2",
+        "Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Definitions for book building and convertible debt instruments",
+        "Explanations of green shoe price stabilization options",
+        "Classification of offer documents like red herring prospectuses and letters of offer"
+      ],
+      "exclusion": [
+        "Operational guidelines for secondary market brokers",
+        "Internal corporate governance codes"
+      ],
+      "nearby_distinctions": [
+        "Establishes precise definitional boundaries for transactional terms used across capital issue chapters."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "609880db-5e4f-43a2-bee6-c065c2687eea",
+      "concept_name": "Applicability Of The Regulations (Regulation 3)",
+      "definition": "The regulations govern various primary market activities undertaken by unlisted and listed issuers, including initial public offerings, rights issues, and preferential allotments. Certain specific issue types or transactions under takeover rules are explicitly excluded from their scope.",
+      "terminology": [
+        "Initial public offer",
+        "Rights issue",
+        "Preferential issue",
+        "Qualified institutions placement",
+        "Bonus issue"
+      ],
+      "instrument_references": [
+        "SEBI (Issue of Capital and Disclosure Requirements) Regulations, 2018 Regulation 3",
+        "SEBI (Substantial Acquisition of Shares and Takeovers) Regulations, 2011"
+      ],
+      "inclusion": [
+        "Initial public offers by unlisted issuers",
+        "Rights issues of specified monetary thresholds by listed issuers",
+        "Preferential issues and qualified institutions placements"
+      ],
+      "exclusion": [
+        "Securities issued under specific exclusionary clauses of takeover regulations",
+        "Small rights issues below statutory monetary thresholds requiring only board filing"
+      ],
+      "nearby_distinctions": [
+        "Determines the jurisdictional boundary of the ICDR regulations over specific types of capital market issuances."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e581e224-f7cf-496c-ad57-96402b351366",
+      "concept_name": "Initial Public Offer On Main Board Eligibility Requirements [Regulation 4-8A]",
+      "definition": "An issuer must satisfy specific reference date conditions and clear background checks to qualify for a main board initial public offering. Entities or promoters barred from capital markets, wilful defaulters, or those with outstanding unauthorized convertible securities are disqualified.",
+      "terminology": [
+        "Reference date",
+        "Debarred",
+        "Wilful defaulter",
+        "Fugitive economic offender",
+        "Convertible securities"
+      ],
+      "instrument_references": [
+        "SEBI (Issue of Capital and Disclosure Requirements) Regulations, 2018 Regulation 4",
+        "SEBI (Issue of Capital and Disclosure Requirements) Regulations, 2018 Regulation 5"
+      ],
+      "inclusion": [
+        "Verification of eligibility conditions as of draft and final offer document filing dates",
+        "Restrictions on issuers or promoters facing regulatory debarment",
+        "Exceptions for employee stock options and fully paid-up convertible securities"
+      ],
+      "exclusion": [
+        "Completed past debarment periods where penalties have expired",
+        "Compliant employee stock option plans structured under applicable accounting standards"
+      ],
+      "nearby_distinctions": [
+        "Focuses on background integrity and structural disqualifications rather than financial quantitative thresholds."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "031a5aef-226d-42ff-8800-fb1210cb1dc2",
+      "concept_name": "Entities Not Eligible To Make An Initial Public Offer (Regulation 5): Under Following Circumstances—",
+      "definition": "Issuers are barred from launching initial public offerings if key stakeholders face capital market prohibitions, willful default classifications, or fugitive economic offender statuses. Additionally, outstanding unauthorized options or convertible securities prevent offering qualification unless specific exceptions apply.",
+      "terminology": [
+        "Debarment",
+        "Wilful defaulter",
+        "Fugitive economic offender",
+        "Convertible securities",
+        "Employee stock option"
+      ],
+      "instrument_references": [
+        "SEBI (Issue of Capital and Disclosure Requirements) Regulations, 2018 Regulation 5"
+      ],
+      "inclusion": [
+        "Entities with promoters or directors debarred by regulatory boards",
+        "Borrowers classified as willful defaulters",
+        "Issuers carrying active unauthorized convertible options"
+      ],
+      "exclusion": [
+        "Expired past debarments",
+        "Fully paid convertible securities converted prior to prospectus filing"
+      ],
+      "nearby_distinctions": [
+        "Targets compliance and character disqualifications rather than financial performance metrics."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e4ec4ce6-416e-4a51-914f-6a6c0c4ff1bb",
+      "concept_name": "Eligibility Requirements For An Initial Public Offer (Regulation 6)",
+      "definition": "An issuer must fulfill quantitative thresholds regarding net tangible assets, operating profits, and net worth across preceding years to qualify for an initial public offer. Alternative pathways through book building and institutional buyer allocations exist for issuers not meeting standard financial criteria.",
+      "terminology": [
+        "Net tangible assets",
+        "Operating profit",
+        "Net worth",
+        "Qualified institutional buyers",
+        "Book-building process"
+      ],
+      "instrument_references": [
+        "SEBI (Issue of Capital and Disclosure Requirements) Regulations, 2018 Regulation 6"
+      ],
+      "inclusion": [
+        "Maintenance of minimum net tangible assets and operating profits over three consecutive years",
+        "Name-change revenue composition rules",
+        "Alternative institutional allocation thresholds for non-qualifying issuers"
+      ],
+      "exclusion": [
+        "Issues structured entirely as offers for sale regarding monetary asset thresholds",
+        "Ordinary share listings under standard criteria when using differential voting rights"
+      ],
+      "nearby_distinctions": [
+        "Employs strict financial history benchmarks rather than qualitative background checks."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3912d55b-0747-484f-bcf9-14b77510c6b6",
+      "concept_name": "General Conditions (Regulation 7)",
+      "definition": "Issuers pursuing an initial public offer must satisfy procedural prerequisites, including stock exchange applications, depository agreements, and promoter share dematerialization. Furthermore, limits are imposed on the proportion of issue proceeds allocated toward general corporate purposes.",
+      "terminology": [
+        "In-principle approval",
+        "Designated stock exchange",
+        "Dematerialisation",
+        "General corporate purposes",
+        "Restated financial statements"
+      ],
+      "instrument_references": [
+        "SEBI (Issue of Capital and Disclosure Requirements) Regulations, 2018 Regulation 7",
+        "Companies Act, 2013 Schedule III"
+      ],
+      "inclusion": [
+        "Stock exchange application and depository contract execution",
+        "Compulsory dematerialization of promoter-held shares prior to filing",
+        "Restrictions capping general corporate purpose allocations at twenty-five percent"
+      ],
+      "exclusion": [
+        "Partly paid shares remaining uncalled or unforfeited",
+        "Unverified financing arrangements for project funding"
+      ],
+      "nearby_distinctions": [
+        "Governs procedural prerequisites and funding use caps rather than historical profit thresholds."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "af1b4b24898d50d4523d9e0d8e89a9c981c07d40d9bef056fe6bc4cb9bfabf9e",
+  "artifact_id": "ea684bf0-7c94-4045-a244-75e8b4a2e2df",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 10193,
+  "output_tokens": 3944,
+  "cost_usd": 0.0129179,
+  "created_at": "2026-10-03T18:25:03.668403+00:00"
+}

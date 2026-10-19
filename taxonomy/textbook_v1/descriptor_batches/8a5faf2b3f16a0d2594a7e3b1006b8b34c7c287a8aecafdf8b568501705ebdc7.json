@@ -1,0 +1,327 @@
+{
+  "descriptors": [
+    {
+      "node_id": "49df179d-c2ec-4066-82aa-30b49e9b0974",
+      "concept_name": "Objective of Additional Communication in Auditor Report",
+      "definition": "The auditor draws users' attention to matters fundamental to understanding the financial statements or relevant to understanding the audit, responsibilities, or report through clear additional communication. This is performed after forming an opinion on the financial statements when judged necessary.",
+      "terminology": [
+        "Emphasis of Matter paragraph",
+        "Other Matter paragraph",
+        "Auditor judgment",
+        "Financial statements"
+      ],
+      "instrument_references": [
+        "SA 705 (Revised)",
+        "SA 701"
+      ],
+      "inclusion": [
+        "Matters fundamental to understanding financial statements",
+        "Matters relevant to understanding audit responsibilities"
+      ],
+      "exclusion": [
+        "Modifications of the audit opinion",
+        "Key audit matters inappropriately communicated"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from audit opinion modification which alters the overall reporting conclusion",
+        "Distinguished from key audit matters governed under specific reporting standards"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4d7ed9fd-a880-40a2-a964-7317b4fd15c9",
+      "concept_name": "When to give Emphasis of Matter Paragraphs in the Auditor's Report?",
+      "definition": "An auditor includes an Emphasis of Matter paragraph to highlight a properly presented or disclosed matter that is fundamental to the users' understanding of the financial statements. This requires that the matter does not trigger a modified opinion under SA 705 and is not already determined to be a key audit matter under SA 701.",
+      "terminology": [
+        "Emphasis of Matter paragraph",
+        "Special purpose framework",
+        "Subsequent events",
+        "Modified opinion"
+      ],
+      "instrument_references": [
+        "SA 705 (Revised)",
+        "SA 701"
+      ],
+      "inclusion": [
+        "Frameworks prescribed by law that would otherwise be unacceptable",
+        "Special purpose framework financial statements",
+        "Subsequent events discovered after report date requiring a new report"
+      ],
+      "exclusion": [
+        "Matters requiring an adverse or qualified opinion",
+        "Matters classified as key audit matters"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from Other Matter paragraphs which refer to items not presented inside the financial statements"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "66a934a2-c026-4660-923b-f106c0d0335a",
+      "concept_name": "Inclusion of an Emphasis of Matter Paragraph in the Auditor’s Report",
+      "definition": "When including an Emphasis of Matter paragraph, the auditor must place it in a separate section with a specific heading and clearly reference the disclosures inside the financial statements. The paragraph must explicitly indicate that the auditor's opinion remains unmodified regarding the emphasized matter.",
+      "terminology": [
+        "Emphasis of Matter heading",
+        "Separate section",
+        "Unmodified opinion",
+        "Financial statement disclosures"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Exceptional litigation uncertainty",
+        "Significant subsequent events",
+        "Early application of a new accounting standard",
+        "Major catastrophes impacting financial position"
+      ],
+      "exclusion": [
+        "References to information outside the financial statements",
+        "Substitutes for modified opinions"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from reporting requirements for Other Matter paragraphs which cover items not presented in financial statements"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2f76ff1d-1e73-47fb-b309-7ed8fabbe220",
+      "concept_name": "Distinction Between Notes on Accounts and Qualifications",
+      "definition": "Notes on accounts represent management viewpoints and disclosures, whereas audit qualifications express the auditor's formal disagreement or modification regarding accounting treatment. An Emphasis of Matter is not a substitute for an opinion modification when the underlying matter warrants a qualification.",
+      "terminology": [
+        "Notes on accounts",
+        "Qualifications",
+        "Emphasis of Matter",
+        "Except for"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Management explanations via financial statement notes",
+        "Auditor disagreements expressed through report qualifications",
+        "Quantified opinions expressed using except for phrasing"
+      ],
+      "exclusion": [
+        "Using Emphasis of Matter as a substitute for opinion modification",
+        "Ambiguous qualification terminology"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from Emphasis of Matter, which applies to properly presented items rather than uncorrected misstatements or scope limitations requiring qualification"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c610a260-4c21-46f4-a9ac-cd19d6f48195",
+      "concept_name": "Distinction Between Audit Report and Certificate",
+      "definition": "An audit report communicates an expression of professional opinion on financial statements, whereas a certificate involves verifying specific factual matters or observations. Under statutory provisions, certain actions require factual certification rather than an opinion-based report.",
+      "terminology": [
+        "Audit report",
+        "Certificate",
+        "Expression of opinion",
+        "Verification of facts"
+      ],
+      "instrument_references": [
+        "Companies Act 2013 Section 66",
+        "Companies Act 2013 Section 143"
+      ],
+      "inclusion": [
+        "Opinion-based reports under statutory sections",
+        "Fact verification statements such as asset inspections"
+      ],
+      "exclusion": [
+        "Issuing reports when factual confirmation is strictly mandated",
+        "Issuing certificates for general financial statement opinions"
+      ],
+      "nearby_distinctions": [
+        "Distinguished by the level of assurance; reports convey professional opinions, while certificates confirm concrete factual findings"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6c6b1775-c50c-4868-8940-66a22bc0b651",
+      "concept_name": "Communication to Management and Those Charged with Governance",
+      "definition": "The auditor must communicate necessary audit matters to those charged with governance regardless of entity structure or size. Special considerations apply when governance and management roles overlap or when dealing with subgroup structures like audit committees.",
+      "terminology": [
+        "Those charged with governance",
+        "Governance structure",
+        "Audit committee",
+        "Management responsibilities"
+      ],
+      "instrument_references": [
+        "SA 260"
+      ],
+      "inclusion": [
+        "Communications with designated governance subgroups",
+        "Communications where governance and management roles coincide"
+      ],
+      "exclusion": [
+        "Redundant communications to individuals acting solely in management capacities without oversight roles"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from routine operational communications with general company staff"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "88ff45c1-7047-4609-9020-fce579a9b516",
+      "concept_name": "When All of Those Charged with Governance are Involved in Managing the Entity",
+      "definition": "When all governance individuals are also involved in managing the entity, communicating required matters to those persons fulfills the governance communication obligation. The auditor must still ensure that this communication adequately informs everyone who would otherwise receive it in a governance capacity.",
+      "terminology": [
+        "Small business governance",
+        "Management responsibilities",
+        "Governance capacity",
+        "Paragraph 16(c)"
+      ],
+      "instrument_references": [
+        "SA 260"
+      ],
+      "inclusion": [
+        "Single owner-managed entities",
+        "Combined management and governance roles"
+      ],
+      "exclusion": [
+        "Entities with segregated boards of directors and separate executive management teams"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard governance structures requiring separate formal reporting streams away from executive managers"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2bbdc845-64a3-4a4e-b3f2-23b15886fb56",
+      "concept_name": "Matters to be Communicated",
+      "definition": "The auditor must communicate auditor responsibilities, planned scope, timing, and significant findings derived from the audit to those charged with governance. This includes discussing accounting practices, significant difficulties, and matters affecting the form of the audit report.",
+      "terminology": [
+        "Auditor responsibilities",
+        "Planned scope",
+        "Timing",
+        "Significant findings"
+      ],
+      "instrument_references": [
+        "SA 260"
+      ],
+      "inclusion": [
+        "Auditor's role in forming financial statement opinions",
+        "Overview of planned audit scope and significant risks",
+        "Significant qualitative aspects of accounting practices"
+      ],
+      "exclusion": [
+        "Relieving management of their core financial statement preparation duties"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from internal working papers not meant for governance review"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "59f70927-00ae-45dd-9f10-771047725cfb",
+      "concept_name": "Planned Scope and Timing of the Audit",
+      "definition": "The auditor provides those charged with governance with an overview of the planned scope and timing of the audit. This communication specifically encompasses details regarding the significant risks identified by the auditor.",
+      "terminology": [
+        "Planned scope",
+        "Timing",
+        "Significant risks",
+        "Governance oversight"
+      ],
+      "instrument_references": [
+        "SA 260"
+      ],
+      "inclusion": [
+        "Overview of audit planning parameters",
+        "Identification and communication of significant audit risks"
+      ],
+      "exclusion": [
+        "Detailed internal audit testing steps or proprietary audit programs"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from post-audit findings because it occurs during the planning phase prior to substantive testing completion"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b63ffbdd-42fb-4eb3-9bcd-ba8b15528236",
+      "concept_name": "Significant Findings from the Audit",
+      "definition": "The auditor communicates significant audit findings, including qualitative aspects of accounting practices, accounting policy choices, and significant difficulties encountered during the audit. Additional items include written representations requested and circumstances affecting the auditor report format.",
+      "terminology": [
+        "Significant findings",
+        "Qualitative aspects",
+        "Accounting practices",
+        "Audit difficulties"
+      ],
+      "instrument_references": [
+        "SA 260"
+      ],
+      "inclusion": [
+        "Auditor views on accounting estimates and disclosures",
+        "Deviations from most appropriate accounting practices",
+        "Significant matters discussed with management"
+      ],
+      "exclusion": [
+        "Trivial operational matters lacking governance relevance"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from initial scope planning communications by focusing on actual findings and issues uncovered during execution"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a1439a1f-e12e-41cc-8bb7-4ee037cf429e",
+      "concept_name": "Reporting Requirements in Case of Comparative Information",
+      "definition": "Auditors handle comparative information using either corresponding figures or comparative financial statements under specific reporting frameworks. The auditor must gather sufficient evidence ensuring comparative figures comply with framework requirements and remain consistent with prior periods.",
+      "terminology": [
+        "Comparative information",
+        "Corresponding figures",
+        "Comparative financial statements",
+        "Consistent accounting policies"
+      ],
+      "instrument_references": [
+        "SA 710",
+        "SA 560",
+        "SA 580"
+      ],
+      "inclusion": [
+        "Ensuring agreement with prior period disclosures",
+        "Evaluating policy consistency or proper disclosure of changes",
+        "Obtaining written representations for prior period items"
+      ],
+      "exclusion": [
+        "Treating corresponding figures as separate full-period audit opinions"
+      ],
+      "nearby_distinctions": [
+        "Distinguished by whether the opinion covers only the current period versus covering each presented period individually"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d4c6bf28-9fb6-419c-be92-6067db665802",
+      "concept_name": "Audit Procedures for Comparative Information",
+      "definition": "The auditor performs procedures to verify comparative information, ensuring policy consistency and evaluating potential misstatements against prior accounts. Specific reporting rules dictate when prior period figures alter current opinions or require Other Matter paragraphs.",
+      "terminology": [
+        "Corresponding figures",
+        "Comparative financial statements",
+        "Prior period misstatement",
+        "Other matter paragraph"
+      ],
+      "instrument_references": [
+        "SA 710",
+        "SA 560"
+      ],
+      "inclusion": [
+        "Procedures when prior period reports contained other than unqualified opinions",
+        "Procedures when unaddressed prior material misstatements exist",
+        "Disclosing substantive reasons for changed prior opinions"
+      ],
+      "exclusion": [
+        "Referring to corresponding figures in current opinions unless specific prior exceptions occur"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard current-period testing by focusing specifically on historical comparative balances and opening positions"
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "8a5faf2b3f16a0d2594a7e3b1006b8b34c7c287a8aecafdf8b568501705ebdc7",
+  "artifact_id": "560e543c-b6ce-4364-a5f5-2f339091d917",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8265,
+  "output_tokens": 3417,
+  "cost_usd": 0.011022,
+  "created_at": "2026-10-03T18:10:17.674256+00:00"
+}

@@ -1,0 +1,251 @@
+{
+  "descriptors": [
+    {
+      "node_id": "c6485b0f-673d-4162-bd9f-5bda8002d73a",
+      "concept_name": "PORTFOLIO REVISION AND REBALANCING",
+      "definition": "Portfolio revision adjusts asset allocations to maintain alignment with an investor's objectives as market values fluctuate. Strategies include buy-and-hold, constant mix, and constant proportion portfolio insurance.",
+      "terminology": [
+        "Buy and hold policy",
+        "Constant mix policy",
+        "Constant Proportion Portfolio Insurance",
+        "Floor value"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Adjusting relative stock and bond proportions",
+        "Setting minimum portfolio floors"
+      ],
+      "exclusion": [
+        "Initial asset selection",
+        "Benchmark performance evaluation"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from initial asset allocation by focusing on ongoing adjustments rather than baseline structuring."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "949eee17-8a19-4890-9408-e20693488d6a",
+      "concept_name": "ASSET ALLOCATION STRATEGIES",
+      "definition": "Asset allocation distributes capital across multiple asset categories to align with return objectives, risk tolerances, and constraints. Frameworks include integrated, strategic, tactical, and insured asset allocation models.",
+      "terminology": [
+        "Integrated Asset Allocation",
+        "Strategic Asset Allocation",
+        "Tactical Asset Allocation",
+        "Insured Asset Allocation"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Multi-asset class distribution",
+        "Periodic portfolio mix adjustments"
+      ],
+      "exclusion": [
+        "Individual security selection",
+        "Single-asset management"
+      ],
+      "nearby_distinctions": [
+        "Differs from portfolio revision by determining overarching category weights rather than executing day-to-day rebalancing trades."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ccb75f98-7610-46c1-bc02-10c9d042c492",
+      "concept_name": "FIXED INCOME PORTFOLIO",
+      "definition": "A fixed income portfolio comprises debt instruments such as bonds, debentures, and money market instruments managed through systematic processes. It focuses on income generation, interest rate risk control, and benchmark evaluation.",
+      "terminology": [
+        "Bond Portfolio",
+        "Active Strategy",
+        "Passive Strategy",
+        "Immunization"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Bonds and debentures",
+        "Money market instruments"
+      ],
+      "exclusion": [
+        "Equity shares",
+        "Alternative physical assets"
+      ],
+      "nearby_distinctions": [
+        "Differs from equity portfolios through its reliance on debt instruments and cash flow matching obligations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "095eeae1-26b1-4cb4-be7b-3d30b783a850",
+      "concept_name": "Fixed Income Portfolio Process",
+      "definition": "The fixed income portfolio process entails setting objectives, drafting investment guidelines, and selecting management strategies. It concludes with security selection and performance evaluation against a benchmark.",
+      "terminology": [
+        "Investment policy",
+        "Benchmark evaluation",
+        "Active and Passive Strategy"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Objective setting",
+        "Performance evaluation"
+      ],
+      "exclusion": [
+        "Dynamic equity trading",
+        "Derivative hedging"
+      ],
+      "nearby_distinctions": [
+        "Distinct from general asset allocation by detailing the step-by-step administration of a debt security portfolio."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2499d81c-f43d-4936-903e-876b1845ea81",
+      "concept_name": "Calculation Of Return On Fixed Income Portfolio",
+      "definition": "Fixed income portfolio return calculation measures performance using standardized metrics tailored to portfolio requirements. Commonly applied measures include arithmetic averages, time-weighted, rupee-weighted, and annualized returns.",
+      "terminology": [
+        "Arithmetic Average Rate of Return",
+        "Time Weighted Rate of Return",
+        "Rupee Weighted Rate of Return",
+        "Annualized Return"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Return performance computations",
+        "Rate averaging methods"
+      ],
+      "exclusion": [
+        "Duration matching",
+        "Credit risk assessment"
+      ],
+      "nearby_distinctions": [
+        "Differs from yield-to-maturity calculations by evaluating historical portfolio performance across specific time frames."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "bc33367e-90e0-4846-a4ad-b9501a25ca16",
+      "concept_name": "Fixed Income Portfolio Management Strategies",
+      "definition": "Fixed income portfolio management employs passive techniques like indexation and immunization alongside active approaches to exploit yield curve movements. These strategies balance risk and return objectives according to market expectations.",
+      "terminology": [
+        "Passive Strategy",
+        "Active Strategy",
+        "Immunization",
+        "Bullet Strategy"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Buy and hold",
+        "Cash flow matching"
+      ],
+      "exclusion": [
+        "Equity arbitrage",
+        "Alternative real asset investing"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from passive indexing by actively forecasting interest rates to outperform market returns."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0403a1e2-ef6b-4777-8dbc-d019710ae8b0",
+      "concept_name": "ALTERNATIVE INVESTMENT AVENUES",
+      "definition": "Alternative investments encompass asset classes outside traditional stocks, bonds, and cash, featuring high transaction fees and limited historical data. They typically involve illiquid holdings, reduced transparency, and leveraged buying mechanisms.",
+      "terminology": [
+        "Alternative Investments",
+        "Real Estates",
+        "Private Equity",
+        "Hedge Funds",
+        "Distressed Securities"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Real estate and gold",
+        "Commodities and private equity"
+      ],
+      "exclusion": [
+        "Traditional equity shares",
+        "Standard government bonds"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from traditional securities by lower market liquidity, higher fees, and specialized valuation complexities."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "393ab0be-4f87-488c-8449-0337f73cd37d",
+      "concept_name": "Real Estates",
+      "definition": "Real estate involves tangible physical assets like land, buildings, and commercial spaces valued through specialized approaches. Valuation relies on methods such as sales comparison, income capitalization, and replacement cost estimation.",
+      "terminology": [
+        "Sales Comparison Approach",
+        "Income Approach",
+        "Cost Approach",
+        "Discounted After Tax Cash Flow"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Land and buildings",
+        "Commercial warehouses and shops"
+      ],
+      "exclusion": [
+        "Paper financial claims",
+        "Dematerialized equity securities"
+      ],
+      "nearby_distinctions": [
+        "Differs from financial instruments due to tangible property characteristics, localized legal frameworks, and inefficient markets."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b4a5a628-a107-41d2-8e9a-c969e4708f22",
+      "concept_name": "Gold",
+      "definition": "Gold serves as a tangible real asset and alternative investment medium available through physical bars, sovereign bonds, or exchange-traded funds. It protects against storage risks and making charges through dematerialized and government-backed structures.",
+      "terminology": [
+        "Gold Bars",
+        "Sovereign Gold Bonds",
+        "Gold Exchange Traded Funds",
+        "E-gold"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Physical gold coins and bars",
+        "Sovereign gold bonds and ETFs"
+      ],
+      "exclusion": [
+        "Standard corporate equity",
+        "Fixed income debentures"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from jewellery holdings by eliminating physical storage costs, purity concerns, and repetitive making charges."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6628d896-6b98-45c7-800a-6f6a7c8f6a3b",
+      "concept_name": "Distressed Securities",
+      "definition": "Distressed securities involve purchasing debt or equity of companies near bankruptcy at low prices to facilitate corporate turnaround. Investors exploit pricing inefficiencies by combining long debt positions with short equity positions for arbitrage.",
+      "terminology": [
+        "Bankruptcy",
+        "Long Position in Debt",
+        "Short Position in Equity",
+        "Arbitrage Profit"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Bonds of financially distressed firms",
+        "Securities of companies near bankruptcy"
+      ],
+      "exclusion": [
+        "Blue-chip equities",
+        "High-grade sovereign bonds"
+      ],
+      "nearby_distinctions": [
+        "Differs from standard fixed income investing by targeting severely impaired assets with turnaround and restructuring potential."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "ded87bf7747c3d0a82c79088d554e722329bf67fa99d1f2a460974ec119544bb",
+  "artifact_id": "28b19204-de90-410d-9639-af39970a6481",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 6494,
+  "output_tokens": 2443,
+  "cost_usd": 0.008055699999999999,
+  "created_at": "2026-10-03T18:07:28.537876+00:00"
+}

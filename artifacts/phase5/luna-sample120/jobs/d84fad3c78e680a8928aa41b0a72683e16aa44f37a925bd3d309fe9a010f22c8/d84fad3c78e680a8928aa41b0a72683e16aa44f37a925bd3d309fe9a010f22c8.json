@@ -1,0 +1,113 @@
+{
+  "result": {
+    "question_id": "d84fad3c78e680a8928aa41b0a72683e16aa44f37a925bd3d309fe9a010f22c8",
+    "input_hash": "4f0648972d4a04361c6254e745be4589466d1d61addec057141d4fee623e31f8",
+    "mappings": [
+      {
+        "part_id": "d84fad3c78e680a8928aa41b0a72683e16aa44f37a925bd3d309fe9a010f22c8:S91.Q4.a.i",
+        "outcome": "matched",
+        "primary_node_id": "16021ad6-79e0-4ff3-96ff-967394f41d28",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "16021ad6-79e0-4ff3-96ff-967394f41d28",
+            "support": "Tests section 194-IA withholding on a flat purchase, including parking and amenity charges in consideration and applying the aggregate transferee threshold."
+          }
+        ],
+        "note": "The answer directly addresses the immovable-property TDS provision and its consideration base.",
+        "confidence": 0.99,
+        "bucket": "A"
+      },
+      {
+        "part_id": "d84fad3c78e680a8928aa41b0a72683e16aa44f37a925bd3d309fe9a010f22c8:S91.Q4.a.ii",
+        "outcome": "matched",
+        "primary_node_id": "adfac2b6-6286-4093-8b35-00891bbc904f",
+        "secondary_node_ids": [
+          "54384a3a-c4aa-4d84-90b9-7877684fa43b"
+        ],
+        "evidence": [
+          {
+            "node_id": "adfac2b6-6286-4093-8b35-00891bbc904f",
+            "support": "Tests employer withholding on salary under section 192, computing tax using the default regime and the employee\u2019s total income."
+          },
+          {
+            "node_id": "54384a3a-c4aa-4d84-90b9-7877684fa43b",
+            "support": "The computation applies the broader TDS framework to account for tax withheld on FDR interest and TCS collected on the car purchase against salary withholding."
+          }
+        ],
+        "note": "Salary TDS is the central task; the answer also uses other collection credits in determining the withholding amount.",
+        "confidence": 0.97,
+        "bucket": "A"
+      },
+      {
+        "part_id": "d84fad3c78e680a8928aa41b0a72683e16aa44f37a925bd3d309fe9a010f22c8:S91.Q4.a.iii",
+        "outcome": "matched",
+        "primary_node_id": "ee93052b-b55a-4c26-a13d-115b90ecec3c",
+        "secondary_node_ids": [
+          "c8cecaf1-6405-4921-b9bc-58a544c71739"
+        ],
+        "evidence": [
+          {
+            "node_id": "ee93052b-b55a-4c26-a13d-115b90ecec3c",
+            "support": "Tests whether section 194N applies to a bank\u2019s cash withdrawal by a cooperative bank, including the exemption for a compliant banking cooperative."
+          },
+          {
+            "node_id": "c8cecaf1-6405-4921-b9bc-58a544c71739",
+            "support": "The answer also determines whether section 194A TDS applies to FDR interest, covering a separate TDS obligation within the question\u2019s TDS/TCS scope."
+          }
+        ],
+        "note": "The cash-withdrawal issue has a direct candidate; the separate interest-TDS exemption is represented by the broader TDS/TCS collection concept.",
+        "confidence": 0.83,
+        "bucket": "B"
+      },
+      {
+        "part_id": "d84fad3c78e680a8928aa41b0a72683e16aa44f37a925bd3d309fe9a010f22c8:S91.Q4.b.i",
+        "outcome": "matched",
+        "primary_node_id": "a2c79666-6048-43ed-b0c2-989cd044190b",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "a2c79666-6048-43ed-b0c2-989cd044190b",
+            "support": "Tests whether a cross-border company relationship meets the associated-enterprise condition for transfer pricing; the stated 30% voting power is assessed against the statutory threshold."
+          }
+        ],
+        "note": "The tested issue is the associated-enterprise relationship that brings an international transaction within transfer-pricing rules.",
+        "confidence": 0.91,
+        "bucket": "A"
+      },
+      {
+        "part_id": "d84fad3c78e680a8928aa41b0a72683e16aa44f37a925bd3d309fe9a010f22c8:S91.Q4.b.ii",
+        "outcome": "matched",
+        "primary_node_id": "a2c79666-6048-43ed-b0c2-989cd044190b",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "a2c79666-6048-43ed-b0c2-989cd044190b",
+            "support": "Tests the consequences of accepting an arm\u2019s-length-price adjustment in an international associated-enterprise transaction, including repatriation, deemed advance and interest, or additional tax instead of secondary adjustment."
+          }
+        ],
+        "note": "The options arise from transfer-pricing adjustment rules for the international transaction.",
+        "confidence": 0.96,
+        "bucket": "A"
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "attempt_id": "1791216930047316000",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "d7d09684be13a4f4aad58b358d1ba50799f6cd56737fccde5ae2343ac75fe808",
+    "schema_generator": "pinned-part-ids-v1",
+    "seconds": 33.9,
+    "usage": [
+      {
+        "input_tokens": 53885,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1576,
+        "reasoning_output_tokens": 412
+      }
+    ],
+    "completed_at": "2026-10-05T16:16:03.947662+00:00"
+  }
+}

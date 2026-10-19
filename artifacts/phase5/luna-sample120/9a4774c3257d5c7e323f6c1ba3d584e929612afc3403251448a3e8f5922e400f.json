@@ -1,0 +1,777 @@
+{
+  "result": {
+    "question_id": "9a4774c3257d5c7e323f6c1ba3d584e929612afc3403251448a3e8f5922e400f",
+    "input_hash": "8bbf3d93d3d01bf0d7f156d068fb4c3b67596ed8ca78be26f4eac732748c8756",
+    "mappings": [
+      {
+        "part_id": "9a4774c3257d5c7e323f6c1ba3d584e929612afc3403251448a3e8f5922e400f:CSIV.M12",
+        "outcome": "matched",
+        "primary_node_id": "189d2efd-6bb1-45e7-a4d4-2e792c86c849",
+        "secondary_node_ids": [
+          "03cf96a0-8c54-4bf4-9bd9-1f9b6535e6c1"
+        ],
+        "evidence": [
+          {
+            "node_id": "189d2efd-6bb1-45e7-a4d4-2e792c86c849",
+            "support": "Values an option hedge for a USD receivable; an FX put gives the holder the right to sell foreign currency at a strike rate for a premium."
+          },
+          {
+            "node_id": "03cf96a0-8c54-4bf4-9bd9-1f9b6535e6c1",
+            "support": "The calculation includes the option premium and the option payoff, matching option contract rights and asymmetric payoffs."
+          }
+        ],
+        "note": "Calculates expected proceeds under an FX option hedge using the forecast exchange-rate scenarios.",
+        "confidence": 0.91,
+        "bucket": "A"
+      },
+      {
+        "part_id": "9a4774c3257d5c7e323f6c1ba3d584e929612afc3403251448a3e8f5922e400f:CSIV.M13",
+        "outcome": "matched",
+        "primary_node_id": "1bbc87d7-274c-4b18-805f-1f9d482f4e1a",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "1bbc87d7-274c-4b18-805f-1f9d482f4e1a",
+            "support": "Calculates the pound proceeds from locking in the six-month forward exchange rate, matching a future FX delivery commitment."
+          }
+        ],
+        "note": "Forward hedge proceeds for the receivable.",
+        "confidence": 0.96,
+        "bucket": "A"
+      },
+      {
+        "part_id": "9a4774c3257d5c7e323f6c1ba3d584e929612afc3403251448a3e8f5922e400f:CSIV.M14",
+        "outcome": "matched",
+        "primary_node_id": "be6f1feb-10b9-4933-9944-29074679b559",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "be6f1feb-10b9-4933-9944-29074679b559",
+            "support": "Uses forecast exchange rates with stated probabilities to calculate an expected outcome, matching probability-weighted possible returns."
+          }
+        ],
+        "note": "Expected unhedged spot rate and pound proceeds are based on the forecast scenarios.",
+        "confidence": 0.83,
+        "bucket": "B"
+      },
+      {
+        "part_id": "9a4774c3257d5c7e323f6c1ba3d584e929612afc3403251448a3e8f5922e400f:CSIV.M15",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Compares option, forward, money market, and unhedged strategies; the supplied candidates do not cover the full set of FX hedging methods needed for this comparison.",
+        "confidence": 0.88,
+        "bucket": "B"
+      },
+      {
+        "part_id": "9a4774c3257d5c7e323f6c1ba3d584e929612afc3403251448a3e8f5922e400f:CSIV.Q1.a.i",
+        "outcome": "matched",
+        "primary_node_id": "f54e9f7b-0cb2-4360-aabd-aed08c3bfae4",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "f54e9f7b-0cb2-4360-aabd-aed08c3bfae4",
+            "support": "Values an ordinary share by discounting its expected dividend stream at the cost of equity using a constant-growth dividend model."
+          }
+        ],
+        "note": "Calculates PQR Ltd.'s share value from current dividend, growth, and cost of equity.",
+        "confidence": 0.97,
+        "bucket": "A"
+      },
+      {
+        "part_id": "9a4774c3257d5c7e323f6c1ba3d584e929612afc3403251448a3e8f5922e400f:CSIV.Q1.a.ii",
+        "outcome": "matched",
+        "primary_node_id": "f54e9f7b-0cb2-4360-aabd-aed08c3bfae4",
+        "secondary_node_ids": [
+          "c25a5ec6-aeba-4825-bef5-c10aa352b429"
+        ],
+        "evidence": [
+          {
+            "node_id": "f54e9f7b-0cb2-4360-aabd-aed08c3bfae4",
+            "support": "Uses earnings and growth-based share valuation and compares intrinsic value with the actual share price to judge overvaluation."
+          },
+          {
+            "node_id": "c25a5ec6-aeba-4825-bef5-c10aa352b429",
+            "support": "Applies the required return on equity as the discount or hurdle rate in the earnings growth valuation."
+          }
+        ],
+        "note": "Assesses share value and overvaluation using P/E and earnings-growth approaches.",
+        "confidence": 0.91,
+        "bucket": "A"
+      },
+      {
+        "part_id": "9a4774c3257d5c7e323f6c1ba3d584e929612afc3403251448a3e8f5922e400f:CSIV.Q1.b",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Computes Economic Value Added from NOPAT, WACC, and invested capital; no supplied candidate describes EVA or this calculation.",
+        "confidence": 0.94,
+        "bucket": "A"
+      },
+      {
+        "part_id": "9a4774c3257d5c7e323f6c1ba3d584e929612afc3403251448a3e8f5922e400f:CSIV.Q1.c.i",
+        "outcome": "matched",
+        "primary_node_id": "df1ac58d-f406-44db-a891-5f6bc934a81e",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "df1ac58d-f406-44db-a891-5f6bc934a81e",
+            "support": "Identifies how exchange-rate changes among the yuan, rupee, and dollar affect imported input costs and export revenues, matching currency-driven cash-flow and competitiveness exposure."
+          }
+        ],
+        "note": "Currency risk from cross-border sourcing and sales.",
+        "confidence": 0.96,
+        "bucket": "A"
+      },
+      {
+        "part_id": "9a4774c3257d5c7e323f6c1ba3d584e929612afc3403251448a3e8f5922e400f:CSIV.Q1.c.ii",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Political instability and trade-policy risk are tested; no supplied candidate describes these risks.",
+        "confidence": 0.94,
+        "bucket": "A"
+      },
+      {
+        "part_id": "9a4774c3257d5c7e323f6c1ba3d584e929612afc3403251448a3e8f5922e400f:CSIV.Q1.c.iii",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "US product demand fluctuations and their impact on profitability are tested; no supplied candidate describes market-demand risk.",
+        "confidence": 0.93,
+        "bucket": "A"
+      },
+      {
+        "part_id": "9a4774c3257d5c7e323f6c1ba3d584e929612afc3403251448a3e8f5922e400f:CSIV.Q1.c.iv",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Tests compliance with import/export, quality, and customs regulations; no supplied candidate describes regulatory risk.",
+        "confidence": 0.95,
+        "bucket": "A"
+      },
+      {
+        "part_id": "9a4774c3257d5c7e323f6c1ba3d584e929612afc3403251448a3e8f5922e400f:CSIV.Q2.a.i",
+        "outcome": "matched",
+        "primary_node_id": "7adfd1c3-4766-4221-bd22-bd454c45445c",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "7adfd1c3-4766-4221-bd22-bd454c45445c",
+            "support": "Calculates portfolio variance and standard deviation for independent asset returns by combining weighted individual variances."
+          }
+        ],
+        "note": "Portfolio risk calculation under independence.",
+        "confidence": 0.97,
+        "bucket": "A"
+      },
+      {
+        "part_id": "9a4774c3257d5c7e323f6c1ba3d584e929612afc3403251448a3e8f5922e400f:CSIV.Q2.a.ii",
+        "outcome": "matched",
+        "primary_node_id": "7adfd1c3-4766-4221-bd22-bd454c45445c",
+        "secondary_node_ids": [
+          "e0138e59-7812-47a9-a9c3-90eb82112375"
+        ],
+        "evidence": [
+          {
+            "node_id": "7adfd1c3-4766-4221-bd22-bd454c45445c",
+            "support": "Calculates portfolio variance and standard deviation while accounting for the returns' relationship."
+          },
+          {
+            "node_id": "e0138e59-7812-47a9-a9c3-90eb82112375",
+            "support": "Perfect negative correlation is the specified correlation condition affecting the portfolio's risk through diversification."
+          }
+        ],
+        "note": "Portfolio standard deviation with perfectly negatively correlated returns.",
+        "confidence": 0.97,
+        "bucket": "A"
+      },
+      {
+        "part_id": "9a4774c3257d5c7e323f6c1ba3d584e929612afc3403251448a3e8f5922e400f:CSIV.Q2.a.iii",
+        "outcome": "matched",
+        "primary_node_id": "7adfd1c3-4766-4221-bd22-bd454c45445c",
+        "secondary_node_ids": [
+          "e0138e59-7812-47a9-a9c3-90eb82112375"
+        ],
+        "evidence": [
+          {
+            "node_id": "7adfd1c3-4766-4221-bd22-bd454c45445c",
+            "support": "Calculates portfolio variance and standard deviation based on constituent risk and co-movement."
+          },
+          {
+            "node_id": "e0138e59-7812-47a9-a9c3-90eb82112375",
+            "support": "Perfect positive correlation is the specified condition determining the portfolio's combined risk."
+          }
+        ],
+        "note": "Portfolio standard deviation with perfectly positively correlated returns.",
+        "confidence": 0.97,
+        "bucket": "A"
+      },
+      {
+        "part_id": "9a4774c3257d5c7e323f6c1ba3d584e929612afc3403251448a3e8f5922e400f:CSIV.Q2.b.ii",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Calculates rupees needed for an immediate spot-market currency purchase; the available FX candidates cover forward rates and options, not spot transaction conversion.",
+        "confidence": 0.91,
+        "bucket": "B"
+      },
+      {
+        "part_id": "9a4774c3257d5c7e323f6c1ba3d584e929612afc3403251448a3e8f5922e400f:CSIV.Q2.b.iii",
+        "outcome": "matched",
+        "primary_node_id": "68d5e74d-366d-48ca-9077-b827b7720494",
+        "secondary_node_ids": [
+          "c25a5ec6-aeba-4825-bef5-c10aa352b429"
+        ],
+        "evidence": [
+          {
+            "node_id": "68d5e74d-366d-48ca-9077-b827b7720494",
+            "support": "Annualizes the forward premium from spot and forward quotes and compares the forward rate with the alternative return."
+          },
+          {
+            "node_id": "c25a5ec6-aeba-4825-bef5-c10aa352b429",
+            "support": "The stated rupee investment ROI is an alternative required return used to choose between conversion timings."
+          }
+        ],
+        "note": "Compares forward premium with rupee investment ROI to decide when to convert the dollars.",
+        "confidence": 0.86,
+        "bucket": "B"
+      },
+      {
+        "part_id": "9a4774c3257d5c7e323f6c1ba3d584e929612afc3403251448a3e8f5922e400f:CSIV.Q2.c",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Asks about expanded CFO responsibilities after the pandemic; no supplied candidate describes CFO roles.",
+        "confidence": 0.96,
+        "bucket": "A"
+      },
+      {
+        "part_id": "9a4774c3257d5c7e323f6c1ba3d584e929612afc3403251448a3e8f5922e400f:CSIV.Q2.c.repeat2",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Describes CFO responsibilities in risk, supply chain, M&A, and ESG financing; no supplied candidate covers this tested subject.",
+        "confidence": 0.97,
+        "bucket": "A"
+      },
+      {
+        "part_id": "9a4774c3257d5c7e323f6c1ba3d584e929612afc3403251448a3e8f5922e400f:CSIV.Q3.a",
+        "outcome": "matched",
+        "primary_node_id": "cef1e6b0-f433-44cd-8531-a1aab2863e41",
+        "secondary_node_ids": [
+          "4f4b0079-0ad0-4530-84b7-b42d14b44be1"
+        ],
+        "evidence": [
+          {
+            "node_id": "cef1e6b0-f433-44cd-8531-a1aab2863e41",
+            "support": "Discounts forecast after-tax operating cash flows and tax-shield cash flows using present-value factors and adjusts cash flows for inflation."
+          },
+          {
+            "node_id": "4f4b0079-0ad0-4530-84b7-b42d14b44be1",
+            "support": "Evaluates a machine investment by comparing its initial outlay with the present value of future project cash flows."
+          }
+        ],
+        "note": "Real-term NPV appraisal of a capital investment, including depreciation tax savings and working-capital recovery.",
+        "confidence": 0.85,
+        "bucket": "B"
+      },
+      {
+        "part_id": "9a4774c3257d5c7e323f6c1ba3d584e929612afc3403251448a3e8f5922e400f:CSIV.Q3.b.i",
+        "outcome": "matched",
+        "primary_node_id": "49fc3b93-c20b-4414-919d-b1423b0926b4",
+        "secondary_node_ids": [
+          "c25a5ec6-aeba-4825-bef5-c10aa352b429"
+        ],
+        "evidence": [
+          {
+            "node_id": "49fc3b93-c20b-4414-919d-b1423b0926b4",
+            "support": "Solves for the investment period needed to earn a specified percentage yield after investment costs."
+          },
+          {
+            "node_id": "c25a5ec6-aeba-4825-bef5-c10aa352b429",
+            "support": "The required 5% pre-tax return is the investment hurdle applied to the short-term securities investment."
+          }
+        ],
+        "note": "Determines holding period needed for the securities investment to attain the specified pre-tax yield after costs.",
+        "confidence": 0.88,
+        "bucket": "B"
+      },
+      {
+        "part_id": "9a4774c3257d5c7e323f6c1ba3d584e929612afc3403251448a3e8f5922e400f:CSIV.Q3.b.ii",
+        "outcome": "matched",
+        "primary_node_id": "49fc3b93-c20b-4414-919d-b1423b0926b4",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "49fc3b93-c20b-4414-919d-b1423b0926b4",
+            "support": "Finds the period when investment yield offsets the initial investment expenditure, a cash-flow break-even calculation."
+          }
+        ],
+        "note": "Calculates the minimum holding period for investment-cost break-even.",
+        "confidence": 0.86,
+        "bucket": "B"
+      },
+      {
+        "part_id": "9a4774c3257d5c7e323f6c1ba3d584e929612afc3403251448a3e8f5922e400f:CSIV.Q3.c",
+        "outcome": "matched",
+        "primary_node_id": "7989cb44-afc4-4cbd-a8b7-fb59a46a19dc",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "7989cb44-afc4-4cbd-a8b7-fb59a46a19dc",
+            "support": "Explains serial-correlation, run, and filter-rule tests that empirically assess weak-form market efficiency using historical price changes."
+          }
+        ],
+        "note": "Describes tests of weak-form efficient market theory.",
+        "confidence": 0.99,
+        "bucket": "A"
+      },
+      {
+        "part_id": "9a4774c3257d5c7e323f6c1ba3d584e929612afc3403251448a3e8f5922e400f:CSIV.M1",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Identifies the initial outlay for a machine and working capital; no supplied candidate describes initial capital budgeting outlay calculations.",
+        "confidence": 0.87,
+        "bucket": "B"
+      },
+      {
+        "part_id": "9a4774c3257d5c7e323f6c1ba3d584e929612afc3403251448a3e8f5922e400f:CSIV.M2",
+        "outcome": "matched",
+        "primary_node_id": "cef1e6b0-f433-44cd-8531-a1aab2863e41",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "cef1e6b0-f433-44cd-8531-a1aab2863e41",
+            "support": "Computes the present value of after-tax project operating cash flows using a discount factor."
+          }
+        ],
+        "note": "Present value of annual after-tax operating cash flows in the real-term NPV analysis.",
+        "confidence": 0.89,
+        "bucket": "B"
+      },
+      {
+        "part_id": "9a4774c3257d5c7e323f6c1ba3d584e929612afc3403251448a3e8f5922e400f:CSIV.M3",
+        "outcome": "matched",
+        "primary_node_id": "cef1e6b0-f433-44cd-8531-a1aab2863e41",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "cef1e6b0-f433-44cd-8531-a1aab2863e41",
+            "support": "Discounts the inflation-adjusted depreciation tax-savings cash flows to present value."
+          }
+        ],
+        "note": "Present value of the project's depreciation tax shield.",
+        "confidence": 0.9,
+        "bucket": "B"
+      },
+      {
+        "part_id": "9a4774c3257d5c7e323f6c1ba3d584e929612afc3403251448a3e8f5922e400f:CSIV.M4",
+        "outcome": "matched",
+        "primary_node_id": "cef1e6b0-f433-44cd-8531-a1aab2863e41",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "cef1e6b0-f433-44cd-8531-a1aab2863e41",
+            "support": "Inflation-adjusts the recovered working-capital cash flow and discounts it to present value."
+          }
+        ],
+        "note": "Present value of working-capital recovery in the NPV calculation.",
+        "confidence": 0.89,
+        "bucket": "B"
+      },
+      {
+        "part_id": "9a4774c3257d5c7e323f6c1ba3d584e929612afc3403251448a3e8f5922e400f:CSIV.Q4.a.i",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Provides a project rent estimate as an input to an international project viability appraisal; no supplied candidate describes this calculation.",
+        "confidence": 0.83,
+        "bucket": "B"
+      },
+      {
+        "part_id": "9a4774c3257d5c7e323f6c1ba3d584e929612afc3403251448a3e8f5922e400f:CSIV.Q4.a.ii",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Provides labor-cost input for an international project viability appraisal; no supplied candidate describes project operating-cost estimation.",
+        "confidence": 0.85,
+        "bucket": "B"
+      },
+      {
+        "part_id": "9a4774c3257d5c7e323f6c1ba3d584e929612afc3403251448a3e8f5922e400f:CSIV.Q4.a.iii",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Provides administrative cost input for an international project viability appraisal; no supplied candidate describes this calculation.",
+        "confidence": 0.85,
+        "bucket": "B"
+      },
+      {
+        "part_id": "9a4774c3257d5c7e323f6c1ba3d584e929612afc3403251448a3e8f5922e400f:CSIV.Q4.a.iv",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Assesses a foreign project using transfer pricing, taxes, repatriation, and project cost; no supplied candidate describes this project viability analysis.",
+        "confidence": 0.93,
+        "bucket": "A"
+      },
+      {
+        "part_id": "9a4774c3257d5c7e323f6c1ba3d584e929612afc3403251448a3e8f5922e400f:CSIV.Q4.b.i",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Calculates pre-merger EPS from merger and share-issue data; no supplied candidate describes EPS or merger exchange-ratio calculations.",
+        "confidence": 0.9,
+        "bucket": "B"
+      },
+      {
+        "part_id": "9a4774c3257d5c7e323f6c1ba3d584e929612afc3403251448a3e8f5922e400f:CSIV.Q4.b.ii",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Calculates shares issued to maintain pre-merger EPS; the supplied M&A candidate covers acquisition rationale, not exchange-ratio or EPS mechanics.",
+        "confidence": 0.93,
+        "bucket": "A"
+      },
+      {
+        "part_id": "9a4774c3257d5c7e323f6c1ba3d584e929612afc3403251448a3e8f5922e400f:CSIV.Q4.c.i",
+        "outcome": "matched",
+        "primary_node_id": "26930ae4-6176-4f4d-9bfb-2f9e1b4e5b15",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "26930ae4-6176-4f4d-9bfb-2f9e1b4e5b15",
+            "support": "Identifies liquidity creation by making otherwise illiquid assets tradable through tokenization and securitization."
+          }
+        ],
+        "note": "Shared liquidity benefit of tokenization and securitization.",
+        "confidence": 0.99,
+        "bucket": "A"
+      },
+      {
+        "part_id": "9a4774c3257d5c7e323f6c1ba3d584e929612afc3403251448a3e8f5922e400f:CSIV.Q4.c.ii",
+        "outcome": "matched",
+        "primary_node_id": "26930ae4-6176-4f4d-9bfb-2f9e1b4e5b15",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "26930ae4-6176-4f4d-9bfb-2f9e1b4e5b15",
+            "support": "Identifies portfolio diversification as a shared benefit for investors in the resulting tradable products."
+          }
+        ],
+        "note": "Shared diversification benefit of tokenization and securitization.",
+        "confidence": 0.98,
+        "bucket": "A"
+      },
+      {
+        "part_id": "9a4774c3257d5c7e323f6c1ba3d584e929612afc3403251448a3e8f5922e400f:CSIV.Q4.c.iii",
+        "outcome": "matched",
+        "primary_node_id": "26930ae4-6176-4f4d-9bfb-2f9e1b4e5b15",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "26930ae4-6176-4f4d-9bfb-2f9e1b4e5b15",
+            "support": "Describes tradability of the products created through both processes, supporting the liquidity and diversification benefits."
+          }
+        ],
+        "note": "Shared tradability benefit.",
+        "confidence": 0.96,
+        "bucket": "A"
+      },
+      {
+        "part_id": "9a4774c3257d5c7e323f6c1ba3d584e929612afc3403251448a3e8f5922e400f:CSIV.Q4.c.iv",
+        "outcome": "matched",
+        "primary_node_id": "26930ae4-6176-4f4d-9bfb-2f9e1b4e5b15",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "26930ae4-6176-4f4d-9bfb-2f9e1b4e5b15",
+            "support": "Identifies fee income opportunities for financial institutions and related intermediaries as a shared benefit."
+          }
+        ],
+        "note": "Shared fee-generation opportunity.",
+        "confidence": 0.97,
+        "bucket": "A"
+      },
+      {
+        "part_id": "9a4774c3257d5c7e323f6c1ba3d584e929612afc3403251448a3e8f5922e400f:CSIV.Q4.c.alt2",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Completes a venture-capital financing-stage matrix by investment horizon, risk, and activity; no supplied candidate describes venture-capital stages.",
+        "confidence": 0.96,
+        "bucket": "A"
+      },
+      {
+        "part_id": "9a4774c3257d5c7e323f6c1ba3d584e929612afc3403251448a3e8f5922e400f:CSIV.Q5.a.i",
+        "outcome": "matched",
+        "primary_node_id": "bc7ff11a-452b-4ee8-b22d-858439e5a1e5",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "bc7ff11a-452b-4ee8-b22d-858439e5a1e5",
+            "support": "Calculates mutual-fund income remaining after dividend distribution, an element used in determining fund value attributable to unit holders."
+          }
+        ],
+        "note": "Computes income remaining in the fund after its dividend distribution.",
+        "confidence": 0.86,
+        "bucket": "B"
+      },
+      {
+        "part_id": "9a4774c3257d5c7e323f6c1ba3d584e929612afc3403251448a3e8f5922e400f:CSIV.Q5.a.ii",
+        "outcome": "matched",
+        "primary_node_id": "a1f8ffb3-e239-4aec-bfa5-3e2a2fc76ef4",
+        "secondary_node_ids": [
+          "bc7ff11a-452b-4ee8-b22d-858439e5a1e5"
+        ],
+        "evidence": [
+          {
+            "node_id": "a1f8ffb3-e239-4aec-bfa5-3e2a2fc76ef4",
+            "support": "Calculates unit issue price by adding the entry load to opening NAV, matching a charge at purchase."
+          },
+          {
+            "node_id": "bc7ff11a-452b-4ee8-b22d-858439e5a1e5",
+            "support": "Uses NAV and dividend equalization in the mutual-fund unit issue calculation."
+          }
+        ],
+        "note": "Issue price at the end of April, including entry load and dividend equalization.",
+        "confidence": 0.97,
+        "bucket": "A"
+      },
+      {
+        "part_id": "9a4774c3257d5c7e323f6c1ba3d584e929612afc3403251448a3e8f5922e400f:CSIV.Q5.a.iii",
+        "outcome": "matched",
+        "primary_node_id": "a1f8ffb3-e239-4aec-bfa5-3e2a2fc76ef4",
+        "secondary_node_ids": [
+          "bc7ff11a-452b-4ee8-b22d-858439e5a1e5"
+        ],
+        "evidence": [
+          {
+            "node_id": "a1f8ffb3-e239-4aec-bfa5-3e2a2fc76ef4",
+            "support": "Calculates repurchase price after deducting the exit load from opening NAV."
+          },
+          {
+            "node_id": "bc7ff11a-452b-4ee8-b22d-858439e5a1e5",
+            "support": "Uses NAV and dividend equalization in the mutual-fund unit redemption calculation."
+          }
+        ],
+        "note": "Repurchase price at the end of May, including exit load and dividend equalization.",
+        "confidence": 0.97,
+        "bucket": "A"
+      },
+      {
+        "part_id": "9a4774c3257d5c7e323f6c1ba3d584e929612afc3403251448a3e8f5922e400f:CSIV.Q5.a.iv",
+        "outcome": "matched",
+        "primary_node_id": "bc7ff11a-452b-4ee8-b22d-858439e5a1e5",
+        "secondary_node_ids": [
+          "a1f8ffb3-e239-4aec-bfa5-3e2a2fc76ef4"
+        ],
+        "evidence": [
+          {
+            "node_id": "bc7ff11a-452b-4ee8-b22d-858439e5a1e5",
+            "support": "Calculates closing net asset value per unit from fund assets, unit activity, income, distributions, and outstanding units."
+          },
+          {
+            "node_id": "a1f8ffb3-e239-4aec-bfa5-3e2a2fc76ef4",
+            "support": "The NAV computation incorporates entry and exit load effects from unit issues and repurchases."
+          }
+        ],
+        "note": "Computes mutual-fund NAV per unit at quarter-end.",
+        "confidence": 0.98,
+        "bucket": "A"
+      },
+      {
+        "part_id": "9a4774c3257d5c7e323f6c1ba3d584e929612afc3403251448a3e8f5922e400f:CSIV.Q5.b",
+        "outcome": "matched",
+        "primary_node_id": "4215c0cb-8f50-4a7f-95c1-8119299cfd83",
+        "secondary_node_ids": [
+          "5302ecbd-438c-48ec-a493-5ae486ba32a5"
+        ],
+        "evidence": [
+          {
+            "node_id": "4215c0cb-8f50-4a7f-95c1-8119299cfd83",
+            "support": "Values a privately held company and re-levers its unlevered beta to estimate company-specific cost of capital."
+          },
+          {
+            "node_id": "5302ecbd-438c-48ec-a493-5ae486ba32a5",
+            "support": "Uses CAPM with risk-free rate, beta, and market return to estimate the cost of equity."
+          }
+        ],
+        "note": "Values a private company using adjusted EBITDA, beta-based cost of equity, WACC, and discounted cash flows.",
+        "confidence": 0.95,
+        "bucket": "A"
+      },
+      {
+        "part_id": "9a4774c3257d5c7e323f6c1ba3d584e929612afc3403251448a3e8f5922e400f:CSIV.Q6.a.i",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "States the initial margin percentage for an index futures contract; no supplied candidate covers index futures margin requirements.",
+        "confidence": 0.91,
+        "bucket": "B"
+      },
+      {
+        "part_id": "9a4774c3257d5c7e323f6c1ba3d584e929612afc3403251448a3e8f5922e400f:CSIV.Q6.a.ii",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Calculates daily variation margin, margin calls, and gains or losses for Nifty index futures; the futures candidate concerns single-stock contracts and excludes this index-futures margining topic.",
+        "confidence": 0.96,
+        "bucket": "A"
+      },
+      {
+        "part_id": "9a4774c3257d5c7e323f6c1ba3d584e929612afc3403251448a3e8f5922e400f:CSIV.Q6.a.iii",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Calculates the gain or loss on a short Nifty index futures position; no supplied candidate covers index futures payoff or margining.",
+        "confidence": 0.95,
+        "bucket": "A"
+      },
+      {
+        "part_id": "9a4774c3257d5c7e323f6c1ba3d584e929612afc3403251448a3e8f5922e400f:CSIV.Q6.b.i",
+        "outcome": "matched",
+        "primary_node_id": "03cf96a0-8c54-4bf4-9bd9-1f9b6535e6c1",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "03cf96a0-8c54-4bf4-9bd9-1f9b6535e6c1",
+            "support": "Calculates a cap's payoff when interest rates exceed the strike and subtracts the upfront premium, matching an option's asymmetric payoff and cost."
+          }
+        ],
+        "note": "Calculates net savings from a purchased interest-rate cap when rates rise above the cap strike.",
+        "confidence": 0.81,
+        "bucket": "B"
+      },
+      {
+        "part_id": "9a4774c3257d5c7e323f6c1ba3d584e929612afc3403251448a3e8f5922e400f:CSIV.Q6.b.ii",
+        "outcome": "matched",
+        "primary_node_id": "03cf96a0-8c54-4bf4-9bd9-1f9b6535e6c1",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "03cf96a0-8c54-4bf4-9bd9-1f9b6535e6c1",
+            "support": "Combines cap and floor option premiums and payoffs to calculate the net result of an option strategy."
+          }
+        ],
+        "note": "Calculates net savings when both an interest-rate cap and floor are purchased.",
+        "confidence": 0.79,
+        "bucket": "B"
+      },
+      {
+        "part_id": "9a4774c3257d5c7e323f6c1ba3d584e929612afc3403251448a3e8f5922e400f:CSIV.Q6.b.iii",
+        "outcome": "matched",
+        "primary_node_id": "03cf96a0-8c54-4bf4-9bd9-1f9b6535e6c1",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "03cf96a0-8c54-4bf4-9bd9-1f9b6535e6c1",
+            "support": "Calculates a floor payoff when rates fall below its strike, then nets that payoff against the cap/floor premiums."
+          }
+        ],
+        "note": "Calculates the net outcome of purchased cap and floor options when interest rates fall.",
+        "confidence": 0.81,
+        "bucket": "B"
+      },
+      {
+        "part_id": "9a4774c3257d5c7e323f6c1ba3d584e929612afc3403251448a3e8f5922e400f:CSIV.Q6.b.iv",
+        "outcome": "matched",
+        "primary_node_id": "03cf96a0-8c54-4bf4-9bd9-1f9b6535e6c1",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "03cf96a0-8c54-4bf4-9bd9-1f9b6535e6c1",
+            "support": "Calculates the cap buyer's rate-based payoff and offsets the premium received from writing a floor option."
+          }
+        ],
+        "note": "Computes net savings from buying an interest-rate cap and selling a floor.",
+        "confidence": 0.81,
+        "bucket": "B"
+      },
+      {
+        "part_id": "9a4774c3257d5c7e323f6c1ba3d584e929612afc3403251448a3e8f5922e400f:CSIV.Q6.b.repeat2.ii",
+        "outcome": "matched",
+        "primary_node_id": "03cf96a0-8c54-4bf4-9bd9-1f9b6535e6c1",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "03cf96a0-8c54-4bf4-9bd9-1f9b6535e6c1",
+            "support": "Combines the purchased floor payoff with cap and floor premiums to determine the net option strategy result."
+          }
+        ],
+        "note": "Solution for the cap-and-floor purchase scenario.",
+        "confidence": 0.8,
+        "bucket": "B"
+      },
+      {
+        "part_id": "9a4774c3257d5c7e323f6c1ba3d584e929612afc3403251448a3e8f5922e400f:CSIV.Q6.b.repeat2.iii",
+        "outcome": "matched",
+        "primary_node_id": "03cf96a0-8c54-4bf4-9bd9-1f9b6535e6c1",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "03cf96a0-8c54-4bf4-9bd9-1f9b6535e6c1",
+            "support": "Nets the floor's payoff below its strike against both option premiums when rates fall."
+          }
+        ],
+        "note": "Solution for the cap-and-floor purchase scenario when rates fall.",
+        "confidence": 0.8,
+        "bucket": "B"
+      },
+      {
+        "part_id": "9a4774c3257d5c7e323f6c1ba3d584e929612afc3403251448a3e8f5922e400f:CSIV.Q6.b.repeat2.iv",
+        "outcome": "matched",
+        "primary_node_id": "03cf96a0-8c54-4bf4-9bd9-1f9b6535e6c1",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "03cf96a0-8c54-4bf4-9bd9-1f9b6535e6c1",
+            "support": "Combines a cap buyer payoff with premium income from writing the floor option to calculate the net payoff."
+          }
+        ],
+        "note": "Solution for buying the cap while selling the floor when rates rise.",
+        "confidence": 0.8,
+        "bucket": "B"
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "attempt_id": "1791217165448228000",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "14aacaed93393a8c9c14f0f3b9ff96a67b11c45a374c04697c3ca81e669fef04",
+    "schema_generator": "pinned-identifiers-v2",
+    "seconds": 188.152,
+    "usage": [
+      {
+        "input_tokens": 93559,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 10172,
+        "reasoning_output_tokens": 1489
+      }
+    ],
+    "completed_at": "2026-10-05T16:22:33.600441+00:00"
+  }
+}

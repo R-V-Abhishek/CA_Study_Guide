@@ -1,0 +1,305 @@
+{
+  "descriptors": [
+    {
+      "node_id": "5ad66ca7-76dc-4651-9824-81ca1d9ed087",
+      "concept_name": "Divestiture",
+      "definition": "Divestiture involves a company selling a portion of its business divisions or undertakings to an external entity or creating a completely independent company. It is driven by strategic imperatives such as focusing on core competencies, eliminating underperforming units, or generating urgent cash resources.",
+      "terminology": [
+        "Divestment",
+        "Demerger",
+        "Sell-side imperatives"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Sale of an enterprise division",
+        "Spin-off creation",
+        "Asset disposal for liquidity"
+      ],
+      "exclusion": [
+        "Internal capital allocation without structural separation",
+        "Routine inventory sales"
+      ],
+      "nearby_distinctions": [
+        "Unlike acquisitions which expand enterprise scope, divestitures contract or realign organizational boundaries by shedding non-core assets."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "23976a66-0505-4290-b142-0dafe2777605",
+      "concept_name": "Seller's Perspective in Divestiture",
+      "definition": "The seller's perspective governs the strategic planning and analytical evaluation required when an organization decides to divest a business unit. It emphasizes that sell-side decisions need rigorous valuation of brand equity, production strengths, and potential buyer synergies to prevent arbitrary transactions.",
+      "terminology": [
+        "Sell-side imperatives",
+        "Divestiture analysis",
+        "Undertaking valuation"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Assessment of core competencies",
+        "Analysis of competitive pressure and market positioning",
+        "Evaluation of company worth prior to sale"
+      ],
+      "exclusion": [
+        "Acquisition target screening",
+        "Post-merger integration planning"
+      ],
+      "nearby_distinctions": [
+        "Focuses exclusively on the divestment preparation and decision-making logic of the selling entity rather than the buyer valuation perspective."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "109d2968-d801-4cb4-8923-056fd8529c52",
+      "concept_name": "Different Forms of Divestitures",
+      "definition": "Divestitures occur through multiple structural forms including sell-offs, spin-offs, and split-ups to eliminate strategic mismatches and unlock shareholder value. A sell-off transfers asset ownership for consideration, whereas spin-offs and split-ups create separate legal entities while retaining proportionate shareholder ownership.",
+      "terminology": [
+        "Sell off",
+        "Partial Sell off",
+        "Spin-off",
+        "Split-up"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Asset or subsidiary sales for cash or securities",
+        "Proportionate creation of standalone entities",
+        "Complete dissolution of parent firms into multiple independent entities"
+      ],
+      "exclusion": [
+        "Internal operational restructuring",
+        "Debt-for-equity swaps under financial restructuring"
+      ],
+      "nearby_distinctions": [
+        "Sell-offs alter ownership and generate cash consideration, whereas spin-offs maintain original proportional ownership without injecting fresh cash."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b2816ccd-1781-4b94-ac59-8163e4b739c5",
+      "concept_name": "Financial Restructuring",
+      "definition": "Financial restructuring involves internal modifications to a company's assets and liabilities executed with stakeholder consent to rescue entities suffering from severe capital erosion. It resets the balance sheet by extinguishing accumulated losses and reducing debt burdens through waivers, refinancing, or debt-equity conversions.",
+      "terminology": [
+        "Internal re-construction",
+        "Refinancing",
+        "Rescue financing",
+        "Negative net worth"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Reduction or waiver of stakeholder claims",
+        "Conversion of debt obligations into equity securities",
+        "Elimination of fictitious assets and accumulated losses"
+      ],
+      "exclusion": [
+        "External divestment of operating units",
+        "Going private transactions via open market buybacks"
+      ],
+      "nearby_distinctions": [
+        "Operates as an internal balance sheet rescue for financially distressed firms, contrasting with ownership changes or external business divestitures."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e5d05306-1ad8-4409-ae8c-04ad42425b1c",
+      "concept_name": "Ownership Restructuring",
+      "definition": "Ownership restructuring encompasses transactions that alter the foundational equity ownership structure, control, and public market listing status of an enterprise. It includes initiatives such as taking a listed company private, management buyouts, and leveraged buyouts financed heavily through borrowed funds.",
+      "terminology": [
+        "Going private",
+        "Management buyouts",
+        "Leveraged buyout",
+        "Delisting"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Conversion of public entities into private companies",
+        "Acquisition of businesses by internal management teams",
+        "Debt-financed acquisition of target entities or divisions"
+      ],
+      "exclusion": [
+        "Routine secondary market share trading",
+        "Internal balance sheet restructuring"
+      ],
+      "nearby_distinctions": [
+        "Targets the overarching governance and listing framework of the firm rather than its internal operational liabilities or standalone divisional sales."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b2f6eff5-9d25-4212-9195-a36f33f0bf90",
+      "concept_name": "Going Private",
+      "definition": "Going private refers to converting a publicly traded company into a private entity by repurchasing all outstanding shares from public markets through tender offers or buyouts. Once executed, the firm's shares cease trading on open stock exchanges and are typically managed by private investors or internal management.",
+      "terminology": [
+        "Delisting",
+        "Privatization",
+        "Tender offer",
+        "Management buyout"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Buyback of all outstanding public shares",
+        "Removal of company listing status from stock exchanges",
+        "Transition to private investor control"
+      ],
+      "exclusion": [
+        "Initial public offerings",
+        "Minority equity share buybacks leaving public listing intact"
+      ],
+      "nearby_distinctions": [
+        "Eliminates public market access entirely, differing from standard equity buybacks that reduce capital without terminating the public listing."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "55be31fd-ddba-4fe0-96f6-89fa0af43717",
+      "concept_name": "Management Buyouts",
+      "definition": "Management buyouts are acquisition transactions where a company's internal management team purchases the business or its specific non-core divisions. This strategy facilitates the clean exit of non-core operations while placing operational control directly into the hands of executives familiar with the business.",
+      "terminology": [
+        "MBO",
+        "Management acquisition",
+        "Non-core divestment"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Acquisition of corporate divisions by incumbent management",
+        "Privatization of business units via internal leadership purchase"
+      ],
+      "exclusion": [
+        "Hostile external takeovers",
+        "Public equity issues"
+      ],
+      "nearby_distinctions": [
+        "Distinguished by the buyer identity, being executed strictly by the target company's own management team rather than external corporate competitors."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "88b280f8-ca3f-431f-b347-bac2cbfcad25",
+      "concept_name": "Leveraged Buyout (LBO)",
+      "definition": "A leveraged buyout is the acquisition of a company or division financed predominantly fifty percent or more using borrowed funds, typically secured by the target's physical assets. The resulting private entity uses generated operational cash flows to service and repay the debt before potentially returning to public markets.",
+      "terminology": [
+        "LBO",
+        "Debt-financed acquisition",
+        "Secured buyout"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Acquisitions funded primarily by debt instruments",
+        "Transactions secured by target asset collateral",
+        "Subsequent debt repayment via operational cash flow enhancement"
+      ],
+      "exclusion": [
+        "Equity-financed mergers",
+        "Internal financial restructuring without an external acquisition"
+      ],
+      "nearby_distinctions": [
+        "Relies heavily on external debt leverage for transaction financing, separating it from standard equity-funded acquisitions or management buyouts."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a61d7811-41ba-4b38-b619-2e8ef6ffb2cc",
+      "concept_name": "Equity Buyback",
+      "definition": "Equity buyback is a corporate process where a company utilizes surplus cash to repurchase its previously issued shares from the open market, causing those shares to be extinguished. This action reduces total equity capital, elevates promoter ownership stakes, and improves per-share performance ratios.",
+      "terminology": [
+        "Share repurchase",
+        "Treasury extinguishment",
+        "Surplus cash utilization"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Repurchase of outstanding shares using company cash reserves",
+        "Cancellation and extinguishment of bought-back shares",
+        "Enhancement of Earnings Per Share and Return on Equity metrics"
+      ],
+      "exclusion": [
+        "Initial public offering of new shares",
+        "Issuance of bonus shares"
+      ],
+      "nearby_distinctions": [
+        "Serves as the inverse of an initial public offering by absorbing and canceling outstanding shares rather than issuing new ones."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a17121ab-6607-41b6-b4d8-d3fe92d1bc0a",
+      "concept_name": "Unlocking Value Through Mergers, Acquisitions, and Business Restructuring",
+      "definition": "Value unlocking occurs through strategic structural combinations and business reorganizations designed to optimize operational scale, expand market share, and mobilize idle resources. Mechanisms include horizontal growth, vertical integration, diversification, and the targeted acquisition of shell companies or synergistic subsidiaries.",
+      "terminology": [
+        "Horizontal growth",
+        "Vertical combination",
+        "Diversification",
+        "Shell company acquisition"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Achieving optimum size via horizontal expansion",
+        "Cost minimization and duty elimination through vertical integration",
+        "Cash flow enhancement via subsidiary or trading company amalgamation"
+      ],
+      "exclusion": [
+        "Purely passive holding structures",
+        "Unplanned liquidations"
+      ],
+      "nearby_distinctions": [
+        "Focuses on proactive strategic value creation drivers rather than defensive financial rescues or simple asset sell-offs."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "38b94cfa-42d3-421b-9a11-b958c88be16a",
+      "concept_name": "Premium and Discount in Business Valuation",
+      "definition": "Premiums and discounts are valuation adjustments applied to business appraisals based on specific structural characteristics such as controlling stakes, brand equity, or market liquidity. Transaction pricing also depends heavily on external timing factors like macroeconomic cycles, stock market sentiment, and geopolitical situations.",
+      "terminology": [
+        "Controlling stake premium",
+        "Market share premium",
+        "Unlisted company discount",
+        "Valuation timing"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Application of market share and brand value premiums",
+        "Incorporation of small player and unlisted company discounts",
+        "Adjustment for economic cycle and stock market timing"
+      ],
+      "exclusion": [
+        "Undiscounted book value accounting",
+        "Fixed-price statutory asset valuations"
+      ],
+      "nearby_distinctions": [
+        "Modifies baseline business valuation models to account for governance control, liquidity constraints, and broader market timing dynamics."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f14c951c-6a99-4b69-989b-d5a3eece17eb",
+      "concept_name": "Mergers and Acquisitions Failures",
+      "definition": "Mergers and acquisitions frequently fail to create anticipated economic value due to factors such as structural overpayment, exaggerated synergy projections, and poor post-merger integration. Cultural clashes, executive resentment, and inadequate pre-acquisition planning further exacerbate these operational failures.",
+      "terminology": [
+        "Post-merger integration",
+        "Synergy overestimation",
+        "Managerial attrition",
+        "Pre-acquisition phase"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Overpayment for acquisition targets",
+        "Failure of post-merger integration and cultural alignment",
+        "Unrealistic estimation of prospective synergies"
+      ],
+      "exclusion": [
+        "Successful organic business expansion",
+        "Planned and executed internal restructuring"
+      ],
+      "nearby_distinctions": [
+        "Analyzes the root causes behind underperforming or value-destroying corporate combinations rather than successful transaction mechanics."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "8881df0a5da050482ef38c2c00f4019a38f05d2c3b5951c64381e699fe8aeeb1",
+  "artifact_id": "8aaed111-f41f-4733-950f-7550afab6922",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8567,
+  "output_tokens": 3364,
+  "cost_usd": 0.0109801,
+  "created_at": "2026-10-03T18:09:19.975137+00:00"
+}

@@ -1,0 +1,144 @@
+{
+  "descriptors": [
+    {
+      "node_id": "942ff1be-b67a-4fa2-ac05-30e7d43e4dfb",
+      "concept_name": "Taxation of Companies and Classification",
+      "definition": "A company is treated as a distinct person for assessment purposes under the tax statute, encompassing Indian companies, foreign bodies corporate, and specified notified institutions. The statutory tax framework differentiates between domestic and foreign entities, applying distinct tax rates and surcharges based on turnover thresholds and company status.",
+      "terminology": [
+        "Indian company",
+        "Foreign company",
+        "Domestic company",
+        "Surcharge",
+        "Gross receipt"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 2025, Section 2(28)",
+        "Income-tax Act, 2025, Section 2(77)(c)"
+      ],
+      "inclusion": [
+        "Indian companies",
+        "Foreign entities incorporated outside India",
+        "Institutions declared as companies by CBDT order"
+      ],
+      "exclusion": [
+        "Non-corporate entities like sole proprietorships unless declared",
+        "Standard partnership firms"
+      ],
+      "nearby_distinctions": [
+        "Distinction between domestic companies taxed at tiered rates versus foreign companies subject to standard foreign tax rates"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b4f3685a-fc54-42d7-baaa-af2ce34ea706",
+      "concept_name": "Alternate Minimum Tax for Non-Corporate Entities",
+      "definition": "Alternate Minimum Tax mandates non-corporate taxpayers claiming specified deductions to pay a baseline tax percentage if their regular tax liability falls below the computed alternate minimum threshold on adjusted total income. Adjusted total income is derived by adding back specified Chapter VIII-C deductions and investment-linked deductions to the regular total income.",
+      "terminology": [
+        "Alternate Minimum Tax",
+        "Adjusted total income",
+        "Form 67",
+        "Investment linked deduction"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 2025, Section 206(2)"
+      ],
+      "inclusion": [
+        "Non-corporate taxpayers claiming deductions under Chapter VIII-C or section 46",
+        "Units located in an IFSC"
+      ],
+      "exclusion": [
+        "Corporate entities",
+        "Assessees whose adjusted total income does not exceed twenty lakh rupees",
+        "Specified funds"
+      ],
+      "nearby_distinctions": [
+        "Differs from regular corporate minimum tax mechanisms by applying specifically to non-corporate entities based on adjusted total income benchmarks"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3b408bb8-2bb6-44c4-b9ab-31541efb577b",
+      "concept_name": "Liability of Successor to Business in Respect of Tax Chargeable from Predecessor",
+      "definition": "When a business or profession is transferred, the predecessor and successor are independently assessed for the income earned during their respective operational periods within that tax year. If the predecessor cannot be located, the successor inherits the tax liability for the succession year and the preceding year.",
+      "terminology": [
+        "Successor",
+        "Predecessor",
+        "Pendency",
+        "Apportionment"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 2025, Section 313"
+      ],
+      "inclusion": [
+        "Apportionment of income between predecessor and successor for the succession year",
+        "Transfer of assessment proceedings pending before courts or tribunals"
+      ],
+      "exclusion": [
+        "Liabilities unrelated to the transferred business operations prior to succession",
+        "Unrelated third-party debts"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between ongoing separate assessments during normal succession versus unified successor liability when the predecessor is untraceable"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d47d40c1-6bfc-4c7d-997a-00a1960fa2c1",
+      "concept_name": "Tax Planning Considerations in Relation to Business Structures",
+      "definition": "Tax planning for business enterprises involves evaluating structural, financial, and operational choices at inception to optimize liability under business income provisions. Selecting the appropriate organizational form is critical because subsequent structural conversions may trigger unintended tax liabilities.",
+      "terminology": [
+        "Profits and gains of business or profession",
+        "Form of organization",
+        "Financial structure",
+        "Sole proprietorship"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 2025, Sections 26 to 66"
+      ],
+      "inclusion": [
+        "Initial selection of business legal form",
+        "Planning around accounting methods and asset acquisition"
+      ],
+      "exclusion": [
+        "Post-commencement structural changes without prior tax impact analysis"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes structural establishment planning from routine operational tax compliance and filing"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "cbc1adfc-a522-4846-bcf6-2fd68f835033",
+      "concept_name": "Taxation of Income from Global Depository Receipts for Resident Employees",
+      "definition": "Resident employees of specified knowledge-based Indian companies or their subsidiaries are taxed at concessional rates on dividends and long-term capital gains derived from foreign currency Global Depository Receipts. Gross total income calculations exclude standard deductions against such specific foreign currency depository receipt incomes.",
+      "terminology": [
+        "Global Depository Receipts",
+        "Knowledge-based industry",
+        "Overseas Depository Bank",
+        "Long-term capital gains"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 2025, Section 193",
+        "Income-tax Act, 2025, Section 72(6)"
+      ],
+      "inclusion": [
+        "Resident employee dividend income from specified GDRs",
+        "Long-term capital gains from GDR transfers"
+      ],
+      "exclusion": [
+        "Deductions under general provisions when gross total income consists solely of GDR dividend income"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes specialized concessional taxation of employee stock-option-linked GDRs from standard capital gains and dividend tax regimes"
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "919b849bed4d9195f5b0126f436fc53ba48b4ae1f9832f7974a93ad3c655fa13",
+  "artifact_id": "f7e25bb9-3eee-43d6-bb38-56d2a854d3a0",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 4093,
+  "output_tokens": 1593,
+  "cost_usd": 0.0052104,
+  "created_at": "2026-10-03T18:17:19.178339+00:00"
+}

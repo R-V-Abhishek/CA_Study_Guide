@@ -1,0 +1,36 @@
+{
+  "result": {
+    "question_id": "66544acae96e40dcf74e9a4157c966eb499472ff4ca7fdea485c0e9eadaf985e",
+    "input_hash": "5b1393b3d0327063059cb2839a6f0c532f0051a4ad52ee88ea329ebffe8e2a55",
+    "mappings": [
+      {
+        "part_id": "66544acae96e40dcf74e9a4157c966eb499472ff4ca7fdea485c0e9eadaf985e",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "The listed text is only \u201c(B) 12.06.2025,\u201d with no discernible tested concept; the answer is missing and question status is unknown.",
+        "confidence": null,
+        "bucket": null
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "attempt_id": "1791216638957345000",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "115a55d2d9e245e8fafade656c5206af483808095e7e505cfd8149bc753c98b8",
+    "schema_generator": "pinned-part-ids-v1",
+    "seconds": 9.341,
+    "usage": [
+      {
+        "input_tokens": 40732,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 203,
+        "reasoning_output_tokens": 0
+      }
+    ],
+    "completed_at": "2026-10-05T16:10:48.298573+00:00"
+  }
+}

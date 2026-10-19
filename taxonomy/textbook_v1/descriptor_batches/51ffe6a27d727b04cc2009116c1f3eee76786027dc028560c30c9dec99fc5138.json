@@ -1,0 +1,332 @@
+{
+  "descriptors": [
+    {
+      "node_id": "fc7baa95-17b6-46d9-ad7a-117b1176ad80",
+      "concept_name": "Introduction to Related Party Disclosures",
+      "definition": "Transactions and relationships between related entities frequently impact an entity's profit, loss, and financial position due to controlled or influenced operating policies. Users require comprehensive disclosures of such relationships and transactions to properly assess enterprise risks and opportunities.",
+      "terminology": [
+        "related party relationships",
+        "subsidiaries",
+        "joint ventures",
+        "associates",
+        "financial position"
+      ],
+      "instrument_references": [
+        "Ind AS 24"
+      ],
+      "inclusion": [
+        "Relationships with subsidiaries",
+        "Relationships with joint ventures",
+        "Relationships with associates"
+      ],
+      "exclusion": [
+        "Transactions exclusively with completely unrelated independent third parties under pure market competition"
+      ],
+      "nearby_distinctions": [
+        "Differs from general commercial trading by incorporating elements of operational influence and ownership control rather than standard arm's-length dealings."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1434df9a-f1b7-4a75-824c-68606ffce0e8",
+      "concept_name": "Objective of Related Party Disclosures",
+      "definition": "The standard ensures financial statements highlight the potential effects of related party relationships, transactions, balances, and commitments on the reporting entity. These disclosures draw users' attention to distinct operational conditions that might not occur with unrelated parties.",
+      "terminology": [
+        "related party transactions",
+        "outstanding balances",
+        "commitments",
+        "users' attention"
+      ],
+      "instrument_references": [
+        "Ind AS 24"
+      ],
+      "inclusion": [
+        "Disclosures of related party relationships",
+        "Disclosures of outstanding balances",
+        "Disclosures of financial commitments"
+      ],
+      "exclusion": [
+        "General disclosures unrelated to ownership control or managerial influence"
+      ],
+      "nearby_distinctions": [
+        "Focuses specifically on drawing user attention to governance and ownership-influenced terms rather than general business performance metrics."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3214ef60-9452-49e2-af6d-a3b903523917",
+      "concept_name": "Scope of Related Party Disclosures",
+      "definition": "The standard applies to individual, consolidated, and separate financial statements for identifying relationships, transactions, balances, and commitments. Exemptions apply when disclosures conflict with statutory confidentiality duties or regulator prohibitions.",
+      "terminology": [
+        "individual financial statements",
+        "consolidated financial statements",
+        "separate financial statements",
+        "confidentiality duties"
+      ],
+      "instrument_references": [
+        "Ind AS 24",
+        "Ind AS 110",
+        "Ind AS 27"
+      ],
+      "inclusion": [
+        "Individual financial statements",
+        "Consolidated financial statements",
+        "Separate financial statements"
+      ],
+      "exclusion": [
+        "Intra-group balances eliminated upon consolidation, except for specific investment entity exemptions measured at fair value through profit or loss"
+      ],
+      "nearby_distinctions": [
+        "Applies across multiple financial statement tiers while excluding standard intra-group balances that undergo formal consolidation elimination."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3a2a30cb-067b-475f-92f4-5ca4f71938c2",
+      "concept_name": "Definitions of Related Parties",
+      "definition": "A related party is a person or entity connected to the reporting entity, where evaluation must prioritize the substance of the relationship over mere legal form. Relationships involve either person-to-entity connections or entity-to-entity connections.",
+      "terminology": [
+        "reporting entity",
+        "substance over form",
+        "person",
+        "entity"
+      ],
+      "instrument_references": [
+        "Ind AS 24"
+      ],
+      "inclusion": [
+        "Relationships between reporting entity and individuals",
+        "Relationships between reporting entity and other corporate entities"
+      ],
+      "exclusion": [
+        "Connections lacking substantive economic or operational control, joint control, or significant influence"
+      ],
+      "nearby_distinctions": [
+        "Emphasizes underlying economic substance and control rather than strictly formal legal categorization."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "55b63b1c-61c4-4b53-b4a8-3b7a21c93bb6",
+      "concept_name": "Relationship Between Reporting Entity and Persons",
+      "definition": "An individual or their close family member is related to a reporting entity if they hold control, joint control, or significant influence over it. Such relationship also arises if the individual serves as key management personnel for the reporting entity or its parent.",
+      "terminology": [
+        "close members of the family",
+        "control",
+        "joint control",
+        "significant influence",
+        "key management personnel"
+      ],
+      "instrument_references": [
+        "Ind AS 24"
+      ],
+      "inclusion": [
+        "Individuals holding control or joint control",
+        "Individuals exercising significant influence",
+        "Key management personnel of the reporting entity or its parent"
+      ],
+      "exclusion": [
+        "Ordinary employees without management authority or significant ownership influence"
+      ],
+      "nearby_distinctions": [
+        "Restricts personal related-party status to individuals holding designated governance, management, or ownership powers."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "077137ba-b2ea-45af-9075-e282f323a171",
+      "concept_name": "Relationship Between Reporting Entity and Other Entities",
+      "definition": "An entity is related to a reporting entity if they are group members, associates, joint ventures, or controlled by the same person. Additional links include post-employment benefit plans and entities providing key management personnel services.",
+      "terminology": [
+        "group",
+        "associate",
+        "joint venture",
+        "post-employment benefit plan",
+        "key management personnel services"
+      ],
+      "instrument_references": [
+        "Ind AS 24"
+      ],
+      "inclusion": [
+        "Fellow subsidiaries and group parents",
+        "Joint ventures and associates",
+        "Post-employment benefit plans for employees"
+      ],
+      "exclusion": [
+        "Entities linked merely by a shared common director without additional control or significant influence"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes structural corporate affiliations and shared control frameworks from casual operational partnerships."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f843856d-ea32-4b89-bd6e-13882ece125a",
+      "concept_name": "Non-Related Party Relationships",
+      "definition": "Certain common associations do not automatically create related party connections, such as sharing a common director or key management personnel. Similarly, providers of finance, trade unions, public utilities, and dominant customers do not qualify as related parties solely due to normal commercial dealings or economic dependence.",
+      "terminology": [
+        "common director",
+        "economic dependence",
+        "providers of finance",
+        "trade unions"
+      ],
+      "instrument_references": [
+        "Ind AS 24"
+      ],
+      "inclusion": [
+        "Entities sharing common directors without control",
+        "Customers or suppliers with significant business volume but no control"
+      ],
+      "exclusion": [
+        "Entities where common management actively exercises operational control or significant influence"
+      ],
+      "nearby_distinctions": [
+        "Separates heavy economic dependence or shared board members from actual legal or substantive control relationships."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "983da0f9-3de8-4ad8-90ea-a09650fcb512",
+      "concept_name": "Understanding Related Party Transactions",
+      "definition": "A related party transaction involves a transfer of resources, services, or obligations between a reporting entity and a related party, regardless of whether a price is charged. These transactions encompass asset sales, leases, research transfers, guarantees, and commitments.",
+      "terminology": [
+        "transfer of resources",
+        "services",
+        "obligations",
+        "commitments",
+        "executory contracts"
+      ],
+      "instrument_references": [
+        "Ind AS 24",
+        "Ind AS 19",
+        "Ind AS 102"
+      ],
+      "inclusion": [
+        "Purchases or sales of goods and assets",
+        "Leases and rendering of services",
+        "Provision of guarantees or collateral"
+      ],
+      "exclusion": [
+        "Normal commercial dealings with entities that are excluded from being related parties like public utilities or trade unions"
+      ],
+      "nearby_distinctions": [
+        "Applies regardless of consideration pricing, making unpriced transfers or commitments valid transactions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e232409a-910e-4bb7-9073-407ab76c7598",
+      "concept_name": "Other Important Definitions",
+      "definition": "Compensation includes all employee benefits covering short-term, post-employment, long-term, termination benefits, and share-based payments provided in exchange for services. Government-related entities are entities controlled, jointly controlled, or significantly influenced by a government.",
+      "terminology": [
+        "compensation",
+        "employee benefits",
+        "short-term employee benefits",
+        "post-employment benefits",
+        "government-related entity"
+      ],
+      "instrument_references": [
+        "Ind AS 24",
+        "Ind AS 19",
+        "Ind AS 102"
+      ],
+      "inclusion": [
+        "Short-term employee monetary and non-monetary benefits",
+        "Post-employment pensions and medical care",
+        "Share-based payments and termination benefits"
+      ],
+      "exclusion": [
+        "General administrative payments made to public bodies that exercise no control or influence over the reporting entity"
+      ],
+      "nearby_distinctions": [
+        "Broadens compensation beyond simple cash wages to encompass complex long-term and share-based executive remuneration frameworks."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "20289c63-2ca0-4d01-bc7a-8c6a01f8e50c",
+      "concept_name": "Disclosures of Parent-Subsidiary Relationships",
+      "definition": "Reporting entities must disclose the name of their parent and ultimate controlling party, which can be an individual, irrespective of whether transactions occurred. If neither produces consolidated financial statements for public use, the name of the next senior parent doing so must be disclosed.",
+      "terminology": [
+        "ultimate controlling party",
+        "consolidated financial statements",
+        "senior parent",
+        "public use"
+      ],
+      "instrument_references": [
+        "Ind AS 24"
+      ],
+      "inclusion": [
+        "Name of the direct parent company",
+        "Name of the ultimate controlling party",
+        "Name of the next most senior parent producing public consolidated financial statements"
+      ],
+      "exclusion": [
+        "Parent relationship disclosures where the reporting entity itself is the ultimate parent entity"
+      ],
+      "nearby_distinctions": [
+        "Mandates relationship disclosures unconditionally even when zero commercial transactions took place during the period."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "678cd23d-58f7-47fa-af63-8b57031e84e6",
+      "concept_name": "Parent-Subsidiary Relationship Disclosures",
+      "definition": "Reporting entities must disclose their parent and ultimate controlling party regardless of transaction history because control relationships constrain independent decision-making. Such disclosures assist users in appraising prospects by revealing credit standing, funding sources, and pricing influences.",
+      "terminology": [
+        "control relationship",
+        "independent decision-making",
+        "credit standing",
+        "operating results"
+      ],
+      "instrument_references": [
+        "Ind AS 24"
+      ],
+      "inclusion": [
+        "Parent and ultimate controlling party identity",
+        "Nature of related party control relationships"
+      ],
+      "exclusion": [
+        "Disclosures of operational trade transactions when evaluating this specific structural parent reporting category"
+      ],
+      "nearby_distinctions": [
+        "Prioritizes structural governance disclosure to evaluate operational constraints over purely financial performance results."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e26d5ffb-3bf3-4289-b4bb-6eeb368ba05b",
+      "concept_name": "Category 2 Disclosures",
+      "definition": "Category 2 requires disclosing key management personnel compensation categories alongside transactional data when related party transactions occur during the period. Required minimum disclosures cover transaction amounts, outstanding balances with terms, guarantees, doubtful debt provisions, and bad debt expenses.",
+      "terminology": [
+        "key management personnel",
+        "compensation",
+        "outstanding balances",
+        "doubtful debts",
+        "guarantees"
+      ],
+      "instrument_references": [
+        "Ind AS 24"
+      ],
+      "inclusion": [
+        "Total compensation and category-wise breakdown for key management personnel",
+        "Transaction amounts and outstanding balance terms and conditions",
+        "Provisions and expenses recognized for bad or doubtful related party debts"
+      ],
+      "exclusion": [
+        "Transactional disclosures when no related party transactions occurred during the respective financial periods"
+      ],
+      "nearby_distinctions": [
+        "Requires active transaction history during the reporting period, unlike Category 1 disclosures which apply purely based on structural relationships."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "51ffe6a27d727b04cc2009116c1f3eee76786027dc028560c30c9dec99fc5138",
+  "artifact_id": "d0d1a9d1-6b40-4e96-be79-3ef26f6e2b8e",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8847,
+  "output_tokens": 3465,
+  "cost_usd": 0.0113166,
+  "created_at": "2026-10-03T18:03:21.553730+00:00"
+}

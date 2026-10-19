@@ -1,6 +1,11 @@
 # CA Final Study Companion
 
-An offline-first, single-user study operating system and exam-intelligence platform for CA Final aspirants.
+A study workspace and historical exam-intelligence platform for CA Final aspirants.
+The application supports invited Auth0 sign-in, private individual records, and
+shared classification review with administrator controls. Local tenant configuration
+is required; see [Phase 2 setup](docs/Phase2_Setup.md). Recovery and typed browser
+contracts are verified; publication revisions and full published-content reading
+remain later [implementation phases](docs/Implementation_plan.md).
 
 ---
 
@@ -8,14 +13,14 @@ An offline-first, single-user study operating system and exam-intelligence platf
 
 Preparing for the CA Final examination requires mastering vast syllabus depths across all 6 papers. Standard study planners treat every chapter the same. The **CA Final Study Companion** connects the official ICAI syllabus hierarchy with **historical exam intelligence**:
 
-- 🌲 **Canonical Syllabus Hierarchy**: Complete 4-tier tree (Paper → Chapter → Topic → Subtopic) across all 6 papers with 264 distinct subtopics.
+- 🌲 **Current Syllabus Seed**: Paper → Chapter → Topic → Subtopic across all 6 papers with 264 seeded subtopics. Official module/source reconciliation and paper-specific exceptions remain Phase 3 work.
 - 🎯 **Historical Exam Intelligence**: Surfaces past exam questions, frequency metrics ($E$), marks weightage ($W$), and a 5-dot importance score (`●●●●○`) right at the subtopic you are studying.
 - 📅 **Prioritized Weekly Study Plan**: Dynamic study schedule generator balancing high-weightage chapters and untouched topics based on your available weekly hours (15h to 35h).
 - 🧠 **Anki-Style Spaced Revision Queue**: Automated interval-based active recall cards (`✓ Got it` / `≈ Shaky`) with confetti completion tracking.
 - 📊 **Syllabus Coverage Audit**: Granular progress breakdown (Not Started, In Progress, Done) with 1-click CSV export.
 - 📈 **Mock Test Tracker**: Log your test series scores and visualize your score progression with responsive charts.
 - 📝 **Rich Markdown Notes**: Built-in distraction-free study notes editor with debounced auto-save.
-- 🔒 **100% Private & Offline-First**: All your study progress, notes, and metrics remain locally on your computer in PostgreSQL. Zero cloud tracking.
+- 🔒 **Private Profiles**: Study records remain in application PostgreSQL and are scoped to your signed-in account. Auth0 handles hosted sign-in and credentials.
 
 ---
 
@@ -80,9 +85,9 @@ Every day when you sit down to study:
 - **macOS / Linux**: Run `./start.sh` (or `python3 start.py`).
 
 Your default web browser will automatically open:
-- 📖 **Student Study App**: [http://localhost:8000](http://localhost:8000)
-- 🛠️ **Curator Workbench**: [http://localhost:8000/curator](http://localhost:8000/curator)
-- 📚 **Interactive API Docs**: [http://localhost:8000/docs](http://localhost:8000/docs)
+- 📖 **Student Study App**: [http://127.0.0.1:8788](http://127.0.0.1:8788)
+- 🛠️ **Curator Workbench**: [http://127.0.0.1:8788/curator](http://127.0.0.1:8788/curator)
+- **API health**: [http://127.0.0.1:8788/api/v1/health](http://127.0.0.1:8788/api/v1/health)
 
 ### 2. Stop the Companion
 When you finish your study session:
@@ -118,7 +123,7 @@ uv run caf classify run --limit 25
 ```
 
 ### Rapid Review in Curator Workbench (`/curator`):
-Open **http://localhost:8000/curator** in your browser to access the **Review Queue**:
+Open **http://127.0.0.1:8788/curator** in your browser to access the **Review Queue**:
 - **Side-by-Side View**: Official ICAI Question text on the left, model solution on the right.
 - **AI Recommendation**: Primary suggestion badge with confidence score.
 - **Fast Keyboard Shortcuts**:
@@ -140,7 +145,7 @@ uv run caf intel compute
 
 ## 📖 Phase 2: Study Mode
 
-Open **http://localhost:8000** to use your personal study interface:
+Open **http://127.0.0.1:8788** to use your personal study interface:
 
 ### 1. Study Dashboard (`/`)
 - Aggregate completion stats for Group 1 and Group 2.
@@ -183,13 +188,16 @@ Open **http://localhost:8000** to use your personal study interface:
 ## ⚙️ Personalizing Your Setup
 
 ### Change Your Target Exam Attempt
-By default, the companion targets the `2026-05` (May 2026) attempt. To change this to November 2026:
+Application defaults and the adopted baseline target `2027-05` (May 2027). Existing personal records are preserved. Target
+attempt, applicable material edition, and historical corpus coverage are separate.
+To change the current local target:
 1. Open `config/settings.toml` in any text editor.
 2. Edit line 5:
    ```toml
-   target_attempt_id = "2026-11"
+   target_attempt_id = "2027-05"
    ```
-3. Save the file. The companion will automatically calibrate its recency weights.
+3. Save the file. Recency scoring uses the selected target; this does not certify
+   May 2027 material applicability or corpus completeness.
 
 ### Import Your Own Study Notes or Question Banks
 If you have local coaching material, past papers, or personal question bank PDFs:
@@ -232,16 +240,40 @@ You can also run the automated backend test suite at any time:
 ```bash
 uv run pytest
 ```
-*(All 61 tests verify contracts, database integrity, and Decision D2 leak prevention).*
+Tests bootstrap a disposable PostgreSQL 16 container before application imports, seed
+a template, and clone a fresh database for each database-changing test. Temporary
+storage and a connection allowlist protect the configured application database.
+Docker must be available; setup failures fail explicitly. No live model/acquisition
+calls are permitted in the suite. See [VERIFY.md](VERIFY.md) for Phase 0 acceptance.
 
 ---
 
 ## 📜 Architectural Decisions Reference
 
-- **Decision D1**: Offline-first, single-user architecture.
-- **Decision D2**: Strict separation — question/solution text is curator-only; student view contains only syllabus analytics and personal notes.
-- **Decision D3**: Human-in-the-loop guarantee — no raw AI classification reaches the student view without human review.
+- **Decision D1**: Invited students sign in individually and retain private study records. All invited students may curate the shared corpus.
+- **Decision D2**: Authenticated students will read complete published questions and available answers with source references; staging remains outside the published reader boundary.
+- **Decision D3**: One identified student's review permits publication. Additional verification counts distinct students for a specific content/classification revision and scope.
+- **Taxonomy and scores**: Follow official module/chapter/unit structure, including paper-specific exceptions. Select scores by target attempt and version context; expose raw units, normalized components, weights, and freshness separately.
 - **Stable IDs**: Crockford base32 syntax (`P[1-6]-[0-9A-Z]{6}`) for permanent bookmarking across exam attempts.
+
+These are the approved target architecture. Phase 0 adds safe verification, verified
+recovery, provenance reports, a frozen explicit migration, and `shared-study.v1` draft
+contracts in `caf_contracts.future_v1`. Phase 2 implements invited sessions,
+private ownership, restricted database connections, and target-matching score
+selection. Real Auth0 sign-in, legacy-owner binding and logout passed locally;
+see the [Phase 2 verification report](docs/Phase2_Verification.md).
+Collaborative publication revisions are Phase 5; complete reader endpoints and
+the full scoring architecture are Phase 6. Pure contract tests do not establish
+those later runtime features.
+Legacy curator decisions lack reliable reviewer identity and are reported without
+assigning them to a student. See the [implementation plan](docs/Implementation_plan.md).
+
+Tests use disposable PostgreSQL 16 containers through the active Docker context
+(Colima on this workstation), clone deterministic reference data per test, and reject
+normal database/storage destinations. Run `uv run pytest` after starting Colima.
+Recovery artifacts are unique directories with `manifest.json`; `caf backup run`
+preserves existing backups, and `caf backup verify` restores independently and checks
+content, files, and the frozen migration schema.
 
 ---
 

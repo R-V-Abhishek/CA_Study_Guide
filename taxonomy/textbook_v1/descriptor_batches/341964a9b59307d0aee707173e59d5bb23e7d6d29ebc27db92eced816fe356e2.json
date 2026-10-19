@@ -1,0 +1,67 @@
+{
+  "descriptors": [
+    {
+      "node_id": "5b0906cd-9112-42be-991f-48a360da3915",
+      "concept_name": "Overview of Consolidated and Separate Financial Statements",
+      "definition": "Consolidated financial statements display the combined financial position and operating results of a parent company and its controlled subsidiaries. In contrast, separate financial statements reflect the financial position of a single individual reporting entity.",
+      "terminology": [
+        "Consolidated financial statements",
+        "Separate financial statements",
+        "Group companies",
+        "Parent company"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Financial position of a parent and its group companies",
+        "Financial position of a single entity"
+      ],
+      "exclusion": [
+        "Unrelated corporate entities"
+      ],
+      "nearby_distinctions": [
+        "Consolidated financial statements present an entire group overview under parent control, whereas separate financial statements focus solely on a single legal entity."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "217195c3-4479-4805-b773-68b47167311b",
+      "concept_name": "Overview of Indian Accounting Standards for Group Entities",
+      "definition": "Various Indian Accounting Standards govern the accounting, control evaluation, and disclosure requirements for group entities, joint arrangements, and investments in associates. These standards prescribe specific procedures for consolidation, equity accounting, and separate financial statement reporting.",
+      "terminology": [
+        "Ind AS 110",
+        "Ind AS 111",
+        "Ind AS 28",
+        "Ind AS 27",
+        "Ind AS 112"
+      ],
+      "instrument_references": [
+        "Ind AS 110",
+        "Ind AS 111",
+        "Ind AS 28",
+        "Ind AS 27",
+        "Ind AS 112"
+      ],
+      "inclusion": [
+        "Consolidated financial statements criteria and procedures",
+        "Joint arrangements classification",
+        "Investments in associates and joint ventures",
+        "Separate financial statements accounting and disclosures",
+        "Disclosures of interests in other entities"
+      ],
+      "exclusion": [
+        "General corporate tax planning measures"
+      ],
+      "nearby_distinctions": [
+        "Ind AS 110 handles subsidiary control and consolidation, whereas Ind AS 27 specifically regulates accounting and disclosures in separate financial statements."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "341964a9b59307d0aee707173e59d5bb23e7d6d29ebc27db92eced816fe356e2",
+  "artifact_id": "ed66c453-239f-4fbc-a33a-71cad649a27f",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 1603,
+  "output_tokens": 628,
+  "cost_usd": 0.0020509,
+  "created_at": "2026-10-03T18:04:55.757498+00:00"
+}

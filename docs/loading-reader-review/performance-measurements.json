@@ -1,0 +1,15 @@
+{
+  "method": "Direct Python route handlers against the actual local database using the student role and SET TRANSACTION READ ONLY. Independent fresh session per run; second of two runs reported. After sessions explicitly opt into the same request cache enabled for GET/HEAD dependencies. Excludes HTTP transport, authentication, serialization, and browser rendering.",
+  "account_scope": "Existing account 1; no account details or content exported.",
+  "measurements": [
+    {"handler": "list_papers", "route": "/api/v1/papers", "before_seconds": 22.105, "after_seconds": 2.491, "before_queries": 153, "after_queries": 41},
+    {"handler": "get_dashboard", "route": "/api/v1/dashboard", "before_seconds": 29.768, "after_seconds": 0.930, "before_queries": 180, "after_queries": 45},
+    {"handler": "get_paper_tree", "route": "/api/v1/papers/{paper_id}/tree", "before_seconds": 5.938, "after_seconds": 0.919, "before_queries": 38, "after_queries": 25},
+    {"handler": "get_subtopic_detail", "route": "/api/v1/subtopics/{node_id}", "before_seconds": 5.763, "after_seconds": 0.339, "before_queries": 46, "after_queries": 16},
+    {"handler": "resolve_context", "before_seconds": 1.141, "after_seconds": 0.242, "before_queries": 7, "after_queries": 7}
+  ],
+  "limitations": [
+    "After measurements precede the final optimization deferring full score evidence in paper summaries and the tree; a final rerun was blocked at tool approval and was aborted.",
+    "These are representative local measurements, not a load test or browser navigation timings."
+  ]
+}

@@ -1,0 +1,225 @@
+{
+  "descriptors": [
+    {
+      "node_id": "d64ef734-d5c9-437c-b89a-2c20c4a56df7",
+      "concept_name": "Manner Of Selection Of Independent Directors And Maintenance Of Data Bank Of Independent Directors [Section 150]",
+      "definition": "Eligible individuals seeking appointments as independent directors must apply online to an authorized institute for inclusion in a maintained data bank. Names within the data bank must be periodically renewed for specified durations ranging from one year to life-time.",
+      "terminology": [
+        "Data Bank",
+        "Independent Director",
+        "DIN",
+        "Renewal"
+      ],
+      "instrument_references": [
+        "Section 150 of the Companies Act, 2013",
+        "Rule 6 of the Companies (Appointment and Qualifications of Directors) Rules, 2014"
+      ],
+      "inclusion": [
+        "Online application for data bank inclusion",
+        "Voluntary application by individuals without DIN",
+        "Renewal applications filed within thirty days of expiry"
+      ],
+      "exclusion": [
+        "Direct appointments bypassing data bank registration where mandatory"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general director appointments under regular qualification guidelines."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6e17afc4-5777-4684-a305-5564c8e1df59",
+      "concept_name": "Duties Of Directors",
+      "definition": "Directors must act honestly, diligently, and in good faith to promote company objects and stakeholder wealth maximization. They are prohibited from assigning their office or exploiting corporate business opportunities for personal advantage.",
+      "terminology": [
+        "Statutory Duties",
+        "Wealth Maximization",
+        "Assignment of Office",
+        "Due Care and Diligence"
+      ],
+      "instrument_references": [
+        "Section 166 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Acting in accordance with company articles",
+        "Exercising independent judgment with reasonable care",
+        "Liability to pay equal amounts for any undue gains made"
+      ],
+      "exclusion": [
+        "Permissible delegation of operational duties to staff members"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from assignment of office which is void, whereas delegation of tasks is permissible."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f314d672-81a0-466d-b48d-c232c3b25ec1",
+      "concept_name": "Vacation Of Office Of Director [Section 167]",
+      "definition": "A director's office automatically becomes vacant upon the occurrence of specific statutory disqualifications or prolonged unexcused absences from board meetings. Additional vacation triggers include contract interest non-disclosures, tribunal disqualification orders, or criminal convictions resulting in imprisonment.",
+      "terminology": [
+        "Vacation of Office",
+        "Disqualification",
+        "Absence from Board Meetings",
+        "Moral Turpitude"
+      ],
+      "instrument_references": [
+        "Section 167 of the Companies Act, 2013",
+        "Section 164 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Absence from all board meetings for twelve consecutive months",
+        "Conviction with a sentence of six months or more",
+        "Cessation of employment in a holding, subsidiary, or associate company"
+      ],
+      "exclusion": [
+        "Immediate vacation during statutory grace periods allowed for pending appeals against court orders"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from voluntary resignation and shareholder removal processes."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "dff02d48-6469-477c-a189-025711c71527",
+      "concept_name": "Resignation Of Director [Section 168]",
+      "definition": "A director may resign by serving a written notice to the company, which takes effect from the date of receipt or a specified later date. The company must intimate the registrar regarding the resignation while the departing director remains liable for offences occurring during their tenure.",
+      "terminology": [
+        "Resignation Notice",
+        "Form DIR-11",
+        "Form DIR-12",
+        "Effective Date"
+      ],
+      "instrument_references": [
+        "Section 168 of the Companies Act, 2013",
+        "Rule 15 and Rule 16 of the Companies (Appointment and Qualifications of Directors) Rules, 2014"
+      ],
+      "inclusion": [
+        "Written notice served to the company",
+        "Filing obligations through electronic statutory forms",
+        "Continued accountability for past tenure offences"
+      ],
+      "exclusion": [
+        "Discharge from liabilities accrued after the effective date of resignation"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from vacation of office and removal by shareholders."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f55aca18-d353-4f9b-b0dc-93583767c8f1",
+      "concept_name": "Removal Of Directors [Section 169]",
+      "definition": "Shareholders may remove a director before completing their term by passing an ordinary or special resolution after providing a reasonable opportunity of being heard. Special notices signed by qualifying members are required to propose such removal resolutions.",
+      "terminology": [
+        "Ordinary Resolution",
+        "Special Resolution",
+        "Special Notice",
+        "Proportional Representation"
+      ],
+      "instrument_references": [
+        "Section 169 of the Companies Act, 2013",
+        "Section 115 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Removal by ordinary resolution before term expiry",
+        "Special resolution requirement for re-appointed independent directors",
+        "Special notice backed by specified voting power or paid-up share capital thresholds"
+      ],
+      "exclusion": [
+        "Directors appointed by the Tribunal or via proportional representation systems"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from vacation of office occurring automatically by operation of law."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8aaf716a-6cdc-4ae3-a376-f244887fa410",
+      "concept_name": "Register Of Directors And Key Managerial Personnel And Their Shareholding [Section 170]",
+      "definition": "Companies must maintain a register at their registered office containing detailed personal and professional particulars of directors and key managerial personnel. The register must also record comprehensive transactional details regarding securities held by them across the company and its group entities.",
+      "terminology": [
+        "Director Identification Number",
+        "Key Managerial Personnel",
+        "Security Holdings",
+        "Registered Office"
+      ],
+      "instrument_references": [
+        "Section 170 of the Companies Act, 2013",
+        "Rule 17 of the Companies (Appointment and Qualifications of Directors) Rules, 2014"
+      ],
+      "inclusion": [
+        "Personal particulars such as names, dates of birth, and addresses",
+        "Nominal values, acquisition dates, and prices of securities",
+        "Modes of holding securities in physical or dematerialized form"
+      ],
+      "exclusion": [
+        "Mandatory DIN requirement for key managerial personnel where PAN acts as an alternative"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from annual returns by focusing specifically on managerial personnel profiles and cross-entity security transactions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e449637c-d6f6-4761-aac6-93814c61d91e",
+      "concept_name": "Members’ Right To Inspect [Section 171]",
+      "definition": "Company members possess the statutory right to inspect the register of directors and key managerial personnel during business hours and at annual general meetings. Requested extracts and copies must be supplied free of cost within a specified timeframe.",
+      "terminology": [
+        "Inspection Right",
+        "Business Hours",
+        "Annual General Meeting",
+        "Free Copies"
+      ],
+      "instrument_references": [
+        "Section 171 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Inspection access during business hours",
+        "Availability of the register at every annual general meeting",
+        "Registrar intervention and order powers upon refusal of inspection"
+      ],
+      "exclusion": [
+        "Exempted government companies meeting compliant filing conditions"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general corporate record access by its specific applicability to managerial registers."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "015d6523-83db-4d61-ad9f-7cffe8ee1e61",
+      "concept_name": "Punishment [Section 172]",
+      "definition": "Contraventions of chapter provisions regarding management appointments and qualifications carry monetary penalties for the company and defaulting officers. Continuing failures attract daily incremental fines up to specified statutory maximum limits.",
+      "terminology": [
+        "Penalty",
+        "Officer in Default",
+        "Continuing Failure",
+        "Compounding of Offence"
+      ],
+      "instrument_references": [
+        "Section 172 of the Companies Act, 2013",
+        "Section 441 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Fixed initial penalty for non-compliance",
+        "Daily penalties for continuing defaults subject to upper caps",
+        "Compounding provisions applicable to defaulting entities and officers"
+      ],
+      "exclusion": [
+        "Specific punishments already provided under separate sections within the chapter"
+      ],
+      "nearby_distinctions": [
+        "Distinguished as a residual penalty clause when no specific punishment is outlined elsewhere in the chapter."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "e9d9fd053ac06fc772c26c5451690d301153f11c3e2b9ead68969cc23486434e",
+  "artifact_id": "f5f3687e-96dc-4c0e-9db1-286cd45862e5",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 6422,
+  "output_tokens": 2499,
+  "cost_usd": 0.0081741,
+  "created_at": "2026-10-03T18:23:52.074879+00:00"
+}

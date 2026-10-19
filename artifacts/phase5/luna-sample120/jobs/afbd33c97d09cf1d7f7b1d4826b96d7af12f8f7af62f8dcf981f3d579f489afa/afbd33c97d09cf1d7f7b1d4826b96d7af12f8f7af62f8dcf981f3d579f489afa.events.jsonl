@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a10cdf-8b3e-71d0-9f11-4f0c3c050192"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"{\"question_id\":\"afbd33c97d09cf1d7f7b1d4826b96d7af12f8f7af62f8dcf981f3d579f489afa\",\"input_hash\":\"58ac74792c4608d06c1cc77c48940dd9cfbf14b483511f71b762e9c17552916c\",\"mappings\":[{\"part_id\":\"afbd33c97d09cf1d7f7b1d4826b96d7af12f8f7af62f8dcf981f3d579f489afa\",\"outcome\":\"needs_review\",\"primary_node_id\":null,\"secondary_node_ids\":[],\"evidence\":[],\"note\":\"Only an answer-choice fragment is provided; the root question, stem, gradable parts, and answer are unavailable, so the tested concept cannot be established.\",\"confidence\":null,\"bucket\":null}]}"}}
+{"type":"turn.completed","usage":{"input_tokens":51334,"cached_input_tokens":0,"cache_write_input_tokens":0,"output_tokens":209,"reasoning_output_tokens":0}}

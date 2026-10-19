@@ -1,0 +1,2205 @@
+{
+  "seed": 42,
+  "requested_per_paper": 20,
+  "roots": [
+    {
+      "question_id": "05453c7dba9d821b90f5e6881dfc30fa8cf107e6338bbecf118f6227f2d581c5",
+      "document_id": 429,
+      "extraction_revision_id": 782,
+      "paper_id": "s2023.P1",
+      "duplicate_group": "bd5e8b660fe85137f4f9bbc7959c18be9f923fc5440b5369a3c3c31aede386bf",
+      "duplicate_occurrences": [
+        "05453c7dba9d821b90f5e6881dfc30fa8cf107e6338bbecf118f6227f2d581c5"
+      ],
+      "stratum": [
+        "examination",
+        "2024-05",
+        "case"
+      ],
+      "partition": "development",
+      "blind_comparison": true,
+      "pilot": true
+    },
+    {
+      "question_id": "ca80e7b3b6a65b2c85ccaf8b34ae1abeb94ff3528ac2186511b18c72acfd59b5",
+      "document_id": 429,
+      "extraction_revision_id": 782,
+      "paper_id": "s2023.P1",
+      "duplicate_group": "46c0a259a21f140df80a72cd2ff7915964539ba50e519af8834c01bf7ff85c95",
+      "duplicate_occurrences": [
+        "ca80e7b3b6a65b2c85ccaf8b34ae1abeb94ff3528ac2186511b18c72acfd59b5"
+      ],
+      "stratum": [
+        "examination",
+        "2024-05",
+        "complete"
+      ],
+      "partition": "holdout",
+      "blind_comparison": true,
+      "pilot": true
+    },
+    {
+      "question_id": "91a6714c4fa8a401b762e34ab78a29fb3f4d1fc6bf4dcb00f01fa208b4786c1c",
+      "document_id": 421,
+      "extraction_revision_id": 776,
+      "paper_id": "s2023.P1",
+      "duplicate_group": "a046267ece90950396c635ec9fc412e3f09da1f2b67b611139f8293ac6d43a70",
+      "duplicate_occurrences": [
+        "91a6714c4fa8a401b762e34ab78a29fb3f4d1fc6bf4dcb00f01fa208b4786c1c"
+      ],
+      "stratum": [
+        "examination",
+        "2024-11",
+        "case"
+      ],
+      "partition": "development",
+      "blind_comparison": true,
+      "pilot": false
+    },
+    {
+      "question_id": "9d4de502d3cfaa1d5dcbf390d43715b084391f1a2e02b0320ade7d6846c7f27d",
+      "document_id": 421,
+      "extraction_revision_id": 776,
+      "paper_id": "s2023.P1",
+      "duplicate_group": "ab8b6370017aec69d4c945c8e20116aa3b93d4272a7fb08f08432e3171a758be",
+      "duplicate_occurrences": [
+        "9d4de502d3cfaa1d5dcbf390d43715b084391f1a2e02b0320ade7d6846c7f27d"
+      ],
+      "stratum": [
+        "examination",
+        "2024-11",
+        "missing"
+      ],
+      "partition": "holdout",
+      "blind_comparison": true,
+      "pilot": false
+    },
+    {
+      "question_id": "5e6bcbc4f7df86e93ed8a4d77e1a9ee316441c5eb1b8e3a04e85e1dcbef93d73",
+      "document_id": 412,
+      "extraction_revision_id": 770,
+      "paper_id": "s2023.P1",
+      "duplicate_group": "dab922786cac5504a35541bf7f38e4f822cd2dd9cf252759453998b89236981e",
+      "duplicate_occurrences": [
+        "5e6bcbc4f7df86e93ed8a4d77e1a9ee316441c5eb1b8e3a04e85e1dcbef93d73"
+      ],
+      "stratum": [
+        "examination",
+        "2025-05",
+        "case"
+      ],
+      "partition": "development",
+      "blind_comparison": true,
+      "pilot": false
+    },
+    {
+      "question_id": "c5c41a3b65f706733f3bf599a94c61783e9a27ff797844cb09dc6da8e4712dc6",
+      "document_id": 412,
+      "extraction_revision_id": 770,
+      "paper_id": "s2023.P1",
+      "duplicate_group": "55b2ac8ada4a1efbaf998c86ffa0935916644b0ff6d5624993530e06bb5dec07",
+      "duplicate_occurrences": [
+        "c5c41a3b65f706733f3bf599a94c61783e9a27ff797844cb09dc6da8e4712dc6"
+      ],
+      "stratum": [
+        "examination",
+        "2025-05",
+        "complete"
+      ],
+      "partition": "holdout",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "6188337170a2a63a6e62aadc95b349c0accf446d7ff08277970accbbd21bf787",
+      "document_id": 412,
+      "extraction_revision_id": 770,
+      "paper_id": "s2023.P1",
+      "duplicate_group": "4b83146da6f011c513d124394be2e5ac5363799c090ab92e6000cece483ea492",
+      "duplicate_occurrences": [
+        "6188337170a2a63a6e62aadc95b349c0accf446d7ff08277970accbbd21bf787"
+      ],
+      "stratum": [
+        "examination",
+        "2025-05",
+        "missing"
+      ],
+      "partition": "development",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "e394fadaf0e07f61857b4a1f6235dabd6e92343c9b2def1d14f3dca8099fb9e6",
+      "document_id": 401,
+      "extraction_revision_id": 764,
+      "paper_id": "s2023.P1",
+      "duplicate_group": "138489c0392d47825c66ebbd3b44d2f7fea936ba33fada800d52ce75b556c631",
+      "duplicate_occurrences": [
+        "e394fadaf0e07f61857b4a1f6235dabd6e92343c9b2def1d14f3dca8099fb9e6"
+      ],
+      "stratum": [
+        "examination",
+        "2025-09",
+        "case"
+      ],
+      "partition": "holdout",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "7b44c16f6c8f45402ea5de6e1fb0b34724ba5ca172bc32e9e02fbf4528651ec6",
+      "document_id": 393,
+      "extraction_revision_id": 758,
+      "paper_id": "s2023.P1",
+      "duplicate_group": "2359c87613f07bc0fa62c16f7109db5bb30a9acf9a030a6ba99da407fbe78b7b",
+      "duplicate_occurrences": [
+        "7b44c16f6c8f45402ea5de6e1fb0b34724ba5ca172bc32e9e02fbf4528651ec6"
+      ],
+      "stratum": [
+        "examination",
+        "2025-09",
+        "missing"
+      ],
+      "partition": "development",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "e5539dc23743153553c5805aee98c3f5afb9bc257572f6b3ab67e7e2f14a6c5d",
+      "document_id": 383,
+      "extraction_revision_id": 752,
+      "paper_id": "s2023.P1",
+      "duplicate_group": "4fc9ae7af71e4b1a82bf0089ac3ef17cc4191f347e938c490aa78926053cedaa",
+      "duplicate_occurrences": [
+        "e5539dc23743153553c5805aee98c3f5afb9bc257572f6b3ab67e7e2f14a6c5d"
+      ],
+      "stratum": [
+        "examination",
+        "2026-01",
+        "case"
+      ],
+      "partition": "holdout",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "00c25a29e5b693dd4da70820d7f25c508fe1d4dc86aaf22b680811f0ae42d2b4",
+      "document_id": 280,
+      "extraction_revision_id": 698,
+      "paper_id": "s2023.P1",
+      "duplicate_group": "921a01b909879eb8046e708e898c8fe03c543a12ea32ddf83ca45f0f50bce540",
+      "duplicate_occurrences": [
+        "00c25a29e5b693dd4da70820d7f25c508fe1d4dc86aaf22b680811f0ae42d2b4"
+      ],
+      "stratum": [
+        "examination",
+        "2026-05",
+        "case"
+      ],
+      "partition": "development",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "a0b5fc62883b41731c416dad8b1f66b93840486f555bce705e6f7e917b7f3560",
+      "document_id": 278,
+      "extraction_revision_id": 697,
+      "paper_id": "s2023.P1",
+      "duplicate_group": "a1ecbeb50adcd117771901141540d8d9e582bd92c3697423ed6ad06766f2d733",
+      "duplicate_occurrences": [
+        "a0b5fc62883b41731c416dad8b1f66b93840486f555bce705e6f7e917b7f3560"
+      ],
+      "stratum": [
+        "examination",
+        "2026-05",
+        "complete"
+      ],
+      "partition": "holdout",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "43ac04cdb7e32fb4e52f5d1c42d47843bb9527c2d3299bc38ccbec62358e4b44",
+      "document_id": 282,
+      "extraction_revision_id": 700,
+      "paper_id": "s2023.P1",
+      "duplicate_group": "3d7a75e1fe32ad6cfb0558929f6fcd7a90275bd7293c66a59efbcd144b33375c",
+      "duplicate_occurrences": [
+        "43ac04cdb7e32fb4e52f5d1c42d47843bb9527c2d3299bc38ccbec62358e4b44"
+      ],
+      "stratum": [
+        "examination",
+        "2026-05",
+        "missing"
+      ],
+      "partition": "development",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "98050d45fe016c050f31d11b95ecb2d0a678fae4044b36255b12660bad2656c0",
+      "document_id": 290,
+      "extraction_revision_id": 706,
+      "paper_id": "s2023.P1",
+      "duplicate_group": "f269427de99347b1f25cd8999f44a3e59f8811b0edb725fee0266d3eed4bc943",
+      "duplicate_occurrences": [
+        "98050d45fe016c050f31d11b95ecb2d0a678fae4044b36255b12660bad2656c0"
+      ],
+      "stratum": [
+        "examination",
+        null,
+        "case"
+      ],
+      "partition": "holdout",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "a9ef388f33cbed25bd7cd109f3915dfb38fcc51ef29ef86a9828c54b45258f63",
+      "document_id": 309,
+      "extraction_revision_id": 721,
+      "paper_id": "s2023.P1",
+      "duplicate_group": "8901abcfd8f39844d775aaa542adc5cb57a2799932689debee8ae9a6c7f76a54",
+      "duplicate_occurrences": [
+        "a9ef388f33cbed25bd7cd109f3915dfb38fcc51ef29ef86a9828c54b45258f63",
+        "116c137767258ca0cf49a324b35569dfdc896c03a9bcde9b0068d362ac6b1b17",
+        "d04f8b4d24013ee2f66c180ae1bd9713c08899237ed46e816016946ccd2d9a09"
+      ],
+      "stratum": [
+        "examination",
+        null,
+        "complete"
+      ],
+      "partition": "development",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "495402d8fad441f1ad1286f848acdcd773cb2f953aae63ff9108a2c52153e753",
+      "document_id": 302,
+      "extraction_revision_id": 715,
+      "paper_id": "s2023.P1",
+      "duplicate_group": "968c137bb5c910e5e47da578ef37c2d436ff42d5035331b7d162b089fcf19e91",
+      "duplicate_occurrences": [
+        "495402d8fad441f1ad1286f848acdcd773cb2f953aae63ff9108a2c52153e753"
+      ],
+      "stratum": [
+        "examination",
+        null,
+        "missing"
+      ],
+      "partition": "holdout",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "d818cbb9e0df9bbb7a74668c72694fc2e9741d6cd6ccacbd1e2c3d2c50a0b2f2",
+      "document_id": 305,
+      "extraction_revision_id": 717,
+      "paper_id": "s2023.P1",
+      "duplicate_group": "85390627b45a847797f53db886dc04d997f157bd1c9bca7aa72d974eb909aec8",
+      "duplicate_occurrences": [
+        "d818cbb9e0df9bbb7a74668c72694fc2e9741d6cd6ccacbd1e2c3d2c50a0b2f2"
+      ],
+      "stratum": [
+        "examination",
+        null,
+        "partial"
+      ],
+      "partition": "development",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "cdd0f2f40e129161087ede4ed29dce574f0fbf1737fcb0754c229ca107b14ea4",
+      "document_id": 365,
+      "extraction_revision_id": 745,
+      "paper_id": "s2023.P1",
+      "duplicate_group": "a915b58d0543c456ecb2ab9dc217250e7f05cdf2bcf071cfd7cc6f81a8f7ed52",
+      "duplicate_occurrences": [
+        "cdd0f2f40e129161087ede4ed29dce574f0fbf1737fcb0754c229ca107b14ea4"
+      ],
+      "stratum": [
+        "rtp",
+        "2024-11",
+        "case"
+      ],
+      "partition": "holdout",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "d97f0059bf121355e7e62eb7fb13a67e971823769a72b4c1c4c499f3d4b3080b",
+      "document_id": 365,
+      "extraction_revision_id": 745,
+      "paper_id": "s2023.P1",
+      "duplicate_group": "2a78091cbe658229cc41e8673ed6b717cf7068d77b04613495b56b5534db08f5",
+      "duplicate_occurrences": [
+        "d97f0059bf121355e7e62eb7fb13a67e971823769a72b4c1c4c499f3d4b3080b"
+      ],
+      "stratum": [
+        "rtp",
+        "2024-11",
+        "complete"
+      ],
+      "partition": "development",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "41bd399e4a560b5a2c7d75d57a482538917f040bf676821c8dfd430ff93a8ea6",
+      "document_id": 350,
+      "extraction_revision_id": 736,
+      "paper_id": "s2023.P1",
+      "duplicate_group": "88a28024fb9c127d955ce360637095836b4573928c6bb93f76c555411f21806e",
+      "duplicate_occurrences": [
+        "41bd399e4a560b5a2c7d75d57a482538917f040bf676821c8dfd430ff93a8ea6"
+      ],
+      "stratum": [
+        "rtp",
+        "2025-05",
+        "case"
+      ],
+      "partition": "holdout",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "1bf86327e934a576f2eb22291b5ac05588b1f9a876c99c9695164ec0fb83319f",
+      "document_id": 430,
+      "extraction_revision_id": 783,
+      "paper_id": "s2023.P2",
+      "duplicate_group": "57fa158ca0497ce47783acbfaba29678397f17f124f242410ffb749cf3604b27",
+      "duplicate_occurrences": [
+        "1bf86327e934a576f2eb22291b5ac05588b1f9a876c99c9695164ec0fb83319f"
+      ],
+      "stratum": [
+        "examination",
+        "2024-05",
+        "case"
+      ],
+      "partition": "development",
+      "blind_comparison": true,
+      "pilot": true
+    },
+    {
+      "question_id": "4dc608fd5f02f6f516e34ea2a9cdb30bd3648a322cbb379772149cda1f945af5",
+      "document_id": 422,
+      "extraction_revision_id": 777,
+      "paper_id": "s2023.P2",
+      "duplicate_group": "7b405d9b02775392bb4660e4baad7edefb4a4bd03943c293aa41dbf2f125088a",
+      "duplicate_occurrences": [
+        "4dc608fd5f02f6f516e34ea2a9cdb30bd3648a322cbb379772149cda1f945af5"
+      ],
+      "stratum": [
+        "examination",
+        "2024-11",
+        "case"
+      ],
+      "partition": "holdout",
+      "blind_comparison": true,
+      "pilot": true
+    },
+    {
+      "question_id": "6a5d0f5fd1c00fbeba8d67bb065d6ab900f72c0fa6e44f05c85ae598bb522ea3",
+      "document_id": 413,
+      "extraction_revision_id": 771,
+      "paper_id": "s2023.P2",
+      "duplicate_group": "3f5031bbe216c98b1436315ccf98c42b2cfffb007efedd35d8e8e93864a94b11",
+      "duplicate_occurrences": [
+        "6a5d0f5fd1c00fbeba8d67bb065d6ab900f72c0fa6e44f05c85ae598bb522ea3"
+      ],
+      "stratum": [
+        "examination",
+        "2025-05",
+        "case"
+      ],
+      "partition": "development",
+      "blind_comparison": true,
+      "pilot": false
+    },
+    {
+      "question_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab",
+      "document_id": 402,
+      "extraction_revision_id": 765,
+      "paper_id": "s2023.P2",
+      "duplicate_group": "249f9219bfb76851699fc6abedeb7dd3e148fe376c10b140b7eee01063b2b182",
+      "duplicate_occurrences": [
+        "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab"
+      ],
+      "stratum": [
+        "examination",
+        "2025-09",
+        "case"
+      ],
+      "partition": "holdout",
+      "blind_comparison": true,
+      "pilot": false
+    },
+    {
+      "question_id": "c98ebeeb9cfd19a7f84f2d17828df9db18fa0ff0529a9df1d1b4975c63354e69",
+      "document_id": 394,
+      "extraction_revision_id": 759,
+      "paper_id": "s2023.P2",
+      "duplicate_group": "f500bd510ddb893cde43200394a6c2cfd029bd2a596ee9521b3ab8aa67cb70bb",
+      "duplicate_occurrences": [
+        "c98ebeeb9cfd19a7f84f2d17828df9db18fa0ff0529a9df1d1b4975c63354e69"
+      ],
+      "stratum": [
+        "examination",
+        "2025-09",
+        "missing"
+      ],
+      "partition": "development",
+      "blind_comparison": true,
+      "pilot": false
+    },
+    {
+      "question_id": "0e2f1f7cb4d1df7e394a0188c20fd79d75731c7dfe10526274010ea2cc40c8ef",
+      "document_id": 384,
+      "extraction_revision_id": 753,
+      "paper_id": "s2023.P2",
+      "duplicate_group": "5c70799eba0defec3eb62d75df252c65d5a9a7221c353efa79a5ebf557145b3f",
+      "duplicate_occurrences": [
+        "0e2f1f7cb4d1df7e394a0188c20fd79d75731c7dfe10526274010ea2cc40c8ef"
+      ],
+      "stratum": [
+        "examination",
+        "2026-01",
+        "case"
+      ],
+      "partition": "holdout",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "031a2ff3679f87c79923731752e60d5c58363e81f0fd3ceb8ecb7083160b24b9",
+      "document_id": 374,
+      "extraction_revision_id": 749,
+      "paper_id": "s2023.P2",
+      "duplicate_group": "e353981b30eacf4e75336689084c327f746df7e725004b4f5a26b1dd4de37dd8",
+      "duplicate_occurrences": [
+        "031a2ff3679f87c79923731752e60d5c58363e81f0fd3ceb8ecb7083160b24b9"
+      ],
+      "stratum": [
+        "examination",
+        "2026-05",
+        "case"
+      ],
+      "partition": "development",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "d2c9943d67523addc6f7865905c0156f7e0d54e7390948d8748a642940622a32",
+      "document_id": 430,
+      "extraction_revision_id": 783,
+      "paper_id": "s2023.P2",
+      "duplicate_group": "79c5aba5a7d9ec0ece80c0f88214dfa240e25f20d1799b446460d30a6f8de299",
+      "duplicate_occurrences": [
+        "d2c9943d67523addc6f7865905c0156f7e0d54e7390948d8748a642940622a32"
+      ],
+      "stratum": [
+        "examination",
+        "2024-05",
+        "case"
+      ],
+      "partition": "holdout",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "16333d5f359c573aaacd8d596f180d4bc02088f6c2469e28387d0c135b58f393",
+      "document_id": 422,
+      "extraction_revision_id": 777,
+      "paper_id": "s2023.P2",
+      "duplicate_group": "ca2c8ac51c81bbafcfb35e1d409444280adc3acedd787b2e4da39aa5d4eaa365",
+      "duplicate_occurrences": [
+        "16333d5f359c573aaacd8d596f180d4bc02088f6c2469e28387d0c135b58f393"
+      ],
+      "stratum": [
+        "examination",
+        "2024-11",
+        "case"
+      ],
+      "partition": "development",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "d7c2af8163fc52645f90a01c82be7fbb66c37ac0b900e1d0c35f956ac9f0b77f",
+      "document_id": 413,
+      "extraction_revision_id": 771,
+      "paper_id": "s2023.P2",
+      "duplicate_group": "e91e07d99011e68c246cbbdb22c8fd6e8e0ed4e8575c2d4dfee11f8fae8c3e68",
+      "duplicate_occurrences": [
+        "d7c2af8163fc52645f90a01c82be7fbb66c37ac0b900e1d0c35f956ac9f0b77f"
+      ],
+      "stratum": [
+        "examination",
+        "2025-05",
+        "case"
+      ],
+      "partition": "holdout",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "c65e8e0eacd942be86fd0442cc4df6893afeffe997ed559aae23d3fe994fe1b7",
+      "document_id": 402,
+      "extraction_revision_id": 765,
+      "paper_id": "s2023.P2",
+      "duplicate_group": "ef4ee042413465bbdeed92be7252b0b9a084c5b72e1639f849da94b03ebb84ee",
+      "duplicate_occurrences": [
+        "c65e8e0eacd942be86fd0442cc4df6893afeffe997ed559aae23d3fe994fe1b7"
+      ],
+      "stratum": [
+        "examination",
+        "2025-09",
+        "case"
+      ],
+      "partition": "development",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "f3a68540bd4305834b10a41ca90f6731ddd5348a9cf18d468a7cd61d91017aef",
+      "document_id": 394,
+      "extraction_revision_id": 759,
+      "paper_id": "s2023.P2",
+      "duplicate_group": "8332ec51da4d19d2a9e1e3fcee9c59d4e15a6d784adc486aae18948b71ede8a5",
+      "duplicate_occurrences": [
+        "f3a68540bd4305834b10a41ca90f6731ddd5348a9cf18d468a7cd61d91017aef"
+      ],
+      "stratum": [
+        "examination",
+        "2025-09",
+        "missing"
+      ],
+      "partition": "holdout",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "dc0acf8cebc403ad03427443f01967cd08d1e478aa49d829ae27a76096085bd0",
+      "document_id": 384,
+      "extraction_revision_id": 753,
+      "paper_id": "s2023.P2",
+      "duplicate_group": "c8efd027ed3866ccda8c0e878628e9c7d16169981031ab7b5c063c8203e01997",
+      "duplicate_occurrences": [
+        "dc0acf8cebc403ad03427443f01967cd08d1e478aa49d829ae27a76096085bd0"
+      ],
+      "stratum": [
+        "examination",
+        "2026-01",
+        "case"
+      ],
+      "partition": "development",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "e93af26f24efa84492eed8d748392fc4bee53bba60741688e3da9972fb44967e",
+      "document_id": 374,
+      "extraction_revision_id": 749,
+      "paper_id": "s2023.P2",
+      "duplicate_group": "2af9f1dab36f4a8943886dd6f0b8c5d775c1062bb23b09e906b873167fdefba0",
+      "duplicate_occurrences": [
+        "e93af26f24efa84492eed8d748392fc4bee53bba60741688e3da9972fb44967e"
+      ],
+      "stratum": [
+        "examination",
+        "2026-05",
+        "case"
+      ],
+      "partition": "holdout",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "956f39abba4e0877f33c7352bef0c4eb49a25574361f6fc61b2f3afa26106c8f",
+      "document_id": 430,
+      "extraction_revision_id": 783,
+      "paper_id": "s2023.P2",
+      "duplicate_group": "7d155f5431710fde279eb2db012085ab210693ba775cac68a20940cbd0999750",
+      "duplicate_occurrences": [
+        "956f39abba4e0877f33c7352bef0c4eb49a25574361f6fc61b2f3afa26106c8f"
+      ],
+      "stratum": [
+        "examination",
+        "2024-05",
+        "case"
+      ],
+      "partition": "development",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905",
+      "document_id": 422,
+      "extraction_revision_id": 777,
+      "paper_id": "s2023.P2",
+      "duplicate_group": "2d2fedb3bd6c1eb9c799369fad2ec5de99fb8c7cac2949425d66602c067c2af4",
+      "duplicate_occurrences": [
+        "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905"
+      ],
+      "stratum": [
+        "examination",
+        "2024-11",
+        "case"
+      ],
+      "partition": "holdout",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "9a4774c3257d5c7e323f6c1ba3d584e929612afc3403251448a3e8f5922e400f",
+      "document_id": 413,
+      "extraction_revision_id": 771,
+      "paper_id": "s2023.P2",
+      "duplicate_group": "d92fff57d7d1ad223cf6f439e1af52619ccea1fa056dbd9cf958c2700b63a3e7",
+      "duplicate_occurrences": [
+        "9a4774c3257d5c7e323f6c1ba3d584e929612afc3403251448a3e8f5922e400f"
+      ],
+      "stratum": [
+        "examination",
+        "2025-05",
+        "case"
+      ],
+      "partition": "development",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "80a00ad3444545b4593106d923e4c665577b68ca6f83d0da51ff2aa059ef95f1",
+      "document_id": 402,
+      "extraction_revision_id": 765,
+      "paper_id": "s2023.P2",
+      "duplicate_group": "0b855170b862a6f5adf41ccfce1f7baafbff28d3ed179908747a7e52e2e13507",
+      "duplicate_occurrences": [
+        "80a00ad3444545b4593106d923e4c665577b68ca6f83d0da51ff2aa059ef95f1"
+      ],
+      "stratum": [
+        "examination",
+        "2025-09",
+        "case"
+      ],
+      "partition": "holdout",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "f34a07e04165b8ce5d444d785df145db5a5a9fdb86e59d0a9147e43cc9b0104c",
+      "document_id": 394,
+      "extraction_revision_id": 759,
+      "paper_id": "s2023.P2",
+      "duplicate_group": "bdb711657fa66cd8dd55859be5764a1cca7bf709416f33ea3012c8494ee3ea1f",
+      "duplicate_occurrences": [
+        "f34a07e04165b8ce5d444d785df145db5a5a9fdb86e59d0a9147e43cc9b0104c"
+      ],
+      "stratum": [
+        "examination",
+        "2025-09",
+        "missing"
+      ],
+      "partition": "development",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "84fd81786c7e7c71a3487b1153d53687a379fc35d529bfdc096e5342fdec5516",
+      "document_id": 384,
+      "extraction_revision_id": 753,
+      "paper_id": "s2023.P2",
+      "duplicate_group": "2818f50db05155f810b0dc04a4743a6235dd33487afff6f0d95abc6ff26c2d1a",
+      "duplicate_occurrences": [
+        "84fd81786c7e7c71a3487b1153d53687a379fc35d529bfdc096e5342fdec5516"
+      ],
+      "stratum": [
+        "examination",
+        "2026-01",
+        "case"
+      ],
+      "partition": "holdout",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "d0f587b578d7bad25602278fe73c4dbcd09656210e55872da3c13a47dad8a29a",
+      "document_id": 431,
+      "extraction_revision_id": 784,
+      "paper_id": "s2023.P3",
+      "duplicate_group": "b48207c0e4f962a613fab783ac57257362a3142770051a7bf4f3b9f010ab8aa5",
+      "duplicate_occurrences": [
+        "d0f587b578d7bad25602278fe73c4dbcd09656210e55872da3c13a47dad8a29a"
+      ],
+      "stratum": [
+        "examination",
+        "2024-05",
+        "case"
+      ],
+      "partition": "development",
+      "blind_comparison": true,
+      "pilot": true
+    },
+    {
+      "question_id": "5a8d5a5919472c95dc6ec8b33179ee8be0c6d6e797639d1f61a71c322c08d68b",
+      "document_id": 423,
+      "extraction_revision_id": 778,
+      "paper_id": "s2023.P3",
+      "duplicate_group": "d70fe11a263154bb732990880d37739a63be4ade3bd14065f60e5025cf745a23",
+      "duplicate_occurrences": [
+        "5a8d5a5919472c95dc6ec8b33179ee8be0c6d6e797639d1f61a71c322c08d68b"
+      ],
+      "stratum": [
+        "examination",
+        "2024-11",
+        "case"
+      ],
+      "partition": "holdout",
+      "blind_comparison": true,
+      "pilot": true
+    },
+    {
+      "question_id": "a583b302f8d2aaf3eac6d60202e556bfcabba0182d89c3889aeaf3ab50c08699",
+      "document_id": 423,
+      "extraction_revision_id": 778,
+      "paper_id": "s2023.P3",
+      "duplicate_group": "afc12ad35b414d5da201133608cf21c6c2c9deec2d421cab947640121a7a515c",
+      "duplicate_occurrences": [
+        "a583b302f8d2aaf3eac6d60202e556bfcabba0182d89c3889aeaf3ab50c08699"
+      ],
+      "stratum": [
+        "examination",
+        "2024-11",
+        "complete"
+      ],
+      "partition": "development",
+      "blind_comparison": true,
+      "pilot": false
+    },
+    {
+      "question_id": "d7a12ec878bbf4877b295ed67a02cd360b0e9ee301e246b66f9724b250b4706a",
+      "document_id": 423,
+      "extraction_revision_id": 778,
+      "paper_id": "s2023.P3",
+      "duplicate_group": "da33608c0983c3ca8c38d167b338be167366bc3da65d5ad93ea1cc51a3bfdcba",
+      "duplicate_occurrences": [
+        "d7a12ec878bbf4877b295ed67a02cd360b0e9ee301e246b66f9724b250b4706a"
+      ],
+      "stratum": [
+        "examination",
+        "2024-11",
+        "missing"
+      ],
+      "partition": "holdout",
+      "blind_comparison": true,
+      "pilot": false
+    },
+    {
+      "question_id": "f2aaa5691174f94ce6c5c40612bae8d90de0de40bfc98caaaa08de058325e2f3",
+      "document_id": 414,
+      "extraction_revision_id": 772,
+      "paper_id": "s2023.P3",
+      "duplicate_group": "1fd7ef0d38e0a486a5849f5d5ed3eca24a064cf4c22d10be4f7dbc6a93f38534",
+      "duplicate_occurrences": [
+        "f2aaa5691174f94ce6c5c40612bae8d90de0de40bfc98caaaa08de058325e2f3"
+      ],
+      "stratum": [
+        "examination",
+        "2025-05",
+        "case"
+      ],
+      "partition": "development",
+      "blind_comparison": true,
+      "pilot": false
+    },
+    {
+      "question_id": "e84498fde970669133359057e8fea506974d281eeea2b7f3cb16745e32ffb0a6",
+      "document_id": 414,
+      "extraction_revision_id": 772,
+      "paper_id": "s2023.P3",
+      "duplicate_group": "3eb1f41df62202dcd8bde75549348fb631a56ccc66c40e2ea00923f7bd38cac4",
+      "duplicate_occurrences": [
+        "e84498fde970669133359057e8fea506974d281eeea2b7f3cb16745e32ffb0a6"
+      ],
+      "stratum": [
+        "examination",
+        "2025-05",
+        "complete"
+      ],
+      "partition": "holdout",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "0a2eb8c0af4723273380ae57ea44daf0f51bc0e22ba1fdfa8a8e09a30b67d53d",
+      "document_id": 414,
+      "extraction_revision_id": 772,
+      "paper_id": "s2023.P3",
+      "duplicate_group": "6919c8bbc163fbfef9969974d91d4291539c4fcc01bb877db689301704e926cf",
+      "duplicate_occurrences": [
+        "0a2eb8c0af4723273380ae57ea44daf0f51bc0e22ba1fdfa8a8e09a30b67d53d"
+      ],
+      "stratum": [
+        "examination",
+        "2025-05",
+        "missing"
+      ],
+      "partition": "development",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "ced2fc537505136b051d5cf34425de3165f7f7b65761f0de0c98fe04746a302f",
+      "document_id": 403,
+      "extraction_revision_id": 766,
+      "paper_id": "s2023.P3",
+      "duplicate_group": "8f9f8b0fbfa3a55d52de4697447489c74ab605490c4c9d316a506cc6aaf3b5eb",
+      "duplicate_occurrences": [
+        "ced2fc537505136b051d5cf34425de3165f7f7b65761f0de0c98fe04746a302f"
+      ],
+      "stratum": [
+        "examination",
+        "2025-09",
+        "case"
+      ],
+      "partition": "holdout",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "18aeff9278b2fb426f7a871497f91ed1d18ba7b65e4fbcced722b7ecb79801af",
+      "document_id": 403,
+      "extraction_revision_id": 766,
+      "paper_id": "s2023.P3",
+      "duplicate_group": "87196cbc299dd6aabda258f51dcd828d7ce52d00363a4e13a7483cb19e359c18",
+      "duplicate_occurrences": [
+        "18aeff9278b2fb426f7a871497f91ed1d18ba7b65e4fbcced722b7ecb79801af"
+      ],
+      "stratum": [
+        "examination",
+        "2025-09",
+        "complete"
+      ],
+      "partition": "development",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "8ee4e17c6821bcddceeb00f38adc76bf15ca5083da6f9fb5bf3d87d8766a162f",
+      "document_id": 403,
+      "extraction_revision_id": 766,
+      "paper_id": "s2023.P3",
+      "duplicate_group": "a9f35229ed0205aa8ee37522fbbb70eeae5edec215b4556282aebb58a43d6565",
+      "duplicate_occurrences": [
+        "8ee4e17c6821bcddceeb00f38adc76bf15ca5083da6f9fb5bf3d87d8766a162f"
+      ],
+      "stratum": [
+        "examination",
+        "2025-09",
+        "missing"
+      ],
+      "partition": "holdout",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "1ee2ef91064a94133eefbc07b5aa8d6af123a165ff227b97e942eceb1de4f4f0",
+      "document_id": 385,
+      "extraction_revision_id": 754,
+      "paper_id": "s2023.P3",
+      "duplicate_group": "6a76bdb4d3f251df8036851983dd8606ea2f92e938091c789b1e9ea1e62d5155",
+      "duplicate_occurrences": [
+        "1ee2ef91064a94133eefbc07b5aa8d6af123a165ff227b97e942eceb1de4f4f0"
+      ],
+      "stratum": [
+        "examination",
+        "2026-01",
+        "case"
+      ],
+      "partition": "development",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "4c1e45c6bb070bce560ea94ee040daca9ce631dc6955b39abfb2869f7e51b2f3",
+      "document_id": 385,
+      "extraction_revision_id": 754,
+      "paper_id": "s2023.P3",
+      "duplicate_group": "06f47f623567d77bd21c2fda914558f249720f187aa489ea9bc5b81d585e91a5",
+      "duplicate_occurrences": [
+        "4c1e45c6bb070bce560ea94ee040daca9ce631dc6955b39abfb2869f7e51b2f3"
+      ],
+      "stratum": [
+        "examination",
+        "2026-01",
+        "complete"
+      ],
+      "partition": "holdout",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "62cb1542632fee0d3a121cc03855bc78ca5e84de2ade68a4b85cf8e4da775183",
+      "document_id": 385,
+      "extraction_revision_id": 754,
+      "paper_id": "s2023.P3",
+      "duplicate_group": "1164a0ebae422e3e6bf23f1d4bc2a74668d472a0da428a2dcf137b17ec1cb891",
+      "duplicate_occurrences": [
+        "62cb1542632fee0d3a121cc03855bc78ca5e84de2ade68a4b85cf8e4da775183"
+      ],
+      "stratum": [
+        "examination",
+        "2026-01",
+        "missing"
+      ],
+      "partition": "development",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "0e68b0253ff3f4e67112b4b018ec5872c6161c85864a5ea790b3c2bc1d20d615",
+      "document_id": 375,
+      "extraction_revision_id": 750,
+      "paper_id": "s2023.P3",
+      "duplicate_group": "73df1b4a37fb60095e19e965a32bcd642440820c9589a4ff0117c9370d0a7895",
+      "duplicate_occurrences": [
+        "0e68b0253ff3f4e67112b4b018ec5872c6161c85864a5ea790b3c2bc1d20d615"
+      ],
+      "stratum": [
+        "examination",
+        "2026-05",
+        "case"
+      ],
+      "partition": "holdout",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "0fac50bf8df0755c880949e69bb60167c39b05838821e2be0ba0cf784c1fd41b",
+      "document_id": 375,
+      "extraction_revision_id": 750,
+      "paper_id": "s2023.P3",
+      "duplicate_group": "8291a847bd51df0a031369329c0af9d8bdd55dbf1289ef05cc07f2e4a6ca86c6",
+      "duplicate_occurrences": [
+        "0fac50bf8df0755c880949e69bb60167c39b05838821e2be0ba0cf784c1fd41b"
+      ],
+      "stratum": [
+        "examination",
+        "2026-05",
+        "complete"
+      ],
+      "partition": "development",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "a098b66275f684c5cc1220f752901dfe8f648a7bb8c1d5b0eeecb79a92c4329c",
+      "document_id": 375,
+      "extraction_revision_id": 750,
+      "paper_id": "s2023.P3",
+      "duplicate_group": "d3008a5a7382eb9dca42c32d40fab68418a3fd02ed2f47f0f1ad7d17a11af3fb",
+      "duplicate_occurrences": [
+        "a098b66275f684c5cc1220f752901dfe8f648a7bb8c1d5b0eeecb79a92c4329c"
+      ],
+      "stratum": [
+        "examination",
+        "2026-05",
+        "missing"
+      ],
+      "partition": "holdout",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "be0d01cdef8c6575266e93177556587329af5b21e80cd30b3f4dc7ad3bea3269",
+      "document_id": 431,
+      "extraction_revision_id": 784,
+      "paper_id": "s2023.P3",
+      "duplicate_group": "17dc55b5ffbe28a8482928f33f2ae68eb518acd387171f61e8e5087a63adf167",
+      "duplicate_occurrences": [
+        "be0d01cdef8c6575266e93177556587329af5b21e80cd30b3f4dc7ad3bea3269"
+      ],
+      "stratum": [
+        "examination",
+        "2024-05",
+        "case"
+      ],
+      "partition": "development",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "4d382bf9da0103c082b6689e26cd5850b8cb8abcea72417404174ea5a345a2a1",
+      "document_id": 423,
+      "extraction_revision_id": 778,
+      "paper_id": "s2023.P3",
+      "duplicate_group": "5d1dee38a5690a5aa1f1d5cdb233d74f1d0ec0ee48c23e9e667b43a2b9538509",
+      "duplicate_occurrences": [
+        "4d382bf9da0103c082b6689e26cd5850b8cb8abcea72417404174ea5a345a2a1"
+      ],
+      "stratum": [
+        "examination",
+        "2024-11",
+        "case"
+      ],
+      "partition": "holdout",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "778e93d0646820fc4df3fb46d990c417f233d5830547b90ceeb387b962d7de38",
+      "document_id": 423,
+      "extraction_revision_id": 778,
+      "paper_id": "s2023.P3",
+      "duplicate_group": "39fd8d8e969ecae0806a209112e5203c93d9dcdff628d544d54d7ebe69a01c21",
+      "duplicate_occurrences": [
+        "778e93d0646820fc4df3fb46d990c417f233d5830547b90ceeb387b962d7de38"
+      ],
+      "stratum": [
+        "examination",
+        "2024-11",
+        "missing"
+      ],
+      "partition": "development",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "85c2df6e3b5b45bbf59eaea09a672293f8029dae8715a5bcb95275e1cda437cc",
+      "document_id": 414,
+      "extraction_revision_id": 772,
+      "paper_id": "s2023.P3",
+      "duplicate_group": "57556840cb7c28ccfc207654ac6eff7527b0e255ea80e34ca913045338b191cd",
+      "duplicate_occurrences": [
+        "85c2df6e3b5b45bbf59eaea09a672293f8029dae8715a5bcb95275e1cda437cc"
+      ],
+      "stratum": [
+        "examination",
+        "2025-05",
+        "case"
+      ],
+      "partition": "holdout",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "8456bdb7212a2277cc953c101597ea33bebe95a682e489a500d1bee8966f7fe8",
+      "document_id": 432,
+      "extraction_revision_id": 785,
+      "paper_id": "s2023.P4",
+      "duplicate_group": "6127cc5d8f007164d397f88fc5af645a4a7ebf5bfb7940a379c28afdafda2d64",
+      "duplicate_occurrences": [
+        "8456bdb7212a2277cc953c101597ea33bebe95a682e489a500d1bee8966f7fe8"
+      ],
+      "stratum": [
+        "examination",
+        "2024-05",
+        "case"
+      ],
+      "partition": "development",
+      "blind_comparison": true,
+      "pilot": true
+    },
+    {
+      "question_id": "7bb7f7a8891d0ec2b58e2da87cda188de64877f140a3b22161363ef7babc385d",
+      "document_id": 424,
+      "extraction_revision_id": 779,
+      "paper_id": "s2023.P4",
+      "duplicate_group": "5431bd88874f8254aaac8356a7523d126329e68801d8db0ef5d2995c83f3ae21",
+      "duplicate_occurrences": [
+        "7bb7f7a8891d0ec2b58e2da87cda188de64877f140a3b22161363ef7babc385d"
+      ],
+      "stratum": [
+        "examination",
+        "2024-11",
+        "case"
+      ],
+      "partition": "holdout",
+      "blind_comparison": true,
+      "pilot": true
+    },
+    {
+      "question_id": "e5133156cdd3da2e7947c9e584022abcddef399a45dd7902bd0a2bd5dbfd39f1",
+      "document_id": 424,
+      "extraction_revision_id": 779,
+      "paper_id": "s2023.P4",
+      "duplicate_group": "94aba227e665929a47aa71557166f20c80a20052acb4b8023136c9d6d31396b9",
+      "duplicate_occurrences": [
+        "e5133156cdd3da2e7947c9e584022abcddef399a45dd7902bd0a2bd5dbfd39f1"
+      ],
+      "stratum": [
+        "examination",
+        "2024-11",
+        "missing"
+      ],
+      "partition": "development",
+      "blind_comparison": true,
+      "pilot": false
+    },
+    {
+      "question_id": "02ce18c91eb217922307767bb9de661d9bea6c60ebed2812428b507e5d5b9d2d",
+      "document_id": 416,
+      "extraction_revision_id": 773,
+      "paper_id": "s2023.P4",
+      "duplicate_group": "b087a48ccc230a341f8bf4d23d81b62f9c49769d54e76c58d74ae2839339b504",
+      "duplicate_occurrences": [
+        "02ce18c91eb217922307767bb9de661d9bea6c60ebed2812428b507e5d5b9d2d"
+      ],
+      "stratum": [
+        "examination",
+        "2025-05",
+        "case"
+      ],
+      "partition": "holdout",
+      "blind_comparison": true,
+      "pilot": false
+    },
+    {
+      "question_id": "2301e86e1479bb258049ecacfb6a7095418ec94e2f9888b20c17e5ff54aac5c4",
+      "document_id": 416,
+      "extraction_revision_id": 773,
+      "paper_id": "s2023.P4",
+      "duplicate_group": "022f7690c1a9f4eb1751e0e902732144c8373014d701590054ab2d09434fb723",
+      "duplicate_occurrences": [
+        "2301e86e1479bb258049ecacfb6a7095418ec94e2f9888b20c17e5ff54aac5c4"
+      ],
+      "stratum": [
+        "examination",
+        "2025-05",
+        "complete"
+      ],
+      "partition": "development",
+      "blind_comparison": true,
+      "pilot": false
+    },
+    {
+      "question_id": "e386c4bd3425737ddeed944e3db984837fc9a656e22bbb8d04051df3e4463ec2",
+      "document_id": 416,
+      "extraction_revision_id": 773,
+      "paper_id": "s2023.P4",
+      "duplicate_group": "fc1a0021780426bb74d61baf0b1548d4ee32a3713a32335859790503ff843eb5",
+      "duplicate_occurrences": [
+        "e386c4bd3425737ddeed944e3db984837fc9a656e22bbb8d04051df3e4463ec2"
+      ],
+      "stratum": [
+        "examination",
+        "2025-05",
+        "missing"
+      ],
+      "partition": "holdout",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "d84fad3c78e680a8928aa41b0a72683e16aa44f37a925bd3d309fe9a010f22c8",
+      "document_id": 404,
+      "extraction_revision_id": 767,
+      "paper_id": "s2023.P4",
+      "duplicate_group": "7de5f8528b144805328f61929e28e8fe2bb2a8d4a4445b6fd046ff137c79a748",
+      "duplicate_occurrences": [
+        "d84fad3c78e680a8928aa41b0a72683e16aa44f37a925bd3d309fe9a010f22c8"
+      ],
+      "stratum": [
+        "examination",
+        "2025-09",
+        "case"
+      ],
+      "partition": "development",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "bb3d388040b52ed24669d8ab65cf2ed976146cdcb3092aa11fdd4f3d7421c477",
+      "document_id": 404,
+      "extraction_revision_id": 767,
+      "paper_id": "s2023.P4",
+      "duplicate_group": "f2722d8eda428f98922f80b19a293fe03d972d9df5eb822780d36e74a0041af1",
+      "duplicate_occurrences": [
+        "bb3d388040b52ed24669d8ab65cf2ed976146cdcb3092aa11fdd4f3d7421c477"
+      ],
+      "stratum": [
+        "examination",
+        "2025-09",
+        "complete"
+      ],
+      "partition": "holdout",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "d17b0820b4012d5359d0f48715e7fcc687ced5ff8a3758cde08421804a801039",
+      "document_id": 404,
+      "extraction_revision_id": 767,
+      "paper_id": "s2023.P4",
+      "duplicate_group": "5a4143c5476dcf25429fbd8896073861020dc1445ea10ccad48a3884ee0aa6a0",
+      "duplicate_occurrences": [
+        "d17b0820b4012d5359d0f48715e7fcc687ced5ff8a3758cde08421804a801039"
+      ],
+      "stratum": [
+        "examination",
+        "2025-09",
+        "missing"
+      ],
+      "partition": "development",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "0de0b531870598ace40c360ce3eeba5ed497542b1f218691b1605cb53b5d38c3",
+      "document_id": 386,
+      "extraction_revision_id": 755,
+      "paper_id": "s2023.P4",
+      "duplicate_group": "7dce3cd01a0ac2256e187c65dafe2adb9f0aef5aba8d6ec350db401ca99eee50",
+      "duplicate_occurrences": [
+        "0de0b531870598ace40c360ce3eeba5ed497542b1f218691b1605cb53b5d38c3"
+      ],
+      "stratum": [
+        "examination",
+        "2026-01",
+        "case"
+      ],
+      "partition": "holdout",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "43a92f6ae5fd7422a96881c5ceb4faff363c3d9ce019d78285d9285412814684",
+      "document_id": 386,
+      "extraction_revision_id": 755,
+      "paper_id": "s2023.P4",
+      "duplicate_group": "357af12e5e8550d5fb90d5eeb35c35fcf50df4ca7e67f0e72d13dc1802ea35db",
+      "duplicate_occurrences": [
+        "43a92f6ae5fd7422a96881c5ceb4faff363c3d9ce019d78285d9285412814684"
+      ],
+      "stratum": [
+        "examination",
+        "2026-01",
+        "complete"
+      ],
+      "partition": "development",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "7dc7be7d5fb7a3cb58ec533b571dd3530a3198c8ceb22c0ac58a070717f2a78e",
+      "document_id": 386,
+      "extraction_revision_id": 755,
+      "paper_id": "s2023.P4",
+      "duplicate_group": "5732b77fed498eb1f3a8c0b0ed7ee5697d65781f42610cfbf9f6d0bfe18eb19c",
+      "duplicate_occurrences": [
+        "7dc7be7d5fb7a3cb58ec533b571dd3530a3198c8ceb22c0ac58a070717f2a78e"
+      ],
+      "stratum": [
+        "examination",
+        "2026-01",
+        "missing"
+      ],
+      "partition": "holdout",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "547b38c1fd1551405f70b207f08815b4982f33efdeb175bfc3316bffa5c64d39",
+      "document_id": 376,
+      "extraction_revision_id": 751,
+      "paper_id": "s2023.P4",
+      "duplicate_group": "d9f9132ac30a4af9759b37c97d925d5c951d7caf27d153495a70525a240fd69a",
+      "duplicate_occurrences": [
+        "547b38c1fd1551405f70b207f08815b4982f33efdeb175bfc3316bffa5c64d39"
+      ],
+      "stratum": [
+        "examination",
+        "2026-05",
+        "case"
+      ],
+      "partition": "development",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "d09cfb38b501b60938c83ed6fc8f03d3628fba627ce2fc26207abf203aa4af5d",
+      "document_id": 376,
+      "extraction_revision_id": 751,
+      "paper_id": "s2023.P4",
+      "duplicate_group": "5d29bcbae9b97ebe8c9a56aab9ece1027d37fdd5c6aa1b6994233da092d94936",
+      "duplicate_occurrences": [
+        "d09cfb38b501b60938c83ed6fc8f03d3628fba627ce2fc26207abf203aa4af5d"
+      ],
+      "stratum": [
+        "examination",
+        "2026-05",
+        "complete"
+      ],
+      "partition": "holdout",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "cccb1b8d8ff1d740e97b2b2162e448116d0e475674185a9f44972ce525c58fb5",
+      "document_id": 376,
+      "extraction_revision_id": 751,
+      "paper_id": "s2023.P4",
+      "duplicate_group": "972fcb0d5d3e453e43de63e0b98dffaf83bef20ad991e92317045879ac160e06",
+      "duplicate_occurrences": [
+        "cccb1b8d8ff1d740e97b2b2162e448116d0e475674185a9f44972ce525c58fb5"
+      ],
+      "stratum": [
+        "examination",
+        "2026-05",
+        "missing"
+      ],
+      "partition": "development",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "3a2fedb64c54416a1ce6eaf32c0a4ed01911e83adf8efc2929148073a065b221",
+      "document_id": 363,
+      "extraction_revision_id": 743,
+      "paper_id": "s2023.P4",
+      "duplicate_group": "8455b5a872bf83ff6ff2225e8c039b8e4b9a5b2b51709b123e5874eea4a85df6",
+      "duplicate_occurrences": [
+        "3a2fedb64c54416a1ce6eaf32c0a4ed01911e83adf8efc2929148073a065b221"
+      ],
+      "stratum": [
+        "rtp",
+        "2024-11",
+        "case"
+      ],
+      "partition": "holdout",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "2ae20ceda9b0df9413267363f0b045f7786860bc5e753cfa150b5ff33076b6f4",
+      "document_id": 364,
+      "extraction_revision_id": 744,
+      "paper_id": "s2023.P4",
+      "duplicate_group": "a5e144c8a2ead72ac055e9e4e407c817f9daa99953f307b0b7037c42d4e6d12c",
+      "duplicate_occurrences": [
+        "2ae20ceda9b0df9413267363f0b045f7786860bc5e753cfa150b5ff33076b6f4"
+      ],
+      "stratum": [
+        "rtp",
+        "2024-11",
+        "missing"
+      ],
+      "partition": "development",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "db17586b87d83f002bf76156d74dfff4619a016c143f470e8ab133a084a888a9",
+      "document_id": 353,
+      "extraction_revision_id": 737,
+      "paper_id": "s2023.P4",
+      "duplicate_group": "29ddf2ab0fbc26802fa81846a73aed5356b826dcbca03839869ea0bcc849490d",
+      "duplicate_occurrences": [
+        "db17586b87d83f002bf76156d74dfff4619a016c143f470e8ab133a084a888a9"
+      ],
+      "stratum": [
+        "rtp",
+        "2025-05",
+        "case"
+      ],
+      "partition": "holdout",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "205c5dd296559d87beedce820e14afecc4516b4d6d9e22ad1fd5deb16bf7de8b",
+      "document_id": 353,
+      "extraction_revision_id": 737,
+      "paper_id": "s2023.P4",
+      "duplicate_group": "40e8b4c97161e9c7772da9c6bcbbc475106edb38139e1462bc20567725186e1a",
+      "duplicate_occurrences": [
+        "205c5dd296559d87beedce820e14afecc4516b4d6d9e22ad1fd5deb16bf7de8b"
+      ],
+      "stratum": [
+        "rtp",
+        "2025-05",
+        "complete"
+      ],
+      "partition": "development",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "5414a1920be2e2a6cf73c5b09fde47edbe199b3c391ae7c4db47ed429bb56f3d",
+      "document_id": 353,
+      "extraction_revision_id": 737,
+      "paper_id": "s2023.P4",
+      "duplicate_group": "7d1c4ddc8f3bd74d6a6ab3ece445e7f73dc185e2b0d5d2ac0ea2970f406dc4b6",
+      "duplicate_occurrences": [
+        "5414a1920be2e2a6cf73c5b09fde47edbe199b3c391ae7c4db47ed429bb56f3d"
+      ],
+      "stratum": [
+        "rtp",
+        "2025-05",
+        "missing"
+      ],
+      "partition": "holdout",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "6fd31aebc7ce0165828a80739afd945a2eb70c718e0cd03aa515a91b59c7ecf2",
+      "document_id": 433,
+      "extraction_revision_id": 786,
+      "paper_id": "s2023.P5",
+      "duplicate_group": "6b9d494b78d5946d0f44014f5bd038c6f9a80549e8155fc20132b56de23b9667",
+      "duplicate_occurrences": [
+        "6fd31aebc7ce0165828a80739afd945a2eb70c718e0cd03aa515a91b59c7ecf2"
+      ],
+      "stratum": [
+        "examination",
+        "2024-05",
+        "case"
+      ],
+      "partition": "development",
+      "blind_comparison": true,
+      "pilot": true
+    },
+    {
+      "question_id": "cde001879d7f520e4c368410dfd3277472279382b89acf8c9d59c6c6a4a8fbd3",
+      "document_id": 433,
+      "extraction_revision_id": 786,
+      "paper_id": "s2023.P5",
+      "duplicate_group": "6411ff5ba683c55237e18fab1135a4cc3011de29d5f47511a2cbf87033bdeaf5",
+      "duplicate_occurrences": [
+        "cde001879d7f520e4c368410dfd3277472279382b89acf8c9d59c6c6a4a8fbd3"
+      ],
+      "stratum": [
+        "examination",
+        "2024-05",
+        "missing"
+      ],
+      "partition": "holdout",
+      "blind_comparison": true,
+      "pilot": true
+    },
+    {
+      "question_id": "f6c14233df48ac82eec0d87ec1c0d88110abf712fa059b68c7a88669896fa817",
+      "document_id": 425,
+      "extraction_revision_id": 780,
+      "paper_id": "s2023.P5",
+      "duplicate_group": "dc0d901268fc1b049915561f1fd2a30fe1d44b4bac4af295a96d3e119537aa70",
+      "duplicate_occurrences": [
+        "f6c14233df48ac82eec0d87ec1c0d88110abf712fa059b68c7a88669896fa817"
+      ],
+      "stratum": [
+        "examination",
+        "2024-11",
+        "case"
+      ],
+      "partition": "development",
+      "blind_comparison": true,
+      "pilot": false
+    },
+    {
+      "question_id": "3c3accc96e5ba0a5044e191c20a89b4f280b8ba4b2d1f61fcec800189e801644",
+      "document_id": 425,
+      "extraction_revision_id": 780,
+      "paper_id": "s2023.P5",
+      "duplicate_group": "97070ce718c8b9d0f3a2a0be06362c79dfacd04ef4be026bd4500604b46b95ef",
+      "duplicate_occurrences": [
+        "3c3accc96e5ba0a5044e191c20a89b4f280b8ba4b2d1f61fcec800189e801644"
+      ],
+      "stratum": [
+        "examination",
+        "2024-11",
+        "missing"
+      ],
+      "partition": "holdout",
+      "blind_comparison": true,
+      "pilot": false
+    },
+    {
+      "question_id": "35a3ffbe6ec2dfd34d79beae09ccbe32d73c2c31715f509fc00d672beef5bac8",
+      "document_id": 417,
+      "extraction_revision_id": 774,
+      "paper_id": "s2023.P5",
+      "duplicate_group": "5ab678d2e6f57b4d9c6d2a31d7597317f608e27689fabfbff278c162c76426de",
+      "duplicate_occurrences": [
+        "35a3ffbe6ec2dfd34d79beae09ccbe32d73c2c31715f509fc00d672beef5bac8"
+      ],
+      "stratum": [
+        "examination",
+        "2025-05",
+        "case"
+      ],
+      "partition": "development",
+      "blind_comparison": true,
+      "pilot": false
+    },
+    {
+      "question_id": "1bfcb29a32c4a1edfde6c2c4e0a7651e6fda753a30c37c2c409e0d733a6e5918",
+      "document_id": 417,
+      "extraction_revision_id": 774,
+      "paper_id": "s2023.P5",
+      "duplicate_group": "6eb1b4c063de5a1361f9a4006ef2349a13eb43d13dc5da85b82b6329306b3b99",
+      "duplicate_occurrences": [
+        "1bfcb29a32c4a1edfde6c2c4e0a7651e6fda753a30c37c2c409e0d733a6e5918"
+      ],
+      "stratum": [
+        "examination",
+        "2025-05",
+        "complete"
+      ],
+      "partition": "holdout",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "93d64c71f308868fd91eb9a0aebcc42d0359c792eaf85de709665c090ce03a3b",
+      "document_id": 417,
+      "extraction_revision_id": 774,
+      "paper_id": "s2023.P5",
+      "duplicate_group": "c5a611d07d79ff878575a510db3a30654970e28857b73db6399a3f07dbc46e86",
+      "duplicate_occurrences": [
+        "93d64c71f308868fd91eb9a0aebcc42d0359c792eaf85de709665c090ce03a3b"
+      ],
+      "stratum": [
+        "examination",
+        "2025-05",
+        "missing"
+      ],
+      "partition": "development",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "c1a44e97c53695c98c34da999dd8a6d3e821a387909faf56c40434bf08b58c9a",
+      "document_id": 405,
+      "extraction_revision_id": 768,
+      "paper_id": "s2023.P5",
+      "duplicate_group": "b4875859f881e7489eed6b2e8f5a12c4e71ba29a57fa71328ec2e49d57db5fc2",
+      "duplicate_occurrences": [
+        "c1a44e97c53695c98c34da999dd8a6d3e821a387909faf56c40434bf08b58c9a"
+      ],
+      "stratum": [
+        "examination",
+        "2025-09",
+        "case"
+      ],
+      "partition": "holdout",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "f9fd979bc1efcb046dff8080a5bfe7505b36ee8b62da2aaed2dcec3d1d667294",
+      "document_id": 405,
+      "extraction_revision_id": 768,
+      "paper_id": "s2023.P5",
+      "duplicate_group": "6ffc460062bbbb1c89c99de6fca958c5d49b9ff3f1263dc1bda4051f69d516a3",
+      "duplicate_occurrences": [
+        "f9fd979bc1efcb046dff8080a5bfe7505b36ee8b62da2aaed2dcec3d1d667294"
+      ],
+      "stratum": [
+        "examination",
+        "2025-09",
+        "complete"
+      ],
+      "partition": "development",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "5afef309c169e4fd3d78158b67e40389cfed4243f613b2d6a0d75284e0e18f05",
+      "document_id": 397,
+      "extraction_revision_id": 762,
+      "paper_id": "s2023.P5",
+      "duplicate_group": "5b24c13e652dd9781c64bb7915c07713aac24a5c80b0b1a080e2636fdb88ef7c",
+      "duplicate_occurrences": [
+        "5afef309c169e4fd3d78158b67e40389cfed4243f613b2d6a0d75284e0e18f05"
+      ],
+      "stratum": [
+        "examination",
+        "2025-09",
+        "missing"
+      ],
+      "partition": "holdout",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "bfdb15c25c8b1295040d3e62d21eea994de186b2a43249448014d898dfd299a4",
+      "document_id": 387,
+      "extraction_revision_id": 756,
+      "paper_id": "s2023.P5",
+      "duplicate_group": "692128b9dc057cc69793ebe914032a61b5d677990793089f6e8b0761374f8265",
+      "duplicate_occurrences": [
+        "bfdb15c25c8b1295040d3e62d21eea994de186b2a43249448014d898dfd299a4"
+      ],
+      "stratum": [
+        "examination",
+        "2026-01",
+        "case"
+      ],
+      "partition": "development",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "66544acae96e40dcf74e9a4157c966eb499472ff4ca7fdea485c0e9eadaf985e",
+      "document_id": 387,
+      "extraction_revision_id": 756,
+      "paper_id": "s2023.P5",
+      "duplicate_group": "683a3826f56821d5855750a0c0bf9fd1c2352286e91b628f3c958a30882bae7e",
+      "duplicate_occurrences": [
+        "66544acae96e40dcf74e9a4157c966eb499472ff4ca7fdea485c0e9eadaf985e"
+      ],
+      "stratum": [
+        "examination",
+        "2026-01",
+        "missing"
+      ],
+      "partition": "holdout",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "281bc04d87027b1d1aaa25b0ecf488f74a99bdd3d35d7b42ce7f6725e145ca33",
+      "document_id": 433,
+      "extraction_revision_id": 786,
+      "paper_id": "s2023.P5",
+      "duplicate_group": "6101e06da5563f04021f498c4056d000c1775904d5273f4f92911da3fc60f66a",
+      "duplicate_occurrences": [
+        "281bc04d87027b1d1aaa25b0ecf488f74a99bdd3d35d7b42ce7f6725e145ca33"
+      ],
+      "stratum": [
+        "examination",
+        "2024-05",
+        "case"
+      ],
+      "partition": "development",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "d86e758327b52c35e89791af5bb415c7d71d7f8ab7d5819e4b072b309cc5d539",
+      "document_id": 433,
+      "extraction_revision_id": 786,
+      "paper_id": "s2023.P5",
+      "duplicate_group": "184c153032adca14648ef217fa02dd1daab3c37e0196e45a6813fbd13dec2cf2",
+      "duplicate_occurrences": [
+        "d86e758327b52c35e89791af5bb415c7d71d7f8ab7d5819e4b072b309cc5d539"
+      ],
+      "stratum": [
+        "examination",
+        "2024-05",
+        "missing"
+      ],
+      "partition": "holdout",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "d5a6873321cd04d72da3e0017aa88f97453b9c9a91badc86d6fbfa1f9c7bc0b9",
+      "document_id": 425,
+      "extraction_revision_id": 780,
+      "paper_id": "s2023.P5",
+      "duplicate_group": "ed3649cbf48d12d7687ab965486e47b7a2ca6afbc2715155643c62bebb62291f",
+      "duplicate_occurrences": [
+        "d5a6873321cd04d72da3e0017aa88f97453b9c9a91badc86d6fbfa1f9c7bc0b9"
+      ],
+      "stratum": [
+        "examination",
+        "2024-11",
+        "case"
+      ],
+      "partition": "development",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "3ac826ca8ef1fb88873fdca9fae4927d54c659bb631afc3c4b934869af4dfcc1",
+      "document_id": 425,
+      "extraction_revision_id": 780,
+      "paper_id": "s2023.P5",
+      "duplicate_group": "e5902d96985f7feeea4a80710824938128093a9958ef727d66839e7ad352ae97",
+      "duplicate_occurrences": [
+        "3ac826ca8ef1fb88873fdca9fae4927d54c659bb631afc3c4b934869af4dfcc1"
+      ],
+      "stratum": [
+        "examination",
+        "2024-11",
+        "missing"
+      ],
+      "partition": "holdout",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "c51dfb9ef030b29a603fd67b8ff0602040c643baa2fa594b0d0118deb4dbe962",
+      "document_id": 417,
+      "extraction_revision_id": 774,
+      "paper_id": "s2023.P5",
+      "duplicate_group": "ffa0088ba697cdc3e8b3a29ba2087ed9f8e337c814dc4f4b0eaef04b76a8a538",
+      "duplicate_occurrences": [
+        "c51dfb9ef030b29a603fd67b8ff0602040c643baa2fa594b0d0118deb4dbe962"
+      ],
+      "stratum": [
+        "examination",
+        "2025-05",
+        "case"
+      ],
+      "partition": "development",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "4a4827f8006851692661c6b243f8d4f969c5c89eb351361d1e7ae3e111a9a911",
+      "document_id": 417,
+      "extraction_revision_id": 774,
+      "paper_id": "s2023.P5",
+      "duplicate_group": "39e0692a102dac2f058244e627cb67647e224edbd718631e607d912c8e65a0ba",
+      "duplicate_occurrences": [
+        "4a4827f8006851692661c6b243f8d4f969c5c89eb351361d1e7ae3e111a9a911"
+      ],
+      "stratum": [
+        "examination",
+        "2025-05",
+        "complete"
+      ],
+      "partition": "holdout",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "884053046d784be8992e0527e62d092e7e05c429e5c5c9215562cbb5ea3b5dfb",
+      "document_id": 417,
+      "extraction_revision_id": 774,
+      "paper_id": "s2023.P5",
+      "duplicate_group": "558f5324148485d9ce2c4ab3c26a4d6a7665aa96ee4b7a374850dab83555795c",
+      "duplicate_occurrences": [
+        "884053046d784be8992e0527e62d092e7e05c429e5c5c9215562cbb5ea3b5dfb"
+      ],
+      "stratum": [
+        "examination",
+        "2025-05",
+        "missing"
+      ],
+      "partition": "development",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "db1e75b253a77507c2e43169e58210c26c89da989670a5b339d8c1302f85b624",
+      "document_id": 405,
+      "extraction_revision_id": 768,
+      "paper_id": "s2023.P5",
+      "duplicate_group": "16ca5623e8b5fe252a9f77be236ef6a830b0505c02f1691ba01a7d12bc77a114",
+      "duplicate_occurrences": [
+        "db1e75b253a77507c2e43169e58210c26c89da989670a5b339d8c1302f85b624"
+      ],
+      "stratum": [
+        "examination",
+        "2025-09",
+        "case"
+      ],
+      "partition": "holdout",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "4691b3404b819f70247e0739f023db65d8acce5a9036385dfb4809a4600668f7",
+      "document_id": 434,
+      "extraction_revision_id": 787,
+      "paper_id": "s2023.P6",
+      "duplicate_group": "c9a9939410888bbb961f412be1109aeabb5635f3e40fb60380f4554aecc425d0",
+      "duplicate_occurrences": [
+        "4691b3404b819f70247e0739f023db65d8acce5a9036385dfb4809a4600668f7"
+      ],
+      "stratum": [
+        "examination",
+        "2024-05",
+        "case"
+      ],
+      "partition": "development",
+      "blind_comparison": true,
+      "pilot": true
+    },
+    {
+      "question_id": "b92c8fcb2d64b2b0b0b09710b541c87c9989d3ffdf92eba27f6789f5afac9e32",
+      "document_id": 434,
+      "extraction_revision_id": 787,
+      "paper_id": "s2023.P6",
+      "duplicate_group": "c41bd58b03a6c3f62c7a4122e2743e95dcfd42dbcd5b866cdc1b32d0423a8dc7",
+      "duplicate_occurrences": [
+        "b92c8fcb2d64b2b0b0b09710b541c87c9989d3ffdf92eba27f6789f5afac9e32"
+      ],
+      "stratum": [
+        "examination",
+        "2024-05",
+        "complete"
+      ],
+      "partition": "holdout",
+      "blind_comparison": true,
+      "pilot": true
+    },
+    {
+      "question_id": "fd3e5c9e5828dd683ebabd1fc93937453b8788266e1d14146c86732486f8b8a0",
+      "document_id": 434,
+      "extraction_revision_id": 787,
+      "paper_id": "s2023.P6",
+      "duplicate_group": "ceacef70a36241050f5fef72c0cb0b806b66337bd66a986c296922bdc8a115da",
+      "duplicate_occurrences": [
+        "fd3e5c9e5828dd683ebabd1fc93937453b8788266e1d14146c86732486f8b8a0"
+      ],
+      "stratum": [
+        "examination",
+        "2024-05",
+        "missing"
+      ],
+      "partition": "development",
+      "blind_comparison": true,
+      "pilot": false
+    },
+    {
+      "question_id": "b395d5b90866857aabdfa49890cb9f856e37f5b7419e298960ba00812bc968e4",
+      "document_id": 434,
+      "extraction_revision_id": 787,
+      "paper_id": "s2023.P6",
+      "duplicate_group": "7eeb32d3e35756e84fda291a55a1b69fa99d545ff27048899a4499357541f046",
+      "duplicate_occurrences": [
+        "b395d5b90866857aabdfa49890cb9f856e37f5b7419e298960ba00812bc968e4"
+      ],
+      "stratum": [
+        "examination",
+        "2024-05",
+        "partial"
+      ],
+      "partition": "holdout",
+      "blind_comparison": true,
+      "pilot": false
+    },
+    {
+      "question_id": "ecfc8e0d4564da5cb1ddac4f6f21350b679a510661acdd5f50c4df1245c8b38f",
+      "document_id": 426,
+      "extraction_revision_id": 781,
+      "paper_id": "s2023.P6",
+      "duplicate_group": "ec9f9844d45c3a0e5e996d69918c0dd22b3018c3cc5bc176b399818cc673b484",
+      "duplicate_occurrences": [
+        "ecfc8e0d4564da5cb1ddac4f6f21350b679a510661acdd5f50c4df1245c8b38f"
+      ],
+      "stratum": [
+        "examination",
+        "2024-11",
+        "case"
+      ],
+      "partition": "development",
+      "blind_comparison": true,
+      "pilot": false
+    },
+    {
+      "question_id": "3444e1f11fd423c6badc615f27121f5b066c522116b7ec647a087ba10b28bd9b",
+      "document_id": 426,
+      "extraction_revision_id": 781,
+      "paper_id": "s2023.P6",
+      "duplicate_group": "3318f5c899a22261b1844984a8e6879962c89e46b5bdaac473c6ba4f273bfa39",
+      "duplicate_occurrences": [
+        "3444e1f11fd423c6badc615f27121f5b066c522116b7ec647a087ba10b28bd9b"
+      ],
+      "stratum": [
+        "examination",
+        "2024-11",
+        "complete"
+      ],
+      "partition": "holdout",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "0252548ecad44be777520e55331facd55efbf29d45e4f274b0ac8df2869fe5e5",
+      "document_id": 426,
+      "extraction_revision_id": 781,
+      "paper_id": "s2023.P6",
+      "duplicate_group": "1e9955589462a6f3c4dece93b7ab8bb31396e4bb43d9b3086bd97dfc0a50db08",
+      "duplicate_occurrences": [
+        "0252548ecad44be777520e55331facd55efbf29d45e4f274b0ac8df2869fe5e5"
+      ],
+      "stratum": [
+        "examination",
+        "2024-11",
+        "missing"
+      ],
+      "partition": "development",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "fb3a3a8ffba7902edd64eac9999aca367290aebcb6968c24f7e2552f0299f359",
+      "document_id": 418,
+      "extraction_revision_id": 775,
+      "paper_id": "s2023.P6",
+      "duplicate_group": "2b19b54ea022ea7ad9f0f27b8bc17a5d1b84902684be06d0a503e800a542e6f0",
+      "duplicate_occurrences": [
+        "fb3a3a8ffba7902edd64eac9999aca367290aebcb6968c24f7e2552f0299f359"
+      ],
+      "stratum": [
+        "examination",
+        "2025-05",
+        "case"
+      ],
+      "partition": "holdout",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "b6d050ccc47003888eb63c4648f2510dd90a56e14dcbe77f4caa005138803017",
+      "document_id": 418,
+      "extraction_revision_id": 775,
+      "paper_id": "s2023.P6",
+      "duplicate_group": "a9a927cab91b394893963c25a1ea5de086ea5a2f7bebcec870d408026c40a8aa",
+      "duplicate_occurrences": [
+        "b6d050ccc47003888eb63c4648f2510dd90a56e14dcbe77f4caa005138803017"
+      ],
+      "stratum": [
+        "examination",
+        "2025-05",
+        "complete"
+      ],
+      "partition": "development",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "afbd33c97d09cf1d7f7b1d4826b96d7af12f8f7af62f8dcf981f3d579f489afa",
+      "document_id": 418,
+      "extraction_revision_id": 775,
+      "paper_id": "s2023.P6",
+      "duplicate_group": "5faab42caf477ac6bcbf7ab2d3c629c93e4c41f9b9d6e9d9d33e888b8b4d3eeb",
+      "duplicate_occurrences": [
+        "afbd33c97d09cf1d7f7b1d4826b96d7af12f8f7af62f8dcf981f3d579f489afa"
+      ],
+      "stratum": [
+        "examination",
+        "2025-05",
+        "missing"
+      ],
+      "partition": "holdout",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "6db4029e56f982876eaa486fb32ecb2f5edc4a86463f2b3747c91690ffa30d3a",
+      "document_id": 406,
+      "extraction_revision_id": 769,
+      "paper_id": "s2023.P6",
+      "duplicate_group": "bacbea8c75456687323388a671b419453095fb46260ee3daad6d20f7372b397f",
+      "duplicate_occurrences": [
+        "6db4029e56f982876eaa486fb32ecb2f5edc4a86463f2b3747c91690ffa30d3a"
+      ],
+      "stratum": [
+        "examination",
+        "2025-09",
+        "case"
+      ],
+      "partition": "development",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "0613764222fee250f835276d1a4cf7fe4196bf970779d729e70f8e974bb184ca",
+      "document_id": 406,
+      "extraction_revision_id": 769,
+      "paper_id": "s2023.P6",
+      "duplicate_group": "c808ae9e4f8709a421c095f5d708132102463fb1d404ca136d8a6501df7f37e0",
+      "duplicate_occurrences": [
+        "0613764222fee250f835276d1a4cf7fe4196bf970779d729e70f8e974bb184ca"
+      ],
+      "stratum": [
+        "examination",
+        "2025-09",
+        "complete"
+      ],
+      "partition": "holdout",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "47d1b1fc0db578da7620cfa40d85f6f32b2a22398a3f92c998a11b8bf3b42acc",
+      "document_id": 406,
+      "extraction_revision_id": 769,
+      "paper_id": "s2023.P6",
+      "duplicate_group": "31cae1e77a5902db181e72097612e2ddd737947337f20937dc1d4243ab2d9914",
+      "duplicate_occurrences": [
+        "47d1b1fc0db578da7620cfa40d85f6f32b2a22398a3f92c998a11b8bf3b42acc"
+      ],
+      "stratum": [
+        "examination",
+        "2025-09",
+        "missing"
+      ],
+      "partition": "development",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "059c8c6192918e2509b35159f3bb0d9ccf79a490f2f75d3cb79f990ae1fafb35",
+      "document_id": 388,
+      "extraction_revision_id": 757,
+      "paper_id": "s2023.P6",
+      "duplicate_group": "4c5d2f9deb7d35b2fc0e2de05cd6c89ada3de315f64664588c180020d263298f",
+      "duplicate_occurrences": [
+        "059c8c6192918e2509b35159f3bb0d9ccf79a490f2f75d3cb79f990ae1fafb35"
+      ],
+      "stratum": [
+        "examination",
+        "2026-01",
+        "case"
+      ],
+      "partition": "holdout",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "ccf3b74117c25ba8a4af78f46bc22343cb506c9e6bfc461affc1a33703f3df17",
+      "document_id": 388,
+      "extraction_revision_id": 757,
+      "paper_id": "s2023.P6",
+      "duplicate_group": "43bf08fa2c3afbe18c23f809e52692b860ce6b735df6621304778fc2e8b99f69",
+      "duplicate_occurrences": [
+        "ccf3b74117c25ba8a4af78f46bc22343cb506c9e6bfc461affc1a33703f3df17"
+      ],
+      "stratum": [
+        "examination",
+        "2026-01",
+        "complete"
+      ],
+      "partition": "development",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "25c950a4ce35746409a963c158e84dcdeca5fa7150a5861e73bea6d772d24d8c",
+      "document_id": 388,
+      "extraction_revision_id": 757,
+      "paper_id": "s2023.P6",
+      "duplicate_group": "2d5212f30b95ab0992c46b63857780825c56ca0bd90b7a335d1c39774b069ccd",
+      "duplicate_occurrences": [
+        "25c950a4ce35746409a963c158e84dcdeca5fa7150a5861e73bea6d772d24d8c"
+      ],
+      "stratum": [
+        "examination",
+        "2026-01",
+        "missing"
+      ],
+      "partition": "holdout",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "46716f75e0fa4320b069cd5878fcb0bae14b7414bebecfbc1367b571a65f860c",
+      "document_id": 388,
+      "extraction_revision_id": 757,
+      "paper_id": "s2023.P6",
+      "duplicate_group": "a4583ebc9a97c9edbe4f6347dd8219cff48c565d7d3f605fdb1f7f3a9cfb7a60",
+      "duplicate_occurrences": [
+        "46716f75e0fa4320b069cd5878fcb0bae14b7414bebecfbc1367b571a65f860c"
+      ],
+      "stratum": [
+        "examination",
+        "2026-01",
+        "partial"
+      ],
+      "partition": "development",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "d2454c1f092685610699e30ab109f57b486a8f91d402a4f9d4a4e28bfe148789",
+      "document_id": 516,
+      "extraction_revision_id": 866,
+      "paper_id": "s2023.P6",
+      "duplicate_group": "a6e03d83ec2e555eb40c5046b3722a4d0dcdaee4cdc20319391b05c61453bf29",
+      "duplicate_occurrences": [
+        "d2454c1f092685610699e30ab109f57b486a8f91d402a4f9d4a4e28bfe148789"
+      ],
+      "stratum": [
+        "ibs",
+        null,
+        "case"
+      ],
+      "partition": "holdout",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "2feff56e5e5792248ae1d7292586650ba85f9f7b2d6570f54b266a32ab1a11af",
+      "document_id": 452,
+      "extraction_revision_id": 802,
+      "paper_id": "s2023.P6",
+      "duplicate_group": "b18db3005a11bcb66803edbdcaff7f31d057a5a1a9bd2f5a80fc62a6702a0179",
+      "duplicate_occurrences": [
+        "2feff56e5e5792248ae1d7292586650ba85f9f7b2d6570f54b266a32ab1a11af"
+      ],
+      "stratum": [
+        "ibs",
+        null,
+        "missing"
+      ],
+      "partition": "development",
+      "blind_comparison": false,
+      "pilot": false
+    },
+    {
+      "question_id": "767e68aed95db9f4cf43050a0ba927f6f3c211dae035d53a6256c66af7ecf234",
+      "document_id": 314,
+      "extraction_revision_id": 725,
+      "paper_id": "s2023.P6",
+      "duplicate_group": "1402172e5dcb10e952be2c04d9040763dcfe6b99a2095c53e13acc4fb043c04f",
+      "duplicate_occurrences": [
+        "767e68aed95db9f4cf43050a0ba927f6f3c211dae035d53a6256c66af7ecf234"
+      ],
+      "stratum": [
+        "ibs_case_study",
+        null,
+        "case"
+      ],
+      "partition": "holdout",
+      "blind_comparison": false,
+      "pilot": false
+    }
+  ],
+  "unavailable_strata": [],
+  "observed_strata": [
+    "['examination', '2024-05', 'case']",
+    "['examination', '2024-05', 'complete']",
+    "['examination', '2024-05', 'missing']",
+    "['examination', '2024-05', 'partial']",
+    "['examination', '2024-11', 'case']",
+    "['examination', '2024-11', 'complete']",
+    "['examination', '2024-11', 'missing']",
+    "['examination', '2025-05', 'case']",
+    "['examination', '2025-05', 'complete']",
+    "['examination', '2025-05', 'missing']",
+    "['examination', '2025-09', 'case']",
+    "['examination', '2025-09', 'complete']",
+    "['examination', '2025-09', 'missing']",
+    "['examination', '2026-01', 'case']",
+    "['examination', '2026-01', 'complete']",
+    "['examination', '2026-01', 'missing']",
+    "['examination', '2026-01', 'partial']",
+    "['examination', '2026-05', 'case']",
+    "['examination', '2026-05', 'complete']",
+    "['examination', '2026-05', 'missing']",
+    "['examination', None, 'case']",
+    "['examination', None, 'complete']",
+    "['examination', None, 'missing']",
+    "['examination', None, 'partial']",
+    "['ibs', None, 'case']",
+    "['ibs', None, 'missing']",
+    "['ibs_case_study', None, 'case']",
+    "['rtp', '2024-11', 'case']",
+    "['rtp', '2024-11', 'complete']",
+    "['rtp', '2024-11', 'missing']",
+    "['rtp', '2025-05', 'case']",
+    "['rtp', '2025-05', 'complete']",
+    "['rtp', '2025-05', 'missing']"
+  ],
+  "duplicate_grouping": "normalized complete question text within paper; one occurrence sampled"
+}

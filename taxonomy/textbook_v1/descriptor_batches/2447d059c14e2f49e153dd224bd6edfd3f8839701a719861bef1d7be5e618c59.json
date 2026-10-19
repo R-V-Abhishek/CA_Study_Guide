@@ -1,0 +1,151 @@
+{
+  "descriptors": [
+    {
+      "node_id": "6af30996-9e56-43f0-8a39-a6a230d3c5e1",
+      "concept_name": "GST Foundation and Territorial Charging Mechanism",
+      "definition": "The charge of goods and services tax is triggered by the taxable event of supply, drawing its legislative power from the Constitution of India. Intra-State supplies attract central tax and state or union territory tax, whereas inter-State supplies attract integrated tax.",
+      "terminology": [
+        "Taxable event",
+        "Intra-State supply",
+        "Inter-State supply",
+        "Central tax",
+        "Integrated tax",
+        "State tax"
+      ],
+      "instrument_references": [
+        "101st Constitutional Amendment Act, 2016",
+        "Section 9 of the CGST Act, 2017",
+        "Section 5 of the IGST Act, 2017"
+      ],
+      "inclusion": [
+        "Intra-State supplies of goods or services",
+        "Inter-State supplies of goods or services"
+      ],
+      "exclusion": [
+        "Supplies outside the charging provisions of the respective tax statutes"
+      ],
+      "nearby_distinctions": [
+        "Intra-State supply is governed by CGST and SGST/UTGST based on supplier location and place of supply, whereas inter-State supply attracts IGST."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9b666289-1245-4dc6-90e1-4d0a4be08bce",
+      "concept_name": "Relevant Definitions for GST Charge",
+      "definition": "Statutory definitions provide precise meanings for key terms such as goods, services, aggregate turnover, and reverse charge under the tax statutes. These definitions establish the operational boundaries and tax liabilities for various transactions and entities.",
+      "terminology": [
+        "Aggregate turnover",
+        "Customs frontiers of India",
+        "Non-taxable online recipient",
+        "Reverse charge",
+        "Registered person"
+      ],
+      "instrument_references": [
+        "Section 2(6) of the CGST Act",
+        "Section 2(52) of the CGST Act",
+        "Section 2(98) of the CGST Act",
+        "Section 2(4) of the IGST Act"
+      ],
+      "inclusion": [
+        "Movable property, actionable claims, and specified growing crops",
+        "Value of taxable, exempt, export, and inter-state supplies for aggregate turnover"
+      ],
+      "exclusion": [
+        "Money and securities from the definitions of goods and services"
+      ],
+      "nearby_distinctions": [
+        "Aggregate turnover is computed on an all-India basis excluding specific central, state, and integrated taxes, unlike standard turnover measures."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c05f84bc-0b68-440f-a410-4d69362e0d77",
+      "concept_name": "Extent and Commencement of GST Law",
+      "definition": "The tax statutes extend to the entire territory of India, encompassing its territorial waters, seabed, subsoil, continental shelf, exclusive economic zone, and designated airspace. Each respective state or union territory enactment applies within its defined geographical boundaries.",
+      "terminology": [
+        "Territorial waters",
+        "Exclusive economic zone",
+        "Union territory",
+        "Continental shelf"
+      ],
+      "instrument_references": [
+        "Section 1 of the CGST Act",
+        "Section 1 of the IGST Act",
+        "Section 1 of the UTGST Act",
+        "Section 2(56) of the CGST Act",
+        "Territorial Waters, Continental Shelf, Exclusive Economic Zone and other Maritime Zones Act, 1976"
+      ],
+      "inclusion": [
+        "Territory of India under Article 1 of the Constitution",
+        "Maritime zones including territorial waters and exclusive economic zones"
+      ],
+      "exclusion": [
+        "Territories outside the specified sovereign boundaries of India"
+      ],
+      "nearby_distinctions": [
+        "CGST and IGST extend pan-India, whereas UTGST applies exclusively to specific union territories without legislatures."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5b2d11e0-d765-49b0-9966-a77b9d177e47",
+      "concept_name": "Levy and Collection of CGST and IGST",
+      "definition": "Central goods and services tax and integrated goods and services tax are levied on all intra-State and inter-State supplies respectively, subject to specified statutory exceptions and notification timelines. Tax liability may be shifted to the recipient under reverse charge mechanisms for specified categories of goods or services.",
+      "terminology": [
+        "Levy and collection",
+        "Reverse charge",
+        "Alcoholic liquor for human consumption",
+        "Petroleum crude"
+      ],
+      "instrument_references": [
+        "Section 9 of the CGST Act, 2017",
+        "Section 5 of the IGST Act, 2017"
+      ],
+      "inclusion": [
+        "All intra-State supplies of goods or services under CGST",
+        "All inter-State supplies of goods or services under IGST"
+      ],
+      "exclusion": [
+        "Alcoholic liquor for human consumption",
+        "Un-denatured extra neutral alcohol or rectified spirit used for manufacturing alcoholic liquor"
+      ],
+      "nearby_distinctions": [
+        "Standard forward charge places liability on the supplier, whereas reverse charge shifts payment obligations directly to the recipient."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "daec00a3-f061-4d7e-9854-1dc1faa0a236",
+      "concept_name": "Composition Levy",
+      "definition": "Eligible registered taxpayers with an aggregate turnover below a specified statutory threshold in the preceding financial year may opt to pay tax at a concessional rate calculated on their state or union territory turnover. This scheme restricts outward inter-State supplies and limits the supply of services alongside specific manufacturing or catering conditions.",
+      "terminology": [
+        "Composition levy",
+        "Aggregate turnover",
+        "Turnover in State or Union territory",
+        "Concessional rate"
+      ],
+      "instrument_references": [
+        "Section 10 of the CGST Act"
+      ],
+      "inclusion": [
+        "Registered persons with preceding financial year aggregate turnover meeting statutory limits",
+        "Manufacturers, restaurant service providers, and other eligible suppliers"
+      ],
+      "exclusion": [
+        "Taxpayers engaged in inter-State outward supplies of goods or services",
+        "Suppliers of non-taxable goods or services"
+      ],
+      "nearby_distinctions": [
+        "Composition levy offers a simplified tax calculation at lower rates based on state turnover instead of standard rates, subject to strict eligibility constraints."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "2447d059c14e2f49e153dd224bd6edfd3f8839701a719861bef1d7be5e618c59",
+  "artifact_id": "8a50ed94-ec62-411a-831a-8c5b576cb1f5",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 4170,
+  "output_tokens": 1714,
+  "cost_usd": 0.005536,
+  "created_at": "2026-10-03T18:23:03.849501+00:00"
+}

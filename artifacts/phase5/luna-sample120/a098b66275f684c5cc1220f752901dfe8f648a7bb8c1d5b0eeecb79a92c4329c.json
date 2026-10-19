@@ -1,0 +1,35 @@
+{
+  "result": {
+    "question_id": "a098b66275f684c5cc1220f752901dfe8f648a7bb8c1d5b0eeecb79a92c4329c",
+    "input_hash": "fef0a2f25fd4c3d42967ee47c73e55b09380876df9945c7be1924b5cac6ff80c",
+    "mappings": [
+      {
+        "part_id": "a098b66275f684c5cc1220f752901dfe8f648a7bb8c1d5b0eeecb79a92c4329c",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "The isolated text names the Public Accounts Committee, but the root question and surrounding parts are absent and answers are marked missing; this does not establish the tested concept.",
+        "confidence": null,
+        "bucket": null
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "f74d6c0f337f0050b49703bc4eaf82bdb7efb14a490181ddd2f4a26857da390d",
+    "schema_generator": "pinned-part-ids-v1",
+    "seconds": 8.276,
+    "usage": [
+      {
+        "input_tokens": 46934,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 210,
+        "reasoning_output_tokens": 0
+      }
+    ],
+    "completed_at": "2026-10-05T15:57:45.569554+00:00"
+  }
+}

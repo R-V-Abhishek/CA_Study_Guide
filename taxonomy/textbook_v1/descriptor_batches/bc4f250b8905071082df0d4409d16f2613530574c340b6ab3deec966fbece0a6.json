@@ -1,0 +1,89 @@
+{
+  "descriptors": [
+    {
+      "node_id": "6af53dcc-f75f-4d92-948d-e75acfdbc433",
+      "concept_name": "Acquisition Through Shares",
+      "definition": "Acquiring a target company by issuing shares of the acquiring firm as consideration rather than paying in cash. The exchange ratio determines how many acquiring shares are given for each target share based on relative valuations.",
+      "terminology": [
+        "Exchange ratio",
+        "Target company",
+        "Acquiring firm",
+        "Synergy risk"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Estimating acquirer and target equity values",
+        "Calculating maximum share exchange limits",
+        "Evaluating optimistic and pessimistic merger scenarios"
+      ],
+      "exclusion": [
+        "Cash-only acquisitions",
+        "Asset purchase agreements"
+      ],
+      "nearby_distinctions": [
+        "Unlike cash acquisitions where ownership dilution is avoided, share-based acquisitions alter capital structure and dilute existing shareholders' equity percentage."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "fee114da-7f67-4c15-b027-de27ab0aa735",
+      "concept_name": "Cross-Border M&A",
+      "definition": "Cross-border mergers and acquisitions involve corporate transactions where firms expand globally by acquiring or merging with foreign companies. This strategy accelerates international growth compared to organic expansion and helps bypass domestic market constraints.",
+      "terminology": [
+        "Cross-border M&A",
+        "Globalization",
+        "Multinational companies",
+        "Organic expansion"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Overseas expansion strategies",
+        "International trade and investment integration",
+        "Privatization of state-owned enterprises"
+      ],
+      "exclusion": [
+        "Domestic mergers occurring strictly within a single country",
+        "Internal corporate restructuring"
+      ],
+      "nearby_distinctions": [
+        "Unlike domestic mergers, cross-border M&A requires navigating different legal systems, economic environments, and foreign investment regulations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0bb34346-52f4-4859-a670-352331c9c986",
+      "concept_name": "Special Purpose Acquisition Companies",
+      "definition": "A Special Purpose Acquisition Company is a blank check entity formed without commercial operations to raise capital through an initial public offering specifically to fund a future corporate merger or acquisition. Funds are held in escrow pending target identification and transaction approval within a set timeframe.",
+      "terminology": [
+        "SPAC",
+        "Blank cheque company",
+        "Escrow account",
+        "Initial public offering"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013",
+        "SEBI Act"
+      ],
+      "inclusion": [
+        "Raising funds via IPO without prior business operations",
+        "Placing IPO proceeds in escrow accounts",
+        "Returning funds or delisting if acquisition timelines fail"
+      ],
+      "exclusion": [
+        "Traditional operating companies going public via standard IPO",
+        "Direct listings of established private firms"
+      ],
+      "nearby_distinctions": [
+        "Unlike standard operating companies, SPACs possess no historical business operations or revenues prior to acquiring a private target."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "bc4f250b8905071082df0d4409d16f2613530574c340b6ab3deec966fbece0a6",
+  "artifact_id": "8aaed111-f41f-4733-950f-7550afab6922",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 2365,
+  "output_tokens": 845,
+  "cost_usd": 0.002822,
+  "created_at": "2026-10-03T18:09:11.424122+00:00"
+}

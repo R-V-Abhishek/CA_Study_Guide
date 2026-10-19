@@ -1,0 +1,306 @@
+{
+  "descriptors": [
+    {
+      "node_id": "4df500d3-18ed-4aef-88a6-4a55c000aa0b",
+      "concept_name": "Foreign Exchange Exposure Overview",
+      "definition": "Foreign exchange exposure represents contracted, projected, or contingent cash flows whose ultimate magnitude remains uncertain due to potential fluctuations in foreign exchange and interest rates. It encompasses business segments or activities vulnerable to alterations in currency values, affecting domestic currency values of assets, liabilities, or transactions.",
+      "terminology": [
+        "Foreign Exchange Exposure",
+        "Contracted Cash Flow",
+        "Projected Cash Flow",
+        "Contingent Cash Flow"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Travel expenses impacted by currency appreciation",
+        "Exporters facing falling foreign currency revenues",
+        "Importers facing appreciating foreign currency costs",
+        "Fund managers holding foreign assets"
+      ],
+      "exclusion": [
+        "Fixed domestic cash flows without foreign currency elements"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from transaction, translation, and economic exposure subcategories by providing a broad overarching definition before detailed classification."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "68a3ae97-a7fe-444f-b1e3-27d2848c62a7",
+      "concept_name": "Transaction Exposure",
+      "definition": "Transaction exposure measures the effect of exchange rate movements on outstanding financial obligations incurred prior to a rate change but settled afterward. It deals directly with cash flow alterations arising from pre-existing contractual receivables or payables denominated in foreign currencies.",
+      "terminology": [
+        "Transaction Exposure",
+        "Outstanding Obligations",
+        "Contractual Obligations",
+        "Foreign Currency Receivables",
+        "Foreign Currency Payables"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Export receivables denominated in foreign currency awaiting settlement",
+        "Import payables awaiting settlement across exchange rate movements"
+      ],
+      "exclusion": [
+        "Parent company accounting consolidation adjustments without immediate cash flow impact"
+      ],
+      "nearby_distinctions": [
+        "Unlike translation exposure which affects accounting equity via consolidated financial statements, transaction exposure directly impacts realized cash flows and commercial profits upon settlement."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "211a2532-fd89-4c57-86cd-67a87c28da32",
+      "concept_name": "Translation Exposure",
+      "definition": "Translation exposure refers to accounting-derived gains or losses caused by converting foreign currency assets and liabilities into the parent company currency for consolidation purposes. Also called accounting exposure, it reflects potential changes in owner's equity arising from finalizing accounts of foreign subsidiaries in a single reporting currency.",
+      "terminology": [
+        "Translation Exposure",
+        "Accounting Exposure",
+        "Consolidation Purposes",
+        "Reporting Currency"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Conversion of foreign currency loans during financial statement finalization",
+        "Translation of foreign subsidiary financial statements into parent currency"
+      ],
+      "exclusion": [
+        "Immediate cash settlements of outstanding trade receivables before period-end reporting"
+      ],
+      "nearby_distinctions": [
+        "Differs from transaction exposure because it centers on paper gains or losses from balance sheet restatements rather than settled operational cash flows, though translated liabilities eventually mature into transactions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "df1ac58d-f406-44db-a891-5f6bc934a81e",
+      "concept_name": "Economic Exposure",
+      "definition": "Economic exposure measures the extent to which a firm's overall economic value and expected cash flows decline due to unexpected exchange rate changes. It captures the comprehensive impact where currency shifts alter input costs and output prices, thereby substantially influencing the firm's competitive position.",
+      "terminology": [
+        "Economic Exposure",
+        "Economic Value",
+        "Revaluation",
+        "Devaluation",
+        "Competitive Position"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Changes in local sale competitiveness relative to foreign competitors",
+        "Fluctuations in export and import cash flows driven by currency shifts"
+      ],
+      "exclusion": [
+        "Isolated balance sheet restatements without operational market impact"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from transaction and translation exposures by focusing broadly on the long-term strategic value and competitive market cash flows of the firm rather than single accounting entries or contractual settlements."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "da693e9f-8bf1-4032-b933-1a4ee76daa5a",
+      "concept_name": "Hedging Currency Risk",
+      "definition": "Hedging currency risk involves identifying, assessing, and mitigating vulnerabilities associated with foreign exchange fluctuations through specialized instruments or strategies like natural hedging. Exporters utilize internal techniques or short-term foreign currency loans to offset transaction exposure risks and stabilize financial planning against volatility.",
+      "terminology": [
+        "Hedging Currency Risk",
+        "Natural Hedging",
+        "Pre-Shipment Credit in Foreign Currency",
+        "Internal Techniques",
+        "Invoicing in Domestic Currency"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "PCFC and FCNR B short-term foreign currency loans",
+        "Internal exposure offset techniques such as matching or domestic invoicing"
+      ],
+      "exclusion": [
+        "Unhedged international transactions exposed fully to market volatility"
+      ],
+      "nearby_distinctions": [
+        "Unlike standalone derivative contracts, natural hedging leverages operational structures or short-term borrowings to neutralize exposures without separate external derivative overlays."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1bbc87d7-274c-4b18-805f-1f9d482f4e1a",
+      "concept_name": "Forward Contract",
+      "definition": "A forward contract is a customized, non-standardized agreement obligating one party to buy and another to sell a specified quantity of a nominated underlying instrument at a predetermined price on a specified future date. It serves as a foundational derivative tool allowing importers and exporters to lock in future exchange rates and mitigate currency volatility risks.",
+      "terminology": [
+        "Forward Contract",
+        "Underlying Financial Instrument",
+        "Customized",
+        "Forward Rate",
+        "Forward Premium",
+        "Forward Discount"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Foreign exchange forward agreements for future currency delivery",
+        "Customized over-the-counter commitments negotiated for specific business targets"
+      ],
+      "exclusion": [
+        "Standardized exchange-traded derivatives with daily margin adjustments"
+      ],
+      "nearby_distinctions": [
+        "Unlike standardized futures, forward contracts are privately negotiated between counterparties with flexible terms and bear counterparty credit risk until maturity."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "68d5e74d-366d-48ca-9077-b827b7720494",
+      "concept_name": "Forward Rate – Premium and Discount",
+      "definition": "Forward rate premium and discount describe the valuation relationship where a forward exchange rate is greater or lesser than the prevailing spot rate for a future value date. Currency trading higher in the forward market is at a premium, whereas currency trading cheaper is at a discount, typically expressed as an annual percentage.",
+      "terminology": [
+        "Forward Rate",
+        "Forward Premium",
+        "Forward Discount",
+        "Spot Rate",
+        "Direct Method of Quotation"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Adding forward premium to buying and selling direct quotes",
+        "Deducting forward discount from buying and selling direct quotes"
+      ],
+      "exclusion": [
+        "Unadjusted spot market exchange rates at current execution date"
+      ],
+      "nearby_distinctions": [
+        "Differs from spot rates by incorporating time-value interest differentials between two currencies into a deferred settlement pricing structure."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "bbaea724-41a4-4ef3-8129-64782e73bf37",
+      "concept_name": "Fate of Forward Contracts",
+      "definition": "The fate of a forward contract encompasses the ultimate execution outcomes when a contract reaches maturity or is altered prior to maturity through delivery, cancellation, or extension. These execution tracks dictate how financial institutions compute swap differences, interest on fund outlays, or settlement charges for customers.",
+      "terminology": [
+        "Fate of Forward Contracts",
+        "Delivery under Contract",
+        "Cancellation of Contract",
+        "Extension of Contract",
+        "Swap Difference",
+        "Interest on Outlay of Funds"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Delivery on due date, early delivery, or late delivery",
+        "Cancellation and extension on due date, early, or late periods"
+      ],
+      "exclusion": [
+        "Uninitiated or hypothetical market quotations without contractual commitment"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard forward contract initiation by focusing on lifecycle adjustments, modifications, or early settlements rather than initial pricing."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "cf90b6a2-8d28-4093-b648-34e587442640",
+      "concept_name": "Non-deliverable Forward Contract",
+      "definition": "A non-deliverable forward contract is a cash-settled, short-term derivative on a thinly traded or non-convertible foreign currency settled in a major currency like U.S. dollars. Profit or loss is determined on a fixing date by taking the difference between the agreed forward rate and the prevailing spot rate for a notional amount.",
+      "terminology": [
+        "Non-deliverable Forward Contract",
+        "Cash-settled",
+        "Fixing Date",
+        "Settlement Date",
+        "Notional Amount",
+        "Non-convertible Foreign Currency"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Cash settlement based on spot versus agreed rate differentials on the fixing date",
+        "Hedging restricted currencies without physical currency delivery"
+      ],
+      "exclusion": [
+        "Deliverable forward contracts requiring physical exchange of underlying local and foreign currencies"
+      ],
+      "nearby_distinctions": [
+        "Unlike deliverable forwards, NDFs involve zero physical exchange of the restricted local currency at maturity, relying purely on net cash settlement in a convertible currency."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "309f7c33-bffa-4f96-be28-0f8a715909c1",
+      "concept_name": "Rollover of Deliverable Forward Contract",
+      "definition": "Rollover of a deliverable forward contract occurs when an exporter lacks foreign currency or an importer lacks local currency to fulfill delivery at maturity, prompting a spot cancellation of the existing contract combined with booking a new contract for a later date. This mechanism is utilized when underlying cash flows are delayed or when exposure spans beyond standard one-year forward maturities.",
+      "terminology": [
+        "Rollover of Deliverable Forward Contract",
+        "Spot Cancellation",
+        "Booking New Contract",
+        "Maturity"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Simultaneous spot cancellation and re-booking of forward contracts for extended maturities",
+        "Rollovers necessitated by non-receipt of client foreign currency or local currency shortages"
+      ],
+      "exclusion": [
+        "Direct physical delivery of currency executed precisely on the original due date"
+      ],
+      "nearby_distinctions": [
+        "Unlike regular contract execution via direct delivery, a rollover terminates the original settlement obligation prematurely through a spot transaction and defers it via a replacement forward commitment."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3ab7b813-1526-4476-8f31-8e5472e482bb",
+      "concept_name": "Futures Contracts",
+      "definition": "A futures contract is a standardized, exchange-traded agreement obligating parties to buy or sell a specified quantity and quality of an underlying financial instrument at a predetermined future date and price. Credit risk is heavily minimized through daily mark-to-market margin adjustments and standardized exchange trading rules.",
+      "terminology": [
+        "Futures Contracts",
+        "Standardized",
+        "Mark to Market",
+        "Initial Margin",
+        "Variation Margin",
+        "Clearing House"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Exchange-traded financial futures requiring daily margin checks",
+        "Standardized contracts settled mostly through reverse transactions prior to maturity"
+      ],
+      "exclusion": [
+        "Customized over-the-counter bilateral forward agreements"
+      ],
+      "nearby_distinctions": [
+        "Unlike over-the-counter forward contracts, futures feature standardized contract sizes and dates, trade on organized exchanges, and eliminate counterparty credit risk via daily mark-to-market margin systems."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "03cf96a0-8c54-4bf4-9bd9-1f9b6535e6c1",
+      "concept_name": "Option Contracts",
+      "definition": "An option contract grants the buyer the right, but not the obligation, to buy a call option or sell a put option on a specified underlying asset at a fixed strike price in exchange for an upfront premium paid to the writer. American options can be exercised anytime during the contract period, whereas European options are exercisable only at maturity.",
+      "terminology": [
+        "Option Contracts",
+        "Call Option",
+        "Put Option",
+        "Buyer / Holder",
+        "Seller / Writer",
+        "Premium",
+        "American Option",
+        "European Option"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Call options providing the right to buy an underlying commodity or currency",
+        "Put options providing the right to sell an underlying commodity or currency",
+        "Upfront premium payments and asymmetric payoff profiles"
+      ],
+      "exclusion": [
+        "Bilateral forward or futures contracts where both counterparties are fully obligated to perform delivery"
+      ],
+      "nearby_distinctions": [
+        "Unlike futures or forwards which bind both parties to mandatory delivery, options grant asymmetric rights where the buyer faces limited downside loss equal to the premium while retaining potential for asymmetric gains."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "196b01bd13f263c6091767c6d9f8473b7235c8f3756b36fa76237fb964bff66e",
+  "artifact_id": "0559d53e-3174-4a31-9b5e-657565365bb5",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8303,
+  "output_tokens": 3577,
+  "cost_usd": 0.0114334,
+  "created_at": "2026-10-03T18:08:43.725205+00:00"
+}

@@ -1,0 +1,153 @@
+{
+  "descriptors": [
+    {
+      "node_id": "3c807823-e94b-4611-9815-4e4876489b76",
+      "concept_name": "Overview of Tax Audit and Regulatory Reporting Requirements",
+      "definition": "Tax audit ensures the accuracy of books of accounts used for income computation and is entrusted by the government to chartered accountants. Various statutory provisions mandate the furnishing of specific audit reports and certificates by chartered accountants before specified dates.",
+      "terminology": [
+        "Tax Audit Report",
+        "Form 3CA",
+        "Form 3CD",
+        "Form 3CB",
+        "Specified Date"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961",
+        "Section 44AB",
+        "Section 12A(1)(b)",
+        "Section 80-IA"
+      ],
+      "inclusion": [
+        "Audit of accounts under section 44AB",
+        "Reports and certificates under specific direct tax provisions"
+      ],
+      "exclusion": [
+        "General statutory audits unrelated to tax provisions"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard corporate financial audits by focusing on tax-specific compliance and particulars verification."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "95c7ab01-7f86-4c53-9716-723268f22e4f",
+      "concept_name": "Mandatory Tax Audit Provisions and Thresholds",
+      "definition": "Certain businesses and professions must get their accounts audited by a chartered accountant before the specified date when financial metrics cross prescribed monetary thresholds. Exceptions and specific conditions regarding cash receipts and payments apply to business turnovers within defined limits.",
+      "terminology": [
+        "Specified Date",
+        "Turnover",
+        "Gross Receipts",
+        "Presumptive Basis",
+        "Cash Receipts"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961",
+        "Section 44AB",
+        "Section 44AD",
+        "Section 44ADA",
+        "Section 44AE"
+      ],
+      "inclusion": [
+        "Businesses with total sales exceeding specific statutory limits",
+        "Professions with gross receipts exceeding fifty lakh rupees",
+        "Assessees claiming lower profits than presumptive rates under designated sections"
+      ],
+      "exclusion": [
+        "Assessees declaring profits in accordance with section 44AD(1) or 44ADA(1)"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes business turnover thresholds from professional gross receipt thresholds and presumptive income reporting rules."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3b45c23b-0baa-407e-8125-904ea4c996fb",
+      "concept_name": "Distinction and Application of Form 3CA and Form 3CB",
+      "definition": "Form 3CA is utilized for tax audits when an entity's accounts are already audited under another statute, requiring the tax auditor to annex those existing reports and opine solely on Form 3CD particulars. Conversely, Form 3CB applies when no other statutory audit is required, obligating the tax auditor to express an independent opinion on the financial statements' true and fair view alongside the particulars.",
+      "terminology": [
+        "Form 3CA",
+        "Form 3CB",
+        "Form 3CD",
+        "Statutory Auditor",
+        "True and Fair View"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961",
+        "Companies Act, 2013",
+        "Limited Liability Partnership Act"
+      ],
+      "inclusion": [
+        "Tax audit reporting for entities audited under separate laws using Form 3CA",
+        "Tax audit reporting for unaudited entities using Form 3CB"
+      ],
+      "exclusion": [
+        "General financial statements audit reports independent of tax return annexures"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between entities with pre-existing statutory audits relying on Form 3CA and entities requiring complete financial statement opinions via Form 3CB."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b21030ff-b880-4f0b-9a3b-1b0878e12c09",
+      "concept_name": "Form 3CD Statement of Particulars Guidelines",
+      "definition": "Form 3CD serves as the prescribed statement of particulars required under section 44AB for both corporate and non-corporate assessees to facilitate income determination. Auditors must base information on available records, reconcile overlapping clauses, and appropriately qualify reports if data is incomplete.",
+      "terminology": [
+        "Form 3CD",
+        "Statement of Particulars",
+        "Annexure",
+        "Qualification"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961",
+        "Section 44AB"
+      ],
+      "inclusion": [
+        "Particulars required for corporate and non-corporate business or professional assessees",
+        "Guidance on cross-referencing, handling differing opinions, and reporting inadequacies"
+      ],
+      "exclusion": [
+        "Primary financial statements outside the specific tax particulars annexure scope"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from the main audit report forms (Form 3CA/3CB) by acting as the detailed tabular annexure of specific tax-related disclosures."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "325373b5-11cf-4872-a211-60ddfa1e29be",
+      "concept_name": "Penalty for Failure to Furnish Tax Audit Report under Section 271B",
+      "definition": "Failure to complete accounts audits or submit required tax audit reports under section 44AB attracts a monetary penalty levied by the Assessing Officer. The penalty amount is calculated as a specified percentage of total turnover or gross receipts, subject to a statutory ceiling, unless a reasonable cause is proven.",
+      "terminology": [
+        "Penalty",
+        "Assessing Officer",
+        "Reasonable Cause",
+        "Total Turnover"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961",
+        "Section 44AB",
+        "Section 271B",
+        "Section 273B"
+      ],
+      "inclusion": [
+        "Penalties for non-compliance with tax audit submission mandates",
+        "Aggregation rules for multiple business turnovers when evaluating thresholds"
+      ],
+      "exclusion": [
+        "Instances where a valid reasonable cause for default is successfully proved under section 273B"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general income tax default penalties by specifically targeting the omission of mandatory tax audit reports."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "5c37d2b18cf286b140e0572b773f13b7a850a97c73932533017b0829c6ef9db4",
+  "artifact_id": "be7ee4e0-8f41-45a3-b9dd-fbe0a66bc79e",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 4221,
+  "output_tokens": 1713,
+  "cost_usd": 0.0055488,
+  "created_at": "2026-10-03T18:22:45.192592+00:00"
+}

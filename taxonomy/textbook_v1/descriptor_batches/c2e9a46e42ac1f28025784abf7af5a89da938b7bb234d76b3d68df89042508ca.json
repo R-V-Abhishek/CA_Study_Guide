@@ -1,0 +1,282 @@
+{
+  "descriptors": [
+    {
+      "node_id": "c26b03b7-eae7-451e-a6ad-f8bb40f7d4d0",
+      "concept_name": "Obligation",
+      "definition": "An obligation represents a duty or responsibility that an entity has no practical ability to avoid and is owed to another party. Such duties can arise from contracts, legislation, customary practices, or published policies.",
+      "terminology": [
+        "Constructive obligation",
+        "Economic resource",
+        "Practical ability to avoid"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Contractual duties",
+        "Legal responsibilities",
+        "Constructive obligations from entity policies"
+      ],
+      "exclusion": [
+        "Voluntary actions easily avoided without penalty",
+        "Duties not owed to external parties"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from contingent events where no current unavoidable duty exists."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "10eca0ba-55d2-44a6-92c4-f3d6ea1495cf",
+      "concept_name": "Transfer of an economic resource",
+      "definition": "This condition requires that an obligation possesses the potential to force the entity to transfer an economic resource under at least one circumstance. The probability of the transfer occurring can be low while still meeting the definition.",
+      "terminology": [
+        "Economic resource",
+        "Unfavourable terms",
+        "Forward contract"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Obligations to pay cash",
+        "Obligations to deliver goods or services",
+        "Obligations on unfavourable terms"
+      ],
+      "exclusion": [
+        "Duties that never require transferring economic value under any circumstance"
+      ],
+      "nearby_distinctions": [
+        "Differs from actual settlement, which removes the obligation entirely."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "354c8fa7-d9d0-4198-b1d9-4327dd7c138a",
+      "concept_name": "Present obligation as a result of past events",
+      "definition": "A present obligation exists when an entity has already obtained economic benefits or taken specific actions, resulting in a future requirement to transfer an economic resource. The obligation can exist even if enforceability or payment is deferred to a future date.",
+      "terminology": [
+        "Past events",
+        "Executory contract",
+        "Contractual liability"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Liabilities arising from received goods or services",
+        "Obligations from operating in a specific market"
+      ],
+      "exclusion": [
+        "Obligations for unperformed contracts where no benefits have been received"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from future commitments where neither party has performed."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a7e8e88d-b372-4502-8d4b-09d41deaf292",
+      "concept_name": "Aspects Which Are Common To Assets And Liabilities",
+      "definition": "Common structural aspects govern both assets and liabilities regarding how they are classified, aggregated, and evaluated in financial statements. These principles guide the selection of appropriate units of account and the evaluation of contractual terms.",
+      "terminology": [
+        "Unit of account",
+        "Executory contracts",
+        "Substance of rights"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Guidance on units of account",
+        "Analysis of contract substance"
+      ],
+      "exclusion": [
+        "Specific measurement formulas for individual asset classes"
+      ],
+      "nearby_distinctions": [
+        "Focuses on shared architectural definitions rather than element-specific recognition rules."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "544ed554-b04d-4bae-a120-ebd39d1a4d31",
+      "concept_name": "Unit of account",
+      "definition": "The unit of account defines the specific right, obligation, or group of them to which recognition and measurement criteria are applied. It is selected to provide relevant information and faithfully represent the economic substance of transactions.",
+      "terminology": [
+        "Recognition criteria",
+        "Measurement concepts",
+        "Inseparable rights and obligations"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Individual contracts",
+        "Portfolios of contracts",
+        "Inseparable right-obligation pairs"
+      ],
+      "exclusion": [
+        "Arbitrary groupings that obscure economic substance"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from reporting line items by its specific application to recognition and measurement."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0e25f33a-3cbf-4364-9c93-f0126a0aa307",
+      "concept_name": "Executory contracts",
+      "definition": "An executory contract is a contract or portion where neither party has performed obligations or both have performed to an equal extent. It establishes an interdependent, combined right and obligation to exchange economic resources.",
+      "terminology": [
+        "Equally unperformed",
+        "Combined right and obligation",
+        "Onerous contract"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Unperformed bilateral purchase agreements",
+        "Partially fulfilled contracts with equal execution"
+      ],
+      "exclusion": [
+        "Contracts where one party has fully performed its side of the bargain"
+      ],
+      "nearby_distinctions": [
+        "Differs from standalone assets or liabilities because rights and obligations are inextricably linked."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "06f74e0d-28b0-4669-888c-7fb1783ce263",
+      "concept_name": "Substance of contractual rights and contractual obligations",
+      "definition": "Financial statements must report the underlying economic substance of contractual terms rather than merely their legal form. Explicit and implicit terms are evaluated, while terms lacking any discernible economic effect are disregarded.",
+      "terminology": [
+        "Economic substance",
+        "Implicit terms",
+        "Statutory warranty"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Statutory obligations implied in contracts",
+        "Combined effect of multiple linked contracts"
+      ],
+      "exclusion": [
+        "Terms that bind neither party",
+        "Options lacking practical ability for exercise"
+      ],
+      "nearby_distinctions": [
+        "Contrasts economic substance with strict adherence to legal contract phrasing."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ba6df9ab-1557-4470-b97c-46dd0caa97dc",
+      "concept_name": "Definition Of Equity",
+      "definition": "Equity claims represent the residual interest in an entity's assets after deducting all liabilities. They encompass all claims against the entity that fail to satisfy the strict definition of a liability.",
+      "terminology": [
+        "Residual interest",
+        "Share capital",
+        "Retained earnings"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Ordinary share capital",
+        "Distributable and non-distributable reserves"
+      ],
+      "exclusion": [
+        "Obligations meeting the criteria for liabilities",
+        "Contributions from equity holders treated as liabilities"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from liabilities by representing residual claims rather than unavoidable economic resource transfers."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0dd8e726-3053-43e8-9321-289767401742",
+      "concept_name": "Definition Of Income And Expenses",
+      "definition": "Income comprises increases in assets or decreases in liabilities resulting in equity increases, excluding equity holder contributions. Expenses comprise asset decreases or liability increases resulting in equity decreases, excluding equity holder distributions.",
+      "terminology": [
+        "Financial performance",
+        "Contributions from equity holders",
+        "Distributions to equity holders"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Revenue from operations",
+        "Gains and losses",
+        "Operating expenses"
+      ],
+      "exclusion": [
+        "Transactions involving contributions from or distributions to equity holders"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from equity movements caused by direct capital contributions or dividends."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "78736881-da7a-4786-87f0-7f694e61ed24",
+      "concept_name": "The Recognition Process",
+      "definition": "Recognition is the capture of an element-compliant item for inclusion in the balance sheet or statement of profit and loss. The carrying amount reflects the monetary value at which the asset, liability, or equity is recorded.",
+      "terminology": [
+        "Carrying amount",
+        "Initial recognition",
+        "Derecognition"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Recording new assets and liabilities",
+        "Simultaneous recognition of income and expenses"
+      ],
+      "exclusion": [
+        "Items failing element definitions",
+        "Matching costs as a primary overarching objective"
+      ],
+      "nearby_distinctions": [
+        "Differs from disclosure in the notes by directly entering the financial statement totals."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8205973e-6ba4-4277-a9f0-8ddebd5945ab",
+      "concept_name": "Recognition Criteria",
+      "definition": "Elements meeting the basic definitions are recognized only if recognition generates useful information comprising relevance and faithful representation. Judgment is required based on individual facts and circumstances to determine if non-recognition paired with note disclosures is preferable.",
+      "terminology": [
+        "Relevant information",
+        "Faithful representation",
+        "Judgment"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Items meeting element definitions that yield relevant and faithfully represented data"
+      ],
+      "exclusion": [
+        "Items failing to provide useful insights even if they meet basic element definitions"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from mere element definitions by adding a utility threshold for financial statement inclusion."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5db7df25-082f-42e1-ad27-65d5a7b318f9",
+      "concept_name": "Relevance",
+      "definition": "Recognition may fail to provide relevant information when the existence of an asset or liability is uncertain or when the probability of economic benefit inflow or outflow is low. Such uncertainties require careful evaluation alongside other factors to determine appropriate reporting.",
+      "terminology": [
+        "Existence uncertainty",
+        "Low probability",
+        "Court ruling"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Disputed rights under litigation",
+        "Alleged liabilities awaiting legal clarification"
+      ],
+      "exclusion": [
+        "Certain obligations with high inflow or outflow probability"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from measurement uncertainty by questioning whether the item actually exists or occurs."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "c2e9a46e42ac1f28025784abf7af5a89da938b7bb234d76b3d68df89042508ca",
+  "artifact_id": "286aeffb-c1e1-493c-a40f-709922f46d7d",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8093,
+  "output_tokens": 2878,
+  "cost_usd": 0.0096229,
+  "created_at": "2026-10-03T17:47:10.490652+00:00"
+}

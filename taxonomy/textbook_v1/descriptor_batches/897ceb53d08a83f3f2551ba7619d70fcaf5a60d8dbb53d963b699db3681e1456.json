@@ -1,0 +1,283 @@
+{
+  "descriptors": [
+    {
+      "node_id": "ca8f513e-8728-42b4-ad2e-8f20a457952c",
+      "concept_name": "Restriction on further capital issues",
+      "definition": "An issuer is prohibited from making further issues of specified securities between the filing of an offer document and the listing or refund stage unless full disclosure of the issue size is provided. This restriction applies across public issues, rights issues, preferential placements, and qualified institutional placements, excluding employee stock option schemes.",
+      "terminology": [
+        "Fast track issue",
+        "Book built issue",
+        "Specified securities",
+        "Draft offer document"
+      ],
+      "instrument_references": [
+        "SEBI (ICDR) Regulations, 2018 Regulation 151",
+        "SEBI (ICDR) Regulations, 2018 Regulation 153"
+      ],
+      "inclusion": [
+        "Public issues",
+        "Rights issues",
+        "Preferential issues",
+        "Qualified institutions placement",
+        "Bonus shares"
+      ],
+      "exclusion": [
+        "Employee stock option schemes"
+      ],
+      "nearby_distinctions": [
+        "Fast track issues versus other standard issue types regarding the exact blackout trigger date (offer document filing versus draft offer document filing)."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8f6bdc38-001d-4559-b3f0-7a1785c04edf",
+      "concept_name": "Substantial Acquisition of Shares and Takeovers Regulations Overview",
+      "definition": "The regulatory framework governing corporate takeovers and substantial acquisitions of shares in India was established by SEBI through an advisory committee process. These regulations govern direct and indirect acquisition dynamics to manage the intricacy of the restructuring and merger market.",
+      "terminology": [
+        "Mergers & Acquisitions",
+        "Takeover Regulations Advisory Committee",
+        "Securities Appellate Tribunal"
+      ],
+      "instrument_references": [
+        "SEBI (SAST) Regulations, 2011"
+      ],
+      "inclusion": [
+        "Merger and restructuring market overview",
+        "Advisory committee background"
+      ],
+      "exclusion": [
+        "Operational disclosure thresholds",
+        "Detailed pricing formulae"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from operational open offer obligations by focusing purely on historical regulatory inception and structural background."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1427b816-d849-4b9c-8304-20bc8fe6c039",
+      "concept_name": "Takeover Regulations Framework",
+      "definition": "This framework encompasses rules governing corporate restructuring, takeover intricacies, and structural governance via structured regulatory oversight. It coordinates the legal transition from legacy norms to modern acquisition standards.",
+      "terminology": [
+        "Restructuring",
+        "Takeover market",
+        "Regulatory experience"
+      ],
+      "instrument_references": [
+        "SEBI (SAST) Regulations, 2011"
+      ],
+      "inclusion": [
+        "Advisory reports",
+        "Statutory evolution context"
+      ],
+      "exclusion": [
+        "Specific share acquisition formulas",
+        "Escrow deposit mandates"
+      ],
+      "nearby_distinctions": [
+        "Broader historical context rather than active compliance thresholds."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2345973f-f6ba-4889-a3db-920d87c19fb5",
+      "concept_name": "Introduction to Takeovers and Substantial Acquisition",
+      "definition": "The regulations govern direct and indirect acquisition of shares, voting rights, or control over target companies, replacing previous 1997 rules. Companies listed without public issues on the Innovators Growth Platform are specifically exempted from these provisions.",
+      "terminology": [
+        "Acquirer",
+        "Target company",
+        "Persons acting in concert",
+        "Control",
+        "Innovators Growth Platform"
+      ],
+      "instrument_references": [
+        "SEBI (SAST) Regulations, 2011 Regulation 2(1)"
+      ],
+      "inclusion": [
+        "Direct acquisition of shares",
+        "Indirect acquisition of voting rights",
+        "Acquisition of control"
+      ],
+      "exclusion": [
+        "Companies listed without making a public issue on the Innovators Growth Platform"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between complete corporate takeovers via control acquisition versus fractional substantial acquisition of voting rights."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3cab3f5b-f3a1-45a7-829b-5951037c19d3",
+      "concept_name": "Threshold limits for acquisition of shares or voting rights",
+      "definition": "An acquirer crossing twenty-five percent voting rights must make a public open offer announcement. Subsequent annual acquisitions beyond five percent for holders between twenty-five percent and maximum non-public limits also trigger mandatory open offer requirements, subject to specific restructuring exceptions.",
+      "terminology": [
+        "Open offer",
+        "Persons acting in concert",
+        "Maximum permissible non-public shareholding",
+        "Resolution plan"
+      ],
+      "instrument_references": [
+        "Insolvency and Bankruptcy Code, 2016 Section 31"
+      ],
+      "inclusion": [
+        "Acquisitions reaching twenty-five percent threshold",
+        "Creeping acquisitions exceeding five percent annually",
+        "Resolution plans under IBC"
+      ],
+      "exclusion": [
+        "Acquisitions remaining beneath trigger boundaries",
+        "Holdings exceeding maximum permissible non-public limits"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between crossing the baseline 25 percent initial trigger and the annual 5 percent creeping acquisition limit for existing substantial holders."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f848d883-0683-4507-9b59-c02dbaeb8ea4",
+      "concept_name": "Obligations of Target Company Directors During Offer Period",
+      "definition": "Directors representing the acquirer cannot join the target board during the offer period unless the full consideration is deposited in cash within an escrow account after fifteen working days. Conditional offers and pending competing offers impose absolute bars on appointing such representative directors.",
+      "terminology": [
+        "Offer period",
+        "Escrow account",
+        "Conditional open offer",
+        "Minimum level of acceptance",
+        "Competing offers"
+      ],
+      "instrument_references": [
+        "SEBI (SAST) Regulations, 2011 Regulation 24",
+        "SEBI (SAST) Regulations, 2011 Regulation 17",
+        "SEBI (SAST) Regulations, 2011 Regulation 23"
+      ],
+      "inclusion": [
+        "Appointment of acquirer representatives after escrow deposit",
+        "Prohibition during conditional and competing offers"
+      ],
+      "exclusion": [
+        "Unrestricted board nominations prior to escrow fulfillment during the offer period"
+      ],
+      "nearby_distinctions": [
+        "Contrasts standard open offers allowing delayed board representation via escrow funding against conditional offers where board representation is strictly prohibited."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a9d2ff06-14a2-4ac5-9a76-d3679798058d",
+      "concept_name": "Disclosure-Related Provisions for Shareholding and Control",
+      "definition": "Acquirers must disclose aggregated shareholdings, voting rights, and encumbrances upon hitting specific ownership percentages or undergoing threshold changes. Convertible securities are treated as shares, and secondary changes exceeding two percent demand disclosure even if falling below initial limits.",
+      "terminology": [
+        "Encumbrance",
+        "Pledge",
+        "Negative lien",
+        "Innovators Growth Platform",
+        "Voting rights"
+      ],
+      "instrument_references": [
+        "SEBI (SAST) Regulations, 2011 Regulation 28",
+        "SEBI (SAST) Regulations, 2011 Regulation 29"
+      ],
+      "inclusion": [
+        "Aggregated holdings of acquirer and persons acting in concert",
+        "Convertible securities inclusion",
+        "Pledges and non-disposal undertakings"
+      ],
+      "exclusion": [
+        "Changes failing to cross the prescribed two percent variation limit"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between initial 5 percent crossing disclosures and subsequent 2 percent incremental change disclosures."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "32d95b08-6716-4eed-8785-93df28850d61",
+      "concept_name": "Insider Trading Definitions and Connected Persons",
+      "definition": "An insider includes any connected person or anyone possessing unpublished price sensitive information regarding securities. Connected persons encompass individuals associated with the company within the prior six months through employment, contractual, fiduciary, or professional relationships granting access to such information.",
+      "terminology": [
+        "Unpublished price sensitive information",
+        "Connected person",
+        "Immediate relative",
+        "Intermediary"
+      ],
+      "instrument_references": [
+        "SEBI (Prohibition of Insider Trading) Regulations, 2015 Regulation 2(1)",
+        "Securities and Exchange Board of India Act, 1992 Section 30",
+        "Securities and Exchange Board of India Act, 1992 Section 11",
+        "Securities and Exchange Board of India Act, 1992 Section 12A"
+      ],
+      "inclusion": [
+        "Persons associated with the company in past six months",
+        "Immediate relatives financially dependent or consulting on trades",
+        "Holding, subsidiary, and associate companies"
+      ],
+      "exclusion": [
+        "Persons entirely detached from company association and lacking price sensitive information access"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes actual possession of price sensitive information from formal status as a deemed connected person."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9d5dd9d0-d6e3-4421-9878-df9543d9e2d3",
+      "concept_name": "Restriction on Communication and Procurement of UPSI",
+      "definition": "Insiders are prohibited from communicating or procuring unpublished price sensitive information except when strictly necessary for legitimate purposes, performance of duties, or legal obligations. Listed companies must formulate a formal policy defining legitimate purposes within their codes of conduct.",
+      "terminology": [
+        "Unpublished price sensitive information",
+        "Legitimate purposes",
+        "Need-to-know basis",
+        "Codes of Fair Disclosure and Conduct"
+      ],
+      "instrument_references": [
+        "SEBI (Prohibition of Insider Trading) Regulations, 2015 Regulation 3",
+        "SEBI (Prohibition of Insider Trading) Regulations, 2015 Regulation 8"
+      ],
+      "inclusion": [
+        "Sharing information in ordinary course of business with partners, lenders, and advisors",
+        "Performance of legal duties"
+      ],
+      "exclusion": [
+        "Communications intended to evade or circumvent regulatory prohibitions"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes lawful sharing for documented operational necessities from illegal tipping or procurement."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "58b27a40-6219-4402-8e67-6f192cc89f20",
+      "concept_name": "Disclosures of Trading by Insiders",
+      "definition": "Designated persons, directors, and promoters must disclose initial holdings upon appointment and continual transactions exceeding specific monetary thresholds within designated trading days. These disclosure duties extend to trades executed by immediate relatives and accounts where the primary person makes trading decisions.",
+      "terminology": [
+        "Key managerial personnel",
+        "Promoter group",
+        "Designated person",
+        "Continual disclosures",
+        "Traded value"
+      ],
+      "instrument_references": [
+        "SEBI (Prohibition of Insider Trading) Regulations, 2015 Regulation 6",
+        "SEBI (Prohibition of Insider Trading) Regulations, 2015 Regulation 7"
+      ],
+      "inclusion": [
+        "Trades by immediate relatives",
+        "Trades in securities derivatives",
+        "Initial holdings on appointment"
+      ],
+      "exclusion": [
+        "Trades falling below the specified aggregate monetary threshold per calendar quarter"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes one-time initial appointment disclosures from recurring continual disclosures for quarterly transaction volumes."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "897ceb53d08a83f3f2551ba7619d70fcaf5a60d8dbb53d963b699db3681e1456",
+  "artifact_id": "ea684bf0-7c94-4045-a244-75e8b4a2e2df",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8297,
+  "output_tokens": 3142,
+  "cost_usd": 0.0103441,
+  "created_at": "2026-10-03T18:25:36.927896+00:00"
+}

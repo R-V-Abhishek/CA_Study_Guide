@@ -1,0 +1,219 @@
+{
+  "descriptors": [
+    {
+      "node_id": "70ea9af5-700a-403e-b106-d2758476cfa0",
+      "concept_name": "Provision and Contingent Liability Disclosure Requirements",
+      "definition": "Entities must disclose movements in carrying amounts, descriptions of expected outflows, uncertainties, and expected reimbursements for each class of provisions. For contingent liabilities, entities must disclose a brief description of the nature and financial effect unless an outflow is remote.",
+      "terminology": [
+        "carrying amount",
+        "expected reimbursement",
+        "contingent liability",
+        "class of provision"
+      ],
+      "instrument_references": [
+        "Ind AS 37"
+      ],
+      "inclusion": [
+        "Reconciliation of beginning and ending carrying amounts of provisions",
+        "Nature and timing details of provision obligations",
+        "Descriptions and financial estimates for non-remote contingent liabilities"
+      ],
+      "exclusion": [
+        "Comparative information for provisions",
+        "Remote contingent liabilities"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between mandatory comparative disclosures normally required elsewhere and provisions disclosures where comparatives are omitted."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "cc941a83-b288-4751-9064-a447d76c330a",
+      "concept_name": "Levies Under Appendix C of Ind AS 37",
+      "definition": "Appendix C establishes principles for recognizing liabilities to pay government-imposed levies whose timing and amount are certain under Ind AS 37 scope. It excludes other specific outflows like fines, penalties, and contractual payments.",
+      "terminology": [
+        "levy",
+        "government",
+        "obligating event",
+        "constructive obligation"
+      ],
+      "instrument_references": [
+        "Ind AS 37 Appendix C"
+      ],
+      "inclusion": [
+        "Accounting for levy liabilities within standard scope",
+        "Identified obligating events triggering levy payments"
+      ],
+      "exclusion": [
+        "Costs arising from recognizing a levy liability",
+        "Fines or penalties for legal breaches",
+        "Contractual payments for asset acquisition or services",
+        "Emissions trading scheme liabilities"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes government levies from contractual payments, penalties for legal breaches, and emissions trading scheme liabilities."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f7d1e9d0-f0a0-4b83-8b4b-d8d94b6ddce9",
+      "concept_name": "Scope of Appendix C of Ind AS 37",
+      "definition": "Appendix C specifies accounting treatment for levy liabilities falling under Ind AS 37 when their timing and amount are certain. It explicitly omits the subsequent cost accounting arising from recognizing such levy liabilities.",
+      "terminology": [
+        "levy",
+        "liability",
+        "scope"
+      ],
+      "instrument_references": [
+        "Ind AS 37 Appendix C"
+      ],
+      "inclusion": [
+        "Liabilities to pay government levies with certain timing and amounts"
+      ],
+      "exclusion": [
+        "Subsequent cost accounting arising from levy recognition"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes direct levy liability accounting from the accounting treatment applied to resulting asset or expense costs."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9b9e0da1-b9e7-4543-8d59-21189ff7ef2b",
+      "concept_name": "Exclusions from Appendix C of Ind AS 37",
+      "definition": "The guidance excludes non-levy outflows like legislative fines, emissions trading scheme liabilities, and asset acquisition payments. Furthermore, future operational compulsion or going concern assumptions do not create present obligations for future levies.",
+      "terminology": [
+        "fines",
+        "penalties",
+        "emissions trading schemes",
+        "going concern"
+      ],
+      "instrument_references": [
+        "Ind AS 37 Appendix C"
+      ],
+      "inclusion": [
+        "Outflows covered by other standards",
+        "Contractual asset or service payments"
+      ],
+      "exclusion": [
+        "Levies whose timing and amount are uncertain",
+        "Future operating obligations driven solely by going concern assumptions"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes statutory levies from penalties, contractual considerations, and broad operational activities."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8b6c6302-352b-4943-bacb-f33ab65f9280",
+      "concept_name": "Definition of a Levy",
+      "definition": "A levy represents a governmental charge imposed on entities via laws or regulations that results in economic resource outflows. Government entities comprise local, national, or international agencies.",
+      "terminology": [
+        "government",
+        "charge",
+        "laws and regulations",
+        "economic benefits"
+      ],
+      "instrument_references": [
+        "Ind AS 37 Appendix C"
+      ],
+      "inclusion": [
+        "Statutory charges imposed by national or local governments"
+      ],
+      "exclusion": [
+        "Contractual fees for services rendered",
+        "Fines for legal violations"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes compulsory legislative levies from bilateral contracts and regulatory penalties."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "478ce597-d383-4e96-9f86-a5b212643327",
+      "concept_name": "Recognition Principles for Levies",
+      "definition": "A levy liability is triggered and recognized when the specified activity occurs, and if conditions span a period or reach a threshold, recognition aligns accordingly. Interim reporting periods apply these exact annual recognition principles without creating advance liabilities for future operations.",
+      "terminology": [
+        "obligating event",
+        "threshold",
+        "interim financial report",
+        "prepaid levy"
+      ],
+      "instrument_references": [
+        "Ind AS 37 Appendix C"
+      ],
+      "inclusion": [
+        "Progressive recognition when activities occur over time",
+        "Recognition upon reaching specific minimum thresholds",
+        "Prepaid levy asset recognition"
+      ],
+      "exclusion": [
+        "Levy recognition absent a present obligation at interim period ends"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between past prerequisite activities and current period events that trigger present obligations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "331cda66-ae2a-489e-ad51-88ed125706e6",
+      "concept_name": "Entity Financial Statement Extracts",
+      "definition": "This section provides practical illustrations using financial statement excerpts from listed entities applying Ind AS 37. It contextualizes theoretical standard requirements with actual corporate reporting examples.",
+      "terminology": [
+        "annual report",
+        "listed entity",
+        "extracts"
+      ],
+      "instrument_references": [
+        "Ind AS 37"
+      ],
+      "inclusion": [
+        "Corporate annual report disclosures"
+      ],
+      "exclusion": [
+        "Hypothetical scenarios without corporate backing"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes empirical disclosure examples from standalone theoretical rules."
+      ],
+      "source_ambiguities": [
+        "The source text provides a heading with no accompanying substantive rules or text snippets."
+      ]
+    },
+    {
+      "node_id": "690ba661-5dc0-4257-9bb9-32a2cb3a07f1",
+      "concept_name": "Significant Differences Between Ind AS 37 and AS 29",
+      "definition": "Ind AS 37 differs from AS 29 through explicit constructive obligation definitions, mandatory discounting for material time-value impacts, probable contingent asset disclosures, and dedicated onerous contract asset impairment rules. Additionally, Ind AS 37 offers comprehensive guidance on specific funds, waste electrical equipment, and government levies.",
+      "terminology": [
+        "constructive obligations",
+        "discounting",
+        "contingent asset",
+        "onerous contracts"
+      ],
+      "instrument_references": [
+        "Ind AS 37",
+        "AS 29",
+        "Ind AS 36"
+      ],
+      "inclusion": [
+        "Discounting comparison for general provisions",
+        "Contingent asset disclosure contrasts",
+        "Onerous contract impairment precedence"
+      ],
+      "exclusion": [
+        "Prohibitions on discounting under AS 29 for standard provisions"
+      ],
+      "nearby_distinctions": [
+        "Contrasts Ind AS frameworks with legacy AS 29 guidelines regarding discounting, contingent assets, and future operating losses."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "568025e5823e2be9bf73fbdb45050ea0c189767a8adfa4dc6898ee83eae2e50f",
+  "artifact_id": "e2c5c019-cbd7-4a43-ab38-add3b48555d7",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 5715,
+  "output_tokens": 2215,
+  "cost_usd": 0.007252,
+  "created_at": "2026-10-03T18:02:52.756440+00:00"
+}

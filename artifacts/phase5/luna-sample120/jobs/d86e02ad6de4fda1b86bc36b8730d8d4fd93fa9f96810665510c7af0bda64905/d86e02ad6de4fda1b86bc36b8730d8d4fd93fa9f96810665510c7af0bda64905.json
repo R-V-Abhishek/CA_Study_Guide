@@ -1,0 +1,898 @@
+{
+  "result": {
+    "question_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905",
+    "input_hash": "9e49e47859a961471ed88b81bafa2f5d73ecbf51b02647e71bad675b2f7b8c13",
+    "mappings": [
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.M11",
+        "outcome": "matched",
+        "primary_node_id": "be26ebbf-840d-4c9b-83ec-a980b5f92b97",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "be26ebbf-840d-4c9b-83ec-a980b5f92b97",
+            "support": "The question asks for Z Ltd.'s intrinsic share value from its expected dividends and growth, matching discounted cash flow fundamental valuation."
+          }
+        ],
+        "note": "Intrinsic value uses the shared Z Ltd. dividend-growth data.",
+        "confidence": 0.98,
+        "bucket": "A"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.M12",
+        "outcome": "matched",
+        "primary_node_id": "cef1e6b0-f433-44cd-8531-a1aab2863e41",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "cef1e6b0-f433-44cd-8531-a1aab2863e41",
+            "support": "Finding the present value at year four applies a discount rate to a future cash flow."
+          }
+        ],
+        "note": "The shared stem supplies the future dividend stream and return inputs.",
+        "confidence": 0.94,
+        "bucket": "A"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.M13",
+        "outcome": "matched",
+        "primary_node_id": "3afd0c40-027b-4e5c-b489-237239710a21",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "3afd0c40-027b-4e5c-b489-237239710a21",
+            "support": "Expected return is computed from the risk-free rate, market risk premium, and the share's beta under CAPM."
+          }
+        ],
+        "note": "The shared stem provides market and government bond returns plus correlation and standard deviations for the stock.",
+        "confidence": 0.9,
+        "bucket": "B"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.M14",
+        "outcome": "matched",
+        "primary_node_id": "f54e9f7b-0cb2-4360-aabd-aed08c3bfae4",
+        "secondary_node_ids": [
+          "be26ebbf-840d-4c9b-83ec-a980b5f92b97"
+        ],
+        "evidence": [
+          {
+            "node_id": "f54e9f7b-0cb2-4360-aabd-aed08c3bfae4",
+            "support": "The value in perpetuity capitalizes the later dividend stream to value the equity share."
+          },
+          {
+            "node_id": "be26ebbf-840d-4c9b-83ec-a980b5f92b97",
+            "support": "The perpetuity is part of the share's expected future dividends used to determine intrinsic value."
+          }
+        ],
+        "note": "Uses the terminal dividend-growth phase in the shared stem.",
+        "confidence": 0.95,
+        "bucket": "A"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.M15",
+        "outcome": "matched",
+        "primary_node_id": "6e7cd7ef-a368-4a82-ae8a-5c9aa51b18d3",
+        "secondary_node_ids": [
+          "be26ebbf-840d-4c9b-83ec-a980b5f92b97"
+        ],
+        "evidence": [
+          {
+            "node_id": "6e7cd7ef-a368-4a82-ae8a-5c9aa51b18d3",
+            "support": "Comparing market price with intrinsic value determines whether the share is overvalued, undervalued, or fairly valued."
+          },
+          {
+            "node_id": "be26ebbf-840d-4c9b-83ec-a980b5f92b97",
+            "support": "The market-price comparison relies on the share's intrinsic value from expected dividends."
+          }
+        ],
+        "note": "The question directly asks for valuation relative to a stated market price.",
+        "confidence": 0.98,
+        "bucket": "A"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.M1",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "This is only an answer-key reference to question 1; the corresponding question is not supplied, so its tested concept cannot be established.",
+        "confidence": 0.99,
+        "bucket": "D"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.M4",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Only the answer-key choice is supplied; question 4 and its tested concept are absent.",
+        "confidence": 0.99,
+        "bucket": "D"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.M5",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Only the answer-key choice is supplied; question 5 and its tested concept are absent.",
+        "confidence": 0.99,
+        "bucket": "D"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.M6",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Only the answer-key choice is supplied; question 6 and its tested concept are absent.",
+        "confidence": 0.99,
+        "bucket": "D"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.M7",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Only the answer-key choice is supplied; question 7 and its tested concept are absent.",
+        "confidence": 0.99,
+        "bucket": "D"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.M8",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Only the answer-key choice is supplied; question 8 and its tested concept are absent.",
+        "confidence": 0.99,
+        "bucket": "D"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.M9",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Only the answer-key choice is supplied; question 9 and its tested concept are absent.",
+        "confidence": 0.99,
+        "bucket": "D"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.M10",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Only the answer-key choice is supplied; question 10 and its tested concept are absent.",
+        "confidence": 0.99,
+        "bucket": "D"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.M11.repeat2",
+        "outcome": "matched",
+        "primary_node_id": "be26ebbf-840d-4c9b-83ec-a980b5f92b97",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "be26ebbf-840d-4c9b-83ec-a980b5f92b97",
+            "support": "The answer-key entry corresponds to the intrinsic-value calculation from the shared Z Ltd. dividend-growth question."
+          }
+        ],
+        "note": "Repeated key entry for M11; concept is established by the supplied question.",
+        "confidence": 0.95,
+        "bucket": "B"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.M12.repeat2",
+        "outcome": "matched",
+        "primary_node_id": "cef1e6b0-f433-44cd-8531-a1aab2863e41",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "cef1e6b0-f433-44cd-8531-a1aab2863e41",
+            "support": "This repeated answer-key item is for the year-four present-value calculation in the shared stem."
+          }
+        ],
+        "note": "Repeated key entry for M12.",
+        "confidence": 0.9,
+        "bucket": "B"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.M13.repeat2",
+        "outcome": "matched",
+        "primary_node_id": "3afd0c40-027b-4e5c-b489-237239710a21",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "3afd0c40-027b-4e5c-b489-237239710a21",
+            "support": "This repeated answer-key item corresponds to calculating Z Ltd.'s expected share return using CAPM inputs."
+          }
+        ],
+        "note": "Repeated key entry for M13.",
+        "confidence": 0.88,
+        "bucket": "B"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.M14.repeat2",
+        "outcome": "matched",
+        "primary_node_id": "f54e9f7b-0cb2-4360-aabd-aed08c3bfae4",
+        "secondary_node_ids": [
+          "be26ebbf-840d-4c9b-83ec-a980b5f92b97"
+        ],
+        "evidence": [
+          {
+            "node_id": "f54e9f7b-0cb2-4360-aabd-aed08c3bfae4",
+            "support": "This repeated entry is for equity value in perpetuity using the later dividend stream."
+          },
+          {
+            "node_id": "be26ebbf-840d-4c9b-83ec-a980b5f92b97",
+            "support": "The calculation estimates intrinsic share value from future dividends."
+          }
+        ],
+        "note": "Repeated key entry for M14.",
+        "confidence": 0.9,
+        "bucket": "B"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.M15.repeat2",
+        "outcome": "matched",
+        "primary_node_id": "6e7cd7ef-a368-4a82-ae8a-5c9aa51b18d3",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "6e7cd7ef-a368-4a82-ae8a-5c9aa51b18d3",
+            "support": "The underlying M15 question compares intrinsic value with market price to classify the share's valuation."
+          }
+        ],
+        "note": "Repeated key entry for M15.",
+        "confidence": 0.92,
+        "bucket": "B"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.Q1.a.i",
+        "outcome": "matched",
+        "primary_node_id": "6e7cd7ef-a368-4a82-ae8a-5c9aa51b18d3",
+        "secondary_node_ids": [
+          "3afd0c40-027b-4e5c-b489-237239710a21"
+        ],
+        "evidence": [
+          {
+            "node_id": "6e7cd7ef-a368-4a82-ae8a-5c9aa51b18d3",
+            "support": "It asks whether securities are over-, under-, or correctly valued by comparing expected returns with CAPM-required returns."
+          },
+          {
+            "node_id": "3afd0c40-027b-4e5c-b489-237239710a21",
+            "support": "The required return comparison is built from CAPM beta and market-risk inputs."
+          }
+        ],
+        "note": "The answer calculates beta and required return before classifying each stock.",
+        "confidence": 0.97,
+        "bucket": "A"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.Q1.a.ii",
+        "outcome": "matched",
+        "primary_node_id": "6e7cd7ef-a368-4a82-ae8a-5c9aa51b18d3",
+        "secondary_node_ids": [
+          "3afd0c40-027b-4e5c-b489-237239710a21"
+        ],
+        "evidence": [
+          {
+            "node_id": "6e7cd7ef-a368-4a82-ae8a-5c9aa51b18d3",
+            "support": "Recommending buy, hold, or sell follows from each security's under-, fair-, or overvaluation."
+          },
+          {
+            "node_id": "3afd0c40-027b-4e5c-b489-237239710a21",
+            "support": "The valuation decision uses CAPM-required returns compared with expected returns."
+          }
+        ],
+        "note": "The supplied answer explicitly recommends buy, hold, and sell by stock.",
+        "confidence": 0.97,
+        "bucket": "A"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.Q1.b.i",
+        "outcome": "matched",
+        "primary_node_id": "944a0194-074a-477c-a7a1-50f1b05c0321",
+        "secondary_node_ids": [
+          "cef1e6b0-f433-44cd-8531-a1aab2863e41"
+        ],
+        "evidence": [
+          {
+            "node_id": "944a0194-074a-477c-a7a1-50f1b05c0321",
+            "support": "The abandonment decision values a risky project using scenario probabilities and payoffs."
+          },
+          {
+            "node_id": "cef1e6b0-f433-44cd-8531-a1aab2863e41",
+            "support": "The answer discounts the expected abandonment proceeds to present value."
+          }
+        ],
+        "note": "This answer subdivision calculates project value with and without abandonment under alternative probability calculations.",
+        "confidence": 0.82,
+        "bucket": "C"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.Q1.b.ii",
+        "outcome": "matched",
+        "primary_node_id": "944a0194-074a-477c-a7a1-50f1b05c0321",
+        "secondary_node_ids": [
+          "cef1e6b0-f433-44cd-8531-a1aab2863e41"
+        ],
+        "evidence": [
+          {
+            "node_id": "944a0194-074a-477c-a7a1-50f1b05c0321",
+            "support": "It computes the abandonment-option project payoff under the question's high- and low-demand risks."
+          },
+          {
+            "node_id": "cef1e6b0-f433-44cd-8531-a1aab2863e41",
+            "support": "The project cash flow is discounted at the stated risk-free rate."
+          }
+        ],
+        "note": "The paired solution presents both PVF and non-PVF alternatives in this answer subdivision.",
+        "confidence": 0.82,
+        "bucket": "C"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.Q1.c",
+        "outcome": "matched",
+        "primary_node_id": "e0b6a89c-bf0d-4cf8-863d-d8fe31bb5c6c",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "e0b6a89c-bf0d-4cf8-863d-d8fe31bb5c6c",
+            "support": "The tested decision divides earnings between shareholder payouts and reinvestment, which is a dividend decision within strategic financial management."
+          }
+        ],
+        "note": "The question also asks for other financial strategy decisions.",
+        "confidence": 0.98,
+        "bucket": "A"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.Q1.c.alt2",
+        "outcome": "matched",
+        "primary_node_id": "e0b6a89c-bf0d-4cf8-863d-d8fe31bb5c6c",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "e0b6a89c-bf0d-4cf8-863d-d8fe31bb5c6c",
+            "support": "The answer identifies dividend, financing, investment, and portfolio decisions as financial strategy functions."
+          }
+        ],
+        "note": "Answer text gives the dividend decision and explains the other strategic financial decisions.",
+        "confidence": 0.96,
+        "bucket": "A"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.Q2.a.i",
+        "outcome": "matched",
+        "primary_node_id": "c13f0c0f-23ff-4203-a64d-c3cb185be7a8",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "c13f0c0f-23ff-4203-a64d-c3cb185be7a8",
+            "support": "Computing mutual-fund NAV per unit measures the value of pooled securities relative to units outstanding."
+          }
+        ],
+        "note": "The paired answer derives NAV from fund value, dividends, and outstanding units.",
+        "confidence": 0.8,
+        "bucket": "C"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.Q2.a.ii",
+        "outcome": "matched",
+        "primary_node_id": "c13f0c0f-23ff-4203-a64d-c3cb185be7a8",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "c13f0c0f-23ff-4203-a64d-c3cb185be7a8",
+            "support": "The calculation totals mutual-fund units after dividend reinvestment and redemption using NAV per unit."
+          }
+        ],
+        "note": "This is a pooled investment and unit-accounting calculation.",
+        "confidence": 0.78,
+        "bucket": "C"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.Q2.b",
+        "outcome": "matched",
+        "primary_node_id": "8b47e167-7e3c-47ca-a8c1-56df2bde9129",
+        "secondary_node_ids": [
+          "b2e082ec-743c-4530-aa11-ff82294ae307"
+        ],
+        "evidence": [
+          {
+            "node_id": "8b47e167-7e3c-47ca-a8c1-56df2bde9129",
+            "support": "The investment is set so project cash inflows equal its cost in present-value terms, producing zero NPV."
+          },
+          {
+            "node_id": "b2e082ec-743c-4530-aa11-ff82294ae307",
+            "support": "The alternative solution discounts project cash flows to compute NPV at a selected project discount rate."
+          }
+        ],
+        "note": "The main solution sets NPV to zero while solving for the plant investment.",
+        "confidence": 0.83,
+        "bucket": "C"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.Q3.a.i",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "This subpart asks for the actual rate in an FRA settlement, but the supplied candidates do not describe forward rate agreements or their settlement formula.",
+        "confidence": 0.84,
+        "bucket": "C"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.Q3.a.ii",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "This subpart asks for the actual rate in an FRA settlement, with no candidate describing FRA rate settlement.",
+        "confidence": 0.84,
+        "bucket": "C"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.Q3.b",
+        "outcome": "matched",
+        "primary_node_id": "738b0acb-0e3b-445c-b43b-86d57ef56bb4",
+        "secondary_node_ids": [
+          "90b04fbf-b3a7-43e5-b20c-81300276cb9b",
+          "0c792f1d-b88f-49fc-995a-32cfae34fbac"
+        ],
+        "evidence": [
+          {
+            "node_id": "738b0acb-0e3b-445c-b43b-86d57ef56bb4",
+            "support": "The problem totals foreign-currency purchase and sale commitments, including forward transactions, to adjust the overbought position."
+          },
+          {
+            "node_id": "90b04fbf-b3a7-43e5-b20c-81300276cb9b",
+            "support": "It separately requires maintaining a credit balance in the London Nostro account."
+          },
+          {
+            "node_id": "0c792f1d-b88f-49fc-995a-32cfae34fbac",
+            "support": "The requested credit balance is an actual cash-position constraint on the Nostro account."
+          }
+        ],
+        "note": "The required actions adjust both exchange commitments and settled Nostro cash.",
+        "confidence": 0.97,
+        "bucket": "A"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.Q4.a.i",
+        "outcome": "matched",
+        "primary_node_id": "3afd0c40-027b-4e5c-b489-237239710a21",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "3afd0c40-027b-4e5c-b489-237239710a21",
+            "support": "The missing security beta is solved from the portfolio's weighted beta, using the beta coefficient as the CAPM risk measure."
+          }
+        ],
+        "note": "This is a portfolio beta calculation from constituent security values and betas.",
+        "confidence": 0.88,
+        "bucket": "B"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.Q4.a.ii",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "The question requests theoretical pricing of a Nifty futures contract; none of the supplied candidate descriptors covers futures pricing.",
+        "confidence": 0.86,
+        "bucket": "C"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.Q4.a.iii",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "The tested calculation is the number of index futures contracts needed to hedge a share portfolio; no candidate describes futures hedge ratios.",
+        "confidence": 0.86,
+        "bucket": "C"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.Q4.a.iv",
+        "outcome": "matched",
+        "primary_node_id": "3afd0c40-027b-4e5c-b489-237239710a21",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "3afd0c40-027b-4e5c-b489-237239710a21",
+            "support": "The calculation derives a revised portfolio beta after selling futures, focusing on beta as the measure of market-related risk."
+          }
+        ],
+        "note": "The futures hedge is the setting; the requested quantity is the adjusted portfolio beta.",
+        "confidence": 0.76,
+        "bucket": "C"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.Q4.b",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "The task calculates PAT from EVA, WACC, and debt interest; no supplied candidate describes EVA or this accounting-profit derivation.",
+        "confidence": 0.9,
+        "bucket": "C"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.Q4.c",
+        "outcome": "matched",
+        "primary_node_id": "33f28d0c-70a9-454b-b6ad-2a015c463218",
+        "secondary_node_ids": [
+          "fe46a48e-8f38-4d6d-a45d-f1ee93508a5d",
+          "51d4f17e-7ccd-4a9b-b8a0-25e1cd6cef03"
+        ],
+        "evidence": [
+          {
+            "node_id": "33f28d0c-70a9-454b-b6ad-2a015c463218",
+            "support": "The question tests whether succession planning prepares employees across levels for future roles, matching the descriptor's inclusion of management and non-management positions."
+          },
+          {
+            "node_id": "fe46a48e-8f38-4d6d-a45d-f1ee93508a5d",
+            "support": "The supplied answer explains succession planning's role in maintaining a talent pipeline and preparing future leaders."
+          },
+          {
+            "node_id": "51d4f17e-7ccd-4a9b-b8a0-25e1cd6cef03",
+            "support": "The answer frames succession planning as long-term preparation aligned with future organizational needs."
+          }
+        ],
+        "note": "The answer supports broad employee development and continuity planning.",
+        "confidence": 0.96,
+        "bucket": "A"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.Q4.c.alt2",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "This alternative is an overnight index swap calculation; none of the supplied candidates covers interest-rate swaps or OIS settlement.",
+        "confidence": 0.9,
+        "bucket": "C"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.M1.repeat2",
+        "outcome": "matched",
+        "primary_node_id": "fe46a48e-8f38-4d6d-a45d-f1ee93508a5d",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "fe46a48e-8f38-4d6d-a45d-f1ee93508a5d",
+            "support": "The answer explains succession planning as mitigation of disruption and vacancy risk after a leader leaves."
+          }
+        ],
+        "note": "Addresses leadership departure risk, a stated need for succession planning.",
+        "confidence": 0.94,
+        "bucket": "A"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.M2",
+        "outcome": "matched",
+        "primary_node_id": "fe46a48e-8f38-4d6d-a45d-f1ee93508a5d",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "fe46a48e-8f38-4d6d-a45d-f1ee93508a5d",
+            "support": "The answer describes removing a leader for gross negligence, fraud, willful misconduct, or material breach."
+          }
+        ],
+        "note": "This is a cause-removal scenario within succession planning.",
+        "confidence": 0.98,
+        "bucket": "A"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.M3",
+        "outcome": "matched",
+        "primary_node_id": "fe46a48e-8f38-4d6d-a45d-f1ee93508a5d",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "fe46a48e-8f38-4d6d-a45d-f1ee93508a5d",
+            "support": "The answer links succession planning to career visibility, employee motivation, retention, and an internal talent pipeline."
+          }
+        ],
+        "note": "The descriptor includes employee motivation and career paths as succession-planning needs.",
+        "confidence": 0.97,
+        "bucket": "A"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.M4.repeat2",
+        "outcome": "matched",
+        "primary_node_id": "fe46a48e-8f38-4d6d-a45d-f1ee93508a5d",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "fe46a48e-8f38-4d6d-a45d-f1ee93508a5d",
+            "support": "The answer identifies succession planning as supporting open communication and conflict settlement."
+          }
+        ],
+        "note": "The descriptor explicitly includes internal conflict resolution.",
+        "confidence": 0.94,
+        "bucket": "A"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.M5.repeat2",
+        "outcome": "matched",
+        "primary_node_id": "fe46a48e-8f38-4d6d-a45d-f1ee93508a5d",
+        "secondary_node_ids": [
+          "51d4f17e-7ccd-4a9b-b8a0-25e1cd6cef03"
+        ],
+        "evidence": [
+          {
+            "node_id": "fe46a48e-8f38-4d6d-a45d-f1ee93508a5d",
+            "support": "The answer says succession planning aligns family-owned businesses with their culture, vision, direction, and values."
+          },
+          {
+            "node_id": "51d4f17e-7ccd-4a9b-b8a0-25e1cd6cef03",
+            "support": "The descriptor covers continuity strategies and leadership planning in family-owned businesses."
+          }
+        ],
+        "note": "This is a succession-planning benefit, not the unrelated adjacent material in the same extracted text.",
+        "confidence": 0.92,
+        "bucket": "B"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.Q5.a",
+        "outcome": "matched",
+        "primary_node_id": "1bbc87d7-274c-4b18-805f-1f9d482f4e1a",
+        "secondary_node_ids": [
+          "68d5e74d-366d-48ca-9077-b827b7720494"
+        ],
+        "evidence": [
+          {
+            "node_id": "1bbc87d7-274c-4b18-805f-1f9d482f4e1a",
+            "support": "The company seeks a forward commitment to lock the future INR/USD conversion rate for project cash flows."
+          },
+          {
+            "node_id": "68d5e74d-366d-48ca-9077-b827b7720494",
+            "support": "The recommended future exchange rate is determined using the relationship between forward and spot currency rates."
+          }
+        ],
+        "note": "The question explicitly asks for the rate to use in a currency forward cover.",
+        "confidence": 0.89,
+        "bucket": "B"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.Q5.b.i",
+        "outcome": "matched",
+        "primary_node_id": "a61d7811-41ba-4b38-b619-2e8ef6ffb2cc",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "a61d7811-41ba-4b38-b619-2e8ef6ffb2cc",
+            "support": "The company uses surplus cash to repurchase its own shares, and this subpart solves the repurchase price."
+          }
+        ],
+        "note": "The requested price is part of a share buyback calculation.",
+        "confidence": 0.98,
+        "bucket": "A"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.Q5.b.ii",
+        "outcome": "matched",
+        "primary_node_id": "a61d7811-41ba-4b38-b619-2e8ef6ffb2cc",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "a61d7811-41ba-4b38-b619-2e8ef6ffb2cc",
+            "support": "The requested number of repurchased shares directly measures the company's equity buyback."
+          }
+        ],
+        "note": "The shared scenario specifies cash distributed through share repurchase.",
+        "confidence": 0.98,
+        "bucket": "A"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.Q5.b.iii",
+        "outcome": "matched",
+        "primary_node_id": "a61d7811-41ba-4b38-b619-2e8ef6ffb2cc",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "a61d7811-41ba-4b38-b619-2e8ef6ffb2cc",
+            "support": "The question asks how repurchasing shares changes EPS while net income stays constant; fewer outstanding shares increase per-share earnings."
+          }
+        ],
+        "note": "EPS impact is a stated effect of equity buyback.",
+        "confidence": 0.98,
+        "bucket": "A"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.Q5.c",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "The supplied question text is cut off before stating the requested task; the answer material is bundled with unrelated items, so the tested concept cannot be established reliably.",
+        "confidence": 0.95,
+        "bucket": "D"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.M2.repeat2",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "This extracted answer block bundles several unrelated solutions (FX cover, buyback, futures hedge) under one label, and the paired question is missing; a single tested concept cannot be assigned.",
+        "confidence": 0.99,
+        "bucket": "D"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.Q6.a.i",
+        "outcome": "matched",
+        "primary_node_id": "918b3f6a-515c-416b-b5af-3fe2e3bb7008",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "918b3f6a-515c-416b-b5af-3fe2e3bb7008",
+            "support": "The fund variance is recovered from its Sharpe ratio, which expresses excess return per unit of standard deviation."
+          }
+        ],
+        "note": "The requested quantity is total-risk variance, using Sharpe ratio data.",
+        "confidence": 0.92,
+        "bucket": "A"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.Q6.a.ii",
+        "outcome": "matched",
+        "primary_node_id": "4382c13e-ef26-49e9-a5c8-b742a14d652f",
+        "secondary_node_ids": [
+          "0adc8850-3b35-4255-a298-34937a22fb29"
+        ],
+        "evidence": [
+          {
+            "node_id": "4382c13e-ef26-49e9-a5c8-b742a14d652f",
+            "support": "The coefficient of determination evaluates how fund returns relate to market returns as a portfolio-performance statistic."
+          },
+          {
+            "node_id": "0adc8850-3b35-4255-a298-34937a22fb29",
+            "support": "The answer derives beta from Treynor ratios, then uses beta and standard deviations to recover correlation."
+          }
+        ],
+        "note": "The answer computes fund-market correlation and squares it to obtain R-squared.",
+        "confidence": 0.86,
+        "bucket": "B"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.Q6.b.i",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "The question asks to construct a currency swap to hedge exchange exposure; no supplied candidate descriptor covers currency swaps.",
+        "confidence": 0.88,
+        "bucket": "C"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.Q6.b.ii",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "This compares a currency swap with doing nothing under exchange-rate uncertainty; the candidate set contains no swap valuation or comparison topic.",
+        "confidence": 0.9,
+        "bucket": "C"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.Q6.c.ii",
+        "outcome": "matched",
+        "primary_node_id": "0adc8850-3b35-4255-a298-34937a22fb29",
+        "secondary_node_ids": [
+          "4382c13e-ef26-49e9-a5c8-b742a14d652f"
+        ],
+        "evidence": [
+          {
+            "node_id": "0adc8850-3b35-4255-a298-34937a22fb29",
+            "support": "The solution uses the Treynor ratio to derive beta and then correlation for the fund."
+          },
+          {
+            "node_id": "4382c13e-ef26-49e9-a5c8-b742a14d652f",
+            "support": "It concludes by calculating the coefficient of determination as squared correlation."
+          }
+        ],
+        "note": "The answer text supplies the calculation steps for the coefficient of determination.",
+        "confidence": 0.92,
+        "bucket": "A"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.Q6.a.repeat2",
+        "outcome": "matched",
+        "primary_node_id": "4382c13e-ef26-49e9-a5c8-b742a14d652f",
+        "secondary_node_ids": [
+          "0adc8850-3b35-4255-a298-34937a22fb29"
+        ],
+        "evidence": [
+          {
+            "node_id": "4382c13e-ef26-49e9-a5c8-b742a14d652f",
+            "support": "The answer derives Growth Fund's correlation with the market and its squared coefficient of determination."
+          },
+          {
+            "node_id": "0adc8850-3b35-4255-a298-34937a22fb29",
+            "support": "It first obtains beta from the fund's Treynor ratio."
+          }
+        ],
+        "note": "This repeat answer includes both beta and correlation steps leading to R-squared.",
+        "confidence": 0.94,
+        "bucket": "A"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.Q6.b.repeat2",
+        "outcome": "matched",
+        "primary_node_id": "4382c13e-ef26-49e9-a5c8-b742a14d652f",
+        "secondary_node_ids": [
+          "0adc8850-3b35-4255-a298-34937a22fb29"
+        ],
+        "evidence": [
+          {
+            "node_id": "4382c13e-ef26-49e9-a5c8-b742a14d652f",
+            "support": "The answer derives Balanced Fund's correlation and coefficient of determination."
+          },
+          {
+            "node_id": "0adc8850-3b35-4255-a298-34937a22fb29",
+            "support": "It obtains the fund beta from its Treynor ratio as an intermediate step."
+          }
+        ],
+        "note": "The tested result is market correlation squared for the fund.",
+        "confidence": 0.94,
+        "bucket": "A"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.Q6.c.repeat2",
+        "outcome": "matched",
+        "primary_node_id": "4382c13e-ef26-49e9-a5c8-b742a14d652f",
+        "secondary_node_ids": [
+          "0adc8850-3b35-4255-a298-34937a22fb29"
+        ],
+        "evidence": [
+          {
+            "node_id": "4382c13e-ef26-49e9-a5c8-b742a14d652f",
+            "support": "The answer calculates Regular Fund's correlation and its squared coefficient of determination."
+          },
+          {
+            "node_id": "0adc8850-3b35-4255-a298-34937a22fb29",
+            "support": "Treynor ratio supplies the beta used in the intermediate correlation calculation."
+          }
+        ],
+        "note": "This answer gives the Regular Fund R-squared calculation.",
+        "confidence": 0.94,
+        "bucket": "A"
+      },
+      {
+        "part_id": "d86e02ad6de4fda1b86bc36b8730d8d4fd93fa9f96810665510c7af0bda64905:CSIV.Q6.b.repeat3.ii",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "This answer compares the net dollar receipt under a currency swap with doing nothing; no candidate topic covers swap cash-flow valuation.",
+        "confidence": 0.92,
+        "bucket": "C"
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "attempt_id": "1791217445240214000",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "547dbf8a0346dd25fc09fc3c2be352bae069c532dbf2fc7f5244681285c927b6",
+    "schema_generator": "pinned-identifiers-v2",
+    "seconds": 200.4,
+    "usage": [
+      {
+        "input_tokens": 96724,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 10876,
+        "reasoning_output_tokens": 1092
+      }
+    ],
+    "completed_at": "2026-10-05T16:27:25.640505+00:00"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "input_tokens": 2222160,
+  "output_tokens": 876384,
+  "cost_usd": 2.8576080000000004,
+  "completed_batches": 321,
+  "total_batches": 321,
+  "failures": [],
+  "concurrency": 4,
+  "rejected_response_cost_usd": 0.0
+}

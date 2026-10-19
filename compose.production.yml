@@ -1,0 +1,153 @@
+name: caf
+
+x-logging: &logging
+  driver: json-file
+  options:
+    max-size: "10m"
+    max-file: "3"
+
+x-runtime-env: &runtime-env
+  CAF_ENV: production
+  CAF_BACKEND_REVISION: ${CAF_REVISION:?Set the application Git commit}
+  AUTH_LOCAL_DEVELOPMENT: "false"
+  GEMINI_API_KEY: ""
+  OPENROUTER_API_KEY: ""
+
+x-application: &application
+  image: ${CAF_IMAGE:?Load and select a verified application image}
+  platform: ${CAF_PLATFORM:-linux/amd64}
+  pull_policy: never
+  init: true
+  user: "10001:10001"
+  read_only: true
+  cap_drop: [ALL]
+  security_opt: [no-new-privileges:true]
+  pids_limit: 256
+  logging: *logging
+  stop_grace_period: 60s
+  tmpfs:
+    - /tmp:size=128m,mode=1777
+  volumes:
+    - type: bind
+      source: /srv/caf/data
+      target: /srv/caf/data
+      bind:
+        create_host_path: false
+    - type: bind
+      source: /srv/caf/backups
+      target: /srv/caf/data/backups
+      bind:
+        create_host_path: false
+  depends_on:
+    db:
+      condition: service_healthy
+
+services:
+  db:
+    image: ${CAF_POSTGRES_IMAGE:-postgres:16-bookworm}
+    platform: ${CAF_PLATFORM:-linux/amd64}
+    restart: unless-stopped
+    cpus: 2
+    mem_limit: 3g
+    shm_size: 256m
+    pids_limit: 256
+    logging: *logging
+    stop_grace_period: 60s
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: caf
+      POSTGRES_PASSWORD: ${PG_SUPERUSER_PASSWORD:?Set a distinct hexadecimal administrator password}
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - type: bind
+        source: /srv/caf/postgres
+        target: /var/lib/postgresql/data
+        bind:
+          create_host_path: false
+    networks: [backend]
+    healthcheck:
+      test: [CMD-SHELL, "pg_isready -U postgres -d caf"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+
+  web:
+    <<: *application
+    restart: unless-stopped
+    cpus: 2
+    mem_limit: 2g
+    environment:
+      <<: *runtime-env
+      AUTH_PUBLIC_BASE_URL: ${AUTH_PUBLIC_BASE_URL:?Set the private HTTPS URL}
+      AUTH_ALLOWED_ORIGINS: ""
+      OIDC_ISSUER: ${OIDC_ISSUER:?Set the Auth0 issuer}
+      OIDC_CLIENT_ID: ${OIDC_CLIENT_ID:?Set the Auth0 client ID}
+      OIDC_CLIENT_SECRET: ${OIDC_CLIENT_SECRET:?Set the Auth0 client secret}
+      OIDC_REDIRECT_URI: ${AUTH_PUBLIC_BASE_URL:?Set the private HTTPS URL}/auth/callback
+      STUDENT_DATABASE_URL: postgresql+psycopg://caf_app:${PG_APP_PASSWORD:?Set the app role password}@db:5432/caf
+      IDENTITY_DATABASE_URL: postgresql+psycopg://caf_identity:${PG_IDENTITY_PASSWORD:?Set the identity role password}@db:5432/caf
+      CURATION_DATABASE_URL: postgresql+psycopg://caf_curator:${PG_CURATOR_PASSWORD:?Set the curator role password}@db:5432/caf
+      OPERATIONS_DATABASE_URL: postgresql+psycopg://caf_operations:${PG_OPERATIONS_PASSWORD:?Set the operations role password}@db:5432/caf
+      BACKUP_DATABASE_URL: postgresql+psycopg://caf_backup:${PG_BACKUP_PASSWORD:?Set the backup role password}@db:5432/caf
+    command: [uvicorn, "caf_api.main:app", --host, "0.0.0.0", --port, "8788", --workers, "1", --no-proxy-headers]
+    ports:
+      - "127.0.0.1:8788:8788"
+    networks: [backend, egress]
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8788/api/v1/health', timeout=3).close()"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+
+  worker:
+    <<: *application
+    restart: unless-stopped
+    cpus: 1
+    mem_limit: 2g
+    environment:
+      <<: *runtime-env
+      OPERATIONS_DATABASE_URL: postgresql+psycopg://caf_operations:${PG_OPERATIONS_PASSWORD:?Set the operations role password}@db:5432/caf
+    command: [caf, intel, worker]
+    networks: [backend]
+
+  admin:
+    <<: *application
+    profiles: [tools]
+    restart: "no"
+    cpus: 1
+    mem_limit: 1g
+    environment:
+      <<: *runtime-env
+      DATABASE_URL: postgresql+psycopg://postgres:${PG_SUPERUSER_PASSWORD:?Set the administrator password}@db:5432/caf
+      MIGRATION_DATABASE_URL: postgresql+psycopg://postgres:${PG_SUPERUSER_PASSWORD:?Set the administrator password}@db:5432/caf
+      PG_APP_PASSWORD: ${PG_APP_PASSWORD:?Set the app role password}
+      PG_IDENTITY_PASSWORD: ${PG_IDENTITY_PASSWORD:?Set the identity role password}
+      PG_CURATOR_PASSWORD: ${PG_CURATOR_PASSWORD:?Set the curator role password}
+      PG_OPERATIONS_PASSWORD: ${PG_OPERATIONS_PASSWORD:?Set the operations role password}
+      PG_PIPELINE_PASSWORD: ${PG_PIPELINE_PASSWORD:?Set the pipeline role password}
+      PG_BACKUP_PASSWORD: ${PG_BACKUP_PASSWORD:?Set the backup role password}
+    entrypoint: [caf]
+    command: [--help]
+    networks: [backend]
+
+  pipeline:
+    <<: *application
+    profiles: [tools]
+    restart: "no"
+    cpus: 2
+    mem_limit: 3g
+    environment:
+      <<: *runtime-env
+      DATABASE_URL: postgresql+psycopg://caf_pipeline:${PG_PIPELINE_PASSWORD:?Set the pipeline role password}@db:5432/caf
+      PIPELINE_DATABASE_URL: postgresql+psycopg://caf_pipeline:${PG_PIPELINE_PASSWORD:?Set the pipeline role password}@db:5432/caf
+      OPERATIONS_DATABASE_URL: postgresql+psycopg://caf_operations:${PG_OPERATIONS_PASSWORD:?Set the operations role password}@db:5432/caf
+    entrypoint: [caf]
+    command: [--help]
+    networks: [backend, egress]
+
+networks:
+  backend:
+    internal: true
+  egress: {}

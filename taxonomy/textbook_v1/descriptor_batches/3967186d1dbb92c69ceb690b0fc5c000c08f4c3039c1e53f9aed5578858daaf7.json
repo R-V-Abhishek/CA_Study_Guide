@@ -1,0 +1,236 @@
+{
+  "descriptors": [
+    {
+      "node_id": "f9a3885b-3cef-4aee-a5b1-8bb769e1010e",
+      "concept_name": "Additional Recommended Disclosures for Property, Plant and Equipment",
+      "definition": "Entities are encouraged to voluntarily disclose supplementary asset details such as idle property, fully depreciated items still in use, and retired assets. These disclosures provide stakeholders with enhanced transparency regarding asset utilization and valuation differentials when using the cost model.",
+      "terminology": [
+        "temporarily idle PPE",
+        "fully depreciated PPE",
+        "retired from active use",
+        "fair value difference"
+      ],
+      "instrument_references": [
+        "Ind AS 16",
+        "Ind AS 105"
+      ],
+      "inclusion": [
+        "Carrying amount of temporarily idle PPE",
+        "Gross carrying amount of fully depreciated PPE still in use",
+        "Carrying amount of PPE retired from active use not classified as held for sale",
+        "Fair value under cost model when materially different from carrying amount"
+      ],
+      "exclusion": [
+        "Mandatory core financial statement line-item recognitions",
+        "Assets already classified as held for sale under Ind AS 105"
+      ],
+      "nearby_distinctions": [
+        "Differs from mandatory disclosures by being explicitly optional rather than required by the standard."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "60010984-f737-4f26-baf3-99c924fbbf76",
+      "concept_name": "Changes in Existing Decommissioning, Restoration and Similar Liabilities (Appendix A)",
+      "definition": "This guidance applies to adjustments in existing dismantling, removal, and site restoration obligations initially incorporated into the cost of property, plant and equipment or right-of-use assets. It governs how entities account for subsequent shifts in estimated cash outflows, discount rates, and the unwinding of the discount over time.",
+      "terminology": [
+        "decommissioning liabilities",
+        "restoration obligations",
+        "dismantling costs",
+        "unwinding of discount"
+      ],
+      "instrument_references": [
+        "Appendix A to Ind AS 16",
+        "Ind AS 16",
+        "Ind AS 37",
+        "Ind AS 116"
+      ],
+      "inclusion": [
+        "Obligations recognized as part of PPE or right-of-use asset costs",
+        "Liabilities recognized under Ind AS 37"
+      ],
+      "exclusion": [
+        "Initial recognition estimates of decommissioning obligations",
+        "Liabilities outside the scope of asset cost capitalization"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from initial recognition by focusing exclusively on subsequent re-measurements and modifications of established liabilities."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4538b3bd-202d-4c92-bf26-740c40b27ee2",
+      "concept_name": "Application Guidance for Decommissioning Liability Changes under Cost Model",
+      "definition": "When an entity uses the cost model, changes in decommissioning liabilities are added to or deducted from the asset's cost in the current period, adjusting the related provision. Any liability decrease exceeding the asset carrying amount is recognized immediately as income in the statement of profit and loss.",
+      "terminology": [
+        "cost model",
+        "provision adjustment",
+        "excess decrease",
+        "impairment testing"
+      ],
+      "instrument_references": [
+        "Appendix A to Ind AS 16",
+        "Ind AS 36"
+      ],
+      "inclusion": [
+        "Addition of liability increases to asset cost",
+        "Deduction of liability decreases from asset cost",
+        "Immediate profit and loss recognition for excess decreases",
+        "Impairment testing when additions raise asset carrying amounts"
+      ],
+      "exclusion": [
+        "Revaluation model adjustments",
+        "Changes unrelated to decommissioning or restoration obligations"
+      ],
+      "nearby_distinctions": [
+        "Differs from the revaluation model approach by directly adjusting asset cost rather than utilizing revaluation surplus reserves."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "84866d37-9ded-4ca5-bb26-441735a5def2",
+      "concept_name": "Issues Addressed by Appendix A to Ind AS 16",
+      "definition": "This appendix outlines the specific measurement events that alter existing decommissioning obligations, including revisions to estimated cash outflows, shifts in market-based discount rates, and time-value increments. It prescribes distinct accounting treatments for these changes based on whether the entity applies the cost model or the revaluation model.",
+      "terminology": [
+        "estimated outflow of resources",
+        "market-based discount rate",
+        "time value of money",
+        "unwinding of discount"
+      ],
+      "instrument_references": [
+        "Appendix A to Ind AS 16",
+        "Ind AS 37"
+      ],
+      "inclusion": [
+        "Changes in estimated resource outflows for settlement",
+        "Changes in current market-based discount rates",
+        "Increases reflecting the passage of time"
+      ],
+      "exclusion": [
+        "Initial estimations of site restoration costs",
+        "Operating expenses unrelated to asset retirement obligations"
+      ],
+      "nearby_distinctions": [
+        "Focuses on subsequent valuation triggers rather than general asset impairment triggers under Ind AS 36."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "334cc427-1898-45e8-8f2e-8dc623451de3",
+      "concept_name": "Accounting Guidance in Appendix A to Ind AS 16",
+      "definition": "For assets measured under the revaluation model, increases in decommissioning liabilities are adjusted against revaluation surplus through other comprehensive income, while excess amounts are expensed. Decreases in these liabilities are similarly credited to the revaluation reserve, offsetting prior deficits and treating excesses as deemed revaluations.",
+      "terminology": [
+        "revaluation model",
+        "revaluation surplus",
+        "other comprehensive income",
+        "deemed revaluation"
+      ],
+      "instrument_references": [
+        "Appendix A to Ind AS 16",
+        "Ind AS 16"
+      ],
+      "inclusion": [
+        "Liability increases offset against revaluation surplus",
+        "Liability decreases credited to revaluation reserve",
+        "Excess liability decreases treated as deemed revaluation in profit and loss"
+      ],
+      "exclusion": [
+        "Cost model asset adjustments",
+        "Standard routine operational maintenance costs"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from the cost model by running adjustments through revaluation reserves rather than directly modifying historical cost bases."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3395e96b-9b53-4ca6-9580-612a244cf863",
+      "concept_name": "Extracts of Financial Statements of Listed Entity",
+      "definition": "Entity disclosures reflect that property, plant, and equipment are stated at acquisition cost net of accumulated depreciation and impairment losses. Subsequent replacement costs are capitalized only when future economic benefits are probable, while routine repairs are expensed directly to profit or loss.",
+      "terminology": [
+        "carrying amount",
+        "capital work in progress",
+        "subsequent costs",
+        "straight line method"
+      ],
+      "instrument_references": [
+        "Ind AS 16"
+      ],
+      "inclusion": [
+        "Acquisition costs net of depreciation and impairment",
+        "Capitalized significant replacement and installation costs",
+        "Useful life schedules for various asset classes"
+      ],
+      "exclusion": [
+        "Routine maintenance and repair expenses",
+        "Unverified internal technical evaluations"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes capitalizable major component replacements from routine operational maintenance expensed in profit or loss."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f5b05a63-4d57-4586-83ea-bde79d5f9b38",
+      "concept_name": "Significant Differences in Ind AS 16 vis-à-vis AS 10",
+      "definition": "Ind AS 16 excludes assets held for sale from its scope—deferring to Ind AS 105—and includes specific provisions for surface mine production stripping costs unlike older standards. Furthermore, it incorporates specific rules regarding net proceeds from testing items produced before an asset is available for use.",
+      "terminology": [
+        "held for sale",
+        "surface mine stripping costs",
+        "Ind AS 105",
+        "AS 10"
+      ],
+      "instrument_references": [
+        "Ind AS 16",
+        "AS 10",
+        "Ind AS 105"
+      ],
+      "inclusion": [
+        "Exclusion of non-current assets held for sale from Ind AS 16",
+        "Guidance on production phase stripping costs in surface mines"
+      ],
+      "exclusion": [
+        "Accounting standards for financial instruments",
+        "General revenue recognition principles"
+      ],
+      "nearby_distinctions": [
+        "Contrasts Ind AS 16 treatment of retired active-use assets against legacy AS 10 frameworks by routing held-for-sale assets through Ind AS 105."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f51733ba-3994-42c6-973b-80f29c7e99f3",
+      "concept_name": "Carve Out in Ind AS 16 vis-à-vis IAS 16",
+      "definition": "Under Ind AS 16, net proceeds from selling items produced during testing are deducted from the cost of the property, plant, and equipment rather than credited to profit or loss. This treatment creates a carve-out from international standards, generating consequential impacts on subsequent depreciation, impairment, and deferred tax.",
+      "terminology": [
+        "net proceeds",
+        "testing phase",
+        "carve out",
+        "IAS 16"
+      ],
+      "instrument_references": [
+        "Ind AS 16",
+        "IAS 16"
+      ],
+      "inclusion": [
+        "Deduction of excess net proceeds from testing items against asset cost",
+        "Consequential impacts on depreciation and impairment"
+      ],
+      "exclusion": [
+        "Immediate profit or loss recognition of testing proceeds",
+        "Standard commercial revenue generation outside the testing phase"
+      ],
+      "nearby_distinctions": [
+        "Differs from IAS 16 by mandating cost reduction rather than profit or loss credit for proceeds generated during asset testing."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "3967186d1dbb92c69ceb690b0fc5c000c08f4c3039c1e53f9aed5578858daaf7",
+  "artifact_id": "c97b2ef7-3ba1-494f-aa92-b38d2be0bb32",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 5857,
+  "output_tokens": 2643,
+  "cost_usd": 0.0083646,
+  "created_at": "2026-10-03T17:49:14.063232+00:00"
+}

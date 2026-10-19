@@ -300,6 +300,7 @@ def test_pipeline_end_to_end(tmp_path: Path):
                 session=session,
                 document_id=doc_id,
                 run_id=run.id,
+                promote=True,
             )
 
             assert summary.document_id == doc_id

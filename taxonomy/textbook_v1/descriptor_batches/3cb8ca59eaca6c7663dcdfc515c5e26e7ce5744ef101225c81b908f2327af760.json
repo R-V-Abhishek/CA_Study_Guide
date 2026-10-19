@@ -1,0 +1,310 @@
+{
+  "descriptors": [
+    {
+      "node_id": "ce49b131-aebf-4dea-bced-895ac24f72cd",
+      "concept_name": "Commencing an Audit",
+      "definition": "Commencing an audit involves initiating the engagement by establishing appropriate plans and strategies to meet overall audit standards. Careful planning ensures that the audit is conducted efficiently and effectively within a timely manner.",
+      "terminology": [
+        "Audit Planning",
+        "Engagement Team",
+        "Risk Assessment"
+      ],
+      "instrument_references": [
+        "SA 200"
+      ],
+      "inclusion": [
+        "Establishing overall audit strategy",
+        "Developing an audit plan"
+      ],
+      "exclusion": [
+        "Execution of substantive testing without planning",
+        "Unplanned audit procedures"
+      ],
+      "nearby_distinctions": [
+        "Differs from audit execution because it occurs prior to substantive testing to frame the engagement scope."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3aad6d3e-a972-44fe-858b-e2a90a3ad786",
+      "concept_name": "Benefits/Advantages of Planning in an Audit of Financial Statements",
+      "definition": "Adequate audit planning assists the auditor in focusing attention on critical risk areas and resolving potential problems promptly. It also facilitates proper resource organization, team selection, supervision, and coordination with component auditors and experts.",
+      "terminology": [
+        "Important Areas",
+        "Potential Problems",
+        "Coordination"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Attention to important areas",
+        "Timely resolution of problems",
+        "Proper organization and management"
+      ],
+      "exclusion": [
+        "Post-audit reviews",
+        "Management operational planning"
+      ],
+      "nearby_distinctions": [
+        "Focuses specifically on the administrative and operational advantages derived from structuring the audit prior to execution."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b83d599f-202a-43fc-9626-1187e65b2b41",
+      "concept_name": "Nature and Extent of Planning",
+      "definition": "The nature and extent of audit planning vary depending on factors such as the auditee's size and complexity, the engagement team's past experience and expertise, and changes in circumstances. Larger or more complex entities require more extensive planning activities compared to smaller organizations.",
+      "terminology": [
+        "Size and Complexity",
+        "Past Experience",
+        "Change in Circumstances"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Assessing entity size and complexity",
+        "Evaluating team expertise",
+        "Accounting for changing circumstances"
+      ],
+      "exclusion": [
+        "Standardized one-size-fits-all planning",
+        "Fixed audit program generation"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from planning benefits by detailing the dynamic variables that scale the depth of required planning."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "97c6ae57-657e-4a04-aea1-2e216f55a38a",
+      "concept_name": "Planning - A Continuous Process",
+      "definition": "Audit planning is not a discrete or isolated phase but rather a continual and iterative process throughout the engagement. It typically begins shortly after or alongside the completion of the previous audit and persists until the current engagement concludes.",
+      "terminology": [
+        "Iterative Process",
+        "Continuous",
+        "Audit Programme"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Timing of activities",
+        "Forming audit programmes",
+        "Iterative updates"
+      ],
+      "exclusion": [
+        "One-off static planning phase",
+        "Planning restricted solely to pre-engagement"
+      ],
+      "nearby_distinctions": [
+        "Contrasts with single-point administrative tasks by treating planning as an ongoing workflow spanning the entire audit lifecycle."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "eba1ee3b-2e97-41e6-a78c-aba3c73b9c80",
+      "concept_name": "Overall Audit Strategy and Audit Plan - Responsibility of the Auditor",
+      "definition": "The overall audit strategy and audit plan remain the sole responsibility of the auditor even when elements are discussed with management. Care must be taken during such discussions to avoid compromising audit effectiveness by making procedures too predictable.",
+      "terminology": [
+        "Auditor Responsibility",
+        "Management Discussion",
+        "Predictability"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Maintaining sole responsibility for strategy",
+        "Protecting audit effectiveness during management talks"
+      ],
+      "exclusion": [
+        "Management-dictated audit plans",
+        "Delegating strategic decisions to the entity"
+      ],
+      "nearby_distinctions": [
+        "Differentiates auditor-driven strategy formulation from management-assisted operational coordination."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "34007488-4b2e-4ded-800d-f7e7ce66641c",
+      "concept_name": "Acceptance and Continuance of Client Relationships and Audit Engagements",
+      "definition": "Acceptance and continuance are crucial preliminary activities where the engagement partner ensures appropriate evaluation procedures have been executed. This includes verifying client integrity, team competence, ethical and independence compliance, and reviewing past audit matters.",
+      "terminology": [
+        "Preliminary Engagement Activities",
+        "Client Integrity",
+        "Ethical Requirements"
+      ],
+      "instrument_references": [
+        "SA 220",
+        "SQC 1",
+        "SA 210"
+      ],
+      "inclusion": [
+        "Evaluating management integrity",
+        "Confirming team competency and resources",
+        "Establishing engagement terms"
+      ],
+      "exclusion": [
+        "Substantive analytical testing",
+        "Drafting final audit reports"
+      ],
+      "nearby_distinctions": [
+        "Focuses on pre-engagement evaluation of whether to take or keep a client rather than planning the substantive audit steps."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e67f1836-af3a-4f0d-b17f-3617ad343cf7",
+      "concept_name": "Contents of an Audit Plan",
+      "definition": "An audit plan is more detailed than the overall audit strategy and includes descriptions of the nature, timing, and extent of planned risk assessment procedures. It also outlines further audit procedures at the assertion level and other necessary actions to comply with standards.",
+      "terminology": [
+        "Risk Assessment Procedures",
+        "Further Audit Procedures",
+        "Assertion Level"
+      ],
+      "instrument_references": [
+        "SA 315",
+        "SA 330"
+      ],
+      "inclusion": [
+        "Nature, timing, and extent of risk assessment procedures",
+        "Further audit procedures at assertion level",
+        "Standard-mandated compliance procedures"
+      ],
+      "exclusion": [
+        "High-level scope and direction definitions",
+        "General resource budgeting"
+      ],
+      "nearby_distinctions": [
+        "Provides granular operational details of audit tests compared to the macro-level scope established in the overall audit strategy."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e9ae93d7-7ff3-438b-91cb-56b5168b3002",
+      "concept_name": "Changes to Planning Decisions",
+      "definition": "The auditor must update and modify the overall audit strategy and audit plan during the audit course when unexpected events, changing conditions, or new evidence arise. Such revisions ensure the nature, timing, and extent of further procedures appropriately address newly assessed risks.",
+      "terminology": [
+        "Updating Strategy",
+        "Revised Assessment",
+        "Unexpected Events"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Modifying strategy due to unexpected events",
+        "Updating plans based on contradictory evidence",
+        "Revising procedures for legal changes"
+      ],
+      "exclusion": [
+        "Static adherence to initial plans",
+        "Ignoring contradictory substantive findings"
+      ],
+      "nearby_distinctions": [
+        "Focuses on adaptive modifications during execution rather than the initial creation of the audit plan."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "56f5c596-2af7-48ba-a910-df59f128d87d",
+      "concept_name": "Overall Audit Strategy",
+      "definition": "The overall audit strategy sets the scope, timing, and direction of the audit while guiding the development of the detailed audit plan. Establishing this strategy helps determine resource allocation, deployment timing, and overall management of the engagement.",
+      "terminology": [
+        "Scope",
+        "Timing",
+        "Direction",
+        "Resource Deployment"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Determining engagement characteristics",
+        "Ascertaining reporting objectives",
+        "Directing team efforts and resources"
+      ],
+      "exclusion": [
+        "Detailed assertions-level testing steps",
+        "Specific individual account balance verification methods"
+      ],
+      "nearby_distinctions": [
+        "Acts as a high-level guiding framework that precedes and informs the granular design of the audit plan."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "dd7c72bf-2ccf-4cad-a9ab-4b39c69e42bf",
+      "concept_name": "Factors while Establishing Overall Audit Strategy",
+      "definition": "Establishing an overall audit strategy involves identifying engagement characteristics, ascertaining reporting objectives, and directing team efforts based on professional judgment. It also requires considering preliminary engagement activities and determining necessary resource parameters.",
+      "terminology": [
+        "Engagement Characteristics",
+        "Reporting Objectives",
+        "Preliminary Activities"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Engagement scope identification",
+        "Reporting timeline scheduling",
+        "Resource requirement assessment"
+      ],
+      "exclusion": [
+        "Execution of substantive analytical procedures",
+        "Drafting management letters"
+      ],
+      "nearby_distinctions": [
+        "Enumerates the foundational inputs evaluated when formulating the macro strategy rather than executing field tests."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "fa686adb-0575-47ca-b09c-591f6b459425",
+      "concept_name": "Benefits of Overall Audit Strategy",
+      "definition": "Formulating the overall audit strategy helps the auditor determine the employment, quantitative allocation, timing, and management of required resources. These benefits ensure appropriately experienced staff or experts are deployed efficiently to high-risk areas.",
+      "terminology": [
+        "Qualitative Resources",
+        "Allocation of Resources",
+        "Timing of Deployment"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Deploying qualitative resources for high-risk areas",
+        "Allocating staff quantity to key locations",
+        "Managing supervision and reviews"
+      ],
+      "exclusion": [
+        "Direct execution of test of controls",
+        "Forming the final audit opinion"
+      ],
+      "nearby_distinctions": [
+        "Centers specifically on resource management advantages rather than general risk assessment benefits."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d8c07d46-4316-4734-a75a-6b707c149208",
+      "concept_name": "Considerations in Establishing the Overall Audit Strategy",
+      "definition": "Auditors must evaluate specific engagement characteristics, reporting timetables, and significant factors when establishing the overall audit strategy. These considerations encompass financial reporting frameworks, component structures, IT effects, and preliminary risk assessments.",
+      "terminology": [
+        "Reporting Framework",
+        "Audit Coverage",
+        "Service Organizations",
+        "Materiality"
+      ],
+      "instrument_references": [
+        "SA 320"
+      ],
+      "inclusion": [
+        "Industry-specific reporting requirements",
+        "IT impact evaluation",
+        "Preliminary risk and materiality determinations"
+      ],
+      "exclusion": [
+        "Detailed substantive testing procedures",
+        "Routine clerical verification tasks"
+      ],
+      "nearby_distinctions": [
+        "Provides a comprehensive checklist of specific contextual elements reviewed during high-level strategy development."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "3cb8ca59eaca6c7663dcdfc515c5e26e7ce5744ef101225c81b908f2327af760",
+  "artifact_id": "5e4d4353-2617-4339-ad5e-6031c3e4f133",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8266,
+  "output_tokens": 3130,
+  "cost_usd": 0.0103048,
+  "created_at": "2026-10-03T18:09:52.731640+00:00"
+}

@@ -1,13 +1,16 @@
+import { accountKey, apiRequest, type components } from "@caf/api-client";
 import { useState, useEffect, useRef } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Search, X, Check } from "lucide-react";
-import { curatorClient } from "../lib/client";
+import { curatorClient, requiredData } from "../lib/client";
+import { RequestError } from "./RequestError";
 
 interface SubtopicOption {
   id: string;
   name: string;
   paperCode: string;
   chapterName: string;
+  topicName: string;
 }
 
 interface NodePickerModalProps {
@@ -15,6 +18,9 @@ interface NodePickerModalProps {
   onClose: () => void;
   onSelect: (nodeId: string) => void;
   currentSelectedId?: string | null;
+  taxonomyVersionId?: number;
+  paperId?: string;
+  candidates?: SubtopicOption[];
 }
 
 export function NodePickerModal({
@@ -22,80 +28,74 @@ export function NodePickerModal({
   onClose,
   onSelect,
   currentSelectedId,
+  taxonomyVersionId,
+  paperId,
+  candidates,
 }: NodePickerModalProps) {
   const [search, setSearch] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
+  const dialogRef = useRef<HTMLDialogElement>(null);
 
   // Auto-focus input when opened
   useEffect(() => {
     if (isOpen) {
-      setTimeout(() => inputRef.current?.focus(), 50);
+      dialogRef.current?.showModal();
+      inputRef.current?.focus();
     } else {
       setSearch("");
     }
   }, [isOpen]);
 
   // Query all subtopics across papers
-  const { data: allSubtopics = [] } = useQuery({
-    queryKey: ["curator-all-nodes"],
+  const { data: allSubtopics = [], isPending, error, refetch } = useQuery({
+    queryKey: ["curator-all-nodes", accountKey(), taxonomyVersionId, paperId],
     queryFn: async () => {
-      const papers = ["P1", "P2", "P3", "P4", "P5", "P6"];
-      const nodes: SubtopicOption[] = [];
-
-      for (const p of papers) {
-        try {
-          const res = await curatorClient.GET("/api/v1/tree", {
-            params: { query: { paper: p } },
-          });
-          if (res.data) {
-            const tree: any = res.data;
-            (tree.chapters || []).forEach((ch: any) => {
-              (ch.topics || []).forEach((top: any) => {
-                (top.subtopics || []).forEach((s: any) => {
-                  nodes.push({
-                    id: s.id,
-                    name: s.name,
-                    paperCode: tree.code || p,
-                    chapterName: ch.name,
-                  });
-                });
-              });
-            });
-          }
-        } catch (err) {
-          console.warn(`Failed loading nodes for ${p}:`, err);
-        }
+      if (taxonomyVersionId) {
+        const releases = await apiRequest<components["schemas"]["ReleaseSummary"][]>("/api/v1/taxonomy/versions");
+        const release = releases.find(value => value.taxonomy_version_id === taxonomyVersionId);
+        if (!release) throw new Error("Pinned taxonomy revision unavailable");
+        const trees = await apiRequest<components["schemas"]["TaxonomyTreeNode"][]>(`/api/v1/taxonomy/versions/${encodeURIComponent(release.version_id)}/tree${paperId ? `?paper_id=${encodeURIComponent(paperId)}` : ""}`);
+        const collect = (tree: components["schemas"]["TaxonomyTreeNode"]): SubtopicOption[] => [
+          ...(tree.level === "topic" || tree.level === "subtopic" ? [{ id: tree.id, name: tree.name, paperCode: tree.paper_id, chapterName: tree.breadcrumbs.map(value => value.name).join(" → "), topicName: "" }] : []),
+          ...(tree.children ?? []).flatMap(collect),
+        ];
+        return trees.flatMap(collect);
       }
+      const papers = requiredData(await curatorClient.GET("/api/v1/papers"));
+      const trees = await Promise.all(papers.map(async paper => requiredData(await curatorClient.GET("/api/v1/tree", { params: { query: { paper: paper.id } } }))));
+      const nodes: SubtopicOption[] = trees.flatMap(tree => tree.chapters.flatMap(chapter => chapter.topics.flatMap(topic => topic.subtopics.map(subtopic => ({ id: subtopic.id, name: subtopic.name, paperCode: tree.code, chapterName: chapter.name, topicName: topic.name })))));
+      nodes.sort((a, b) => a.paperCode.localeCompare(b.paperCode) || a.name.localeCompare(b.name) || a.id.localeCompare(b.id));
       return nodes;
     },
-    enabled: isOpen,
+    enabled: isOpen && !candidates,
   });
 
   if (!isOpen) return null;
 
-  const filtered = allSubtopics.filter((n) => {
+  const filtered = (candidates ?? allSubtopics).filter((n) => {
     if (!search) return true;
     const q = search.toLowerCase();
     return (
       n.name.toLowerCase().includes(q) ||
       n.id.toLowerCase().includes(q) ||
       n.paperCode.toLowerCase().includes(q) ||
-      n.chapterName.toLowerCase().includes(q)
+      n.chapterName.toLowerCase().includes(q) || n.topicName.toLowerCase().includes(q)
     );
   });
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-xs animate-in fade-in duration-150">
-      <div className="bg-[#1E293B] rounded-2xl border border-[#334155] shadow-2xl max-w-2xl w-full max-h-[80vh] flex flex-col overflow-hidden text-slate-100">
+    <dialog ref={dialogRef} onCancel={onClose} aria-label="Select Canonical Subtopic" className="review-dialog max-w-2xl w-full p-0">
+      <div className="bg-slate-800 rounded-xl border border-slate-700 max-h-[80vh] flex flex-col overflow-hidden">
         {/* Modal Header */}
         <div className="p-4 border-b border-[#334155] flex items-center justify-between">
           <div>
             <h3 className="font-bold text-sm text-white">Select Canonical Subtopic</h3>
-            <p className="text-[11px] text-slate-400">Search 264 syllabus nodes across all 6 papers</p>
+            <p className="text-[11px] text-slate-400">Search subtopics across returned papers</p>
           </div>
           <button
             type="button"
             onClick={onClose}
+            aria-label="Close node picker"
             className="p-1 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
           >
             <X className="w-5 h-5" />
@@ -112,14 +112,16 @@ export function NodePickerModal({
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search by subtopic name, section number, chapter or node ID…"
-              className="w-full pl-9 pr-3 py-2 rounded-xl text-xs bg-slate-900 border border-slate-700 text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              aria-label="Search topics"
+              className="w-full pl-9 pr-3 py-2 rounded-xl text-sm bg-slate-900 border border-slate-700 placeholder:text-slate-500 focus:ring-2 focus:ring-indigo-500"
             />
           </div>
         </div>
 
         {/* Nodes List */}
         <div className="flex-1 overflow-y-auto divide-y divide-slate-800/80 p-2 text-xs">
-          {filtered.length === 0 ? (
+          <RequestError error={error} retry={() => void refetch()} />
+          {isPending && !candidates ? <p role="status" className="p-8 text-center">Loading subtopics…</p> : error ? null : filtered.length === 0 ? (
             <div className="p-8 text-center text-slate-500">No matching subtopics found.</div>
           ) : (
             filtered.map((item) => {
@@ -149,7 +151,7 @@ export function NodePickerModal({
                       </span>
                     </div>
                     <div className="text-[11px] text-slate-400 truncate">
-                      {item.chapterName} · <span className="font-mono">{item.id}</span>
+                      {item.chapterName}{item.topicName && ` → ${item.topicName}`} · <span className="font-mono">{item.id}</span>
                     </div>
                   </div>
 
@@ -160,6 +162,6 @@ export function NodePickerModal({
           )}
         </div>
       </div>
-    </div>
+    </dialog>
   );
 }

@@ -1,0 +1,350 @@
+{
+  "descriptors": [
+    {
+      "node_id": "933bcf24-e55d-4d98-9ea9-d012603c8664",
+      "concept_name": "Framework for Inspection, Inquiry and Investigation Overview",
+      "definition": "Statutory mechanisms under Chapter XIV of the Companies Act, 2013 enable regulatory oversight and investigative actions into company affairs by authorities including the Registrar, appointed inspectors, and the Central Government. These provisions address potential management power abuses, fraud against stakeholders, or unlawful and oppressive operations.",
+      "terminology": [
+        "Inspection",
+        "Inquiry",
+        "Investigation",
+        "Central Government",
+        "Registrar",
+        "Inspector",
+        "SFIO"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013, Chapter XIV, Sections 206 to 229"
+      ],
+      "inclusion": [
+        "Provisions relating to calling for information",
+        "Inspection of books and accounts",
+        "Search and seizure",
+        "Investigation into company affairs and ownership"
+      ],
+      "exclusion": [
+        "Internal corporate audits",
+        "Independent statutory audits mandated under Chapter X"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard statutory audits by being a punitive or regulatory enforcement review initiated due to suspected fraud, non-compliance, or governance abuse."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ef560a40-5bfc-40de-ac7c-7cdcaaf71c9c",
+      "concept_name": "Power To Call For Information, Inspect Books And Conduct Inquiries",
+      "definition": "The Registrar may issue written notices requiring companies, current officers, and relevant past employees to furnish explanations or produce documents based on document scrutiny or received information. Additional inspection of books and accounts can be ordered if initial responses are missing, inadequate, or indicate an unsatisfactory state of affairs.",
+      "terminology": [
+        "Registrar",
+        "Written notice",
+        "Books of account",
+        "Explanation",
+        "Scrutiny",
+        "Unsatisfactory state of affairs"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013, Section 206"
+      ],
+      "inclusion": [
+        "Calling for written information or explanations",
+        "Production of documents and books of account",
+        "Obligations of past and present officers"
+      ],
+      "exclusion": [
+        "Full-scale investigations conducted by specialized inspectors or the SFIO under later sections",
+        "Search and seizure actions without prior procedural notice"
+      ],
+      "nearby_distinctions": [
+        "Distinct from formal investigations under Sections 210 or 213 because it represents a preliminary document-based inquiry or scrutiny performed directly by the Registrar."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8721ae82-f1d4-4b5a-9951-4c8083b509e1",
+      "concept_name": "Conduct Of Inspection And Inquiry",
+      "definition": "Directors, officers, and employees must produce requested documents, furnish statements, and render full assistance to the Registrar or inspector during an inspection or inquiry. Authorized officers possess civil court powers relating to document discovery, summoning persons, examining them on oath, and inspecting company records.",
+      "terminology": [
+        "Civil court powers",
+        "Examination on oath",
+        "Production of documents",
+        "Penalty for contravention",
+        "Vacation of office"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013, Section 207",
+        "Code of Civil Procedure, 1908"
+      ],
+      "inclusion": [
+        "Making copies or placing identification marks on books",
+        "Enforcing attendance of persons and examining them on oath",
+        "Penalties including imprisonment and vacation of office for non-compliance"
+      ],
+      "exclusion": [
+        "Execution of criminal search warrants performed exclusively under special court authorization",
+        "Final adjudication of corporate guilt"
+      ],
+      "nearby_distinctions": [
+        "Differs from Section 206 document requests by endowing the inspecting authority with formal civil court procedural powers for compelling attendance and evidence."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a4039edc-bf89-42bd-8675-a92dd3bb5e91",
+      "concept_name": "Report On Inspection Made",
+      "definition": "Following an inspection or inquiry, the Registrar or inspector must submit a written report containing recommendations and supporting reasons to the Central Government or Regional Director. This report serves as the basis for deciding whether to close the file or sanction further legal prosecution or formal investigation.",
+      "terminology": [
+        "Inspection report",
+        "Regional Director",
+        "Prosecution",
+        "Further investigation"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013, Section 208",
+        "Notification F No. 3/76/2015-CL-II dated 31-12-2015"
+      ],
+      "inclusion": [
+        "Written report submission to the Regional Director or Central Government",
+        "Recommendations regarding further investigation",
+        "Sanctioning of prosecution based on punishment thresholds"
+      ],
+      "exclusion": [
+        "Direct initiation of criminal search warrants without Special Court involvement",
+        "Self-contained final judicial rulings"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from inquiry execution steps as it represents the formal concluding administrative deliverable submitted post-inspection to trigger subsequent enforcement actions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5f197788-ab5e-4750-8686-f5b29209e1fa",
+      "concept_name": "Search And Seziture",
+      "definition": "Upon reasonable belief that relevant books and papers of the company, key managerial personnel, directors, auditors, or company secretaries are likely to be destroyed or falsified, the Registrar or inspector may obtain a Special Court order to enter, search, and seize documents. Seized original records must be returned within 180 days while allowing the company to take copies.",
+      "terminology": [
+        "Special Court",
+        "Search and seizure",
+        "Falsified or secreted",
+        "180 days return period",
+        "Key managerial personnel"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013, Section 209",
+        "Code of Criminal Procedure"
+      ],
+      "inclusion": [
+        "Obtaining search and seizure orders from a Special Court",
+        "Entering and searching premises to secure records",
+        "Mandatory return of seized papers within 180 days"
+      ],
+      "exclusion": [
+        "Routine document inspection conducted under standard notices",
+        "Permanent retention of seized original books and papers by the authority"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard information-calling powers under Section 206 by involving forcible entry, judicial warrants, and evidentiary preservation safeguards against document destruction."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7172d480-75e2-4b8b-bdbe-a845a99ee41a",
+      "concept_name": "Investigation Into Affairs Of Company",
+      "definition": "The Central Government may order an investigation into a company's affairs based on an inspection report, a special resolution passed by the company, public interest, or court and tribunal orders, appointing one or more inspectors for this purpose. Applicants requesting investigations may be required to deposit sliding-scale security based on company turnover, which is refundable if the process results in prosecution.",
+      "terminology": [
+        "Central Government",
+        "Special resolution",
+        "Public interest",
+        "Inspector appointment",
+        "Security deposit"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013, Section 210",
+        "Companies (Inspection, investigation and inquiry) Rules, 2014"
+      ],
+      "inclusion": [
+        "Mandatory investigation orders by courts or tribunals",
+        "Suo moto investigations in public interest",
+        "Security deposit determination based on annual turnover"
+      ],
+      "exclusion": [
+        "Preliminary inquiries handled exclusively by the local Registrar",
+        "Routine statutory audits"
+      ],
+      "nearby_distinctions": [
+        "Differs from a Registrar-led inspection under Section 206 by representing a comprehensive deep-dive investigation executed by designated specialized inspectors appointed directly by the Central Government."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "56eeb90c-0405-4e04-b5a7-f3a07a933af7",
+      "concept_name": "Investigation Into Affairs Of Company By Serious Fraud Investigation Office",
+      "definition": "The Central Government may assign corporate investigations to the Serious Fraud Investigation Office under specific circumstances such as registrar reports, special resolutions, public interest, or government department requests. The SFIO exercises comprehensive investigative powers, handles arrests under specific safeguards, and submits interim and final reports to the Central Government.",
+      "terminology": [
+        "Serious Fraud Investigation Office",
+        "SFIO",
+        "Cognizable offence",
+        "Interim report",
+        "Arrest"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013, Section 212",
+        "Companies Act, 2013, Section 447"
+      ],
+      "inclusion": [
+        "Assignment of investigation to the SFIO by the Central Government",
+        "Arrest powers and judicial magistrate production procedures",
+        "Transfer of records from pending investigating agencies"
+      ],
+      "exclusion": [
+        "Standard administrative inspections performed by local registrars",
+        "Non-fraudulent routine inquiries"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard inspector investigations by focusing specifically on serious corporate frauds with specialized multi-disciplinary enforcement and arrest capabilities."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ad0370a5-b2f9-444a-ba6e-b78f3d5776f7",
+      "concept_name": "Investigation Into Company's Affairs In Other Cases",
+      "definition": "The National Company Law Tribunal may order an investigation into a company's affairs upon application by specified numbers of members or other persons when circumstances suggest fraud, unlawful formation, mismanagement, misfeasance, or withholding of vital information from members. Prior to issuing an order, the Tribunal must provide all concerned parties a reasonable opportunity of being heard.",
+      "terminology": [
+        "National Company Law Tribunal",
+        "NCLT",
+        "Fraudulent purpose",
+        "Misfeasance",
+        "Voting power threshold"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013, Section 213"
+      ],
+      "inclusion": [
+        "Applications by members holding specified voting power or share capital proportions",
+        "Tribunal-ordered investigations for fraud, misfeasance, or oppression",
+        "Mandatory opportunity of being heard for concerned parties"
+      ],
+      "exclusion": [
+        "Suo moto executive orders issued directly by the Central Government without tribunal or member applications",
+        "Routine Registrar inquiries"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from Central Government-initiated investigations under Section 210 because proceedings are initiated via a judicial or quasi-judicial application before the Tribunal."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7caf4961-989e-4058-9bbd-5f413a8240cd",
+      "concept_name": "Security For Payment Of Costs And Expenses Of Investigation",
+      "definition": "When an investigation is ordered by the Central Government following a company special resolution or by the Tribunal upon member application, applicants may be required to deposit financial security up to twenty-five thousand rupees to cover investigation costs. This security is refunded to the applicant if the investigation ultimately results in prosecution.",
+      "terminology": [
+        "Security for costs",
+        "Refund of security",
+        "Investigation expenses",
+        "Special resolution"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013, Section 214",
+        "Companies (Inspection, Investigation & Inquiry) Rules, 2014"
+      ],
+      "inclusion": [
+        "Deposits required for investigations ordered via special resolution or Tribunal application",
+        "Refund conditions linked to prosecution outcomes"
+      ],
+      "exclusion": [
+        "Suo moto investigations initiated directly by the Central Government in public interest",
+        "Registrar-led routine inspections"
+      ],
+      "nearby_distinctions": [
+        "Differs from routine administrative funding because it imposes a conditional financial security requirement specifically on private applicants petitioning for investigations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "89dd85d4-6655-41f5-9812-63c17ce7d55a",
+      "concept_name": "Firm, Body Corporate Or Association Not To Be Appointed As Inspector",
+      "definition": "Statutory provisions expressly prohibit the appointment of any firm, body corporate, or other association of persons to act as an inspector for conducting company investigations.",
+      "terminology": [
+        "Body corporate",
+        "Firm",
+        "Association",
+        "Inspector eligibility"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013, Section 215"
+      ],
+      "inclusion": [
+        "Prohibition against corporate entities or partnerships serving as inspectors"
+      ],
+      "exclusion": [
+        "Individual natural persons appointed as competent inspecting authorities"
+      ],
+      "nearby_distinctions": [
+        "Serves as an eligibility restriction specific to the appointment of investigators, differentiating statutory inspector appointments from corporate audit firm engagements."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "efa43317-090b-4c90-832b-304773db3d7e",
+      "concept_name": "Investigation Of Ownership Of Company",
+      "definition": "The Central Government may appoint inspectors to investigate company membership and ownership to identify persons financially interested in the company's success or failure, those controlling its policies, or true beneficial and significant beneficial owners. The investigation scope can be explicitly defined by the government, and inspectors may examine informal arrangements or understandings influencing company practices.",
+      "terminology": [
+        "Beneficial owner",
+        "Significant beneficial owner",
+        "True persons",
+        "Control and policy",
+        "Scope of investigation"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013, Section 216"
+      ],
+      "inclusion": [
+        "Determining true beneficial owners and significant beneficial owners",
+        "Investigating informal understandings and non-binding arrangements",
+        "Defining specific scopes or time periods for ownership probes"
+      ],
+      "exclusion": [
+        "General operational audits not focused on shareholding control or beneficial ownership",
+        "Standard financial statement verification"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general management investigations by concentrating exclusively on corporate ownership structures, beneficial shareholding interests, and ultimate controlling parties."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "33f041af-9ba2-47d9-abe4-6a6eab0fe856",
+      "concept_name": "Procedure, Powers, Etc., Of Inspectors",
+      "definition": "All current and former officers, employees, and agents of a company under investigation must preserve and produce all books and papers and provide reasonable assistance to the inspector. Inspectors can retain produced documents for up to 180 days and possess powers to examine individuals on oath, with specific approvals required for examining other third-party persons.",
+      "terminology": [
+        "Examination on oath",
+        "Custody period of 180 days",
+        "Duty of officers and agents",
+        "Production of books and papers"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013, Section 217",
+        "Companies Act, 2013, Section 219"
+      ],
+      "inclusion": [
+        "Obligations of former and present officers to provide assistance and documents",
+        "180-day limitation on document custody by inspectors without re-application",
+        "Conducting examinations on oath"
+      ],
+      "exclusion": [
+        "Permanent retention of company books without statutory written extensions",
+        "Unrestricted third-party interrogations without requisite prior approvals"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general powers of Registrars by detailing the operational parameters, custody limits, and evidentiary examination powers specific to formally appointed inspectors."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "ec9cb19fa32af39d84925749b42bbef0cbde60a1fc32039c3764f74cafffbae4",
+  "artifact_id": "1b6aca10-5dd9-42ff-86ce-eea5181f54ad",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 9884,
+  "output_tokens": 4114,
+  "cost_usd": 0.0132502,
+  "created_at": "2026-10-03T18:24:12.305420+00:00"
+}

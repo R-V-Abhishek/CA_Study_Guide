@@ -1,0 +1,327 @@
+{
+  "descriptors": [
+    {
+      "node_id": "61f1aebf-1db0-421d-8c8a-cd041965d857",
+      "concept_name": "Deferred Payment Cost Measurement",
+      "definition": "The cost of property, plant, and equipment acquired under deferred payment terms is recorded at its cash price equivalent at the recognition date. The difference between the total payments and this cash price equivalent is recognized as interest expense over the credit period.",
+      "terminology": [
+        "Cash price equivalent",
+        "Deferred payment",
+        "Implicit interest rate"
+      ],
+      "instrument_references": [
+        "Ind AS 16",
+        "Ind AS 23"
+      ],
+      "inclusion": [
+        "Present value calculations of future installments using implicit interest rates",
+        "Recognition of interest expense over the credit period"
+      ],
+      "exclusion": [
+        "Nominal total payment amounts as initial asset cost",
+        "Immediate expensing of deferred payment financing differences"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard cash purchases by requiring present value discounting and interest separation"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "88f25552-640f-4984-b4d9-3c9ceec82de7",
+      "concept_name": "Measurement After Recognition",
+      "definition": "Entities must choose either the cost model or the revaluation model as an accounting policy and apply it consistently to an entire class of property, plant, and equipment. These alternative bases govern the subsequent carrying value of assets after initial recognition.",
+      "terminology": [
+        "Cost model",
+        "Revaluation model",
+        "Carrying amount",
+        "Class of property"
+      ],
+      "instrument_references": [
+        "Ind AS 16"
+      ],
+      "inclusion": [
+        "Selection of uniform accounting policies across asset classes",
+        "Subsequent measurement using cost or fair value frameworks"
+      ],
+      "exclusion": [
+        "Applying mixed measurement models within the same asset class",
+        "Applying policies selectively to individual assets rather than classes"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from initial recognition rules by focusing on ongoing asset valuation and adjustments"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e8ff5df4-6287-45fe-81b9-e09d69c7719e",
+      "concept_name": "Alternative Bases Available For Measurement After Recognition",
+      "definition": "Entities must select either the cost model or the revaluation model as an accounting policy for an entire class of property, plant and equipment. This policy choice dictates how asset values are adjusted subsequent to initial recognition.",
+      "terminology": [
+        "Cost model",
+        "Revaluation model",
+        "Class of assets"
+      ],
+      "instrument_references": [
+        "Ind AS 16"
+      ],
+      "inclusion": [
+        "Entity policy choice between cost and revaluation models",
+        "Consistent application across asset classes"
+      ],
+      "exclusion": [
+        "Inconsistent application of models within a single asset category"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from initial recognition by governing ongoing measurement choices"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c23c63eb-4d3c-49fa-b8e5-74f87a55f436",
+      "concept_name": "Cost Model",
+      "definition": "Under the cost model, an item of property, plant, and equipment is carried at its historical cost less any accumulated depreciation and accumulated impairment losses. This represents one of the two primary alternative measurement bases after recognition.",
+      "terminology": [
+        "Historical cost",
+        "Accumulated depreciation",
+        "Accumulated impairment losses",
+        "Carrying amount"
+      ],
+      "instrument_references": [
+        "Ind AS 16"
+      ],
+      "inclusion": [
+        "Deduction of accumulated depreciation from original cost",
+        "Deduction of accumulated impairment losses from original cost"
+      ],
+      "exclusion": [
+        "Upward adjustments to fair value without explicit revaluation model adoption",
+        "Reflecting market value fluctuations directly in the carrying amount"
+      ],
+      "nearby_distinctions": [
+        "Contrasts with the revaluation model by prohibiting upward re-estimations of fair value"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8413e9ba-e529-45a5-ac92-e1d81f284d14",
+      "concept_name": "Revaluation Model",
+      "definition": "Under the revaluation model, an asset whose fair value can be measured reliably is carried at a revalued amount, representing its fair value at the date of revaluation less subsequent depreciation and impairment. Revaluations must be performed with sufficient regularity to prevent material divergence from fair value.",
+      "terminology": [
+        "Revalued amount",
+        "Fair value",
+        "Regularity of revaluation",
+        "Accumulated depreciation"
+      ],
+      "instrument_references": [
+        "Ind AS 16"
+      ],
+      "inclusion": [
+        "Carrying assets at fair value minus subsequent depreciation and impairment",
+        "Periodic revaluations based on market volatility"
+      ],
+      "exclusion": [
+        "Applying revaluation selectively to isolated assets without including the whole class",
+        "Maintaining unadjusted historical costs when fair values differ materially"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from the cost model through its reliance on periodic fair value adjustments and market references"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "be3a8e10-1fd0-4cac-a504-e77fe983b8e1",
+      "concept_name": "Depreciation",
+      "definition": "Depreciation is the systematic allocation of an asset's depreciable amount over its useful life, recognized in profit or loss unless included in another asset's carrying amount. Significant components of an item with distinct useful lives or consumption patterns must be depreciated separately.",
+      "terminology": [
+        "Depreciable amount",
+        "Useful life",
+        "Component depreciation",
+        "Residual value"
+      ],
+      "instrument_references": [
+        "Ind AS 16"
+      ],
+      "inclusion": [
+        "Systematic allocation over useful life",
+        "Separate depreciation of significant asset components",
+        "Periodic review of residual values and useful lives"
+      ],
+      "exclusion": [
+        "Depreciating land with unlimited useful life",
+        "Omitting depreciation when market values increase"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from impairment as a routine allocation of cost rather than an unexpected loss in recoverable value"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "04eb7b78-f186-447a-b5dd-3c5e504cd68a",
+      "concept_name": "Impairment",
+      "definition": "Items of property, plant, and equipment are evaluated for impairment using specific accounting standards to determine recoverable amounts and recognize losses. Third-party compensation for impaired or lost assets is accounted for as a separate economic event and recognized when receivable.",
+      "terminology": [
+        "Recoverable amount",
+        "Impairment loss",
+        "Third-party compensation"
+      ],
+      "instrument_references": [
+        "Ind AS 16",
+        "Ind AS 36"
+      ],
+      "inclusion": [
+        "Identification and measurement of impairment losses",
+        "Recognition of receivable third-party compensation in profit or loss"
+      ],
+      "exclusion": [
+        "Netting replacement asset costs directly against compensation proceeds",
+        "Deferring compensation recognition beyond the date it becomes receivable"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from depreciation by addressing sudden or structural reductions in recoverable value rather than systematic allocation"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8bcba18a-97f2-4274-bbce-f3747911a59a",
+      "concept_name": "Derecognition",
+      "definition": "The carrying amount of an item of property, plant, and equipment must be derecognized upon disposal or when no future economic benefits are expected from its use or disposal. Gains or losses from derecognition are calculated as the difference between net disposal proceeds and the carrying amount, and are recognized in profit or loss.",
+      "terminology": [
+        "Derecognition",
+        "Net disposal proceeds",
+        "Carrying amount",
+        "Control"
+      ],
+      "instrument_references": [
+        "Ind AS 16",
+        "Ind AS 115",
+        "Ind AS 116"
+      ],
+      "inclusion": [
+        "Derecognition upon asset disposal or loss of future economic benefits",
+        "Recognition of replacement part carrying amounts with simultaneous derecognition of replaced parts"
+      ],
+      "exclusion": [
+        "Classifying derecognition gains as revenue",
+        "Failing to derecognize replaced components when new parts are capitalized"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from impairment by representing complete removal from the balance sheet due to retirement, sale, or lack of benefits"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8356ed01-dea7-4561-95e8-0a1b4ceac8bd",
+      "concept_name": "Derecognition- General",
+      "definition": "The carrying amount of property, plant, and equipment is derecognized upon disposal or when no further economic benefits are expected. The resulting gain or loss is calculated as the difference between net disposal proceeds and the carrying amount, and is included in profit or loss.",
+      "terminology": [
+        "Derecognition",
+        "Disposal proceeds",
+        "Carrying amount"
+      ],
+      "instrument_references": [
+        "Ind AS 16",
+        "Ind AS 115",
+        "Ind AS 116"
+      ],
+      "inclusion": [
+        "Determining disposal date based on control transfer principles",
+        "Calculating gain or loss via net proceeds versus carrying amount"
+      ],
+      "exclusion": [
+        "Treating derecognition gains as operational revenue"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from routine depreciation adjustments by permanently removing the asset base"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9bd6d8c7-bc7b-4203-9252-0532bf5bef43",
+      "concept_name": "PPE Disclosure Requirements",
+      "definition": "Financial statements must disclose comprehensive details for each class of property, plant, and equipment, including measurement bases, depreciation methods, useful lives, and a complete reconciliation of beginning and ending carrying amounts. Additional disclosures cover title restrictions, pledged assets, and construction commitments.",
+      "terminology": [
+        "Gross carrying amount",
+        "Reconciliation",
+        "Depreciation methods",
+        "Pledged assets"
+      ],
+      "instrument_references": [
+        "Ind AS 16",
+        "Ind AS 105",
+        "Ind AS 36"
+      ],
+      "inclusion": [
+        "Reconciliation of beginning to ending carrying amounts showing additions, disposals, and depreciation",
+        "Disclosures regarding title restrictions and pledged security"
+      ],
+      "exclusion": [
+        "Omitting reconciliations for non-material asset categories without policy backing"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from primary recognition and measurement rules by focusing on transparency and financial statement disclosures"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a5515ebf-ad5a-4ef9-871e-8b6cf4dc108e",
+      "concept_name": "Disclosure- General",
+      "definition": "Entities must disclose measurement bases, depreciation methods, useful lives, and reconciliations of beginning and ending balances for each class of property, plant, and equipment. Additional required disclosures encompass title restrictions, security pledges, and contractual acquisition commitments.",
+      "terminology": [
+        "Class of property",
+        "Reconciliation",
+        "Useful lives",
+        "Restrictions on title"
+      ],
+      "instrument_references": [
+        "Ind AS 16",
+        "Ind AS 105",
+        "Ind AS 36"
+      ],
+      "inclusion": [
+        "Disclosure of measurement bases and depreciation rates",
+        "Movement reconciliation including additions, disposals, and revaluations"
+      ],
+      "exclusion": [
+        "Excluding commitments or encumbrances from explanatory notes"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from measurement rules by providing qualitative and quantitative context to financial statement users"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "85c497cf-b3b5-4a02-a5f4-c5a8abc3ad70",
+      "concept_name": "Items Stated At Revalued Amounts",
+      "definition": "When property, plant, and equipment are carried at revalued amounts, entities must disclose the revaluation effective date, involvement of independent valuers, comparative cost model carrying amounts, and revaluation surplus movements. Additional recommended disclosures cover idle assets and fully depreciated items still in use.",
+      "terminology": [
+        "Revalued amounts",
+        "Independent valuer",
+        "Revaluation surplus",
+        "Temporarily idle"
+      ],
+      "instrument_references": [
+        "Ind AS 16",
+        "Ind AS 105"
+      ],
+      "inclusion": [
+        "Effective date of revaluation",
+        "Comparison against cost model carrying amounts",
+        "Revaluation surplus movement disclosures"
+      ],
+      "exclusion": [
+        "Omitting restrictions on distribution of revaluation surplus balances"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard cost model disclosures by requiring specialized fair value and surplus tracking metrics"
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "ea77720db7fdcf8e9011d5bd3a9406e1ab5d5a6a9296c0e73843608407ec9a60",
+  "artifact_id": "c97b2ef7-3ba1-494f-aa92-b38d2be0bb32",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 9237,
+  "output_tokens": 3480,
+  "cost_usd": 0.0114711,
+  "created_at": "2026-10-03T17:49:16.224648+00:00"
+}

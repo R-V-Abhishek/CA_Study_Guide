@@ -1,0 +1,35 @@
+{
+  "result": {
+    "question_id": "205c5dd296559d87beedce820e14afecc4516b4d6d9e22ad1fd5deb16bf7de8b",
+    "input_hash": "2f87b2a3a40ad3997a8f4794185232101d695083f568645ee51c5385628280c9",
+    "mappings": [
+      {
+        "part_id": "205c5dd296559d87beedce820e14afecc4516b4d6d9e22ad1fd5deb16bf7de8b:S194.Q4.d",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "The part has no extracted question text, and the shared stem only lists broad income headings. The answer contains only \u201c(d)\u201d, so the tested concept cannot be identified reliably.",
+        "confidence": null,
+        "bucket": null
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "cf4acdb65ec36efe89a404eaccc570c620244105067fab36f1620b04bd31e1a8",
+    "schema_generator": "pinned-part-ids-v1",
+    "seconds": 12.485,
+    "usage": [
+      {
+        "input_tokens": 49480,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 335,
+        "reasoning_output_tokens": 124
+      }
+    ],
+    "completed_at": "2026-10-05T15:56:51.160514+00:00"
+  }
+}

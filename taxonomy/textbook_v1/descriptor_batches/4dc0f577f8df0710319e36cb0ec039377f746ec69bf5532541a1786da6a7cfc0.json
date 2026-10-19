@@ -1,0 +1,307 @@
+{
+  "descriptors": [
+    {
+      "node_id": "e63b636b-1d5b-44bd-be18-56365eb7cb16",
+      "concept_name": "Identification of Types of Risk Faced by an Organization",
+      "definition": "Organizations encounter various organizational risks that can impact their business objectives and operational stability. Recognizing these risk exposures allows management to implement appropriate methods for evaluation and mitigation.",
+      "terminology": [
+        "Strategic Risk",
+        "Compliance Risk",
+        "Financial Risk"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Evaluation of financial risks",
+        "Identification methods for organizational exposures"
+      ],
+      "exclusion": [
+        "Detailed quantitative modeling",
+        "Specific hedging transactions"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from operational execution errors by focusing on high-level organizational plans and external changes."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d946fd9d-09bd-4f5d-8e34-bcc979fd8ad5",
+      "concept_name": "Strategic Risk",
+      "definition": "Strategic risk arises when a company's business plan or strategy becomes less effective due to shifting trends, causing it to struggle in achieving its goals. It is driven by large-scale changes such as technological shifts, new market entrants, or alterations in customer demand.",
+      "terminology": [
+        "Business Plan",
+        "Technological Changes",
+        "Market Entrants"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Outdated business models",
+        "Failure to adopt technological innovations",
+        "Shifts in customer demand"
+      ],
+      "exclusion": [
+        "Day-to-day transaction errors",
+        "Regulatory penalties from non-compliance"
+      ],
+      "nearby_distinctions": [
+        "Differs from operational risk because it involves overarching strategic misalignment rather than internal process or people failures."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "fe9ad1c7-b38e-4acf-8062-6684630a79e0",
+      "concept_name": "Compliance Risk",
+      "definition": "Compliance risk occurs when a business fails to adhere to applicable laws, regulations, and guidelines, leading to potential fines, penalties, or imprisonment. It often intensifies when organizations expand into new geographical areas or introduce new business lines with unfamiliar regulatory frameworks.",
+      "terminology": [
+        "Companies Act, 2013",
+        "SEBI Guidelines",
+        "Regulatory Penalties"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Statutory non-compliance penalties",
+        "Jurisdictional legal differences",
+        "Fines and imprisonment risks"
+      ],
+      "exclusion": [
+        "Market price fluctuations",
+        "Internal operational process breakdowns"
+      ],
+      "nearby_distinctions": [
+        "Distinct from strategic risk by focusing strictly on legal and regulatory adherence rather than long-term business plan effectiveness."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "84ee0ac3-96a1-4812-afe4-78c934521f36",
+      "concept_name": "Operational Risk",
+      "definition": "Operational risk pertains to internal vulnerabilities and failures in managing daily operational problems, involving both people and processes. Organizations mitigate these risks by instituting internal checking mechanisms or electronic verification controls.",
+      "terminology": [
+        "Internal Risk",
+        "Process Risk",
+        "People Risk"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Transaction execution errors",
+        "Day-to-day operational breakdowns",
+        "Human and procedural failures"
+      ],
+      "exclusion": [
+        "Macroeconomic interest rate shifts",
+        "External regulatory non-compliance"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from financial market risks by centering exclusively on internal workflow and personnel mistakes."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5da3c0e4-f742-43ff-a309-b8c79e5462ab",
+      "concept_name": "Financial Risk",
+      "definition": "Financial risk refers to unexpected changes in financial conditions such as market prices, exchange rates, credit ratings, and interest rates. It encompasses exposures like counterparty defaults, political events, interest rate shifts, and currency volatility that can impact organizational cash flows.",
+      "terminology": [
+        "Counter Party Risk",
+        "Political Risk",
+        "Interest Rate Risk",
+        "Currency Risk"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Unexpected financial condition changes",
+        "Exchange rate movements",
+        "Interest rate fluctuations"
+      ],
+      "exclusion": [
+        "Internal clerical errors",
+        "Regulatory statutory fines"
+      ],
+      "nearby_distinctions": [
+        "Unlike operational risk, financial risk arises from external financial variables and market conditions rather than internal process breakdowns."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9de85d11-480b-4288-b6a3-e7360c767005",
+      "concept_name": "Evaluation of Financial Risk",
+      "definition": "Financial risk is evaluated from multiple perspectives including stakeholders concerned with capital gearing, companies vulnerable to excessive borrowing or defaults, and governments monitoring systemic institutional failures. Additionally, Value-at-Risk provides a statistical estimate of maximum potential investment loss under normal market conditions.",
+      "terminology": [
+        "Financial Gearing",
+        "Default",
+        "Value-at-Risk (VAR)",
+        "Sovereign Debt Crisis"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Stakeholder perspective on gearing",
+        "Government view on systemic defaults",
+        "Statistical loss estimation"
+      ],
+      "exclusion": [
+        "Internal human resource performance reviews",
+        "Statutory corporate governance filings"
+      ],
+      "nearby_distinctions": [
+        "Focuses on evaluative viewpoints and quantitative risk measurement rather than qualitative strategic positioning."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "17fddf0a-fe9d-4949-8c47-5a368f0c96a3",
+      "concept_name": "Value-at-Risk (VAR)",
+      "definition": "Value-at-Risk estimates the potential loss of an investment portfolio over a specific time horizon under normal market conditions at a given confidence level. It utilizes standard deviation and Z-scores to answer worst-case scenario loss questions for risk control and asset management.",
+      "terminology": [
+        "Time Horizon",
+        "Confidence Level",
+        "Z Score",
+        "Standard Deviation"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Portfolio loss estimation",
+        "Front office treasury limit setting",
+        "Asset and liability management"
+      ],
+      "exclusion": [
+        "Qualitative strategic planning",
+        "Non-statistical regulatory compliance assessments"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard descriptive risk categories by offering a rigorous statistical computation of maximum probable monetary loss."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "aa4de80c-1228-4c66-8f7d-7a4c6ca3d1a5",
+      "concept_name": "Features of VAR",
+      "definition": "VAR calculations rely on components like time period, confidence levels, and percentage or monetary loss measurements using standard deviation. It functions as a statistical tool that applies Z-scores to predict maximum possible losses and establish risk control limits.",
+      "terminology": [
+        "Confidence Level",
+        "Statistical Method",
+        "Z Score",
+        "Risk Control"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Calculation components",
+        "Z score applications",
+        "Probability predictions"
+      ],
+      "exclusion": [
+        "Non-quantitative compliance management",
+        "Qualitative operational assessments"
+      ],
+      "nearby_distinctions": [
+        "Focuses on the mathematical properties and parameters underpinning VAR rather than its broader management applications."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "98511f24-8898-4d65-b226-7499ab234d99",
+      "concept_name": "Application of VAR",
+      "definition": "VAR can be utilized to quantify maximum possible losses for portfolios, serve as a performance benchmark, and set trading limits for treasury operations. It also assists management in formulating trading strategies and acts as an asset-liability management tool.",
+      "terminology": [
+        "Portfolio",
+        "Performance Measurement",
+        "Treasury Department",
+        "Asset and Liability Management"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Measuring trading position losses",
+        "Setting front office limits",
+        "Benchmarking operations"
+      ],
+      "exclusion": [
+        "Internal fraud detection",
+        "Legal dispute resolution"
+      ],
+      "nearby_distinctions": [
+        "Differs from theoretical calculation features by emphasizing practical operational deployment in treasury and portfolio management."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "da8c3cfc-3a2f-4ef2-8b20-99e7b681edc1",
+      "concept_name": "Appropriate Methods for Identification and Management of Financial Risk",
+      "definition": "Financial risks require distinct identification indicators and management techniques tailored to categories like counterparty and political risks. Mitigation strategies involve due diligence, exposure limits, local sourcing, and joint ventures to protect organizational assets.",
+      "terminology": [
+        "Counter Party Risk",
+        "Political Risk",
+        "Due Diligence",
+        "Mitigation Techniques"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Identification hints for financial risk categories",
+        "Specific risk mitigation techniques"
+      ],
+      "exclusion": [
+        "General operational error correction",
+        "Routine statutory filing compliance"
+      ],
+      "nearby_distinctions": [
+        "Focuses on actionable identification and mitigation measures for specific financial risk types rather than general risk definitions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1861860c-6f6b-4542-a5df-90703c424584",
+      "concept_name": "Counter Party Risk",
+      "definition": "Counterparty risk arises when a third party fails to honor contractual obligations, such as delivering goods, making payments, or repaying borrowings. It is managed by performing due diligence, monitoring exposure limits, and utilizing performance guarantees or insurance instruments.",
+      "terminology": [
+        "Credit Risk",
+        "Due Diligence",
+        "Exposure Limits",
+        "Performance Guarantee"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Default by third parties",
+        "Failure to deliver goods or payments",
+        "Insolvency of counterparties"
+      ],
+      "exclusion": [
+        "Macroeconomic interest rate fluctuations",
+        "Hostile actions by foreign governments"
+      ],
+      "nearby_distinctions": [
+        "Differs from political risk by concentrating on individual commercial partner defaults rather than host government policy actions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9dae561b-9f7d-4cb1-9359-2f399730d368",
+      "concept_name": "Political Risk",
+      "definition": "Political risk affects overseas investments through adverse host government actions such as asset expropriation, currency conversion restrictions, and price controls. Companies assess and mitigate this risk by evaluating macroeconomic conditions, forming joint ventures, and utilizing local financing.",
+      "terminology": [
+        "Expropriation",
+        "Host Country",
+        "Currency Restriction",
+        "Joint Ventures"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Expropriation of foreign assets",
+        "Remittance and conversion restrictions",
+        "Local price fixation"
+      ],
+      "exclusion": [
+        "Domestic commercial counterparty defaults",
+        "Internal operational process failures"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from counterparty risk by stemming from sovereign governmental interference rather than private commercial partner default."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "4dc0f577f8df0710319e36cb0ec039377f746ec69bf5532541a1786da6a7cfc0",
+  "artifact_id": "f96af2e9-9dd3-49ec-b3b8-c355bcba1aff",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8119,
+  "output_tokens": 3093,
+  "cost_usd": 0.0101682,
+  "created_at": "2026-10-03T18:06:14.251228+00:00"
+}

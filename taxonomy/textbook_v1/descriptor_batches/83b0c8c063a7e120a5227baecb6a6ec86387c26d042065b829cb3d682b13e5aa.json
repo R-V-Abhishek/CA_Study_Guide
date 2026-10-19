@@ -1,0 +1,298 @@
+{
+  "descriptors": [
+    {
+      "node_id": "3c95aa35-d0f0-43b8-b600-59205260535d",
+      "concept_name": "Sealed Bid-Pricing",
+      "definition": "Sealed bid-pricing involves offering a competitive price based primarily on expectations of competitor behavior rather than strict cost-plus relationships. Firms aim to set prices lower than rival bidders to secure contracts while ensuring prices do not fall below marginal costs.",
+      "terminology": [
+        "Sealed bid",
+        "Competitive pricing",
+        "Marginal cost",
+        "Offer price"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Original equipment manufacturer contract work",
+        "Defense contract work"
+      ],
+      "exclusion": [
+        "Rigid cost-based pricing",
+        "Retail consumer pricing"
+      ],
+      "nearby_distinctions": [
+        "Differs from standard cost-plus pricing by focusing primarily on competitor estimation rather than internal margins."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a6972225-a6b1-4c30-86e8-35d46a71e65d",
+      "concept_name": "Psychological Pricing",
+      "definition": "Psychological pricing utilizes specific price points just below round numbers to bypass consumer psychological barriers. This method leverages consumer perception by structuring prices such as ending in odd digits rather than flat amounts.",
+      "terminology": [
+        "Psychological barrier",
+        "Bata pricing",
+        "Odd pricing"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Pricing items at odd figures like 999 instead of 1,000",
+        "Pricing electronics at 59,999 instead of 60,000"
+      ],
+      "exclusion": [
+        "Flat round-number pricing",
+        "True economic value calculations"
+      ],
+      "nearby_distinctions": [
+        "Focuses purely on numerical consumer perception rather than underlying economic utility or direct production costs."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b3926e27-cbec-4a62-9357-1a280ffc6d98",
+      "concept_name": "Value-Based Pricing Method",
+      "definition": "Value-based pricing establishes product prices based on customer perceptions of value and true economic benefits relative to alternatives. This method mitigates price wars by anchoring price points to objective economic value and perceived utility.",
+      "terminology": [
+        "True Economic Value",
+        "Perceived Value",
+        "Performance Differential",
+        "Next Best Alternative"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Objective value calculations using performance differentials",
+        "Customer perceived value assessments"
+      ],
+      "exclusion": [
+        "Purely cost-plus pricing models",
+        "Arbitrary competitor matching"
+      ],
+      "nearby_distinctions": [
+        "Relies on external customer utility metrics and market alternatives rather than internal manufacturing expenses."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a57cef49-d491-44a9-a84d-30248a0dc30a",
+      "concept_name": "Pricing of Services",
+      "definition": "Service pricing accounts for unique intangible service characteristics such as perishability, inseparability, and variability across diverse classifications. Pricing structures must also incorporate customer participation levels, intangible customer costs, and regulatory constraints.",
+      "terminology": [
+        "Intangibility",
+        "Perishability",
+        "People Processing Service",
+        "Possession Processing Service"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "People processing services like haircuts",
+        "Information processing services like insurance"
+      ],
+      "exclusion": [
+        "Traditional physical goods manufacturing cost models",
+        "Tangible inventory holding calculations"
+      ],
+      "nearby_distinctions": [
+        "Accounts for perishable capacity and customer participation which do not apply to storable physical goods."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "30a87f01-2214-4d45-b62b-cf2d66e9bd4b",
+      "concept_name": "Pricing in Case of Emerging Business Models",
+      "definition": "Pricing under emerging business models adapts to structural market shifts, sustainability obligations, and regional price sensitivities. Decisions balance economic considerations with social impacts, environmental footprints, and local consumer purchasing power.",
+      "terminology": [
+        "Hyper Disruptive Business Models",
+        "Sustainability Pricing",
+        "Emerging National Markets",
+        "Value for Money"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Pricing adjustments for high consumption and price sensitive markets",
+        "Incorporating social and environmental implications into pricing"
+      ],
+      "exclusion": [
+        "Static domestic cost-plus pricing frameworks",
+        "Traditional single-market uniform pricing"
+      ],
+      "nearby_distinctions": [
+        "Integrates external socio-environmental factors and national market price elasticity beyond standard cost or demand curves."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e48d1580-0f84-476f-8002-0c8b30e7ebc7",
+      "concept_name": "Hyper Disruptive Business Models",
+      "definition": "Hyper disruptive business model pricing depends heavily on the nature of market disruption and the resources required for competitors to imitate the service. Prices are tailored to reflect disintermediation and systemic re-engineering of traditional sectors.",
+      "terminology": [
+        "Disintermediation",
+        "Disruptive business models",
+        "Imitation resources"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Pricing strategies for optimized or re-engineered market roles",
+        "Evaluation of imitation timeframes"
+      ],
+      "exclusion": [
+        "Conventional stable market pricing",
+        "Regulated utility pricing"
+      ],
+      "nearby_distinctions": [
+        "Anchors strategy to structural industry transformation and competitive response timelines rather than baseline manufacturing outlays."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f343300e-e5c8-46e5-9b81-a408a9a5baf5",
+      "concept_name": "Models Relevant to Sustainability",
+      "definition": "Sustainability-focused pricing incorporates social and environmental implications alongside standard economic factors. It balances higher pricing allowances for luxury items with statutory or moral controls on essential commodities.",
+      "terminology": [
+        "Sustainability",
+        "Social implications",
+        "Environmental implications",
+        "Moral suasion"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Statutory regulation of essential commodities",
+        "Differential pricing for luxury versus basic goods"
+      ],
+      "exclusion": [
+        "Pure profit-maximization models ignoring ecological costs",
+        "Unregulated free-market commodity pricing"
+      ],
+      "nearby_distinctions": [
+        "Explicitly weights non-economic factors like environmental impact and social welfare alongside commercial returns."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "49392f9b-fae7-4d31-be6f-5f70d52215be",
+      "concept_name": "Models Relevant to Emerging National Markets",
+      "definition": "Emerging national market pricing centers on delivering cost-effective solutions tailored to high-consumption, highly price-sensitive populations. Pricing structures utilize regional adaptations to address local purchasing power constraints.",
+      "terminology": [
+        "Emerging national markets",
+        "Price sensitive",
+        "Value for money",
+        "Regional edition pricing"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Publishing geographically specific editions at reduced local price points",
+        "Cost-effective solution structuring"
+      ],
+      "exclusion": [
+        "Uniform global pricing models",
+        "Luxury-tier pricing strategies"
+      ],
+      "nearby_distinctions": [
+        "Prioritizes mass affordability and localized purchasing power over premium global margin recovery."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "fe1feff6-918f-42f0-9c40-1e5abb31269d",
+      "concept_name": "Sensitivity Analysis in Pricing Decisions",
+      "definition": "Sensitivity analysis evaluates how proforma sales and profitability respond to systematic variations in critical internal and external parameters. It aids organizations in identifying value leakage, setting development budgets, and withstanding market fluctuations.",
+      "terminology": [
+        "Sensitivity analysis",
+        "Proforma computations",
+        "Value leakage",
+        "External parameters"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Systematic variation of market demand and exchange rates",
+        "Testing internal variables like R and D and production costs"
+      ],
+      "exclusion": [
+        "Static deterministic pricing evaluations",
+        "Single-point historical cost analysis"
+      ],
+      "nearby_distinctions": [
+        "Examines dynamic multi-variable changes rather than relying on static historical cost accounting data."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "57bfe1a3-31fe-4824-9c2e-01b19aa8a249",
+      "concept_name": "Pricing Decision in Special Circumstances",
+      "definition": "Pricing decisions in special circumstances involve temporary deviations from normal pricing rules to accommodate unique macroeconomic environments. These strategies allow firms to navigate operational constraints while minimizing long-term structural damage.",
+      "terminology": [
+        "Special circumstances",
+        "Recession pricing",
+        "Temporary deviation"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Economic downturn adjustments",
+        "Limited-duration operational continuity pricing"
+      ],
+      "exclusion": [
+        "Long-term strategic core pricing models",
+        "Standard profit-maximizing retail pricing"
+      ],
+      "nearby_distinctions": [
+        "Focuses on short-term tactical survival during adverse economic phases rather than steady-state profit optimization."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9780cd15-07a7-4527-8cc7-e47738b6fab3",
+      "concept_name": "Pricing decision in periods of Recession",
+      "definition": "During a recession, a firm may temporarily price goods below total cost but above marginal cost to retain skilled labor and prevent asset deterioration. This practice helps preserve productive capacity until general business conditions improve.",
+      "terminology": [
+        "Recession pricing",
+        "Marginal cost floor",
+        "Skilled labor retention",
+        "Plant idleness"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Pricing above marginal cost but below total cost",
+        "Short-term orders to maintain machinery and trained personnel"
+      ],
+      "exclusion": [
+        "Pricing below marginal cost as a standard practice",
+        "Long-term commitments extending into recovery periods"
+      ],
+      "nearby_distinctions": [
+        "Accepts returns below total cost strictly for short-term operational preservation, unlike standard markup pricing."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b6a88f9a-2e76-4204-9e4d-58bd8e654b8e",
+      "concept_name": "Pricing Below Marginal Cost",
+      "definition": "Pricing below marginal cost is justified under specific temporary conditions such as clearing perishable goods, liquidating excess accumulated stock, or launching new market penetration. However, regulatory frameworks prohibit predatory pricing intended to eliminate market competition.",
+      "terminology": [
+        "Below marginal cost",
+        "Perishable materials",
+        "Predatory price",
+        "Competition Act"
+      ],
+      "instrument_references": [
+        "Section 4(2) of the Competition Act 2002"
+      ],
+      "inclusion": [
+        "Liquidating accumulated stocks to save carrying costs",
+        "Promotional pricing to popularize a new product"
+      ],
+      "exclusion": [
+        "Abuse of dominance via predatory pricing designed to harm competitors",
+        "Normal long-term operating cost recovery"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from recession pricing by dropping beneath the marginal cost floor for specific inventory or promotional motives, subject to legal limits."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "83b0c8c063a7e120a5227baecb6a6ec86387c26d042065b829cb3d682b13e5aa",
+  "artifact_id": "c21d3107-096b-432f-83be-22929a7a5c48",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 7453,
+  "output_tokens": 3097,
+  "cost_usd": 0.0099784,
+  "created_at": "2026-10-03T18:27:18.215687+00:00"
+}

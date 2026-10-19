@@ -1,0 +1,3652 @@
+{
+  "source_sha256": "342376b225a6eae7c330d9292a8e7da906e292747b7da14bd1c7426bc5edc05c",
+  "source_file": "data/blobs/34/23/342376b225a6eae7c330d9292a8e7da906e292747b7da14bd1c7426bc5edc05c.pdf",
+  "source_pages": [
+    5,
+    333
+  ],
+  "doc_type": "model_question",
+  "paper": "s2023.P1",
+  "profile_path": "profiles/s2023.model_collection.P1.yaml",
+  "fixture_scope": "complete first case scenario with six MCQs and actual key/available explanations; other collection questions omitted",
+  "review_state": "machine_expected; bounded original pages checked; no human approval",
+  "blocks": [
+    {
+      "block_id": "p5-b1",
+      "page": 5,
+      "bbox": [
+        253.55999755859375,
+        152.02175903320312,
+        382.98193359375,
+        167.83103942871094
+      ],
+      "text": "MODEL TEST PAPER 1",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "MODEL TEST PAPER 1 ",
+      "origin": "pdf",
+      "order": 0,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p5-b2",
+      "page": 5,
+      "bbox": [
+        244.07666015625,
+        173.98031616210938,
+        392.4543151855469,
+        189.7895965576172
+      ],
+      "text": "FINAL COURSE GROUP - I",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "FINAL COURSE GROUP - I ",
+      "origin": "pdf",
+      "order": 1,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": "T1"
+    },
+    {
+      "block_id": "p5-b3",
+      "page": 5,
+      "bbox": [
+        216.8299560546875,
+        196.06033325195312,
+        419.56854248046875,
+        211.86961364746094
+      ],
+      "text": "PAPER – 1: FINANCIAL REPORTING",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "PAPER – 1: FINANCIAL REPORTING ",
+      "origin": "pdf",
+      "order": 2,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": "T1"
+    },
+    {
+      "block_id": "p5-b4",
+      "page": 5,
+      "bbox": [
+        107.9755859375,
+        218.01889038085938,
+        241.7152557373047,
+        233.8281707763672
+      ],
+      "text": "Time Allowed – 3 Hours",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "Time Allowed – 3 Hours ",
+      "origin": "pdf",
+      "order": 3,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p5-b5",
+      "page": 5,
+      "bbox": [
+        381.9331970214844,
+        218.01889038085938,
+        506.9159240722656,
+        233.8281707763672
+      ],
+      "text": "Maximum Marks – 100",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "Maximum Marks – 100 ",
+      "origin": "pdf",
+      "order": 4,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p5-b6",
+      "page": 5,
+      "bbox": [
+        107.96456909179688,
+        240.61776733398438,
+        120.74889373779297,
+        255.2236785888672
+      ],
+      "text": "1.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "Arial-ItalicMT",
+      "raw_text": "1. ",
+      "origin": "pdf",
+      "order": 5,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p5-b7",
+      "page": 5,
+      "bbox": [
+        136.75689697265625,
+        240.61776733398438,
+        442.4655456542969,
+        255.2236785888672
+      ],
+      "text": "The question paper comprises two parts, Part I and Part II.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "Arial-ItalicMT",
+      "raw_text": "The question paper comprises two parts, Part I and Part II. ",
+      "origin": "pdf",
+      "order": 6,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p5-b8",
+      "page": 5,
+      "bbox": [
+        107.95355224609375,
+        262.6977844238281,
+        120.73787689208984,
+        277.3037109375
+      ],
+      "text": "2.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "Arial-ItalicMT",
+      "raw_text": "2. ",
+      "origin": "pdf",
+      "order": 7,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p5-b9",
+      "page": 5,
+      "bbox": [
+        136.74588012695312,
+        262.6977844238281,
+        506.880615234375,
+        277.3037109375
+      ],
+      "text": "Part I comprises Case Scenario based Multiple Choice Questions",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "Arial-ItalicMT",
+      "raw_text": "Part I comprises Case Scenario based Multiple Choice Questions ",
+      "origin": "pdf",
+      "order": 8,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p5-b10",
+      "page": 5,
+      "bbox": [
+        136.74588012695312,
+        278.6616516113281,
+        315.96923828125,
+        293.267578125
+      ],
+      "text": "(MCQs). Each MCQ is of 2 Marks.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "Arial-ItalicMT",
+      "raw_text": "(MCQs). Each MCQ is of 2 Marks. ",
+      "origin": "pdf",
+      "order": 9,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p5-b11",
+      "page": 5,
+      "bbox": [
+        107.9425048828125,
+        300.6202087402344,
+        120.7268295288086,
+        315.22613525390625
+      ],
+      "text": "3.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "Arial-ItalicMT",
+      "raw_text": "3. ",
+      "origin": "pdf",
+      "order": 10,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p5-b12",
+      "page": 5,
+      "bbox": [
+        136.73483276367188,
+        300.6202087402344,
+        487.6853942871094,
+        315.22613525390625
+      ],
+      "text": "Part II comprises questions which require descriptive type answers.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "Arial-ItalicMT",
+      "raw_text": "Part II comprises questions which require descriptive type answers. ",
+      "origin": "pdf",
+      "order": 11,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p5-b13",
+      "page": 5,
+      "bbox": [
+        173.5753173828125,
+        322.05987548828125,
+        441.1186828613281,
+        337.869140625
+      ],
+      "text": "PART I – Case Scenario based MCQs (30 Marks)",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "PART I – Case Scenario based MCQs (30 Marks) ",
+      "origin": "pdf",
+      "order": 12,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p5-b14",
+      "page": 5,
+      "bbox": [
+        244.606689453125,
+        344.4379577636719,
+        391.7919921875,
+        359.82769775390625
+      ],
+      "text": "All MCQs are compulsory.",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldItalicMT",
+      "raw_text": "All MCQs are compulsory. ",
+      "origin": "pdf",
+      "order": 13,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p5-b15",
+      "page": 5,
+      "bbox": [
+        107.92047119140625,
+        365.97698974609375,
+        200.50079345703125,
+        381.7862548828125
+      ],
+      "text": "Case Scenario 1",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "Case Scenario 1 ",
+      "origin": "pdf",
+      "order": 14,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p5-b16",
+      "page": 5,
+      "bbox": [
+        107.92047119140625,
+        387.27313232421875,
+        506.8696594238281,
+        402.3427429199219
+      ],
+      "text": "Mr. Deepak Goel, a chartered accountant with 10 years of experience was",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "Mr. Deepak Goel, a chartered accountant with 10 years of experience was ",
+      "origin": "pdf",
+      "order": 15,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p5-b17",
+      "page": 5,
+      "bbox": [
+        107.92047119140625,
+        402.2764892578125,
+        506.865234375,
+        417.3460998535156
+      ],
+      "text": "earlier working with a big Indian practicing firm having clientele of IND AS and",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "earlier working with a big Indian practicing firm having clientele of IND AS and ",
+      "origin": "pdf",
+      "order": 16,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p5-b18",
+      "page": 5,
+      "bbox": [
+        107.92047119140625,
+        417.27984619140625,
+        506.82220458984375,
+        432.3494567871094
+      ],
+      "text": "auditing assurance. Recently he left his job and started his own consultancy",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "auditing assurance.  Recently he left his job and started his own consultancy ",
+      "origin": "pdf",
+      "order": 17,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p5-b19",
+      "page": 5,
+      "bbox": [
+        107.92047119140625,
+        432.283203125,
+        506.850830078125,
+        447.3528137207031
+      ],
+      "text": "firm. He has received certain Ind AS based projects wherein his opinion and",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "firm.  He has received certain Ind AS based projects wherein his opinion and ",
+      "origin": "pdf",
+      "order": 18,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p5-b20",
+      "page": 5,
+      "bbox": [
+        107.92047119140625,
+        447.28656005859375,
+        503.98046875,
+        462.3561706542969
+      ],
+      "text": "guidance on applicability of Ind AS has been sought for on following issues:",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "guidance on applicability of Ind AS has been sought for on following issues:  ",
+      "origin": "pdf",
+      "order": 19,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p5-b21",
+      "page": 5,
+      "bbox": [
+        107.909423828125,
+        468.2846374511719,
+        120.6937484741211,
+        483.354248046875
+      ],
+      "text": "1.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "1. ",
+      "origin": "pdf",
+      "order": 20,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p5-b22",
+      "page": 5,
+      "bbox": [
+        136.70175170898438,
+        468.2846374511719,
+        506.8298645019531,
+        483.354248046875
+      ],
+      "text": "Narayan Ltd. requires to calculate the tax expense for each quarter,",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "Narayan Ltd. requires to calculate the tax expense for each quarter, ",
+      "origin": "pdf",
+      "order": 21,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p5-b23",
+      "page": 5,
+      "bbox": [
+        136.69073486328125,
+        483.2879943847656,
+        506.82769775390625,
+        498.35760498046875
+      ],
+      "text": "assuming that there is no difference between the estimated taxable",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "assuming that there is no difference between the estimated taxable ",
+      "origin": "pdf",
+      "order": 22,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p5-b24",
+      "page": 5,
+      "bbox": [
+        136.69073486328125,
+        498.2913513183594,
+        376.523681640625,
+        513.3609619140625
+      ],
+      "text": "income and the estimated accounting income:",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "income and the estimated accounting income: ",
+      "origin": "pdf",
+      "order": 23,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p5-b26",
+      "page": 5,
+      "bbox": [
+        488.6400146484375,
+        519.5183715820312,
+        497.4720153808594,
+        534.5880126953125
+      ],
+      "text": "`",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "Rupee",
+      "raw_text": "` ",
+      "origin": "pdf",
+      "order": 24,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p5-b27",
+      "page": 5,
+      "bbox": [
+        140.39999389648438,
+        536.558349609375,
+        313.2676086425781,
+        551.6279907226562
+      ],
+      "text": "Estimated Gross Annual Income",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "Estimated Gross Annual Income  ",
+      "origin": "pdf",
+      "order": 25,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p5-b28",
+      "page": 5,
+      "bbox": [
+        442.796630859375,
+        536.558349609375,
+        497.4622497558594,
+        551.6279907226562
+      ],
+      "text": "33,00,000",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "33,00,000 ",
+      "origin": "pdf",
+      "order": 26,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p5-b29",
+      "page": 5,
+      "bbox": [
+        140.39999389648438,
+        553.3583374023438,
+        408.550537109375,
+        568.427978515625
+      ],
+      "text": "(inclusive of Estimated Capital Gains of ` 8,00,000)",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "(inclusive of Estimated Capital Gains of ` 8,00,000) ",
+      "origin": "pdf",
+      "order": 27,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p5-b31",
+      "page": 5,
+      "bbox": [
+        140.39999389648438,
+        569.9183959960938,
+        302.2291259765625,
+        584.988037109375
+      ],
+      "text": "Estimated Income of Quarter I",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "Estimated Income of Quarter I  ",
+      "origin": "pdf",
+      "order": 28,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p5-b32",
+      "page": 5,
+      "bbox": [
+        449.1600036621094,
+        569.9183959960938,
+        497.4691162109375,
+        584.988037109375
+      ],
+      "text": "7,00,000",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "7,00,000 ",
+      "origin": "pdf",
+      "order": 29,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p5-b36",
+      "page": 5,
+      "bbox": [
+        248.40431213378906,
+        586.5983276367188,
+        304.281005859375,
+        601.66796875
+      ],
+      "text": "Quarter II",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "Quarter II  ",
+      "origin": "pdf",
+      "order": 30,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p5-b37",
+      "page": 5,
+      "bbox": [
+        449.16668701171875,
+        586.5983276367188,
+        497.4710693359375,
+        601.66796875
+      ],
+      "text": "8,00,000",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "8,00,000 ",
+      "origin": "pdf",
+      "order": 31,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p5-b38",
+      "page": 5,
+      "bbox": [
+        442.79998779296875,
+        603.2783813476562,
+        497.4656066894531,
+        618.3480224609375
+      ],
+      "text": "12,00,000",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "12,00,000 ",
+      "origin": "pdf",
+      "order": 32,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p5-b42",
+      "page": 5,
+      "bbox": [
+        248.40431213378906,
+        603.2783813476562,
+        304.281005859375,
+        618.3480224609375
+      ],
+      "text": "Quarter III",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "Quarter III ",
+      "origin": "pdf",
+      "order": 33,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p5-b45",
+      "page": 5,
+      "bbox": [
+        212.40286254882812,
+        617.79833984375,
+        263.58209228515625,
+        632.8679809570312
+      ],
+      "text": "(including",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "(including ",
+      "origin": "pdf",
+      "order": 34,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p5-b46",
+      "page": 5,
+      "bbox": [
+        273.59759521484375,
+        617.79833984375,
+        325.14703369140625,
+        632.8679809570312
+      ],
+      "text": "estimated",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "estimated ",
+      "origin": "pdf",
+      "order": 35,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p5-b47",
+      "page": 5,
+      "bbox": [
+        335.0377502441406,
+        617.79833984375,
+        373.0186767578125,
+        632.8679809570312
+      ],
+      "text": "Capital",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "Capital ",
+      "origin": "pdf",
+      "order": 36,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p5-b48",
+      "page": 5,
+      "bbox": [
+        383.0319519042969,
+        617.79833984375,
+        409.7366027832031,
+        632.8679809570312
+      ],
+      "text": "Gain",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "Gain ",
+      "origin": "pdf",
+      "order": 37,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p5-b49",
+      "page": 5,
+      "bbox": [
+        419.7498779296875,
+        617.79833984375,
+        435.1891174316406,
+        632.8679809570312
+      ],
+      "text": "of",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "of  ",
+      "origin": "pdf",
+      "order": 38,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p5-b52",
+      "page": 5,
+      "bbox": [
+        212.40286254882812,
+        630.6383666992188,
+        271.6324768066406,
+        645.7080078125
+      ],
+      "text": "` 8,00,000)",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "Rupee",
+      "raw_text": "` 8,00,000) ",
+      "origin": "pdf",
+      "order": 39,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p5-b56",
+      "page": 5,
+      "bbox": [
+        248.40431213378906,
+        647.1983642578125,
+        308.59765625,
+        662.2680053710938
+      ],
+      "text": "Quarter IV",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "Quarter IV  ",
+      "origin": "pdf",
+      "order": 40,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p5-b57",
+      "page": 5,
+      "bbox": [
+        449.16668701171875,
+        647.1983642578125,
+        497.4710693359375,
+        662.2680053710938
+      ],
+      "text": "6,00,000",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "6,00,000 ",
+      "origin": "pdf",
+      "order": 41,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p5-b60",
+      "page": 5,
+      "bbox": [
+        294.60101318359375,
+        724.8885498046875,
+        300.7170104980469,
+        740.6405639648438
+      ],
+      "text": "1",
+      "size": 11.0,
+      "bold": true,
+      "font": "Arial,Bold",
+      "raw_text": "1",
+      "origin": "pdf",
+      "order": 42,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p6-b3",
+      "page": 6,
+      "bbox": [
+        144.00143432617188,
+        145.23837280273438,
+        208.75103759765625,
+        160.30796813964844
+      ],
+      "text": "Tax Rates:",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "Tax Rates:   ",
+      "origin": "pdf",
+      "order": 43,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p6-b4",
+      "page": 6,
+      "bbox": [
+        144.84046936035156,
+        168.64315795898438,
+        236.47247314453125,
+        183.71275329589844
+      ],
+      "text": "On Capital Gains",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "On Capital Gains ",
+      "origin": "pdf",
+      "order": 44,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p6-b5",
+      "page": 6,
+      "bbox": [
+        468.8424072265625,
+        168.64315795898438,
+        494.83056640625,
+        183.71275329589844
+      ],
+      "text": "12%",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "12% ",
+      "origin": "pdf",
+      "order": 45,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p6-b6",
+      "page": 6,
+      "bbox": [
+        144.83999633789062,
+        187.71841430664062,
+        339.8947448730469,
+        202.7880096435547
+      ],
+      "text": "On Other Income: First ` 5,00,000",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "On Other Income:   First ` 5,00,000  ",
+      "origin": "pdf",
+      "order": 46,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p6-b7",
+      "page": 6,
+      "bbox": [
+        468.8309020996094,
+        187.71841430664062,
+        494.8190612792969,
+        202.7880096435547
+      ],
+      "text": "30%",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "30% ",
+      "origin": "pdf",
+      "order": 47,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p6-b11",
+      "page": 6,
+      "bbox": [
+        252.8443145751953,
+        206.67837524414062,
+        346.27581787109375,
+        221.7479705810547
+      ],
+      "text": "Balance Income·",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "Balance Income·  ",
+      "origin": "pdf",
+      "order": 48,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p6-b12",
+      "page": 6,
+      "bbox": [
+        468.8419189453125,
+        206.67837524414062,
+        494.830078125,
+        221.7479705810547
+      ],
+      "text": "40%",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "40% ",
+      "origin": "pdf",
+      "order": 49,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p6-b13",
+      "page": 6,
+      "bbox": [
+        108.0,
+        230.19839477539062,
+        120.7843246459961,
+        245.2679901123047
+      ],
+      "text": "2.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "2. ",
+      "origin": "pdf",
+      "order": 50,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p6-b14",
+      "page": 6,
+      "bbox": [
+        136.79232788085938,
+        230.19839477539062,
+        506.91717529296875,
+        245.2679901123047
+      ],
+      "text": "C Ltd. is a construction company. It enters into a contract with Customer",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "C Ltd. is a construction company.  It enters into a contract with Customer ",
+      "origin": "pdf",
+      "order": 51,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p6-b15",
+      "page": 6,
+      "bbox": [
+        136.79232788085938,
+        245.20175170898438,
+        506.9316101074219,
+        260.2713623046875
+      ],
+      "text": "E to build an asset. Depending on when the asset is completed, C will",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "E to build an asset.  Depending on when the asset is completed, C will ",
+      "origin": "pdf",
+      "order": 52,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p6-b16",
+      "page": 6,
+      "bbox": [
+        136.79232788085938,
+        260.2051086425781,
+        342.6551818847656,
+        275.27471923828125
+      ],
+      "text": "receive either ` 1,10,000 or ` 1,30,000.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "receive either ` 1,10,000 or ` 1,30,000. ",
+      "origin": "pdf",
+      "order": 53,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p6-b17",
+      "page": 6,
+      "bbox": [
+        141.60000610351562,
+        283.5417785644531,
+        194.4691162109375,
+        299.3510437011719
+      ],
+      "text": "Outcome",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "Outcome ",
+      "origin": "pdf",
+      "order": 54,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p6-b18",
+      "page": 6,
+      "bbox": [
+        300.7200012207031,
+        283.5417785644531,
+        398.7091369628906,
+        299.3510437011719
+      ],
+      "text": "Consideration (`)",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "Consideration (`) ",
+      "origin": "pdf",
+      "order": 55,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p6-b19",
+      "page": 6,
+      "bbox": [
+        413.8800048828125,
+        283.5417785644531,
+        477.0691223144531,
+        299.3510437011719
+      ],
+      "text": "Probability",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "Probability ",
+      "origin": "pdf",
+      "order": 56,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p6-b20",
+      "page": 6,
+      "bbox": [
+        141.60000610351562,
+        303.1583557128906,
+        278.7002258300781,
+        318.22796630859375
+      ],
+      "text": "Project completes on time",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "Project completes on time ",
+      "origin": "pdf",
+      "order": 57,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p6-b21",
+      "page": 6,
+      "bbox": [
+        300.71954345703125,
+        303.1583557128906,
+        349.0228271484375,
+        318.22796630859375
+      ],
+      "text": "1,30,000",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "1,30,000 ",
+      "origin": "pdf",
+      "order": 58,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p6-b22",
+      "page": 6,
+      "bbox": [
+        413.8795471191406,
+        303.1583557128906,
+        439.8677062988281,
+        318.22796630859375
+      ],
+      "text": "90%",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "90% ",
+      "origin": "pdf",
+      "order": 59,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p6-b23",
+      "page": 6,
+      "bbox": [
+        141.60000610351562,
+        322.1183776855469,
+        236.95248413085938,
+        337.18798828125
+      ],
+      "text": "Project is delayed",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "Project is delayed ",
+      "origin": "pdf",
+      "order": 60,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p6-b24",
+      "page": 6,
+      "bbox": [
+        300.7195129394531,
+        322.1183776855469,
+        349.0227966308594,
+        337.18798828125
+      ],
+      "text": "1,10,000",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "1,10,000 ",
+      "origin": "pdf",
+      "order": 61,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p6-b25",
+      "page": 6,
+      "bbox": [
+        413.8795166015625,
+        322.1183776855469,
+        439.86767578125,
+        337.18798828125
+      ],
+      "text": "10%",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "10% ",
+      "origin": "pdf",
+      "order": 62,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p6-b26",
+      "page": 6,
+      "bbox": [
+        108.0,
+        344.7983703613281,
+        120.67391967773438,
+        359.86798095703125
+      ],
+      "text": "3.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "3. ",
+      "origin": "pdf",
+      "order": 63,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p6-b27",
+      "page": 6,
+      "bbox": [
+        136.80335998535156,
+        344.7983703613281,
+        506.947021484375,
+        359.86798095703125
+      ],
+      "text": "In the financial year 20X1-20X2, X Ltd. incurred the following expenditure",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "In the financial year 20X1-20X2, X Ltd. incurred the following expenditure ",
+      "origin": "pdf",
+      "order": 64,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p6-b28",
+      "page": 6,
+      "bbox": [
+        136.80337524414062,
+        358.7198181152344,
+        506.890869140625,
+        373.7894287109375
+      ],
+      "text": "in acquiring property consisting of 6 identical houses each with separate",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "in acquiring property consisting of 6 identical houses each with separate ",
+      "origin": "pdf",
+      "order": 65,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p6-b29",
+      "page": 6,
+      "bbox": [
+        136.80337524414062,
+        372.7626953125,
+        374.7153625488281,
+        387.8323059082031
+      ],
+      "text": "legal title including the land on which it is built.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "legal title including the land on which it is built. ",
+      "origin": "pdf",
+      "order": 66,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p6-b31",
+      "page": 6,
+      "bbox": [
+        136.8144073486328,
+        392.80029296875,
+        432.6864318847656,
+        407.8699035644531
+      ],
+      "text": "The expenditure incurred on various dates is given below:",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "The expenditure incurred on various dates is given below: ",
+      "origin": "pdf",
+      "order": 67,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p6-b33",
+      "page": 6,
+      "bbox": [
+        136.8254852294922,
+        412.837890625,
+        465.183349609375,
+        427.9079895019531
+      ],
+      "text": "On 1st April, 20X1 - Purchase cost of the property ` 1,80,00,000.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "On 1st April, 20X1 - Purchase cost of the property ` 1,80,00,000. ",
+      "origin": "pdf",
+      "order": 68,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p6-b35",
+      "page": 6,
+      "bbox": [
+        136.7985382080078,
+        432.7545471191406,
+        506.9212646484375,
+        447.8280029296875
+      ],
+      "text": "On 1st April, 20X1 – Non-refundable transfer taxes ` 20,00,000 (not",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "On 1st April, 20X1 – Non-refundable transfer taxes ` 20,00,000 (not ",
+      "origin": "pdf",
+      "order": 69,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p6-b36",
+      "page": 6,
+      "bbox": [
+        136.78750610351562,
+        446.80126953125,
+        295.25567626953125,
+        461.8708801269531
+      ],
+      "text": "included in the purchase cost).",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "included in the purchase cost). ",
+      "origin": "pdf",
+      "order": 70,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p6-b38",
+      "page": 6,
+      "bbox": [
+        136.7875213623047,
+        466.83837890625,
+        505.02001953125,
+        481.9084777832031
+      ],
+      "text": "On 2nd April, 20X1- Legal cost related to property acquisition ` 5,00,000.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "On 2nd April, 20X1- Legal cost related to property acquisition ` 5,00,000. ",
+      "origin": "pdf",
+      "order": 71,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p6-b40",
+      "page": 6,
+      "bbox": [
+        136.79185485839844,
+        486.7545471191406,
+        506.9476623535156,
+        501.8280029296875
+      ],
+      "text": "On 6th April, 20X1- Advertisement campaign to attract tenants ` 3,00,000.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "On 6th April, 20X1- Advertisement campaign to attract tenants ` 3,00,000. ",
+      "origin": "pdf",
+      "order": 72,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p6-b42",
+      "page": 6,
+      "bbox": [
+        136.7985382080078,
+        506.7959899902344,
+        568.7431640625,
+        521.8679809570312
+      ],
+      "text": "On 8th April, 20X1 - Opening ceremony function for starting business",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "On 8th April, 20X1 - Opening ceremony function for starting business                    ",
+      "origin": "pdf",
+      "order": 73,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p6-b43",
+      "page": 6,
+      "bbox": [
+        136.80145263671875,
+        520.8412475585938,
+        196.5057830810547,
+        535.910888671875
+      ],
+      "text": "` 1,50,000.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "Rupee",
+      "raw_text": "` 1,50,000. ",
+      "origin": "pdf",
+      "order": 74,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p6-b45",
+      "page": 6,
+      "bbox": [
+        136.80145263671875,
+        540.7573852539062,
+        506.97491455078125,
+        555.8270263671875
+      ],
+      "text": "Throughout 20X1-20X2, incurred ` 1,00,000 towards day-to-day repair",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "Throughout 20X1-20X2, incurred ` 1,00,000 towards day-to-day repair ",
+      "origin": "pdf",
+      "order": 75,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p6-b46",
+      "page": 6,
+      "bbox": [
+        136.82354736328125,
+        554.8002319335938,
+        385.7755432128906,
+        569.869873046875
+      ],
+      "text": "maintenance and other administrative expenses.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "maintenance and other administrative expenses. ",
+      "origin": "pdf",
+      "order": 76,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p6-b48",
+      "page": 6,
+      "bbox": [
+        136.83457946777344,
+        574.7164306640625,
+        506.9366455078125,
+        589.7860717773438
+      ],
+      "text": "X Limited uses one of the six houses for office and accommodation of its",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "X Limited uses one of the six houses for office and accommodation of its ",
+      "origin": "pdf",
+      "order": 77,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p6-b49",
+      "page": 6,
+      "bbox": [
+        136.83457946777344,
+        588.7593383789062,
+        506.9188232421875,
+        603.8289794921875
+      ],
+      "text": "few staffs. The other five houses are rented to various independent third",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "few staffs. The other five houses are rented to various independent third ",
+      "origin": "pdf",
+      "order": 78,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p6-b50",
+      "page": 6,
+      "bbox": [
+        136.83457946777344,
+        602.8021850585938,
+        177.58322143554688,
+        617.871826171875
+      ],
+      "text": "parties.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "parties. ",
+      "origin": "pdf",
+      "order": 79,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p6-b52",
+      "page": 6,
+      "bbox": [
+        136.83457946777344,
+        622.7183227539062,
+        506.98150634765625,
+        637.7879638671875
+      ],
+      "text": "How will X Limited account for all the above-mentioned expenses in the",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "How will X Limited account for all the above-mentioned expenses in the ",
+      "origin": "pdf",
+      "order": 80,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p6-b53",
+      "page": 6,
+      "bbox": [
+        136.83457946777344,
+        636.76123046875,
+        232.5303955078125,
+        651.8308715820312
+      ],
+      "text": "books of account?",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "books of account? ",
+      "origin": "pdf",
+      "order": 81,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p6-b54",
+      "page": 6,
+      "bbox": [
+        294.60101318359375,
+        724.8885498046875,
+        300.7170104980469,
+        740.6405639648438
+      ],
+      "text": "2",
+      "size": 11.0,
+      "bold": true,
+      "font": "Arial,Bold",
+      "raw_text": "2",
+      "origin": "pdf",
+      "order": 82,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p7-b1",
+      "page": 7,
+      "bbox": [
+        108.0,
+        145.06173706054688,
+        506.9570617675781,
+        160.8710174560547
+      ],
+      "text": "Analyze the transactions mentioned above and choose the most",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "Analyze the transactions mentioned above and choose the most ",
+      "origin": "pdf",
+      "order": 83,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p7-b2",
+      "page": 7,
+      "bbox": [
+        108.0,
+        160.06509399414062,
+        506.9358215332031,
+        175.87437438964844
+      ],
+      "text": "appropriate option in the below questions 1 to 6 in line with relevant Ind",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "appropriate option in the below questions 1 to 6 in line with relevant Ind ",
+      "origin": "pdf",
+      "order": 84,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p7-b3",
+      "page": 7,
+      "bbox": [
+        108.0,
+        175.06845092773438,
+        130.8638458251953,
+        190.8777313232422
+      ],
+      "text": "AS:",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "AS: ",
+      "origin": "pdf",
+      "order": 85,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p7-b4",
+      "page": 7,
+      "bbox": [
+        108.0,
+        196.24319458007812,
+        120.7843246459961,
+        211.3127899169922
+      ],
+      "text": "1.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "1. ",
+      "origin": "pdf",
+      "order": 86,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p7-b5",
+      "page": 7,
+      "bbox": [
+        136.79232788085938,
+        196.24319458007812,
+        506.9337158203125,
+        211.3127899169922
+      ],
+      "text": "What will be the weighted average annual income tax rate for Narayan",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "What will be the weighted average annual income tax rate for Narayan ",
+      "origin": "pdf",
+      "order": 87,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p7-b6",
+      "page": 7,
+      "bbox": [
+        136.79232788085938,
+        211.24655151367188,
+        159.42433166503906,
+        226.31614685058594
+      ],
+      "text": "Ltd.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "Ltd. ",
+      "origin": "pdf",
+      "order": 88,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p7-b7",
+      "page": 7,
+      "bbox": [
+        136.79232788085938,
+        232.24465942382812,
+        154.2576141357422,
+        247.3142547607422
+      ],
+      "text": "(a)",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "(a) ",
+      "origin": "pdf",
+      "order": 89,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p7-b8",
+      "page": 7,
+      "bbox": [
+        165.58465576171875,
+        232.24465942382812,
+        191.57281494140625,
+        247.3142547607422
+      ],
+      "text": "29%",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "29% ",
+      "origin": "pdf",
+      "order": 90,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p7-b9",
+      "page": 7,
+      "bbox": [
+        136.7812957763672,
+        253.24276733398438,
+        154.24658203125,
+        268.3123779296875
+      ],
+      "text": "(b)",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "(b) ",
+      "origin": "pdf",
+      "order": 91,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p7-b10",
+      "page": 7,
+      "bbox": [
+        165.57362365722656,
+        253.24276733398438,
+        191.56178283691406,
+        268.3123779296875
+      ],
+      "text": "38%",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "38% ",
+      "origin": "pdf",
+      "order": 92,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p7-b11",
+      "page": 7,
+      "bbox": [
+        136.770263671875,
+        274.2408752441406,
+        153.5179443359375,
+        289.31048583984375
+      ],
+      "text": "(c)",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "(c) ",
+      "origin": "pdf",
+      "order": 93,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p7-b12",
+      "page": 7,
+      "bbox": [
+        165.57362365722656,
+        274.2408752441406,
+        191.56178283691406,
+        289.31048583984375
+      ],
+      "text": "30%",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "30% ",
+      "origin": "pdf",
+      "order": 94,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p7-b13",
+      "page": 7,
+      "bbox": [
+        136.770263671875,
+        295.2389831542969,
+        154.2355499267578,
+        310.30859375
+      ],
+      "text": "(d)",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "(d) ",
+      "origin": "pdf",
+      "order": 95,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p7-b14",
+      "page": 7,
+      "bbox": [
+        165.56259155273438,
+        295.2389831542969,
+        191.55075073242188,
+        310.30859375
+      ],
+      "text": "40%",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "40% ",
+      "origin": "pdf",
+      "order": 96,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p7-b15",
+      "page": 7,
+      "bbox": [
+        107.96690368652344,
+        316.2370910644531,
+        120.75122833251953,
+        331.30670166015625
+      ],
+      "text": "2.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "2. ",
+      "origin": "pdf",
+      "order": 97,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p7-b16",
+      "page": 7,
+      "bbox": [
+        136.7592315673828,
+        316.2370910644531,
+        442.6963195800781,
+        331.30670166015625
+      ],
+      "text": "What will be the tax expense for quarter III and quarter IV?",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "What will be the tax expense for quarter III and quarter IV? ",
+      "origin": "pdf",
+      "order": 98,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p7-b17",
+      "page": 7,
+      "bbox": [
+        136.74818420410156,
+        337.23516845703125,
+        154.21347045898438,
+        352.3047790527344
+      ],
+      "text": "(a)",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "(a) ",
+      "origin": "pdf",
+      "order": 99,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p7-b18",
+      "page": 7,
+      "bbox": [
+        165.54051208496094,
+        337.23516845703125,
+        284.04937744140625,
+        352.3047790527344
+      ],
+      "text": "` 2,66,000; ` 3,04,000",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "Rupee",
+      "raw_text": "` 2,66,000; ` 3,04,000 ",
+      "origin": "pdf",
+      "order": 100,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p7-b19",
+      "page": 7,
+      "bbox": [
+        136.74819946289062,
+        358.2332458496094,
+        154.21348571777344,
+        373.3028564453125
+      ],
+      "text": "(b)",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "(b) ",
+      "origin": "pdf",
+      "order": 101,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p7-b20",
+      "page": 7,
+      "bbox": [
+        165.54052734375,
+        358.2332458496094,
+        284.0494079589844,
+        373.3028564453125
+      ],
+      "text": "` 3,04,000; ` 2,48,000",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "Rupee",
+      "raw_text": "` 3,04,000; ` 2,48,000 ",
+      "origin": "pdf",
+      "order": 102,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p7-b21",
+      "page": 7,
+      "bbox": [
+        136.74819946289062,
+        379.2313232421875,
+        153.49588012695312,
+        394.3009338378906
+      ],
+      "text": "(c)",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "(c) ",
+      "origin": "pdf",
+      "order": 103,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p7-b22",
+      "page": 7,
+      "bbox": [
+        165.5515594482422,
+        379.2313232421875,
+        284.0604248046875,
+        394.3009338378906
+      ],
+      "text": "` 2,48,000; ` 2,28,000",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "Rupee",
+      "raw_text": "` 2,48,000; ` 2,28,000 ",
+      "origin": "pdf",
+      "order": 104,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p7-b23",
+      "page": 7,
+      "bbox": [
+        136.75924682617188,
+        400.2294006347656,
+        154.2245330810547,
+        415.29901123046875
+      ],
+      "text": "(d)",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "(d) ",
+      "origin": "pdf",
+      "order": 105,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p7-b24",
+      "page": 7,
+      "bbox": [
+        165.55157470703125,
+        400.2294006347656,
+        290.5398254394531,
+        415.29901123046875
+      ],
+      "text": "` 2,28,000; ` 10,46,000",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "Rupee",
+      "raw_text": "` 2,28,000; ` 10,46,000 ",
+      "origin": "pdf",
+      "order": 106,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p7-b25",
+      "page": 7,
+      "bbox": [
+        107.95589447021484,
+        422.1879577636719,
+        120.74021911621094,
+        437.257568359375
+      ],
+      "text": "3.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "3. ",
+      "origin": "pdf",
+      "order": 107,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p7-b26",
+      "page": 7,
+      "bbox": [
+        136.7482147216797,
+        422.1879577636719,
+        369.5045166015625,
+        437.257568359375
+      ],
+      "text": "What will be the transaction price for C Ltd.?",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "What will be the transaction price for C Ltd.? ",
+      "origin": "pdf",
+      "order": 108,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p7-b27",
+      "page": 7,
+      "bbox": [
+        136.7592315673828,
+        444.1465148925781,
+        154.22451782226562,
+        459.21612548828125
+      ],
+      "text": "(a)",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "(a) ",
+      "origin": "pdf",
+      "order": 109,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p7-b28",
+      "page": 7,
+      "bbox": [
+        165.5515594482422,
+        444.1465148925781,
+        222.97610473632812,
+        459.21612548828125
+      ],
+      "text": "` 1,10,000",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "Rupee",
+      "raw_text": "` 1,10,000 ",
+      "origin": "pdf",
+      "order": 110,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p7-b29",
+      "page": 7,
+      "bbox": [
+        136.74819946289062,
+        466.22650146484375,
+        154.21348571777344,
+        481.2961120605469
+      ],
+      "text": "(b)",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "(b) ",
+      "origin": "pdf",
+      "order": 111,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p7-b30",
+      "page": 7,
+      "bbox": [
+        165.54052734375,
+        466.22650146484375,
+        222.96507263183594,
+        481.2961120605469
+      ],
+      "text": "` 1,20,000",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "Rupee",
+      "raw_text": "` 1,20,000 ",
+      "origin": "pdf",
+      "order": 112,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p7-b31",
+      "page": 7,
+      "bbox": [
+        136.73716735839844,
+        488.18505859375,
+        153.48484802246094,
+        503.2546691894531
+      ],
+      "text": "(c)",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "(c) ",
+      "origin": "pdf",
+      "order": 113,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p7-b32",
+      "page": 7,
+      "bbox": [
+        165.54052734375,
+        488.18505859375,
+        222.96287536621094,
+        503.2546691894531
+      ],
+      "text": "` 1,17,000",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "Rupee",
+      "raw_text": "` 1,17,000 ",
+      "origin": "pdf",
+      "order": 114,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p7-b33",
+      "page": 7,
+      "bbox": [
+        136.73716735839844,
+        510.1436462402344,
+        154.20245361328125,
+        525.2132568359375
+      ],
+      "text": "(d)",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "(d) ",
+      "origin": "pdf",
+      "order": 115,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p7-b34",
+      "page": 7,
+      "bbox": [
+        165.5294952392578,
+        510.1436462402344,
+        222.9551544189453,
+        525.2132568359375
+      ],
+      "text": "` 1,30,000",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "Rupee",
+      "raw_text": "` 1,30,000 ",
+      "origin": "pdf",
+      "order": 116,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p7-b35",
+      "page": 7,
+      "bbox": [
+        107.9338150024414,
+        532.2235717773438,
+        120.7181396484375,
+        547.293212890625
+      ],
+      "text": "4.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "4. ",
+      "origin": "pdf",
+      "order": 117,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p7-b36",
+      "page": 7,
+      "bbox": [
+        136.72613525390625,
+        532.2235717773438,
+        404.7552185058594,
+        547.293212890625
+      ],
+      "text": "What will be the total cost of the property to X Ltd.?",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "What will be the total cost of the property to X Ltd.? ",
+      "origin": "pdf",
+      "order": 118,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p7-b37",
+      "page": 7,
+      "bbox": [
+        136.72610473632812,
+        554.18212890625,
+        154.19139099121094,
+        569.2517700195312
+      ],
+      "text": "(a)",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "(a) ",
+      "origin": "pdf",
+      "order": 119,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p7-b38",
+      "page": 7,
+      "bbox": [
+        165.5184326171875,
+        554.18212890625,
+        239.14308166503906,
+        569.2517700195312
+      ],
+      "text": "` 2,05,00,000",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "Rupee",
+      "raw_text": "` 2,05,00,000 ",
+      "origin": "pdf",
+      "order": 120,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p7-b39",
+      "page": 7,
+      "bbox": [
+        136.71507263183594,
+        576.1406860351562,
+        154.18035888671875,
+        591.2103271484375
+      ],
+      "text": "(b)",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "(b) ",
+      "origin": "pdf",
+      "order": 121,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p7-b40",
+      "page": 7,
+      "bbox": [
+        165.5074005126953,
+        576.1406860351562,
+        239.12542724609375,
+        591.2103271484375
+      ],
+      "text": "` 2,09,50,000",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "Rupee",
+      "raw_text": "` 2,09,50,000 ",
+      "origin": "pdf",
+      "order": 122,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p7-b41",
+      "page": 7,
+      "bbox": [
+        136.70404052734375,
+        598.220703125,
+        153.45172119140625,
+        613.2903442382812
+      ],
+      "text": "(c)",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "(c) ",
+      "origin": "pdf",
+      "order": 123,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p7-b42",
+      "page": 7,
+      "bbox": [
+        165.5074005126953,
+        598.220703125,
+        239.13204956054688,
+        613.2903442382812
+      ],
+      "text": "` 1,85,00,000",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "Rupee",
+      "raw_text": "` 1,85,00,000 ",
+      "origin": "pdf",
+      "order": 124,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p7-b43",
+      "page": 7,
+      "bbox": [
+        136.70404052734375,
+        620.1792602539062,
+        154.16932678222656,
+        635.2489013671875
+      ],
+      "text": "(d)",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "(d) ",
+      "origin": "pdf",
+      "order": 125,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p7-b44",
+      "page": 7,
+      "bbox": [
+        165.49636840820312,
+        620.1792602539062,
+        239.1221160888672,
+        635.2489013671875
+      ],
+      "text": "` 1,89,50,000",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "Rupee",
+      "raw_text": "` 1,89,50,000 ",
+      "origin": "pdf",
+      "order": 126,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p7-b45",
+      "page": 7,
+      "bbox": [
+        107.8896484375,
+        642.1378173828125,
+        120.6739730834961,
+        657.2074584960938
+      ],
+      "text": "5.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "5. ",
+      "origin": "pdf",
+      "order": 127,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p7-b46",
+      "page": 7,
+      "bbox": [
+        136.68197631835938,
+        642.1378173828125,
+        506.812255859375,
+        657.2074584960938
+      ],
+      "text": "What will be the cost of the investment property to be reflected in the",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "What will be the cost of the investment property to be reflected in the ",
+      "origin": "pdf",
+      "order": 128,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p7-b47",
+      "page": 7,
+      "bbox": [
+        136.68197631835938,
+        658.2230834960938,
+        268.87384033203125,
+        673.292724609375
+      ],
+      "text": "balance sheet of X Ltd.?",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "balance sheet of X Ltd.?  ",
+      "origin": "pdf",
+      "order": 129,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p7-b48",
+      "page": 7,
+      "bbox": [
+        136.68197631835938,
+        680.181640625,
+        154.1472625732422,
+        695.2512817382812
+      ],
+      "text": "(a)",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "(a) ",
+      "origin": "pdf",
+      "order": 130,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p7-b49",
+      "page": 7,
+      "bbox": [
+        165.47430419921875,
+        680.181640625,
+        239.09783935546875,
+        695.2512817382812
+      ],
+      "text": "` 2,05,00,000",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "Rupee",
+      "raw_text": "` 2,05,00,000 ",
+      "origin": "pdf",
+      "order": 131,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p7-b50",
+      "page": 7,
+      "bbox": [
+        294.60101318359375,
+        724.8885498046875,
+        300.7170104980469,
+        740.6405639648438
+      ],
+      "text": "3",
+      "size": 11.0,
+      "bold": true,
+      "font": "Arial,Bold",
+      "raw_text": "3",
+      "origin": "pdf",
+      "order": 132,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p8-b1",
+      "page": 8,
+      "bbox": [
+        136.8000030517578,
+        146.19839477539062,
+        154.26528930664062,
+        161.2679901123047
+      ],
+      "text": "(b)",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "(b) ",
+      "origin": "pdf",
+      "order": 133,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p8-b2",
+      "page": 8,
+      "bbox": [
+        165.5923309326172,
+        146.19839477539062,
+        239.2158660888672,
+        161.2679901123047
+      ],
+      "text": "` 2,09,50,000",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "Rupee",
+      "raw_text": "` 2,09,50,000 ",
+      "origin": "pdf",
+      "order": 134,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p8-b3",
+      "page": 8,
+      "bbox": [
+        136.78897094726562,
+        168.15695190429688,
+        153.53665161132812,
+        183.22654724121094
+      ],
+      "text": "(c)",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "(c) ",
+      "origin": "pdf",
+      "order": 135,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p8-b4",
+      "page": 8,
+      "bbox": [
+        165.5923309326172,
+        168.15695190429688,
+        239.2158660888672,
+        183.22654724121094
+      ],
+      "text": "` 1,70,83,333",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "Rupee",
+      "raw_text": "` 1,70,83,333 ",
+      "origin": "pdf",
+      "order": 136,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p8-b5",
+      "page": 8,
+      "bbox": [
+        136.78897094726562,
+        190.23696899414062,
+        154.25425720214844,
+        205.3065643310547
+      ],
+      "text": "(d)",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "(d) ",
+      "origin": "pdf",
+      "order": 137,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p8-b6",
+      "page": 8,
+      "bbox": [
+        165.581298828125,
+        190.23696899414062,
+        229.48524475097656,
+        205.3065643310547
+      ],
+      "text": "` 34,16,667",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "Rupee",
+      "raw_text": "` 34,16,667 ",
+      "origin": "pdf",
+      "order": 138,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p8-b7",
+      "page": 8,
+      "bbox": [
+        107.9856185913086,
+        212.19552612304688,
+        120.76994323730469,
+        227.26512145996094
+      ],
+      "text": "6.",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "6. ",
+      "origin": "pdf",
+      "order": 139,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p8-b8",
+      "page": 8,
+      "bbox": [
+        136.77793884277344,
+        212.19552612304688,
+        506.9215087890625,
+        227.26512145996094
+      ],
+      "text": "What will be the cost of the owner-occupied property to be reflected in",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "What will be the cost of the owner-occupied property to be reflected in ",
+      "origin": "pdf",
+      "order": 140,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p8-b9",
+      "page": 8,
+      "bbox": [
+        136.7779541015625,
+        228.15939331054688,
+        285.155517578125,
+        243.22898864746094
+      ],
+      "text": "the balance sheet of X Ltd.?",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "the balance sheet of X Ltd.? ",
+      "origin": "pdf",
+      "order": 141,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p8-b10",
+      "page": 8,
+      "bbox": [
+        136.7779541015625,
+        250.23941040039062,
+        154.2432403564453,
+        265.30902099609375
+      ],
+      "text": "(a)",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "(a) ",
+      "origin": "pdf",
+      "order": 142,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p8-b11",
+      "page": 8,
+      "bbox": [
+        165.57028198242188,
+        250.23941040039062,
+        239.19493103027344,
+        265.30902099609375
+      ],
+      "text": "` 2,05,00,000",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "Rupee",
+      "raw_text": "` 2,05,00,000 ",
+      "origin": "pdf",
+      "order": 143,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p8-b12",
+      "page": 8,
+      "bbox": [
+        136.7669219970703,
+        272.1979675292969,
+        154.23220825195312,
+        287.267578125
+      ],
+      "text": "(b)",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "(b) ",
+      "origin": "pdf",
+      "order": 144,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p8-b13",
+      "page": 8,
+      "bbox": [
+        165.5592498779297,
+        272.1979675292969,
+        239.18389892578125,
+        287.267578125
+      ],
+      "text": "` 2,09,50,000",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "Rupee",
+      "raw_text": "` 2,09,50,000 ",
+      "origin": "pdf",
+      "order": 145,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p8-b14",
+      "page": 8,
+      "bbox": [
+        136.75588989257812,
+        294.1565246582031,
+        153.50357055664062,
+        309.22613525390625
+      ],
+      "text": "(c)",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "(c) ",
+      "origin": "pdf",
+      "order": 146,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p8-b15",
+      "page": 8,
+      "bbox": [
+        165.5592498779297,
+        294.1565246582031,
+        239.18389892578125,
+        309.22613525390625
+      ],
+      "text": "` 1,70,83,333",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "Rupee",
+      "raw_text": "` 1,70,83,333 ",
+      "origin": "pdf",
+      "order": 147,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p8-b16",
+      "page": 8,
+      "bbox": [
+        136.75588989257812,
+        316.2365417480469,
+        154.22117614746094,
+        331.30615234375
+      ],
+      "text": "(d)",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "ArialMT",
+      "raw_text": "(d) ",
+      "origin": "pdf",
+      "order": 148,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p8-b17",
+      "page": 8,
+      "bbox": [
+        165.5482177734375,
+        316.2365417480469,
+        229.45326232910156,
+        331.30615234375
+      ],
+      "text": "` 34,16,667",
+      "size": 11.039999961853027,
+      "bold": false,
+      "font": "Rupee",
+      "raw_text": "` 34,16,667 ",
+      "origin": "pdf",
+      "order": 149,
+      "region": "question",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p333-b1",
+      "page": 333,
+      "bbox": [
+        213.12289428710938,
+        152.02706909179688,
+        423.5452880859375,
+        167.8363494873047
+      ],
+      "text": "ANSWERS OF MODEL TEST PAPER 1",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "ANSWERS OF MODEL TEST PAPER 1 ",
+      "origin": "pdf",
+      "order": 0,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": ""
+    },
+    {
+      "block_id": "p333-b2",
+      "page": 333,
+      "bbox": [
+        247.79953002929688,
+        173.98562622070312,
+        388.8686218261719,
+        189.79490661621094
+      ],
+      "text": "FINAL COURSE GROUP I",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "FINAL COURSE GROUP I ",
+      "origin": "pdf",
+      "order": 1,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p333-b3",
+      "page": 333,
+      "bbox": [
+        221.87757873535156,
+        196.06564331054688,
+        414.79052734375,
+        211.8749237060547
+      ],
+      "text": "PAPER 1: FINANCIAL REPORTING",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "PAPER 1: FINANCIAL REPORTING ",
+      "origin": "pdf",
+      "order": 2,
+      "region": "question",
+      "fidelity_flags": [],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p333-b4",
+      "page": 333,
+      "bbox": [
+        203.04331970214844,
+        218.02420043945312,
+        433.6137390136719,
+        233.83348083496094
+      ],
+      "text": "PART – I CASE SCENARIO BASED MCQS",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "PART – I CASE SCENARIO BASED MCQS ",
+      "origin": "pdf",
+      "order": 3,
+      "region": "answer_key",
+      "fidelity_flags": [],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p333-b6",
+      "page": 333,
+      "bbox": [
+        107.98895263671875,
+        262.0627746582031,
+        120.66287231445312,
+        277.8720397949219
+      ],
+      "text": "1.",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "1. ",
+      "origin": "pdf",
+      "order": 4,
+      "region": "answer_key",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p333-b7",
+      "page": 333,
+      "bbox": [
+        136.7923126220703,
+        262.0627746582031,
+        227.34239196777344,
+        277.8720397949219
+      ],
+      "text": "Option (b) : 38%",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "Option (b) : 38% ",
+      "origin": "pdf",
+      "order": 5,
+      "region": "answer_key",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p333-b8",
+      "page": 333,
+      "bbox": [
+        107.98895263671875,
+        284.0213317871094,
+        120.66287231445312,
+        299.8305969238281
+      ],
+      "text": "2.",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "2. ",
+      "origin": "pdf",
+      "order": 6,
+      "region": "answer_key",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p333-b9",
+      "page": 333,
+      "bbox": [
+        136.7923126220703,
+        284.0213317871094,
+        317.4508972167969,
+        299.8305969238281
+      ],
+      "text": "Option (c) : ` 2,48,000; ` 2,28,000",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "Option (c) : ` 2,48,000; ` 2,28,000 ",
+      "origin": "pdf",
+      "order": 7,
+      "region": "answer_key",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p333-b10",
+      "page": 333,
+      "bbox": [
+        107.97795104980469,
+        305.9798889160156,
+        120.65187072753906,
+        321.7891540527344
+      ],
+      "text": "3.",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "3. ",
+      "origin": "pdf",
+      "order": 8,
+      "region": "answer_key",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p333-b11",
+      "page": 333,
+      "bbox": [
+        136.78131103515625,
+        305.9798889160156,
+        258.1661071777344,
+        321.7891540527344
+      ],
+      "text": "Option (d) : ` 1,30,000",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "Option (d) : ` 1,30,000 ",
+      "origin": "pdf",
+      "order": 9,
+      "region": "answer_key",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p333-b12",
+      "page": 333,
+      "bbox": [
+        107.97795104980469,
+        328.05987548828125,
+        123.8865966796875,
+        343.869140625
+      ],
+      "text": "4.",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "4.  ",
+      "origin": "pdf",
+      "order": 10,
+      "region": "answer_key",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p333-b13",
+      "page": 333,
+      "bbox": [
+        136.78131103515625,
+        328.05987548828125,
+        273.3847961425781,
+        343.869140625
+      ],
+      "text": "Option (a) : ` 2,05,00,000",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "Option (a) : ` 2,05,00,000 ",
+      "origin": "pdf",
+      "order": 11,
+      "region": "answer_key",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p333-b14",
+      "page": 333,
+      "bbox": [
+        107.96692657470703,
+        350.0184326171875,
+        123.87556457519531,
+        365.82769775390625
+      ],
+      "text": "5.",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "5.  ",
+      "origin": "pdf",
+      "order": 12,
+      "region": "answer_key",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p333-b15",
+      "page": 333,
+      "bbox": [
+        136.77027893066406,
+        350.0184326171875,
+        273.373779296875,
+        365.82769775390625
+      ],
+      "text": "Option (c) : ` 1,70,83,333",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "Option (c) : ` 1,70,83,333 ",
+      "origin": "pdf",
+      "order": 13,
+      "region": "answer_key",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p333-b16",
+      "page": 333,
+      "bbox": [
+        107.95589447021484,
+        371.97698974609375,
+        123.86453247070312,
+        387.7862548828125
+      ],
+      "text": "6.",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "6.  ",
+      "origin": "pdf",
+      "order": 14,
+      "region": "answer_key",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    },
+    {
+      "block_id": "p333-b17",
+      "page": 333,
+      "bbox": [
+        136.75924682617188,
+        371.97698974609375,
+        264.50311279296875,
+        387.7862548828125
+      ],
+      "text": "Option (d) : ` 34,16,667",
+      "size": 11.039999961853027,
+      "bold": true,
+      "font": "Arial-BoldMT",
+      "raw_text": "Option (d) : ` 34,16,667 ",
+      "origin": "pdf",
+      "order": 15,
+      "region": "answer_key",
+      "fidelity_flags": [
+        "TABLE_STRUCTURE_REVIEW_REQUIRED"
+      ],
+      "numbering_scope": "P1.T1"
+    }
+  ],
+  "expected_tree": [
+    {
+      "label_path": "P1.T1.CS1",
+      "question_text_sha256": "057cc7a2360adea2a1a023370e7893768aa928daf32b4336bd5feafe35bdfca2",
+      "answer_text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mcq_options": 0,
+      "mcq_key": null,
+      "children": [
+        {
+          "label_path": "P1.T1.CS1.M1",
+          "question_text_sha256": "0cec1b00321c8dfa70ee7161795bcf2dfd3677ded0d413f9dce4a3ea713501f4",
+          "answer_text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "mcq_options": 4,
+          "mcq_key": "B",
+          "children": []
+        },
+        {
+          "label_path": "P1.T1.CS1.M2",
+          "question_text_sha256": "9bb6bd794eead046c5c0311dbe11a26514d61aad3bd6a65a0187b4bfa2fe16e7",
+          "answer_text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "mcq_options": 4,
+          "mcq_key": "C",
+          "children": []
+        },
+        {
+          "label_path": "P1.T1.CS1.M3",
+          "question_text_sha256": "5cfbc5b1a7be1dd4f48a212e22b788b99f60aa6021dd02d82e0b15d64d359f4f",
+          "answer_text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "mcq_options": 4,
+          "mcq_key": "D",
+          "children": []
+        },
+        {
+          "label_path": "P1.T1.CS1.M4",
+          "question_text_sha256": "bc1e1df46cf92d17993dafec1c6c3a9711dd122fc01f7e14d27545fe5a152dba",
+          "answer_text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "mcq_options": 4,
+          "mcq_key": "A",
+          "children": []
+        },
+        {
+          "label_path": "P1.T1.CS1.M5",
+          "question_text_sha256": "473261cc358533abe2c6402e3bb40bfd1befe243df6cd8e2bcffd4ea09cc471d",
+          "answer_text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "mcq_options": 4,
+          "mcq_key": "C",
+          "children": []
+        },
+        {
+          "label_path": "P1.T1.CS1.M6",
+          "question_text_sha256": "8f97aeea15b380fe3cc90110e96d1a9d86832ddcf52790ead4882ca40caf3723",
+          "answer_text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "mcq_options": 4,
+          "mcq_key": "D",
+          "children": []
+        }
+      ]
+    }
+  ]
+}

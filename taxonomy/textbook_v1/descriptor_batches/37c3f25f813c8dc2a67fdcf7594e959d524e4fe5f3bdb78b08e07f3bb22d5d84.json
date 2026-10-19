@@ -1,0 +1,293 @@
+{
+  "descriptors": [
+    {
+      "node_id": "579f1129-e314-422c-a4ac-12aa8e246157",
+      "concept_name": "Objectives And Usefulness Of General Purpose Financial Reporting",
+      "definition": "General purpose financial reporting provides financial information about a reporting entity to assist existing and potential investors, lenders, and other creditors in making resource allocation decisions. These decisions encompass buying, selling, or holding equity and debt instruments, providing or settling loans, and influencing management actions regarding economic resources.",
+      "terminology": [
+        "economic resources",
+        "creditors",
+        "equity instruments",
+        "stewardship"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Information for investors, lenders, and other creditors",
+        "Decisions regarding resource allocation and voting rights"
+      ],
+      "exclusion": [
+        "Detailed internal management reports",
+        "Exclusively regulatory compliance disclosures"
+      ],
+      "nearby_distinctions": [
+        "Differs from specific-purpose reports by targeting a broad group of primary external stakeholders rather than specific regulators."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e5e5b8b1-009a-4a2a-84a9-b27df0bc2c8d",
+      "concept_name": "Limitations Of General Purpose Financial Reporting",
+      "definition": "General purpose financial reports cannot provide all requested information, are not designed to show the exact value of a reporting entity, and are not primarily directed to regulators or the public. Users must incorporate external macroeconomic and political sources to fully evaluate entities.",
+      "terminology": [
+        "macroeconomic conditions",
+        "entity value",
+        "external sources"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Information to help users estimate enterprise value",
+        "Incomplete datasets requiring supplementary external data"
+      ],
+      "exclusion": [
+        "Direct valuation of the entire reporting entity",
+        "Comprehensive inclusion of all political and macroeconomic data"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from financial capabilities by explicitly noting what reports cannot achieve rather than what they disclose."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f2fb0f14-9393-4117-b93d-54fca3ca1e5b",
+      "concept_name": "Information Provided By General Purpose Financial Reports",
+      "definition": "Financial reports provide data regarding an entity's financial position through economic resources and claims, alongside financial performance through profit, loss, and cash flows. Accrual accounting depicts these transaction effects in the periods they occur regardless of cash flow timing.",
+      "terminology": [
+        "financial position",
+        "financial performance",
+        "accrual accounting"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Assets, liabilities, and claims",
+        "Accrual-based profit and loss figures"
+      ],
+      "exclusion": [
+        "Purely cash-basis metrics without accrual adjustments",
+        "Subjective market valuations independent of economic transactions"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between static financial position data and dynamic financial performance metrics."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a337b40a-8ae8-4e6d-9a5e-712c30f2a683",
+      "concept_name": "Economic Resources And Claims",
+      "definition": "Information detailing an entity's economic resources and claims assists users in evaluating financial strengths, weaknesses, liquidity, solvency, and financing needs. It also facilitates the assessment of management stewardship and future cash flow distributions.",
+      "terminology": [
+        "liquidity",
+        "solvency",
+        "stewardship",
+        "claims"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Nature and amounts of economic resources",
+        "Obligations and claims against the entity"
+      ],
+      "exclusion": [
+        "Forward-looking speculative market capitalization figures",
+        "Macroeconomic country-level statistics"
+      ],
+      "nearby_distinctions": [
+        "Focuses on the static inventory of resources and liabilities rather than periodic operating performance flows."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c31a3734-a88a-47b2-846c-b67c3f9906a0",
+      "concept_name": "Changes In Economic Resources And Claims",
+      "definition": "Modifications to an entity's resources and claims arise from financial performance as well as other external transactions such as issuing debt or equity instruments. Comprehensive tracking of both performance and non-performance changes is essential for understanding future cash inflow prospects.",
+      "terminology": [
+        "financial performance",
+        "debt issuance",
+        "equity instruments"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Changes originating from operating performance",
+        "Modifications caused by capital injections or debt issuances"
+      ],
+      "exclusion": [
+        "Static point-in-time balance sheet figures without period-over-period movement",
+        "Internal managerial budgeting estimates"
+      ],
+      "nearby_distinctions": [
+        "Separates operational performance variations from capital structure shifts like equity issuances."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b7f0f6e4-7578-4d98-8145-3ed31227bfb6",
+      "concept_name": "Qualitative Characteristics Of Useful Financial Information",
+      "definition": "Useful financial information must possess the fundamental characteristics of relevance and faithful representation to make a difference in user decisions. Relevance is determined by predictive and confirmatory values, alongside entity-specific materiality thresholds.",
+      "terminology": [
+        "relevance",
+        "predictive value",
+        "confirmatory value",
+        "materiality"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Data with predictive or confirmatory utility",
+        "Entity-specific material disclosures"
+      ],
+      "exclusion": [
+        "Immaterial trivia that cannot influence primary users",
+        "Standardized uniform quantitative materiality thresholds"
+      ],
+      "nearby_distinctions": [
+        "Differentiates fundamental qualitative prerequisites from secondary enhancing characteristics."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "bb83e88c-5bc3-493b-8430-8b2af8b52a34",
+      "concept_name": "Relevance",
+      "definition": "Financial information is relevant if it is capable of making a difference in user decisions through predictive value, confirmatory value, or both. Materiality acts as an entity-specific threshold of relevance dependent on the nature or magnitude of the item.",
+      "terminology": [
+        "predictive value",
+        "confirmatory value",
+        "materiality"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Inputs aiding future outcome predictions",
+        "Feedback correcting past evaluations"
+      ],
+      "exclusion": [
+        "Rigid rule-based quantitative materiality cutoffs set by standard-setters",
+        "Information devoid of decision-usefulness"
+      ],
+      "nearby_distinctions": [
+        "Focuses on decision capability rather than perfection of measurement accuracy."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e203ecc2-a642-48e2-9efd-a688d1409fde",
+      "concept_name": "Faithful Representation",
+      "definition": "Faithful representation requires economic phenomena to be depicted in accordance with their substance rather than legal form alone. A perfectly faithful depiction must be complete, neutral, and free from error, supported by prudence under uncertainty.",
+      "terminology": [
+        "substance over form",
+        "completeness",
+        "neutrality",
+        "prudence",
+        "free from error"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Substance-aligned accounting treatments",
+        "Unbiased and cautious estimates under uncertainty"
+      ],
+      "exclusion": [
+        "Strict legal-form reporting that obscures economic reality",
+        "Biased or asymmetric asset and liability valuations"
+      ],
+      "nearby_distinctions": [
+        "Contrasted with relevance by ensuring a true depiction of economic reality rather than general decision-usefulness."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "cb3f9a4d-11f3-4b42-bcb5-733363b5ef4c",
+      "concept_name": "Applying The Fundamental Qualitative Characteristics",
+      "definition": "Applying fundamental characteristics involves identifying a useful economic phenomenon, determining its relevant information type, and ensuring available data provides a faithful representation. Trade-offs between relevance and measurement uncertainty may occasionally be necessary to achieve the objective of financial reporting.",
+      "terminology": [
+        "measurement uncertainty",
+        "trade-off",
+        "faithful representation"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Iterative evaluation of relevance and representation",
+        "Disclosure of highly uncertain estimates with explanatory context"
+      ],
+      "exclusion": [
+        "Ignoring high measurement errors when representation is compromised",
+        "Arbitrary selection of reporting formats"
+      ],
+      "nearby_distinctions": [
+        "Focuses on the procedural application and trade-offs of fundamental criteria rather than defining the characteristics themselves."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "21e30a7c-ae88-4770-bed9-22dd4a722c4b",
+      "concept_name": "Enhancing Qualitative Characteristics",
+      "definition": "Enhancing qualitative characteristics amplify information usefulness when items are relevant and faithfully represented. These characteristics comprise comparability, verifiability, timeliness, and understandability.",
+      "terminology": [
+        "comparability",
+        "verifiability",
+        "timeliness",
+        "understandability"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Direct and indirect verification methods",
+        "Consistent period-over-period classifications and clear presentations"
+      ],
+      "exclusion": [
+        "Using enhancing traits to rescue irrelevant or unfaithful information",
+        "Uniformity forced across fundamentally different economic events"
+      ],
+      "nearby_distinctions": [
+        "Enhancing characteristics improve information utility but cannot substitute for failing fundamental characteristics."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "044240b8-9c2e-4044-87c1-5318c6c13263",
+      "concept_name": "Applying The Enhancing Qualitative Characteristics",
+      "definition": "Enhancing qualitative characteristics should be maximized iteratively, acknowledging that individual traits may occasionally be balanced against one another. For example, a temporary sacrifice in comparability may be accepted to secure long-term relevance via a new accounting standard.",
+      "terminology": [
+        "iterative process",
+        "trade-off",
+        "prospectively applying"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Balancing comparability against enhanced relevance",
+        "Using disclosures to compensate for transitional non-comparability"
+      ],
+      "exclusion": [
+        "Applying enhancing criteria to override fundamental defects",
+        "Rigid linear sequencing of qualitative applications"
+      ],
+      "nearby_distinctions": [
+        "Focuses on the dynamic interplay and optimization of secondary traits rather than primary definitions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4220c9d7-1d60-49ca-8826-21a2d449473b",
+      "concept_name": "The Cost Constraint On Useful Financial Information",
+      "definition": "Cost acts as a pervasive constraint ensuring that the benefits derived from reporting financial information justify the costs incurred by providers and users. Standard-setters assess these cost-benefit relationships qualitatively and quantitatively across financial reporting generally rather than for individual entities alone.",
+      "terminology": [
+        "cost constraint",
+        "benefit justification",
+        "standard-setting"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Evaluation of reporting and analysis burdens",
+        "General standard-level cost-benefit balancing"
+      ],
+      "exclusion": [
+        "Entity-specific cost exemption requests",
+        "Unchecked reporting mandates ignoring economic implementation expenses"
+      ],
+      "nearby_distinctions": [
+        "Treats cost as an overarching external boundary on information provision rather than an internal qualitative characteristic."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "37c3f25f813c8dc2a67fdcf7594e959d524e4fe5f3bdb78b08e07f3bb22d5d84",
+  "artifact_id": "286aeffb-c1e1-493c-a40f-709922f46d7d",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 7990,
+  "output_tokens": 3124,
+  "cost_usd": 0.010207,
+  "created_at": "2026-10-03T17:46:59.896544+00:00"
+}

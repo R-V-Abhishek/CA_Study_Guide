@@ -1,0 +1,35 @@
+{
+  "result": {
+    "question_id": "5414a1920be2e2a6cf73c5b09fde47edbe199b3c391ae7c4db47ed429bb56f3d",
+    "input_hash": "6677f579a3f77b39adcefc611102a668ea95b33d468597b96bcf8de49020df11",
+    "mappings": [
+      {
+        "part_id": "5414a1920be2e2a6cf73c5b09fde47edbe199b3c391ae7c4db47ed429bb56f3d",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "The supplied text is only the fragment \u201cIFSC Insurance Intermediary office\u201d; it gives no assessable prompt or tested concept. Answers are missing, and the source page is flagged for non-text layout review, so a candidate topic cannot be established from the available context.",
+        "confidence": null,
+        "bucket": null
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "367837e7eb2ced40a8d1878efa08548af727cb1054b950bdc1e688f4e0483cda",
+    "schema_generator": "pinned-part-ids-v1",
+    "seconds": 12.523,
+    "usage": [
+      {
+        "input_tokens": 47591,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 392,
+        "reasoning_output_tokens": 165
+      }
+    ],
+    "completed_at": "2026-10-05T15:56:47.445219+00:00"
+  }
+}

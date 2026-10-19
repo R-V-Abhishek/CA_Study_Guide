@@ -1,0 +1,279 @@
+{
+  "descriptors": [
+    {
+      "node_id": "b1c32322-852e-4a0e-821a-2fb05f4fdd68",
+      "concept_name": "Direct Product Profitability Statement",
+      "definition": "Direct product profitability measures retail profitability by deducting directly attributable product costs from gross margin to account for indirect overhead, storage, and handling expenses. It relates indirect costs to goods according to their resource usage rather than relying solely on bought-in cost versus selling price margins.",
+      "terminology": [
+        "Direct Product Profit",
+        "Bought-in Price",
+        "Volume Related Cost",
+        "Product Batch Cost",
+        "Inventory Financing Costs"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Warehouse costs including labor, space, and insurance",
+        "Transport costs including labor, fuel, and vehicle maintenance",
+        "Store costs and inventory financing costs"
+      ],
+      "exclusion": [
+        "Organization-level indirect costs not linked to product activity or movement"
+      ],
+      "nearby_distinctions": [
+        "Traditional gross margin only deducts bought-in cost of goods, ignoring store-level and handling indirect expenses."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "cfc40e42-53ee-4fac-b9ac-fdee55e8bf4c",
+      "concept_name": "Customer Profitability Analysis",
+      "definition": "Customer profitability analysis utilizes activity-based costing to assign service and support costs to specific customer segments based on their unique activity profiles. It enables organizations to identify which customers erode or contribute to overall profitability by revealing the true cost to serve them.",
+      "terminology": [
+        "Activity Profiles",
+        "Cost to Serve",
+        "Customer Profitability Statement"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Cash withdrawals, statement requests, and returned checks for banks",
+        "Special transport and rush order handling costs for manufacturers"
+      ],
+      "exclusion": [
+        "General organizational overheads not traceable to specific customer activity profiles"
+      ],
+      "nearby_distinctions": [
+        "Differs from product costing by focusing on activity consumption patterns of individual buyers rather than units produced."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c09094e8-b34f-450b-93da-d314109a9900",
+      "concept_name": "Benefits of Customer Profitability Analysis",
+      "definition": "This analysis provides suppliers with visibility into which customer accounts contribute to or erode overall enterprise profitability. It establishes a factual basis for constructive commercial dialogues between buyers and sellers to improve operating margins.",
+      "terminology": [
+        "Contribution per unit",
+        "Order Processing Cost",
+        "Delivery Costs"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Evaluation of quantity discounts and delivery discounts against actual fulfillment costs"
+      ],
+      "exclusion": [
+        "Arbitrary allocation of selling expenses without activity tracking"
+      ],
+      "nearby_distinctions": [
+        "Focuses on actionable insights from customer-specific margins rather than macro revenue totals."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "71583384-9752-4c3b-879d-0f3fbf78df81",
+      "concept_name": "ABC in Advanced Manufacturing Environment",
+      "definition": "Activity-based costing addresses modern manufacturing environments characterized by intense global competition and heavy workplace automation. It replaces labor-centric cost allocations with accurate tracking of non-unit level overhead costs such as setups and inspections.",
+      "terminology": [
+        "Global Competitiveness",
+        "Workplace Automation",
+        "Non-unit Level Overhead Costs"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Computer-aided design and manufacturing support overheads",
+        "Setup and inspection cost pools"
+      ],
+      "exclusion": [
+        "Traditional volume-based allocation methods relying solely on direct labor hours"
+      ],
+      "nearby_distinctions": [
+        "Focuses on automated support and indirect equipment usage rather than traditional labor-intensive direct costing."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4b2d8f47-1d17-43c3-84f1-0c7d53d6c547",
+      "concept_name": "Activity Based Cost Management (ABM)",
+      "definition": "Activity-based management applies cost information gathered through activity-based costing to manage operational activities efficiently and improve customer value. It adds a dynamic continuous improvement dimension to the static cost model by focusing on cost drivers and activity performance.",
+      "terminology": [
+        "Cost Driver Analysis",
+        "Activity Analysis",
+        "Performance Measurement"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Cost driver analysis",
+        "Activity analysis for value enhancement"
+      ],
+      "exclusion": [
+        "Static financial reporting detached from operational activity workflows"
+      ],
+      "nearby_distinctions": [
+        "Unlike ABC which measures activity costs, ABM utilizes that cost data to manage operational processes and drive decisions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b3084f5d-ec15-4323-81a8-272d9d7c9210",
+      "concept_name": "Designing and Implementing ABM",
+      "definition": "Designing activity-based management involves identifying cost drivers, evaluating activity value, and performing comparative performance analyses against benchmarks. It organizes processes into activity cost pools to eliminate waste and optimize resource utilization.",
+      "terminology": [
+        "Cost Driver",
+        "Activity Centre",
+        "Performance Analysis"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Grouping activities into activity cost centres",
+        "Identifying non-value-added steps"
+      ],
+      "exclusion": [
+        "Unstructured overhead dumping without operational linkage"
+      ],
+      "nearby_distinctions": [
+        "Focuses on operational steps and workflow drivers rather than general ledger account classifications."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "509e5128-e2c4-499d-be7a-ff863e7cec5f",
+      "concept_name": "Non-Value-Added Activities",
+      "definition": "Non-value-added activities create waste, introduce delays, and consume resources without enhancing the functional quality of a product or service for customers. Common examples include moving materials, waiting periods, redundant inspections, and production scheduling.",
+      "terminology": [
+        "Storing",
+        "Moving",
+        "Waiting",
+        "Inspecting",
+        "Scheduling"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Unnecessary material handling",
+        "Excessive work-in-process waiting times"
+      ],
+      "exclusion": [
+        "Activities required to meet mandatory customer quality specifications, such as essential wine aging"
+      ],
+      "nearby_distinctions": [
+        "Value-added activities improve product function or customer value, whereas non-value-added activities add cost without utility."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b2c2f2d7-ff97-40de-902a-415ed1c0936b",
+      "concept_name": "Business Applications of ABM",
+      "definition": "Activity-based management applications span cost reduction, budgeting, business process re-engineering, benchmarking, and performance measurement. They align organizational operations with customer demands for lower costs, higher quality, faster response, and greater innovation.",
+      "terminology": [
+        "Activity Based Budgeting",
+        "Business Process Re-engineering",
+        "Benchmarking"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Process waste elimination",
+        "Activity-based budget formulation"
+      ],
+      "exclusion": [
+        "Purely historical financial accounting reviews lacking operational metrics"
+      ],
+      "nearby_distinctions": [
+        "Applies activity cost data directly to strategic enterprise initiatives rather than routine product valuation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5a8e8148-8aa0-4ec3-8b22-e7c5b9e6261b",
+      "concept_name": "Cost Reduction",
+      "definition": "Cost reduction under activity-based management involves identifying expenses tied to specific activities to streamline processes or eliminate non-value-added tasks. It provides a structured vehicle for continuous process improvement by quantifying and targeting operational waste.",
+      "terminology": [
+        "Process Waste",
+        "Continuous Improvement",
+        "Activity Cost Identification"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Elimination of wasteful non-value-added activities",
+        "Quantification of process inefficiencies"
+      ],
+      "exclusion": [
+        "Arbitrary across-the-board budget cuts that ignore underlying activity drivers"
+      ],
+      "nearby_distinctions": [
+        "Targets specific operational workflows and task inefficiencies rather than arbitrary expense slashing."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5f8a5e9b-60f4-48c0-a358-c56885030036",
+      "concept_name": "Activity Based Budgeting (ABB)",
+      "definition": "Activity-based budgeting plans and controls expected organizational activities to derive a cost-effective budget matching forecast workloads and strategic goals. It analyzes resource inputs based on the type, quantity, and cost of work to be performed.",
+      "terminology": [
+        "Resource Input",
+        "Type of Work",
+        "Quantity of Work"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Budgeting frameworks based on expected activity levels",
+        "Comparison of actual results against budgeted activity drivers"
+      ],
+      "exclusion": [
+        "Traditional incremental budgeting based solely on historical financial expenditure trends"
+      ],
+      "nearby_distinctions": [
+        "Focuses on operational workloads and activity resource demand rather than historical financial account balances."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "769000d3-d1ba-4ae9-8f20-bba36909e157",
+      "concept_name": "Implementing ABM 18",
+      "definition": "Implementing activity-based management requires securing top management support, defining critical enterprise issues, and integrating ABC methods into core reporting systems. Successful rollouts engage actual information users within implementation teams to ensure high-level conceptual clarity.",
+      "terminology": [
+        "Top Management Support",
+        "Implementation Team",
+        "Information Needs"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Incorporation of ABC methods into primary cost reporting structures",
+        "Engagement of system users during deployment"
+      ],
+      "exclusion": [
+        "Bottom-up accounting changes implemented without leadership alignment"
+      ],
+      "nearby_distinctions": [
+        "Focuses on the administrative rollout and structural integration steps rather than mathematical cost assignment."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "cca891b3-cf4e-4253-a83f-38e72eea3f9d",
+      "concept_name": "Benefits of Activity Based Management",
+      "definition": "Activity-based management provides a structured framework for cost reduction, process improvement, and effective managerial decision-making. It enables operational management to understand underlying cost drivers and prioritize the management of key resources.",
+      "terminology": [
+        "Process Improvement",
+        "Key Resource Management",
+        "Process Waste Elements"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Identification of process waste elements",
+        "Clear guidance on implementing activity-based budgets"
+      ],
+      "exclusion": [
+        "General cost accounting reports that omit operational drivers"
+      ],
+      "nearby_distinctions": [
+        "Focuses on managerial control and operational optimization rather than financial valuation accuracy alone."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "eef564fb632210fcbd1e1d3e4e1e4e2094ff86c17cd4ccafa8927ab2c59ec6a7",
+  "artifact_id": "34b24b68-e907-41e1-8066-3ec1a0fb9b63",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8203,
+  "output_tokens": 2993,
+  "cost_usd": 0.0099434,
+  "created_at": "2026-10-03T18:27:28.938072+00:00"
+}

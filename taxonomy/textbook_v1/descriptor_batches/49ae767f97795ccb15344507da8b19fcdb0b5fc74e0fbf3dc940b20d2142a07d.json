@@ -1,0 +1,300 @@
+{
+  "descriptors": [
+    {
+      "node_id": "bcbe612f-0ed4-45c9-ab6d-5a1375bd1155",
+      "concept_name": "The Plan–Do–Check–Act (PDCA) Cycle",
+      "definition": "The Plan-Do-Check-Act cycle is a four-step continuous improvement methodology also known as the Deming wheel. It involves establishing objectives, implementing processes, measuring effectiveness, and taking corrective actions.",
+      "terminology": [
+        "Deming wheel",
+        "Plan",
+        "Do",
+        "Check",
+        "Act"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Establishing objectives and action plans",
+        "Implementing planned processes",
+        "Measuring process effectiveness",
+        "Taking corrective actions"
+      ],
+      "exclusion": [
+        "Six Sigma defect reduction",
+        "One-off project completions without continuous review"
+      ],
+      "nearby_distinctions": [
+        "Differs from Six Sigma by focusing broadly on continuous process improvement rather than specific defect minimization."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3858b035-384d-4687-a030-c1f1f8623feb",
+      "concept_name": "Implementation of TQM",
+      "definition": "Implementing Total Quality Management requires a strategic decision preceded by a management audit to evaluate the organization's current baseline realities. TQM adoption should be postponed if foundational issues like unstable funding, weak administration, or poor employee morale exist.",
+      "terminology": [
+        "Management audit",
+        "Organizational reality",
+        "Strategic decision"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Data collection on current organizational reality",
+        "Management audits to identify operational levels",
+        "Strategic evaluation before adoption"
+      ],
+      "exclusion": [
+        "Immediate TQM deployment without prior organizational readiness checks"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from routine operational changes by requiring formal baseline audits and verified organizational readiness."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "bc3e141f-2923-447c-b6b2-1a4ddda21748",
+      "concept_name": "Criticisms of Total Quality Management",
+      "definition": "TQM implementations have faced criticism for over-emphasizing process documentation, quality assurance over actual improvement, and maintaining an internal focus contrary to customer orientation. Critics like Carlzon and Albrecht advocate instead for total employee involvement, front-line empowerment, and total quality service approaches.",
+      "terminology": [
+        "Total employee involvement",
+        "Total quality service",
+        "Quality assurance",
+        "Process documentation"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Critiques regarding heavy process documentation",
+        "Internal focus conflicts with customer orientation",
+        "Proposals for front-line employee empowerment"
+      ],
+      "exclusion": [
+        "Core foundational principles of Deming, Juran, and Ishikawa"
+      ],
+      "nearby_distinctions": [
+        "Focuses on practical implementation shortcomings rather than the theoretical concepts of quality management systems."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a9d3e133-0b13-4d35-a73e-2c87bb2277cc",
+      "concept_name": "Conclusion",
+      "definition": "Total Quality Management is a multi-faceted discipline institutionalizing planned and continuous improvement across all functions and employee levels. Successful execution yields enhanced department quality, greater customer retention, increased revenue, and global brand recognition.",
+      "terminology": [
+        "Continuous improvement",
+        "Quality culture",
+        "Quality systems",
+        "Six Sigma"
+      ],
+      "instrument_references": [
+        "Malcolm Baldrige National Quality Award"
+      ],
+      "inclusion": [
+        "Core assumptions of Deming, Juran, and Ishikawa",
+        "Outcomes including customer retention and brand recognition"
+      ],
+      "exclusion": [
+        "Six Sigma defect reduction processes"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from Six Sigma because TQM targets broad process improvements while Six Sigma centers on reducing defects to specific ppm levels."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "aa400c45-f2d1-4a13-8034-ee9d082c8fe8",
+      "concept_name": "Types of Supply Chain- Push and Pull",
+      "definition": "Supply chains operate either under a push model where stocks are produced based on anticipated demand forecasting, or a pull model where production reacts directly to actual consumer demand. Electronic supply chain connectivity under the pull approach allows customers to provide precise specifications and direct inputs.",
+      "terminology": [
+        "Push model",
+        "Pull model",
+        "Demand forecasting",
+        "Electronic supply chain connectivity"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Anticipated demand forecasting via operations research or data mining",
+        "Production driven by actual consumer demand"
+      ],
+      "exclusion": [
+        "Upstream supplier management transactions"
+      ],
+      "nearby_distinctions": [
+        "Push models rely on speculative forecasting, whereas pull models are triggered by real-time customer demand signals."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1a2bca66-f226-49ca-90f8-c114c2574c50",
+      "concept_name": "Upstream and Downstream Flow",
+      "definition": "A supply chain spans from initial suppliers to final consumers, encompassing continuous flows of materials, information, and capital. Flows interacting with suppliers are classified as upstream flows, while those involving customers are designated as downstream flows.",
+      "terminology": [
+        "Upstream flow",
+        "Downstream flow",
+        "Material flow",
+        "Information flow",
+        "Capital flow"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Supplier-related transaction flows",
+        "Customer-related transaction flows",
+        "Movement of information, materials, and capital"
+      ],
+      "exclusion": [
+        "Internal enterprise manufacturing processes divorced from external parties"
+      ],
+      "nearby_distinctions": [
+        "Upstream flow targets supplier interactions, whereas downstream flow focuses on consumer and customer transactions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f68bc15c-132a-4d92-922a-8aeed009e63b",
+      "concept_name": "Management of Upstream Supplier Chain",
+      "definition": "Upstream supply chain management governs all direct transactions, strategic relationships, and operational alignments with external suppliers. Aligning with key suppliers enhances capabilities in innovation, quality, reliability, cost reduction, and risk mitigation.",
+      "terminology": [
+        "Upstream supply chain management",
+        "Supplier relationship management",
+        "Supplier capabilities"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Managing transactions with suppliers",
+        "Aligning supplier capabilities for innovation and quality"
+      ],
+      "exclusion": [
+        "Management of final customers and downstream marketing domains"
+      ],
+      "nearby_distinctions": [
+        "Confined to inbound supplier interactions rather than outbound customer distribution channels."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "02779c5d-8426-4e63-a332-bcd13574024f",
+      "concept_name": "Relationship with Suppliers",
+      "definition": "Supplier relationship management involves strategic decisions regarding source locations, supplier counts, cost-quality-speed trade-offs, and make-or-buy choices. Upstream efficiency is further advanced through E-Procurement tools encompassing electronic sourcing, purchasing, and payment.",
+      "terminology": [
+        "Supplier Relationship Management",
+        "E-Procurement",
+        "E-Sourcing",
+        "Make or Buy",
+        "Bargaining power"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Source location and supplier count strategies",
+        "Cost, quality, and speed trade-off balances",
+        "E-Procurement and E-Sourcing processes"
+      ],
+      "exclusion": [
+        "Customer-facing relationship marketing frameworks"
+      ],
+      "nearby_distinctions": [
+        "Focuses on inbound supplier selection and digital procurement strategies rather than downstream customer engagement."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e9c73145-7466-4b9e-9666-3a4968207b9b",
+      "concept_name": "Downstream Supply Chain Management",
+      "definition": "Downstream supply chain management handles all operational transactions, marketing activities, and relationship maintenance with end consumers and customers. It deploys frameworks like the Six Markets Model to target key market domains including internal, referral, influence, recruitment, supplier, and customer markets.",
+      "terminology": [
+        "Downstream supply chain management",
+        "Relationship marketing",
+        "Six Markets Model"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Transactions with consumers and customers",
+        "Internal, referral, influence, and recruitment market domains"
+      ],
+      "exclusion": [
+        "Inbound procurement and upstream supplier selection"
+      ],
+      "nearby_distinctions": [
+        "Deals with outbound customer channels and stakeholder influence networks instead of inbound supplier logistics."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "cabc9782-56ce-4af1-b38f-8996c3839449",
+      "concept_name": "Relationship Marketing",
+      "definition": "Relationship marketing supports downstream supply chain management by retaining existing clients and attracting new ones through quality offerings, service personnel, and proper customer care. The Six Markets Model structures these efforts across internal departments, referral sources, market influencers, recruitment channels, supplier allies, and customer groups.",
+      "terminology": [
+        "Relationship marketing",
+        "Six Markets Model",
+        "Internal markets",
+        "Referral markets",
+        "Influence markets",
+        "Recruitment markets"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Customer retention and acquisition practices",
+        "Multi-domain engagement via the Six Markets Model"
+      ],
+      "exclusion": [
+        "Purely transactional internal production costing without market focus"
+      ],
+      "nearby_distinctions": [
+        "Broadens traditional customer targeting into a comprehensive six-market stakeholder engagement architecture."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b6e804c2-172d-4a71-b3f5-0dea02b658bd",
+      "concept_name": "Customers Relationship Management",
+      "definition": "Customer Relationship Management utilizes integrated strategies and technologies to analyze customer interactions across their lifecycle to improve business relations and drive sales. It incorporates Customer Account Profitability analysis using activity-based costing tools to compute net profits generated by specific customers.",
+      "terminology": [
+        "Customer Relationship Management",
+        "Customer Account Profitability",
+        "Activity Based Costing",
+        "Customer retention"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Tracking customer interactions and purchase histories",
+        "Customer Account Profitability improvement initiatives",
+        "Activity-based costing for customer net profit calculation"
+      ],
+      "exclusion": [
+        "Upstream supplier procurement evaluations"
+      ],
+      "nearby_distinctions": [
+        "Evaluates profitability at the granular customer account level rather than broad product or enterprise levels."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "23fac0cb-d9e8-49e5-bd47-23433eccabcb",
+      "concept_name": "The use of Information Technology in Downstream Supply Chain Management",
+      "definition": "Information technology optimizes downstream supply chains by linking enterprise sales systems directly to customer purchasing systems through Electronic Data Interchange. Organizations deploy e-business sales channels, online transaction monitoring, and email communications to reduce costs and accelerate response times.",
+      "terminology": [
+        "Electronic Data Interchange",
+        "E-Business",
+        "Brand strategy",
+        "Intelligence gathering"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Linking sales systems to customer purchasing systems via EDI",
+        "Monitoring online customer transactions",
+        "Distinctive product branding strategies"
+      ],
+      "exclusion": [
+        "Inbound supplier e-procurement portals"
+      ],
+      "nearby_distinctions": [
+        "Focuses on outward-facing digital sales integration and brand visibility instead of inbound supplier electronic tendering."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "49ae767f97795ccb15344507da8b19fcdb0b5fc74e0fbf3dc940b20d2142a07d",
+  "artifact_id": "3c55fc21-8da7-4147-980e-68bf34fe7721",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 7143,
+  "output_tokens": 3160,
+  "cost_usd": 0.0100429,
+  "created_at": "2026-10-03T18:26:00.928467+00:00"
+}

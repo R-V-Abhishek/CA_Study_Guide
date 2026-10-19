@@ -1,16 +1,16 @@
 """Typed configuration loader using pydantic-settings and TOML files."""
 
 from pathlib import Path
+import os
 import tomllib
 from typing import Any
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, SecretStr
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class AppSettings(BaseModel):
     env: str = "development"
-    user_id: int = 1
-    target_attempt_id: str = "2026-05"
+    target_attempt_id: str = "2027-05"
 
 
 class StorageSettings(BaseModel):
@@ -34,6 +34,14 @@ class DatabaseSettings(BaseModel):
         return f"postgresql+psycopg://{self.user}:{self.password}@{self.host}:{self.port}/{self.database}"
 
 
+class OCRSettings(BaseModel):
+    enabled: bool = False
+    language: str = 'eng'
+    dpi: int = Field(default=300, ge=72, le=600)
+    min_native_chars: int = Field(default=10, ge=1)
+    tessdata: str | None = None
+
+
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
         env_file=".env",
@@ -41,18 +49,42 @@ class Settings(BaseSettings):
         extra="ignore",
     )
 
+    OIDC_ISSUER: str | None = None
+    OIDC_CLIENT_ID: str | None = None
+    OIDC_CLIENT_SECRET: str | None = None
+    OIDC_REDIRECT_URI: str | None = None
+    AUTH_PUBLIC_BASE_URL: str = "http://127.0.0.1:8788"
+    AUTH_LOCAL_DEVELOPMENT: bool = False
+    AUTH_ALLOWED_ORIGINS: str = "http://127.0.0.1:8788,http://localhost:5173,http://localhost:5174"
+
     # Overrides from environment
     DATABASE_URL: str | None = None
     GEMINI_API_KEY: str | None = None
+    OPENROUTER_API_KEY: SecretStr | None = None
     PG_SUPERUSER: str = "postgres"
     PG_SUPERUSER_PASSWORD: str = "postgres_dev_password"
     PG_HOST: str = "127.0.0.1"
     PG_PORT: int = 5433
     PG_DATABASE: str = "caf"
+    CAF_ENV: str | None = None
+    PG_APP_PASSWORD: str | None = None
+    PG_CURATOR_PASSWORD: str | None = None
+    PG_PIPELINE_PASSWORD: str | None = None
+    PG_IDENTITY_PASSWORD: str | None = None
+    PG_OPERATIONS_PASSWORD: str | None = None
+    PG_BACKUP_PASSWORD: str | None = None
+    STUDENT_DATABASE_URL: str | None = None
+    IDENTITY_DATABASE_URL: str | None = None
+    CURATION_DATABASE_URL: str | None = None
+    OPERATIONS_DATABASE_URL: str | None = None
+    PIPELINE_DATABASE_URL: str | None = None
+    BACKUP_DATABASE_URL: str | None = None
+    MIGRATION_DATABASE_URL: str | None = None
 
     app: AppSettings = Field(default_factory=AppSettings)
     storage: StorageSettings = Field(default_factory=StorageSettings)
     database: DatabaseSettings = Field(default_factory=DatabaseSettings)
+    ocr: OCRSettings = Field(default_factory=OCRSettings)
 
     @classmethod
     def load(cls, config_dir: Path = Path("config")) -> "Settings":
@@ -63,6 +95,21 @@ class Settings(BaseSettings):
                 toml_data = tomllib.load(f)
 
         inst = cls(**toml_data)
+        if inst.CAF_ENV:
+            inst.app.env = inst.CAF_ENV
+        if os.environ.get("CAF_TEST_MODE") == "1":
+            from caf_common.db_safety import assert_safe_database
+            if not inst.DATABASE_URL or not os.environ.get("CAF_TEST_STORAGE_ROOT"):
+                raise RuntimeError("Test settings require harness database and storage")
+            assert_safe_database(inst.DATABASE_URL)
+            root = Path(os.environ["CAF_TEST_STORAGE_ROOT"])
+            inst.storage = StorageSettings(**{
+                name: root / name.removesuffix("_dir")
+                for name in StorageSettings.model_fields
+            })
+            inst.GEMINI_API_KEY = None
+            inst.OPENROUTER_API_KEY = None
+            inst.app.env = "test"
         # Reconcile DB URL if explicitly passed or configured
         if inst.DATABASE_URL:
             # We preserve custom url
@@ -92,3 +139,8 @@ def get_settings() -> Settings:
     if _cached_settings is None:
         _cached_settings = Settings.load()
     return _cached_settings
+
+
+def reset_settings() -> None:
+    global _cached_settings
+    _cached_settings = None

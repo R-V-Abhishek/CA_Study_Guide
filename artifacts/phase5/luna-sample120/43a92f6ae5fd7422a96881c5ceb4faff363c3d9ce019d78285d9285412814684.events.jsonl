@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a10cd4-ab99-77e1-849b-622f0d33f84e"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"{\"question_id\":\"43a92f6ae5fd7422a96881c5ceb4faff363c3d9ce019d78285d9285412814684\",\"input_hash\":\"18a89c3833515ccc9a5ced03535f5e8a6cfc3fce90b01d4bed303626b9f12066\",\"mappings\":[{\"part_id\":\"43a92f6ae5fd7422a96881c5ceb4faff363c3d9ce019d78285d9285412814684\",\"outcome\":\"needs_review\",\"primary_node_id\":null,\"secondary_node_ids\":[],\"evidence\":[],\"note\":\"The supplied part contains only an option marker and an amount; no question stem or tested concept is available to support a label.\",\"confidence\":null,\"bucket\":null}]}"}}
+{"type":"turn.completed","usage":{"input_tokens":48269,"cached_input_tokens":0,"cache_write_input_tokens":0,"output_tokens":458,"reasoning_output_tokens":264}}

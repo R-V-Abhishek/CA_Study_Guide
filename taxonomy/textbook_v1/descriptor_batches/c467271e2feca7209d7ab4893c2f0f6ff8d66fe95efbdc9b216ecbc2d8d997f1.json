@@ -1,0 +1,314 @@
+{
+  "descriptors": [
+    {
+      "node_id": "95273759-c896-4618-9d51-2fa7da87bf86",
+      "concept_name": "Additional Conditions For An Offer For Sale For Issues Under Sub-Regulation (2) Of Regulation 8A",
+      "definition": "This principle governs the specific caps on shares offered for sale by pre-issue shareholders when a draft offer document is filed under regulation 6(2). It restricts large and small shareholders to specific percentages of their pre-issue fully diluted holdings and enforces strict lock-in requirements without exemptions.",
+      "terminology": [
+        "pre-issue shareholding",
+        "fully diluted basis",
+        "offer for sale",
+        "persons acting in concert"
+      ],
+      "instrument_references": [
+        "SEBI (ICDR) Regulations, 2018 Regulation 8A",
+        "SEBI (ICDR) Regulations, 2018 Regulation 17"
+      ],
+      "inclusion": [
+        "Shares offered by shareholders holding over twenty percent on a fully diluted basis",
+        "Shares offered by shareholders holding under twenty percent on a fully diluted basis"
+      ],
+      "exclusion": [
+        "Relaxations from lock-in under regulation 17 clause c for major shareholders"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard primary public issues by targeting secondary sales caps of existing stakeholders under specific regulatory entry routes."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5019fbc9-2e10-4de6-92f0-c51cf5535651",
+      "concept_name": "Issue Of Convertible Debt Instruments And Warrants",
+      "definition": "This category encompasses the eligibility and regulatory frameworks governing the issuance of convertible debt instruments and warrants during initial public offerings. It sets prerequisites concerning default histories, credit ratings, and trustee appointments for issuers.",
+      "terminology": [
+        "convertible debt instruments",
+        "warrants",
+        "credit rating agency",
+        "debenture trustee"
+      ],
+      "instrument_references": [
+        "SEBI (ICDR) Regulations, 2018 Regulation 9",
+        "SEBI (ICDR) Regulations, 2018 Regulation 10",
+        "Companies Act, 2013",
+        "SEBI (Debenture Trustees) Regulations, 1993"
+      ],
+      "inclusion": [
+        "Initial public offers featuring convertible debt instruments",
+        "Warrant issuance conditions tied to specified securities"
+      ],
+      "exclusion": [
+        "Pure equity-only initial public offers lacking hybrid conversion features"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from ordinary equity offerings by introducing debt-specific repayment, rating, and trusteeship mandates."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "935801c6-ae33-40d2-8fd0-035cf4a8311a",
+      "concept_name": "Eligibility Requirements For Issue Of Convertible Debt Instruments",
+      "definition": "An issuer may execute an initial public offer of convertible debt instruments without a prior public issue and listing of equity shares. However, eligibility requires that the issuer has not defaulted on interest or principal repayments for public debt instruments exceeding six months.",
+      "terminology": [
+        "initial public offer",
+        "convertible debt instruments",
+        "default in payment"
+      ],
+      "instrument_references": [
+        "SEBI (ICDR) Regulations, 2018 Regulation 9"
+      ],
+      "inclusion": [
+        "Issuers proceeding directly to convertible debt instrument IPOs without prior equity listing"
+      ],
+      "exclusion": [
+        "Issuers with public debt repayment or interest defaults exceeding six months"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard equity IPO prerequisites by bypassing prior equity listing requirements while imposing strict debt servicing histories."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "06f0186d-f24e-470c-950b-e8cdee918d03",
+      "concept_name": "Additional Requirements For Issue Of Convertible Debt Instruments",
+      "definition": "Issuers executing an initial public offer of convertible debt instruments must fulfill supplementary safeguards including obtaining credit ratings, appointing debenture trustees, and maintaining appropriate debenture redemption reserves. Furthermore, if secured, the underlying assets must be free from encumbrances, fully cover the principal, and have proper pari passu or second charge consents.",
+      "terminology": [
+        "credit rating agency",
+        "debenture trustee",
+        "debenture redemption reserve",
+        "asset cover"
+      ],
+      "instrument_references": [
+        "SEBI (ICDR) Regulations, 2018 Regulation 10",
+        "Companies Act, 2013",
+        "SEBI (Debenture Trustees) Regulations, 1993"
+      ],
+      "inclusion": [
+        "Appointment of certified debenture trustees",
+        "Creation of asset security and maintenance of debenture redemption reserves"
+      ],
+      "exclusion": [
+        "Unsecured debt instruments lacking asset charge configurations"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from basic eligibility criteria by focusing on post-eligibility structural security, trusteeship, and reserve creation obligations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "945f50ff-92df-4d53-8889-727ac7f000e6",
+      "concept_name": "Conversion Of Optionally Convertible Debt Instruments Into Equity Shares",
+      "definition": "An issuer is prohibited from converting optionally convertible debt instruments into equity shares unless the holders provide explicit positive consent. Additionally, if the convertible portion exceeds ten crore rupees without pre-determined prices, investors must be granted an option not to convert.",
+      "terminology": [
+        "optionally convertible debt instruments",
+        "positive consent",
+        "conversion price",
+        "redemption"
+      ],
+      "instrument_references": [
+        "SEBI (ICDR) Regulations, 2018 Regulation 11"
+      ],
+      "inclusion": [
+        "Written positive consent requirements for conversion",
+        "Non-conversion options for convertible portions exceeding ten crore rupees"
+      ],
+      "exclusion": [
+        "Situations where upper price limits and justifications are pre-determined and disclosed upfront"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from compulsorily convertible instruments by granting investors explicit opt-out rights and barring implied consent from silence."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3ba4a141-bf8b-46d0-8d8f-a0e696e41b14",
+      "concept_name": "Issue Of Convertible Debt Instruments For Financing",
+      "definition": "Issuers are restricted from utilizing convertible debt instruments to finance, grant loans to, or acquire shares of promoter group entities or group companies. An exception applies permitting fully convertible debt instruments for these objectives if the conversion timeline is under eighteen months.",
+      "terminology": [
+        "promoter group",
+        "group companies",
+        "fully convertible debt instruments",
+        "financing"
+      ],
+      "instrument_references": [
+        "SEBI (ICDR) Regulations, 2018 Regulation 12"
+      ],
+      "inclusion": [
+        "Fully convertible debt instruments with conversion periods under eighteen months applied to group financing"
+      ],
+      "exclusion": [
+        "Debt instruments with long-term conversion periods utilized for promoter group financing"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general corporate finance applications by imposing strict prohibitions and short conversion duration thresholds for intra-group funding."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8bcd6672-d542-448f-aa4d-2f471b36f636",
+      "concept_name": "Issue Of Warrants",
+      "definition": "Issuers may issue warrants during an initial public offer provided their tenure does not exceed eighteen months from allotment. The exercise price or its formula must be determined upfront with at least twenty-five per cent of the consideration collected initially, failing which unexercised warrant considerations are forfeited.",
+      "terminology": [
+        "warrants",
+        "tenure",
+        "exercise price",
+        "upfront consideration",
+        "forfeiture"
+      ],
+      "instrument_references": [
+        "SEBI (ICDR) Regulations, 2018 Regulation 13"
+      ],
+      "inclusion": [
+        "Warrants attached to specified securities with a maximum eighteen-month tenure",
+        "Upfront collection of at least twenty-five per cent consideration"
+      ],
+      "exclusion": [
+        "Warrants exceeding the eighteen-month tenure limit"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from convertible debt instruments through specialized warrant tenure caps and mandatory upfront application money forfeiture rules."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "55fa2dca-5218-42ff-a783-6da8541021d7",
+      "concept_name": "Promoters' Contribution",
+      "definition": "This domain governs the mandatory minimum equity stake that promoters must maintain in an issuer following a public issue. It ensures structural alignment of promoter interests with public investors through specified post-issue capital thresholds.",
+      "terminology": [
+        "promoters' contribution",
+        "post-issue capital",
+        "minimum contribution"
+      ],
+      "instrument_references": [
+        "SEBI (ICDR) Regulations, 2018 Regulation 14"
+      ],
+      "inclusion": [
+        "Regulatory constraints on promoter ownership percentages following initial public offerings"
+      ],
+      "exclusion": [
+        "Publicly held float portions outside promoter control"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general shareholding distributions by mandating specific baseline holding quotas enforceable at the time of an initial public offer."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "deea7ed7-1f6d-450e-b3e0-9c94c1265450",
+      "concept_name": "Minimum Promoters' Contribution (Regulation 14)",
+      "definition": "Promoters must hold at least twenty per cent of the post-issue capital, with qualified institutional entities permitted to bridge shortfalls up to ten per cent if promoters fall short. Promoters fulfill this via equity or convertible securities, subject to specific pricing rules, though the requirement is waived if the issuer has no identifiable promoter.",
+      "terminology": [
+        "post-issue capital",
+        "alternative investment funds",
+        "identifiable promoter",
+        "convertible securities"
+      ],
+      "instrument_references": [
+        "SEBI (ICDR) Regulations, 2018 Regulation 14"
+      ],
+      "inclusion": [
+        "Promoter capital contribution via equity or convertible securities",
+        "Shortfall coverage by specified institutional investors up to ten per cent"
+      ],
+      "exclusion": [
+        "Issuers lacking any identifiable promoter"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard shareholding by imposing mandatory statutory minimum ownership rules and conditional institutional top-up mechanisms."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b1628cd8-2814-4639-b6a1-036f5636ed60",
+      "concept_name": "Lock-In And Restrictions On Transferability",
+      "definition": "This framework restricts the transferability of specified securities held by promoters and other pre-issue stakeholders for designated statutory periods following an initial public offer. It ensures stability by preventing premature liquidation of core stakeholder holdings.",
+      "terminology": [
+        "lock-in",
+        "transferability",
+        "specified securities",
+        "allotment"
+      ],
+      "instrument_references": [
+        "SEBI (ICDR) Regulations, 2018 Regulation 16"
+      ],
+      "inclusion": [
+        "Restrictions prohibiting the transfer of promoter securities post-IPO"
+      ],
+      "exclusion": [
+        "Freely tradable post-issue public share allocations"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from ongoing continuous listing disclosure rules by imposing temporary transfer freezes specifically tied to the timeline of an initial public offering."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d06e815d-2249-44db-8caf-58bb0a354fac",
+      "concept_name": "Lock-in of specified securities held by the promoters (Regulation 16)",
+      "definition": "The minimum promoter contribution is locked-in for eighteen months, extending to three years if the majority of issue proceeds are utilized for capital expenditure. Promoter holdings exceeding the minimum contribution are locked-in for six months, extending to one year under capital expenditure utilization conditions.",
+      "terminology": [
+        "minimum promoters' contribution",
+        "capital expenditure",
+        "lock-in period",
+        "SR equity shares"
+      ],
+      "instrument_references": [
+        "SEBI (ICDR) Regulations, 2018 Regulation 16",
+        "SEBI (ICDR) Regulations, 2018 Regulation 14"
+      ],
+      "inclusion": [
+        "Eighteen-month and three-year lock-in tiers for minimum promoter contributions",
+        "Six-month and one-year lock-in tiers for excess promoter holdings"
+      ],
+      "exclusion": [
+        "Non-promoter pre-issue capital holdings"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general pre-issue capital lock-ins by applying differentiated duration tiers based on whether issue proceeds fund capital expenditures."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d3a44d2b-9c4d-42d3-81e3-f83b4d2c999f",
+      "concept_name": "Lock-in of specified securities held by persons other than the promoters (Regulation 17)",
+      "definition": "The entire pre-issue capital held by non-promoters must be locked-in for six months from the initial public offer allotment date. Specific exemptions apply to employee stock option shares, employee trust transfers, and holdings by venture capital or alternative investment funds subject to prior holding period calculations.",
+      "terminology": [
+        "pre-issue capital",
+        "employee stock option scheme",
+        "alternative investment fund",
+        "venture capital fund"
+      ],
+      "instrument_references": [
+        "SEBI (ICDR) Regulations, 2018 Regulation 17",
+        "SEBI (Share Based Employee Benefits) Regulations, 2014"
+      ],
+      "inclusion": [
+        "Non-promoter pre-issue capital subject to six-month lock-in",
+        "Exemptions for venture capital funds, alternative investment funds, and employee stock schemes"
+      ],
+      "exclusion": [
+        "Promoter-held specified securities governed separately under regulation 16"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from promoter lock-in requirements by targeting non-promoter equity and providing targeted exemptions for institutional venture investors and employee benefit trusts."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "c467271e2feca7209d7ab4893c2f0f6ff8d66fe95efbdc9b216ecbc2d8d997f1",
+  "artifact_id": "ea684bf0-7c94-4045-a244-75e8b4a2e2df",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8655,
+  "output_tokens": 3751,
+  "cost_usd": 0.011974,
+  "created_at": "2026-10-03T18:25:01.802752+00:00"
+}

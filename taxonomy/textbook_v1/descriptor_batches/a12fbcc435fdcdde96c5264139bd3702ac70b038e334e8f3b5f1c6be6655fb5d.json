@@ -1,0 +1,345 @@
+{
+  "descriptors": [
+    {
+      "node_id": "da197582-bffe-4bec-b799-ec5bffc2eef3",
+      "concept_name": "Lessee Disclosure Requirements",
+      "definition": "Lessees must present comprehensive qualitative and quantitative disclosures in a single note or separate section to give users a basis to assess the effects of leases. This includes information on right-of-use assets, maturity analyses of lease liabilities, and expenses related to short-term or low-value leases.",
+      "terminology": [
+        "Right-of-use assets",
+        "Maturity analysis",
+        "Variable lease payments",
+        "Qualitative disclosures",
+        "Quantitative disclosures"
+      ],
+      "instrument_references": [
+        "Ind AS 116",
+        "Ind AS 107",
+        "Ind AS 40",
+        "Ind AS 16"
+      ],
+      "inclusion": [
+        "Additions and carrying value of right-of-use assets",
+        "Depreciation and interest expense",
+        "Expenses for short-term and low-value leases",
+        "Summary of leasing activities and potential cash outflows"
+      ],
+      "exclusion": [
+        "Leases with terms of one month or less from certain expense disclosures",
+        "Non-lease components unless integrated into asset measurement"
+      ],
+      "nearby_distinctions": [
+        "Differentiated from lessor disclosures which focus heavily on net investment risks, whereas lessee disclosures focus on liability obligations and right-of-use asset utilization."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c4e88143-23c4-41ba-b211-2cc421e4350b",
+      "concept_name": "Income Tax Accounting and Lessor Classification Basics",
+      "definition": "Recognition of lease assets and liabilities by lessees impacts deferred tax asset and liability measurements and recoverability assessments. Lessors classify all leases at inception into either finance or operating leases based on the transfer of risks and rewards incidental to ownership.",
+      "terminology": [
+        "Deferred tax assets",
+        "Deferred tax liabilities",
+        "Finance lease",
+        "Operating lease",
+        "Risks and rewards"
+      ],
+      "instrument_references": [
+        "Ind AS 116",
+        "Ind AS 17"
+      ],
+      "inclusion": [
+        "Deferred tax recognition and measurement",
+        "Assessment of deferred tax asset recoverability",
+        "Substance-over-form lease classification by lessors"
+      ],
+      "exclusion": [
+        "Direct lessee tax deductions computed outside the scope of lease capitalization rules"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between lessee tax timing differences caused by capitalized lease adjustments and initial lessor classification rules based on ownership risks."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "500bc0e2-c7f6-499e-81c1-72bdb905ab74",
+      "concept_name": "Lessor Classification Criteria",
+      "definition": "Lessors evaluate lease agreements at inception to classify them as finance or operating leases according to the transfer of ownership risks and rewards. Indicators include transfer of title, purchase options, major economic life lease terms, and specialized asset nature.",
+      "terminology": [
+        "Finance lease",
+        "Operating lease",
+        "Inception date",
+        "Minimum lease payments",
+        "Economic life"
+      ],
+      "instrument_references": [
+        "Ind AS 116"
+      ],
+      "inclusion": [
+        "Leases transferring ownership by the end of the term",
+        "Leases with bargain purchase options",
+        "Leases covering the major part of an asset economic life"
+      ],
+      "exclusion": [
+        "Leases failing to meet risk and reward transfer thresholds which default to operating leases"
+      ],
+      "nearby_distinctions": [
+        "Contrasts finance leases which shift ownership risks to the lessee with operating leases where the lessor retains those primary asset risks."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "45a7f3dd-e069-4195-9baf-40dea31f0fef",
+      "concept_name": "Lease Classification Principles",
+      "definition": "Lease classification depends on economic substance rather than legal form at the time of inception. The transaction is categorized based on whether substantially all risks and rewards incidental to ownership are transferred to the lessee.",
+      "terminology": [
+        "Substance over form",
+        "Risks and rewards",
+        "Inception date",
+        "Finance lease",
+        "Operating lease"
+      ],
+      "instrument_references": [
+        "Ind AS 116"
+      ],
+      "inclusion": [
+        "Evaluation of transfer of ownership",
+        "Assessment of specialized asset utility"
+      ],
+      "exclusion": [
+        "Form-based legal classifications that ignore underlying cash flow and risk distribution"
+      ],
+      "nearby_distinctions": [
+        "Focuses purely on the foundational evaluation standard rather than subsequent measurement mechanics."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b664bd16-8a5c-4ada-921a-16bd50c25eaa",
+      "concept_name": "Finance Lease Accounting for Lessors",
+      "definition": "At commencement, a lessor recognizes assets held under a finance lease as a receivable equal to the net investment in the lease. Manufacturer or dealer lessors recognize selling profit or loss in accordance with general revenue policies for outright sales.",
+      "terminology": [
+        "Net investment in the lease",
+        "Finance lease receivable",
+        "Manufacturer or dealer lessor",
+        "Selling profit or loss",
+        "Unguaranteed residual value"
+      ],
+      "instrument_references": [
+        "Ind AS 116",
+        "Ind AS 115"
+      ],
+      "inclusion": [
+        "Recognition of lease receivables discounted at the interest rate implicit in the lease",
+        "Derecognition of the underlying asset carrying amount",
+        "Recognition of selling profit or loss for dealer lessors"
+      ],
+      "exclusion": [
+        "Inclusion of initial direct costs in net investment for manufacturer or dealer lessors"
+      ],
+      "nearby_distinctions": [
+        "Differentiates standard lessors who capitalize initial direct costs into the receivable from manufacturer lessors who expense them immediately."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "94a3be12-68ad-4b85-b829-697776cc9d01",
+      "concept_name": "Operating Lease Accounting for Lessors",
+      "definition": "Lessors recognize operating lease payments as income on a straight-line basis or another systematic basis that reflects the benefit pattern. Initial direct costs incurred by lessors are added to the carrying amount of the underlying asset and recognized as an expense over the lease term.",
+      "terminology": [
+        "Straight-line basis",
+        "Underlying asset",
+        "Initial direct costs",
+        "Variable lease payments",
+        "Lease modification"
+      ],
+      "instrument_references": [
+        "Ind AS 116",
+        "Ind AS 16",
+        "Ind AS 38",
+        "Ind AS 36"
+      ],
+      "inclusion": [
+        "Straight-line or systematic recognition of lease income",
+        "Capitalization and systematic amortization of initial direct costs",
+        "Depreciation and impairment testing of underlying assets"
+      ],
+      "exclusion": [
+        "Immediate recognition of selling profit upon entering an operating lease"
+      ],
+      "nearby_distinctions": [
+        "Contrasts with finance lease accounting where the asset is derecognized and a net investment receivable is recorded instead."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "679b21ee-eec6-48bc-a1a1-4cf94ac0f17f",
+      "concept_name": "Lessor Lease Modifications",
+      "definition": "A lease modification is a change in scope or consideration not part of the original terms. It is accounted for as a separate lease if scope increases due to additional underlying assets at standalone prices; otherwise, non-separate modifications are reassessed prospectively.",
+      "terminology": [
+        "Lease modification",
+        "Separate lease",
+        "Standalone price",
+        "Prospective basis",
+        "Termination"
+      ],
+      "instrument_references": [
+        "Ind AS 116"
+      ],
+      "inclusion": [
+        "Evaluation of scope and consideration changes",
+        "Separate lease accounting when criteria for added assets are fulfilled",
+        "Prospective reclassification assessment for non-separate modifications"
+      ],
+      "exclusion": [
+        "Retrospective adjustments for changes that were anticipated in the original contract terms"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between modifications that expand distinct asset rights treated as separate contracts versus changes requiring a combined prospective reassessment."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6b0ec793-27cf-41bd-9d2d-25357d3b9130",
+      "concept_name": "Lessor Presentation and Disclosure",
+      "definition": "Lessors present finance lease assets as receivables representing the net investment, while operating lease assets are presented according to their specific asset nature. Extensive quantitative and qualitative disclosures are required to communicate cash flow timing and uncertainties.",
+      "terminology": [
+        "Net investment",
+        "Current or non-current",
+        "Quantitative disclosure",
+        "Qualitative disclosure",
+        "Maturity analysis"
+      ],
+      "instrument_references": [
+        "Ind AS 116",
+        "AS 19"
+      ],
+      "inclusion": [
+        "Balance sheet presentation of net investment for finance leases",
+        "Asset nature-based presentation for operating leases",
+        "Tabular quantitative maturity breakdowns"
+      ],
+      "exclusion": [
+        "Omission of residual risk management descriptions in qualitative notes"
+      ],
+      "nearby_distinctions": [
+        "Compares lessor presentation rules under Ind AS 116 with older standards like AS 19 which lacked formal lease modification guidance."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0e2c9f97-c969-4b3c-a622-e523154ea814",
+      "concept_name": "Lessor Disclosure Framework",
+      "definition": "Lessor disclosure requirements provide users with insights into the amount, timing, and uncertainty of cash flows from leasing activities. Entities must outline risk management strategies concerning residual values, buy-back agreements, and variable payments.",
+      "terminology": [
+        "Risk management",
+        "Buy-back agreements",
+        "Residual value guarantees",
+        "Variable lease payments",
+        "Notes to accounts"
+      ],
+      "instrument_references": [
+        "Ind AS 116"
+      ],
+      "inclusion": [
+        "Explanation of leasing activity nature",
+        "Risk management practices on retained asset rights",
+        "Quantitative breakdowns of finance income and selling profits"
+      ],
+      "exclusion": [
+        "Standard financial statement line items duplicated without explanatory notes"
+      ],
+      "nearby_distinctions": [
+        "Focuses on lessor-specific risk exposures like buy-back guarantees rather than lessee liability repayment schedules."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "33405d21-b257-4cbd-9d18-bc65e343bb08",
+      "concept_name": "Sub-Lease Arrangements",
+      "definition": "A sublease is a transaction where an underlying asset is re-leased by an intermediate lessor to a third party while the original head lease remains active. The intermediate lessor classifies the sublease with reference to the right-of-use asset arising from the head lease rather than the underlying asset.",
+      "terminology": [
+        "Sub-lease",
+        "Head lease",
+        "Intermediate lessor",
+        "Sub-lessee",
+        "Right-of-use asset"
+      ],
+      "instrument_references": [
+        "Ind AS 116"
+      ],
+      "inclusion": [
+        "Classification using the head lease right-of-use asset",
+        "Operating lease classification if the head lease is a short-term lease",
+        "Dual role tracking where the entity acts as both lessee and lessor"
+      ],
+      "exclusion": [
+        "Using the economic life of the original physical underlying asset for sublease classification criteria"
+      ],
+      "nearby_distinctions": [
+        "Contrasts primary lease classification which evaluates the underlying physical asset against sublease classification which evaluates the head lease right-of-use asset."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e9eec0d1-2ae6-44cc-82c2-d117443e019c",
+      "concept_name": "Intermediate Lessor Mechanics",
+      "definition": "An intermediate lessor maintains primary obligations under the head lease while entering a secondary lease agreement with an ultimate sub-lessee. The sublease classification is determined by evaluating terms against the right-of-use asset created by the head contract.",
+      "terminology": [
+        "Intermediate lessor",
+        "Head lease",
+        "Sub-lessee",
+        "Primary obligor",
+        "Right-of-use asset"
+      ],
+      "instrument_references": [
+        "Ind AS 116"
+      ],
+      "inclusion": [
+        "Maintenance of head lease accounting obligations",
+        "Separate lessor accounting for the sublease agreement"
+      ],
+      "exclusion": [
+        "Release of primary liability by the intermediate lessor upon executing a sublease"
+      ],
+      "nearby_distinctions": [
+        "Differentiates the original lessor-lessee dynamic from the layered intermediate structure involving three separate contractual parties."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c9d2c8ad-054d-4026-ba3b-9b819924321c",
+      "concept_name": "Sale and Leaseback Transactions",
+      "definition": "A sale and leaseback involves an asset transfer from a seller-lessee to a buyer-lessor followed by a leaseback of that same asset. Accounting treatment depends on whether the transfer satisfies performance obligations to transfer control under revenue standards.",
+      "terminology": [
+        "Seller-lessee",
+        "Buyer-lessor",
+        "Control",
+        "Performance obligation",
+        "Financing transaction"
+      ],
+      "instrument_references": [
+        "Ind AS 116",
+        "Ind AS 115"
+      ],
+      "inclusion": [
+        "Application of control criteria to determine sale validity",
+        "Accounting for transfers as true sales combined with a lease",
+        "Treatment of failed sales as financing transactions"
+      ],
+      "exclusion": [
+        "Automatic off-balance sheet financing classification for lessees"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes valid sales where asset control transfers from failed sales where the transaction is accounted purely as a collateralized borrowing."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "a12fbcc435fdcdde96c5264139bd3702ac70b038e334e8f3b5f1c6be6655fb5d",
+  "artifact_id": "88097070-1de2-4a88-a4a5-c3ced1b0c92f",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8734,
+  "output_tokens": 3712,
+  "cost_usd": 0.011900200000000001,
+  "created_at": "2026-10-03T17:58:10.314992+00:00"
+}

@@ -1,0 +1,149 @@
+import { test,expect,type Page,type APIRequestContext } from './fixtures';
+import type { components } from '../../packages/api-client/src/generated';
+type Fixture={ paper_id:string;nodes:{ id:string;name:string }[];score_run_id:number };
+type StudyPlan=components['schemas']['StudyPlan'];
+type PaperSummary=components['schemas']['PaperSummary'];
+type PaperTree=components['schemas']['PaperTree'];
+const paper:PaperSummary={ id:'synthetic.paper',code:'P1',name:'Real returned paper name',group_no:1,total_subtopics:2,completed_subtopics:0,raw_progress_pct:0,weighted_coverage_pct:null,average_importance:null,revision_due_count:0,weak_topic_count:1 };
+const plan:StudyPlan={ hours_per_week:2,minutes_per_subtopic:45,budget_items:2,total_allocated:2,basis:'scored',allocated_minutes:90,unused_minutes:30,items:[
+  { node_id:'synthetic.b',node_name:'Returned beta topic',paper_id:paper.id,paper_code:paper.code,chapter_id:'chapter',chapter_name:'Chapter',status:'in_progress',importance:.5,priority_score:.5,weak:false,freq_hits:0,freq_window:0,exam_marks_total:0,reason:'Recorded beta reason' },
+  { node_id:'synthetic.a',node_name:'Returned alpha topic',paper_id:paper.id,paper_code:paper.code,chapter_id:'chapter',chapter_name:'Chapter',status:'not_started',importance:.5,priority_score:.5,weak:true,freq_hits:3,freq_window:5,exam_marks_total:7.5,reason:'Recorded alpha reason' },
+] };
+const tree:PaperTree={ paper_id:paper.id,code:paper.code,name:paper.name,chapters:[{ id:'chapter',name:'Returned chapter',seq:1,total_subtopics:2,completed_subtopics:0,progress_pct:0,weightage_min_pct:null,weightage_max_pct:null,weightage_section_name:null,topics:[{ id:'topic',name:'Returned parent topic',seq:1,subtopics:plan.items.map((item,index) => ({ id:item.node_id,name:item.node_name,seq:index,status:item.status,notes:null,first_done_at:null,last_revised_at:null,importance:.5,freq_hits:item.freq_hits,freq_window:5,weak:item.weak,applicable:true })) }] }] };
+async function fixture(request:APIRequestContext):Promise<Fixture> { return (await request.get('/__test/fixture')).json(); }
+async function controlledPapers(page:Page) { await page.route('**/api/v1/papers',route => route.fulfill({ json:[paper] }));await page.route(`**/api/v1/papers/${paper.id}/tree`,route => route.fulfill({ json:tree })); }
+async function topic(page:Page,data:Fixture,index=0) { await page.goto(`/syllabus?paper=${data.paper_id}&node=${data.nodes[index].id}`);await expect(page.getByRole('heading',{ name:data.nodes[index].name,exact:true })).toBeVisible(); }
+async function notes(page:Page) { await page.getByRole('tab',{ name:'My notes',exact:true }).click();await expect(page.getByLabel('Notes',{ exact:true })).toBeVisible(); }
+test.beforeEach(async ({ request }) => { await request.post('/__test/reset');await request.post('/__test/login'); });
+
+test('plan retains authoritative order, factual reasons and responsive week allocation',async ({ page }) => {
+  await controlledPapers(page);let calls=0;await page.route('**/api/v1/plan*',async route => { calls++;await new Promise(resolve => setTimeout(resolve,150));await route.fulfill({ json:plan }); });
+  await page.goto('/plan?adjust=true');await expect(page.getByRole('heading',{ name:'Your study plan' })).toBeVisible();await expect(page.getByLabel('Hours per week')).toHaveValue('2');
+  await expect(page.locator('ol li').first()).toContainText('Returned beta topic');await expect(page.locator('ol li').last()).toContainText('Returned alpha topic');await expect(page.locator('ol li').first().getByRole('link',{ name:'Continue' })).toHaveAttribute('href',/node=synthetic.b/);
+  await page.getByRole('button',{ name:'Refresh plan' }).click();await expect.poll(() => calls).toBe(2);await page.getByRole('tab',{ name:'Week view' }).click();await expect(page.getByRole('heading',{ name:'Suggested schedule' })).toBeVisible();await expect(page.locator('.plan-week > section')).toHaveCount(7);await expect(page.locator('.plan-week .study-row')).toHaveCount(2);await expect(page.locator('.plan-week > section').first()).toContainText('45 minutes');await expect(page.locator('.plan-week > section').nth(1)).toContainText('45 minutes');await page.reload();await expect(page.getByRole('tab',{ name:'Week view' })).toHaveAttribute('aria-selected','true');
+});
+
+test('syllabus-based plan remains available without historical scores and invalid budgets fail honestly',async ({ page }) => {
+  await controlledPapers(page);await page.route('**/api/v1/plan*',route => route.fulfill({ json:{ ...plan,basis:'syllabus',score_run_id:null,items:plan.items.map(item => ({ ...item,importance:null })) } }));await page.goto('/plan');await expect(page.getByText(/Syllabus-based · 2 hours weekly budget/)).toBeVisible();await expect(page.locator('ol li')).toHaveCount(2);
+  await page.route('**/api/v1/plan*',route => route.fulfill({ json:{ ...plan,items:[],total_allocated:0 } }));await page.goto('/plan?hours=0.1');await expect(page.getByText('No topics allocated for this budget and selection.')).toBeVisible();await page.goto('/plan?hours=NaN&group=3');await expect(page.getByRole('alert')).toContainText('finite positive hours');
+});
+
+test('plan errors retain existing content and expose retry',async ({ page }) => {
+  await controlledPapers(page);await page.route('**/api/v1/plan*',route => route.fulfill({ json:plan }));await page.goto('/plan?adjust=true');await expect(page.locator('ol li')).toHaveCount(2);await page.route('**/api/v1/plan*',route => route.fulfill({ status:503,json:{ detail:'Plan unavailable' } }));await page.getByRole('button',{ name:'Refresh plan' }).click();await expect(page.getByRole('alert')).toContainText('Plan unavailable');await expect(page.getByRole('button',{ name:'Retry',exact:true })).toBeVisible();
+});
+
+test('plan block duration requests a new allocation without changing saved settings',async ({ page,request }) => {
+  const settings=await (await request.get('/api/v1/me/settings')).json();
+  const expected=await (await request.get('/api/v1/plan?minutes=17')).json();
+  expect(expected.minutes_per_subtopic).toBe(17);
+  await page.goto('/plan?adjust=true');
+  await expect(page.getByLabel('Block duration (minutes)')).toBeVisible();
+  await page.getByLabel('Block duration (minutes)').fill('');
+  await expect(page.getByLabel('Block duration (minutes)')).toHaveValue('');
+  await expect(page.getByRole('button',{ name:'Refresh plan',exact:true })).toBeDisabled();
+  await page.getByLabel('Block duration (minutes)').fill('17');
+  await expect(page).toHaveURL(/minutes=17/);
+  await expect(page.getByText(new RegExp(`${expected.allocated_minutes} minutes allocated · ${expected.unused_minutes} minutes unused`))).toBeVisible();
+  await expect(page.locator('ol li')).toHaveCount(expected.items.length);
+  if (expected.items.length) await expect(page.locator('ol li').first()).toContainText(expected.items[0].node_name);
+  expect((await (await request.get('/api/v1/me/settings')).json()).minutes_per_subtopic).toBe(settings.minutes_per_subtopic);
+  await page.getByLabel('Block duration (minutes)').fill('1.5');
+  await expect(page.getByRole('alert')).toContainText('positive whole-minute block duration');
+});
+
+test('unreviewed paper progress is unavailable while reviewed zero remains a measured count',async ({ page }) => {
+  const pending:PaperSummary={ ...paper,context:{ target_attempt_id:'unbound',taxonomy_version_id:null,readiness:'missing_binding',applicability_state:'unresolved' } };
+  const ready:PaperSummary={ ...paper,id:'synthetic.ready',name:'Reviewed zero paper',context:{ target_attempt_id:'bound',taxonomy_version_id:1,readiness:'ready',applicability_state:'approved' } };
+  await page.route('**/api/v1/papers',route => route.fulfill({ json:[pending,ready] }));
+  await page.goto('/papers');
+  const blocked=page.getByRole('article').filter({ has:page.getByRole('heading',{ name:paper.name,exact:true }) });
+  await expect(blocked).toContainText('Personal progress: Not available');
+  await expect(blocked).toContainText('Revisions due: Not available');
+  await expect(blocked.getByRole('progressbar')).toHaveCount(0);
+  await expect(page.getByRole('article').filter({ has:page.getByRole('heading',{ name:ready.name,exact:true }) })).toContainText('0 / 2 completed');
+  await page.goto('/progress');
+  await expect(page.getByText('Not available until this attempt’s syllabus is reviewed.')).toBeVisible();
+  await expect(page.getByRole('progressbar',{ name:'Overall personal progress' })).toHaveCount(0);
+  await expect(page.getByText(/Weighted progress:/)).toHaveCount(0);
+});
+
+test('official hierarchy status filters work without a chapter projection and rapid keys select the leaf',async ({ page }) => {
+  const base:components['schemas']['TaxonomyTreeNode']={ id:'unit',paper_id:paper.id,parent_id:null,level:'unit',name:'Official unit',seq:1,heading_origin:'official',source_review_status:'approved',descriptor_revision:1,descriptor_approved:true,eligible:false,status:null,breadcrumbs:[],sources:[],children:[] };
+  const hierarchy=[{ ...base,children:[{ ...base,id:'done-leaf',parent_id:'unit',level:'subtopic',name:'Official done leaf',eligible:true,status:'done' as const },{ ...base,id:'new-leaf',parent_id:'unit',level:'subtopic',name:'Official new leaf',eligible:true,status:'not_started' as const }] }];
+  await controlledPapers(page);
+  await page.route(`**/api/v1/papers/${paper.id}/tree`,route => route.fulfill({ json:{ ...tree,chapters:[],hierarchy } }));
+  await page.goto(`/syllabus?paper=${paper.id}&status=done`);
+  await expect(page.getByRole('treeitem')).toHaveCount(2);
+  await expect(page.getByRole('treeitem',{ name:/Official done leaf/ })).toBeVisible();
+  await expect(page.getByRole('treeitem',{ name:/Official new leaf/ })).toHaveCount(0);
+  await page.getByRole('treeitem',{ name:/Official unit/ }).focus();
+  await page.keyboard.press('End');
+  await expect(page.getByRole('treeitem',{ name:/Official done leaf/ })).toBeFocused();
+  await page.keyboard.press('Enter');
+  await expect(page).toHaveURL(/node=done-leaf/);
+});
+
+test('paper zero progress, unknown reviewed scores and grouped URL filters remain honest',async ({ page }) => {
+  await controlledPapers(page);await page.goto('/papers');await expect(page.getByText('0 / 2 completed')).toBeVisible();await expect(page.getByRole('heading',{ name:'Group 1' })).toBeVisible();await expect(page.getByText('Average importance',{ exact:false })).toHaveCount(0);await expect(page.getByRole('link',{ name:'Open syllabus' })).toHaveAttribute('href','/syllabus?paper=synthetic.paper');await page.getByLabel('Group',{ exact:true }).selectOption('2');await expect(page.getByText('No results match these filters.')).toBeVisible();await page.reload();await expect(page.getByLabel('Group',{ exact:true })).toHaveValue('2');
+});
+
+test('syllabus leaf filters retain ancestors and keyboard navigation operates the real tree',async ({ page }) => {
+  await controlledPapers(page);await page.goto('/syllabus?paper=synthetic.paper');await page.getByRole('button',{ name:'Expand to topics' }).click();await expect(page.getByRole('treeitem')).toHaveCount(4);await page.getByLabel('Status',{ exact:true }).selectOption('in_progress');await expect(page.getByRole('treeitem')).toHaveCount(3);await expect(page.getByRole('treeitem',{ name:/Returned beta topic/ })).toBeVisible();await page.getByLabel('Search syllabus').fill('unmatched');await expect(page.getByText('No topics match these filters.')).toBeVisible();await page.getByLabel('Search syllabus').fill('beta');await expect(page.getByRole('treeitem')).toHaveCount(3);await page.getByLabel('Search syllabus').fill('');await page.getByLabel('Status',{ exact:true }).selectOption('all');await page.getByRole('button',{ name:'Collapse all' }).click();const root=page.getByRole('treeitem',{ name:/Returned chapter/ });await root.focus();await page.keyboard.press('ArrowRight');await page.keyboard.press('ArrowDown');await expect(page.getByRole('treeitem',{ name:/Returned parent topic/ })).toBeFocused();await page.keyboard.press('ArrowRight');await page.keyboard.press('End');await expect(page.getByRole('treeitem',{ name:/Returned alpha topic/ })).toBeFocused();await page.reload();await expect(page.getByRole('treeitem',{ name:/Returned alpha topic/ })).toBeVisible();
+});
+
+test('progress status selection opens corresponding syllabus and question coverage stays separate',async ({ page,request }) => {
+  const data=await fixture(request);await page.goto('/progress');await expect(page.getByText(/1 \/ \d+ topics completed/)).toBeVisible();await page.getByLabel('Status',{ exact:true }).selectOption('done');await expect(page.getByRole('link',{ name:'View done topics' }).first()).toHaveAttribute('href',/status=done/);await page.getByRole('tab',{ name:'Question coverage' }).click();await expect(page.getByRole('heading',{ name:'Reviewed corpus completeness' })).toBeVisible();await expect(page.getByRole('link',{ name:'View done topics' })).toHaveCount(0);await page.goto(`/papers/${data.paper_id}/${data.nodes[0].id}`);await expect(page).toHaveURL(/\/syllabus\?/);await expect(page.getByRole('heading',{ name:data.nodes[0].name,exact:true })).toBeVisible();
+});
+
+test('failed progress rolls back and failed notes retain edits with retry',async ({ page,request }) => {
+  const data=await fixture(request);const id=data.nodes[0].id;await page.route(`**/api/v1/subtopics/${id}/progress`,route => route.fulfill({ status:500,json:{ detail:'Progress rejected' } }));await page.route(`**/api/v1/subtopics/${id}/notes`,route => route.fulfill({ status:500,json:{ detail:'Notes rejected' } }));await topic(page,data);await page.getByLabel('Progress',{ exact:true }).selectOption('done');await expect(page.getByRole('alert')).toContainText('Progress was not saved');await expect(page.getByLabel('Progress',{ exact:true })).toHaveValue('not_started');await notes(page);await page.getByLabel('Notes',{ exact:true }).fill('Retain unsaved text');await expect(page.getByRole('status').filter({ hasText:'Save failed:' })).toBeVisible();await expect(page.getByLabel('Notes',{ exact:true })).toHaveValue('Retain unsaved text');await expect(page.getByRole('button',{ name:'Retry save' })).toBeVisible();expect((await (await request.get(`/api/v1/subtopics/${id}`)).json()).notes).toBeNull();
+});
+
+test('successful progress and note mutations persist and refresh Today and plan',async ({ page,request }) => {
+  const data=await fixture(request);await topic(page,data);await page.getByLabel('Progress',{ exact:true }).selectOption('done');await expect(page.getByText('Progress saved.')).toBeVisible();await notes(page);await page.getByLabel('Notes',{ exact:true }).fill('Persisted browser note');await expect(page.getByRole('status').filter({ hasText:/^Saved$/ })).toBeVisible();const saved=await (await request.get(`/api/v1/subtopics/${data.nodes[0].id}`)).json();expect(saved.status).toBe('done');expect(saved.notes).toBe('Persisted browser note');await page.goto('/');await expect(page.getByText(/2 \/ \d+ topics completed/)).toBeVisible();await expect(page.getByRole('link',{ name:'Continue',exact:true })).toHaveAttribute('href',/node=/);await page.goto('/plan');await expect(page.locator('ol').getByText(data.nodes[0].name,{ exact:false })).toHaveCount(0);
+});
+
+test('notes stay live while URL tabs change and old acknowledgements never mark newer edits saved',async ({ page,request }) => {
+  const data=await fixture(request);const id=data.nodes[0].id;const bodies:string[]=[];const releases:(() => void)[]=[];await page.route(`**/api/v1/subtopics/${id}/notes`,async route => { bodies.push(route.request().postDataJSON().notes);const response=await route.fetch();await new Promise<void>(resolve => releases.push(resolve));await route.fulfill({ response }); });await topic(page,data);await notes(page);await page.getByLabel('Notes',{ exact:true }).fill('Older text');await expect.poll(() => releases.length).toBe(1);await page.getByLabel('Notes',{ exact:true }).fill('Newest text');await page.getByRole('tab',{ name:'Questions',exact:true }).click();await notes(page);await expect(page.getByLabel('Notes',{ exact:true })).toHaveValue('Newest text');releases[0]();await expect.poll(() => releases.length).toBe(2);await expect(page.getByRole('status').filter({ hasText:/^Saved$/ })).toHaveCount(0);expect(bodies).toEqual(['Older text','Newest text']);releases[1]();await expect(page.getByRole('status').filter({ hasText:/^Saved$/ })).toBeVisible();expect((await (await request.get(`/api/v1/subtopics/${id}`)).json()).notes).toBe('Newest text');
+});
+
+test('unsaved navigation offers stay, failed save keeps page, and discard leaves',async ({ page,request }) => {
+  const data=await fixture(request);await page.route(`**/api/v1/subtopics/${data.nodes[0].id}/notes`,route => route.fulfill({ status:503,json:{ detail:'Keep draft unsaved' } }));await topic(page,data);await notes(page);await page.getByLabel('Notes',{ exact:true }).fill('Preserve this draft');await page.getByRole('link',{ name:'Papers',exact:true }).first().click();await expect(page.getByRole('dialog',{ name:'Unsaved notes' })).toBeVisible();await page.getByRole('button',{ name:'Stay',exact:true }).click();await expect(page.getByLabel('Notes',{ exact:true })).toHaveValue('Preserve this draft');await page.getByRole('link',{ name:'Papers',exact:true }).first().click();await page.getByRole('button',{ name:'Save and leave' }).click();await expect(page.getByRole('dialog')).toContainText('Save failed');await expect(page).toHaveURL(/node=/);await page.getByRole('button',{ name:'Discard and leave' }).click();await expect(page).toHaveURL(/\/papers$/);
+});
+
+test('revision failed mutation retains focused topic and successful outcome advances only after acceptance',async ({ page,request }) => {
+  const data=await fixture(request);await page.route('**/api/v1/subtopics/*/revisions',route => route.fulfill({ status:503,json:{ detail:'Revision rejected' } }));await page.goto('/revision');await expect(page.getByRole('heading',{ name:data.nodes[2].name })).toBeVisible();await page.getByRole('button',{ name:'Recall was okay' }).click();await expect(page.getByRole('alert')).toContainText('Revision was not saved');await expect(page.getByRole('heading',{ name:data.nodes[2].name })).toBeVisible();await page.unroute('**/api/v1/subtopics/*/revisions');await page.getByRole('button',{ name:'Recall was okay' }).click();await expect(page.getByText('Revision saved.',{ exact:true })).toBeVisible();await expect(page.getByText('Revision queue complete.')).toBeVisible();expect((await (await request.get('/api/v1/revision/due')).json()).total_due).toBe(0);await page.reload();await expect(page.getByText('Nothing is due for revision.')).toBeVisible();
+});
+
+test('mock failed save retains inputs and delete requires named confirmation',async ({ page,request }) => {
+  const data=await fixture(request);await page.route('**/api/v1/mock-tests',route => route.request().method() === 'POST' ? route.fulfill({ status:503,json:{ detail:'Creation rejected' } }) : route.continue());await page.goto('/mock');await page.getByRole('button',{ name:'Add result' }).click();await page.getByLabel('Label',{ exact:true }).fill('Retained mock');await page.getByLabel('Marks scored',{ exact:true }).fill('7.5');await page.getByRole('button',{ name:'Save result' }).click();await expect(page.getByRole('alert')).toContainText('Save failed');await expect(page.getByLabel('Label',{ exact:true })).toHaveValue('Retained mock');await page.getByRole('button',{ name:'Close',exact:true }).click();await page.unroute('**/api/v1/mock-tests');await page.getByRole('button',{ name:'Add result' }).click();await page.getByLabel('Mock paper').selectOption(data.paper_id);await page.getByRole('button',{ name:'Save result' }).click();await expect(page.getByText('Mock result saved.')).toBeVisible();await page.getByRole('button',{ name:'Delete result' }).click();await expect(page.getByRole('dialog',{ name:'Delete mock result' })).toContainText('Retained mock');await page.getByRole('button',{ name:'Keep result' }).click();expect((await (await request.get('/api/v1/mock-tests')).json())).toHaveLength(1);await page.getByRole('button',{ name:'Delete result' }).click();await page.route('**/api/v1/mock-tests/*',route => route.fulfill({ status:503,json:{ detail:'Deletion rejected' } }));await page.getByRole('button',{ name:'Confirm delete' }).click();await expect(page.getByRole('dialog')).toContainText('Deletion failed');expect((await (await request.get('/api/v1/mock-tests')).json())).toHaveLength(1);
+});
+
+test('mock result zero score persists and confirmed deletion refreshes list',async ({ page,request }) => {
+  const data=await fixture(request);await page.goto(`/mock?paper=${data.paper_id}`);await page.reload();await expect(page.getByLabel('Paper filter')).toHaveValue(data.paper_id);await page.getByRole('button',{ name:'Add result' }).click();await page.getByLabel('Label',{ exact:true }).fill('Persisted mock');await page.getByLabel('Marks scored',{ exact:true }).fill('0');await page.getByRole('button',{ name:'Save result' }).click();await expect(page.getByText('Mock result saved.')).toBeVisible();await expect(page.getByRole('cell',{ name:'Persisted mock',exact:false })).toBeVisible();expect((await (await request.get('/api/v1/mock-tests')).json())).toHaveLength(1);await page.getByRole('button',{ name:'Delete result' }).click();await page.getByRole('button',{ name:'Confirm delete' }).click();await expect(page.getByText('Mock result deleted.')).toBeVisible();expect((await (await request.get('/api/v1/mock-tests')).json())).toHaveLength(0);
+});
+
+test('importance explanation uses fixed signal units and technical provenance disclosure',async ({ page,request }) => {
+  const data=await fixture(request);await topic(page,data);await page.getByRole('tab',{ name:'Importance',exact:true }).click();await expect(page.getByRole('columnheader',{ name:'Raw signal and unit' })).toBeVisible();await expect(page.getByRole('columnheader',{ name:'Normalized index' })).toBeVisible();await expect(page.getByRole('table')).toContainText('7.50 decayed marks');await expect(page.getByText('750%',{ exact:false })).toHaveCount(0);await page.getByText('How this was calculated',{ exact:true }).click();await expect(page.getByText('Only usable reviewed attempts contribute to ranking.',{ exact:false })).toBeVisible();
+});
+
+for (const width of [390,768,1280,1440]) test(`student working routes fit ${width}px light and dark without runtime exceptions`,async ({ page },testInfo) => {
+  const errors:string[]=[];page.on('pageerror',error => errors.push(error.message));await page.setViewportSize({ width,height:900 });for (const theme of ['light','dark']) { await page.addInitScript(theme => localStorage.setItem('caf_theme',theme),theme);for (const route of ['/','/papers','/syllabus','/questions','/plan','/revision','/progress','/mock','/profile']) { await page.goto(route);await expect(page.getByRole('heading',{ level:1 })).toBeVisible();await page.waitForLoadState('networkidle');await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1)).toBeTruthy(); }await page.goto('/syllabus?demo=true');await page.screenshot({ path:`test-results/phase7-syllabus-${width}-${theme}-${testInfo.project.name}.png`,fullPage:true }); }expect(errors).toEqual([]);
+});
+
+test('explicit demo routes stay separate and generate no API traffic',async ({ page }) => {
+  const requests:string[]=[];page.on('request',request => { if (request.url().includes('/api/v1/')) requests.push(request.url()); });for (const route of ['/','/papers','/syllabus','/questions','/plan','/revision','/progress','/mock','/profile']) { await page.goto(`${route}?demo=true`);await expect(page.locator('main').first()).toBeVisible(); }expect(requests).toEqual([]);
+});
+
+test('rapid document navigation cancels pending private queries without runtime errors',async ({ page }) => {
+  const errors:string[]=[];
+  let privateRequests=0;
+  page.on('pageerror',error => errors.push(error.message));
+  await page.route('**/api/v1/me/settings',async route => { privateRequests++;const response=await route.fetch();await new Promise(resolve => setTimeout(resolve,300));await route.fulfill({ response }); });
+  await page.goto('/profile');
+  await expect.poll(() => privateRequests).toBeGreaterThan(0);
+  await page.goto('/syllabus?demo=true');
+  await expect(page.getByRole('heading',{ level:1,name:'Syllabus',exact:true })).toBeVisible();
+  await page.waitForTimeout(350);
+  expect(errors).toEqual([]);
+});

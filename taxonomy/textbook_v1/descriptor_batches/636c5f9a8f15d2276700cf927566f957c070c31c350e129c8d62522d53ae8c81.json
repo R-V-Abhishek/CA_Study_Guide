@@ -1,0 +1,340 @@
+{
+  "descriptors": [
+    {
+      "node_id": "cf491ea9-304e-4070-85bb-c74eef133b14",
+      "concept_name": "Objective and Scope Overview",
+      "definition": "This standard prescribes the accounting treatment for intangible assets that are not specifically addressed within another standard. It mandates criteria for recognition, measurement, and disclosure, requiring initial measurement at cost and subsequent measurement at either cost or revaluation model.",
+      "terminology": [
+        "Intangible Asset",
+        "Amortisation",
+        "Revaluation Model",
+        "Impairment"
+      ],
+      "instrument_references": [
+        "Ind AS 38"
+      ],
+      "inclusion": [
+        "Intangible assets not specifically covered under other standards"
+      ],
+      "exclusion": [
+        "Intangible assets held for sale in ordinary course of business",
+        "Deferred tax assets",
+        "Financial assets",
+        "Goodwill arising in business combinations"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from other standards like Ind AS 2, Ind AS 12, and Ind AS 103 which govern specific asset categories."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8f05204d-575f-4bc9-b3c3-769d02a50d75",
+      "concept_name": "Scope and Applicability",
+      "definition": "The standard applies to all intangible assets except those explicitly scoped out, such as financial assets, exploration and evaluation assets, and mineral extraction expenditures. Items incorporating both tangible and intangible elements require professional judgment to determine the more significant component.",
+      "terminology": [
+        "Scope",
+        "Extractive Industries",
+        "Exploration and Evaluation",
+        "Significant Component"
+      ],
+      "instrument_references": [
+        "Ind AS 38",
+        "Ind AS 2",
+        "Ind AS 12",
+        "Ind AS 105",
+        "Ind AS 106",
+        "Ind AS 115",
+        "Ind AS 116",
+        "Ind AS 117"
+      ],
+      "inclusion": [
+        "Computer software not integral to hardware",
+        "Licences and patents"
+      ],
+      "exclusion": [
+        "Financial assets under Ind AS 32",
+        "Exploration and evaluation assets under Ind AS 106",
+        "Mineral development and extraction expenditures"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between standalone intangible software and software that is an integral part of hardware governed by Ind AS 16."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "25343775-8a5a-46b8-a6d9-32a1893106a8",
+      "concept_name": "Applicability",
+      "definition": "The standard applies to all intangible assets except those governed by other specific standards or specific excluded categories like mineral extraction expenditures. Entities evaluate items containing both physical and intangible elements by assessing which component is more significant.",
+      "terminology": [
+        "Applicability",
+        "Tangible Elements",
+        "Intangible Elements",
+        "Significance Judgment"
+      ],
+      "instrument_references": [
+        "Ind AS 38",
+        "Ind AS 2",
+        "Ind AS 12",
+        "Ind AS 16",
+        "Ind AS 19",
+        "Ind AS 32",
+        "Ind AS 103",
+        "Ind AS 105",
+        "Ind AS 106",
+        "Ind AS 115",
+        "Ind AS 116",
+        "Ind AS 117"
+      ],
+      "inclusion": [
+        "General intangible assets lacking specific alternative standards"
+      ],
+      "exclusion": [
+        "Assets within scope of Ind AS 2, 12, 16, 19, 32, 103, 105, 106, 115, 116, 117"
+      ],
+      "nearby_distinctions": [
+        "Differentiates general scope items from specialized assets governed by separate accounting pronouncements."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "31f98dc4-a0f5-4a78-94b2-38fed540e5ce",
+      "concept_name": "Intangible assets contained in or on a physical substance",
+      "definition": "When an asset combines tangible and intangible elements, an entity applies judgment to determine the primary component. Software integral to hardware is treated as property, plant, and equipment, whereas non-integral software is treated as an intangible asset.",
+      "terminology": [
+        "Physical Substance",
+        "Integral Hardware",
+        "Operating System",
+        "Secondary Element"
+      ],
+      "instrument_references": [
+        "Ind AS 16",
+        "Ind AS 38"
+      ],
+      "inclusion": [
+        "Computer software not integral to related hardware",
+        "Knowledge component of prototypes"
+      ],
+      "exclusion": [
+        "Operating systems and software integral to machine tools"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between tangible assets containing incidental software under Ind AS 16 and standalone intangible software under Ind AS 38."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5b795b63-ef64-44be-a2a0-79abcde0ef65",
+      "concept_name": "Intangible Assets On Leases",
+      "definition": "Rights under licensing agreements for items like motion pictures, plays, and patents are excluded from lease accounting standards and governed instead by the intangible asset standard. This ensures specialized intellectual property licenses are evaluated under appropriate criteria.",
+      "terminology": [
+        "Licensing Agreements",
+        "Motion Picture Films",
+        "Copyrights",
+        "Manuscripts"
+      ],
+      "instrument_references": [
+        "Ind AS 38",
+        "Ind AS 116"
+      ],
+      "inclusion": [
+        "Licensing rights for motion pictures, video recordings, plays, manuscripts, patents, and copyrights"
+      ],
+      "exclusion": [
+        "Standard asset leases governed by lease accounting rules"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between standard property/equipment leases under Ind AS 116 and intellectual property licensing rights under Ind AS 38."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "665d81ab-3c9f-40c0-b7bb-b8e8e6e68cc4",
+      "concept_name": "Intangible Assets Used In The Extractive And Insurance Industries",
+      "definition": "The standard excludes exploration, development, and extraction expenditures in extractive industries as well as insurance contracts. However, it applies to separate operational intangible assets utilized within these sectors, such as computer software or start-up costs.",
+      "terminology": [
+        "Extractive Industries",
+        "Insurance Contracts",
+        "Exploration and Evaluation",
+        "Start-up Costs"
+      ],
+      "instrument_references": [
+        "Ind AS 38"
+      ],
+      "inclusion": [
+        "Computer software used by insurers or in extractive industries",
+        "Start-up costs incurred in extractive or insurance sectors"
+      ],
+      "exclusion": [
+        "Mineral exploration and development expenditures",
+        "Insurance contract acquisition cash flows"
+      ],
+      "nearby_distinctions": [
+        "Separates core mineral/insurance extraction activities from standard general administrative intangibles like software used by these entities."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2ee64879-d4d0-4165-be4e-9e8f13d9195e",
+      "concept_name": "Amortisation method specified in this standard not to apply to intangible assets arising from service concession arrangements in respect of toll roads",
+      "definition": "Entities applying optional transition exemptions may bypass standard amortisation methods for toll road service concession arrangements recognized prior to their first reporting period. This exception accommodates specific grandfathering rules permitted under initial adoption standards.",
+      "terminology": [
+        "Service Concession Arrangements",
+        "Toll Roads",
+        "Optional Exemption",
+        "First-time Adoption"
+      ],
+      "instrument_references": [
+        "Ind AS 38",
+        "Ind AS 101"
+      ],
+      "inclusion": [
+        "Intangible assets from toll road service concession arrangements recognized before the first reporting period"
+      ],
+      "exclusion": [
+        "Standard intangible asset amortisation methods"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes standard intangible amortisation rules from grandfathered treatment permitted for specific toll road concessions under first-time adoption."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3cbf5d93-7495-4ae5-ba1d-24270a4fd424",
+      "concept_name": "RELEVANT DEFINITIONS",
+      "definition": "This section provides core terminology for applying the standard, defining parameters such as amortisation, carrying amount, cost, development, and fair value. These definitions establish the structural basis for recognizing and measuring intangible items.",
+      "terminology": [
+        "Amortisation",
+        "Carrying Amount",
+        "Cost",
+        "Depreciable Amount",
+        "Development",
+        "Entity-Specific Value",
+        "Fair Value",
+        "Impairment Loss",
+        "Intangible Asset",
+        "Monetary Assets"
+      ],
+      "instrument_references": [
+        "Ind AS 38",
+        "Ind AS 102",
+        "Ind AS 113"
+      ],
+      "inclusion": [
+        "Key defined terms governing intangible asset accounting"
+      ],
+      "exclusion": [
+        "General business terms outside accounting standards"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes entity-specific value from fair value and monetary assets from non-monetary assets."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "cad1581e-1eb9-428b-bcbb-8ad87e19f46e",
+      "concept_name": "IDENTIFICATION OF INTANGIBLE ASSETS",
+      "definition": "An intangible asset is characterized as an identifiable, non-monetary resource without physical substance. It encompasses various categories including marketing-related, customer-related, artistic-related, contract-based, and technology-based items.",
+      "terminology": [
+        "Identifiability",
+        "Non-monetary Asset",
+        "Without Physical Substance",
+        "Customer Lists",
+        "Trademarks"
+      ],
+      "instrument_references": [
+        "Ind AS 38"
+      ],
+      "inclusion": [
+        "Computer software, patents, copyrights, customer lists, franchises, and domain names"
+      ],
+      "exclusion": [
+        "Monetary assets",
+        "Tangible assets with physical substance"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes intangible assets from monetary and tangible assets based on physical substance and monetary characteristics."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9cff8d7a-c07a-45f5-8263-b4832de7b6da",
+      "concept_name": "Meaning of Intangible asset",
+      "definition": "An intangible asset is defined as an identifiable non-monetary asset lacking physical substance. Entities often invest in resources such as technical knowledge, intellectual property, and brand names that fall under this classification.",
+      "terminology": [
+        "Identifiable",
+        "Non-monetary Asset",
+        "Intellectual Property",
+        "Brand Names"
+      ],
+      "instrument_references": [
+        "Ind AS 38"
+      ],
+      "inclusion": [
+        "Scientific knowledge, licenses, trademarks, customer lists, and motion pictures"
+      ],
+      "exclusion": [
+        "Physical inventory and monetary claims"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes qualifying intangible assets from unidentifiable internal enhancements and goodwill."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "476750f9-b1eb-4550-866a-fd6ca590e7b0",
+      "concept_name": "Identifiability",
+      "definition": "An asset is identifiable if it is separable and capable of being sold, transferred, licensed, or exchanged, or if it arises from contractual or legal rights. Items that fail to meet this criterion cannot be recognized as separate intangible assets and are instead absorbed into goodwill when acquired in a business combination.",
+      "terminology": [
+        "Separability",
+        "Contractual Rights",
+        "Goodwill",
+        "Synergy"
+      ],
+      "instrument_references": [
+        "Ind AS 38"
+      ],
+      "inclusion": [
+        "Assets capable of being individually rented, sold, or licensed",
+        "Rights arising from legal or contractual agreements"
+      ],
+      "exclusion": [
+        "General market share not protected by contract or separability"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes separately identifiable intangible assets from unidentifiable goodwill arising in a business combination."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3877411a-28fa-428d-997d-23cf3c7a921c",
+      "concept_name": "Asset",
+      "definition": "An asset is a resource controlled by an entity resulting from past events from which future economic benefits are expected to flow. Control requires the power to obtain future economic benefits while restricting access by others, typically established via legal enforceability.",
+      "terminology": [
+        "Control",
+        "Past Events",
+        "Future Economic Benefits",
+        "Legal Enforceability"
+      ],
+      "instrument_references": [
+        "Ind AS 38"
+      ],
+      "inclusion": [
+        "Resources protected by legal rights, confidentiality agreements, or restraint of trade clauses"
+      ],
+      "exclusion": [
+        "Skilled staff teams and customer loyalty lacking specific legal protection or control"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes controlled proprietary knowledge protected by legal rights from general workforce skills and uncontracted customer relationships."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "636c5f9a8f15d2276700cf927566f957c070c31c350e129c8d62522d53ae8c81",
+  "artifact_id": "96cc93ef-5bcf-49a1-8792-7e053f2ac8fe",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8152,
+  "output_tokens": 3586,
+  "cost_usd": 0.0114106,
+  "created_at": "2026-10-03T17:57:34.745517+00:00"
+}

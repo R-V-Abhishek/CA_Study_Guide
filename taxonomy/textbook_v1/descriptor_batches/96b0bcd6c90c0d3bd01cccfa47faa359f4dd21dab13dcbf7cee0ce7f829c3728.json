@@ -1,0 +1,316 @@
+{
+  "descriptors": [
+    {
+      "node_id": "ee93c9d0-5d0a-4a11-a912-c14e2c125627",
+      "concept_name": "Overview of Winding Up Principles",
+      "definition": "Winding up encompasses both formal winding up under the Companies Act, 2013 and liquidation under the Insolvency and Bankruptcy Code, 2016. Provisions allowing applications based on inability to pay debts have been omitted from the Companies Act, 2013 framework.",
+      "terminology": [
+        "winding up",
+        "liquidation",
+        "inability to pay debts"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013 Section 2(94A)",
+        "Insolvency and Bankruptcy Code, 2016"
+      ],
+      "inclusion": [
+        "Winding up procedures governed by the Companies Act, 2013",
+        "Liquidation procedures under the Insolvency and Bankruptcy Code, 2016"
+      ],
+      "exclusion": [
+        "Applications for winding up strictly on grounds of inability to pay debts under the 2013 Act"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes traditional company law winding up from modern insolvency liquidation mechanisms."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a650abb2-f7e4-439c-adc7-a23338469c41",
+      "concept_name": "Modes Of Winding Up [Section 270]",
+      "definition": "Part I of Chapter XX of the Companies Act, 2013 governs the winding up of a company specifically by the Tribunal. This statutory mode establishes the core procedural rules for tribunal-led corporate dissolution.",
+      "terminology": [
+        "winding up by the Tribunal",
+        "Part I of Chapter XX"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013 Section 270",
+        "Companies Act, 2013 Chapter XX"
+      ],
+      "inclusion": [
+        "Winding up administered directly by the Tribunal"
+      ],
+      "exclusion": [
+        "Voluntary winding up modes outside tribunal oversight"
+      ],
+      "nearby_distinctions": [
+        "Focuses exclusively on tribunal-administered winding up rather than alternative liquidation pathways."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c36042db-e42e-4bcc-aa60-9c88c397ed1b",
+      "concept_name": "Circumstances In Which Company May Be Wound Up By Tribunal [Section 271]",
+      "definition": "A company may face tribunal-ordered winding up under specific statutory grounds including special resolutions, actions against state integrity, fraudulent affairs, default in filing financial statements for five consecutive years, or when deemed just and equitable. These diverse statutory triggers ensure judicial intervention for severe corporate malfeasance or deadlock.",
+      "terminology": [
+        "special resolution",
+        "fraudulent manner",
+        "just and equitable",
+        "default in filing financial statements"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013 Section 271",
+        "Companies Act, 2013 Section 272"
+      ],
+      "inclusion": [
+        "Winding up via special resolution",
+        "Actions harming state security or public order",
+        "Fraudulent formation or management",
+        "Consecutive five-year financial statement filing defaults",
+        "Just and equitable grounds"
+      ],
+      "exclusion": [
+        "Petitions based solely on commercial debt defaults omitted under current framework provisions"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes objective statutory defaults like non-filing from subjective judicial assessments like the just and equitable standard."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "22a044ca-95fb-45ff-bae6-aea8d344ec96",
+      "concept_name": "Petition For Winding Up [Section 272]",
+      "definition": "Authorized stakeholders including the company, contributories meeting holding duration criteria, the Registrar, or Central/State Governments may formally present a winding up petition to the Tribunal. Registrars require central government sanction after offering the company a representation opportunity.",
+      "terminology": [
+        "contributory",
+        "Registrar",
+        "statement of affairs",
+        "central government sanction"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013 Section 272",
+        "Companies Act, 2013 Section 271"
+      ],
+      "inclusion": [
+        "Petitions by the company accompanied by a statement of affairs",
+        "Contributory petitions meeting six-month holding thresholds",
+        "Registrar petitions with prior government sanction"
+      ],
+      "exclusion": [
+        "Registrar petitions grounded in special resolution winding up"
+      ],
+      "nearby_distinctions": [
+        "Differentiates standing requirements across stakeholders, imposing strict holding duration rules for contributories and sanction rules for the Registrar."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "58daeb7c-09d6-4ea0-8d86-a6870903f2f4",
+      "concept_name": "Powers Of Tribunal [Section 273]",
+      "definition": "Upon receiving a winding up petition, the Tribunal possesses discretionary powers to dismiss it, issue interim orders, appoint a provisional liquidator, or order definitive winding up within ninety days. The Tribunal cannot refuse a winding up order solely because company assets are mortgaged or entirely absent.",
+      "terminology": [
+        "provisional liquidator",
+        "interim order",
+        "just and equitable ground",
+        "ninety days"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013 Section 273",
+        "Companies Act, 2013 Section 272"
+      ],
+      "inclusion": [
+        "Dismissal of petition with or without costs",
+        "Appointment of provisional liquidator after notice",
+        "Issuance of winding up orders regardless of asset encumbrance"
+      ],
+      "exclusion": [
+        "Refusal of winding up orders based exclusively on asset deficiency or heavy mortgage"
+      ],
+      "nearby_distinctions": [
+        "Contrasts interim relief and provisional measures with final winding up orders and alternative remedies."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "71848c69-b687-45ee-8e4e-cc2b9b4741d2",
+      "concept_name": "Directions For Filing Statement Of Affairs [Section 274]",
+      "definition": "When a third-party petition establishes a prima facie winding up case, the Tribunal directs the company to submit its objections and statement of affairs within thirty days, extendable by another thirty days. Non-compliance results in the forfeiture of the right to oppose the petition alongside penal consequences for responsible officers.",
+      "terminology": [
+        "statement of affairs",
+        "prima facie case",
+        "deposit of security",
+        "books of account"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013 Section 274",
+        "Companies Act, 2013 Section 273"
+      ],
+      "inclusion": [
+        "Mandatory filing of objections and statement of affairs by the company",
+        "Submission of completed and audited books of account to the liquidator within thirty days of winding up orders"
+      ],
+      "exclusion": [
+        "Petitions initiated directly by the company itself under section 272"
+      ],
+      "nearby_distinctions": [
+        "Differentiates obligations triggered by external petitioner filings from voluntary company-initiated applications."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2e367bd2-c0f3-4384-89ad-87b3f46c41f4",
+      "concept_name": "Company Liquidators And Their Appointments [Section 275]",
+      "definition": "The Tribunal appoints an Official Liquidator or an insolvency professional from a maintained panel as the Company Liquidator during a winding up order. Appointed liquidators must file a conflict of interest declaration within seven days and operate under terms specified by the Tribunal.",
+      "terminology": [
+        "Official Liquidator",
+        "insolvency professional",
+        "provisional liquidator",
+        "declaration of conflict of interest"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013 Section 275",
+        "Insolvency and Bankruptcy Code, 2016",
+        "Companies Act, 2013 Section 273"
+      ],
+      "inclusion": [
+        "Appointment of panel insolvency professionals as company liquidators",
+        "Filing of mandatory independence declarations within seven days"
+      ],
+      "exclusion": [
+        "Appointment of liquidators outside recognized statutory panels or without tribunal specification"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes provisional liquidator appointments made prior to final orders from permanent company liquidator appointments."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6444950d-0c8c-4e3d-8431-58851d0344a6",
+      "concept_name": "Removal And Replacement Of Liquidator [Section 276]",
+      "definition": "The Tribunal may remove a provisional or company liquidator for recorded causes such as misconduct, fraud, professional incompetence, or persistent conflicts of interest after providing a reasonable hearing. Tribunals can also recover loss or damage caused to the company directly from responsible liquidators.",
+      "terminology": [
+        "misconduct",
+        "fraud or misfeasance",
+        "professional incompetence",
+        "conflict of interest"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013 Section 276"
+      ],
+      "inclusion": [
+        "Removal based on lack of independence or diligence",
+        "Financial recovery of loss or damage from culpable liquidators"
+      ],
+      "exclusion": [
+        "Removal without recording written causes or denying a reasonable hearing opportunity"
+      ],
+      "nearby_distinctions": [
+        "Contrasts routine vacancy transfers due to death or resignation with punitive removals driven by professional default or misconduct."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d987ab4a-15b9-4bad-9ed8-b797ce5f2f96",
+      "concept_name": "Intimation To Company Liquidator, Provisional Liquidator And Registrar [Section 277]",
+      "definition": "The Tribunal must intimate winding up or provisional liquidator appointment orders to the liquidator and Registrar within seven days. The Registrar updates records, notifies the Official Gazette, and informs relevant stock exchanges for listed entities, while the winding up order operates as a discharge notice for employees.",
+      "terminology": [
+        "Official Gazette",
+        "winding up committee",
+        "notice of discharge",
+        "stock exchange intimation"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013 Section 277"
+      ],
+      "inclusion": [
+        "Gazette notification and stock exchange intimations by the Registrar",
+        "Constitution of a winding up committee within three weeks of the winding up order"
+      ],
+      "exclusion": [
+        "Discharge of employees when corporate business operations are expressly continued"
+      ],
+      "nearby_distinctions": [
+        "Differentiates general record updates from specialized stock exchange disclosures required exclusively for listed corporate entities."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3d435825-46de-4871-986c-00c9109fcfd1",
+      "concept_name": "Effect Of Winding Up Order [Section 278]",
+      "definition": "A winding up order operates collectively in favour of all creditors and contributories as though issued on a joint petition filed by them. This ensures equitable distribution and unified representation of stakeholder interests.",
+      "terminology": [
+        "joint petition",
+        "creditors and contributories"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013 Section 278"
+      ],
+      "inclusion": [
+        "Collective legal operation benefiting all company creditors and contributories equally"
+      ],
+      "exclusion": [
+        "Exclusive individual legal enforcement benefits favoring isolated creditors post-order"
+      ],
+      "nearby_distinctions": [
+        "Contrasts individual creditor enforcement actions with unified statutory benefits operating on behalf of the entire creditor and contributory body."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "82f3caca-eaeb-43c3-910d-4c88733f4127",
+      "concept_name": "Stay Of Suits, Etc. On Winding Up Order [Section 279]",
+      "definition": "Following a winding up order or provisional liquidator appointment, no new suits or legal proceedings may be commenced against the company without tribunal leave, and pending proceedings require tribunal permission to proceed. However, this restriction explicitly excludes any proceedings pending in appeal before the Supreme Court or a High Court.",
+      "terminology": [
+        "leave of the Tribunal",
+        "stay of suits",
+        "appeal before Supreme Court or High Court"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013 Section 279"
+      ],
+      "inclusion": [
+        "Mandatory tribunal leave for commencing new suits or continuing pending primary court proceedings",
+        "Unrestricted continuation of appeals pending before High Courts or the Supreme Court"
+      ],
+      "exclusion": [
+        "Initiation of original legal actions without prior tribunal permission"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes ordinary pending trial suits requiring tribunal leave from appellate proceedings before higher constitutional courts requiring no such leave."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6bbe5cd7-6744-4af3-8486-17d37bd4a6e0",
+      "concept_name": "Jurisdiction Of Tribunal [Section 280]",
+      "definition": "The Tribunal holds comprehensive jurisdiction to entertain and dispose of all suits, claims, fast-track merger applications, and questions of law or fact relating to company assets and winding up matters. This jurisdiction applies regardless of whether the underlying proceedings or claims arose before or after the winding up order.",
+      "terminology": [
+        "comprehensive jurisdiction",
+        "fast track merger",
+        "questions of priorities"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013 Section 280",
+        "Companies Act, 2013 Section 233"
+      ],
+      "inclusion": [
+        "Suits, claims, and branch-level claims by or against the company",
+        "Adjudication of priority questions and asset obligations related to winding up"
+      ],
+      "exclusion": [
+        "Matters completely unrelated to corporate winding up obligations or statutory exceptions"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes exclusive tribunal oversight over winding up disputes from normal civil court jurisdictions."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "96b0bcd6c90c0d3bd01cccfa47faa359f4dd21dab13dcbf7cee0ce7f829c3728",
+  "artifact_id": "13a19cb4-ed8a-4ca9-a470-d04037ece9bf",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8963,
+  "output_tokens": 3765,
+  "cost_usd": 0.0121014,
+  "created_at": "2026-10-03T18:24:24.259577+00:00"
+}

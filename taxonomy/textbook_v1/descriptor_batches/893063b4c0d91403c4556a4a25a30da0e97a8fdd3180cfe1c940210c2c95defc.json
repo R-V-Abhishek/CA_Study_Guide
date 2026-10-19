@@ -1,0 +1,254 @@
+{
+  "descriptors": [
+    {
+      "node_id": "38dffa30-0314-4ede-b53b-6ffa02cd73db",
+      "concept_name": "Introduction and Objective of Agricultural Accounting",
+      "definition": "Ind AS 41 establishes accounting and reporting standards for the primary sector by introducing a fair value model for biological assets and agricultural produce. It governs the lifecycle management, recognition, valuation, and disclosures associated with biological transformation.",
+      "terminology": [
+        "biological asset",
+        "agricultural produce",
+        "fair value model",
+        "biological transformation"
+      ],
+      "instrument_references": [
+        "Ind AS 41"
+      ],
+      "inclusion": [
+        "management of biological assets",
+        "agricultural produce at the point of harvest"
+      ],
+      "exclusion": [
+        "subsequent processing of harvested produce",
+        "land related to agricultural activity"
+      ],
+      "nearby_distinctions": [
+        "distinguishes biological transformation from industrial manufacturing or processing after harvest."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ea2a4c4f-2a79-4288-bfbd-6c6cb625d441",
+      "concept_name": "Scope of Agricultural Accounting",
+      "definition": "The standard applies specifically to biological assets, agricultural produce only at the point of harvest, and related government grants. It explicitly excludes land, bearer plants, intangible assets, right-of-use assets, and post-harvest processing activities.",
+      "terminology": [
+        "bearer plants",
+        "point of harvest",
+        "felled trees",
+        "brood stock"
+      ],
+      "instrument_references": [
+        "Ind AS 41",
+        "Ind AS 16",
+        "Ind AS 20",
+        "Ind AS 38",
+        "Ind AS 116",
+        "Ind AS 2"
+      ],
+      "inclusion": [
+        "living animals and plants",
+        "harvested produce at the exact point of harvest"
+      ],
+      "exclusion": [
+        "land and right-of-use assets related to farming",
+        "subsequent processing of harvested items into commercial products"
+      ],
+      "nearby_distinctions": [
+        "separates biological assets and harvest-point produce from downstream inventory processing governed by Ind AS 2."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c7464eae-06ed-4474-8906-3a4101b61015",
+      "concept_name": "Relevant Definitions in Agriculture Accounting",
+      "definition": "Agricultural activity comprises the management of biological transformation and harvest of living assets for sale or conversion. Biological assets represent living plants and animals undergoing managed growth, degeneration, production, or procreation.",
+      "terminology": [
+        "agricultural activity",
+        "biological asset",
+        "biological transformation",
+        "agricultural produce"
+      ],
+      "instrument_references": [
+        "Ind AS 41"
+      ],
+      "inclusion": [
+        "managed livestock rearing",
+        "forestry and aquaculture"
+      ],
+      "exclusion": [
+        "unmanaged harvesting such as ocean fishing",
+        "post-harvest industrial processing"
+      ],
+      "nearby_distinctions": [
+        "differentiates managed biological growth from unmanaged extraction and post-harvest transformation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a42a20e3-7954-40cd-93ed-5e0de26b7ded",
+      "concept_name": "Recognition and Initial Measurement of Agricultural Assets",
+      "definition": "Biological assets and agricultural produce are recognized when controlled via past events, probable future economic benefits will flow, and values are reliably measurable. Recognized biological assets are initially and subsequently measured at fair value less costs to sell, unless fair value cannot be reliably determined.",
+      "terminology": [
+        "control",
+        "probable economic benefits",
+        "fair value less costs to sell",
+        "cost model exception"
+      ],
+      "instrument_references": [
+        "Ind AS 41",
+        "Ind AS 2",
+        "Ind AS 16",
+        "Ind AS 36"
+      ],
+      "inclusion": [
+        "assets controlled via legal ownership or branding",
+        "produce valued at harvest point"
+      ],
+      "exclusion": [
+        "assets lacking reliable market quotations or alternative fair value measures",
+        "ungoverned unmanaged sources"
+      ],
+      "nearby_distinctions": [
+        "distinguishes between the presumption of fair value measurement and the cost-less-depreciation exception when markets are absent."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "fec933a9-d8fe-40d9-95e6-40e38961ae09",
+      "concept_name": "Measurement of Biological Assets and Produce",
+      "definition": "Biological assets are measured at fair value less costs to sell at recognition and reporting dates, unless reliable fair value is unavailable. Agricultural produce is invariably measured at fair value less costs to sell at the point of harvest.",
+      "terminology": [
+        "fair value less costs to sell",
+        "active market",
+        "physical changes",
+        "price changes"
+      ],
+      "instrument_references": [
+        "Ind AS 41"
+      ],
+      "inclusion": [
+        "grouping assets by significant attributes for pricing",
+        "incorporating physical and market price variations"
+      ],
+      "exclusion": [
+        "contract prices differing from current market participant conditions",
+        "unreliable alternative measurements"
+      ],
+      "nearby_distinctions": [
+        "separates future contract pricing mechanisms from current market conditions required for fair value determination."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f15f0f5b-af6f-4bb7-9a2e-d5a3c0700f5d",
+      "concept_name": "Gains and Losses in Biological Assets and Agricultural Produce",
+      "definition": "Gains or losses arising from initial recognition and subsequent fair value changes of biological assets are recognized directly in profit or loss for the reporting period. Similarly, gains or losses on initial recognition of agricultural produce through harvesting are recognized in profit or loss.",
+      "terminology": [
+        "initial recognition gain or loss",
+        "profit or loss",
+        "fair value fluctuation",
+        "harvesting gain"
+      ],
+      "instrument_references": [
+        "Ind AS 41"
+      ],
+      "inclusion": [
+        "gains from reproduction like newborn livestock",
+        "losses due to deduction of estimated costs to sell"
+      ],
+      "exclusion": [
+        "deferral of fair value gains to equity",
+        "unrealized holding gains outside profit or loss"
+      ],
+      "nearby_distinctions": [
+        "distinguishes initial recognition adjustments from subsequent reporting date fair value changes."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b46b73c1-2339-4034-9a2c-8a4cfffd9de3",
+      "concept_name": "Government Grants for Biological Assets",
+      "definition": "Unconditional government grants related to biological assets measured at fair value less costs to sell are recognized in profit or loss when receivable. Conditional grants are recognized in profit or loss only when the specific attached conditions are fully met.",
+      "terminology": [
+        "unconditional grant",
+        "conditional grant",
+        "receivable",
+        "proportionate recognition"
+      ],
+      "instrument_references": [
+        "Ind AS 41"
+      ],
+      "inclusion": [
+        "grants requiring compliance with specific farming locations or activities",
+        "proportionate income recognition over elapsed time"
+      ],
+      "exclusion": [
+        "grants recognized prior to condition fulfillment",
+        "grants not linked to fair value-measured biological assets"
+      ],
+      "nearby_distinctions": [
+        "distinguishes immediate revenue recognition for unconditional grants versus time-bound or milestone-dependent conditional grants."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c854d7f4-bedd-4bff-b49a-0b8c99895b80",
+      "concept_name": "Disclosures for Agricultural Assets",
+      "definition": "Entities must provide narrative or quantified descriptions of biological asset groups, aggregate gains or losses, and a detailed reconciliation of carrying amount changes. Additional disclosures cover asset restrictions, pledges, commitments, risk strategies, and reasons when fair value is unmeasurable.",
+      "terminology": [
+        "reconciliation of changes",
+        "consumable biological assets",
+        "pledged assets",
+        "financial risk management"
+      ],
+      "instrument_references": [
+        "Ind AS 41",
+        "Ind AS 105"
+      ],
+      "inclusion": [
+        "carrying amount reconciliations including purchases, sales, and harvests",
+        "disclosures for assets measured at cost due to fair value unreliability"
+      ],
+      "exclusion": [
+        "omission of restricted title details",
+        "unquantified narratives without group categorization"
+      ],
+      "nearby_distinctions": [
+        "distinguishes standard fair value disclosure schedules from alternative cost-basis disclosures."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e5901b17-a860-467f-96c5-7f0a87ebbaa1",
+      "concept_name": "Extracts of Financial Statements of Listed Entity",
+      "definition": "Corporate financial statement extracts illustrate practical applications where consumable biological assets like brood stock and shrimp seeds are valued at cost due to active market absences and unreliable cash flow metrics. Early biological transition stages without significant transformations are excluded from fair value adjustments.",
+      "terminology": [
+        "brood stock",
+        "shrimp seed",
+        "consumable biological assets",
+        "cost less depreciation"
+      ],
+      "instrument_references": [
+        "Ind AS 41"
+      ],
+      "inclusion": [
+        "biological asset accounting policy statements",
+        "cost-based valuation when active markets and discounted cash flows are unreliable"
+      ],
+      "exclusion": [
+        "valuation of insignificant early transmission lifecycle stages",
+        "market price assumptions lacking breed comparability"
+      ],
+      "nearby_distinctions": [
+        "distinguishes operational application of cost-basis valuation from standard fair value models when measurement constraints apply."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "893063b4c0d91403c4556a4a25a30da0e97a8fdd3180cfe1c940210c2c95defc",
+  "artifact_id": "3a48389d-a715-4c3d-861e-ef851c2f58ea",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 6424,
+  "output_tokens": 2584,
+  "cost_usd": 0.008387200000000001,
+  "created_at": "2026-10-03T18:03:52.287347+00:00"
+}

@@ -1,0 +1,296 @@
+{
+  "descriptors": [
+    {
+      "node_id": "0aada147-0f77-4199-b57f-61ef92b63ecd",
+      "concept_name": "Interlinking of 5S and Underlying Benefits",
+      "definition": "The 5S framework operates as a continuous, interlinked process that improves operational safety, quality, and productivity while reducing costs. It functions as the structural foundation for total productive maintenance and broader lean techniques.",
+      "terminology": [
+        "5S methodology",
+        "Continuous process",
+        "Lean product development",
+        "TPM foundation"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Workplace organization techniques",
+        "Lean process applications across manufacturing and services"
+      ],
+      "exclusion": [
+        "Standalone cleaning activities disconnected from lean frameworks"
+      ],
+      "nearby_distinctions": [
+        "Distinct from isolated housekeeping because it acts as an integrated foundation for total productive maintenance and continuous improvement."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "49440f75-4b8f-4185-9d95-36cc633ca42f",
+      "concept_name": "Total Productive Maintenance (TPM)",
+      "definition": "Total Productive Maintenance is an organizational system designed to maintain and optimize the integrity of equipment, machinery, and processes through active employee involvement. Its strategy rests on eight operational pillars supported by the 5S methodology to prevent breakdowns and delays.",
+      "terminology": [
+        "Total Productive Maintenance",
+        "Equipment integrity",
+        "Pillars of TPM",
+        "Breakdown avoidance"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Equipment maintenance systems",
+        "Employee-driven operational upkeep",
+        "Phased TPM introduction stages"
+      ],
+      "exclusion": [
+        "Reactive repair work performed solely by external maintenance contractors without employee participation"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard reactive maintenance by focusing on proactive, organization-wide equipment stewardship across distinct developmental phases."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6db9b162-4f11-4f3a-8341-7a5d4ad9f7dc",
+      "concept_name": "Implementation Pillars of Total Productive Maintenance",
+      "definition": "TPM execution relies on eight foundational activity pillars ranging from autonomous maintenance and focused improvement to early management and office applications. Each pillar utilizes specific operational techniques to eliminate workplace losses and maximize equipment reliability.",
+      "terminology": [
+        "Autonomous maintenance",
+        "Focussed improvement",
+        "Planned maintenance",
+        "Early management",
+        "Quality maintenance"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Autonomous cleaning and inspection",
+        "Kaizen activities",
+        "Planned maintenance schedules"
+      ],
+      "exclusion": [
+        "General administrative policy guidelines lacking technical maintenance focus"
+      ],
+      "nearby_distinctions": [
+        "Differentiated from general lean frameworks by its specific emphasis on equipment-centric pillars and specialized technical maintenance routines."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e5c24d71-34e6-4513-b7b7-5db855ce37a6",
+      "concept_name": "Performance Measurement in TPM",
+      "definition": "Overall Equipment Effectiveness serves as the primary metric for evaluating TPM performance by measuring availability, performance efficiency, and quality yield. The computation accounts for six major operational losses categorized into time, speed, and quality losses.",
+      "terminology": [
+        "Overall Equipment Effectiveness",
+        "Availability ratio",
+        "Six big losses",
+        "Quality yield"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Computation of equipment availability",
+        "Measurement of speed and quality performance losses"
+      ],
+      "exclusion": [
+        "General financial profitability ratios unrelated to equipment utilization"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard financial metrics because it evaluates manufacturing asset efficiency through specific operational loss components."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9c419630-2246-48a4-8d86-abbd6f07f978",
+      "concept_name": "Connection between TQM and TPM",
+      "definition": "Total Quality Management and Total Productive Maintenance share common strategic objectives such as competitiveness enhancement, waste reduction, and lead time minimization through worker involvement. Both methodologies require extensive training, education, and sustained commitment from top management over long implementation horizons.",
+      "terminology": [
+        "TQM and TPM connection",
+        "Worker involvement",
+        "Management commitment",
+        "Competitive enhancement"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Shared strategic goals of quality and maintenance systems",
+        "Common requirements for employee training and leadership commitment"
+      ],
+      "exclusion": [
+        "Short-term tactical cost-cutting projects operating without structural quality frameworks"
+      ],
+      "nearby_distinctions": [
+        "Differentiated from isolated quality or maintenance initiatives by their integrated long-term focus on enterprise competitiveness and worker empowerment."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "80cf2534-a70d-4e18-a259-b92f52edc679",
+      "concept_name": "Cellular Manufacturing and One Piece Flow Production System",
+      "definition": "Cellular manufacturing groups machines and workstations into concentrated U-shaped cells to process product families with minimal waste and maximum operational flexibility. It applies group technology principles to achieve rapid throughput, reduced inventory, and streamlined material handling.",
+      "terminology": [
+        "Cellular manufacturing",
+        "One piece flow",
+        "Group technology",
+        "U-shaped design",
+        "Production flow analysis"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Arrangement of equipment into dedicated processing cells",
+        "Grouping of similar part families"
+      ],
+      "exclusion": [
+        "Traditional functional layouts featuring isolated departmental job shops"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from traditional assembly lines through its compact U-shaped configuration and reliance on part family groupings for operational flexibility."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0f7fa172-aa7f-495b-8fb3-0f8b02754311",
+      "concept_name": "Implementation Process of Cellular Manufacturing",
+      "definition": "Implementing cellular manufacturing requires grouping parts into families using production flow analysis and structuring machine clusters to minimize material handling costs. Mathematical models, heuristic algorithms, and rank order clustering are utilized to optimize plant layout and inter-cell transfers.",
+      "terminology": [
+        "Production flow analysis",
+        "Rank order clustering",
+        "King’s algorithm",
+        "Part families",
+        "Binary weight"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Part family classification methods",
+        "Rank order clustering calculations",
+        "Mathematical optimization models for cell layout"
+      ],
+      "exclusion": [
+        "Arbitrary assignment of machines without workflow analysis"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from informal shop floor adjustments by its systematic use of mathematical clustering and production flow analysis algorithms."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a09d786a-0cf3-4989-942c-ee20a2d7fbe0",
+      "concept_name": "Difficulties in Creating Flow",
+      "definition": "Establishing efficient production flow requires addressing operational challenges such as exceptional elements, machine distances, bottleneck identification, and dynamic part demands. Managing these factors ensures smooth inter-cellular transfers and prevents disruptions in cell reconfigurations.",
+      "terminology": [
+        "Exceptional elements",
+        "Bottleneck machines",
+        "Cell load variation",
+        "Inter-cellular transfer"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Identification of process bottlenecks",
+        "Resolution of material routing issues"
+      ],
+      "exclusion": [
+        "Routine equipment maintenance schedules"
+      ],
+      "nearby_distinctions": [
+        "Differentiated from routine scheduling by its specific focus on structural impediments that obstruct continuous component flow within cells."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2a3c84b4-31b9-4ef0-b138-5bb72e8806db",
+      "concept_name": "Benefits and Costs of Cellular Manufacturing",
+      "definition": "Cellular manufacturing consolidates scattered processes to reduce flow time, inventory, floor space, and material handling expenses while enhancing product quality. However, potential limitations include reduced production flexibility and costly operational realignments when demand volumes decrease.",
+      "terminology": [
+        "Consolidated processes",
+        "Flow time reduction",
+        "Group cohesiveness",
+        "Production flexibility"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Analysis of reduced inventory and floor space",
+        "Evaluation of flexibility limitations and realignment costs"
+      ],
+      "exclusion": [
+        "General financial budgeting not linked to plant layout efficiency"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from traditional mass production benefits by emphasizing localized cost containment and group cohesiveness alongside potential rigidity risks."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4fc8be74-be85-47bf-9636-9ce2e713ff66",
+      "concept_name": "Six Sigma",
+      "definition": "Six Sigma is a statistical quality improvement methodology aimed at identifying and eliminating process defects to maximize customer satisfaction. It operates on the premise of reducing process variance to achieve near-perfection standards of 3.4 defects per million opportunities.",
+      "terminology": [
+        "Six Sigma",
+        "Defects per million opportunities",
+        "Process variance",
+        "Quality improvement technique"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Statistical measurement of process defects",
+        "Data-driven quality management initiatives"
+      ],
+      "exclusion": [
+        "Subjective management evaluations lacking statistical rigor"
+      ],
+      "nearby_distinctions": [
+        "Differentiated from general quality control programs by its strict quantitative reliance on statistical sigma levels and defect metrics."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "06aff9cf-b6b1-4891-9978-7dc8818d3f8a",
+      "concept_name": "Implementation of Six Sigma via DMAIC",
+      "definition": "DMAIC is a robust five-phase methodology used to improve existing business processes through structured cycles of defining, measuring, analyzing, improving, and controlling. It applies quantitative procedures and statistical data to resolve operational issues under stable technology and customer behaviors.",
+      "terminology": [
+        "DMAIC",
+        "Define phase",
+        "Measure phase",
+        "Analyze phase",
+        "Improve phase",
+        "Control phase"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Application of statistical tools in existing processes",
+        "Step-by-step problem-solving across the five phases"
+      ],
+      "exclusion": [
+        "Design of entirely new products or systems from inception"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from design methodologies by its exclusive focus on refining and optimizing pre-existing operational processes."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4fbb66bf-0d7a-465a-8eaa-4e76ac29399f",
+      "concept_name": "Comparison and Limitations of Six Sigma Methodologies",
+      "definition": "Six Sigma methodologies like DMAIC and DMADV rely on defect metrics and quality tools but differ in their focus on existing process improvement versus new process design. Limitations of Six Sigma include an exclusive focus on quality, high infrastructure investment requirements, and limited effectiveness with intangible results.",
+      "terminology": [
+        "DMADV",
+        "DMAIC comparison",
+        "Proactive design",
+        "Reactive improvement",
+        "Six Sigma limitations"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Comparative analysis of DMAIC and DMADV",
+        "Evaluation of structural implementation limitations"
+      ],
+      "exclusion": [
+        "General corporate strategy frameworks unrelated to quality metrics"
+      ],
+      "nearby_distinctions": [
+        "Differentiated from tactical problem-solving by addressing structural implementation constraints and contrasting reactive improvement with proactive design."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "c6e79dcb10db2bf9183ed0b24ee7db2d10276cbd9ae15c3586e70ada024fbfea",
+  "artifact_id": "08037659-2521-4ecd-93eb-dc549ec30fef",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8535,
+  "output_tokens": 3124,
+  "cost_usd": 0.0103705,
+  "created_at": "2026-10-03T18:26:11.249191+00:00"
+}

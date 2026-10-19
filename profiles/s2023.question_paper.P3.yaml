@@ -1,0 +1,99 @@
+id: s2023.question_paper.P3.scan202605.v1
+applies_to:
+  scheme: s2023
+  doc_type: question_paper
+paper_max: 100
+patterns:
+  question_start: &id001
+  - re: ^\s*(?P<n>\d{1,2})[.,](?:\s+|$)
+    max_x: 130
+  part_start:
+  - re: ^\s*\((?P<p>[a-hA-H])\)\s*
+  subpart_start:
+  - re: ^\s*\((?P<s>i{1,3}|iv|v|vi{0,3}|ix|x)\)\s*
+  marks:
+  - re: \((?P<m>\d{1,2})\s*Marks?\)
+  - re: (?P<m>\d{1,2})\s*Marks?\s*$
+  - re: ^\s*(?P<m>\d{1,2})\s*$
+    min_x: 500
+  answer_start:
+  - re: ^\s*(?:ANSWERS?|Answer)\b
+    require_bold: false
+  or_separator:
+  - re: ^\s*OR\s*$
+    require_bold: false
+  case_scenario_start: &id002
+  - re: ^\s*Integrated\s+Case\s+Scenario\s*[-–—]?\s*(?P<n>[IVX]+)\s*$
+  mcq_start: *id001
+  mcq_option:
+  - re: ^\s*\((?P<o>[A-Da-d])\)(?:\s+|$)
+  mcq_key_table_title:
+  - re: (?i)answers?\s+to\s+(?:the\s+)?(?:MCQ|multiple\s+choice)
+  mcq_key_row:
+  - re: ^\s*(?P<n>\d{1,2})\s*[.)]?\s*\(?(?P<o>[A-Da-d])\)?\s*$
+  paper_start:
+  - re: ^\s*PAPER\s*[-:]?\s*(?P<n>\d+)\s*[:\-]
+  section_start:
+  - re: ^\s*SECTION\s*[-:]?\s*(?P<n>[A-Z]|\d+)\s*$
+  content_start: *id002
+  content_end:
+  - re: ^\s*SPACE\s+FOR\s+ROUGH\s+WORK\s*$
+  descriptive_start: &id003
+  - re: ^\s*PART\s*[-–—]?\s*(?:II|Il)\s*$
+  case_end: *id003
+choice_rules:
+- re: Answer\s+Question\s+No\.\s*[1I]\s+which\s+is\s+.*?compulsory
+  compulsory:
+  - Q1
+- re: any\s+(?P<k>\d)\s+out\s+of\s*the\s+remaining
+  optional_pick: '{k}'
+defaults:
+  mcq_marks: 2
+  min_unit_chars: 15
+  max_unit_chars: 25000
+mode: questions_only
+document_role: questions
+expects_answers: false
+marks_required: true
+numbering_scopes:
+- paper
+- section
+- case
+- alternative
+source_page_start: 2
+source_page_end: 31
+supported_source_hashes:
+- ea7dad05d0d10ccf1a38f655eeb41064c3852baefdea814da9ef7d959754378e
+instructions_any_page: true
+excluded_regions:
+- page: 18
+  bbox:
+  - 0
+  - 185
+  - 610
+  - 397
+- page: null
+  bbox:
+  - 0
+  - 0
+  - 30
+  - 842
+- page: null
+  bbox:
+  - 585
+  - 0
+  - 610
+  - 842
+- page: null
+  bbox:
+  - 0
+  - 0
+  - 610
+  - 85
+- page: null
+  bbox:
+  - 0
+  - 700
+  - 610
+  - 842
+mcqs_compulsory: true

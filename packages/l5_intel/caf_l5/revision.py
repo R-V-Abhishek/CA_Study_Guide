@@ -3,17 +3,17 @@
 from datetime import date, datetime, timedelta, timezone
 from typing import Any
 import sqlalchemy as sa
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, defer
 
 from caf_db.models.app import Progress, RevisionEvent, Settings as AppSettingsModel
 from caf_db.models.intel import SubtopicScore
 from caf_db.models.ref import Node, Paper
-from caf_l5.service import get_current_score_run
+from caf_l5.service import get_account_score_run, selected_papers
 
 
 def get_revision_due_list(
     session: Session,
-    user_id: int = 1,
+    user_id: int,
     as_of_date: date | None = None,
     paper_id: str | None = None,
 ) -> list[dict[str, Any]]:
@@ -32,12 +32,10 @@ def get_revision_due_list(
     intervals = app_settings.revision_intervals if app_settings and app_settings.revision_intervals else [3, 7, 21, 60]
 
     # 2. Fetch current ScoreRun for importance scores
-    current_run = get_current_score_run(session)
-    scores_map: dict[str, SubtopicScore] = {}
-    if current_run:
-        scores = session.query(SubtopicScore).where(SubtopicScore.score_run_id == current_run.id).all()
-        scores_map = {s.node_id: s for s in scores}
+    current_run = get_account_score_run(session, user_id)
 
+    from caf_l5.context import resolve_context, context_leaf_ids
+    applicable_nodes = context_leaf_ids(session, resolve_context(session, user_id))
     # 3. Query completed subtopics for this user
     query = (
         session.query(Progress, Node, Paper)
@@ -45,6 +43,8 @@ def get_revision_due_list(
         .join(Paper, Paper.id == Node.paper_id)
         .where(
             Progress.user_id == user_id,
+            Node.paper_id.in_(selected_papers(session, user_id)),
+            Node.id.in_(applicable_nodes),
             Progress.status == "done",
             Progress.first_done_at.is_not(None),
         )
@@ -57,11 +57,20 @@ def get_revision_due_list(
     if not completed_rows:
         return []
 
+    scores_map: dict[str, SubtopicScore] = {}
+    if current_run:
+        completed_ids = [node.id for _, node, _ in completed_rows]
+        scores = session.query(SubtopicScore).options(defer(SubtopicScore.evidence)).where(
+            SubtopicScore.score_run_id == current_run.id,
+            SubtopicScore.node_id.in_(completed_ids),
+        ).all()
+        scores_map = {score.node_id: score for score in scores}
+
     # 4. Fetch all revision events for this user
     all_events = (
         session.query(RevisionEvent)
         .where(RevisionEvent.user_id == user_id)
-        .order_by(RevisionEvent.at.asc())
+        .order_by(RevisionEvent.at.asc(), RevisionEvent.id.asc())
         .all()
     )
     events_by_node: dict[str, list[RevisionEvent]] = {}
@@ -84,13 +93,13 @@ def get_revision_due_list(
                     k += 1
 
         interval_days = intervals[min(k, len(intervals) - 1)]
-        base_date = last_revised.date() if isinstance(last_revised, datetime) else last_revised
+        base_date = last_revised.date()
         due_date = base_date + timedelta(days=interval_days)
 
         if due_date <= today:
             overdue_days = (today - due_date).days
             sc = scores_map.get(node.id)
-            importance = sc.importance if sc else 0.0
+            importance = sc.importance if sc else None
 
             due_list.append({
                 "node_id": node.id,
@@ -107,7 +116,10 @@ def get_revision_due_list(
             })
 
     # Order by I(s) desc, then overdue days desc
-    due_list.sort(key=lambda item: (item["importance"], item["overdue_days"]), reverse=True)
+    due_list.sort(key=lambda item: (
+        -(item["importance"] if item["importance"] is not None else -1),
+        -item["overdue_days"], item["node_id"],
+    ))
     return due_list
 
 
@@ -115,14 +127,16 @@ def record_revision_outcome(
     session: Session,
     node_id: str,
     outcome: str,
-    user_id: int = 1,
+    user_id: int,
 ) -> dict[str, Any]:
     """Record revision outcome ('ok' or 'shaky') and update last_revised_at."""
     if outcome not in ("ok", "shaky"):
         raise ValueError(f"Invalid revision outcome '{outcome}'. Must be 'ok' or 'shaky'.")
 
     node = session.get(Node, node_id)
-    if not node:
+    from caf_l5.context import resolve_context, context_leaf_ids
+    applicable = context_leaf_ids(session, resolve_context(session, user_id))
+    if not node or node.level != "subtopic" or node_id not in applicable:
         raise ValueError(f"Node '{node_id}' not found.")
 
     progress = session.get(Progress, (user_id, node_id))

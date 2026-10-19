@@ -1,0 +1,348 @@
+{
+  "descriptors": [
+    {
+      "node_id": "01e4b283-d093-447a-9f31-859f88c35f43",
+      "concept_name": "Return Of Income",
+      "definition": "A return of income is a formal declaration furnished by an assessee detailing total income, deductions, and tax payable in a prescribed format. Companies and firms must file it compulsorily, along with specific resident individuals holding foreign assets or signing authorities.",
+      "terminology": [
+        "Return of income",
+        "Assessee",
+        "Total income",
+        "Tax payable",
+        "Beneficial owner"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961",
+        "Section 139(1)",
+        "Section 6(6)"
+      ],
+      "inclusion": [
+        "Companies",
+        "Firms",
+        "Resident individuals holding foreign assets or financial interests"
+      ],
+      "exclusion": [
+        "Non-residents unless specific conditions apply"
+      ],
+      "nearby_distinctions": [
+        "Differs from a return of loss or revised return by being the primary mandatory periodic filing of taxable income under regular provisions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5b57e276-3cbf-4237-bd6a-28646300ff3f",
+      "concept_name": "Compulsory Filing Of Return Of Income [Section 139(1)]",
+      "definition": "Compulsory filing provisions mandate certain entities and individuals to submit a return of income on or before the due date regardless of income levels. This includes companies, firms, and residents holding foreign assets or signing authority, excluding certain beneficiaries whose income is included by the primary asset owner.",
+      "terminology": [
+        "Compulsory filing",
+        "Beneficial owner",
+        "Beneficiary",
+        "Foreign asset",
+        "Signing authority"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961",
+        "Section 139(1)"
+      ],
+      "inclusion": [
+        "Companies",
+        "Firms",
+        "Residents with foreign beneficial assets or signing powers"
+      ],
+      "exclusion": [
+        "Beneficiary whose asset income is already taxable in the hands of the beneficial owner"
+      ],
+      "nearby_distinctions": [
+        "Distinct from voluntary returns because statutory compliance is mandatory based on entity type or asset holding rather than income thresholds alone."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7f1894d4-b415-4637-bef0-ae22aeec892b",
+      "concept_name": "Interest For Default In Furnishing Return Of Income [Section 234A]",
+      "definition": "Interest under section 234A is levied when an assessee fails to furnish a return of income by the statutory due date. Simple interest at one percent per month applies to the net tax liability for the duration of the default period.",
+      "terminology": [
+        "Interest for default",
+        "Simple interest",
+        "Due date",
+        "Assessment completion",
+        "Net tax liability"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961",
+        "Section 234A",
+        "Section 143(1)"
+      ],
+      "inclusion": [
+        "Assessees filing returns after the due date",
+        "Assessees failing to furnish any return"
+      ],
+      "exclusion": [
+        "Assessees filing valid returns within the prescribed due date"
+      ],
+      "nearby_distinctions": [
+        "Calculated specifically on tax on total income reduced by advance tax and TDS, unlike late filing fees under section 234F."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "61d147fc-5c38-41b1-b1cf-bf2cf97d3e13",
+      "concept_name": "Specified Class Or Classes Of Persons To Be Exempted From Filing Return Of Income [Section 139(1C)]",
+      "definition": "The Central Government may exempt specific classes of taxpayers from filing a return of income to minimize compliance burdens. This includes non-corporate non-residents and foreign companies whose sole Indian income derives from specified International Financial Services Centre investment funds subject to tax deduction at source.",
+      "terminology": [
+        "Exemption from filing",
+        "Non-corporate non-resident",
+        "Foreign company",
+        "Investment fund",
+        "International Financial Services Centre"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961",
+        "Section 139(1C)",
+        "Section 10(4D)"
+      ],
+      "inclusion": [
+        "Non-corporate non-residents with fund income in IFSC",
+        "Foreign companies with fund income in IFSC"
+      ],
+      "exclusion": [
+        "Taxpayers earning other Indian-sourced incomes outside the specified exemptions"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard filing requirements by granting total exemption from submitting returns under section 139(1) via executive notification."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5e97cd19-00e2-43a9-941b-9a351f0b6df0",
+      "concept_name": "Return Of Loss [Section 139(3)]",
+      "definition": "A return of loss must be filed within the normal due dates to enable the carry forward and set-off of specified business, capital, or specific activity losses. Failure to file this return on time forfeits the right to carry forward those specific categories of losses.",
+      "terminology": [
+        "Return of loss",
+        "Carry forward",
+        "Set-off",
+        "Business loss",
+        "Speculation loss"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961",
+        "Section 139(3)",
+        "Section 139(1)",
+        "Section 80"
+      ],
+      "inclusion": [
+        "Business losses",
+        "Speculation losses",
+        "Capital losses"
+      ],
+      "exclusion": [
+        "House property losses and unabsorbed depreciation which can be carried forward even without timely filing"
+      ],
+      "nearby_distinctions": [
+        "Mandatory filing is strictly required for business and capital losses, unlike house property losses which tolerate delayed filings for carry forward purposes."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7c9ef40c-885b-4224-a0a7-d3aac1d531c4",
+      "concept_name": "Belated Return [Section 139(4)]",
+      "definition": "A belated return is filed by any person who missed the original due date, submitted prior to three months before the end of the assessment year or before assessment completion. Filing a belated return incurs interest, late fees, and restrictions on carrying forward certain losses or claiming specific deductions.",
+      "terminology": [
+        "Belated return",
+        "Assessment year",
+        "Late fee",
+        "Deductions",
+        "Section 115BAC"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961",
+        "Section 139(4)",
+        "Section 139(1)",
+        "Section 234F",
+        "Section 80AC"
+      ],
+      "inclusion": [
+        "Returns submitted after the section 139(1) due date within permitted statutory windows"
+      ],
+      "exclusion": [
+        "Returns filed after the expiry of the belated filing deadline"
+      ],
+      "nearby_distinctions": [
+        "Unlike original timely returns, belated returns restrict loss carry-forward privileges and strip eligibility for specific tax incentive deductions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9a41d2ce-af41-4143-bfb5-77c3de7c60cd",
+      "concept_name": "Return Of Income Of Charitable Trusts And Institutions [Section 139(4A)]",
+      "definition": "Every person in receipt of income held under a trust for charitable or religious purposes must furnish a return of income if total income before exemptions exceeds the basic exemption limit. Representative assessees must file these returns voluntarily within prescribed timelines.",
+      "terminology": [
+        "Charitable purpose",
+        "Religious purpose",
+        "Representative assessee",
+        "Voluntary contributions",
+        "Basic exemption limit"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961",
+        "Section 139(4A)",
+        "Section 11",
+        "Section 12"
+      ],
+      "inclusion": [
+        "Trusts holding property for charitable or religious obligations",
+        "Institutions receiving voluntary contributions"
+      ],
+      "exclusion": [
+        "Trusts whose gross income before exemptions stays at or below the basic exemption limit"
+      ],
+      "nearby_distinctions": [
+        "Differs from individual returns by computing income thresholds prior to applying statutory charitable exemptions under sections 11 and 12."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a2c78505-5cba-49fb-91ba-5972420bd66d",
+      "concept_name": "Return Of Income Of Political Parties [Section 139(4B)]",
+      "definition": "The chief executive officer of a political party must file a return of income if the party's total income before specific exemptions exceeds the basic exemption limit. Submitting this return and completing mandatory audits are prerequisites for claiming tax exemptions.",
+      "terminology": [
+        "Political party",
+        "Chief Executive Officer",
+        "Basic exemption limit",
+        "Audit of accounts"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961",
+        "Section 139(4B)",
+        "Section 13A",
+        "Section 139(1)"
+      ],
+      "inclusion": [
+        "Political parties exceeding the basic exemption limit prior to exemptions"
+      ],
+      "exclusion": [
+        "Political parties with total income below the basic exemption threshold"
+      ],
+      "nearby_distinctions": [
+        "Conditioned strictly on mandatory audit requirements to secure tax exemptions unavailable to generic non-compliant associations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "68eb4ffd-1dba-45e2-8a11-741756122765",
+      "concept_name": "Mandatory Filing Of Returns By Research Associations, News Agency, Trade Unions, Etc. [Section 139(4C)]",
+      "definition": "Specific specialized entities such as research associations, news agencies, and trade unions are statutorily required to file returns of income if their total income, before factoring in specific statutory exemptions, exceeds the basic exemption limit. These returns follow the procedural parameters applicable to standard corporate filings.",
+      "terminology": [
+        "Research association",
+        "News agency",
+        "Trade union",
+        "Mutual Fund",
+        "Basic exemption limit"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961",
+        "Section 139(4C)",
+        "Section 10",
+        "Section 139(1)"
+      ],
+      "inclusion": [
+        "Research associations",
+        "Mutual funds",
+        "Trade unions exceeding basic exemption limits"
+      ],
+      "exclusion": [
+        "Entities falling below the basic exemption limit prior to exemptions"
+      ],
+      "nearby_distinctions": [
+        "Applies to an exhaustive list of specialized statutory entities whose exemption claims are contingent upon threshold-based return filings."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "33089142-0945-4c96-88a8-d6719c5e9385",
+      "concept_name": "Mandatory Filing Of Returns By Universities, Colleges Etc. [Section 139(4D)]",
+      "definition": "Universities, colleges, and specified scientific research institutions not otherwise mandated under other return provisions must file an annual return of income or loss. All operational provisions governing standard income returns apply directly to these educational institutions.",
+      "terminology": [
+        "University",
+        "College",
+        "Scientific research",
+        "Return of income or loss"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961",
+        "Section 139(4D)",
+        "Section 35(1)",
+        "Section 139(1)"
+      ],
+      "inclusion": [
+        "Universities and colleges referred in section 35(1)",
+        "Institutions lacking other return obligations"
+      ],
+      "exclusion": [
+        "Institutions already required to file under alternative provisions of section 139"
+      ],
+      "nearby_distinctions": [
+        "Focuses exclusively on educational and research institutions specified under scientific research provisions rather than general commercial entities."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a9974d12-e4ef-44e7-a807-7ee978524bae",
+      "concept_name": "Filing Of Return Of Income By A Business Trust [Section 139(4E)]",
+      "definition": "Every business trust must furnish a return of its income or loss for every previous year if it has no separate filing mandate under other subsections. Standard procedural rules and provisions applicable to regular income returns govern these business trusts.",
+      "terminology": [
+        "Business trust",
+        "Return of income or loss",
+        "Previous year"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961",
+        "Section 139(4E)",
+        "Section 139(1)"
+      ],
+      "inclusion": [
+        "All business trusts not otherwise filing under alternative provisions"
+      ],
+      "exclusion": [
+        "Business trusts covered under separate compulsory clauses"
+      ],
+      "nearby_distinctions": [
+        "Imposes universal annual filing obligations specifically tailored to business trust structures regardless of income performance."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b8b7ce60-c02f-4fe5-adf1-130216c19d38",
+      "concept_name": "Filing Of Return Of Income By Investment Fund Section 139(4F)]",
+      "definition": "Investment funds defined under specific statutory pass-through provisions must furnish an annual return of income or loss for every previous year. General tax provisions regulate these submissions as if they were standard returns filed under primary provisions.",
+      "terminology": [
+        "Investment fund",
+        "Pass-through",
+        "Return of income or loss"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961",
+        "Section 139(4F)",
+        "Section 115UB",
+        "Section 139(1)"
+      ],
+      "inclusion": [
+        "Investment funds referred to in section 115UB"
+      ],
+      "exclusion": [
+        "Funds already filing under alternative statutory sub-sections"
+      ],
+      "nearby_distinctions": [
+        "Specifically targets specialized investment funds governed by pass-through taxation mechanics rather than standard corporate entities."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "cba425eb0d350473c1fb036fb7de3dec74cb1a5d2132ea5b40bfce8f01a78468",
+  "artifact_id": "cfc3cd81-0b24-4367-991d-614759cdab3d",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 10400,
+  "output_tokens": 3873,
+  "cost_usd": 0.0128025,
+  "created_at": "2026-10-03T18:22:08.877230+00:00"
+}

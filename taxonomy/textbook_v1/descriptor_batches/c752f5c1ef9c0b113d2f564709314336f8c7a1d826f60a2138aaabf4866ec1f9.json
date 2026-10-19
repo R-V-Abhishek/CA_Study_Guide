@@ -1,0 +1,288 @@
+{
+  "descriptors": [
+    {
+      "node_id": "e763cf87-9b5c-444a-bba0-a24610920676",
+      "concept_name": "Real Options",
+      "definition": "Real options represent an approach to capital budgeting that applies option pricing theory to evaluate investment projects. They serve to supplement traditional discounted cash flow analyses by capturing managerial flexibility in decision-making.",
+      "terminology": [
+        "Real Options",
+        "Discounted Cash Flow",
+        "Capital Budgeting",
+        "Option Pricing Theory"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Flexibility to invest or expand",
+        "Right to abandon or disinvest"
+      ],
+      "exclusion": [
+        "Standard financial options with traded underlying assets"
+      ],
+      "nearby_distinctions": [
+        "Financial options involve traded market assets with fixed contractual payoffs, whereas real options involve project cash flows and strategic managerial decisions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ce86f11e-8e7d-440b-907f-b26ea4d7eb64",
+      "concept_name": "How Real Option Is Different From Financial Option",
+      "definition": "Real options differ from financial options because their underlying assets are non-traded projects rather than market-traded securities. Additionally, their payoffs are derived from project cash flows and their exercise periods typically commence later.",
+      "terminology": [
+        "Underlying Project",
+        "Pay-off",
+        "Exercise Period",
+        "Valuation vs Pricing"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Comparison of underlying asset types",
+        "Differences in payout derivation and exercise timelines"
+      ],
+      "exclusion": [
+        "Standard stock and bond option contracts"
+      ],
+      "nearby_distinctions": [
+        "Financial options are priced based on active market trading, while real options are valued to guide managerial and strategic business decisions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a69250c8-e795-4bd1-8fd1-933fd3d10b68",
+      "concept_name": "Valuation of Real Options",
+      "definition": "Real options are valued using methodologies identical to those applied in financial option pricing. While cash flows can be analyzed analogously, identifying specific input values can sometimes present practical challenges.",
+      "terminology": [
+        "Binomial Model",
+        "Risk Neutral Method",
+        "Black-Scholes Model",
+        "Option Valuation"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Binomial model application",
+        "Risk neutral method",
+        "Black-Scholes model utilization"
+      ],
+      "exclusion": [
+        "Exclusive reliance on traditional capital budgeting without option frameworks"
+      ],
+      "nearby_distinctions": [
+        "Unlike standard discounted cash flow, real option valuation incorporates explicit pricing models borrowed directly from financial derivatives theory."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e6a35012-41be-4588-9e25-1a9d83e95462",
+      "concept_name": "Type of Real Options",
+      "definition": "Real options comprise distinct categories such as growth options, which allow managers to pursue future profitability despite initial negative project net present values. These strategic investments function similarly to European call options by providing future operational flexibility.",
+      "terminology": [
+        "Growth Options",
+        "European Call Option",
+        "Strategic Investments",
+        "R&D Activities"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Investments in R&D and advertising",
+        "Expansion and acquisition rights"
+      ],
+      "exclusion": [
+        "Standard fixed-income securities"
+      ],
+      "nearby_distinctions": [
+        "Growth options provide future expansion rights akin to call options, contrasting with abandonment options which function like put options."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "50d5d190-f2a6-431e-b0ca-5b4516e4e280",
+      "concept_name": "Commodity Derivatives",
+      "definition": "Commodity derivatives are financial instruments whose underlying assets are raw or primary products traded on organized exchanges. They facilitate risk management and temporal allocation of physical stocks through standardized contracting.",
+      "terminology": [
+        "Commodity Derivatives",
+        "CBOT",
+        "CME",
+        "Commodity Characteristic Approach"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Agricultural and physical commodity contracts",
+        "Exchange-traded derivative instruments"
+      ],
+      "exclusion": [
+        "Direct equity shares of trading companies"
+      ],
+      "nearby_distinctions": [
+        "Commodity derivatives derive value from physical commodities, distinguishing them from financial derivatives tied to stocks, bonds, or interest rates."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "710bde40-a5d6-4c29-a763-d9643eb2c5ba",
+      "concept_name": "Necessary Conditions to Introduce Commodity Derivatives",
+      "definition": "Feasible commodities for derivatives trading require specific technical attributes including durability, storability, and product homogeneity. Additional criteria involve frequent price fluctuations, large supply and demand, and the presence of cash market risk.",
+      "terminology": [
+        "Commodity Characteristic Approach",
+        "Homogeneous Units",
+        "Storability",
+        "Cash Market Risk"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Criteria for qualifying commodities",
+        "Analysis of supply, demand, and price volatility"
+      ],
+      "exclusion": [
+        "Non-durable or highly customized goods without broad cash markets"
+      ],
+      "nearby_distinctions": [
+        "These technical criteria govern the introduction of exchange-traded commodity contracts rather than general over-the-counter financial instruments."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0de3043b-2809-4c86-861f-f69d9d2a966c",
+      "concept_name": "Investing in Commodity Derivatives",
+      "definition": "Investing in commodity derivatives involves speculating on the price direction of raw materials by utilizing margin requirements rather than purchasing physical goods. It offers a direct alternative to investing in the equities of commodity-trading corporations.",
+      "terminology": [
+        "Initial Margin",
+        "Spot Price",
+        "Speculation",
+        "Futures Contract"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Margin-based derivative trading",
+        "Direct commodity price speculation"
+      ],
+      "exclusion": [
+        "Direct physical ownership of commodities"
+      ],
+      "nearby_distinctions": [
+        "Derivative investing requires only a fraction of capital via margin, contrasting with the full capital outlay needed for direct cash market purchases."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2efc33cc-091f-45ac-8cf5-dd8d18920bf7",
+      "concept_name": "Commodity Market",
+      "definition": "Commodity markets are regulated marketplaces where raw or primary products are exchanged through standardized contracts. They enable participants to hedge risks or speculate on future price movements without taking physical delivery.",
+      "terminology": [
+        "Commodity Exchange",
+        "Futures Trading",
+        "Standardized Contracts",
+        "Multi-Commodity Exchanges"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Regulated raw material exchanges",
+        "Futures trading mechanisms"
+      ],
+      "exclusion": [
+        "Spot physical retail markets without standardization"
+      ],
+      "nearby_distinctions": [
+        "Modern commodity markets rely on electronic multi-commodity exchanges and standardized contracts, differing from traditional bilateral forward arrangements."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8139bdd1-4ec7-4dd4-a03a-472417e81cbf",
+      "concept_name": "Commodity Futures",
+      "definition": "Commodity futures are standardized agreements to buy or sell a specified quantity of a commodity at a predetermined future date and price. They allow producers and end-users to lock in prices and protect against adverse market movements.",
+      "terminology": [
+        "Futures Contract",
+        "Hedging",
+        "Delivery Obligation",
+        "Price Risk"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Producer hedging strategies",
+        "Consumer price-lock mechanisms"
+      ],
+      "exclusion": [
+        "Unstandardized over-the-counter forward contracts"
+      ],
+      "nearby_distinctions": [
+        "Commodity futures provide guaranteed exchange-traded pricing and liquidity, whereas cash forward contracts involve bilateral counterparty credit and delivery risks."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "166b649a-2159-4006-8c70-a55cad5c5988",
+      "concept_name": "Commodity Swaps",
+      "definition": "Commodity swaps are financial agreements used by producers and end-users to manage price volatility by exchanging cash flows linked to commodity prices. Principal types include fixed-floating swaps referencing commodity indices and commodity-for-interest swaps.",
+      "terminology": [
+        "Fixed-Floating Swaps",
+        "Commodity-for-Interest",
+        "S&P GSCI",
+        "CRB Index"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Fixed-floating commodity swaps",
+        "Total return commodity-for-interest agreements"
+      ],
+      "exclusion": [
+        "Standard interest rate or currency swaps"
+      ],
+      "nearby_distinctions": [
+        "Commodity swaps tie cash flows to underlying commodity indices or total returns, distinguishing them from standard interest rate or foreign exchange swaps."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d4382423-21ee-4132-99ca-bf488d87bb0b",
+      "concept_name": "Hedging with Commodity Derivatives",
+      "definition": "Hedging with commodity derivatives often involves using highly liquid proxy contracts when exact derivative contracts are unavailable. Market makers price these over-the-counter products by relying on historical correlations between the exposure and the proxy asset.",
+      "terminology": [
+        "Correlation Risk",
+        "Over-the-Counter",
+        "Proxy Hedging",
+        "Market Maker"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "OTC derivative pricing using correlations",
+        "Management of unhedgable basis or correlation risk"
+      ],
+      "exclusion": [
+        "Perfect hedging using exact matching exchange-traded contracts"
+      ],
+      "nearby_distinctions": [
+        "Proxy hedging introduces correlation risk when price movements diverge from the underlying benchmark, unlike direct hedging with identical contract specs."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "487f73cb-886d-4c41-a279-cf4e0c56678b",
+      "concept_name": "Weather Derivatives",
+      "definition": "Weather derivatives are financial instruments whose payoffs depend on weather measures such as temperature, rainfall, or wind speed. Their primary objective is to hedge volumetric business risk resulting from unfavorable weather patterns rather than pure price risk.",
+      "terminology": [
+        "Weather Derivatives",
+        "Volumetric Risk",
+        "Weather Measure",
+        "OTC Market"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Volume risk mitigation for weather-sensitive industries",
+        "Index-based weather contracts"
+      ],
+      "exclusion": [
+        "Traditional insurance covering extreme low-probability catastrophic events"
+      ],
+      "nearby_distinctions": [
+        "Weather derivatives protect against high-probability fluctuations in normal operating conditions, whereas traditional insurance covers rare catastrophic events."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "c752f5c1ef9c0b113d2f564709314336f8c7a1d826f60a2138aaabf4866ec1f9",
+  "artifact_id": "5bf089ab-0f93-4de3-8137-3c745d8f3762",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8457,
+  "output_tokens": 2998,
+  "cost_usd": 0.0100321,
+  "created_at": "2026-10-03T18:08:20.171541+00:00"
+}

@@ -10,7 +10,7 @@ from sqlalchemy.orm import Session
 
 from caf_db.models.ref import Descriptor, Node
 from caf_l3.anchors import AnchorMatch, extract_anchors, lookup_anchor_candidates
-from caf_l3.llm import GeminiClassifier, LLMClassificationOutput, QuotaExhaustedError
+from caf_l3.llm import GeminiClassifier
 
 
 class ClassificationError(Exception):
@@ -19,7 +19,7 @@ class ClassificationError(Exception):
 
 @dataclass
 class ClassificationResult:
-    primary_node_id: str
+    primary_node_id: str | None
     secondary_node_ids: list[str]
     bucket: str  # "A" | "B" | "C" | "D"
     method: str  # "structure" | "anchor" | "llm" | "duplicate"
@@ -27,6 +27,7 @@ class ClassificationResult:
     justification: str
     alternatives: list[str] = field(default_factory=list)
     evidence: dict[str, Any] = field(default_factory=dict)
+    outcome: str = "matched"
 
 
 def generate_concise_gist(question_text: str, answer_text: str, max_words: int = 25) -> str:
@@ -44,11 +45,18 @@ class HierarchicalClassifier:
     def __init__(self, session: Session, gemini_classifier: GeminiClassifier | None = None):
         self.session = session
         self.gemini_classifier = gemini_classifier
+        from caf_l0.releases import active_version
+        release = active_version(session)
+        self.textbook_classifier = None
+        if release:
+            from caf_l3.textbook import TextbookClassifier
+            self.textbook_classifier = TextbookClassifier(session, release.version_id, gemini_classifier)
         # Cache nodes and descriptors
         self._load_cache()
 
     def _load_cache(self) -> None:
-        self.nodes = {n.id: n for n in self.session.query(Node).all()}
+        from caf_l0.hierarchy import version_nodes
+        self.nodes = {n.id: n for n in version_nodes(self.session)}
         self.descriptors = {d.node_id: d for d in self.session.query(Descriptor).all()}
         self.nodes_by_paper: dict[str, list[Node]] = {}
         for n in self.nodes.values():
@@ -66,6 +74,12 @@ class HierarchicalClassifier:
         use_llm: bool = True,
     ) -> ClassificationResult:
         """Run hierarchical classification with consistency checks."""
+        if self.textbook_classifier:
+            return self.textbook_classifier.classify_unit(
+                paper_id=paper_id, question_text=question_text, context_text=context_text,
+                answer_text=answer_text, fingerprint=fingerprint, run_id=run_id,
+                use_llm=use_llm, chapter_hint_id=chapter_hint_id,
+            )
         # 0. Try LLM Classification if configured and enabled
         if use_llm and self.gemini_classifier and self.gemini_classifier.is_available():
             try:
@@ -80,6 +94,7 @@ class HierarchicalClassifier:
                     secondary_node_ids=llm_res.secondary_node_ids,
                     bucket=llm_res.bucket,
                     method="llm",
+                    outcome=llm_res.outcome,
                     gist=llm_res.gist,
                     justification=llm_res.justification,
                     alternatives=llm_res.alternatives,
@@ -89,9 +104,10 @@ class HierarchicalClassifier:
                         "r1": llm_res.primary_node_id,
                     },
                 )
-            except (QuotaExhaustedError, Exception):
-                # Fallback to local anchor cascade if LLM is unavailable or quota exhausted
-                pass
+            except Exception:
+                # Provider failures are technical failures, never successful
+                # local suggestions with a misleading model method.
+                raise
         self._paper_id = paper_id  # stored for use in _classify_run error messages
         combined_text = f"{question_text}\n{context_text}\n{answer_text}".strip()
         paper_code = paper_id.split(".")[-1]

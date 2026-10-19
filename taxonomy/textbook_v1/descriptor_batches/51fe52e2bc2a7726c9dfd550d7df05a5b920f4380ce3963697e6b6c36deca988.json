@@ -1,0 +1,229 @@
+{
+  "descriptors": [
+    {
+      "node_id": "075c2d8d-21b8-49f9-8163-d4076f8ceb8d",
+      "concept_name": "Initial Recognition",
+      "definition": "An entity must recognize a financial asset or financial liability on its balance sheet exclusively when it becomes a party to the contractual provisions of the instrument. Specific rules dictate that unconditional receivables, forward contracts, and firm commitments are recognized depending on transaction dates, option premiums, and performance milestones.",
+      "terminology": [
+        "Contractual provisions",
+        "Unconditional receivables",
+        "Firm commitment",
+        "Forward contract",
+        "Option contract",
+        "Fair value"
+      ],
+      "instrument_references": [
+        "Ind AS 109 Paragraph 3.1.1",
+        "Ind AS 109 Paragraph B3.1.2"
+      ],
+      "inclusion": [
+        "Unconditional receivables and payables upon becoming a contract party",
+        "Forward contracts on commitment date",
+        "Option contracts when holder or writer becomes a party"
+      ],
+      "exclusion": [
+        "Planned future transactions",
+        "Unperformed standard firm commitments unless designated as FVTPL"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from subsequent measurement and derecognition phases of financial instruments."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "18343e2c-f8d5-45eb-9912-b537cf38ca14",
+      "concept_name": "Regular Way Purchase Or Sale Of Financial Assets",
+      "definition": "A regular way purchase or sale involves financial assets contracted for delivery within a timeframe established by market regulations or conventions. Entities can account for these transactions using either trade date accounting or settlement date accounting.",
+      "terminology": [
+        "Trade date",
+        "Settlement date",
+        "Market convention",
+        "Trade date accounting",
+        "Settlement date accounting"
+      ],
+      "instrument_references": [
+        "Ind AS 109"
+      ],
+      "inclusion": [
+        "Purchases or sales requiring delivery within market-established timeframes"
+      ],
+      "exclusion": [
+        "Non-regular way contracts treated as derivatives prior to settlement"
+      ],
+      "nearby_distinctions": [
+        "Differs from general derivative forward contracts by adhering to standard market settlement schedules rather than speculative timeframes."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f116deb1-fab8-4e78-bc94-ad80d915d42a",
+      "concept_name": "Derecognition Of Financial Assets",
+      "definition": "Derecognition determines the exact timing for removing a financial asset from the balance sheet based on the expiration of contractual rights or the transfer of asset cash flows. In consolidated statements, these rules are applied after consolidating all group subsidiaries.",
+      "terminology": [
+        "Derecognition",
+        "Contractual rights",
+        "Risk and rewards transfer",
+        "Control retention",
+        "Subsidiaries consolidation"
+      ],
+      "instrument_references": [
+        "Ind AS 109 Paragraph 3.2.1",
+        "Ind AS 109 Paragraph B3.2.1",
+        "Ind AS 110"
+      ],
+      "inclusion": [
+        "Financial assets whose cash flow rights have expired",
+        "Transferred assets where substantially all risks and rewards are transferred"
+      ],
+      "exclusion": [
+        "Assets where the entity retains control or substantially all risks and rewards"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from initial recognition and impairment assessments by focusing purely on asset removal triggers."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "bc232c1f-17ce-44d2-9269-297357367717",
+      "concept_name": "Accounting Treatment Of Transfers",
+      "definition": "When a financial asset transfer qualifies for complete derecognition, the difference between the carrying amount and consideration received is routed through the statement of profit and loss, with fair values assigned to new instruments. Conversely, if risks and rewards are retained, the asset remains on the balance sheet and a financial liability is recognized for consideration received.",
+      "terminology": [
+        "Recycling",
+        "Consideration received",
+        "Carrying amount",
+        "Effective interest method",
+        "Transferred asset"
+      ],
+      "instrument_references": [
+        "Ind AS 109"
+      ],
+      "inclusion": [
+        "Assignments of trade receivables without recourse resulting in derecognition",
+        "Transfers with guarantees resulting in continued asset recognition"
+      ],
+      "exclusion": [
+        "Partial transfers with ambiguous risk retention profiles lacking evaluation"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between complete derecognition accounting effects and continued recognition via financial liabilities for retained risks."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "cb8c2d9d-d239-4429-be30-54f653650a2e",
+      "concept_name": "Derecognition Of Financial Liabilities",
+      "definition": "An entity must remove a financial liability from its balance sheet only when it is extinguished through discharge, cancellation, or expiration. Extinguishment occurs when the debtor pays the creditor or is legally released from primary responsibility by law or creditor action.",
+      "terminology": [
+        "Extinguishment",
+        "Discharged",
+        "Cancelled",
+        "Legal release",
+        "Primary responsibility"
+      ],
+      "instrument_references": [
+        "Ind AS 109 Paragraph 3.3.1",
+        "Ind AS 109 Paragraph B3.3.1",
+        "Ind AS 109 Paragraph B3.3.4"
+      ],
+      "inclusion": [
+        "Liabilities extinguished by paying creditors with cash or other assets",
+        "Liabilities where the debtor is legally released from primary responsibility"
+      ],
+      "exclusion": [
+        "Debt assumed by third parties where the original debtor fails to obtain a formal legal release"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes financial liability derecognition from asset derecognition by requiring absolute legal extinguishment or creditor release rather than risk transfer tests."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "022a1655-351b-41dc-8eb9-0085f24ed677",
+      "concept_name": "General Principles",
+      "definition": "Financial liabilities are removed from the balance sheet exclusively upon contractual extinguishment through discharge, cancellation, or expiration. A debtor achieves extinguishment either by settling the obligation directly or by obtaining a legal release from primary responsibility.",
+      "terminology": [
+        "Extinguishment",
+        "Discharge",
+        "Legal release",
+        "Primary responsibility",
+        "Investment fund"
+      ],
+      "instrument_references": [
+        "Ind AS 109 Paragraph 3.3.1",
+        "Ind AS 109 Paragraph B3.3.1",
+        "Ind AS 109 Paragraph B3.3.4"
+      ],
+      "inclusion": [
+        "Liabilities settled via direct payment with cash, goods, or services",
+        "Liabilities extinguished via formal legal release"
+      ],
+      "exclusion": [
+        "Debts transferred to third parties without securing explicit creditor release"
+      ],
+      "nearby_distinctions": [
+        "Focuses strictly on the legal extinction of liabilities rather than operational derecognition models used for assets."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4f904778-0625-488f-b0e5-1e1592144335",
+      "concept_name": "Exchange Of Financial Liability Instruments",
+      "definition": "An exchange of debt instruments with substantially different terms between an existing borrower and lender must be accounted for as an extinguishment of the original liability and the recognition of a new liability. Substantial modifications of existing financial liability terms follow this exact same extinguishment accounting treatment.",
+      "terminology": [
+        "Strategic Debt Restructuring",
+        "Substantial modification",
+        "Extinguishment",
+        "Effective interest method",
+        "Present value"
+      ],
+      "instrument_references": [
+        "Ind AS 109 Paragraph 3.3.2",
+        "Ind AS 109 Paragraph B3.3.6"
+      ],
+      "inclusion": [
+        "Debt exchanges featuring substantially different terms",
+        "Substantial renegotiations of existing financial liabilities"
+      ],
+      "exclusion": [
+        "Modifications that fail the substantial difference threshold"
+      ],
+      "nearby_distinctions": [
+        "Contrasts with non-substantial modifications where fees adjust the carrying amount and effective interest rate instead of triggering immediate gain or loss recognition."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "768c76b2-d0b1-48d2-b1e5-e2a3f31dc5b9",
+      "concept_name": "Debt For Equity Swaps",
+      "definition": "A debtor and creditor may extinguish a financial liability fully or partially by issuing equity instruments, a process evaluated under specific framework guidelines. When recognized initially, these equity instruments are measured at fair value, substituting the fair value of the extinguished liability only if the equity fair value is unreliable.",
+      "terminology": [
+        "Debt for equity swaps",
+        "Extinguishing financial liabilities",
+        "Equity instruments",
+        "Fair value",
+        "Modification of terms"
+      ],
+      "instrument_references": [
+        "Ind AS 109 Appendix D"
+      ],
+      "inclusion": [
+        "Extinguishments of liabilities via equity issuance to independent creditors"
+      ],
+      "exclusion": [
+        "Transactions where creditors act strictly in capacity as direct or indirect existing shareholders",
+        "Swaps governed by original contract terms"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes standard creditor-debtor swaps from shareholder capital contributions or equity distributions controlled by common entities."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "51fe52e2bc2a7726c9dfd550d7df05a5b920f4380ce3963697e6b6c36deca988",
+  "artifact_id": "4ef4bbc6-4889-45c8-bf7d-0fe08a882464",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 5980,
+  "output_tokens": 2500,
+  "cost_usd": 0.008044,
+  "created_at": "2026-10-03T18:04:40.400804+00:00"
+}

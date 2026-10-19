@@ -1,0 +1,2792 @@
+{
+  "batch_key": "1c4851224b08d9cad1a31e2303de8e1129f7703b5bf73d3acebeb70e90af6c36",
+  "method": "independent_agent",
+  "model_id": null,
+  "model_note": "Manually reasoned by Codex classification agent; exact inherited model identifier unavailable.",
+  "provisional": true,
+  "adjudication": "No independent student adjudication",
+  "frozen_before_luna": true,
+  "frozen_at": "2026-10-05T11:55:41.612002+00:00",
+  "results": [
+    {
+      "question_id": "c98ebeeb9cfd19a7f84f2d17828df9db18fa0ff0529a9df1d1b4975c63354e69",
+      "input_hash": "af5cdfbe6f0c0ae66c2d6a3d4607142ad04f46e0571e0460d7ec7e85286f167b",
+      "mappings": [
+        {
+          "part_id": "c98ebeeb9cfd19a7f84f2d17828df9db18fa0ff0529a9df1d1b4975c63354e69",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Hindi answer fragment computes FCFF equity value without the complete requested task; English lexical retrieval omits clear FCFF candidate evidence.",
+          "confidence": null,
+          "bucket": null
+        }
+      ]
+    },
+    {
+      "question_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab",
+      "input_hash": "adb062161388a9a32668eaa9c973e9604bbb37fa7a34be26a0ace5119f4e9e18",
+      "mappings": [
+        {
+          "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q13",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "CSV incorrectly contains the case plus unrelated questions 1 through 6 and suggested answers; root boundary and attribution require extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.M13",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "CSV incorrectly contains the case plus unrelated questions 1 through 6 and suggested answers; root boundary and attribution require extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.M14",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "CSV incorrectly contains the case plus unrelated questions 1 through 6 and suggested answers; root boundary and attribution require extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.M15",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "CSV incorrectly contains the case plus unrelated questions 1 through 6 and suggested answers; root boundary and attribution require extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q1.a.i",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "CSV incorrectly contains the case plus unrelated questions 1 through 6 and suggested answers; root boundary and attribution require extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q1.a.ii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "CSV incorrectly contains the case plus unrelated questions 1 through 6 and suggested answers; root boundary and attribution require extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q1.a.iii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "CSV incorrectly contains the case plus unrelated questions 1 through 6 and suggested answers; root boundary and attribution require extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q1.a.iv",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "CSV incorrectly contains the case plus unrelated questions 1 through 6 and suggested answers; root boundary and attribution require extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q1.b.i",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "CSV incorrectly contains the case plus unrelated questions 1 through 6 and suggested answers; root boundary and attribution require extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q1.b.ii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "CSV incorrectly contains the case plus unrelated questions 1 through 6 and suggested answers; root boundary and attribution require extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q1.b.iii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "CSV incorrectly contains the case plus unrelated questions 1 through 6 and suggested answers; root boundary and attribution require extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q1.c",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "CSV incorrectly contains the case plus unrelated questions 1 through 6 and suggested answers; root boundary and attribution require extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q2.a",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "CSV incorrectly contains the case plus unrelated questions 1 through 6 and suggested answers; root boundary and attribution require extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q2.b",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "CSV incorrectly contains the case plus unrelated questions 1 through 6 and suggested answers; root boundary and attribution require extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q2.c",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "CSV incorrectly contains the case plus unrelated questions 1 through 6 and suggested answers; root boundary and attribution require extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.M1",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "CSV incorrectly contains the case plus unrelated questions 1 through 6 and suggested answers; root boundary and attribution require extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.M2",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "CSV incorrectly contains the case plus unrelated questions 1 through 6 and suggested answers; root boundary and attribution require extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q3.a.ii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "CSV incorrectly contains the case plus unrelated questions 1 through 6 and suggested answers; root boundary and attribution require extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q3.a.i",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "CSV incorrectly contains the case plus unrelated questions 1 through 6 and suggested answers; root boundary and attribution require extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q3.a.ii.repeat2",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "CSV incorrectly contains the case plus unrelated questions 1 through 6 and suggested answers; root boundary and attribution require extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q3.b",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "CSV incorrectly contains the case plus unrelated questions 1 through 6 and suggested answers; root boundary and attribution require extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q3.c",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "CSV incorrectly contains the case plus unrelated questions 1 through 6 and suggested answers; root boundary and attribution require extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q3.b.repeat2.ii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "CSV incorrectly contains the case plus unrelated questions 1 through 6 and suggested answers; root boundary and attribution require extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q3.c.repeat2.i",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "CSV incorrectly contains the case plus unrelated questions 1 through 6 and suggested answers; root boundary and attribution require extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q3.c.repeat2.ii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "CSV incorrectly contains the case plus unrelated questions 1 through 6 and suggested answers; root boundary and attribution require extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q3.c.repeat2.iii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "CSV incorrectly contains the case plus unrelated questions 1 through 6 and suggested answers; root boundary and attribution require extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q3.c.repeat2.iv",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "CSV incorrectly contains the case plus unrelated questions 1 through 6 and suggested answers; root boundary and attribution require extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q4.a.i",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "CSV incorrectly contains the case plus unrelated questions 1 through 6 and suggested answers; root boundary and attribution require extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q4.a.ii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "CSV incorrectly contains the case plus unrelated questions 1 through 6 and suggested answers; root boundary and attribution require extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q4.a.iii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "CSV incorrectly contains the case plus unrelated questions 1 through 6 and suggested answers; root boundary and attribution require extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q4.b",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "CSV incorrectly contains the case plus unrelated questions 1 through 6 and suggested answers; root boundary and attribution require extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q4.c",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "CSV incorrectly contains the case plus unrelated questions 1 through 6 and suggested answers; root boundary and attribution require extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q4.c.alt2",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "CSV incorrectly contains the case plus unrelated questions 1 through 6 and suggested answers; root boundary and attribution require extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q4.d",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "CSV incorrectly contains the case plus unrelated questions 1 through 6 and suggested answers; root boundary and attribution require extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q4.c.repeat2.i",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "CSV incorrectly contains the case plus unrelated questions 1 through 6 and suggested answers; root boundary and attribution require extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q4.c.repeat2.ii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "CSV incorrectly contains the case plus unrelated questions 1 through 6 and suggested answers; root boundary and attribution require extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q4.c.repeat2.iii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "CSV incorrectly contains the case plus unrelated questions 1 through 6 and suggested answers; root boundary and attribution require extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q4.c.repeat2.iv",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "CSV incorrectly contains the case plus unrelated questions 1 through 6 and suggested answers; root boundary and attribution require extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q4.c.repeat2.v",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "CSV incorrectly contains the case plus unrelated questions 1 through 6 and suggested answers; root boundary and attribution require extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q4.c.repeat2.vi",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "CSV incorrectly contains the case plus unrelated questions 1 through 6 and suggested answers; root boundary and attribution require extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q5.a.i",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "CSV incorrectly contains the case plus unrelated questions 1 through 6 and suggested answers; root boundary and attribution require extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q5.a.ii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "CSV incorrectly contains the case plus unrelated questions 1 through 6 and suggested answers; root boundary and attribution require extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q5.b.i",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "CSV incorrectly contains the case plus unrelated questions 1 through 6 and suggested answers; root boundary and attribution require extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q5.b.ii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "CSV incorrectly contains the case plus unrelated questions 1 through 6 and suggested answers; root boundary and attribution require extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q5.b.iii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "CSV incorrectly contains the case plus unrelated questions 1 through 6 and suggested answers; root boundary and attribution require extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q6.a.i",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "CSV incorrectly contains the case plus unrelated questions 1 through 6 and suggested answers; root boundary and attribution require extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q6.a.ii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "CSV incorrectly contains the case plus unrelated questions 1 through 6 and suggested answers; root boundary and attribution require extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6c868dddb7d86b23b61565d7075e5499d882cf49d1f9746265179619f54a24ab:CSV.Q6.b",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "CSV incorrectly contains the case plus unrelated questions 1 through 6 and suggested answers; root boundary and attribution require extraction review.",
+          "confidence": null,
+          "bucket": null
+        }
+      ]
+    },
+    {
+      "question_id": "5e6bcbc4f7df86e93ed8a4d77e1a9ee316441c5eb1b8e3a04e85e1dcbef93d73",
+      "input_hash": "301b1003fd8fc60316ad8be8b0a5c7cd4f188a042d731632173ab9dfbdc9492f",
+      "mappings": [
+        {
+          "part_id": "5e6bcbc4f7df86e93ed8a4d77e1a9ee316441c5eb1b8e3a04e85e1dcbef93d73:Q6.a",
+          "outcome": "matched",
+          "primary_node_id": "6b07f49c-5603-4761-972d-a4f6d0253e8c",
+          "secondary_node_ids": [],
+          "evidence": [
+            {
+              "node_id": "6b07f49c-5603-4761-972d-a4f6d0253e8c",
+              "support": "The question explicitly asks five impacts of blockchain on financial reporting."
+            }
+          ],
+          "note": "Question 6 tests blockchain, joint/by-product inventory costing and acquisition valuation separately; some tested concepts are absent from the supplied candidate set.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "5e6bcbc4f7df86e93ed8a4d77e1a9ee316441c5eb1b8e3a04e85e1dcbef93d73:Q6.b",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Question 6 tests blockchain, joint/by-product inventory costing and acquisition valuation separately; some tested concepts are absent from the supplied candidate set.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "5e6bcbc4f7df86e93ed8a4d77e1a9ee316441c5eb1b8e3a04e85e1dcbef93d73:Q6.c",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Question 6 tests blockchain, joint/by-product inventory costing and acquisition valuation separately; some tested concepts are absent from the supplied candidate set.",
+          "confidence": null,
+          "bucket": null
+        }
+      ]
+    },
+    {
+      "question_id": "6a5d0f5fd1c00fbeba8d67bb065d6ab900f72c0fa6e44f05c85ae598bb522ea3",
+      "input_hash": "d213eb17a645d32a45b72d7cdcc28e791dce3dae5bdd1615bab321011471d0a1",
+      "mappings": [
+        {
+          "part_id": "6a5d0f5fd1c00fbeba8d67bb065d6ab900f72c0fa6e44f05c85ae598bb522ea3:CSII.a",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "MCQ answer choices have been extracted as twelve gradable parts; restore the actual NAV questions before attributing labels to choices.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6a5d0f5fd1c00fbeba8d67bb065d6ab900f72c0fa6e44f05c85ae598bb522ea3:CSII.b",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "MCQ answer choices have been extracted as twelve gradable parts; restore the actual NAV questions before attributing labels to choices.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6a5d0f5fd1c00fbeba8d67bb065d6ab900f72c0fa6e44f05c85ae598bb522ea3:CSII.c",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "MCQ answer choices have been extracted as twelve gradable parts; restore the actual NAV questions before attributing labels to choices.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6a5d0f5fd1c00fbeba8d67bb065d6ab900f72c0fa6e44f05c85ae598bb522ea3:CSII.d",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "MCQ answer choices have been extracted as twelve gradable parts; restore the actual NAV questions before attributing labels to choices.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6a5d0f5fd1c00fbeba8d67bb065d6ab900f72c0fa6e44f05c85ae598bb522ea3:CSII.a.repeat2",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "MCQ answer choices have been extracted as twelve gradable parts; restore the actual NAV questions before attributing labels to choices.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6a5d0f5fd1c00fbeba8d67bb065d6ab900f72c0fa6e44f05c85ae598bb522ea3:CSII.b.repeat2",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "MCQ answer choices have been extracted as twelve gradable parts; restore the actual NAV questions before attributing labels to choices.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6a5d0f5fd1c00fbeba8d67bb065d6ab900f72c0fa6e44f05c85ae598bb522ea3:CSII.c.repeat2",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "MCQ answer choices have been extracted as twelve gradable parts; restore the actual NAV questions before attributing labels to choices.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6a5d0f5fd1c00fbeba8d67bb065d6ab900f72c0fa6e44f05c85ae598bb522ea3:CSII.d.repeat2",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "MCQ answer choices have been extracted as twelve gradable parts; restore the actual NAV questions before attributing labels to choices.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6a5d0f5fd1c00fbeba8d67bb065d6ab900f72c0fa6e44f05c85ae598bb522ea3:CSII.a.repeat3",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "MCQ answer choices have been extracted as twelve gradable parts; restore the actual NAV questions before attributing labels to choices.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6a5d0f5fd1c00fbeba8d67bb065d6ab900f72c0fa6e44f05c85ae598bb522ea3:CSII.b.repeat3",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "MCQ answer choices have been extracted as twelve gradable parts; restore the actual NAV questions before attributing labels to choices.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6a5d0f5fd1c00fbeba8d67bb065d6ab900f72c0fa6e44f05c85ae598bb522ea3:CSII.c.repeat3",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "MCQ answer choices have been extracted as twelve gradable parts; restore the actual NAV questions before attributing labels to choices.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6a5d0f5fd1c00fbeba8d67bb065d6ab900f72c0fa6e44f05c85ae598bb522ea3:CSII.d.repeat3",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "MCQ answer choices have been extracted as twelve gradable parts; restore the actual NAV questions before attributing labels to choices.",
+          "confidence": null,
+          "bucket": null
+        }
+      ]
+    },
+    {
+      "question_id": "f2aaa5691174f94ce6c5c40612bae8d90de0de40bfc98caaaa08de058325e2f3",
+      "input_hash": "5199f089fd98b026c5f6e70770b8721298b0764116811539d7844c5211aedd96",
+      "mappings": [
+        {
+          "part_id": "f2aaa5691174f94ce6c5c40612bae8d90de0de40bfc98caaaa08de058325e2f3:Q6.a.i",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Question 6 includes original questions and repeated answer portions; service-organisation audit, bank property and ethics/forensics attribution requires extraction correction.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "f2aaa5691174f94ce6c5c40612bae8d90de0de40bfc98caaaa08de058325e2f3:Q6.a.ii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Question 6 includes original questions and repeated answer portions; service-organisation audit, bank property and ethics/forensics attribution requires extraction correction.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "f2aaa5691174f94ce6c5c40612bae8d90de0de40bfc98caaaa08de058325e2f3:Q6.a.i.repeat2",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Question 6 includes original questions and repeated answer portions; service-organisation audit, bank property and ethics/forensics attribution requires extraction correction.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "f2aaa5691174f94ce6c5c40612bae8d90de0de40bfc98caaaa08de058325e2f3:Q6.a.ii.repeat2",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Question 6 includes original questions and repeated answer portions; service-organisation audit, bank property and ethics/forensics attribution requires extraction correction.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "f2aaa5691174f94ce6c5c40612bae8d90de0de40bfc98caaaa08de058325e2f3:Q6.a.iii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Question 6 includes original questions and repeated answer portions; service-organisation audit, bank property and ethics/forensics attribution requires extraction correction.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "f2aaa5691174f94ce6c5c40612bae8d90de0de40bfc98caaaa08de058325e2f3:Q6.b.i",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Question 6 includes original questions and repeated answer portions; service-organisation audit, bank property and ethics/forensics attribution requires extraction correction.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "f2aaa5691174f94ce6c5c40612bae8d90de0de40bfc98caaaa08de058325e2f3:Q6.b.ii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Question 6 includes original questions and repeated answer portions; service-organisation audit, bank property and ethics/forensics attribution requires extraction correction.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "f2aaa5691174f94ce6c5c40612bae8d90de0de40bfc98caaaa08de058325e2f3:Q6.b.iii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Question 6 includes original questions and repeated answer portions; service-organisation audit, bank property and ethics/forensics attribution requires extraction correction.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "f2aaa5691174f94ce6c5c40612bae8d90de0de40bfc98caaaa08de058325e2f3:Q6.c",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Question 6 includes original questions and repeated answer portions; service-organisation audit, bank property and ethics/forensics attribution requires extraction correction.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "f2aaa5691174f94ce6c5c40612bae8d90de0de40bfc98caaaa08de058325e2f3:Q6.c.alt2",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Question 6 includes original questions and repeated answer portions; service-organisation audit, bank property and ethics/forensics attribution requires extraction correction.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "f2aaa5691174f94ce6c5c40612bae8d90de0de40bfc98caaaa08de058325e2f3:Q6.b.repeat2.ii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Question 6 includes original questions and repeated answer portions; service-organisation audit, bank property and ethics/forensics attribution requires extraction correction.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "f2aaa5691174f94ce6c5c40612bae8d90de0de40bfc98caaaa08de058325e2f3:Q6.b.repeat2.iii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Question 6 includes original questions and repeated answer portions; service-organisation audit, bank property and ethics/forensics attribution requires extraction correction.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "f2aaa5691174f94ce6c5c40612bae8d90de0de40bfc98caaaa08de058325e2f3:Q6.c.repeat2",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Question 6 includes original questions and repeated answer portions; service-organisation audit, bank property and ethics/forensics attribution requires extraction correction.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "f2aaa5691174f94ce6c5c40612bae8d90de0de40bfc98caaaa08de058325e2f3:Q6.c.alt3",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Question 6 includes original questions and repeated answer portions; service-organisation audit, bank property and ethics/forensics attribution requires extraction correction.",
+          "confidence": null,
+          "bucket": null
+        }
+      ]
+    },
+    {
+      "question_id": "02ce18c91eb217922307767bb9de661d9bea6c60ebed2812428b507e5d5b9d2d",
+      "input_hash": "e25b74ccee734bf6e2852bdb9292868b3a2e0c9e780b69bd49e97f16bf9c3daf",
+      "mappings": [
+        {
+          "part_id": "02ce18c91eb217922307767bb9de661d9bea6c60ebed2812428b507e5d5b9d2d:Q4.a.i",
+          "outcome": "matched",
+          "primary_node_id": "57ce37fe-a7ff-404c-a458-111e44b6a362",
+          "secondary_node_ids": [
+            "b5292842-2274-4d0a-a780-60900c472d57"
+          ],
+          "evidence": [
+            {
+              "node_id": "57ce37fe-a7ff-404c-a458-111e44b6a362",
+              "support": "The task asks purchase-of-goods TDS and competing TCS consequences of a one-crore transaction, using purchaser/seller turnover."
+            },
+            {
+              "node_id": "b5292842-2274-4d0a-a780-60900c472d57",
+              "support": "The task asks purchase-of-goods TDS and competing TCS consequences of a one-crore transaction, using purchaser/seller turnover."
+            }
+          ],
+          "note": "Independent TDS cases and transfer-pricing tasks have sufficient shared context for provisional part labels.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "02ce18c91eb217922307767bb9de661d9bea6c60ebed2812428b507e5d5b9d2d:Q4.a.ii",
+          "outcome": "matched",
+          "primary_node_id": "ebf252fa-f5d7-4d88-b8d1-e70d70ffa175",
+          "secondary_node_ids": [
+            "7680f90a-fc77-42c9-947e-64b77c7f66ac"
+          ],
+          "evidence": [
+            {
+              "node_id": "ebf252fa-f5d7-4d88-b8d1-e70d70ffa175",
+              "support": "Sales-agent commission tests commission withholding; the laptop and family travel incentives separately test business benefits/perquisites withholding."
+            },
+            {
+              "node_id": "7680f90a-fc77-42c9-947e-64b77c7f66ac",
+              "support": "Sales-agent commission tests commission withholding; the laptop and family travel incentives separately test business benefits/perquisites withholding."
+            }
+          ],
+          "note": "Independent TDS cases and transfer-pricing tasks have sufficient shared context for provisional part labels.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "02ce18c91eb217922307767bb9de661d9bea6c60ebed2812428b507e5d5b9d2d:Q4.a.iii",
+          "outcome": "matched",
+          "primary_node_id": "37e93cdc-235b-4f96-80fc-4768a47bfa67",
+          "secondary_node_ids": [],
+          "evidence": [
+            {
+              "node_id": "37e93cdc-235b-4f96-80fc-4768a47bfa67",
+              "support": "The portal collects auction proceeds and pays a resident seller after commission, explicitly asking its e-commerce TDS obligation."
+            }
+          ],
+          "note": "Independent TDS cases and transfer-pricing tasks have sufficient shared context for provisional part labels.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "02ce18c91eb217922307767bb9de661d9bea6c60ebed2812428b507e5d5b9d2d:Q4.b.i",
+          "outcome": "matched",
+          "primary_node_id": "a2c79666-6048-43ed-b0c2-989cd044190b",
+          "secondary_node_ids": [],
+          "evidence": [
+            {
+              "node_id": "a2c79666-6048-43ed-b0c2-989cd044190b",
+              "support": "Voting rights, board appointment and guarantees determine associated enterprises for international transfer pricing."
+            }
+          ],
+          "note": "Independent TDS cases and transfer-pricing tasks have sufficient shared context for provisional part labels.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "02ce18c91eb217922307767bb9de661d9bea6c60ebed2812428b507e5d5b9d2d:Q4.b.ii",
+          "outcome": "matched",
+          "primary_node_id": "d282d387-93cd-4bb4-b0b8-1e4f42fcbc4e",
+          "secondary_node_ids": [],
+          "evidence": [
+            {
+              "node_id": "d282d387-93cd-4bb4-b0b8-1e4f42fcbc4e",
+              "support": "The question explicitly requests the arm-length price using resale margins and comparable consultancy charges."
+            }
+          ],
+          "note": "Independent TDS cases and transfer-pricing tasks have sufficient shared context for provisional part labels.",
+          "confidence": null,
+          "bucket": null
+        }
+      ]
+    },
+    {
+      "question_id": "2301e86e1479bb258049ecacfb6a7095418ec94e2f9888b20c17e5ff54aac5c4",
+      "input_hash": "30c18f80aa8cf9bbdc5933bbea5e50d14a1e15ba1d85987f98385561424a1e17",
+      "mappings": [
+        {
+          "part_id": "2301e86e1479bb258049ecacfb6a7095418ec94e2f9888b20c17e5ff54aac5c4:Q6.a.ii",
+          "outcome": "matched",
+          "primary_node_id": "5fbade37-9b84-4b13-9950-3b7c3297b178",
+          "secondary_node_ids": [],
+          "evidence": [
+            {
+              "node_id": "5fbade37-9b84-4b13-9950-3b7c3297b178",
+              "support": "Artificial transfer pricing between SEZ and non-SEZ units to increase deductions explicitly asks whether GAAR applies."
+            }
+          ],
+          "note": "GAAR and advance ruling tasks are explicit; the original audit-threshold task is not a listed gradable part.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "2301e86e1479bb258049ecacfb6a7095418ec94e2f9888b20c17e5ff54aac5c4:Q6.b",
+          "outcome": "matched",
+          "primary_node_id": "cff8d7d0-36e0-453a-9ff4-b24d3395cd1e",
+          "secondary_node_ids": [
+            "e9404606-7761-4779-9d50-aed17106ad72"
+          ],
+          "evidence": [
+            {
+              "node_id": "cff8d7d0-36e0-453a-9ff4-b24d3395cd1e",
+              "support": "The task asks whether the ruling board may compel books and admit an application despite another related ruling, testing board powers and receipt procedure."
+            },
+            {
+              "node_id": "e9404606-7761-4779-9d50-aed17106ad72",
+              "support": "The task asks whether the ruling board may compel books and admit an application despite another related ruling, testing board powers and receipt procedure."
+            }
+          ],
+          "note": "GAAR and advance ruling tasks are explicit; the original audit-threshold task is not a listed gradable part.",
+          "confidence": null,
+          "bucket": null
+        }
+      ]
+    },
+    {
+      "question_id": "35a3ffbe6ec2dfd34d79beae09ccbe32d73c2c31715f509fc00d672beef5bac8",
+      "input_hash": "c3c46d137c0c2db74da2602ee4969f7754acf63e2550f163f350d158fe68dfc4",
+      "mappings": [
+        {
+          "part_id": "35a3ffbe6ec2dfd34d79beae09ccbe32d73c2c31715f509fc00d672beef5bac8:Q2.a.i",
+          "outcome": "matched",
+          "primary_node_id": "f8488ba8-b7a7-43e2-92b6-1d5fffe34784",
+          "secondary_node_ids": [
+            "9aedeffc-4d83-40e6-8ff1-ebec7925d8d1"
+          ],
+          "evidence": [
+            {
+              "node_id": "f8488ba8-b7a7-43e2-92b6-1d5fffe34784",
+              "support": "Milling plus fortification under PDS tests composite supply and whether the service is exempt."
+            },
+            {
+              "node_id": "9aedeffc-4d83-40e6-8ff1-ebec7925d8d1",
+              "support": "Milling plus fortification under PDS tests composite supply and whether the service is exempt."
+            }
+          ],
+          "note": "GST supplies can be attributed provisionally; customs valuation has no suitable supplied label.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "35a3ffbe6ec2dfd34d79beae09ccbe32d73c2c31715f509fc00d672beef5bac8:Q2.a.ii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "GST supplies can be attributed provisionally; customs valuation has no suitable supplied label.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "35a3ffbe6ec2dfd34d79beae09ccbe32d73c2c31715f509fc00d672beef5bac8:Q2.a.iii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "GST supplies can be attributed provisionally; customs valuation has no suitable supplied label.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "35a3ffbe6ec2dfd34d79beae09ccbe32d73c2c31715f509fc00d672beef5bac8:Q2.a.iv",
+          "outcome": "matched",
+          "primary_node_id": "9aedeffc-4d83-40e6-8ff1-ebec7925d8d1",
+          "secondary_node_ids": [],
+          "evidence": [
+            {
+              "node_id": "9aedeffc-4d83-40e6-8ff1-ebec7925d8d1",
+              "support": "Driver training for government with specified funding proportion tests exempt-service conditions."
+            }
+          ],
+          "note": "GST supplies can be attributed provisionally; customs valuation has no suitable supplied label.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "35a3ffbe6ec2dfd34d79beae09ccbe32d73c2c31715f509fc00d672beef5bac8:Q2.a.v",
+          "outcome": "matched",
+          "primary_node_id": "81f2b41f-d9bf-40cc-9fbb-3a45b699d53a",
+          "secondary_node_ids": [],
+          "evidence": [
+            {
+              "node_id": "81f2b41f-d9bf-40cc-9fbb-3a45b699d53a",
+              "support": "Payment to refrain from building extra floors tests the statutory supply treatment of an obligation to refrain."
+            }
+          ],
+          "note": "GST supplies can be attributed provisionally; customs valuation has no suitable supplied label.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "35a3ffbe6ec2dfd34d79beae09ccbe32d73c2c31715f509fc00d672beef5bac8:Q2.b",
+          "outcome": "matched",
+          "primary_node_id": "72407f6f-8662-4f40-aa8a-204e85bc7b81",
+          "secondary_node_ids": [],
+          "evidence": [
+            {
+              "node_id": "72407f6f-8662-4f40-aa8a-204e85bc7b81",
+              "support": "The requested taxable value includes job charges and own frames but asks whether principal-owned cabinets belong in consideration."
+            }
+          ],
+          "note": "GST supplies can be attributed provisionally; customs valuation has no suitable supplied label.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "35a3ffbe6ec2dfd34d79beae09ccbe32d73c2c31715f509fc00d672beef5bac8:Q2.c.i",
+          "outcome": "none_fits",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "GST supplies can be attributed provisionally; customs valuation has no suitable supplied label.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "35a3ffbe6ec2dfd34d79beae09ccbe32d73c2c31715f509fc00d672beef5bac8:Q2.c.ii",
+          "outcome": "none_fits",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "GST supplies can be attributed provisionally; customs valuation has no suitable supplied label.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "35a3ffbe6ec2dfd34d79beae09ccbe32d73c2c31715f509fc00d672beef5bac8:Q2.c.iii",
+          "outcome": "none_fits",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "GST supplies can be attributed provisionally; customs valuation has no suitable supplied label.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "35a3ffbe6ec2dfd34d79beae09ccbe32d73c2c31715f509fc00d672beef5bac8:Q2.c.iv",
+          "outcome": "none_fits",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "GST supplies can be attributed provisionally; customs valuation has no suitable supplied label.",
+          "confidence": null,
+          "bucket": null
+        }
+      ]
+    },
+    {
+      "question_id": "9d4de502d3cfaa1d5dcbf390d43715b084391f1a2e02b0320ade7d6846c7f27d",
+      "input_hash": "cfe468587e8058a37a2013b2e573a40503d47c97025ec0e472bcd8e21a88f4be",
+      "mappings": [
+        {
+          "part_id": "9d4de502d3cfaa1d5dcbf390d43715b084391f1a2e02b0320ade7d6846c7f27d",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Penalty provision/reimbursement case lacks the requested MCQ or accounting task. Mention of joint operations does not establish the tested Ind AS 111 concept.",
+          "confidence": null,
+          "bucket": null
+        }
+      ]
+    },
+    {
+      "question_id": "91a6714c4fa8a401b762e34ab78a29fb3f4d1fc6bf4dcb00f01fa208b4786c1c",
+      "input_hash": "d49bbe3d85f1505fe4986468da0e2bd5dc2f0e3ff465707335d741a2df71b9bd",
+      "mappings": [
+        {
+          "part_id": "91a6714c4fa8a401b762e34ab78a29fb3f4d1fc6bf4dcb00f01fa208b4786c1c:b.v",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Root combines an elevator revenue case, segment-profit case and transition estimates statements; shared case boundaries are inconsistent.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "91a6714c4fa8a401b762e34ab78a29fb3f4d1fc6bf4dcb00f01fa208b4786c1c:b.i",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Root combines an elevator revenue case, segment-profit case and transition estimates statements; shared case boundaries are inconsistent.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "91a6714c4fa8a401b762e34ab78a29fb3f4d1fc6bf4dcb00f01fa208b4786c1c:b.ii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Root combines an elevator revenue case, segment-profit case and transition estimates statements; shared case boundaries are inconsistent.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "91a6714c4fa8a401b762e34ab78a29fb3f4d1fc6bf4dcb00f01fa208b4786c1c:b.iii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Root combines an elevator revenue case, segment-profit case and transition estimates statements; shared case boundaries are inconsistent.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "91a6714c4fa8a401b762e34ab78a29fb3f4d1fc6bf4dcb00f01fa208b4786c1c:b.iv",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Root combines an elevator revenue case, segment-profit case and transition estimates statements; shared case boundaries are inconsistent.",
+          "confidence": null,
+          "bucket": null
+        }
+      ]
+    },
+    {
+      "question_id": "4dc608fd5f02f6f516e34ea2a9cdb30bd3648a322cbb379772149cda1f945af5",
+      "input_hash": "325dadbc19449acdbb44e5515acb0223663cd7b9d6d85d91d8e5fc0645299e2a",
+      "mappings": [
+        {
+          "part_id": "4dc608fd5f02f6f516e34ea2a9cdb30bd3648a322cbb379772149cda1f945af5:CSII.M4",
+          "outcome": "matched",
+          "primary_node_id": "b3f9848c-3879-4270-bd9f-50d6797c8a49",
+          "secondary_node_ids": [],
+          "evidence": [
+            {
+              "node_id": "b3f9848c-3879-4270-bd9f-50d6797c8a49",
+              "support": "All three MCQs require profit/loss and position from premium, strike, spot and exercise/lapse; this is payoff analysis."
+            }
+          ],
+          "note": "Each MCQ asks option position and profit/loss from strike, spot price, premium and exercise/lapse: option payoff is the tested concept.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "4dc608fd5f02f6f516e34ea2a9cdb30bd3648a322cbb379772149cda1f945af5:CSII.M5",
+          "outcome": "matched",
+          "primary_node_id": "b3f9848c-3879-4270-bd9f-50d6797c8a49",
+          "secondary_node_ids": [],
+          "evidence": [
+            {
+              "node_id": "b3f9848c-3879-4270-bd9f-50d6797c8a49",
+              "support": "All three MCQs require profit/loss and position from premium, strike, spot and exercise/lapse; this is payoff analysis."
+            }
+          ],
+          "note": "Each MCQ asks option position and profit/loss from strike, spot price, premium and exercise/lapse: option payoff is the tested concept.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "4dc608fd5f02f6f516e34ea2a9cdb30bd3648a322cbb379772149cda1f945af5:CSII.M6",
+          "outcome": "matched",
+          "primary_node_id": "b3f9848c-3879-4270-bd9f-50d6797c8a49",
+          "secondary_node_ids": [],
+          "evidence": [
+            {
+              "node_id": "b3f9848c-3879-4270-bd9f-50d6797c8a49",
+              "support": "All three MCQs require profit/loss and position from premium, strike, spot and exercise/lapse; this is payoff analysis."
+            }
+          ],
+          "note": "Each MCQ asks option position and profit/loss from strike, spot price, premium and exercise/lapse: option payoff is the tested concept.",
+          "confidence": null,
+          "bucket": null
+        }
+      ]
+    },
+    {
+      "question_id": "d7a12ec878bbf4877b295ed67a02cd360b0e9ee301e246b66f9724b250b4706a",
+      "input_hash": "c625e5eeb95af3c7b191866f28157b9caffb707cfbbbab9aefe348af92a6452c",
+      "mappings": [
+        {
+          "part_id": "d7a12ec878bbf4877b295ed67a02cd360b0e9ee301e246b66f9724b250b4706a",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Infrastructure Debt Fund is an isolated heading without a question or shared context.",
+          "confidence": null,
+          "bucket": null
+        }
+      ]
+    },
+    {
+      "question_id": "a583b302f8d2aaf3eac6d60202e556bfcabba0182d89c3889aeaf3ab50c08699",
+      "input_hash": "9e9b642183a3b96d7348bae84bd56b831a42182e9ac548fe26c11d3943f2428a",
+      "mappings": [
+        {
+          "part_id": "a583b302f8d2aaf3eac6d60202e556bfcabba0182d89c3889aeaf3ab50c08699",
+          "outcome": "none_fits",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "The complete task explicitly asks about an Audit Design Matrix for CAG performance audit; supplied candidates omit this concept.",
+          "confidence": null,
+          "bucket": null
+        }
+      ]
+    },
+    {
+      "question_id": "5a8d5a5919472c95dc6ec8b33179ee8be0c6d6e797639d1f61a71c322c08d68b",
+      "input_hash": "10a2d4800695780dd6a92d14f7e48f298c42ff13d9a1d60c067e20b547b1f2ed",
+      "mappings": [
+        {
+          "part_id": "5a8d5a5919472c95dc6ec8b33179ee8be0c6d6e797639d1f61a71c322c08d68b:Q2.a",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Root mixes ethics acceptance, internal auditor assistance and cyber controls with repeated solution text; reconcile gradable question/answer boundaries first.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "5a8d5a5919472c95dc6ec8b33179ee8be0c6d6e797639d1f61a71c322c08d68b:Q2.b.i",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Root mixes ethics acceptance, internal auditor assistance and cyber controls with repeated solution text; reconcile gradable question/answer boundaries first.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "5a8d5a5919472c95dc6ec8b33179ee8be0c6d6e797639d1f61a71c322c08d68b:Q2.b.ii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Root mixes ethics acceptance, internal auditor assistance and cyber controls with repeated solution text; reconcile gradable question/answer boundaries first.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "5a8d5a5919472c95dc6ec8b33179ee8be0c6d6e797639d1f61a71c322c08d68b:Q2.b.iii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Root mixes ethics acceptance, internal auditor assistance and cyber controls with repeated solution text; reconcile gradable question/answer boundaries first.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "5a8d5a5919472c95dc6ec8b33179ee8be0c6d6e797639d1f61a71c322c08d68b:Q2.b.iv",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Root mixes ethics acceptance, internal auditor assistance and cyber controls with repeated solution text; reconcile gradable question/answer boundaries first.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "5a8d5a5919472c95dc6ec8b33179ee8be0c6d6e797639d1f61a71c322c08d68b:Q2.b.v",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Root mixes ethics acceptance, internal auditor assistance and cyber controls with repeated solution text; reconcile gradable question/answer boundaries first.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "5a8d5a5919472c95dc6ec8b33179ee8be0c6d6e797639d1f61a71c322c08d68b:Q2.c",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Root mixes ethics acceptance, internal auditor assistance and cyber controls with repeated solution text; reconcile gradable question/answer boundaries first.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "5a8d5a5919472c95dc6ec8b33179ee8be0c6d6e797639d1f61a71c322c08d68b:Q2.c.repeat2",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Root mixes ethics acceptance, internal auditor assistance and cyber controls with repeated solution text; reconcile gradable question/answer boundaries first.",
+          "confidence": null,
+          "bucket": null
+        }
+      ]
+    },
+    {
+      "question_id": "e5133156cdd3da2e7947c9e584022abcddef399a45dd7902bd0a2bd5dbfd39f1",
+      "input_hash": "ff3f73a12d6f289b24935cbafbbb3632b01489bdfabf0f22885bd1608c415b82",
+      "mappings": [
+        {
+          "part_id": "e5133156cdd3da2e7947c9e584022abcddef399a45dd7902bd0a2bd5dbfd39f1",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Revenue expenditure on scientific research is an isolated heading without the requested tax treatment or context.",
+          "confidence": null,
+          "bucket": null
+        }
+      ]
+    },
+    {
+      "question_id": "7bb7f7a8891d0ec2b58e2da87cda188de64877f140a3b22161363ef7babc385d",
+      "input_hash": "ae3a3e9f0aa65ed59364a6bc278e574c555bdca3d042660d9fc25d33369da10d",
+      "mappings": [
+        {
+          "part_id": "7bb7f7a8891d0ec2b58e2da87cda188de64877f140a3b22161363ef7babc385d:CSIII.i",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Case Scenario III swallows business-trust MCQs and unrelated questions 1 and 3 through 6; root context/part identities are not reliable.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "7bb7f7a8891d0ec2b58e2da87cda188de64877f140a3b22161363ef7babc385d:CSIII.ii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Case Scenario III swallows business-trust MCQs and unrelated questions 1 and 3 through 6; root context/part identities are not reliable.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "7bb7f7a8891d0ec2b58e2da87cda188de64877f140a3b22161363ef7babc385d:CSIII.iii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Case Scenario III swallows business-trust MCQs and unrelated questions 1 and 3 through 6; root context/part identities are not reliable.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "7bb7f7a8891d0ec2b58e2da87cda188de64877f140a3b22161363ef7babc385d:CSIII.iv",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Case Scenario III swallows business-trust MCQs and unrelated questions 1 and 3 through 6; root context/part identities are not reliable.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "7bb7f7a8891d0ec2b58e2da87cda188de64877f140a3b22161363ef7babc385d:CSIII.M12",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Case Scenario III swallows business-trust MCQs and unrelated questions 1 and 3 through 6; root context/part identities are not reliable.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "7bb7f7a8891d0ec2b58e2da87cda188de64877f140a3b22161363ef7babc385d:CSIII.M13",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Case Scenario III swallows business-trust MCQs and unrelated questions 1 and 3 through 6; root context/part identities are not reliable.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "7bb7f7a8891d0ec2b58e2da87cda188de64877f140a3b22161363ef7babc385d:CSIII.M14",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Case Scenario III swallows business-trust MCQs and unrelated questions 1 and 3 through 6; root context/part identities are not reliable.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "7bb7f7a8891d0ec2b58e2da87cda188de64877f140a3b22161363ef7babc385d:CSIII.M15",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Case Scenario III swallows business-trust MCQs and unrelated questions 1 and 3 through 6; root context/part identities are not reliable.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "7bb7f7a8891d0ec2b58e2da87cda188de64877f140a3b22161363ef7babc385d:CSIII.Q1.a.i",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Case Scenario III swallows business-trust MCQs and unrelated questions 1 and 3 through 6; root context/part identities are not reliable.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "7bb7f7a8891d0ec2b58e2da87cda188de64877f140a3b22161363ef7babc385d:CSIII.Q1.a.ii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Case Scenario III swallows business-trust MCQs and unrelated questions 1 and 3 through 6; root context/part identities are not reliable.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "7bb7f7a8891d0ec2b58e2da87cda188de64877f140a3b22161363ef7babc385d:CSIII.Q1.a.iii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Case Scenario III swallows business-trust MCQs and unrelated questions 1 and 3 through 6; root context/part identities are not reliable.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "7bb7f7a8891d0ec2b58e2da87cda188de64877f140a3b22161363ef7babc385d:CSIII.Q1.a.iv",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Case Scenario III swallows business-trust MCQs and unrelated questions 1 and 3 through 6; root context/part identities are not reliable.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "7bb7f7a8891d0ec2b58e2da87cda188de64877f140a3b22161363ef7babc385d:CSIII.Q1.a.v",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Case Scenario III swallows business-trust MCQs and unrelated questions 1 and 3 through 6; root context/part identities are not reliable.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "7bb7f7a8891d0ec2b58e2da87cda188de64877f140a3b22161363ef7babc385d:CSIII.Q1.b.i",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Case Scenario III swallows business-trust MCQs and unrelated questions 1 and 3 through 6; root context/part identities are not reliable.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "7bb7f7a8891d0ec2b58e2da87cda188de64877f140a3b22161363ef7babc385d:CSIII.Q1.b.ii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Case Scenario III swallows business-trust MCQs and unrelated questions 1 and 3 through 6; root context/part identities are not reliable.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "7bb7f7a8891d0ec2b58e2da87cda188de64877f140a3b22161363ef7babc385d:CSIII.Q1.b.iii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Case Scenario III swallows business-trust MCQs and unrelated questions 1 and 3 through 6; root context/part identities are not reliable.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "7bb7f7a8891d0ec2b58e2da87cda188de64877f140a3b22161363ef7babc385d:CSIII.Q1.b.iv",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Case Scenario III swallows business-trust MCQs and unrelated questions 1 and 3 through 6; root context/part identities are not reliable.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "7bb7f7a8891d0ec2b58e2da87cda188de64877f140a3b22161363ef7babc385d:CSIII.Q1.b.v",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Case Scenario III swallows business-trust MCQs and unrelated questions 1 and 3 through 6; root context/part identities are not reliable.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "7bb7f7a8891d0ec2b58e2da87cda188de64877f140a3b22161363ef7babc385d:CSIII.Q1.b.vi",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Case Scenario III swallows business-trust MCQs and unrelated questions 1 and 3 through 6; root context/part identities are not reliable.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "7bb7f7a8891d0ec2b58e2da87cda188de64877f140a3b22161363ef7babc385d:CSIII.Q1.b.vii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Case Scenario III swallows business-trust MCQs and unrelated questions 1 and 3 through 6; root context/part identities are not reliable.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "7bb7f7a8891d0ec2b58e2da87cda188de64877f140a3b22161363ef7babc385d:CSIII.Q3.a.i",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Case Scenario III swallows business-trust MCQs and unrelated questions 1 and 3 through 6; root context/part identities are not reliable.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "7bb7f7a8891d0ec2b58e2da87cda188de64877f140a3b22161363ef7babc385d:CSIII.Q3.a.ii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Case Scenario III swallows business-trust MCQs and unrelated questions 1 and 3 through 6; root context/part identities are not reliable.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "7bb7f7a8891d0ec2b58e2da87cda188de64877f140a3b22161363ef7babc385d:CSIII.Q3.a.iii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Case Scenario III swallows business-trust MCQs and unrelated questions 1 and 3 through 6; root context/part identities are not reliable.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "7bb7f7a8891d0ec2b58e2da87cda188de64877f140a3b22161363ef7babc385d:CSIII.Q3.b.i",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Case Scenario III swallows business-trust MCQs and unrelated questions 1 and 3 through 6; root context/part identities are not reliable.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "7bb7f7a8891d0ec2b58e2da87cda188de64877f140a3b22161363ef7babc385d:CSIII.Q3.b.ii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Case Scenario III swallows business-trust MCQs and unrelated questions 1 and 3 through 6; root context/part identities are not reliable.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "7bb7f7a8891d0ec2b58e2da87cda188de64877f140a3b22161363ef7babc385d:CSIII.Q3.a.repeat2",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Case Scenario III swallows business-trust MCQs and unrelated questions 1 and 3 through 6; root context/part identities are not reliable.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "7bb7f7a8891d0ec2b58e2da87cda188de64877f140a3b22161363ef7babc385d:CSIII.Q3.b.repeat2",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Case Scenario III swallows business-trust MCQs and unrelated questions 1 and 3 through 6; root context/part identities are not reliable.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "7bb7f7a8891d0ec2b58e2da87cda188de64877f140a3b22161363ef7babc385d:CSIII.Q3.c",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Case Scenario III swallows business-trust MCQs and unrelated questions 1 and 3 through 6; root context/part identities are not reliable.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "7bb7f7a8891d0ec2b58e2da87cda188de64877f140a3b22161363ef7babc385d:CSIII.Q3.d",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Case Scenario III swallows business-trust MCQs and unrelated questions 1 and 3 through 6; root context/part identities are not reliable.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "7bb7f7a8891d0ec2b58e2da87cda188de64877f140a3b22161363ef7babc385d:CSIII.Q3.e.iii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Case Scenario III swallows business-trust MCQs and unrelated questions 1 and 3 through 6; root context/part identities are not reliable.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "7bb7f7a8891d0ec2b58e2da87cda188de64877f140a3b22161363ef7babc385d:CSIII.Q4.a.i",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Case Scenario III swallows business-trust MCQs and unrelated questions 1 and 3 through 6; root context/part identities are not reliable.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "7bb7f7a8891d0ec2b58e2da87cda188de64877f140a3b22161363ef7babc385d:CSIII.Q4.a.ii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Case Scenario III swallows business-trust MCQs and unrelated questions 1 and 3 through 6; root context/part identities are not reliable.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "7bb7f7a8891d0ec2b58e2da87cda188de64877f140a3b22161363ef7babc385d:CSIII.Q4.a.iii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Case Scenario III swallows business-trust MCQs and unrelated questions 1 and 3 through 6; root context/part identities are not reliable.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "7bb7f7a8891d0ec2b58e2da87cda188de64877f140a3b22161363ef7babc385d:CSIII.Q4.b",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Case Scenario III swallows business-trust MCQs and unrelated questions 1 and 3 through 6; root context/part identities are not reliable.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "7bb7f7a8891d0ec2b58e2da87cda188de64877f140a3b22161363ef7babc385d:CSIII.Q5.a.i",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Case Scenario III swallows business-trust MCQs and unrelated questions 1 and 3 through 6; root context/part identities are not reliable.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "7bb7f7a8891d0ec2b58e2da87cda188de64877f140a3b22161363ef7babc385d:CSIII.Q5.a.ii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Case Scenario III swallows business-trust MCQs and unrelated questions 1 and 3 through 6; root context/part identities are not reliable.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "7bb7f7a8891d0ec2b58e2da87cda188de64877f140a3b22161363ef7babc385d:CSIII.Q5.a.iii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Case Scenario III swallows business-trust MCQs and unrelated questions 1 and 3 through 6; root context/part identities are not reliable.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "7bb7f7a8891d0ec2b58e2da87cda188de64877f140a3b22161363ef7babc385d:CSIII.Q5.b.ii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Case Scenario III swallows business-trust MCQs and unrelated questions 1 and 3 through 6; root context/part identities are not reliable.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "7bb7f7a8891d0ec2b58e2da87cda188de64877f140a3b22161363ef7babc385d:CSIII.Q5.c",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Case Scenario III swallows business-trust MCQs and unrelated questions 1 and 3 through 6; root context/part identities are not reliable.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "7bb7f7a8891d0ec2b58e2da87cda188de64877f140a3b22161363ef7babc385d:CSIII.Q5.d",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Case Scenario III swallows business-trust MCQs and unrelated questions 1 and 3 through 6; root context/part identities are not reliable.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "7bb7f7a8891d0ec2b58e2da87cda188de64877f140a3b22161363ef7babc385d:CSIII.Q5.e",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Case Scenario III swallows business-trust MCQs and unrelated questions 1 and 3 through 6; root context/part identities are not reliable.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "7bb7f7a8891d0ec2b58e2da87cda188de64877f140a3b22161363ef7babc385d:CSIII.Q5.f",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Case Scenario III swallows business-trust MCQs and unrelated questions 1 and 3 through 6; root context/part identities are not reliable.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "7bb7f7a8891d0ec2b58e2da87cda188de64877f140a3b22161363ef7babc385d:CSIII.Q5.g",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Case Scenario III swallows business-trust MCQs and unrelated questions 1 and 3 through 6; root context/part identities are not reliable.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "7bb7f7a8891d0ec2b58e2da87cda188de64877f140a3b22161363ef7babc385d:CSIII.Q5.h.i",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Case Scenario III swallows business-trust MCQs and unrelated questions 1 and 3 through 6; root context/part identities are not reliable.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "7bb7f7a8891d0ec2b58e2da87cda188de64877f140a3b22161363ef7babc385d:CSIII.Q5.h.ii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Case Scenario III swallows business-trust MCQs and unrelated questions 1 and 3 through 6; root context/part identities are not reliable.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "7bb7f7a8891d0ec2b58e2da87cda188de64877f140a3b22161363ef7babc385d:CSIII.Q6.a.ii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Case Scenario III swallows business-trust MCQs and unrelated questions 1 and 3 through 6; root context/part identities are not reliable.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "7bb7f7a8891d0ec2b58e2da87cda188de64877f140a3b22161363ef7babc385d:CSIII.Q6.b",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Case Scenario III swallows business-trust MCQs and unrelated questions 1 and 3 through 6; root context/part identities are not reliable.",
+          "confidence": null,
+          "bucket": null
+        }
+      ]
+    },
+    {
+      "question_id": "3c3accc96e5ba0a5044e191c20a89b4f280b8ba4b2d1f61fcec800189e801644",
+      "input_hash": "058e772c2bacabf47b6d20e44892df2cc732e649a590d291c0b7465a3c6086c4",
+      "mappings": [
+        {
+          "part_id": "3c3accc96e5ba0a5044e191c20a89b4f280b8ba4b2d1f61fcec800189e801644",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Local taxes paid is an isolated monetary input with no taxable valuation task or surrounding case.",
+          "confidence": null,
+          "bucket": null
+        }
+      ]
+    },
+    {
+      "question_id": "f6c14233df48ac82eec0d87ec1c0d88110abf712fa059b68c7a88669896fa817",
+      "input_hash": "ee1f88a959dda0766280215f7685ccc19c87d6b6806135f263757838856d05ed",
+      "mappings": [
+        {
+          "part_id": "f6c14233df48ac82eec0d87ec1c0d88110abf712fa059b68c7a88669896fa817:Q3.a",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "GST registration threshold, supply and destroyed-import customs tasks need distinct labels; broad supply descriptors cannot substitute for missing specific registration/customs concepts.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "f6c14233df48ac82eec0d87ec1c0d88110abf712fa059b68c7a88669896fa817:Q3.b.i",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "GST registration threshold, supply and destroyed-import customs tasks need distinct labels; broad supply descriptors cannot substitute for missing specific registration/customs concepts.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "f6c14233df48ac82eec0d87ec1c0d88110abf712fa059b68c7a88669896fa817:Q3.b.ii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "GST registration threshold, supply and destroyed-import customs tasks need distinct labels; broad supply descriptors cannot substitute for missing specific registration/customs concepts.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "f6c14233df48ac82eec0d87ec1c0d88110abf712fa059b68c7a88669896fa817:Q3.b.iii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "GST registration threshold, supply and destroyed-import customs tasks need distinct labels; broad supply descriptors cannot substitute for missing specific registration/customs concepts.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "f6c14233df48ac82eec0d87ec1c0d88110abf712fa059b68c7a88669896fa817:Q3.c",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "GST registration threshold, supply and destroyed-import customs tasks need distinct labels; broad supply descriptors cannot substitute for missing specific registration/customs concepts.",
+          "confidence": null,
+          "bucket": null
+        }
+      ]
+    },
+    {
+      "question_id": "ecfc8e0d4564da5cb1ddac4f6f21350b679a510661acdd5f50c4df1245c8b38f",
+      "input_hash": "d6ee7671597b5b6c12cb3198004be95a90e25d3cc675b8c457b84d5fb633e2fd",
+      "mappings": [
+        {
+          "part_id": "ecfc8e0d4564da5cb1ddac4f6f21350b679a510661acdd5f50c4df1245c8b38f:d.repeat20.i",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "IBS root contains solution bullet fragments for debt/equity strategy, ITC documents and intangible disclosures; the requested task is not preserved consistently for each part.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "ecfc8e0d4564da5cb1ddac4f6f21350b679a510661acdd5f50c4df1245c8b38f:d.repeat20.ii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "IBS root contains solution bullet fragments for debt/equity strategy, ITC documents and intangible disclosures; the requested task is not preserved consistently for each part.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "ecfc8e0d4564da5cb1ddac4f6f21350b679a510661acdd5f50c4df1245c8b38f:d.repeat20.i.repeat2",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "IBS root contains solution bullet fragments for debt/equity strategy, ITC documents and intangible disclosures; the requested task is not preserved consistently for each part.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "ecfc8e0d4564da5cb1ddac4f6f21350b679a510661acdd5f50c4df1245c8b38f:d.repeat20.ii.repeat2",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "IBS root contains solution bullet fragments for debt/equity strategy, ITC documents and intangible disclosures; the requested task is not preserved consistently for each part.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "ecfc8e0d4564da5cb1ddac4f6f21350b679a510661acdd5f50c4df1245c8b38f:d.repeat20.iii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "IBS root contains solution bullet fragments for debt/equity strategy, ITC documents and intangible disclosures; the requested task is not preserved consistently for each part.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "ecfc8e0d4564da5cb1ddac4f6f21350b679a510661acdd5f50c4df1245c8b38f:d.repeat20.iv",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "IBS root contains solution bullet fragments for debt/equity strategy, ITC documents and intangible disclosures; the requested task is not preserved consistently for each part.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "ecfc8e0d4564da5cb1ddac4f6f21350b679a510661acdd5f50c4df1245c8b38f:d.repeat20.v",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "IBS root contains solution bullet fragments for debt/equity strategy, ITC documents and intangible disclosures; the requested task is not preserved consistently for each part.",
+          "confidence": null,
+          "bucket": null
+        }
+      ]
+    },
+    {
+      "question_id": "ca80e7b3b6a65b2c85ccaf8b34ae1abeb94ff3528ac2186511b18c72acfd59b5",
+      "input_hash": "3b979d7be224484f73d783959045bf9e4bea25c10cffd68c4947e89aacfda259",
+      "mappings": [
+        {
+          "part_id": "ca80e7b3b6a65b2c85ccaf8b34ae1abeb94ff3528ac2186511b18c72acfd59b5:Q2.a",
+          "outcome": "matched",
+          "primary_node_id": "0dece15e-767f-4200-a70b-b3b23963db3b",
+          "secondary_node_ids": [],
+          "evidence": [
+            {
+              "node_id": "0dece15e-767f-4200-a70b-b3b23963db3b",
+              "support": "The non-financial USD equipment host explicitly contains a not-closely-related embedded derivative requiring separate journal accounting."
+            }
+          ],
+          "note": "Embedded foreign-currency derivative journal entries and loan covenant breach classification are explicit separate accounting tasks.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "ca80e7b3b6a65b2c85ccaf8b34ae1abeb94ff3528ac2186511b18c72acfd59b5:Q2.b",
+          "outcome": "matched",
+          "primary_node_id": "12ab970e-1bb9-408e-a5a7-0ca19b75c857",
+          "secondary_node_ids": [],
+          "evidence": [
+            {
+              "node_id": "12ab970e-1bb9-408e-a5a7-0ca19b75c857",
+              "support": "The task asks current/non-current liability classification after a reporting-date mortgage covenant breach and a lender waiver obtained after statement approval."
+            }
+          ],
+          "note": "Embedded foreign-currency derivative journal entries and loan covenant breach classification are explicit separate accounting tasks.",
+          "confidence": null,
+          "bucket": null
+        }
+      ]
+    },
+    {
+      "question_id": "05453c7dba9d821b90f5e6881dfc30fa8cf107e6338bbecf118f6227f2d581c5",
+      "input_hash": "6ddcaa9fe8be904207f8c342f24c32faefafa6ab4c6668a6c50c799cb5946763",
+      "mappings": [
+        {
+          "part_id": "05453c7dba9d821b90f5e6881dfc30fa8cf107e6338bbecf118f6227f2d581c5:Q4.a.i",
+          "outcome": "matched",
+          "primary_node_id": "e45454d5-ddb4-4df8-bfe4-7af4e72ac0e3",
+          "secondary_node_ids": [
+            "58a860c3-b6b9-4954-b000-6d892e6d82dc"
+          ],
+          "evidence": [
+            {
+              "node_id": "e45454d5-ddb4-4df8-bfe4-7af4e72ac0e3",
+              "support": "The shared task requests defined-benefit financial statement reporting, separating service/net-interest cost from remeasurement."
+            },
+            {
+              "node_id": "58a860c3-b6b9-4954-b000-6d892e6d82dc",
+              "support": "The shared task requests defined-benefit financial statement reporting, separating service/net-interest cost from remeasurement."
+            }
+          ],
+          "note": "Defined-benefit cost/remeasurement and conditional government-grant recognition are explicit; some table rows and repeated answer paragraphs are parsed as separate parts.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "05453c7dba9d821b90f5e6881dfc30fa8cf107e6338bbecf118f6227f2d581c5:Q4.a.ii",
+          "outcome": "matched",
+          "primary_node_id": "e45454d5-ddb4-4df8-bfe4-7af4e72ac0e3",
+          "secondary_node_ids": [
+            "58a860c3-b6b9-4954-b000-6d892e6d82dc"
+          ],
+          "evidence": [
+            {
+              "node_id": "e45454d5-ddb4-4df8-bfe4-7af4e72ac0e3",
+              "support": "The shared defined-benefit calculation separates financing cost and actuarial/asset remeasurements."
+            },
+            {
+              "node_id": "58a860c3-b6b9-4954-b000-6d892e6d82dc",
+              "support": "The shared defined-benefit calculation separates financing cost and actuarial/asset remeasurements."
+            }
+          ],
+          "note": "Defined-benefit cost/remeasurement and conditional government-grant recognition are explicit; some table rows and repeated answer paragraphs are parsed as separate parts.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "05453c7dba9d821b90f5e6881dfc30fa8cf107e6338bbecf118f6227f2d581c5:Q4.a.iii",
+          "outcome": "matched",
+          "primary_node_id": "e45454d5-ddb4-4df8-bfe4-7af4e72ac0e3",
+          "secondary_node_ids": [
+            "58a860c3-b6b9-4954-b000-6d892e6d82dc"
+          ],
+          "evidence": [
+            {
+              "node_id": "e45454d5-ddb4-4df8-bfe4-7af4e72ac0e3",
+              "support": "The shared task requires defined-benefit cost and OCI remeasurement attribution."
+            },
+            {
+              "node_id": "58a860c3-b6b9-4954-b000-6d892e6d82dc",
+              "support": "The shared task requires defined-benefit cost and OCI remeasurement attribution."
+            }
+          ],
+          "note": "Defined-benefit cost/remeasurement and conditional government-grant recognition are explicit; some table rows and repeated answer paragraphs are parsed as separate parts.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "05453c7dba9d821b90f5e6881dfc30fa8cf107e6338bbecf118f6227f2d581c5:Q4.a.iv",
+          "outcome": "matched",
+          "primary_node_id": "e45454d5-ddb4-4df8-bfe4-7af4e72ac0e3",
+          "secondary_node_ids": [
+            "58a860c3-b6b9-4954-b000-6d892e6d82dc"
+          ],
+          "evidence": [
+            {
+              "node_id": "e45454d5-ddb4-4df8-bfe4-7af4e72ac0e3",
+              "support": "The pension plan figures are inputs to defined-benefit cost and remeasurements."
+            },
+            {
+              "node_id": "58a860c3-b6b9-4954-b000-6d892e6d82dc",
+              "support": "The pension plan figures are inputs to defined-benefit cost and remeasurements."
+            }
+          ],
+          "note": "Defined-benefit cost/remeasurement and conditional government-grant recognition are explicit; some table rows and repeated answer paragraphs are parsed as separate parts.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "05453c7dba9d821b90f5e6881dfc30fa8cf107e6338bbecf118f6227f2d581c5:Q4.a.v",
+          "outcome": "matched",
+          "primary_node_id": "e45454d5-ddb4-4df8-bfe4-7af4e72ac0e3",
+          "secondary_node_ids": [
+            "58a860c3-b6b9-4954-b000-6d892e6d82dc"
+          ],
+          "evidence": [
+            {
+              "node_id": "e45454d5-ddb4-4df8-bfe4-7af4e72ac0e3",
+              "support": "The finance-cost instruction and closing plan figures test defined-benefit net interest and remeasurements."
+            },
+            {
+              "node_id": "58a860c3-b6b9-4954-b000-6d892e6d82dc",
+              "support": "The finance-cost instruction and closing plan figures test defined-benefit net interest and remeasurements."
+            }
+          ],
+          "note": "Defined-benefit cost/remeasurement and conditional government-grant recognition are explicit; some table rows and repeated answer paragraphs are parsed as separate parts.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "05453c7dba9d821b90f5e6881dfc30fa8cf107e6338bbecf118f6227f2d581c5:Q4.b.i",
+          "outcome": "matched",
+          "primary_node_id": "b1a906af-4f67-4a1d-997f-6f42273af64d",
+          "secondary_node_ids": [],
+          "evidence": [
+            {
+              "node_id": "b1a906af-4f67-4a1d-997f-6f42273af64d",
+              "support": "The setup incentive asks whether government-grant conditions and receipt justify recognition."
+            }
+          ],
+          "note": "Defined-benefit cost/remeasurement and conditional government-grant recognition are explicit; some table rows and repeated answer paragraphs are parsed as separate parts.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "05453c7dba9d821b90f5e6881dfc30fa8cf107e6338bbecf118f6227f2d581c5:Q4.b.ii",
+          "outcome": "matched",
+          "primary_node_id": "b1a906af-4f67-4a1d-997f-6f42273af64d",
+          "secondary_node_ids": [],
+          "evidence": [
+            {
+              "node_id": "b1a906af-4f67-4a1d-997f-6f42273af64d",
+              "support": "Research and development grant recognition is explicitly requested in the parent task."
+            }
+          ],
+          "note": "Defined-benefit cost/remeasurement and conditional government-grant recognition are explicit; some table rows and repeated answer paragraphs are parsed as separate parts.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "05453c7dba9d821b90f5e6881dfc30fa8cf107e6338bbecf118f6227f2d581c5:Q4.b.ii.repeat2",
+          "outcome": "matched",
+          "primary_node_id": "b1a906af-4f67-4a1d-997f-6f42273af64d",
+          "secondary_node_ids": [],
+          "evidence": [
+            {
+              "node_id": "b1a906af-4f67-4a1d-997f-6f42273af64d",
+              "support": "The three-year employment-conditioned grant explicitly requires recognition based on reasonable assurance and deferred income."
+            }
+          ],
+          "note": "Defined-benefit cost/remeasurement and conditional government-grant recognition are explicit; some table rows and repeated answer paragraphs are parsed as separate parts.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "05453c7dba9d821b90f5e6881dfc30fa8cf107e6338bbecf118f6227f2d581c5:Q4.b.iii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Defined-benefit cost/remeasurement and conditional government-grant recognition are explicit; some table rows and repeated answer paragraphs are parsed as separate parts.",
+          "confidence": null,
+          "bucket": null
+        }
+      ]
+    },
+    {
+      "question_id": "1bf86327e934a576f2eb22291b5ac05588b1f9a876c99c9695164ec0fb83319f",
+      "input_hash": "329672cf884b2170ed81add348772f0a77494fe653807d78385e2f54600b97db",
+      "mappings": [
+        {
+          "part_id": "1bf86327e934a576f2eb22291b5ac05588b1f9a876c99c9695164ec0fb83319f:Q3.a.i",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Root interleaves interest-rate case, startup theory and tokenisation questions with repeated solution bullets; attribution needs extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "1bf86327e934a576f2eb22291b5ac05588b1f9a876c99c9695164ec0fb83319f:Q3.a.ii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Root interleaves interest-rate case, startup theory and tokenisation questions with repeated solution bullets; attribution needs extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "1bf86327e934a576f2eb22291b5ac05588b1f9a876c99c9695164ec0fb83319f:Q3.a.iii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Root interleaves interest-rate case, startup theory and tokenisation questions with repeated solution bullets; attribution needs extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "1bf86327e934a576f2eb22291b5ac05588b1f9a876c99c9695164ec0fb83319f:Q3.b.i",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Root interleaves interest-rate case, startup theory and tokenisation questions with repeated solution bullets; attribution needs extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "1bf86327e934a576f2eb22291b5ac05588b1f9a876c99c9695164ec0fb83319f:Q3.b.ii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Root interleaves interest-rate case, startup theory and tokenisation questions with repeated solution bullets; attribution needs extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "1bf86327e934a576f2eb22291b5ac05588b1f9a876c99c9695164ec0fb83319f:Q3.b.iii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Root interleaves interest-rate case, startup theory and tokenisation questions with repeated solution bullets; attribution needs extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "1bf86327e934a576f2eb22291b5ac05588b1f9a876c99c9695164ec0fb83319f:Q3.b.iv",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Root interleaves interest-rate case, startup theory and tokenisation questions with repeated solution bullets; attribution needs extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "1bf86327e934a576f2eb22291b5ac05588b1f9a876c99c9695164ec0fb83319f:Q3.b.v",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Root interleaves interest-rate case, startup theory and tokenisation questions with repeated solution bullets; attribution needs extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "1bf86327e934a576f2eb22291b5ac05588b1f9a876c99c9695164ec0fb83319f:Q3.b.alt2",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Root interleaves interest-rate case, startup theory and tokenisation questions with repeated solution bullets; attribution needs extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "1bf86327e934a576f2eb22291b5ac05588b1f9a876c99c9695164ec0fb83319f:Q3.b.alt3.i",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Root interleaves interest-rate case, startup theory and tokenisation questions with repeated solution bullets; attribution needs extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "1bf86327e934a576f2eb22291b5ac05588b1f9a876c99c9695164ec0fb83319f:Q3.b.alt3.ii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Root interleaves interest-rate case, startup theory and tokenisation questions with repeated solution bullets; attribution needs extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "1bf86327e934a576f2eb22291b5ac05588b1f9a876c99c9695164ec0fb83319f:Q3.b.alt3.iii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Root interleaves interest-rate case, startup theory and tokenisation questions with repeated solution bullets; attribution needs extraction review.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "1bf86327e934a576f2eb22291b5ac05588b1f9a876c99c9695164ec0fb83319f:Q3.b.alt3.iv",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Root interleaves interest-rate case, startup theory and tokenisation questions with repeated solution bullets; attribution needs extraction review.",
+          "confidence": null,
+          "bucket": null
+        }
+      ]
+    },
+    {
+      "question_id": "d0f587b578d7bad25602278fe73c4dbcd09656210e55872da3c13a47dad8a29a",
+      "input_hash": "e05f5a68f6d2f827c18f15f90451b221637992dd451ade758274d1c109abaa79",
+      "mappings": [
+        {
+          "part_id": "d0f587b578d7bad25602278fe73c4dbcd09656210e55872da3c13a47dad8a29a:Q5.a",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Interim review/going concern, consolidated audit and NOCLAR-versus-SA250 tasks are explicit, but repeated solution bullets must be identified as answer content.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "d0f587b578d7bad25602278fe73c4dbcd09656210e55872da3c13a47dad8a29a:Q5.b.i",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Interim review/going concern, consolidated audit and NOCLAR-versus-SA250 tasks are explicit, but repeated solution bullets must be identified as answer content.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "d0f587b578d7bad25602278fe73c4dbcd09656210e55872da3c13a47dad8a29a:Q5.b.ii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Interim review/going concern, consolidated audit and NOCLAR-versus-SA250 tasks are explicit, but repeated solution bullets must be identified as answer content.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "d0f587b578d7bad25602278fe73c4dbcd09656210e55872da3c13a47dad8a29a:Q5.b.iii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Interim review/going concern, consolidated audit and NOCLAR-versus-SA250 tasks are explicit, but repeated solution bullets must be identified as answer content.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "d0f587b578d7bad25602278fe73c4dbcd09656210e55872da3c13a47dad8a29a:Q5.b.iv",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Interim review/going concern, consolidated audit and NOCLAR-versus-SA250 tasks are explicit, but repeated solution bullets must be identified as answer content.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "d0f587b578d7bad25602278fe73c4dbcd09656210e55872da3c13a47dad8a29a:Q5.b.v",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Interim review/going concern, consolidated audit and NOCLAR-versus-SA250 tasks are explicit, but repeated solution bullets must be identified as answer content.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "d0f587b578d7bad25602278fe73c4dbcd09656210e55872da3c13a47dad8a29a:Q5.c.i",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Interim review/going concern, consolidated audit and NOCLAR-versus-SA250 tasks are explicit, but repeated solution bullets must be identified as answer content.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "d0f587b578d7bad25602278fe73c4dbcd09656210e55872da3c13a47dad8a29a:Q5.c.ii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Interim review/going concern, consolidated audit and NOCLAR-versus-SA250 tasks are explicit, but repeated solution bullets must be identified as answer content.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "d0f587b578d7bad25602278fe73c4dbcd09656210e55872da3c13a47dad8a29a:Q5.c.iii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Interim review/going concern, consolidated audit and NOCLAR-versus-SA250 tasks are explicit, but repeated solution bullets must be identified as answer content.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "d0f587b578d7bad25602278fe73c4dbcd09656210e55872da3c13a47dad8a29a:Q5.c.iv",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Interim review/going concern, consolidated audit and NOCLAR-versus-SA250 tasks are explicit, but repeated solution bullets must be identified as answer content.",
+          "confidence": null,
+          "bucket": null
+        }
+      ]
+    },
+    {
+      "question_id": "8456bdb7212a2277cc953c101597ea33bebe95a682e489a500d1bee8966f7fe8",
+      "input_hash": "668fef609921477c6b30864022943fe4d761abda90fff353dc0192de5e47d8cb",
+      "mappings": [
+        {
+          "part_id": "8456bdb7212a2277cc953c101597ea33bebe95a682e489a500d1bee8966f7fe8:Q6.a.ii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Tax planning/evasion and advance-ruling admissibility tasks are explicit; one placeholder is not an independent gradable task.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "8456bdb7212a2277cc953c101597ea33bebe95a682e489a500d1bee8966f7fe8:Q6.a.repeat2",
+          "outcome": "matched",
+          "primary_node_id": "18be45ae-ac22-41c8-bb61-0908f8305794",
+          "secondary_node_ids": [],
+          "evidence": [
+            {
+              "node_id": "18be45ae-ac22-41c8-bb61-0908f8305794",
+              "support": "Adult-son gift versus diversion of earned commission explicitly asks tax planning, management or evasion distinctions."
+            }
+          ],
+          "note": "Tax planning/evasion and advance-ruling admissibility tasks are explicit; one placeholder is not an independent gradable task.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "8456bdb7212a2277cc953c101597ea33bebe95a682e489a500d1bee8966f7fe8:Q6.b",
+          "outcome": "matched",
+          "primary_node_id": "e9404606-7761-4779-9d50-aed17106ad72",
+          "secondary_node_ids": [],
+          "evidence": [
+            {
+              "node_id": "e9404606-7761-4779-9d50-aed17106ad72",
+              "support": "The task asks whether a pending question with a tax authority bars the ruling board from admitting the nonresident application."
+            }
+          ],
+          "note": "Tax planning/evasion and advance-ruling admissibility tasks are explicit; one placeholder is not an independent gradable task.",
+          "confidence": null,
+          "bucket": null
+        }
+      ]
+    },
+    {
+      "question_id": "cde001879d7f520e4c368410dfd3277472279382b89acf8c9d59c6c6a4a8fbd3",
+      "input_hash": "49679eb4721f942a16283173c8a16ed182a65dfefad6d8d01308c69cc9c9d05d",
+      "mappings": [
+        {
+          "part_id": "cde001879d7f520e4c368410dfd3277472279382b89acf8c9d59c6c6a4a8fbd3",
+          "outcome": "none_fits",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Exam instructions about choosing questions are not a tested subject concept; no candidate fits.",
+          "confidence": null,
+          "bucket": null
+        }
+      ]
+    },
+    {
+      "question_id": "6fd31aebc7ce0165828a80739afd945a2eb70c718e0cd03aa515a91b59c7ecf2",
+      "input_hash": "242906585784db69a1509b8bbfebe540e19d6e390f75eae69f25c42f3808dedb",
+      "mappings": [
+        {
+          "part_id": "6fd31aebc7ce0165828a80739afd945a2eb70c718e0cd03aa515a91b59c7ecf2:Q2.a.i",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Bank exemption/ITC and customs valuation specifics are absent from the supplied narrow GST candidates; online gaming supply valuation is also more specific than generic value definitions.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6fd31aebc7ce0165828a80739afd945a2eb70c718e0cd03aa515a91b59c7ecf2:Q2.a.ii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Bank exemption/ITC and customs valuation specifics are absent from the supplied narrow GST candidates; online gaming supply valuation is also more specific than generic value definitions.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6fd31aebc7ce0165828a80739afd945a2eb70c718e0cd03aa515a91b59c7ecf2:Q2.a.iii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Bank exemption/ITC and customs valuation specifics are absent from the supplied narrow GST candidates; online gaming supply valuation is also more specific than generic value definitions.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6fd31aebc7ce0165828a80739afd945a2eb70c718e0cd03aa515a91b59c7ecf2:Q2.a.iv",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Bank exemption/ITC and customs valuation specifics are absent from the supplied narrow GST candidates; online gaming supply valuation is also more specific than generic value definitions.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6fd31aebc7ce0165828a80739afd945a2eb70c718e0cd03aa515a91b59c7ecf2:Q2.a.v",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Bank exemption/ITC and customs valuation specifics are absent from the supplied narrow GST candidates; online gaming supply valuation is also more specific than generic value definitions.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6fd31aebc7ce0165828a80739afd945a2eb70c718e0cd03aa515a91b59c7ecf2:Q2.a.vi",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Bank exemption/ITC and customs valuation specifics are absent from the supplied narrow GST candidates; online gaming supply valuation is also more specific than generic value definitions.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6fd31aebc7ce0165828a80739afd945a2eb70c718e0cd03aa515a91b59c7ecf2:Q2.a.i.repeat2",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Bank exemption/ITC and customs valuation specifics are absent from the supplied narrow GST candidates; online gaming supply valuation is also more specific than generic value definitions.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6fd31aebc7ce0165828a80739afd945a2eb70c718e0cd03aa515a91b59c7ecf2:Q2.a.ii.repeat2",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Bank exemption/ITC and customs valuation specifics are absent from the supplied narrow GST candidates; online gaming supply valuation is also more specific than generic value definitions.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6fd31aebc7ce0165828a80739afd945a2eb70c718e0cd03aa515a91b59c7ecf2:Q2.a.iii.repeat2",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Bank exemption/ITC and customs valuation specifics are absent from the supplied narrow GST candidates; online gaming supply valuation is also more specific than generic value definitions.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6fd31aebc7ce0165828a80739afd945a2eb70c718e0cd03aa515a91b59c7ecf2:Q2.a.iv.repeat2",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Bank exemption/ITC and customs valuation specifics are absent from the supplied narrow GST candidates; online gaming supply valuation is also more specific than generic value definitions.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6fd31aebc7ce0165828a80739afd945a2eb70c718e0cd03aa515a91b59c7ecf2:Q2.b.i",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Bank exemption/ITC and customs valuation specifics are absent from the supplied narrow GST candidates; online gaming supply valuation is also more specific than generic value definitions.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6fd31aebc7ce0165828a80739afd945a2eb70c718e0cd03aa515a91b59c7ecf2:Q2.b.ii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Bank exemption/ITC and customs valuation specifics are absent from the supplied narrow GST candidates; online gaming supply valuation is also more specific than generic value definitions.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6fd31aebc7ce0165828a80739afd945a2eb70c718e0cd03aa515a91b59c7ecf2:Q2.b.iii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Bank exemption/ITC and customs valuation specifics are absent from the supplied narrow GST candidates; online gaming supply valuation is also more specific than generic value definitions.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6fd31aebc7ce0165828a80739afd945a2eb70c718e0cd03aa515a91b59c7ecf2:Q2.c.i",
+          "outcome": "none_fits",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Bank exemption/ITC and customs valuation specifics are absent from the supplied narrow GST candidates; online gaming supply valuation is also more specific than generic value definitions.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6fd31aebc7ce0165828a80739afd945a2eb70c718e0cd03aa515a91b59c7ecf2:Q2.c.ii",
+          "outcome": "none_fits",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Bank exemption/ITC and customs valuation specifics are absent from the supplied narrow GST candidates; online gaming supply valuation is also more specific than generic value definitions.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6fd31aebc7ce0165828a80739afd945a2eb70c718e0cd03aa515a91b59c7ecf2:Q2.c.iii",
+          "outcome": "none_fits",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Bank exemption/ITC and customs valuation specifics are absent from the supplied narrow GST candidates; online gaming supply valuation is also more specific than generic value definitions.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6fd31aebc7ce0165828a80739afd945a2eb70c718e0cd03aa515a91b59c7ecf2:Q2.c.iv",
+          "outcome": "none_fits",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Bank exemption/ITC and customs valuation specifics are absent from the supplied narrow GST candidates; online gaming supply valuation is also more specific than generic value definitions.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6fd31aebc7ce0165828a80739afd945a2eb70c718e0cd03aa515a91b59c7ecf2:Q2.c.v",
+          "outcome": "none_fits",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Bank exemption/ITC and customs valuation specifics are absent from the supplied narrow GST candidates; online gaming supply valuation is also more specific than generic value definitions.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6fd31aebc7ce0165828a80739afd945a2eb70c718e0cd03aa515a91b59c7ecf2:Q2.c.vi",
+          "outcome": "none_fits",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Bank exemption/ITC and customs valuation specifics are absent from the supplied narrow GST candidates; online gaming supply valuation is also more specific than generic value definitions.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6fd31aebc7ce0165828a80739afd945a2eb70c718e0cd03aa515a91b59c7ecf2:Q2.c.vii",
+          "outcome": "none_fits",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Bank exemption/ITC and customs valuation specifics are absent from the supplied narrow GST candidates; online gaming supply valuation is also more specific than generic value definitions.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6fd31aebc7ce0165828a80739afd945a2eb70c718e0cd03aa515a91b59c7ecf2:Q2.c.i.repeat2",
+          "outcome": "none_fits",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Bank exemption/ITC and customs valuation specifics are absent from the supplied narrow GST candidates; online gaming supply valuation is also more specific than generic value definitions.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "6fd31aebc7ce0165828a80739afd945a2eb70c718e0cd03aa515a91b59c7ecf2:Q2.c.ii.repeat2",
+          "outcome": "none_fits",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Bank exemption/ITC and customs valuation specifics are absent from the supplied narrow GST candidates; online gaming supply valuation is also more specific than generic value definitions.",
+          "confidence": null,
+          "bucket": null
+        }
+      ]
+    },
+    {
+      "question_id": "b92c8fcb2d64b2b0b0b09710b541c87c9989d3ffdf92eba27f6789f5afac9e32",
+      "input_hash": "4502891f2d3875d25e88cada122325ef13418f2228e26909a3410204bc2d8e89",
+      "mappings": [
+        {
+          "part_id": "b92c8fcb2d64b2b0b0b09710b541c87c9989d3ffdf92eba27f6789f5afac9e32",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "No penalty is leviable on CA firm is an isolated option without question context.",
+          "confidence": null,
+          "bucket": null
+        }
+      ]
+    },
+    {
+      "question_id": "fd3e5c9e5828dd683ebabd1fc93937453b8788266e1d14146c86732486f8b8a0",
+      "input_hash": "23b6732801be298c3d841377652c2561b182aceb6e27f2b853ed11cf13aafe61",
+      "mappings": [
+        {
+          "part_id": "fd3e5c9e5828dd683ebabd1fc93937453b8788266e1d14146c86732486f8b8a0",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "137.95 lakhs is an isolated MCQ option without question context.",
+          "confidence": null,
+          "bucket": null
+        }
+      ]
+    },
+    {
+      "question_id": "4691b3404b819f70247e0739f023db65d8acce5a9036385dfb4809a4600668f7",
+      "input_hash": "d848b61cfc3e9a12389fea260fe31087e48223135989e872c7047960486ae4af",
+      "mappings": [
+        {
+          "part_id": "4691b3404b819f70247e0739f023db65d8acce5a9036385dfb4809a4600668f7:c.repeat6.i",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Root merges internal auditor thresholds, their solution, and the start of a different revenue-incentive case; restore complete root boundaries.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "4691b3404b819f70247e0739f023db65d8acce5a9036385dfb4809a4600668f7:c.repeat6.ii",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Root merges internal auditor thresholds, their solution, and the start of a different revenue-incentive case; restore complete root boundaries.",
+          "confidence": null,
+          "bucket": null
+        },
+        {
+          "part_id": "4691b3404b819f70247e0739f023db65d8acce5a9036385dfb4809a4600668f7:c.repeat6.i.repeat2",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Root merges internal auditor thresholds, their solution, and the start of a different revenue-incentive case; restore complete root boundaries.",
+          "confidence": null,
+          "bucket": null
+        }
+      ]
+    },
+    {
+      "question_id": "b395d5b90866857aabdfa49890cb9f856e37f5b7419e298960ba00812bc968e4",
+      "input_hash": "8632e1a04e037c3d7eddf7e920f69209e333cbcdf7c7fc297c4ed88347dd99f2",
+      "mappings": [
+        {
+          "part_id": "b395d5b90866857aabdfa49890cb9f856e37f5b7419e298960ba00812bc968e4:d.repeat16.v",
+          "outcome": "needs_review",
+          "primary_node_id": null,
+          "secondary_node_ids": [],
+          "evidence": [],
+          "note": "Root crosses machine valuation/charitable tax answer fragments into another IBS case; a single gradable paragraph mixes multiple unrelated tasks.",
+          "confidence": null,
+          "bucket": null
+        }
+      ]
+    }
+  ],
+  "digest": "393cb97cf7b8c55103cc3b03a1b99f4f34ad55d74abfef97326f500cb19dd195"
+}

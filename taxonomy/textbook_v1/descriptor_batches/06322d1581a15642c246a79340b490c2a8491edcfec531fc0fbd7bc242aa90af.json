@@ -1,0 +1,308 @@
+{
+  "descriptors": [
+    {
+      "node_id": "c299546a-2b80-458a-86de-a7e42a0725ad",
+      "concept_name": "Objective and Scope",
+      "definition": "The standard prescribes accounting principles for property, plant, and equipment to allow financial statement users to understand entity investments and changes therein. It applies universally unless another standard mandates alternative treatments or excludes specific assets like biological assets or mineral rights.",
+      "terminology": [
+        "property, plant and equipment",
+        "carrying amount",
+        "depreciation",
+        "impairment loss"
+      ],
+      "instrument_references": [
+        "Ind AS 16",
+        "Ind AS 40",
+        "Ind AS 105",
+        "Ind AS 41",
+        "Ind AS 106"
+      ],
+      "inclusion": [
+        "Tangible items held for production, supply, rental, or administrative use expected to last over one period",
+        "PPE used to develop or maintain biological assets, exploration assets, and mineral reserves"
+      ],
+      "exclusion": [
+        "PPE classified as held for sale",
+        "Biological assets related to agricultural activity other than bearer plants",
+        "Exploration and evaluation assets",
+        "Mineral rights and non-regenerative reserves"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from investment property by applying the cost model for owned investment property under specific guidance",
+        "Distinguished from biological assets by excluding non-bearer living plants"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9539302a-4c72-43f6-9147-e4465f433e66",
+      "concept_name": "SCOPE",
+      "definition": "The standard governs all property, plant, and equipment accounting practices unless separate standards dictate unique methods. It specifies broad exclusions while maintaining coverage for assets supporting excluded extractive or agricultural operations.",
+      "terminology": [
+        "bearer plant",
+        "depreciable amount",
+        "entity-specific value",
+        "residual value"
+      ],
+      "instrument_references": [
+        "Ind AS 16"
+      ],
+      "inclusion": [
+        "Tangible assets applied in administrative, supply, or production functions extending past one accounting period"
+      ],
+      "exclusion": [
+        "Assets governed exclusively by alternate standards such as Ind AS 105 or Ind AS 41"
+      ],
+      "nearby_distinctions": [
+        "Separates general operational infrastructure from specialized extractive and biological resource properties"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d714d781-9efb-4df1-9e82-11a22d67f025",
+      "concept_name": "RELEVANT DEFINITIONS",
+      "definition": "This section outlines fundamental measurement terms governing asset valuation, residual allocations, and impairment tracking under the standard. It defines calculations for determining current book values against recoverable economic worth.",
+      "terminology": [
+        "fair value",
+        "impairment loss",
+        "recoverable amount",
+        "entity-specific value"
+      ],
+      "instrument_references": [
+        "Ind AS 16",
+        "Ind AS 113"
+      ],
+      "inclusion": [
+        "Valuation definitions including fair value, carrying value, and recoverable limits"
+      ],
+      "exclusion": [
+        "General operational rules or recognition thresholds not tied directly to valuation terms"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes fair value market participant pricing from entity-specific internal cash flow estimations"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1651009f-7a51-4389-a9f9-c358271f659e",
+      "concept_name": "RECOGNITION",
+      "definition": "Property, plant, and equipment costs qualify for asset recognition only when future economic benefits are probable and the item's cost can be reliably measured. Entities evaluate all initial acquisition expenses and subsequent operational expenditures using these core criteria.",
+      "terminology": [
+        "probable economic benefits",
+        "reliable measurement",
+        "spare parts",
+        "servicing equipment"
+      ],
+      "instrument_references": [
+        "Ind AS 16"
+      ],
+      "inclusion": [
+        "Initial asset acquisition costs meeting probability and measurement tests",
+        "Stand-by and servicing equipment meeting asset definitions"
+      ],
+      "exclusion": [
+        "Spare parts and servicing tools failing asset criteria which default to inventory classification"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes capitalized equipment spares from routine inventory spares based on operational deployment and holding period"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "bdab790c-0508-4722-b5d5-3b3f6c99689d",
+      "concept_name": "General recognition criteria",
+      "definition": "An asset item is capitalized if and only if future economic inflows are probable and historical costs can be calculated reliably. This threshold dictates initial balance sheet inclusion for both foundational acquisitions and subsequent enhancement outlays.",
+      "terminology": [
+        "probable inflow",
+        "reliable measurement",
+        "asset capitalization"
+      ],
+      "instrument_references": [
+        "Ind AS 16"
+      ],
+      "inclusion": [
+        "Costs satisfying both the probability of economic benefits and reliable measurement conditions"
+      ],
+      "exclusion": [
+        "Expenditures failing either probability or measurement thresholds"
+      ],
+      "nearby_distinctions": [
+        "Separates capitalizable outlays from standard period operational expenses"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0f9096d7-9bfc-4431-98bb-656f91803b0d",
+      "concept_name": "Recognition of Spare parts, stand-by equipment and servicing equipment",
+      "definition": "Specialized spare parts and stand-by equipment are categorized as property, plant, and equipment when they satisfy the standard asset definition. Items failing this threshold are treated as ordinary inventory supplies.",
+      "terminology": [
+        "spare parts",
+        "stand-by equipment",
+        "servicing equipment",
+        "inventory"
+      ],
+      "instrument_references": [
+        "Ind AS 16",
+        "Ind AS 36"
+      ],
+      "inclusion": [
+        "Servicing and standby items utilized over multiple periods alongside primary assets"
+      ],
+      "exclusion": [
+        "Routine replacement parts classified under standard inventory rules"
+      ],
+      "nearby_distinctions": [
+        "Differentiates major capital spares from routine operational consumables stored for quick turnover"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "31e7abea-8944-48c0-8b49-9d4c77d8adcb",
+      "concept_name": "Unit of measurement for recognition of PPE and Aggregation of individually insignificant items",
+      "definition": "The standard does not mandate a universal recognition unit, requiring professional judgment to establish what constitutes an individual property item. Individually immaterial assets like tools and dies may be aggregated to apply recognition principles collectively.",
+      "terminology": [
+        "unit of measure",
+        "aggregation",
+        "insignificant items",
+        "moulds and tools"
+      ],
+      "instrument_references": [
+        "Ind AS 16"
+      ],
+      "inclusion": [
+        "Aggregated minor tools, moulds, and dies evaluated collectively under materiality judgment"
+      ],
+      "exclusion": [
+        "Standalone major assets evaluated on an individual component basis"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes collective asset pools for minor tools from individually distinct heavy machinery items"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5115b26f-b033-4959-aefb-ae8fb1175b57",
+      "concept_name": "Initial Cost",
+      "definition": "Assets acquired for safety or environmental reasons qualify for recognition because they enable entities to extract future economic benefits from related assets. Without these compliance enhancements, underlying production assets could not legally or safely operate.",
+      "terminology": [
+        "environmental compliance",
+        "safety equipment",
+        "economic benefits"
+      ],
+      "instrument_references": [
+        "Ind AS 16",
+        "Ind AS 36"
+      ],
+      "inclusion": [
+        "Safety and environmental installations required to unlock operational benefits from other assets"
+      ],
+      "exclusion": [
+        "Discretionary outlays not tied to regulatory necessity or operational enablement"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes compliance-driven asset enhancements from direct revenue-generating machinery"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "727dc9c1-cac9-4467-b736-255942b11868",
+      "concept_name": "Subsequent costs",
+      "definition": "Subsequent expenditures that replace parts of an asset or execute major overhauls are capitalized if recognition criteria are met, alongside the derecognition of old component carrying values. Conversely, routine day-to-day servicing costs are expensed immediately as incurred.",
+      "terminology": [
+        "subsequent expenditure",
+        "major inspection",
+        "replacement parts",
+        "derecognition"
+      ],
+      "instrument_references": [
+        "Ind AS 16"
+      ],
+      "inclusion": [
+        "Costs of scheduled component replacements and major overhauls meeting recognition tests"
+      ],
+      "exclusion": [
+        "Day-to-day servicing, minor repairs, and consumable labor costs"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes long-interval capital overhauls from routine day-to-day maintenance charges routed through profit or loss"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5ce620ff-158f-4d30-abc5-e7b53feb59f8",
+      "concept_name": "MEASUREMENT AT RECOGNITION",
+      "definition": "Qualifying items of property, plant, and equipment are initially recorded at historical cost upon acquisition or construction. Cost components include purchase prices, directly attributable preparation outlays, and initial dismantling obligations.",
+      "terminology": [
+        "initial measurement",
+        "historical cost",
+        "attributable costs"
+      ],
+      "instrument_references": [
+        "Ind AS 16"
+      ],
+      "inclusion": [
+        "Purchase prices, site preparation, delivery, installation, and asset dismantling provisions"
+      ],
+      "exclusion": [
+        "General administrative overheads and abnormal waste expenses"
+      ],
+      "nearby_distinctions": [
+        "Separates initial acquisition cost models from subsequent revaluation or depreciation measurements"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a7658194-d171-4f59-bdca-5ac7fa356e7a",
+      "concept_name": "Measurement at cost",
+      "definition": "Property, plant, and equipment items eligible for asset recognition must be quantified initially at their total cost base. This base encapsulates net purchase pricing, direct setup outlays, and future site restoration obligations.",
+      "terminology": [
+        "cost measurement",
+        "purchase price",
+        "site restoration"
+      ],
+      "instrument_references": [
+        "Ind AS 16"
+      ],
+      "inclusion": [
+        "Net purchase outlays, import duties, handling fees, and professional installation charges"
+      ],
+      "exclusion": [
+        "Refundable taxes, trade discounts, and general overhead costs"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes initial cost capitalisation from later fair value adjustments"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "284f0800-66ab-4e22-a211-c165f9044eaf",
+      "concept_name": "Element of cost",
+      "definition": "The asset cost baseline comprises purchase considerations, direct bringing-to-location expenses, and estimated dismantling provisions. For self-constructed assets, internal manufacturing profits and abnormal material wastage are strictly excluded from the capitalized total.",
+      "terminology": [
+        "element of cost",
+        "self-constructed asset",
+        "abnormal waste",
+        "dismantling costs"
+      ],
+      "instrument_references": [
+        "Ind AS 16"
+      ],
+      "inclusion": [
+        "Direct labor, material, and site preparation costs for self-constructed assets"
+      ],
+      "exclusion": [
+        "Abnormal amounts of wasted material or labor and internal manufacturing profits"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes standard construction outlays from abnormal inefficiencies excluded from asset values"
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "06322d1581a15642c246a79340b490c2a8491edcfec531fc0fbd7bc242aa90af",
+  "artifact_id": "c97b2ef7-3ba1-494f-aa92-b38d2be0bb32",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8409,
+  "output_tokens": 3222,
+  "cost_usd": 0.0105777,
+  "created_at": "2026-10-03T17:49:04.993719+00:00"
+}

@@ -1,6 +1,8 @@
 """CLI commands for L3 classification and calibration benchmark."""
 
 from typing import Annotated
+import json
+from pathlib import Path
 from rich.console import Console
 from rich.panel import Panel
 from rich.table import Table
@@ -15,10 +17,75 @@ from caf_l3.pipeline import ClassificationPipeline
 
 app = typer.Typer(name="classify", help="L3 Classification commands")
 console = Console()
+from caf_cli.classification_review import app as classification_review_app
+app.add_typer(classification_review_app, name="review")
+
+
+@app.command("export")
+def classify_export(
+    output: Annotated[Path, typer.Option("--output")],
+    taxonomy: Annotated[str, typer.Option("--taxonomy")],
+    revisions: Annotated[list[int], typer.Option("--revision", help="Explicit immutable extraction revisions; repeat")],
+    draft: Annotated[bool, typer.Option("--draft", help="Explicit nonpublishable experiment against unreviewed snapshots")] = False,
+    model: Annotated[str, typer.Option("--model")] = "gpt-6-luna",
+    questions: Annotated[Path | None, typer.Option("--questions", help="JSON list of selected root IDs")] = None,
+    run_label: Annotated[str | None, typer.Option("--run-label", help="Explicit new experiment identity for an intentional same-config rerun")] = None,
+) -> None:
+    """Export pinned complete roots, parts, answers and candidate evidence."""
+    from caf_l3.batches import export_batch
+    with get_session_factory("operations")() as session:
+        manifest = export_batch(session, taxonomy, revisions, draft=draft, model=model,
+            question_ids=json.loads(questions.read_text()) if questions else None, run_label=run_label)
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(json.dumps(manifest, ensure_ascii=False, indent=2))
+    console.print(f"Exported {len(manifest['records'])} roots; batch {manifest['batch_key']}; experimental={draft}")
+
+
+@app.command("operator-run")
+def classify_operator_run(
+    batch: Annotated[Path, typer.Option("--batch")],
+    output_dir: Annotated[Path, typer.Option("--output-dir")],
+    timeout: Annotated[int, typer.Option("--timeout", min=1)] = 300,
+    limit: Annotated[int | None, typer.Option("--limit", min=1)] = None,
+    workers: Annotated[int, typer.Option("--workers", min=1, max=4, help="Bounded independent root jobs")] = 1,
+) -> None:
+    """Run Codex subscription jobs outside the web path; resume completed roots."""
+    from caf_l3.batches import run_operator_batch
+    state = run_operator_batch(json.loads(batch.read_text()), output_dir, timeout=timeout, limit=limit, workers=workers)
+    console.print(f"Completed roots: {len(state['completed'])}; pending roots: {len(state['pending'])}; failure history: {len(state['failures'])}")
+    if state['execution_failed']:
+        console.print(state["failures"][-1]["error"])
+        raise typer.Exit(1)
+
+
+@app.command("import")
+def classify_import(
+    batch: Annotated[Path, typer.Option("--batch")],
+    output_dir: Annotated[Path, typer.Option("--output-dir")],
+    sample: Annotated[Path | None, typer.Option("--sample", help="Frozen sampling/split metadata for benchmark display")] = None,
+) -> None:
+    """Validate completed outputs and append immutable suggestions idempotently."""
+    from caf_l3.batches import import_batch
+    manifest = json.loads(batch.read_text())
+    results = []
+    for record in manifest["records"]:
+        path = output_dir / (record["question_id"] + ".json")
+        if path.exists():
+            saved = json.loads(path.read_text())
+            results.append({**saved["result"], "execution": saved["execution"]})
+    with open_run(stage="l3_classify_import", args={"batch_key": manifest["batch_key"]}) as run:
+        with get_session_factory("operations")() as session:
+            count = import_batch(session, manifest, results, run.id,
+                sample=json.loads(sample.read_text()) if sample else None)
+            session.commit()
+        run.taxonomy_version_id = manifest["taxonomy_version_id"]
+        run.stats = {"imported": count, "completed": len(results), "expected": len(manifest["records"])}
+    console.print(f"Imported {count} new suggestions from {len(results)} completed roots")
 
 
 @app.command("run")
 def classify_run(
+    taxonomy: Annotated[str | None, typer.Option("--taxonomy", help="Rebuilt textbook release ID; defaults to active release")] = None,
     doc_id: Annotated[int | None, typer.Option("--doc", help="Filter by document ID")] = None,
     paper_id: Annotated[str | None, typer.Option("--paper", help="Filter by paper ID (e.g. s2023.P1)")] = None,
     limit: Annotated[int, typer.Option("--limit", help="Maximum units to classify")] = 100,
@@ -28,9 +95,9 @@ def classify_run(
     shadow: Annotated[bool, typer.Option("--shadow", help="Write shadow suggestions")] = False,
 ) -> None:
     """Run L3 classification cascade on pending gradable units with resumability."""
-    session_factory = get_session_factory()
+    session_factory = get_session_factory("operations")
     with session_factory() as session:
-        pipeline = ClassificationPipeline(session, model_override=model)
+        pipeline = ClassificationPipeline(session, model_override=model, version_id=taxonomy)
 
         mode_str = f"LLM ({model or 'default'})" if (use_llm and pipeline.gemini_classifier.is_available()) else "Local Anchor/Keyword Cascade"
         console.print(f"[bold green]Running classification (limit={limit}, mode={mode_str}, resume={resume})...[/bold green]")
@@ -53,10 +120,15 @@ def classify_run(
             table.add_row("Total Units Processed", str(summary.total_processed))
             table.add_row("Primary Suggestions", str(summary.primary_suggestions))
             table.add_row("Secondary Suggestions", str(summary.secondary_suggestions))
+            table.add_row("Failed Units", str(summary.failed_units))
             for b_name in ["A", "B", "C", "D"]:
                 table.add_row(f"Bucket {b_name}", str(summary.buckets.get(b_name, 0)))
 
             console.print(table)
+            run.taxonomy_version_id = pipeline.classifier.taxonomy_version_id
+            run.stats = {"processed": summary.total_processed, "failed": summary.failed_units,
+                "buckets": summary.buckets, "primary_suggestions": summary.primary_suggestions,
+                "secondary_suggestions": summary.secondary_suggestions, "is_partial": summary.is_partial}
 
             if summary.quota_exhausted:
                 console.print(
@@ -68,6 +140,8 @@ def classify_run(
                         border_style="yellow",
                     )
                 )
+            if summary.is_partial:
+                raise RuntimeError(summary.status_message)
 
 
 @app.command("test-set")
@@ -77,7 +151,7 @@ def classify_test_set(
     list_units: Annotated[bool, typer.Option("--list", "-l", help="List current benchmark units")] = False,
 ) -> None:
     """Manage the representative calibration test set across all 6 papers."""
-    session_factory = get_session_factory()
+    session_factory = get_session_factory("operations")
     with session_factory() as session:
         if generate:
             console.print(f"[bold cyan]Generating stratified calibration benchmark ({size_per_paper} units per paper across all 6 papers)...[/bold cyan]")
@@ -116,16 +190,17 @@ def classify_test_set(
 
 @app.command("evaluate")
 def classify_evaluate(
+    taxonomy: Annotated[str | None, typer.Option("--taxonomy", help="Taxonomy version to evaluate; defaults to active release")] = None,
     threshold: Annotated[float, typer.Option("--threshold", "-t", help="Minimum Bucket A precision threshold (0.0 - 1.0)")] = 0.80,
-    min_samples: Annotated[int, typer.Option("--min-samples", "-m", help="Minimum evaluated samples for strict gating")] = 5,
+    min_samples: Annotated[int, typer.Option("--min-samples", "-m", help="Minimum independently adjudicated Bucket A samples")] = 30,
     benchmark: Annotated[bool, typer.Option("--benchmark", "-b", help="Evaluate specifically on the calibration test set")] = False,
 ) -> None:
     """Evaluate classifier suggestions against human curator decisions."""
-    session_factory = get_session_factory()
+    session_factory = get_session_factory("operations")
     with session_factory() as session:
         if benchmark:
             console.print(f"[bold cyan]Evaluating AI suggestions on Calibration Benchmark (Target: {threshold * 100:.0f}%)...[/bold cyan]")
-            bench_report = evaluate_calibration_benchmark(session, threshold=threshold)
+            bench_report = evaluate_calibration_benchmark(session, threshold=threshold, version_id=taxonomy)
 
             table = Table(title="Calibration Benchmark Evaluation per Paper", show_header=True)
             table.add_column("Paper", style="bold")
@@ -166,6 +241,7 @@ def classify_evaluate(
             session=session,
             bucket_a_threshold=threshold,
             min_samples=min_samples,
+            version_id=taxonomy,
         )
 
         table = Table(title="Model Evaluation per Confidence Bucket", show_header=True)
@@ -196,7 +272,7 @@ def classify_evaluate(
 @app.command("report")
 def classify_report() -> None:
     """Display statistics and bucket distribution of tag suggestions."""
-    session_factory = get_session_factory()
+    session_factory = get_session_factory("operations")
     with session_factory() as session:
         counts = (
             session.query(TagSuggestion.bucket, func.count(TagSuggestion.id))

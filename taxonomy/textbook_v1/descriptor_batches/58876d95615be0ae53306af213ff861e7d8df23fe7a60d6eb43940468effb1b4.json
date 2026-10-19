@@ -1,0 +1,283 @@
+{
+  "descriptors": [
+    {
+      "node_id": "778d3d55-bdb1-4c86-9907-16e4e18df117",
+      "concept_name": "Ethical and Non-Financial Considerations",
+      "definition": "Pricing policies must incorporate ethical and non-financial factors alongside economic objectives to maintain long-term business sustainability. Ignoring moral standards during critical market conditions can severely damage brand reputation and stakeholder trust.",
+      "terminology": [
+        "Ethical pricing",
+        "Essential commodities",
+        "Market fairness",
+        "Non-financial factors"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Moral implications of setting prices during crises",
+        "Balancing economic theory with societal welfare"
+      ],
+      "exclusion": [
+        "Purely profit-driven financial maximization models",
+        "Strictly legal compliance reviews without moral evaluation"
+      ],
+      "nearby_distinctions": [
+        "Differs from pure financial cost-plus pricing by prioritizing moral obligations over profit optimization."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "29f5151b-4ab6-48ba-b952-80a0286d10fc",
+      "concept_name": "Ethical Considerations",
+      "definition": "Ethical considerations in pricing require companies to avoid exploiting vulnerable market conditions or defrauding customers and competitors. Practices that are legally permissible may still violate ethical standards and destroy long-term brand relationships.",
+      "terminology": [
+        "Unjustified pricing",
+        "Relationship marketing",
+        "Market inefficiencies",
+        "Trusted partners"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Charging fair prices for essential and emergency goods",
+        "Protecting long-term customer relationships"
+      ],
+      "exclusion": [
+        "Purely legal compliance checks",
+        "Exploitative bidding wars during shortages"
+      ],
+      "nearby_distinctions": [
+        "Focuses on moral duty and relationship trust rather than statutory illegality."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "854306bb-5563-4d43-bfdd-e18515cc012e",
+      "concept_name": "Ethical Pricing Issues That Hurt Businesses –",
+      "definition": "Certain pricing practices like horizontal price fixing, bid rigging, and predatory price discrimination harm market integrity and damage brand reputation. Regulatory frameworks strictly prohibit collusive actions while viewing other forms of price management with varying legal thresholds.",
+      "terminology": [
+        "Horizontal price fixing",
+        "Vertical price fixing",
+        "Bid rigging",
+        "Cartelization"
+      ],
+      "instrument_references": [
+        "Competition Act, 2002"
+      ],
+      "inclusion": [
+        "Collusive market control agreements",
+        "Tender manipulation and favoritism"
+      ],
+      "exclusion": [
+        "Standard cost-based pricing",
+        "Authorized vertical distribution limits"
+      ],
+      "nearby_distinctions": [
+        "Contrasts illegal horizontal cartelization with selectively permitted vertical price constraints."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7f3cca32-1bae-45b5-abbd-eee18ef16983",
+      "concept_name": "Non-Financial Considerations",
+      "definition": "Non-financial considerations encompass qualitative market factors such as brand image, product life cycle stage, and competitive intensity that influence pricing decisions. These elements shape overall pricing strategies independently of direct monetary costs.",
+      "terminology": [
+        "Brand image",
+        "Product life cycle",
+        "Bargaining power",
+        "Societal considerations"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Competitive intensity and market structure",
+        "Government controls and regulations"
+      ],
+      "exclusion": [
+        "Direct production cost computations",
+        "Marginal revenue calculations"
+      ],
+      "nearby_distinctions": [
+        "Focuses on external qualitative market dynamics rather than internal cost accounting mechanics."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d58d67e9-2379-44d2-9dbf-9b40196ba956",
+      "concept_name": "Price Adjustment Strategies",
+      "definition": "Organizations adapt their base pricing structures to reflect variations in geographical shipping costs, market segments, and delivery terms. These adjustments directly influence a firm's market reach, supply chain locations, and competitive positioning.",
+      "terminology": [
+        "Price adaptation",
+        "Geographic pricing",
+        "Compensation deals",
+        "Incoterms"
+      ],
+      "instrument_references": [
+        "International Commerce Terms"
+      ],
+      "inclusion": [
+        "Adjustments for freight and transportation expenses",
+        "Alternative transaction methods like barter and offset"
+      ],
+      "exclusion": [
+        "Static single-price models",
+        "Internal standard cost allocations"
+      ],
+      "nearby_distinctions": [
+        "Modifies standard list prices based on external logistical and transactional variables."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "04202629-6e4f-4e09-81d6-c2ee25f48e4c",
+      "concept_name": "Geographic Pricing",
+      "definition": "Geographic pricing involves establishing pricing policies based on the shipping locations and countries of buyers and sellers. It determines how freight expenses are allocated and utilizes alternative trade mechanisms like barter or offset agreements.",
+      "terminology": [
+        "Freight expense",
+        "Compensation deals",
+        "Barter",
+        "Offset"
+      ],
+      "instrument_references": [
+        "Incoterms"
+      ],
+      "inclusion": [
+        "Allocation of shipping costs between buyer and seller",
+        "International trade settlement via buy-back arrangements"
+      ],
+      "exclusion": [
+        "Internal volume-based discounts",
+        "Promotional event pricing"
+      ],
+      "nearby_distinctions": [
+        "Centers on spatial distance and transport logistics rather than order size or timing."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0cbf277f-a49f-4e60-b2b6-e67f4ac76ccd",
+      "concept_name": "Discounted Pricing - Price Discounts and Allowances",
+      "definition": "Firms offer price deductions and allowances to reward bulk purchasing, prompt payments, and channel distribution functions. These mechanisms help manage credit risks and stimulate off-season or reseller participation.",
+      "terminology": [
+        "Functional discounts",
+        "Quantity discounts",
+        "Cash discounts",
+        "Seasonal discount"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Distributor trade channel deductions",
+        "Early payment cash incentives"
+      ],
+      "exclusion": [
+        "Geographic freight cost allocations",
+        "Artificial high initial price setting"
+      ],
+      "nearby_distinctions": [
+        "Adjusts prices based on buyer behavior, payment speed, and distribution role rather than geographical location."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f692607a-c5d4-46ee-a90a-7473f6b06415",
+      "concept_name": "Promotional Pricing",
+      "definition": "Promotional pricing applies temporary techniques designed to stimulate immediate buyer interest and accelerate purchase decisions. Strategies range from loss leader pricing and special event discounts to extended payment terms.",
+      "terminology": [
+        "Loss leader pricing",
+        "Special event pricing",
+        "Cash rebates",
+        "Psychological discounting"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Temporary price cuts on well-known brands to drive store traffic",
+        "Offering extended loan periods to lower monthly burdens"
+      ],
+      "exclusion": [
+        "Long-term structural product line pricing",
+        "Systematic functional trade discounts"
+      ],
+      "nearby_distinctions": [
+        "Employs short-term promotional hooks to create immediate sales urgency rather than permanent cost-plus structures."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b9b788bc-606a-465f-bad0-4496d1afc22c",
+      "concept_name": "Price Discrimination",
+      "definition": "Price discrimination involves charging different prices across customer segments, products, places, or time periods based on varying demand elasticities. It requires effective market segmentation and prevention of product resale across segments.",
+      "terminology": [
+        "Demand elasticity",
+        "Time differentials",
+        "Market segmentation",
+        "Underselling prevention"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Time-based pricing variations like booking tickets early versus late",
+        "Segmenting markets to charge maximum willingness to pay"
+      ],
+      "exclusion": [
+        "Uniform single-price policies",
+        "Standard cost-plus markups"
+      ],
+      "nearby_distinctions": [
+        "Directly varies prices by customer or timing elasticity rather than applying broad promotional discounts."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9b56899b-f584-4fe9-a0f8-2ddb2b845413",
+      "concept_name": "Product Mix Pricing",
+      "definition": "Product mix pricing optimizes the price structure across a collection of related offerings to maximize total profitability. It coordinates pricing steps across product lines, optional features, captive accessories, and bundled packages.",
+      "terminology": [
+        "Product line pricing",
+        "Captive product pricing",
+        "Two-part pricing",
+        "Product bundling"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Balancing core product prices with ancillary consumable margins",
+        "Offering pure and mixed product bundles"
+      ],
+      "exclusion": [
+        "Single-item isolated pricing decisions",
+        "Geographic freight adjustments"
+      ],
+      "nearby_distinctions": [
+        "Focuses on optimizing revenue across an entire portfolio of interdependent products rather than individual items."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "042bdb8d-d737-4402-9bf6-9e5cc8d87bcc",
+      "concept_name": "Kano's Performance Attributes",
+      "definition": "The Kano model categorizes product features into threshold, performance, and excitement attributes to prioritize development and align pricing with perceived customer value. Investments in performance attributes drive proportional increases in customer satisfaction.",
+      "terminology": [
+        "Threshold attributes",
+        "Performance attributes",
+        "Excitement attributes",
+        "Perceived value"
+      ],
+      "instrument_references": [
+        "Kano Model"
+      ],
+      "inclusion": [
+        "Identifying must-be qualities expected by customers",
+        "Measuring linear satisfaction gains from one-dimensional features"
+      ],
+      "exclusion": [
+        "Pure financial cost accounting models",
+        "External geographic freight calculations"
+      ],
+      "nearby_distinctions": [
+        "Analyzes qualitative product features and customer satisfaction drivers rather than monetary price adjustments."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "58876d95615be0ae53306af213ff861e7d8df23fe7a60d6eb43940468effb1b4",
+  "artifact_id": "c21d3107-096b-432f-83be-22929a7a5c48",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 7406,
+  "output_tokens": 2790,
+  "cost_usd": 0.0091968,
+  "created_at": "2026-10-03T18:27:27.853432+00:00"
+}

@@ -1,0 +1,264 @@
+{
+  "descriptors": [
+    {
+      "node_id": "592acd52-5c2f-408e-8e46-8ea57fa2be92",
+      "concept_name": "Diluted Earnings Per Share Scope and Objective",
+      "definition": "Diluted earnings per share measures an entity's performance interest per ordinary share by adjusting profit or loss and the weighted average shares for the effects of all dilutive potential ordinary shares. Numerators are adjusted for after-tax dividends and interest on potential shares, while denominators include incremental shares assumed converted.",
+      "terminology": [
+        "Diluted earnings per share",
+        "Dilutive potential ordinary shares",
+        "Weighted average number of ordinary shares",
+        "Profit or loss attributable to ordinary equity holders"
+      ],
+      "instrument_references": [
+        "Ind AS 33"
+      ],
+      "inclusion": [
+        "Profit or loss from continuing operations attributable to ordinary equity holders",
+        "After-tax amount of dividends and interest on dilutive potential ordinary shares",
+        "Weighted average of additional ordinary shares from assumed conversions"
+      ],
+      "exclusion": [
+        "Antidilutive potential ordinary shares",
+        "Basic earnings per share computations without potential share adjustments"
+      ],
+      "nearby_distinctions": [
+        "Basic earnings per share reflects only currently issued ordinary shares without factoring in potential future conversions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "887c87f4-67a5-460d-bf54-8e5e63c090ae",
+      "concept_name": "Shares and Weighted Average Calculation for Diluted EPS",
+      "definition": "The share base for diluted earnings per share combines the weighted average of actual ordinary shares with incremental shares issuable from potential ordinary shares using the if-converted method. Potential shares are weighted for the active period they exist and are evaluated independently for each period presented.",
+      "terminology": [
+        "If converted method",
+        "Weighted average number of ordinary shares",
+        "Dilutive potential ordinary shares",
+        "Exercise price"
+      ],
+      "instrument_references": [
+        "Ind AS 33"
+      ],
+      "inclusion": [
+        "Ordinary shares issuable upon conversion of dilutive potential instruments",
+        "Cancelled or lapsed potential shares weighted for their active period"
+      ],
+      "exclusion": [
+        "Antidilutive potential ordinary shares",
+        "Interim weighted averages aggregated for year-to-date periods"
+      ],
+      "nearby_distinctions": [
+        "Unlike basic EPS which only tracks historical actual issuances, diluted EPS applies the if-converted assumption to prospective instruments."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "29aa50be-0870-49c1-b1f3-dcd0e862262e",
+      "concept_name": "Retrospective Adjustments and Presentation of EPS",
+      "definition": "Prior period diluted earnings per share is not restated for changed assumptions or conversion outcomes of past potential ordinary shares, though corrections of errors and retrospective accounting policies require restatement. Earnings per share must be presented with equal prominence for all reporting periods alongside required continuing and discontinued operation splits.",
+      "terminology": [
+        "Retrospective application",
+        "Bonus issues",
+        "Share splits",
+        "Dual presentation"
+      ],
+      "instrument_references": [
+        "Ind AS 33"
+      ],
+      "inclusion": [
+        "Adjustments for bonus issues and share consolidations across current and prior periods",
+        "Presentation of basic and discontinued operation metrics"
+      ],
+      "exclusion": [
+        "Restatement of prior period diluted EPS for updated estimation assumptions on contingently issuable shares"
+      ],
+      "nearby_distinctions": [
+        "Structural changes in share capital without resource changes trigger retrospective adjustments, whereas changes in conversion assumptions do not."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7725bb33-4603-4e26-bfa1-4f7cad837447",
+      "concept_name": "Presentation of Earnings Per Share",
+      "definition": "Entities must present basic and diluted earnings per share with equal prominence within the statement of profit and loss for every presented period. Negative earnings amounts representing losses per share must be explicitly disclosed alongside distinct figures for continuing and discontinued operations.",
+      "terminology": [
+        "Statement of profit and loss",
+        "Equal prominence",
+        "Loss per share",
+        "Discontinued operation"
+      ],
+      "instrument_references": [
+        "Ind AS 33"
+      ],
+      "inclusion": [
+        "Basic and diluted amounts for profit or loss from continuing operations",
+        "Per share figures for discontinued operations in notes or financial statements"
+      ],
+      "exclusion": [
+        "Separate dual lines when no potential ordinary shares exist and basic equals diluted EPS"
+      ],
+      "nearby_distinctions": [
+        "Discontinued operations require separate per-share disclosure, distinguishing them from continuing operations performance metrics."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0a92f1fc-2026-40a0-8c27-bf7c32bd0ee7",
+      "concept_name": "Disclosure Requirements for Earnings Per Share",
+      "definition": "Entities must disclose numerators and denominators used in basic and diluted earnings per share calculations along with full reconciliation statements. Disclosures must also cover antidilutive instruments excluded from calculations and post-reporting period share transactions.",
+      "terminology": [
+        "Reconciliation",
+        "Antidilutive instruments",
+        "Contingently issuable shares",
+        "Post-reporting period"
+      ],
+      "instrument_references": [
+        "Ind AS 33"
+      ],
+      "inclusion": [
+        "Reconciliation of numerator and denominator components",
+        "Descriptions of significant post-reporting date share transactions"
+      ],
+      "exclusion": [
+        "Retroactive adjustments to reported EPS amounts for post-reporting period share transactions"
+      ],
+      "nearby_distinctions": [
+        "Post-reporting share transactions are described for informational context but do not alter historical period earnings calculations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "01d53f20-a76a-4b90-a6b1-16796055000b",
+      "concept_name": "Participating Equity Instruments and Two-Class Ordinary Shares",
+      "definition": "Earnings are allocated across ordinary shares, different classes of ordinary shares, and participating equity instruments based on their respective dividend or participation rights. Profit is adjusted for declared dividends before remaining earnings are distributed as if fully paid out.",
+      "terminology": [
+        "Participating equity instruments",
+        "Two-class ordinary shares",
+        "Undistributed earnings",
+        "Participation feature"
+      ],
+      "instrument_references": [
+        "Ind AS 33"
+      ],
+      "inclusion": [
+        "Allocation of profit or loss based on contractual dividend rights",
+        "Integration of participation formulas into per-share computations"
+      ],
+      "exclusion": [
+        "Instruments holding senior prior rights over ordinary equity holders without participation features"
+      ],
+      "nearby_distinctions": [
+        "Participating instruments share in undistributed earnings via predetermined formulas, unlike standard fixed-return non-convertible preference shares."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6225c74e-00a1-47ad-81b6-b810a5a00719",
+      "concept_name": "Participating Equity Instruments And Two-Class Ordinary Shares",
+      "definition": "Equity structures containing instruments that share dividends via predetermined formulas or feature distinct dividend rates require profit allocation across classes. Earnings are distributed by accounting for mandatory dividend commitments first and then allocating residual earnings according to participation rights.",
+      "terminology": [
+        "Participating equity instruments",
+        "Two-class ordinary shares",
+        "Undistributed earnings",
+        "Dividend rights"
+      ],
+      "instrument_references": [
+        "Ind AS 33"
+      ],
+      "inclusion": [
+        "Adjustment of parent profit by declared and contractual mandatory dividends",
+        "Distribution of remaining earnings as if fully distributed"
+      ],
+      "exclusion": [
+        "Instruments lacking participation rights or distinct class-based dividend terms"
+      ],
+      "nearby_distinctions": [
+        "Two-class allocations partition earnings dynamically across differing participation tiers rather than applying a single weighted average base."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "adfd7dbc-f0d6-4744-963b-c0f33d3d3d97",
+      "concept_name": "Partly Paid Shares",
+      "definition": "Partly paid ordinary shares are factored into basic earnings per share as a proportional fraction based on their dividend entitlement relative to fully paid shares. Unpaid portions on partly paid shares are treated as option equivalents where the unpaid balance represents assumed proceeds to purchase shares for diluted calculations.",
+      "terminology": [
+        "Partly paid shares",
+        "Dividend entitlement",
+        "Option equivalents",
+        "Unpaid balance"
+      ],
+      "instrument_references": [
+        "Ind AS 33"
+      ],
+      "inclusion": [
+        "Fractional share weighting based on relative amounts paid up",
+        "Unpaid balance treated as option exercise proceeds for diluted EPS"
+      ],
+      "exclusion": [
+        "Full share weightings for unpaid capital amounts lacking dividend participation rights"
+      ],
+      "nearby_distinctions": [
+        "Basic EPS treats partly paid shares via proportionate dividend fractions, whereas diluted EPS applies a treasury-stock style option model to unpaid balances."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3cb73854-26f1-489a-aadb-ddfa204b7812",
+      "concept_name": "Extracts Of Financial Statements Of Listed Entities",
+      "definition": "Published financial disclosures from listed commercial entities illustrate practical reporting conventions for earnings per share metrics. These extracts demonstrate the application of disclosure standards across corporate annual reporting frameworks.",
+      "terminology": [
+        "Annual reports",
+        "Statement of profit and loss",
+        "Listed entities",
+        "Financial statement extracts"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Real-world corporate presentation examples from major listed companies"
+      ],
+      "exclusion": [
+        "Normative calculation rules or theoretical definitions"
+      ],
+      "nearby_distinctions": [
+        "Serves as an illustrative reporting exhibit rather than setting standard-derived computation mandates."
+      ],
+      "source_ambiguities": [
+        "The source text consists purely of corporate headings and source citations without substantive rules or definitions."
+      ]
+    },
+    {
+      "node_id": "a43c9dd1-99e5-4001-b520-54c42b2e8d47",
+      "concept_name": "Significant Differences Between Ind As 33 And As 20",
+      "definition": "Standard frameworks diverge on treatments for antidilutive disclosures, mandatorily convertible instruments, time-based issuances, and returnable shares. Ind AS mandates comprehensive disclosures and specific timing rules for contingent or mandatory instruments that local standards may omit.",
+      "terminology": [
+        "Mandatorily convertible instrument",
+        "Contingently returnable shares",
+        "Anti-dilutive",
+        "Passage of time"
+      ],
+      "instrument_references": [
+        "Ind AS 33",
+        "AS 20"
+      ],
+      "inclusion": [
+        "Inclusion of mandatorily convertible shares in basic EPS from contract entry date under Ind AS",
+        "Exclusion of contingently returnable shares from basic EPS until recall risk lapses"
+      ],
+      "exclusion": [
+        "Omission of returnable share guidance and passage-of-time rules in legacy standards"
+      ],
+      "nearby_distinctions": [
+        "Ind AS 33 requires tracking anti-dilutive future potential instruments in notes, a requirement absent in older local accounting frameworks."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "7494e6f38fe48058ead00d310b1f8a0109ea357f3aeaa0d0d3cb0ca58dfbc251",
+  "artifact_id": "cdaf4f60-ab59-4b7b-b2f7-2a8d12656ab7",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 6405,
+  "output_tokens": 2942,
+  "cost_usd": 0.0092765,
+  "created_at": "2026-10-03T18:03:32.105763+00:00"
+}

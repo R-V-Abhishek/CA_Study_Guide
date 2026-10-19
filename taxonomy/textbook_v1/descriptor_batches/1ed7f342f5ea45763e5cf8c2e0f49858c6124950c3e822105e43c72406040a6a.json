@@ -1,0 +1,283 @@
+{
+  "descriptors": [
+    {
+      "node_id": "2202140a-578d-44cd-9174-e8ef1f084224",
+      "concept_name": "Growth Component",
+      "definition": "The growth component measures the change in operating income resulting exclusively from variations in the quantity of output sold compared to the previous period. It segregates revenue and cost impacts caused strictly by selling a higher or lower volume of units.",
+      "terminology": [
+        "Growth Component",
+        "Revenue Effect",
+        "Cost Effect",
+        "Actual Units of Output"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Change in revenue due to output volume changes",
+        "Change in variable and fixed costs due to output volume changes"
+      ],
+      "exclusion": [
+        "Changes caused purely by selling price or input price fluctuations",
+        "Changes caused by productivity variations"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from the price recovery component, which isolates price changes rather than volume changes."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d7212b8d-838d-477a-99a2-f5dd177a59b3",
+      "concept_name": "Revenue Effect",
+      "definition": "This metric evaluates the increase or decrease in business revenue solely attributable to changes in the physical number of units sold between periods. It holds selling prices constant while assessing output volume fluctuations.",
+      "terminology": [
+        "Revenue Effect of Growth",
+        "Actual Units of Output",
+        "Selling Price in Last Year"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Revenue variations arising from different unit sales volumes"
+      ],
+      "exclusion": [
+        "Revenue variations driven by adjustments in selling prices"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from price recovery revenue effect which isolates price changes rather than volume changes."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "cd341b3c-6ab6-41f4-9328-2226e72af2da",
+      "concept_name": "Price Recovery Component",
+      "definition": "The price recovery component measures shifts in operating income driven exclusively by alterations in selling prices and input prices. It calculates the financial impact of price changes while holding output quantities and productivity constant.",
+      "terminology": [
+        "Price Recovery Component",
+        "Selling Price",
+        "Input Price"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Changes in revenue due to selling price changes",
+        "Changes in costs due to input price changes"
+      ],
+      "exclusion": [
+        "Changes in operating income caused by output volume fluctuations",
+        "Changes caused by input yield or product mix shifts"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from the growth component, which focuses on volume changes rather than price variations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0ad06b29-eefd-4f03-a25b-2567bedb0877",
+      "concept_name": "Revenue Effect",
+      "definition": "The revenue effect of price recovery measures the precise increase or decrease in revenue generated exclusively by modifications in selling prices. It contrasts current selling prices with past prices against current output volumes.",
+      "terminology": [
+        "Revenue Effect of Price Recovery",
+        "Selling Price in Current Year",
+        "Selling Price in Last Year"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Revenue shifts caused strictly by selling price adjustments"
+      ],
+      "exclusion": [
+        "Revenue shifts caused by unit sales volume growth"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from the growth revenue effect by focusing on price changes rather than quantity sold."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8fd40098-09ee-452f-8f06-01a340eb2b01",
+      "concept_name": "Cost Effect",
+      "definition": "Cost effect separates the financial impacts on variable and fixed expenditures resulting from underlying operational factors. It evaluates structural cost differences across distinct analytical components like growth and price recovery.",
+      "terminology": [
+        "Cost Effect of Growth",
+        "Variable Costs",
+        "Fixed Costs",
+        "Capacity"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Variable and fixed cost variances tied to specific operational drivers"
+      ],
+      "exclusion": [
+        "Revenue side metrics"
+      ],
+      "nearby_distinctions": [
+        "Separated into distinct sub-analyses for variable and fixed cost behaviors."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6e64c58a-6a4f-44ec-b2f2-3c0731faa596",
+      "concept_name": "Productivity Component",
+      "definition": "The productivity component measures changes in operating income resulting from alterations in input yield or product mix relative to the prior period. It utilizes current year input prices to isolate efficiency-driven cost changes.",
+      "terminology": [
+        "Productivity Component",
+        "Product Mix",
+        "Yield of Inputs",
+        "Cost Effect"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Cost changes driven by efficiency and input yield improvements",
+        "Cost impacts arising from shifts in product mix"
+      ],
+      "exclusion": [
+        "Cost changes caused strictly by input price fluctuations",
+        "Revenue modifications"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from the price recovery component because it applies current input prices to measure productivity rather than input price variances."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4edc57fe-f665-4a98-ab8e-aa123a0bbedb",
+      "concept_name": "Reconciliation of Operating Profit Particulars Costs Revenue",
+      "definition": "Profit reconciliation systematically bridges last year operating income to current year operating income through structured growth, price recovery, and productivity components. It matches favorable and adverse cost and revenue variances to verify total performance changes.",
+      "terminology": [
+        "Operating Profit in Last Year",
+        "Growth Component",
+        "Price Recovery Component",
+        "Productivity Component",
+        "Favorable",
+        "Adverse"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Step-by-step tabulation of growth, price recovery, and productivity effects"
+      ],
+      "exclusion": [
+        "Unverified adjustments outside standard profitability components"
+      ],
+      "nearby_distinctions": [
+        "Provides an aggregate financial bridge differing from isolated sub-component calculations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ad54b376-866a-4065-bfd7-618dd8f9929f",
+      "concept_name": "N.1 Effect of the Industry Market Size Factor on operating income :",
+      "definition": "This factor isolates the portion of operating income variance caused by broader industry market growth rather than firm-specific market share gains. It scales the total growth component effect by the ratio of market-driven units to total sales growth units.",
+      "terminology": [
+        "Industry Market Size Factor",
+        "Market Growth",
+        "Growth Component"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Operating income changes attributable to general market expansion"
+      ],
+      "exclusion": [
+        "Operating income changes attributable to competitive market share expansion"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from product differentiation or market share growth by isolating exogenous industry expansion."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d8cd4724-c7e3-4b59-a31d-d16192880f22",
+      "concept_name": "N.2 Effect of Productivity on operating income :",
+      "definition": "This metric evaluates the specific impact of operational productivity changes on overall operating income. It directly captures the cost effect of the productivity component for the period.",
+      "terminology": [
+        "Effect of Productivity",
+        "Operating Income",
+        "Cost Effect of Productivity Component"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Direct financial impact of productivity performance on operating income"
+      ],
+      "exclusion": [
+        "Market size or pricing adjustments"
+      ],
+      "nearby_distinctions": [
+        "Measures internal efficiency benefits distinct from external market size factors."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "43026c1f-c771-41e7-a66d-8f6bf7800fe7",
+      "concept_name": "N.3 Effect of Product Differentiation on operating income : Particulars Amount ( ` )",
+      "definition": "Product differentiation effects capture the profitability changes resulting from a firm's unique competitive advantages, including price adjustments and market share expansion beyond baseline industry growth. It aggregates price recovery outcomes and market share growth contributions.",
+      "terminology": [
+        "Product Differentiation",
+        "Increase in the Selling Price",
+        "Growth in Market Share"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Operating income changes from selling price premiums",
+        "Operating income changes from capturing additional market share"
+      ],
+      "exclusion": [
+        "Baseline industry market size growth effects"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from industry market size growth by highlighting firm-specific competitive positioning."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "940d6ab5-4ccc-44f6-b080-b401b2575aab",
+      "concept_name": "Direct Product Profitability (DPP)",
+      "definition": "Direct product profitability is an analytical method that measures the net profit of individual product lines by attributing both purchase prices and specific indirect costs based on resource consumption. It utilizes specific operational metrics like space and time to evaluate true product profitability, particularly in retail environments.",
+      "terminology": [
+        "Direct Product Profitability",
+        "DPP",
+        "Gross Margin",
+        "CIMA"
+      ],
+      "instrument_references": [
+        "CIMA"
+      ],
+      "inclusion": [
+        "Attribution of purchase prices and indirect costs like warehousing and transport",
+        "Net profit identification per product line"
+      ],
+      "exclusion": [
+        "Traditional absorption costing using arbitrary labor or machine hours"
+      ],
+      "nearby_distinctions": [
+        "Differs from gross margin analysis by factoring in indirect operating and handling costs rather than only bought-in costs."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c6d45cf8-7bef-43cb-a8f3-ec9010b746ca",
+      "concept_name": "Benefits of DPP",
+      "definition": "Direct product profitability frameworks deliver advantages such as refined cost analysis, enhanced pricing decisions, and optimized warehouse space management. These benefits enable better rationalization of product ranges compared to basic gross margin calculations.",
+      "terminology": [
+        "Benefits of DPP",
+        "Overhead Cost",
+        "Volume Related Cost",
+        "Product Batch Cost",
+        "Inventory Financing Costs"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Overhead, volume-related, batch, and inventory financing cost categorizations",
+        "Enhanced pricing and space management capabilities"
+      ],
+      "exclusion": [
+        "Reliance on traditional volume-based overhead allocation models"
+      ],
+      "nearby_distinctions": [
+        "Provides actionable cost control dimensions that traditional gross margin metrics overlook."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "1ed7f342f5ea45763e5cf8c2e0f49858c6124950c3e822105e43c72406040a6a",
+  "artifact_id": "34b24b68-e907-41e1-8066-3ec1a0fb9b63",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 9412,
+  "output_tokens": 2950,
+  "cost_usd": 0.0101986,
+  "created_at": "2026-10-03T18:27:28.161647+00:00"
+}

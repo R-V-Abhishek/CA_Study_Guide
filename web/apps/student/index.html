@@ -1,12 +1,25 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      try {
+        const preference = localStorage.getItem('caf_theme');
+        document.documentElement.classList.toggle('dark',
+          preference === 'light' ? false : preference === 'system'
+            ? matchMedia('(prefers-color-scheme: dark)').matches : true);
+      } catch { /* Dark remains usable without storage. */ }
+    </script>
+    <style>
+      html { background: #F5F7F2; color: #191D1A; color-scheme: light; }
+      html.dark { background: #101411; color: #E0E3DE; color-scheme: dark; }
+      body { background: inherit; }
+    </style>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CA Final Study Companion</title>
+    <title>CA Study Companion</title>
   </head>
-  <body class="bg-[#FAFAF9] dark:bg-[#0C0A09] text-[#1C1917] dark:text-[#FAFAF9] antialiased">
+  <body class="antialiased">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

@@ -1,0 +1,310 @@
+{
+  "descriptors": [
+    {
+      "node_id": "c5f7a8ca-b4db-4b52-8cfc-0798730ddaf6",
+      "concept_name": "Presentation Requirements of Ind AS 1",
+      "definition": "Indian Accounting Standard 1 prescribes the overall structural requirements, minimum disclosures, and general features for general-purpose financial statements. Its mandates ensure consistency across primary financial components like the balance sheet and statement of profit and loss.",
+      "terminology": [
+        "general-purpose financial statements",
+        "minimum disclosures",
+        "components of financial statements"
+      ],
+      "instrument_references": [
+        "Ind AS 1",
+        "Ind AS 110",
+        "Ind AS 27"
+      ],
+      "inclusion": [
+        "Consolidated financial statements",
+        "Separate financial statements"
+      ],
+      "exclusion": [
+        "Structure and content of condensed interim financial statements under Ind AS 34"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from specific recognition and measurement standards which supplement presentation rules."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a8c3d8dc-b10a-4c01-8cc0-defeb6520057",
+      "concept_name": "Objective of Financial Statement Presentation",
+      "definition": "The objective establishes a standardized basis for presenting general-purpose financial statements to facilitate comparability with an entity's historical reports and those of external entities. It mandates comprehensive structural rules and baseline content specifications.",
+      "terminology": [
+        "comparability",
+        "structure",
+        "content"
+      ],
+      "instrument_references": [
+        "Ind AS 1"
+      ],
+      "inclusion": [
+        "Historical financial statement comparisons",
+        "Cross-entity financial comparisons"
+      ],
+      "exclusion": [
+        "Tailored custom reports for individual users"
+      ],
+      "nearby_distinctions": [
+        "Differs from recognition criteria by focusing exclusively on presentation formatting and comparability."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "516dd398-4202-40a8-ad6a-92650b8e5492",
+      "concept_name": "Scope of Ind AS 1",
+      "definition": "The standard governs all entities publishing general-purpose financial reports, including consolidated and separate financial formats. Profit-oriented terminology applies, requiring adaptation for non-profit or non-equity organizational structures.",
+      "terminology": [
+        "scope",
+        "consolidated financial statements",
+        "separate financial statements"
+      ],
+      "instrument_references": [
+        "Ind AS 1",
+        "Ind AS 110",
+        "Ind AS 27",
+        "Ind AS 34",
+        "Ind AS 32"
+      ],
+      "inclusion": [
+        "Public sector business entities",
+        "Profit-oriented commercial entities"
+      ],
+      "exclusion": [
+        "Condensed interim financial statements structure under Ind AS 34, except paragraphs 15 to 35"
+      ],
+      "nearby_distinctions": [
+        "Excludes interim reporting frameworks while encompassing annual consolidated and separate statements."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9760a105-66d5-46c8-9240-af47d93fe970",
+      "concept_name": "Definitions and Materiality Assessment",
+      "definition": "Information is considered material if its omission, misstatement, or obscuring could reasonably influence primary user decisions. Entities must assess materiality based on the nature or magnitude of items within the context of complete financial statements.",
+      "terminology": [
+        "material information",
+        "obscured information",
+        "impracticable"
+      ],
+      "instrument_references": [
+        "Ind AS 1",
+        "Ind AS 8"
+      ],
+      "inclusion": [
+        "Assessment of qualitative and quantitative materiality factors",
+        "Identification of obscured disclosures"
+      ],
+      "exclusion": [
+        "Immaterial disclosures not required by law"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between transparent immaterial aggregation and harmful obscuring of material facts."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3b7cc79d-5d8b-4250-963d-96bd8e02ef93",
+      "concept_name": "Purpose of Financial Statements",
+      "definition": "Financial statements supply structured data regarding an entity's financial position, performance, and cash flows to assist users in economic decision-making. They detail assets, liabilities, equity, income, expenses, and owner contributions to project future cash flows.",
+      "terminology": [
+        "financial position",
+        "financial performance",
+        "economic decisions"
+      ],
+      "instrument_references": [
+        "Ind AS 1"
+      ],
+      "inclusion": [
+        "Assets, liabilities, and equity balances",
+        "Income, expenses, and cash flow metrics"
+      ],
+      "exclusion": [
+        "Management financial reviews or environmental reports published outside financial statements"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes core financial statements from supplementary annual report reviews."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1fd818d9-412e-4f2c-8012-ddd55aeebc3c",
+      "concept_name": "Complete Set of Financial Statements",
+      "definition": "A comprehensive set requires a balance sheet, statement of profit and loss, changes in equity, cash flows, and explanatory notes with material policies. Equal prominence must be given to all statements, incorporating appropriate comparative periods.",
+      "terminology": [
+        "complete set",
+        "profit and loss section",
+        "other comprehensive income"
+      ],
+      "instrument_references": [
+        "Ind AS 1"
+      ],
+      "inclusion": [
+        "Opening balance sheet for retrospective accounting changes",
+        "Two-section statement of profit and loss and OCI"
+      ],
+      "exclusion": [
+        "External reports like management commentary or value-added statements"
+      ],
+      "nearby_distinctions": [
+        "Differentiates routine annual comparative data from retroactive opening balance sheet requirements."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4e326e4e-68db-4474-b382-fb7b6bdce9c5",
+      "concept_name": "True and Fair View and Compliance",
+      "definition": "Financial statements must faithfully represent operational transactions and events in accordance with Conceptual Framework definitions. Compliance with applicable Indian Accounting Standards creates a legal presumption of achieving a true and fair view.",
+      "terminology": [
+        "true and fair view",
+        "faithful representation",
+        "explicit and unreserved statement"
+      ],
+      "instrument_references": [
+        "Ind AS 1",
+        "Ind AS 8"
+      ],
+      "inclusion": [
+        "Explicit compliance notes in financial statements",
+        "Additional disclosures when standard requirements prove insufficient"
+      ],
+      "exclusion": [
+        "Unverified compliance claims lacking adherence to complete standard criteria"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes baseline standard compliance from supplemental disclosures needed for genuine clarity."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d4da439b-a762-4179-94ba-fa0598e656c5",
+      "concept_name": "Presentation of True and Fair View and Compliance with Ind AS",
+      "definition": "Financial statements must faithfully represent operational transactions and events in accordance with Conceptual Framework definitions. Compliance with applicable Indian Accounting Standards creates a legal presumption of achieving a true and fair view.",
+      "terminology": [
+        "true and fair view",
+        "faithful representation",
+        "explicit and unreserved statement"
+      ],
+      "instrument_references": [
+        "Ind AS 1",
+        "Ind AS 8"
+      ],
+      "inclusion": [
+        "Explicit compliance notes in financial statements",
+        "Additional disclosures when standard requirements prove insufficient"
+      ],
+      "exclusion": [
+        "Unverified compliance claims lacking adherence to complete standard criteria"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes baseline standard compliance from supplemental disclosures needed for genuine clarity."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8eb2ec06-6748-462d-872e-a74a769738cc",
+      "concept_name": "Going Concern Assessment",
+      "definition": "Entities must prepare financial statements on a going concern basis unless management intends liquidation or cessation of trading. Management must evaluate viability for a minimum of twelve months following the reporting period end.",
+      "terminology": [
+        "going concern",
+        "liquidation",
+        "material uncertainty"
+      ],
+      "instrument_references": [
+        "Ind AS 1"
+      ],
+      "inclusion": [
+        "Evaluation of financing terms and cash flow forecasts",
+        "Identification of net liability positions or default risks"
+      ],
+      "exclusion": [
+        "Continuation of going concern assumption when liquidation intent is confirmed"
+      ],
+      "nearby_distinctions": [
+        "Separates short-term working capital fluctuations from terminal operational cessation indicators."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "54ad37db-a5ce-43f5-827d-c5afec57033d",
+      "concept_name": "Accrual Basis of Accounting and Materiality Aggregation",
+      "definition": "Financial statements, excluding cash flow data, must be prepared using the accrual basis to recognize elements when definition criteria are satisfied. Material classes must be presented separately while preventing the obscuring of critical information through poor aggregation.",
+      "terminology": [
+        "accrual basis",
+        "element recognition",
+        "aggregation"
+      ],
+      "instrument_references": [
+        "Ind AS 1"
+      ],
+      "inclusion": [
+        "Separate presentation of material dissimilar items",
+        "Accrual recognition of income and expenses"
+      ],
+      "exclusion": [
+        "Cash flow statement preparation on an accrual basis"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes proper functional aggregation from improper obscuring via immaterial dilution."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "89e7d12a-337b-4b2e-9949-95529aeb74eb",
+      "concept_name": "Materiality and Aggregation Rules",
+      "definition": "Entities are required to present individual material classes separately while keeping dissimilar elements distinct unless explicitly permitted. Aggregation must not obscure primary understandability or lump dissimilar transactional natures together.",
+      "terminology": [
+        "material class",
+        "aggregation",
+        "understandability"
+      ],
+      "instrument_references": [
+        "Ind AS 1"
+      ],
+      "inclusion": [
+        "Separate line-item presentation for material items",
+        "Consolidation of immaterial items into notes or summary lines"
+      ],
+      "exclusion": [
+        "Inappropriate combination of disparate functional categories"
+      ],
+      "nearby_distinctions": [
+        "Separates required granular disclosures from permitted summary grouping of immaterial items."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "13bebc51-56d6-41d8-ba5a-632d86c8c4c2",
+      "concept_name": "Prohibition of Offsetting",
+      "definition": "Offsetting assets against liabilities or income against expenses is prohibited unless explicitly required or permitted by an accounting standard. Measuring assets net of valuation allowances or reporting net gains from similar transactions does not constitute prohibited offsetting.",
+      "terminology": [
+        "offsetting",
+        "valuation allowances",
+        "net presentation"
+      ],
+      "instrument_references": [
+        "Ind AS 1",
+        "Ind AS 115",
+        "Ind AS 37"
+      ],
+      "inclusion": [
+        "Netting inventory obsolescence or doubtful debt allowances",
+        "Gains and losses on disposal of non-current assets"
+      ],
+      "exclusion": [
+        "Netting agency commissions or unrelated revenue and expense streams"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes permitted valuation adjustments from prohibited combination of distinct receivables and payables."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "5b64f41168733caa3c859a981b5aeaff510dfdf2e266f64a84563ffe484cfdcf",
+  "artifact_id": "344e0233-6162-40cf-9c03-373228b0fb72",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8277,
+  "output_tokens": 3105,
+  "cost_usd": 0.0102456,
+  "created_at": "2026-10-03T17:47:30.736768+00:00"
+}

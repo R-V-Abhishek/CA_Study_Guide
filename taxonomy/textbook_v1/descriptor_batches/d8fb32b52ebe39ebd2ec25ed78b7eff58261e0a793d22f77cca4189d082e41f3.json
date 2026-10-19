@@ -1,0 +1,136 @@
+{
+  "descriptors": [
+    {
+      "node_id": "0cb0e45d-aa11-4941-bd79-ce905a302dae",
+      "concept_name": "Strategic Responses to New Customer Needs and Ecosystems",
+      "definition": "Organizations can capture market value by aligning product features with evolving consumer lifestyles, establishing a definitive unique selling proposition, and acting as indispensable value system integrators. Sustaining competitive advantage additionally relies on broad supply chain partnerships, regional policy harmony, and collaborative frameworks.",
+      "terminology": [
+        "Unique Selling Proposition",
+        "System Integrator",
+        "Value System",
+        "Supply Chain Partnerships"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Adapting product offerings to match shifting consumer trends",
+        "Establishing dominant brand recognition as a market unique selling proposition",
+        "Integrating broader system partner networks"
+      ],
+      "exclusion": [
+        "Static product designs ignoring lifestyle shifts",
+        "Operating isolated single-entity supply chains without partnerships"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from hyper-competition responses by focusing on baseline customer value alignment rather than rapid short-term market disruptions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5d3be319-b341-488e-b504-b2e48117131d",
+      "concept_name": "Strategic Aspects of Creating Ecosystems",
+      "definition": "Forming external business partnerships requires addressing strategic dimensions such as stakeholder accountability, real-time transparent communication, and pooled resource sharing. Enterprises must carefully reserve core capability resources while leveraging collective economics of scope and scale through alliances.",
+      "terminology": [
+        "Shared Economy",
+        "Economics of Scope",
+        "Seamless Flow of Information",
+        "Enhanced Accountability"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Pooling non-core organizational resources into a shared ecosystem pool",
+        "Maintaining real-time transparent communication across alliance partners",
+        "Evaluating multi-firm vertical or horizontal collaborations for scope economies"
+      ],
+      "exclusion": [
+        "Pooling proprietary core capability resources critical to direct competitive advantage",
+        "Opaque withholding of vital non-confidential operational information"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from traditional internal resource management by extending resource governance and risk sharing across legally independent external entities."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f5b900b8-b95a-4809-922c-bd1a22084e5f",
+      "concept_name": "Focus on Series of Short-Term Advantages in Hyper-Competition",
+      "definition": "In hyper-competitive markets, firms must abandon efforts to sustain a single long-term advantage and instead continuously generate a series of transient short-term advantages through market disruption. Achieving this requires lean start-up structures, continuous research allocations, and agile timing in shifting from one innovation to the next.",
+      "terminology": [
+        "Hyper-Competition",
+        "Transient Advantage",
+        "Market Disruption",
+        "Lean Start-Up Structure"
+      ],
+      "instrument_references": [
+        "D'Aveni's 7S framework"
+      ],
+      "inclusion": [
+        "Executing frequent incremental and disruptive product modifications",
+        "Maintaining dedicated research and development budget allocations",
+        "Fostering decentralized lean teams to drive rapid innovation"
+      ],
+      "exclusion": [
+        "Relying on static, long-term competitive positions in rapidly changing markets",
+        "Failing to time transitions away from maturing product iterations"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from stable industry positioning by accepting constant disruption cycles as a necessary mechanism for survival."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7d5a324f-f942-4001-9c87-add15a35da19",
+      "concept_name": "Strategic Response to Transformations and Disruptions",
+      "definition": "Firms facing industry transformations and disruptive innovations must actively evaluate strategic postures to ensure survival when baseline market premises shift. Available strategic responses range from harvesting cash flows from vulnerable product lines to making heavy counter investments in resources.",
+      "terminology": [
+        "Disruptive Innovations",
+        "Milking as Cash Cow",
+        "Counter Invest",
+        "Blocking the Path"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Harvesting cash flows from legacy vulnerable businesses",
+        "Executing heavy capital expenditures to build imitation-resistant infrastructure",
+        "Erecting regulatory or intellectual property hurdles against incoming disruptors"
+      ],
+      "exclusion": [
+        "Continuing traditional continuous improvement strategies unchanged in the face of structural market disruptions"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from routine operational planning by addressing fundamental shifts in the underlying basis of market competition."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1a65a2ec-8be2-4f15-be74-ab3ead134a43",
+      "concept_name": "Advanced Strategic Responses to Market Disruptions",
+      "definition": "Organizations can counter major industry disruptions through aggressive counter-disruption initiatives or by strategically contracting their market presence to focus on core capabilities. These options allow established firms to leverage superior resource pools either to neutralize new entrants or to preserve enterprise-wide solution integrity.",
+      "terminology": [
+        "Counter Disruption",
+        "Restrict Presence",
+        "Shift Focus on Core",
+        "Core Capabilities"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Launching large-scale counter-disruptions to neutralize original market innovators",
+        "Shifting operational focus toward foundational core product lines without completely closing secondary offerings"
+      ],
+      "exclusion": [
+        "Completely abandoning secondary product lines when a comprehensive multi-segment solution must be maintained",
+        "Passive acceptance of market displacement by agile start-ups"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from basic cash cow harvesting by employing active competitive counter-offensives or deliberate capability refocusing."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "d8fb32b52ebe39ebd2ec25ed78b7eff58261e0a793d22f77cca4189d082e41f3",
+  "artifact_id": "93270a60-645c-46b1-b75f-5a66ce49fc26",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 3811,
+  "output_tokens": 1503,
+  "cost_usd": 0.0049008,
+  "created_at": "2026-10-03T18:27:13.054301+00:00"
+}

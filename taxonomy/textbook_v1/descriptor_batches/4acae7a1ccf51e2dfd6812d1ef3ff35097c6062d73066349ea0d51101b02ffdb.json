@@ -1,0 +1,304 @@
+{
+  "descriptors": [
+    {
+      "node_id": "19e46003-27fa-4607-bfef-2f97fcb7cc22",
+      "concept_name": "Shift from Sellers' to Buyers' Market",
+      "definition": "The contemporary business landscape operates as a buyer's market driven by global economic integration, intense competition, and excess production capacities. Organizations must achieve customer satisfaction through exceptional process performance rather than relying on traditional seller dominance.",
+      "terminology": [
+        "buyer's market",
+        "globalization",
+        "excess capacities",
+        "cost of quality"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Global economic changes",
+        "Macroeconomic and technological shifts",
+        "Customer satisfaction focus"
+      ],
+      "exclusion": [
+        "Seller-controlled scarcity models",
+        "Traditional localized monopolies"
+      ],
+      "nearby_distinctions": [
+        "Differs from a sellers' market by shifting bargaining power and operational focus entirely to the consumer."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c8ff5eb0-83e4-4a35-a77a-84ca15efa040",
+      "concept_name": "Views regarding the Cost of Quality",
+      "definition": "Practitioner perspectives on quality cost span three paradigms: higher quality uniformly increases resource expenses; quality improvement generates net savings through reduced rework and scrap; and true quality costs encompass all excess expenditures from failing to execute processes correctly initially, including hidden customer and market losses.",
+      "terminology": [
+        "price of conformance",
+        "price of non-conformance",
+        "cost of poor quality",
+        "continuous improvement"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Trade-offs between quality and expense",
+        "Direct and hidden quality costs",
+        "Zero-defect philosophies"
+      ],
+      "exclusion": [
+        "Isolated production variance analysis without quality context"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between traditional views of inevitable cost increases versus modern views linking quality enhancement to overall net savings."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "62475c14-47c0-4dc3-9b94-3b3afbe51302",
+      "concept_name": "Components of COQ",
+      "definition": "Quality costs are categorized into the price of conformance and the price of non-conformance, further structured into the prevention, appraisal, and failure model. This framework measures both the investments made to ensure excellence and the losses incurred due to deficiencies.",
+      "terminology": [
+        "PAF model",
+        "price of conformance",
+        "price of non-conformance",
+        "cost of good quality"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Prevention expenses",
+        "Appraisal expenses",
+        "Internal and external failure expenses"
+      ],
+      "exclusion": [
+        "Standard production costs incurred under zero-defect conditions"
+      ],
+      "nearby_distinctions": [
+        "Separates proactive investments in quality from reactive expenses resulting from product defects."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c770a1b4-b6b7-4c39-9362-b250fcba370b",
+      "concept_name": "Prevention Costs",
+      "definition": "Prevention costs are planned expenditures incurred prior to operations to design, implement, and maintain quality management systems. Their primary objective is to minimize appraisal and failure costs by avoiding quality problems proactively.",
+      "terminology": [
+        "quality engineering",
+        "quality planning",
+        "quality audits",
+        "preventive equipment maintenance"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Quality training programs",
+        "Supplier evaluation and selection",
+        "Design reviews and process engineering"
+      ],
+      "exclusion": [
+        "Inspection activities conducted after production",
+        "Rework and warranty expenses"
+      ],
+      "nearby_distinctions": [
+        "Unlike appraisal costs which monitor existing output, prevention costs focus on designing processes to avoid defects before they occur."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "eb3ab836-a9e9-436a-a58c-8dec80fd9083",
+      "concept_name": "Appraisal Costs",
+      "definition": "Appraisal costs are expenses associated with measuring, evaluating, and auditing activities to ensure that materials, processes, and products conform to established quality standards. These monitoring efforts occur across various stages to verify that specifications are met.",
+      "terminology": [
+        "field testing",
+        "packaging inspection",
+        "product acceptance",
+        "measurement equipment"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Inspecting and testing incoming materials",
+        "Process acceptance procedures",
+        "Outside certification expenses"
+      ],
+      "exclusion": [
+        "Upfront quality planning and engineering",
+        "Remediation of identified internal defects"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from prevention costs by focusing on active evaluation and inspection rather than proactive system design."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2f015be1-d647-4864-bfff-cf7d0d0a3f0a",
+      "concept_name": "Internal Failure Costs",
+      "definition": "Internal failure costs arise from product or process deficiencies discovered before the goods or services reach external customers. These expenses remedy non-conformance issues caused by operational errors and inefficiencies.",
+      "terminology": [
+        "scrap",
+        "rework",
+        "re-designing",
+        "downtime"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Scrap and waste generation",
+        "Rework and re-testing procedures",
+        "Production downtime"
+      ],
+      "exclusion": [
+        "Defects detected after transfer to customers",
+        "Pre-operational quality planning"
+      ],
+      "nearby_distinctions": [
+        "Unlike external failure costs, internal failure costs are contained and resolved entirely within the organization prior to delivery."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "53bf6bde-0332-47f9-9354-2265767661fe",
+      "concept_name": "External Failure Costs",
+      "definition": "External failure costs are incurred when product or service deficiencies fail to meet design quality standards and remain undetected until after delivery to external customers. These expenses result from customer dissatisfaction and post-transfer remediation.",
+      "terminology": [
+        "recalls",
+        "returns and allowances",
+        "warranties",
+        "lost market share"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Product recall expenses",
+        "Warranty claims and repairs",
+        "Lost sales and damaged market share"
+      ],
+      "exclusion": [
+        "Defects intercepted during internal production stages",
+        "Proactive quality inspection activities"
+      ],
+      "nearby_distinctions": [
+        "Differs from internal failure costs because the non-conformance is experienced directly by the external end-user or customer."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "13d3a2e6-7508-46c6-90bb-db58496f6b80",
+      "concept_name": "Optimal COQ",
+      "definition": "Optimal cost of quality represents the economic equilibrium point where increased conformance expenditures on prevention and appraisal balance against reductions in failure costs to minimize total quality expenses. Achieving this balance involves a trade-off between conformance and non-conformance costs.",
+      "terminology": [
+        "cost of conformance",
+        "cost of non-conformance",
+        "optimum operating level",
+        "trade-off"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Balancing conformance and failure expenditures",
+        "Minimizing combined quality costs"
+      ],
+      "exclusion": [
+        "Unbounded expenditure on absolute zero defects regardless of economic return"
+      ],
+      "nearby_distinctions": [
+        "Contrasts with unconstrained continuous improvement models by identifying a specific cost-minimizing operational equilibrium."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4ccace10-b10b-4adf-add9-1ca65a294894",
+      "concept_name": "Steps of Application of PAF Model",
+      "definition": "The PAF model application involves a structured five-step process to measure, classify, and address quality costs. Organizations gather failure data, apply quantification assumptions, chart the elements, and allocate resources to combat identified weaknesses regularly.",
+      "terminology": [
+        "PAF model",
+        "prevention appraisal failure",
+        "iceberg model",
+        "hidden costs"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Gathering basic system failure information",
+        "Quantifying and charting quality data",
+        "Regular performance evaluation and resource allocation"
+      ],
+      "exclusion": [
+        "Ad-hoc quality spending without systematic data collection"
+      ],
+      "nearby_distinctions": [
+        "Provides a systematic procedural framework for implementing the conceptual categories of the PAF model."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a08cc908-9266-473c-a2a5-8ed9be5f9c82",
+      "concept_name": "Six C’s of TQM",
+      "definition": "The Six Cs framework outlines foundational organizational pillars—commitment, culture, continuous improvement, co-operation, customer focus, and control—necessary for successful total quality management implementation. These elements ensure that quality principles permeate internal practices and employee attitudes.",
+      "terminology": [
+        "commitment",
+        "culture",
+        "continuous improvement",
+        "co-operation",
+        "customer focus",
+        "control"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Top management commitment",
+        "Internal and external customer orientation",
+        "Documentation and procedural control mechanisms"
+      ],
+      "exclusion": [
+        "Sole reliance on external customer metrics without internal alignment"
+      ],
+      "nearby_distinctions": [
+        "Expands standard quality cost categories into comprehensive behavioral and structural prerequisites for organization-wide quality culture."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a82cbade-cf02-405c-965d-4bbe683d8e1b",
+      "concept_name": "Contributions in the field of TQM by Deming",
+      "definition": "W. Edwards Deming’s quality philosophy emphasizes upper management commitment, system-wide organizational change, and the reduction of process variation rather than reliance on workforce inspection. His framework is anchored on foundational principles designed to foster long-term planning and continuous improvement.",
+      "terminology": [
+        "father of quality control",
+        "14 points",
+        "variation reduction",
+        "internal customer"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Management responsibility for quality systems",
+        "Elimination of reliance on mass inspection",
+        "Departmental barrier breakdown"
+      ],
+      "exclusion": [
+        "Quota-based supervision and management by fear"
+      ],
+      "nearby_distinctions": [
+        "Focuses on systemic management philosophy and process redesign rather than mechanical post-production error detection."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "323d5e3f-7498-4f3b-8c81-b2455e989032",
+      "concept_name": "Deming’s 14 Points Methodology and PDCA Cycle",
+      "definition": "Deming's methodology encompasses fourteen guiding management principles alongside the Plan-Do-Check-Act cycle to institutionalize continuous operational improvement. The circular nature of the PDCA cycle illustrates that quality enhancement is a never-ending organizational process.",
+      "terminology": [
+        "PDCA cycle",
+        "Deming wheel",
+        "continuous improvement",
+        "plan do check act"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Fourteen principles for management transformation",
+        "Iterative planning, execution, evaluation, and action steps"
+      ],
+      "exclusion": [
+        "Static short-term target setting and rigid quota systems"
+      ],
+      "nearby_distinctions": [
+        "Combines macro-level managerial principles with an iterative procedural cycle for executing continuous operational betterment."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "4acae7a1ccf51e2dfd6812d1ef3ff35097c6062d73066349ea0d51101b02ffdb",
+  "artifact_id": "3c55fc21-8da7-4147-980e-68bf34fe7721",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8179,
+  "output_tokens": 3137,
+  "cost_usd": 0.0102962,
+  "created_at": "2026-10-03T18:25:59.693461+00:00"
+}

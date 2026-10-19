@@ -1,0 +1,152 @@
+{
+  "descriptors": [
+    {
+      "node_id": "3d05cbcb-c09c-412e-b8e9-b2b96d5de6f9",
+      "concept_name": "GST Exemptions Framework and Scope",
+      "definition": "An exempt supply comprises any goods, services, or both attracting a nil tax rate, full exemption, or non-taxable status under governing statutes. This classification includes items and services not leviable to tax under the primary legislative acts.",
+      "terminology": [
+        "exempt supply",
+        "non-taxable supply",
+        "goods and services tax",
+        "nil rate"
+      ],
+      "instrument_references": [
+        "Section 2(47) of CGST Act",
+        "Section 2(78) of CGST Act",
+        "Section 11 of CGST Act",
+        "Section 6 of IGST Act"
+      ],
+      "inclusion": [
+        "supplies attracting nil rate of tax",
+        "wholly exempt goods or services",
+        "non-taxable supplies including specified petroleum products and alcoholic liquor"
+      ],
+      "exclusion": [
+        "taxable supplies subject to standard or reduced positive rates",
+        "supplies outside statutory definitions"
+      ],
+      "nearby_distinctions": [
+        "distinguishes between wholly exempt items and non-taxable supplies which are both subsumed under exempt supply definitions"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "409ef2c5-4a89-4065-95ea-d66c80d90add",
+      "concept_name": "Power to Grant Exemption from Tax",
+      "definition": "The Government may issue notifications or special orders on council recommendations to exempt specific goods or services from whole or part of taxes in the public interest. Registered suppliers must not collect tax exceeding the effective rate on absolutely exempted supplies.",
+      "terminology": [
+        "absolute exemption",
+        "conditional exemption",
+        "special order",
+        "recommendations of the council"
+      ],
+      "instrument_references": [
+        "Section 11 of CGST Act",
+        "Section 6 of IGST Act"
+      ],
+      "inclusion": [
+        "general exemptions via notification",
+        "special orders for exceptional circumstances",
+        "explanations inserted within one year to clarify scope"
+      ],
+      "exclusion": [
+        "collection of tax in excess of effective rates on absolute exemptions",
+        "exemptions granted without council recommendation"
+      ],
+      "nearby_distinctions": [
+        "distinguishes general notifications applied broadly from special orders issued for exceptional individual cases"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "91283536-5ee9-410c-b47a-8c483d1674d9",
+      "concept_name": "Goods Exempt From Tax",
+      "definition": "Specified everyday consumption items are exempted from the whole of tax under statutory exemption powers. These include essential public consumption products notified under governing tax legislation.",
+      "terminology": [
+        "exempted items",
+        "unpacked food grains",
+        "fresh milk",
+        "fresh vegetables"
+      ],
+      "instrument_references": [
+        "Section 11(1) of CGST Act, 2017",
+        "Section 6(1) of IGST Act, 2017"
+      ],
+      "inclusion": [
+        "unbranded or unpackaged staple food items",
+        "fresh milk, eggs, and curd",
+        "fresh vegetables and specified raw agricultural produce"
+      ],
+      "exclusion": [
+        "processed or branded items outside the exemption notification",
+        "taxable manufactured goods"
+      ],
+      "nearby_distinctions": [
+        "distinguishes raw or unpackaged essential food items from processed commercial goods subject to standard taxation"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9aedeffc-4d83-40e6-8ff1-ebec7925d8d1",
+      "concept_name": "List of Services Exempt From Tax",
+      "definition": "Specific categories of services rendered by qualified entities, such as charitable activities and religious ceremonies, are exempted wholly from central tax under designated notifications. Certain monetary thresholds apply to determine the applicability of exemptions on renting properties and premises.",
+      "terminology": [
+        "charitable activities",
+        "religious ceremony",
+        "renting of precincts",
+        "notification"
+      ],
+      "instrument_references": [
+        "Notification No. 12/2017 Central Tax (Rate) dated 28.06.2017",
+        "Notification No. 9/2017 IT (R) dated 28.06.2017",
+        "Section 12AA/12AB of Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "charitable activities by registered entities",
+        "religious ceremonies and eligible renting of religious precincts",
+        "training or coaching in arts, culture, or sports by specified entities"
+      ],
+      "exclusion": [
+        "renting of rooms with daily charges meeting or exceeding specified monetary thresholds",
+        "renting of commercial shops exceeding monthly rental limits"
+      ],
+      "nearby_distinctions": [
+        "distinguishes general commercial service providers from charitable trusts and religious institutions qualifying for specific service exemptions"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "cda0e1c0-a5b2-4bea-85e8-8d661b42b38c",
+      "concept_name": "Power Not to Recover Tax Not Levied or Short-Levied Due to General Practice",
+      "definition": "The Government may direct that uncollected or short-levied tax need not be paid if a specific industry practice of non-levy or lower levy was generally prevalent. This relief mechanism protects taxpayers who followed widespread customary practices in good faith upon council recommendations.",
+      "terminology": [
+        "general practice",
+        "short-levied",
+        "non-levy",
+        "official gazette"
+      ],
+      "instrument_references": [
+        "Section 11A of CGST Act"
+      ],
+      "inclusion": [
+        "supplies where central tax was not levied due to prevalent general practice",
+        "supplies charged at a lower rate in accordance with established industry customs"
+      ],
+      "exclusion": [
+        "tax non-payment resulting from isolated taxpayer errors unsupported by general trade practice",
+        "adjustments executed without council recommendation"
+      ],
+      "nearby_distinctions": [
+        "distinguishes regular statutory exemptions from retroactive relief granted specifically for widespread industry misinterpretations or customary practices"
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "fa5d6a9fefef7a0967c11de188e4715e96866d33fc65e1fde2780af627401e09",
+  "artifact_id": "481935a3-9b47-455e-bc65-fbd7e862321a",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 3989,
+  "output_tokens": 1650,
+  "cost_usd": 0.0053216999999999995,
+  "created_at": "2026-10-03T18:23:41.153571+00:00"
+}

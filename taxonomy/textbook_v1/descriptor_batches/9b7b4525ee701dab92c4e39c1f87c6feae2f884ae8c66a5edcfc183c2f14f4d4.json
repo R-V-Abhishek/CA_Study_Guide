@@ -1,0 +1,171 @@
+{
+  "descriptors": [
+    {
+      "node_id": "625b1014-42a7-40f4-a94b-7689f8bf1708",
+      "concept_name": "Stamp Duty Value of Stock-in-Trade as Consideration",
+      "definition": "When land or building held as stock-in-trade is transferred for an amount less than its stamp duty value, that stamp duty value is deemed to be the full value of consideration. However, if the stamp duty value does not exceed 110 percent of the actual consideration received, the actual consideration applies.",
+      "terminology": [
+        "Stamp duty value",
+        "Stock-in-trade",
+        "Full value of consideration",
+        "Valuation officer"
+      ],
+      "instrument_references": [
+        "Section 53",
+        "Foreign Exchange Management Act, 1999"
+      ],
+      "inclusion": [
+        "Land or buildings held as non-capital assets",
+        "Transfers where consideration falls below stamp duty value threshold"
+      ],
+      "exclusion": [
+        "Transfers where stamp duty value is within 110 percent of actual consideration"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from capital asset property transfers by specific application to stock-in-trade inventory holdings."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3384416e-bea4-4969-aed9-d331e21e16f2",
+      "concept_name": "Maintenance of Books of Account",
+      "definition": "Specified professionals and general business taxpayers meeting specific income or turnover thresholds must maintain accounting records and documents to facilitate income computation by the Assessing Officer. These records can be kept in written, electronic, digital, cloud-based, or printed formats.",
+      "terminology": [
+        "Books of account",
+        "Specified profession",
+        "Turnover",
+        "Gross receipts"
+      ],
+      "instrument_references": [
+        "Section 62(1)",
+        "Section 2(19)",
+        "Section 62(4)"
+      ],
+      "inclusion": [
+        "Specified professions like legal, medical, and engineering",
+        "Businesses exceeding specified income or turnover limits in preceding years"
+      ],
+      "exclusion": [
+        "Taxpayers not meeting statutory income or turnover thresholds and not carrying on specified professions"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from tax audit requirements by focusing on day-to-day record keeping rather than formal chartered accountant verification."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "dee9968a-cca6-487c-bdfd-d4e30cd2dd22",
+      "concept_name": "Tax Audit Requirement",
+      "definition": "Certain businesses and professionals must get their accounts audited by a chartered accountant before the specified date if their turnover or gross receipts exceed statutory monetary limits. An audit report in the prescribed form must be duly signed and verified.",
+      "terminology": [
+        "Tax audit",
+        "Specified date",
+        "Chartered Accountant",
+        "Form No. 26"
+      ],
+      "instrument_references": [
+        "Section 63",
+        "Rule 47"
+      ],
+      "inclusion": [
+        "Businesses with total sales or turnover exceeding 1 crore or 10 crore depending on cash transaction proportions",
+        "Professionals with gross receipts exceeding 50 lakhs"
+      ],
+      "exclusion": [
+        "Assessees declaring profits on a presumptive basis unless claiming lower than deemed profits"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general maintenance of books of account by requiring formal verification and reporting by an external accountant."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e6762860-ac26-4900-8a70-8d3bd06589dc",
+      "concept_name": "Special Provision for Presumptive Taxation",
+      "definition": "Eligible resident taxpayers engaged in specified businesses with turnover below statutory limits can compute their business profits using pre-determined presumptive rates. The taxable profit is calculated based on percentages of turnover received via specified digital modes versus cash.",
+      "terminology": [
+        "Presumptive basis",
+        "Eligible assessee",
+        "Specified banking or online mode",
+        "Turnover"
+      ],
+      "instrument_references": [
+        "Section 58",
+        "Chapter VIII Part C"
+      ],
+      "inclusion": [
+        "Resident individuals, HUFs, and partnership firms excluding LLPs",
+        "Businesses with turnover up to 2 crores or 3 crores subject to cash transaction limits"
+      ],
+      "exclusion": [
+        "Assessees claiming specific deductions under Chapter VIII Part C"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from normal computation provisions by eliminating the need to maintain detailed expense records if statutory profit margins are met."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b670d3b0-9073-4fc6-b4cb-434de4817f4d",
+      "concept_name": "Deductions during Co-operative Bank Reorganisation",
+      "definition": "This provision determines how specific deductions for depreciation, preliminary expenses, amalgamation expenses, and voluntary retirement payments are apportioned between a predecessor co-operative bank and a successor entity when business reorganisation occurs during a tax year. The allocation is calculated proportionally based on the number of days before and after the reorganisation date.",
+      "terminology": [
+        "Business reorganisation",
+        "Co-operative bank",
+        "Predecessor",
+        "Successor"
+      ],
+      "instrument_references": [
+        "Section 64",
+        "Section 33",
+        "Section 44",
+        "Section 52(1)"
+      ],
+      "inclusion": [
+        "Co-operative banks undergoing business reorganisation",
+        "Converted banking companies"
+      ],
+      "exclusion": [
+        "Entities without business reorganisation events during the tax year"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard annual deduction claims by applying a temporal day-count apportionment formula across merging entities."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4e4c636e-f616-44fe-8e18-813879914101",
+      "concept_name": "Computation of Partly Agricultural Income",
+      "definition": "Incomes derived from composite activities like growing and manufacturing rubber, coffee, or tea in India are treated partly as business income and partly as agricultural income based on prescribed statutory percentages. Specific allowances for replacing dead or useless plants are permitted when computing these incomes.",
+      "terminology": [
+        "Agricultural income",
+        "Rubber products",
+        "Coffee curing",
+        "Tea manufacturing"
+      ],
+      "instrument_references": [
+        "Rule 271",
+        "Schedule III"
+      ],
+      "inclusion": [
+        "Income from sale of rubber products processed from grower-owned plants",
+        "Income from coffee grown, cured, roasted, or grounded in India",
+        "Income from tea grown and manufactured in India"
+      ],
+      "exclusion": [
+        "Incomes derived entirely from non-agricultural commercial operations"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from purely commercial business income by segregating a fixed statutory proportion as tax-exempt agricultural income."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "9b7b4525ee701dab92c4e39c1f87c6feae2f884ae8c66a5edcfc183c2f14f4d4",
+  "artifact_id": "7d7308d7-b68b-4f73-a4e2-be902eea29d4",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 5156,
+  "output_tokens": 1842,
+  "cost_usd": 0.0061518,
+  "created_at": "2026-10-03T18:16:46.550884+00:00"
+}

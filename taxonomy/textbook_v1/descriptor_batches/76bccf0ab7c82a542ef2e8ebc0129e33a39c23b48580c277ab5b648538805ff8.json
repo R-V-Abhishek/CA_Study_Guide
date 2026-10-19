@@ -1,0 +1,329 @@
+{
+  "descriptors": [
+    {
+      "node_id": "3905e589-bd68-48a8-890f-e69774ded65b",
+      "concept_name": "Standard Objective and Application Scope",
+      "definition": "The standard prescribes methodologies to ensure assets are not carried above their recoverable amounts, requiring impairment loss recognition when carrying values exceed recoverable limits. It applies broadly to asset impairment accounting except for specifically exempted categories governed by other standards.",
+      "terminology": [
+        "recoverable amount",
+        "carrying amount",
+        "impairment loss"
+      ],
+      "instrument_references": [
+        "Ind AS 36",
+        "Ind AS 2",
+        "Ind AS 12",
+        "Ind AS 19",
+        "Ind AS 41",
+        "Ind AS 105",
+        "Ind AS 109",
+        "Ind AS 115",
+        "Ind AS 117"
+      ],
+      "inclusion": [
+        "property, plant, and equipment",
+        "intangible assets",
+        "goodwill"
+      ],
+      "exclusion": [
+        "inventories",
+        "deferred tax assets",
+        "financial assets under scope of Ind AS 109"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from other standards like Ind AS 2 which apply lower of cost and net realisable value measurements directly."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0eec8a58-4f2f-4166-b5a9-4dcc3b751315",
+      "concept_name": "Core Terminology Definitions",
+      "definition": "Key terms establish standard parameters for impairment testing, including carrying amounts, cash-generating units, corporate assets, and direct disposal costs. Depreciation and amortisation allocate depreciable amounts systematically across an asset's useful life.",
+      "terminology": [
+        "carrying amount",
+        "cash-generating unit",
+        "corporate assets",
+        "costs of disposal",
+        "depreciable amount"
+      ],
+      "instrument_references": [
+        "Ind AS 36",
+        "Ind AS 110",
+        "Ind AS 28",
+        "Ind AS 111"
+      ],
+      "inclusion": [
+        "asset carrying value calculations",
+        "residual value deductions",
+        "depreciation allocations"
+      ],
+      "exclusion": [
+        "finance costs",
+        "income tax expense"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes incremental disposal costs from general financing and tax charges."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9bc40089-c42c-489b-9312-3f9e81ae87fb",
+      "concept_name": "Valuation Definitions and Impairment Trigger Identification",
+      "definition": "An impairment loss is recognized when an asset or cash-generating unit's carrying amount exceeds its recoverable amount, defined as the higher of fair value less costs of disposal and value in use. Entities must assess at each reporting period whether indicators suggest an asset may be impaired.",
+      "terminology": [
+        "fair value",
+        "impairment loss",
+        "recoverable amount",
+        "useful life",
+        "value in use"
+      ],
+      "instrument_references": [
+        "Ind AS 36",
+        "Ind AS 113"
+      ],
+      "inclusion": [
+        "fair value measurement parameters",
+        "discounted future cash flow calculations",
+        "period-end impairment evaluations"
+      ],
+      "exclusion": [
+        "carrying value adjustments without test triggers"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes fair value less costs of disposal from value in use as components of recoverable amount."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "68207721-fec8-4fb1-8cbb-61fbd4effd78",
+      "concept_name": "Identifying Impairment Indicators and Triggers",
+      "definition": "Entities must evaluate internal and external sources of information at each reporting date to identify potential asset impairment. Specific assets require mandatory annual impairment testing regardless of whether indicators are present.",
+      "terminology": [
+        "external sources",
+        "internal sources",
+        "market capitalisation",
+        "obsolescence"
+      ],
+      "instrument_references": [
+        "Ind AS 36"
+      ],
+      "inclusion": [
+        "declines in market value",
+        "adverse technological or economic environment changes",
+        "physical damage evidence"
+      ],
+      "exclusion": [
+        "temporary market fluctuations without adverse operational impact"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes general assets requiring conditional indicator tests from specific assets mandated for annual reviews."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ba0dbb85-1e2f-4f8e-8ae5-930aae0f983c",
+      "concept_name": "General Principles for Identifying Impaired Assets",
+      "definition": "An asset is impaired when its carrying amount exceeds its recoverable amount, prompting an estimate of the recoverable amount. Entities evaluate reporting period indicators to determine if detailed impairment calculations are necessary.",
+      "terminology": [
+        "carrying amount",
+        "recoverable amount",
+        "impairment loss"
+      ],
+      "instrument_references": [
+        "Ind AS 36"
+      ],
+      "inclusion": [
+        "period-end indicator assessments",
+        "recoverable amount estimations"
+      ],
+      "exclusion": [
+        "assets exempted from standard scope"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes baseline periodic indicator reviews from mandatory annual reviews for special asset classes."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "844486fe-638d-4733-a3e2-06883b170869",
+      "concept_name": "External and Internal Impairment Indicators",
+      "definition": "Assessment criteria include external market shifts, technological changes, and interest rate movements alongside internal evidence of physical damage, obsolescence, or underperformance. These indicators dictate when an entity must calculate an asset's recoverable amount.",
+      "terminology": [
+        "external source of information",
+        "internal source of information",
+        "market interest rates",
+        "economic performance"
+      ],
+      "instrument_references": [
+        "Ind AS 36"
+      ],
+      "inclusion": [
+        "market value drops",
+        "idle assets",
+        "higher than budgeted operating costs"
+      ],
+      "exclusion": [
+        "normal wear and tear within expected parameters"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes macroeconomic external market indicators from microeconomic entity-specific internal operational evidence."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "65756af8-780f-4749-a436-132125782d7d",
+      "concept_name": "Mandatory Annual Impairment Review Requirements",
+      "definition": "Specific asset classes require annual impairment testing regardless of whether impairment indicators exist. These reviews must follow consistent annual timing, supplemented by additional testing if interim impairment indicators arise.",
+      "terminology": [
+        "annual impairment test",
+        "indefinite useful life",
+        "not yet available for use",
+        "goodwill"
+      ],
+      "instrument_references": [
+        "Ind AS 36"
+      ],
+      "inclusion": [
+        "intangible assets with indefinite useful lives",
+        "intangible assets not yet available for use",
+        "goodwill acquired in business combinations"
+      ],
+      "exclusion": [
+        "finite-lived tangible and intangible assets without impairment indicators"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes mandatory scheduled annual testing from event-driven contingent impairment testing."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b3d4c7c0-a93d-4dbc-b593-5cc676f077c4",
+      "concept_name": "Mandatory Annual Testing Categories",
+      "definition": "Certain high-risk assets bypass indicator checks and must be tested for impairment annually. This ensures potential value erosion in unamortized or unproven assets is captured proactively.",
+      "terminology": [
+        "indefinite useful life",
+        "not yet available for use",
+        "goodwill"
+      ],
+      "instrument_references": [
+        "Ind AS 36"
+      ],
+      "inclusion": [
+        "goodwill",
+        "indefinite life intangibles",
+        "development-stage intangibles"
+      ],
+      "exclusion": [
+        "standard depreciable plant and equipment"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes assets requiring automatic annual tests from assets requiring triggering indicators."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7513fe86-84b1-4fd8-8d4a-68d294a9c579",
+      "concept_name": "Intangible Assets Annual Testing Protocols",
+      "definition": "Intangibles with indefinite useful lives or those not yet ready for use must be tested annually and whenever indicators suggest possible impairment. Previous detailed recoverable amount calculations may be reused under strict criteria if prior margins were substantial and asset configurations remain unchanged.",
+      "terminology": [
+        "indefinite useful life",
+        "recoverable amount calculation",
+        "unit of account"
+      ],
+      "instrument_references": [
+        "Ind AS 36"
+      ],
+      "inclusion": [
+        "consistent annual timing windows",
+        "prior period calculation carryforwards under specific conditions"
+      ],
+      "exclusion": [
+        "intangibles with material changes in underlying cash-generating units"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes strict mandatory annual timing rules from conditional use of prior-period calculations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5e5256e5-2491-4eb1-b72d-8240bddc4aba",
+      "concept_name": "Goodwill and Cash-Generating Unit Impairment Testing",
+      "definition": "Cash-generating units allocated with goodwill must be tested for impairment annually by comparing the aggregate unit carrying amount with its recoverable amount. Individual assets or smaller constituent units showing impairment signs must be tested before evaluating the wider cash-generating unit or goodwill group.",
+      "terminology": [
+        "cash-generating unit",
+        "goodwill allocation",
+        "unit carrying amount"
+      ],
+      "instrument_references": [
+        "Ind AS 36"
+      ],
+      "inclusion": [
+        "annual goodwill impairment reviews",
+        "hierarchical asset testing sequences"
+      ],
+      "exclusion": [
+        "goodwill tested in isolation without unit allocation"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes testing of individual constituent assets within a unit prior to testing the overarching goodwill cash-generating unit."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c6d4e4e0-74ee-40d3-8c92-5c5f055c4919",
+      "concept_name": "Recoverable Amount Measurement Principles",
+      "definition": "An asset or cash-generating unit's recoverable amount is determined as the higher of its fair value less costs of disposal and its value in use. Calculating both metrics is unnecessary if either value alone exceeds the asset carrying amount, confirming no impairment exists.",
+      "terminology": [
+        "recoverable amount",
+        "fair value less costs of disposal",
+        "value in use"
+      ],
+      "instrument_references": [
+        "Ind AS 36"
+      ],
+      "inclusion": [
+        "fair value metrics",
+        "value in use cash flow models",
+        "single-metric shortcut tests"
+      ],
+      "exclusion": [
+        "mandatory dual-metric calculation when carrying amount is safely exceeded"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes standalone individual asset testing from cash-generating unit testing when independent cash flows are absent."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9c397193-ca11-4ccb-82f4-163c90218fc3",
+      "concept_name": "Recoverable Amount Determination and CGU Context",
+      "definition": "Recoverable amounts are assessed for individual assets unless they lack independent cash inflows, requiring evaluation at the cash-generating unit level. Measurement requires comparing carrying values against the higher of fair value less costs of disposal or value in use.",
+      "terminology": [
+        "recoverable amount",
+        "cash-generating unit",
+        "independent cash inflows"
+      ],
+      "instrument_references": [
+        "Ind AS 36"
+      ],
+      "inclusion": [
+        "cash-generating unit aggregation",
+        "higher of fair value or value in use tests"
+      ],
+      "exclusion": [
+        "isolated asset evaluations where independent cash streams do not exist"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes individual asset testing scope from broader cash-generating unit testing scope."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "76bccf0ab7c82a542ef2e8ebc0129e33a39c23b48580c277ab5b648538805ff8",
+  "artifact_id": "6fb162ea-fc0d-45ba-a883-8ee4d03cdfb3",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8925,
+  "output_tokens": 3317,
+  "cost_usd": 0.01097,
+  "created_at": "2026-10-03T17:49:37.479577+00:00"
+}

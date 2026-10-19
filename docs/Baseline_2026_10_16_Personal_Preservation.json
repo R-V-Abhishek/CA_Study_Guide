@@ -1,0 +1,5 @@
+{
+  "tables": 12,
+  "status": "All personal and identity table digests match the pre-adoption backup; only account 1 target changed to May 2027",
+  "old_target": "2026-05"
+}

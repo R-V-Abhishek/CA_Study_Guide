@@ -1,0 +1,165 @@
+{
+  "result": {
+    "question_id": "0e2f1f7cb4d1df7e394a0188c20fd79d75731c7dfe10526274010ea2cc40c8ef",
+    "input_hash": "883c3696dd86cc6e091a695aaaec429a94c23dbc444592fb30344de50684051a",
+    "mappings": [
+      {
+        "part_id": "0e2f1f7cb4d1df7e394a0188c20fd79d75731c7dfe10526274010ea2cc40c8ef:CS1.a",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Tests identifying the repo and reverse repo roles in the described securities financing agreement; no candidate describes that transaction distinction.",
+        "confidence": 0.99,
+        "bucket": null
+      },
+      {
+        "part_id": "0e2f1f7cb4d1df7e394a0188c20fd79d75731c7dfe10526274010ea2cc40c8ef:CS1.b",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Tests identifying the lending and repo roles in the described securities financing agreement; no candidate covers repo transaction mechanics.",
+        "confidence": 0.99,
+        "bucket": null
+      },
+      {
+        "part_id": "0e2f1f7cb4d1df7e394a0188c20fd79d75731c7dfe10526274010ea2cc40c8ef:CS1.c",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Tests identifying reverse repo and borrowing roles; no candidate describes these repo and reverse repo mechanics.",
+        "confidence": 0.99,
+        "bucket": null
+      },
+      {
+        "part_id": "0e2f1f7cb4d1df7e394a0188c20fd79d75731c7dfe10526274010ea2cc40c8ef:CS1.d",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Tests identifying reverse repo and repo roles in the agreement; no candidate covers this transaction distinction.",
+        "confidence": 0.99,
+        "bucket": null
+      },
+      {
+        "part_id": "0e2f1f7cb4d1df7e394a0188c20fd79d75731c7dfe10526274010ea2cc40c8ef:CS1.a.repeat2",
+        "outcome": "matched",
+        "primary_node_id": "2407c3f3-307b-4f87-bf53-8e520bbd620c",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "2407c3f3-307b-4f87-bf53-8e520bbd620c",
+            "support": "Calculating accrued interest and dirty bond price applies bond valuation to coupon-bearing debt and its market price."
+          }
+        ],
+        "note": "Tests accrued interest and dirty price for the coupon-bearing GOI bond.",
+        "confidence": 0.97,
+        "bucket": "A"
+      },
+      {
+        "part_id": "0e2f1f7cb4d1df7e394a0188c20fd79d75731c7dfe10526274010ea2cc40c8ef:CS1.b.repeat2",
+        "outcome": "matched",
+        "primary_node_id": "2407c3f3-307b-4f87-bf53-8e520bbd620c",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "2407c3f3-307b-4f87-bf53-8e520bbd620c",
+            "support": "Calculating accrued interest and dirty bond price applies bond valuation to coupon-bearing debt and its market price."
+          }
+        ],
+        "note": "Tests accrued interest and dirty price for the coupon-bearing GOI bond.",
+        "confidence": 0.97,
+        "bucket": "A"
+      },
+      {
+        "part_id": "0e2f1f7cb4d1df7e394a0188c20fd79d75731c7dfe10526274010ea2cc40c8ef:CS1.c.repeat2",
+        "outcome": "matched",
+        "primary_node_id": "2407c3f3-307b-4f87-bf53-8e520bbd620c",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "2407c3f3-307b-4f87-bf53-8e520bbd620c",
+            "support": "Calculating accrued interest and dirty bond price applies bond valuation to coupon-bearing debt and its market price."
+          }
+        ],
+        "note": "Tests accrued interest and dirty price for the coupon-bearing GOI bond.",
+        "confidence": 0.97,
+        "bucket": "A"
+      },
+      {
+        "part_id": "0e2f1f7cb4d1df7e394a0188c20fd79d75731c7dfe10526274010ea2cc40c8ef:CS1.d.repeat2",
+        "outcome": "matched",
+        "primary_node_id": "2407c3f3-307b-4f87-bf53-8e520bbd620c",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "2407c3f3-307b-4f87-bf53-8e520bbd620c",
+            "support": "Calculating accrued interest and dirty bond price applies bond valuation to coupon-bearing debt and its market price."
+          }
+        ],
+        "note": "Tests accrued interest and dirty price for the coupon-bearing GOI bond.",
+        "confidence": 0.97,
+        "bucket": "A"
+      },
+      {
+        "part_id": "0e2f1f7cb4d1df7e394a0188c20fd79d75731c7dfe10526274010ea2cc40c8ef:CS1.a.repeat3",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Tests calculation of the two proceeds of a repo transaction, including its margin and financing return; no candidate describes repo leg proceeds.",
+        "confidence": 0.99,
+        "bucket": null
+      },
+      {
+        "part_id": "0e2f1f7cb4d1df7e394a0188c20fd79d75731c7dfe10526274010ea2cc40c8ef:CS1.b.repeat3",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Tests calculation of the two proceeds of a repo transaction, including its margin and financing return; no candidate describes repo leg proceeds.",
+        "confidence": 0.99,
+        "bucket": null
+      },
+      {
+        "part_id": "0e2f1f7cb4d1df7e394a0188c20fd79d75731c7dfe10526274010ea2cc40c8ef:CS1.c.repeat3",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Tests calculation of the two proceeds of a repo transaction, including its margin and financing return; no candidate describes repo leg proceeds.",
+        "confidence": 0.99,
+        "bucket": null
+      },
+      {
+        "part_id": "0e2f1f7cb4d1df7e394a0188c20fd79d75731c7dfe10526274010ea2cc40c8ef:CS1.d.repeat3",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Tests calculation of the two proceeds of a repo transaction, including its margin and financing return; no candidate describes repo leg proceeds.",
+        "confidence": 0.99,
+        "bucket": null
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "7b68e4104b09bce61a32ecd1ed8ce0c57341243c5fa2b45fcf34537318665167",
+    "schema_generator": "pinned-part-ids-v1",
+    "seconds": 43.656,
+    "usage": [
+      {
+        "input_tokens": 48886,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2128,
+        "reasoning_output_tokens": 505
+      }
+    ],
+    "completed_at": "2026-10-05T15:59:10.651181+00:00"
+  }
+}

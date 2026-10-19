@@ -1,0 +1,309 @@
+{
+  "descriptors": [
+    {
+      "node_id": "738221df-f794-4b19-869b-851e03dff1e2",
+      "concept_name": "Faceless Assessment Scheme For Escaping Income",
+      "definition": "The Central Government may notify a faceless assessment framework for processing income escaping assessment, issuing notices, or passing orders under specific tax provisions. This framework eliminates direct interfaces, optimizes resource utilization through functional specialization, and deploys team-based dynamic jurisdiction assessments.",
+      "terminology": [
+        "faceless assessment",
+        "income escaping assessment",
+        "dynamic jurisdiction",
+        "automated allocation"
+      ],
+      "instrument_references": [
+        "Section 151A",
+        "Section 147",
+        "Section 148",
+        "Section 148A",
+        "Section 151",
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Assessment, reassessment or recomputation under section 147",
+        "Issuance of notice under section 148"
+      ],
+      "exclusion": [
+        "Regular physical proceedings not covered under the notified scheme"
+      ],
+      "nearby_distinctions": [
+        "Differs from conventional face-to-face scrutiny assessments by incorporating automated risk management allocations and team-based workflows."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d1c15374-4fa6-4a27-9afe-5d22a61fa787",
+      "concept_name": "Other Assessment Provisions And Transitional Rules",
+      "definition": "Escaping income assessed under specific reassessment provisions is chargeable at the tax rates applicable to the respective assessment years when the income ought to have been taxed. Additionally, assessees can claim to drop reassessment proceedings under certain conditions provided they have not contested the original order.",
+      "terminology": [
+        "respective years tax rate",
+        "dropping of proceedings",
+        "pre-amendment provisions"
+      ],
+      "instrument_references": [
+        "Section 152",
+        "Section 147",
+        "Section 154",
+        "Section 155",
+        "Section 260",
+        "Section 262",
+        "Section 263",
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Taxation of escaped income at historical rates",
+        "Assessee claims for dropping section 147 proceedings",
+        "Application of pre-amendment provisions for specified search dates"
+      ],
+      "exclusion": [
+        "Matters concluded by specific rectification or revision orders where appeals were challenged"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between current reassessment rules and transitional provisions applicable before specific legislative amendment dates."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "33e59cde-1c0e-4f4c-946a-fb3b72dddc68",
+      "concept_name": "Time Limits For Completion Of Assessments And Reassessments",
+      "definition": "Statutory time limits regulate the completion of assessments, reassessments, or fresh assessments based on the specific assessment year or the date of service of notices. These prescribed periods restrict when tax authorities must finalize orders following returns, searches, or appellate remands.",
+      "terminology": [
+        "time limit for completion",
+        "assessment order",
+        "fresh assessment",
+        "reassessment"
+      ],
+      "instrument_references": [
+        "Section 153",
+        "Section 143",
+        "Section 144",
+        "Section 147",
+        "Section 148",
+        "Section 92CA",
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Time limits for regular scrutiny or best judgment assessments",
+        "Time limits for reassessments following section 148 notices",
+        "Time limits for fresh orders after appellate set-aside actions"
+      ],
+      "exclusion": [
+        "Unspecified assessment procedures outside the statutory provisions of this section"
+      ],
+      "nearby_distinctions": [
+        "Varies strictly by assessment year and the specific procedural trigger such as regular filings versus appellate remands."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "21fb1502-d4a3-4a0a-bbad-6f0c88541fac",
+      "concept_name": "Rectification Of Apparent Mistakes",
+      "definition": "Income-tax authorities may amend any order, intimation, or deemed intimation to rectify mistakes that are glaring, obvious, and apparent from the record. Such rectification can encompass clear errors of fact or law, including those arising from subsequent Supreme Court interpretations or retrospective legislative amendments.",
+      "terminology": [
+        "mistake apparent from the record",
+        "rectification",
+        "change of opinion",
+        "doctrine of partial merger"
+      ],
+      "instrument_references": [
+        "Section 154",
+        "Section 116",
+        "Section 143(1)",
+        "Section 200A(1)",
+        "Section 206CB(1)",
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Amendment of past assessment orders and statutory intimations",
+        "Rectification of clear legal or factual oversights without long-drawn debates"
+      ],
+      "exclusion": [
+        "Debatable issues requiring complex reasoning or subjective changes of opinion"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes self-evident mistakes correctable under section 154 from debatable matters requiring prolonged legal interpretations or appeals."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "eb652401-b817-4c2a-9809-c0fa0d8afe1f",
+      "concept_name": "Consequential Amendments Of Assessments",
+      "definition": "Assessment orders must be amended within specific time frames to reflect adjustments made in related entities or primary assessments, such as disallowances of partner remuneration or modifications in AOP/BOI incomes. These consequential amendments calculate limitation periods from the end of the financial year in which the final order for the primary entity was passed.",
+      "terminology": [
+        "consequential amendment",
+        "partner remuneration disallowance",
+        "AOP/BOI variation"
+      ],
+      "instrument_references": [
+        "Section 155",
+        "Section 28(v)",
+        "Section 40(b)",
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Rectification of partner assessments following firm-level disallowances",
+        "Consequential adjustments to member assessments due to AOP income variations"
+      ],
+      "exclusion": [
+        "Standard rectifications governed strictly by general four-year limitation windows without specific cross-entity triggers"
+      ],
+      "nearby_distinctions": [
+        "Differs from general rectification rules by tying limitation periods directly to the final resolution date of the primary entity's assessment."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8551b009-703d-464b-9ea0-b7db122556ce",
+      "concept_name": "Notice Of Demand And Service Validation",
+      "definition": "Assessing officers must serve a notice of demand specifying any payable sum consequent to orders passed under the Act, with certain intimations automatically qualifying as notices of demand. Co-operating or appearing in assessment proceedings cures procedural defects regarding service timeliness or validity unless specifically objected to beforehand.",
+      "terminology": [
+        "notice of demand",
+        "deemed notice",
+        "service validation",
+        "perquisite tax"
+      ],
+      "instrument_references": [
+        "Section 156",
+        "Section 143(1)",
+        "Section 200A(1)",
+        "Section 206CB(1)",
+        "Section 292BB",
+        "Section 80-IAC",
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Issuance of formal demand notices for taxes, penalties, or fines",
+        "Deemed demand notices arising from processing intimations",
+        "Timeline rules for paying taxes on specific perquisite shares under start-up exemptions"
+      ],
+      "exclusion": [
+        "Recovery proceedings undertaken without serving a valid or deemed notice of demand"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between standard notices and statutory deeming provisions where active co-operation cures minor procedural notice defects."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "432e1b27-4cde-44b1-bcde-f259727aaa12",
+      "concept_name": "Modification And Revision Of Notice Under Insolvency Orders",
+      "definition": "When tax demands are reduced by orders from competent insolvency or appellate tribunals, the assessing officer must adjust and reissue the notice of demand in conformity with those rulings. Such modified notices operate as statutory demands under the governing tax framework.",
+      "terminology": [
+        "modification of notice",
+        "Adjudicating Authority",
+        "Insolvency and Bankruptcy Code"
+      ],
+      "instrument_references": [
+        "Section 156A",
+        "Section 156",
+        "Insolvency and Bankruptcy Code, 2016",
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Demand revisions following Adjudicating Authority orders under insolvency laws",
+        "Subsequent revisions aligning demands with NCLAT or Supreme Court outcomes"
+      ],
+      "exclusion": [
+        "Original demands that have not undergone reduction by recognized insolvency or judicial authorities"
+      ],
+      "nearby_distinctions": [
+        "Applies strictly when financial liabilities are adjusted through statutory insolvency proceedings rather than normal tax appeals."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "cb1b8a3d-e8f2-4c3a-8daa-6adca825aa36",
+      "concept_name": "Intimation Of Loss",
+      "definition": "During total income assessments, the assessing officer must officially notify the assessee in writing about the computed amount of eligible carry-forward losses. This written intimation covers specific categories including business losses, speculative losses, capital losses, and racehorse maintenance losses.",
+      "terminology": [
+        "intimation of loss",
+        "carry forward and set-off",
+        "business loss",
+        "capital gains loss"
+      ],
+      "instrument_references": [
+        "Section 157",
+        "Section 72(1)",
+        "Section 73(2)",
+        "Section 74",
+        "Section 74A(3)",
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Written official orders quantifying carry-forward business and capital losses",
+        "Loss tracking for speculative businesses and racehorse activities"
+      ],
+      "exclusion": [
+        "Losses that are unverified or ineligible for carry-forward under statutory provisions"
+      ],
+      "nearby_distinctions": [
+        "Differs from general tax assessment orders by focusing exclusively on quantifying and notifying eligible carry-forward losses."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "242a0994-6215-49cf-ab87-f2e94331e6b9",
+      "concept_name": "Faceless Rectification Amendments And Issuance Scheme",
+      "definition": "The Central Government may establish a faceless scheme for executing rectifications, statutory amendments, demand notices, and loss intimations. This framework aims to maximize operational efficiency and transparency through automated, team-based processing and dynamic jurisdiction.",
+      "terminology": [
+        "faceless rectification",
+        "dynamic jurisdiction",
+        "mistake apparent from record"
+      ],
+      "instrument_references": [
+        "Section 157A",
+        "Section 154",
+        "Section 155",
+        "Section 156",
+        "Section 157",
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Faceless processing of rectification applications and order amendments",
+        "Team-based issuance of demand notices and loss intimations"
+      ],
+      "exclusion": [
+        "Manual rectification and amendment workflows not incorporated into the notification"
+      ],
+      "nearby_distinctions": [
+        "Applies specifically to post-assessment administrative functions like rectifications and notices rather than original scrutiny assessments."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "88a15d22-f5df-4d2f-892d-088f30612ffe",
+      "concept_name": "Block Assessment Framework And Definitions",
+      "definition": "Block assessment consolidates investigations for search and requisition cases initiated after a specific date to improve efficiency and minimize multiple proceedings. The block period spans the six preceding assessment years plus the period up to the execution of the final search authorization.",
+      "terminology": [
+        "block assessment",
+        "block period",
+        "last panchnama",
+        "search and requisition"
+      ],
+      "instrument_references": [
+        "Section 158B",
+        "Section 158BI",
+        "Section 132",
+        "Section 132A",
+        "Income-tax Act, 1961"
+      ],
+      "inclusion": [
+        "Determination of the block period based on prior assessment years and search execution dates",
+        "Consolidated search investigations across multiple prior years"
+      ],
+      "exclusion": [
+        "Searches initiated outside the specified date thresholds governed by separate reassessment rules"
+      ],
+      "nearby_distinctions": [
+        "Replaces fragmented reassessments with a comprehensive consolidated block timeline for search-related investigations."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "b8ede6569c57d6525a35a254a6bec79e2ec43afba84fa7fab245d165675e88ec",
+  "artifact_id": "cfc3cd81-0b24-4367-991d-614759cdab3d",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8530,
+  "output_tokens": 3459,
+  "cost_usd": 0.0112065,
+  "created_at": "2026-10-03T18:22:21.662614+00:00"
+}

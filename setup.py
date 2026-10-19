@@ -236,6 +236,7 @@ def main() -> None:
 
     # Step 6: Database Grants
     print_step(6, total_steps, "Applying role and schema permissions")
+    run_command([uv_bin, "run", "caf", "db", "configure-connections"], "Named database connections")
     run_command([uv_bin, "run", "caf", "db", "grants"], "Database role permissions")
 
     # Step 7: Load Syllabus Taxonomy
@@ -253,9 +254,9 @@ def main() -> None:
         print("  ▶ Run: python3 start.py  (or ./start.sh)")
 
     print("\nYour applications will be available at:")
-    print("  📖 Student Study App: http://localhost:8000")
-    print("  🛠️ Curator Tool:     http://localhost:8000/curator")
-    print("  📚 API Docs:          http://localhost:8000/docs\n")
+    print("  📖 Student Study App: http://127.0.0.1:8788")
+    print("  🛠️ Curator Tool:     http://127.0.0.1:8788/curator")
+    print("  API health:          http://127.0.0.1:8788/api/v1/health\n")
 
 
 if __name__ == "__main__":

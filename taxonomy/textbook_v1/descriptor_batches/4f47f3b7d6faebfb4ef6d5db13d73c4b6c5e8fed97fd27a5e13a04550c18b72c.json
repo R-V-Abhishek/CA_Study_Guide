@@ -1,0 +1,321 @@
+{
+  "descriptors": [
+    {
+      "node_id": "9fbe3aa9-732d-427c-b21f-2bf15e4ad1df",
+      "concept_name": "Objective and Scope of Joint Arrangements",
+      "definition": "A joint arrangement is an economic activity subject to joint control by two or more parties bound by a contract. Its primary reporting purpose is to establish principles requiring entities to classify arrangements as either joint operations or joint ventures based on their specific rights and obligations.",
+      "terminology": [
+        "Joint arrangement",
+        "Joint control",
+        "Joint operation",
+        "Joint venture",
+        "Rights and obligations"
+      ],
+      "instrument_references": [
+        "Ind AS 111"
+      ],
+      "inclusion": [
+        "Arrangements involving joint control",
+        "Contractually bound participating entities"
+      ],
+      "exclusion": [
+        "Solely controlled subsidiaries",
+        "Investments lacking joint control"
+      ],
+      "nearby_distinctions": [
+        "Differs from single-party control under Ind AS 110 by requiring unanimous consent among multiple participating parties."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "68af6b54-cbee-4e28-817c-9bac6fcc25d6",
+      "concept_name": "Scope Of Ind As 111",
+      "definition": "Ind AS 111 applies universally to all entities holding an interest in any form of joint arrangement. It governs the financial reporting and classification structure for participants engaged in joint operations or joint ventures.",
+      "terminology": [
+        "Scope",
+        "Joint arrangement",
+        "Participating entity"
+      ],
+      "instrument_references": [
+        "Ind AS 111"
+      ],
+      "inclusion": [
+        "All entities holding an interest in a joint arrangement"
+      ],
+      "exclusion": [
+        "Entities without joint control or contractual participation"
+      ],
+      "nearby_distinctions": [
+        "Focuses on universal applicability to participants rather than general measurement principles."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "12ff5687-ae5b-43a6-b2af-bc64f037619c",
+      "concept_name": "Assessment Of Joint Arrangement",
+      "definition": "Evaluating a joint arrangement requires verifying that parties are bound by a contractual agreement establishing joint control. This assessment examines operational terms, governance structures, and unanimous decision-making mechanisms.",
+      "terminology": [
+        "Contractual arrangement",
+        "Joint control",
+        "Assessment",
+        "Relevant activities"
+      ],
+      "instrument_references": [
+        "Ind AS 111"
+      ],
+      "inclusion": [
+        "Written or evidenced contractual terms",
+        "Joint control evaluation"
+      ],
+      "exclusion": [
+        "Unilateral operational control",
+        "Informal arrangements lacking binding provisions"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from single-entity control by evaluating collective power and shared operational authority."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0af03ac9-9415-4081-b2c5-dc5b6d51f90f",
+      "concept_name": "Contractual arrangement",
+      "definition": "A contractual arrangement is a binding agreement between parties, usually in writing, that dictates the terms of a joint activity. It often defines operational purpose, board appointments, voting rights, and capital contributions.",
+      "terminology": [
+        "Contractual arrangement",
+        "Separate vehicle",
+        "Articles of association",
+        "Voting rights"
+      ],
+      "instrument_references": [
+        "Ind AS 111"
+      ],
+      "inclusion": [
+        "Written agreements",
+        "Articles or charters of separate vehicles",
+        "Terms detailing capital and resource sharing"
+      ],
+      "exclusion": [
+        "Unilateral company policies",
+        "Non-binding operational understandings"
+      ],
+      "nearby_distinctions": [
+        "Serves as the foundational legal and operational basis that differentiates formal joint arrangements from informal collaborations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "718eb97d-ce7a-408e-bb8f-29ae1c6b0420",
+      "concept_name": "Joint control",
+      "definition": "Joint control represents the contractually agreed sharing of control over an economic arrangement, existing only when decisions about relevant activities require unanimous consent. No single party can direct the operations independently, and any controlling participant can block unilateral actions.",
+      "terminology": [
+        "Joint control",
+        "Unanimous consent",
+        "Relevant activities",
+        "Power"
+      ],
+      "instrument_references": [
+        "Ind AS 111",
+        "Ind AS 110"
+      ],
+      "inclusion": [
+        "Unanimous voting requirements",
+        "Shared power over relevant activities",
+        "Collective exposure to returns"
+      ],
+      "exclusion": [
+        "Majority voting control by a single investor",
+        "Passive minority shareholdings without decision-making power"
+      ],
+      "nearby_distinctions": [
+        "Unlike absolute control under Ind AS 110, joint control prevents any single entity from unilaterally directing relevant activities without partner consent."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4f595d45-e385-4e09-adf1-fcf856b03d14",
+      "concept_name": "Types Of Joint Arrangement",
+      "definition": "Joint arrangements are classified as either joint operations or joint ventures based on the participating parties' specific rights and obligations. This classification determines whether financial reporting consolidates underlying assets and liabilities or applies equity accounting.",
+      "terminology": [
+        "Joint operation",
+        "Joint venture",
+        "Rights and obligations",
+        "Separate vehicle"
+      ],
+      "instrument_references": [
+        "Ind AS 111",
+        "Ind AS 28"
+      ],
+      "inclusion": [
+        "Evaluation of legal forms",
+        "Contractual terms analysis",
+        "Reassessment upon changing facts"
+      ],
+      "exclusion": [
+        "Standard subsidiaries",
+        "Associates without joint control"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between direct sharing of assets and liabilities versus holding rights solely to net assets."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8e5b1deb-6532-4f5f-86b2-d0addc3108eb",
+      "concept_name": "Assessment of whether a joint arrangement is a joint operation or a joint venture",
+      "definition": "Classifying a joint arrangement requires evaluating whether it uses a separate vehicle and examining its legal form and contractual terms. Parties holding direct rights to assets and obligations for liabilities are joint operators, while those with rights only to net assets are joint venturers.",
+      "terminology": [
+        "Separate vehicle",
+        "Joint operator",
+        "Joint venturer",
+        "Net assets"
+      ],
+      "instrument_references": [
+        "Ind AS 111"
+      ],
+      "inclusion": [
+        "Separate legal entities or statute-recognized structures",
+        "Arrangements without separate vehicles"
+      ],
+      "exclusion": [
+        "Sole proprietorships",
+        "Standard corporate subsidiaries"
+      ],
+      "nearby_distinctions": [
+        "Directly separates arrangements where participants own underlying items from those where ownership rests entirely within a separate corporate vehicle."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0f7fb039-3960-464a-8eea-ac5385c44186",
+      "concept_name": "Multiple joint arrangements under single framework agreement",
+      "definition": "A single framework agreement can establish multiple joint arrangements governing different activities with distinct classifications. For example, non-vehicle manufacturing activities under the framework may constitute joint operations, while separate vehicle distribution entities may qualify as joint ventures.",
+      "terminology": [
+        "Framework agreement",
+        "Multiple joint arrangements",
+        "Separate vehicle",
+        "Manufacturing and distribution"
+      ],
+      "instrument_references": [
+        "Ind AS 111"
+      ],
+      "inclusion": [
+        "Separate activity streams under a common master agreement",
+        "Mixed classifications within one framework"
+      ],
+      "exclusion": [
+        "Single-purpose homogeneous joint arrangements"
+      ],
+      "nearby_distinctions": [
+        "Highlights that contractual grouping under one framework does not force uniform classification across disparate operational activities."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "084d57d9-48bb-44c1-959b-1b4e94b3cdbb",
+      "concept_name": "Accounting Of Joint Operations",
+      "definition": "Joint operators must recognize their specific shares of assets, liabilities, revenues, and expenses in both separate and consolidated financial statements. Transactions involving asset sales, contributions, or purchases with the joint operation require the elimination of unrealized profits and losses.",
+      "terminology": [
+        "Joint operator",
+        "Assets and liabilities",
+        "Revenues and expenses",
+        "Consolidated financial statements"
+      ],
+      "instrument_references": [
+        "Ind AS 111"
+      ],
+      "inclusion": [
+        "Direct recognition of shared assets and liabilities",
+        "Proportionate revenue and expense allocation"
+      ],
+      "exclusion": [
+        "Equity method accounting applicable to joint ventures"
+      ],
+      "nearby_distinctions": [
+        "Contraste with equity accounting by recognizing underlying gross assets and liabilities rather than a single net investment line."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b8cbcf1b-d5a2-4d89-a66f-8d1c34cc161d",
+      "concept_name": "Accounting of interest in joint operations in separate and consolidated financial statement of joint operator",
+      "definition": "A joint operator records its individual assets, incurred liabilities, output revenues, and associated expenses directly in financial statements. These items are accounted for in accordance with the specific accounting standards applicable to each asset, liability, revenue, or expense category.",
+      "terminology": [
+        "Joint operator",
+        "Separate financial statements",
+        "Consolidated financial statements",
+        "Output revenue"
+      ],
+      "instrument_references": [
+        "Ind AS 111"
+      ],
+      "inclusion": [
+        "Share of jointly held assets and liabilities",
+        "Direct revenue from output shares"
+      ],
+      "exclusion": [
+        "Net asset investment recording used for joint ventures"
+      ],
+      "nearby_distinctions": [
+        "Requires line-by-line recognition of specific rights and obligations rather than netting balances into an investment account."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5b2e8a3a-dffb-4d10-b727-ca02e9f45f8a",
+      "concept_name": "Accounting for sales or contributions of assets to a joint operation in separate and consolidated financial statement of joint operator",
+      "definition": "When a joint operator sells or contributes assets to a joint operation, resulting gains and losses are recognized only to the extent of other parties' interests. Unrealized portions corresponding to the transferring operator's interest are deferred against the carrying amount of the asset.",
+      "terminology": [
+        "Asset contribution",
+        "Unrealized loss",
+        "Other parties' interest",
+        "Carrying value"
+      ],
+      "instrument_references": [
+        "Ind AS 111"
+      ],
+      "inclusion": [
+        "Partial gain or loss recognition based on external ownership percentages",
+        "Full recognition of impairment or net realizable value reductions"
+      ],
+      "exclusion": [
+        "Full immediate recognition of internal transaction profits or losses"
+      ],
+      "nearby_distinctions": [
+        "Differs from transactions with external third parties by restricting profit or loss recognition to the extent of external joint operators' stakes."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e967b3c9-f08c-448f-a8f7-122ab6f259ef",
+      "concept_name": "Accounting for purchases of assets from a joint operation in separate and consolidated financial statement of joint operator",
+      "definition": "When a joint operator purchases assets from a joint operation, it must not recognize its share of any resulting gains or losses until those assets are resold to a third party. However, impairment losses indicating reductions in net realizable value are recognized immediately for the operator's share.",
+      "terminology": [
+        "Asset purchase",
+        "Unrecognized share of gains and losses",
+        "Third party resale",
+        "Impairment loss"
+      ],
+      "instrument_references": [
+        "Ind AS 111"
+      ],
+      "inclusion": [
+        "Deferral of internal transaction gains and losses",
+        "Immediate recognition of documented asset impairment"
+      ],
+      "exclusion": [
+        "Immediate recognition of operating margins on internal transfers"
+      ],
+      "nearby_distinctions": [
+        "Distinct from asset sales because purchasing operators defer their share of transaction gains or losses until ultimate resale to independent parties."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "4f47f3b7d6faebfb4ef6d5db13d73c4b6c5e8fed97fd27a5e13a04550c18b72c",
+  "artifact_id": "39b20eed-5619-4f70-901e-f50cbf02f0a4",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8750,
+  "output_tokens": 3298,
+  "cost_usd": 0.01087,
+  "created_at": "2026-10-03T18:05:15.923003+00:00"
+}

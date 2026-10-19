@@ -1,0 +1,299 @@
+{
+  "descriptors": [
+    {
+      "node_id": "202c6cea-bf59-4295-b923-865f8b79a826",
+      "concept_name": "Bundled Goods and Services Not Distinct",
+      "definition": "When goods or services in a contract are bundled such that they do not qualify as distinct on an individual basis, an entity must combine them with other items until a distinct bundle is formed. This combined group of promises is then accounted for as a single performance obligation based on the specific contract terms.",
+      "terminology": [
+        "Multiple element arrangements",
+        "Performance obligation",
+        "Bundled goods and services"
+      ],
+      "instrument_references": [
+        "Ind AS 115"
+      ],
+      "inclusion": [
+        "Combining non-distinct goods or services into a single performance obligation",
+        "Assessing distinctness relative to specific contract bundling"
+      ],
+      "exclusion": [
+        "Treating individual goods or services as separate performance obligations when they are distinct on their own and unbundled"
+      ],
+      "nearby_distinctions": [
+        "Unlike separately distinct goods, non-distinct items are aggregated with others under the contract until a distinct bundle is identified."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0fe53524-5cfd-45b0-83fd-ed6048095e4f",
+      "concept_name": "Customer Options for Additional Goods or Services",
+      "definition": "Options granted to customers to acquire additional goods or services constitute a separate performance obligation only if they provide a material right that would not be received without entering into the contract. If the option merely offers a stand-alone market price, it is treated as a standard marketing offer rather than an advance payment for future goods.",
+      "terminology": [
+        "Material right",
+        "Customer option",
+        "Relative stand-alone selling price"
+      ],
+      "instrument_references": [
+        "Ind AS 115"
+      ],
+      "inclusion": [
+        "Customer award credits",
+        "Discounts exceeding normal market ranges creating a material right"
+      ],
+      "exclusion": [
+        "Marketing offers priced at standard stand-alone selling prices without conferring a material right"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard marketing offers by whether the discounted price provides a material right unavailable to non-contracted customers."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4bf2caa0-35f8-4de5-9303-861f6e5de6fa",
+      "concept_name": "Long Term Arrangements",
+      "definition": "Long-term service agreements may be treated as a single performance obligation or broken down into smaller sequential periods depending on whether each increment is distinct and separately identifiable. If a contract can be cancelled or renewed at discrete points in time, entities separately account for their rights and obligations for each uncancellable period.",
+      "terminology": [
+        "Long-term arrangements",
+        "Measure of progress",
+        "Discrete points in time"
+      ],
+      "instrument_references": [
+        "Ind AS 115"
+      ],
+      "inclusion": [
+        "Multi-year service contracts evaluated for distinct daily or monthly increments",
+        "Services satisfied over time"
+      ],
+      "exclusion": [
+        "Contracts where service increments significantly modify or customize preceding or following periods"
+      ],
+      "nearby_distinctions": [
+        "Differs from short-term contracts by requiring specific evaluation of whether continuous long-term delivery comprises independent daily or monthly performance obligations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3311dc29-641d-4034-b5a0-d76203dc8f4b",
+      "concept_name": "Consignment Arrangements",
+      "definition": "In consignment arrangements, an entity delivers inventory to an intermediary without transferring control, retaining the right to require product return or transfer. Consequently, revenue is not recognized upon initial delivery to the consignee but is deferred until the goods are sold to an end consumer or an agreed period expires.",
+      "terminology": [
+        "Consignor",
+        "Consignee",
+        "Consignment inventory"
+      ],
+      "instrument_references": [
+        "Ind AS 115"
+      ],
+      "inclusion": [
+        "Inventory shipped to dealers or distributors where control remains with the consignor",
+        "Agreements lacking unconditional payment obligations for the intermediary"
+      ],
+      "exclusion": [
+        "Sales with a right of return where the customer obtains immediate control of the goods"
+      ],
+      "nearby_distinctions": [
+        "Unlike a sale with a right of return, consignment arrangements leave control with the shipper until the dealer sells the item or a specified event occurs."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "38e2116c-8289-4074-8ed3-374af78b6ae6",
+      "concept_name": "Principal vs Agent Consideration",
+      "definition": "An entity must determine whether it acts as a principal by controlling goods or services before transfer, recognizing gross revenue, or as an agent by arranging for another party to provide them, recognizing net fee revenue. Obtaining momentary legal title does not automatically establish principal status if the entity lacks true control over the underlying performance.",
+      "terminology": [
+        "Principal",
+        "Agent",
+        "Gross versus net revenue"
+      ],
+      "instrument_references": [
+        "Ind AS 115"
+      ],
+      "inclusion": [
+        "Evaluation of control indicators before transferring goods or services",
+        "Fee or commission recognition for intermediary facilitation"
+      ],
+      "exclusion": [
+        "Direct performance obligations executed entirely by a single contracting entity without third-party involvement"
+      ],
+      "nearby_distinctions": [
+        "Principals control the promised goods or services and record gross inflows, whereas agents only arrange provision and record net commissions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "5bedc2a4-1d50-4db8-b649-428d86fc70bf",
+      "concept_name": "Non-Refundable Upfront Fees",
+      "definition": "Non-refundable upfront fees charged at contract inception are evaluated to determine if they relate to the transfer of a promised good or service. When such setup activities do not transfer a distinct service, the fee is treated as an advance payment for future goods and services to be recognized over subsequent periods.",
+      "terminology": [
+        "Non-refundable upfront fees",
+        "Activation fees",
+        "Setup activities"
+      ],
+      "instrument_references": [
+        "Ind AS 115"
+      ],
+      "inclusion": [
+        "Health club joining fees",
+        "Telecom activation and registration charges treated as advance payments"
+      ],
+      "exclusion": [
+        "Upfront fees that explicitly correspond to the transfer of a distinct standalone good or service"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standalone service charges by whether the upfront activity fulfills an immediate transfer or simply acts as a prepayment for future obligations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e9c5b8f9-fdc8-40e2-a995-146af1f2f856",
+      "concept_name": "Transaction Price Determination",
+      "definition": "The transaction price represents the total amount of consideration an entity expects to be entitled to in exchange for transferring promised goods or services to a customer, excluding third-party collections. Entities predict this amount by accounting for factors such as variable consideration, constraints, and significant financing components under existing contract terms.",
+      "terminology": [
+        "Transaction price",
+        "Variable consideration",
+        "Significant financing component"
+      ],
+      "instrument_references": [
+        "Ind AS 115"
+      ],
+      "inclusion": [
+        "Fixed and variable consideration amounts expected under contract terms",
+        "Adjustments for time value of money and revenue constraints"
+      ],
+      "exclusion": [
+        "Amounts collected on behalf of third parties such as sales taxes"
+      ],
+      "nearby_distinctions": [
+        "Differs from standalone selling prices because it measures total expected customer entitlement rather than individual asset or service valuations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d9f337c9-e6f1-45cb-9c9e-91b7f4d7a7af",
+      "concept_name": "Variable Consideration",
+      "definition": "Variable consideration arises when the promised amount of contract consideration varies due to discounts, rebates, refunds, credits, performance bonuses, or contingencies based on future events. Variability can be explicitly stated or implied through an entity's customary business practices and published policies indicating an expectation of price concessions.",
+      "terminology": [
+        "Variable consideration",
+        "Price concessions",
+        "Performance bonuses"
+      ],
+      "instrument_references": [
+        "Ind AS 115"
+      ],
+      "inclusion": [
+        "Discounts, rebates, refunds, and rights of return",
+        "Contingent milestone performance bonuses and penalties"
+      ],
+      "exclusion": [
+        "Fixed contractual considerations that are completely independent of future outcomes or performance metrics"
+      ],
+      "nearby_distinctions": [
+        "Unlike fixed pricing, variable consideration requires estimation and constraint assessment due to uncertainty regarding ultimate realization."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "eb2b69a2-5286-4afe-83d7-4151a03c7340",
+      "concept_name": "Significant Financing Component",
+      "definition": "Entities must adjust promised consideration for the time value of money if contract payment terms provide either the customer or the entity with a significant financing benefit. The objective is to reflect the cash selling price that the customer would have paid upon transfer of the goods or services.",
+      "terminology": [
+        "Significant financing component",
+        "Time value of money",
+        "Cash selling price"
+      ],
+      "instrument_references": [
+        "Ind AS 115"
+      ],
+      "inclusion": [
+        "Advance customer payments acting as a loan to the entity",
+        "Deferred payments acting as a loan by the entity to the customer"
+      ],
+      "exclusion": [
+        "Short-term advances or deferrals where the financing effect is immaterial to the contract"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard commercial credit terms by evaluating the length of time and market interest rates to identify a significant financing benefit."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a039034d-bb7b-4237-a5fa-cd7d540ee1b2",
+      "concept_name": "Non-Cash Consideration",
+      "definition": "When customers promise consideration in a form other than cash, such as equity instruments or equipment, entities initially measure it at fair value or indirectly via standalone selling prices if fair value cannot be estimated. Subsequent changes in fair value driven exclusively by the form of the consideration are not adjusted within the transaction price.",
+      "terminology": [
+        "Non-cash consideration",
+        "Fair value measurement",
+        "Subsequent measurement"
+      ],
+      "instrument_references": [
+        "Ind AS 115"
+      ],
+      "inclusion": [
+        "Customer promises of common stock, equity shares, advertising, or equipment",
+        "Initial fair value assessment at contract inception"
+      ],
+      "exclusion": [
+        "Cash-based compensation and standard monetary pricing structures"
+      ],
+      "nearby_distinctions": [
+        "Unlike cash consideration, non-cash forms require fair value estimation at inception and specific rules regarding form-driven subsequent value changes."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "10d88260-05cb-4bcc-83c6-f3e0fa5d77de",
+      "concept_name": "Consideration Payable to a Customer",
+      "definition": "Consideration payable to a customer represents cash, credits, or coupons paid or owed to a customer and is accounted for as a reduction of the transaction price unless it is exchanged for a distinct good or service. If the payment exceeds the fair value of the distinct good or service received, the excess is similarly recognized as a reduction of the transaction price.",
+      "terminology": [
+        "Consideration payable to a customer",
+        "Reduction of transaction price",
+        "Distinct goods or services"
+      ],
+      "instrument_references": [
+        "Ind AS 115"
+      ],
+      "inclusion": [
+        "Cash payments, coupons, and vouchers applied against amounts owed to the entity",
+        "Excess payments over the fair value of goods received from customers"
+      ],
+      "exclusion": [
+        "Payments made for distinct goods or services purchased from a customer up to their fair value"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard supplier purchases by requiring offset against revenue unless a genuine, fair-value distinct service is acquired in return."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2cdb8798-d30a-443c-82ff-8da55b4bafb7",
+      "concept_name": "Allocation of Transaction Price to Performance Obligations",
+      "definition": "The allocation objective requires an entity to distribute the transaction price to each performance obligation on a relative stand-alone selling price basis at contract inception. Exceptions are made for discounts and variable consideration when there is specific evidence linking them to particular performance obligations.",
+      "terminology": [
+        "Relative stand-alone selling price",
+        "Allocation objective",
+        "Stand-alone selling price"
+      ],
+      "instrument_references": [
+        "Ind AS 115"
+      ],
+      "inclusion": [
+        "Proportional allocation based on observable stand-alone selling prices at contract inception",
+        "Disproportionate allocation exceptions for specific discounts and variable amounts"
+      ],
+      "exclusion": [
+        "Updating stand-alone selling prices subsequent to contract inception for routine performance changes"
+      ],
+      "nearby_distinctions": [
+        "Differs from transaction price determination by focusing on distributing established totals proportionally rather than calculating expected total customer consideration."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "ec2b2ffe31f0cb73a5234d5d768403a524837a08ccefc52ce5b0782e3a5125d8",
+  "artifact_id": "87ecba6d-af6e-4b75-8383-a31f2b31cb05",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8250,
+  "output_tokens": 3487,
+  "cost_usd": 0.0111925,
+  "created_at": "2026-10-03T18:03:55.676922+00:00"
+}

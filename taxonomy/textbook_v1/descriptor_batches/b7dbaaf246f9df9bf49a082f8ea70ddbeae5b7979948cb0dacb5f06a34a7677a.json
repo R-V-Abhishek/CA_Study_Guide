@@ -1,0 +1,308 @@
+{
+  "descriptors": [
+    {
+      "node_id": "ba593a1d-7ab3-46ac-851f-ef66be7c16b0",
+      "concept_name": "Accounting Standards Foundation and Regulatory Scope",
+      "definition": "Accounting standards provide established principles and rules governing the recognition, measurement, presentation, and disclosure of transactions to guarantee financial statement accuracy, consistency, and comparability. The Accounting Standards Board of the ICAI formulates these guidelines to standardize diverse accounting practices and assist the Council in national standard-setting.",
+      "terminology": [
+        "Accounting Standards",
+        "ASB",
+        "ICAI",
+        "Recognition and Measurement",
+        "Financial Statements"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Principles for recognition and measurement",
+        "Presentation and disclosure guidelines",
+        "Stakeholder economic decision-making tools"
+      ],
+      "exclusion": [
+        "Non-standardized informal accounting policies",
+        "Direct international standard mandates without local board review"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from unregulated business practices by enforcing formal, rule-based reporting criteria."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9f32069b-6912-4a8e-bbc8-6918b64ec678",
+      "concept_name": "Indian Accounting Framework Prior to Ind AS",
+      "definition": "Prior to the introduction of IFRS-converged Indian Accounting Standards, the ASB issued various domestic accounting standards. These legacy standards applied across multiple tiers of companies, including small and medium-sized companies as well as non-corporate entities.",
+      "terminology": [
+        "Legacy AS",
+        "SMCs",
+        "Non-Corporate Entities",
+        "Level I to IV Entities"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Domestic accounting standards issued prior to Ind AS convergence",
+        "Applicability criteria across different corporate and non-corporate tiers"
+      ],
+      "exclusion": [
+        "Post-convergence Ind AS frameworks",
+        "Pure international standard applications"
+      ],
+      "nearby_distinctions": [
+        "Differs from Ind AS by representing the older domestic reporting framework before global standard alignment."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ebcfe7b7-63b4-43db-b525-f7af6d8afb95",
+      "concept_name": "Limitations of Traditional Accounting Standards",
+      "definition": "Traditional accounting standards struggled to comprehensively address rising financial complexities, such as hybrid capital instruments, complex derivatives, and group restructurings. Furthermore, limited disclosure requirements under older frameworks hindered investors from obtaining a complete overview of business risks and operational backgrounds.",
+      "terminology": [
+        "Financial Complexities",
+        "Derivatives",
+        "Group Restructuring",
+        "Limited Disclosures"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Complex financial instruments and derivatives",
+        "Business acquisitions, mergers, and slump sales",
+        "Expanded disclosure requirements for business risks"
+      ],
+      "exclusion": [
+        "Simple traditional single-entity transactions",
+        "Fully harmonized global reporting structures"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from modern global standards by lacking explicit coverage for innovative financial products and deep disclosures."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "08b1fe56-fffb-4d66-a74d-1eff269e1983",
+      "concept_name": "Emergence of Global Accounting Standards",
+      "definition": "The International Accounting Standards Committee was established to harmonize global reporting practices and later restructured into the International Accounting Standards Board to develop uniform financial standards. Securities regulators recognized these international standards to facilitate cross-border security offerings and improve worldwide market comparability.",
+      "terminology": [
+        "IASC",
+        "IASB",
+        "IFRS Foundation",
+        "IOSCO"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Formation of international standard-setting bodies",
+        "Cross-border security offering recognitions by regulators"
+      ],
+      "exclusion": [
+        "Isolated domestic-only accounting frameworks",
+        "Unrevised local jurisdictional rules"
+      ],
+      "nearby_distinctions": [
+        "Differs from regional standard setting by creating a unified worldwide baseline for financial reporting."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e93fa8f6-49ac-4999-9196-0dd420cd65a4",
+      "concept_name": "Need for Global Accounting Standards in India",
+      "definition": "Cross-border economic integration created high compliance costs and complexities for Indian companies maintaining multiple sets of financial books under divergent national rules. Adopting globally comparable standards resolved investor apprehensions regarding local accounting variations and fulfilled India's international commitments made at the G20 summit.",
+      "terminology": [
+        "Cross-border Transactions",
+        "Compliance Costs",
+        "G20 Summit",
+        "IFRS Convergence"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Reduction of multiple reporting book compliance costs",
+        "Alignment with international investor expectations"
+      ],
+      "exclusion": [
+        "Strict adherence to unrevised localized reporting formats",
+        "Domestic-only financial transparency models"
+      ],
+      "nearby_distinctions": [
+        "Contrasts with isolated domestic accounting by addressing international capital market demands and reducing cross-border valuation discrepancies."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4c162121-eb89-4c32-bf26-6369a17db93c",
+      "concept_name": "Benefits of Global Accounting Standards",
+      "definition": "Global accounting standards enhance financial transparency, market accountability, and economic efficiency by providing internationally recognized reporting benchmarks. Implementing a single trusted accounting language reduces international reporting costs, lowers capital costs, and streamlines multi-country corporate consolidations.",
+      "terminology": [
+        "Transparency",
+        "Accountability",
+        "Economic Efficiency",
+        "Cost of Capital"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Enhanced international comparability for investors",
+        "Lowered international reporting and capital costs",
+        "Simplified multi-jurisdictional consolidation"
+      ],
+      "exclusion": [
+        "Fragmented regional accounting metrics",
+        "High information asymmetry between capital providers and entities"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from local standards through broad international acceptance that minimizes cross-border reporting friction."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e960947c-aab1-42c5-b0b3-8e086cb62bff",
+      "concept_name": "Convergence versus Adoption of IFRS",
+      "definition": "Adoption requires implementing IFRS exactly as issued by the IASB to achieve complete compliance, whereas convergence involves adopting standards with specific localized exceptions while collaborating to reduce variances over time. Entities applying localized framework modifications cannot assert full compliance with IFRS as issued by the IASB.",
+      "terminology": [
+        "Adoption",
+        "Convergence",
+        "IFRS 1",
+        "Carve-outs"
+      ],
+      "instrument_references": [
+        "IFRS 1"
+      ],
+      "inclusion": [
+        "Full 100 percent compliance under IFRS adoption",
+        "Localized adjustments and carve-outs under convergence"
+      ],
+      "exclusion": [
+        "Interchangeable use of adoption and convergence without structural differences",
+        "Unqualified assertion of IFRS compliance when local amendments exist"
+      ],
+      "nearby_distinctions": [
+        "Adoption demands absolute alignment with IASB text, whereas convergence permits tailored regional exceptions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9420d723-2dd9-4c85-b80c-3969be07aad7",
+      "concept_name": "Process of Development and Finalisation of Indian Accounting Standards",
+      "definition": "Indian Accounting Standards are formulated by the ICAI's Accounting Standards Board through public comment exposure drafts and extensive inter-regulatory consultations. Following council approval and National Financial Reporting Authority review, the Central Government officially notifies these standards under the Companies Act.",
+      "terminology": [
+        "ASB",
+        "NFRA",
+        "Exposure Draft",
+        "MCA Notification"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Preparation of preliminary drafts with carve-ins and carve-outs",
+        "Stakeholder consultations and public comment exposure drafts",
+        "NFRA review and MCA statutory notification"
+      ],
+      "exclusion": [
+        "Direct unilateral adoption without regulatory consultation",
+        "Non-statutory guideline formulation without governmental notification"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from informal rule-making by following a structured multi-party consultative and statutory notification workflow."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8e6dd6d9-c7ba-48fa-ad61-06d8bffe75e9",
+      "concept_name": "Transition from AS to Ind AS",
+      "definition": "Following initial policy delays due to unresolved tax issues, India transitioned to IFRS-converged standards pursuant to the Union Budget announcement and subsequent Ministry of Corporate Affairs rules. The notification of the Companies rules established a structured transition roadmap for corporate entities, excluding specific financial sectors.",
+      "terminology": [
+        "Roadmap",
+        "MCA Rules 2015",
+        "Transition",
+        "G.S.R Notification"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Union budget policy propositions for Ind AS adoption",
+        "Notification of Companies rules establishing transition paths"
+      ],
+      "exclusion": [
+        "Immediate implementation without regulatory roadmaps",
+        "Unconditional coverage of banking and insurance entities prior to separate regulatory notification"
+      ],
+      "nearby_distinctions": [
+        "Differs from preliminary unexecuted plans by providing a legally mandated implementation roadmap for corporate reporting."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e67f3198-dcad-440e-b50b-e7c143b67cb3",
+      "concept_name": "About Indian Accounting Standards",
+      "definition": "Indian Accounting Standards are principles-based standards converged with IFRS, formulated by the Ministry of Corporate Affairs with specific carve-outs for domestic economic nuances. These standards comprise a distinct framework numbering thirty-nine specific pronouncements that govern modern corporate financial reporting.",
+      "terminology": [
+        "Ind AS",
+        "Principles-based",
+        "Carve-outs",
+        "MCA Framework"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Thirty-nine notified IFRS-converged standards",
+        "Standards incorporating local economic carve-outs"
+      ],
+      "exclusion": [
+        "Exact identical replicas of unadjusted IFRS",
+        "Older legacy Indian GAAP standards"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from pure IFRS by containing specific modifications tailored to the Indian legal and economic environment."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d0f6dae1-564b-417a-8fe9-a61e8eb6ce14",
+      "concept_name": "Numbering and Structure of Ind AS Relative to IFRS",
+      "definition": "Indian Accounting Standards mirror international numbering conventions, retaining IAS numbers for older standards and utilizing the 100-series for newer IFRS-aligned pronouncements. Interpretative guidance documents such as IFRIC and SIC are incorporated into relevant standards as appendices to maintain complete alignment.",
+      "terminology": [
+        "IAS",
+        "IFRS Series",
+        "IFRIC",
+        "SIC Appendices"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Retained IAS numerical series",
+        "100-series numbering for post-2000 IFRS standards",
+        "IFRIC and SIC interpretative appendices"
+      ],
+      "exclusion": [
+        "Completely independent random domestic numbering schemes",
+        "Omitted international interpretations without local reference"
+      ],
+      "nearby_distinctions": [
+        "Differs from arbitrary numbering by maintaining structural synchronization with international standard designations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1323f66b-c517-4eec-9cbe-7da88954578b",
+      "concept_name": "Structural Components of Ind AS",
+      "definition": "Indian Accounting Standards replicate the structure of international standards, preserving original paragraph numbering while noting any local carve-outs in comparative appendices. Each standard typically comprises explicit sections for objectives, scope, definitions, core recognition and measurement principles, and disclosure requirements.",
+      "terminology": [
+        "Objective and Scope",
+        "Definitions",
+        "Content and Principles",
+        "Disclosure Requirements"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Standard objective and scope parameters",
+        "Recognition, measurement, and subsequent valuation principles",
+        "Qualitative and quantitative disclosure mandates"
+      ],
+      "exclusion": [
+        "Unstructured narrative accounting guidelines",
+        "Standards lacking comparative compliance appendices"
+      ],
+      "nearby_distinctions": [
+        "Distinguished by a standardized modular layout that preserves international paragraph alignments for cross-reference ease."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "b7dbaaf246f9df9bf49a082f8ea70ddbeae5b7979948cb0dacb5f06a34a7677a",
+  "artifact_id": "d142b3b8-6266-42be-9c40-4c1a0c862073",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8497,
+  "output_tokens": 3331,
+  "cost_usd": 0.0108766,
+  "created_at": "2026-10-03T17:46:48.724260+00:00"
+}

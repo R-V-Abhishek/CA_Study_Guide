@@ -1,0 +1,36 @@
+{
+  "result": {
+    "question_id": "d86e758327b52c35e89791af5bb415c7d71d7f8ab7d5819e4b072b309cc5d539",
+    "input_hash": "db0fdc1e143dd42b9ee6f99610463ae6088c393ec15855f9595dce73c3ebe0ea",
+    "mappings": [
+      {
+        "part_id": "d86e758327b52c35e89791af5bb415c7d71d7f8ab7d5819e4b072b309cc5d539",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "The text states only the applicable GST and Customs law amendment cutoff dates; it contains no gradable question or tested concept to map.",
+        "confidence": null,
+        "bucket": null
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "attempt_id": "1791217554297646000",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "18945d57307d8cf5aa1cb6aac56273a164cd1df43a3f17460de527a945ee7263",
+    "schema_generator": "pinned-identifiers-v2",
+    "seconds": 8.212,
+    "usage": [
+      {
+        "input_tokens": 43143,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 199,
+        "reasoning_output_tokens": 0
+      }
+    ],
+    "completed_at": "2026-10-05T16:26:02.509343+00:00"
+  }
+}

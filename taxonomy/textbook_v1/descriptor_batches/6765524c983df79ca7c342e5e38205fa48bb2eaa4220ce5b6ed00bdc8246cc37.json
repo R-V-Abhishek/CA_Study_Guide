@@ -1,0 +1,122 @@
+{
+  "descriptors": [
+    {
+      "node_id": "8195ec5b-cca6-4f86-b53b-0ddf5ca7dc4f",
+      "concept_name": "Taxable Event Under GST - Supply",
+      "definition": "Supply serves as the single comprehensive taxable event replacing prior fragmented triggers like manufacture, sale, and service provision. It dictates the precise threshold at which tax liability arises across the integrated tax framework.",
+      "terminology": [
+        "Supply",
+        "Taxable Event",
+        "Goods",
+        "Services"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Supply of goods",
+        "Supply of services"
+      ],
+      "exclusion": [
+        "Historical events like manufacture or separate sale",
+        "Transactions involving money and securities"
+      ],
+      "nearby_distinctions": [
+        "Differs from previous regime events by integrating manufacture and sale into a single unified supply concept."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "17c3fece-e2ed-4c27-aab2-7e263a7b4bd2",
+      "concept_name": "Relevant Definitions",
+      "definition": "Statutory definitions delineate key terms such as goods, services, principal, family, and local authorities to establish clear statutory boundaries for tax applicability. These definitions remove ambiguities by specifying exact inclusions and exclusions within the legislative framework.",
+      "terminology": [
+        "Goods",
+        "Services",
+        "Principal",
+        "Local Authority",
+        "Family"
+      ],
+      "instrument_references": [
+        "Section 2(52) of CGST Act",
+        "Section 2(102) of CGST Act",
+        "Section 2(88) of CGST Act",
+        "Section 2(49) of CGST Act",
+        "Section 2(53) of CGST Act"
+      ],
+      "inclusion": [
+        "Movable property",
+        "Actionable claims",
+        "Activities relating to use of money"
+      ],
+      "exclusion": [
+        "Money and securities from general goods definition"
+      ],
+      "nearby_distinctions": [
+        "Differentiates between general movable property and excluded financial instruments like money and securities."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "81f2b41f-d9bf-40cc-9fbb-3a45b699d53a",
+      "concept_name": "Concept of Supply [Section 7 of the CGST Act]",
+      "definition": "Supply encompasses forms of goods or services transactions made for consideration in the course of business, specific member-entity activities, import of services, and specified transactions without consideration. The statutory schedules further classify these transactions as supplies of goods or services or exclude them entirely.",
+      "terminology": [
+        "Supply",
+        "Consideration",
+        "Course or Furtherance of Business",
+        "Importation of Services"
+      ],
+      "instrument_references": [
+        "Section 7 of the CGST Act",
+        "Schedule I",
+        "Schedule II",
+        "Schedule III"
+      ],
+      "inclusion": [
+        "Sale, transfer, barter, exchange, licence, rental, lease or disposal",
+        "Importation of services for consideration",
+        "Activities specified in Schedule I without consideration"
+      ],
+      "exclusion": [
+        "Activities specified in Schedule III",
+        "Transactions explicitly excluded from the scope of supply"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes standard commercial supplies from non-consideration supplies under Schedule I and excluded activities under Schedule III."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f8488ba8-b7a7-43e2-92b6-1d5fffe34784",
+      "concept_name": "Composite and Mixed Supplies [Section 8]",
+      "definition": "Composite supplies involving naturally bundled elements take the tax rate of their principal supply, whereas mixed supplies not naturally bundled attract the highest applicable tax rate among their components. This mechanism ensures taxation certainty for bundled transactions combining multiple goods or services.",
+      "terminology": [
+        "Composite Supply",
+        "Mixed Supply",
+        "Principal Supply",
+        "Naturally Bundled"
+      ],
+      "instrument_references": [
+        "Section 8 of the CGST Act",
+        "Section 2(30) of the CGST Act"
+      ],
+      "inclusion": [
+        "Naturally bundled supplies dependent on a principal supply",
+        "Unrelated supplies bundled together for a single price"
+      ],
+      "exclusion": [
+        "Unbundled individual supplies evaluated separately"
+      ],
+      "nearby_distinctions": [
+        "Composite supplies rely on natural bundling and a principal component, while mixed supplies lack natural bundling and attract the highest tax rate."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "6765524c983df79ca7c342e5e38205fa48bb2eaa4220ce5b6ed00bdc8246cc37",
+  "artifact_id": "c7c2db9b-a52e-4748-80ee-1a8bc1cf0313",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 3120,
+  "output_tokens": 1198,
+  "cost_usd": 0.003931,
+  "created_at": "2026-10-03T18:23:02.643559+00:00"
+}

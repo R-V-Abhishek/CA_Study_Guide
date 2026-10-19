@@ -1,0 +1,12 @@
+import type { paths } from '@caf/api-client';
+type Response<P extends keyof paths> = paths[P]['get'] extends { responses: { 200: { content: { 'application/json': infer R } } } } ? R : never;
+export type DashboardData = Response<'/api/v1/dashboard'>;
+export type PaperSummary = Response<'/api/v1/papers'>[number];
+export type PaperTree = Response<'/api/v1/papers/{paper_id}/tree'>;
+export type SubtopicData = Response<'/api/v1/subtopics/{node_id}'>;
+export type WhyData = Response<'/api/v1/why/subtopic/{node_id}'>;
+export type PlanData = Response<'/api/v1/plan'>;
+export type RevisionData = Response<'/api/v1/revision/due'>;
+export type MockTest = Response<'/api/v1/mock-tests'>[number];
+export type MetaData = Response<'/api/v1/meta'>;
+export type SubtopicNode = PaperTree['chapters'][number]['topics'][number]['subtopics'][number];

@@ -1,0 +1,159 @@
+{
+  "descriptors": [
+    {
+      "node_id": "ed438237-b25f-46fb-9d05-bc9ec85923d7",
+      "concept_name": "Planning - Building Informed Strategies",
+      "definition": "Management accountants apply forecasting and budgeting skills to aid senior leaders in making business and financial decisions or developing strategies. They work closely with executives to define and implement long-term plans by combining technical accounting depth with broad business operations coverage.",
+      "terminology": [
+        "Forecasting",
+        "Budgeting",
+        "Strategic Planning",
+        "Business Operations"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Forecasting and budgeting for business decisions",
+        "Supporting executives in defining long-term plans"
+      ],
+      "exclusion": [
+        "Routine historical bookkeeping",
+        "External statutory auditing"
+      ],
+      "nearby_distinctions": [
+        "Differs from routine operational accounting by focusing on forward-looking strategic decision support."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "cc498e1b-c2b4-4942-bf1d-77c206f7e0c3",
+      "concept_name": "Innovation - Technological Advancement and Breakthrough",
+      "definition": "Businesses must remain innovative to sustain or improve performance through the infusion of technology. The management accountant assumes the role of initiator or change advocate for technological innovation to support Industry 4.0 or Industry 5.0 practices.",
+      "terminology": [
+        "Industry 4.0",
+        "Industry 5.0",
+        "Change Advocate",
+        "Technological Innovation"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Advocating for technological changes",
+        "Integrating Industry 4.0 and 5.0 practices"
+      ],
+      "exclusion": [
+        "Maintaining legacy non-technological operational processes",
+        "Solely financial bookkeeping"
+      ],
+      "nearby_distinctions": [
+        "Focuses specifically on technology-driven changes rather than standard administrative planning."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9a8760bb-4e4c-4164-a950-039352067f81",
+      "concept_name": "Leadership - From Planning to Execution",
+      "definition": "Management accountants acting as leaders must be proficient in decision-making and communication during plan formulation and precise execution across departments. They lead by example by observing professional and business ethics across the enterprise.",
+      "terminology": [
+        "Decision-making",
+        "Communication",
+        "Execution",
+        "Business Ethics"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Cross-departmental execution of plans",
+        "Ethical leadership in management"
+      ],
+      "exclusion": [
+        "Passive adherence to status quo management",
+        "Short-term task execution without strategic vision"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes transformational leadership traits (creating visions and taking risks) from traditional administrative management.",
+        "Management Accountant - In the Role of a Leader Who Drives the Strategy"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "dd3cd5fd-a373-4349-95b6-c3f502d99d1e",
+      "concept_name": "Management Accountant - In the Role of a Leader Who Drives the Strategy",
+      "definition": "Leadership is required to develop organizational strategy, drive change, and align structure, resources, and culture with that strategy. Management accountants act as strategic leaders by assisting in decision-making, communicating vision, and ensuring ethical execution.",
+      "terminology": [
+        "Organizational Strategy",
+        "Change Management",
+        "Resource Alignment",
+        "Strategic Leadership"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Driving organizational strategy",
+        "Aligning corporate culture and resources with strategic goals"
+      ],
+      "exclusion": [
+        "Isolated bookkeeping or isolated cost computation",
+        "Non-strategic operational tasks"
+      ],
+      "nearby_distinctions": [
+        "Broader than standard operational planning, integrating multi-departmental culture and resource alignment.",
+        "Leadership - From Planning to Execution"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ca7e0601-cecf-469f-b9ce-50f04bf4c16f",
+      "concept_name": "Communication",
+      "definition": "Communication is a two-way process involving the formal and informal transfer of information and feedback across vertical, horizontal, and diagonal structures. In a strategic context, it involves conveying vision and change while actively analyzing feedback and listening to reduce resistance.",
+      "terminology": [
+        "Vertical Communication",
+        "Horizontal Communication",
+        "Feedback",
+        "Management by Wandering Around"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Formal and informal exchanges of ideas",
+        "Using techniques like management by wandering around"
+      ],
+      "exclusion": [
+        "One-way monologues without receiver feedback",
+        "Unverified directive transmissions"
+      ],
+      "nearby_distinctions": [
+        "Emphasizes two-way dialogue and feedback loops rather than simple top-down dissemination of memos.",
+        "Management Accountant - In the Role of a Leader Who Drives the Strategy"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "06b9fad2-795f-41b3-b1fb-1344751cba98",
+      "concept_name": "Business Ethics",
+      "definition": "Business ethics is a form of applied ethics examining moral problems in an enterprise environment that must align with organizational values. Moving beyond classical shareholder wealth maximization, the socio-economic approach requires balancing economic motives with social costs.",
+      "terminology": [
+        "Applied Ethics",
+        "Socio-Economic Approach",
+        "Triple Bottom Line",
+        "Lifecycle Cost"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Balancing economic motives and social costs",
+        "Using triple bottom line frameworks and lifecycle costing"
+      ],
+      "exclusion": [
+        "Sole focus on short-term profit maximization for shareholders",
+        "Ignoring external environmental and social impacts"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes the broader socio-economic stakeholder framework from narrow classical shareholder wealth maximization.",
+        "Management Accountant - In the Role of a Leader Who Drives the Strategy"
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "e0a17830feeb1e19bb9b1c42b936b47059e6c620a257deac26da2e63e1826f5f",
+  "artifact_id": "aefcd45d-6353-4580-9c39-054c3d302731",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 3802,
+  "output_tokens": 1620,
+  "cost_usd": 0.0051906,
+  "created_at": "2026-10-03T18:25:55.163971+00:00"
+}

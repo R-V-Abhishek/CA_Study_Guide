@@ -1,11 +1,19 @@
 from datetime import date, datetime, timezone
-from typing import Any, Literal
-from fastapi import APIRouter, Depends, HTTPException, Query
-from pydantic import BaseModel, Field
+from typing import Literal
+from fastapi import APIRouter, Depends, HTTPException, Query, Request
+from pydantic import BaseModel, Field, ConfigDict, model_validator
 import sqlalchemy as sa
 from sqlalchemy.orm import Session
 
-from caf_common.settings import get_settings
+from caf_api.responses import (
+    BackupList, BackupResult, ChapterItem, Dashboard, DeleteResult, Metadata,
+    MockTestResult, ModelEvaluation, NoteResult, PaperSummary, PaperTree,
+    ProgressResult, RevisionQueue, RevisionResult, ScoreExplanation, StudyPlan,
+    SubtopicDetail, SubtopicItem, SystemHealth, TopicItem, ProfileSettings, ProfileExport,
+    CorpusReadiness,
+)
+from caf_api.auth import Principal, require_account, require_admin, get_identity_db
+from caf_api.version import backend_revision, score_run_identity
 from caf_db.engine import get_session_factory
 from caf_db.models.app import (
     MockTest,
@@ -13,16 +21,15 @@ from caf_db.models.app import (
     Progress,
     ProgressEvent,
     RevisionEvent,
-    Settings,
     UserAccount,
+    StudySession,
 )
 from caf_db.models.core import Appearance, AppearanceTag
-from caf_db.models.intel import SubtopicScore
-from caf_db.models.ref import Node, Paper, WeightageMember, WeightageSection
+from caf_db.models.intel import CorpusCoverage, SubtopicScore
+from caf_db.models.ref import Attempt, Node, Paper, WeightageMember, WeightageSection
 from caf_l5 import (
     compute_weighted_coverage,
     generate_study_plan,
-    get_current_score_run,
     get_ingestion_coverage_matrix,
     get_revision_due_list,
     get_subtopic_scores_for_paper,
@@ -32,34 +39,53 @@ from caf_l5 import (
     record_revision_outcome,
 )
 
-router = APIRouter(prefix="/api/v1")
+from caf_l5.service import get_account_settings, get_account_score_run, selected_papers
+from caf_l5.context import resolve_context, context_nodes, context_leaf_ids
+from caf_l0.hierarchy import ancestor_at, descendant_leaves
+
+router = APIRouter(prefix="/api/v1", dependencies=[Depends(require_account)])
 
 
-def get_db():
-    factory = get_session_factory()
+def get_db(request: Request):
+    factory = get_session_factory("student")
     with factory() as session:
+        # Repeated intelligence helpers share a snapshot only within this GET.
+        # Mutations and pipeline sessions always resolve fresh context.
+        session.info["cache_study_context"] = request.method in {"GET", "HEAD"}
         yield session
 
 
-def ensure_default_user(session: Session) -> UserAccount:
-    settings = get_settings()
-    user_id = settings.app.user_id
-    user = session.get(UserAccount, user_id)
-    if not user:
-        user = UserAccount(id=user_id, name="Primary Aspirant")
-        session.add(user)
-        session.flush()
+def get_operations_db():
+    with get_session_factory("operations")() as session:
+        yield session
 
-        app_settings = Settings(
-            user_id=user_id,
-            target_attempt_id=settings.app.target_attempt_id,
-            hours_per_week=20.0,
-            minutes_per_subtopic=45,
-            revision_intervals=[3, 7, 21, 60],
-        )
-        session.add(app_settings)
-        session.commit()
-    return user
+
+def _nodes(session: Session, account: Principal) -> dict[str, Node]:
+    return {node.id: node for node in context_nodes(session, resolve_context(session, account.id), study=True)}
+
+
+def _node_scope(session: Session, account: Principal):
+    return Node.id.in_(_nodes(session, account))
+
+
+def _leaf_scope(session: Session, account: Principal):
+    context = resolve_context(session, account.id)
+    return Node.id.in_(context_leaf_ids(session, context, study=True))
+
+
+def _scores(session: Session, account: Principal, paper_id: str, *, include_evidence: bool = True):
+    context = resolve_context(session, account.id)
+    if context.run is None:
+        return {}
+    return get_subtopic_scores_for_paper(session, paper_id, run_id=context.run.id,
+        target_attempt_id=context.target_attempt_id, taxonomy_version_id=context.taxonomy_version_id,
+        include_evidence=include_evidence)
+
+
+def _applicable_tree(values: list[dict], node_ids: set[str], progress: dict) -> list[dict]:
+    return [{**value, 'status': progress[value['id']].status if value['id'] in progress else 'not_started',
+             'children': _applicable_tree(value['children'], node_ids, progress)}
+            for value in values if value['id'] in node_ids]
 
 
 # ==============================================================================
@@ -67,93 +93,83 @@ def ensure_default_user(session: Session) -> UserAccount:
 # ==============================================================================
 
 class ProgressUpdateRequest(BaseModel):
+    model_config = ConfigDict(extra="forbid")
     status: Literal["not_started", "in_progress", "done"]
 
 
 class NoteUpdateRequest(BaseModel):
+    model_config = ConfigDict(extra="forbid")
     notes: str
 
 
 class RevisionLogRequest(BaseModel):
+    model_config = ConfigDict(extra="forbid")
     outcome: Literal["ok", "shaky"]
 
 
 class MockTestCreateRequest(BaseModel):
+    model_config = ConfigDict(extra="forbid")
     paper_id: str
     attempt_id: str | None = None
     label: str | None = None
-    score: float
-    max_score: float = 100.0
+    score: float = Field(ge=0, allow_inf_nan=False)
+    max_score: float = Field(default=100.0, gt=0, allow_inf_nan=False)
     taken_on: date
     notes: str | None = None
-
-
-class SubtopicItem(BaseModel):
-    id: str
-    name: str
-    seq: int
-    status: str
-    notes: str | None = None
-    first_done_at: datetime | None = None
-    last_revised_at: datetime | None = None
-    importance: float = 0.0
-    freq_hits: int = 0
-    freq_window: int = 0
-    weak: bool = False
-    applicable: bool = True
-
-
-class TopicItem(BaseModel):
-    id: str
-    name: str
-    seq: int
-    subtopics: list[SubtopicItem]
-
-
-class ChapterItem(BaseModel):
-    id: str
-    name: str
-    seq: int
-    weightage_min_pct: float | None = None
-    weightage_max_pct: float | None = None
-    weightage_section_name: str | None = None
-    total_subtopics: int = 0
-    completed_subtopics: int = 0
-    progress_pct: float = 0.0
-    topics: list[TopicItem]
-
-
-class PaperSummary(BaseModel):
-    id: str
-    code: str
-    name: str
-    group_no: int | None
-    total_subtopics: int
-    completed_subtopics: int
-    raw_progress_pct: float
-    weighted_coverage_pct: float
 
 
 # ==============================================================================
 # Endpoints
 # ==============================================================================
 
+@router.get('/coverage', response_model=CorpusReadiness)
+def get_corpus_readiness(session: Session = Depends(get_db), account: Principal = Depends(require_account)):
+    from caf_l5.scoring import coverage_eligibility
+    context = resolve_context(session, account.id)
+    papers = selected_papers(session, account.id)
+    rows = session.scalars(sa.select(CorpusCoverage).where(
+        CorpusCoverage.taxonomy_version_id == context.taxonomy_version_id,
+        CorpusCoverage.paper_id.in_(papers),
+    ).order_by(CorpusCoverage.paper_id, CorpusCoverage.attempt_id, CorpusCoverage.source_family))
+    items = []
+    for row in rows:
+        eligible, blockers = coverage_eligibility(row)
+        items.append({
+            'paper_id': row.paper_id, 'attempt_id': row.attempt_id, 'source_family': row.source_family,
+            'inventory_reviewed': row.inventory_reviewed, 'expected_slots': row.expected_slots,
+            'discovered_count': row.discovered_count, 'acquired_count': row.acquired_count,
+            'metadata_reviewed': row.metadata_reviewed, 'extraction_reviewed': row.extraction_reviewed,
+            'pairing_reviewed': row.pairing_reviewed, 'official_scope_confirmed': row.official_scope_confirmed,
+            'gradable_regions_accounted': row.gradable_regions_accounted, 'labels_complete': row.labels_complete,
+            'occurrence_resolved': row.occurrence_resolved, 'reviewed_roots': row.reviewed_roots,
+            'reviewed_parts': row.reviewed_parts, 'published_roots': row.published_roots,
+            'missing_answers': row.missing_answers,
+            'usable_exam': eligible and row.source_family in {'QP', 'question_paper', 'exam'},
+            'blockers': blockers,
+        })
+    return {'context': context.identity, 'freshness': context.freshness, 'items': items}
+
 @router.get("/papers", response_model=list[PaperSummary])
-def list_papers(session: Session = Depends(get_db)):
-    ensure_default_user(session)
-    settings = get_settings()
-    user_id = settings.app.user_id
+def list_papers(session: Session = Depends(get_db), account: Principal = Depends(require_account)):
+    user_id = account.id
+    context = resolve_context(session, user_id)
 
     papers = session.execute(
-        sa.select(Paper).where(Paper.is_current.is_(True)).order_by(Paper.code)
+        sa.select(Paper).where(Paper.is_current.is_(True)).order_by(Paper.code, Paper.id)
     ).scalars().all()
 
+    revision_due = get_revision_due_list(session, user_id=user_id)
+    leaf_scope = _leaf_scope(session, account)
+    prior_available = dict(session.execute(sa.select(
+        SubtopicScore.node_id,
+        SubtopicScore.evidence["components"]["prior"]["available"],
+    ).where(SubtopicScore.score_run_id == context.run.id)).all()) if context.run else {}
     summaries = []
     for p in papers:
         # Get all subtopics for this paper
         subtopics = session.execute(
             sa.select(Node.id, Node.parent_id).where(
-                Node.paper_id == p.id, Node.level == "subtopic", Node.status == "active"
+                Node.paper_id == p.id, leaf_scope
             )
         ).all()
         total_sub = len(subtopics)
@@ -169,47 +185,38 @@ def list_papers(session: Session = Depends(get_db)):
                 )
             ).scalar() or 0
 
+        scores = _scores(session, account, p.id, include_evidence=False)
+        applicable_scores = [
+            scores[node_id] for node_id in sub_ids
+            if node_id in scores and scores[node_id].applicable and scores[node_id].importance is not None
+        ]
+        average_importance = (
+            sum(sc.importance for sc in applicable_scores) / len(applicable_scores)
+            if applicable_scores else None
+        )
+        progress_statuses = dict(session.execute(
+            sa.select(Progress.node_id, Progress.status).where(
+                Progress.user_id == user_id, Progress.node_id.in_(sub_ids)
+            )
+        ).all())
+        weak_count = sum(
+            is_subtopic_weak(
+                sc.applicable, sc.freq_hits, sc.freq_window,
+                progress_statuses.get(sc.node_id, "not_started"),
+            ) for sc in applicable_scores
+        )
         raw_pct = (completed_count / total_sub * 100.0) if total_sub > 0 else 0.0
 
-        # Compute weighted coverage using chapter weightage midpoints
-        # 1. Fetch chapters and their weightage sections
-        ch_rows = session.execute(
-            sa.select(
-                Node.id,
-                WeightageSection.min_pct,
-                WeightageSection.max_pct,
-            )
-            .join(WeightageMember, WeightageMember.chapter_id == Node.id, isouter=True)
-            .join(WeightageSection, WeightageSection.id == WeightageMember.section_id, isouter=True)
-            .where(Node.paper_id == p.id, Node.level == "chapter")
-        ).all()
-
-        total_weight = 0.0
-        earned_weight = 0.0
-
-        for ch_id, min_pct, max_pct in ch_rows:
-            # Chapter midpoint weight
-            ch_mid = ((float(min_pct) + float(max_pct)) / 2.0) if min_pct and max_pct else 10.0
-            total_weight += ch_mid
-
-            # Subtopics in this chapter
-            topic_ids = sa.select(Node.id).where(Node.parent_id == ch_id, Node.level == "topic")
-            ch_subs = session.execute(
-                sa.select(Node.id).where(Node.parent_id.in_(topic_ids), Node.level == "subtopic")
-            ).scalars().all()
-
-            if ch_subs:
-                done_in_ch = session.execute(
-                    sa.select(sa.func.count(Progress.node_id)).where(
-                        Progress.user_id == user_id,
-                        Progress.node_id.in_(ch_subs),
-                        Progress.status == "done",
-                    )
-                ).scalar() or 0
-                ch_ratio = done_in_ch / len(ch_subs)
-                earned_weight += ch_mid * ch_ratio
-
-        weighted_pct = (earned_weight / total_weight * 100.0) if total_weight > 0 else raw_pct
+        # A reviewed score prior supplies the weighted basis; legacy chapter ranges
+        # do not authorize weighting in an attempt-bound workspace.
+        weighted_pct = None
+        if context.run and sub_ids and all(node in scores and scores[node].weight_prior is not None
+                and prior_available.get(node, False)
+                for node in sub_ids):
+            total_weight = sum(scores[node].weight_prior for node in sub_ids)
+            earned_weight = sum(scores[node].weight_prior for node in sub_ids
+                                if progress_statuses.get(node) == "done")
+            weighted_pct = round(earned_weight / total_weight * 100, 1) if total_weight else None
 
         summaries.append(
             PaperSummary(
@@ -220,18 +227,20 @@ def list_papers(session: Session = Depends(get_db)):
                 total_subtopics=total_sub,
                 completed_subtopics=completed_count,
                 raw_progress_pct=round(raw_pct, 1),
-                weighted_coverage_pct=round(weighted_pct, 1),
+                weighted_coverage_pct=weighted_pct,
+                average_importance=average_importance,
+                revision_due_count=sum(item["paper_id"] == p.id for item in revision_due),
+                weak_topic_count=weak_count,
+                context=context.identity,
             )
         )
 
     return summaries
 
 
-@router.get("/papers/{paper_id}/tree")
-def get_paper_tree(paper_id: str, session: Session = Depends(get_db)):
-    ensure_default_user(session)
-    settings = get_settings()
-    user_id = settings.app.user_id
+@router.get("/papers/{paper_id}/tree", response_model=PaperTree)
+def get_paper_tree(paper_id: str, session: Session = Depends(get_db), account: Principal = Depends(require_account)):
+    user_id = account.id
 
     paper = session.get(Paper, paper_id)
     if not paper:
@@ -239,7 +248,7 @@ def get_paper_tree(paper_id: str, session: Session = Depends(get_db)):
 
     # Fetch all nodes for this paper
     nodes = session.execute(
-        sa.select(Node).where(Node.paper_id == paper_id, Node.status == "active").order_by(Node.seq)
+        sa.select(Node).where(Node.paper_id == paper_id, Node.status == "active", _node_scope(session, account)).order_by(Node.seq, Node.id)
     ).scalars().all()
 
     # User progress & notes map
@@ -270,27 +279,33 @@ def get_paper_tree(paper_id: str, session: Session = Depends(get_db)):
     chapters_by_id = {}
     topics_by_parent = {}
     subtopics_by_parent = {}
+    by_id = {node.id: node for node in nodes}
+    containers = {node.parent_id for node in nodes if node.parent_id}
 
     for n in nodes:
         if n.level == "chapter":
             chapters_by_id[n.id] = n
         elif n.level == "topic":
-            topics_by_parent.setdefault(n.parent_id, []).append(n)
-        elif n.level == "subtopic":
-            subtopics_by_parent.setdefault(n.parent_id, []).append(n)
+            chapter = ancestor_at(n.id, by_id, "chapter")
+            if chapter:
+                topics_by_parent.setdefault(chapter.id, []).append(n)
+        elif n.level == "subtopic" and n.id not in containers:
+            topic = ancestor_at(n.id, by_id, "topic")
+            if topic:
+                subtopics_by_parent.setdefault(topic.id, []).append(n)
 
     # Load intelligence scores for this paper
-    scores_map = get_subtopic_scores_for_paper(session, paper_id)
+    scores_map = _scores(session, account, paper_id, include_evidence=False)
 
     result_chapters = []
-    for ch_id, ch in sorted(chapters_by_id.items(), key=lambda x: x[1].seq):
+    for ch_id, ch in sorted(chapters_by_id.items(), key=lambda x: (x[1].seq, x[1].id)):
         topics_out = []
         ch_sub_count = 0
         ch_sub_done = 0
 
-        for t in sorted(topics_by_parent.get(ch_id, []), key=lambda x: x.seq):
+        for t in sorted(topics_by_parent.get(ch_id, []), key=lambda x: (x.seq, x.id)):
             subs_out = []
-            for s in sorted(subtopics_by_parent.get(t.id, []), key=lambda x: x.seq):
+            for s in sorted(subtopics_by_parent.get(t.id, []), key=lambda x: (x.seq, x.id)):
                 ch_sub_count += 1
                 pr = progress_map.get(s.id)
                 status = pr.status if pr else "not_started"
@@ -298,7 +313,7 @@ def get_paper_tree(paper_id: str, session: Session = Depends(get_db)):
                     ch_sub_done += 1
 
                 sc = scores_map.get(s.id)
-                importance = sc.importance if sc else 0.0
+                importance = sc.importance if sc else None
                 freq_hits = sc.freq_hits if sc else 0
                 freq_window = sc.freq_window if sc else 0
                 applicable = sc.applicable if sc else True
@@ -340,40 +355,49 @@ def get_paper_tree(paper_id: str, session: Session = Depends(get_db)):
             )
         )
 
+    context = resolve_context(session, user_id)
+    from caf_db.models.taxonomy import TaxonomyRelease
+    release = session.scalar(sa.select(TaxonomyRelease).where(
+        TaxonomyRelease.taxonomy_version_id == context.taxonomy_version_id)) if context.taxonomy_version_id else None
+    from caf_api.taxonomy import tree as recursive_tree
     return {
         "paper_id": paper.id,
         "code": paper.code,
         "name": paper.name,
         "chapters": result_chapters,
+        "taxonomy_version_id": release.taxonomy_version_id if release else None,
+        "hierarchy": _applicable_tree(recursive_tree(release.version_id, paper_id, session), set(by_id), progress_map) if release else [],
+        "context": context.identity,
     }
 
 
-@router.get("/tree")
+@router.get("/tree", response_model=PaperTree)
 def get_tree_by_query(
     paper: str,
-    session: Session = Depends(get_db),
+    session: Session = Depends(get_db), account: Principal = Depends(require_account),
 ):
     """Retrieve paper taxonomy tree by code (e.g. P1) or ID (s2023.P1)."""
     paper_row = session.execute(
-        sa.select(Paper).where((Paper.code == paper.upper()) | (Paper.id == paper))
+        sa.select(Paper).where(
+            (Paper.id == paper) | sa.and_(Paper.code == paper.upper(), Paper.is_current.is_(True))
+        )
     ).scalar_one_or_none()
     if not paper_row:
         raise HTTPException(status_code=404, detail=f"Paper '{paper}' not found")
-    return get_paper_tree(paper_row.id, session)
+    return get_paper_tree(paper_row.id, session, account)
 
 
-@router.get("/subtopics/{node_id}")
-def get_subtopic_detail(node_id: str, session: Session = Depends(get_db)):
-    ensure_default_user(session)
-    settings = get_settings()
-    user_id = settings.app.user_id
+@router.get("/subtopics/{node_id}", response_model=SubtopicDetail)
+def get_subtopic_detail(node_id: str, session: Session = Depends(get_db), account: Principal = Depends(require_account)):
+    user_id = account.id
 
     subtopic = session.get(Node, node_id)
-    if not subtopic or subtopic.level != "subtopic":
+    if not subtopic or subtopic.level != "subtopic" or node_id not in _nodes(session, account):
         raise HTTPException(status_code=404, detail="Subtopic not found")
 
-    topic = session.get(Node, subtopic.parent_id) if subtopic.parent_id else None
-    chapter = session.get(Node, topic.parent_id) if topic and topic.parent_id else None
+    nodes = _nodes(session, account)
+    topic = ancestor_at(node_id, nodes, "topic")
+    chapter = ancestor_at(node_id, nodes, "chapter")
     paper = session.get(Paper, subtopic.paper_id) if subtopic.paper_id else None
 
     progress = session.get(Progress, (user_id, node_id))
@@ -405,8 +429,8 @@ def get_subtopic_detail(node_id: str, session: Session = Depends(get_db)):
         sa.select(Appearance)
         .join(AppearanceTag, AppearanceTag.appearance_id == Appearance.id)
         .where(AppearanceTag.node_id.in_(relevant_node_ids), Appearance.status == "published")
-        .order_by(Appearance.attempt_id.desc())
-    ).scalars().all()
+        .order_by(Appearance.attempt_id.desc(), Appearance.id)
+    ).scalars().unique().all()
 
     appearances_out = [
         {
@@ -420,12 +444,15 @@ def get_subtopic_detail(node_id: str, session: Session = Depends(get_db)):
             "page_start": a.page_start,
             "page_end": a.page_end,
             "law_stale": a.law_stale,
+            "question_id": a.question_id,
+            "part_id": a.part_id,
+            "provenance_limitation": None if a.question_id else "Legacy appearance has no reliable published question binding.",
         }
         for a in appearances
     ]
 
     # Intelligence scores for this subtopic
-    current_run = get_current_score_run(session)
+    current_run = get_account_score_run(session, account.id)
     score_rec = None
     if current_run:
         score_rec = session.query(SubtopicScore).where(
@@ -435,10 +462,10 @@ def get_subtopic_detail(node_id: str, session: Session = Depends(get_db)):
 
     status_str = progress.status if progress else "not_started"
     score_out = {
-        "importance": score_rec.importance if score_rec else 0.0,
-        "exam_score": score_rec.exam_score if score_rec else 0.0,
-        "practice_score": score_rec.practice_score if score_rec else 0.0,
-        "weight_prior": score_rec.weight_prior if score_rec else 0.0,
+        "importance": score_rec.importance if score_rec else None,
+        "exam_score": score_rec.exam_score if score_rec else None,
+        "practice_score": score_rec.practice_score if score_rec else None,
+        "weight_prior": score_rec.weight_prior if score_rec else None,
         "freq_hits": score_rec.freq_hits if score_rec else 0,
         "freq_window": score_rec.freq_window if score_rec else 0,
         "exam_marks_total": score_rec.exam_marks_total if score_rec else 0,
@@ -454,6 +481,15 @@ def get_subtopic_detail(node_id: str, session: Session = Depends(get_db)):
         ),
         "applicable": score_rec.applicable if score_rec else True,
     }
+    if score_rec and score_rec.evidence.get('semantics_version') == 'phase6-v1':
+        components = score_rec.evidence['components']
+        score_out.update(
+            exam_normalized=components['exam']['normalized'],
+            practice_normalized=components['practice']['normalized'],
+            prior_normalized=components['prior']['normalized'],
+            known_weighted_subtotal=score_rec.evidence['known_weighted_subtotal'],
+            applicability_status='applicable',
+        )
 
     return {
         "id": subtopic.id,
@@ -467,23 +503,24 @@ def get_subtopic_detail(node_id: str, session: Session = Depends(get_db)):
         "first_done_at": progress.first_done_at if progress else None,
         "last_revised_at": progress.last_revised_at if progress else None,
         "weightage": w_info,
+        "score_run": score_run_identity(current_run),
         "score": score_out,
         "appearances": appearances_out,
+        "context": resolve_context(session, user_id).identity,
+        "freshness": resolve_context(session, user_id).freshness,
     }
 
 
-@router.put("/subtopics/{node_id}/progress")
+@router.put("/subtopics/{node_id}/progress", response_model=ProgressResult)
 def update_subtopic_progress(
     node_id: str,
     req: ProgressUpdateRequest,
-    session: Session = Depends(get_db),
+    session: Session = Depends(get_db), account: Principal = Depends(require_account),
 ):
-    ensure_default_user(session)
-    settings = get_settings()
-    user_id = settings.app.user_id
+    user_id = account.id
 
     subtopic = session.get(Node, node_id)
-    if not subtopic or subtopic.level != "subtopic":
+    if not subtopic or subtopic.level != "subtopic" or node_id not in _nodes(session, account):
         raise HTTPException(status_code=404, detail="Subtopic not found")
 
     progress = session.get(Progress, (user_id, node_id))
@@ -521,18 +558,16 @@ def update_subtopic_progress(
     return {"status": progress.status, "node_id": node_id, "updated_at": now.isoformat()}
 
 
-@router.put("/subtopics/{node_id}/notes")
+@router.put("/subtopics/{node_id}/notes", response_model=NoteResult)
 def update_subtopic_notes(
     node_id: str,
     req: NoteUpdateRequest,
-    session: Session = Depends(get_db),
+    session: Session = Depends(get_db), account: Principal = Depends(require_account),
 ):
-    ensure_default_user(session)
-    settings = get_settings()
-    user_id = settings.app.user_id
+    user_id = account.id
 
     subtopic = session.get(Node, node_id)
-    if not subtopic or subtopic.level != "subtopic":
+    if not subtopic or subtopic.level != "subtopic" or node_id not in _nodes(session, account):
         raise HTTPException(status_code=404, detail="Subtopic not found")
 
     note = session.get(Note, (user_id, node_id))
@@ -548,15 +583,17 @@ def update_subtopic_notes(
     return {"node_id": node_id, "notes": note.body, "updated_at": now.isoformat()}
 
 
-@router.get("/dashboard")
-def get_dashboard(session: Session = Depends(get_db)):
-    ensure_default_user(session)
-    settings = get_settings()
-    user_id = settings.app.user_id
+@router.get("/dashboard", response_model=Dashboard)
+def get_dashboard(session: Session = Depends(get_db), account: Principal = Depends(require_account)):
+    user_id = account.id
+    context = resolve_context(session, user_id)
+
+    paper_ids = selected_papers(session, user_id)
+    leaf_scope = _leaf_scope(session, account)
 
     # Overall subtopic counts
     all_subtopics = session.execute(
-        sa.select(Node.id).where(Node.level == "subtopic", Node.status == "active")
+        sa.select(Node.id).where(Node.paper_id.in_(paper_ids), leaf_scope)
     ).scalars().all()
     total_subtopics = len(all_subtopics)
 
@@ -580,12 +617,12 @@ def get_dashboard(session: Session = Depends(get_db)):
 
     # Group 1 and Group 2 Breakdown
     group_stats = {1: {"total": 0, "done": 0}, 2: {"total": 0, "done": 0}}
-    papers = session.execute(sa.select(Paper).where(Paper.is_current.is_(True))).scalars().all()
+    papers = session.execute(sa.select(Paper).where(Paper.is_current.is_(True), Paper.id.in_(paper_ids))).scalars().all()
 
     for p in papers:
         g = p.group_no or 1
         p_subs = session.execute(
-            sa.select(Node.id).where(Node.paper_id == p.id, Node.level == "subtopic")
+            sa.select(Node.id).where(Node.paper_id == p.id, leaf_scope)
         ).scalars().all()
         p_done = session.execute(
             sa.select(sa.func.count(Progress.node_id)).where(
@@ -605,8 +642,8 @@ def get_dashboard(session: Session = Depends(get_db)):
         sa.select(ProgressEvent, Node.name, Paper.code)
         .join(Node, Node.id == ProgressEvent.node_id)
         .join(Paper, Paper.id == Node.paper_id)
-        .where(ProgressEvent.user_id == user_id)
-        .order_by(ProgressEvent.at.desc())
+        .where(ProgressEvent.user_id == user_id, Node.paper_id.in_(paper_ids))
+        .order_by(ProgressEvent.at.desc(), ProgressEvent.id.desc())
         .limit(10)
     ).all()
 
@@ -623,12 +660,12 @@ def get_dashboard(session: Session = Depends(get_db)):
     ]
 
     # L5 Intelligence integrations
-    current_run = get_current_score_run(session)
+    current_run = get_account_score_run(session, account.id)
     weighted_cov = compute_weighted_coverage(session, user_id=user_id)
     weak_items = get_weak_subtopics(session, user_id=user_id, limit=10)
     coverage_matrix = get_ingestion_coverage_matrix(
-        session, current_run.id if current_run else None
-    )
+        session, current_run.id
+    ) if current_run else {"coverage": []}
 
     # M6 Planning and revision previews
     plan_data = generate_study_plan(session, user_id=user_id)
@@ -636,7 +673,8 @@ def get_dashboard(session: Session = Depends(get_db)):
     revision_due = get_revision_due_list(session, user_id=user_id)
 
     return {
-        "target_attempt": settings.app.target_attempt_id,
+        "target_attempt": context.target_attempt_id,
+        "score_unavailable_reason": None if current_run else "No successful scoring run exists for your target attempt.",
         "score_run_id": current_run.id if current_run else None,
         "total_subtopics": total_subtopics,
         "done_subtopics": done_subtopics,
@@ -650,33 +688,49 @@ def get_dashboard(session: Session = Depends(get_db)):
         "plan_preview": plan_preview,
         "revision_due_count": len(revision_due),
         "recent_activity": activity,
+        "context": resolve_context(session, user_id).identity,
+        "freshness": resolve_context(session, user_id).freshness,
     }
 
 
-@router.get("/meta")
-def get_meta(session: Session = Depends(get_db)):
+@router.get("/meta", response_model=Metadata)
+def get_meta(session: Session = Depends(get_db), account: Principal = Depends(require_account)):
     """System metadata and ingestion coverage indicator."""
-    settings = get_settings()
-    current_run = get_current_score_run(session)
+    current_run = get_account_score_run(session, account.id)
     coverage_matrix = get_ingestion_coverage_matrix(
-        session, current_run.id if current_run else None
-    )
+        session, current_run.id
+    ) if current_run else {"coverage": []}
+    context = resolve_context(session, account.id)
+    from caf_db.models.taxonomy import TaxonomyRelease
+    release = session.scalar(sa.select(TaxonomyRelease).where(
+        TaxonomyRelease.taxonomy_version_id == context.taxonomy_version_id)) if context.taxonomy_version_id else None
     return {
-        "taxonomy_version": "v1",
-        "scoring_version": current_run.scoring_version if current_run else "v1",
+        "taxonomy_version": release.version_id if release else (
+            "legacy" if context.readiness == 'ready' else 'unavailable'),
+        "scoring_version": current_run.scoring_version if current_run else None,
         "api_version": "v1",
-        "target_attempt": settings.app.target_attempt_id,
+        "backend_revision": backend_revision(),
+        "score_run": score_run_identity(current_run),
+        "target_attempt": context.target_attempt_id,
+        "score_unavailable_reason": None if current_run else "No successful scoring run exists for your target attempt and taxonomy version.",
         "score_run_id": current_run.id if current_run else None,
         "score_run_computed_at": current_run.finished_at.isoformat() if current_run and current_run.finished_at else None,
         "ingestion_coverage": coverage_matrix.get("coverage", []),
+        "context": context.identity,
+        "freshness": context.freshness,
     }
 
 
-@router.get("/why/subtopic/{node_id}")
-def api_get_subtopic_why(node_id: str, session: Session = Depends(get_db)):
+@router.get("/why/subtopic/{node_id}", response_model=ScoreExplanation)
+def api_get_subtopic_why(node_id: str, session: Session = Depends(get_db), account: Principal = Depends(require_account)):
     """Explainability payload for a subtopic score."""
     try:
-        return get_subtopic_why(session, node_id)
+        context = resolve_context(session, account.id)
+        if node_id not in _nodes(session, account):
+            raise ValueError('Subtopic is outside the applicable syllabus')
+        return get_subtopic_why(session, node_id, target_attempt_id=context.target_attempt_id or "",
+                               taxonomy_version_id=context.taxonomy_version_id,
+                               config_hash=context.config.config_hash)
     except ValueError as exc:
         raise HTTPException(status_code=404, detail=str(exc))
 
@@ -685,17 +739,20 @@ def api_get_subtopic_why(node_id: str, session: Session = Depends(get_db)):
 # M6: Planning, Revision Queue & Mock Tests Endpoints
 # ==============================================================================
 
-@router.get("/plan")
+@router.get("/plan", response_model=StudyPlan)
 def api_get_study_plan(
     paper: str | None = Query(None, description="Optional paper code/ID filter, e.g. P1"),
-    group: int | None = Query(None, description="Optional group filter, e.g. 1 or 2"),
-    hours: float | None = Query(None, description="Optional override for study hours per week"),
-    session: Session = Depends(get_db),
+    group: int | None = Query(None, ge=1, le=2, description="Optional group filter, e.g. 1 or 2"),
+    hours: float | None = Query(
+        None, gt=0, allow_inf_nan=False,
+        description="Optional override for study hours per week",
+    ),
+    minutes: int | None = Query(None, gt=0, le=2147483647,
+        description="Optional override for minutes per study block"),
+    session: Session = Depends(get_db), account: Principal = Depends(require_account),
 ):
     """Retrieve next-week study plan with allocated subtopics and factual reasons."""
-    ensure_default_user(session)
-    settings = get_settings()
-    user_id = settings.app.user_id
+    user_id = account.id
 
     plan = generate_study_plan(
         session=session,
@@ -703,19 +760,18 @@ def api_get_study_plan(
         paper_id=paper,
         group_no=group,
         hours_per_week=hours,
+        minutes_per_subtopic=minutes,
     )
     return plan
 
 
-@router.get("/revision/due")
+@router.get("/revision/due", response_model=RevisionQueue)
 def api_get_revision_due(
     paper: str | None = Query(None, description="Optional paper code/ID filter"),
-    session: Session = Depends(get_db),
+    session: Session = Depends(get_db), account: Principal = Depends(require_account),
 ):
     """Retrieve spaced-repetition revision queue due items."""
-    ensure_default_user(session)
-    settings = get_settings()
-    user_id = settings.app.user_id
+    user_id = account.id
 
     due_items = get_revision_due_list(session=session, user_id=user_id, paper_id=paper)
     return {
@@ -724,16 +780,14 @@ def api_get_revision_due(
     }
 
 
-@router.post("/subtopics/{node_id}/revisions")
+@router.post("/subtopics/{node_id}/revisions", response_model=RevisionResult)
 def api_record_subtopic_revision(
     node_id: str,
     req: RevisionLogRequest,
-    session: Session = Depends(get_db),
+    session: Session = Depends(get_db), account: Principal = Depends(require_account),
 ):
     """Record revision outcome ('ok' or 'shaky') and update last_revised_at."""
-    ensure_default_user(session)
-    settings = get_settings()
-    user_id = settings.app.user_id
+    user_id = account.id
 
     try:
         res = record_revision_outcome(
@@ -747,20 +801,18 @@ def api_record_subtopic_revision(
         raise HTTPException(status_code=400, detail=str(exc))
 
 
-@router.get("/mock-tests")
+@router.get("/mock-tests", response_model=list[MockTestResult])
 def api_list_mock_tests(
     paper: str | None = Query(None, description="Optional paper filter"),
-    session: Session = Depends(get_db),
+    session: Session = Depends(get_db), account: Principal = Depends(require_account),
 ):
     """List mock test records for the student."""
-    ensure_default_user(session)
-    settings = get_settings()
-    user_id = settings.app.user_id
+    user_id = account.id
 
     query = sa.select(MockTest, Paper.code).join(Paper, Paper.id == MockTest.paper_id).where(MockTest.user_id == user_id)
     if paper:
         query = query.where((Paper.code == paper.upper()) | (Paper.id == paper))
-    query = query.order_by(MockTest.taken_on.desc())
+    query = query.order_by(MockTest.taken_on.desc(), MockTest.id.desc())
 
     rows = session.execute(query).all()
     tests = []
@@ -781,22 +833,27 @@ def api_list_mock_tests(
     return tests
 
 
-@router.post("/mock-tests")
+@router.post("/mock-tests", response_model=MockTestResult)
 def api_create_mock_test(
     req: MockTestCreateRequest,
-    session: Session = Depends(get_db),
+    session: Session = Depends(get_db), account: Principal = Depends(require_account),
 ):
     """Create a new mock test log entry."""
-    ensure_default_user(session)
-    settings = get_settings()
-    user_id = settings.app.user_id
+    user_id = account.id
 
     # Resolve paper ID
     paper = session.execute(
-        sa.select(Paper).where((Paper.id == req.paper_id) | (Paper.code == req.paper_id.upper()))
+        sa.select(Paper).where(
+            (Paper.id == req.paper_id) | sa.and_(Paper.code == req.paper_id.upper(), Paper.is_current.is_(True))
+        )
     ).scalar_one_or_none()
     if not paper:
         raise HTTPException(status_code=404, detail=f"Paper '{req.paper_id}' not found")
+
+    if req.attempt_id is not None and session.get(Attempt, req.attempt_id) is None:
+        raise HTTPException(status_code=422, detail="Unknown attempt")
+    if req.score > req.max_score:
+        raise HTTPException(status_code=422, detail="Score cannot exceed maximum score")
 
     mt = MockTest(
         user_id=user_id,
@@ -826,18 +883,16 @@ def api_create_mock_test(
     }
 
 
-@router.delete("/mock-tests/{test_id}")
+@router.delete("/mock-tests/{test_id}", response_model=DeleteResult)
 def api_delete_mock_test(
     test_id: int,
-    session: Session = Depends(get_db),
+    session: Session = Depends(get_db), account: Principal = Depends(require_account),
 ):
     """Delete a mock test log entry."""
-    ensure_default_user(session)
-    settings = get_settings()
-    user_id = settings.app.user_id
+    user_id = account.id
 
-    mt = session.get(MockTest, test_id)
-    if not mt or mt.user_id != user_id:
+    mt = session.scalar(sa.select(MockTest).where(MockTest.id == test_id, MockTest.user_id == user_id))
+    if not mt:
         raise HTTPException(status_code=404, detail="Mock test not found")
 
     session.delete(mt)
@@ -848,8 +903,8 @@ def api_delete_mock_test(
 # ==============================================================================
 # System Observability & Hardening Endpoints (Milestone 8)
 # ==============================================================================
-@router.get("/system/health")
-def api_get_system_health(session: Session = Depends(get_db)):
+@router.get("/system/health", response_model=SystemHealth)
+def api_get_system_health(session: Session = Depends(get_operations_db), account: Principal = Depends(require_admin)):
     """Retrieve overall system health and active operational alarms."""
     from caf_common.alarms import get_system_health
 
@@ -869,8 +924,8 @@ def api_get_system_health(session: Session = Depends(get_db)):
     }
 
 
-@router.get("/system/backups")
-def api_list_backups():
+@router.get("/system/backups", response_model=BackupList)
+def api_list_backups(account: Principal = Depends(require_admin)):
     """List existing database backup dumps with sizes and ages."""
     from caf_common.backup import list_backups
 
@@ -890,8 +945,8 @@ def api_list_backups():
     }
 
 
-@router.post("/system/backups")
-def api_trigger_backup(session: Session = Depends(get_db)):
+@router.post("/system/backups", response_model=BackupResult)
+def api_trigger_backup(session: Session = Depends(get_operations_db), account: Principal = Depends(require_admin)):
     """Trigger an immediate full database and asset backup."""
     from caf_common.backup import create_backup
 
@@ -909,11 +964,11 @@ def api_trigger_backup(session: Session = Depends(get_db)):
         raise HTTPException(status_code=500, detail=f"Backup failed: {exc}")
 
 
-@router.get("/system/model-evaluation")
+@router.get("/system/model-evaluation", response_model=ModelEvaluation)
 def api_evaluate_models(
     threshold: float = 0.80,
     min_samples: int = 5,
-    session: Session = Depends(get_db),
+    session: Session = Depends(get_operations_db), account: Principal = Depends(require_admin),
 ):
     """Evaluate classifier performance against reviewed human decisions."""
     from caf_l3.evaluate import evaluate_model_on_reviewed_decisions
@@ -942,3 +997,93 @@ def api_evaluate_models(
         "evaluated_at": report.evaluated_at.isoformat(),
     }
 
+
+class ProfileSettingsUpdate(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    display_name: str = Field(min_length=1, max_length=200)
+    target_attempt_id: str
+    selected_paper_ids: list[str] = Field(min_length=1)
+    hours_per_week: float = Field(gt=0, le=9999.9, allow_inf_nan=False)
+    minutes_per_subtopic: int = Field(gt=0, le=2147483647)
+    revision_intervals: list[int] = Field(min_length=1)
+    exam_start_date: date | None = None
+    include_hindi: bool = False
+
+    @model_validator(mode="after")
+    def validate_settings(self):
+        if not self.display_name.strip():
+            raise ValueError("Display name cannot be blank")
+        if len(set(self.selected_paper_ids)) != len(self.selected_paper_ids):
+            raise ValueError("Selected papers must be unique")
+        if any(day <= 0 for day in self.revision_intervals):
+            raise ValueError("Revision intervals must be positive")
+        if any(day > 2147483647 for day in self.revision_intervals):
+            raise ValueError("Revision intervals exceed the supported integer range")
+        if any(a >= b for a, b in zip(self.revision_intervals, self.revision_intervals[1:])):
+            raise ValueError("Revision intervals must be strictly increasing")
+        return self
+
+
+def profile_settings_payload(session: Session, account: Principal) -> dict:
+    settings = get_account_settings(session, account.id)
+    papers = session.scalars(sa.select(Paper).where(Paper.is_current.is_(True)).order_by(Paper.code, Paper.id)).all()
+    paper_ids = selected_papers(session, account.id)
+    return {
+        "display_name": account.name,
+        "target_attempt_id": settings.target_attempt_id,
+        "selected_paper_ids": paper_ids,
+        "groups": sorted({p.group_no for p in papers if p.id in paper_ids}),
+        "hours_per_week": float(settings.hours_per_week),
+        "minutes_per_subtopic": settings.minutes_per_subtopic,
+        "revision_intervals": settings.revision_intervals,
+        "exam_start_date": settings.exam_start_date,
+        "include_hindi": settings.include_hindi,
+        "available_papers": [{"id": p.id, "code": p.code, "name": p.name, "group_no": p.group_no} for p in papers],
+        "available_attempts": [{"id": a.id, "label": a.label} for a in session.scalars(sa.select(Attempt).order_by(Attempt.id))],
+    }
+
+
+@router.get("/me/settings", response_model=ProfileSettings)
+def get_profile_settings(session: Session = Depends(get_db), account: Principal = Depends(require_account)):
+    return profile_settings_payload(session, account)
+
+
+@router.put("/me/settings", response_model=ProfileSettings)
+def update_profile_settings(req: ProfileSettingsUpdate, session: Session = Depends(get_identity_db), account: Principal = Depends(require_account)):
+    if session.get(Attempt, req.target_attempt_id) is None:
+        raise HTTPException(status_code=422, detail="Unknown target attempt")
+    valid_papers = set(session.scalars(sa.select(Paper.id).where(Paper.is_current.is_(True))))
+    if not set(req.selected_paper_ids).issubset(valid_papers):
+        raise HTTPException(status_code=422, detail="Select current papers only")
+    settings = get_account_settings(session, account.id)
+    user = session.get(UserAccount, account.id)
+    user.name = req.display_name.strip()
+    settings.target_attempt_id = req.target_attempt_id
+    settings.selected_paper_ids = req.selected_paper_ids
+    settings.hours_per_week = req.hours_per_week
+    settings.minutes_per_subtopic = req.minutes_per_subtopic
+    settings.revision_intervals = req.revision_intervals
+    settings.exam_start_date = req.exam_start_date
+    settings.include_hindi = req.include_hindi
+    session.commit()
+    payload = profile_settings_payload(session, account)
+    payload["display_name"] = user.name
+    return payload
+
+
+@router.get("/me/export", response_model=ProfileExport)
+def export_profile(session: Session = Depends(get_db), account: Principal = Depends(require_account)):
+    def records(model):
+        rows = session.scalars(sa.select(model).where(model.user_id == account.id)).all()
+        return [{column.name: row.__dict__[column.name] for column in model.__table__.columns if column.name != "user_id"} for row in rows]
+    return {
+        "account_id": account.id,
+        "exported_at": datetime.now(timezone.utc),
+        "settings": profile_settings_payload(session, account),
+        "progress": records(Progress),
+        "notes": records(Note),
+        "progress_events": records(ProgressEvent),
+        "revision_events": records(RevisionEvent),
+        "mock_tests": api_list_mock_tests(None, session, account),
+        "study_sessions": records(StudySession),
+    }

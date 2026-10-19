@@ -1,0 +1,298 @@
+{
+  "descriptors": [
+    {
+      "node_id": "0be583d4-97b2-4326-8627-683153e2ad99",
+      "concept_name": "Investment Property Objective",
+      "definition": "The objective is to prescribe the accounting treatment and disclosure requirements for property held to earn rentals or for capital appreciation. It establishes the cost model framework for measuring such properties.",
+      "terminology": [
+        "investment property",
+        "capital appreciation",
+        "rentals"
+      ],
+      "instrument_references": [
+        "Ind AS 40"
+      ],
+      "inclusion": [
+        "land held for rentals or capital appreciation",
+        "buildings held to earn rentals"
+      ],
+      "exclusion": [
+        "biological assets",
+        "mineral rights"
+      ],
+      "nearby_distinctions": [
+        "Distinct from general asset standards by specifically focusing on rental-generating or appreciation-driven real estate."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3da2f46f-6e6a-493e-9912-83277f83f5f9",
+      "concept_name": "Investment Property Scope",
+      "definition": "The standard applies to the recognition, measurement, and disclosure of investment property. It explicitly excludes biological assets tied to agricultural activity and mineral reserves.",
+      "terminology": [
+        "scope",
+        "biological assets",
+        "mineral reserves"
+      ],
+      "instrument_references": [
+        "Ind AS 40",
+        "Ind AS 41",
+        "Ind AS 16"
+      ],
+      "inclusion": [
+        "properties held by owners or lessees as right-of-use assets for rental or appreciation"
+      ],
+      "exclusion": [
+        "agricultural biological assets",
+        "non-regenerative resources like oil and gas"
+      ],
+      "nearby_distinctions": [
+        "Excludes operating properties covered under agricultural or extractive industry standards."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "10916cdd-e3e9-49c5-b3d8-3210ea127961",
+      "concept_name": "Relevant Definitions",
+      "definition": "Provides core accounting terminology including investment property, owner-occupied property, fair value, cost, and carrying amount. These definitions govern the classification and valuation rules across financial statements.",
+      "terminology": [
+        "owner-occupied property",
+        "fair value",
+        "carrying amount"
+      ],
+      "instrument_references": [
+        "Ind AS 40",
+        "Ind AS 16",
+        "Ind AS 113",
+        "Ind AS 116"
+      ],
+      "inclusion": [
+        "properties held to earn rental income",
+        "properties held for capital appreciation"
+      ],
+      "exclusion": [
+        "properties used in production or administrative functions",
+        "properties held for sale in ordinary course"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between investment properties generating independent cash flows and owner-occupied assets dependent on broader entity operations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "acf4725e-57e8-423b-ac9f-3916a086cc29",
+      "concept_name": "Classification Of Property As Investment Property Or Owner-Occupied Property",
+      "definition": "Classification depends on whether the property is held for rental or capital appreciation rather than operational use or ordinary sale. Investment properties generate cash flows largely independent of other assets.",
+      "terminology": [
+        "cash generating unit",
+        "operating lease",
+        "capital appreciation"
+      ],
+      "instrument_references": [
+        "Ind AS 40",
+        "Ind AS 16",
+        "Ind AS 36",
+        "Ind AS 2"
+      ],
+      "inclusion": [
+        "land held for long-term capital appreciation",
+        "vacant buildings held to be leased out"
+      ],
+      "exclusion": [
+        "properties intended for sale in ordinary course of business",
+        "owner-occupied production facilities"
+      ],
+      "nearby_distinctions": [
+        "Separates investment assets generating independent cash flows from owner-occupied assets requiring operational support."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d268944e-816e-44f2-8d3f-59a160e4a640",
+      "concept_name": "Recognition",
+      "definition": "An investment property is recognized when future economic benefits are probable and its cost can be measured reliably. Subsequent day-to-day servicing costs are expensed, while qualifying replacement parts are capitalized and replaced parts derecognized.",
+      "terminology": [
+        "probable economic benefits",
+        "day-to-day servicing",
+        "replacement costs"
+      ],
+      "instrument_references": [
+        "Ind AS 40",
+        "Ind AS 116"
+      ],
+      "inclusion": [
+        "initial acquisition or construction costs",
+        "qualifying subsequent replacement expenditures"
+      ],
+      "exclusion": [
+        "routine repairs and maintenance labor costs",
+        "consumables of day-to-day servicing"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between capitalizable structural replacements and expensed routine maintenance."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d9623bbe-fa66-41cd-9cf0-a7c16107d535",
+      "concept_name": "Measurement At Recognition",
+      "definition": "Purchased investment properties are initially measured at cost, including transaction costs and directly attributable expenditures. Start-up costs, abnormal waste, and pre-occupancy operating losses are excluded from initial cost.",
+      "terminology": [
+        "purchase price",
+        "directly attributable expenditure",
+        "transaction costs"
+      ],
+      "instrument_references": [
+        "Ind AS 40"
+      ],
+      "inclusion": [
+        "legal professional fees",
+        "property transfer taxes"
+      ],
+      "exclusion": [
+        "start-up costs",
+        "abnormal waste",
+        "operating losses before planned occupancy"
+      ],
+      "nearby_distinctions": [
+        "Separates necessary acquisition overheads from abnormal development inefficiencies and general operational losses."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1182168b-2b40-4a11-b280-e44aacbd22fd",
+      "concept_name": "Measurement After Recognition",
+      "definition": "Entities must adopt the cost model as their accounting policy for all investment properties subsequent to initial recognition. Fair value must still be measured and disclosed for informational purposes even when applying the cost model.",
+      "terminology": [
+        "cost model",
+        "fair value measurement",
+        "independent valuer"
+      ],
+      "instrument_references": [
+        "Ind AS 40",
+        "Ind AS 105",
+        "Ind AS 116",
+        "Ind AS 16",
+        "Ind AS 113"
+      ],
+      "inclusion": [
+        "cost-based carrying amounts adjusted for depreciation and impairment"
+      ],
+      "exclusion": [
+        "carrying value adjustments via upward revaluations into profit or loss under the cost model"
+      ],
+      "nearby_distinctions": [
+        "Contrasts the mandatory cost model for balance sheet recognition with the mandatory fair value disclosure requirement."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "377bb94b-9eaf-4fb2-8aa3-120dedc6d5fe",
+      "concept_name": "Transfers",
+      "definition": "Property transfers to or from investment property occur only when there is an actual change in use supported by evidence. A mere change in management intention does not constitute a change in use and does not alter the carrying amount.",
+      "terminology": [
+        "change in use",
+        "reclassification",
+        "owner-occupation"
+      ],
+      "instrument_references": [
+        "Ind AS 40",
+        "Ind AS 16",
+        "Ind AS 2"
+      ],
+      "inclusion": [
+        "commencement of owner-occupation",
+        "inception of an operating lease to another party"
+      ],
+      "exclusion": [
+        "changes in management intent without physical or operational alterations"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between substantive operational changes requiring reclassification and subjective intent shifts that do not."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f4ac2204-cd78-4a6f-861a-d4e3edd9dca7",
+      "concept_name": "Disposals",
+      "definition": "Investment properties are derecognized upon disposal or permanent withdrawal when no future economic benefits are expected. Gains or losses are determined as the difference between net disposal proceeds and the carrying amount, recognized in profit or loss.",
+      "terminology": [
+        "derecognition",
+        "net disposal proceeds",
+        "finance lease"
+      ],
+      "instrument_references": [
+        "Ind AS 40",
+        "Ind AS 115",
+        "Ind AS 116",
+        "Ind AS 37"
+      ],
+      "inclusion": [
+        "sales of investment property",
+        "disposals via finance leases"
+      ],
+      "exclusion": [
+        "temporary withdrawals from active use"
+      ],
+      "nearby_distinctions": [
+        "Differentiates permanent derecognition due to retirement or sale from temporary idle holding status."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2bf8b1d2-1b03-4836-815b-cbec4ec1249e",
+      "concept_name": "Disclosure",
+      "definition": "Entities must disclose their measurement accounting policy, criteria for distinguishing investment properties, rental income amounts, and direct operating expenses. Comprehensive reconciliations of carrying amounts from beginning to end of the period are also required.",
+      "terminology": [
+        "reconciliation",
+        "direct operating expenses",
+        "restrictions on realisability"
+      ],
+      "instrument_references": [
+        "Ind AS 40",
+        "Ind AS 116"
+      ],
+      "inclusion": [
+        "rental income amounts recognized in profit or loss",
+        "gross carrying amount and accumulated depreciation reconciliations"
+      ],
+      "exclusion": [
+        "omission of fair value disclosures when cost model is adopted"
+      ],
+      "nearby_distinctions": [
+        "Complements general lease disclosures with property-specific operating and reconciliation disclosures."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e17abd32-18ba-4a02-b21a-e99bf187d480",
+      "concept_name": "Extracts Of Financial Statements Of Listed Entity",
+      "definition": "Provides practical illustrations of financial statement presentation and accounting policy disclosures for investment properties using corporate reporting examples. These extracts demonstrate the application of reporting standards in corporate practice.",
+      "terminology": [
+        "consolidated balance sheet",
+        "financial statements",
+        "listed entity"
+      ],
+      "instrument_references": [
+        "Ind AS 40"
+      ],
+      "inclusion": [
+        "published financial statement disclosures from listed infrastructure entities"
+      ],
+      "exclusion": [
+        "hypothetical or unverified reporting formats"
+      ],
+      "nearby_distinctions": [
+        "Provides empirical presentation examples distinct from theoretical standard definitions."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "e0a869b8ebd67d253737ff84149eb90cc2ba18beb269d8a08d34ae3a1b5d16db",
+  "artifact_id": "47845f92-1e9b-4c75-84fe-ed8c7a614d0f",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 7827,
+  "output_tokens": 2916,
+  "cost_usd": 0.0096381,
+  "created_at": "2026-10-03T17:57:44.300510+00:00"
+}

@@ -1,164 +1,81 @@
-import { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
-import {
-  BookOpen,
-  Calendar,
-  CheckCircle2,
-  RotateCcw,
-  BarChart3,
-  Moon,
-  Sun,
-  Flame,
-  FileCheck,
-} from "lucide-react";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { isDemoMode } from "./lib/demo";
-import { Dashboard } from "./pages/Dashboard";
-import { Papers } from "./pages/Papers";
-import { PaperDetail } from "./pages/PaperDetail";
-import { Plan } from "./pages/Plan";
-import { Revision } from "./pages/Revision";
-import { Progress } from "./pages/Progress";
-import { MockTests } from "./pages/MockTests";
+import { lazy, Suspense, useState, type ReactNode } from 'react';
+import { createBrowserRouter, RouterProvider, Routes, Route, NavLink, Link, Navigate, useLocation } from 'react-router-dom';
+import { BookOpen, Calendar, RotateCcw, BarChart3, FileCheck, Menu, Search, MoreHorizontal, Home, ListTree } from 'lucide-react';
+import { QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-query';
+import { accountKey, apiRequest, type components } from '@caf/api-client';
+import { isDemoMode, demoLink } from './lib/demo';
+import { RouteBoundary } from './components/RouteBoundary';
+import { Diagnostics } from './components/Diagnostics';
+import { AuthGate } from './components/AuthGate';
+import { SessionControls } from './components/SessionControls';
+import { Dialog } from '../../../packages/workspace/Dialog';
+import { ThemeControl, useTheme } from '../../../packages/workspace/theme';
 
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      staleTime: 1000 * 60 * 2, // 2 minutes cache
-      refetchOnWindowFocus: false,
-    },
-  },
-});
-
-function Layout({ children }: { children: React.ReactNode }) {
-  const [darkMode, setDarkMode] = useState<boolean>(() => {
-    if (typeof window !== "undefined") {
-      const stored = localStorage.getItem("caf_theme");
-      if (stored) return stored === "dark";
-      return window.matchMedia("(prefers-color-scheme: dark)").matches;
-    }
-    return false;
-  });
-
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("caf_theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("caf_theme", "light");
-    }
-  }, [darkMode]);
-
-  const navItems = [
-    { to: "/", label: "Dashboard", icon: BookOpen },
-    { to: "/papers", label: "Papers", icon: BarChart3 },
-    { to: "/plan", label: "Study Plan", icon: Calendar },
-    { to: "/revision", label: "Revision", icon: RotateCcw },
-    { to: "/progress", label: "Coverage", icon: CheckCircle2 },
-    { to: "/mock", label: "Mock Tests", icon: FileCheck },
-  ];
-
-  return (
-    <div className="min-h-screen flex flex-col bg-[#FAFAF9] dark:bg-[#0C0A09] text-[#1C1917] dark:text-[#FAFAF9] transition-colors duration-150">
-      {/* Top Navbar */}
-      <header className="sticky top-0 z-30 bg-white/90 dark:bg-[#1C1917]/90 backdrop-blur border-b border-[#E7E5E4] dark:border-[#44403C]">
-        <div className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
-          <div className="flex items-center gap-6">
-            <NavLink
-              to="/"
-              className="flex items-center gap-2 font-black text-lg tracking-tight text-indigo-600 dark:text-indigo-400"
-            >
-              <BookOpen className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
-              <span>CA Final Prep</span>
-            </NavLink>
-
-            <nav className="hidden md:flex items-center gap-1">
-              {navItems.map((item) => (
-                <NavLink
-                  key={item.to}
-                  to={item.to}
-                  className={({ isActive }) =>
-                    `px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
-                      isActive
-                        ? "bg-indigo-50 dark:bg-stone-800 text-indigo-600 dark:text-indigo-400"
-                        : "text-stone-600 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-800/60"
-                    }`
-                  }
-                >
-                  {item.label}
-                </NavLink>
-              ))}
-            </nav>
-          </div>
-
-          <div className="flex items-center gap-3">
-            {isDemoMode() && (
-              <span className="px-2 py-0.5 rounded text-[11px] font-bold bg-amber-100 text-amber-900 dark:bg-amber-950/80 dark:text-amber-300 border border-amber-300/50">
-                Demo Mode
-              </span>
-            )}
-            <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-100 dark:bg-orange-950/50 text-orange-700 dark:text-orange-400 text-xs font-bold">
-              <Flame className="w-4 h-4 fill-orange-500 text-orange-500" />
-              <span>14d streak</span>
-            </div>
-            <button
-              type="button"
-              onClick={() => setDarkMode(!darkMode)}
-              className="p-2 rounded-xl text-stone-500 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors"
-              title="Toggle theme"
-            >
-              {darkMode ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4" />}
-            </button>
-          </div>
-        </div>
-      </header>
-
-      {/* Main Content */}
-      <main className="flex-1 max-w-6xl w-full mx-auto px-4 py-6 pb-20 md:pb-6">{children}</main>
-
-      {/* Mobile Bottom Navigation Bar (md:hidden) */}
-      <nav className="md:hidden fixed bottom-0 left-0 right-0 z-30 bg-white/95 dark:bg-[#1C1917]/95 backdrop-blur border-t border-[#E7E5E4] dark:border-[#44403C] flex items-center justify-around py-2 px-1">
-        {navItems.slice(0, 5).map((item) => (
-          <NavLink
-            key={item.to}
-            to={item.to}
-            className={({ isActive }) =>
-              `flex flex-col items-center gap-0.5 px-2 py-1 rounded-lg text-[10px] font-semibold transition-colors ${
-                isActive
-                  ? "text-indigo-600 dark:text-indigo-400"
-                  : "text-stone-500 hover:text-stone-800 dark:hover:text-stone-200"
-              }`
-            }
-          >
-            <item.icon className="w-4 h-4" />
-            <span>{item.label}</span>
-          </NavLink>
-        ))}
-      </nav>
-    </div>
-  );
+const Dashboard = lazy(() => import('./pages/Dashboard').then(m => ({ default: m.Dashboard })));
+const Papers = lazy(() => import('./pages/Papers').then(m => ({ default: m.Papers })));
+const PaperDetail = lazy(() => import('./pages/PaperDetail').then(m => ({ default: m.PaperDetail })));
+const Syllabus = lazy(() => import('./pages/Syllabus').then(m => ({ default: m.Syllabus })));
+const Plan = lazy(() => import('./pages/Plan').then(m => ({ default: m.Plan })));
+const Revision = lazy(() => import('./pages/Revision').then(m => ({ default: m.Revision })));
+const Progress = lazy(() => import('./pages/Progress').then(m => ({ default: m.Progress })));
+const Profile = lazy(() => import('./pages/Profile').then(m => ({ default: m.Profile })));
+const MockTests = lazy(() => import('./pages/MockTests').then(m => ({ default: m.MockTests })));
+const Questions = lazy(() => import('./pages/Questions').then(m => ({ default: m.Questions })));
+const QuestionReader = lazy(() => import('./pages/QuestionReader').then(m => ({ default: m.QuestionReader })));
+const queryClient = new QueryClient({ defaultOptions: { queries: { retry: false, staleTime: 120_000, refetchOnWindowFocus: false } } });
+const primary = [
+  { to: '/', label: 'Today', icon: Home }, { to: '/papers', label: 'Papers', icon: BarChart3 },
+  { to: '/syllabus', label: 'Syllabus', icon: ListTree }, { to: '/questions', label: 'Questions', icon: BookOpen },
+  { to: '/plan', label: 'Plan', icon: Calendar }, { to: '/revision', label: 'Revision', icon: RotateCcw },
+];
+const secondary = [{ to: '/progress', label: 'Progress', icon: BarChart3 }, { to: '/mock', label: 'Mock results', icon: FileCheck }];
+function Navigation({ close }: { close?: () => void }) {
+  return <><nav aria-label="Study navigation" className="workspace-navigation">{primary.map(item => <NavLink end={item.to === '/'} to={demoLink(item.to)} key={item.to} onClick={close}><item.icon size={18} aria-hidden="true" />{item.label}</NavLink>)}</nav>
+    <nav aria-label="Study records" className="workspace-navigation secondary-navigation">{secondary.map(item => <NavLink to={demoLink(item.to)} key={item.to} onClick={close}><item.icon size={18} aria-hidden="true" />{item.label}</NavLink>)}<a href="/curator/classifications" onClick={close}>Review shared content</a></nav></>;
 }
-
-export function App() {
-  return (
-    <QueryClientProvider client={queryClient}>
-      <BrowserRouter>
-        <Layout>
-          <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/papers" element={<Papers />} />
-            <Route path="/papers/:paperId" element={<PaperDetail />} />
-            <Route path="/papers/:paperId/:nodeId" element={<PaperDetail />} />
-            <Route path="/plan" element={<Plan />} />
-            <Route path="/revision" element={<Revision />} />
-            <Route path="/progress" element={<Progress />} />
-            <Route path="/mock" element={<MockTests />} />
-          </Routes>
-        </Layout>
-      </BrowserRouter>
-    </QueryClientProvider>
-  );
+function AccountArea({ close }: { close?: () => void }) {
+  return <details className="account-menu"><summary>Account and settings</summary><div className="workspace-account"><Link to={demoLink('/profile')} onClick={close}>Profile and settings</Link><ThemeControl />
+    {!isDemoMode() && <SessionControls />}<details><summary>Technical details</summary><Diagnostics /></details></div></details>;
 }
-
+function ShellContext() {
+  const demo = isDemoMode();
+  const query = useQuery({ queryKey: ['settings', accountKey()], queryFn: () => apiRequest<components['schemas']['ProfileSettings']>('/api/v1/me/settings'), enabled: !demo });
+  if (demo) return <span className="metadata">Demo attempt · Demo papers</span>;
+  if (query.isPending) return <span className="metadata" aria-busy="true">Loading study context…</span>;
+  if (!query.data) return <Link className="metadata" to="/profile">Set your exam target</Link>;
+  const settings = query.data;
+  const label = settings.available_attempts.find(a => a.id === settings.target_attempt_id)?.label ?? settings.target_attempt_id;
+  const papers = settings.available_papers.filter(p => settings.selected_paper_ids.includes(p.id));
+  return <Link to="/profile" className="metadata shell-context" aria-label={`Change target attempt: ${label}`}>{label}<span>{papers.length ? papers.map(p => p.code).join(', ') : 'No papers selected'}</span></Link>;
+}
+function Layout({ children }: { children: ReactNode }) {
+  const location = useLocation();
+  const [menu, setMenu] = useState<'navigation' | 'more' | null>(null);
+  const title = [...primary, ...secondary].find(item => item.to === '/' ? location.pathname === '/' : location.pathname.startsWith(item.to))?.label ?? (location.pathname.startsWith('/profile') ? 'Settings' : 'Syllabus');
+  return <div className="student-workspace"><a href="#main-content" className="skip-link">Skip to content</a>
+    <aside className="workspace-sidebar"><Link to={demoLink('/')} className="workspace-brand"><BookOpen size={22} aria-hidden="true" />CA Study Companion</Link><Navigation /><AccountArea /></aside>
+    <div className="workspace-body"><header className="workspace-header"><button className="tablet-menu secondary-action" onClick={() => setMenu('navigation')}><Menu size={18} aria-hidden="true" />Menu</button>
+      <span className="shell-page-name">{title}</span><ShellContext />{isDemoMode() && <span className="status-label">Demo Mode</span>}
+      <Link className="secondary-action shell-search" to={demoLink('/questions')}><Search size={18} aria-hidden="true" /><span>Search questions</span></Link>
+    </header><main id="main-content" tabIndex={-1} className="workspace-content">{children}</main></div>
+    <nav aria-label="Mobile study navigation" className="mobile-navigation">{primary.filter(item => ['/', '/syllabus', '/questions', '/plan'].includes(item.to)).map(item => <NavLink end={item.to === '/'} to={demoLink(item.to)} key={item.to}><item.icon size={18} aria-hidden="true" /><span>{item.label}</span></NavLink>)}<button onClick={() => setMenu('more')} aria-haspopup="dialog"><MoreHorizontal size={18} aria-hidden="true" /><span>More</span></button></nav>
+    <Dialog open={menu !== null} onClose={() => setMenu(null)} title={menu === 'more' ? 'More destinations' : 'Study navigation'} className="navigation-dialog">
+      {menu === 'more' ? <nav className="workspace-navigation" aria-label="More destinations">{[primary[1], primary[5], ...secondary].map(item => <NavLink to={demoLink(item.to)} key={item.to} onClick={() => setMenu(null)}>{item.label}</NavLink>)}</nav> : <Navigation close={() => setMenu(null)} />}<AccountArea close={() => setMenu(null)} />
+    </Dialog>
+  </div>;
+}
+function DraftRedirect() {
+  const location = useLocation(); const params = new URLSearchParams(location.search); params.set('preview', 'draft');
+  return <Navigate replace to={`/syllabus?${params}`} />;
+}
+function PageLoading() {
+  return <section aria-busy="true" aria-label="Loading page" className="space-y-4"><p role="status">Loading…</p><div className="skeleton w-1/2" /><div className="card space-y-4"><div className="skeleton" /><div className="skeleton" /><div className="skeleton w-2/3" /></div></section>;
+}
+const router = createBrowserRouter([{ path: '*', element: <Layout><RouteBoundary><Suspense fallback={<PageLoading />}><Routes>
+  <Route path="/" element={<Dashboard />} /><Route path="/papers" element={<Papers />} /><Route path="/papers/:paperId" element={<PaperDetail />} /><Route path="/papers/:paperId/:nodeId" element={<PaperDetail />} />
+  <Route path="/syllabus" element={<Syllabus />} /><Route path="/textbooks" element={<DraftRedirect />} /><Route path="/questions" element={<Questions />} /><Route path="/questions/:questionId" element={<QuestionReader />} />
+  <Route path="/plan" element={<Plan />} /><Route path="/revision" element={<Revision />} /><Route path="/progress" element={<Progress />} /><Route path="/profile" element={<Profile />} /><Route path="/mock" element={<MockTests />} />
+  <Route path="*" element={<section className="card"><h1 className="page-title">Page unavailable</h1><Link className="topic-link" to={demoLink('/')}>Return to Today</Link></section>} />
+</Routes></Suspense></RouteBoundary></Layout> }]);
+export function App() { useTheme(); return <QueryClientProvider client={queryClient}><AuthGate demo={isDemoMode()}><RouterProvider router={router} /></AuthGate></QueryClientProvider>; }
 export default App;

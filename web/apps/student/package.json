@@ -10,6 +10,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
+    "@caf/workspace": "workspace:*",
     "@caf/api-client": "workspace:*",
     "@tanstack/react-query": "^5.62.0",
     "@tiptap/react": "^2.10.4",

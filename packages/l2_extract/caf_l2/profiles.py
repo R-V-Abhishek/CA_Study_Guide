@@ -16,6 +16,8 @@ class ProfileNotFoundError(Exception):
 class PatternRule:
     pattern: re.Pattern[str]
     require_bold: bool = False
+    min_x: float | None = None
+    max_x: float | None = None
 
 
 @dataclass
@@ -37,12 +39,15 @@ class ExtractionProfile:
     id: str
     scheme: str
     doc_type: str
-    paper_max: int
+    paper_max: int | None
     mode: str  # interleaved | sectioned | questions_only
     patterns: dict[str, list[PatternRule]]
     choice_rules: list[ChoiceRule]
     defaults: ExtractionDefaults
     raw_data: dict[str, Any] = field(default_factory=dict)
+    document_role: str = "mixed"
+    expects_answers: bool = True
+    marks_required: bool = True
 
 
 def load_profile(path: Path) -> ExtractionProfile:
@@ -54,8 +59,13 @@ def load_profile(path: Path) -> ExtractionProfile:
     applies = data.get("applies_to", {})
     scheme = applies.get("scheme", "")
     doc_type = applies.get("doc_type", "")
-    paper_max = int(data.get("paper_max", 100))
-    mode = data.get("mode", "interleaved")
+    paper_max = int(data["paper_max"]) if data.get("paper_max") is not None else None
+    mode = data.get("mode")
+    role = data.get("document_role")
+    if mode not in {"interleaved", "sectioned", "questions_only", "answers_only"} or role not in {"questions", "answers", "mixed"}:
+        raise ProfileNotFoundError(f"unsupported_profile: {path} must declare document_role and supported mode")
+    if not scheme or not doc_type:
+        raise ProfileNotFoundError(f"unsupported_profile: {path} has incomplete identity")
 
     patterns: dict[str, list[PatternRule]] = {}
     for rule_name, rule_list in data.get("patterns", {}).items():
@@ -63,7 +73,7 @@ def load_profile(path: Path) -> ExtractionProfile:
         for r in rule_list:
             pat = re.compile(r["re"], re.IGNORECASE)
             req_bold = bool(r.get("require_bold", False))
-            compiled_list.append(PatternRule(pattern=pat, require_bold=req_bold))
+            compiled_list.append(PatternRule(pattern=pat, require_bold=req_bold, min_x=r.get("min_x"), max_x=r.get("max_x")))
         patterns[rule_name] = compiled_list
 
     choice_rules: list[ChoiceRule] = []
@@ -92,6 +102,9 @@ def load_profile(path: Path) -> ExtractionProfile:
         choice_rules=choice_rules,
         defaults=defaults,
         raw_data=data,
+        document_role=role,
+        expects_answers=bool(data.get("expects_answers", role != "questions")),
+        marks_required=bool(data.get("marks_required", True)),
     )
 
 
@@ -123,5 +136,5 @@ def resolve_profile(
             return load_profile(p)
 
     raise ProfileNotFoundError(
-        f"NO_PROFILE: No profile found for scheme={scheme_id}, doc_type={doc_type_id}, paper={paper_id}"
+        f"unsupported_profile: No profile found for scheme={scheme_id}, doc_type={doc_type_id}, paper={paper_id}"
     )

@@ -1,0 +1,312 @@
+{
+  "descriptors": [
+    {
+      "node_id": "6e13ac36-a0b9-4493-8c23-72d920270131",
+      "concept_name": "Lease Payments",
+      "definition": "Lease payments are consideration components paid by a lessee to a lessor for the right to use an underlying asset throughout the lease term. They incorporate fixed amounts, variable amounts linked to an index or rate, purchase option exercise prices, termination penalties, and specific residual value guarantees.",
+      "terminology": [
+        "fixed payments",
+        "variable lease payments",
+        "residual value guarantees",
+        "purchase option"
+      ],
+      "instrument_references": [
+        "Ind AS 116"
+      ],
+      "inclusion": [
+        "Fixed and in-substance fixed payments",
+        "Index or rate-dependent variable payments",
+        "Guaranteed residual amounts"
+      ],
+      "exclusion": [
+        "Non-lease component allocations",
+        "Non-index/rate variable payments"
+      ],
+      "nearby_distinctions": [
+        "Differs from non-lease service component payments unless a single lease component election is made"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "3629e6dd-102e-4a02-bddc-a3b3cae2a93a",
+      "concept_name": "Lessee Involvement before Commencement Date",
+      "definition": "Pre-commencement negotiations may require a lessee to fund asset construction or design costs before use. If the lessee controls the asset prior to transfer to the lessor, the arrangement constitutes a sale and leaseback transaction rather than a standard lease.",
+      "terminology": [
+        "construction costs",
+        "design costs",
+        "legal title",
+        "control"
+      ],
+      "instrument_references": [
+        "Ind AS 16",
+        "Ind AS 116"
+      ],
+      "inclusion": [
+        "Pre-commencement asset design expenses",
+        "Construction funding by lessee"
+      ],
+      "exclusion": [
+        "Right-of-use asset payments"
+      ],
+      "nearby_distinctions": [
+        "Differs from standard lease execution payments by focusing on pre-availability asset modifications and control transfer"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7e47913b-23a0-4f56-a379-5505c8427346",
+      "concept_name": "Initial Direct Costs",
+      "definition": "Initial direct costs are incremental expenses incurred to secure a lease that would otherwise have been avoided. Lessees incorporate these amounts into their initial right-of-use asset valuation.",
+      "terminology": [
+        "incremental costs",
+        "commission",
+        "legal fees"
+      ],
+      "instrument_references": [
+        "Ind AS 115",
+        "Ind AS 116"
+      ],
+      "inclusion": [
+        "Commissions to selling agents",
+        "Execution-stage legal fees"
+      ],
+      "exclusion": [
+        "General employee salaries",
+        "Pre-execution legal advice"
+      ],
+      "nearby_distinctions": [
+        "Distinct from ongoing administrative or pre-execution expenses because they are strictly incremental to obtaining the specific contract"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a9bb2dac-f7c4-4af6-86e1-7f444e46ce61",
+      "concept_name": "Discount Rates",
+      "definition": "Discount rates convert future lease payments to present value for measuring liabilities and assets. Lessees apply the interest rate implicit in the lease, or their incremental borrowing rate if the implicit rate is unobservable.",
+      "terminology": [
+        "rate implicit in the lease",
+        "incremental borrowing rate",
+        "present value"
+      ],
+      "instrument_references": [
+        "Ind AS 116"
+      ],
+      "inclusion": [
+        "Interest rate implicit in the lease",
+        "Lessee incremental borrowing rate"
+      ],
+      "exclusion": [
+        "Underlying asset borrowing rates unaligned with the right-of-use asset"
+      ],
+      "nearby_distinctions": [
+        "Distinguished by prioritizing the lessor's implicit rate before falling back on the lessee's specific borrowing rate matching the right-of-use asset term"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b2f4d603-6631-4820-a7a4-ff82022f8751",
+      "concept_name": "Economic Life",
+      "definition": "Economic life represents either the duration an asset is economically usable by single or multiple users or the total production units obtainable from it. It serves as a benchmark for evaluating lease terms and asset utility.",
+      "terminology": [
+        "economically usable",
+        "units of production"
+      ],
+      "instrument_references": [
+        "Ind AS 116"
+      ],
+      "inclusion": [
+        "Multi-user operational duration",
+        "Total expected production output units"
+      ],
+      "exclusion": [
+        "Shorter arbitrary contractual terms"
+      ],
+      "nearby_distinctions": [
+        "Differs from lease term by capturing total potential asset utility across all users rather than just the contractual period"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "fd8ba0d2-8e94-43e7-83f6-7d69f7be7f48",
+      "concept_name": "Fair Value",
+      "definition": "Fair value is the exchange price for an asset or liability between informed, willing parties in an arm's length transaction under lessor accounting requirements. It is determined exclusively under legacy provisions without invoking broader measurement standards.",
+      "terminology": [
+        "arm's length transaction",
+        "exchange price"
+      ],
+      "instrument_references": [
+        "Ind AS 17",
+        "Ind AS 113",
+        "Ind AS 116"
+      ],
+      "inclusion": [
+        "Arm's length exchange valuations"
+      ],
+      "exclusion": [
+        "Valuations derived via Ind AS 113 for this specific scope"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard fair value measurement rules by carrying forward historical principles instead of current general valuation standards"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "549ab959-2599-4527-a2f1-fd7191136108",
+      "concept_name": "Lessee Accounting",
+      "definition": "Lessee accounting mandates that entities acquiring a right to use an asset recognize a right-of-use asset and a corresponding lease liability at the commencement date. All qualifying leases are brought onto the balance sheet unless specific short-term or low-value exemptions apply.",
+      "terminology": [
+        "right-of-use asset",
+        "lease liability",
+        "commencement date"
+      ],
+      "instrument_references": [
+        "Ind AS 116"
+      ],
+      "inclusion": [
+        "Initial lease liability present value calculation",
+        "Right-of-use asset recognition"
+      ],
+      "exclusion": [
+        "Exempted short-term leases",
+        "Low-value asset leases"
+      ],
+      "nearby_distinctions": [
+        "Contrasts with historical off-balance-sheet operating lease treatment by mandating universal asset and liability capitalization"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "191f8c7f-8482-4138-9c2d-46dd3589aba4",
+      "concept_name": "Initial Recognition and Measurement",
+      "definition": "At commencement, a lessee measures its lease liability at the present value of remaining lease payments discounted at the implicit or incremental rate. Simultaneously, a right-of-use asset is recognized incorporating initial direct costs and advance payments.",
+      "terminology": [
+        "commencement date",
+        "present value",
+        "lease liability"
+      ],
+      "instrument_references": [
+        "Ind AS 116"
+      ],
+      "inclusion": [
+        "Remaining lease payment discounting",
+        "Initial direct cost capitalization"
+      ],
+      "exclusion": [
+        "Pre-commencement payments"
+      ],
+      "nearby_distinctions": [
+        "Differs from subsequent measurement by establishing baseline asset and liability values using rates active at lease inception"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "74e5ae7c-8da7-460b-a608-9467c5ac3f16",
+      "concept_name": "Subsequent Measurement",
+      "definition": "Post-commencement, right-of-use assets are generally measured using a cost model adjusted for depreciation and impairment losses. Alternatively, entities can apply a revaluation model if the asset class matches specific property, plant, and equipment categories.",
+      "terminology": [
+        "cost model",
+        "accumulated depreciation",
+        "impairment loss",
+        "revaluation model"
+      ],
+      "instrument_references": [
+        "Ind AS 16",
+        "Ind AS 36",
+        "Ind AS 40",
+        "Ind AS 116"
+      ],
+      "inclusion": [
+        "Cost model adjustments",
+        "Depreciation over useful life or lease term"
+      ],
+      "exclusion": [
+        "Initial transaction value without depreciation updates"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from initial recognition by incorporating continuous adjustments for asset consumption, impairments, and liability remeasurements"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "58a97c69-5481-4a46-993b-03180979535c",
+      "concept_name": "Remeasurement",
+      "definition": "Lessees update lease liabilities and corresponding right-of-use assets following changes in lease terms, expected residual guarantees, or index-linked payments. Revised discount rates are applied for term or purchase option reassessments, while original rates are retained for index or residual updates.",
+      "terminology": [
+        "remeasurement",
+        "revised discount rate",
+        "original discount rate",
+        "market rent review"
+      ],
+      "instrument_references": [
+        "Ind AS 116"
+      ],
+      "inclusion": [
+        "Lease term reassessments",
+        "Index-linked payment updates"
+      ],
+      "exclusion": [
+        "Unresolved negotiating period estimates prior to finalization"
+      ],
+      "nearby_distinctions": [
+        "Differs from lease modifications by adjusting existing parameters due to reassessments or triggers rather than executing contractual structural changes"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "da5e68b2-4937-4814-90ac-90369f71fee8",
+      "concept_name": "Lease Modifications",
+      "definition": "A lease modification changes the scope or consideration of a lease outside original terms, such as altering the lease term or adding underlying assets. Modifications are accounted for as separate leases if scope increases by commensurate standalone pricing.",
+      "terminology": [
+        "scope change",
+        "standalone price",
+        "separate lease"
+      ],
+      "instrument_references": [
+        "Ind AS 116"
+      ],
+      "inclusion": [
+        "Scope additions with standalone pricing",
+        "Contractual term extensions"
+      ],
+      "exclusion": [
+        "Routine exercise of existing contractual purchase or renewal options"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from internal remeasuring events because modifications represent legally altered contract scope and consideration negotiated post-commencement"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "438c0346-455e-4700-8a81-136ba1bd02f5",
+      "concept_name": "Presentation",
+      "definition": "Lessees present right-of-use assets and lease liabilities distinctly in the balance sheet, separating depreciation and interest expenses in the profit and loss statement. Cash outflows are split between financing activities for principal and interest, and operating activities for short-term or uncapitalized variable payments.",
+      "terminology": [
+        "current and non-current",
+        "finance costs",
+        "financing activities",
+        "operating activities"
+      ],
+      "instrument_references": [
+        "Ind AS 116"
+      ],
+      "inclusion": [
+        "Separate ROU asset presentation",
+        "Financing cash flow categorization for principal and interest"
+      ],
+      "exclusion": [
+        "Combining depreciation and interest expense lines"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes operating cash outflows for short-term leases from financing cash outflows dedicated to capitalized lease liabilities"
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "2ec11d8a9c66ecf20201d58547f0ca81e54a623cc756cea4471bd578e21bec43",
+  "artifact_id": "88097070-1de2-4a88-a4a5-c3ced1b0c92f",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8866,
+  "output_tokens": 3235,
+  "cost_usd": 0.0107473,
+  "created_at": "2026-10-03T17:57:57.308747+00:00"
+}

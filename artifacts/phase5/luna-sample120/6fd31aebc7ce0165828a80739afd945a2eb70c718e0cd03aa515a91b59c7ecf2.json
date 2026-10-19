@@ -1,0 +1,275 @@
+{
+  "result": {
+    "question_id": "6fd31aebc7ce0165828a80739afd945a2eb70c718e0cd03aa515a91b59c7ecf2",
+    "input_hash": "242906585784db69a1509b8bbfebe540e19d6e390f75eae69f25c42f3808dedb",
+    "mappings": [
+      {
+        "part_id": "6fd31aebc7ce0165828a80739afd945a2eb70c718e0cd03aa515a91b59c7ecf2:Q2.a.i",
+        "outcome": "matched",
+        "primary_node_id": "3d05cbcb-c09c-412e-b8e9-b2b96d5de6f9",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "3d05cbcb-c09c-412e-b8e9-b2b96d5de6f9",
+            "support": "Tests whether a bank service is exempt; the descriptor covers the GST classification and scope of exempt supplies."
+          }
+        ],
+        "note": "The specific banking exemption is not described in the candidate, but the broader exempt-supply concept fits.",
+        "confidence": 0.71,
+        "bucket": "B"
+      },
+      {
+        "part_id": "6fd31aebc7ce0165828a80739afd945a2eb70c718e0cd03aa515a91b59c7ecf2:Q2.a.ii",
+        "outcome": "matched",
+        "primary_node_id": "3d05cbcb-c09c-412e-b8e9-b2b96d5de6f9",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "3d05cbcb-c09c-412e-b8e9-b2b96d5de6f9",
+            "support": "Tests exemption of interest from a banking service, within the descriptor's exempt-supply classification."
+          }
+        ],
+        "note": "The specific reverse-repo exemption is not detailed in the candidate descriptor.",
+        "confidence": 0.71,
+        "bucket": "B"
+      },
+      {
+        "part_id": "6fd31aebc7ce0165828a80739afd945a2eb70c718e0cd03aa515a91b59c7ecf2:Q2.a.iii",
+        "outcome": "matched",
+        "primary_node_id": "3d05cbcb-c09c-412e-b8e9-b2b96d5de6f9",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "3d05cbcb-c09c-412e-b8e9-b2b96d5de6f9",
+            "support": "Tests whether penal interest on delayed loan instalments is exempt, applying exempt-supply classification."
+          }
+        ],
+        "note": "The specific treatment of penal interest on loans is not detailed in the candidate descriptor.",
+        "confidence": 0.68,
+        "bucket": "B"
+      },
+      {
+        "part_id": "6fd31aebc7ce0165828a80739afd945a2eb70c718e0cd03aa515a91b59c7ecf2:Q2.a.iv",
+        "outcome": "matched",
+        "primary_node_id": "3d05cbcb-c09c-412e-b8e9-b2b96d5de6f9",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "3d05cbcb-c09c-412e-b8e9-b2b96d5de6f9",
+            "support": "Tests an exemption threshold for merchant card-settlement services, within the descriptor's exempt-supply classification."
+          }
+        ],
+        "note": "The specific merchant card-settlement exemption is not detailed in the candidate descriptor.",
+        "confidence": 0.69,
+        "bucket": "B"
+      },
+      {
+        "part_id": "6fd31aebc7ce0165828a80739afd945a2eb70c718e0cd03aa515a91b59c7ecf2:Q2.a.v",
+        "outcome": "matched",
+        "primary_node_id": "3d05cbcb-c09c-412e-b8e9-b2b96d5de6f9",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "3d05cbcb-c09c-412e-b8e9-b2b96d5de6f9",
+            "support": "Tests whether debt-collection commission qualifies for exemption, within the descriptor's exempt-supply classification."
+          }
+        ],
+        "note": "The specific banking-service exemption boundary is not detailed in the candidate descriptor.",
+        "confidence": 0.68,
+        "bucket": "B"
+      },
+      {
+        "part_id": "6fd31aebc7ce0165828a80739afd945a2eb70c718e0cd03aa515a91b59c7ecf2:Q2.a.vi",
+        "outcome": "matched",
+        "primary_node_id": "3d05cbcb-c09c-412e-b8e9-b2b96d5de6f9",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "3d05cbcb-c09c-412e-b8e9-b2b96d5de6f9",
+            "support": "Tests whether credit-card late-payment interest is exempt; the answer applies the exempt-supply classification and treats it as taxable."
+          }
+        ],
+        "note": "The part also uses the optional ITC method and blocked-credit rules, which have no matching candidate descriptor.",
+        "confidence": 0.65,
+        "bucket": "B"
+      },
+      {
+        "part_id": "6fd31aebc7ce0165828a80739afd945a2eb70c718e0cd03aa515a91b59c7ecf2:Q2.a.i.repeat2",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Eligible input-service ITC under the bank's optional method is not covered by the candidate descriptors.",
+        "confidence": 0.95,
+        "bucket": "D"
+      },
+      {
+        "part_id": "6fd31aebc7ce0165828a80739afd945a2eb70c718e0cd03aa515a91b59c7ecf2:Q2.a.ii.repeat2",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Eligible capital-goods ITC under the bank's optional method is not covered by the candidate descriptors.",
+        "confidence": 0.95,
+        "bucket": "D"
+      },
+      {
+        "part_id": "6fd31aebc7ce0165828a80739afd945a2eb70c718e0cd03aa515a91b59c7ecf2:Q2.a.iii.repeat2",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Blocked input tax credit under section 17(5) is not covered by the candidate descriptors.",
+        "confidence": 0.95,
+        "bucket": "D"
+      },
+      {
+        "part_id": "6fd31aebc7ce0165828a80739afd945a2eb70c718e0cd03aa515a91b59c7ecf2:Q2.a.iv.repeat2",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Calculating net GST requires both banking-service exemption treatment and optional ITC rules; the candidate set does not cover the ITC method, so the overall part cannot be confidently mapped.",
+        "confidence": 0.9,
+        "bucket": "C"
+      },
+      {
+        "part_id": "6fd31aebc7ce0165828a80739afd945a2eb70c718e0cd03aa515a91b59c7ecf2:Q2.b.i",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "The online-money-gaming deposit valuation rule and its GST calculation are not covered by the candidate descriptors.",
+        "confidence": 0.95,
+        "bucket": "D"
+      },
+      {
+        "part_id": "6fd31aebc7ce0165828a80739afd945a2eb70c718e0cd03aa515a91b59c7ecf2:Q2.b.ii",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "The online-betting face-value rule for taxable value is not covered by the candidate descriptors.",
+        "confidence": 0.95,
+        "bucket": "D"
+      },
+      {
+        "part_id": "6fd31aebc7ce0165828a80739afd945a2eb70c718e0cd03aa515a91b59c7ecf2:Q2.b.iii",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "This part combines online-gaming and betting valuation with wallet-balance computation; those specific rules are not covered by the candidates.",
+        "confidence": 0.96,
+        "bucket": "D"
+      },
+      {
+        "part_id": "6fd31aebc7ce0165828a80739afd945a2eb70c718e0cd03aa515a91b59c7ecf2:Q2.c.i",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Assessable-value computation for imported goods under Customs law is not covered by the GST candidate descriptors.",
+        "confidence": 0.98,
+        "bucket": "D"
+      },
+      {
+        "part_id": "6fd31aebc7ce0165828a80739afd945a2eb70c718e0cd03aa515a91b59c7ecf2:Q2.c.ii",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Including import freight and related amounts in customs assessable value is not covered by the GST candidate descriptors.",
+        "confidence": 0.98,
+        "bucket": "D"
+      },
+      {
+        "part_id": "6fd31aebc7ce0165828a80739afd945a2eb70c718e0cd03aa515a91b59c7ecf2:Q2.c.iii",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Treatment of packing charges in customs assessable value is not covered by the GST candidate descriptors.",
+        "confidence": 0.98,
+        "bucket": "D"
+      },
+      {
+        "part_id": "6fd31aebc7ce0165828a80739afd945a2eb70c718e0cd03aa515a91b59c7ecf2:Q2.c.iv",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Inclusion of an importer's local selling-agent commission in customs assessable value is not covered by the GST candidate descriptors.",
+        "confidence": 0.98,
+        "bucket": "D"
+      },
+      {
+        "part_id": "6fd31aebc7ce0165828a80739afd945a2eb70c718e0cd03aa515a91b59c7ecf2:Q2.c.v",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Customs valuation's deemed insurance addition when actual insurance is unascertainable is not covered by the GST candidate descriptors.",
+        "confidence": 0.98,
+        "bucket": "D"
+      },
+      {
+        "part_id": "6fd31aebc7ce0165828a80739afd945a2eb70c718e0cd03aa515a91b59c7ecf2:Q2.c.vi",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Treatment of ship demurrage in customs assessable value is not covered by the GST candidate descriptors.",
+        "confidence": 0.98,
+        "bucket": "D"
+      },
+      {
+        "part_id": "6fd31aebc7ce0165828a80739afd945a2eb70c718e0cd03aa515a91b59c7ecf2:Q2.c.vii",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Whether India-based engineering charges enter customs assessable value is not covered by the GST candidate descriptors.",
+        "confidence": 0.98,
+        "bucket": "D"
+      },
+      {
+        "part_id": "6fd31aebc7ce0165828a80739afd945a2eb70c718e0cd03aa515a91b59c7ecf2:Q2.c.i.repeat2",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "The exchange rate used to convert foreign-currency import costs for customs valuation is not covered by the GST candidate descriptors.",
+        "confidence": 0.98,
+        "bucket": "D"
+      },
+      {
+        "part_id": "6fd31aebc7ce0165828a80739afd945a2eb70c718e0cd03aa515a91b59c7ecf2:Q2.c.ii.repeat2",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "The final customs assessable-value calculation and supporting legal reasoning are outside the GST candidate descriptors.",
+        "confidence": 0.99,
+        "bucket": "D"
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "2b3b79f22b9064c2ff9bc67649840353216e844c5638cf46b118d0ab8dc4d3ff",
+    "schema_generator": "pinned-part-ids-v1",
+    "seconds": 68.309,
+    "usage": [
+      {
+        "input_tokens": 55969,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3496,
+        "reasoning_output_tokens": 726
+      }
+    ],
+    "completed_at": "2026-10-05T15:52:56.943075+00:00"
+  }
+}

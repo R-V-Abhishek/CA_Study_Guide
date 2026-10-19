@@ -1,0 +1,378 @@
+{
+  "descriptors": [
+    {
+      "node_id": "b5556e24-4d9a-4a51-8bac-0885671a9903",
+      "concept_name": "Mode Of Taking Or Accepting Certain Loans, Deposits And Specified Sum [Section 269Ss]",
+      "definition": "Accepting loans, deposits, or specified sums equal to or exceeding 20,000 rupees must be executed through account payee cheques, bank drafts, electronic clearing systems, or prescribed electronic modes. Specified sums include advance monies receivable regarding immovable property transfers, subject to specific institutional exemptions and agricultural conditions.",
+      "terminology": [
+        "Loan or deposit",
+        "Specified sum",
+        "Account payee cheque",
+        "Electronic clearing system",
+        "Primary agricultural credit society"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961",
+        "Section 269SS"
+      ],
+      "inclusion": [
+        "Loans or deposits of 20,000 rupees or more",
+        "Unpaid earlier loans or deposits aggregating 20,000 rupees or more",
+        "Specified sums receivable for immovable property transfers"
+      ],
+      "exclusion": [
+        "Transactions involving the Government or banking companies",
+        "Transactions where parties derive income solely from agriculture",
+        "Transactions where neither party has taxable income"
+      ],
+      "nearby_distinctions": [
+        "Differs from Section 269T which governs loan repayments rather than acceptance",
+        "Differs from Section 269ST which governs general daily or transactional cash receipt limits"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "297e49b5-1012-480b-8bca-b0e298bfd2bc",
+      "concept_name": "Mode Of Undertaking Transactions [Section 269St]",
+      "definition": "Receiving an amount of 2,00,000 rupees or more is prohibited unless executed through account payee instruments, electronic clearing systems, or prescribed electronic modes. This restriction applies to daily aggregates from a single person, single transactions, or transactions relating to a single event or occasion.",
+      "terminology": [
+        "Single transaction",
+        "Event or occasion",
+        "Electronic clearing system",
+        "Business correspondent",
+        "White label automated teller machine"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961",
+        "Section 269ST",
+        "Circular No. 22/2017",
+        "Circular No. 25/2022"
+      ],
+      "inclusion": [
+        "Receipts of 2,00,000 rupees or more in aggregate from a person in a day",
+        "Receipts of 2,00,000 rupees or more in respect of a single transaction",
+        "Receipts relating to one event or occasion from a person"
+      ],
+      "exclusion": [
+        "Receipts by the Government, banking companies, post office savings banks, or co-operative banks",
+        "Transactions of the nature referred to in section 269SS",
+        "Cash withdrawals by any person from a bank, co-operative bank, or post office savings bank"
+      ],
+      "nearby_distinctions": [
+        "Differs from Section 269SS which specifically targets loans, deposits, and immovable property advances",
+        "Applies a higher monetary threshold of 2,00,000 rupees compared to the 20,000 rupees limit under Section 269SS and Section 269T"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "15981708-dfef-4227-a89f-4fdd44a94575",
+      "concept_name": "Facility For Accepting Payment Through Prescribed Electronic Modes [Section 269Su]",
+      "definition": "Businesses with total sales, turnover, or gross receipts exceeding 50 crore rupees in the preceding financial year must provide facilities for accepting payments through prescribed electronic modes. Non-compliance attracts a daily penalty under section 271DB, while system providers are prohibited from imposing charges for using these mandated modes.",
+      "terminology": [
+        "RuPay Debit Card",
+        "Unified Payments Interface",
+        "UPI QR Code",
+        "B2B transactions",
+        "Specified person"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961",
+        "Section 269SU",
+        "Section 271DB",
+        "Rule 119AA",
+        "Payment and Settlement Systems Act, 2007"
+      ],
+      "inclusion": [
+        "Businesses with gross receipts exceeding 50 crore rupees",
+        "RuPay debit card payment facilities",
+        "BHIM-UPI and BHIM-UPI QR code payment facilities"
+      ],
+      "exclusion": [
+        "Assessees whose gross receipts do not exceed the 50 crore rupee threshold",
+        "Specified persons having exclusively B2B transactions with at least 95 percent non-cash receipts"
+      ],
+      "nearby_distinctions": [
+        "Mandates the provision of electronic payment acceptance facilities rather than restricting transaction modes like sections 269SS, 269ST, and 269T"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c60633b6-5af7-44e2-88ad-df195b1965bf",
+      "concept_name": "Mode Of Repayment Of Certain Loans Or Deposits [Section 269T]",
+      "definition": "Banking companies, co-operative banks, companies, firms, and other persons are prohibited from repaying loans, deposits, or specified advances of 20,000 rupees or more except via account payee cheques, bank drafts, electronic clearing systems, or prescribed electronic modes. This rule evaluates aggregate outstanding balances or specified advances held on the repayment date, including interest.",
+      "terminology": [
+        "Specified advance",
+        "Account payee cheque",
+        "Electronic clearing system",
+        "Primary agricultural credit society",
+        "Saving bank account"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961",
+        "Section 269T"
+      ],
+      "inclusion": [
+        "Repayment of loans or deposits aggregating 20,000 rupees or more",
+        "Repayment of specified advances totaling 20,000 rupees or more",
+        "Higher limit of 2,00,000 rupees for primary agricultural credit societies and primary cooperative agricultural and rural development banks"
+      ],
+      "exclusion": [
+        "Repayments made by crediting the amount directly to the recipient's savings or current bank account",
+        "Repayments of loans, deposits, or advances taken from the Government, banking institutions, or statutory corporations"
+      ],
+      "nearby_distinctions": [
+        "Mirrors the restrictions in Section 269SS but explicitly governs the repayment phase of loans, deposits, and specified advances rather than their initial acceptance"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f5fbec46-8855-4e0d-8f82-888ad0c5a958",
+      "concept_name": "Transfers To Defraud Revenue Void [Section 281]",
+      "definition": "Asset transfers executed by an assessee during or after tax proceedings before service of recovery notices are deemed void against tax, penalty, or interest claims exceeding 5,000 rupees. However, transfers made for adequate consideration without notice of pending proceedings or executed with prior Assessing Officer permission are valid, provided the assets do not form stock-in-trade.",
+      "terminology": [
+        "Tax Recovery Officer",
+        "Void transfer",
+        "Adequate consideration",
+        "Stock-in-trade",
+        "Provisional attachment"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961",
+        "Section 281",
+        "Section 281B"
+      ],
+      "inclusion": [
+        "Sales, mortgages, gifts, exchanges, or other asset transfers during tax proceedings",
+        "Asset values exceeding 10,000 rupees with tax liabilities exceeding 5,000 rupees"
+      ],
+      "exclusion": [
+        "Transfers made for adequate consideration without notice of proceedings or tax liabilities",
+        "Transfers executed with the prior written permission of the Assessing Officer",
+        "Transfers of assets representing the stock-in-trade of the business"
+      ],
+      "nearby_distinctions": [
+        "Deems completed asset transfers void post-proceeds to protect revenue recovery, whereas Section 281B empowers pre-emptive property attachment during ongoing proceedings"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "33474e5b-df5e-41c7-9353-3536ef3f3169",
+      "concept_name": "Provisional Attachment To Protect The Interest Of The Revenue [Section 281B]",
+      "definition": "Assessing officers are empowered to provisionally attach an assessee's property during pending assessment, reassessment, or penalty proceedings with high-ranking administrative approval to protect revenue interests. Such attachments remain valid for six months, extendable up to two years or sixty days post-assessment, but can be revoked if the assessee furnishes a scheduled bank guarantee.",
+      "terminology": [
+        "Provisional attachment",
+        "Assessment or reassessment",
+        "Principal Chief Commissioner",
+        "Second Schedule",
+        "Bank guarantee"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961",
+        "Section 281B",
+        "Section 271AAD"
+      ],
+      "inclusion": [
+        "Provisional attachment of property during pending assessment or reassessment",
+        "Attachments for anticipated penalty under section 271AAD exceeding two crore rupees",
+        "Revocation of attachment upon furnishing a scheduled bank guarantee"
+      ],
+      "exclusion": [
+        "Extensions exceeding a total period of two years or sixty days after assessment/reassessment, whichever is later"
+      ],
+      "nearby_distinctions": [
+        "Acts as a precautionary attachment mechanism during active proceedings, distinct from Section 281 which retroactively voids fraudulent transfers"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "04438eeb-a707-4fa8-a9d1-235633090698",
+      "concept_name": "Service Of Notice [Sections 282, 283 & 284]",
+      "definition": "Tax communications, notices, and summons may be served by post, approved courier services, Code of Civil Procedure methods, electronic records, or other CBDT-prescribed transmission means. Specific statutory addressees are designated for serving notices corresponding to distinct entity types such as firms, Hindu Undivided Families, companies, and associations.",
+      "terminology": [
+        "Summons",
+        "Electronic record",
+        "Principal Officer",
+        "Code of Civil Procedure 1908",
+        "Information Technology Act 2000"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961",
+        "Section 282",
+        "Section 283",
+        "Section 284",
+        "Code of Civil Procedure, 1908",
+        "Information Technology Act, 2000"
+      ],
+      "inclusion": [
+        "Service by post or approved courier services",
+        "Service via electronic records under IT Act chapter IV",
+        "Designated addressees for firms, companies, HUFs, and local authorities"
+      ],
+      "exclusion": [
+        "Unapproved non-statutory communication channels lacking CBDT backing"
+      ],
+      "nearby_distinctions": [
+        "Focuses on the procedural modes and mandatory recipient addressees for serving notices, whereas Section 282A governs the authentication and signing validity of those notices"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8320d581-cc87-4eba-8a5b-ebba8d2a83f7",
+      "concept_name": "Authentication Of Notices And Other Documents [Section 282A]",
+      "definition": "Notices and documents issued by income-tax authorities must be properly signed and issued in paper form or authenticated electronically via prescribed procedures to support paperless assessments. Electronic communications are deemed authenticated when issued from designated email addresses or displayed on designated websites with the authority's name and office printed or displayed.",
+      "terminology": [
+        "Paperless assessment",
+        "Designated income-tax authority",
+        "Electronic record",
+        "Rule 127A",
+        "Digital authentication"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961",
+        "Section 282A",
+        "Rule 127A"
+      ],
+      "inclusion": [
+        "Notices in e-mail bodies bearing printed name and office from designated addresses",
+        "Notices contained in attachments of emails issued from designated addresses",
+        "Electronic records displayed on designated websites containing name and office details"
+      ],
+      "exclusion": [
+        "Communications failing to use designated email addresses or lacking printed authority identification"
+      ],
+      "nearby_distinctions": [
+        "Governs the digital and paper-form authentication requirements of issued documents, whereas Sections 282 through 284 regulate the physical and electronic transmission channels and recipient addressees"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b4f76ac8-8ec5-4728-8cab-cde800394b00",
+      "concept_name": "Submission Of Statements By Producers Of Cinematograph Films Or Persons Engaged In Specified Activity [Section 285B]",
+      "definition": "Producers of cinematograph films and persons engaged in specified activities must furnish an electronic statement in Form No. 52A within 60 days from the end of the financial year. This filing covers aggregate payments exceeding 50,000 rupees made to persons engaged in production, event management, documentary creation, or television and OTT programming.",
+      "terminology": [
+        "Cinematograph film",
+        "Specified activity",
+        "Form No. 52A",
+        "Event management",
+        "OTT platforms"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961",
+        "Section 285B",
+        "Rule 121A"
+      ],
+      "inclusion": [
+        "Producers of cinematograph films",
+        "Persons engaged in event management, documentary production, or television/OTT programming",
+        "Payments exceeding 50,000 rupees in aggregate to engaged persons"
+      ],
+      "exclusion": [
+        "Aggregate payments to a person not exceeding the 50,000 rupee threshold",
+        "Activities outside the defined scope of film production or specified event and media management"
+      ],
+      "nearby_distinctions": [
+        "Targets industry-specific production and event management reporting under Section 285B, whereas Section 285BA imposes general financial transaction reporting obligations across financial institutions and reporting entities"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0f3a58f0-a930-43db-8002-d31eaddec561",
+      "concept_name": "Obligation To Furnish Statement Of Financial Transaction Or Reportable Account [Section 285Ba]",
+      "definition": "Specified entities, including reporting financial institutions, registrars, and government offices maintaining books or records, must furnish statements regarding specified financial transactions or reportable accounts to income-tax authorities. These prescribed transactions encompass property purchases, service rendering, works contracts, investments, expenditures, and loan takings.",
+      "terminology": [
+        "Reporting financial institution",
+        "Specified financial transactions",
+        "Reportable account",
+        "Registrar or Sub-Registrar",
+        "Recognised stock exchange"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961",
+        "Section 285BA",
+        "Registration Act 1908",
+        "Motor Vehicles Act 1988",
+        "Depositories Act 1996"
+      ],
+      "inclusion": [
+        "Transactions of purchase, sale, or exchange of goods, property, or rights",
+        "Transactions for rendering services or under works contracts",
+        "Transactions involving investments made, expenditures incurred, or loans taken"
+      ],
+      "exclusion": [
+        "Entities outside the designated categories of reporting persons and financial institutions defined under the section"
+      ],
+      "nearby_distinctions": [
+        "Imposes broad financial transaction reporting obligations across designated institutional entities, whereas Section 285B is strictly confined to film producers and specified media/event activities"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0ddf93c2-383a-4080-a30f-15502da0c3c0",
+      "concept_name": "Annual Information Statement [Section 285Bb]",
+      "definition": "Tax authorities must upload an annual information statement in Form No. 26AS into an assessee's registered electronic filing portal account within three months of receiving the underlying data. This statement aggregates information on tax deducted or collected at source, specified financial transactions, tax payments, demands, refunds, and pending or completed proceedings.",
+      "terminology": [
+        "Annual information statement",
+        "Form No. 26AS",
+        "Registered account",
+        "Tax deducted at source",
+        "Rule 114-I"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961",
+        "Section 285BB",
+        "Section 90",
+        "Section 90A",
+        "Rule 114-I"
+      ],
+      "inclusion": [
+        "Information relating to tax deducted or collected at source",
+        "Information relating to specified financial transactions and tax payments",
+        "Information relating to demands, refunds, and pending or completed proceedings"
+      ],
+      "exclusion": [
+        "Data outside official authority possession or information not authorized for upload under relevant tax exchange agreements"
+      ],
+      "nearby_distinctions": [
+        "Constitutes the consolidated statement uploaded to the taxpayer's portal under Section 285BB, whereas Section 285BA governs the underlying reporting obligations submitted by reporting entities"
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ca749e34-baa5-4fbb-bbdb-4f93996525a3",
+      "concept_name": "Publication Of Information [Section 287]",
+      "definition": "The Central Government may publish an assessee's name, address, and proceeding details in the public interest, along with partner or director particulars for firms and companies. However, penalty or prosecution publications are restricted until appeal periods expire without filing or until filed appeals are fully disposed of.",
+      "terminology": [
+        "Publication of information",
+        "Joint Commissioner Appeals",
+        "Commissioner Appeals",
+        "Public interest",
+        "Prosecution"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961",
+        "Section 287",
+        "Section 131",
+        "Section 288"
+      ],
+      "inclusion": [
+        "Publication of assessee name, address, and proceeding particulars in public interest",
+        "Publication of names of partners, directors, or managers for firms and companies",
+        "Publication after appeal windows expire or appeals are disposed of"
+      ],
+      "exclusion": [
+        "Penalty or prosecution publications made while appeal rights remain active and unexpired"
+      ],
+      "nearby_distinctions": [
+        "Authorizes public disclosure of assessee particulars by the government under Section 287, whereas Sections 287A and 288 regulate professional representation and appearance before tax authorities and tribunals"
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "3e1354778edc0a5d85452e909407bf2d79b544b398e6ac5f1643a2c541fbdd49",
+  "artifact_id": "00264bc9-2623-48eb-89d0-f6a75a69ff07",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 9670,
+  "output_tokens": 4888,
+  "cost_usd": 0.015121,
+  "created_at": "2026-10-03T18:22:39.265588+00:00"
+}

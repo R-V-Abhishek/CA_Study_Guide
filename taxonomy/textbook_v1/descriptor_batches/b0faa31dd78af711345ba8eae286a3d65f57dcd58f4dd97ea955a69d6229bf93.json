@@ -1,0 +1,232 @@
+{
+  "descriptors": [
+    {
+      "node_id": "3ea3ae5c-ea9c-479e-acb0-b0008fb1185f",
+      "concept_name": "Preparation of consolidated financial statements after applying above principles",
+      "definition": "The preparation of consolidated financial statements involves combining line-by-line assets, liabilities, income, expenses, and cash flows of parents and subsidiaries while eliminating intra-group transactions. It also recognizes non-controlling interests, goodwill or capital reserves, and the parent's share of post-acquisition profits.",
+      "terminology": [
+        "Line by line basis",
+        "Intra-group elimination",
+        "Post-acquisition profits",
+        "Non-controlling interest"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Combination of parent and subsidiary balance sheet, profit and loss, and cash flow items",
+        "Elimination of intra-group balances and transactions"
+      ],
+      "exclusion": [
+        "Unadjusted separate financial statements without elimination"
+      ],
+      "nearby_distinctions": [
+        "Differs from individual financial statements by incorporating group-wide entity aggregations and eliminations rather than single-entity reporting."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ba2ab931-2b98-4d44-b04f-61b60216c0b2",
+      "concept_name": "Chain-holding under consolidation",
+      "definition": "Chain-holding occurs when a parent company exercises indirect control over a sub-subsidiary through an intermediate subsidiary. Effective equity interest and pre-acquisition reserves are determined based on the multi-tiered ownership percentages and the specific chronological dates of acquisition.",
+      "terminology": [
+        "Chain control",
+        "Sub-subsidiary",
+        "Indirect control",
+        "Effective equity interest"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Indirect equity interest computations",
+        "Determination of effective control dates for sub-subsidiaries"
+      ],
+      "exclusion": [
+        "Direct parent-to-subsidiary holdings without intermediary entities"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from direct holdings by requiring layered percentage computations and sequential acquisition date tracking across multiple corporate levels."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2cb89a50-dcd6-4b21-bd07-36dc599a97cf",
+      "concept_name": "LOSS OF CONTROL",
+      "definition": "Loss of control occurs when a parent ceases to hold a controlling financial interest in a subsidiary through outright sales, partial disposals, or dilutions. Upon losing control, the parent derecognizes the subsidiary's assets, liabilities, and non-controlling interests while recognizing any retained interest at fair value and recording a resulting gain or loss in profit or loss.",
+      "terminology": [
+        "Derecognition",
+        "Retained interest",
+        "Deemed loss of control",
+        "Fair value"
+      ],
+      "instrument_references": [
+        "Ind AS 109"
+      ],
+      "inclusion": [
+        "Outright and partial sale of subsidiary stakes",
+        "Dilution resulting in loss of power over relevant activities",
+        "Derecognition of former subsidiary balances"
+      ],
+      "exclusion": [
+        "Partial sales that do not result in a loss of control"
+      ],
+      "nearby_distinctions": [
+        "Differs from changes in ownership interest without loss of control, which are treated strictly as equity transactions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d6cf94e7-f5db-4b7a-8780-49fe803e0031",
+      "concept_name": "Accounting treatment on loss of control of a subsidiary",
+      "definition": "When control is lost, the parent derecognizes the subsidiary's assets, liabilities, and non-controlling interest, and brings any retained investment onto the books at fair value. The resulting net difference is recognized as a gain or loss in profit or loss alongside reclassified amounts previously recognized in other comprehensive income.",
+      "terminology": [
+        "Derecognition",
+        "Retained interest",
+        "Other comprehensive income",
+        "Fair value"
+      ],
+      "instrument_references": [
+        "Ind AS 109"
+      ],
+      "inclusion": [
+        "Fair value recognition of retained financial assets or investments in associates",
+        "Recycling of related comprehensive income components"
+      ],
+      "exclusion": [
+        "Transactions where control is maintained by the parent group"
+      ],
+      "nearby_distinctions": [
+        "Differs from intra-group reorganizations where assets remain under ultimate parent control."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "095082f4-68e5-4654-86be-60cb17007c34",
+      "concept_name": "Loss of control of a subsidiary in two or more arrangements (transactions)",
+      "definition": "Multiple disposal arrangements that result in a loss of control must be accounted for as a single transaction if they are linked contractually or economically. Criteria such as simultaneous execution, mutual interdependence, or pre-arranged pricing adjustments dictate single-transaction treatment rather than separate piecemeal disposals.",
+      "terminology": [
+        "Multiple arrangements",
+        "Single transaction",
+        "Economic effect",
+        "Disposal of investment"
+      ],
+      "instrument_references": [
+        "Ind AS 110"
+      ],
+      "inclusion": [
+        "Linked share disposals occurring in contemplation of each other",
+        "Disposals dependent on the occurrence of another arrangement"
+      ],
+      "exclusion": [
+        "Unrelated and economically independent sequential share sales"
+      ],
+      "nearby_distinctions": [
+        "Differs from isolated partial sales because combined transactions trigger profit or loss gain recognition for the entire block upon final control loss."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "dfd6766e-a0ca-471c-bcc0-cb91ee410ac9",
+      "concept_name": "ACCOUNTING FOR A CHANGE IN INVESTMENT ENTITY STATUS",
+      "definition": "A parent entity must account for transitions into or out of investment entity status prospectively from the date of the status change. Ceasing to be an investment entity triggers the application of business combination standards using the fair value on that date as deemed consideration.",
+      "terminology": [
+        "Investment entity",
+        "Deemed acquisition date",
+        "Prospective application",
+        "Fair value"
+      ],
+      "instrument_references": [
+        "Ind AS 103"
+      ],
+      "inclusion": [
+        "Prospective adjustments upon status alteration",
+        "Deemed acquisition accounting when an entity ceases to be an investment entity"
+      ],
+      "exclusion": [
+        "Retrospective restatement of prior periods for status changes"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard acquisitions by utilizing status change dates and pre-existing fair values instead of historical cash purchase prices."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0c517fde-0cff-4c31-84b8-c40146c95ccd",
+      "concept_name": "Accounting when an entity ceases to be an investment entity",
+      "definition": "An entity that ceases to be an investment entity treats the change date as a deemed acquisition date for its subsidiaries previously measured at fair value through profit or loss. It applies business combination principles to measure identifiable net assets, non-controlling interests, and resulting goodwill or bargain purchase gains.",
+      "terminology": [
+        "Deemed acquisition date",
+        "Deemed consideration",
+        "Fair value through profit or loss",
+        "Identifiable net assets"
+      ],
+      "instrument_references": [
+        "Ind AS 103"
+      ],
+      "inclusion": [
+        "Application of acquisition method to former investment entity holdings",
+        "Recognition of goodwill based on fair value consideration"
+      ],
+      "exclusion": [
+        "Continued fair value measurement under investment entity exemptions"
+      ],
+      "nearby_distinctions": [
+        "Differs from initial corporate formations by converting investment-level fair value trackers into line-by-line consolidated assets via a deemed purchase mechanism."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e79bd057-b19a-4d36-b50c-ecf23555c020",
+      "concept_name": "Accounting when an entity becomes an investment entity",
+      "definition": "An entity that becomes an investment entity ceases line-by-line consolidation of its subsidiaries and applies loss-of-control accounting rules as of the change date. Any retained interest in the former subsidiaries is measured at fair value through profit or loss, with any resulting disposal gain or loss recognized immediately.",
+      "terminology": [
+        "Investment entity",
+        "Cessation of consolidation",
+        "Fair value through profit or loss",
+        "Disposal gain or loss"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Discontinuation of consolidation for non-service subsidiaries",
+        "Measurement of retained interests at fair value on status change date"
+      ],
+      "exclusion": [
+        "Subsidiaries that provide investment-related services which continue to be consolidated"
+      ],
+      "nearby_distinctions": [
+        "Differs from standard operational loss of control because the parent maintains an investment relationship categorized under specialized investment entity rules."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "27d7f859-7a54-4172-8f84-57b5214df8ba",
+      "concept_name": "SIGNIFICANT DIFFERENCES BETWEEN IND AS 110 AND AS 21",
+      "definition": "Ind AS 110 mandates principle-based control definitions, strict three-month financial statement date matching limits, and mandatory consolidation exceptions, whereas AS 21 relies on quantitative voting ownership thresholds, six-month gaps, and permits certain exclusions. Furthermore, unlike AS 21, Ind AS 110 requires mandatory consolidated financial statement preparation for parents with limited exceptions.",
+      "terminology": [
+        "Principle based control",
+        "Quantitative parameters",
+        "Mandatory preparation",
+        "Exclusion of subsidiary"
+      ],
+      "instrument_references": [
+        "Ind AS 110",
+        "AS 21"
+      ],
+      "inclusion": [
+        "Comparative evaluations of control criteria",
+        "Reporting date interval limits between parent and subsidiary"
+      ],
+      "exclusion": [
+        "Identical regulatory treatment across both accounting frameworks"
+      ],
+      "nearby_distinctions": [
+        "Contrasts modern principle-based economic exposure models with legacy numerical voting majority thresholds and broader exclusion permissions."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "b0faa31dd78af711345ba8eae286a3d65f57dcd58f4dd97ea955a69d6229bf93",
+  "artifact_id": "a35b6db4-1240-4a21-bd26-5c191e554d9a",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 7339,
+  "output_tokens": 2664,
+  "cost_usd": 0.0088617,
+  "created_at": "2026-10-03T18:05:14.603744+00:00"
+}

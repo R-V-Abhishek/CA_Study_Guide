@@ -1,0 +1,39 @@
+{
+  "descriptors": [
+    {
+      "node_id": "f68907c3-7d0a-4d6b-afe9-1814e50272cc",
+      "concept_name": "External Funding Requirement (EFR)",
+      "definition": "External Funding Requirement determines the amount of capital a firm must raise externally to support a targeted increase in sales while respecting specific financial constraints. It can be computed through balance sheet item analysis or through formula-based approaches incorporating spontaneous liabilities, profit margins, and retained earnings.",
+      "terminology": [
+        "External Funding Requirement",
+        "Analytical Approach",
+        "Formula based Approach",
+        "Profit Multiplier",
+        "Dividend Pay-out Ratio"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Calculation of total asset increases linked to sales growth",
+        "Spontaneous liabilities that vary directly with sales",
+        "Retained earnings based on net profit margin and dividend payout ratio"
+      ],
+      "exclusion": [
+        "Internal equity generation without external capital procurement",
+        "Sustainable growth rate computations that assume constant financial policies"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from Sustainable Growth Rate because EFR calculates exact monetary funding deficits when specific structural ratios or growth targets are mandated rather than maximum unconstrained growth."
+      ],
+      "source_ambiguities": [
+        "The provided source text cuts off mid-sentence at the end of the illustration requirements."
+      ]
+    }
+  ],
+  "input_hash": "fa6806d5506fb867b030facdbaea2e929a16005e5986582a8d017065fd223e1c",
+  "artifact_id": "cffd993f-8c29-4620-b885-3448ef21f488",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 1059,
+  "output_tokens": 348,
+  "cost_usd": 0.0011877,
+  "created_at": "2026-10-03T18:05:47.330654+00:00"
+}

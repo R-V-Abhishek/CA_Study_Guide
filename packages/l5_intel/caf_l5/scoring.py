@@ -11,7 +11,6 @@ import sqlalchemy as sa
 from sqlalchemy.orm import Session
 
 from caf_common.settings import get_settings
-from caf_db.models.app import Settings as AppSettingsModel
 from caf_db.models.core import Appearance, AppearanceTag
 from caf_db.models.intel import DepthGateReport, IngestionCoverage, ScoreRun, SubtopicScore
 from caf_db.models.ref import (
@@ -70,18 +69,19 @@ def calculate_attributed_marks(
     return m, kappa, lambda_val
 
 
-def recompute_scores(
+def recompute_legacy_scores(
     session: Session,
     target_attempt_id: str | None = None,
     shadow: bool = False,
     config: ScoringConfig | None = None,
     provisional_items: list[tuple[Any, Any]] | None = None,
+    taxonomy_version_id: int | None = None,
 ) -> ScoreRun:
     """Recompute all subtopic scores and ingestion coverage, atomically swapping the current run.
     
     Args:
         session: SQLAlchemy DB session
-        target_attempt_id: Target attempt (e.g. '2024-11'). If None, read from app.settings
+        target_attempt_id: Target attempt (e.g. '2024-11'). Required explicitly for administrative recomputation
         shadow: If True, this is a shadow score run (does not become is_current)
         config: ScoringConfig override. If None, loaded from config/scoring.toml
         provisional_items: Optional list of provisional (Appearance, AppearanceTag) for shadow runs
@@ -91,26 +91,25 @@ def recompute_scores(
     """
     if config is None:
         config = load_scoring_config()
+    from caf_l0.releases import active_version
+    from caf_l0.hierarchy import ancestor_at, descendant_leaves, version_nodes
+    release = active_version(session)
+    if taxonomy_version_id is None and release:
+        taxonomy_version_id = release.taxonomy_version_id
+    if taxonomy_version_id is not None:
+        from caf_db.models.taxonomy import TaxonomyRelease
+        scoped_release = session.scalar(sa.select(TaxonomyRelease).where(
+            TaxonomyRelease.taxonomy_version_id == taxonomy_version_id
+        ))
+        if scoped_release is None or scoped_release.status not in {"active", "archived"}:
+            raise ValueError("Scoring requires an activated textbook taxonomy version")
 
-    # 1. Resolve target attempt
+    # Administrative recomputation must identify its target explicitly.
     if not target_attempt_id:
-        app_settings = session.query(AppSettingsModel).first()
-        if app_settings and app_settings.target_attempt_id:
-            target_attempt_id = app_settings.target_attempt_id
-        else:
-            global_settings = get_settings()
-            target_attempt_id = global_settings.app.target_attempt_id or "2026-05"
-
+        raise ValueError("An explicit target_attempt_id is required")
     target_attempt = session.get(Attempt, target_attempt_id)
     if not target_attempt:
-        # Fallback to latest attempt in DB
-        target_attempt = session.query(Attempt).order_by(
-            Attempt.exam_year.desc(), Attempt.exam_month.desc()
-        ).first()
-        if target_attempt:
-            target_attempt_id = target_attempt.id
-        else:
-            raise ValueError(f"No valid attempt found in database for target {target_attempt_id}")
+        raise ValueError(f"Unknown target attempt: {target_attempt_id}")
 
     t_year = target_attempt.exam_year
     t_month = target_attempt.exam_month
@@ -120,7 +119,9 @@ def recompute_scores(
     new_run = ScoreRun(
         scoring_version=config.version,
         config_hash=config.config_hash,
+        config_snapshot=config.model_dump(mode="json"),
         target_attempt_id=target_attempt_id,
+        taxonomy_version_id=taxonomy_version_id,
         shadow=shadow,
         is_current=False,
         status="running",
@@ -141,9 +142,18 @@ def recompute_scores(
             ApplicabilityRule.attempt_id == target_attempt_id
         ).all()
         excluded_nodes = {r.node_id for r in app_rules if r.effect == "exclude"}
+        if taxonomy_version_id is not None and target_attempt_id >= "2027-05":
+            from caf_l0.releases import source_contexts
+            # P4 fallback structure is useful; unresolved historical provisions
+            # cannot enter target-attempt scores until applicability is reviewed.
+            for node_id, sources in source_contexts(session, taxonomy_version_id).items():
+                if any(source.get("paper_id") == "s2023.P4" and source.get("fallback") and
+                       source.get("target_applicability") not in {"verified", "applicable"}
+                       for source in sources):
+                    excluded_nodes.add(node_id)
 
         # 5. Fetch all active nodes and build hierarchy
-        all_nodes = session.query(Node).all()
+        all_nodes = version_nodes(session, taxonomy_version_id)
         nodes_by_id = {n.id: n for n in all_nodes}
 
         def is_node_applicable(n: Node) -> bool:
@@ -167,6 +177,7 @@ def recompute_scores(
         subtopics = [
             n for n in all_nodes
             if n.level == "subtopic" and n.paper_id in current_paper_ids
+            and not any(child.parent_id == n.id for child in all_nodes)
         ]
         subtopics_by_paper: dict[str, list[Node]] = {}
         for s in subtopics:
@@ -174,8 +185,9 @@ def recompute_scores(
 
         # 6. Compute Weightage Prior W(s)
         # Weightage section midpoint marks: ((min_pct + max_pct) / 2) / 100 * paper_max
-        weightage_sections = session.query(WeightageSection).all()
-        weightage_members = session.query(WeightageMember).all()
+        # Generated legacy priors never become official priors for a new release.
+        weightage_sections = session.query(WeightageSection).all() if taxonomy_version_id is None else []
+        weightage_members = session.query(WeightageMember).all() if taxonomy_version_id is None else []
         
         # chapter_id -> section_id
         ch_to_section = {m.chapter_id: m.section_id for m in weightage_members}
@@ -186,8 +198,7 @@ def recompute_scores(
         for s in subtopics:
             if not is_node_applicable(s):
                 continue
-            topic = nodes_by_id.get(s.parent_id) if s.parent_id else None
-            ch = nodes_by_id.get(topic.parent_id) if topic and topic.parent_id else None
+            ch = ancestor_at(s.id, nodes_by_id, "chapter")
             if ch and ch.id in ch_to_section:
                 sec_id = ch_to_section[ch.id]
                 section_applicable_subtopics.setdefault(sec_id, []).append(s.id)
@@ -197,8 +208,7 @@ def recompute_scores(
             if not is_node_applicable(s):
                 subtopic_prior_w[s.id] = 0.0
                 continue
-            topic = nodes_by_id.get(s.parent_id) if s.parent_id else None
-            ch = nodes_by_id.get(topic.parent_id) if topic and topic.parent_id else None
+            ch = ancestor_at(s.id, nodes_by_id, "chapter")
             sec_id = ch_to_section.get(ch.id) if ch else None
             if sec_id and sec_id in section_by_id:
                 sec = section_by_id[sec_id]
@@ -212,16 +222,21 @@ def recompute_scores(
 
         # 7. Ingestion coverage
         # Query distinct (paper_id, attempt_id, signal_class) with published appearances
-        pub_appearances_query = (
+        coverage_query = (
             session.query(
                 Appearance.source_paper_id,
                 Appearance.attempt_id,
                 Appearance.signal_class,
             )
             .where(Appearance.status == "published")
-            .distinct()
-            .all()
         )
+        if taxonomy_version_id is not None:
+            from caf_db.models.ingest import Document
+            coverage_query = coverage_query.join(AppearanceTag, AppearanceTag.appearance_id == Appearance.id).join(
+                Document, Document.sha256 == Appearance.doc_sha256
+            ).where(AppearanceTag.node_id.in_(nodes_by_id),
+                    Document.course_level == "final", Document.provenance_status == "verified")
+        pub_appearances_query = coverage_query.distinct().all()
 
         published_coverage: dict[tuple[str, str], dict[str, bool]] = {}
         for row in pub_appearances_query:
@@ -234,7 +249,9 @@ def recompute_scores(
                 published_coverage[key]["practice"] = True
 
         if provisional_items:
-            for p_app, _ in provisional_items:
+            for p_app, p_tag in provisional_items:
+                if p_tag.node_id not in nodes_by_id:
+                    continue
                 p_key = (p_app.source_paper_id, p_app.attempt_id)
                 if p_key not in published_coverage:
                     published_coverage[p_key] = {"exam": False, "practice": False}
@@ -277,12 +294,17 @@ def recompute_scores(
             paper_windows[p_id] = [a.id for a in top_n]
 
         # 9. Load all published appearances with their tags
-        apps_with_tags = (
+        appearances_query = (
             session.query(Appearance, AppearanceTag)
             .join(AppearanceTag, AppearanceTag.appearance_id == Appearance.id)
             .where(Appearance.status == "published")
-            .all()
         )
+        if taxonomy_version_id is not None:
+            appearances_query = appearances_query.join(Document, Document.sha256 == Appearance.doc_sha256).where(
+                AppearanceTag.node_id.in_(nodes_by_id),
+                Document.course_level == "final", Document.provenance_status == "verified",
+            )
+        apps_with_tags = appearances_query.all()
         if provisional_items:
             apps_with_tags = list(apps_with_tags) + list(provisional_items)
 
@@ -300,44 +322,12 @@ def recompute_scores(
                 "all_exam_attempts": [],
             }
 
-        # Build map of node_id -> list of (subtopic_id, share_multiplier)
-        # to support subtopic tags as well as chapter/topic tags
-        child_topics_by_chapter: dict[str, list[str]] = {}
-        child_subs_by_topic: dict[str, list[str]] = {}
-        for n in all_nodes:
-            if n.level == "topic" and n.parent_id:
-                child_topics_by_chapter.setdefault(n.parent_id, []).append(n.id)
-            elif n.level == "subtopic" and n.parent_id:
-                child_subs_by_topic.setdefault(n.parent_id, []).append(n.id)
-
         def resolve_subtopic_targets(node_id: str, tag_share: float) -> list[tuple[str, float]]:
-            node = nodes_by_id.get(node_id)
-            if not node:
+            subs = [leaf for leaf in descendant_leaves(node_id, nodes_by_id)
+                    if is_node_applicable(nodes_by_id[leaf])]
+            if not subs:
                 return []
-            if node.level == "subtopic":
-                return [(node.id, tag_share)]
-            elif node.level == "topic":
-                subs = [
-                    s_id for s_id in child_subs_by_topic.get(node.id, [])
-                    if is_node_applicable(nodes_by_id[s_id])
-                ]
-                if not subs:
-                    return []
-                share_each = tag_share / len(subs)
-                return [(s_id, share_each) for s_id in subs]
-            elif node.level == "chapter":
-                topics = child_topics_by_chapter.get(node.id, [])
-                subs = []
-                for t_id in topics:
-                    subs.extend([
-                        s_id for s_id in child_subs_by_topic.get(t_id, [])
-                        if is_node_applicable(nodes_by_id[s_id])
-                    ])
-                if not subs:
-                    return []
-                share_each = tag_share / len(subs)
-                return [(s_id, share_each) for s_id in subs]
-            return []
+            return [(leaf, tag_share / len(subs)) for leaf in subs]
 
         for app, tag in apps_with_tags:
             att = all_attempts.get(app.attempt_id)
@@ -453,7 +443,10 @@ def recompute_scores(
         if not shadow:
             session.execute(
                 sa.update(ScoreRun)
-                .where(ScoreRun.is_current.is_(True), ScoreRun.id != new_run.id)
+                .where(ScoreRun.is_current.is_(True), ScoreRun.id != new_run.id,
+                       ScoreRun.target_attempt_id == target_attempt_id,
+                       ScoreRun.taxonomy_version_id == taxonomy_version_id,
+                       ScoreRun.config_hash == config.config_hash)
                 .values(is_current=False)
             )
             new_run.is_current = True
@@ -462,26 +455,7 @@ def recompute_scores(
         new_run.finished_at = datetime.now(timezone.utc)
         session.flush()
 
-        # 13. Retention: keep last 10 runs, delete older (excluding runs referenced by depth_gate_report)
-        all_run_ids = (
-            session.query(ScoreRun.id)
-            .order_by(ScoreRun.id.desc())
-            .all()
-        )
-        if len(all_run_ids) > 10:
-            referenced_runs = set()
-            for r in session.query(DepthGateReport.baseline_run_id, DepthGateReport.shadow_run_id).all():
-                if r[0] is not None:
-                    referenced_runs.add(r[0])
-                if r[1] is not None:
-                    referenced_runs.add(r[1])
-
-            stale_ids = [r[0] for r in all_run_ids[10:] if r[0] not in referenced_runs]
-            if stale_ids:
-                session.execute(
-                    sa.delete(ScoreRun).where(ScoreRun.id.in_(stale_ids))
-                )
-
+        # Preserve historical score runs across attempt and taxonomy changes.
         session.commit()
         logger.info(
             f"L5 score recompute complete: run_id={new_run.id}, "
@@ -504,3 +478,297 @@ def recompute_scores(
             pass
         logger.exception(f"L5 score recompute failed: {exc}")
         raise
+
+
+def coverage_eligibility(row) -> tuple[bool, list[str]]:
+    """Reviewed official scope, not publication count or optional-mark totals."""
+    requirements = {
+        "inventory_unreviewed": row.inventory_reviewed,
+        "expected_inventory_unknown": row.expected_slots is not None,
+        "sources_not_acquired": row.expected_slots is not None and row.acquired_count >= row.expected_slots,
+        "metadata_unreviewed": row.metadata_reviewed,
+        "extraction_unreviewed": row.extraction_reviewed,
+        "pairing_unreviewed": row.pairing_reviewed,
+        "official_scope_unconfirmed": row.official_scope_confirmed,
+        "gradable_regions_unaccounted": row.gradable_regions_accounted,
+        "labels_incomplete": row.labels_complete,
+        "occurrence_identity_unresolved": row.occurrence_resolved,
+        "unpublished_roots": row.published_roots >= row.reviewed_roots > 0,
+    }
+    blockers = [name for name, satisfied in requirements.items() if not satisfied]
+    blockers.extend(row.blockers or [])
+    return not blockers, list(dict.fromkeys(blockers))
+
+
+def normalized_component(raw: float, denominator: float, available: bool,
+                         weight: float) -> dict[str, Any]:
+    normalized = (raw / denominator if denominator > 0 else 0.0) if available else None
+    return {"available": available, "raw": raw if available else None,
+            "denominator": denominator if available else None, "normalized": normalized,
+            "weight": weight, "weighted_contribution": weight * normalized if available else None}
+
+
+def publication_exclusions(publication) -> list[str]:
+    blockers = []
+    if publication.content["question_status"] != "complete":
+        blockers.append("question_scope_incomplete")
+    if any(mapping["outcome"] != "matched" and not mapping["excluded"] for mapping in publication.mappings):
+        blockers.append("labels_unresolved_without_explicit_exclusion")
+    allocations = publication.marks["allocations"]
+    if not allocations or publication.marks["issues"] or any(
+            allocation["allocation_status"] != "reviewed" or allocation["marks"] is None for allocation in allocations):
+        blockers.append("marks_allocation_unresolved")
+    return blockers
+
+
+def promote_score_run(session: Session, run: ScoreRun) -> bool:
+    """Lock the generation and prevent late workers from replacing newer results."""
+    from caf_db.models.questions import CorpusGeneration
+    generation = session.scalar(sa.select(CorpusGeneration).where(
+        CorpusGeneration.id == 1).with_for_update())
+    latest = generation.generation if generation else 0
+    current = session.scalar(sa.select(ScoreRun).where(
+        ScoreRun.target_attempt_id == run.target_attempt_id,
+        ScoreRun.taxonomy_version_id == run.taxonomy_version_id,
+        ScoreRun.config_hash == run.config_hash, ScoreRun.is_current.is_(True),
+        ScoreRun.shadow.is_(False), ScoreRun.id != run.id).with_for_update())
+    run.stale = run.corpus_generation != latest
+    eligible = not run.shadow and not run.stale and (
+        current is None or (run.corpus_generation, run.id) > (current.corpus_generation, current.id))
+    if eligible:
+        if current:
+            current.is_current = False
+            session.flush()
+        run.is_current = True
+    session.flush()
+    return eligible
+
+
+def recompute_scores(session: Session, target_attempt_id: str | None = None,
+                     shadow: bool = False, config: ScoringConfig | None = None,
+                     provisional_items: list[tuple[Any, Any]] | None = None,
+                     taxonomy_version_id: int | None = None, *, promote: bool = True) -> ScoreRun:
+    """Persist complete inputs and nullable components for one approved context."""
+    from caf_l5.context import approved_binding, corpus_generation, context_nodes, context_leaf_ids, StudyContext
+    from caf_db.models.intel import CorpusCoverage, ReviewedPrior
+    from caf_db.models.questions import PublishedQuestion, QuestionOccurrence
+    from caf_db.models.classification import QuestionPublication
+    if not target_attempt_id:
+        raise ValueError("An explicit target_attempt_id is required")
+    binding = approved_binding(session, target_attempt_id, taxonomy_version_id)
+    if binding:
+        taxonomy_version_id = binding.taxonomy_version_id
+        config = config or (ScoringConfig.model_validate(binding.scoring_config)
+                           if binding.scoring_config else load_scoring_config())
+    elif taxonomy_version_id is not None:
+        raise ValueError("Scoring requires an approved target-attempt taxonomy binding")
+    else:
+        from caf_db.models.taxonomy import TaxonomyRelease
+        if session.scalar(sa.select(TaxonomyRelease.taxonomy_version_id).where(
+            TaxonomyRelease.status != "legacy").limit(1)) is not None:
+            raise ValueError("Scoring requires an approved target-attempt taxonomy binding")
+        return recompute_legacy_scores(session, target_attempt_id, shadow, config,
+                                       provisional_items, taxonomy_version_id=None)
+    if provisional_items:
+        raise ValueError("Experimental classifications cannot enter reviewed scoring")
+    config = config or load_scoring_config()
+    target = session.get(Attempt, target_attempt_id)
+    if target is None:
+        raise ValueError(f"Unknown target attempt: {target_attempt_id}")
+    generation = corpus_generation(session)
+    context = StudyContext(target_attempt_id, taxonomy_version_id, None, "ready", config, {})
+    nodes = context_nodes(session, context)
+    terminal_ids = context_leaf_ids(session, context)
+    leaves = [node for node in nodes if node.id in terminal_ids]
+    attempts = {row.id: row for row in session.scalars(sa.select(Attempt))}
+    coverage_rows = list(session.scalars(sa.select(CorpusCoverage).where(
+        CorpusCoverage.taxonomy_version_id == taxonomy_version_id)))
+    usable: dict[str, set[str]] = {}
+    exclusions = []
+    coverage_manifest = []
+    for row in coverage_rows:
+        eligible, blockers = coverage_eligibility(row)
+        entry = {column.name: row.__dict__[column.name] for column in CorpusCoverage.__table__.columns}
+        entry.update(eligible=eligible, exclusions=blockers)
+        coverage_manifest.append(entry)
+        att = attempts[row.attempt_id]
+        before_target = compute_age_months(att.exam_year, att.exam_month,
+                                          target.exam_year, target.exam_month) > 0
+        if eligible and row.source_family in {"QP", "question_paper", "exam", "past_exam"} and before_target:
+            usable.setdefault(row.paper_id, set()).add(row.attempt_id)
+        elif row.source_family in {"QP", "question_paper", "exam", "past_exam"}:
+            exclusions.append({"paper_id": row.paper_id, "attempt_id": row.attempt_id,
+                               "reasons": blockers or ["not_before_target"]})
+    publications = session.execute(sa.select(PublishedQuestion, QuestionOccurrence).join(
+        QuestionPublication, QuestionPublication.current_snapshot_id == PublishedQuestion.id).join(
+        QuestionOccurrence, QuestionOccurrence.id == PublishedQuestion.occurrence_id).where(
+        PublishedQuestion.taxonomy_version_id == taxonomy_version_id)).all()
+    # Canonical identity can have several source-backed publications. A question
+    # paper and confirmed answer counterpart contribute one occurrence only.
+    canonical = {}
+    ambiguous_groups = set()
+    publication_documents = {row.current_snapshot_id: row.document_id for row in session.scalars(
+        sa.select(QuestionPublication).where(QuestionPublication.current_snapshot_id.is_not(None)))}
+    identities = {row.id: row for row in session.scalars(sa.select(QuestionOccurrence))}
+    for publication, occurrence in publications:
+        identity = identities.get(occurrence.canonical_occurrence_id) if occurrence.canonical_occurrence_id else occurrence
+        if identity is None or identity.canonical_occurrence_id is not None:
+            raise ValueError("Canonical occurrence must resolve to one confirmed root identity")
+        if occurrence.identity_status != "confirmed":
+            ambiguous_groups.add(identity.id)
+        existing = canonical.get(identity.id)
+        # Prefer the canonical question paper over its answer projection.
+        prefer = publication_documents.get(publication.id) == identity.pairing_evidence.get("canonical_document_id")
+        if existing is None or (prefer and not existing[2]) or (prefer == existing[2] and publication.id > existing[0].id):
+            canonical[identity.id] = (publication, identity, prefer)
+    canonical = {key: (value[0], value[1]) for key, value in canonical.items()}
+    # A ledger cannot override contradictory publication evidence: unresolved
+    # identity or gradable allocations invalidate the entire exam denominator.
+    for publication, occurrence in canonical.values():
+        blockers = publication_exclusions(publication)
+        if occurrence.identity_status != "confirmed" or occurrence.id in ambiguous_groups:
+            blockers.append("occurrence_identity_unresolved")
+        if occurrence.signal_class == "exam" and blockers:
+            usable.get(occurrence.paper_id, set()).discard(occurrence.attempt_id)
+            exclusions.append({"paper_id": occurrence.paper_id, "attempt_id": occurrence.attempt_id,
+                               "reasons": ["published_occurrence_or_allocation_unresolved", *blockers]})
+    from caf_db.models.ingest import Document
+    from urllib.parse import urlparse
+    official_hashes = set(session.scalars(sa.select(Document.sha256).where(
+        Document.doc_type_id == "weightage", Document.provenance_status == "verified",
+        Document.course_level == "final", Document.catalog_status == "confirmed")))
+    prior_rows = list(session.scalars(sa.select(ReviewedPrior).where(
+        ReviewedPrior.taxonomy_version_id == taxonomy_version_id,
+        ReviewedPrior.reviewed_by.is_not(None))))
+    priors = {}
+    for row in prior_rows:
+        source = row.source
+        url = urlparse(source.get("official_url", ""))
+        if (source.get("kind") == "official_weightage" and
+                source.get("taxonomy_version_id") == taxonomy_version_id and
+                source.get("document_sha256") in official_hashes and url.scheme == "https" and
+                url.hostname in {"www.icai.org", "icai.org", "resource.cdn.icai.org"}):
+            priors[row.node_id] = row
+    stats = {node.id: {"exam": 0.0, "practice": 0.0, "exam_marks": 0.0,
+             "exam_ids": set(), "practice_ids": set(), "hit_attempts": set(), "contributions": []}
+             for node in leaves}
+    practice_papers = set()
+    occurrence_manifest = []
+    for publication, occurrence in canonical.values():
+        entry = {"occurrence_id": occurrence.id, "snapshot_id": publication.id,
+                 "identity_status": occurrence.identity_status, "attempt_id": occurrence.attempt_id,
+                 "paper_id": occurrence.paper_id, "source_family": occurrence.source_family,
+                 "signal_class": occurrence.signal_class, "marks": publication.marks,
+                 "mappings": publication.mappings, "question_status": publication.content["question_status"]}
+        occurrence_manifest.append(entry)
+        att = attempts.get(occurrence.attempt_id)
+        if occurrence.identity_status != "confirmed" or occurrence.id in ambiguous_groups or att is None:
+            entry["exclusion"] = "identity_unresolved" if occurrence.identity_status != "confirmed" else "undated"
+            continue
+        age = compute_age_months(att.exam_year, att.exam_month, target.exam_year, target.exam_month)
+        if age < 0 or (age == 0 and occurrence.signal_class == "exam"):
+            entry["exclusion"] = "not_before_target"
+            continue
+        if occurrence.signal_class == "exam" and occurrence.attempt_id not in usable.get(occurrence.paper_id, set()):
+            entry["exclusion"] = "incomplete_attempt"
+            continue
+        if occurrence.signal_class not in {"exam", "practice"}:
+            entry["exclusion"] = "unsupported_signal"
+            continue
+        blockers = publication_exclusions(publication)
+        if blockers:
+            entry["exclusion"] = blockers[0]
+            entry["exclusion_reasons"] = blockers
+            continue
+        valid_allocations = publication.marks["allocations"]
+        if occurrence.signal_class == "practice":
+            practice_papers.add(occurrence.paper_id)
+        half_life = config.half_life_exam_months if occurrence.signal_class == "exam" else config.half_life_practice_months
+        decay = compute_decay(age, half_life)
+        for allocation in valid_allocations:
+            for share in allocation["node_shares"]:
+                node_id = share["node_id"]
+                if node_id not in stats or share["attributed_marks"] is None:
+                    continue
+                node = next(node for node in leaves if node.id == node_id)
+                marks, kappa, stale_factor = calculate_attributed_marks(allocation["marks"], share["share"],
+                    occurrence.paper_id, node.paper_id, False, config)
+                item = stats[node_id]
+                signal = occurrence.signal_class
+                item[signal] += marks * decay
+                item[f"{signal}_ids"].add(occurrence.id)
+                if signal == "exam":
+                    item["exam_marks"] += allocation["marks"] * share["share"]
+                    item["hit_attempts"].add(occurrence.attempt_id)
+                item["contributions"].append({"occurrence_id": occurrence.id,
+                    "snapshot_id": publication.id, "part_id": allocation["part_id"],
+                    "attempt_id": occurrence.attempt_id, "signal_class": signal,
+                    "marks": allocation["marks"], "share": share["share"],
+                    "attributed_marks_m": marks, "kappa": kappa, "lambda_val": stale_factor,
+                    "age_months": age, "half_life_months": half_life, "decay": decay,
+                    "contribution": marks * decay})
+    for entry in coverage_manifest:
+        extra = [reason for exclusion in exclusions if exclusion["paper_id"] == entry["paper_id"] and
+                 exclusion["attempt_id"] == entry["attempt_id"] for reason in exclusion["reasons"]]
+        if extra:
+            entry["eligible"] = False
+            entry["exclusions"] = list(dict.fromkeys([*entry["exclusions"], *extra]))
+    manifest = {"semantics_version": "phase6-v1", "target_attempt_id": target_attempt_id,
+                "taxonomy_version_id": taxonomy_version_id, "corpus_generation": generation,
+                "node_ids": [node.id for node in leaves], "coverage": coverage_manifest,
+                "occurrences": occurrence_manifest, "priors": {node_id: {"value": row.value,
+                    "source": row.source, "reviewed_by": row.reviewed_by} for node_id, row in priors.items()},
+                "configuration": config.model_dump(mode="json")}
+    run = ScoreRun(scoring_version="phase6-v1", config_hash=config.config_hash,
+                   config_snapshot=config.model_dump(mode="json"), target_attempt_id=target_attempt_id,
+                   taxonomy_version_id=taxonomy_version_id, shadow=shadow, is_current=False,
+                   status="running", started_at=datetime.now(timezone.utc), corpus_generation=generation,
+                   input_manifest=manifest, stale=False)
+    session.add(run)
+    session.flush()
+    for paper_id in {node.paper_id for node in leaves}:
+        paper_nodes = [node for node in leaves if node.paper_id == paper_id]
+        window = sorted(usable.get(paper_id, set()), key=lambda aid:
+            (attempts[aid].exam_year, attempts[aid].exam_month), reverse=True)[:config.freq_window_attempts]
+        available = {"exam": bool(usable.get(paper_id)), "practice": paper_id in practice_papers,
+                     "prior": all(node.id in priors for node in paper_nodes)}
+        denominators = {"exam": max((stats[node.id]["exam"] for node in paper_nodes), default=0),
+                        "practice": max((stats[node.id]["practice"] for node in paper_nodes), default=0),
+                        "prior": max((priors[node.id].value for node in paper_nodes if node.id in priors), default=0)}
+        for node in paper_nodes:
+            item = stats[node.id]
+            components = {signal: normalized_component(
+                priors[node.id].value if signal == "prior" and node.id in priors else
+                (0.0 if signal == "prior" else item[signal]), denominators[signal], available[signal],
+                config.weights.model_dump()[signal]) for signal in ("exam", "practice", "prior")}
+            subtotal = sum(component["weighted_contribution"] or 0.0 for component in components.values())
+            full = all(component["available"] for component in components.values())
+            hits = sorted(item["hit_attempts"].intersection(window), reverse=True)
+            evidence = {"semantics_version": "phase6-v1", "components": components,
+                        "known_weighted_subtotal": subtotal, "importance_available": full,
+                        "frequency": {"available": bool(window), "window_attempts": window,
+                                      "hit_attempts": hits, "numerator": len(hits), "denominator": len(window)},
+                        "contributions": item["contributions"],
+                        "included_occurrence_ids": sorted(item["exam_ids"] | item["practice_ids"]),
+                        "coverage_exclusions": [row for row in exclusions if row["paper_id"] == paper_id],
+                        "prior_source": priors[node.id].source if node.id in priors else None}
+            session.add(SubtopicScore(score_run_id=run.id, node_id=node.id, applicable=True,
+                exam_score=components["exam"]["raw"], practice_score=components["practice"]["raw"],
+                weight_prior=components["prior"]["raw"], importance=round(subtotal, 8) if full else None,
+                freq_hits=len(hits), freq_window=len(window), exam_marks_total=round(item["exam_marks"]),
+                exam_count=len(item["exam_ids"]), practice_count=len(item["practice_ids"]),
+                first_exam_attempt=min(item["hit_attempts"], default=None),
+                last_exam_attempt=max(item["hit_attempts"], default=None), evidence=evidence))
+        for attempt_id in attempts:
+            session.add(IngestionCoverage(score_run_id=run.id, paper_id=paper_id, attempt_id=attempt_id,
+                exam_published=attempt_id in usable.get(paper_id, set()),
+                practice_published=any(entry["paper_id"] == paper_id and entry["attempt_id"] == attempt_id
+                    and entry["signal_class"] == "practice" and "exclusion" not in entry for entry in occurrence_manifest)))
+    run.status = "ok"
+    run.finished_at = datetime.now(timezone.utc)
+    session.commit()
+    # A fresh transaction sees publications that committed while computation ran.
+    if promote:
+        promote_score_run(session, run)
+        session.commit()
+    return run

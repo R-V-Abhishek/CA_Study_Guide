@@ -1,0 +1,363 @@
+{
+  "descriptors": [
+    {
+      "node_id": "ab87e779-b2a6-4d11-94c0-d89fae5da2c4",
+      "concept_name": "Finance, Accounts And Audit",
+      "definition": "The Central Government provides financial grants to the Board through parliamentary appropriation, which forms part of the established SEBI General Fund. The Comptroller and Auditor-General of India conducts the audit of the Board accounts and submits certified statements and reports to the Central Government.",
+      "terminology": [
+        "SEBI General Fund",
+        "Grants",
+        "Comptroller and Auditor-General",
+        "Annual financial statement"
+      ],
+      "instrument_references": [
+        "Section 13",
+        "Section 14",
+        "Section 15"
+      ],
+      "inclusion": [
+        "Central Government grants",
+        "SEBI General Fund constitution and application",
+        "Preparation and CAG audit of annual accounts"
+      ],
+      "exclusion": [
+        "Securities Appellate Tribunal procedures",
+        "Company listing obligations"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from penalties and adjudication provisions under subsequent sections by focusing exclusively on internal fund constitution, grants, and CAG financial auditing."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "cb5f9858-2db7-444a-9f9c-2ffe2396eba0",
+      "concept_name": "Penalties And Adjudication",
+      "definition": "Persons registered as intermediaries or listed companies face monetary penalties for specific defaults such as failing to enter into client agreements, provide required returns, or redress investor grievances. These statutory penalties carry daily fines subject to an overall ceiling amount.",
+      "terminology": [
+        "Intermediary",
+        "Penalty",
+        "Investor grievances",
+        "Default"
+      ],
+      "instrument_references": [
+        "Section 15A",
+        "Section 15B",
+        "Section 15C"
+      ],
+      "inclusion": [
+        "Penalty for failure to furnish information or returns",
+        "Penalty for failure to enter into agreements with clients",
+        "Penalty for failure to redress investor grievances"
+      ],
+      "exclusion": [
+        "Board general funding and audit procedures",
+        "Establishment of the Appellate Tribunal"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general administrative directions by imposing specific, quantifiable monetary penalties for statutory defaults by intermediaries and companies."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f96c03ba-2bb9-41be-82b1-0f6bd3de8dc8",
+      "concept_name": "Establishment, Jurisdiction, Authority And Procedure Of Securities Appellate Tribunal (SAT)",
+      "definition": "The Central Government establishes the Securities Appellate Tribunal by notification to exercise statutory adjudicatory powers and jurisdiction. The Tribunal consists of a Presiding Officer, Judicial Members, and Technical Members sitting in benches that include at least one judicial and one technical member.",
+      "terminology": [
+        "Securities Appellate Tribunal",
+        "Presiding Officer",
+        "Judicial Member",
+        "Technical Member",
+        "Bench"
+      ],
+      "instrument_references": [
+        "Section 15K",
+        "Section 15L",
+        "Section 15M"
+      ],
+      "inclusion": [
+        "Establishment and notification of SAT",
+        "Tribunal composition and bench constitution",
+        "Qualifications for Presiding Officer and members"
+      ],
+      "exclusion": [
+        "Direct corporate listing obligations",
+        "SEBI internal fund accounting"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from SEBI adjudicating officers by constituting an independent appellate tribunal with multi-member benches for hearing appeals against regulatory orders."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9bcc1c6a-8a00-457f-8e4f-1f5173e90e8e",
+      "concept_name": "Procedure Of Securities Appellate Tribunal (SAT)",
+      "definition": "The Securities Appellate Tribunal functions through designated benches comprising judicial and technical members appointed based on statutory judicial background criteria. These benches operate primarily from Mumbai or notified alternative locations under the administrative direction of the Presiding Officer.",
+      "terminology": [
+        "Securities Appellate Tribunal",
+        "Bench",
+        "Judicial Member",
+        "Technical Member",
+        "Presiding Officer"
+      ],
+      "instrument_references": [
+        "Section 15K",
+        "Section 15L",
+        "Section 15M"
+      ],
+      "inclusion": [
+        "Bench jurisdiction and sitting arrangements",
+        "Member transfer protocols",
+        "Statutory qualification thresholds for judicial and technical appointments"
+      ],
+      "exclusion": [
+        "Internal SEBI budget allocations",
+        "Quarterly compliance filings"
+      ],
+      "nearby_distinctions": [
+        "Focuses on the structural composition, bench formation, and qualification criteria of SAT members rather than general penal provisions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2107a48f-8188-400a-a31e-1bf8c6251895",
+      "concept_name": "Miscellaneous",
+      "definition": "The Central Government holds statutory authority to issue written policy directions to the Board and can supersede the Board for a limited period under circumstances of grave emergency, persistent default, or public interest. Upon supersession, all members vacate their offices and Board properties temporarily vest in the Central Government.",
+      "terminology": [
+        "Policy directions",
+        "Supersession",
+        "Grave emergency",
+        "Reconstitution"
+      ],
+      "instrument_references": [
+        "Section 16",
+        "Section 17"
+      ],
+      "inclusion": [
+        "Central Government power to issue policy directions",
+        "Grounds and effects of superseding the Board",
+        "Reconstitution of the Board after supersession"
+      ],
+      "exclusion": [
+        "Routine quarterly compliance filings",
+        "Specific intermediary penalty provisions"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard regulatory oversight by addressing extreme structural interventions such as government supersession and binding policy directives."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1fa0fef8-02a2-4672-a239-2f0b75221257",
+      "concept_name": "SEBI (Listing Obligations and Disclosure Requirements) Regulations, 2015 Scope",
+      "definition": "The SEBI Listing Obligations and Disclosure Requirements Regulations consolidate listing conditions and align listing agreement clauses with the Companies Act. These rules apply to entities accessing stock exchanges to list designated securities such as specified equity shares, debt securities, depository receipts, and mutual fund units.",
+      "terminology": [
+        "Listing agreement",
+        "Designated securities",
+        "Main board",
+        "SME exchange",
+        "Disclosure requirements"
+      ],
+      "instrument_references": [
+        "SEBI (Listing Obligations and Disclosure Requirements) Regulations, 2015"
+      ],
+      "inclusion": [
+        "Consolidation of existing listing agreements",
+        "Applicability criteria across various capital market segments",
+        "Scope covering equities, debt, and mutual fund units"
+      ],
+      "exclusion": [
+        "SEBI internal penal adjudication provisions",
+        "SAT member qualification criteria"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from the SEBI Act provisions by providing a unified regulatory framework specifically governing post-listing obligations and periodic disclosures of issuers."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e8b2a5b5-1e9f-420f-ab09-049655ac6af3",
+      "concept_name": "SEBI (Listing Obligations and Disclosure Requirements) Regulations, 2015 Index",
+      "definition": "The SEBI Listing Obligations and Disclosure Requirements Regulations consolidate listing conditions and align listing agreement clauses with the Companies Act. These rules apply to entities accessing stock exchanges to list designated securities such as specified equity shares, debt securities, depository receipts, and mutual fund units.",
+      "terminology": [
+        "Listing agreement",
+        "Designated securities",
+        "Main board",
+        "SME exchange",
+        "Disclosure requirements"
+      ],
+      "instrument_references": [
+        "SEBI (Listing Obligations and Disclosure Requirements) Regulations, 2015"
+      ],
+      "inclusion": [
+        "Consolidation of existing listing agreements",
+        "Applicability criteria across various capital market segments",
+        "Scope covering equities, debt, and mutual fund units"
+      ],
+      "exclusion": [
+        "SEBI internal penal adjudication provisions",
+        "SAT member qualification criteria"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from the SEBI Act provisions by providing a unified regulatory framework specifically governing post-listing obligations and periodic disclosures of issuers."
+      ],
+      "source_ambiguities": [
+        "The text fragment is an index heading repetition with identical text content."
+      ]
+    },
+    {
+      "node_id": "18e6a870-63f7-494e-b59b-aa06040011a0",
+      "concept_name": "Scope and Applicability of Listing Regulations",
+      "definition": "The Listing Regulations establish unified periodic disclosure standards and corporate governance principles for entities with designated securities listed on recognized stock exchanges. Once provisions become applicable based on market capitalization or debt thresholds, they continue to apply even if the entity subsequently falls below those thresholds.",
+      "terminology": [
+        "Listed entity",
+        "Market capitalization",
+        "Specified securities",
+        "Non-convertible debt securities",
+        "Periodic disclosures"
+      ],
+      "instrument_references": [
+        "SEBI (Listing Obligations and Disclosure Requirements) Regulations, 2015"
+      ],
+      "inclusion": [
+        "Applicability to specified securities, debt, and depository receipts",
+        "Continuation of applicability despite falling below thresholds",
+        "Broad principles for periodic disclosures and corporate governance"
+      ],
+      "exclusion": [
+        "Unlisted private corporate entities",
+        "Non-securities financial transactions"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from initial public offering guidelines by focusing strictly on continuing obligations and governance after securities are listed on a stock exchange."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "45430e4f-0852-43c0-bf88-b24696a54e71",
+      "concept_name": "Introduction and Structure of Listing Regulations",
+      "definition": "SEBI issued the Listing Regulations to streamline capital market listing norms into a single comprehensive document containing both substantive provisions and procedural schedules. These regulations enforce continuous disclosure norms and corporate governance principles across diverse market segments.",
+      "terminology": [
+        "Substantive provisions",
+        "Procedural requirements",
+        "Schedules",
+        "Corporate governance"
+      ],
+      "instrument_references": [
+        "SEBI (Listing Obligations and Disclosure Requirements) Regulations, 2015"
+      ],
+      "inclusion": [
+        "Structure dividing regulations into substantive main body and procedural schedules",
+        "Effective implementation date and harmonization goals"
+      ],
+      "exclusion": [
+        "Internal statutory funding of the regulatory board",
+        "Appellate tribunal establishment mechanics"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from the SEBI Act by providing the operational architecture of listing rules divided between main regulations and schedules."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "02b9b8f0-b861-47a4-ab44-387fe7ce156e",
+      "concept_name": "Board of Directors Composition under Listing Regulations",
+      "definition": "The board of directors of a listed entity must maintain an optimum combination of executive and non-executive directors, including at least one woman director and a specified minimum percentage of non-executive members. Top listed entities determined by market capitalization must also appoint independent directors pursuant to specific governance mandates.",
+      "terminology": [
+        "Board of directors",
+        "Executive director",
+        "Non-executive director",
+        "Woman director",
+        "Independent director",
+        "Market capitalization"
+      ],
+      "instrument_references": [
+        "Regulation 17"
+      ],
+      "inclusion": [
+        "Optimum combination of executive and non-executive directors",
+        "Mandatory inclusion of at least one woman director",
+        "Independent director mandates for top listed entities"
+      ],
+      "exclusion": [
+        "Unlisted corporate management structures",
+        "Quarterly financial result reporting formats"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general disclosure obligations by establishing direct structural mandates for board composition and governance leadership."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9e5eddf1-1796-4e6c-8ffb-3e08e1bdb17e",
+      "concept_name": "Common Obligations of Listed Entities and Compliance Officers",
+      "definition": "Listed entities must ensure that key managerial personnel, directors, and promoters fulfill their regulatory responsibilities, including the appointment of a qualified company secretary as compliance officer. The compliance officer oversees regulatory conformity, reporting coordination, information filing accuracy, and grievance redressal monitoring.",
+      "terminology": [
+        "Key managerial personnel",
+        "Compliance officer",
+        "Company secretary",
+        "Share transfer agent",
+        "Grievance redressal"
+      ],
+      "instrument_references": [
+        "Regulation 5",
+        "Regulation 6",
+        "Regulation 7"
+      ],
+      "inclusion": [
+        "General compliance obligations of KMPs and promoters",
+        "Mandatory appointment of qualified company secretary as compliance officer",
+        "Share transfer agent appointment or in-house facility management"
+      ],
+      "exclusion": [
+        "Quarterly financial result filing deadlines",
+        "Statutory board supersession provisions"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from periodic disclosure filings by establishing internal administrative personnel requirements and general compliance duties for corporate officers."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "47196510-500c-404d-99d0-e4639dfda689",
+      "concept_name": "Quarterly Compliances under Listing Regulations",
+      "definition": "Listed entities must file specified reports and statements with recognized stock exchanges on a quarterly basis, including grievance redressal statistics, corporate governance reports, and shareholding patterns. Additional quarterly disclosures cover statement of deviation in fund utilization and standalone financial results within stipulated timeframes.",
+      "terminology": [
+        "Quarterly compliances",
+        "Grievance redressal mechanism",
+        "Corporate governance report",
+        "Shareholding pattern",
+        "Statement of deviation",
+        "Financial results"
+      ],
+      "instrument_references": [
+        "Regulation 13(3)",
+        "Regulation 27(2)",
+        "Regulation 31(1)",
+        "Regulation 32(1)",
+        "Regulation 33(3)"
+      ],
+      "inclusion": [
+        "Quarterly investor complaints and grievance statements",
+        "Corporate governance compliance reports",
+        "Shareholding pattern statements and capital restructuring disclosures",
+        "Statement of deviation in issue proceeds utilization",
+        "Standalone financial results submission timelines"
+      ],
+      "exclusion": [
+        "Annual report filings",
+        "Initial public offer draft prospectus drafting"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from continuous event-based disclosures by enforcing regular periodic reporting cycles within strict calendar deadlines following each quarter."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "593746090167ca0ad2f3631cefc16a834da5ca0015e9ee2ba4207cdc23d23490",
+  "artifact_id": "ea684bf0-7c94-4045-a244-75e8b4a2e2df",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 9282,
+  "output_tokens": 3835,
+  "cost_usd": 0.0123721,
+  "created_at": "2026-10-03T18:25:02.133475+00:00"
+}

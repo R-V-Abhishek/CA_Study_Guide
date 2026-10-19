@@ -1,0 +1,323 @@
+{
+  "descriptors": [
+    {
+      "node_id": "badc9921-38ca-4cc2-9949-f148f9814834",
+      "concept_name": "Corporate Dispute Resolution Framework Overview",
+      "definition": "A dispute resolution mechanism encompasses structured institutional forums established to resolve business and legal conflicts efficiently. Under statutory provisions, specialized bodies such as tribunals, special courts, mediation panels, and investigative agencies operate to provide a unified framework for corporate matters.",
+      "terminology": [
+        "Dispute resolution mechanism",
+        "Adjudication forums",
+        "Compounding of offences",
+        "Judicial and quasi-judicial powers"
+      ],
+      "instrument_references": [
+        "Companies Act 2013",
+        "Companies (Second Amendment) Act, 2002"
+      ],
+      "inclusion": [
+        "Establishment of adjudication forums",
+        "Transfer of judicial and quasi-judicial powers"
+      ],
+      "exclusion": [
+        "Non-corporate civil litigation outside statutory company laws"
+      ],
+      "nearby_distinctions": [
+        "Differs from general civil court litigation by offering specialized regulatory and company-specific administrative forums."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7d97e274-a880-4b49-91ff-8425f78e6e30",
+      "concept_name": "National Company Law Tribunal and Appellate Tribunal Constitution",
+      "definition": "The National Company Law Tribunal functions as a specialized quasi-judicial body established to adjudicate company-related lawsuits under a single unified forum. Aggrieved parties may challenge tribunal rulings by preferring an appeal before the National Company Law Appellate Tribunal.",
+      "terminology": [
+        "NCLT",
+        "NCLAT",
+        "Judicial and technical members",
+        "Single window settlement"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013, Section 407",
+        "Companies Act, 2013, Section 408",
+        "Companies Act, 2013, Section 410",
+        "Companies Act, 2013, Section 434"
+      ],
+      "inclusion": [
+        "Matters transferred from the erstwhile Company Law Board",
+        "Appeals against tribunal or National Financial Reporting Authority orders"
+      ],
+      "exclusion": [
+        "Original criminal trials assigned exclusively to Special Courts"
+      ],
+      "nearby_distinctions": [
+        "Unlike Special Courts handling criminal offenses, NCLT primarily addresses civil company law disputes and corporate administration matters."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a44c7808-dddc-4161-9519-81701b1af674",
+      "concept_name": "Special Court Establishment and Jurisdiction",
+      "definition": "Special Courts are established by the Central Government to ensure the speedy trial of specific offenses punishable under the corporate statute. They comprise designated judicial officers appointed with the concurrence of the respective High Court's Chief Justice.",
+      "terminology": [
+        "Speedy trial",
+        "Sessions Judge",
+        "Metropolitan Magistrate",
+        "Judicial Magistrate of the First Class"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013, Section 435",
+        "Companies Act, 2013, Section 436",
+        "Code of Criminal Procedure, 1973"
+      ],
+      "inclusion": [
+        "Trials conducted by single judges holding session judge or magistrate ranks",
+        "Custody authorizations under criminal procedure provisions"
+      ],
+      "exclusion": [
+        "Offences specifically excepted under statutory provisions such as section 452"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from civil tribunals by exercising criminal jurisdiction and conducting trials for penal violations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "31ab7e7a-f180-4e94-b18e-3a3895b08717",
+      "concept_name": "Non-Cognizable Offence Classification and Cognizance",
+      "definition": "Statutory violations under the corporate framework are generally deemed non-cognizable, barring specific statutory exceptions. Courts take cognizance of these offenses upon receiving written complaints filed by authorized regulatory officers, shareholders, or specified authorities.",
+      "terminology": [
+        "Non-cognizable offense",
+        "Registrar",
+        "Written complaint",
+        "Securities and Exchange Board of India"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013, Section 439",
+        "Code of Criminal Procedure, 1973"
+      ],
+      "inclusion": [
+        "Complaints filed by authorized government representatives or regulatory bodies",
+        "Actions initiated by company liquidators during winding-up proceedings"
+      ],
+      "exclusion": [
+        "Offences specifically falling under section 212(6) which carry distinct cognizable treatments"
+      ],
+      "nearby_distinctions": [
+        "Unlike cognizable offenses where police may arrest without a warrant, non-cognizable corporate offenses require formal written complaints for judicial notice."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c454c1a1-c618-458c-ab70-139343f25599",
+      "concept_name": "Compounding of Certain Offences Mechanics",
+      "definition": "Compounding allows specified statutory offenses punishable by fine or imprisonment to be resolved upon payment of a specified monetary sum to the Central Government. Jurisdiction for compounding is distributed between the Tribunal and the Regional Director based on the maximum fine threshold applicable to the offense.",
+      "terminology": [
+        "Compounding of offences",
+        "Regional Director",
+        "Maximum fine",
+        "Additional fee"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013, Section 441",
+        "Code of Criminal Procedure, 1973"
+      ],
+      "inclusion": [
+        "Cases where maximum fine does not exceed twenty-five lakh rupees handled by the Regional Director",
+        "Offenses compounded by the Tribunal in other eligible cases"
+      ],
+      "exclusion": [
+        "Offences punishable with imprisonment only",
+        "Offences where active investigations are pending against the company"
+      ],
+      "nearby_distinctions": [
+        "Differs from regular criminal adjudication by offering a financial settlement mechanism to resolve minor defaults without full trial proceedings."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "f0529c79-b3c0-41d2-9216-b2ec8c80d52e",
+      "concept_name": "Mediation and Conciliation Panel Administration",
+      "definition": "The Central Government maintains a panel of qualified experts to facilitate mediation between disputing parties during active proceedings. Matters may be referred to these experts either through an application by any party or suo motu by the adjudicating authority.",
+      "terminology": [
+        "Mediation and Conciliation Panel",
+        "Panel of experts",
+        "Suo motu reference",
+        "Tribunal proceedings"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013, Section 442"
+      ],
+      "inclusion": [
+        "Referrals initiated during pending proceedings before the Central Government, Tribunal, or Appellate Tribunal",
+        "Expert panel appointments for structured alternative dispute resolution"
+      ],
+      "exclusion": [
+        "Mandatory criminal trials that fall strictly under adversarial court adjudication"
+      ],
+      "nearby_distinctions": [
+        "Unlike binding judicial judgments, mediation focuses on facilitated consensus-building through specialized experts during administrative or tribunal proceedings."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6d75c35f-e542-43ec-8ca1-cadf364787c5",
+      "concept_name": "Serious Fraud Investigation Office Establishment and Functions",
+      "definition": "The Serious Fraud Investigation Office is an specialized investigative body established to probe complex corporate frauds. The Central Government assigns investigations to this office based on specific statutory triggers such as registrar reports, public interest, or government requests.",
+      "terminology": [
+        "Serious Fraud Investigation Office",
+        "SFIO",
+        "Director",
+        "Special resolution"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013, Section 211",
+        "Companies Act, 2013, Section 212"
+      ],
+      "inclusion": [
+        "Investigations assigned via Central Government order",
+        "Expert staffing across banking, taxation, and capital markets"
+      ],
+      "exclusion": [
+        "Routine civil disputes handled through standard tribunal or court mechanisms"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard regulatory inquiries by focusing specifically on multi-disciplinary investigations of severe corporate fraud."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1b3e6823-b7d3-4355-956c-ce85c2e0504d",
+      "concept_name": "Appointment of Company Prosecutors",
+      "definition": "The Central Government holds the authority to appoint company prosecutors to conduct prosecutions arising from statutory violations. These appointed prosecutors possess identical powers and privileges conferred upon public prosecutors under general criminal procedure codes.",
+      "terminology": [
+        "Company prosecutors",
+        "Conduct of prosecutions",
+        "Local area",
+        "Public prosecutors"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013, Section 443",
+        "Code of Criminal Procedure, 1973, Section 24"
+      ],
+      "inclusion": [
+        "Appointments for specific cases or specified classes of cases across local areas",
+        "Vesting of statutory public prosecutor privileges"
+      ],
+      "exclusion": [
+        "Private civil lawsuits initiated by individual shareholders independently of state prosecution"
+      ],
+      "nearby_distinctions": [
+        "Unlike private legal counsel, company prosecutors act on behalf of the state administration to conduct penal proceedings under the company law."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "55bc03e0-bb31-4123-b74c-8561a7465180",
+      "concept_name": "Appeal Against Acquittal Procedures",
+      "definition": "The Central Government can direct company prosecutors or authorize designated officials to present an appeal against an order of acquittal issued by a subordinate court. Such authorized presentations are deemed validly instituted before the relevant appellate court.",
+      "terminology": [
+        "Appeal against acquittal",
+        "Company prosecutor",
+        "Order of acquittal",
+        "Appellate court"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013, Section 444"
+      ],
+      "inclusion": [
+        "Directives issued to company prosecutors to challenge acquittals",
+        "Appeals from court orders excluding High Courts"
+      ],
+      "exclusion": [
+        "Acquittal orders originally passed by a High Court"
+      ],
+      "nearby_distinctions": [
+        "Differs from routine defendant appeals by serving as a state-driven challenge against lower court acquittals in corporate penal cases."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2736052e-dbe1-40ae-bd5c-3106c12a847b",
+      "concept_name": "Compensation for Frivolous Accusations",
+      "definition": "Special Courts or Courts of Session apply specific criminal procedure provisions mutatis mutandis to award compensation for accusations brought without reasonable cause. This mechanism discourages vexatious prosecutions initiated against defendants in corporate trials.",
+      "terminology": [
+        "Compensation",
+        "Accusation without reasonable cause",
+        "Special Court",
+        "Court of Session"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013, Section 445",
+        "Code of Criminal Procedure, 1973, Section 250"
+      ],
+      "inclusion": [
+        "Application of criminal procedure compensation rules to corporate trials",
+        "Awards granted by Special Courts or Courts of Session"
+      ],
+      "exclusion": [
+        "Civil damages awarded for standard contractual breaches outside criminal trials"
+      ],
+      "nearby_distinctions": [
+        "Unlike standard litigation costs, this compensation specifically penalizes baseless criminal accusations brought against corporate officers or entities."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e15f741d-6925-4a49-ab3d-c06184e17d40",
+      "concept_name": "Application of Imposed Fines",
+      "definition": "Courts imposing monetary fines under the corporate statute possess discretionary power to direct the utilization of collected proceeds. These funds may be applied toward covering judicial proceeding costs or rewarding informants who aided the institution of proceedings.",
+      "terminology": [
+        "Application of fines",
+        "Costs of proceedings",
+        "Reward",
+        "Information"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013, Section 446"
+      ],
+      "inclusion": [
+        "Directing fine proceeds toward litigation expenses",
+        "Allocating portions as rewards to case informants"
+      ],
+      "exclusion": [
+        "General government revenue retention where no specific cost or informant direction is issued"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from standard penalty collections by directly redirecting fine funds to cover legal costs or incentivize whistleblowers."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "57345b79-0486-4bab-b7a3-d514a216d594",
+      "concept_name": "Punishment Determination Factors",
+      "definition": "Judicial authorities determining fines or imprisonment terms must evaluate specific statutory parameters reflecting the scale and impact of the corporate entity. These factors ensure that sentencing is proportional to the nature, repetition, and public consequence of the default.",
+      "terminology": [
+        "Level of punishment",
+        "Size of the company",
+        "Public interest",
+        "Nature of default"
+      ],
+      "instrument_references": [
+        "Companies Act, 2013, Section 446A"
+      ],
+      "inclusion": [
+        "Evaluation of company size and business nature",
+        "Assessment of public injury, default characteristics, and recidivism"
+      ],
+      "exclusion": [
+        "Fixed-rate administrative penalties that bypass judicial discretion"
+      ],
+      "nearby_distinctions": [
+        "Unlike rigid statutory penalties, these factors guide courts in tailoring discretionary criminal sentences based on contextual corporate scale and impact."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "f340cbe1d2c5178dcbab1b259a53b2b58b84aa5b34ab18cab7f90f7be38ad390",
+  "artifact_id": "e550162b-7c78-46e0-865c-674206d3f6c1",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8860,
+  "output_tokens": 3647,
+  "cost_usd": 0.0117755,
+  "created_at": "2026-10-03T18:24:49.663808+00:00"
+}

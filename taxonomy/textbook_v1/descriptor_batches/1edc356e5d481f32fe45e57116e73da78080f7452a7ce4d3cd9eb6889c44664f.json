@@ -1,0 +1,321 @@
+{
+  "descriptors": [
+    {
+      "node_id": "e62dbdcc-fd09-4c1c-9319-72efcf29a902",
+      "concept_name": "Support and Resistance Levels",
+      "definition": "A resistance level is formed at a peak price when an index or price declines from it, creating selling pressure from investors wanting to liquidate. Conversely, a support level is established at a trough after a rebound, generating buying pressure from investors eager to purchase.",
+      "terminology": [
+        "Resistance level",
+        "Support level",
+        "Trough",
+        "Peak",
+        "Selling pressure",
+        "Buying pressure"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Price peaks functioning as resistance ceilings",
+        "Price troughs acting as support floors",
+        "Market pressures occurring near established boundaries"
+      ],
+      "exclusion": [
+        "Fundamental economic valuation drivers",
+        "Internal corporate earnings announcements"
+      ],
+      "nearby_distinctions": [
+        "Support and resistance represent static price boundaries, whereas channels represent continuous directional price corridors."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "11143b0c-cf26-44e7-81b7-51ec12de71af",
+      "concept_name": "Interpreting Price Patterns",
+      "definition": "Technical analysts utilize various graphical configurations formed by price tops and bottoms to forecast future market directions and trend continuations or reversals. Patterns such as channels, wedges, and head and shoulders formations help identify potential bullish or bearish market developments.",
+      "terminology": [
+        "Channel",
+        "Wedge",
+        "Head and Shoulders",
+        "Neckline",
+        "Triangle",
+        "Flags and Pennants",
+        "Double Top",
+        "Double Bottom"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Downward and upward sloping channels",
+        "Head and shoulder top and inverse configurations",
+        "Double top and double bottom formations"
+      ],
+      "exclusion": [
+        "Macroeconomic factor evaluations like GDP and inflation",
+        "Corporate financial statement analysis"
+      ],
+      "nearby_distinctions": [
+        "Price patterns describe complex multi-bar geometrical formations, whereas simple support and resistance are singular horizontal price boundaries."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a9bb612b-a720-43c6-9038-a9cb5e4ba955",
+      "concept_name": "Decision Using Data Analysis",
+      "definition": "Chartists analyze price data using moving averages to generate buy and sell signals based on trend identification over specified time horizons. Arithmetic moving averages apply equal weights to past prices, while exponential moving averages assign exponentially decreasing weights starting with the latest price.",
+      "terminology": [
+        "Arithmetic Moving Average",
+        "Exponential Moving Average",
+        "Moving average analysis",
+        "Trading signals",
+        "Exponent"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Calculation of n-period arithmetic moving averages",
+        "Computation of exponential moving averages using a smoothing constant",
+        "Identification of short, intermediate, and long-term trends"
+      ],
+      "exclusion": [
+        "Fundamental company valuation metrics",
+        "Qualitative management capability assessments"
+      ],
+      "nearby_distinctions": [
+        "Arithmetic moving averages treat all periods within the lookback equally, whereas exponential moving averages weight recent prices more heavily."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b30741bc-3a59-4c01-bb40-6f1f067dccb6",
+      "concept_name": "Evaluation of Technical Analysis",
+      "definition": "Technical analysis is supported by the premise that crowd psychology creates persistent trends and gradual shifts in supply and demand that can be identified early. Critics argue that it can be a self-defeating proposition, lacks convincing explanations, and may signal trends after they have already occurred.",
+      "terminology": [
+        "Crowd psychology",
+        "Trend persistence",
+        "Random walk hypothesis",
+        "Self-defeating proposition"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Arguments favoring technical analysis based on gradual demand shifts",
+        "Critiques referencing the random walk hypothesis and delayed signals"
+      ],
+      "exclusion": [
+        "Detailed computation formulas for moving averages",
+        "Direct statistical tests of market efficiency"
+      ],
+      "nearby_distinctions": [
+        "Evaluation of technical analysis focuses on the behavioral and empirical merits of chart-based trading, while fundamental analysis evaluates intrinsic economic value."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "05b34e61-9bd7-4943-9eaa-8784cf0ad994",
+      "concept_name": "Differences Between Fundamental Analysis And Technical Analysis",
+      "definition": "Fundamental analysis evaluates macroeconomic and microeconomic factors to assess long-term intrinsic prospects and investment value. Conversely, technical analysis predicts future price directions for short-term trading using historical market data like price movements, volume, and open interest.",
+      "terminology": [
+        "Fundamental analysis",
+        "Technical analysis",
+        "Macro factors",
+        "Micro factors",
+        "Historical market data",
+        "Price discounts everything"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Analysis of GDP, inflation, and company profitability for fundamentals",
+        "Examination of historical prices, volume, and open interest for technicals"
+      ],
+      "exclusion": [
+        "Portfolio management performance evaluations",
+        "Detailed statistical tests like run tests and serial correlation"
+      ],
+      "nearby_distinctions": [
+        "Fundamental analysis focuses on why prices should change based on intrinsic worth, while technical analysis focuses on when prices change based on past market action."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "de950de5-4b70-4f55-97db-9095472f3aa6",
+      "concept_name": "Efficient Market Theory (Efficient Market Hypothesis)",
+      "definition": "The efficient market theory posits that all available price-sensitive information is fully reflected in security prices at any given time. Consequently, investors cannot consistently outperform the market or find mispriced stocks because securities always trade at fair value.",
+      "terminology": [
+        "Efficient Market Theory",
+        "Efficient Market Hypothesis",
+        "Beat the market",
+        "Fair value",
+        "Price-sensitive information"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Principle that stock prices reflect all available information",
+        "Premise that achieving superior returns through stock selection is impossible"
+      ],
+      "exclusion": [
+        "Chartist trading rules and moving average crossovers",
+        "Technical resistance and support boundary identification"
+      ],
+      "nearby_distinctions": [
+        "Efficient market theory asserts prices incorporate all information instantly, whereas technical analysis assumes information is assimilated gradually over time by the market."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "90e9d429-9208-4922-b46e-fcb774b9ecef",
+      "concept_name": "Search For Theory",
+      "definition": "Researchers linked the randomness of stock price movements to the economic processes of an efficient market where information is freely available and keen competition drives prices to intrinsic values. Price changes respond solely to new, unpredictable information rather than historical values.",
+      "terminology": [
+        "Random walk",
+        "Economic processes",
+        "Intrinsic values",
+        "Unpredictable information"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Instantaneous and free availability of information",
+        "Market reflection of intrinsic values driven by keen competition",
+        "Unpredictability of price changes responding to new information"
+      ],
+      "exclusion": [
+        "Empirical test mechanics such as run tests and filter rules",
+        "Specific insider trading return calculations"
+      ],
+      "nearby_distinctions": [
+        "Search for theory examines the underlying economic mechanisms causing random walks, while market efficiency levels categorize the breadth of information impounded into prices."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8005cf35-e11e-476f-959c-a00dc26ffb3f",
+      "concept_name": "Misconception About Efficient Market Theory",
+      "definition": "A common misconception is that efficient markets imply prices always reflect true fair value and that random price movements indicate market irrationality. In reality, market prices fluctuate around fair values due to continuous unpredictable surprises, and random price changes naturally occur among rational, competing investors.",
+      "terminology": [
+        "Fair value fluctuation",
+        "Market surprises",
+        "Randomness versus irrationality",
+        "Rational investors"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Clarification that random price movements do not signify investor irrationality",
+        "Explanation of market price fluctuations driven by future uncertainties and surprises"
+      ],
+      "exclusion": [
+        "Empirical weak-form testing methods",
+        "Chart-based technical indicators"
+      ],
+      "nearby_distinctions": [
+        "Misconception analysis addresses conceptual misunderstandings of market randomness, whereas efficiency levels define informational scopes like weak, semi-strong, and strong forms."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "8dab4061-a4cf-47d2-9e9a-d602aabfa0f6",
+      "concept_name": "Level Of Market Efficiency",
+      "definition": "Eugene Fama categorized market efficiency into three distinct levels based on the scope of information reflected in security prices. These comprise weak-form efficiency for past prices and volumes, semi-strong efficiency for all public information, and strong-form efficiency for all public and private information.",
+      "terminology": [
+        "Weak form efficiency",
+        "Semi-strong efficiency",
+        "Strong form efficiency",
+        "Eugene Fama",
+        "Public and private information"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Weak-form incorporating past price and volume records",
+        "Semi-strong form incorporating all publicly available information",
+        "Strong-form incorporating all public and private information"
+      ],
+      "exclusion": [
+        "Specific statistical formulas for run tests",
+        "Behavioral critiques regarding human processing limitations"
+      ],
+      "nearby_distinctions": [
+        "Levels of market efficiency classify information sets impounded into prices, whereas empirical tests evaluate whether market data validate these theoretical efficiency tiers."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7989cb44-afc4-4cbd-a8b7-fb59a46a19dc",
+      "concept_name": "Empirical Evidence On Weak Form Of Efficient Market Theory",
+      "definition": "Weak-form efficiency asserts that current stock prices fully reflect all historical price and volume data, rendering past trends useless for predicting future movements. Empirical verification is tested through serial correlation tests, run tests for independence, and filter rule strategies.",
+      "terminology": [
+        "Weak form efficient market theory",
+        "Serial correlation test",
+        "Run test",
+        "Filter rules test",
+        "Random walk model"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Serial correlation tests for price change independence",
+        "Run tests evaluating sequence signs of price changes",
+        "Filter rules tests assessing buy and hold strategies"
+      ],
+      "exclusion": [
+        "Annual earnings announcement evaluations",
+        "Insider trading return assessments"
+      ],
+      "nearby_distinctions": [
+        "Weak-form empirical tests evaluate historical price patterns, whereas semi-strong tests evaluate public announcements such as dividends and stock splits."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "12f803d1-4b67-411a-89ee-60ff48198d51",
+      "concept_name": "Empirical Evidence On Semi-Strong Efficient Market Theory",
+      "definition": "Semi-strong form efficiency states that stock prices adjust rapidly to all publicly available information so that investors cannot earn abnormal risk-adjusted returns using such data. While many studies support rapid price adjustments to events like stock splits and earnings announcements, documented anomalies include size and P/E ratio effects.",
+      "terminology": [
+        "Semi-strong form efficient market theory",
+        "Publicly available information",
+        "Abnormal rates of return",
+        "Market anomalies",
+        "Stock splits"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Studies on stock splits and annual earnings announcements",
+        "Documented market inefficiencies such as small firm and low P/E effects",
+        "Day-of-the-week return variations"
+      ],
+      "exclusion": [
+        "Weak-form serial correlation and run tests",
+        "Private insider information performance reviews"
+      ],
+      "nearby_distinctions": [
+        "Semi-strong empirical testing focuses on public announcements and fundamental disclosures, whereas weak-form testing is restricted to historical price and volume sequences."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "672e690f-cc43-4a0d-bfa5-d523d1da3352",
+      "concept_name": "Empirical Evidence On Strong Form Of Efficient Market Theory",
+      "definition": "Strong-form efficiency posits that all public and private information is reflected in stock prices, implying that even insiders or specialists cannot earn superior risk-adjusted returns. Empirical findings indicate that while corporate insiders and exchange specialists can earn superior returns using private insights, average mutual fund managers do not outperform random portfolios.",
+      "terminology": [
+        "Strong form of efficient market theory",
+        "Corporate insiders",
+        "Specialists",
+        "Mutual fund managers",
+        "Private information"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Analysis of returns earned by corporate insiders and exchange specialists",
+        "Evaluation of professionally managed mutual fund portfolio performances",
+        "Challenges involving information inadequacy and human processing limits"
+      ],
+      "exclusion": [
+        "Historical price trend filters and moving averages",
+        "Weak-form serial correlation analyses"
+      ],
+      "nearby_distinctions": [
+        "Strong-form evidence evaluates the utilization of private and internal information, whereas semi-strong evidence is confined to publicly disclosed information announcements."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "1edc356e5d481f32fe45e57116e73da78080f7452a7ce4d3cd9eb6889c44664f",
+  "artifact_id": "1e1a48fc-1bff-42e4-8cfd-708e08d6d44a",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8037,
+  "output_tokens": 3525,
+  "cost_usd": 0.0112236,
+  "created_at": "2026-10-03T18:06:32.935355+00:00"
+}

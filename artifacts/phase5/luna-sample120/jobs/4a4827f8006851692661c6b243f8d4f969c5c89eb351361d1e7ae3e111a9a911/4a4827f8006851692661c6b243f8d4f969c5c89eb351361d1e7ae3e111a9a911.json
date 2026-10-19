@@ -1,0 +1,47 @@
+{
+  "result": {
+    "question_id": "4a4827f8006851692661c6b243f8d4f969c5c89eb351361d1e7ae3e111a9a911",
+    "input_hash": "e19285f8bfb0b2a1fd70fd0b31523dd3da5d991958675d9133e3a179c969799a",
+    "mappings": [
+      {
+        "part_id": "4a4827f8006851692661c6b243f8d4f969c5c89eb351361d1e7ae3e111a9a911",
+        "outcome": "matched",
+        "primary_node_id": "5b2d11e0-d765-49b0-9966-a77b9d177e47",
+        "secondary_node_ids": [
+          "9e74547b-4173-4531-bb7e-843021d864ff"
+        ],
+        "evidence": [
+          {
+            "node_id": "5b2d11e0-d765-49b0-9966-a77b9d177e47",
+            "support": "The part asks which inward supplies are liable under reverse charge, applying the levy and collection rules that shift tax payment to the recipient."
+          },
+          {
+            "node_id": "9e74547b-4173-4531-bb7e-843021d864ff",
+            "support": "The December liability assessment uses the invoice, payment, and receipt timing for a reverse-charge goods purchase, which falls under time of supply of goods."
+          }
+        ],
+        "note": "The main task is identifying reverse-charge liability; the dated goods transaction also makes the reverse-charge time-of-supply rule relevant to the December period.",
+        "confidence": 0.91,
+        "bucket": "A"
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "attempt_id": "1791217289523640000",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "95e03a7ec13bb5d6b54f9006ba7dad1048d3fb7073110df7d72d7bede374500b",
+    "schema_generator": "pinned-identifiers-v2",
+    "seconds": 18.582,
+    "usage": [
+      {
+        "input_tokens": 44337,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 753,
+        "reasoning_output_tokens": 386
+      }
+    ],
+    "completed_at": "2026-10-05T16:21:48.105396+00:00"
+  }
+}

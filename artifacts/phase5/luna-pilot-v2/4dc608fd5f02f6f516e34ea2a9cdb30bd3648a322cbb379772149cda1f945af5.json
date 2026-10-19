@@ -1,0 +1,86 @@
+{
+  "result": {
+    "question_id": "4dc608fd5f02f6f516e34ea2a9cdb30bd3648a322cbb379772149cda1f945af5",
+    "input_hash": "325dadbc19449acdbb44e5515acb0223663cd7b9d6d85d91d8e5fc0645299e2a",
+    "mappings": [
+      {
+        "part_id": "4dc608fd5f02f6f516e34ea2a9cdb30bd3648a322cbb379772149cda1f945af5:CSII.M4",
+        "outcome": "matched",
+        "primary_node_id": "b3f9848c-3879-4270-bd9f-50d6797c8a49",
+        "secondary_node_ids": [
+          "9f87f116-ead9-45d5-baf1-55fa6321fb46"
+        ],
+        "evidence": [
+          {
+            "node_id": "b3f9848c-3879-4270-bd9f-50d6797c8a49",
+            "support": "Combines the lapsed option's payoff from strike, spot and premium to identify position and profit/loss, directly testing option payoff scenarios."
+          },
+          {
+            "node_id": "9f87f116-ead9-45d5-baf1-55fa6321fb46",
+            "support": "The shared case specifies a stock option's strike, premium, spot and exercise outcome, fitting the descriptor's stock call and put options."
+          }
+        ],
+        "note": "Situation III asks for the option position and net result when it lapses; this is a payoff calculation, with the option fundamentals label capturing the underlying instrument.",
+        "confidence": 0.96,
+        "bucket": "A"
+      },
+      {
+        "part_id": "4dc608fd5f02f6f516e34ea2a9cdb30bd3648a322cbb379772149cda1f945af5:CSII.M5",
+        "outcome": "matched",
+        "primary_node_id": "b3f9848c-3879-4270-bd9f-50d6797c8a49",
+        "secondary_node_ids": [
+          "9f87f116-ead9-45d5-baf1-55fa6321fb46"
+        ],
+        "evidence": [
+          {
+            "node_id": "b3f9848c-3879-4270-bd9f-50d6797c8a49",
+            "support": "Uses the exercised option's strike, premium and spot to determine its position and profit/loss, matching buyer/seller option payoff calculations."
+          },
+          {
+            "node_id": "9f87f116-ead9-45d5-baf1-55fa6321fb46",
+            "support": "The shared stem describes an option on an underlying with a strike and paid premium, matching the descriptor's option contract fundamentals."
+          }
+        ],
+        "note": "Situation I requires identifying the exercised call or put and its payoff from the common option data.",
+        "confidence": 0.95,
+        "bucket": "A"
+      },
+      {
+        "part_id": "4dc608fd5f02f6f516e34ea2a9cdb30bd3648a322cbb379772149cda1f945af5:CSII.M6",
+        "outcome": "matched",
+        "primary_node_id": "b3f9848c-3879-4270-bd9f-50d6797c8a49",
+        "secondary_node_ids": [
+          "9f87f116-ead9-45d5-baf1-55fa6321fb46"
+        ],
+        "evidence": [
+          {
+            "node_id": "b3f9848c-3879-4270-bd9f-50d6797c8a49",
+            "support": "Determines the exercised option's long/short position and gain or loss using the strike, premium and spot, as in option payoff scenarios."
+          },
+          {
+            "node_id": "9f87f116-ead9-45d5-baf1-55fa6321fb46",
+            "support": "The case supplies the defining option inputs\u2014strike, premium, spot and exercise status\u2014consistent with stock option fundamentals."
+          }
+        ],
+        "note": "Situation II tests the option type and resulting payoff using the shared case data.",
+        "confidence": 0.95,
+        "bucket": "A"
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "seconds": 20.661,
+    "usage": [
+      {
+        "input_tokens": 44766,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 881,
+        "reasoning_output_tokens": 0
+      }
+    ],
+    "completed_at": "2026-10-05T11:59:19.333877+00:00"
+  }
+}

@@ -1,0 +1,205 @@
+{
+  "result": {
+    "question_id": "e93af26f24efa84492eed8d748392fc4bee53bba60741688e3da9972fb44967e",
+    "input_hash": "8c4eeef4fd095d484459a8fe1f217b948c2729e30decb9a67022c6426e2ab6c7",
+    "mappings": [
+      {
+        "part_id": "e93af26f24efa84492eed8d748392fc4bee53bba60741688e3da9972fb44967e:CSII.a",
+        "outcome": "matched",
+        "primary_node_id": "944a0194-074a-477c-a7a1-50f1b05c0321",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "944a0194-074a-477c-a7a1-50f1b05c0321",
+            "support": "Calculating NPVs for alternative high and low savings scenarios tests investment decision-making under project risk, matching this descriptor\u2019s risk analysis focus."
+          }
+        ],
+        "note": "Part of Question 4; the choice lists candidate NPV results for both scenarios.",
+        "confidence": 0.82,
+        "bucket": null
+      },
+      {
+        "part_id": "e93af26f24efa84492eed8d748392fc4bee53bba60741688e3da9972fb44967e:CSII.b",
+        "outcome": "matched",
+        "primary_node_id": "944a0194-074a-477c-a7a1-50f1b05c0321",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "944a0194-074a-477c-a7a1-50f1b05c0321",
+            "support": "Calculating NPVs for alternative high and low savings scenarios tests investment decision-making under project risk, matching this descriptor\u2019s risk analysis focus."
+          }
+        ],
+        "note": "Part of Question 4; the choice lists candidate NPV results for both scenarios.",
+        "confidence": 0.82,
+        "bucket": null
+      },
+      {
+        "part_id": "e93af26f24efa84492eed8d748392fc4bee53bba60741688e3da9972fb44967e:CSII.c",
+        "outcome": "matched",
+        "primary_node_id": "944a0194-074a-477c-a7a1-50f1b05c0321",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "944a0194-074a-477c-a7a1-50f1b05c0321",
+            "support": "Calculating NPVs for alternative high and low savings scenarios tests investment decision-making under project risk, matching this descriptor\u2019s risk analysis focus."
+          }
+        ],
+        "note": "Part of Question 4; the choice lists candidate NPV results for both scenarios.",
+        "confidence": 0.82,
+        "bucket": null
+      },
+      {
+        "part_id": "e93af26f24efa84492eed8d748392fc4bee53bba60741688e3da9972fb44967e:CSII.d",
+        "outcome": "matched",
+        "primary_node_id": "944a0194-074a-477c-a7a1-50f1b05c0321",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "944a0194-074a-477c-a7a1-50f1b05c0321",
+            "support": "Calculating NPVs for alternative high and low savings scenarios tests investment decision-making under project risk, matching this descriptor\u2019s risk analysis focus."
+          }
+        ],
+        "note": "Part of Question 4; the choice lists candidate NPV results for both scenarios.",
+        "confidence": 0.82,
+        "bucket": null
+      },
+      {
+        "part_id": "e93af26f24efa84492eed8d748392fc4bee53bba60741688e3da9972fb44967e:CSII.a.repeat2",
+        "outcome": "matched",
+        "primary_node_id": "384294d5-585d-4ff0-bd9d-fb7a4d4ea029",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "384294d5-585d-4ff0-bd9d-fb7a4d4ea029",
+            "support": "The task derives a risk-neutral probability and uses it to calculate scenario returns, matching the descriptor\u2019s risk-neutral probability computations."
+          }
+        ],
+        "note": "Part of Question 5; the choices give candidate high/low returns and risk-neutral probabilities.",
+        "confidence": 0.96,
+        "bucket": null
+      },
+      {
+        "part_id": "e93af26f24efa84492eed8d748392fc4bee53bba60741688e3da9972fb44967e:CSII.b.repeat2",
+        "outcome": "matched",
+        "primary_node_id": "384294d5-585d-4ff0-bd9d-fb7a4d4ea029",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "384294d5-585d-4ff0-bd9d-fb7a4d4ea029",
+            "support": "The task derives a risk-neutral probability and uses it to calculate scenario returns, matching the descriptor\u2019s risk-neutral probability computations."
+          }
+        ],
+        "note": "Part of Question 5; the choices give candidate high/low returns and risk-neutral probabilities.",
+        "confidence": 0.96,
+        "bucket": null
+      },
+      {
+        "part_id": "e93af26f24efa84492eed8d748392fc4bee53bba60741688e3da9972fb44967e:CSII.c.repeat2",
+        "outcome": "matched",
+        "primary_node_id": "384294d5-585d-4ff0-bd9d-fb7a4d4ea029",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "384294d5-585d-4ff0-bd9d-fb7a4d4ea029",
+            "support": "The task derives a risk-neutral probability and uses it to calculate scenario returns, matching the descriptor\u2019s risk-neutral probability computations."
+          }
+        ],
+        "note": "Part of Question 5; the choices give candidate high/low returns and risk-neutral probabilities.",
+        "confidence": 0.96,
+        "bucket": null
+      },
+      {
+        "part_id": "e93af26f24efa84492eed8d748392fc4bee53bba60741688e3da9972fb44967e:CSII.d.repeat2",
+        "outcome": "matched",
+        "primary_node_id": "384294d5-585d-4ff0-bd9d-fb7a4d4ea029",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "384294d5-585d-4ff0-bd9d-fb7a4d4ea029",
+            "support": "The task derives a risk-neutral probability and uses it to calculate scenario returns, matching the descriptor\u2019s risk-neutral probability computations."
+          }
+        ],
+        "note": "Part of Question 5; the choices give candidate high/low returns and risk-neutral probabilities.",
+        "confidence": 0.96,
+        "bucket": null
+      },
+      {
+        "part_id": "e93af26f24efa84492eed8d748392fc4bee53bba60741688e3da9972fb44967e:CSII.a.repeat3",
+        "outcome": "matched",
+        "primary_node_id": "384294d5-585d-4ff0-bd9d-fb7a4d4ea029",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "384294d5-585d-4ff0-bd9d-fb7a4d4ea029",
+            "support": "The task values the wait option using a risk-neutral scenario probability and asks for present value at the risk-free rate, matching this descriptor\u2019s probability-weighted valuation discounted at the risk-free rate."
+          }
+        ],
+        "note": "Part of Question 6; the choices give candidate present values under two discount rates.",
+        "confidence": 0.94,
+        "bucket": null
+      },
+      {
+        "part_id": "e93af26f24efa84492eed8d748392fc4bee53bba60741688e3da9972fb44967e:CSII.b.repeat3",
+        "outcome": "matched",
+        "primary_node_id": "384294d5-585d-4ff0-bd9d-fb7a4d4ea029",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "384294d5-585d-4ff0-bd9d-fb7a4d4ea029",
+            "support": "The task values the wait option using a risk-neutral scenario probability and asks for present value at the risk-free rate, matching this descriptor\u2019s probability-weighted valuation discounted at the risk-free rate."
+          }
+        ],
+        "note": "Part of Question 6; the choices give candidate present values under two discount rates.",
+        "confidence": 0.94,
+        "bucket": null
+      },
+      {
+        "part_id": "e93af26f24efa84492eed8d748392fc4bee53bba60741688e3da9972fb44967e:CSII.c.repeat3",
+        "outcome": "matched",
+        "primary_node_id": "384294d5-585d-4ff0-bd9d-fb7a4d4ea029",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "384294d5-585d-4ff0-bd9d-fb7a4d4ea029",
+            "support": "The task values the wait option using a risk-neutral scenario probability and asks for present value at the risk-free rate, matching this descriptor\u2019s probability-weighted valuation discounted at the risk-free rate."
+          }
+        ],
+        "note": "Part of Question 6; the choices give candidate present values under two discount rates.",
+        "confidence": 0.94,
+        "bucket": null
+      },
+      {
+        "part_id": "e93af26f24efa84492eed8d748392fc4bee53bba60741688e3da9972fb44967e:CSII.d.repeat3",
+        "outcome": "matched",
+        "primary_node_id": "384294d5-585d-4ff0-bd9d-fb7a4d4ea029",
+        "secondary_node_ids": [],
+        "evidence": [
+          {
+            "node_id": "384294d5-585d-4ff0-bd9d-fb7a4d4ea029",
+            "support": "The task values the wait option using a risk-neutral scenario probability and asks for present value at the risk-free rate, matching this descriptor\u2019s probability-weighted valuation discounted at the risk-free rate."
+          }
+        ],
+        "note": "Part of Question 6; the choices give candidate present values under two discount rates.",
+        "confidence": 0.94,
+        "bucket": null
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "35459021496c53433881338d1ba03db85c26e05cb187d06f4da5d5b38b803b7a",
+    "schema_generator": "pinned-part-ids-v1",
+    "seconds": 59.581,
+    "usage": [
+      {
+        "input_tokens": 48513,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3014,
+        "reasoning_output_tokens": 817
+      }
+    ],
+    "completed_at": "2026-10-05T15:58:19.107418+00:00"
+  }
+}

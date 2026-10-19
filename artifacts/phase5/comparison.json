@@ -1,0 +1,553 @@
+{
+  "batch_key": "0c01d1d022e39e8b8f0a962a4e70d87a5424da70d0cff2a8ee833d2eb9e789ed",
+  "requested_roots": 120,
+  "completed_roots": 120,
+  "pending_roots": 0,
+  "roots_by_paper": {
+    "s2023.P1": 20,
+    "s2023.P6": 20,
+    "s2023.P4": 20,
+    "s2023.P2": 20,
+    "s2023.P3": 20,
+    "s2023.P5": 20
+  },
+  "outcomes_by_part": {
+    "none_fits": 186,
+    "matched": 469,
+    "needs_review": 79
+  },
+  "roots_by_partition": {
+    "holdout": 60,
+    "development": 60
+  },
+  "comparison_roots": 30,
+  "independent_method": "independent_agent",
+  "independent_model_id": null,
+  "student_adjudicated": false,
+  "provisional": true,
+  "comparison": {
+    "total_reviewed": 241,
+    "top1_matches": 18,
+    "top1_agreement": 0.6666666666666666,
+    "bucket_metrics": {
+      "A": {
+        "bucket": "A",
+        "total": 22,
+        "matched": 16,
+        "precision": 0.7272727272727273
+      },
+      "B": {
+        "bucket": "B",
+        "total": 5,
+        "matched": 2,
+        "precision": 0.4
+      },
+      "C": {
+        "bucket": "C",
+        "total": 0,
+        "matched": 0,
+        "precision": 0
+      },
+      "D": {
+        "bucket": "D",
+        "total": 1,
+        "matched": 0,
+        "precision": 0.0
+      }
+    },
+    "bucket_a_threshold": 0.8,
+    "passed": false,
+    "status_note": "9 independent Bucket A roots (22 parts); minimum 30 roots. Model scores never authorize publication.",
+    "evaluated_at": "2026-10-05T16:45:42.669835+00:00",
+    "multilabel_precision": 0.13903743315508021,
+    "multilabel_recall": 0.7222222222222222,
+    "unresolved_outcomes": {
+      "needs_review": 23,
+      "none_fits": 76
+    },
+    "candidate_retrieval_misses": 0,
+    "strata": {
+      "s2023.P2:examination:D": 57,
+      "s2023.P1:examination:A": 11,
+      "s2023.P1:examination:D": 7,
+      "s2023.P2:examination:A": 19,
+      "s2023.P3:examination:A": 28,
+      "s2023.P3:examination:B": 4,
+      "s2023.P4:examination:A": 14,
+      "s2023.P4:examination:B": 5,
+      "s2023.P5:examination:A": 11,
+      "s2023.P5:examination:B": 10,
+      "s2023.P3:examination:D": 2,
+      "s2023.P4:examination:D": 38,
+      "s2023.P4:examination:C": 1,
+      "s2023.P5:examination:D": 17,
+      "s2023.P6:examination:A": 1,
+      "s2023.P6:examination:D": 12,
+      "s2023.P1:examination:B": 2,
+      "s2023.P2:examination:C": 1,
+      "s2023.P5:examination:C": 1
+    },
+    "bucket_a_root_samples": 9,
+    "provisional": true,
+    "primary_labeled_samples": 27,
+    "outcome_agreement": 0.25311203319502074,
+    "exact_part_label_set_agreement": 0.43568464730290457
+  },
+  "successful_call_usage": {
+    "input_tokens": 6182121,
+    "cached_input_tokens": 0,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 166444,
+    "reasoning_output_tokens": 33550
+  },
+  "comparison_by_paper": {
+    "s2023.P1": {
+      "total_reviewed": 20,
+      "top1_matches": 6,
+      "top1_agreement": 0.5454545454545454,
+      "bucket_metrics": {
+        "A": {
+          "bucket": "A",
+          "total": 9,
+          "matched": 5,
+          "precision": 0.5555555555555556
+        },
+        "B": {
+          "bucket": "B",
+          "total": 2,
+          "matched": 1,
+          "precision": 0.5
+        },
+        "C": {
+          "bucket": "C",
+          "total": 0,
+          "matched": 0,
+          "precision": 0
+        },
+        "D": {
+          "bucket": "D",
+          "total": 0,
+          "matched": 0,
+          "precision": 0
+        }
+      },
+      "bucket_a_threshold": 0.8,
+      "passed": false,
+      "status_note": "3 independent Bucket A roots (9 parts); minimum 30 roots. Model scores never authorize publication.",
+      "evaluated_at": "2026-10-05T16:45:42.670574+00:00",
+      "multilabel_precision": 0.4166666666666667,
+      "multilabel_recall": 0.625,
+      "unresolved_outcomes": {
+        "needs_review": 3,
+        "none_fits": 4
+      },
+      "candidate_retrieval_misses": 0,
+      "strata": {
+        "s2023.P1:examination:A": 11,
+        "s2023.P1:examination:D": 7,
+        "s2023.P1:examination:B": 2
+      },
+      "bucket_a_root_samples": 3,
+      "provisional": true,
+      "primary_labeled_samples": 11,
+      "outcome_agreement": 0.7,
+      "exact_part_label_set_agreement": 0.45
+    },
+    "s2023.P2": {
+      "total_reviewed": 77,
+      "top1_matches": 3,
+      "top1_agreement": 1.0,
+      "bucket_metrics": {
+        "A": {
+          "bucket": "A",
+          "total": 3,
+          "matched": 3,
+          "precision": 1.0
+        },
+        "B": {
+          "bucket": "B",
+          "total": 0,
+          "matched": 0,
+          "precision": 0
+        },
+        "C": {
+          "bucket": "C",
+          "total": 0,
+          "matched": 0,
+          "precision": 0
+        },
+        "D": {
+          "bucket": "D",
+          "total": 0,
+          "matched": 0,
+          "precision": 0
+        }
+      },
+      "bucket_a_threshold": 0.8,
+      "passed": false,
+      "status_note": "1 independent Bucket A roots (3 parts); minimum 30 roots. Model scores never authorize publication.",
+      "evaluated_at": "2026-10-05T16:45:42.671407+00:00",
+      "multilabel_precision": 0.039473684210526314,
+      "multilabel_recall": 1.0,
+      "unresolved_outcomes": {
+        "needs_review": 10,
+        "none_fits": 6
+      },
+      "candidate_retrieval_misses": 0,
+      "strata": {
+        "s2023.P2:examination:D": 57,
+        "s2023.P2:examination:A": 19,
+        "s2023.P2:examination:C": 1
+      },
+      "bucket_a_root_samples": 1,
+      "provisional": true,
+      "primary_labeled_samples": 3,
+      "outcome_agreement": 0.16883116883116883,
+      "exact_part_label_set_agreement": 0.2077922077922078
+    },
+    "s2023.P3": {
+      "total_reviewed": 34,
+      "top1_matches": 0,
+      "top1_agreement": 0,
+      "bucket_metrics": {
+        "A": {
+          "bucket": "A",
+          "total": 1,
+          "matched": 0,
+          "precision": 0.0
+        },
+        "B": {
+          "bucket": "B",
+          "total": 0,
+          "matched": 0,
+          "precision": 0
+        },
+        "C": {
+          "bucket": "C",
+          "total": 0,
+          "matched": 0,
+          "precision": 0
+        },
+        "D": {
+          "bucket": "D",
+          "total": 0,
+          "matched": 0,
+          "precision": 0
+        }
+      },
+      "bucket_a_threshold": 0.8,
+      "passed": false,
+      "status_note": "1 independent Bucket A roots (1 parts); minimum 30 roots. Model scores never authorize publication.",
+      "evaluated_at": "2026-10-05T16:45:42.672190+00:00",
+      "multilabel_precision": 0.0,
+      "multilabel_recall": 0,
+      "unresolved_outcomes": {
+        "needs_review": 1,
+        "none_fits": 3
+      },
+      "candidate_retrieval_misses": 0,
+      "strata": {
+        "s2023.P3:examination:A": 28,
+        "s2023.P3:examination:B": 4,
+        "s2023.P3:examination:D": 2
+      },
+      "bucket_a_root_samples": 1,
+      "provisional": true,
+      "primary_labeled_samples": 0,
+      "outcome_agreement": 0.029411764705882353,
+      "exact_part_label_set_agreement": 0.11764705882352941
+    },
+    "s2023.P4": {
+      "total_reviewed": 58,
+      "top1_matches": 7,
+      "top1_agreement": 0.7777777777777778,
+      "bucket_metrics": {
+        "A": {
+          "bucket": "A",
+          "total": 7,
+          "matched": 6,
+          "precision": 0.8571428571428571
+        },
+        "B": {
+          "bucket": "B",
+          "total": 1,
+          "matched": 1,
+          "precision": 1.0
+        },
+        "C": {
+          "bucket": "C",
+          "total": 0,
+          "matched": 0,
+          "precision": 0
+        },
+        "D": {
+          "bucket": "D",
+          "total": 1,
+          "matched": 0,
+          "precision": 0.0
+        }
+      },
+      "bucket_a_threshold": 0.8,
+      "passed": false,
+      "status_note": "3 independent Bucket A roots (7 parts); minimum 30 roots. Model scores never authorize publication.",
+      "evaluated_at": "2026-10-05T16:45:42.673033+00:00",
+      "multilabel_precision": 0.391304347826087,
+      "multilabel_recall": 0.75,
+      "unresolved_outcomes": {
+        "needs_review": 0,
+        "none_fits": 38
+      },
+      "candidate_retrieval_misses": 0,
+      "strata": {
+        "s2023.P4:examination:A": 14,
+        "s2023.P4:examination:B": 5,
+        "s2023.P4:examination:D": 38,
+        "s2023.P4:examination:C": 1
+      },
+      "bucket_a_root_samples": 3,
+      "provisional": true,
+      "primary_labeled_samples": 9,
+      "outcome_agreement": 0.13793103448275862,
+      "exact_part_label_set_agreement": 0.7241379310344828
+    },
+    "s2023.P5": {
+      "total_reviewed": 39,
+      "top1_matches": 2,
+      "top1_agreement": 0.5,
+      "bucket_metrics": {
+        "A": {
+          "bucket": "A",
+          "total": 2,
+          "matched": 2,
+          "precision": 1.0
+        },
+        "B": {
+          "bucket": "B",
+          "total": 2,
+          "matched": 0,
+          "precision": 0.0
+        },
+        "C": {
+          "bucket": "C",
+          "total": 0,
+          "matched": 0,
+          "precision": 0
+        },
+        "D": {
+          "bucket": "D",
+          "total": 0,
+          "matched": 0,
+          "precision": 0
+        }
+      },
+      "bucket_a_threshold": 0.8,
+      "passed": false,
+      "status_note": "1 independent Bucket A roots (2 parts); minimum 30 roots. Model scores never authorize publication.",
+      "evaluated_at": "2026-10-05T16:45:42.673396+00:00",
+      "multilabel_precision": 0.13333333333333333,
+      "multilabel_recall": 0.8,
+      "unresolved_outcomes": {
+        "needs_review": 2,
+        "none_fits": 20
+      },
+      "candidate_retrieval_misses": 0,
+      "strata": {
+        "s2023.P5:examination:A": 11,
+        "s2023.P5:examination:B": 10,
+        "s2023.P5:examination:D": 17,
+        "s2023.P5:examination:C": 1
+      },
+      "bucket_a_root_samples": 1,
+      "provisional": true,
+      "primary_labeled_samples": 4,
+      "outcome_agreement": 0.46153846153846156,
+      "exact_part_label_set_agreement": 0.5641025641025641
+    },
+    "s2023.P6": {
+      "total_reviewed": 13,
+      "top1_matches": 0,
+      "top1_agreement": 0,
+      "bucket_metrics": {
+        "A": {
+          "bucket": "A",
+          "total": 0,
+          "matched": 0,
+          "precision": 0
+        },
+        "B": {
+          "bucket": "B",
+          "total": 0,
+          "matched": 0,
+          "precision": 0
+        },
+        "C": {
+          "bucket": "C",
+          "total": 0,
+          "matched": 0,
+          "precision": 0
+        },
+        "D": {
+          "bucket": "D",
+          "total": 0,
+          "matched": 0,
+          "precision": 0
+        }
+      },
+      "bucket_a_threshold": 0.8,
+      "passed": false,
+      "status_note": "0 independent Bucket A roots (0 parts); minimum 30 roots. Model scores never authorize publication.",
+      "evaluated_at": "2026-10-05T16:45:42.673767+00:00",
+      "multilabel_precision": 0.0,
+      "multilabel_recall": 0,
+      "unresolved_outcomes": {
+        "needs_review": 7,
+        "none_fits": 5
+      },
+      "candidate_retrieval_misses": 0,
+      "strata": {
+        "s2023.P6:examination:A": 1,
+        "s2023.P6:examination:D": 12
+      },
+      "bucket_a_root_samples": 0,
+      "provisional": true,
+      "primary_labeled_samples": 0,
+      "outcome_agreement": 0.5384615384615384,
+      "exact_part_label_set_agreement": 0.9230769230769231
+    }
+  },
+  "comparison_by_partition": {
+    "development": {
+      "total_reviewed": 122,
+      "top1_matches": 10,
+      "top1_agreement": 0.5882352941176471,
+      "bucket_metrics": {
+        "A": {
+          "bucket": "A",
+          "total": 13,
+          "matched": 9,
+          "precision": 0.6923076923076923
+        },
+        "B": {
+          "bucket": "B",
+          "total": 4,
+          "matched": 1,
+          "precision": 0.25
+        },
+        "C": {
+          "bucket": "C",
+          "total": 0,
+          "matched": 0,
+          "precision": 0
+        },
+        "D": {
+          "bucket": "D",
+          "total": 1,
+          "matched": 0,
+          "precision": 0.0
+        }
+      },
+      "bucket_a_threshold": 0.8,
+      "passed": false,
+      "status_note": "6 independent Bucket A roots (13 parts); minimum 30 roots. Model scores never authorize publication.",
+      "evaluated_at": "2026-10-05T16:45:42.675725+00:00",
+      "multilabel_precision": 0.16161616161616163,
+      "multilabel_recall": 0.6666666666666666,
+      "unresolved_outcomes": {
+        "needs_review": 18,
+        "none_fits": 32
+      },
+      "candidate_retrieval_misses": 0,
+      "strata": {
+        "s2023.P2:examination:D": 9,
+        "s2023.P1:examination:A": 8,
+        "s2023.P1:examination:D": 7,
+        "s2023.P2:examination:A": 16,
+        "s2023.P3:examination:A": 21,
+        "s2023.P3:examination:B": 4,
+        "s2023.P4:examination:A": 4,
+        "s2023.P5:examination:A": 11,
+        "s2023.P5:examination:B": 9,
+        "s2023.P4:examination:B": 1,
+        "s2023.P5:examination:D": 16,
+        "s2023.P6:examination:A": 1,
+        "s2023.P6:examination:D": 10,
+        "s2023.P1:examination:B": 2,
+        "s2023.P2:examination:C": 1,
+        "s2023.P4:examination:D": 1,
+        "s2023.P5:examination:C": 1
+      },
+      "bucket_a_root_samples": 6,
+      "provisional": true,
+      "primary_labeled_samples": 17,
+      "outcome_agreement": 0.38524590163934425,
+      "exact_part_label_set_agreement": 0.4262295081967213
+    },
+    "holdout": {
+      "total_reviewed": 119,
+      "top1_matches": 8,
+      "top1_agreement": 0.8,
+      "bucket_metrics": {
+        "A": {
+          "bucket": "A",
+          "total": 9,
+          "matched": 7,
+          "precision": 0.7777777777777778
+        },
+        "B": {
+          "bucket": "B",
+          "total": 1,
+          "matched": 1,
+          "precision": 1.0
+        },
+        "C": {
+          "bucket": "C",
+          "total": 0,
+          "matched": 0,
+          "precision": 0
+        },
+        "D": {
+          "bucket": "D",
+          "total": 0,
+          "matched": 0,
+          "precision": 0
+        }
+      },
+      "bucket_a_threshold": 0.8,
+      "passed": false,
+      "status_note": "3 independent Bucket A roots (9 parts); minimum 30 roots. Model scores never authorize publication.",
+      "evaluated_at": "2026-10-05T16:45:42.677422+00:00",
+      "multilabel_precision": 0.11363636363636363,
+      "multilabel_recall": 0.8333333333333334,
+      "unresolved_outcomes": {
+        "needs_review": 5,
+        "none_fits": 44
+      },
+      "candidate_retrieval_misses": 0,
+      "strata": {
+        "s2023.P2:examination:D": 48,
+        "s2023.P4:examination:A": 10,
+        "s2023.P4:examination:B": 4,
+        "s2023.P1:examination:A": 3,
+        "s2023.P2:examination:A": 3,
+        "s2023.P3:examination:D": 2,
+        "s2023.P3:examination:A": 7,
+        "s2023.P4:examination:D": 37,
+        "s2023.P4:examination:C": 1,
+        "s2023.P5:examination:B": 1,
+        "s2023.P5:examination:D": 1,
+        "s2023.P6:examination:D": 2
+      },
+      "bucket_a_root_samples": 3,
+      "provisional": true,
+      "primary_labeled_samples": 10,
+      "outcome_agreement": 0.11764705882352941,
+      "exact_part_label_set_agreement": 0.44537815126050423
+    }
+  },
+  "successful_root_seconds_total": 3695.949,
+  "successful_root_seconds_median": 18.746499999999997,
+  "notes": [
+    "Agent agreement is diagnostic evidence, not ground truth.",
+    "Usage and latency include reused pilot completions once; failed calls are retained separately."
+  ]
+}

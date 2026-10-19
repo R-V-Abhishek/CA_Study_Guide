@@ -3,13 +3,13 @@
 from pathlib import Path
 import tomllib
 from typing import Any
-import fitz
 import sqlalchemy as sa
 from sqlalchemy.orm import Session
 
 from caf_common.blob_store import BlobStore
 from caf_common.logging import get_logger
 from caf_l1.infer import infer_metadata
+from caf_l1.artifacts import record_observation, validate_metadata, validate_pdf
 from caf_db.models.ingest import Document
 
 logger = get_logger("acquire.importer")
@@ -30,14 +30,7 @@ class ManualImporter:
             raise FileNotFoundError(f"PDF not found: {pdf_path}")
 
         data = pdf_path.read_bytes()
-        if not data.startswith(b"%PDF-"):
-            raise ValueError(f"File {pdf_path.name} is not a valid PDF")
-
-        # PyMuPDF check
-        doc = fitz.open(stream=data, filetype="pdf")
-        page_count = len(doc)
-        has_text = any(len(p.get_text()) > 20 for p in doc)
-        doc.close()
+        verified = validate_pdf(data)
 
         # Compute hash and store in content-addressed storage
         sha256_hash, blob_path = self.blob_store.put(data)
@@ -53,7 +46,9 @@ class ManualImporter:
         inferred = infer_metadata(pdf_path.name)
 
         # Merge: sidecar > overrides > inferred
-        meta = {**inferred, **(overrides or {}), **sidecar_meta}
+        meta = validate_metadata({**inferred, **(overrides or {}), **sidecar_meta}, verified)
+        record_observation(self.blob_store, sha256_hash, origin="manual", original_url=meta.get("source_url"),
+                           final_url=meta.get("source_url"), metadata={**meta, "import_filename": pdf_path.name})
 
         scheme_id = meta.get("scheme_id", "s2023")
         attempt_id = meta.get("attempt_id")
@@ -61,7 +56,7 @@ class ManualImporter:
         doc_type_id = meta.get("doc_type_id")
         series = meta.get("series")
         title = meta.get("title") or pdf_path.stem
-        catalog_status = "inferred" if (attempt_id and paper_id and doc_type_id) else "needs_curation"
+        catalog_status = meta.get("catalog_status", "needs_curation")
 
         existing = session.execute(
             sa.select(Document).where(Document.sha256 == sha256_hash)
@@ -76,16 +71,21 @@ class ManualImporter:
             blob_path=str(blob_path),
             bytes=len(data),
             origin="manual",
+            course_level=meta.get("course_level"),
+            provenance_status="unresolved",
             scheme_id=scheme_id,
             attempt_id=attempt_id,
             paper_id=paper_id,
             doc_type_id=doc_type_id,
             series=series,
+            collection_id=meta.get("collection_id"),
+            paper_page_ranges=meta.get("paper_page_ranges") or [],
+            metadata_evidence=meta.get("metadata_evidence") or {},
             title=title,
             catalog_status=catalog_status,
             extract_status="pending",
-            page_count=page_count,
-            has_text_layer=has_text,
+            page_count=verified.page_count,
+            has_text_layer=verified.has_text_layer,
             created_run_id=run_id,
         )
         session.add(new_doc)
@@ -102,10 +102,15 @@ class ManualImporter:
         run_id: int | None = None,
     ) -> list[Document]:
         imported = []
+        failures = []
         for pdf in sorted(inbox_dir.glob("*.pdf")):
             try:
                 doc = self.import_file(pdf, session, run_id=run_id)
                 imported.append(doc)
             except Exception as exc:
+                session.rollback()
                 logger.error("import_error", file=pdf.name, error=str(exc))
+                failures.append(f"{pdf.name}: {exc}")
+        if failures:
+            raise ValueError(f"Imported {len(imported)} PDFs; failed imports: {'; '.join(failures)}")
         return imported

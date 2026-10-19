@@ -14,16 +14,17 @@ console = Console()
 @app.callback(invoke_without_command=True)
 def cmd_plan(
     ctx: typer.Context,
+    user_id: int = typer.Option(..., "--user-id", min=1, help="Target account ID"),
     paper: str | None = typer.Option(None, "--paper", "-p", help="Filter by paper code (e.g. P1)"),
     group: int | None = typer.Option(None, "--group", "-g", help="Filter by group (1 or 2)"),
     hours: float | None = typer.Option(None, "--hours", "-h", help="Override study hours per week"),
 ) -> None:
     """Generate and display next-week study plan with factual priority justifications."""
-    session_factory = get_session_factory()
+    session_factory = get_session_factory("student")
     with session_factory() as session:
         plan = generate_study_plan(
             session=session,
-            user_id=1,
+            user_id=user_id,
             paper_id=paper,
             group_no=group,
             hours_per_week=hours,
@@ -38,7 +39,7 @@ def cmd_plan(
         )
 
         if not items:
-            console.print("[dim]No candidate subtopics available for planning.[/dim]")
+            console.print(plan.get("score_unavailable_reason") or "[dim]No candidate subtopics available for planning.[/dim]")
             return
 
         table = Table(title="Allocated Subtopics for Study")

@@ -134,11 +134,7 @@ def test_system_alarms_evaluation(session, tmp_path):
 
 
 def test_model_re_evaluation_procedure(session):
-    """Verify model re-evaluation precision calculation with self-contained fixtures.
-    
-    Seeds its own Decision + TagSuggestion + Unit rows so the precision
-    calculation code path runs fully (not just the early-return 'no-data' path).
-    """
+    """Historical decisions without frozen revision bindings remain unknown evidence."""
     import uuid
     from caf_db.models.ingest import Document, TagSuggestion, Unit
     from caf_db.models.core import Decision
@@ -213,31 +209,13 @@ def test_model_re_evaluation_procedure(session):
     report = evaluate_model_on_reviewed_decisions(
         session=session,
         bucket_a_threshold=0.80,
-        min_samples=3,  # lower than 5 so gating triggers
+        min_samples=3,  # Cannot lower the required independent root evidence.
     )
 
-    # Verify the precision calculation actually ran (not the early-return path)
-    assert report.total_reviewed >= 5, \
-        f"Expected at least 5 evaluated (our 5 seeded), got {report.total_reviewed}"
-    assert 0 <= report.top1_matches <= report.total_reviewed, \
-        "top1_matches must be between 0 and total_reviewed"
-    assert 0.0 <= report.top1_agreement <= 1.0, \
-        f"top1_agreement must be in [0,1], got {report.top1_agreement}"
-
-    # Bucket A must be present and have valid counts
-    assert "A" in report.bucket_metrics, "Bucket A must appear in bucket_metrics"
-    bucket_a = report.bucket_metrics["A"]
-    assert bucket_a.total >= 5, \
-        f"Expected at least 5 Bucket A samples (our 5 seeded), got {bucket_a.total}"
-    assert 0 <= bucket_a.matched <= bucket_a.total
-
-    # Gate logic: passed iff precision >= threshold OR below min_samples
-    if report.total_reviewed >= 3:
-        expected_passed = bucket_a.precision >= 0.80 if bucket_a.total > 0 else True
-        assert report.passed == expected_passed, \
-            f"Gate logic wrong: precision={bucket_a.precision}, passed={report.passed}"
-
-    # Status note must be non-empty
+    # Unbound historical decisions must not calibrate a current classifier.
+    assert report.total_reviewed == 0
+    assert not report.passed
+    assert report.provisional
     assert report.status_note
 
 

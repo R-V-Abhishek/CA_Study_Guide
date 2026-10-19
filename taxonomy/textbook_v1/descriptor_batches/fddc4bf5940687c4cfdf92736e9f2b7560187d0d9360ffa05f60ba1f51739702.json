@@ -1,0 +1,328 @@
+{
+  "descriptors": [
+    {
+      "node_id": "589e1951-6fdc-4382-b288-bee981fe9b91",
+      "concept_name": "Borrowing Costs Core Principle",
+      "definition": "Borrowing costs that are directly attributable to the acquisition, construction, or production of a qualifying asset must be capitalized as part of that asset's cost. All other borrowing costs are recognized as expenses in the period in which they are incurred.",
+      "terminology": [
+        "Borrowing costs",
+        "Qualifying asset",
+        "Capitalisation",
+        "Expense"
+      ],
+      "instrument_references": [
+        "Ind AS 23",
+        "Ind AS 32",
+        "Ind AS 41"
+      ],
+      "inclusion": [
+        "Directly attributable borrowing costs for qualifying assets"
+      ],
+      "exclusion": [
+        "Actual or imputed cost of equity",
+        "Preferred capital not classified as a liability"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes between mandatory capitalization for qualifying asset acquisition and expensing of general operational borrowing costs."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "43d0ccd2-dfb2-477e-a15b-04c5e521acfb",
+      "concept_name": "Scope of Borrowing Costs Standard",
+      "definition": "The standard governs the accounting treatment for borrowing costs but excludes the cost of equity and qualifying assets measured at fair value or repetitive inventories. It applies to interest expenses, lease liabilities, and qualifying foreign currency exchange differences.",
+      "terminology": [
+        "Scope",
+        "Effective interest rate",
+        "Lease liabilities",
+        "Fair value model"
+      ],
+      "instrument_references": [
+        "Ind AS 23",
+        "Ind AS 32",
+        "Ind AS 109",
+        "Ind AS 116",
+        "Ind AS 41"
+      ],
+      "inclusion": [
+        "Interest expense using effective interest method",
+        "Interest on lease liabilities",
+        "Adjusted foreign currency exchange differences"
+      ],
+      "exclusion": [
+        "Actual or imputed cost of equity",
+        "Biological assets under fair value models",
+        "Inventories manufactured in large quantities repetitively"
+      ],
+      "nearby_distinctions": [
+        "Differentiates standard debt borrowing charges from equity issuance costs and fair-value measured assets."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0baac4b1-e8a5-41fb-8cc8-138cf6bebc5f",
+      "concept_name": "Key Definitions of Borrowing Costs and Qualifying Assets",
+      "definition": "Borrowing costs comprise interest, lease-related interest, and eligible exchange differences incurred on funds, while qualifying assets require a substantial period of time to get ready for use or sale. Short-term inventories and assets ready immediately upon acquisition are excluded from qualifying asset status.",
+      "terminology": [
+        "Qualifying asset",
+        "Effective interest method",
+        "Lease liabilities",
+        "Substantial period of time"
+      ],
+      "instrument_references": [
+        "Ind AS 23",
+        "Ind AS 109",
+        "Ind AS 116"
+      ],
+      "inclusion": [
+        "Manufacturing plants",
+        "Real estate and infrastructure assets",
+        "Power generation facilities",
+        "Intangible assets"
+      ],
+      "exclusion": [
+        "Short-term inventories",
+        "Financial assets",
+        "Assets ready for use or sale when acquired"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes long-term project assets needing extended preparation from short-term production inventories."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "dad02674-ec69-45be-8a0b-1e320bd7ff07",
+      "concept_name": "Exchange Difference To Be Included In Borrowing Costs",
+      "definition": "Foreign currency borrowing exchange losses are treated as eligible borrowing costs only up to the difference between the functional currency borrowing cost and the foreign currency borrowing cost. This adjustment represents the interest rate differential attributable to the foreign currency loan.",
+      "terminology": [
+        "Exchange difference",
+        "Functional currency",
+        "Interest rate differential",
+        "Foreign currency borrowing"
+      ],
+      "instrument_references": [
+        "Ind AS 23"
+      ],
+      "inclusion": [
+        "Exchange losses equivalent to functional currency borrowing cost differential"
+      ],
+      "exclusion": [
+        "Exchange losses exceeding the functional currency interest rate differential"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes ordinary foreign exchange translation variances from structured interest-equivalent adjustments."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "ef0e2998-9309-4286-bbde-82ece70eba7c",
+      "concept_name": "Recognition and Specific Borrowing Costs",
+      "definition": "Directly attributable borrowing costs are capitalized when future economic benefits are probable and costs are measured reliably. For specific borrowings, eligible capitalization equals actual costs incurred less any investment income earned on temporary fund investments.",
+      "terminology": [
+        "Specific borrowings",
+        "Temporary investment",
+        "Investment income",
+        "Notional borrowing cost"
+      ],
+      "instrument_references": [
+        "Ind AS 23",
+        "Ind AS 29"
+      ],
+      "inclusion": [
+        "Actual borrowing costs incurred on specific loans",
+        "Hyperinflationary adjustment exclusions"
+      ],
+      "exclusion": [
+        "Notional borrowing costs",
+        "Actual or imputed cost of equity"
+      ],
+      "nearby_distinctions": [
+        "Contrasts actual debt-financing charges with foregone earnings on internal equity resources."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0e05d82a-03a0-4a86-90c5-8af2decdcc3d",
+      "concept_name": "Borrowing Costs Eligible For Capitalisation",
+      "definition": "Eligible borrowing costs are those that would have been avoided if asset expenditures had not been made. Specific borrowing calculations require deducting any investment income earned from temporarily deploying unspent specific loan funds.",
+      "terminology": [
+        "Avoidable cost",
+        "Specific borrowings",
+        "Temporary investment income",
+        "Capitalisation"
+      ],
+      "instrument_references": [
+        "Ind AS 23"
+      ],
+      "inclusion": [
+        "Actual borrowing costs net of temporary investment returns"
+      ],
+      "exclusion": [
+        "Notional interest on internal cash deployment"
+      ],
+      "nearby_distinctions": [
+        "Separates direct loan allocation mechanics from weighted-average general pool formulas."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4ec99195-0fb2-4b8b-8675-1efbd184c074",
+      "concept_name": "Calculation of capitalisation rate",
+      "definition": "General borrowing capitalization is determined by applying a weighted average capitalization rate of outstanding general loans to qualifying asset expenditures. Total capitalized amounts cannot exceed total borrowing costs incurred during the period.",
+      "terminology": [
+        "Capitalisation rate",
+        "General borrowings",
+        "Weighted average",
+        "Qualifying asset"
+      ],
+      "instrument_references": [
+        "Ind AS 23"
+      ],
+      "inclusion": [
+        "Weighted average borrowing costs of general debt pool"
+      ],
+      "exclusion": [
+        "Specific borrowings and their associated costs"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes pool-wide weighted interest rates from directly traceable specific loan interest."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e08713d3-8774-4069-9683-beb8e82065b1",
+      "concept_name": "Expenditure To Which Capitalisation Rate Is Applied",
+      "definition": "Qualifying asset expenditures include cash payments, asset transfers, or interest-bearing liability assumptions, reduced by progress payments and government grants. The asset's average carrying amount during the period usually serves as the base for applying the capitalization rate.",
+      "terminology": [
+        "Carrying amount",
+        "Progress payments",
+        "Government grants",
+        "Capitalisation rate"
+      ],
+      "instrument_references": [
+        "Ind AS 23",
+        "Ind AS 20"
+      ],
+      "inclusion": [
+        "Cash expenditures",
+        "Transferred assets",
+        "Assumed interest-bearing liabilities"
+      ],
+      "exclusion": [
+        "Received progress payments",
+        "Associated government grants"
+      ],
+      "nearby_distinctions": [
+        "Separates gross outlay amounts from net capital expenditure bases adjusted for grants and progress billings."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "4d42af6d-575e-43b8-b496-6ced5f6f90a6",
+      "concept_name": "Excess of carrying amount over recoverable amount",
+      "definition": "When a qualifying asset's carrying amount or expected ultimate cost exceeds its recoverable amount or net realizable value, it must be written down or written off in accordance with applicable standards. Subsequent write-backs are permitted under specific conditions defined by those standards.",
+      "terminology": [
+        "Carrying amount",
+        "Recoverable amount",
+        "Net realisable value",
+        "Write-down"
+      ],
+      "instrument_references": [
+        "Ind AS 23"
+      ],
+      "inclusion": [
+        "Asset carrying value write-downs",
+        "Permissible write-backs"
+      ],
+      "exclusion": [
+        "Unadjusted carrying amounts exceeding asset value limits"
+      ],
+      "nearby_distinctions": [
+        "Differentiates standard cost capitalization caps from impairment-based asset valuation limits."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "18c129e4-fcca-46bc-b5f1-41a79a7ac0cc",
+      "concept_name": "Period Of Capitalisation",
+      "definition": "Capitalization of borrowing costs begins on the commencement date when expenditure, borrowing costs, and necessary preparation activities are all concurrently underway. Holding assets without active development does not qualify for capitalization.",
+      "terminology": [
+        "Commencement date",
+        "Capitalisation period",
+        "Development activities",
+        "Qualifying asset"
+      ],
+      "instrument_references": [
+        "Ind AS 23"
+      ],
+      "inclusion": [
+        "Technical and administrative work prior to physical construction"
+      ],
+      "exclusion": [
+        "Passive holding of land or assets without development"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes active pre-construction preparation from passive asset holding periods."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d70cca04-83b2-4da9-8492-725bcd486177",
+      "concept_name": "Commencement of capitalisation",
+      "definition": "An entity must start capitalizing borrowing costs on the exact date it cumulatively incurs expenditures, incurs borrowing costs, and undertakes preparatory activities for the asset. Technical and administrative tasks like obtaining permits satisfy the preparatory activity requirement.",
+      "terminology": [
+        "Commencement date",
+        "Expenditures",
+        "Borrowing costs",
+        "Preparatory activities"
+      ],
+      "instrument_references": [
+        "Ind AS 23"
+      ],
+      "inclusion": [
+        "Permit acquisition",
+        "Technical site planning"
+      ],
+      "exclusion": [
+        "Interest incurrence prior to expenditure or active development"
+      ],
+      "nearby_distinctions": [
+        "Differentiates isolated financial or physical milestones from the multi-condition cumulative commencement trigger."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2b095c74-b566-47fd-bd3a-6e6a58252987",
+      "concept_name": "Suspension and Cessation of Capitalisation",
+      "definition": "Capitalization must be suspended during extended interruptions of active development but continues during normal temporary delays. It ceases entirely when substantially all activities necessary to prepare the qualifying asset for its intended use or sale are complete.",
+      "terminology": [
+        "Suspension",
+        "Cessation",
+        "Active development",
+        "Temporary delay"
+      ],
+      "instrument_references": [
+        "Ind AS 23"
+      ],
+      "inclusion": [
+        "Extended active development halts",
+        "Completion of physical construction"
+      ],
+      "exclusion": [
+        "Routine administrative work",
+        "Necessary temporary construction delays"
+      ],
+      "nearby_distinctions": [
+        "Distinguishes extended interruption periods requiring cost suspension from standard temporary operational delays."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "fddc4bf5940687c4cfdf92736e9f2b7560187d0d9360ffa05f60ba1f51739702",
+  "artifact_id": "48b01c17-81b3-4e91-a862-c93356b90cf0",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8775,
+  "output_tokens": 3235,
+  "cost_usd": 0.01072,
+  "created_at": "2026-10-03T17:49:26.201431+00:00"
+}

@@ -1,0 +1,36 @@
+{
+  "result": {
+    "question_id": "6188337170a2a63a6e62aadc95b349c0accf446d7ff08277970accbbd21bf787",
+    "input_hash": "33aaf5cb6c06735268db321bcc83316029f7be56dccb3d5e4134f56fdaa78e6e",
+    "mappings": [
+      {
+        "part_id": "6188337170a2a63a6e62aadc95b349c0accf446d7ff08277970accbbd21bf787",
+        "outcome": "needs_review",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "Only the fragment \u201c(C) Goodwill \u20b96,50,000\u201d is available; no complete root question, shared stem, other parts, or answer is provided. The fragment alone does not establish which goodwill concept is tested.",
+        "confidence": null,
+        "bucket": null
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "attempt_id": "1791216989905039000",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "9d6a95e8a70cc4d41865d2d331e4bac5ea581aa28d47ff696005c915cc8f3d60",
+    "schema_generator": "pinned-part-ids-v1",
+    "seconds": 8.586,
+    "usage": [
+      {
+        "input_tokens": 48277,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 210,
+        "reasoning_output_tokens": 0
+      }
+    ],
+    "completed_at": "2026-10-05T16:16:38.491358+00:00"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "result": {
+    "question_id": "c5c41a3b65f706733f3bf599a94c61783e9a27ff797844cb09dc6da8e4712dc6",
+    "input_hash": "8030fedbc3dc6c262157fba87f5e4d3c4f037a46d2dd0f719dcdebb20efbfce4",
+    "mappings": [
+      {
+        "part_id": "c5c41a3b65f706733f3bf599a94c61783e9a27ff797844cb09dc6da8e4712dc6",
+        "outcome": "none_fits",
+        "primary_node_id": null,
+        "secondary_node_ids": [],
+        "evidence": [],
+        "note": "The part concerns Robotic Process Automation; none of the supplied candidate descriptors covers that concept.",
+        "confidence": 0.99,
+        "bucket": null
+      }
+    ]
+  },
+  "execution": {
+    "model_id": "gpt-6-luna",
+    "attempt_id": "1791216993627105000",
+    "output_schema_hash": "8f55d0df0f6a49f2fd22bfe3d0d3e18fbbe681bdf2e033f8282d54483210da81",
+    "actual_output_schema_hash": "7318f8b872907e0c17ce240157e397728229f26027a50f139b26f254523feed0",
+    "schema_generator": "pinned-part-ids-v1",
+    "seconds": 12.236,
+    "usage": [
+      {
+        "input_tokens": 49258,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 400,
+        "reasoning_output_tokens": 203
+      }
+    ],
+    "completed_at": "2026-10-05T16:16:45.862653+00:00"
+  }
+}

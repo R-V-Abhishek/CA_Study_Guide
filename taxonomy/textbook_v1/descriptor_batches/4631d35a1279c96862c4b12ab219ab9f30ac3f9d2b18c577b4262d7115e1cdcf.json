@@ -1,0 +1,322 @@
+{
+  "descriptors": [
+    {
+      "node_id": "da210ace-277a-4e7f-be78-2d3f4dc83469",
+      "concept_name": "Revaluation model",
+      "definition": "An intangible asset is carried at a revalued amount representing its fair value at the date of revaluation less subsequent amortisation and impairment losses. Fair value must be determined by reference to an active market, and applying this model requires revaluing all other assets in the same class.",
+      "terminology": [
+        "Revalued amount",
+        "Active market",
+        "Subsequent accumulated amortisation",
+        "Carrying amount"
+      ],
+      "instrument_references": [
+        "Ind AS 38"
+      ],
+      "inclusion": [
+        "Intangible assets with active markets",
+        "Assets received via government grant at nominal amounts"
+      ],
+      "exclusion": [
+        "Previously unrecognized intangible assets",
+        "Initial recognition of intangible assets at non-cost amounts"
+      ],
+      "nearby_distinctions": [
+        "Unlike the cost model which uses historical cost less accumulated depreciation and impairment, the revaluation model uses fair value based on active markets."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b1fc8e36-fe8f-4dbb-8369-12a026acab2d",
+      "concept_name": "Useful Life",
+      "definition": "Useful life defines the period over which an intangible asset is expected to generate economic benefits or the number of production units constituting that life. Entities must assess whether this life is finite or indefinite based on relevant technical, commercial, and legal factors.",
+      "terminology": [
+        "Finite useful life",
+        "Indefinite useful life",
+        "Technological obsolescence",
+        "Period of control"
+      ],
+      "instrument_references": [
+        "Ind AS 38"
+      ],
+      "inclusion": [
+        "Expected usage and product life cycles",
+        "Legal, regulatory, or contractual limits"
+      ],
+      "exclusion": [
+        "Planned future expenditures exceeding standard maintenance requirements"
+      ],
+      "nearby_distinctions": [
+        "Finite useful lives trigger mandatory systematic amortisation, whereas indefinite useful lives require annual impairment testing without amortisation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "7ad54d8a-9252-43ea-9d56-329845a4fb36",
+      "concept_name": "Intangible Assets With Finite Useful Lives",
+      "definition": "Intangible assets with finite useful lives are subject to systematic allocation of their depreciable amount over their operational lifespan. Their residual value is presumed to be zero unless a third-party purchase commitment exists or an active market guarantees realizable value.",
+      "terminology": [
+        "Depreciable amount",
+        "Residual value",
+        "Active market",
+        "Systematic allocation"
+      ],
+      "instrument_references": [
+        "Ind AS 38",
+        "Ind AS 113"
+      ],
+      "inclusion": [
+        "Assets with limited periods of economic benefit",
+        "Assets with third-party purchase commitments"
+      ],
+      "exclusion": [
+        "Assets assessed to have indefinite useful lives"
+      ],
+      "nearby_distinctions": [
+        "Finite life assets undergo regular amortisation over time, distinguishing them from indefinite life assets which are tested solely for impairment."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "0d7401ba-f4f1-4eda-923b-551383aea714",
+      "concept_name": "Depreciable amount to be amortised over the asset’s useful life",
+      "definition": "The depreciable amount represents the cost or substituted valuation of an intangible asset minus its residual value. This amount is systematically allocated across the asset's determined useful life and typically recognized directly in profit or loss.",
+      "terminology": [
+        "Depreciable amount",
+        "Residual value",
+        "Amortisation",
+        "Carrying amount"
+      ],
+      "instrument_references": [
+        "Ind AS 38",
+        "Ind AS 2"
+      ],
+      "inclusion": [
+        "Amortisation costs absorbed in producing other assets like inventories"
+      ],
+      "exclusion": [
+        "Assets with indefinite useful lives"
+      ],
+      "nearby_distinctions": [
+        "Depreciable amount calculation relies strictly on asset cost less residual value, distinct from gross carrying values."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e4c71cfb-278c-47d2-89c0-a9efb6dc5652",
+      "concept_name": "Residual Value",
+      "definition": "Residual value is the estimated net disposal amount of an intangible asset at the end of its useful life. It is assumed to be zero unless a third-party commitment or active market reliably supports a higher expected recovery.",
+      "terminology": [
+        "Guaranteed residual value",
+        "Active market",
+        "Disposal value",
+        "Accounting estimate"
+      ],
+      "instrument_references": [
+        "Ind AS 38",
+        "Ind AS 113",
+        "Ind AS 8"
+      ],
+      "inclusion": [
+        "Third-party commitments to purchase at useful life end",
+        "Active market-backed estimated disposal values"
+      ],
+      "exclusion": [
+        "Standard assumptions of terminal value without active market support"
+      ],
+      "nearby_distinctions": [
+        "Residual value adjusts the total depreciable base of the asset, separate from periodic impairment losses or amortisation method changes."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "d32780d2-4e4b-4201-8ede-0a4455cb5cc8",
+      "concept_name": "Amortisation Period",
+      "definition": "Amortisation commences when an intangible asset is available for use and ceases at the earlier of classification as held-for-sale or derecognition. The underlying amortisation period must be reviewed annually at each financial year-end to account for changed lifespan estimates.",
+      "terminology": [
+        "Available for use",
+        "Cessation of amortisation",
+        "Held for sale",
+        "Derecognition"
+      ],
+      "instrument_references": [
+        "Ind AS 38",
+        "Ind AS 105",
+        "Ind AS 8"
+      ],
+      "inclusion": [
+        "Assets in the location and condition necessary for intended operation"
+      ],
+      "exclusion": [
+        "Assets idled while still retaining active operational status"
+      ],
+      "nearby_distinctions": [
+        "Amortisation does not stop simply because an asset is idle, separating it from cessation triggers tied strictly to held-for-sale status or derecognition."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9af8eea2-3c44-45bd-8a6e-7c2fe2bf082f",
+      "concept_name": "Amortisation Method",
+      "definition": "The chosen amortisation method must reflect the consumption pattern of the asset's future economic benefits, reverting to straight-line if that pattern is unreliable. A strict rebuttable presumption applies against revenue-based methods unless economic consumption directly correlates with revenue generation.",
+      "terminology": [
+        "Straight-line method",
+        "Units of production method",
+        "Diminishing balance method",
+        "Rebuttable presumption"
+      ],
+      "instrument_references": [
+        "Ind AS 38",
+        "Ind AS 8"
+      ],
+      "inclusion": [
+        "Straight-line, diminishing balance, and units of production methods"
+      ],
+      "exclusion": [
+        "Revenue-based methods, unless strictly justified under exceptional presumptions"
+      ],
+      "nearby_distinctions": [
+        "Method selection focuses purely on benefit consumption patterns, which differs from determining the operational length of the amortisation period."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b170ce66-241f-4d29-917f-550c23611769",
+      "concept_name": "Intangible Assets With Indefinite Useful Lives",
+      "definition": "Assets with indefinite useful lives are exempt from periodic amortisation but must be tested for impairment annually or whenever indicators arise. Management must continuously review supporting circumstances each period to validate that the indefinite classification remains appropriate.",
+      "terminology": [
+        "Indefinite useful life",
+        "Impairment test",
+        "Recoverable amount",
+        "Change in accounting estimate"
+      ],
+      "instrument_references": [
+        "Ind AS 38",
+        "Ind AS 36",
+        "Ind AS 105",
+        "Ind AS 8"
+      ],
+      "inclusion": [
+        "Assets with no foreseeable limit to expected net cash inflows"
+      ],
+      "exclusion": [
+        "Assets with finite or determinable operational life windows"
+      ],
+      "nearby_distinctions": [
+        "Indefinite classification replaces systematic amortisation with rigorous annual impairment reviews, unlike finite assets."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "002f68f9-1be3-40e2-8182-771f8e4022dc",
+      "concept_name": "Impairment",
+      "definition": "Intangible asset impairment evaluation follows the framework outlined in Ind AS 36 to verify carrying amounts against recoverable amounts. Assets with indefinite useful lives must be evaluated for impairment at least on an annual basis.",
+      "terminology": [
+        "Recoverable amount",
+        "Carrying amount",
+        "Annual review",
+        "Impairment loss"
+      ],
+      "instrument_references": [
+        "Ind AS 36",
+        "Ind AS 38"
+      ],
+      "inclusion": [
+        "Annual reviews for indefinite-life assets",
+        "Event-driven impairment checks"
+      ],
+      "exclusion": [
+        "Standard routine amortisation charges"
+      ],
+      "nearby_distinctions": [
+        "Impairment captures unexpected declines in service potential or value below carrying cost, distinct from scheduled periodic amortisation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "b0daf074-4ffb-40f8-a8ef-994402f64618",
+      "concept_name": "Retirements And Disposals",
+      "definition": "An intangible asset is derecognized upon disposal or when no future economic benefits are expected from its use or retirement. Gains or losses are computed as the difference between net disposal proceeds and the carrying amount, recognized directly in profit or loss.",
+      "terminology": [
+        "Derecognition",
+        "Net disposal proceeds",
+        "Control transfer",
+        "Transaction price"
+      ],
+      "instrument_references": [
+        "Ind AS 38",
+        "Ind AS 115",
+        "Ind AS 116"
+      ],
+      "inclusion": [
+        "Disposals via sale, finance lease, or donation",
+        "Derecognition of replaced component parts"
+      ],
+      "exclusion": [
+        "Classification of gains as ordinary revenue"
+      ],
+      "nearby_distinctions": [
+        "Derecognition permanently removes the asset and isolates disposal gains/losses from operating revenue classifications."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1feec792-ce43-4079-a4b7-b4fa219990b9",
+      "concept_name": "Disclosure",
+      "definition": "Entities must provide comprehensive class-by-class disclosures for intangible assets, distinguishing between internally generated assets and other types. Required disclosures cover useful life assessments, amortisation methods, gross carrying balances, and full reconciliation statements of changes.",
+      "terminology": [
+        "Reconciliation of carrying amount",
+        "Amortisation rates",
+        "Gross carrying amount",
+        "Impairment losses"
+      ],
+      "instrument_references": [
+        "Ind AS 38",
+        "Ind AS 105"
+      ],
+      "inclusion": [
+        "Breakdowns of additions, disposals, and revaluations",
+        "Justifications for indefinite useful life assumptions"
+      ],
+      "exclusion": [
+        "Omission of class-level distinction between internal and external development"
+      ],
+      "nearby_distinctions": [
+        "Disclosure mandates structured reconciliations of opening to closing carrying amounts, extending beyond basic balance sheet presentations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9d394f6b-c9c2-46e1-bdb3-8a607a87d73b",
+      "concept_name": "Extracts Of Financial Statements Of Listed Entity",
+      "definition": "Financial statement extracts illustrate practical corporate accounting policies, asset measurement rules, and footnote disclosures for intangible assets. They detail specific amortization parameters applied to technical know-how, software, and development rights.",
+      "terminology": [
+        "Acquisition cost",
+        "Pre-operative expenses",
+        "Proved developed reserves",
+        "Unit of production method"
+      ],
+      "instrument_references": [
+        "Ind AS 38"
+      ],
+      "inclusion": [
+        "Practical company accounting policy disclosures",
+        "Applied amortisation schedules for specific asset categories"
+      ],
+      "exclusion": [
+        "Theoretical framework guidelines without empirical reporting context"
+      ],
+      "nearby_distinctions": [
+        "Financial extracts provide real-world application examples of standard accounting policies rather than setting new standard rules."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "4631d35a1279c96862c4b12ab219ab9f30ac3f9d2b18c577b4262d7115e1cdcf",
+  "artifact_id": "96cc93ef-5bcf-49a1-8792-7e053f2ac8fe",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8945,
+  "output_tokens": 3392,
+  "cost_usd": 0.0111635,
+  "created_at": "2026-10-03T17:57:46.700911+00:00"
+}

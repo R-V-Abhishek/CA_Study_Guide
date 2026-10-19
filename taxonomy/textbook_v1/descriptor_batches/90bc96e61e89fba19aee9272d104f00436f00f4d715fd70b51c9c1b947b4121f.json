@@ -1,0 +1,357 @@
+{
+  "descriptors": [
+    {
+      "node_id": "2784b620-046a-49a1-9edd-592c1362afaf",
+      "concept_name": "Provisions to Counteract Unethical Tax Practices Overview",
+      "definition": "The Income-tax Act provides penal provisions and prosecution tools to handle defaults, deter tax avoidance, and combat unlawful tax practices. Penalties are imposed by tax authorities, whereas fines and criminal prosecutions are initiated through a court Magistrate.",
+      "terminology": [
+        "penalty",
+        "prosecution",
+        "tax evasion",
+        "tax avoidance",
+        "Black Money Act"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961",
+        "Black Money (Undisclosed Foreign Income and Assets) and Imposition of Tax Act, 2015",
+        "Sections 275A to 280"
+      ],
+      "inclusion": [
+        "penalties for default under the Income-tax Act",
+        "prosecution provisions enforced via Courts",
+        "taxation of undisclosed foreign income"
+      ],
+      "exclusion": [
+        "civil assessment procedures unconnected to default",
+        "routine tax collection mechanisms"
+      ],
+      "nearby_distinctions": [
+        "Penalties are levied by departmental tax authorities, whereas fines and prosecution sentences are administered exclusively by a judicial Magistrate."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "299693b5-3760-478a-956e-1fe24d3a9633",
+      "concept_name": "Penal Provisions Under The Income Tax Act",
+      "definition": "Penalties are distinct from regular tax or interest and are assessed based on the law active when a default occurred. Competent authorities hold discretionary power to levy penalties within statutory minimum and maximum limits.",
+      "terminology": [
+        "penalty proceedings",
+        "default",
+        "waiver of penalty",
+        "quantum of penalty"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961",
+        "Section 270A",
+        "Section 271(1)(c)"
+      ],
+      "inclusion": [
+        "penalties levied over and above tax and interest",
+        "discretionary powers of commissioners to reduce or waive penalties"
+      ],
+      "exclusion": [
+        "tax and interest amounts payable under regular assessment",
+        "penalties governed by laws enacted after the default date"
+      ],
+      "nearby_distinctions": [
+        "Penalties apply specifically to statutory non-compliance or under-reporting, differing fundamentally from the principal tax liability."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6ce67dc8-af6a-4545-97dc-15358b7d62fc",
+      "concept_name": "Penalty Leviable For Under Reporting Of Income [Section 270A]",
+      "definition": "Section 270A imposes monetary penalties where an assessee underreports income, determined by comparing assessed income against processed return figures or basic exemption thresholds. Specified higher authorities are empowered to issue written penalty orders during ongoing assessment proceedings.",
+      "terminology": [
+        "under-reporting",
+        "misreporting",
+        "assessed income",
+        "deemed total income"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961",
+        "Section 270A",
+        "Section 143(1)(a)",
+        "Section 115JB",
+        "Section 115JC"
+      ],
+      "inclusion": [
+        "penalties on income under-reporting during regular assessments and reassessments",
+        "adjustments involving MAT and AMT provisions"
+      ],
+      "exclusion": [
+        "concealment penalties under legacy section 271 for assessment years from A.Y. 2017-18 onward"
+      ],
+      "nearby_distinctions": [
+        "Section 270A replaces older concealment rules to provide structured certainty based on mathematical comparisons between returned and assessed incomes."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "aeef53d6-a22d-4450-a1fb-37b44bf0d87e",
+      "concept_name": "Other Penal Provisions Under The Income Tax Act",
+      "definition": "Chapter XXI contains specific penalties triggered when taxpayers fail to maintain books of accounts, retain transfer pricing documentation, or comply with search-related disclosures. These specific provisions operate alongside general under-reporting rules subject to statutory exclusions.",
+      "terminology": [
+        "books of account",
+        "transfer pricing document",
+        "search and seizure",
+        "undisclosed income"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961",
+        "Section 271A",
+        "Section 271AA",
+        "Section 271AAB",
+        "Section 44AA",
+        "Section 92D",
+        "Section 132"
+      ],
+      "inclusion": [
+        "penalties for failing to keep required books or transfer pricing records",
+        "penalties for undisclosed income discovered during searches"
+      ],
+      "exclusion": [
+        "general under-reporting penalties under section 270A where specific search penalties already apply to the same undisclosed income"
+      ],
+      "nearby_distinctions": [
+        "These target procedural defaults and specialized compliance failures rather than general computational understatements of income."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a6a9954f-82ec-4d22-aa8f-ba1d4352d64f",
+      "concept_name": "Taxation Of Undisclosed Sources Of Income",
+      "definition": "Unexplained financial items such as cash credits, unverified investments, and undisclosed expenditures are treated as taxable income when the assessee fails to provide a satisfactory explanation. For loans or share capital in closely held companies, additional validation from the creditor or shareholder is mandatory.",
+      "terminology": [
+        "cash credits",
+        "unexplained investments",
+        "unexplained expenditure",
+        "share application money"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961",
+        "Section 68",
+        "Section 69",
+        "Section 69A",
+        "Section 69B",
+        "Section 69C",
+        "Section 69D"
+      ],
+      "inclusion": [
+        "unexplained cash credits and hundi borrowings",
+        "unexplained share application money and share premium in closely held companies",
+        "unaccounted investments and expenditures"
+      ],
+      "exclusion": [
+        "share capital credits where the investor is a SEBI-registered Venture Capital Fund or Company",
+        "credits where satisfactory explanations of nature and source are provided"
+      ],
+      "nearby_distinctions": [
+        "Unlike normal business receipts, these provisions shift the burden entirely onto the assessee to prove the legitimate source of unrecorded entries."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a31ba098-5013-4ae0-b3cb-0d236fbbb2b0",
+      "concept_name": "Penalty Not Leviable In Certain Cases [Section 273B]",
+      "definition": "Section 273B protects assessees from statutory penalties for specific procedural and reporting failures if they establish a reasonable cause for the default. This waiver applies across a designated list of penalty provisions under the Act.",
+      "terminology": [
+        "reasonable cause",
+        "waiver of penalty"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961",
+        "Section 273B",
+        "Section 271A",
+        "Section 271C",
+        "Section 272A"
+      ],
+      "inclusion": [
+        "exemptions from penalties upon proving a valid, reasonable cause for non-compliance"
+      ],
+      "exclusion": [
+        "penalties where no statutory reference to reasonable cause is provided under Section 273B"
+      ],
+      "nearby_distinctions": [
+        "Section 273B provides a blanket exculpatory defense based on reasonable cause, distinct from discretionary reductions by commissioners."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "665b2838-a3f5-4c1e-ae50-3f62e7f7b775",
+      "concept_name": "Procedure For Assessment Of Penalties [Section 274]",
+      "definition": "Penalty imposition requires granting the assessee a reasonable opportunity of being heard and, where penalty amounts exceed specified monetary thresholds, obtaining prior approval from a Joint Commissioner. The Central Government is empowered to formulate faceless penalty schemes to optimize administrative resources.",
+      "terminology": [
+        "opportunity of being heard",
+        "prior approval",
+        "Joint Commissioner",
+        "Faceless Penalty Scheme"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961",
+        "Section 274",
+        "Chapter XXI"
+      ],
+      "inclusion": [
+        "mandates for giving a hearing opportunity before imposing penalties",
+        "hierarchical approval thresholds for Income-tax Officers and Assistant Commissioners",
+        "faceless penalty scheme implementation"
+      ],
+      "exclusion": [
+        "penalty orders passed without observing principles of natural justice or required administrative clearances"
+      ],
+      "nearby_distinctions": [
+        "Procedural safeguards under Section 274 regulate the administrative execution of penalties rather than their substantive computation."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "9a48a189-145e-459f-bef9-ce285a919239",
+      "concept_name": "Time Limit For Imposition Of Penalty [Section 275]",
+      "definition": "Section 275 establishes strict statutory time limits for passing penalty orders based on whether the underlying assessment is subjected to appeals, revisions, or standard closure. These limits typically tie the final penalty order date to the completion of assessment proceedings or the receipt of appellate orders.",
+      "terminology": [
+        "time limit",
+        "appellate tribunal",
+        "revision order",
+        "penalty order"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961",
+        "Section 275",
+        "Section 263",
+        "Section 264"
+      ],
+      "inclusion": [
+        "deadlines for penalty orders following tribunal or commissioner appeals",
+        "time constraints linked to revision proceedings"
+      ],
+      "exclusion": [
+        "unbounded or delayed penalty orders exceeding statutory expiry windows"
+      ],
+      "nearby_distinctions": [
+        "Time limits under Section 275 strictly govern when a penalty order can be issued post-assessment, differing from assessment time bars."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "27efb6e5-6c01-4b07-ae22-e983090e4e23",
+      "concept_name": "Offences And Prosecution Under The Income Tax Act",
+      "definition": "Chapter XXII prescribes rigorous imprisonment and fines for serious tax offenses, including search obstructions, tax evasion, and failure to credit deducted or collected taxes. Specific monetary thresholds and timelines govern the severity of imprisonment terms.",
+      "terminology": [
+        "rigorous imprisonment",
+        "wilful attempt to evade",
+        "TDS default",
+        "fine"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961",
+        "Chapter XXII",
+        "Section 275A",
+        "Section 276B",
+        "Section 276BB",
+        "Section 276C"
+      ],
+      "inclusion": [
+        "criminal prosecutions and imprisonment for tax and TDS evasion",
+        "penalties for failing to surrender assets or obstruct search actions"
+      ],
+      "exclusion": [
+        "purely civil monetary penalties imposed departmentally without criminal intent"
+      ],
+      "nearby_distinctions": [
+        "Prosecution involves criminal court trials and imprisonment, whereas penalties are administrative monetary sanctions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "acee765a-35ff-4120-818b-89347a23b3d5",
+      "concept_name": "Presumption As To Culpable Mental State [Section 278E]",
+      "definition": "In any prosecution requiring a culpable mental state, courts must legally presume the existence of such intent, shifting the burden of proof onto the accused. The accused must prove the complete absence of a guilty mind beyond a reasonable doubt to successfully defend against the charge.",
+      "terminology": [
+        "culpable mental state",
+        "mens rea",
+        "burden of proof",
+        "reasonable doubt"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961",
+        "Section 278E"
+      ],
+      "inclusion": [
+        "mandatory court presumptions of intent in prosecution cases",
+        "statutory placement of the burden of proof on the accused"
+      ],
+      "exclusion": [
+        "civil penalty proceedings where the revenue department retains the burden of proof for concealment"
+      ],
+      "nearby_distinctions": [
+        "Section 278E explicitly reverses the ordinary burden of proof for criminal tax offenses by presuming mens rea until rebutted by the accused."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "6fea450c-45fc-4aaf-9968-7a0c0e141215",
+      "concept_name": "Prosecution To Be Made At The Instance Of The Principal Chief Commissioner Or Chief Commissioner Or Principal Commissioner Or Commissioner [Sections 279 And 279A]",
+      "definition": "Initiating prosecution proceedings requires prior written sanction from designated senior income-tax authorities. Statutes also permit the compounding of offenses and ensure statements made during assessment proceedings remain admissible as evidence.",
+      "terminology": [
+        "prior sanction",
+        "compounding of offences",
+        "admissibility of evidence"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961",
+        "Section 279",
+        "Section 279A",
+        "Section 270A"
+      ],
+      "inclusion": [
+        "prior sanction requirements for criminal proceedings",
+        "legal provisions for compounding tax offenses",
+        "admissibility of prior statements in court"
+      ],
+      "exclusion": [
+        "prosecutions launched directly by junior assessing officers without higher sanction"
+      ],
+      "nearby_distinctions": [
+        "Sanction rules act as a filtering administrative check before criminal courts take cognizance of tax offenses."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "80ca2608-51e6-4f50-bc4c-f4301ff504b8",
+      "concept_name": "Immunity From Imposition Of Penalty And Prosecution [Section 270AA]",
+      "definition": "Assessees can apply for immunity from under-reporting penalties and related prosecutions if they pay assessed taxes and interest within the demand period and refrain from filing appeals. Immunity is restricted and cannot be granted if assessments involve severe infractions like misrepresentation or unrecorded entries.",
+      "terminology": [
+        "immunity",
+        "demand notice",
+        "waiver of prosecution",
+        "suppression of facts"
+      ],
+      "instrument_references": [
+        "Income-tax Act, 1961",
+        "Section 270AA",
+        "Section 270A",
+        "Section 276C",
+        "Section 276CC"
+      ],
+      "inclusion": [
+        "applications for penalty and prosecution immunity upon paying due taxes",
+        "statutory bars against granting immunity for suppression or false entries"
+      ],
+      "exclusion": [
+        "cases where the assessee pursues appellate litigation against the assessment order"
+      ],
+      "nearby_distinctions": [
+        "Immunity under Section 270AA requires immediate tax compliance and forfeiture of appeal rights, unlike regular appellate dispute resolution."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "90bc96e61e89fba19aee9272d104f00436f00f4d715fd70b51c9c1b947b4121f",
+  "artifact_id": "58f1324d-e95f-40ed-96e5-7d4f33cb7493",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 10016,
+  "output_tokens": 4045,
+  "cost_usd": 0.013117299999999998,
+  "created_at": "2026-10-03T18:22:37.265727+00:00"
+}

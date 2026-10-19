@@ -53,7 +53,7 @@ def test_practice_profiles_loading():
     # 3. Case Scenarios profile
     cs_prof = resolve_profile(profiles_dir, scheme_id="s2023", doc_type_id="case_scenarios")
     assert cs_prof.doc_type == "case_scenarios"
-    assert cs_prof.paper_max == 30
+    assert cs_prof.paper_max is None
 
 
 def test_cross_doc_answer_pairing():
@@ -188,6 +188,8 @@ def test_practice_signal_scoring(session):
 
 def test_next_week_planning_engine(session):
     """Verify study planning engine, budget capping, per_chapter_cap, and reason generation."""
+    # This test requires its own score snapshot, independent of the preceding test.
+    recompute_scores(session, target_attempt_id="2026-05")
     plan = generate_study_plan(
         session=session,
         user_id=1,

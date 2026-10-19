@@ -22,6 +22,18 @@
   has_answers: false
   description: "Mock Test Paper Question"
 
+- id: model_question
+  signal_class: practice
+  has_questions: true
+  has_answers: false
+  description: "Model Test Paper Question (attempt may be undated)"
+
+- id: model_answer
+  signal_class: practice
+  has_questions: false
+  has_answers: true
+  description: "Model Test Paper Answer (paired artifact)"
+
 - id: mtp_answer
   signal_class: practice
   has_questions: true

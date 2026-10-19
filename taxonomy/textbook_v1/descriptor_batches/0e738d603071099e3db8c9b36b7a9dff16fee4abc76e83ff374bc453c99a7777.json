@@ -1,0 +1,278 @@
+{
+  "descriptors": [
+    {
+      "node_id": "aeaf7d1a-e609-4ecc-983f-93a85efeed7c",
+      "concept_name": "Yield to Maturity (YTM)",
+      "definition": "Yield to maturity represents the specific discount rate that equates the aggregate present value of all future cash flows from a bond with its current market price. It serves as the primary expected rate of return for an investor holding the bond until maturity.",
+      "terminology": [
+        "Discount rate",
+        "Market price",
+        "Future cash flows"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Bond coupon payments",
+        "Par value repayment at maturity"
+      ],
+      "exclusion": [
+        "Short-term holding period returns prior to maturity"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from current yield by factoring in total capital gains or losses until maturity rather than just annual coupon income."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "74f5b5d8-d2a7-41a1-b5a2-dc68f6e7b007",
+      "concept_name": "Bond Value with Semi-Annual Interest",
+      "definition": "Semi-annual bond valuation adjusts the standard pricing model by dividing annual coupon payments and discounting periods into half-yearly intervals. The bond value is determined by discounting these semi-annual interest payments and the terminal par value using a half-year discount rate over twice the number of years.",
+      "terminology": [
+        "Semi-annual interest payment",
+        "Half-yearly periods",
+        "Par value"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Semi-annual compounding cash flows",
+        "Half-year yield adjustments"
+      ],
+      "exclusion": [
+        "Annual coupon compounding models"
+      ],
+      "nearby_distinctions": [
+        "Differs from annual bond valuation through doubled period counts and halved periodic rates to reflect compounding frequency."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "932aeec5-9acb-409e-bbe1-fd35dca99fb6",
+      "concept_name": "Price Yield Relationship",
+      "definition": "Bond prices exhibit an inverse relationship with market yields, meaning that increases in required yields cause corresponding decreases in present values and bond prices. This occurs because higher discount rates diminish the present value of future cash inflows.",
+      "terminology": [
+        "Inverse relationship",
+        "Required yield",
+        "Present value"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Price decreases resulting from yield hikes",
+        "Price increases resulting from yield drops"
+      ],
+      "exclusion": [
+        "Direct linear relationships between bond pricing and time to maturity"
+      ],
+      "nearby_distinctions": [
+        "Contrasts with the convergence of bond prices toward par value over time, focusing strictly on interest rate fluctuations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "c0270f78-660d-478a-a78a-28875efc4378",
+      "concept_name": "Relationship between Bond Price and Time",
+      "definition": "A bond's market price naturally converges toward its par value as it approaches its maturity date, assuming zero default risk. Consequently, premium bonds experience price declines over time, whereas discount bonds experience price increases.",
+      "terminology": [
+        "Par value at maturity",
+        "Premium bond",
+        "Discount bond"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Price depreciation of premium instruments over time",
+        "Price appreciation of discount instruments over time"
+      ],
+      "exclusion": [
+        "Price fluctuations driven strictly by market interest rate shifts"
+      ],
+      "nearby_distinctions": [
+        "Focuses on temporal price convergence toward par value rather than instantaneous price adjustments caused by yield shifts."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "86dda3a8-6553-43a5-ad84-53d6606b34c0",
+      "concept_name": "Duration of Bond",
+      "definition": "Duration measures the weighted average time required for an investor to recover the true cost of a bond through its promised cash flows and YTM. It serves as a key indicator of interest rate risk, where higher duration signifies greater price sensitivity to interest rate changes.",
+      "terminology": [
+        "Weighted average time",
+        "Macaulay duration",
+        "Modified duration",
+        "Interest rate risk"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Macaulay duration calculations",
+        "Modified duration adjustments"
+      ],
+      "exclusion": [
+        "Total maturity period without weighting cash flow timing"
+      ],
+      "nearby_distinctions": [
+        "Differs from final maturity by factoring in the timing and magnitude of interim cash flows to measure true cost recovery."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "445e170b-0dea-4b14-ab0f-30c076342818",
+      "concept_name": "Immunization",
+      "definition": "Immunization is a portfolio management strategy designed to shield bond investments from interest rate risk by offsetting price risk and reinvestment risk. This balance is achieved by matching the portfolio duration to the target holding period so that terminal portfolio values remain insensitive to yield changes.",
+      "terminology": [
+        "Price risk",
+        "Reinvestment risk",
+        "Holding period",
+        "Insensitive"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Offsetting opposing interest rate risks",
+        "Duration-matching strategies"
+      ],
+      "exclusion": [
+        "Unhedged speculative bond trading"
+      ],
+      "nearby_distinctions": [
+        "Unlike standard passive holding, immunization actively matches duration to holding periods to neutralize interest rate volatility impacts."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "cd6c5276-980d-4e9d-b8a7-3774e6ec8936",
+      "concept_name": "Yield Curve",
+      "definition": "The yield curve graphically depicts the term structure of interest rates by illustrating how yield to maturity relates to varying bond maturity terms. It reflects prevailing market expectations and can exhibit upward, downward, or alternative structural slopes.",
+      "terminology": [
+        "Term structure of interest rates",
+        "Spot rate",
+        "Maturity terms"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Government security yield comparisons",
+        "Upward and downward sloping curve patterns"
+      ],
+      "exclusion": [
+        "Single-period discount rate evaluations without term matching"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from single spot rates by mapping a continuous spectrum of yields across multiple future maturity horizons."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "24f97566-6496-4722-9ac1-6d432fec5710",
+      "concept_name": "Term Structure Theories",
+      "definition": "Term structure theories explain the economic relationship between bond yields and different maturity terms through expectations, liquidity preferences, or market segmentations. These frameworks clarify why yield curves assume specific upward, downward, or flat configurations.",
+      "terminology": [
+        "Expectation theory",
+        "Liquidity preference theory",
+        "Preferred habitat theory"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Unbiased estimators of future short-term rates",
+        "Liquidity risk premiums",
+        "Market segment supply and demand forces"
+      ],
+      "exclusion": [
+        "Single-factor deterministic pricing models"
+      ],
+      "nearby_distinctions": [
+        "Explains the macro-level drivers of yield curve shapes rather than calculating individual bond prices or durations."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "a4617a79-a128-4fc6-8cd0-ef30256de1c3",
+      "concept_name": "Convexity Adjustment",
+      "definition": "Convexity adjustment refines duration-based bond price estimations by accounting for the curvilinear price-yield relationship. Because standard duration assumes linear price changes, incorporating convexity corrects estimation errors caused by larger interest rate movements.",
+      "terminology": [
+        "Convexity effect",
+        "Curvilinear relationship",
+        "Percentage change in price"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Corrections for large yield fluctuations",
+        "Curvature-based adjustments"
+      ],
+      "exclusion": [
+        "Linear duration approximations for infinitesimal rate shifts"
+      ],
+      "nearby_distinctions": [
+        "Complements Macaulay and modified duration by measuring the bending curvature of the price-yield function rather than its tangent slope."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "12eb3e57-51af-4c5c-b41a-c6c26f06c8d8",
+      "concept_name": "Convertible Debentures",
+      "definition": "Convertible debentures are debt instruments that grant holders the option to convert their bonds into equity shares after a specified period. Their valuation is influenced by a conversion ratio, conversion price, and the underlying equity market price.",
+      "terminology": [
+        "Conversion ratio",
+        "Conversion price",
+        "Equity shares"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Conversion value computations",
+        "Embedded equity conversion features"
+      ],
+      "exclusion": [
+        "Detachable standalone equity purchase warrants"
+      ],
+      "nearby_distinctions": [
+        "Unlike warrants, conversion options in convertible debentures are non-detachable and require no additional cash payment upon conversion."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1b8097ae-aef0-4ac4-9341-ae7ef5129237",
+      "concept_name": "Valuation of Warrants",
+      "definition": "A warrant is a detachable financial instrument giving the holder the right to subscribe to equity shares at a specified exercise price during a set period. Its theoretical value is calculated using the spread between current stock prices and exercise prices multiplied by the conversion number.",
+      "terminology": [
+        "Detachable option",
+        "Exercise price",
+        "Theoretical value of warrant"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Cash-settled share subscriptions",
+        "Theoretical valuation formulas"
+      ],
+      "exclusion": [
+        "Non-detachable debt conversion privileges"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from convertible debentures by being independently tradable and requiring a separate cash outlay upon exercise."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "56f45547-d89e-4c82-9e7b-5e9e0381a1a7",
+      "concept_name": "Zero Coupon Bond",
+      "definition": "Zero coupon bonds do not distribute periodic coupon payments during their lifespan, instead being issued at a deep discount to their face value. Investors realize their return when the bond matures and pays a lump sum equal to the initial investment plus accrued interest.",
+      "terminology": [
+        "Discounted price",
+        "Face value",
+        "Lump sum maturity payment"
+      ],
+      "instrument_references": [],
+      "inclusion": [
+        "Long-term discounting frameworks",
+        "Accrued interest lump-sum redemptions"
+      ],
+      "exclusion": [
+        "Periodic coupon-bearing debt instruments"
+      ],
+      "nearby_distinctions": [
+        "Differs from traditional coupon bonds by deriving all investor returns entirely from the price discount rather than periodic interest distributions."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "0e738d603071099e3db8c9b36b7a9dff16fee4abc76e83ff374bc453c99a7777",
+  "artifact_id": "4d109d7a-fd35-43ed-877a-d0a02ff5822e",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 8574,
+  "output_tokens": 2976,
+  "cost_usd": 0.0100122,
+  "created_at": "2026-10-03T18:07:14.323597+00:00"
+}

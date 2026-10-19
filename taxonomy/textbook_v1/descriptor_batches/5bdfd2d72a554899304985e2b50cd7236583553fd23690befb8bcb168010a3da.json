@@ -1,0 +1,210 @@
+{
+  "descriptors": [
+    {
+      "node_id": "96e765ab-d799-4c16-b203-ce23eee35ffd",
+      "concept_name": "Application Fees and Statutory Charges for Registrar and Regional Director Services",
+      "definition": "Regulates the prescribed fee schedule payable for applications, name reservations, DIN allotments, and document inspections submitted to the Registrar of Companies or Regional Director. These administrative levies vary based on the authorized share capital tier of the company or the specific nature of regulatory filings.",
+      "terminology": [
+        "authorized share capital",
+        "name reservation",
+        "Director Identification Number",
+        "certified copies",
+        "inspection of documents"
+      ],
+      "instrument_references": [
+        "Section 4(4)",
+        "Section 153",
+        "Section 399",
+        "Section 455(5)",
+        "Section 459(2)",
+        "Companies (Appointment and Qualification of Directors) Rules, 2014"
+      ],
+      "inclusion": [
+        "Fee for name reservation under Section 4",
+        "Fees for applications to Registrar of Companies and Regional Director",
+        "Annual fee for dormant companies",
+        "Fees for inspection and certified copies under Section 399"
+      ],
+      "exclusion": [
+        "Fees for applications filed before the Tribunal",
+        "Stamp duty on share transfers"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from Tribunal application fees governed under a separate statutory schedule."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "022db5b7-b355-451a-9c4a-aae7e34aee2d",
+      "concept_name": "MCA21 Version 3.0 Platform Components",
+      "definition": "An advanced technology-driven regulatory e-governance framework utilizing micro-services, artificial intelligence, and machine learning to modernize corporate compliance and enforcement in India. It incorporates specialized digital modules for automated document scrutiny, online adjudication proceedings, public consultations, and compliance tracking.",
+      "terminology": [
+        "e-Scrutiny",
+        "e-Adjudication",
+        "e-Consultation",
+        "Compliance Management System",
+        "Central Scrutiny Cell",
+        "Straight Through Process Forms"
+      ],
+      "instrument_references": [
+        "Press Release No. 1695473"
+      ],
+      "inclusion": [
+        "Central Scrutiny Cell review of Straight Through Process forms",
+        "Online adjudication hearings and digital proceedings",
+        "AI-driven sentiment analysis of public consultations on draft rules",
+        "Rule-based compliance tracking and electronic notice issuance"
+      ],
+      "exclusion": [
+        "Manual physical registry filing methods predating digital integration"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from legacy compliance filing by incorporating predictive analytics, automated alerts, and end-to-end digital adjudication workflows."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "1a2c83ab-2300-4a12-aabf-cae35ea99d3e",
+      "concept_name": "Statutory Audit Misconduct and Regulatory Investigation",
+      "definition": "Covers professional misconduct charges initiated against statutory auditors and engagement partners for failing to exercise professional skepticism and due diligence during company audits. Such inquiries examine failures in verifying basic financial records, testing asset integrity, and complying with generally accepted auditing procedures.",
+      "terminology": [
+        "Engagement Partner",
+        "Professional Misconduct",
+        "independent watchdogs",
+        "due diligence",
+        "falsification of accounts"
+      ],
+      "instrument_references": [
+        "Section 134(4) of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Investigations into auditor negligence and failure to obtain sufficient audit evidence",
+        "Omissions in reporting manipulated revenues and unverified assets",
+        "Regulatory proceedings initiated following Registrar of Companies disclosures"
+      ],
+      "exclusion": [
+        "Internal management decisions regarding corporate strategic restructuring"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from ordinary accounting errors by focusing on culpable professional negligence and breaches of auditing standards by statutory validators."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "e819f6af-e3a7-46e8-ab6f-e36fa7424a0f",
+      "concept_name": "Auditor Accountability for Related Party Transactions",
+      "definition": "Examines engagement partner liability regarding the validation of arm's length pricing and documentation for transactions executed with related corporate parties. Auditors must critically evaluate significant commercial dealings with entities connected to key managerial personnel to ensure complete transparency and compliance.",
+      "terminology": [
+        "arm's length pricing",
+        "Related Parties",
+        "audit file documentation",
+        "Managing Director",
+        "professional misconduct"
+      ],
+      "instrument_references": [
+        "Section 132(4) of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Evaluation of sales transactions executed with entities connected to director family members",
+        "Review of missing documentation supporting related party transaction pricing",
+        "Initiation of disciplinary action for deficient audit working papers"
+      ],
+      "exclusion": [
+        "Arm's length transactions conducted entirely with unrelated third-party customers in the open market"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from general revenue verification by requiring explicit scrutiny of ownership ties and pricing justifications between the reporting entity and insiders."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "bd6f4fc6-5099-4ab1-92d9-5998b3483526",
+      "concept_name": "Auditor Independence and Inter-Company Loan Compliance",
+      "definition": "Addresses statutory auditor liabilities arising from independence impairments, non-audit service relationships with client group entities, and failures to identify corporate loan limit breaches. Auditors are penalized when they neglect to document related party reviews and fail to report material misstatements stemming from unauthorized inter-company fund diversions.",
+      "terminology": [
+        "auditor independence",
+        "non-audit relationships",
+        "inter-company loans",
+        "material misstatement",
+        "diversion of funds"
+      ],
+      "instrument_references": [
+        "Section 132(4)",
+        "Section 186 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Violations due to dual audit and non-audit service relationships with promoter group companies",
+        "Failure to perform appropriate testing on inter-company loan limits and fund movements",
+        "Omission of material facts from financial statement disclosures"
+      ],
+      "exclusion": [
+        "Standard commercial credit terms offered uniformly to all retail customers in the ordinary course of business"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from technical accounting misclassifications by involving direct conflicts of interest and unchecked illegal diversion of corporate funds."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "00a139c5-9d9f-40bb-bee0-a1994321cd61",
+      "concept_name": "Dividend Declaration Out of Accumulated Reserves and Statutory Records Retention",
+      "definition": "Governs the legal parameters for declaring corporate dividends from past accumulated reserves when current earnings are negative, alongside mandatory timelines for transferring unpaid amounts. It also establishes statutory retention periods and voucher maintenance rules for corporate financial books of accounts.",
+      "terminology": [
+        "accumulated profits",
+        "Unpaid Dividend Account",
+        "books of accounts",
+        "vouchers",
+        "auditor rotation"
+      ],
+      "instrument_references": [
+        "Section 139 of the Companies Act, 2013"
+      ],
+      "inclusion": [
+        "Declaration of dividends out of past reserves during loss-making years",
+        "Transfer of unpaid dividend amounts to designated suspense accounts",
+        "Statutory obligations regarding the retention period of financial records and vouchers"
+      ],
+      "exclusion": [
+        "Interim dividend distributions made strictly out of current financial year profits"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from current-year profitability tests by permitting dividend payouts based on historical reserve averaging rules under specific conditions."
+      ],
+      "source_ambiguities": []
+    },
+    {
+      "node_id": "2b80cb39-235d-4ff9-bee3-a187be0f2e88",
+      "concept_name": "Compounding of Securities Transfer Violations and Director Liability",
+      "definition": "Deals with the legal consequences and compounding procedures applicable when a company unlawfully transfers securities in physical mode instead of mandatory dematerialized formats. It evaluates the extent of liability and notice obligations for both executive and non-executive directors during regulatory adjudication proceedings.",
+      "terminology": [
+        "demat mode",
+        "physical mode",
+        "compounding application",
+        "non-executive directors",
+        "adjudication"
+      ],
+      "instrument_references": [
+        "Rule 9A(3)(a) of the Companies (Prospectus and Allotment of Securities) Rules, 2014"
+      ],
+      "inclusion": [
+        "Suo-moto compounding applications for unauthorized physical share transfers",
+        "Subsequent rectification of compliance by transferring physical shares into demat accounts",
+        "Issuance of personal hearing notices by the Registrar of Companies to board directors"
+      ],
+      "exclusion": [
+        "Valid share transfers executed directly through authorized depository participant systems"
+      ],
+      "nearby_distinctions": [
+        "Distinguished from unrectified defaults by acknowledging subsequent remedial action taken by the company to convert physical holdings into electronic depositories."
+      ],
+      "source_ambiguities": []
+    }
+  ],
+  "input_hash": "5bdfd2d72a554899304985e2b50cd7236583553fd23690befb8bcb168010a3da",
+  "artifact_id": "3377d24a-bfd4-4da2-9142-bc9f7bb49cb9",
+  "model": "gemini-3.5-flash-lite",
+  "input_tokens": 5565,
+  "output_tokens": 2372,
+  "cost_usd": 0.0075995,
+  "created_at": "2026-10-03T18:24:47.008450+00:00"
+}
