@@ -62,7 +62,8 @@ def verify() -> None:
             assert not service.get("ports")
         for mount in service["volumes"]:
             assert mount["source"] in {"/srv/caf/data", "/srv/caf/postgres", "/srv/caf/backups"}
-            assert mount["bind"]["create_host_path"] is False
+            # Compose v2 omits false booleans in canonical JSON; v5 retains them.
+            assert mount["bind"].get("create_host_path", False) is False
         if name == "db":
             assert service["restart"] == "unless-stopped"
             continue
