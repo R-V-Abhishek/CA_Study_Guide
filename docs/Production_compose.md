@@ -58,8 +58,9 @@ file will live at `/etc/caf/compose.env` with mode 0600, outside Git.
 - Keep the real configuration restricted: rendered `docker compose config`
   output includes credentials. Operators should use `config -q` for validation.
 - Default architecture is `linux/amd64`; select a matching image/platform for
-  different replacement hardware. Record the resolved PostgreSQL image identity
-  in deployment receipts; the Compose file currently selects its version 16 tag.
+  different replacement hardware. Set `CAF_POSTGRES_IMAGE` from the verified
+  bundle manifest to select its exact bundled PostgreSQL image. The standalone
+  default remains `postgres:16-bookworm` for configuration/integration checks.
 
 ## Verified configuration checks
 
@@ -108,5 +109,6 @@ yet. There are no automatic migrations during normal startup or restart. The web
 healthcheck measures HTTP liveness, not continuous schema/storage readiness;
 worker heartbeat monitoring is also pending.
 
-Next: implement verified release bundles and deployment tooling. Production Auth0,
+Verified release bundles are described in [application releases](Application_releases.md).
+Next: implement host deployment and recovery tooling. Production Auth0,
 Tailscale Serve, recovery storage and production import remain later gates.

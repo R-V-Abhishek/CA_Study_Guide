@@ -1,0 +1,54 @@
+{
+  "format_version": 1,
+  "version": "v0.1.0",
+  "candidate": true,
+  "commit": "becaeb736addcc00d6413434b6960b9ce298030e",
+  "platform": "linux/arm64",
+  "created_at": "2026-10-19T02:09:48.382985Z",
+  "application": {
+    "reference": "caf:v0.1.0-candidate-becaeb736add-arm64",
+    "image_id": "sha256:4136d891a72277c53d9f4f311c3d1b20a0c5bd5108a8492e06a79ac4b47a6282"
+  },
+  "postgres": {
+    "reference": "caf-postgres:0ea6700a3b4f0ae6ce746519073558aed4d88a79d8d07622a9a644946c7319c4",
+    "image_id": "sha256:0ea6700a3b4f0ae6ce746519073558aed4d88a79d8d07622a9a644946c7319c4"
+  },
+  "required_schema": "0009_question_language",
+  "supported_schemas": [
+    "0009_question_language"
+  ],
+  "dependency_locks": {
+    "uv.lock": "9f121868c5ec63aba64e1de580dd0acccb2a40cf0f92fafa50c309f1d702d35c",
+    "web/pnpm-lock.yaml": "7176866c13f0125917059b14839b639de5bcbbed0f53ed0f76632848a40d02f0"
+  },
+  "files": {
+    "host.env.example": {
+      "sha256": "304187239b140d2198381d41692ad58bd4e21f56e39eefef174b5f69156a6b17",
+      "size": 775
+    },
+    "build-metadata.json": {
+      "sha256": "89a1ff7162e9de8e4cf923387bae7b1263e8cc58d11b0948f3651b2acb294332",
+      "size": 132182
+    },
+    "RELEASE_NOTES.md": {
+      "sha256": "56796311dfde5551ee428e9ab458f99507467d918f21aea1e71b797e1a88aa28",
+      "size": 203
+    },
+    "compose.production.yml": {
+      "sha256": "2c11d9397b8effb976e9295afddddd920c446a5d8e75ae2d50b471edd3835453",
+      "size": 5315
+    },
+    "images.tar": {
+      "sha256": "5e8fdc9a71f1640194a9365bf4d9b6076d5d1da63b8f9d7265fae5eaf8a79f1c",
+      "size": 339475968
+    },
+    "stack-verification.json": {
+      "sha256": "8101771659d1233b283eb6423b6aead34882376d79053f9b05f38e12f5aca14b",
+      "size": 2295
+    },
+    "verify-image.sh": {
+      "sha256": "33d132b1c0430f5cba5f6f6716e20142304fcbbef30f18f3a81f2a5795d07d8a",
+      "size": 2407
+    }
+  }
+}

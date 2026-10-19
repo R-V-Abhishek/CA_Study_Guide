@@ -3,6 +3,8 @@
 Application bundles can be built on the Mac or by GitHub Actions using the same
 repository-owned Typer command. GitHub Releases stores the resulting archives;
 there is no required image registry. Publishing a release does not deploy Ubuntu.
+See the [19 October verification record](Release_verification_2026_10_19.md) for
+local candidate checks, the passing amd64 Actions run and remaining limits.
 
 ## Commit messages and acceptance
 

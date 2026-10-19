@@ -72,7 +72,8 @@ must be recorded by the future release bundle tooling before production use.
 
 ## Pending incremental steps
 
-1. Implement and verify release bundles, deployment checks, and recovery tooling.
+1. Implement and verify host deployment checks and recovery tooling using the
+   checksummed release bundles.
 2. Configure Auth0 and private HTTPS, then test an isolated restore.
 3. Import production data only after a verified separately stored recovery backup.
 
