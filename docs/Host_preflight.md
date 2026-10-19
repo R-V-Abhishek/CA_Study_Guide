@@ -116,3 +116,24 @@ probe timeout and the existing release-integrity guards. The saved older ARM64
 candidate also passed the newly packaged verifier without a format change.
 The image verifier now checks `caf-host --help`, and native Linux candidate builds
 exercise the real host launcher using `scripts/verify_host_launcher.py`.
+
+The local ARM64 image built from `01e801165e9bf8a97db74d22f3d92db557e122d0`
+also passed the offline image checks, including the new console entry. Its ID is
+`sha256:49021ada5c84b29f96d38c811493cfc750997b0a6f3143e161c35a0c1327d875`.
+A constrained, read-only container replayed the real Ubuntu snapshot and matched
+the uv-generated report exactly, apart from the expected `tool_image` identity.
+Raw metadata was then deleted; only the non-secret reports remain.
+
+The first Linux CI run passed 494 tests and exposed an existing immediate-volume-
+cleanup assertion. The recovery test now waits up to five seconds for Docker's
+asynchronous anonymous-volume removal, retaining its failure on a persistent
+leak. A separate owned-volume write/cleanup probe passed locally. This adjustment
+changes test timing only; it does not change the PostgreSQL sandbox or production
+storage behavior.
+
+[Linux verification run](https://github.com/R-V-Abhishek/CA_Study_Guide/actions/runs/39295554000)
+passed for code revision `d679567577d8cce657be691263b3169c6d4b1ab6`: 495 Python
+tests, 25 UI tests, frontend type checks/builds, Compose validation and release
+version checks. The native amd64 image passed the real host launcher, offline
+image checks, isolated application stack and checksummed bundle creation. This
+does not deploy or activate an application on the Ubuntu laptop.
