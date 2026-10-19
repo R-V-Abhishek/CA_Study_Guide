@@ -29,7 +29,8 @@ def stop_recorded_worker() -> bool:
             f"(Get-CimInstance Win32_Process -Filter 'ProcessId = {pid}').CommandLine"],
             capture_output=True, text=True, check=False)
     else:
-        result = subprocess.run(["ps", "-p", str(pid), "-o", "command="],
+        # GNU ps can truncate a long uv/Python path before the ownership token.
+        result = subprocess.run(["ps", "-ww", "-p", str(pid), "-o", "command="],
                                 capture_output=True, text=True, check=False)
     command = result.stdout
     if result.returncode != 0 or not command.strip():

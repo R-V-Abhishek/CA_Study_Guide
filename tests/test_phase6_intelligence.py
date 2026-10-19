@@ -416,6 +416,8 @@ def test_worker_lifecycle_stops_only_owned_process_and_preserves_leased_job(sess
     session.add(job)
     session.commit()
     monkeypatch.setattr(worker_lifecycle, "STATE_PATH", tmp_path / "worker.json")
+    # A narrow CI terminal must not truncate a long executable path or owner token.
+    monkeypatch.setenv("COLUMNS", "80")
     token = secrets.token_hex(12)
     log = tmp_path / "worker.log"
     with log.open("w") as output:

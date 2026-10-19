@@ -2,8 +2,10 @@ name: Application checks
 on:
   push:
     branches: [main, feat/phase8-central-deployment, 'codex/**']
+    paths-ignore: ['docs/**']
   pull_request:
     branches: [main]
+    paths-ignore: ['docs/**']
   workflow_dispatch:
 permissions:
   contents: read
