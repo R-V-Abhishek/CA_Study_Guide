@@ -16,6 +16,8 @@ records successful local runtime checks with synthetic data.
 See [application releases](Application_releases.md) for checksummed offline bundles,
 Conventional Commit release PRs and GitHub Actions. Publication remains separate
 from Ubuntu installation and activation.
+The [read-only host tools](Host_preflight.md) add packaged preflight and bundle
+verification; a private inspection report has been saved on the Ubuntu laptop.
 
 The production Dockerfile packages Python 3.12, dependencies from `uv.lock`, both
 interfaces built with pnpm 12.6.0 and its frozen lockfile, Tesseract English OCR,

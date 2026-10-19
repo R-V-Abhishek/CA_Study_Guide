@@ -1,0 +1,44 @@
+#!/bin/sh
+# Host commands stay here; packaged Typer tooling has no Docker socket or host root mount.
+set -eu
+image=${CAF_HOST_IMAGE:?Set CAF_HOST_IMAGE to a verified, locally loaded application image}
+image_id=$(docker image inspect --format '{{.Id}}' "$image")
+directory=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+case ${1:-} in
+    preflight)
+        shift
+        inspection=$(mktemp -d)
+        trap 'rm -rf -- "$inspection"' 0
+        trap 'exit 130' 1 2 15
+        sh "$directory/collect-host.sh" "$inspection"
+        docker run --rm --pull=never --network none --read-only --cap-drop ALL \
+            --security-opt no-new-privileges:true --pids-limit 64 --memory 256m --cpus 1 \
+            --user "$(id -u):$(id -g)" --env "CAF_HOST_TOOL_IMAGE=$image_id" \
+            --mount "type=bind,source=$inspection,target=/inspection,readonly" \
+            --entrypoint caf-host "$image_id" preflight --inspection /inspection "$@"
+        ;;
+    verify-bundle)
+        shift
+        test "$#" -ge 1 || { echo 'Usage: caf-host verify-bundle ARCHIVE [--allow-candidate]' >&2; exit 1; }
+        bundle=$(realpath -e -- "$1")
+        shift
+        if [ "$#" -gt 1 ] || { [ "$#" -eq 1 ] && [ "$1" != --allow-candidate ]; }; then
+            echo 'Only --allow-candidate is accepted; platform is determined from the host' >&2
+            exit 1
+        fi
+        case $bundle in *[,]* ) echo 'Bundle path must not contain commas' >&2; exit 1;; esac
+        case $(uname -m) in
+            x86_64) platform=linux/amd64;;
+            aarch64) platform=linux/arm64;;
+            *) echo 'Unsupported host CPU architecture' >&2; exit 1;;
+        esac
+        # Bind only these two inputs, never the containing home/configuration directory.
+        docker run --rm --pull=never --network none --read-only --cap-drop ALL \
+            --security-opt no-new-privileges:true --pids-limit 64 --memory 256m --cpus 1 \
+            --user "$(id -u):$(id -g)" \
+            --mount "type=bind,source=$bundle,target=/input/$(basename "$bundle"),readonly" \
+            --mount "type=bind,source=$bundle.sha256,target=/input/$(basename "$bundle").sha256,readonly" \
+            --entrypoint caf-host "$image_id" verify-bundle "/input/$(basename "$bundle")" --platform "$platform" "$@"
+        ;;
+    *) echo 'Usage: caf-host {preflight|verify-bundle ARCHIVE}' >&2; exit 1;;
+esac

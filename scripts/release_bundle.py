@@ -1,7 +1,6 @@
 """Build and verify offline release bundles; never deploy or modify live storage."""
 
 from datetime import datetime, timezone
-import hashlib
 import json
 import os
 from pathlib import Path
@@ -12,47 +11,14 @@ import tarfile
 import tempfile
 import tomllib
 
-from pydantic import BaseModel, ConfigDict, Field
 import typer
 
+from caf_cli.host_bundle import (
+    FileRecord, ImageRecord, LOCKS, Manifest, PAYLOAD, check_manifest, digest, verify_archive,
+)
+
 ROOT = Path(__file__).resolve().parents[1]
-PAYLOAD = {"images.tar", "compose.production.yml", "host.env.example", "RELEASE_NOTES.md",
-           "verify-image.sh", "build-metadata.json", "stack-verification.json"}
-LOCKS = ("uv.lock", "web/pnpm-lock.yaml")
 app = typer.Typer(add_completion=False, pretty_exceptions_enable=False)
-
-
-class FileRecord(BaseModel):
-    model_config = ConfigDict(extra="forbid")
-    sha256: str = Field(pattern=r"^[0-9a-f]{64}$")
-    size: int = Field(ge=0)
-
-
-class ImageRecord(BaseModel):
-    model_config = ConfigDict(extra="forbid")
-    reference: str = Field(pattern=r"^caf(?:-postgres)?:[a-zA-Z0-9_.-]+$")
-    image_id: str = Field(pattern=r"^sha256:[0-9a-f]{64}$")
-
-
-class Manifest(BaseModel):
-    model_config = ConfigDict(extra="forbid")
-    format_version: int = Field(default=1, ge=1, le=1)
-    version: str = Field(pattern=r"^v(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$")
-    candidate: bool
-    commit: str = Field(pattern=r"^[0-9a-f]{40}$")
-    platform: str = Field(pattern=r"^linux/(amd64|arm64)$")
-    created_at: datetime
-    application: ImageRecord
-    postgres: ImageRecord
-    required_schema: str
-    supported_schemas: list[str]
-    dependency_locks: dict[str, str]
-    files: dict[str, FileRecord]
-
-
-def digest(path: Path) -> str:
-    with path.open("rb") as stream:
-        return hashlib.file_digest(stream, "sha256").hexdigest()
 
 
 def run(arguments: list[str], *, cwd: Path = ROOT, **kwargs) -> str:
@@ -76,60 +42,6 @@ def source_identity(root: Path, candidate: bool) -> tuple[str, str]:
         if tagged != commit:
             raise ValueError("Release tag must point at the clean checked-out commit")
     return version, commit
-
-
-def check_manifest(manifest: Manifest) -> None:
-    if set(manifest.files) != PAYLOAD:
-        raise ValueError("Unexpected or missing release payload files")
-    if set(manifest.dependency_locks) != set(LOCKS):
-        raise ValueError("Both dependency lock hashes are required")
-    if any(not re.fullmatch(r"[0-9a-f]{64}", value) for value in manifest.dependency_locks.values()):
-        raise ValueError("Invalid dependency lock hash")
-    if not manifest.required_schema or manifest.required_schema not in manifest.supported_schemas:
-        raise ValueError("Required schema must be explicitly supported")
-    if len(manifest.supported_schemas) != len(set(manifest.supported_schemas)):
-        raise ValueError("Duplicate supported schemas")
-    suffix = f"-candidate-{manifest.commit[:12]}" if manifest.candidate else ""
-    if manifest.application.reference != f"caf:{manifest.version}{suffix}-{manifest.platform.split('/')[1]}":
-        raise ValueError("Application image reference differs from release identity")
-    if manifest.postgres.reference != "caf-postgres:" + manifest.postgres.image_id.split(":")[1]:
-        raise ValueError("Database image reference differs from immutable identity")
-
-
-def verify_archive(bundle: Path) -> Manifest:
-    """Stream members without extraction; reject links, duplicates, paths and corruption."""
-    expected = bundle.with_name(bundle.name + ".sha256").read_text()
-    if expected != f"{digest(bundle)}  {bundle.name}\n":
-        raise ValueError("Outer bundle SHA-256 mismatch")
-    with tarfile.open(bundle, "r:gz") as archive:
-        members = archive.getmembers()
-        names = [member.name for member in members]
-        if len(names) != len(set(names)) or set(names) != PAYLOAD | {"manifest.json", "SHA256SUMS"}:
-            raise ValueError("Unexpected, duplicate or missing bundle members")
-        if any(not member.isfile() or member.size > 20 * 1024**3 for member in members):
-            raise ValueError("Bundle must contain bounded regular files only")
-        member = archive.getmember("manifest.json")
-        if member.size > 128 * 1024:
-            raise ValueError("Manifest exceeds size limit")
-        manifest_bytes = archive.extractfile(member).read()
-        manifest = Manifest.model_validate_json(manifest_bytes)
-        check_manifest(manifest)
-        hashes = {"manifest.json": hashlib.sha256(manifest_bytes).hexdigest()}
-        for name, record in manifest.files.items():
-            member = archive.getmember(name)
-            if member.size != record.size:
-                raise ValueError(f"Payload size mismatch: {name}")
-            with archive.extractfile(member) as stream:
-                actual = hashlib.file_digest(stream, "sha256").hexdigest()
-            if actual != record.sha256:
-                raise ValueError(f"Payload SHA-256 mismatch: {name}")
-            hashes[name] = actual
-        sums = "".join(f"{hashes[name]}  {name}\n" for name in sorted(hashes))
-        if archive.getmember("SHA256SUMS").size != len(sums):
-            raise ValueError("Invalid SHA256SUMS size")
-        if archive.extractfile("SHA256SUMS").read().decode() != sums:
-            raise ValueError("Invalid SHA256SUMS")
-    return manifest
 
 
 @app.command()
@@ -211,6 +123,8 @@ def build(
         if labels["org.opencontainers.image.revision"] != commit or labels["org.opencontainers.image.version"] != version:
             raise ValueError("Built image source identity mismatch")
         subprocess.run(["sh", str(source / "deploy/verify-image.sh"), reference], check=True)
+        subprocess.run(["uv", "run", "--no-sync", str(ROOT / "scripts/verify_host_launcher.py"),
+                        "--image", reference], cwd=ROOT, check=True)
         subprocess.run(["docker", "pull", "--platform", platform, "postgres:16-bookworm"], check=True)
         receipt = directory / "stack-verification.json"
         subprocess.run(["uv", "run", "--no-sync", str(ROOT / "scripts/verify_production_stack.py"),
