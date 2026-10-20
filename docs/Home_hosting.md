@@ -17,7 +17,8 @@ See [application releases](Application_releases.md) for checksummed offline bund
 Conventional Commit release PRs and GitHub Actions. Publication remains separate
 from Ubuntu installation and activation.
 The [read-only host tools](Host_preflight.md) add packaged preflight and bundle
-verification; a private inspection report has been saved on the Ubuntu laptop.
+verification plus offline inspection of existing backup snapshots; a private
+inspection report has been saved on the Ubuntu laptop.
 The [Ubuntu staging checkpoint](Ubuntu_staging_2026_10_20.md) records a verified
 amd64 candidate transfer, image import and packaged tooling checks on the laptop.
 No application services or production data have been installed.

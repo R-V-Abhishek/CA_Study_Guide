@@ -207,3 +207,30 @@ def verify_bundle(bundle: Path, platform: str = typer.Option(...), allow_candida
         typer.echo(f"Bundle verification failed: {error}", err=True)
         raise typer.Exit(1) from error
     typer.echo(manifest.model_dump_json(indent=2))
+
+
+@app.command()
+def inspect_backup(snapshot: Path) -> None:
+    """Check a saved snapshot's file integrity; does not perform a database restore."""
+    from caf_common.backup import critical_tables
+    from caf_common.recovery_manifest import checksum, inspect_recovery_files
+
+    try:
+        manifest = inspect_recovery_files(snapshot)
+        if critical_tables(manifest.database_revision) - manifest.tables.keys():
+            raise ValueError("Manifest missing protected tables")
+        report = {
+            "format_version": 1,
+            "manifest_sha256": checksum(snapshot / "manifest.json"),
+            "created_at": manifest.created_at.isoformat(),
+            "database_revision": manifest.database_revision,
+            "dump_sha256": manifest.dump_sha256,
+            "archived_files": len(manifest.files),
+            "tables": len(manifest.tables),
+            "file_integrity_verified": True,
+            "restore_verified": False,
+        }
+    except (OSError, ValueError) as error:
+        typer.echo(f"Backup inspection failed: {error}", err=True)
+        raise typer.Exit(1) from error
+    typer.echo(json.dumps(report, indent=2))

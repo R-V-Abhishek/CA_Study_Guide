@@ -40,5 +40,17 @@ case ${1:-} in
             --mount "type=bind,source=$bundle.sha256,target=/input/$(basename "$bundle").sha256,readonly" \
             --entrypoint caf-host "$image_id" verify-bundle "/input/$(basename "$bundle")" --platform "$platform" "$@"
         ;;
-    *) echo 'Usage: caf-host {preflight|verify-bundle ARCHIVE}' >&2; exit 1;;
+    inspect-backup)
+        shift
+        test "$#" -eq 1 || { echo 'Usage: caf-host inspect-backup SNAPSHOT_DIRECTORY' >&2; exit 1; }
+        snapshot=$(realpath -e -- "$1")
+        test -d "$snapshot" && test -f "$snapshot/manifest.json" || { echo 'Snapshot directory with manifest.json required' >&2; exit 1; }
+        case $snapshot in *[,]* ) echo 'Snapshot path must not contain commas' >&2; exit 1;; esac
+        docker run --rm --pull=never --network none --read-only --cap-drop ALL \
+            --security-opt no-new-privileges:true --pids-limit 64 --memory 256m --cpus 1 \
+            --user "$(id -u):$(id -g)" \
+            --mount "type=bind,source=$snapshot,target=/snapshot,readonly" \
+            --entrypoint caf-host "$image_id" inspect-backup /snapshot
+        ;;
+    *) echo 'Usage: caf-host {preflight|verify-bundle ARCHIVE|inspect-backup SNAPSHOT_DIRECTORY}' >&2; exit 1;;
 esac

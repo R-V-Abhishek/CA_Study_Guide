@@ -1,6 +1,6 @@
 # Read-only home-host tools
 
-`caf-host` currently provides `preflight` and `verify-bundle`. Installation,
+`caf-host` currently provides `preflight`, `verify-bundle` and `inspect-backup`. Installation,
 deployment, service/database status, encrypted recovery and rollback commands
 remain later increments. Keep the `v0.2.0` release PR pending until the required
 installation and recovery paths are verified.
@@ -15,6 +15,7 @@ installation is required. Select an image containing the new `caf-host` entry:
 ```sh
 CAF_HOST_IMAGE='<loaded-application-image>' sh /opt/caf/repo/deploy/caf-host preflight > preflight.json
 CAF_HOST_IMAGE='<loaded-application-image>' sh /opt/caf/repo/deploy/caf-host verify-bundle /srv/caf/releases/<bundle>.tar.gz
+CAF_HOST_IMAGE='<loaded-application-image>' sh /opt/caf/repo/deploy/caf-host inspect-backup /srv/caf/backups/<snapshot-directory>
 ```
 
 The launcher resolves the selected image to its immutable image ID before
@@ -75,6 +76,33 @@ regular files, duplicates, schema metadata, image references and platform.
 Candidates require explicit opt-in. Invalid bundles exit 1; success emits the
 verified manifest. Obtain archives/checksums from the accepted repository release
 or owner-verified transfer; hashes alone do not establish the producer's identity.
+
+## Inspect an existing backup before a restore
+
+`inspect-backup` accepts a plain snapshot directory produced by the existing
+`caf backup run` command. It checks the format-1 manifest, required protected
+table inventory, dump SHA-256 and the exact archived file inventory and hashes.
+It rejects unsafe paths, symlinks and special files. The launcher mounts only
+that snapshot directory, read-only, into its constrained offline tool container.
+It does not receive database credentials or a Docker socket and creates no files
+inside the snapshot. Use an image built with this command; the candidate staged
+on 20 October predates it.
+
+Exit 0 emits a small JSON report containing the capture time, schema revision,
+manifest/dump hashes and inventory sizes. It explicitly reports
+`file_integrity_verified: true` and `restore_verified: false`. Exit 1 means
+inspection failed; stderr describes the failure without echoing malformed
+manifest values. Inspection never restores a database, tests ownership, validates
+dump syntax or certifies the backup as recoverable. It can correctly accept a
+hash-matching synthetic dump; only a subsequent isolated PostgreSQL restore can
+establish restorability. Checksums alone also do not prove who created a backup.
+
+The existing restore drill now uses the same file validator before starting its
+disposable PostgreSQL container. It still compares restored row digests, schema
+and migration baseline independently. That existing developer drill is separate
+from this offline command; the packaged host restore workflow remains pending.
+Encrypted snapshot packaging, external-drive handling and unattended recovery
+are not implemented by `inspect-backup`.
 
 ## Verification on 19 October 2026
 

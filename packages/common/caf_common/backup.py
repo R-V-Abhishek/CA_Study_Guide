@@ -17,6 +17,7 @@ from sqlalchemy.engine import make_url
 from sqlalchemy.orm import Session
 from caf_common.db_safety import assert_safe_database, assert_safe_storage
 from caf_common.postgres_sandbox import PostgresSandbox
+from caf_common.recovery_manifest import inspect_recovery_files
 from caf_common.settings import get_settings
 from caf_db.models.ops import Event
 from caf_db.schema_baseline import schema_snapshot, compare_schema_snapshots, migrated_schema_snapshot
@@ -240,20 +241,6 @@ def _check_scratch_destination(url, name):
         admin.dispose()
 
 
-def _validate_archived_files(root, manifest):
-    expected = manifest["files"]
-    actual = {path.relative_to(root).as_posix() for directory in ("blobs", "configs")
-              for path in (root / directory).rglob("*") if path.is_file()}
-    if actual != expected.keys():
-        raise ValueError("Archived file inventory mismatch (missing or unexpected files)")
-    for relative, checksum in expected.items():
-        path = root / relative
-        if path.is_symlink() or not path.resolve().is_relative_to(root.resolve()):
-            raise ValueError("Unsafe archived file path")
-        if file_checksum(path) != checksum:
-            raise ValueError(f"Archived file checksum mismatch: {relative}")
-
-
 def verify_backup(session: Session | None = None, dump_file=None, scratch_db_name="caf_verify",
                   db_url=None) -> VerificationResult:
     """Restore in a separate disposable container and compare to captured values."""
@@ -273,21 +260,15 @@ def verify_backup(session: Session | None = None, dump_file=None, scratch_db_nam
     expected_counts = {}
     restored_counts = {}
     mismatches = []
-    manifest_path = root / "manifest.json"
     restored_schema = None
     baseline_drift = None
     try:
-        if not manifest_path.exists():
-            raise ValueError("Legacy backup: no manifest; content verification unavailable")
-        manifest = json.loads(manifest_path.read_text())
-        if manifest["format_version"] != 1 or manifest["dump_file"] != dump_path.name:
+        manifest = inspect_recovery_files(root).model_dump(by_alias=True)
+        if manifest["dump_file"] != dump_path.name:
             raise ValueError("Invalid backup manifest")
         expected_counts = {table: values["count"] for table, values in manifest["tables"].items()}
         if critical_tables(manifest["database_revision"]) - expected_counts.keys():
             raise ValueError("Manifest missing protected tables")
-        if file_checksum(dump_path) != manifest["dump_sha256"]:
-            raise ValueError("Dump checksum mismatch")
-        _validate_archived_files(root, manifest)
         with PostgresSandbox("restore", use_tmpfs=False) as sandbox:
             sandbox.allow(scratch_db_name)
             baseline_name = f"{scratch_db_name}_baseline"
