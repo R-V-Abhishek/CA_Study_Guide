@@ -8,6 +8,7 @@ from caf_common.settings import get_settings
 
 
 def test_readiness_uses_database_schema_and_storage(session, monkeypatch, tmp_path):
+    get_settings().storage.data_dir.mkdir(exist_ok=True)
     client = TestClient(app)
     assert client.get("/api/v1/ready").json() == {"status": "ready"}
     session.execute(sa.text("UPDATE ops.alembic_version SET version_num='unsupported'"))
