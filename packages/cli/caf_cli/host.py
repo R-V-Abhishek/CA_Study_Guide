@@ -1,4 +1,4 @@
-"""Read-only host inspection and offline bundle verification; no Docker administration."""
+"""Packaged host tooling; Docker administration stays in the host launcher."""
 
 from datetime import datetime
 import json
@@ -12,9 +12,11 @@ from pydantic import BaseModel, Field
 import typer
 
 from caf_cli.host_bundle import verify_archive
+from caf_cli.host_install import app as install_app
 
-app = typer.Typer(help="Packaged home-host inspection tools", add_completion=False,
+app = typer.Typer(help="Packaged home-host tools", add_completion=False,
                   pretty_exceptions_enable=False)
+app.add_typer(install_app, name="_install", hidden=True)
 GIB = 1024**3
 
 

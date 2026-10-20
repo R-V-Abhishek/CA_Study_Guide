@@ -22,6 +22,9 @@ inspection report has been saved on the Ubuntu laptop.
 The [Ubuntu staging checkpoint](Ubuntu_staging_2026_10_20.md) records a verified
 amd64 candidate transfer, image import and packaged tooling checks on the laptop.
 No application services or production data have been installed.
+The [first-install workflow](Host_installation.md) adds actual release loading,
+empty-destination restore, migration, activation and host status commands. It is
+separate from the still-pending production configuration and activation.
 
 The production Dockerfile packages Python 3.12, dependencies from `uv.lock`, both
 interfaces built with pnpm 12.6.0 and its frozen lockfile, Tesseract English OCR,

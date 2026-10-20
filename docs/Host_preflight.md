@@ -1,9 +1,9 @@
 # Read-only home-host tools
 
-`caf-host` currently provides `preflight`, `verify-bundle` and `inspect-backup`. Installation,
-deployment, service/database status, encrypted recovery and rollback commands
-remain later increments. Keep the `v0.2.0` release PR pending until the required
-installation and recovery paths are verified.
+`caf-host` provides `preflight`, `verify-bundle`, `inspect-backup`, and the
+[host-side installation/status workflow](Host_installation.md). Updates,
+encrypted recovery and rollback remain later increments. Keep the `v0.2.0`
+release PR pending until the required installation and recovery paths are verified.
 
 ## Host launcher
 

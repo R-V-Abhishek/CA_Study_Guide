@@ -2,6 +2,7 @@
 
 from datetime import datetime
 import hashlib
+import json
 from pathlib import Path
 import re
 import tarfile
@@ -99,4 +100,40 @@ def verify_archive(bundle: Path) -> Manifest:
             raise ValueError("Invalid SHA256SUMS")
     return manifest
 
+
+def archived_image_ids(path: Path, record: ImageRecord) -> set[str]:
+    """Bind classic config IDs and containerd manifest IDs to the saved image."""
+    with tarfile.open(path) as archive:
+        return saved_image_ids(archive, record)
+
+
+def saved_image_ids(archive: tarfile.TarFile, record: ImageRecord) -> set[str]:
+    def read(name: str) -> bytes:
+        member = archive.getmember(name)
+        if not member.isfile() or member.size > 2 * 1024**2:
+            raise ValueError(f"Invalid saved image metadata: {name}")
+        return archive.extractfile(member).read()
+
+    entries = json.loads(read("manifest.json"))
+    matching = [entry for entry in entries if record.reference in entry["RepoTags"]]
+    if len(matching) != 1:
+        raise ValueError("Saved image reference must identify exactly one image")
+    config_id = "sha256:" + hashlib.sha256(read(matching[0]["Config"])).hexdigest()
+    identities = {config_id}
+    if "index.json" in archive.getnames():
+        for descriptor in json.loads(read("index.json"))["manifests"]:
+            if descriptor["mediaType"] != "application/vnd.oci.image.manifest.v1+json":
+                continue
+            manifest_id = descriptor["digest"]
+            algorithm, value = manifest_id.split(":", 1)
+            if algorithm != "sha256" or not re.fullmatch(r"[0-9a-f]{64}", value):
+                raise ValueError("Invalid saved image manifest digest")
+            payload = read(f"blobs/sha256/{value}")
+            if hashlib.sha256(payload).hexdigest() != value:
+                raise ValueError("Saved image manifest digest mismatch")
+            if json.loads(payload)["config"]["digest"] == config_id:
+                identities.add(manifest_id)
+    if record.image_id not in identities:
+        raise ValueError("Recorded image identity differs from saved image metadata")
+    return identities
 

@@ -1,7 +1,6 @@
 """Build and verify offline release bundles; never deploy or modify live storage."""
 
 from datetime import datetime, timezone
-import hashlib
 import json
 import os
 from pathlib import Path
@@ -15,7 +14,7 @@ import tomllib
 import typer
 
 from caf_cli.host_bundle import (
-    FileRecord, ImageRecord, LOCKS, Manifest, PAYLOAD, check_manifest, digest, verify_archive,
+    FileRecord, ImageRecord, LOCKS, Manifest, PAYLOAD, archived_image_ids, check_manifest, digest, verify_archive,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -43,39 +42,6 @@ def source_identity(root: Path, candidate: bool) -> tuple[str, str]:
         if tagged != commit:
             raise ValueError("Release tag must point at the clean checked-out commit")
     return version, commit
-
-
-def archived_image_ids(path: Path, record: ImageRecord) -> set[str]:
-    """Bind classic config IDs and containerd manifest IDs to the saved image."""
-    with tarfile.open(path) as archive:
-        def read(name: str) -> bytes:
-            member = archive.getmember(name)
-            if not member.isfile() or member.size > 2 * 1024**2:
-                raise ValueError(f"Invalid saved image metadata: {name}")
-            return archive.extractfile(member).read()
-
-        entries = json.loads(read("manifest.json"))
-        matching = [entry for entry in entries if record.reference in entry["RepoTags"]]
-        if len(matching) != 1:
-            raise ValueError("Saved image reference must identify exactly one image")
-        config_id = "sha256:" + hashlib.sha256(read(matching[0]["Config"])).hexdigest()
-        identities = {config_id}
-        if "index.json" in archive.getnames():
-            for descriptor in json.loads(read("index.json"))["manifests"]:
-                if descriptor["mediaType"] != "application/vnd.oci.image.manifest.v1+json":
-                    continue
-                manifest_id = descriptor["digest"]
-                algorithm, value = manifest_id.split(":", 1)
-                if algorithm != "sha256" or not re.fullmatch(r"[0-9a-f]{64}", value):
-                    raise ValueError("Invalid saved image manifest digest")
-                payload = read(f"blobs/sha256/{value}")
-                if hashlib.sha256(payload).hexdigest() != value:
-                    raise ValueError("Saved image manifest digest mismatch")
-                if json.loads(payload)["config"]["digest"] == config_id:
-                    identities.add(manifest_id)
-        if record.image_id not in identities:
-            raise ValueError("Recorded image identity differs from saved image metadata")
-        return identities
 
 
 @app.command()
@@ -164,7 +130,8 @@ def build(
         subprocess.run(["docker", "pull", "--platform", platform, "postgres:16-bookworm"], check=True)
         receipt = directory / "stack-verification.json"
         subprocess.run(["uv", "run", "--no-sync", str(ROOT / "scripts/verify_production_stack.py"),
-                        "--image", reference, "--report", str(receipt)], cwd=ROOT, check=True)
+                        "--image", reference, "--report", str(receipt),
+                        "--backup-output", str(directory / "synthetic-backup")], cwd=ROOT, check=True)
         tested = json.loads(receipt.read_text())
         if not tested["passed"] or not tested["cleanup_succeeded"] or tested["image_id"] != image["Id"]:
             raise ValueError("Stack verification failed or tested a different image")
@@ -198,6 +165,8 @@ def build(
                 archive.add(directory / name, arcname=name, recursive=False)
         packed.with_name(packed.name + ".sha256").write_text(f"{digest(packed)}  {packed.name}\n")
         verify_archive(packed)
+        subprocess.run(["uv", "run", "--no-sync", str(ROOT / "scripts/verify_host_install.py"),
+                        str(packed), str(directory / "synthetic-backup"), reference], cwd=ROOT, check=True)
         if source_identity(ROOT, candidate) != (version, commit):
             raise ValueError("Source changed while packaging")
         # Exclusive creation also prevents overwrites by overlapping packaging invocations.

@@ -18,7 +18,8 @@ app = typer.Typer(add_completion=False, pretty_exceptions_enable=False)
 
 
 @app.command()
-def verify(image: str = typer.Option(...), report: Path = Path("/tmp/caf-stack-integration.json")) -> None:
+def verify(image: str = typer.Option(...), report: Path = Path("/tmp/caf-stack-integration.json"),
+           backup_output: Path | None = None) -> None:
     """Use only synthetic data and owned Docker volumes; never use host data binds."""
     environment = {key: os.environ[key] for key in ("PATH", "HOME")}
     metadata = json.loads(subprocess.check_output(["docker", "image", "inspect", image], env=environment))[0]
@@ -98,7 +99,7 @@ def verify(image: str = typer.Option(...), report: Path = Path("/tmp/caf-stack-i
             # Initialize only these new, labelled test volumes. Serving containers keep no capabilities.
             command(["run", "--rm", "--no-deps", "--user", "0:0", "--cap-add", "CHOWN",
                      "--entrypoint", "sh", "admin", "-ec",
-                     "chown 10001:10001 /srv/caf/data /srv/caf/data/backups"])
+                     "mkdir -p /srv/caf/data/blobs; chown 10001:10001 /srv/caf/data /srv/caf/data/blobs /srv/caf/data/backups"])
             command(["run", "--rm", "admin", "db", "migrate"])
             command(["run", "--rm", "admin", "db", "grants"])
             probe("admin", "admin")
@@ -136,6 +137,15 @@ def verify(image: str = typer.Option(...), report: Path = Path("/tmp/caf-stack-i
             command(["up", "-d", "--force-recreate", "--wait", "--wait-timeout", "90", "web", "worker"])
             probe("web", "web")
             probe("admin", "durable")
+            if backup_output is not None:
+                capture = ("from pathlib import Path; from caf_common.backup import create_backup; "
+                           "Path('/srv/caf/data/blobs/install-fixture.pdf').write_bytes(b'owned synthetic source'); "
+                           "print(create_backup().backup_dir)")
+                captured = command(["exec", "-T", "web", "python", "-c", capture]).strip()
+                container = command(["ps", "-q", "web"]).strip()
+                backup_output.parent.mkdir(parents=True, exist_ok=True)
+                subprocess.run(["docker", "cp", f"{container}:{captured}", str(backup_output)],
+                               env=environment, check=True)
             receipt["passed"] = True
         finally:
             cleanup = subprocess.run([*prefix, "down", "--volumes", "--remove-orphans"],

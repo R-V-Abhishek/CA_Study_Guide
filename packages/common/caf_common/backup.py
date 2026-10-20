@@ -241,6 +241,31 @@ def _check_scratch_destination(url, name):
         admin.dispose()
 
 
+def compare_restored_database(url, manifest) -> tuple[dict[str, int], dict]:
+    """Compare every restored table digest and the schema to the captured manifest."""
+    assert_safe_database(url)
+    engine = sa.create_engine(url, isolation_level="REPEATABLE READ")
+    try:
+        with engine.connect() as connection, connection.begin():
+            connection.execute(sa.text("SET TRANSACTION READ ONLY"))
+            restored = database_content(connection)
+            restored_counts = {table: values["count"] for table, values in restored.items()}
+            if restored.keys() != manifest["tables"].keys():
+                raise ValueError("Restored table inventory mismatch (missing or unexpected tables)")
+            mismatches = [table for table in restored if restored[table] != manifest["tables"][table]]
+            if mismatches:
+                raise ValueError(f"Restored content mismatch: {', '.join(mismatches)}")
+            revision = connection.execute(sa.text("SELECT version_num FROM ops.alembic_version")).scalar_one()
+            if revision != manifest["database_revision"]:
+                raise ValueError("Database revision mismatch")
+            restored_schema = schema_snapshot(connection)
+            if compare_schema_snapshots(manifest["schema"], restored_schema):
+                raise ValueError("Restored schema differs from manifest")
+    finally:
+        engine.dispose()
+    return restored_counts, restored_schema
+
+
 def verify_backup(session: Session | None = None, dump_file=None, scratch_db_name="caf_verify",
                   db_url=None) -> VerificationResult:
     """Restore in a separate disposable container and compare to captured values."""
@@ -283,25 +308,7 @@ def verify_backup(session: Session | None = None, dump_file=None, scratch_db_nam
             restored_url = sandbox.url(scratch_db_name)
             _pg_command("pg_restore", restored_url, ["--exit-on-error", "--no-owner", "--no-acl",
                                                       str(dump_path)])
-            engine = sa.create_engine(restored_url, isolation_level="REPEATABLE READ")
-            try:
-                with engine.connect() as connection, connection.begin():
-                    connection.execute(sa.text("SET TRANSACTION READ ONLY"))
-                    restored = database_content(connection)
-                    restored_counts = {table: values["count"] for table, values in restored.items()}
-                    if restored.keys() != manifest["tables"].keys():
-                        raise ValueError("Restored table inventory mismatch (missing or unexpected tables)")
-                    mismatches = [table for table in restored if restored[table] != manifest["tables"][table]]
-                    if mismatches:
-                        raise ValueError(f"Restored content mismatch: {', '.join(mismatches)}")
-                    revision = connection.execute(sa.text("SELECT version_num FROM ops.alembic_version")).scalar_one()
-                    if revision != manifest["database_revision"]:
-                        raise ValueError("Database revision mismatch")
-                    restored_schema = schema_snapshot(connection)
-                    if compare_schema_snapshots(manifest["schema"], restored_schema):
-                        raise ValueError("Restored schema differs from manifest")
-            finally:
-                engine.dispose()
+            restored_counts, restored_schema = compare_restored_database(restored_url, manifest)
             baseline_engine = sa.create_engine(sandbox.url(baseline_name))
             try:
                 with baseline_engine.connect() as connection:

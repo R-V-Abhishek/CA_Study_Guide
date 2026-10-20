@@ -1,0 +1,19 @@
+[Unit]
+Description=CA Final Companion
+Requires=docker.service
+After=docker.service network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+User=cafdeploy
+Group=cafdeploy
+SupplementaryGroups=docker
+ExecStart=/usr/bin/docker compose --env-file /dev/null -p caf -f /srv/caf/current-compose.json up -d --wait --wait-timeout 120 db web worker
+ExecStop=/usr/bin/docker compose --env-file /dev/null -p caf -f /srv/caf/current-compose.json stop
+TimeoutStartSec=180
+TimeoutStopSec=180
+
+[Install]
+WantedBy=multi-user.target

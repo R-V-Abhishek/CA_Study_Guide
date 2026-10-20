@@ -1,9 +1,19 @@
 #!/bin/sh
 # Host commands stay here; packaged Typer tooling has no Docker socket or host root mount.
 set -eu
+directory=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+case ${1:-} in
+    install)
+        shift
+        exec bash "$directory/install-host.sh" "$@"
+        ;;
+    status)
+        shift
+        exec bash "$directory/status-host.sh" "$@"
+        ;;
+esac
 image=${CAF_HOST_IMAGE:?Set CAF_HOST_IMAGE to a verified, locally loaded application image}
 image_id=$(docker image inspect --format '{{.Id}}' "$image")
-directory=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 case ${1:-} in
     preflight)
         shift
@@ -52,5 +62,5 @@ case ${1:-} in
             --mount "type=bind,source=$snapshot,target=/snapshot,readonly" \
             --entrypoint caf-host "$image_id" inspect-backup /snapshot
         ;;
-    *) echo 'Usage: caf-host {preflight|verify-bundle ARCHIVE|inspect-backup SNAPSHOT_DIRECTORY}' >&2; exit 1;;
+    *) echo 'Usage: caf-host {preflight|verify-bundle ARCHIVE|inspect-backup SNAPSHOT_DIRECTORY|install BUNDLE --backup SNAPSHOT|status}' >&2; exit 1;;
 esac
