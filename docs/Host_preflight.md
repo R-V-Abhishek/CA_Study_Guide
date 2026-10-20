@@ -104,6 +104,16 @@ from this offline command; the packaged host restore workflow remains pending.
 Encrypted snapshot packaging, external-drive handling and unattended recovery
 are not implemented by `inspect-backup`.
 
+Recovery inspection was verified at code revision
+`aa614f9efbdaa07c8ef39edb0113739435919694` in
+[native Linux CI](https://github.com/R-V-Abhishek/CA_Study_Guide/actions/runs/39441781755):
+517 Python tests, frontend checks/builds, Compose validation and the native amd64
+candidate bundle all passed. The real shell launcher accepted a synthetic
+hash-matching snapshot, reported `restore_verified: false`, and rejected a
+corrupted dump. Existing real PostgreSQL backup/restore tests passed with the
+shared file validator. Forty-three focused deployment tests also passed locally.
+No new tooling was installed on the Ubuntu laptop during this increment.
+
 ## Verification on 19 October 2026
 
 The collector was executed over SSH on the actual Ubuntu laptop without
