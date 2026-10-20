@@ -60,7 +60,10 @@ finish() {
     code=$?
     trap - EXIT
     if test "$success" != true; then
-        if test "$started" = true; then compose stop web worker >> "$log" 2>&1 || true; fi
+        if test "$started" = true; then
+            compose logs --no-color --tail 50 db web worker >> "$log" 2>&1 || true
+            compose stop web worker >> "$log" 2>&1 || true
+        fi
         jq -n --arg phase "$phase" --arg project "$project" --arg log "$log" \
             '{status:"failed",phase:$phase,project:$project,private_log:$log,recovery:"Keep serving containers stopped. Preserve database and files; do not rerun install or downgrade the database."}' > "$work/failure.json"
         echo "Installation failed during $phase; services remain stopped. Private record: $work/failure.json" >&2
@@ -107,6 +110,8 @@ mkdir -p "$root/postgres" "$root/backups" "$root/data"/{blobs,inbox,debug,logs,r
 if test -d "$snapshot/blobs"; then cp -a "$snapshot/blobs/." "$root/data/blobs/"; fi
 if test -d "$snapshot/configs"; then cp -a "$snapshot/configs/." "$root/data/recovery-configs/"; fi
 phase=restore_database started=true
+compose run --rm -T --no-deps --user 0:0 --entrypoint sh db -ec \
+    'chown postgres:postgres /var/lib/postgresql/data; chmod 700 /var/lib/postgresql/data' >> "$log" 2>&1
 compose up -d --wait --wait-timeout 120 db >> "$log" 2>&1
 empty=$(compose exec -T db psql -U postgres -d caf -Atc "SELECT count(*) FROM pg_namespace WHERE nspname IN ('app','core','ref','ingest','intel','ops')" 2>> "$log")
 test "$empty" = 0 || { echo 'Application database is not empty' >> "$log"; exit 1; }
