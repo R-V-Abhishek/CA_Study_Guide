@@ -98,6 +98,19 @@ service identity; its runtime UID can change. The regular login users are the
 owner account and `cafdeploy`; `caf-home` is the machine name. No account or GDM
 settings were changed.
 
+### Graphical login repair, 19 October 2026
+
+Subsequent inspection found that the greeter was incorrectly running
+`gnome-shell --mode=ubuntu`. The local `/etc/dconf/profile/gdm` contained
+`user-db:user` and `system-db:local`, but omitted the packaged defaults database.
+The owner logged into `rvabhi` on Ctrl+Alt+F3, backed up the profile to
+`/etc/dconf/profile/gdm.before-login-fix`, appended
+`file-db:/var/lib/gdm3/greeter-dconf-defaults`, and restarted `gdm` with sudo.
+The owner confirmed that the normal graphical login worked again. Existing
+local settings were preserved. This follows the resolved configuration diagnosis
+in [Ubuntu issue 2143268](https://bugs.launchpad.net/ubuntu/+bug/2143268).
+Do not append the line again if it is already present.
+
 Focused verification:
 
 ```sh
