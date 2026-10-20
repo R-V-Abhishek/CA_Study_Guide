@@ -117,7 +117,7 @@ compose run --rm -T --no-deps --user "$(id -u):$(id -g)" \
     --volume "$snapshot:/snapshot:ro" --entrypoint caf-host admin _install restored /snapshot \
     --expected-manifest-hash "$(jq -er .backup_manifest_sha256 "$work/receipt.json")" >> "$log" 2>&1
 phase=permissions
-compose run --rm -T --no-deps --user 0:0 --cap-add CHOWN --entrypoint sh admin -ec \
+compose run --rm -T --no-deps --user 0:0 --cap-add CHOWN --cap-add DAC_OVERRIDE --entrypoint sh admin -ec \
     'chown -R 10001:10001 /srv/caf/data; chown 10001:10001 /srv/caf/data/backups' >> "$log" 2>&1
 phase=migrate
 compose run --rm -T --no-deps admin db migrate >> "$log" 2>&1

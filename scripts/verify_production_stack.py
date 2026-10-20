@@ -99,7 +99,7 @@ def verify(image: str = typer.Option(...), report: Path = Path("/tmp/caf-stack-i
             # Initialize only these new, labelled test volumes. Serving containers keep no capabilities.
             command(["run", "--rm", "--no-deps", "--user", "0:0", "--cap-add", "CHOWN",
                      "--entrypoint", "sh", "admin", "-ec",
-                     "mkdir -p /srv/caf/data/blobs; chown 10001:10001 /srv/caf/data /srv/caf/data/blobs /srv/caf/data/backups"])
+                     "chown 10001:10001 /srv/caf/data /srv/caf/data/backups"])
             command(["run", "--rm", "admin", "db", "migrate"])
             command(["run", "--rm", "admin", "db", "grants"])
             probe("admin", "admin")

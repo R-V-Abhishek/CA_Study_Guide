@@ -21,6 +21,22 @@ the installer creates these children. Production requires 50 GiB free. Its
 ownership initialization is limited to the new application data/backup binds.
 Personal home directories and other Docker projects are untouched.
 
+The owner-authenticated `deploy/prepare-host.sh` handles the small OS setup. It
+checks Ubuntu 26.04 and the unit syntax, creates missing `/srv/caf`, `/opt/caf`
+and restricted `/etc/caf` directories, and installs/enables `caf.service` without
+starting it. Unexpected existing owners/configuration are preserved for review.
+If a private production environment file has been staged with authorization:
+
+```sh
+sudo bash /home/cafdeploy/caf-staging/production/setup/prepare-host.sh \
+  --config /home/cafdeploy/caf-staging/production/compose.env
+```
+
+The boot unit has a condition on the activated Compose pointer, so it does
+nothing before successful installation. No formatting or package installation
+is performed by this script. The SSH account cannot perform this step without
+the owner's sudo authentication.
+
 The real mode-0600 `/etc/caf/compose.env` must be owned by `cafdeploy`. Populate
 it from `deploy/host.env.example` with seven different random hexadecimal
 passwords (at least 64 characters), real Auth0 settings and the assigned HTTPS
