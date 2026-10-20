@@ -1,6 +1,7 @@
 """Build and verify offline release bundles; never deploy or modify live storage."""
 
 from datetime import datetime, timezone
+import hashlib
 import json
 import os
 from pathlib import Path
@@ -44,6 +45,39 @@ def source_identity(root: Path, candidate: bool) -> tuple[str, str]:
     return version, commit
 
 
+def archived_image_ids(path: Path, record: ImageRecord) -> set[str]:
+    """Bind classic config IDs and containerd manifest IDs to the saved image."""
+    with tarfile.open(path) as archive:
+        def read(name: str) -> bytes:
+            member = archive.getmember(name)
+            if not member.isfile() or member.size > 2 * 1024**2:
+                raise ValueError(f"Invalid saved image metadata: {name}")
+            return archive.extractfile(member).read()
+
+        entries = json.loads(read("manifest.json"))
+        matching = [entry for entry in entries if record.reference in entry["RepoTags"]]
+        if len(matching) != 1:
+            raise ValueError("Saved image reference must identify exactly one image")
+        config_id = "sha256:" + hashlib.sha256(read(matching[0]["Config"])).hexdigest()
+        identities = {config_id}
+        if "index.json" in archive.getnames():
+            for descriptor in json.loads(read("index.json"))["manifests"]:
+                if descriptor["mediaType"] != "application/vnd.oci.image.manifest.v1+json":
+                    continue
+                manifest_id = descriptor["digest"]
+                algorithm, value = manifest_id.split(":", 1)
+                if algorithm != "sha256" or not re.fullmatch(r"[0-9a-f]{64}", value):
+                    raise ValueError("Invalid saved image manifest digest")
+                payload = read(f"blobs/sha256/{value}")
+                if hashlib.sha256(payload).hexdigest() != value:
+                    raise ValueError("Saved image manifest digest mismatch")
+                if json.loads(payload)["config"]["digest"] == config_id:
+                    identities.add(manifest_id)
+        if record.image_id not in identities:
+            raise ValueError("Recorded image identity differs from saved image metadata")
+        return identities
+
+
 @app.command()
 def verify(bundle: Path, platform: str | None = None, allow_candidate: bool = False,
            load: bool = False) -> None:
@@ -59,10 +93,12 @@ def verify(bundle: Path, platform: str | None = None, allow_candidate: bool = Fa
             with tarfile.open(bundle, "r:gz") as archive, path.open("wb") as destination:
                 with archive.extractfile("images.tar") as origin:
                     shutil.copyfileobj(origin, destination)
+            identities = {record.reference: archived_image_ids(path, record)
+                          for record in (manifest.application, manifest.postgres)}
             subprocess.run(["docker", "image", "load", "-i", str(path)], check=True)
         for record in (manifest.application, manifest.postgres):
             image = json.loads(run(["docker", "image", "inspect", record.reference]))[0]
-            if image["Id"] != record.image_id or f"{image['Os']}/{image['Architecture']}" != manifest.platform:
+            if image["Id"] not in identities[record.reference] or f"{image['Os']}/{image['Architecture']}" != manifest.platform:
                 raise ValueError("Loaded image identity or architecture differs from manifest")
         labels = json.loads(run(["docker", "image", "inspect", manifest.application.reference]))[0]["Config"]["Labels"]
         if labels["org.opencontainers.image.revision"] != manifest.commit or labels["org.opencontainers.image.version"] != manifest.version:
