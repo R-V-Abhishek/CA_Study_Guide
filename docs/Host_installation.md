@@ -140,7 +140,12 @@ deployment tests also passed on the Mac.
 
 The owner reported successful execution of `prepare-host.sh --config ...`:
 directories and private configuration were installed, and `caf.service` was
-enabled without starting application services. Independent SSH verification of
-that completed setup is pending host connectivity. Production import, real
+enabled without starting application services. SSH verification on 21 October
+confirmed the expected directory owners/modes, mode-0600 production configuration,
+an enabled/inactive unit matching the staged file, no application containers and
+379 GiB free. Production import, real
 Auth0 sign-in, private HTTPS and the accepted corpus restore remain separate
 acceptance gates. No production installation is claimed by this CI result.
+
+The [initial recovery checkpoint](Initial_recovery_2026_10_21.md) records the
+successful isolated restore of the actual adopted corpus on the Mac.
