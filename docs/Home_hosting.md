@@ -24,7 +24,9 @@ amd64 candidate transfer, image import and packaged tooling checks on the laptop
 No application services or production data have been installed.
 The [first-install workflow](Host_installation.md) adds actual release loading,
 empty-destination restore, migration, activation and host status commands. It is
-separate from the still-pending production configuration and activation.
+separate from production activation. Its native Linux installation drill passed;
+the owner has run the host directory/configuration and boot-unit setup. Remote
+verification of that setup and production acceptance remain pending.
 
 The production Dockerfile packages Python 3.12, dependencies from `uv.lock`, both
 interfaces built with pnpm 12.6.0 and its frozen lockfile, Tesseract English OCR,

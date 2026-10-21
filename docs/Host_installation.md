@@ -126,3 +126,21 @@ Explicit test projects with `--allow-candidate` require 8 GiB free; the normal
 loopback ports. Cleanup removes only the newly created test project and its
 owned temporary paths. The production installer preserves failed destinations.
 The release builder runs this drill before publishing a native Linux bundle.
+
+### Verified checkpoint
+
+[Native Linux CI run 39451970866](https://github.com/R-V-Abhishek/CA_Study_Guide/actions/runs/39451970866)
+passed at source `ff9d746cc89b82a66b8313fca1eda6ff101cf67d`: 525 Python
+tests, frontend checks/build, production stack checks and amd64 bundle creation.
+The real installer passed snapshot restoration, record/file comparisons,
+copied-credential revocation, readiness and service restart. Repeat installation,
+nonempty destinations and overlapping operations were refused. An invalid dump
+left recovery state intact and serving containers stopped. All 50 focused
+deployment tests also passed on the Mac.
+
+The owner reported successful execution of `prepare-host.sh --config ...`:
+directories and private configuration were installed, and `caf.service` was
+enabled without starting application services. Independent SSH verification of
+that completed setup is pending host connectivity. Production import, real
+Auth0 sign-in, private HTTPS and the accepted corpus restore remain separate
+acceptance gates. No production installation is claimed by this CI result.
