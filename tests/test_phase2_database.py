@@ -73,7 +73,7 @@ def test_every_application_api_requires_authentication():
     client = TestClient(app)
     checked = 0
     for route_path, methods in app.openapi()["paths"].items():
-        if not route_path.startswith("/api/v1/") or route_path == "/api/v1/health":
+        if not route_path.startswith("/api/v1/") or route_path in {"/api/v1/health", "/api/v1/ready"}:
             continue
         path = re.sub(r"\{[^}]+\}", "1", route_path)
         for method in methods:

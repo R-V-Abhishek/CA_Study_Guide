@@ -66,7 +66,7 @@ services:
           create_host_path: false
     networks: [backend]
     healthcheck:
-      test: [CMD-SHELL, "pg_isready -U postgres -d caf"]
+      test: [CMD-SHELL, "pg_isready -h 127.0.0.1 -U postgres -d caf"]
       interval: 5s
       timeout: 5s
       retries: 12
@@ -95,7 +95,7 @@ services:
       - "127.0.0.1:8788:8788"
     networks: [backend, egress]
     healthcheck:
-      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8788/api/v1/health', timeout=3).close()"]
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8788/api/v1/ready', timeout=3).close()"]
       interval: 30s
       timeout: 5s
       retries: 3

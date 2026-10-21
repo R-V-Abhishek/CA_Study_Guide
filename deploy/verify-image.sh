@@ -43,7 +43,7 @@ except RuntimeError as error:
     assert "OIDC" in str(error), str(error)
 else:
     raise AssertionError("Production must reject missing authentication configuration")
-for command in (["caf", "--help"], ["caf", "intel", "worker", "--help"],
+for command in (["caf", "--help"], ["caf-host", "--help"], ["caf", "intel", "worker", "--help"],
                 ["alembic", "heads"], ["tesseract", "--version"], ["pg_dump", "--version"]):
     result = subprocess.run(command, capture_output=True, text=True, timeout=120)
     assert result.returncode == 0, result.stderr or result.stdout

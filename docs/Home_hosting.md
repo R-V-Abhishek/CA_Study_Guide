@@ -16,6 +16,19 @@ records successful local runtime checks with synthetic data.
 See [application releases](Application_releases.md) for checksummed offline bundles,
 Conventional Commit release PRs and GitHub Actions. Publication remains separate
 from Ubuntu installation and activation.
+The [read-only host tools](Host_preflight.md) add packaged preflight and bundle
+verification plus offline inspection of existing backup snapshots; a private
+inspection report has been saved on the Ubuntu laptop.
+The [Ubuntu staging checkpoint](Ubuntu_staging_2026_10_20.md) records a verified
+amd64 candidate transfer, image import and packaged tooling checks on the laptop.
+No application services or production data have been installed.
+The [first-install workflow](Host_installation.md) adds actual release loading,
+empty-destination restore, migration, activation and host status commands. It is
+separate from production activation. Its native Linux installation drill passed;
+the owner has run the host directory/configuration and boot-unit setup, and SSH
+verification passed. The [initial recovery checkpoint](Initial_recovery_2026_10_21.md)
+records a successful isolated restore of the adopted corpus. Production acceptance
+remains pending.
 
 The production Dockerfile packages Python 3.12, dependencies from `uv.lock`, both
 interfaces built with pnpm 12.6.0 and its frozen lockfile, Tesseract English OCR,

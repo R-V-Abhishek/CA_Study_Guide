@@ -2,6 +2,7 @@
 
 from datetime import datetime, timezone
 import hashlib
+import json
 from io import BytesIO
 from pathlib import Path
 import subprocess
@@ -13,7 +14,7 @@ from typer.testing import CliRunner
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
 from release_bundle import (
-    FileRecord, ImageRecord, Manifest, PAYLOAD, app, digest, source_identity, verify_archive,
+    FileRecord, ImageRecord, Manifest, PAYLOAD, app, archived_image_ids, digest, source_identity, verify_archive,
 )
 
 
@@ -55,6 +56,54 @@ def test_bundle_round_trip_and_selection_guards(tmp_path):
     assert runner.invoke(app, ["verify", str(bundle)]).exit_code != 0
     assert runner.invoke(app, ["verify", str(bundle), "--allow-candidate", "--platform", "linux/arm64"]).exit_code != 0
     assert runner.invoke(app, ["verify", str(bundle), "--allow-candidate", "--platform", "linux/amd64"]).exit_code == 0
+
+
+@pytest.mark.parametrize("oci", [False, True])
+def test_saved_image_identity_across_docker_stores(tmp_path, oci):
+    config = b'{"architecture":"amd64","os":"linux"}'
+    config_hash = hashlib.sha256(config).hexdigest()
+    reference = "caf:test"
+    manifest = json.dumps({"config": {"digest": "sha256:" + config_hash}}).encode()
+    manifest_hash = hashlib.sha256(manifest).hexdigest()
+    files = {f"blobs/sha256/{config_hash}": config,
+             "manifest.json": json.dumps([{"Config": f"blobs/sha256/{config_hash}",
+                                            "RepoTags": [reference]}]).encode()}
+    if oci:
+        files[f"blobs/sha256/{manifest_hash}"] = manifest
+        files["index.json"] = json.dumps({"manifests": [{
+            "mediaType": "application/vnd.oci.image.manifest.v1+json",
+            "digest": "sha256:" + manifest_hash}]}).encode()
+    path = tmp_path / "images.tar"
+
+    def save():
+        with tarfile.open(path, "w") as archive:
+            for name, value in files.items():
+                member = tarfile.TarInfo(name)
+                member.size = len(value)
+                archive.addfile(member, BytesIO(value))
+
+    save()
+    record = ImageRecord(reference=reference, image_id="sha256:" + config_hash)
+    expected = {record.image_id}
+    if oci:
+        expected.add("sha256:" + manifest_hash)
+    assert archived_image_ids(path, record) == expected
+    if oci:
+        assert archived_image_ids(path, record.model_copy(update={"image_id": "sha256:" + manifest_hash})) == expected
+    with pytest.raises(ValueError, match="Recorded image identity"):
+        archived_image_ids(path, record.model_copy(update={"image_id": "sha256:" + "0" * 64}))
+    with pytest.raises(ValueError, match="exactly one image"):
+        archived_image_ids(path, record.model_copy(update={"reference": "caf:other"}))
+    files[f"blobs/sha256/{config_hash}"] = b"different image"
+    save()
+    with pytest.raises(ValueError, match="Recorded image identity"):
+        archived_image_ids(path, record)
+    if oci:
+        files[f"blobs/sha256/{config_hash}"] = config
+        files[f"blobs/sha256/{manifest_hash}"] = b"{}"
+        save()
+        with pytest.raises(ValueError, match="manifest digest mismatch"):
+            archived_image_ids(path, record)
 
 
 def test_corrupted_outer_archive(tmp_path):
