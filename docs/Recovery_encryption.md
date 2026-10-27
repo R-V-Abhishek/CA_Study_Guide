@@ -34,12 +34,13 @@ claim a new production cutover snapshot.
   `/home/cafdeploy/caf-staging/production/backup-recipient.txt` for future backup
   encryption. A recipient can encrypt but cannot decrypt.
 
-The owner must save the private identity as a secure attachment or secure note
-in the password manager and retain a recovery method independent of this Mac.
-This has not been completed or verified by the agent. Losing the identity makes
-the encrypted copy unusable. Keeping the key and encrypted file on one Mac does
-not protect against losing that Mac; the separate key copy and external backup
-location remain acceptance requirements.
+The owner confirmed on 27 October that the private identity was saved in the
+password manager as a secure attachment or secure note. The agent has not
+independently accessed or tested that password-manager copy. Retain a way to
+access the password manager independently of this Mac; losing the identity makes
+the encrypted copy unusable. Keeping only the key and encrypted file on one Mac
+does not protect against losing that Mac. The external backup location remains
+pending, and a future recovery drill should use the separately saved identity.
 
 ## Verify or recover the encrypted copy
 
@@ -67,3 +68,8 @@ This checkpoint does not configure daily server backups, encryption on Ubuntu,
 retention, missing-drive protection or monthly restore automation. Tailscale
 Serve remains unconfigured and production services remain stopped. The deployment
 PR checks are passing; release acceptance and activation are separate steps.
+
+On 27 October, Ubuntu successfully fetched the configured Auth0 issuer's OpenID
+discovery document over HTTPS. The issuer matched, the authorization/token/JWKS
+endpoints used HTTPS, and PKCE S256 was supported. This verifies outbound DNS/TLS
+and provider discovery only, not callback allowlists or real user sign-in.

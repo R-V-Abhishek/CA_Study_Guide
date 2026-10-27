@@ -38,8 +38,9 @@ daemon settings, source records or application configuration were changed.
 The unsuccessful report remains alongside the successful report for diagnosis.
 
 This is a verified Mac recovery copy. An encrypted copy was subsequently verified
-on 27 October; see [encryption and key custody](Recovery_encryption.md). A separate
-key copy, the external drive and retention automation remain pending.
+on 27 October; see [encryption and key custody](Recovery_encryption.md). The owner
+confirmed a password-manager key copy; the external drive and retention automation
+remain pending.
 The snapshot has not been imported into Ubuntu, and no production
 service is running there. It represents the capture time, not later Mac activity;
 take a final verified snapshot during the eventual cutover window.
