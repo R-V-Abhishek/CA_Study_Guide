@@ -31,6 +31,9 @@ records a successful isolated restore of the adopted corpus. Production acceptan
 remains pending.
 The [recovery encryption checkpoint](Recovery_encryption.md) records the encrypted
 Mac copy, authenticated decryption test and remaining key-custody requirements.
+The [private-access checkpoint](Private_access_2026_10_27.md) records configured
+Tailscale HTTPS, saved Auth0 callback/logout URLs, accepted release identity and
+the fresh verified cutover snapshot. Application activation is separate.
 
 The production Dockerfile packages Python 3.12, dependencies from `uv.lock`, both
 interfaces built with pnpm 12.6.0 and its frozen lockfile, Tesseract English OCR,
