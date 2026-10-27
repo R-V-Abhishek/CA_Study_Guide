@@ -22,6 +22,9 @@ The tailnet has two machines. Its existing policy grants this Mac
 without changes. Student devices have not been added or verified. Grant selected
 students only application HTTPS access when onboarding them; retain administrator
 SSH access separately. Do not replace this policy with default allow-all rules.
+The server's current Tailscale node key expires at `2027-04-15T11:00:17Z`.
+Reauthenticate before that date or separately approve a server-key expiry policy;
+expiry settings were not changed during this setup.
 
 ## Auth0 configuration
 
@@ -52,7 +55,9 @@ passed application checks and the native amd64 bundle/installation drill at
 [PR #2](https://github.com/R-V-Abhishek/CA_Study_Guide/pull/2) was then accepted.
 Tag `v0.2.0` identifies `2821dfc0b20cad99e723b03bf8ae5e2b63747d23`.
 [Tagged publication](https://github.com/R-V-Abhishek/CA_Study_Guide/actions/runs/40442380429)
-remains a separate verification gate before loading a production bundle.
+passed and published the non-candidate production bundle. Its checksums,
+architecture, commit and both dependency-lock hashes matched on the Mac; lock
+hashes were independently checked against Git tag `v0.2.0`.
 Ubuntu's `/opt/caf/repo` was cloned from the integrated main branch and then
 fast-forwarded to this accepted release commit. Git updates did not start services.
 
@@ -60,6 +65,10 @@ fast-forwarded to this accepted release commit. Git updates did not start servic
 
 The selected snapshot is `caf_20261027_025947_379520_b1ac35d7`, schema
 `0009_question_language`, preserving the active `baseline-2026-10-16` adoption.
+The adopted content/taxonomy manifest hash remains
+`c59e12cb4f9696adbcc4647b0775542693517aa23870e37edfca753497370973`, taxonomy
+version 9, bound to attempt `2027-05`. This content identity is independent of
+application release `v0.2.0` and the recovery manifest hash below.
 The existing administrator account is active and identity-bound. A fresh isolated
 restore matched all 76 table digests, the migration schema and 4,317 archived
 source/configuration files. A final read-only comparison found that the live Mac
