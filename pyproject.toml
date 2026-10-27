@@ -20,6 +20,7 @@ dependencies = [
 
 [project.scripts]
 caf = "caf_cli.main:app"
+caf-host = "caf_cli.host:app"
 
 [tool.uv.workspace]
 members = [

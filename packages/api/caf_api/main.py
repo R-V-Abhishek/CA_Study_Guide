@@ -18,6 +18,7 @@ from caf_api.published_pages import router as published_pages_router
 from caf_api.readiness import router as readiness_router
 from caf_db.engine import get_engine, reset_database
 from caf_api.security_logging import AUTH_ACCESS_FILTER
+from caf_api.health import router as health_router
 
 settings = get_settings()
 
@@ -56,6 +57,7 @@ app.include_router(extraction_router)
 app.include_router(questions_router)
 app.include_router(published_pages_router)
 app.include_router(readiness_router)
+app.include_router(health_router)
 
 
 @app.middleware("http")

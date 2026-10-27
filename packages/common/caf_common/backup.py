@@ -17,6 +17,7 @@ from sqlalchemy.engine import make_url
 from sqlalchemy.orm import Session
 from caf_common.db_safety import assert_safe_database, assert_safe_storage
 from caf_common.postgres_sandbox import PostgresSandbox
+from caf_common.recovery_manifest import inspect_recovery_files
 from caf_common.settings import get_settings
 from caf_db.models.ops import Event
 from caf_db.schema_baseline import schema_snapshot, compare_schema_snapshots, migrated_schema_snapshot
@@ -240,18 +241,29 @@ def _check_scratch_destination(url, name):
         admin.dispose()
 
 
-def _validate_archived_files(root, manifest):
-    expected = manifest["files"]
-    actual = {path.relative_to(root).as_posix() for directory in ("blobs", "configs")
-              for path in (root / directory).rglob("*") if path.is_file()}
-    if actual != expected.keys():
-        raise ValueError("Archived file inventory mismatch (missing or unexpected files)")
-    for relative, checksum in expected.items():
-        path = root / relative
-        if path.is_symlink() or not path.resolve().is_relative_to(root.resolve()):
-            raise ValueError("Unsafe archived file path")
-        if file_checksum(path) != checksum:
-            raise ValueError(f"Archived file checksum mismatch: {relative}")
+def compare_restored_database(url, manifest) -> tuple[dict[str, int], dict]:
+    """Compare every restored table digest and the schema to the captured manifest."""
+    assert_safe_database(url)
+    engine = sa.create_engine(url, isolation_level="REPEATABLE READ")
+    try:
+        with engine.connect() as connection, connection.begin():
+            connection.execute(sa.text("SET TRANSACTION READ ONLY"))
+            restored = database_content(connection)
+            restored_counts = {table: values["count"] for table, values in restored.items()}
+            if restored.keys() != manifest["tables"].keys():
+                raise ValueError("Restored table inventory mismatch (missing or unexpected tables)")
+            mismatches = [table for table in restored if restored[table] != manifest["tables"][table]]
+            if mismatches:
+                raise ValueError(f"Restored content mismatch: {', '.join(mismatches)}")
+            revision = connection.execute(sa.text("SELECT version_num FROM ops.alembic_version")).scalar_one()
+            if revision != manifest["database_revision"]:
+                raise ValueError("Database revision mismatch")
+            restored_schema = schema_snapshot(connection)
+            if compare_schema_snapshots(manifest["schema"], restored_schema):
+                raise ValueError("Restored schema differs from manifest")
+    finally:
+        engine.dispose()
+    return restored_counts, restored_schema
 
 
 def verify_backup(session: Session | None = None, dump_file=None, scratch_db_name="caf_verify",
@@ -273,21 +285,15 @@ def verify_backup(session: Session | None = None, dump_file=None, scratch_db_nam
     expected_counts = {}
     restored_counts = {}
     mismatches = []
-    manifest_path = root / "manifest.json"
     restored_schema = None
     baseline_drift = None
     try:
-        if not manifest_path.exists():
-            raise ValueError("Legacy backup: no manifest; content verification unavailable")
-        manifest = json.loads(manifest_path.read_text())
-        if manifest["format_version"] != 1 or manifest["dump_file"] != dump_path.name:
+        manifest = inspect_recovery_files(root).model_dump(by_alias=True)
+        if manifest["dump_file"] != dump_path.name:
             raise ValueError("Invalid backup manifest")
         expected_counts = {table: values["count"] for table, values in manifest["tables"].items()}
         if critical_tables(manifest["database_revision"]) - expected_counts.keys():
             raise ValueError("Manifest missing protected tables")
-        if file_checksum(dump_path) != manifest["dump_sha256"]:
-            raise ValueError("Dump checksum mismatch")
-        _validate_archived_files(root, manifest)
         with PostgresSandbox("restore", use_tmpfs=False) as sandbox:
             sandbox.allow(scratch_db_name)
             baseline_name = f"{scratch_db_name}_baseline"
@@ -302,25 +308,7 @@ def verify_backup(session: Session | None = None, dump_file=None, scratch_db_nam
             restored_url = sandbox.url(scratch_db_name)
             _pg_command("pg_restore", restored_url, ["--exit-on-error", "--no-owner", "--no-acl",
                                                       str(dump_path)])
-            engine = sa.create_engine(restored_url, isolation_level="REPEATABLE READ")
-            try:
-                with engine.connect() as connection, connection.begin():
-                    connection.execute(sa.text("SET TRANSACTION READ ONLY"))
-                    restored = database_content(connection)
-                    restored_counts = {table: values["count"] for table, values in restored.items()}
-                    if restored.keys() != manifest["tables"].keys():
-                        raise ValueError("Restored table inventory mismatch (missing or unexpected tables)")
-                    mismatches = [table for table in restored if restored[table] != manifest["tables"][table]]
-                    if mismatches:
-                        raise ValueError(f"Restored content mismatch: {', '.join(mismatches)}")
-                    revision = connection.execute(sa.text("SELECT version_num FROM ops.alembic_version")).scalar_one()
-                    if revision != manifest["database_revision"]:
-                        raise ValueError("Database revision mismatch")
-                    restored_schema = schema_snapshot(connection)
-                    if compare_schema_snapshots(manifest["schema"], restored_schema):
-                        raise ValueError("Restored schema differs from manifest")
-            finally:
-                engine.dispose()
+            restored_counts, restored_schema = compare_restored_database(restored_url, manifest)
             baseline_engine = sa.create_engine(sandbox.url(baseline_name))
             try:
                 with baseline_engine.connect() as connection:

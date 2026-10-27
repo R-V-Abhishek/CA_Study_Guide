@@ -3,6 +3,7 @@
 from datetime import datetime, timezone
 import json
 import subprocess
+import time
 
 import pytest
 import sqlalchemy as sa
@@ -39,7 +40,13 @@ def test_disk_backed_recovery_storage_is_writable_and_removed_with_its_container
                 assert connection.execute(sa.text('SELECT value FROM recovery_marker')).scalar_one()=='isolated recovery storage'
         finally:
             engine.dispose()
-    removed=subprocess.run(['docker','volume','inspect',owned_volume],capture_output=True,text=True)
+    # --rm volume cleanup can complete after the stop API returns.
+    deadline = time.monotonic() + 5
+    while True:
+        removed=subprocess.run(['docker','volume','inspect',owned_volume],capture_output=True,text=True)
+        if removed.returncode != 0 or time.monotonic() >= deadline:
+            break
+        time.sleep(.05)
     assert removed.returncode!=0 and 'no such volume' in removed.stderr.lower()
 
 
