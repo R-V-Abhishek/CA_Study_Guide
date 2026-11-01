@@ -117,9 +117,9 @@ Production acceptance checks completed:
 - All 94 actual published PDFs passed approved-path and SHA-256 checks; an actual
   source page rendered to PNG. Baseline, manifest, taxonomy and attempt identities
   matched those above. No publication paths were rewritten.
-- Auth0 discovery succeeded from the actual application container. Browser sign-in
-  reached the expected Auth0 tenant and application; account authentication awaits
-  the owner entering their existing credentials/MFA.
+- Auth0 discovery succeeded from the actual application container. The owner then
+  completed real study-account sign-in through the expected Auth0 tenant, and the
+  authenticated study workspace loaded with existing personal activity.
 - Private HTTPS readiness returned `{"status":"ready"}`; frontend HTTP 200;
   certificate verification succeeded; anonymous question access returned HTTP 401.
 - A same-network Mac frontend request took 0.068263 seconds. This is not a remote
@@ -135,6 +135,28 @@ Host status reports `backup: "not_configured"` because scheduled host backup
 tooling is unfinished. This does not describe the independently verified manual
 recovery snapshot recorded above.
 
+### Signed-in browser acceptance
+
+After the owner completed Auth0 sign-in, the existing authenticated browser tab
+passed these read-only checks on 1 November:
+
+- Today loaded the May 2027 planning target and existing personal activity.
+- Questions loaded a catalog of 2,494 reviewed questions.
+- Financial Reporting, September 2025 RTP, Q19
+  (`0159ce76b41c3694958fb459e8b2d5e7296ecb3af6e1dac399b4df7a571d1fa9`)
+  opened with the expected question and quality indicators.
+- Original question pages loaded, including source page 13; the actual PDF page
+  was visually readable in the Source and pages viewer.
+- Reveal answer loaded original answer pages 29 and 30.
+- Extracted text displayed the shared stem, question parts and answer text.
+- Existing warnings remained visible: missing marks/choice review, source boundary
+  review, May 2027 applicability review pending, and zero student topic-label
+  verifications. This check does not certify unresolved content quality.
+
+No notes, progress, classifications, publications or account settings were edited.
+The authenticated tab was left available to the owner. These checks do not cover
+logout, invitation/revocation, account disabling or real three-student concurrency.
+
 Keep the previous immutable image, bundle, installation receipt, and Compose file.
 An application rollback must support the existing schema. Database restoration is
 a separate recovery action that can discard newer activity; never rerun first
@@ -142,7 +164,8 @@ installation against existing data or silently restore a developer database.
 
 ## Remaining acceptance work
 
-- Complete real study-account Auth0 sign-in and browser reading acceptance.
+- Complete logout/account-disable and invitation/revocation acceptance; verify
+  real three-student production concurrency separately from synthetic CI coverage.
 - Invite the other students and restrict their tailnet access to application HTTPS.
 - Verify a normal reboot and access from a separate student device; same-network
   Mac timing is not a remote ISP performance measurement.

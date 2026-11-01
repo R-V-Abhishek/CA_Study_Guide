@@ -131,8 +131,9 @@ before working on deployment, then inspect live state when the user authorizes i
   publication paths or weaken those guards. Native container regression covers
   relative-path PDF reading/rendering.
 - Web, worker and PostgreSQL are running; private HTTPS and readiness passed.
-  The previous maintenance 502 is resolved. Actual study-account Auth0 sign-in
-  and browser reading acceptance still await the owner's credentials/MFA.
+  The previous maintenance 502 is resolved. Real study-account Auth0 sign-in,
+  study workspace, question catalog, extracted text, answer reveal, and PDF source
+  page reading passed browser acceptance after the owner signed in.
 - PostgreSQL image and schema `0009_question_language` were preserved. All 76
   table digests matched before activation; baseline/taxonomy identities and owner
   notes/progress remain preserved. No migration or classification was rerun.
