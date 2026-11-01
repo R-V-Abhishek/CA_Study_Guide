@@ -6,7 +6,8 @@ Ubuntu `caf-home` now runs the verified `v0.2.1` release with web, worker and
 PostgreSQL. Private HTTPS readiness and frontend access pass; all 94 published
 PDFs passed hash/path checks and a real page rendered. The database image, schema,
 baseline, taxonomy and personal records were preserved. Real study-account Auth0
-sign-in and browser acceptance await the owner entering their credentials/MFA.
+sign-in, the study workspace, question catalog, extracted text, answer reveal and
+PDF source page reading also passed browser acceptance.
 
 Read the [1 November deployment verification](Deployment_verification_2026_11_01.md)
 for exact release/content/recovery identities, activation records, successful
@@ -99,8 +100,8 @@ recorded and checked by the [release bundle tooling](Application_releases.md).
 
 ## Pending incremental steps
 
-1. Complete real study-account sign-in, browser reading, student onboarding and
-   access from a separate device; verify a normal reboot.
+1. Complete student onboarding, invitation/revocation and logout/account-disable
+   acceptance, and access from a separate device; verify a normal reboot.
 2. Configure external recovery storage, daily encrypted backups, retention and
    monthly restore verification. Current manual snapshots do not provide daily coverage.
 3. Implement a general existing-installation upgrade/rollback workflow and the
