@@ -1,6 +1,4 @@
 """Authenticated published content, metadata search and hash-bound source access."""
-import hashlib
-from pathlib import Path
 import re
 import fitz
 from fastapi import APIRouter, Depends, HTTPException, Query
@@ -8,60 +6,27 @@ from fastapi.responses import Response
 from sqlalchemy import func, literal_column, select
 from sqlalchemy.orm import Session
 from caf_api.auth import Principal, require_account
-from caf_common.settings import get_settings
+from caf_api.published_pages import question_pages
 from caf_contracts.extraction import PageResult
 from caf_contracts.questions import (AppearanceResolution, OccurrenceResult, PublishedAssetResult,
     PublishedSourceResult, QuestionResult, QuestionSummary, SearchResult, PrivateNoteResult)
 from caf_db.engine import get_db_session
-from caf_db.models.app import Note, Settings
-from caf_db.models.classification import ClassificationDispute, ClassificationVerification, QuestionPublication
+from caf_db.models.app import Note
+from caf_db.models.classification import ClassificationDispute, ClassificationVerification
 from caf_db.models.core import Appearance
 from caf_db.models.questions import PublishedQuestion, PublishedSource, QuestionOccurrence
 from caf_db.models.ref import Node
 
+from caf_api.published import (  # noqa: F401  (names remain importable from here)
+    HINDI_SCRIPT, HINDI_TITLE, approved_source, current_question, current_questions, includes_hindi,
+    require_question_language, require_source_language, source_bytes)
 router=APIRouter(prefix='/api/v1', tags=['questions'], dependencies=[Depends(require_account)])
-HINDI_SCRIPT = '[\u0900-\u097f]'
-HINDI_TITLE = r'(^|[^A-Za-z])hindi([^A-Za-z]|$)'
-
-
-def includes_hindi(db: Session, account: Principal) -> bool:
-    settings = db.get(Settings, account.id)
-    return bool(settings and settings.include_hindi)
 
 
 def hindi_source():
     return select(PublishedSource.id).where(
         PublishedQuestion.source_ids.contains(func.jsonb_build_array(PublishedSource.id)),
         PublishedSource.title.op('~*')(HINDI_TITLE)).exists()
-
-
-def require_question_language(db: Session, account: Principal, row: PublishedQuestion) -> None:
-    if includes_hindi(db, account):
-        return
-    source_is_hindi = db.scalar(select(PublishedSource.id).where(
-        PublishedSource.id.in_(row.source_ids), PublishedSource.title.op('~*')(HINDI_TITLE)).limit(1))
-    if re.search(HINDI_SCRIPT, row.search_text) or source_is_hindi is not None:
-        raise HTTPException(403, 'Hindi questions are hidden. Enable them in Profile preferences to read this question.')
-
-
-def require_source_language(db: Session, account: Principal, source: PublishedSource) -> None:
-    """Every question using a Hindi-titled source is hidden, so its raw pages are hidden too."""
-    title = source.title or ''
-    hindi = re.search(HINDI_TITLE, title, re.IGNORECASE) or re.search(HINDI_SCRIPT, title)
-    if hindi and not includes_hindi(db, account):
-        raise HTTPException(403, 'Hindi questions are hidden. Enable them in Profile preferences to read this source.')
-
-
-def current_questions():
-    return select(PublishedQuestion).join(QuestionPublication,
-        QuestionPublication.current_snapshot_id == PublishedQuestion.id)
-
-
-def current_question(db, question_id):
-    row=db.scalar(current_questions().where(PublishedQuestion.question_id == question_id))
-    if row is None:
-        raise HTTPException(404,'published_question_not_found')
-    return row
 
 
 def source_result(source):
@@ -76,7 +41,6 @@ def question(question_id: str, db:Session=Depends(get_db_session), account:Princ
     require_question_language(db, account, row)
     sources=list(db.scalars(select(PublishedSource).where(PublishedSource.id.in_(row.source_ids)).order_by(PublishedSource.id)))
     occurrence=db.get(QuestionOccurrence,row.occurrence_id)
-    from caf_api.published_pages import question_pages
     return QuestionResult(question_id=row.question_id,snapshot_id=row.id,classification_revision_id=row.id,
         extraction_revision_id=row.extraction_revision_id,taxonomy_version_id=row.taxonomy_version_id,
         publication_generation=row.publication_generation,content=row.content,mappings=row.mappings,
@@ -170,32 +134,6 @@ def appearance(appearance_id:int,db:Session=Depends(get_db_session)):
     bound=db.scalar(current_questions().where(PublishedQuestion.question_id==row.question_id)) if row.question_id else None
     return AppearanceResolution(appearance_id=row.id,question_id=row.question_id if bound else None,
         part_id=row.part_id if bound else None,provenance_limitation=None if bound else 'Legacy appearance has no reliable complete-question revision binding')
-
-
-def approved_source(db,source_id):
-    source=db.get(PublishedSource,source_id)
-    referenced=db.scalar(current_questions().where(PublishedQuestion.source_ids.contains([source_id])).limit(1))
-    if source is None or referenced is None:
-        raise HTTPException(404,'published_source_not_found')
-    return source
-
-
-def source_bytes(source):
-    """Only read the recorded content-addressed PDF inside the configured store."""
-    if not re.fullmatch('[0-9a-f]{64}',source.sha256):
-        raise HTTPException(404,'published_source_unavailable')
-    base=Path(get_settings().storage.blob_dir).resolve()
-    expected=(base/source.sha256[:2]/source.sha256[2:4]/f'{source.sha256}.pdf').resolve()
-    approved=Path(source.approved_blob_path).resolve()
-    if approved != expected or not expected.is_relative_to(base):
-        raise HTTPException(404,'published_source_unavailable')
-    try:
-        data=expected.read_bytes()
-    except FileNotFoundError as exc:
-        raise HTTPException(404,'published_source_unavailable') from exc
-    if hashlib.sha256(data).hexdigest()!=source.sha256:
-        raise HTTPException(409,'published_source_hash_mismatch')
-    return data
 
 
 @router.get('/published-sources/{source_id}',responses={200:{'content':{'application/pdf':{}}}})

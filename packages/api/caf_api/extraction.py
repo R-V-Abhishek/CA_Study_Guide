@@ -9,7 +9,7 @@ from fastapi.responses import Response
 from sqlalchemy.orm import Session
 from caf_api.auth import Principal, require_account, require_admin
 from caf_api.curate import get_curation_db
-from caf_api.routes import get_operations_db
+from caf_api.deps import get_operations_db
 from caf_common.settings import get_settings
 from caf_common.blob_store import BlobStore
 from caf_contracts.extraction import (ExtractionDocument, RevisionSummary, RevisionDetail,

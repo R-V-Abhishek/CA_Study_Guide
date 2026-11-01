@@ -8,8 +8,8 @@ import { RouteBoundary } from './components/RouteBoundary';
 import { Diagnostics } from './components/Diagnostics';
 import { AuthGate } from './components/AuthGate';
 import { SessionControls } from './components/SessionControls';
-import { Dialog } from '../../../packages/workspace/Dialog';
-import { ThemeControl, useTheme } from '../../../packages/workspace/theme';
+import { Dialog } from '@caf/workspace/Dialog';
+import { ThemeControl, useTheme } from '@caf/workspace/theme';
 
 const Dashboard = lazy(() => import('./pages/Dashboard').then(m => ({ default: m.Dashboard })));
 const Papers = lazy(() => import('./pages/Papers').then(m => ({ default: m.Papers })));

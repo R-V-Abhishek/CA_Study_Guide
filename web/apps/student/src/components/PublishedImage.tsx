@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { accountKey, authenticatedFetch } from '@caf/api-client';
 import { PageState } from './PageState';
-import { Dialog } from '../../../../packages/workspace/Dialog';
+import { Dialog } from '@caf/workspace/Dialog';
 
 /** Private blobs live only in the account-scoped query cache, never browser storage. */
 export function PublishedImage({ url, label, enlarge = false, eager = false, revision }: { url: string; label: string; enlarge?: boolean; eager?: boolean; revision?: number }) {

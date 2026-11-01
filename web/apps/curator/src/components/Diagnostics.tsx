@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { curatorClient, requiredData } from "../lib/client";
-import { Dialog } from '../../../../packages/workspace/Dialog';
+import { Dialog } from '@caf/workspace/Dialog';
 
 export function Diagnostics() {
   const location = useLocation();

@@ -66,7 +66,7 @@ def test_raster_cache_is_byte_bounded_and_lru():
 
 
 def test_render_warm_cache_rechecks_integrity_path_and_file_signature(monkeypatch, tmp_path):
-    from caf_api import questions
+    from caf_api import published_pages
     with source_pdf() as pdf:
         data = pdf.tobytes()
     sha = hashlib.sha256(data).hexdigest()
@@ -77,13 +77,13 @@ def test_render_warm_cache_rechecks_integrity_path_and_file_signature(monkeypatc
     path.write_bytes(data)
     source = PublishedSource(id=91, sha256=sha, approved_blob_path=str(path))
     calls = []
-    original = questions.source_bytes
+    original = published_pages.source_bytes
 
     def recorded(source):
         calls.append(source.id)
         return original(source)
 
-    monkeypatch.setattr(questions, 'source_bytes', recorded)
+    monkeypatch.setattr(published_pages, 'source_bytes', recorded)
     first = render_page(source, 1, [span(sha)])
     assert first.startswith(b'\x89PNG')
     assert render_page(source, 1, [span(sha)]) == first

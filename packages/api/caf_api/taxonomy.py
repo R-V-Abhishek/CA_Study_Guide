@@ -5,7 +5,7 @@ import sqlalchemy as sa
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from caf_api.auth import Principal, require_account, require_admin
-from caf_api.routes import get_db, get_operations_db
+from caf_api.deps import get_db, get_operations_db
 from caf_api.curate import get_curation_db
 from caf_contracts.taxonomy import (DescriptorEdit, DescriptorReview, SourceReview,
     CrosswalkReview, ReleaseApproval, ReleaseActivation, ReleaseSummary, TaxonomyTreeNode)

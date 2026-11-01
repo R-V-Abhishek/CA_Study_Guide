@@ -219,7 +219,8 @@ def bind_identity(db: Session, identity: dict, invitation_hash: str | None) -> U
     db.flush()
     if db.get(Settings, account.id) is None:
         papers = list(db.scalars(sa.select(Paper.id).where(Paper.is_current.is_(True)).order_by(Paper.id)))
-        db.add(Settings(user_id=account.id, target_attempt_id="2027-05", selected_paper_ids=papers,
+        db.add(Settings(user_id=account.id, target_attempt_id=get_settings().app.target_attempt_id,
+                        selected_paper_ids=papers,
                         hours_per_week=20, minutes_per_subtopic=45, revision_intervals=[3, 7, 21, 60]))
     invitation.consumed_at = now
     return account

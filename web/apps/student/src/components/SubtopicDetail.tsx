@@ -14,7 +14,7 @@ import { StudyContext, type StudyContextFields } from './StudyContext';
 import { ScoreExplanation } from './ScoreExplanation';
 import { useUrlState } from '../lib/url';
 import { rememberDestination, preserveOrigin, restoreOrigin } from '../lib/navigation';
-import { Dialog } from '../../../../packages/workspace/Dialog';
+import { Dialog } from '@caf/workspace/Dialog';
 import { TextbookSources } from './TextbookExplorer';
 
 type Status = 'not_started' | 'in_progress' | 'done';

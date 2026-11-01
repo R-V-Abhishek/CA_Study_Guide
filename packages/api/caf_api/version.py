@@ -1,11 +1,23 @@
 """Build and score identities for diagnostics, without personal content."""
 
 from functools import lru_cache
+from importlib import metadata
 import os
 from pathlib import Path
 import subprocess
+import tomllib
 
 from caf_db.models.intel import ScoreRun
+
+
+@lru_cache(maxsize=1)
+def application_version() -> str:
+    """The root project's release version, which release automation bumps; member versions are not authoritative."""
+    try:
+        return metadata.version('ca-final')
+    except metadata.PackageNotFoundError:
+        # A source checkout or the runtime image runs from the repository root without the root project installed.
+        return tomllib.loads(Path('pyproject.toml').read_text())['project']['version']
 
 
 @lru_cache(maxsize=1)

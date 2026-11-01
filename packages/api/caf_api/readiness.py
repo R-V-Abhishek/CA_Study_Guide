@@ -2,7 +2,7 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from caf_api.auth import Principal, require_admin
-from caf_api.routes import get_operations_db
+from caf_api.deps import get_operations_db
 from caf_common.settings import get_settings
 from caf_contracts.readiness import (ReadinessSummary, ReadinessWriteResult, BindingWrite,
                                      InventoryWrite, PriorWrite)

@@ -90,3 +90,11 @@ def test_dashboard():
     recent = data["recent_activity"][0]
     assert "node_name" in recent
     assert "paper_code" in recent
+
+
+def test_openapi_version_follows_the_root_project_version():
+    import tomllib
+    from pathlib import Path
+
+    expected = tomllib.loads(Path("pyproject.toml").read_text())["project"]["version"]
+    assert app.version == expected and app.version != "1.0.0"

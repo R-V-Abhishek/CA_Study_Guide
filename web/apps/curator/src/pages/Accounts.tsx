@@ -3,7 +3,7 @@ import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { apiRequest, accountKey, type Account } from '@caf/api-client';
 import { WorkspaceSkeleton } from '../components/WorkspaceSkeleton';
 import { RequestError } from '../components/RequestError';
-import { Dialog } from '../../../../packages/workspace/Dialog';
+import { Dialog } from '@caf/workspace/Dialog';
 
 type Invitation = { id: number; email: string; role: string; expires_at: string; consumed_at: string | null; revoked_at: string | null; target_user_id: number | null; invitation_url?: string };
 export function Accounts() {

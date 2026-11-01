@@ -7,7 +7,7 @@ import { demoLink, isDemoMode } from '../lib/demo';
 import { internalReturn } from '../lib/url';
 import { PageState } from '../components/PageState';
 import { PublishedImage } from '../components/PublishedImage';
-import { Dialog } from '../../../../packages/workspace/Dialog';
+import { Dialog } from '@caf/workspace/Dialog';
 import { rememberDestination } from '../lib/navigation';
 import { QuestionPages } from '../components/QuestionPages';
 const QuestionText = lazy(() => import('../components/ExtractedContent').then(module => ({ default: module.QuestionText })));

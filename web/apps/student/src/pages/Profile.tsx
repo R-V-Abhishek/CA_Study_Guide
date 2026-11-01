@@ -5,7 +5,7 @@ import { isDemoMode } from '../lib/demo';
 import { PageState } from '../components/PageState';
 import { resetStudyContext, mode, getData } from '../lib/data';
 import { exportProfile } from '../lib/export';
-import { ThemeControl } from '../../../../packages/workspace/theme';
+import { ThemeControl } from '@caf/workspace/theme';
 
 type Settings=components['schemas']['ProfileSettings'];
 export function Profile() {

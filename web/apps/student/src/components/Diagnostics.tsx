@@ -4,7 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import { getData, mode } from '../lib/data';
 import type { MetaData } from '../lib/contracts';
 import { PageState } from './PageState';
-import { Dialog } from '../../../../packages/workspace/Dialog';
+import { Dialog } from '@caf/workspace/Dialog';
 export function Diagnostics() {
   const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState(false);

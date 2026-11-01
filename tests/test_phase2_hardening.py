@@ -185,3 +185,4 @@ def test_migration_keeps_existing_oversized_text_and_leaves_its_constraint_unval
         session.execute(sa.text("INSERT INTO app.note (user_id, node_id, body) VALUES (2, :node, :body)"),
                         {"node": node, "body": "y" * 100_001})
     session.rollback()
+

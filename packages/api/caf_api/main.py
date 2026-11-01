@@ -21,6 +21,7 @@ from caf_api.curate import router as curate_router
 from caf_api.auth import (router as auth_router, allowed_origins, hash_token, prune_auth_tables,
     require_account, validate_auth_configuration, SESSION_COOKIE)
 from caf_api.ratelimit import RateLimiter
+from caf_api.version import application_version
 from caf_api.taxonomy import router as taxonomy_router
 from caf_api.extraction import router as extraction_router
 from caf_api.questions import router as questions_router
@@ -91,7 +92,7 @@ async def lifespan(application):
 
 app = FastAPI(
     title="CA Final Study Companion API",
-    version="1.0.0",
+    version=application_version(),
     docs_url=None,
     openapi_url=None,
     lifespan=lifespan,

@@ -6,7 +6,7 @@ from pydantic import BaseModel, ConfigDict
 import sqlalchemy as sa
 from sqlalchemy.orm import Session
 
-from caf_api.routes import get_operations_db
+from caf_api.deps import get_operations_db
 from caf_api.auth import Principal, require_account, require_admin
 from caf_db.engine import get_session_factory
 from caf_l1.catalog import confirm_document, reject_document

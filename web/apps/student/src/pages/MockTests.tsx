@@ -6,7 +6,7 @@ import { isDemoMode } from '../lib/demo';
 import { demoCreateMock, demoDeleteMock } from '../lib/fixtures';
 import { useUrlState } from '../lib/url';
 import { PageState } from '../components/PageState';
-import { Dialog } from '../../../../packages/workspace/Dialog';
+import { Dialog } from '@caf/workspace/Dialog';
 import type { MockTest } from '../lib/contracts';
 export function MockTests() {
   const { params, set } = useUrlState();

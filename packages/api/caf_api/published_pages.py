@@ -11,6 +11,7 @@ from fastapi.responses import Response
 from sqlalchemy.orm import Session
 
 from caf_api.auth import Principal, require_account
+from caf_api.published import approved_source, current_question, require_question_language, source_bytes
 from caf_common.settings import get_settings
 from caf_contracts.questions import PublishedQuestionPage
 from caf_db.engine import get_db_session
@@ -140,7 +141,6 @@ def page_bounds(pdf: fitz.Document, page: int, spans: list[dict]) -> tuple[fitz.
 
 
 def render_page(source: PublishedSource, page: int, spans: list[dict], crop: bool = True) -> bytes:
-    from caf_api.questions import source_bytes
 
     signature = source_signature(source)
     span_key = tuple((span['page_start'], span['page_end'], span['block_start'], span['block_end']) for span in spans)
@@ -173,8 +173,6 @@ def render_page(source: PublishedSource, page: int, spans: list[dict], crop: boo
     responses={200: {'content': {'image/png': {}}}})
 def published_question_page(question_id: str, kind: PageKind, source_id: int, page: int,
     crop: bool = True, db: Session = Depends(get_db_session), account: Principal = Depends(require_account)):
-    from caf_api.questions import approved_source, current_question, require_question_language
-
     row = current_question(db, question_id)
     require_question_language(db, account, row)
     source = approved_source(db, source_id)
