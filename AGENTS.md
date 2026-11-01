@@ -117,29 +117,32 @@ Do not start, resize, reset, or prune Colima without first checking its state an
 - Inspect current host/container/configuration state before remote changes. Do not
   infer production status solely from an old runbook or deployment receipt.
 
-## Deployment handoff: last observed checkpoint, 2026-10-27
+## Deployment handoff: last observed checkpoint, 2026-11-01
 
 This is historical context, not a claim about the machine's current state. Read it
 before working on deployment, then inspect live state when the user authorizes it.
 
-- Release `v0.2.0` (commit `2821dfc0b20cad99e723b03bf8ae5e2b63747d23`)
-  was installed on Ubuntu `caf-home` from a verified bundle. The restored database
-  and archived files passed full integrity comparisons. The preserved database
-  revision was `0009_question_language`.
-- Runtime verification then found all 94 published PDF records used relative
-  approved paths such as `data/blobs/...`. The image worked in `/app`, while its
-  configured blob directory was `/srv/caf/data/blobs`; `/app/data` was absent.
-  Published PDFs therefore failed the approved-path check despite intact files.
-- Web and worker were deliberately stopped for maintenance; PostgreSQL remained
-  running. Tailscale HTTPS consequently returned 502. The user explicitly paused
-  deployment. Actual Auth0 study-account sign-in and PDF reading remain unverified.
-- A proposed packaging fix is `/app/data -> /srv/caf/data`, with image verification
-  and a real relative-path PDF regression test. It was not implemented at pause.
-  Reinspect before deciding the fix; do not rewrite publication paths or bypass guards.
-- `caf.service` was enabled: a reboot may restart the old image. Do not treat a
-  reboot or service restart as a verified repair.
+- Release `v0.2.1` (commit `8855f58a7e7945b27d87074e94ab8417d6b4849d`)
+  is active on Ubuntu `caf-home`. Read
+  `docs/Deployment_verification_2026_11_01.md` for release/content/recovery identities,
+  evidence, and limitations before touching the deployment.
+- The image now maps `/app/data -> /srv/caf/data`. All 94 actual published PDFs
+  passed the existing path/hash guards, and a real page rendered. Do not rewrite
+  publication paths or weaken those guards. Native container regression covers
+  relative-path PDF reading/rendering.
+- Web, worker and PostgreSQL are running; private HTTPS and readiness passed.
+  The previous maintenance 502 is resolved. Actual study-account Auth0 sign-in
+  and browser reading acceptance still await the owner's credentials/MFA.
+- PostgreSQL image and schema `0009_question_language` were preserved. All 76
+  table digests matched before activation; baseline/taxonomy identities and owner
+  notes/progress remain preserved. No migration or classification was rerun.
+- A fresh recovery snapshot passed isolated restore/file/schema verification,
+  and an authenticated encrypted Mac copy was verified before activation.
+- `caf.service` is enabled and follows the current Compose pointer; actual normal
+  reboot acceptance remains pending. Do not assume a reboot test has passed.
 - First-install tooling exists, but a safe existing-installation `caf-host deploy`
-  upgrade workflow was not yet implemented. Do not erase storage to reuse install.
+  upgrade workflow is not implemented. This repair used a recorded one-time,
+  same-schema activation. Do not rerun it blindly or erase storage to reuse install.
 - Encrypted recovery copies were verified on the Mac. The external backup drive,
   daily encrypted server backup scheduling, and retention automation remain pending.
   The recovery identity stays off Ubuntu and out of this repository.
