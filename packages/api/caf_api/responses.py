@@ -623,24 +623,27 @@ class SystemHealth(BaseModel):
 
 class BackupItem(BaseModel):
     name: str
-    path: str
     size_mb: float
     age_hours: float
     created_at: datetime
 
 
+class BackupSchedule(BaseModel):
+    """Outcome of the latest scheduled snapshot, as recorded by `caf-host backup`."""
+    state: Literal["ok", "failed"]
+    last_attempt_at: datetime
+    last_success_at: datetime | None = None
+    snapshot: str | None = None
+    encryption: str
+    error: str | None = None
+    file_integrity_verified: bool = False
+    restore_verified: bool = False
+
+
 class BackupList(BaseModel):
     count: int
     backups: list[BackupItem]
-
-
-class BackupResult(BaseModel):
-    status: str
-    dump_file: str
-    size_bytes: int
-    blobs_copied: int
-    configs_copied: int
-    created_at: datetime
+    schedule: BackupSchedule | None = None
 
 
 class BucketMetric(BaseModel):

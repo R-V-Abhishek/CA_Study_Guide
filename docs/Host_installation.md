@@ -105,11 +105,75 @@ and `install.log`; the record identifies the failed phase. `status` reports an
 incomplete installation. Do not delete the receipt, rerun install, downgrade the
 database or restore over nonempty storage. Keep access closed, diagnose the
 failure, and select a separate empty recovery destination. An automated
-restore/upgrade/rollback command is still pending.
+restore/rollback command is still pending; see the upgrade section below for
+forward upgrades.
 
 Status is intentionally explicit about unfinished monitoring: worker visibility
-is container state, and backup scheduling is `not_configured`. This is not a
+is container state. `backup` reports the latest scheduled snapshot (or
+`not_configured` before one has run). This is not a
 worker heartbeat or a backup-age dashboard.
+
+## Upgrading an installed release
+
+`deploy/caf-host upgrade BUNDLE` moves an **active** installation to a newer verified
+release. Bootstrap the new tooling image exactly as for installation (load the
+bundle's images, export `CAF_HOST_IMAGE`), then:
+
+```sh
+sh /opt/caf/repo/deploy/caf-host upgrade /path/to/new-release.tar.gz
+sh /opt/caf/repo/deploy/caf-host status
+```
+
+Steps, each recorded in `releases/upgrade-*/upgrade.log`:
+
+1. Verify the bundle, platform and checksums; refuse candidates without
+   `--allow-candidate`, the same or an older version, a changed PostgreSQL image,
+   and any live schema the new release's migration chain does not contain.
+2. Render the new Compose file from the private environment file, pin it to the
+   loaded image IDs, retain the bundle beside the previous ones.
+3. Stop web and worker (PostgreSQL stays up), capture a **new recovery snapshot**
+   with the installed release, and check its files, protected tables, schema and
+   that it was taken after services stopped. A stale snapshot is rejected.
+4. Run forward Alembic migrations and grants only if the schema differs.
+5. Atomically switch `current-compose.json`, start web and worker, check
+   readiness, the schema, and that the running web image is the verified one.
+6. Merge a receipt that keeps the previous release, its directory and snapshot.
+
+Failure handling: if nothing in the database changed, the previous release is
+restarted and the pointer restored automatically. After a migration has started,
+services stay **stopped**, nothing is downgraded, and `failure.json` names the
+snapshot to restore into an empty destination. `.upgrade-in-progress` blocks
+another attempt until the failure has been read.
+
+Status of this tooling: the planning, snapshot-gating and receipt logic are
+unit-tested (`deploy/tests/test_host_upgrade.py`). The shell orchestration was
+syntax-checked but **has not been run end to end on Linux**. Rehearse it on a
+disposable `caf-install-*` project (as the install drill does) before using it
+on `caf-home`, and treat the first production use as unverified.
+
+## Scheduled recovery snapshots
+
+`deploy/caf-host backup` creates a snapshot with the installed web image
+(`caf-host _backup run`), checks file integrity and protected tables, keeps
+7 daily, 4 weekly and 6 monthly snapshots (only directories with a manifest and a
+canonical name are ever pruned), and writes `backups/status.json`. If
+`/etc/caf/backup-recipient.txt` (a public `age` recipient) exists it also writes
+`/srv/caf/encrypted-backups/<snapshot>.tar.gz.age` with a checksum and removes
+encrypted copies for snapshots retention dropped. The private identity must stay
+off this machine. Without a recipient the status says `not_configured`;
+a missing `age` binary or an encryption error marks the run failed and raises the
+`BACKUP_FAILED` alarm. Nothing here proves a database restore: status reports
+`restore_verified: false` until you run an isolated restore drill.
+
+The owner installs the schedule (not done automatically):
+
+```sh
+sudo install -m 0644 /opt/caf/repo/deploy/caf-backup.service /opt/caf/repo/deploy/caf-backup.timer /etc/systemd/system/
+sudo systemctl daemon-reload && sudo systemctl enable --now caf-backup.timer
+```
+
+Copying encrypted files off the machine (the Mac, an external drive) is still manual.
+The web page `/curator/system` is read-only; it no longer creates snapshots.
 
 ## Disposable verification
 

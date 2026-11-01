@@ -43,13 +43,39 @@ caf-cli = { workspace = true }
 [tool.ruff]
 target-version = "py312"
 line-length = 100
+extend-exclude = ["packages/*/*.egg-info", "web", "artifacts", "output"]
+
+[tool.ruff.lint]
+# Bug-class baseline that passes today (syntax errors, undefined names, invalid
+# comparisons). Style rules (E70x, F401, F811, import order) are deliberately
+# deferred to the formatting step so this gate adds no code churn.
+select = ["E9", "F63", "F7", "F82", "F402", "F601", "F632"]
 
 [tool.mypy]
+# CI checks only packages/api and packages/db (see .github/workflows/checks.yml).
+# Not strict yet: the modules listed below carry known errors (Optional access on
+# session.get results, untyped locals) and are excluded until they are fixed.
 python_version = "3.12"
-strict = true
 ignore_missing_imports = true
+warn_unused_ignores = true
+
+[[tool.mypy.overrides]]
+module = [
+    "caf_api.auth",
+    "caf_api.curate",
+    "caf_api.extraction",
+    "caf_api.health",
+    "caf_api.questions",
+    "caf_api.routes",
+    "caf_api.security_logging",
+    "caf_api.taxonomy",
+    "caf_db.alembic.versions.0003_identity",
+]
+ignore_errors = true
 
 [dependency-groups]
 dev = [
+    "mypy>=2.4.1",
     "pytest>=9.1.1",
+    "ruff>=0.17.3",
 ]

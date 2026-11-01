@@ -159,6 +159,7 @@ def test_llm_rejects_forced_candidates_and_records_successful_model(session, man
         core_tested_concept="discounting", justification="Reviewed descriptor evidence", gist="Discount cash flows"))
     classifier.client = ProviderClient(provider)
     classifier.model_candidates = ["unavailable-model", "fixture-successful-model"]
+    classifier.pricing.update({name: {"input": 0.0, "output": 0.0} for name in classifier.model_candidates})
     if candidate == "reviewed":
         result = classifier.classify_unit("s2023.P1", "discounting", retries=0)
         assert result.model_id == "fixture-successful-model"

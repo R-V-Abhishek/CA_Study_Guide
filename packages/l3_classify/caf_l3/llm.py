@@ -93,6 +93,9 @@ class GeminiClassifier:
         self.budget_cap = float(self.models_config.get("budget", {}).get("max_usd_per_run", 10.0))
         if not math.isfinite(self.budget_cap) or self.budget_cap <= 0:
             raise ValueError("max_usd_per_run must be finite and positive")
+        unpriced = [name for name in self.model_candidates if name not in self.pricing]
+        if unpriced:
+            raise ValueError(f"No pricing configured for model(s) {', '.join(unpriced)}; add them to config/models.toml [pricing]")
         self.total_cost_usd = 0.0
 
     def _load_models_config(self) -> dict[str, Any]:
@@ -302,7 +305,7 @@ class GeminiClassifier:
         raise RuntimeError(f"All model candidates failed. Last error: {last_error}")
 
     def _compute_cost(self, model_name: str, input_tokens: int, output_tokens: int) -> float:
-        prices = self.pricing.get(model_name, {"input": 0.50, "output": 3.00})
-        in_cost = (input_tokens / 1_000_000.0) * prices.get("input", 0.50)
-        out_cost = (output_tokens / 1_000_000.0) * prices.get("output", 3.00)
+        prices = self.pricing[model_name]
+        in_cost = (input_tokens / 1_000_000.0) * prices["input"]
+        out_cost = (output_tokens / 1_000_000.0) * prices["output"]
         return round(in_cost + out_cost, 6)

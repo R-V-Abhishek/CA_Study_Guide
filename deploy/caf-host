@@ -7,6 +7,14 @@ case ${1:-} in
         shift
         exec bash "$directory/install-host.sh" "$@"
         ;;
+    upgrade)
+        shift
+        exec bash "$directory/upgrade-host.sh" "$@"
+        ;;
+    backup)
+        shift
+        exec bash "$directory/backup-host.sh" "$@"
+        ;;
     status)
         shift
         exec bash "$directory/status-host.sh" "$@"
@@ -62,5 +70,5 @@ case ${1:-} in
             --mount "type=bind,source=$snapshot,target=/snapshot,readonly" \
             --entrypoint caf-host "$image_id" inspect-backup /snapshot
         ;;
-    *) echo 'Usage: caf-host {preflight|verify-bundle ARCHIVE|inspect-backup SNAPSHOT_DIRECTORY|install BUNDLE --backup SNAPSHOT|status}' >&2; exit 1;;
+    *) echo 'Usage: caf-host {preflight|verify-bundle ARCHIVE|inspect-backup SNAPSHOT_DIRECTORY|install BUNDLE --backup SNAPSHOT|upgrade BUNDLE|backup|status}' >&2; exit 1;;
 esac

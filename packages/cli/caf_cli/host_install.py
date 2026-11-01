@@ -14,20 +14,8 @@ from caf_common.recovery_manifest import checksum, inspect_recovery_files
 app = typer.Typer(add_completion=False, pretty_exceptions_enable=False)
 
 
-@app.command()
-def prepare(bundle: Path, snapshot: Path, rendered: Path, output: Path,
-            destination: str = typer.Option(...), project: str = typer.Option(...),
-            port: int = 8788, allow_candidate: bool = False) -> None:
-    """Validate inputs and write the private effective Compose file plus a receipt."""
-    manifest = verify_archive(bundle)
-    backup = inspect_recovery_files(snapshot)
-    from caf_common.backup import critical_tables
-    if critical_tables(backup.database_revision) - backup.tables.keys():
-        raise ValueError("Protected tables missing from backup")
-    if manifest.candidate and not allow_candidate:
-        raise ValueError("Candidate installation requires explicit --allow-candidate")
-    if backup.database_revision not in manifest.supported_schemas:
-        raise ValueError("Release does not support the backup schema")
+def effective_compose(manifest, rendered: Path, destination: str, project: str, port: int) -> dict:
+    """Validate the rendered production Compose file and pin it to one verified release."""
     if not re.fullmatch(r"caf(?:-install-[a-z0-9]+)?", project):
         raise ValueError("Use project caf or caf-install-<unique-id>")
     root = Path(destination)
@@ -69,6 +57,24 @@ def prepare(bundle: Path, snapshot: Path, rendered: Path, output: Path,
     configuration["name"] = project
     for name, network in configuration["networks"].items():
         network["name"] = f"{project}_{name}"
+    return configuration
+
+
+@app.command()
+def prepare(bundle: Path, snapshot: Path, rendered: Path, output: Path,
+            destination: str = typer.Option(...), project: str = typer.Option(...),
+            port: int = 8788, allow_candidate: bool = False) -> None:
+    """Validate inputs and write the private effective Compose file plus a receipt."""
+    manifest = verify_archive(bundle)
+    backup = inspect_recovery_files(snapshot)
+    from caf_common.backup import critical_tables
+    if critical_tables(backup.database_revision) - backup.tables.keys():
+        raise ValueError("Protected tables missing from backup")
+    if manifest.candidate and not allow_candidate:
+        raise ValueError("Candidate installation requires explicit --allow-candidate")
+    if backup.database_revision not in manifest.supported_schemas:
+        raise ValueError("Release does not support the backup schema")
+    configuration = effective_compose(manifest, rendered, destination, project, port)
     (output / "compose.json").write_text(json.dumps(configuration, indent=2) + "\n")
     receipt = {"format_version": 1, "phase": "prepared", "project": project,
                "destination": destination, "application": manifest.model_dump(mode="json"),

@@ -42,6 +42,11 @@ export function System() {
       <h2 className="font-bold">Recovery and backups</h2>
       <RequestError error={backups.error} retry={() => void backups.refetch()} />
       {backups.isPending ? <p role="status">Loading backups…</p> : backups.data && <>
+        {backups.data.schedule ? <div role="status" className="text-sm space-y-1">
+          <p>Latest scheduled snapshot: <strong>{backups.data.schedule.state === "ok" ? "succeeded" : "FAILED"}</strong> · attempted {new Date(backups.data.schedule.last_attempt_at).toLocaleString()}</p>
+          {backups.data.schedule.last_success_at && <p className="text-slate-400">Last success {new Date(backups.data.schedule.last_success_at).toLocaleString()} · files verified: {backups.data.schedule.file_integrity_verified ? "yes" : "no"} · database restore verified: {backups.data.schedule.restore_verified ? "yes" : "no"} · encryption: {backups.data.schedule.encryption}</p>}
+          {backups.data.schedule.error && <p role="alert" className="text-red-300">{backups.data.schedule.error}</p>}
+        </div> : <p className="text-sm text-slate-400">No scheduled snapshot has reported yet. Snapshots are created on the host with <code>caf-host backup</code>.</p>}
         <p className="text-sm text-slate-400">{backups.data.count} snapshots</p>
         {backups.data.backups.length === 0 ? <p className="text-sm text-slate-400">No backup snapshots returned.</p> : backups.data.backups.map(backup => <div key={backup.name} className="flex flex-wrap justify-between gap-2 text-xs border-t border-slate-700 pt-3">
           <span>{backup.name}</span><span>{backup.size_mb.toFixed(2)} MB · {new Date(backup.created_at).toLocaleString()}</span>

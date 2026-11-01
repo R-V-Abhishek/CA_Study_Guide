@@ -3,6 +3,12 @@ primary = "gemini-3.6-flash"
 fallbacks = ["gemini-3.7-flash", "gemini-3.8-flash", "gemini-3.5-flash"]
 
 [pricing]  # USD per 1M tokens — update from official pricing page
+# The gemini-3.x entries reuse the previous implicit fallback rate (0.50 in / 3.00 out).
+# They are placeholders, not published prices: confirm them before relying on budget caps.
+"gemini-3.5-flash"      = { input = 0.50, output = 3.00 }
+"gemini-3.6-flash"      = { input = 0.50, output = 3.00 }
+"gemini-3.7-flash"      = { input = 0.50, output = 3.00 }
+"gemini-3.8-flash"      = { input = 0.50, output = 3.00 }
 "gemini-2.5-flash"      = { input = 0.50, output = 3.00 }
 "gemini-2.0-flash"      = { input = 0.10, output = 0.40 }
 "gemini-1.5-flash"      = { input = 0.075, output = 0.30 }

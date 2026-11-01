@@ -1,4 +1,5 @@
 from datetime import date, datetime, timezone
+from pathlib import Path
 from typing import Literal
 from fastapi import APIRouter, Depends, HTTPException, Query, Request
 from pydantic import BaseModel, Field, ConfigDict, model_validator
@@ -6,12 +7,13 @@ import sqlalchemy as sa
 from sqlalchemy.orm import Session
 
 from caf_api.responses import (
-    BackupList, BackupResult, ChapterItem, Dashboard, DeleteResult, Metadata,
+    BackupList, ChapterItem, Dashboard, DeleteResult, Metadata,
     MockTestResult, ModelEvaluation, NoteResult, PaperSummary, PaperTree,
     ProgressResult, RevisionQueue, RevisionResult, ScoreExplanation, StudyPlan,
     SubtopicDetail, SubtopicItem, SystemHealth, TopicItem, ProfileSettings, ProfileExport,
     CorpusReadiness,
 )
+from caf_common.settings import get_settings
 from caf_api.auth import Principal, require_account, require_admin, get_identity_db
 from caf_api.version import backend_revision, score_run_identity
 from caf_db.engine import get_session_factory
@@ -926,42 +928,35 @@ def api_get_system_health(session: Session = Depends(get_operations_db), account
 
 @router.get("/system/backups", response_model=BackupList)
 def api_list_backups(account: Principal = Depends(require_admin)):
-    """List existing database backup dumps with sizes and ages."""
+    """Read-only view of the recovery snapshots produced by `caf-host backup`.
+
+    Creating, verifying and pruning snapshots is a host operation; the web application
+    exposes no write path and no server filesystem locations.
+    """
     from caf_common.backup import list_backups
+    from caf_common.backup_status import read_status
 
     backups = list_backups()
+    status = read_status(Path(get_settings().storage.backup_dir))
+    schedule = None
+    if status is not None:
+        snapshot = status.get("snapshot") or {}
+        schedule = {
+            "state": status["state"], "last_attempt_at": status["last_attempt_at"],
+            "last_success_at": status.get("last_success_at"), "snapshot": snapshot.get("name"),
+            "encryption": status.get("encryption", "not_configured"), "error": status.get("error"),
+            "file_integrity_verified": snapshot.get("file_integrity_verified", False),
+            "restore_verified": snapshot.get("restore_verified", False),
+        }
     return {
         "count": len(backups),
         "backups": [
-            {
-                "name": b["name"],
-                "path": b["path"],
-                "size_mb": b["size_mb"],
-                "age_hours": b["age_hours"],
-                "created_at": b["created_at"].isoformat(),
-            }
+            {"name": b["name"], "size_mb": b["size_mb"], "age_hours": b["age_hours"],
+             "created_at": b["created_at"].isoformat()}
             for b in backups
         ],
+        "schedule": schedule,
     }
-
-
-@router.post("/system/backups", response_model=BackupResult)
-def api_trigger_backup(session: Session = Depends(get_operations_db), account: Principal = Depends(require_admin)):
-    """Trigger an immediate full database and asset backup."""
-    from caf_common.backup import create_backup
-
-    try:
-        manifest = create_backup(session=session)
-        return {
-            "status": "ok",
-            "dump_file": manifest.dump_file.name,
-            "size_bytes": manifest.dump_size_bytes,
-            "blobs_copied": manifest.blobs_copied,
-            "configs_copied": manifest.configs_copied,
-            "created_at": manifest.created_at.isoformat(),
-        }
-    except Exception as exc:
-        raise HTTPException(status_code=500, detail=f"Backup failed: {exc}")
 
 
 @router.get("/system/model-evaluation", response_model=ModelEvaluation)

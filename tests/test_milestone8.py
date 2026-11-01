@@ -234,6 +234,10 @@ def test_milestone8_api_endpoints(client):
     data_b = res_backups.json()
     assert "count" in data_b
     assert "backups" in data_b
+    assert all("path" not in item for item in data_b["backups"])
+    assert data_b["schedule"] is None
+    # The web application has no write path for snapshots; they are a host operation.
+    assert client.post("/api/v1/system/backups").status_code == 405
 
     # 3. GET /api/v1/system/model-evaluation
     res_eval = client.get("/api/v1/system/model-evaluation?threshold=0.80")
@@ -264,3 +268,23 @@ def test_milestone8_cli_commands():
     assert res_status.exit_code == 0
     assert "Recent Pipeline Runs" in res_status.output
     assert "System Health & Alarms" in res_status.output
+
+
+def test_backup_endpoint_reports_scheduled_snapshot_status_without_paths(client):
+    from pathlib import Path
+    from caf_common.backup_status import write_status
+    from caf_common.settings import get_settings
+
+    base = Path(get_settings().storage.backup_dir)
+    base.mkdir(parents=True, exist_ok=True)
+    write_status(base, {"state": "failed", "last_attempt_at": "2026-11-01T03:30:00+00:00",
+        "last_success_at": "2026-10-31T03:30:00+00:00", "encryption": "failed:age_not_installed",
+        "error": "failed:age_not_installed",
+        "snapshot": {"name": "caf_20261031_033000_000000_deadbeef", "file_integrity_verified": True,
+                     "restore_verified": False}})
+    body = client.get("/api/v1/system/backups").json()
+    assert body["schedule"]["state"] == "failed" and body["schedule"]["restore_verified"] is False
+    assert body["schedule"]["snapshot"] == "caf_20261031_033000_000000_deadbeef"
+    assert str(base) not in client.get("/api/v1/system/backups").text
+    health = client.get("/api/v1/system/health").json()
+    assert any(alarm["code"] == "BACKUP_FAILED" and alarm["level"] == "CRITICAL" for alarm in health["alarms"])

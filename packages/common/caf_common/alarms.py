@@ -9,6 +9,7 @@ import sqlalchemy as sa
 from sqlalchemy.orm import Session
 
 from caf_common.backup import list_backups
+from caf_common.backup_status import read_status
 from caf_common.settings import get_settings
 from caf_db.models.core import Decision
 from caf_db.models.ingest import Document, TagSuggestion, Unit
@@ -46,6 +47,19 @@ def evaluate_system_alarms(
     5. BUCKET_A_PRECISION_DROP: Bucket A human acceptance precision below threshold
     """
     alarms: list[Alarm] = []
+
+    # 0. The scheduled snapshot job reports its own failures (including encryption).
+    scheduled = read_status(Path(backup_dir or get_settings().storage.backup_dir))
+    if scheduled is not None and scheduled.get("state") == "failed":
+        alarms.append(
+            Alarm(
+                code="BACKUP_FAILED",
+                level="CRITICAL",
+                message=f"The latest scheduled recovery snapshot failed: {scheduled.get('error')}",
+                details={"last_attempt_at": scheduled.get("last_attempt_at"),
+                         "last_success_at": scheduled.get("last_success_at")},
+            )
+        )
 
     # 1. Check Backup Freshness
     backups = list_backups(backup_dir)

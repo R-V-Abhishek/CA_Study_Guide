@@ -453,15 +453,14 @@ export interface paths {
         };
         /**
          * Api List Backups
-         * @description List existing database backup dumps with sizes and ages.
+         * @description Read-only view of the recovery snapshots produced by `caf-host backup`.
+         *
+         *     Creating, verifying and pruning snapshots is a host operation; the web application
+         *     exposes no write path and no server filesystem locations.
          */
         get: operations["api_list_backups_api_v1_system_backups_get"];
         put?: never;
-        /**
-         * Api Trigger Backup
-         * @description Trigger an immediate full database and asset backup.
-         */
-        post: operations["api_trigger_backup_api_v1_system_backups_post"];
+        post?: never;
         delete?: never;
         options?: never;
         head?: never;
@@ -1579,6 +1578,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/ready": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Ready */
+        get: operations["ready_api_v1_ready_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/health": {
         parameters: {
             query?: never;
@@ -1872,8 +1888,6 @@ export interface components {
         BackupItem: {
             /** Name */
             name: string;
-            /** Path */
-            path: string;
             /** Size Mb */
             size_mb: number;
             /** Age Hours */
@@ -1890,24 +1904,41 @@ export interface components {
             count: number;
             /** Backups */
             backups: components["schemas"]["BackupItem"][];
+            schedule?: components["schemas"]["BackupSchedule"] | null;
         };
-        /** BackupResult */
-        BackupResult: {
-            /** Status */
-            status: string;
-            /** Dump File */
-            dump_file: string;
-            /** Size Bytes */
-            size_bytes: number;
-            /** Blobs Copied */
-            blobs_copied: number;
-            /** Configs Copied */
-            configs_copied: number;
+        /**
+         * BackupSchedule
+         * @description Outcome of the latest scheduled snapshot, as recorded by `caf-host backup`.
+         */
+        BackupSchedule: {
             /**
-             * Created At
+             * State
+             * @enum {string}
+             */
+            state: "ok" | "failed";
+            /**
+             * Last Attempt At
              * Format: date-time
              */
-            created_at: string;
+            last_attempt_at: string;
+            /** Last Success At */
+            last_success_at?: string | null;
+            /** Snapshot */
+            snapshot?: string | null;
+            /** Encryption */
+            encryption: string;
+            /** Error */
+            error?: string | null;
+            /**
+             * File Integrity Verified
+             * @default false
+             */
+            file_integrity_verified: boolean;
+            /**
+             * Restore Verified
+             * @default false
+             */
+            restore_verified: boolean;
         };
         /** BaselineActivationRequest */
         BaselineActivationRequest: {
@@ -5420,26 +5451,6 @@ export interface operations {
             };
         };
     };
-    api_trigger_backup_api_v1_system_backups_post: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Successful Response */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["BackupResult"];
-                };
-            };
-        };
-    };
     api_evaluate_models_api_v1_system_model_evaluation_get: {
         parameters: {
             query?: {
@@ -7728,6 +7739,28 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    ready_api_v1_ready_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        [key: string]: string;
+                    };
                 };
             };
         };
