@@ -175,6 +175,29 @@ sudo systemctl daemon-reload && sudo systemctl enable --now caf-backup.timer
 Copying encrypted files off the machine (the Mac, an external drive) is still manual.
 The web page `/curator/system` is read-only; it no longer creates snapshots.
 
+## Health watch and alerts
+
+`caf-host watch` (units `deploy/caf-watch.service` and `deploy/caf-watch.timer`, every five minutes) checks
+three things: the loopback readiness endpoint, the intelligence worker heartbeat
+(`backups/worker-heartbeat.json`, written every 30 seconds) and the scheduled snapshot status
+(`backups/status.json`: failed, or no success within 48 hours). The decision and de-duplication state
+(`backups/watch-state.json`) are produced inside the application image, so the host script only delivers:
+one message when a problem appears, one when it clears and one reminder per day while it lasts.
+
+Nothing is sent unless `/etc/caf/watch.env` (mode 0600) defines `CAF_WATCH_WEBHOOK_URL`, for example an
+[ntfy](https://ntfy.sh) topic URL. Without it the script only prints to the journal. The check is skipped
+while the deployment lock is held, because upgrades and restores stop services on purpose. A failed
+delivery is logged but not retried: the state already records the alert, so check
+`journalctl -u caf-watch` if a notification never arrives.
+
+The units are not installed by the installer. The script and its logic are tested; the shell orchestration
+has not yet been run against a live Docker host (see "Upgrading an installed release" for the same caveat).
+
+Application logs are JSON lines in production (`CAF_ENV=production`) and readable text elsewhere. Every
+API response carries `X-Request-ID` (a harmless caller-supplied value is kept, otherwise one is generated)
+and every log line written during the request carries the same `request_id`. Access logs still drop
+query strings on `/auth/` paths.
+
 ## Disposable verification
 
 `scripts/verify_host_install.py` runs only on native Linux against newly created

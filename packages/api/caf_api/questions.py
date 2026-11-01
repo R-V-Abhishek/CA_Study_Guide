@@ -44,6 +44,14 @@ def require_question_language(db: Session, account: Principal, row: PublishedQue
         raise HTTPException(403, 'Hindi questions are hidden. Enable them in Profile preferences to read this question.')
 
 
+def require_source_language(db: Session, account: Principal, source: PublishedSource) -> None:
+    """Every question using a Hindi-titled source is hidden, so its raw pages are hidden too."""
+    title = source.title or ''
+    hindi = re.search(HINDI_TITLE, title, re.IGNORECASE) or re.search(HINDI_SCRIPT, title)
+    if hindi and not includes_hindi(db, account):
+        raise HTTPException(403, 'Hindi questions are hidden. Enable them in Profile preferences to read this source.')
+
+
 def current_questions():
     return select(PublishedQuestion).join(QuestionPublication,
         QuestionPublication.current_snapshot_id == PublishedQuestion.id)
@@ -191,8 +199,10 @@ def source_bytes(source):
 
 
 @router.get('/published-sources/{source_id}',responses={200:{'content':{'application/pdf':{}}}})
-def source_file(source_id:int,db:Session=Depends(get_db_session)):
-    return Response(source_bytes(approved_source(db,source_id)),media_type='application/pdf',headers={'Cache-Control':'private, no-store'})
+def source_file(source_id:int,db:Session=Depends(get_db_session),account:Principal=Depends(require_account)):
+    source=approved_source(db,source_id)
+    require_source_language(db,account,source)
+    return Response(source_bytes(source),media_type='application/pdf',headers={'Cache-Control':'private, no-store'})
 
 
 def source_image(source,page,bbox=None):
@@ -210,12 +220,14 @@ def source_image(source,page,bbox=None):
 
 
 @router.get('/published-sources/{source_id}/pages/{page}',responses={200:{'content':{'image/png':{}}}})
-def source_page(source_id:int,page:int,db:Session=Depends(get_db_session)):
-    return source_image(approved_source(db,source_id),page)
+def source_page(source_id:int,page:int,db:Session=Depends(get_db_session),account:Principal=Depends(require_account)):
+    source=approved_source(db,source_id)
+    require_source_language(db,account,source)
+    return source_image(source,page)
 
 
 @router.get('/published-assets/{asset_id}',responses={200:{'content':{'image/png':{}}}})
-def asset_image(asset_id:str,db:Session=Depends(get_db_session)):
+def asset_image(asset_id:str,db:Session=Depends(get_db_session),account:Principal=Depends(require_account)):
     if not re.fullmatch(r'\d+:\d+',asset_id):
         raise HTTPException(404,'published_asset_not_found')
     snapshot_id,index=(int(value) for value in asset_id.split(':'))
@@ -223,4 +235,5 @@ def asset_image(asset_id:str,db:Session=Depends(get_db_session)):
     if row is None or index>=len(row.assets):
         raise HTTPException(404,'published_asset_not_found')
     asset=row.assets[index]
+    require_question_language(db,account,row)
     return source_image(approved_source(db,asset['source_id']),asset['page'],asset.get('bbox'))

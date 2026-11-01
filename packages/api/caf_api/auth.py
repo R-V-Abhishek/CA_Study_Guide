@@ -24,6 +24,7 @@ from caf_db.models.ref import Paper
 
 router = APIRouter(tags=["identity"])
 SESSION_COOKIE = "caf_session"
+LAST_SEEN_WRITE_INTERVAL = timedelta(minutes=5)
 LOGIN_COOKIE = "caf_login"
 logger = logging.getLogger(__name__)
 
@@ -39,6 +40,18 @@ def hash_token(token: str) -> str:
 def get_identity_db():
     with get_session_factory("identity")() as db:
         yield db
+
+
+def prune_auth_tables(db, now: datetime | None = None) -> dict[str, int]:
+    """Delete spent login transactions and long-dead sessions; live sessions are never touched."""
+    now = now or utcnow()
+    transactions = db.execute(sa.delete(LoginTransaction).where(
+        LoginTransaction.expires_at < now - timedelta(days=1))).rowcount
+    cutoff = now - timedelta(days=30)
+    sessions = db.execute(sa.delete(AuthSession).where(sa.or_(
+        AuthSession.revoked_at < cutoff, AuthSession.expires_at < cutoff))).rowcount
+    db.commit()
+    return {"login_transactions": transactions, "auth_sessions": sessions}
 
 
 def validate_auth_configuration() -> None:
@@ -96,8 +109,10 @@ def require_account(request: Request) -> Principal:
             if request.headers.get("origin") not in allowed_origins() or not secrets.compare_digest(supplied.encode(), session.csrf_token.encode()):
                 raise HTTPException(403, "csrf_rejected")
         principal = Principal(account.id, account.name, account.email, account.role, account.status)
-        session.last_seen_at = now
-        db.commit()
+        if session.last_seen_at <= now - LAST_SEEN_WRITE_INTERVAL:
+            # Idle expiry compares the stored value, so it can lag real activity by at most this interval.
+            session.last_seen_at = now
+            db.commit()
         request.state.account = principal
         request.state.csrf_token = session.csrf_token
         return principal
@@ -360,6 +375,14 @@ def update_account(account_id: int, body: AccountUpdate, admin: Principal = Depe
         raise HTTPException(404, "account_not_found")
     if account.status == "pending_binding":
         raise HTTPException(409, "account_requires_explicit_binding")
+    leaving_administration = account.role == "administrator" and account.status == "active" and (
+        body.role == "student" or body.status == "disabled")
+    if leaving_administration:
+        # Lock every active administrator so two concurrent demotions cannot both pass.
+        active = db.scalars(sa.select(UserAccount.id).where(
+            UserAccount.role == "administrator", UserAccount.status == "active").with_for_update()).all()
+        if not [identifier for identifier in active if identifier != account.id]:
+            raise HTTPException(409, "last_administrator")
     if body.role is not None:
         account.role = body.role
     if body.status is not None:

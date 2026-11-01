@@ -216,6 +216,11 @@ def test_hindi_opt_in_filters_search_topics_and_reader_per_account(session, sugg
     assert client.get('/api/v1/questions', params={'subtopic_id': topic_id}).json()['total'] == 0
     assert client.get('/api/v1/search', params={'q': 'recognition'}).json()['total'] == 0
     assert client.get(f'/api/v1/questions/{question_id}').status_code == 403
+    from sqlalchemy import select
+    from caf_db.models.questions import PublishedSource
+    source_id = session.scalar(select(PublishedSource.id))
+    assert client.get(f'/api/v1/published-sources/{source_id}').status_code == 403
+    assert client.get(f'/api/v1/published-sources/{source_id}/pages/1').status_code == 403
 
     settings = client.get('/api/v1/me/settings').json()
     for field in ['groups', 'available_papers', 'available_attempts']:
@@ -233,6 +238,8 @@ def test_hindi_opt_in_filters_search_topics_and_reader_per_account(session, sugg
     assert question.json()['question_pages']
     page_url = question.json()['question_pages'][0]['url']
     assert client.get(page_url).status_code == 200
+    assert client.get(f'/api/v1/published-sources/{source_id}').status_code == 200
+    assert client.get(f'/api/v1/published-sources/{source_id}/pages/1').status_code == 200
 
     from caf_db.models.app import Settings
     session.add(Settings(user_id=2, target_attempt_id='2026-05'))

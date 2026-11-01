@@ -15,12 +15,14 @@ from caf_cli.host_bundle import verify_archive
 from caf_cli.host_backup import app as backup_app
 from caf_cli.host_install import app as install_app
 from caf_cli.host_upgrade import app as upgrade_app
+from caf_cli.host_watch import app as watch_app
 
 app = typer.Typer(help="Packaged home-host tools", add_completion=False,
                   pretty_exceptions_enable=False)
 app.add_typer(install_app, name="_install", hidden=True)
 app.add_typer(upgrade_app, name="_upgrade", hidden=True)
 app.add_typer(backup_app, name="_backup", hidden=True)
+app.add_typer(watch_app, name="_watch", hidden=True)
 GIB = 1024**3
 
 

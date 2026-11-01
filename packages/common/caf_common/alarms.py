@@ -10,6 +10,7 @@ from sqlalchemy.orm import Session
 
 from caf_common.backup import list_backups
 from caf_common.backup_status import read_status
+from caf_common.heartbeat import STALE_AFTER_SECONDS, read_heartbeat
 from caf_common.settings import get_settings
 from caf_db.models.core import Decision
 from caf_db.models.ingest import Document, TagSuggestion, Unit
@@ -60,6 +61,17 @@ def evaluate_system_alarms(
                          "last_success_at": scheduled.get("last_success_at")},
             )
         )
+
+    # 0b. The worker reports liveness through a heartbeat file.
+    beat = read_heartbeat(Path(backup_dir or get_settings().storage.backup_dir))
+    now = datetime.now(timezone.utc)
+    if beat is None and get_settings().app.env == "production":
+        alarms.append(Alarm(code="WORKER_STALE", level="WARNING",
+                            message="The intelligence worker has not reported yet", details={"last_heartbeat_at": None}))
+    elif beat is not None and (now - beat).total_seconds() > STALE_AFTER_SECONDS:
+        alarms.append(Alarm(code="WORKER_STALE", level="CRITICAL",
+                            message=f"The intelligence worker has not reported for {int((now - beat).total_seconds() // 60)} minutes",
+                            details={"last_heartbeat_at": beat.isoformat()}))
 
     # 1. Check Backup Freshness
     backups = list_backups(backup_dir)

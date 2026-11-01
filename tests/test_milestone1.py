@@ -12,7 +12,7 @@ def test_health():
     assert res.status_code == 200
     data = res.json()
     assert data["status"] == "ok"
-    assert data["target_attempt"] == "2027-05"
+    assert data == {"status": "ok"}
 
 
 def test_list_papers():

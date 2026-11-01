@@ -239,52 +239,92 @@ def classification_queue(
     if source: query = query.where(Document.doc_type_id == source)
     if taxonomy_version_id: query = query.where(SuggestionRevision.taxonomy_version_id == taxonomy_version_id)
     if experimental is not None: query = query.where(SuggestionRevision.experimental == experimental)
+    if outcome: query = query.where(SuggestionRevision.mappings.contains([{'outcome': outcome}]))
+    if benchmark_only: query = query.where(SuggestionRevision.provenance['benchmark'].astext == 'true')
+    if disputed is not None:
+        open_dispute = sa.exists().where(ClassificationDispute.question_id == SuggestionRevision.question_id,
+            ClassificationDispute.status == 'open')
+        query = query.where(open_dispute if disputed else ~open_dispute)
+    query = query.order_by(SuggestionRevision.id.desc())
     result = []
     skipped = 0
     # Evidence is shared only within this read request. Mutations always load
     # current evidence again, so approvals/corrections cannot use stale gates.
     taxonomy_evidence = {}
-    for suggestion, document in session.execute(query.order_by(SuggestionRevision.id.desc())):
-        version_id = suggestion.taxonomy_version_id
-        if version_id not in taxonomy_evidence:
-            taxonomy_evidence[version_id] = taxonomy_readiness_evidence(session, version_id)
-        gate = readiness(session, suggestion, taxonomy_evidence[version_id])
-        if ready is not None and gate['eligible'] != ready: continue
-        if outcome and not any(part['outcome'] == outcome for part in suggestion.mappings): continue
-        benchmark = bool(suggestion.provenance.get('benchmark', False))
-        if benchmark_only and not benchmark: continue
-        publication = session.get(QuestionPublication, suggestion.question_id)
-        current_id = publication.current_revision_id if publication else None
-        current = session.get(ClassificationRevision, current_id) if current_id else None
-        count = session.scalar(sa.select(sa.func.count()).select_from(ClassificationVerification).where(
-            ClassificationVerification.revision_id == current_id, ClassificationVerification.active.is_(True))) if current_id else 0
-        mine = session.scalar(sa.select(ClassificationVerification.id).where(ClassificationVerification.revision_id == current_id,
-            ClassificationVerification.actor_id == account.id, ClassificationVerification.active.is_(True))) if current_id else None
-        dispute = session.scalar(sa.select(ClassificationDispute).where(ClassificationDispute.question_id == suggestion.question_id,
-            ClassificationDispute.status == 'open').order_by(ClassificationDispute.id.desc()).limit(1))
-        if disputed is not None and bool(dispute) != disputed: continue
-        if skipped < offset:
-            skipped += 1
-            continue
-        mappings = suggestion.mappings if not blind else [dict(part_id=part['part_id'], outcome='needs_review') for part in suggestion.mappings]
-        question = {key: value for key, value in suggestion.context.items() if key != 'classification_part_ids'}
-        result.append(dict(suggestion_revision_id=suggestion.id, document_id=document.id, question_id=suggestion.question_id,
-            extraction_revision_id=suggestion.extraction_revision_id, taxonomy_version_id=suggestion.taxonomy_version_id,
-            run_id=None if blind else suggestion.run_id, input_hash=suggestion.input_hash, paper_id=suggestion.context['paper_id'],
-            attempt_id=document.attempt_id, doc_type_id=document.doc_type_id, experimental=suggestion.experimental,
-            stale=gate['stale'], publication_ready=gate['eligible'],
-            readiness_blockers=[dict(code=str(block), message=str(block)) for block in gate['blockers']],
-            question=question, mappings=mappings,
-            candidates=[] if suggestion.candidate_catalog_hash else suggestion_candidates(session,suggestion),
-            candidate_catalog_hash=suggestion.candidate_catalog_hash,
-            provenance={} if blind else suggestion.provenance, publication_revision_id=current_id,
-            publication_suggestion_revision_id=current.suggestion_revision_id if current else None,
-            published_question={key: value for key, value in current.context.items() if key != 'classification_part_ids'} if current and not blind else None,
-            published_mappings=[] if blind or not current else current.mappings,
-            verification_count=count, verified_by_me=bool(mine), dispute_status=dispute.status if dispute else None,
-            is_benchmark=benchmark, blind=blind))
-        if len(result) >= limit: break
+    # Without the readiness filter the SQL window is exactly the page; with it, scan in bounded chunks.
+    chunk = 100 if ready is not None else limit
+    fetched = 0 if ready is not None else offset
+    while True:
+        rows = session.execute(query.offset(fetched).limit(chunk)).all()
+        if not rows:
+            break
+        fetched += len(rows)
+        page = QueuePageContext(session, rows, account.id)
+        for suggestion, document in rows:
+            version_id = suggestion.taxonomy_version_id
+            if version_id not in taxonomy_evidence:
+                taxonomy_evidence[version_id] = taxonomy_readiness_evidence(session, version_id)
+            gate = readiness(session, suggestion, taxonomy_evidence[version_id])
+            if ready is not None and gate['eligible'] != ready: continue
+            benchmark = bool(suggestion.provenance.get('benchmark', False))
+            current_id, current, count, mine, dispute = page.publication(suggestion.question_id)
+            if ready is not None and skipped < offset:
+                skipped += 1
+                continue
+            mappings = suggestion.mappings if not blind else [dict(part_id=part['part_id'], outcome='needs_review') for part in suggestion.mappings]
+            question = {key: value for key, value in suggestion.context.items() if key != 'classification_part_ids'}
+            result.append(dict(suggestion_revision_id=suggestion.id, document_id=document.id, question_id=suggestion.question_id,
+                extraction_revision_id=suggestion.extraction_revision_id, taxonomy_version_id=suggestion.taxonomy_version_id,
+                run_id=None if blind else suggestion.run_id, input_hash=suggestion.input_hash, paper_id=suggestion.context['paper_id'],
+                attempt_id=document.attempt_id, doc_type_id=document.doc_type_id, experimental=suggestion.experimental,
+                stale=gate['stale'], publication_ready=gate['eligible'],
+                readiness_blockers=[dict(code=str(block), message=str(block)) for block in gate['blockers']],
+                question=question, mappings=mappings,
+                candidates=[] if suggestion.candidate_catalog_hash else suggestion_candidates(session,suggestion),
+                candidate_catalog_hash=suggestion.candidate_catalog_hash,
+                provenance={} if blind else suggestion.provenance, publication_revision_id=current_id,
+                publication_suggestion_revision_id=current.suggestion_revision_id if current else None,
+                published_question={key: value for key, value in current.context.items() if key != 'classification_part_ids'} if current and not blind else None,
+                published_mappings=[] if blind or not current else current.mappings,
+                verification_count=count, verified_by_me=bool(mine), dispute_status=dispute.status if dispute else None,
+                is_benchmark=benchmark, blind=blind))
+            if len(result) >= limit: return result
+        if ready is None or len(rows) < chunk: break
     return result
+
+
+class QueuePageContext:
+    """Publication, verification and dispute rows for one page of suggestions, loaded in four queries."""
+
+    def __init__(self, session, rows, account_id):
+        from caf_db.models.classification import (ClassificationRevision, QuestionPublication,
+            ClassificationVerification, ClassificationDispute)
+        questions = {suggestion.question_id for suggestion, _ in rows}
+        self.publications = {row.question_id: row for row in session.scalars(sa.select(QuestionPublication).where(
+            QuestionPublication.question_id.in_(questions)))}
+        revision_ids = {row.current_revision_id for row in self.publications.values() if row.current_revision_id}
+        self.revisions = {row.id: row for row in session.scalars(sa.select(ClassificationRevision).where(
+            ClassificationRevision.id.in_(revision_ids)))} if revision_ids else {}
+        verifications = session.execute(sa.select(ClassificationVerification.revision_id, ClassificationVerification.actor_id).where(
+            ClassificationVerification.revision_id.in_(revision_ids), ClassificationVerification.active.is_(True))).all() if revision_ids else []
+        self.counts: dict[int, int] = {}
+        self.mine: set[int] = set()
+        for revision_id, actor_id in verifications:
+            self.counts[revision_id] = self.counts.get(revision_id, 0) + 1
+            if actor_id == account_id:
+                self.mine.add(revision_id)
+        self.disputes: dict[str, object] = {}
+        for dispute in session.scalars(sa.select(ClassificationDispute).where(
+                ClassificationDispute.question_id.in_(questions), ClassificationDispute.status == 'open'
+                ).order_by(ClassificationDispute.id.asc())):
+            self.disputes[dispute.question_id] = dispute  # the newest open dispute wins
+
+    def publication(self, question_id):
+        publication = self.publications.get(question_id)
+        current_id = publication.current_revision_id if publication else None
+        return (current_id, self.revisions.get(current_id) if current_id else None,
+                self.counts.get(current_id, 0) if current_id else 0, current_id in self.mine if current_id else False,
+                self.disputes.get(question_id))
 
 
 def classification_mutation(session, operation):

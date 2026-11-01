@@ -81,6 +81,15 @@ def get_subtopic_scores_for_paper(
     include_evidence: bool = True,
 ) -> dict[str, SubtopicScore]:
     """Retrieve all SubtopicScore records for a paper under the current or specified run."""
+    return get_subtopic_scores_for_papers(session, [paper_id], run_id, target_attempt_id=target_attempt_id,
+        taxonomy_version_id=taxonomy_version_id, include_evidence=include_evidence)
+
+
+def get_subtopic_scores_for_papers(
+    session: Session, paper_ids: list[str], run_id: int | None = None, *, target_attempt_id: str | None = None,
+    taxonomy_version_id: int | None = None, include_evidence: bool = True,
+) -> dict[str, SubtopicScore]:
+    """Scores for several papers in one query; node ids are unique across papers."""
     if run_id is None:
         current_run = get_current_score_run(session, target_attempt_id, taxonomy_version_id)
         if not current_run:
@@ -98,7 +107,7 @@ def get_subtopic_scores_for_paper(
         .join(Node, Node.id == SubtopicScore.node_id)
         .where(
             SubtopicScore.score_run_id == run_id,
-            Node.paper_id == paper_id,
+            Node.paper_id.in_(paper_ids),
         )
     )
     if not include_evidence:

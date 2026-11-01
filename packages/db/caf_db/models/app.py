@@ -108,7 +108,10 @@ class ProgressEvent(Base):
 
 class Note(Base):
     __tablename__ = "note"
-    __table_args__ = {"schema": "app"}
+    __table_args__ = (
+        CheckConstraint("char_length(body) <= 100000", name="check_note_body_length"),
+        {"schema": "app"},
+    )
 
     user_id: Mapped[int] = mapped_column(
         Integer, ForeignKey("app.user_account.id"), primary_key=True
@@ -124,6 +127,7 @@ class RevisionEvent(Base):
     __tablename__ = "revision_event"
     __table_args__ = (
         CheckConstraint("outcome IN ('ok','shaky')", name="check_revision_outcome"),
+        Index("ix_revision_event_user_node_at", "user_id", "node_id", "at"),
         {"schema": "app"},
     )
 
@@ -140,6 +144,9 @@ class MockTest(Base):
     __tablename__ = "mock_test"
     __table_args__ = (
         CheckConstraint("max_score > 0", name="check_mock_test_max_score"),
+        CheckConstraint("label IS NULL OR char_length(label) <= 200", name="check_mock_test_label_length"),
+        CheckConstraint("notes IS NULL OR char_length(notes) <= 10000", name="check_mock_test_notes_length"),
+        Index("ix_mock_test_user_taken_on", "user_id", "taken_on"),
         {"schema": "app"},
     )
 
@@ -158,7 +165,7 @@ class MockTest(Base):
 
 class StudySession(Base):
     __tablename__ = "study_session"
-    __table_args__ = {"schema": "app"}
+    __table_args__ = (Index("ix_study_session_user_id", "user_id"), {"schema": "app"})
 
     id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
     user_id: Mapped[int] = mapped_column(Integer, ForeignKey("app.user_account.id"), nullable=False)

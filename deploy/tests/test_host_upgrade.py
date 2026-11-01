@@ -21,10 +21,13 @@ NEW_VERSION = {"version": "v0.3.0", "application": ImageRecord(
     reference="caf:v0.3.0-candidate-aaaaaaaaaaaa-amd64", image_id="sha256:" + "f" * 64)}
 
 
+HEAD = "0010_bounds_and_indexes"  # the packaged migration head that every upgrade target must match
+
+
 def release(tmp_path, name, **overrides):
     directory = tmp_path / name
     directory.mkdir()
-    return bundle_fixture(directory, overrides=overrides or None)
+    return bundle_fixture(directory, overrides={"required_schema": HEAD, "supported_schemas": [HEAD], **overrides})
 
 
 @pytest.fixture
@@ -59,7 +62,7 @@ def plan(tmp_path, installation, bundle, schema="0009_question_language", *extra
 
 def test_upgrade_plan_pins_new_release_and_preserves_literal_credentials(tmp_path, installation):
     bundle = release(tmp_path, "new", **NEW_VERSION)
-    result, output = plan(tmp_path, installation, bundle, "0008_baseline_adoption", "--allow-candidate")
+    result, output = plan(tmp_path, installation, bundle, "0009_question_language", "--allow-candidate")
     assert result.exit_code == 0, result.output or result.exception
     assert "do-not-log" not in result.output
     config = json.loads((output / "compose.json").read_text())
@@ -72,8 +75,7 @@ def test_upgrade_plan_pins_new_release_and_preserves_literal_credentials(tmp_pat
 
 
 def test_same_schema_upgrade_requires_no_migration(tmp_path, installation):
-    result, output = plan(tmp_path, installation, release(tmp_path, "new", **NEW_VERSION), "0009_question_language",
-                          "--allow-candidate")
+    result, output = plan(tmp_path, installation, release(tmp_path, "new", **NEW_VERSION), HEAD, "--allow-candidate")
     assert result.exit_code == 0, result.output or result.exception
     assert json.loads((output / "receipt.json").read_text())["migration_required"] is False
 

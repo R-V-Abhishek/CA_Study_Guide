@@ -21,6 +21,8 @@ _factories: dict[str, sessionmaker[Session]] = {}
 def database_url(operation: Operation = "migration"):
     settings = get_settings()
     if operation == "migration":
+        if settings.app.env == "production" and not settings.MIGRATION_DATABASE_URL:
+            raise RuntimeError("MIGRATION_DATABASE_URL is required in production; development defaults are forbidden")
         value = settings.MIGRATION_DATABASE_URL or settings.DATABASE_URL or settings.database.url
     else:
         if operation not in ROLE_NAMES:

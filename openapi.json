@@ -9941,7 +9941,8 @@
           "label": {
             "anyOf": [
               {
-                "type": "string"
+                "type": "string",
+                "maxLength": 200
               },
               {
                 "type": "null"
@@ -9968,7 +9969,8 @@
           "notes": {
             "anyOf": [
               {
-                "type": "string"
+                "type": "string",
+                "maxLength": 10000
               },
               {
                 "type": "null"
@@ -10164,6 +10166,7 @@
         "properties": {
           "notes": {
             "type": "string",
+            "maxLength": 100000,
             "title": "Notes"
           }
         },

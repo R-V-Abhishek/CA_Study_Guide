@@ -41,7 +41,7 @@ from caf_l5 import (
     record_revision_outcome,
 )
 
-from caf_l5.service import get_account_settings, get_account_score_run, selected_papers
+from caf_l5.service import get_account_settings, get_account_score_run, get_subtopic_scores_for_papers, selected_papers
 from caf_l5.context import resolve_context, context_nodes, context_leaf_ids
 from caf_l0.hierarchy import ancestor_at, descendant_leaves
 
@@ -101,7 +101,7 @@ class ProgressUpdateRequest(BaseModel):
 
 class NoteUpdateRequest(BaseModel):
     model_config = ConfigDict(extra="forbid")
-    notes: str
+    notes: str = Field(max_length=100_000)
 
 
 class RevisionLogRequest(BaseModel):
@@ -113,11 +113,11 @@ class MockTestCreateRequest(BaseModel):
     model_config = ConfigDict(extra="forbid")
     paper_id: str
     attempt_id: str | None = None
-    label: str | None = None
+    label: str | None = Field(default=None, max_length=200)
     score: float = Field(ge=0, allow_inf_nan=False)
     max_score: float = Field(default=100.0, gt=0, allow_inf_nan=False)
     taken_on: date
-    notes: str | None = None
+    notes: str | None = Field(default=None, max_length=10_000)
 
 
 # ==============================================================================
@@ -161,33 +161,28 @@ def list_papers(session: Session = Depends(get_db), account: Principal = Depends
     ).scalars().all()
 
     revision_due = get_revision_due_list(session, user_id=user_id)
-    leaf_scope = _leaf_scope(session, account)
     prior_available = dict(session.execute(sa.select(
         SubtopicScore.node_id,
         SubtopicScore.evidence["components"]["prior"]["available"],
     ).where(SubtopicScore.score_run_id == context.run.id)).all()) if context.run else {}
+    # Resolve every paper's leaves, the student's statuses and the scores once, not per paper.
+    leaf_rows = session.execute(sa.select(Node.id, Node.paper_id).where(
+        Node.paper_id.in_([p.id for p in papers]), Node.id.in_(context_leaf_ids(session, context, study=True)))).all()
+    leaves_by_paper: dict[str, list[str]] = {}
+    for node_id, paper_id in leaf_rows:
+        leaves_by_paper.setdefault(paper_id, []).append(node_id)
+    all_statuses = dict(session.execute(sa.select(Progress.node_id, Progress.status).where(
+        Progress.user_id == user_id)).all())
+    all_scores = get_subtopic_scores_for_papers(
+        session, [p.id for p in papers], context.run.id, target_attempt_id=context.target_attempt_id,
+        taxonomy_version_id=context.taxonomy_version_id, include_evidence=False) if context.run else {}
     summaries = []
     for p in papers:
-        # Get all subtopics for this paper
-        subtopics = session.execute(
-            sa.select(Node.id, Node.parent_id).where(
-                Node.paper_id == p.id, leaf_scope
-            )
-        ).all()
-        total_sub = len(subtopics)
-
-        sub_ids = [s.id for s in subtopics]
-        completed_count = 0
-        if sub_ids:
-            completed_count = session.execute(
-                sa.select(sa.func.count(Progress.node_id)).where(
-                    Progress.user_id == user_id,
-                    Progress.node_id.in_(sub_ids),
-                    Progress.status == "done",
-                )
-            ).scalar() or 0
-
-        scores = _scores(session, account, p.id, include_evidence=False)
+        sub_ids = leaves_by_paper.get(p.id, [])
+        total_sub = len(sub_ids)
+        progress_statuses = {node: all_statuses[node] for node in sub_ids if node in all_statuses}
+        completed_count = sum(status == "done" for status in progress_statuses.values())
+        scores = all_scores
         applicable_scores = [
             scores[node_id] for node_id in sub_ids
             if node_id in scores and scores[node_id].applicable and scores[node_id].importance is not None
@@ -196,11 +191,6 @@ def list_papers(session: Session = Depends(get_db), account: Principal = Depends
             sum(sc.importance for sc in applicable_scores) / len(applicable_scores)
             if applicable_scores else None
         )
-        progress_statuses = dict(session.execute(
-            sa.select(Progress.node_id, Progress.status).where(
-                Progress.user_id == user_id, Progress.node_id.in_(sub_ids)
-            )
-        ).all())
         weak_count = sum(
             is_subtopic_weak(
                 sc.applicable, sc.freq_hits, sc.freq_window,
@@ -529,6 +519,11 @@ def update_subtopic_progress(
     old_status = progress.status if progress else "not_started"
     now = datetime.now(timezone.utc)
 
+    if old_status == req.status:
+        # Repeating the current status is not a transition: no event, no timestamps.
+        changed = progress.status_changed_at if progress else now
+        return {"status": old_status, "node_id": node_id, "updated_at": changed.isoformat()}
+
     if not progress:
         progress = Progress(
             user_id=user_id,
@@ -591,29 +586,17 @@ def get_dashboard(session: Session = Depends(get_db), account: Principal = Depen
     context = resolve_context(session, user_id)
 
     paper_ids = selected_papers(session, user_id)
-    leaf_scope = _leaf_scope(session, account)
-
-    # Overall subtopic counts
-    all_subtopics = session.execute(
-        sa.select(Node.id).where(Node.paper_id.in_(paper_ids), leaf_scope)
-    ).scalars().all()
-    total_subtopics = len(all_subtopics)
-
-    done_subtopics = session.execute(
-        sa.select(sa.func.count(Progress.node_id)).where(
-            Progress.user_id == user_id,
-            Progress.status == "done",
-            Progress.node_id.in_(all_subtopics),
-        )
-    ).scalar() or 0
-
-    in_progress_subtopics = session.execute(
-        sa.select(sa.func.count(Progress.node_id)).where(
-            Progress.user_id == user_id,
-            Progress.status == "in_progress",
-            Progress.node_id.in_(all_subtopics),
-        )
-    ).scalar() or 0
+    # Overall subtopic counts, resolved with one leaf query and one status query
+    leaf_rows = session.execute(sa.select(Node.id, Node.paper_id).where(
+        Node.paper_id.in_(paper_ids), Node.id.in_(context_leaf_ids(session, context, study=True)))).all()
+    leaves_by_paper: dict[str, list[str]] = {}
+    for node_id, leaf_paper_id in leaf_rows:
+        leaves_by_paper.setdefault(leaf_paper_id, []).append(node_id)
+    statuses = dict(session.execute(sa.select(Progress.node_id, Progress.status).where(
+        Progress.user_id == user_id)).all())
+    total_subtopics = len(leaf_rows)
+    done_subtopics = sum(statuses.get(node_id) == "done" for node_id, _ in leaf_rows)
+    in_progress_subtopics = sum(statuses.get(node_id) == "in_progress" for node_id, _ in leaf_rows)
 
     overall_pct = (done_subtopics / total_subtopics * 100.0) if total_subtopics > 0 else 0.0
 
@@ -623,18 +606,9 @@ def get_dashboard(session: Session = Depends(get_db), account: Principal = Depen
 
     for p in papers:
         g = p.group_no or 1
-        p_subs = session.execute(
-            sa.select(Node.id).where(Node.paper_id == p.id, leaf_scope)
-        ).scalars().all()
-        p_done = session.execute(
-            sa.select(sa.func.count(Progress.node_id)).where(
-                Progress.user_id == user_id,
-                Progress.status == "done",
-                Progress.node_id.in_(p_subs),
-            )
-        ).scalar() or 0
+        p_subs = leaves_by_paper.get(p.id, [])
         group_stats[g]["total"] += len(p_subs)
-        group_stats[g]["done"] += p_done
+        group_stats[g]["done"] += sum(statuses.get(node_id) == "done" for node_id in p_subs)
 
     g1_pct = (group_stats[1]["done"] / group_stats[1]["total"] * 100.0) if group_stats[1]["total"] else 0.0
     g2_pct = (group_stats[2]["done"] / group_stats[2]["total"] * 100.0) if group_stats[2]["total"] else 0.0
