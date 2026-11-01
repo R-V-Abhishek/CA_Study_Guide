@@ -51,7 +51,8 @@ ARG BUILD_TIMESTAMP=unknown
 LABEL org.opencontainers.image.revision="$SOURCE_REVISION" \
       org.opencontainers.image.version="$APPLICATION_VERSION" \
       org.opencontainers.image.created="$BUILD_TIMESTAMP"
-RUN install -d -o caf -g caf /srv/caf/data
+RUN install -d -o caf -g caf /srv/caf/data \
+    && ln -s /srv/caf/data /app/data
 USER 10001:10001
 EXPOSE 8788
 CMD ["uvicorn", "caf_api.main:app", "--host", "0.0.0.0", "--port", "8788", "--workers", "1"]
