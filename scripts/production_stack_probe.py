@@ -72,6 +72,26 @@ def seed() -> None:
         session.commit()
     Path("/srv/caf/data/integration-marker").write_text("synthetic document marker")
     Path("/srv/caf/data/backups/integration-marker").write_text("synthetic local backup marker")
+    # Existing publications retain repository-relative approved paths after restore.
+    # Exercise the real hash/path guard in the packaged runtime, without rewriting rows.
+    import fitz
+    from caf_api.questions import source_bytes, source_image
+    from caf_common.settings import get_settings
+    from caf_db.models.questions import PublishedSource
+
+    with fitz.open() as document:
+        document.new_page().insert_text((72, 72), "Synthetic published PDF")
+        pdf = document.tobytes()
+    digest = hashlib.sha256(pdf).hexdigest()
+    relative = Path("data/blobs") / digest[:2] / digest[2:4] / f"{digest}.pdf"
+    canonical = get_settings().storage.blob_dir / digest[:2] / digest[2:4] / f"{digest}.pdf"
+    canonical.parent.mkdir(parents=True, exist_ok=True)
+    canonical.write_bytes(pdf)
+    assert relative.resolve() == canonical.resolve()
+    source = PublishedSource(sha256=digest, approved_blob_path=str(relative))
+    assert source_bytes(source) == pdf
+    assert source_image(source, 1).body.startswith(b"\x89PNG\r\n\x1a\n")
+    print("PASS: published PDF bytes resolve from legacy relative paths with hash validation", flush=True)
     print("PASS: synthetic accounts, private records, sessions and persistent file markers", flush=True)
 
 
