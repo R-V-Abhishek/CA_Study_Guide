@@ -2,7 +2,7 @@
 
 2026-10-17 record. Subsequent checks on 18 October resolved the browser startup
 blocker and verified the reader zoom correction in Chromium and WebKit. See the
-[latest application checkpoint](Application_checkpoint_2026_10_18.md) for current
+[latest application checkpoint](../Application_checkpoint_2026_10_18.md) for current
 results. The original findings below are retained as historical context; automated
 captures do not constitute full manual approval of every route and state.
 
@@ -21,10 +21,10 @@ The redesign does not introduce public API or database changes. Existing unrelat
 
 | Check | Result / evidence |
 | --- | --- |
-| Workspace and browser TypeScript | Passed: [type-check.txt](stitch-review/type-check.txt), [browser-type-check.txt](stitch-review/browser-type-check.txt) |
-| Both production builds | Passed: [build.txt](stitch-review/build.txt) |
-| Theme and contrast checks | 25 passed: [theme-tests.txt](stitch-review/theme-tests.txt) |
-| Isolated runtime HTTP smoke | 22 HTML routes and six study API endpoints returned 200: [http-smoke.json](stitch-review/http-smoke.json) |
+| Workspace and browser TypeScript | Passed: [type-check.txt](../stitch-review/type-check.txt), [browser-type-check.txt](../stitch-review/browser-type-check.txt) |
+| Both production builds | Passed: [build.txt](../stitch-review/build.txt) |
+| Theme and contrast checks | 25 passed: [theme-tests.txt](../stitch-review/theme-tests.txt) |
+| Isolated runtime HTTP smoke | 22 HTML routes and six study API endpoints returned 200: [http-smoke.json](../stitch-review/http-smoke.json) |
 | Scoped whitespace/diff checks | Passed |
 
 The theme checks evaluate the actual HTML bootstrap and transpiled theme hook with event/storage stubs. They cover absent/invalid preferences on both OS appearances, storage failure, explicit choices and theme events. They are not browser paint measurements.
@@ -35,9 +35,9 @@ All primary, secondary, accent, warning and error text tokens meet 4.5:1 against
 
 The owned PostgreSQL/browser harness started successfully on web port 8877 with fixed database port 5442 after Colima failed to forward a random port. No normal database was used.
 
-Headless Chromium failed before creating a page with a macOS Mach-port bootstrap error. WebKit aborted before creating a page. Full Chromium also aborted. The computer-use fallback returned no available browser and a service startup failure. Details: [browser-startup.md](stitch-review/browser-startup.md).
+Headless Chromium failed before creating a page with a macOS Mach-port bootstrap error. WebKit aborted before creating a page. Full Chromium also aborted. The computer-use fallback returned no available browser and a service startup failure. Details: [browser-startup.md](../stitch-review/browser-startup.md).
 
-Consequently browser interaction regressions, viewport/full-page screenshots, visual corrections, contact sheet and manual route/state inspection remain incomplete. Builds and HTTP checks do not replace them. The [route/state log](stitch-review/review-log.md) explicitly records pending coverage. Existing screenshot evidence from prior phases is not evidence for this redesign.
+Consequently browser interaction regressions, viewport/full-page screenshots, visual corrections, contact sheet and manual route/state inspection remain incomplete. Builds and HTTP checks do not replace them. The [route/state log](../stitch-review/review-log.md) explicitly records pending coverage. Existing screenshot evidence from prior phases is not evidence for this redesign.
 
 The capture suite covers both engines, desktop/mobile dark and light, intermediate widths, reader answer/source states and overflow assertions. Additional existing suites cover note failures/navigation protection, syllabus keyboard navigation, filters/return state, reviewer drafts, counts/disputes, account isolation and permissions. These must run successfully once browser startup is available.
 
@@ -47,4 +47,4 @@ The capture suite covers both engines, desktop/mobile dark and light, intermedia
 
 ## Specification
 
-[Updated UI specification](UI_System_Design_and_Implementation_Plan.md) supersedes conflicting Phase 7 styling. The exported dark Today PNG was inspected as a palette/hierarchy reference; it is not a screenshot of the implemented app.
+[Updated UI specification](../UI_System_Design_and_Implementation_Plan.md) supersedes conflicting Phase 7 styling. The exported dark Today PNG was inspected as a palette/hierarchy reference; it is not a screenshot of the implemented app.

@@ -207,6 +207,6 @@ Verify390/768/1280/1440px, light/dark, Chromium/WebKit with isolated fixtures. J
 
 Inspect screenshots/runtime, focus/labels/status/contrast/reduced motion/200% zoom. Horizontal scrolling only tables/source canvases. TypeScript, production builds, browser tests, focused Python contracts/auth and full relevant regressions. Database history changes require migration and backup/restore rehearsal before live.
 
-Deliver specification, both interfaces, readiness API/workflows/evidence continuation, synchronized OpenAPI/client/build, `docs/Phase7_Verification.md` with screenshots/journeys/remaining gates. UI complete only when every specified screen/state works without developer explanation. Corpus ready only when genuine reviewed sources/bindings/extraction/classifications/coverage/priors pass gates. Report human-review/unavailable-source dependencies.
+Deliver specification, both interfaces, readiness API/workflows/evidence continuation, synchronized OpenAPI/client/build, `docs/archive/Phase7_Verification.md` with screenshots/journeys/remaining gates. UI complete only when every specified screen/state works without developer explanation. Corpus ready only when genuine reviewed sources/bindings/extraction/classifications/coverage/priors pass gates. Report human-review/unavailable-source dependencies.
 
 Before Phase8 invite real students for navigation, reading, notes/progress and classification usability pilot. Record actual observations/fix failures. Automated agents cannot replace this acceptance.

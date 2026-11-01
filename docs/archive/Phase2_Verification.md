@@ -82,15 +82,15 @@ references, and correctly replaces the old serial generator. A regression preser
 all seven personal tables and a legacy decision at owner ID 32767, then generates
 32768. Study-hour precision allows small positive budgets without rounding to zero.
 
-- [Restored migration evidence](Phase2_Restored_Migration.json)
-- [Normal migration evidence](Phase2_Normal_Migration.json)
-- [Normal restricted roles and routes](Phase2_Local_Verification.json)
-- [Real Auth0 binding and session revocation](Phase2_Auth0_Verification.json)
-- [OpenAPI and asset checksums](Phase2_Build_Verification.json), build `af852f4-a4c4aff64eb5`
-- [Original checkpoint manifest](../data/backups/caf_20261002_161800_834668_7c6a7aba/manifest.json)
-- [Original restore verification](../data/backups/caf_20261002_161800_834668_7c6a7aba/verification_141908d3699544b2bd8dee26d44f70f1.json)
-- [Post-migration checkpoint manifest](../data/backups/caf_20261002_165935_960006_74745436/manifest.json)
-- [Post-migration restore verification](../data/backups/caf_20261002_165935_960006_74745436/verification_fc5df6567fdd4df796c1488b0b1303e2.json)
+- [Restored migration evidence](../Phase2_Restored_Migration.json)
+- [Normal migration evidence](../Phase2_Normal_Migration.json)
+- [Normal restricted roles and routes](../Phase2_Local_Verification.json)
+- [Real Auth0 binding and session revocation](../Phase2_Auth0_Verification.json)
+- [OpenAPI and asset checksums](../Phase2_Build_Verification.json), build `af852f4-a4c4aff64eb5`
+- [Original checkpoint manifest](../../data/backups/caf_20261002_161800_834668_7c6a7aba/manifest.json)
+- [Original restore verification](../../data/backups/caf_20261002_161800_834668_7c6a7aba/verification_141908d3699544b2bd8dee26d44f70f1.json)
+- [Post-migration checkpoint manifest](../../data/backups/caf_20261002_165935_960006_74745436/manifest.json)
+- [Post-migration restore verification](../../data/backups/caf_20261002_165935_960006_74745436/verification_fc5df6567fdd4df796c1488b0b1303e2.json)
 
 Owner ID 1 is now active and bound to the configured Auth0 issuer and stable subject,
 with the nominated verified email and administrator role. The targeted invitation
@@ -108,7 +108,7 @@ identity sequences. Workers use explicit restricted connections. Named request
 pools never fall back to migration administration. Ownership remains application
 query enforcement; this phase introduces no row-level tenant model.
 
-[Setup and recovery instructions](Phase2_Setup.md) describe separate production
+[Setup and recovery instructions](../Phase2_Setup.md) describe separate production
 administration credentials and mandatory revocation of restored sessions, pending
 login transactions and unconsumed invitations before reopening a deployment.
 

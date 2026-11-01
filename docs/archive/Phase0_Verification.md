@@ -15,13 +15,13 @@ PostgreSQL 16 containers. No production migration or corpus remediation was appl
   remain later-phase work.
 
 Verified recovery artifact:
-[manifest](../data/backups/caf_20261001_135750_245563_ce8e08c1/manifest.json) and
-[restore report](../data/backups/caf_20261001_135750_245563_ce8e08c1/verification_0313c3bcfba741e1bb74b90a4c42d841.json).
+[manifest](../../data/backups/caf_20261001_135750_245563_ce8e08c1/manifest.json) and
+[restore report](../../data/backups/caf_20261001_135750_245563_ce8e08c1/verification_0313c3bcfba741e1bb74b90a4c42d841.json).
 All 43 table counts/digests and 109 archived-file checksums match.
 
-[Provenance and preservation report](../data/audits/20261001T140759.066952Z-beafc52b/baseline.json)
+[Provenance and preservation report](../../data/audits/20261001T140759.066952Z-beafc52b/baseline.json)
 confirms every personal/published table remains unchanged against that checkpoint.
-The [concise audit](../data/audits/20261001T140759.066952Z-beafc52b/baseline.md)
+The [concise audit](../../data/audits/20261001T140759.066952Z-beafc52b/baseline.md)
 reports 191 confirmed synthetic documents, 34 suspected synthetic, 10 with authentic
 sources identified, and 34 unresolved. It also records 196 missing source files,
 1,056 current gradable units without paired answers, and 264 subtopics without

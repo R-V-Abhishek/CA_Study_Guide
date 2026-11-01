@@ -48,10 +48,10 @@ Verification completed on 2026-10-07:
 
 - `uv run pytest -q`: **344 passed**. The missing-profile-settings regression is covered; focused Phase 6 context/reader/intelligence/recovery tests also passed.
 - `pnpm --dir web type-check`: passed. `pnpm --dir web build`: student and curator production assets built. The student JavaScript chunk is 512.68 kB and triggers Vite's existing 500 kB advisory; gzip size is 156.60 kB.
-- `uv run scripts/phase6_verify_contracts.py`: OpenAPI, generated TypeScript and both production asset manifests verified together; the build identity and asset hashes are recorded in [build verification](Phase6_Build_Verification.json).
+- `uv run scripts/phase6_verify_contracts.py`: OpenAPI, generated TypeScript and both production asset manifests verified together; the build identity and asset hashes are recorded in [build verification](../Phase6_Build_Verification.json).
 - `pnpm --dir web test:browser`: **126 passed** across Chromium and WebKit. The 16 authentication cases were rerun after the incomplete-profile fix: **16 passed**, with no server exception.
 - Migration `0006_classification_revisions → 0007_question_reader` preserved all original values across 65 tables. The frozen migration hash is `63030852f028c866adae5c760770fc1bdb67fe47ef9702ff0325d924ee04d1a1`.
-- Backup/restore verified revision `0007_question_reader`, all 74 tables and all 5,351 archived files, including the 1,010 frozen Phase 5 artifacts. See [normal migration report](Phase6_Normal_Migration.json), [restored migration report](Phase6_Restored_Migration.json) and [recovery report](Phase6_Recovery_Verification.json).
+- Backup/restore verified revision `0007_question_reader`, all 74 tables and all 5,351 archived files, including the 1,010 frozen Phase 5 artifacts. See [normal migration report](../Phase6_Normal_Migration.json), [restored migration report](../Phase6_Restored_Migration.json) and [recovery report](../Phase6_Recovery_Verification.json).
 
 Live data remains intentionally unapproved: 120 Luna suggestions are experimental; there are zero reviewed classification revisions and zero published snapshots. The 50 seeded coverage rows retain unknown expected inventory and unreviewed status. No attempt-taxonomy bindings were created. The migration and restore checks did not fabricate reviews or promote the draft taxonomy.
 

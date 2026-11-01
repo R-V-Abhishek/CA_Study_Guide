@@ -45,12 +45,12 @@ Screenshots use explicitly synthetic isolated fixtures. They are not live corpus
 
 | Screen | Mobile light / dark | Desktop light / dark |
 | --- | --- | --- |
-| Today | [light](phase7-screenshots/today-390-light.png) / [dark](phase7-screenshots/today-390-dark.png) | [light](phase7-screenshots/today-1440-light.png) / [dark](phase7-screenshots/today-1440-dark.png) |
-| Syllabus / topic | [light](phase7-screenshots/syllabus-390-light.png) / [dark](phase7-screenshots/syllabus-390-dark.png) | [light](phase7-screenshots/syllabus-1440-light.png) / [dark](phase7-screenshots/syllabus-1440-dark.png) |
-| Complete reader | [light](phase7-screenshots/reader-390-light.png) / [dark](phase7-screenshots/reader-390-dark.png) | [light](phase7-screenshots/reader-1440-light.png) / [dark](phase7-screenshots/reader-1440-dark.png) |
-| Classification | [light](phase7-screenshots/classification-390-light.png) / [dark](phase7-screenshots/classification-390-dark.png) | [light](phase7-screenshots/classification-1440-light.png) / [dark](phase7-screenshots/classification-1440-dark.png) |
+| Today | [light](../phase7-screenshots/today-390-light.png) / [dark](../phase7-screenshots/today-390-dark.png) | [light](../phase7-screenshots/today-1440-light.png) / [dark](../phase7-screenshots/today-1440-dark.png) |
+| Syllabus / topic | [light](../phase7-screenshots/syllabus-390-light.png) / [dark](../phase7-screenshots/syllabus-390-dark.png) | [light](../phase7-screenshots/syllabus-1440-light.png) / [dark](../phase7-screenshots/syllabus-1440-dark.png) |
+| Complete reader | [light](../phase7-screenshots/reader-390-light.png) / [dark](../phase7-screenshots/reader-390-dark.png) | [light](../phase7-screenshots/reader-1440-light.png) / [dark](../phase7-screenshots/reader-1440-dark.png) |
+| Classification | [light](../phase7-screenshots/classification-390-light.png) / [dark](../phase7-screenshots/classification-390-dark.png) | [light](../phase7-screenshots/classification-1440-light.png) / [dark](../phase7-screenshots/classification-1440-dark.png) |
 
-[Build verification](Phase7_Build_Verification.json) records the common application build identity `e2f7656-d9f215b722bd`, OpenAPI equality with the application, typed-client hashes and all referenced lazy assets. Both browsers also passed the final rebuilt production-identity check. Production chunks remain below the prior 500kB bundle advisory.
+[Build verification](../Phase7_Build_Verification.json) records the common application build identity `e2f7656-d9f215b722bd`, OpenAPI equality with the application, typed-client hashes and all referenced lazy assets. Both browsers also passed the final rebuilt production-identity check. Production chunks remain below the prior 500kB bundle advisory.
 
 ## Remaining gates
 
