@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.1](https://github.com/R-V-Abhishek/CA_Study_Guide/compare/v0.2.0...v0.2.1) (2026-11-01)
+
+
+### Bug Fixes
+
+* preserve published PDF access in production images ([#5](https://github.com/R-V-Abhishek/CA_Study_Guide/issues/5)) ([3c6d83d](https://github.com/R-V-Abhishek/CA_Study_Guide/commit/3c6d83df38b0d9d9c3c15d0c8d37287909c1f90f))
+
 ## [0.2.0](https://github.com/R-V-Abhishek/CA_Study_Guide/compare/v0.1.0...v0.2.0) (2026-10-27)
 
 
