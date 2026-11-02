@@ -75,7 +75,7 @@ export function Catalogue() {
           </p>
         </div>
 
-        <div className="flex items-center gap-2.5">
+        <div className="flex flex-wrap items-center gap-2.5">
           <div className="flex items-center gap-1.5 text-xs text-slate-400 font-semibold">
             <Filter className="w-3.5 h-3.5" />
             <span>Filter:</span>
@@ -85,7 +85,7 @@ export function Catalogue() {
             aria-label="Catalogue status"
             value={statusFilter}
             onChange={(e) => setFilter("status", e.target.value)}
-            className="px-2.5 py-1 rounded-lg text-xs bg-slate-900 border border-slate-700 text-slate-200 focus:outline-none"
+            className="min-w-0 max-w-full px-2.5 py-1 rounded-lg text-xs bg-slate-900 border border-slate-700 text-slate-200 focus:outline-none"
           >
             <option value="all">All Catalog Statuses</option>
             <option value="confirmed">Confirmed Only</option>
@@ -97,7 +97,7 @@ export function Catalogue() {
             aria-label="Catalogue paper"
             value={paperFilter}
             onChange={(e) => setFilter("paper", e.target.value)}
-            className="px-2.5 py-1 rounded-lg text-xs bg-slate-900 border border-slate-700 text-slate-200 focus:outline-none"
+            className="min-w-0 max-w-full px-2.5 py-1 rounded-lg text-xs bg-slate-900 border border-slate-700 text-slate-200 focus:outline-none"
           >
             <option value="all">All Papers</option>
             {papers.data?.map(paper => <option key={paper.id} value={paper.id}>{paper.code} — {paper.name}</option>)}
