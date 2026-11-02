@@ -49,7 +49,11 @@ def inspect_recovery_files(root: Path) -> RecoveryManifest:
     except ValidationError as error:
         raise ValueError("Invalid backup manifest structure") from error
     dump_name = PurePosixPath(manifest.dump_file)
-    if dump_name.name != manifest.dump_file or "\\" in manifest.dump_file or dump_name.suffix != ".dump":
+    if (
+        dump_name.name != manifest.dump_file
+        or "\\" in manifest.dump_file
+        or dump_name.suffix != ".dump"
+    ):
         raise ValueError("Unsafe backup dump filename")
     dump = root / manifest.dump_file
     if dump.is_symlink() or not dump.is_file():
@@ -58,9 +62,14 @@ def inspect_recovery_files(root: Path) -> RecoveryManifest:
         raise ValueError("Dump checksum mismatch")
     for relative in manifest.files:
         path = PurePosixPath(relative)
-        if (path.is_absolute() or ".." in path.parts or "\\" in relative
-                or path.as_posix() != relative or len(path.parts) < 2
-                or path.parts[0] not in {"blobs", "configs"}):
+        if (
+            path.is_absolute()
+            or ".." in path.parts
+            or "\\" in relative
+            or path.as_posix() != relative
+            or len(path.parts) < 2
+            or path.parts[0] not in {"blobs", "configs"}
+        ):
             raise ValueError("Unsafe archived file path")
     actual = set()
     for directory in (root / "blobs", root / "configs"):

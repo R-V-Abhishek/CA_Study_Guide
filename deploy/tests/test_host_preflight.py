@@ -13,23 +13,43 @@ from test_release_bundle import bundle_fixture
 def inspection(tmp_path):
     values = {
         "os": 'ID=ubuntu\nVERSION_ID="26.04"\nEMPTY=""\n',
-        "architecture": "x86_64\n", "cpu": "12\n",
+        "architecture": "x86_64\n",
+        "cpu": "12\n",
         "memory": "MemTotal: 15564144 kB\nMemAvailable: 14000000 kB\n",
         "storage": "Filesystem 1024-blocks Used Available Capacity Mounted on\n/dev/disk 500000000 10000000 400000000 2% /\n",
-        "docker": "29.9.1\n", "compose": "5.5.1\n",
-        "tailscale": json.dumps({"BackendState": "Running", "Self": {"Online": True},
-            "AuthURL": "https://login.invalid/DO_NOT_EXPORT", "Peer": {"private": "DO_NOT_EXPORT"},
-            "Health": ["DO_NOT_EXPORT"], "User": {"mail": "DO_NOT_EXPORT"}}),
-        "backup_mount": json.dumps({"filesystems": [{"target": "/mnt/caf-backup", "source": "/dev/sdb1", "fstype": "ext4"}]}),
+        "docker": "29.9.1\n",
+        "compose": "5.5.1\n",
+        "tailscale": json.dumps(
+            {
+                "BackendState": "Running",
+                "Self": {"Online": True},
+                "AuthURL": "https://login.invalid/DO_NOT_EXPORT",
+                "Peer": {"private": "DO_NOT_EXPORT"},
+                "Health": ["DO_NOT_EXPORT"],
+                "User": {"mail": "DO_NOT_EXPORT"},
+            }
+        ),
+        "backup_mount": json.dumps(
+            {
+                "filesystems": [
+                    {"target": "/mnt/caf-backup", "source": "/dev/sdb1", "fstype": "ext4"}
+                ]
+            }
+        ),
         "clock": "Timezone=Asia/Kolkata\nNTPSynchronized=yes\n",
-        "services": "\n\n".join(f"Id={name}.service\nActiveState=active\nUnitFileState=enabled" for name in ("docker", "tailscaled", "ssh")),
+        "services": "\n\n".join(
+            f"Id={name}.service\nActiveState=active\nUnitFileState=enabled"
+            for name in ("docker", "tailscaled", "ssh")
+        ),
         "firewall": "Status: active\n",
         "suspend": "# HandleLidSwitch=suspend\n[Login]\nHandleLidSwitch=ignore\n",
         "power": "ADP0 type Mains\nADP0 online 1\nBAT0 type Battery\nBAT0 status Not charging\nBAT0 capacity 90\n",
         "temperature": "thermal_zone0 45000\n",
         "users": "rvabhi:1000:1000:/home/rvabhi:/bin/bash\ncafdeploy:1001:1001:/home/cafdeploy:/bin/bash\ngdm-greeter:60578:975:/run/gdm3/home/gdm-greeter:/usr/sbin/nologin\n",
         "filesystem": '{"filesystems": [{"target":"/", "source":"/dev/disk", "fstype":"ext4"}]}',
-        "disks": '{"blockdevices": []}', "containers": "", "listeners": "LISTEN 0 128 0.0.0.0:22 0.0.0.0:*\n",
+        "disks": '{"blockdevices": []}',
+        "containers": "",
+        "listeners": "LISTEN 0 128 0.0.0.0:22 0.0.0.0:*\n",
         "layout": "MISSING /srv/caf/data\n",
     }
     for name, value in values.items():
@@ -48,7 +68,10 @@ def test_private_snapshot_becomes_non_secret_report(inspection, monkeypatch):
     report = json.loads(result.output)
     assert report["platform"] == "linux/amd64" and report["cpu_threads"] == 12
     assert report["external_backup_mounted"] is True
-    assert [item["name"] for item in report["observations"]["login_accounts"]] == ["rvabhi", "cafdeploy"]
+    assert [item["name"] for item in report["observations"]["login_accounts"]] == [
+        "rvabhi",
+        "cafdeploy",
+    ]
     assert report["observations"]["greeter_accounts"][0]["shell"] == "/usr/sbin/nologin"
     assert "Measured internet upload/download" in report["unverified"]
 
@@ -68,7 +91,10 @@ def test_stopped_tailscale_and_low_space_are_blockers(inspection):
     (inspection / "storage.out").write_text("header\n/dev/disk 20000000 19000000 1000000 95% /\n")
     report = inspect_host(inspection)
     assert report.tailscale_online is None
-    assert {item.code for item in report.findings if item.level == "blocker"} == {"TAILSCALE", "INITIAL_FREE_SPACE"}
+    assert {item.code for item in report.findings if item.level == "blocker"} == {
+        "TAILSCALE",
+        "INITIAL_FREE_SPACE",
+    }
 
 
 def test_permission_limited_probes_are_unverified(inspection):
@@ -92,4 +118,9 @@ def test_host_bundle_verification_uses_existing_contract(tmp_path):
     base = ["verify-bundle", str(bundle), "--platform", "linux/amd64"]
     assert runner.invoke(app, base).exit_code == 1
     assert runner.invoke(app, base + ["--allow-candidate"]).exit_code == 0
-    assert runner.invoke(app, ["verify-bundle", str(bundle), "--platform", "linux/arm64", "--allow-candidate"]).exit_code == 1
+    assert (
+        runner.invoke(
+            app, ["verify-bundle", str(bundle), "--platform", "linux/arm64", "--allow-candidate"]
+        ).exit_code
+        == 1
+    )

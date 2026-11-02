@@ -1,3 +1,5 @@
+> **Superseded design history.** This was the layer-by-layer execution manual written for an earlier single-user architecture; contracts and decisions have since changed. The current plan is [`Implementation_plan.md`](Implementation_plan.md) together with [`PLAN.md`](../PLAN.md); the running system is described in [`Architecture.md`](Architecture.md). Read this file for background only.
+
 # Detailed Implementation Guide
 ## CA Final Study Companion — Execution Manual for Layers L0–L6
 

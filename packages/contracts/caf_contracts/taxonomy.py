@@ -1,4 +1,5 @@
 """Textbook provenance and release review contracts."""
+
 from typing import Any, Literal
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
@@ -80,7 +81,7 @@ class TaxonomyTreeNode(BaseModel):
     descriptor_revision: int | None
     descriptor_approved: bool
     eligible: bool
-    status: Literal['not_started', 'in_progress', 'done'] | None = None
+    status: Literal["not_started", "in_progress", "done"] | None = None
     breadcrumbs: list[dict[str, str]]
     sources: list[dict[str, Any]]
     children: list["TaxonomyTreeNode"] = Field(default_factory=list)

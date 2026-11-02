@@ -224,7 +224,21 @@ def test_compute_depth_gate_workflow(session):
 def test_cli_depth_commands(session):
     """Verify caf depth gate and caf depth report CLI commands."""
     # 1. Gate command on P1
-    res_gate = runner.invoke(cli_app, ["depth", "gate", "--target-attempt", "2026-05", "--paper", "P1", "--band", "s2017:2019", "--top-k", "10"])
+    res_gate = runner.invoke(
+        cli_app,
+        [
+            "depth",
+            "gate",
+            "--target-attempt",
+            "2026-05",
+            "--paper",
+            "P1",
+            "--band",
+            "s2017:2019",
+            "--top-k",
+            "10",
+        ],
+    )
     assert res_gate.exit_code == 0
     assert "Depth Gate Report" in res_gate.output
     assert "P1" in res_gate.output
@@ -250,9 +264,25 @@ practice_value = false
 """)
 
     # 1. High stability (jaccard >= 0.9, new nodes < 10) on P1 (practice_value=True) -> continue_practice_value
-    rep_p1 = compute_depth_gate(session, paper="P1", target_attempt_id="2026-05", band="empty_band", top_k=50, record_report=False, config_path=cfg_file)
+    rep_p1 = compute_depth_gate(
+        session,
+        paper="P1",
+        target_attempt_id="2026-05",
+        band="empty_band",
+        top_k=50,
+        record_report=False,
+        config_path=cfg_file,
+    )
     assert rep_p1.decision == "continue_practice_value"
 
     # 2. High stability on P4 (practice_value=False) -> stop
-    rep_p4 = compute_depth_gate(session, paper="P4", target_attempt_id="2026-05", band="empty_band", top_k=50, record_report=False, config_path=cfg_file)
+    rep_p4 = compute_depth_gate(
+        session,
+        paper="P4",
+        target_attempt_id="2026-05",
+        band="empty_band",
+        top_k=50,
+        record_report=False,
+        config_path=cfg_file,
+    )
     assert rep_p4.decision == "stop"

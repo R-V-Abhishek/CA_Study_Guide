@@ -79,24 +79,47 @@ class OCRUnavailableError(RuntimeError):
     """A page requires OCR but no usable worker was configured."""
 
 
-def _page_dictionary(page: fitz.Page, config: OCRConfig | None, source_hash: str | None, cache_dir: Path | None) -> tuple[dict, str]:
+def _page_dictionary(
+    page: fitz.Page, config: OCRConfig | None, source_hash: str | None, cache_dir: Path | None
+) -> tuple[dict, str]:
     native = page.get_text("dict", sort=True)
     native_chars = len(page.get_text("text").strip())
-    needs_ocr = native_chars < (config.min_native_chars if config else 10) and bool(page.get_images())
+    needs_ocr = native_chars < (config.min_native_chars if config else 10) and bool(
+        page.get_images()
+    )
     if not needs_ocr:
         return native, "pdf"
     if config is None:
-        raise OCRUnavailableError(f"ocr_unavailable: page {page.number + 1} requires a configured OCR worker")
+        raise OCRUnavailableError(
+            f"ocr_unavailable: page {page.number + 1} requires a configured OCR worker"
+        )
     digest = source_hash or hashlib.sha256(page.parent.tobytes()).hexdigest()
-    key = hashlib.sha256(json.dumps({"source": digest, "page": page.number, "config": asdict(config), "worker": "pymupdf-" + fitz.VersionBind}, sort_keys=True).encode()).hexdigest()
+    key = hashlib.sha256(
+        json.dumps(
+            {
+                "source": digest,
+                "page": page.number,
+                "config": asdict(config),
+                "worker": "pymupdf-" + fitz.VersionBind,
+            },
+            sort_keys=True,
+        ).encode()
+    ).hexdigest()
     cache = cache_dir / f"{key}.json" if cache_dir else None
     if cache and cache.exists():
         return json.loads(cache.read_text()), "ocr"
     if not shutil.which("tesseract"):
         raise OCRUnavailableError(f"ocr_unavailable: Tesseract is missing (page {page.number + 1})")
     try:
-        textpage = page.get_textpage_ocr(language=config.language, dpi=config.dpi, full=True, tessdata=config.tessdata)
-        result = page.get_text("dict", textpage=textpage, sort=True, flags=fitz.TEXTFLAGS_DICT & ~fitz.TEXT_PRESERVE_IMAGES)
+        textpage = page.get_textpage_ocr(
+            language=config.language, dpi=config.dpi, full=True, tessdata=config.tessdata
+        )
+        result = page.get_text(
+            "dict",
+            textpage=textpage,
+            sort=True,
+            flags=fitz.TEXTFLAGS_DICT & ~fitz.TEXT_PRESERVE_IMAGES,
+        )
     except (RuntimeError, ValueError) as exc:
         raise OCRUnavailableError(f"ocr_unavailable: page {page.number + 1}: {exc}") from exc
     if cache:
@@ -107,7 +130,14 @@ def _page_dictionary(page: fitz.Page, config: OCRConfig | None, source_hash: str
     return result, "ocr"
 
 
-def extract_raw_lines(doc: fitz.Document, *, ocr_config: OCRConfig | None = None, source_hash: str | None = None, cache_dir: Path | None = None, ignored_pages: set[int] | None = None) -> list[tuple[int, float, float, LineBlock]]:
+def extract_raw_lines(
+    doc: fitz.Document,
+    *,
+    ocr_config: OCRConfig | None = None,
+    source_hash: str | None = None,
+    cache_dir: Path | None = None,
+    ignored_pages: set[int] | None = None,
+) -> list[tuple[int, float, float, LineBlock]]:
     """Extract raw lines with page height and position info."""
     raw_lines: list[tuple[int, float, float, LineBlock]] = []
 
@@ -156,7 +186,10 @@ def extract_raw_lines(doc: fitz.Document, *, ocr_config: OCRConfig | None = None
                     flags.append("OCR_REVIEW_REQUIRED")
                 if round(bbox[1] / 3) in possible_table_rows:
                     flags.append("TABLE_STRUCTURE_REVIEW_REQUIRED")
-                if any(symbol in line_text for symbol in ("√", "∑", "∫")) or "symbol" in font_name.lower():
+                if (
+                    any(symbol in line_text for symbol in ("√", "∑", "∫"))
+                    or "symbol" in font_name.lower()
+                ):
                     flags.append("FORMULA_STRUCTURE_REVIEW_REQUIRED")
                 lb = LineBlock(
                     block_id=block_id,
@@ -184,9 +217,22 @@ PROTECTED_CONTENT_REGEX = re.compile(
 )
 
 
-def build_block_stream(doc: fitz.Document, *, ocr_config: OCRConfig | None = None, source_hash: str | None = None, cache_dir: Path | None = None, ignored_pages: set[int] | None = None) -> list[LineBlock]:
+def build_block_stream(
+    doc: fitz.Document,
+    *,
+    ocr_config: OCRConfig | None = None,
+    source_hash: str | None = None,
+    cache_dir: Path | None = None,
+    ignored_pages: set[int] | None = None,
+) -> list[LineBlock]:
     """Build cleaned, positioned block stream stripping repeating headers and footers."""
-    raw = extract_raw_lines(doc, ocr_config=ocr_config, source_hash=source_hash, cache_dir=cache_dir, ignored_pages=ignored_pages)
+    raw = extract_raw_lines(
+        doc,
+        ocr_config=ocr_config,
+        source_hash=source_hash,
+        cache_dir=cache_dir,
+        ignored_pages=ignored_pages,
+    )
     page_count = len(doc)
     if not raw or page_count <= 1:
         return [item[3] for item in raw]
@@ -209,9 +255,7 @@ def build_block_stream(doc: fitz.Document, *, ocr_config: OCRConfig | None = Non
 
     # Repeating threshold: occurring on >= 50% of pages
     min_pages = max(2, int(0.50 * page_count))
-    strip_patterns = {
-        pat for pat, pages in pattern_pages.items() if len(pages) >= min_pages
-    }
+    strip_patterns = {pat for pat, pages in pattern_pages.items() if len(pages) >= min_pages}
 
     cleaned: list[LineBlock] = []
     for page_num, height, y_mid, lb in raw:

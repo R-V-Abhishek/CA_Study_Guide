@@ -2,13 +2,7 @@ import { accountKey } from "@caf/api-client";
 import { Link, useSearchParams } from "react-router-dom";
 import { WorkspaceSkeleton } from "../components/WorkspaceSkeleton";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import {
-  FolderOpen,
-  CheckCircle2,
-  XCircle,
-  Clock,
-  Filter,
-} from "lucide-react";
+import { FolderOpen, CheckCircle2, XCircle, Clock, Filter } from "lucide-react";
 import { curatorClient, requiredData } from "../lib/client";
 import { RequestError } from "../components/RequestError";
 
@@ -17,26 +11,44 @@ export function Catalogue() {
   const [params, setParams] = useSearchParams();
   const statusFilter = params.get("status") ?? "all";
   const paperFilter = params.get("paper") ?? "all";
-  const setFilter = (key: string, value: string) => { const next = new URLSearchParams(params); value === "all" ? next.delete(key) : next.set(key, value); setParams(next); };
+  const setFilter = (key: string, value: string) => {
+    const next = new URLSearchParams(params);
+    value === "all" ? next.delete(key) : next.set(key, value);
+    setParams(next);
+  };
 
-  const { data: documents = [], isLoading, error, refetch } = useQuery({
+  const {
+    data: documents = [],
+    isLoading,
+    error,
+    refetch,
+  } = useQuery({
     queryKey: ["curate-catalogue", accountKey(), statusFilter, paperFilter],
     queryFn: async () => {
-      return requiredData(await curatorClient.GET("/api/v1/curate/documents", { params: { query: { ...(statusFilter !== "all" ? { status: statusFilter } : {}), ...(paperFilter !== "all" ? { paper_id: paperFilter } : {}) } } }));
+      return requiredData(
+        await curatorClient.GET("/api/v1/curate/documents", {
+          params: {
+            query: {
+              ...(statusFilter !== "all" ? { status: statusFilter } : {}),
+              ...(paperFilter !== "all" ? { paper_id: paperFilter } : {}),
+            },
+          },
+        }),
+      );
     },
   });
 
-  const papers = useQuery({ queryKey: ["curator-papers", accountKey()], queryFn: async () => requiredData(await curatorClient.GET("/api/v1/papers")) });
+  const papers = useQuery({
+    queryKey: ["curator-papers", accountKey()],
+    queryFn: async () => requiredData(await curatorClient.GET("/api/v1/papers")),
+  });
 
   // Confirm document mutation
   const confirmMutation = useMutation({
     mutationFn: async (docId: number) => {
-      const res = await curatorClient.POST(
-        "/api/v1/curate/documents/{doc_id}/confirm",
-        {
-          params: { path: { doc_id: docId } },
-        }
-      );
+      const res = await curatorClient.POST("/api/v1/curate/documents/{doc_id}/confirm", {
+        params: { path: { doc_id: docId } },
+      });
       return requiredData(res);
     },
     onSuccess: () => {
@@ -48,12 +60,9 @@ export function Catalogue() {
   // Reject document mutation
   const rejectMutation = useMutation({
     mutationFn: async (docId: number) => {
-      const res = await curatorClient.POST(
-        "/api/v1/curate/documents/{doc_id}/reject",
-        {
-          params: { path: { doc_id: docId } },
-        }
-      );
+      const res = await curatorClient.POST("/api/v1/curate/documents/{doc_id}/reject", {
+        params: { path: { doc_id: docId } },
+      });
       return requiredData(res);
     },
     onSuccess: () => {
@@ -75,7 +84,7 @@ export function Catalogue() {
           </p>
         </div>
 
-        <div className="flex items-center gap-2.5">
+        <div className="flex flex-wrap items-center gap-2.5">
           <div className="flex items-center gap-1.5 text-xs text-slate-400 font-semibold">
             <Filter className="w-3.5 h-3.5" />
             <span>Filter:</span>
@@ -85,7 +94,7 @@ export function Catalogue() {
             aria-label="Catalogue status"
             value={statusFilter}
             onChange={(e) => setFilter("status", e.target.value)}
-            className="px-2.5 py-1 rounded-lg text-xs bg-slate-900 border border-slate-700 text-slate-200 focus:outline-none"
+            className="min-w-0 max-w-full px-2.5 py-1 rounded-lg text-xs bg-slate-900 border border-slate-700 text-slate-200 focus:outline-none"
           >
             <option value="all">All Catalog Statuses</option>
             <option value="confirmed">Confirmed Only</option>
@@ -97,10 +106,14 @@ export function Catalogue() {
             aria-label="Catalogue paper"
             value={paperFilter}
             onChange={(e) => setFilter("paper", e.target.value)}
-            className="px-2.5 py-1 rounded-lg text-xs bg-slate-900 border border-slate-700 text-slate-200 focus:outline-none"
+            className="min-w-0 max-w-full px-2.5 py-1 rounded-lg text-xs bg-slate-900 border border-slate-700 text-slate-200 focus:outline-none"
           >
             <option value="all">All Papers</option>
-            {papers.data?.map(paper => <option key={paper.id} value={paper.id}>{paper.code} — {paper.name}</option>)}
+            {papers.data?.map((paper) => (
+              <option key={paper.id} value={paper.id}>
+                {paper.code} — {paper.name}
+              </option>
+            ))}
           </select>
         </div>
       </div>
@@ -137,15 +150,16 @@ export function Catalogue() {
                   const isRejected = doc.catalog_status === "rejected";
 
                   return (
-                    <tr
-                      key={doc.id}
-                      className="hover:bg-slate-800/40 transition-colors"
-                    >
+                    <tr key={doc.id} className="hover:bg-slate-800/40 transition-colors">
                       <td data-label="Details" className="p-3.5 pl-5 font-bold text-slate-200">
-                        <details><summary>Technical details</summary>Document {doc.id}</details>
+                        <details>
+                          <summary>Technical details</summary>Document {doc.id}
+                        </details>
                       </td>
                       <td data-label="Title" className="p-3.5 font-sans font-medium text-white max-w-xs">
-                        <Link className="underline" to={`/extraction?document_id=${doc.id}`}>{doc.title ?? "Title unavailable"}</Link>
+                        <Link className="underline" to={`/extraction?document_id=${doc.id}`}>
+                          {doc.title ?? "Title unavailable"}
+                        </Link>
                       </td>
                       <td data-label="Paper" className="p-3.5 font-bold text-indigo-400">
                         {doc.paper_id ?? "Unavailable"}
@@ -165,8 +179,8 @@ export function Catalogue() {
                             isConfirmed
                               ? "bg-emerald-950 text-emerald-300 border border-emerald-800"
                               : isRejected
-                              ? "bg-rose-950 text-rose-300 border border-rose-800"
-                              : "bg-amber-950 text-amber-300 border border-amber-800"
+                                ? "bg-rose-950 text-rose-300 border border-rose-800"
+                                : "bg-amber-950 text-amber-300 border border-amber-800"
                           }`}
                         >
                           {isConfirmed ? (

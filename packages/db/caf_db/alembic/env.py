@@ -9,6 +9,7 @@ from sqlalchemy import engine_from_config, pool
 from caf_common.settings import get_settings
 from caf_common.db_safety import assert_safe_database
 from caf_db.models.base import Base
+
 # Import all models to ensure they register on metadata
 import caf_db.models
 

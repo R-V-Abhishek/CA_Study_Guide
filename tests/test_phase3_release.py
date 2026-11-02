@@ -1,4 +1,5 @@
 """Deterministic textbook release gates exercised on isolated PostgreSQL."""
+
 from copy import deepcopy
 import hashlib
 import json
@@ -10,11 +11,27 @@ from sqlalchemy.exc import DBAPIError
 from caf_db.engine import get_engine
 from caf_db.models.app import UserAccount, Progress, Note
 from caf_db.models.ref import Node
-from caf_db.models.taxonomy import (TaxonomyRelease, TaxonomyMember, DescriptorRevision,
-    NodeSourceSpan, TaxonomyCrosswalk, ProgressMigration, TextbookArtifact)
-from caf_l0.releases import (import_release, validate_manifest, approve_descriptor,
-    revise_descriptor, eligible_candidates, release_report, approve_release,
-    activate_release, active_version, migrate_exact_progress)
+from caf_db.models.taxonomy import (
+    TaxonomyRelease,
+    TaxonomyMember,
+    DescriptorRevision,
+    NodeSourceSpan,
+    TaxonomyCrosswalk,
+    ProgressMigration,
+    TextbookArtifact,
+)
+from caf_l0.releases import (
+    import_release,
+    validate_manifest,
+    approve_descriptor,
+    revise_descriptor,
+    eligible_candidates,
+    release_report,
+    approve_release,
+    activate_release,
+    active_version,
+    migrate_exact_progress,
+)
 
 
 @pytest.fixture
@@ -23,28 +40,73 @@ def manifest(tmp_path):
     with fitz.open() as pdf:
         pdf.new_page().insert_text((40, 40), "Official textbook fixture")
         pdf.save(path)
-    manifest = dict(version_id="textbook-fixture", target_attempt="2027-05",
-        papers=[f"s2023.P{i}" for i in range(1, 7)], textbook_artifacts=[], nodes=[], descriptors=[], crosswalk=[],
-        heading_reconciliation={"status": "complete", "expected_count": 30, "accounted_count": 30, "unresolved": []})
+    manifest = dict(
+        version_id="textbook-fixture",
+        target_attempt="2027-05",
+        papers=[f"s2023.P{i}" for i in range(1, 7)],
+        textbook_artifacts=[],
+        nodes=[],
+        descriptors=[],
+        crosswalk=[],
+        heading_reconciliation={
+            "status": "complete",
+            "expected_count": 30,
+            "accounted_count": 30,
+            "unresolved": [],
+        },
+    )
     for i in range(1, 7):
         paper = f"s2023.P{i}"
         artifact_id = f"fixture-{i}"
-        manifest["textbook_artifacts"].append(dict(id=artifact_id, paper_id=paper,
-            course_level="Final", edition="January 2026", applicable_attempts=["2026-01"],
-            landing_url="https://www.icai.org/fixture", download_url="https://resource.cdn.icai.org/fixture.pdf",
-            sha256=hashlib.sha256(path.read_bytes()).hexdigest(), local_path=str(path),
-            retrieved_at="2026-10-03", page_count=1, edition_evidence="January 2026 applicability fixture",
-            availability="verified", fallback=True, target_applicability="unresolved", expected_structure=["Module 1"]))
+        manifest["textbook_artifacts"].append(
+            dict(
+                id=artifact_id,
+                paper_id=paper,
+                course_level="Final",
+                edition="January 2026",
+                applicable_attempts=["2026-01"],
+                landing_url="https://www.icai.org/fixture",
+                download_url="https://resource.cdn.icai.org/fixture.pdf",
+                sha256=hashlib.sha256(path.read_bytes()).hexdigest(),
+                local_path=str(path),
+                retrieved_at="2026-10-03",
+                page_count=1,
+                edition_evidence="January 2026 applicability fixture",
+                availability="verified",
+                fallback=True,
+                target_applicability="unresolved",
+                expected_structure=["Module 1"],
+            )
+        )
         parent = None
         span = dict(artifact_id=artifact_id, pdf_page_start=1, pdf_page_end=1)
         for ordinal, kind in enumerate(("module", "chapter", "unit", "topic", "subtopic")):
             node_id = str(uuid4())
-            manifest["nodes"].append(dict(id=node_id, paper_id=paper, parent_id=parent, kind=kind,
-                name=f"{kind} {i}", ordinal=ordinal, heading_origin="official", source_spans=[span]))
+            manifest["nodes"].append(
+                dict(
+                    id=node_id,
+                    paper_id=paper,
+                    parent_id=parent,
+                    kind=kind,
+                    name=f"{kind} {i}",
+                    ordinal=ordinal,
+                    heading_origin="official",
+                    source_spans=[span],
+                )
+            )
             parent = node_id
-        manifest["descriptors"].append(dict(node_id=parent, revision=1, definition="Time value of money",
-            terminology=["discounting"], inclusion=["present value"], exclusion=["audit risk"],
-            nearby_distinctions=["Future value accumulates cash flows"], source_spans=[span]))
+        manifest["descriptors"].append(
+            dict(
+                node_id=parent,
+                revision=1,
+                definition="Time value of money",
+                terminology=["discounting"],
+                inclusion=["present value"],
+                exclusion=["audit risk"],
+                nearby_distinctions=["Future value accumulates cash flows"],
+                source_spans=[span],
+            )
+        )
     return manifest
 
 
@@ -52,15 +114,25 @@ def authenticated_actors(session):
     student = session.get(UserAccount, 1)
     student.status = "active"
     student.role = "student"
-    session.add(UserAccount(id=9, name="Release administrator", role="administrator", status="active"))
+    session.add(
+        UserAccount(id=9, name="Release administrator", role="administrator", status="active")
+    )
     session.commit()
 
 
 def review_all(session, version_id):
     release = session.get(TaxonomyRelease, version_id)
-    for span in session.scalars(sa.select(NodeSourceSpan).where(NodeSourceSpan.taxonomy_version_id == release.taxonomy_version_id)):
+    for span in session.scalars(
+        sa.select(NodeSourceSpan).where(
+            NodeSourceSpan.taxonomy_version_id == release.taxonomy_version_id
+        )
+    ):
         span.review_status, span.reviewed_by = "reviewed", 9
-    for revision in session.scalars(sa.select(DescriptorRevision).where(DescriptorRevision.taxonomy_version_id == release.taxonomy_version_id)):
+    for revision in session.scalars(
+        sa.select(DescriptorRevision).where(
+            DescriptorRevision.taxonomy_version_id == release.taxonomy_version_id
+        )
+    ):
         approve_descriptor(session, version_id, revision.node_id, revision.revision, 1)
     session.flush()
 
@@ -70,27 +142,45 @@ def test_dry_run_fresh_ids_recursive_and_immutable(session, manifest):
     legacy_ids = set(session.scalars(sa.select(Node.id)))
     legacy_id = sorted(legacy_ids)[0]
     evidence = {"legacy_name": "Original source concept", "review_note": "No reviewed equivalence"}
-    manifest["crosswalk"] = [dict(old_node_id=legacy_id, new_node_id=None,
-                                  relation="unresolved", evidence=evidence)]
+    manifest["crosswalk"] = [
+        dict(old_node_id=legacy_id, new_node_id=None, relation="unresolved", evidence=evidence)
+    ]
     report = import_release(session, manifest)
     assert report["dry_run"] and report["node_count"] == 30
     assert session.get(TaxonomyRelease, manifest["version_id"]) is None
     import_release(session, manifest, dry_run=False)
     session.commit()
     release = session.get(TaxonomyRelease, manifest["version_id"])
-    mapping = session.scalar(sa.select(TaxonomyCrosswalk).where(
-        TaxonomyCrosswalk.taxonomy_version_id == release.taxonomy_version_id))
+    mapping = session.scalar(
+        sa.select(TaxonomyCrosswalk).where(
+            TaxonomyCrosswalk.taxonomy_version_id == release.taxonomy_version_id
+        )
+    )
     assert json.loads(mapping.evidence) == evidence
-    content = session.scalar(sa.select(DescriptorRevision).where(DescriptorRevision.node_id == manifest["descriptors"][0]["node_id"])).content
-    assert content["edition"] == "November 2024" and content["instrument_references"] == ["Ind AS 109"]
+    content = session.scalar(
+        sa.select(DescriptorRevision).where(
+            DescriptorRevision.node_id == manifest["descriptors"][0]["node_id"]
+        )
+    ).content
+    assert content["edition"] == "November 2024" and content["instrument_references"] == [
+        "Ind AS 109"
+    ]
     assert set(n["id"] for n in manifest["nodes"]).isdisjoint(legacy_ids)
     assert len(eligible_candidates(session, release.taxonomy_version_id)) == 0
     assert import_release(session, manifest, dry_run=False)["node_count"] == 30
     with pytest.raises(DBAPIError, match="immutable"):
-        session.execute(sa.update(TaxonomyMember).where(TaxonomyMember.taxonomy_version_id == release.taxonomy_version_id).values(name="tampered"))
+        session.execute(
+            sa.update(TaxonomyMember)
+            .where(TaxonomyMember.taxonomy_version_id == release.taxonomy_version_id)
+            .values(name="tampered")
+        )
     session.rollback()
     with pytest.raises(DBAPIError, match="immutable"):
-        session.execute(sa.update(Node).where(Node.id == manifest["nodes"][4]["id"]).values(parent_id=manifest["nodes"][0]["id"]))
+        session.execute(
+            sa.update(Node)
+            .where(Node.id == manifest["nodes"][4]["id"])
+            .values(parent_id=manifest["nodes"][0]["id"])
+        )
     session.rollback()
 
 
@@ -99,11 +189,22 @@ def test_source_ambiguities_survive_import_and_require_resolution(session, manif
     manifest["descriptors"][0]["source_ambiguities"] = ["Truncated textbook heading"]
     import_release(session, manifest, dry_run=False)
     node_id = manifest["descriptors"][0]["node_id"]
-    revision = session.scalar(sa.select(DescriptorRevision).where(DescriptorRevision.node_id == node_id))
+    revision = session.scalar(
+        sa.select(DescriptorRevision).where(DescriptorRevision.node_id == node_id)
+    )
     with pytest.raises(ValueError, match="source issues"):
         approve_descriptor(session, manifest["version_id"], node_id, 1, 1)
-    revised = revise_descriptor(session, manifest["version_id"], node_id,
-        {**revision.content, "definition": "Verified complete concept definition", "source_ambiguities": []}, 1)
+    revised = revise_descriptor(
+        session,
+        manifest["version_id"],
+        node_id,
+        {
+            **revision.content,
+            "definition": "Verified complete concept definition",
+            "source_ambiguities": [],
+        },
+        1,
+    )
     approve_descriptor(session, manifest["version_id"], node_id, revised.revision, 1)
 
 
@@ -139,8 +240,16 @@ def test_descriptor_eligibility_edit_and_approved_activation(session, manifest):
     activate_release(session, release.version_id, report["manifest_hash"], dry_run=False)
     assert active_version(session).version_id == release.version_id
     node_id = manifest["descriptors"][0]["node_id"]
-    revision = session.scalar(sa.select(DescriptorRevision).where(DescriptorRevision.node_id == node_id))
-    revise_descriptor(session, release.version_id, node_id, {**revision.content, "definition": "Edited present value boundary"}, 1)
+    revision = session.scalar(
+        sa.select(DescriptorRevision).where(DescriptorRevision.node_id == node_id)
+    )
+    revise_descriptor(
+        session,
+        release.version_id,
+        node_id,
+        {**revision.content, "definition": "Edited present value boundary"},
+        1,
+    )
     assert len(eligible_candidates(session, release.taxonomy_version_id)) == 5
     assert session.get(TaxonomyRelease, release.version_id).approved_by is None
     with pytest.raises(ValueError, match="changed"):
@@ -155,7 +264,14 @@ def test_progress_exact_only_preserves_original_notes(session, manifest):
     import_release(session, manifest, dry_run=False)
     release = session.get(TaxonomyRelease, manifest["version_id"])
     new_id = manifest["descriptors"][0]["node_id"]
-    mapping = TaxonomyCrosswalk(taxonomy_version_id=release.taxonomy_version_id, old_node_id=old.id, new_node_id=new_id, relation="exact", evidence="Textbook boundaries reviewed", reviewed_by=9)
+    mapping = TaxonomyCrosswalk(
+        taxonomy_version_id=release.taxonomy_version_id,
+        old_node_id=old.id,
+        new_node_id=new_id,
+        relation="exact",
+        evidence="Textbook boundaries reviewed",
+        reviewed_by=9,
+    )
     session.add(mapping)
     session.flush()
     assert migrate_exact_progress(session, release.version_id)["transferred"] == 1
@@ -171,6 +287,7 @@ def test_progress_exact_only_preserves_original_notes(session, manifest):
 
 def test_actual_curation_role_can_review_but_cannot_activate(session, manifest):
     from sqlalchemy.orm import Session
+
     authenticated_actors(session)
     import_release(session, manifest, dry_run=False)
     session.commit()
@@ -183,13 +300,22 @@ def test_actual_curation_role_can_review_but_cannot_activate(session, manifest):
         curator.rollback()
 
 
-def test_recursive_explorer_admin_reviews_and_private_predecessor_notes(session, manifest, authenticated_client):
+def test_recursive_explorer_admin_reviews_and_private_predecessor_notes(
+    session, manifest, authenticated_client
+):
     import_release(session, manifest, dry_run=False)
     old = session.scalar(sa.select(Node).where(Node.level == "subtopic").order_by(Node.id))
     release = session.get(TaxonomyRelease, manifest["version_id"])
     new_id = manifest["descriptors"][0]["node_id"]
-    session.add(TaxonomyCrosswalk(taxonomy_version_id=release.taxonomy_version_id, old_node_id=old.id,
-        new_node_id=new_id, relation="unresolved", evidence="Pending boundary comparison"))
+    session.add(
+        TaxonomyCrosswalk(
+            taxonomy_version_id=release.taxonomy_version_id,
+            old_node_id=old.id,
+            new_node_id=new_id,
+            relation="unresolved",
+            evidence="Pending boundary comparison",
+        )
+    )
     session.add(Note(user_id=1, node_id=old.id, body="Private predecessor note"))
     session.commit()
     owner = authenticated_client(1)
@@ -206,20 +332,46 @@ def test_recursive_explorer_admin_reviews_and_private_predecessor_notes(session,
         assert owner.get(url + "/" + suffix).status_code == 403
         assert admin.get(url + "/" + suffix).status_code == 200
     history_url = f"/api/v1/taxonomy/nodes/{new_id}/history?version_id={release.version_id}"
-    assert any(r["note"] and r["note"]["body"] == "Private predecessor note" for r in owner.get(history_url).json()["records"])
+    assert any(
+        r["note"] and r["note"]["body"] == "Private predecessor note"
+        for r in owner.get(history_url).json()["records"]
+    )
     assert all(r["note"] is None for r in stranger.get(history_url).json()["records"])
     review_url = f"/api/v1/taxonomy/nodes/{new_id}/descriptor/approve"
-    assert owner.post(review_url, json={"version_id": release.version_id, "revision": 1}).status_code == 200
-    content = {k: v for k, v in owner.get(f"/api/v1/taxonomy/nodes/{new_id}/descriptor?version_id={release.version_id}").json().items() if k not in {"revision", "approved"}}
-    edited = owner.put(f"/api/v1/taxonomy/nodes/{new_id}/descriptor", json={**content, "version_id": release.version_id, "definition": "Edited concept"})
+    assert (
+        owner.post(review_url, json={"version_id": release.version_id, "revision": 1}).status_code
+        == 200
+    )
+    content = {
+        k: v
+        for k, v in owner.get(
+            f"/api/v1/taxonomy/nodes/{new_id}/descriptor?version_id={release.version_id}"
+        )
+        .json()
+        .items()
+        if k not in {"revision", "approved"}
+    }
+    edited = owner.put(
+        f"/api/v1/taxonomy/nodes/{new_id}/descriptor",
+        json={**content, "version_id": release.version_id, "definition": "Edited concept"},
+    )
     assert edited.status_code == 200 and edited.json()["approved"] is False, edited.text
 
 
 def test_partial_release_keeps_unverified_expected_source_gap_explicit(session, manifest):
-    manifest["textbook_artifacts"][0].update(availability="inaccessible", sha256=None,
-        local_path=None, expected_structure=["Module 1", "Missing Module 2"])
-    manifest["source_gaps"] = [dict(paper_id="s2023.P1", status="unresolved",
-        reason="Module 2 January 2026 download unavailable")]
+    manifest["textbook_artifacts"][0].update(
+        availability="inaccessible",
+        sha256=None,
+        local_path=None,
+        expected_structure=["Module 1", "Missing Module 2"],
+    )
+    manifest["source_gaps"] = [
+        dict(
+            paper_id="s2023.P1",
+            status="unresolved",
+            reason="Module 2 January 2026 download unavailable",
+        )
+    ]
     import_release(session, manifest, dry_run=False)
     report = release_report(session, manifest["version_id"])
     assert report["unresolved_sources"] == ["fixture-1"]
@@ -228,13 +380,25 @@ def test_partial_release_keeps_unverified_expected_source_gap_explicit(session, 
     assert not report["activation_ready"]
 
 
-def test_revised_release_reuses_exact_textbook_identities_and_preserves_prior_review(session, manifest):
+def test_revised_release_reuses_exact_textbook_identities_and_preserves_prior_review(
+    session, manifest
+):
     from caf_l0.releases import source_context
+
     authenticated_actors(session)
-    manifest["source_gaps"] = [dict(paper_id="s2023.P1", status="unresolved",
-        reason="One expected concept awaiting heading reconciliation")]
-    manifest["heading_reconciliation"] = {"status": "pending", "expected_count": 31,
-        "accounted_count": 30, "unresolved": ["Missing concept"]}
+    manifest["source_gaps"] = [
+        dict(
+            paper_id="s2023.P1",
+            status="unresolved",
+            reason="One expected concept awaiting heading reconciliation",
+        )
+    ]
+    manifest["heading_reconciliation"] = {
+        "status": "pending",
+        "expected_count": 31,
+        "accounted_count": 30,
+        "unresolved": ["Missing concept"],
+    }
     import_release(session, manifest, dry_run=False)
     original = session.get(TaxonomyRelease, manifest["version_id"])
     review_all(session, original.version_id)
@@ -246,8 +410,12 @@ def test_revised_release_reuses_exact_textbook_identities_and_preserves_prior_re
     revised = deepcopy(manifest)
     revised["version_id"] = "textbook-fixture-resolved"
     revised["source_gaps"] = []
-    revised["heading_reconciliation"] = {"status": "complete", "expected_count": 31,
-        "accounted_count": 31, "unresolved": []}
+    revised["heading_reconciliation"] = {
+        "status": "complete",
+        "expected_count": 31,
+        "accounted_count": 31,
+        "unresolved": [],
+    }
     new_node = deepcopy(revised["nodes"][4])
     new_node.update(id=str(uuid4()), name="Newly reconciled concept", ordinal=5)
     revised["nodes"].append(new_node)
@@ -266,21 +434,45 @@ def test_revised_release_reuses_exact_textbook_identities_and_preserves_prior_re
     assert session.get(TaxonomyRelease, original.version_id).manifest["source_gaps"]
     assert len(eligible_candidates(session, original.taxonomy_version_id)) == 6
     assert eligible_candidates(session, successor.taxonomy_version_id) == []
-    assert session.scalar(sa.select(sa.func.count()).select_from(TaxonomyMember).where(
-        TaxonomyMember.taxonomy_version_id == original.taxonomy_version_id)) == 30
-    assert session.scalar(sa.select(sa.func.count()).select_from(TaxonomyMember).where(
-        TaxonomyMember.taxonomy_version_id == successor.taxonomy_version_id)) == 31
+    assert (
+        session.scalar(
+            sa.select(sa.func.count())
+            .select_from(TaxonomyMember)
+            .where(TaxonomyMember.taxonomy_version_id == original.taxonomy_version_id)
+        )
+        == 30
+    )
+    assert (
+        session.scalar(
+            sa.select(sa.func.count())
+            .select_from(TaxonomyMember)
+            .where(TaxonomyMember.taxonomy_version_id == successor.taxonomy_version_id)
+        )
+        == 31
+    )
     assert session.get(Node, first_leaf).created_in == original.taxonomy_version_id
     assert session.get(Progress, (1, first_leaf)).status == "done"
     assert session.get(Note, (1, first_leaf)).body == "Keep my original textbook note"
-    assert session.get(TextbookArtifact, (original.taxonomy_version_id, "fixture-1")).metadata_json["target_applicability"] == "unresolved"
-    assert source_context(session, successor.taxonomy_version_id, first_leaf)[0]["target_applicability"] == "review_required"
+    assert (
+        session.get(TextbookArtifact, (original.taxonomy_version_id, "fixture-1")).metadata_json[
+            "target_applicability"
+        ]
+        == "unresolved"
+    )
+    assert (
+        source_context(session, successor.taxonomy_version_id, first_leaf)[0][
+            "target_applicability"
+        ]
+        == "review_required"
+    )
     incompatible = deepcopy(revised)
     incompatible["version_id"] = "textbook-fixture-conflicting"
     incompatible["nodes"][4]["name"] = "Different conceptual identity"
     with pytest.raises(ValueError, match="incompatible immutable"):
         import_release(session, incompatible)
-    legacy_node = session.scalar(sa.select(Node).where(Node.id.not_in([n["id"] for n in revised["nodes"]])).limit(1))
+    legacy_node = session.scalar(
+        sa.select(Node).where(Node.id.not_in([n["id"] for n in revised["nodes"]])).limit(1)
+    )
     incompatible["nodes"][4]["id"] = legacy_node.id
     incompatible["descriptors"][0]["node_id"] = legacy_node.id
     with pytest.raises(ValueError, match="legacy"):
@@ -289,14 +481,35 @@ def test_revised_release_reuses_exact_textbook_identities_and_preserves_prior_re
 
 def test_review_report_rejects_manifest_drift_and_missing_representative_sources(session, manifest):
     authenticated_actors(session)
-    manifest["question_inventory_gaps"] = [{"course_level": "Final", "source_family": "mock", "availability": "inaccessible"}]
+    manifest["question_inventory_gaps"] = [
+        {"course_level": "Final", "source_family": "mock", "availability": "inaccessible"}
+    ]
     import_release(session, manifest, dry_run=False)
     release = session.get(TaxonomyRelease, manifest["version_id"])
     node_id = str(uuid4())
-    session.add(Node(id=node_id, paper_id="s2023.P1", parent_id=None, level="module", name="Unsupported extra module", seq=99))
+    session.add(
+        Node(
+            id=node_id,
+            paper_id="s2023.P1",
+            parent_id=None,
+            level="module",
+            name="Unsupported extra module",
+            seq=99,
+        )
+    )
     session.flush()
-    session.add(TaxonomyMember(taxonomy_version_id=release.taxonomy_version_id, node_id=node_id,
-        paper_id="s2023.P1", parent_id=None, level="module", name="Unsupported extra module", seq=99, heading_origin="official"))
+    session.add(
+        TaxonomyMember(
+            taxonomy_version_id=release.taxonomy_version_id,
+            node_id=node_id,
+            paper_id="s2023.P1",
+            parent_id=None,
+            level="module",
+            name="Unsupported extra module",
+            seq=99,
+            heading_origin="official",
+        )
+    )
     session.flush()
     review_all(session, release.version_id)
     report = release_report(session, release.version_id)

@@ -1,0 +1,13 @@
+[Unit]
+Description=CA Final Companion recovery snapshot
+Requires=docker.service
+After=docker.service caf.service
+ConditionPathExists=/srv/caf/current-compose.json
+
+[Service]
+Type=oneshot
+User=cafdeploy
+Group=cafdeploy
+SupplementaryGroups=docker
+ExecStart=/opt/caf/repo/deploy/caf-host backup
+TimeoutStartSec=3600

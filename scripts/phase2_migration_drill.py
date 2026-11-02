@@ -28,9 +28,11 @@ def original_content(connection, tables):
         columns = ADDED_COLUMNS.get(table, [])
         expression = "to_jsonb(t)" + "".join(f" - '{column}'" for column in columns)
         where = " WHERE id <> '2027-05'" if table == "ref.attempt" else ""
-        rows = connection.execute(sa.text(
-            f"SELECT ({expression})::text FROM {table} t{where} ORDER BY ({expression})::text COLLATE \"C\""
-        ))
+        rows = connection.execute(
+            sa.text(
+                f'SELECT ({expression})::text FROM {table} t{where} ORDER BY ({expression})::text COLLATE "C"'
+            )
+        )
         digest = hashlib.sha256()
         count = 0
         for row in rows:
@@ -67,16 +69,46 @@ def drill(manifest_file: Path, report: Path = Path("docs/Phase2_Restored_Migrati
                 preserved = original_content(connection, original_tables)
                 expected = {table: before[table] for table in original_tables}
                 assert preserved == expected, "Migration changed preexisting values"
-                accounts = connection.execute(sa.text("SELECT id,status,issuer,subject FROM app.user_account ORDER BY id")).mappings().all()
-                assert all(row["status"] == "pending_binding" and row["issuer"] is None and row["subject"] is None for row in accounts)
-                next_id = connection.execute(sa.text("SELECT nextval(pg_get_serial_sequence('app.user_account','id'))")).scalar_one()
+                accounts = (
+                    connection.execute(
+                        sa.text("SELECT id,status,issuer,subject FROM app.user_account ORDER BY id")
+                    )
+                    .mappings()
+                    .all()
+                )
+                assert all(
+                    row["status"] == "pending_binding"
+                    and row["issuer"] is None
+                    and row["subject"] is None
+                    for row in accounts
+                )
+                next_id = connection.execute(
+                    sa.text("SELECT nextval(pg_get_serial_sequence('app.user_account','id'))")
+                ).scalar_one()
                 assert next_id > max((row["id"] for row in accounts), default=0)
                 new_tables = sorted(set(database_content(connection)) - set(before))
-                assert set(new_tables) == {"app.invitation", "app.login_transaction", "app.auth_session"}
-                report.write_text(json.dumps({"checkpoint": str(manifest_file), "restored_exact": True,
-                    "all_original_values_preserved": True, "tables_checked": len(expected),
-                    "legacy_accounts": [dict(row) for row in accounts], "next_account_id": next_id,
-                    "new_tables": new_tables, "preserved": preserved}, indent=2, default=str) + "\n")
+                assert set(new_tables) == {
+                    "app.invitation",
+                    "app.login_transaction",
+                    "app.auth_session",
+                }
+                report.write_text(
+                    json.dumps(
+                        {
+                            "checkpoint": str(manifest_file),
+                            "restored_exact": True,
+                            "all_original_values_preserved": True,
+                            "tables_checked": len(expected),
+                            "legacy_accounts": [dict(row) for row in accounts],
+                            "next_account_id": next_id,
+                            "new_tables": new_tables,
+                            "preserved": preserved,
+                        },
+                        indent=2,
+                        default=str,
+                    )
+                    + "\n"
+                )
         finally:
             engine.dispose()
     typer.echo(f"Restored migration passed: {report}")

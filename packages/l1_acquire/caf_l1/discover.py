@@ -54,12 +54,32 @@ class LinkDiscoverer:
         # A CDN also serves schedules, HTML and images; its hostname is not PDF evidence.
         return urlparse(url).path.lower().endswith(".pdf")
 
-    def _record_page(self, session, source_id, url, depth, parent, mode, allowed,
-                     status=None, error=None, headers=None):
-        page = session.execute(sa.select(SourcePage).where(SourcePage.url == url)).scalar_one_or_none()
+    def _record_page(
+        self,
+        session,
+        source_id,
+        url,
+        depth,
+        parent,
+        mode,
+        allowed,
+        status=None,
+        error=None,
+        headers=None,
+    ):
+        page = session.execute(
+            sa.select(SourcePage).where(SourcePage.url == url)
+        ).scalar_one_or_none()
         if page is None:
-            page = SourcePage(source_id=source_id, url=url, depth=depth, parent_page_id=parent,
-                              fetch_mode=mode, robots_allowed=allowed, link_count=0)
+            page = SourcePage(
+                source_id=source_id,
+                url=url,
+                depth=depth,
+                parent_page_id=parent,
+                fetch_mode=mode,
+                robots_allowed=allowed,
+                link_count=0,
+            )
             session.add(page)
             session.flush()
         page.last_fetched_at = datetime.now(timezone.utc)
@@ -71,8 +91,9 @@ class LinkDiscoverer:
         page.last_modified = (headers or {}).get("last-modified")
         return page
 
-    def discover_source(self, source: dict[str, Any], session: Session,
-                        run_id: int | None = None) -> int:
+    def discover_source(
+        self, source: dict[str, Any], session: Session, run_id: int | None = None
+    ) -> int:
         assert_acquisition_allowed()
         outcome = DiscoveryOutcome(source_id=source["id"])
         self.last_outcome = outcome
@@ -81,24 +102,39 @@ class LinkDiscoverer:
             raise ValueError(f"Unsupported discovery mode: {mode}")
         if mode == "assisted":
             outcome.status = "manual_required"
-            outcome.failures.append({"url": source["url"], "reason": "Assisted source requires an imported artifact"})
-            self._record_page(session, source["id"], source["url"], 0, None, mode, None,
-                              error="MANUAL_REQUIRED")
+            outcome.failures.append(
+                {"url": source["url"], "reason": "Assisted source requires an imported artifact"}
+            )
+            self._record_page(
+                session, source["id"], source["url"], 0, None, mode, None, error="MANUAL_REQUIRED"
+            )
             session.commit()
             raise DiscoveryFailure(outcome)
         try:
             if mode == "browser":
                 self._discover_browser(source, session, outcome)
             else:
-                with httpx.Client(headers={"User-Agent": self.politeness.user_agent}, timeout=15,
-                                  follow_redirects=True, event_hooks={"response": [_upgrade_redirect]}) as client:
+                with httpx.Client(
+                    headers={"User-Agent": self.politeness.user_agent},
+                    timeout=15,
+                    follow_redirects=True,
+                    event_hooks={"response": [_upgrade_redirect]},
+                ) as client:
                     self._crawl(source, session, outcome, lambda url: self._http_page(client, url))
         except DiscoveryFailure:
             raise
         except Exception as exc:
             outcome.failures.append({"url": source["url"], "reason": str(exc)})
-            self._record_page(session, source["id"], source["url"], 0, None, mode, None,
-                              error=f"DISCOVERY_UNAVAILABLE: {exc}")
+            self._record_page(
+                session,
+                source["id"],
+                source["url"],
+                0,
+                None,
+                mode,
+                None,
+                error=f"DISCOVERY_UNAVAILABLE: {exc}",
+            )
             session.commit()
         outcome.status = "partial" if outcome.documents_found and outcome.failures else "ok"
         if not outcome.documents_found:
@@ -106,8 +142,14 @@ class LinkDiscoverer:
             if not outcome.failures:
                 outcome.failures.append({"url": source["url"], "reason": "NO_DOCUMENT_LINKS"})
             if run_id is not None:
-                session.add(Event(run_id=run_id, level="warn", code="L1_DISCOVERY_FAILED",
-                                  message=str(outcome.failures)))
+                session.add(
+                    Event(
+                        run_id=run_id,
+                        level="warn",
+                        code="L1_DISCOVERY_FAILED",
+                        message=str(outcome.failures),
+                    )
+                )
                 session.commit()
             raise DiscoveryFailure(outcome)
         return outcome.new_links
@@ -118,14 +160,22 @@ class LinkDiscoverer:
 
     def _discover_browser(self, source, session, outcome):
         from playwright.sync_api import sync_playwright
+
         with sync_playwright() as playwright:
             browser = playwright.chromium.launch(headless=True)
             context = browser.new_context(user_agent=self.politeness.user_agent)
             try:
                 page = context.new_page()
+
                 def fetch(url):
                     response = page.goto(url, wait_until="domcontentloaded", timeout=30000)
-                    return response.status if response else 0, page.url, page.content(), response.all_headers() if response else {}
+                    return (
+                        response.status if response else 0,
+                        page.url,
+                        page.content(),
+                        response.all_headers() if response else {},
+                    )
+
                 self._crawl(source, session, outcome, fetch)
             finally:
                 context.close()
@@ -147,8 +197,16 @@ class LinkDiscoverer:
             outcome.pages_checked += 1
             allowed = self.politeness.is_allowed(url)
             if not allowed:
-                self._record_page(session, source["id"], url, depth, parent, mode, False,
-                                  error="ROBOTS_DISALLOWED")
+                self._record_page(
+                    session,
+                    source["id"],
+                    url,
+                    depth,
+                    parent,
+                    mode,
+                    False,
+                    error="ROBOTS_DISALLOWED",
+                )
                 outcome.failures.append({"url": url, "reason": "ROBOTS_DISALLOWED"})
                 session.commit()
                 continue
@@ -156,14 +214,23 @@ class LinkDiscoverer:
             try:
                 status, final_url, html, headers = fetch(url)
             except Exception as exc:
-                self._record_page(session, source["id"], url, depth, parent, mode, True,
-                                  error=f"FETCH_FAILED: {exc}")
+                self._record_page(
+                    session,
+                    source["id"],
+                    url,
+                    depth,
+                    parent,
+                    mode,
+                    True,
+                    error=f"FETCH_FAILED: {exc}",
+                )
                 outcome.failures.append({"url": url, "reason": str(exc)})
                 session.commit()
                 continue
             error = None if status == 200 else f"HTTP_{status}"
-            page = self._record_page(session, source["id"], url, depth, parent, mode, True,
-                                     status, error, headers)
+            page = self._record_page(
+                session, source["id"], url, depth, parent, mode, True, status, error, headers
+            )
             if error:
                 outcome.failures.append({"url": url, "reason": error})
                 session.commit()
@@ -173,7 +240,11 @@ class LinkDiscoverer:
             title = title_node.text().strip() if title_node else ""
             page_count = 0
             for node in parser.css("a, iframe, embed, object"):
-                href = node.attributes.get("href") or node.attributes.get("src") or node.attributes.get("data")
+                href = (
+                    node.attributes.get("href")
+                    or node.attributes.get("src")
+                    or node.attributes.get("data")
+                )
                 if not href:
                     continue
                 target, _ = urldefrag(urljoin(final_url, href))
@@ -185,17 +256,40 @@ class LinkDiscoverer:
                 if self.is_pdf_url(target):
                     documents.add(target)
                     page_count += 1
-                    inferred = infer_metadata(target, anchor_text=anchor,
-                        breadcrumb=crumbs + [title, final_url], scheme_hint=source.get("scheme_hint", "s2023"))
-                    inferred["discovery_evidence"] = {"original_page_url": url, "final_page_url": final_url,
-                        "source_id": source["id"], "retrieved_at": datetime.now(timezone.utc).isoformat(), "mode": mode}
-                    association = {"source_id": source["id"], "source_page_url": url,
-                                   "final_page_url": final_url, "anchor_text": anchor}
+                    inferred = infer_metadata(
+                        target,
+                        anchor_text=anchor,
+                        breadcrumb=crumbs + [title, final_url],
+                        scheme_hint=source.get("scheme_hint", "s2023"),
+                    )
+                    inferred["discovery_evidence"] = {
+                        "original_page_url": url,
+                        "final_page_url": final_url,
+                        "source_id": source["id"],
+                        "retrieved_at": datetime.now(timezone.utc).isoformat(),
+                        "mode": mode,
+                    }
+                    association = {
+                        "source_id": source["id"],
+                        "source_page_url": url,
+                        "final_page_url": final_url,
+                        "anchor_text": anchor,
+                    }
                     inferred["discovery_associations"] = [association]
-                    existing = session.execute(sa.select(DiscoveredLink).where(DiscoveredLink.url == target)).scalar_one_or_none()
+                    existing = session.execute(
+                        sa.select(DiscoveredLink).where(DiscoveredLink.url == target)
+                    ).scalar_one_or_none()
                     if existing is None:
-                        session.add(DiscoveredLink(url=target, source_page_id=page.id, anchor_text=anchor,
-                            breadcrumb=crumbs + [title], inferred=inferred, link_status="new"))
+                        session.add(
+                            DiscoveredLink(
+                                url=target,
+                                source_page_id=page.id,
+                                anchor_text=anchor,
+                                breadcrumb=crumbs + [title],
+                                inferred=inferred,
+                                link_status="new",
+                            )
+                        )
                         outcome.new_links += 1
                     else:
                         # Confirmed manual corrections must survive rediscovery.
@@ -203,7 +297,11 @@ class LinkDiscoverer:
                         associations = list(previous.get("discovery_associations", []))
                         if association not in associations:
                             associations.append(association)
-                        existing.inferred = {**inferred, **previous, "discovery_associations": associations}
+                        existing.inferred = {
+                            **inferred,
+                            **previous,
+                            "discovery_associations": associations,
+                        }
                 elif depth < max_depth and target not in seen:
                     iframe = node.tag in {"iframe", "embed", "object"}
                     if iframe or any(pattern.search(target) for pattern in patterns):

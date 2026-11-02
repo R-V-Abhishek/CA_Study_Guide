@@ -28,3 +28,10 @@ heading_size_threshold = 14.0
 min_delay_s = 5
 max_delay_s = 10
 max_downloads_per_session = 200
+
+[baseline_notice]
+# Shown on baseline-adopted questions and textbook sources whose applicability is still pending.
+attempt_label = "May 2027"
+
+[baseline_notice.paper_notes]
+"s2023.P5" = "P5 includes older-edition material; check the prescribed syllabus before relying on it for the exam."

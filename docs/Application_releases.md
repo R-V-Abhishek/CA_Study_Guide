@@ -82,7 +82,8 @@ verified transfer. Never publish database dumps, source documents, `.env`, Auth0
 credentials or recovery material as GitHub release assets. Content and recovery
 snapshots remain separate from application releases.
 
-`deploy/compatibility.toml` currently supports only `0009_question_language`.
+`deploy/compatibility.toml` currently supports only `0010_bounds_and_indexes`
+(`0009_question_language` was the schema of v0.2.1; upgrading it to 0010 is the first real `caf-host upgrade` migration).
 Packaging fails if that required revision differs from the migration head.
 Additional schema compatibility is refused until there is a tested rollback
 drill. A schema declaration is not evidence that restoring an old database is

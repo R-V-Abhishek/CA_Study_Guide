@@ -7,8 +7,12 @@ import sqlalchemy as sa
 
 from caf_db.models.app import Note, Progress, Settings
 from caf_db.models.classification import (
-    BaselineAdoption, CandidateCatalog, ClassificationRevision,
-    ClassificationVerification, QuestionPublication, SuggestionRevision,
+    BaselineAdoption,
+    CandidateCatalog,
+    ClassificationRevision,
+    ClassificationVerification,
+    QuestionPublication,
+    SuggestionRevision,
 )
 from caf_db.models.extraction import ExtractionRevision
 from caf_db.models.ingest import Document
@@ -29,26 +33,49 @@ def frozen(session, suggestion):
     extraction = session.get(ExtractionRevision, suggestion.extraction_revision_id)
     catalog = deepcopy(suggestion.candidates)
     catalog_hash = digest(catalog)
-    record = dict(question_id=suggestion.question_id, document_id=document.id,
-        document_sha256=document.sha256, extraction_revision_id=extraction.id,
-        extraction_digest=extraction.content_digest, context=deepcopy(suggestion.context),
-        input_hash=suggestion.input_hash, original_input_hash=suggestion.input_hash,
-        catalog_hash=catalog_hash, mappings=deepcopy(suggestion.mappings),
-        saved=True, execution={"method": "saved-fixture"}, pack="fixture-final",
-        result_hash=digest(suggestion.mappings))
-    metadata = dict(release_id="baseline-fixture", target_attempt="2027-05",
-        counts=dict(roots=1, parts=len(record["mappings"]), catalog_nodes=len({
-            node["id"] for candidate in catalog for node in candidate["path"]})),
-        catalog_hashes=[catalog_hash])
-    return dict(release_id=metadata["release_id"], target_attempt="2027-05",
-        manifest_hash=digest(metadata), manifest=metadata, catalogs={catalog_hash: catalog},
-        records=[record])
+    record = dict(
+        question_id=suggestion.question_id,
+        document_id=document.id,
+        document_sha256=document.sha256,
+        extraction_revision_id=extraction.id,
+        extraction_digest=extraction.content_digest,
+        context=deepcopy(suggestion.context),
+        input_hash=suggestion.input_hash,
+        original_input_hash=suggestion.input_hash,
+        catalog_hash=catalog_hash,
+        mappings=deepcopy(suggestion.mappings),
+        saved=True,
+        execution={"method": "saved-fixture"},
+        pack="fixture-final",
+        result_hash=digest(suggestion.mappings),
+    )
+    metadata = dict(
+        release_id="baseline-fixture",
+        target_attempt="2027-05",
+        counts=dict(
+            roots=1,
+            parts=len(record["mappings"]),
+            catalog_nodes=len({node["id"] for candidate in catalog for node in candidate["path"]}),
+        ),
+        catalog_hashes=[catalog_hash],
+    )
+    return dict(
+        release_id=metadata["release_id"],
+        target_attempt="2027-05",
+        manifest_hash=digest(metadata),
+        manifest=metadata,
+        catalogs={catalog_hash: catalog},
+        records=[record],
+    )
 
 
 def adopted_suggestion(session, adoption):
     release = session.get(TaxonomyRelease, adoption.release_id)
-    return session.scalar(sa.select(SuggestionRevision).where(
-        SuggestionRevision.taxonomy_version_id == release.taxonomy_version_id))
+    return session.scalar(
+        sa.select(SuggestionRevision).where(
+            SuggestionRevision.taxonomy_version_id == release.taxonomy_version_id
+        )
+    )
 
 
 def activate(session, frozen):
@@ -69,7 +96,9 @@ def test_adoption_requires_active_administrator(session, frozen):
         session.rollback()
 
 
-def test_prepare_retry_preserves_older_suggestions_without_verifications(session, frozen, suggestion):
+def test_prepare_retry_preserves_older_suggestions_without_verifications(
+    session, frozen, suggestion
+):
     original = deepcopy(suggestion.candidates)
     first = prepare_baseline(session, frozen, 9)
     session.commit()
@@ -133,9 +162,18 @@ def test_incomplete_mapping_cannot_be_adopted(session, frozen):
 
 def test_unresolved_parts_stay_published_without_invented_labels(session, frozen):
     record = frozen["records"][0]
-    record["mappings"] = [{**mapping, "outcome": outcome, "primary_node_id": None,
-        "secondary_node_ids": [], "evidence": {}, "confidence": None, "bucket": None}
-        for mapping, outcome in zip(record["mappings"], ["needs_review", "none_fits"], strict=True)]
+    record["mappings"] = [
+        {
+            **mapping,
+            "outcome": outcome,
+            "primary_node_id": None,
+            "secondary_node_ids": [],
+            "evidence": {},
+            "confidence": None,
+            "bucket": None,
+        }
+        for mapping, outcome in zip(record["mappings"], ["needs_review", "none_fits"], strict=True)
+    ]
     record["result_hash"] = digest(record["mappings"])
     adoption = prepare_baseline(session, frozen, 9)
     activate(session, frozen)
@@ -151,7 +189,10 @@ def test_unresolved_parts_stay_published_without_invented_labels(session, frozen
 
 
 def test_real_role_api_activation_shared_candidate_review_and_reader(
-    session, frozen, authenticated_client, monkeypatch,
+    session,
+    frozen,
+    authenticated_client,
+    monkeypatch,
 ):
     monkeypatch.setattr("caf_l3.baseline_pack.freeze_pack", lambda directory: frozen)
     student = authenticated_client(user_id=1, role="student")
@@ -179,14 +220,25 @@ def test_real_role_api_activation_shared_candidate_review_and_reader(
     assert reader.status_code == 200, reader.text
     assert reader.json()["verification_count"] == 0
     assert reader.json()["content"]["answer_status"] == "missing"
-    changed = [{**mapping, "outcome": "none_fits", "primary_node_id": None,
-        "secondary_node_ids": [], "evidence": {}} for mapping in item["mappings"]]
+    changed = [
+        {
+            **mapping,
+            "outcome": "none_fits",
+            "primary_node_id": None,
+            "secondary_node_ids": [],
+            "evidence": {},
+        }
+        for mapping in item["mappings"]
+    ]
     correction = admin.post(
         f"/api/v1/curate/classifications/{item['suggestion_revision_id']}/review",
-        json=dict(mappings=changed, note="Reviewed source after baseline adoption",
+        json=dict(
+            mappings=changed,
+            note="Reviewed source after baseline adoption",
             expected_suggestion_revision_id=item["suggestion_revision_id"],
             expected_publication_revision_id=item["publication_revision_id"],
-            idempotency_key="api-baseline-correction"),
+            idempotency_key="api-baseline-correction",
+        ),
     )
     assert correction.status_code == 200, correction.text
     assert correction.json()["current_revision_id"] != item["publication_revision_id"]
@@ -212,7 +264,9 @@ def test_activation_is_transactional_and_idempotent_without_fake_verifications(s
     assert session.get(BaselineAdoption, adoption.release_id).status == "active"
 
 
-@pytest.mark.parametrize("change", ["source", "source_metadata", "extraction", "descriptor", "catalog"])
+@pytest.mark.parametrize(
+    "change", ["source", "source_metadata", "extraction", "descriptor", "catalog"]
+)
 def test_adoption_authorization_does_not_cover_changed_inputs(session, frozen, change):
     adoption = prepare_baseline(session, frozen, 9)
     activate(session, frozen)
@@ -234,12 +288,20 @@ def test_adoption_authorization_does_not_cover_changed_inputs(session, frozen, c
         changed[0]["descriptor"]["definition"] = "Evidence changed after adoption"
         catalog.candidates = changed
     else:
-        pinned = session.scalar(sa.select(DescriptorRevision).where(
-            DescriptorRevision.taxonomy_version_id == imported.taxonomy_version_id))
-        session.add(DescriptorRevision(node_id=pinned.node_id,
-            taxonomy_version_id=pinned.taxonomy_version_id, revision=pinned.revision + 1,
-            content={**pinned.content, "definition": "Changed after adoption"},
-            content_hash=digest({**pinned.content, "definition": "Changed after adoption"})))
+        pinned = session.scalar(
+            sa.select(DescriptorRevision).where(
+                DescriptorRevision.taxonomy_version_id == imported.taxonomy_version_id
+            )
+        )
+        session.add(
+            DescriptorRevision(
+                node_id=pinned.node_id,
+                taxonomy_version_id=pinned.taxonomy_version_id,
+                revision=pinned.revision + 1,
+                content={**pinned.content, "definition": "Changed after adoption"},
+                content_hash=digest({**pinned.content, "definition": "Changed after adoption"}),
+            )
+        )
     session.flush()
     assert not readiness(session, imported)["eligible"]
 
@@ -249,12 +311,21 @@ def test_copy_of_adopted_suggestion_cannot_inherit_authorization(session, frozen
     activate(session, frozen)
     session.commit()
     imported = adopted_suggestion(session, adoption)
-    copied = SuggestionRevision(batch_key="forged-baseline-copy", input_hash=imported.input_hash,
-        document_id=imported.document_id, extraction_revision_id=imported.extraction_revision_id,
-        question_id=imported.question_id, taxonomy_version_id=imported.taxonomy_version_id,
-        run_id=imported.run_id, experimental=False, context=deepcopy(imported.context),
-        candidates=[], candidate_catalog_hash=imported.candidate_catalog_hash,
-        mappings=deepcopy(imported.mappings), provenance=deepcopy(imported.provenance))
+    copied = SuggestionRevision(
+        batch_key="forged-baseline-copy",
+        input_hash=imported.input_hash,
+        document_id=imported.document_id,
+        extraction_revision_id=imported.extraction_revision_id,
+        question_id=imported.question_id,
+        taxonomy_version_id=imported.taxonomy_version_id,
+        run_id=imported.run_id,
+        experimental=False,
+        context=deepcopy(imported.context),
+        candidates=[],
+        candidate_catalog_hash=imported.candidate_catalog_hash,
+        mappings=deepcopy(imported.mappings),
+        provenance=deepcopy(imported.provenance),
+    )
     session.add(copied)
     session.flush()
     gate = readiness(session, copied)
@@ -262,19 +333,39 @@ def test_copy_of_adopted_suggestion_cannot_inherit_authorization(session, frozen
     assert "stale_baseline_inputs" in gate["blockers"]
     publication = session.get(QuestionPublication, imported.question_id)
     with pytest.raises(ValueError, match="stale_baseline_inputs"):
-        review_classification(session, copied.id, 9, copied.mappings, copied.id,
-            publication.current_revision_id, "forged-baseline-review", note="Attempted copied authorization")
+        review_classification(
+            session,
+            copied.id,
+            9,
+            copied.mappings,
+            copied.id,
+            publication.current_revision_id,
+            "forged-baseline-review",
+            note="Attempted copied authorization",
+        )
     session.rollback()
 
 
 def test_index_artifact_metadata_preserves_evidence_without_claiming_applicability():
-    original = dict(heading_origin="module_index", download_url="https://example.invalid/index.pdf",
-        source_context="Original module index headings", fallback=True,
-        target_applicability="unresolved", headings=["Recognition criteria"])
-    artifact = TextbookArtifact(taxonomy_version_id=123, id="older-module-index",
-        paper_id="s2023.P5", course_level="Final", edition="Older edition",
-        availability="verified", sha256="a" * 64, page_count=2,
-        metadata_json=deepcopy(original))
+    original = dict(
+        heading_origin="module_index",
+        download_url="https://example.invalid/index.pdf",
+        source_context="Original module index headings",
+        fallback=True,
+        target_applicability="unresolved",
+        headings=["Recognition criteria"],
+    )
+    artifact = TextbookArtifact(
+        taxonomy_version_id=123,
+        id="older-module-index",
+        paper_id="s2023.P5",
+        course_level="Final",
+        edition="Older edition",
+        availability="verified",
+        sha256="a" * 64,
+        page_count=2,
+        metadata_json=deepcopy(original),
+    )
     presented = artifact_context(artifact)
     assert presented["applicable_attempts"] == []
     assert presented["landing_url"] == ""
@@ -290,13 +381,24 @@ def test_raw_index_heading_descriptor_requires_authored_revision_before_approval
     adoption = prepare_baseline(session, frozen, 9)
     session.commit()
     release = session.get(TaxonomyRelease, adoption.release_id)
-    original = session.scalar(sa.select(DescriptorRevision).where(
-        DescriptorRevision.taxonomy_version_id == release.taxonomy_version_id))
-    raw = dict(status="index_derived_draft_requires_review", definition="Index heading evidence only",
-        source_heading="Recognition criteria", terminology=["Recognition criteria"])
-    revision = DescriptorRevision(taxonomy_version_id=release.taxonomy_version_id,
-        node_id=original.node_id, revision=original.revision + 1,
-        content=raw, content_hash=digest(raw))
+    original = session.scalar(
+        sa.select(DescriptorRevision).where(
+            DescriptorRevision.taxonomy_version_id == release.taxonomy_version_id
+        )
+    )
+    raw = dict(
+        status="index_derived_draft_requires_review",
+        definition="Index heading evidence only",
+        source_heading="Recognition criteria",
+        terminology=["Recognition criteria"],
+    )
+    revision = DescriptorRevision(
+        taxonomy_version_id=release.taxonomy_version_id,
+        node_id=original.node_id,
+        revision=original.revision + 1,
+        content=raw,
+        content_hash=digest(raw),
+    )
     session.add(revision)
     session.commit()
     with pytest.raises(ValueError, match="authored textbook descriptor"):
@@ -304,7 +406,9 @@ def test_raw_index_heading_descriptor_requires_authored_revision_before_approval
     session.rollback()
 
 
-def test_unresolved_older_sources_are_available_for_study_without_authoritative_scoring(session, frozen):
+def test_unresolved_older_sources_are_available_for_study_without_authoritative_scoring(
+    session, frozen
+):
     adoption = prepare_baseline(session, frozen, 9)
     activate(session, frozen)
     session.commit()
@@ -327,15 +431,34 @@ def test_rollback_preserves_personal_records_and_subsequent_corrections(session,
     node_id = imported.mappings[0]["primary_node_id"]
     session.add(Note(user_id=1, node_id=node_id, body="Personal notes added after adoption"))
     session.add(Progress(user_id=1, node_id=node_id, status="done"))
-    changed = [{**mapping, "outcome": "none_fits", "primary_node_id": None,
-        "secondary_node_ids": [], "evidence": {}} for mapping in imported.mappings]
-    corrected = review_classification(session, imported.id, 9, changed, imported.id,
-        baseline_revision, "baseline-subsequent-correction", note="Compared complete source")
+    changed = [
+        {
+            **mapping,
+            "outcome": "none_fits",
+            "primary_node_id": None,
+            "secondary_node_ids": [],
+            "evidence": {},
+        }
+        for mapping in imported.mappings
+    ]
+    corrected = review_classification(
+        session,
+        imported.id,
+        9,
+        changed,
+        imported.id,
+        baseline_revision,
+        "baseline-subsequent-correction",
+        note="Compared complete source",
+    )
     session.commit()
     rollback_baseline(session, frozen["release_id"], frozen["manifest_hash"], 9)
     session.commit()
     assert session.get(Note, (1, node_id)).body == "Personal notes added after adoption"
     assert session.get(Progress, (1, node_id)).status == "done"
     assert session.get(ClassificationRevision, corrected["revision_id"]) is not None
-    assert session.get(QuestionPublication, imported.question_id).current_revision_id == corrected["revision_id"]
+    assert (
+        session.get(QuestionPublication, imported.question_id).current_revision_id
+        == corrected["revision_id"]
+    )
     assert session.get(BaselineAdoption, frozen["release_id"]).status == "inactive"

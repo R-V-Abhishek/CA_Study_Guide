@@ -1,3 +1,5 @@
+> **Superseded design history.** This was the original product and system design (v1.0), written before invitation-only sign-in, shared curation and home hosting. The current plan is [`Implementation_plan.md`](Implementation_plan.md) together with [`PLAN.md`](../PLAN.md); the running system is described in [`Architecture.md`](Architecture.md). Read this file for background only.
+
 # System Design Document
 ## CA Final Study Companion — "One Place for CA Final Prep"
 

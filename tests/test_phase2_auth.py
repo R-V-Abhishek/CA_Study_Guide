@@ -24,35 +24,70 @@ from caf_db.engine import get_session_factory
 def provider(monkeypatch, session):
     settings = get_settings()
     for name, value in {
-        "OIDC_ISSUER": "https://provider.test/", "OIDC_CLIENT_ID": "client",
-        "OIDC_CLIENT_SECRET": "secret", "OIDC_REDIRECT_URI": "http://testserver/auth/callback",
-        "AUTH_LOCAL_DEVELOPMENT": True, "AUTH_PUBLIC_BASE_URL": "http://testserver",
+        "OIDC_ISSUER": "https://provider.test/",
+        "OIDC_CLIENT_ID": "client",
+        "OIDC_CLIENT_SECRET": "secret",
+        "OIDC_REDIRECT_URI": "http://testserver/auth/callback",
+        "AUTH_LOCAL_DEVELOPMENT": True,
+        "AUTH_PUBLIC_BASE_URL": "http://testserver",
     }.items():
         monkeypatch.setattr(settings, name, value)
     key = RSAKey.generate_key(2048, parameters={"kid": "test"})
-    data = {"claims": {}, "nonce": None, "subject": "student-a", "email": "a@example.test", "verified": True, "key": key}
+    data = {
+        "claims": {},
+        "nonce": None,
+        "subject": "student-a",
+        "email": "a@example.test",
+        "verified": True,
+        "key": key,
+    }
 
     def transport(request):
         if request.url.path.endswith("openid-configuration"):
-            return httpx.Response(200, json={"issuer": settings.OIDC_ISSUER,
-                "authorization_endpoint": "https://provider.test/authorize", "token_endpoint": "https://provider.test/token",
-                "jwks_uri": "https://provider.test/jwks", "id_token_signing_alg_values_supported": ["RS256"]})
+            return httpx.Response(
+                200,
+                json={
+                    "issuer": settings.OIDC_ISSUER,
+                    "authorization_endpoint": "https://provider.test/authorize",
+                    "token_endpoint": "https://provider.test/token",
+                    "jwks_uri": "https://provider.test/jwks",
+                    "id_token_signing_alg_values_supported": ["RS256"],
+                },
+            )
         if request.url.path == "/jwks":
             return httpx.Response(200, json={"keys": [key.as_dict(private=False)]})
         if request.url.path == "/token":
             body = parse_qs(request.content.decode())
             assert "code_verifier" in body
-            claims = {"iss": settings.OIDC_ISSUER, "sub": data["subject"], "aud": "client", "iat": int(time.time()),
-                      "exp": int(time.time()) + 300, "nonce": data["nonce"], "email": data["email"], "email_verified": data["verified"]}
+            claims = {
+                "iss": settings.OIDC_ISSUER,
+                "sub": data["subject"],
+                "aud": "client",
+                "iat": int(time.time()),
+                "exp": int(time.time()) + 300,
+                "nonce": data["nonce"],
+                "email": data["email"],
+                "email_verified": data["verified"],
+            }
             claims.update(data["claims"])
             encoded = jwt.encode({"alg": "RS256", "kid": "test"}, claims, data["key"])
-            return httpx.Response(200, json={"access_token": "discarded", "token_type": "Bearer", "id_token": encoded})
+            return httpx.Response(
+                200, json={"access_token": "discarded", "token_type": "Bearer", "id_token": encoded}
+            )
         raise AssertionError(request.url)
 
     def client_factory():
-        return OAuth().register("provider", client_id="client", client_secret="secret",
+        return OAuth().register(
+            "provider",
+            client_id="client",
+            client_secret="secret",
             server_metadata_url="https://provider.test/.well-known/openid-configuration",
-            client_kwargs={"scope": "openid email profile", "code_challenge_method": "S256", "transport": httpx.MockTransport(transport)})
+            client_kwargs={
+                "scope": "openid email profile",
+                "code_challenge_method": "S256",
+                "transport": httpx.MockTransport(transport),
+            },
+        )
 
     monkeypatch.setattr(auth, "oidc_client", client_factory)
     app = FastAPI()
@@ -82,7 +117,9 @@ def invite_token(session, email="a@example.test", **kwargs):
 
 
 def complete(provider, state):
-    return provider[1].get("/auth/callback", params={"state": state, "code": "test-code"}, follow_redirects=False)
+    return provider[1].get(
+        "/auth/callback", params={"state": state, "code": "test-code"}, follow_redirects=False
+    )
 
 
 def signed_in(provider, session, **kwargs):
@@ -98,7 +135,10 @@ def test_invited_login_defaults_and_single_use(provider, session):
     state = start_login(provider, token, "/profile")
     response = complete(provider, state)
     assert response.status_code == 302 and response.headers["location"] == "/profile"
-    assert "HttpOnly" in response.headers["set-cookie"] and "SameSite=lax" in response.headers["set-cookie"]
+    assert (
+        "HttpOnly" in response.headers["set-cookie"]
+        and "SameSite=lax" in response.headers["set-cookie"]
+    )
     me = provider[1].get("/api/v1/me").json()
     assert me["account"]["email"] == "a@example.test"
     assert me["account"]["id"] != 1 and me["capabilities"] == ["browse", "profile", "review"]
@@ -113,7 +153,10 @@ def test_invited_login_defaults_and_single_use(provider, session):
     assert complete(provider, start_login(provider, token)).status_code == 403
 
 
-@pytest.mark.parametrize("claims", [{"iss": "https://other.test/"}, {"aud": "wrong-client"}, {"exp": 1}, {"nonce": "wrong"}])
+@pytest.mark.parametrize(
+    "claims",
+    [{"iss": "https://other.test/"}, {"aud": "wrong-client"}, {"exp": 1}, {"nonce": "wrong"}],
+)
 def test_invalid_signed_identity_rejected(provider, session, claims):
     _, token = invite_token(session)
     provider[0]["claims"] = claims
@@ -176,9 +219,17 @@ def test_state_cookie_expiry_and_replay(provider, session):
     assert complete(provider, state).status_code == 400
 
 
-@pytest.mark.parametrize("destination", ["https://evil.test/", "//evil.test/", "/%2f%2fevil.test", "/\\evil.test", "/auth/login"])
+@pytest.mark.parametrize(
+    "destination",
+    ["https://evil.test/", "//evil.test/", "/%2f%2fevil.test", "/\\evil.test", "/auth/login"],
+)
 def test_return_destination_rejected(provider, destination):
-    assert provider[1].get("/auth/login", params={"return_to": destination}, follow_redirects=False).status_code == 400
+    assert (
+        provider[1]
+        .get("/auth/login", params={"return_to": destination}, follow_redirects=False)
+        .status_code
+        == 400
+    )
 
 
 def test_csrf_logout_revocation_and_session_expiry(provider, session):
@@ -186,7 +237,10 @@ def test_csrf_logout_revocation_and_session_expiry(provider, session):
     client = provider[1]
     assert client.post("/auth/logout").status_code == 403
     headers = {"Origin": "http://testserver", "X-CSRF-Token": me["csrf_token"]}
-    assert client.post("/auth/logout", headers={**headers, "Origin": "https://evil.test"}).status_code == 403
+    assert (
+        client.post("/auth/logout", headers={**headers, "Origin": "https://evil.test"}).status_code
+        == 403
+    )
     old = client.cookies.get(auth.SESSION_COOKIE)
     assert client.post("/auth/logout", headers=headers).status_code == 204
     client.cookies.set(auth.SESSION_COOKIE, old)
@@ -205,15 +259,29 @@ def test_admin_disable_and_student_boundary(provider, session):
     client = provider[1]
     assert client.get("/api/v1/admin/accounts").status_code == 403
     owner = session.get(UserAccount, 1)
-    owner.issuer, owner.subject, owner.status, owner.role = "https://provider.test/", "admin", "active", "administrator"
+    owner.issuer, owner.subject, owner.status, owner.role = (
+        "https://provider.test/",
+        "admin",
+        "active",
+        "administrator",
+    )
     session.commit()
     token, admin_session = auth.create_session(session, 1)
     session.commit()
     client.cookies.clear()
     client.cookies.set(auth.SESSION_COOKIE, token)
     headers = {"Origin": "http://testserver", "X-CSRF-Token": admin_session.csrf_token}
-    assert client.patch(f'/api/v1/admin/accounts/{me["account"]["id"]}', json={"status": "disabled"}, headers=headers).status_code == 200
-    sessions = session.scalars(sa.select(AuthSession).where(AuthSession.user_id == me["account"]["id"])).all()
+    assert (
+        client.patch(
+            f"/api/v1/admin/accounts/{me['account']['id']}",
+            json={"status": "disabled"},
+            headers=headers,
+        ).status_code
+        == 200
+    )
+    sessions = session.scalars(
+        sa.select(AuthSession).where(AuthSession.user_id == me["account"]["id"])
+    ).all()
     for item in sessions:
         session.refresh(item)
         assert item.revoked_at is not None
@@ -223,15 +291,29 @@ def test_admin_invitation_endpoints_and_rejected_role_injection(provider, sessio
     me = signed_in(provider, session, target_user_id=1, role="administrator")
     client = provider[1]
     headers = {"Origin": "http://testserver", "X-CSRF-Token": me["csrf_token"]}
-    assert client.post("/api/v1/admin/invitations", json={"email": "b@example.test", "role": "administrator"}, headers=headers).status_code == 422
-    response = client.post("/api/v1/admin/invitations", json={"email": "b@example.test"}, headers=headers)
+    assert (
+        client.post(
+            "/api/v1/admin/invitations",
+            json={"email": "b@example.test", "role": "administrator"},
+            headers=headers,
+        ).status_code
+        == 422
+    )
+    response = client.post(
+        "/api/v1/admin/invitations", json={"email": "b@example.test"}, headers=headers
+    )
     assert response.status_code == 200 and response.json()["role"] == "student"
     created = response.json()
     token = parse_qs(urlsplit(created["invitation_url"]).query)["invitation"][0]
     invitation = session.get(Invitation, created["id"])
     assert invitation.token_hash == auth.hash_token(token) and invitation.token_hash != token
     assert all("token_hash" not in item for item in client.get("/api/v1/admin/invitations").json())
-    assert client.post(f'/api/v1/admin/invitations/{created["id"]}/revoke', headers=headers).status_code == 200
+    assert (
+        client.post(
+            f"/api/v1/admin/invitations/{created['id']}/revoke", headers=headers
+        ).status_code
+        == 200
+    )
     session.refresh(invitation)
     assert invitation.revoked_at is not None
 
@@ -239,13 +321,19 @@ def test_admin_invitation_endpoints_and_rejected_role_injection(provider, sessio
 def test_bootstrap_cli_and_recovered_credential_revocation(provider, session):
     from typer.testing import CliRunner
     from caf_cli.auth import app
+
     runner = CliRunner()
     response = runner.invoke(app, ["bootstrap", "--user-id", "1", "--email", "owner@example.test"])
     assert response.exit_code == 0, response.output
     invitation = session.scalar(sa.select(Invitation).where(Invitation.target_user_id == 1))
     assert invitation.role == "administrator" and invitation.email == "owner@example.test"
     assert session.get(UserAccount, 1).status == "pending_binding"
-    assert runner.invoke(app, ["bootstrap", "--user-id", "1", "--email", "different@example.test"]).exit_code != 0
+    assert (
+        runner.invoke(
+            app, ["bootstrap", "--user-id", "1", "--email", "different@example.test"]
+        ).exit_code
+        != 0
+    )
     token, row = auth.create_session(session, 1)
     session.commit()
     state = start_login(provider)
@@ -271,10 +359,19 @@ def test_concurrent_invitation_redemption_is_atomic(provider, session):
 
     def redeem(subject):
         from fastapi import HTTPException
+
         with get_session_factory("identity")() as db:
             try:
-                account = auth.bind_identity(db, {"iss": "https://provider.test/", "sub": subject,
-                    "email": "a@example.test", "email_verified": True}, invitation.token_hash)
+                account = auth.bind_identity(
+                    db,
+                    {
+                        "iss": "https://provider.test/",
+                        "sub": subject,
+                        "email": "a@example.test",
+                        "email_verified": True,
+                    },
+                    invitation.token_hash,
+                )
                 db.commit()
                 return account.id
             except HTTPException as exc:
@@ -283,7 +380,14 @@ def test_concurrent_invitation_redemption_is_atomic(provider, session):
     with ThreadPoolExecutor(max_workers=2) as executor:
         results = list(executor.map(redeem, ["one", "two"]))
     assert results.count(403) == 1
-    assert session.scalar(sa.select(sa.func.count()).select_from(UserAccount).where(UserAccount.issuer == "https://provider.test/")) == 1
+    assert (
+        session.scalar(
+            sa.select(sa.func.count())
+            .select_from(UserAccount)
+            .where(UserAccount.issuer == "https://provider.test/")
+        )
+        == 1
+    )
 
 
 def test_absolute_expiry_and_session_rotation(provider, session):
@@ -304,6 +408,7 @@ def test_legacy_migration_preserves_all_personal_rows_and_large_ids(isolated_dat
     from uuid import uuid4
     from alembic import command
     from alembic.config import Config
+
     database = f"caf_identity_baseline_{uuid4().hex}"
     isolated_database.allow(database)
     admin = sa.create_engine(isolated_database.url(), isolation_level="AUTOCOMMIT")
@@ -333,7 +438,17 @@ def test_legacy_migration_preserves_all_personal_rows_and_large_ids(isolated_dat
             ]
             for statement in statements:
                 conn.execute(sa.text(statement))
-            tables = ["app.user_account", "app.settings", "app.note", "app.progress", "app.progress_event", "app.revision_event", "app.mock_test", "app.study_session", "core.decision"]
+            tables = [
+                "app.user_account",
+                "app.settings",
+                "app.note",
+                "app.progress",
+                "app.progress_event",
+                "app.revision_event",
+                "app.mock_test",
+                "app.study_session",
+                "core.decision",
+            ]
             columns, original = {}, {}
             for table in tables:
                 result = conn.execute(sa.text(f"SELECT * FROM {table}"))
@@ -341,11 +456,26 @@ def test_legacy_migration_preserves_all_personal_rows_and_large_ids(isolated_dat
                 original[table] = result.all()
             command.upgrade(cfg, "head")
             for table in tables:
-                assert conn.execute(sa.text(f"SELECT {columns[table]} FROM {table}")).all() == original[table]
-            assert conn.execute(sa.text("SELECT status FROM app.user_account WHERE id=32767")).scalar_one() == "pending_binding"
+                assert (
+                    conn.execute(sa.text(f"SELECT {columns[table]} FROM {table}")).all()
+                    == original[table]
+                )
+            assert (
+                conn.execute(
+                    sa.text("SELECT status FROM app.user_account WHERE id=32767")
+                ).scalar_one()
+                == "pending_binding"
+            )
             assert conn.execute(sa.text("SELECT actor_id FROM core.decision")).scalar_one() is None
-            assert conn.execute(sa.text("INSERT INTO app.user_account(name) VALUES('New owner') RETURNING id")).scalar_one() == 32768
-            assert conn.execute(sa.text("SELECT verified,exam_start_date FROM ref.attempt WHERE id='2027-05'")).one() == (False, None)
+            assert (
+                conn.execute(
+                    sa.text("INSERT INTO app.user_account(name) VALUES('New owner') RETURNING id")
+                ).scalar_one()
+                == 32768
+            )
+            assert conn.execute(
+                sa.text("SELECT verified,exam_start_date FROM ref.attempt WHERE id='2027-05'")
+            ).one() == (False, None)
     finally:
         engine.dispose()
         with admin.connect() as conn:
@@ -354,7 +484,9 @@ def test_legacy_migration_preserves_all_personal_rows_and_large_ids(isolated_dat
 
 
 @pytest.mark.parametrize("failure", ["dns", "timeout", "http_status"])
-def test_provider_discovery_failure_is_unavailable_without_login_transaction(provider, session, monkeypatch, failure):
+def test_provider_discovery_failure_is_unavailable_without_login_transaction(
+    provider, session, monkeypatch, failure
+):
     from caf_api.main import authentication_error
     from starlette.exceptions import HTTPException as StarletteHTTPException
 

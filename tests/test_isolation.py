@@ -16,11 +16,14 @@ from caf_l1.robots import PolitenessManager
 from caf_l3.llm import GeminiClassifier
 
 
-@pytest.mark.parametrize("url", [
-    "postgresql+psycopg://postgres:secret@127.0.0.1:5432/caf",
-    "postgresql+psycopg://postgres:secret@127.0.0.1:5432/postgres",
-    "postgresql+psycopg://postgres:secret@127.0.0.1:5433/caf_verify",
-])
+@pytest.mark.parametrize(
+    "url",
+    [
+        "postgresql+psycopg://postgres:secret@127.0.0.1:5432/caf",
+        "postgresql+psycopg://postgres:secret@127.0.0.1:5432/postgres",
+        "postgresql+psycopg://postgres:secret@127.0.0.1:5433/caf_verify",
+    ],
+)
 def test_normal_targets_rejected(url, monkeypatch):
     with pytest.raises(RuntimeError, match="allowlist"):
         assert_safe_database(url)

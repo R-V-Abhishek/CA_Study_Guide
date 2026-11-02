@@ -29,8 +29,12 @@ def check_python_version() -> None:
     """Ensure Python >= 3.12."""
     if sys.version_info < MIN_PYTHON:
         print(f"❌ Error: Python 3.12 or newer is required.")
-        print(f"   Currently running: Python {sys.version_info.major}.{sys.version_info.minor}.{sys.version_info.micro}")
-        print("   Please install Python 3.12+ from https://www.python.org/downloads/ and try again.")
+        print(
+            f"   Currently running: Python {sys.version_info.major}.{sys.version_info.minor}.{sys.version_info.micro}"
+        )
+        print(
+            "   Please install Python 3.12+ from https://www.python.org/downloads/ and try again."
+        )
         sys.exit(1)
     print(f"✓ Python version: {platform.python_version()} (OK)")
 
@@ -57,6 +61,7 @@ def parse_db_host_port() -> tuple[str, int]:
 def is_db_reachable(host: str, port: int) -> bool:
     """Test TCP socket connection to database."""
     import socket
+
     try:
         with socket.create_connection((host, port), timeout=1.5):
             return True
@@ -83,9 +88,13 @@ def ensure_database() -> None:
     if not docker_bin:
         print(f"❌ Error: Database is not running on {host}:{port}, and Docker is not installed.")
         if platform.system() == "Darwin":
-            print("   Please install Docker Desktop for Mac: https://www.docker.com/products/docker-desktop/")
+            print(
+                "   Please install Docker Desktop for Mac: https://www.docker.com/products/docker-desktop/"
+            )
         elif platform.system() == "Windows":
-            print("   Please install Docker Desktop for Windows: https://www.docker.com/products/docker-desktop/")
+            print(
+                "   Please install Docker Desktop for Windows: https://www.docker.com/products/docker-desktop/"
+            )
         else:
             print("   Please install Docker: https://docs.docker.com/engine/install/")
         sys.exit(1)

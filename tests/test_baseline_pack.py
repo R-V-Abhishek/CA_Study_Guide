@@ -20,8 +20,13 @@ def pack(tmp_path, monkeypatch):
     monkeypatch.setattr(baseline_pack, "EXPECTED_PAPERS", {"P1": (1, 1)})
     monkeypatch.setattr(baseline_pack, "PAPER_PACKS", {"P1": ["P1-corrected"]})
     monkeypatch.setattr(baseline_pack, "ORIGINAL_PACKS", ["P1"])
-    monkeypatch.setattr(baseline_pack, "corpus_status", lambda root: dict(total=1, saved=1,
-        pending=0, papers={"P1": dict(roots=1, parts=1, saved_parts=1)}))
+    monkeypatch.setattr(
+        baseline_pack,
+        "corpus_status",
+        lambda root: dict(
+            total=1, saved=1, pending=0, papers={"P1": dict(roots=1, parts=1, saved_parts=1)}
+        ),
+    )
     root = tmp_path / "data/student_review/luna-papers"
     directory = root / "P1-corrected"
     for child in ("records", "results-direct", "corrections-history"):
@@ -39,23 +44,56 @@ def pack(tmp_path, monkeypatch):
     write(tmp_path / "taxonomy/textbook_v1/manifest.json", dict(textbook_artifacts=[]))
     sources = {"1": dict(blob_path="data/source.pdf", sha256=sha)}
     catalog = [dict(node_id="label", paper_id="s2023.P1", textbook_references=[])]
-    record = dict(question_id="q", document_id=1, document_sha256=sha,
-        context=dict(paper_id="s2023.P1", classification_part_ids=["q"],
+    record = dict(
+        question_id="q",
+        document_id=1,
+        document_sha256=sha,
+        context=dict(
+            paper_id="s2023.P1",
+            classification_part_ids=["q"],
             source_spans=[dict(page_start=1, page_end=1, document_sha256=sha)],
-            answers=[], answer_status="missing", review_status="pending"), candidates=[])
+            answers=[],
+            answer_status="missing",
+            review_status="pending",
+        ),
+        candidates=[],
+    )
     record["input_hash"] = digest(record)
     original = dict(schema_version=1, records=[record])
     original["batch_key"] = digest(original)
     expanded = prepare_record(record, catalog, sources)
-    saved = dict(result=dict(question_id="q", input_hash=expanded["input_hash"], mappings=[
-        dict(part_id="q", outcome="none_fits", primary_node_id=None, secondary_node_ids=[],
-            evidence=[], note="Unresolved source instruction", confidence=0.9, bucket=None)]),
-        execution=dict(candidate_catalog_hash=digest(catalog), source_catalog_hash=digest(sources),
-            original_input_hash=record["input_hash"], source_evidence=[dict(document_id=1, pdf_pages=[1])]))
-    for name, value in (("batch.json", original), ("sources.json", sources),
-                        ("full-taxonomy.json", catalog), ("records/q.json", record),
-                        ("results-direct/q.json", saved),
-                        ("index.json", [dict(question_id="q", gradable_parts=1)])):
+    saved = dict(
+        result=dict(
+            question_id="q",
+            input_hash=expanded["input_hash"],
+            mappings=[
+                dict(
+                    part_id="q",
+                    outcome="none_fits",
+                    primary_node_id=None,
+                    secondary_node_ids=[],
+                    evidence=[],
+                    note="Unresolved source instruction",
+                    confidence=0.9,
+                    bucket=None,
+                )
+            ],
+        ),
+        execution=dict(
+            candidate_catalog_hash=digest(catalog),
+            source_catalog_hash=digest(sources),
+            original_input_hash=record["input_hash"],
+            source_evidence=[dict(document_id=1, pdf_pages=[1])],
+        ),
+    )
+    for name, value in (
+        ("batch.json", original),
+        ("sources.json", sources),
+        ("full-taxonomy.json", catalog),
+        ("records/q.json", record),
+        ("results-direct/q.json", saved),
+        ("index.json", [dict(question_id="q", gradable_parts=1)]),
+    ):
         write(directory / name, value)
     write(root / "P1/index.json", [dict(question_id="q", gradable_parts=1)])
     write(directory / "corrections-history/q.before.json", dict(previous="preserved"))
@@ -67,7 +105,10 @@ def test_compact_catalog_hash_matches_worker_input():
     catalog = [dict(node_id="é", descriptor={"definition": "₹"})]
     sources = {"1": {"sha256": "abc"}}
     canonical = json.dumps(catalog, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
-    assert baseline_pack._expanded_hash(record, canonical, digest(sources)) == prepare_record(record, catalog, sources)["input_hash"]
+    assert (
+        baseline_pack._expanded_hash(record, canonical, digest(sources))
+        == prepare_record(record, catalog, sources)["input_hash"]
+    )
 
 
 def test_freeze_is_repeatable_compact_and_preserves_unresolved_records(pack):
@@ -83,10 +124,14 @@ def test_freeze_is_repeatable_compact_and_preserves_unresolved_records(pack):
     assert record["mappings"][0]["outcome"] == "none_fits"
     assert record["mappings"][0]["primary_node_id"] is None
     assert any("corrections-history" in name for name in frozen["manifest"]["files"])
-    assert before == {str(path): path.read_bytes() for path in directory.rglob("*") if path.is_file()}
+    assert before == {
+        str(path): path.read_bytes() for path in directory.rglob("*") if path.is_file()
+    }
 
 
-@pytest.mark.parametrize("field", ["candidate_catalog_hash", "source_catalog_hash", "original_input_hash"])
+@pytest.mark.parametrize(
+    "field", ["candidate_catalog_hash", "source_catalog_hash", "original_input_hash"]
+)
 def test_conflicting_saved_inputs_stop_preparation(pack, field):
     root, directory, write = pack
     path = directory / "results-direct/q.json"
@@ -150,7 +195,9 @@ def test_nested_context_sources_are_validated(pack, branch, invalid):
         span["document_sha256"] = "unknown-source"
         error = "outside the paper source inventory"
     record["context"][branch] = [dict(source_spans=[], parts=[dict(source_spans=[span], parts=[])])]
-    record["input_hash"] = digest({key: value for key, value in record.items() if key != "input_hash"})
+    record["input_hash"] = digest(
+        {key: value for key, value in record.items() if key != "input_hash"}
+    )
     write(record_path, record)
     batch_path = directory / "batch.json"
     batch = json.loads(batch_path.read_text())

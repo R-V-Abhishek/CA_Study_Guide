@@ -21,7 +21,9 @@ def configure_connections(env_file: Path = Path(".env")) -> list[str]:
             additions[key] = password
         url_key = f"{operation.upper()}_DATABASE_URL"
         if not values[url_key]:
-            additions[url_key] = admin_url.set(username=role, password=password).render_as_string(hide_password=False)
+            additions[url_key] = admin_url.set(username=role, password=password).render_as_string(
+                hide_password=False
+            )
     existing = env_file.read_text() if env_file.exists() else ""
     lines = existing.splitlines()
     found = set()

@@ -53,8 +53,14 @@ class SourcePage(Base):
 class Document(Base):
     __tablename__ = "document"
     __table_args__ = (
-        CheckConstraint("course_level IS NULL OR course_level IN ('foundation','intermediate','final')", name="check_document_course_level"),
-        CheckConstraint("provenance_status IN ('synthetic','unresolved','verified')", name="check_document_provenance"),
+        CheckConstraint(
+            "course_level IS NULL OR course_level IN ('foundation','intermediate','final')",
+            name="check_document_course_level",
+        ),
+        CheckConstraint(
+            "provenance_status IN ('synthetic','unresolved','verified')",
+            name="check_document_provenance",
+        ),
         CheckConstraint(
             "origin IN ('http','browser','assisted','manual')", name="check_document_origin"
         ),
@@ -77,9 +83,13 @@ class Document(Base):
     bytes: Mapped[int] = mapped_column(BigInteger, nullable=False)
     origin: Mapped[str] = mapped_column(Text, nullable=False)
     course_level: Mapped[str | None] = mapped_column(Text, nullable=True)
-    provenance_status: Mapped[str] = mapped_column(Text, nullable=False, default="unresolved", server_default="unresolved")
+    provenance_status: Mapped[str] = mapped_column(
+        Text, nullable=False, default="unresolved", server_default="unresolved"
+    )
     scheme_id: Mapped[str | None] = mapped_column(Text, ForeignKey("ref.scheme.id"), nullable=True)
-    attempt_id: Mapped[str | None] = mapped_column(Text, ForeignKey("ref.attempt.id"), nullable=True)
+    attempt_id: Mapped[str | None] = mapped_column(
+        Text, ForeignKey("ref.attempt.id"), nullable=True
+    )
     paper_id: Mapped[str | None] = mapped_column(Text, ForeignKey("ref.paper.id"), nullable=True)
     doc_type_id: Mapped[str | None] = mapped_column(
         Text, ForeignKey("ref.doc_type.id"), nullable=True
@@ -104,9 +114,15 @@ class Document(Base):
     superseded: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False)
     depth_band: Mapped[str | None] = mapped_column(Text, nullable=True)
     collection_id: Mapped[str | None] = mapped_column(Text, nullable=True)
-    paper_page_ranges: Mapped[list[dict[str, Any]]] = mapped_column(JSONB, nullable=False, default=list, server_default="[]")
-    metadata_evidence: Mapped[dict[str, Any]] = mapped_column(JSONB, nullable=False, default=dict, server_default="{}")
-    current_revision_id: Mapped[int | None] = mapped_column(BigInteger, ForeignKey("ingest.extraction_revision.id", use_alter=True), nullable=True)
+    paper_page_ranges: Mapped[list[dict[str, Any]]] = mapped_column(
+        JSONB, nullable=False, default=list, server_default="[]"
+    )
+    metadata_evidence: Mapped[dict[str, Any]] = mapped_column(
+        JSONB, nullable=False, default=dict, server_default="{}"
+    )
+    current_revision_id: Mapped[int | None] = mapped_column(
+        BigInteger, ForeignKey("ingest.extraction_revision.id", use_alter=True), nullable=True
+    )
     created_run_id: Mapped[int | None] = mapped_column(
         BigInteger, ForeignKey("ops.run.id"), nullable=True
     )
@@ -143,9 +159,7 @@ class DiscoveredLink(Base):
     first_seen_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), nullable=False, server_default=func.now()
     )
-    last_checked_at: Mapped[datetime | None] = mapped_column(
-        DateTime(timezone=True), nullable=True
-    )
+    last_checked_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
 
 
 class Unit(Base):
@@ -179,8 +193,21 @@ class Unit(Base):
             "classify_status IN ('pending','running','suggested','failed','skipped','decided','excluded','needs_review')",
             name="check_unit_classify_status",
         ),
-        Index("uq_unit_legacy_doc_run_label", "document_id", "extract_run_id", "label_path", unique=True, postgresql_where=text("revision_id IS NULL")),
-        Index("uq_unit_revision_label", "revision_id", "label_path", unique=True, postgresql_where=text("revision_id IS NOT NULL")),
+        Index(
+            "uq_unit_legacy_doc_run_label",
+            "document_id",
+            "extract_run_id",
+            "label_path",
+            unique=True,
+            postgresql_where=text("revision_id IS NULL"),
+        ),
+        Index(
+            "uq_unit_revision_label",
+            "revision_id",
+            "label_path",
+            unique=True,
+            postgresql_where=text("revision_id IS NOT NULL"),
+        ),
         Index("ix_ingest_unit_fingerprint", "fingerprint"),
         Index("ix_unit_revision", "revision_id"),
         {"schema": "ingest"},
@@ -214,10 +241,14 @@ class Unit(Base):
     parse_confidence: Mapped[str] = mapped_column(Text, nullable=False)
     validation_flags: Mapped[list[str]] = mapped_column(ARRAY(Text), nullable=False, default=list)
     classify_status: Mapped[str] = mapped_column(Text, nullable=False, default="pending")
-    revision_id: Mapped[int | None] = mapped_column(BigInteger, ForeignKey("ingest.extraction_revision.id"), nullable=True)
+    revision_id: Mapped[int | None] = mapped_column(
+        BigInteger, ForeignKey("ingest.extraction_revision.id"), nullable=True
+    )
     content_digest: Mapped[str | None] = mapped_column(String(64), nullable=True)
     stable_question_id: Mapped[str | None] = mapped_column(Text, nullable=True)
-    extraction_data: Mapped[dict[str, Any]] = mapped_column(JSONB, nullable=False, default=dict, server_default="{}")
+    extraction_data: Mapped[dict[str, Any]] = mapped_column(
+        JSONB, nullable=False, default=dict, server_default="{}"
+    )
     current: Mapped[bool] = mapped_column(Boolean, nullable=False, default=True)
 
 
@@ -231,9 +262,7 @@ class UnitAnswer(Base):
         {"schema": "ingest"},
     )
 
-    unit_id: Mapped[int] = mapped_column(
-        BigInteger, ForeignKey("ingest.unit.id"), primary_key=True
-    )
+    unit_id: Mapped[int] = mapped_column(BigInteger, ForeignKey("ingest.unit.id"), primary_key=True)
     answer_document_id: Mapped[int] = mapped_column(
         BigInteger, ForeignKey("ingest.document.id"), nullable=False
     )
@@ -248,21 +277,23 @@ class TagSuggestion(Base):
     __tablename__ = "tag_suggestion"
     __table_args__ = (
         CheckConstraint("role IN ('primary','secondary')", name="check_suggestion_role"),
-        CheckConstraint("method IN ('structure','anchor','llm','duplicate')", name="check_suggestion_method"),
+        CheckConstraint(
+            "method IN ('structure','anchor','llm','duplicate')", name="check_suggestion_method"
+        ),
         CheckConstraint("bucket IN ('A','B','C','D')", name="check_suggestion_bucket"),
         Index("ix_ingest_tag_suggestion_unit_shadow", "unit_id", "is_shadow"),
         {"schema": "ingest"},
     )
 
     id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
-    taxonomy_version_id: Mapped[int | None] = mapped_column(Integer, ForeignKey("ref.taxonomy_version.id"), nullable=True)
-    descriptor_revision_id: Mapped[int | None] = mapped_column(Integer, ForeignKey("ref.descriptor_revision.id"), nullable=True)
-    unit_id: Mapped[int] = mapped_column(
-        BigInteger, ForeignKey("ingest.unit.id"), nullable=False
+    taxonomy_version_id: Mapped[int | None] = mapped_column(
+        Integer, ForeignKey("ref.taxonomy_version.id"), nullable=True
     )
-    run_id: Mapped[int] = mapped_column(
-        BigInteger, ForeignKey("ops.run.id"), nullable=False
+    descriptor_revision_id: Mapped[int | None] = mapped_column(
+        Integer, ForeignKey("ref.descriptor_revision.id"), nullable=True
     )
+    unit_id: Mapped[int] = mapped_column(BigInteger, ForeignKey("ingest.unit.id"), nullable=False)
+    run_id: Mapped[int] = mapped_column(BigInteger, ForeignKey("ops.run.id"), nullable=False)
     node_id: Mapped[str] = mapped_column(Text, ForeignKey("ref.node.id"), nullable=False)
     role: Mapped[str] = mapped_column(Text, nullable=False)
     method: Mapped[str] = mapped_column(Text, nullable=False)
@@ -283,12 +314,8 @@ class UnitGist(Base):
         {"schema": "ingest"},
     )
 
-    unit_id: Mapped[int] = mapped_column(
-        BigInteger, ForeignKey("ingest.unit.id"), primary_key=True
-    )
-    run_id: Mapped[int] = mapped_column(
-        BigInteger, ForeignKey("ops.run.id"), primary_key=True
-    )
+    unit_id: Mapped[int] = mapped_column(BigInteger, ForeignKey("ingest.unit.id"), primary_key=True)
+    run_id: Mapped[int] = mapped_column(BigInteger, ForeignKey("ops.run.id"), primary_key=True)
     gist: Mapped[str] = mapped_column(Text, nullable=False)
     model_id: Mapped[str | None] = mapped_column(Text, nullable=True)
 
@@ -304,12 +331,8 @@ class TaxonomyGap(Base):
     )
 
     id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
-    unit_id: Mapped[int] = mapped_column(
-        BigInteger, ForeignKey("ingest.unit.id"), nullable=False
-    )
-    run_id: Mapped[int | None] = mapped_column(
-        BigInteger, ForeignKey("ops.run.id"), nullable=True
-    )
+    unit_id: Mapped[int] = mapped_column(BigInteger, ForeignKey("ingest.unit.id"), nullable=False)
+    run_id: Mapped[int | None] = mapped_column(BigInteger, ForeignKey("ops.run.id"), nullable=True)
     proposed_parent_id: Mapped[str | None] = mapped_column(
         Text, ForeignKey("ref.node.id"), nullable=True
     )
@@ -322,9 +345,7 @@ class DuplicateLink(Base):
     __tablename__ = "duplicate_link"
     __table_args__ = {"schema": "ingest"}
 
-    unit_id: Mapped[int] = mapped_column(
-        BigInteger, ForeignKey("ingest.unit.id"), primary_key=True
-    )
+    unit_id: Mapped[int] = mapped_column(BigInteger, ForeignKey("ingest.unit.id"), primary_key=True)
     other_unit_id: Mapped[int] = mapped_column(
         BigInteger, ForeignKey("ingest.unit.id"), primary_key=True
     )

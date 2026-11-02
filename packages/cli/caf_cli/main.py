@@ -115,7 +115,11 @@ def status() -> None:
                 table.add_column("Error", style="red")
 
                 for r in runs:
-                    status_style = "green" if r.status == "ok" else ("yellow" if r.status == "running" else "red")
+                    status_style = (
+                        "green"
+                        if r.status == "ok"
+                        else ("yellow" if r.status == "running" else "red")
+                    )
                     table.add_row(
                         str(r.id),
                         r.stage,
@@ -126,11 +130,14 @@ def status() -> None:
                     )
                 console.print(table)
             except Exception:
-                console.print("[yellow]ops.run table not initialized yet. Run 'caf db migrate'.[/yellow]")
+                console.print(
+                    "[yellow]ops.run table not initialized yet. Run 'caf db migrate'.[/yellow]"
+                )
 
             # Evaluate System Health & Alarms (Plan §6.6, Guide §6.6)
             try:
                 from caf_common.alarms import get_system_health
+
                 health_report = get_system_health(session)
                 alarm_table = Table(title="System Health & Alarms", show_header=True)
                 alarm_table.add_column("Alarm Code", style="bold")
@@ -138,7 +145,11 @@ def status() -> None:
                 alarm_table.add_column("Message")
 
                 for a in health_report.alarms:
-                    lvl_style = "green" if a.level == "OK" else ("yellow" if a.level == "WARNING" else "red")
+                    lvl_style = (
+                        "green"
+                        if a.level == "OK"
+                        else ("yellow" if a.level == "WARNING" else "red")
+                    )
                     alarm_table.add_row(
                         a.code,
                         f"[{lvl_style}]{a.level}[/{lvl_style}]",
@@ -160,7 +171,9 @@ def db_up() -> None:
         subprocess.run(["docker", "compose", "up", "-d"], check=True)
         console.print("[green]PostgreSQL container started.[/green]")
     except FileNotFoundError:
-        console.print("[yellow]Docker command not found. Ensure Docker Desktop is installed or run local Postgres.[/yellow]")
+        console.print(
+            "[yellow]Docker command not found. Ensure Docker Desktop is installed or run local Postgres.[/yellow]"
+        )
     except subprocess.CalledProcessError as exc:
         console.print(f"[red]Failed to start container: {exc}[/red]")
 
@@ -205,20 +218,26 @@ def db_grants() -> None:
 def db_configure_connections() -> None:
     """Generate missing local role secrets and named URLs in .env."""
     from caf_db.configuration import configure_connections
+
     changed = configure_connections()
-    console.print(f"Configured {len(changed)} missing connection settings in .env; existing values preserved.")
+    console.print(
+        f"Configured {len(changed)} missing connection settings in .env; existing values preserved."
+    )
 
 
 # ==============================================================================
 # L0 Taxonomy Stubs
 # ==============================================================================
 @taxonomy_app.command("textbook-import")
-def textbook_import(manifest: Path = Path("taxonomy/textbook_v1/manifest.json"),
-                    apply: bool = typer.Option(False, "--apply")) -> None:
+def textbook_import(
+    manifest: Path = Path("taxonomy/textbook_v1/manifest.json"),
+    apply: bool = typer.Option(False, "--apply"),
+) -> None:
     """Validate independent textbook evidence; optionally persist an unapproved draft."""
     import json
     from caf_l0.manifest import load_manifest
     from caf_l0.releases import import_release
+
     with get_session_factory("operations")() as session:
         result = import_release(session, load_manifest(manifest), dry_run=not apply)
         if apply:
@@ -231,14 +250,19 @@ def textbook_report(version_id: str = "textbook-v1") -> None:
     """Report concrete source and review gates without activating a release."""
     import json
     from caf_l0.releases import release_report, migrate_exact_progress
+
     with get_session_factory("operations")() as session:
         result = release_report(session, version_id)
-        result["personal_migration"] = "Only reviewed exact one-to-one mappings transfer progress; original notes remain linked"
+        result["personal_migration"] = (
+            "Only reviewed exact one-to-one mappings transfer progress; original notes remain linked"
+        )
         console.print_json(json.dumps(result))
 
 
 @taxonomy_app.command("load")
-def taxonomy_load(apply: bool = typer.Option(False, "--apply", help="Apply changes to database")) -> None:
+def taxonomy_load(
+    apply: bool = typer.Option(False, "--apply", help="Apply changes to database"),
+) -> None:
     """Validate and optionally load taxonomy YAML into ref schema."""
     from caf_l0.loader import TaxonomyLoader
     from caf_common.run_context import open_run
@@ -248,15 +272,22 @@ def taxonomy_load(apply: bool = typer.Option(False, "--apply", help="Apply chang
     loader.print_plan(plan)
 
     if not apply:
-        console.print("\n[yellow]Dry-run validation mode. Pass --apply to persist changes.[/yellow]")
+        console.print(
+            "\n[yellow]Dry-run validation mode. Pass --apply to persist changes.[/yellow]"
+        )
         return
 
     with open_run("l0.load", {"apply": True}) as run:
         session_factory = get_session_factory("operations")
         with session_factory() as session:
             version_id = loader.apply(session, plan)
-            run.stats = {"taxonomy_version_id": version_id, "entities": {k: len(v) for k, v in plan.items() if isinstance(v, list)}}
-            console.print(f"[bold green]Successfully loaded taxonomy version {version_id} into ref schema.[/bold green]")
+            run.stats = {
+                "taxonomy_version_id": version_id,
+                "entities": {k: len(v) for k, v in plan.items() if isinstance(v, list)},
+            }
+            console.print(
+                f"[bold green]Successfully loaded taxonomy version {version_id} into ref schema.[/bold green]"
+            )
 
 
 # ==============================================================================
@@ -293,7 +324,13 @@ def acquire_discover(
         console.print("[red]No matching configured sources[/red]")
         raise typer.Exit(1)
     if dry_run:
-        console.print_json(data={"sources": [{"id": s["id"], "url": s["url"], "mode": s.get("mode", "http")} for s in sources]})
+        console.print_json(
+            data={
+                "sources": [
+                    {"id": s["id"], "url": s["url"], "mode": s.get("mode", "http")} for s in sources
+                ]
+            }
+        )
         return
 
     politeness = PolitenessManager(
@@ -318,16 +355,24 @@ def acquire_discover(
             run.stats = {"total_discovered": total_discovered, "outcomes": outcomes}
         console.print_json(data=run.stats)
         if any(o["status"] != "ok" for o in outcomes):
-            raise RuntimeError("Discovery has failed or incomplete sources; inspect the recorded outcomes")
-        console.print(f"[bold green]Discovery complete. Discovered {total_discovered} link(s).[/bold green]")
+            raise RuntimeError(
+                "Discovery has failed or incomplete sources; inspect the recorded outcomes"
+            )
+        console.print(
+            f"[bold green]Discovery complete. Discovered {total_discovered} link(s).[/bold green]"
+        )
 
 
 @acquire_app.command("fetch")
 def acquire_fetch(
     limit: int = typer.Option(20, "--limit", min=1, help="Maximum documents to download"),
-    link_id: list[int] | None = typer.Option(None, "--link-id", help="Select link IDs; repeat for more than one"),
+    link_id: list[int] | None = typer.Option(
+        None, "--link-id", help="Select link IDs; repeat for more than one"
+    ),
     refetch: bool = typer.Option(False, "--refetch", help="Check changed bytes at downloaded URLs"),
-    dry_run: bool = typer.Option(False, "--dry-run", help="Show selected links without downloading"),
+    dry_run: bool = typer.Option(
+        False, "--dry-run", help="Show selected links without downloading"
+    ),
 ) -> None:
     """Fetch pending candidate PDFs using polite rate-limits and store in blob store."""
     import tomllib
@@ -352,27 +397,51 @@ def acquire_fetch(
     if dry_run:
         from caf_db.models.ingest import DiscoveredLink
         from datetime import datetime, timezone
+
         query = sa.select(DiscoveredLink).where(
-            DiscoveredLink.link_status.in_(["new", "failed", "downloaded"] if refetch else ["new", "failed"]),
-            sa.or_(DiscoveredLink.next_try_at.is_(None), DiscoveredLink.next_try_at <= datetime.now(timezone.utc)))
+            DiscoveredLink.link_status.in_(
+                ["new", "failed", "downloaded"] if refetch else ["new", "failed"]
+            ),
+            sa.or_(
+                DiscoveredLink.next_try_at.is_(None),
+                DiscoveredLink.next_try_at <= datetime.now(timezone.utc),
+            ),
+        )
         if not refetch:
             query = query.where(DiscoveredLink.tries < 3)
         if link_id:
             query = query.where(DiscoveredLink.id.in_(link_id))
         with get_session_factory("operations")() as session:
-            links = session.execute(query.order_by(DiscoveredLink.id.desc()).limit(limit)).scalars().all()
-            console.print_json(data={"links": [{"id": link.id, "url": link.url, "status": link.link_status} for link in links]})
+            links = (
+                session.execute(query.order_by(DiscoveredLink.id.desc()).limit(limit))
+                .scalars()
+                .all()
+            )
+            console.print_json(
+                data={
+                    "links": [
+                        {"id": link.id, "url": link.url, "status": link.link_status}
+                        for link in links
+                    ]
+                }
+            )
         return
 
     with open_run("l1.fetch", {"limit": limit}) as run:
         session_factory = get_session_factory("operations")
         with session_factory() as session:
-            downloaded = fetcher.fetch_pending(session, limit=limit, run_id=run.id, link_ids=link_id, refetch=refetch)
+            downloaded = fetcher.fetch_pending(
+                session, limit=limit, run_id=run.id, link_ids=link_id, refetch=refetch
+            )
             run.stats = fetcher.last_report
         console.print_json(data=run.stats)
         if run.stats["failures"]:
-            raise RuntimeError("Acquisition has failed downloads; inspect the recorded retry/manual outcomes")
-        console.print(f"[bold green]Fetch run complete. Downloaded {downloaded} document(s).[/bold green]")
+            raise RuntimeError(
+                "Acquisition has failed downloads; inspect the recorded retry/manual outcomes"
+            )
+        console.print(
+            f"[bold green]Fetch run complete. Downloaded {downloaded} document(s).[/bold green]"
+        )
 
 
 @acquire_app.command("import")
@@ -409,18 +478,29 @@ def acquire_inventory(
     attempt_id: str | None = typer.Option(None, "--attempt"),
     include_older: bool = typer.Option(False, "--include-older"),
     course_level: str = typer.Option("final", "--level", help="Final, Intermediate or Foundation"),
-    enqueue: bool = typer.Option(False, "--enqueue", help="Persist pending links; default only plans"),
+    enqueue: bool = typer.Option(
+        False, "--enqueue", help="Persist pending links; default only plans"
+    ),
 ) -> None:
     """Plan bounded Phase 3 inventory acquisition without claiming document verification."""
     from dataclasses import asdict
     from caf_l1.inventory import plan_inventory, enqueue_inventory
-    items = plan_inventory(path, limit=limit, paper_id=paper_id, attempt_id=attempt_id,
-                           include_older=include_older, course_level=course_level)
+
+    items = plan_inventory(
+        path,
+        limit=limit,
+        paper_id=paper_id,
+        attempt_id=attempt_id,
+        include_older=include_older,
+        course_level=course_level,
+    )
     console.print_json(data={"items": [asdict(item) for item in items]})
     if enqueue:
         with get_session_factory("operations")() as session:
             count = enqueue_inventory(items, session)
-        console.print(f"Enqueued {count} new links. Metadata and content verification remain pending.")
+        console.print(
+            f"Enqueued {count} new links. Metadata and content verification remain pending."
+        )
 
 
 @acquire_app.command("catalog")
@@ -432,9 +512,15 @@ def acquire_catalog(
 
     session_factory = get_session_factory("operations")
     with session_factory() as session:
-        docs = session.execute(
-            sa.select(Document).where(Document.catalog_status == status).order_by(Document.id.desc())
-        ).scalars().all()
+        docs = (
+            session.execute(
+                sa.select(Document)
+                .where(Document.catalog_status == status)
+                .order_by(Document.id.desc())
+            )
+            .scalars()
+            .all()
+        )
 
         table = Table(title=f"Documents with status '{status}'")
         table.add_column("ID", style="cyan")
@@ -467,7 +553,9 @@ def acquire_confirm(doc_id: int = typer.Argument(..., help="Document ID to confi
     with session_factory() as session:
         try:
             doc = confirm_document(session, doc_id)
-            console.print(f"[bold green]Document {doc.id} ({doc.title}) successfully confirmed.[/bold green]")
+            console.print(
+                f"[bold green]Document {doc.id} ({doc.title}) successfully confirmed.[/bold green]"
+            )
         except Exception as exc:
             console.print(f"[bold red]Confirmation failed: {exc}[/bold red]")
 
@@ -483,6 +571,7 @@ def serve(
 ) -> None:
     """Start the FastAPI backend server."""
     import uvicorn
+
     uvicorn.run("caf_api.main:app", host=host, port=port, reload=reload)
 
 

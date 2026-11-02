@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "CA Final Study Companion API",
-    "version": "1.0.0"
+    "version": "0.2.1"
   },
   "paths": {
     "/auth/login": {
@@ -1026,7 +1026,7 @@
     "/api/v1/system/backups": {
       "get": {
         "summary": "Api List Backups",
-        "description": "List existing database backup dumps with sizes and ages.",
+        "description": "Read-only view of the recovery snapshots produced by `caf-host backup`.\n\nCreating, verifying and pruning snapshots is a host operation; the web application\nexposes no write path and no server filesystem locations.",
         "operationId": "api_list_backups_api_v1_system_backups_get",
         "responses": {
           "200": {
@@ -1035,23 +1035,6 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/BackupList"
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "summary": "Api Trigger Backup",
-        "description": "Trigger an immediate full database and asset backup.",
-        "operationId": "api_trigger_backup_api_v1_system_backups_post",
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BackupResult"
                 }
               }
             }
@@ -4996,6 +4979,28 @@
         }
       }
     },
+    "/api/v1/ready": {
+      "get": {
+        "summary": "Ready",
+        "operationId": "ready_api_v1_ready_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "type": "object",
+                  "title": "Response Ready Api V1 Ready Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/health": {
       "get": {
         "summary": "Health",
@@ -5840,10 +5845,6 @@
             "type": "string",
             "title": "Name"
           },
-          "path": {
-            "type": "string",
-            "title": "Path"
-          },
           "size_mb": {
             "type": "number",
             "title": "Size Mb"
@@ -5861,7 +5862,6 @@
         "type": "object",
         "required": [
           "name",
-          "path",
           "size_mb",
           "age_hours",
           "created_at"
@@ -5880,6 +5880,16 @@
             },
             "type": "array",
             "title": "Backups"
+          },
+          "schedule": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/BackupSchedule"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         },
         "type": "object",
@@ -5889,44 +5899,78 @@
         ],
         "title": "BackupList"
       },
-      "BackupResult": {
+      "BackupSchedule": {
         "properties": {
-          "status": {
+          "state": {
             "type": "string",
-            "title": "Status"
+            "enum": [
+              "ok",
+              "failed"
+            ],
+            "title": "State"
           },
-          "dump_file": {
-            "type": "string",
-            "title": "Dump File"
-          },
-          "size_bytes": {
-            "type": "integer",
-            "title": "Size Bytes"
-          },
-          "blobs_copied": {
-            "type": "integer",
-            "title": "Blobs Copied"
-          },
-          "configs_copied": {
-            "type": "integer",
-            "title": "Configs Copied"
-          },
-          "created_at": {
+          "last_attempt_at": {
             "type": "string",
             "format": "date-time",
-            "title": "Created At"
+            "title": "Last Attempt At"
+          },
+          "last_success_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Success At"
+          },
+          "snapshot": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Snapshot"
+          },
+          "encryption": {
+            "type": "string",
+            "title": "Encryption"
+          },
+          "error": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Error"
+          },
+          "file_integrity_verified": {
+            "type": "boolean",
+            "title": "File Integrity Verified",
+            "default": false
+          },
+          "restore_verified": {
+            "type": "boolean",
+            "title": "Restore Verified",
+            "default": false
           }
         },
         "type": "object",
         "required": [
-          "status",
-          "dump_file",
-          "size_bytes",
-          "blobs_copied",
-          "configs_copied",
-          "created_at"
+          "state",
+          "last_attempt_at",
+          "encryption"
         ],
-        "title": "BackupResult"
+        "title": "BackupSchedule",
+        "description": "Outcome of the latest scheduled snapshot, as recorded by `caf-host backup`."
       },
       "BaselineActivationRequest": {
         "properties": {
@@ -5941,6 +5985,27 @@
           "manifest_hash"
         ],
         "title": "BaselineActivationRequest"
+      },
+      "BaselineNotice": {
+        "properties": {
+          "attempt_label": {
+            "type": "string",
+            "title": "Attempt Label"
+          },
+          "paper_notes": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object",
+            "title": "Paper Notes"
+          }
+        },
+        "type": "object",
+        "required": [
+          "attempt_label",
+          "paper_notes"
+        ],
+        "title": "BaselineNotice"
       },
       "BindingRecord": {
         "properties": {
@@ -9861,6 +9926,9 @@
                 "type": "null"
               }
             ]
+          },
+          "baseline_notice": {
+            "$ref": "#/components/schemas/BaselineNotice"
           }
         },
         "type": "object",
@@ -9873,7 +9941,8 @@
           "score_run_id",
           "score_run_computed_at",
           "score_run",
-          "ingestion_coverage"
+          "ingestion_coverage",
+          "baseline_notice"
         ],
         "title": "Metadata"
       },
@@ -9897,7 +9966,8 @@
           "label": {
             "anyOf": [
               {
-                "type": "string"
+                "type": "string",
+                "maxLength": 200
               },
               {
                 "type": "null"
@@ -9924,7 +9994,8 @@
           "notes": {
             "anyOf": [
               {
-                "type": "string"
+                "type": "string",
+                "maxLength": 10000
               },
               {
                 "type": "null"
@@ -10120,6 +10191,7 @@
         "properties": {
           "notes": {
             "type": "string",
+            "maxLength": 100000,
             "title": "Notes"
           }
         },

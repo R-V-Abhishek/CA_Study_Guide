@@ -129,5 +129,5 @@ verification remain separate gates.
 
 The local real-provider flow passed on 2026-10-02, including explicit legacy-owner
 binding, returning sign-in and logout across both apps. See
-[the verification report](Phase2_Verification.md). Production URLs and native
+[the verification report](archive/Phase2_Verification.md). Production URLs and native
 Windows still require their own verification.

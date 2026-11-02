@@ -31,7 +31,7 @@ class LLMClassificationOutput(BaseModel):
         description="Exact canonical node ID from candidate subtopics list, e.g. P1-BXTF71"
     )
     model_id: str | None = None
-    outcome: Literal['matched', 'needs_review', 'none_fits'] = 'matched'
+    outcome: Literal["matched", "needs_review", "none_fits"] = "matched"
     label_evidence: dict[str, str] = Field(default_factory=dict)
     secondary_node_ids: list[str] = Field(
         default_factory=list,
@@ -62,6 +62,7 @@ class LLMClassificationOutput(BaseModel):
 
 class QuotaExhaustedError(Exception):
     """Raised when Google Gemini daily quota or rate limit is reached."""
+
     pass
 
 
@@ -72,8 +73,12 @@ class BudgetExhaustedError(RuntimeError):
 class GeminiClassifier:
     """Manages LLM API calls with structured output and fallback cascades."""
 
-    def __init__(self, session: Session, model_override: str | None = None,
-                 taxonomy_version_id: int | None = None):
+    def __init__(
+        self,
+        session: Session,
+        model_override: str | None = None,
+        taxonomy_version_id: int | None = None,
+    ):
         self.session = session
         self.taxonomy_version_id = taxonomy_version_id
         settings = get_settings()
@@ -86,13 +91,20 @@ class GeminiClassifier:
             self.model_candidates = [model_override]
         else:
             primary = self.models_config.get("models", {}).get("primary", "gemini-2.5-flash")
-            fallbacks = self.models_config.get("models", {}).get("fallbacks", ["gemini-2.0-flash", "gemini-1.5-flash"])
+            fallbacks = self.models_config.get("models", {}).get(
+                "fallbacks", ["gemini-2.0-flash", "gemini-1.5-flash"]
+            )
             self.model_candidates = [primary] + [f for f in fallbacks if f != primary]
 
         self.pricing = self.models_config.get("pricing", {})
         self.budget_cap = float(self.models_config.get("budget", {}).get("max_usd_per_run", 10.0))
         if not math.isfinite(self.budget_cap) or self.budget_cap <= 0:
             raise ValueError("max_usd_per_run must be finite and positive")
+        unpriced = [name for name in self.model_candidates if name not in self.pricing]
+        if unpriced:
+            raise ValueError(
+                f"No pricing configured for model(s) {', '.join(unpriced)}; add them to config/models.toml [pricing]"
+            )
         self.total_cost_usd = 0.0
 
     def _load_models_config(self) -> dict[str, Any]:
@@ -116,23 +128,30 @@ class GeminiClassifier:
         if self.taxonomy_version_id is None:
             raise ValueError("LLM classification requires a rebuilt taxonomy version")
         nodes = version_nodes(self.session, self.taxonomy_version_id)
-        candidates = eligible_candidates(self.session, self.taxonomy_version_id,
-                                         None if paper_id == "s2023.P6" else paper_id)
+        candidates = eligible_candidates(
+            self.session, self.taxonomy_version_id, None if paper_id == "s2023.P6" else paper_id
+        )
         by_id = {n.id: n for n in nodes}
         node_map = {member.node_id: by_id[member.node_id] for member in candidates}
         revisions = {}
-        for revision in self.session.scalars(select(DescriptorRevision).where(
-            DescriptorRevision.taxonomy_version_id == self.taxonomy_version_id,
-            DescriptorRevision.node_id.in_(node_map),
-        ).order_by(DescriptorRevision.revision)):
+        for revision in self.session.scalars(
+            select(DescriptorRevision)
+            .where(
+                DescriptorRevision.taxonomy_version_id == self.taxonomy_version_id,
+                DescriptorRevision.node_id.in_(node_map),
+            )
+            .order_by(DescriptorRevision.revision)
+        ):
             revisions[revision.node_id] = revision
         lines = []
         for node in node_map.values():
             path = " → ".join(n.name for n in ancestors(node.id, by_id))
             descriptor = revisions[node.id].content
-            lines.append(f"Paper {node.paper_id} | {path} | Subtopic ID: {node.id}\n"
-                         f"Descriptor revision: {revisions[node.id].id}\n"
-                         f"{json.dumps(descriptor, ensure_ascii=False)}")
+            lines.append(
+                f"Paper {node.paper_id} | {path} | Subtopic ID: {node.id}\n"
+                f"Descriptor revision: {revisions[node.id].id}\n"
+                f"{json.dumps(descriptor, ensure_ascii=False)}"
+            )
         if not node_map:
             raise ValueError("needs taxonomy review: no eligible candidates")
         return "\n".join(lines), node_map
@@ -147,6 +166,7 @@ class GeminiClassifier:
     ) -> LLMClassificationOutput:
         """Execute structured LLM classification using the Gemini API."""
         from caf_l3.textbook import NeedsTaxonomyReview
+
         if not self.is_available():
             raise ValueError("GEMINI_API_KEY is not set or client unavailable.")
 
@@ -177,15 +197,9 @@ class GeminiClassifier:
             f"   - 1-sentence concept summary without figures, dates, or party names.\n"
         )
 
-        user_content = (
-            f"--- OFFICIAL ICAI EXAM QUESTION ---\n"
-            f"{question_text.strip()}\n\n"
-        )
+        user_content = f"--- OFFICIAL ICAI EXAM QUESTION ---\n{question_text.strip()}\n\n"
         if answer_text and answer_text.strip():
-            user_content += (
-                f"--- OFFICIAL MODEL SOLUTION ---\n"
-                f"{answer_text.strip()}\n\n"
-            )
+            user_content += f"--- OFFICIAL MODEL SOLUTION ---\n{answer_text.strip()}\n\n"
 
         user_content += (
             f"--- CANONICAL SYLLABUS CANDIDATES (PAPER {paper_code}) ---\n"
@@ -199,7 +213,9 @@ class GeminiClassifier:
                 # Usage is known after each response. This stops subsequent calls;
                 # a single response can exceed the remaining estimated budget.
                 if self.total_cost_usd >= self.budget_cap:
-                    raise BudgetExhaustedError("Classification estimated spend reached max_usd_per_run")
+                    raise BudgetExhaustedError(
+                        "Classification estimated spend reached max_usd_per_run"
+                    )
                 start_time = time.time()
                 try:
                     config = types.GenerateContentConfig(
@@ -250,22 +266,31 @@ class GeminiClassifier:
 
                     result = LLMClassificationOutput.model_validate_json(raw_text.strip())
                     result.model_id = model_name
-                    selected = ([result.primary_node_id] if result.primary_node_id else []) + result.secondary_node_ids
-                    if result.outcome != 'matched' and selected:
+                    selected = (
+                        [result.primary_node_id] if result.primary_node_id else []
+                    ) + result.secondary_node_ids
+                    if result.outcome != "matched" and selected:
                         raise NeedsTaxonomyReview("Unresolved outcome contains labels")
-                    if result.outcome == 'matched' and not result.primary_node_id:
-                        raise NeedsTaxonomyReview("needs taxonomy review: model returned unsupported candidate IDs")
+                    if result.outcome == "matched" and not result.primary_node_id:
+                        raise NeedsTaxonomyReview(
+                            "needs taxonomy review: model returned unsupported candidate IDs"
+                        )
                     # Validate that primary_node_id exists in the paper candidates
-                    if any(node_id not in node_map for node_id in
-                           [*selected, *result.alternatives]):
-                        raise NeedsTaxonomyReview("needs taxonomy review: model returned unsupported candidate IDs")
+                    if any(
+                        node_id not in node_map for node_id in [*selected, *result.alternatives]
+                    ):
+                        raise NeedsTaxonomyReview(
+                            "needs taxonomy review: model returned unsupported candidate IDs"
+                        )
                     if len(selected) != len(set(selected)):
                         raise NeedsTaxonomyReview("Duplicate model labels")
                     # Single-label historical provider fixtures carry their support
                     # in justification; multi-label outputs need individual evidence.
                     if selected and not result.label_evidence and len(selected) == 1:
                         result.label_evidence = {selected[0]: result.justification}
-                    if set(result.label_evidence) != set(selected) or any(not text.strip() for text in result.label_evidence.values()):
+                    if set(result.label_evidence) != set(selected) or any(
+                        not text.strip() for text in result.label_evidence.values()
+                    ):
                         raise NeedsTaxonomyReview("Each model label requires supporting evidence")
 
                     return result
@@ -278,9 +303,13 @@ class GeminiClassifier:
                         if attempt < retries:
                             time.sleep(2 ** (attempt + 1))
                             continue
-                        raise QuotaExhaustedError(f"Gemini API quota exhausted on {model_name}: {api_err}")
+                        raise QuotaExhaustedError(
+                            f"Gemini API quota exhausted on {model_name}: {api_err}"
+                        )
                     elif "404" in str(api_err) or "NOT_FOUND" in str(api_err).upper():
-                        logger.warning("Model %s not found / deprecated. Trying fallback model...", model_name)
+                        logger.warning(
+                            "Model %s not found / deprecated. Trying fallback model...", model_name
+                        )
                         break  # try next model candidate in outer loop
                     else:
                         logger.error("API error calling %s: %s", model_name, api_err)
@@ -302,7 +331,7 @@ class GeminiClassifier:
         raise RuntimeError(f"All model candidates failed. Last error: {last_error}")
 
     def _compute_cost(self, model_name: str, input_tokens: int, output_tokens: int) -> float:
-        prices = self.pricing.get(model_name, {"input": 0.50, "output": 3.00})
-        in_cost = (input_tokens / 1_000_000.0) * prices.get("input", 0.50)
-        out_cost = (output_tokens / 1_000_000.0) * prices.get("output", 3.00)
+        prices = self.pricing[model_name]
+        in_cost = (input_tokens / 1_000_000.0) * prices["input"]
+        out_cost = (output_tokens / 1_000_000.0) * prices["output"]
         return round(in_cost + out_cost, 6)

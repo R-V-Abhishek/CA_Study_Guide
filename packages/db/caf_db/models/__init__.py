@@ -11,12 +11,34 @@ from caf_db.models.app import (
     UserAccount,
 )
 from caf_db.models.base import Base
-from caf_db.models.classification import (CandidateCatalog, BaselineAdoption, SuggestionRevision, ClassificationRevision,
-    QuestionPublication, ClassificationEvent, ClassificationVerification, ClassificationDispute)
-from caf_db.models.extraction import (ExtractionRevision, ContentBlock, ExtractionAsset,
-    DocumentPair, ExtractionReview, ReconciliationLink)
-from caf_db.models.taxonomy import (TaxonomyRelease, TaxonomyMember, TextbookArtifact,
-    NodeSourceSpan, DescriptorRevision, DescriptorApproval, TaxonomyCrosswalk, ProgressMigration)
+from caf_db.models.classification import (
+    CandidateCatalog,
+    BaselineAdoption,
+    SuggestionRevision,
+    ClassificationRevision,
+    QuestionPublication,
+    ClassificationEvent,
+    ClassificationVerification,
+    ClassificationDispute,
+)
+from caf_db.models.extraction import (
+    ExtractionRevision,
+    ContentBlock,
+    ExtractionAsset,
+    DocumentPair,
+    ExtractionReview,
+    ReconciliationLink,
+)
+from caf_db.models.taxonomy import (
+    TaxonomyRelease,
+    TaxonomyMember,
+    TextbookArtifact,
+    NodeSourceSpan,
+    DescriptorRevision,
+    DescriptorApproval,
+    TaxonomyCrosswalk,
+    ProgressMigration,
+)
 from caf_db.models.core import Appearance, AppearanceTag, ChangeLog, Decision
 from caf_db.models.ingest import (
     DiscoveredLink,
@@ -100,5 +122,10 @@ __all__ = [
     "WeightageSection",
 ]
 
-from caf_db.models.questions import CorpusGeneration, PublishedQuestion, PublishedSource, QuestionOccurrence
+from caf_db.models.questions import (
+    CorpusGeneration,
+    PublishedQuestion,
+    PublishedSource,
+    QuestionOccurrence,
+)
 from caf_db.models.intel import AttemptTaxonomyBinding, CorpusCoverage, ReviewedPrior, RecomputeJob

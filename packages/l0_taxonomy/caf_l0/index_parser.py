@@ -8,10 +8,15 @@ import re
 import pymupdf
 
 
-_STRUCTURE = re.compile(r"^(MODULE|CHAPTER|UNIT)\s*[-–—]?\s*(\d+|[IVXLCDM]+)\s*[:.\-–—]?\s*(.*)$", re.I)
+_STRUCTURE = re.compile(
+    r"^(MODULE|CHAPTER|UNIT)\s*[-–—]?\s*(\d+|[IVXLCDM]+)\s*[:.\-–—]?\s*(.*)$", re.I
+)
 _NUMBER = re.compile(r"^(\d+(?:\.\d+)*)(?:\.(?!\d)|\s)\s*(.*)$")
 _REFERENCE = re.compile(r"[.．…]{2,}\s*(\d+(?:\.\d+)*(?:\s*[-–]\s*\d+(?:\.\d+)*)?)\s*$")
-_EXCLUDED = re.compile(r"^(learning outcomes?|(?:chapter|unit) overview|contents|summary|test your|questions?|answers?|practice questions?|shortcut to|annexure)\b", re.I)
+_EXCLUDED = re.compile(
+    r"^(learning outcomes?|(?:chapter|unit) overview|contents|summary|test your|questions?|answers?|practice questions?|shortcut to|annexure)\b",
+    re.I,
+)
 
 
 @dataclass
@@ -48,7 +53,7 @@ def parse_index_pages(pages: list[tuple[int, str]]) -> tuple[list[IndexEntry], l
         pending.clear()
         evidence.clear()
         reference = _REFERENCE.search(raw)
-        content = raw[:reference.start()].strip() if reference else raw
+        content = raw[: reference.start()].strip() if reference else raw
         if _EXCLUDED.match(content):
             return
         structure = _STRUCTURE.match(content)
@@ -56,7 +61,13 @@ def parse_index_pages(pages: list[tuple[int, str]]) -> tuple[list[IndexEntry], l
         if structure:
             kind, number, title = structure.groups()
             kind = kind.lower()
-            parent = context.get("module") if kind == "chapter" else context.get("chapter") if kind == "unit" else None
+            parent = (
+                context.get("module")
+                if kind == "chapter"
+                else context.get("chapter")
+                if kind == "unit"
+                else None
+            )
             if kind in {"module", "chapter", "unit"}:
                 numbered.clear()
             if kind == "module":
@@ -67,19 +78,43 @@ def parse_index_pages(pages: list[tuple[int, str]]) -> tuple[list[IndexEntry], l
             number, title = number_match.groups()
             prefix = number.rsplit(".", 1)[0] if "." in number else None
             parent = numbered.get(prefix) if prefix else None
-            kind = "subtopic" if parent and entry_kinds[parent] in {"topic", "subtopic"} else "topic"
+            kind = (
+                "subtopic" if parent and entry_kinds[parent] in {"topic", "subtopic"} else "topic"
+            )
             if parent is None:
                 parent = context.get("unit", context.get("chapter", context.get("module")))
                 if prefix:
-                    unresolved.append({"reason": "number_prefix_not_observed", "prefix": prefix, "raw_text": raw, "source_pdf_pages": source_pages})
+                    unresolved.append(
+                        {
+                            "reason": "number_prefix_not_observed",
+                            "prefix": prefix,
+                            "raw_text": raw,
+                            "source_pdf_pages": source_pages,
+                        }
+                    )
         else:
-            unresolved.append({"reason": "unparsed_line", "raw_text": raw, "source_pdf_pages": source_pages})
+            unresolved.append(
+                {"reason": "unparsed_line", "raw_text": raw, "source_pdf_pages": source_pages}
+            )
             return
         if not title and kind != "module":
-            unresolved.append({"reason": "missing_title", "raw_text": raw, "source_pdf_pages": source_pages})
+            unresolved.append(
+                {"reason": "missing_title", "raw_text": raw, "source_pdf_pages": source_pages}
+            )
             return
         entry_id = f"index-{len(entries) + 1}"
-        entries.append(IndexEntry(entry_id, parent, kind, number, title or f"Module {number}", reference.group(1) if reference else None, source_pages, raw))
+        entries.append(
+            IndexEntry(
+                entry_id,
+                parent,
+                kind,
+                number,
+                title or f"Module {number}",
+                reference.group(1) if reference else None,
+                source_pages,
+                raw,
+            )
+        )
         entry_kinds[entry_id] = kind
         if structure:
             context[kind] = entry_id
@@ -117,20 +152,33 @@ def extract_index(path: Path, pdf_pages: list[int] | None = None) -> dict:
     with pymupdf.open(path) as pdf:
         texts = [page.get_text(sort=True) for page in pdf]
     if pdf_pages is None:
-        starts = [i for i, text in enumerate(texts) if re.search(r"DETAILED\s+CONTENTS", text, re.I)]
+        starts = [
+            i for i, text in enumerate(texts) if re.search(r"DETAILED\s+CONTENTS", text, re.I)
+        ]
         if not starts:
-            starts = [i for i, text in enumerate(texts) if re.search(r"^\s*CONTENTS\s*$", text, re.M | re.I)]
+            starts = [
+                i
+                for i, text in enumerate(texts)
+                if re.search(r"^\s*CONTENTS\s*$", text, re.M | re.I)
+            ]
         pdf_pages = list(range(starts[0] + 1, len(texts) + 1)) if starts else []
     if any(page < 1 or page > len(texts) for page in pdf_pages):
         raise ValueError(f"PDF pages must be between 1 and {len(texts)}")
     entries, unresolved = parse_index_pages([(page, texts[page - 1]) for page in pdf_pages])
-    return {"sha256": hashlib.sha256(path.read_bytes()).hexdigest(), "selected_pdf_pages": pdf_pages,
-            "entries": [asdict(entry) for entry in entries], "unresolved": unresolved,
-            "selection_issue": None if pdf_pages else "No contents heading found; select PDF pages explicitly"}
+    return {
+        "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
+        "selected_pdf_pages": pdf_pages,
+        "entries": [asdict(entry) for entry in entries],
+        "unresolved": unresolved,
+        "selection_issue": None
+        if pdf_pages
+        else "No contents heading found; select PDF pages explicitly",
+    }
 
 
 def build_index_report(manifest: dict, base_path: Path, pdf_pages: list[int] | None = None) -> dict:
     """Reconcile front-matter index entries with exact names in the draft tree."""
+
     def normalize(value):
         module = re.fullmatch(r"module\s*[-–—]?\s*(\d+)", value, flags=re.I)
         if module:
@@ -153,7 +201,12 @@ def build_index_report(manifest: dict, base_path: Path, pdf_pages: list[int] | N
         if artifact.get("artifact_role") != "front_matter":
             continue
         path = base_path / artifact["local_path"]
-        report = {"artifact_id": artifact["id"], "paper_id": artifact["paper_id"], "local_path": str(path), "download_url": artifact["download_url"]}
+        report = {
+            "artifact_id": artifact["id"],
+            "paper_id": artifact["paper_id"],
+            "local_path": str(path),
+            "download_url": artifact["download_url"],
+        }
         if not path.is_file():
             report["source_issue"] = "Local front-matter PDF is missing"
             reports.append(report)
@@ -166,13 +219,30 @@ def build_index_report(manifest: dict, base_path: Path, pdf_pages: list[int] | N
             parent_path = entry_paths.get(entry["parent_id"], ())
             entry_path = parent_path + (normalize(entry["title"]),)
             entry_paths[entry["id"]] = entry_path
-            matches = [node for node in paper_nodes if normalize(node["name"]) == normalize(entry["title"]) and node["kind"] == entry["kind"]]
+            matches = [
+                node
+                for node in paper_nodes
+                if normalize(node["name"]) == normalize(entry["title"])
+                and node["kind"] == entry["kind"]
+            ]
             exact = [node for node in matches if path_titles(node) == entry_path]
             entry["matching_node_ids"] = [node["id"] for node in exact]
             entry["same_title_node_ids"] = [node["id"] for node in matches]
-            entry["reconciliation"] = "exact_path_match" if len(exact) == 1 else "ambiguous_path_match" if exact else "title_match_requires_hierarchy_review" if matches else "missing_from_draft"
+            entry["reconciliation"] = (
+                "exact_path_match"
+                if len(exact) == 1
+                else "ambiguous_path_match"
+                if exact
+                else "title_match_requires_hierarchy_review"
+                if matches
+                else "missing_from_draft"
+            )
         reports.append(report)
-    return {"version_id": manifest["version_id"], "target_attempt": manifest["target_attempt"],
-            "status": "draft_requires_curator_review", "published": False,
-            "note": "Printed page labels are not PDF page offsets. Missing entries and unresolved lines require source review; this report does not approve or modify taxonomy nodes.",
-            "sources": reports}
+    return {
+        "version_id": manifest["version_id"],
+        "target_attempt": manifest["target_attempt"],
+        "status": "draft_requires_curator_review",
+        "published": False,
+        "note": "Printed page labels are not PDF page offsets. Missing entries and unresolved lines require source review; this report does not approve or modify taxonomy nodes.",
+        "sources": reports,
+    }

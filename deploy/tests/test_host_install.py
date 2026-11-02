@@ -21,9 +21,13 @@ def prepared(snapshot, tmp_path):
     bundle = bundle_fixture(tmp_path)
     manifest = verify_archive(bundle)
     values = fixture()
-    values.update(CAF_IMAGE=manifest.application.reference, CAF_POSTGRES_IMAGE=manifest.postgres.reference,
-                  CAF_REVISION=manifest.commit, CAF_PLATFORM=manifest.platform,
-                  OIDC_CLIENT_SECRET="do-not-log$literal")
+    values.update(
+        CAF_IMAGE=manifest.application.reference,
+        CAF_POSTGRES_IMAGE=manifest.postgres.reference,
+        CAF_REVISION=manifest.commit,
+        CAF_PLATFORM=manifest.platform,
+        OIDC_CLIENT_SECRET="do-not-log$literal",
+    )
     rendered = render(values, tools=True)
     assert rendered.returncode == 0, rendered.stderr
     path = tmp_path / "rendered.json"
@@ -35,8 +39,22 @@ def prepared(snapshot, tmp_path):
 
 def invoke(prepared, snapshot, *extra):
     bundle, rendered, output = prepared
-    return CliRunner().invoke(app, ["_install", "prepare", str(bundle), str(snapshot), str(rendered),
-        str(output), "--destination", "/srv/caf", "--project", "caf", *extra])
+    return CliRunner().invoke(
+        app,
+        [
+            "_install",
+            "prepare",
+            str(bundle),
+            str(snapshot),
+            str(rendered),
+            str(output),
+            "--destination",
+            "/srv/caf",
+            "--project",
+            "caf",
+            *extra,
+        ],
+    )
 
 
 def test_install_plan_pins_images_and_preserves_literal_credentials(prepared, snapshot):
@@ -46,10 +64,15 @@ def test_install_plan_pins_images_and_preserves_literal_credentials(prepared, sn
     config = json.loads((prepared[2] / "compose.json").read_text())
     assert config["services"]["web"]["environment"]["OIDC_CLIENT_SECRET"] == "do-not-log$$literal"
     assert config["services"]["db"]["pull_policy"] == "never"
-    assert all(mount["bind"]["create_host_path"] is False for service in config["services"].values()
-               for mount in service["volumes"])
+    assert all(
+        mount["bind"]["create_host_path"] is False
+        for service in config["services"].values()
+        for mount in service["volumes"]
+    )
     receipt = json.loads((prepared[2] / "receipt.json").read_text())
-    assert receipt["phase"] == "prepared" and receipt["database_revision"] == "0009_question_language"
+    assert (
+        receipt["phase"] == "prepared" and receipt["database_revision"] == "0009_question_language"
+    )
 
 
 def test_candidates_need_explicit_install_permission(prepared, snapshot):

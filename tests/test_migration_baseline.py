@@ -32,13 +32,19 @@ def ddl_statements(sql):
         if statement.startswith("CREATE TABLE"):
             # SQLAlchemy stores constraints in a set: declaration order is
             # irrelevant but column order remains part of the baseline.
-            lines = [re.sub(r"\s+", " ", line).strip().rstrip(",") for line in statement.splitlines()]
+            lines = [
+                re.sub(r"\s+", " ", line).strip().rstrip(",") for line in statement.splitlines()
+            ]
             columns = []
             constraints = []
             for line in lines[1:-1]:
-                target = constraints if line.startswith(
-                    ("PRIMARY KEY", "CONSTRAINT", "UNIQUE", "FOREIGN KEY", "CHECK")
-                ) else columns
+                target = (
+                    constraints
+                    if line.startswith(
+                        ("PRIMARY KEY", "CONSTRAINT", "UNIQUE", "FOREIGN KEY", "CHECK")
+                    )
+                    else columns
+                )
                 target.append(line)
             statements.add((lines[0], tuple(columns), tuple(sorted(constraints)), lines[-1]))
         else:
@@ -57,6 +63,7 @@ def test_frozen_revision_matches_original_orm_schema():
     revision.upgrade()
     # Frozen revisions stay immutable while head follows the evolving ORM.
     import hashlib
+
     assert hashlib.sha256(Path(revision.__file__).read_bytes()).hexdigest() == (
         "daffdeddbbcb6e3ba4926bddaa15b2691ed491c1bc18c331a66650b7745db95d"
     )
@@ -90,8 +97,8 @@ def test_fresh_migrated_database_has_complete_baseline():
             connection,
             opts={
                 "include_schemas": True,
-                "include_object": lambda obj, name, kind, reflected, compare_to: not (
-                    kind == "table" and name == "alembic_version"
+                "include_object": lambda obj, name, kind, reflected, compare_to: (
+                    not (kind == "table" and name == "alembic_version")
                 ),
             },
         )
@@ -119,10 +126,13 @@ def test_varchar_array_cast_dump_restore_is_equivalent_without_hiding_drift():
     assert canonical_constraint_definition(restored) == restored
 
     def snapshot(definition, name="check_suggestion_bucket"):
-        return {"ingest.tag_suggestion": {
-            "columns": [], "indexes": [],
-            "constraints": [{"name": name, "type": "c", "definition": definition}],
-        }}
+        return {
+            "ingest.tag_suggestion": {
+                "columns": [],
+                "indexes": [],
+                "constraints": [{"name": name, "type": "c", "definition": definition}],
+            }
+        }
 
     assert compare_schema_snapshots(snapshot(original), snapshot(restored)) == {}
     for changed in (
@@ -146,7 +156,9 @@ def test_varchar_array_cast_dump_restore_is_equivalent_without_hiding_drift():
     assert canonical_constraint_definition(typmod) == typmod
 
 
-def test_supplied_connection_migration_baseline_isolated_from_settings(isolated_database, monkeypatch):
+def test_supplied_connection_migration_baseline_isolated_from_settings(
+    isolated_database, monkeypatch
+):
     from uuid import uuid4
     import pytest
     import sqlalchemy as sa
@@ -166,10 +178,14 @@ def test_supplied_connection_migration_baseline_isolated_from_settings(isolated_
             created = True
         with source.connect() as connection:
             before = schema_snapshot(connection)
-            revision = connection.execute(sa.text('SELECT version_num FROM ops.alembic_version')).scalar_one()
+            revision = connection.execute(
+                sa.text("SELECT version_num FROM ops.alembic_version")
+            ).scalar_one()
 
         def settings_forbidden():
-            raise AssertionError("Supplied migration connection must not resolve application settings")
+            raise AssertionError(
+                "Supplied migration connection must not resolve application settings"
+            )
 
         monkeypatch.setattr(caf_common.settings, "get_settings", settings_forbidden)
         with destination.connect() as connection:

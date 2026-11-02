@@ -62,7 +62,10 @@ def test_preflight_and_blocks(tmp_path: Path):
     assert not any(t == f"Page {p}" for p in range(1, 4) for t in block_texts)
 
     # Verify normalize_text handles ligatures and rupee sign
-    assert normalize_text("Rupee \uf0b9 5,00,000 and ligature \ufb01nancial") == "Rupee ₹ 5,00,000 and ligature financial"
+    assert (
+        normalize_text("Rupee \uf0b9 5,00,000 and ligature \ufb01nancial")
+        == "Rupee ₹ 5,00,000 and ligature financial"
+    )
     assert any("5,00,000" in t and "Chartered Accountant" in t for t in block_texts)
 
 
@@ -98,46 +101,138 @@ def _build_synthetic_suggested_answer_pdf(pdf_path: Path) -> None:
         fontsize=10,
     )
     p1.insert_text((50, 100), "Question 1\n", fontsize=14)
-    p1.insert_text((50, 130), "(a) Explain the recognition criteria under Ind AS 115 with reference to contract modifications.\n(10 Marks)\n", fontsize=11)
-    p1.insert_text((50, 200), "Answer\nUnder Ind AS 115, a contract modification is accounted for as a separate contract if...\n", fontsize=11)
-    p1.insert_text((50, 300), "(b) XYZ Ltd faces a legal claim. Assess whether provision is required under Ind AS 37.\n(10 Marks)\n", fontsize=11)
-    p1.insert_text((50, 370), "Answer\nAs per Ind AS 37, a provision should be recognized when there is a present obligation...\n", fontsize=11)
+    p1.insert_text(
+        (50, 130),
+        "(a) Explain the recognition criteria under Ind AS 115 with reference to contract modifications.\n(10 Marks)\n",
+        fontsize=11,
+    )
+    p1.insert_text(
+        (50, 200),
+        "Answer\nUnder Ind AS 115, a contract modification is accounted for as a separate contract if...\n",
+        fontsize=11,
+    )
+    p1.insert_text(
+        (50, 300),
+        "(b) XYZ Ltd faces a legal claim. Assess whether provision is required under Ind AS 37.\n(10 Marks)\n",
+        fontsize=11,
+    )
+    p1.insert_text(
+        (50, 370),
+        "Answer\nAs per Ind AS 37, a provision should be recognized when there is a present obligation...\n",
+        fontsize=11,
+    )
 
     # Page 2: Question 2 & Question 3
     p2 = doc.new_page(width=595, height=842)
     p2.insert_text((50, 50), "Question 2\n", fontsize=14)
-    p2.insert_text((50, 80), "(a) Prepare the Consolidated Balance Sheet of Parent Ltd and Subsidiary Ltd under Ind AS 110.\n(14 Marks)\n", fontsize=11)
-    p2.insert_text((50, 150), "Answer\nConsolidated Balance Sheet as at 31st March 2024 reflects goodwill of Rs 40 lakhs...\n", fontsize=11)
-    p2.insert_text((50, 250), "(b) Discuss the professional ethics requirements under CA Act 1949.\n(6 Marks)\n", fontsize=11)
-    p2.insert_text((50, 320), "Answer\nUnder Clause 1 of Part II of Second Schedule, a member is guilty if...\n", fontsize=11)
+    p2.insert_text(
+        (50, 80),
+        "(a) Prepare the Consolidated Balance Sheet of Parent Ltd and Subsidiary Ltd under Ind AS 110.\n(14 Marks)\n",
+        fontsize=11,
+    )
+    p2.insert_text(
+        (50, 150),
+        "Answer\nConsolidated Balance Sheet as at 31st March 2024 reflects goodwill of Rs 40 lakhs...\n",
+        fontsize=11,
+    )
+    p2.insert_text(
+        (50, 250),
+        "(b) Discuss the professional ethics requirements under CA Act 1949.\n(6 Marks)\n",
+        fontsize=11,
+    )
+    p2.insert_text(
+        (50, 320),
+        "Answer\nUnder Clause 1 of Part II of Second Schedule, a member is guilty if...\n",
+        fontsize=11,
+    )
 
     p2.insert_text((50, 420), "Question 3\n", fontsize=14)
-    p2.insert_text((50, 450), "(a) Calculate purchase consideration in a business combination under Ind AS 103.\n(12 Marks)\n", fontsize=11)
-    p2.insert_text((50, 520), "Answer\nPurchase consideration includes fair value of equity instruments issued...\n", fontsize=11)
-    p2.insert_text((50, 600), "(b) Value the employee stock options using Black-Scholes formula under Ind AS 102.\n(8 Marks)\n", fontsize=11)
+    p2.insert_text(
+        (50, 450),
+        "(a) Calculate purchase consideration in a business combination under Ind AS 103.\n(12 Marks)\n",
+        fontsize=11,
+    )
+    p2.insert_text(
+        (50, 520),
+        "Answer\nPurchase consideration includes fair value of equity instruments issued...\n",
+        fontsize=11,
+    )
+    p2.insert_text(
+        (50, 600),
+        "(b) Value the employee stock options using Black-Scholes formula under Ind AS 102.\n(8 Marks)\n",
+        fontsize=11,
+    )
     p2.insert_text((50, 670), "Answer\nFair value per option is calculated as...\n", fontsize=11)
 
     # Page 3: Questions 4, 5, 6
     p3 = doc.new_page(width=595, height=842)
     p3.insert_text((50, 50), "Question 4\n", fontsize=14)
-    p3.insert_text((50, 80), "(a) Determine lease liability and ROU asset under Ind AS 116.\n(10 Marks)\n", fontsize=11)
-    p3.insert_text((50, 140), "Answer\nLease liability is present value of lease payments discounted at incremental borrowing rate...\n", fontsize=11)
-    p3.insert_text((50, 220), "(b) Classify financial asset into FVTPL vs FVTOCI under Ind AS 109.\n(10 Marks)\n", fontsize=11)
-    p3.insert_text((50, 280), "Answer\nBusiness model test and SPPI test determine classification...\n", fontsize=11)
+    p3.insert_text(
+        (50, 80),
+        "(a) Determine lease liability and ROU asset under Ind AS 116.\n(10 Marks)\n",
+        fontsize=11,
+    )
+    p3.insert_text(
+        (50, 140),
+        "Answer\nLease liability is present value of lease payments discounted at incremental borrowing rate...\n",
+        fontsize=11,
+    )
+    p3.insert_text(
+        (50, 220),
+        "(b) Classify financial asset into FVTPL vs FVTOCI under Ind AS 109.\n(10 Marks)\n",
+        fontsize=11,
+    )
+    p3.insert_text(
+        (50, 280),
+        "Answer\nBusiness model test and SPPI test determine classification...\n",
+        fontsize=11,
+    )
 
     p3.insert_text((50, 360), "Question 5\n", fontsize=14)
-    p3.insert_text((50, 390), "(a) Discuss level 1, 2, and 3 inputs for fair value measurement under Ind AS 113.\n(10 Marks)\n", fontsize=11)
-    p3.insert_text((50, 450), "Answer\nLevel 1 inputs are quoted prices in active markets for identical assets...\n", fontsize=11)
-    p3.insert_text((50, 520), "(b) Identify reportable operating segments based on 10 percent quantitative thresholds.\n(10 Marks)\n", fontsize=11)
-    p3.insert_text((50, 580), "Answer\nSegments meeting revenue, profit or asset threshold of 10 percent are reportable...\n", fontsize=11)
+    p3.insert_text(
+        (50, 390),
+        "(a) Discuss level 1, 2, and 3 inputs for fair value measurement under Ind AS 113.\n(10 Marks)\n",
+        fontsize=11,
+    )
+    p3.insert_text(
+        (50, 450),
+        "Answer\nLevel 1 inputs are quoted prices in active markets for identical assets...\n",
+        fontsize=11,
+    )
+    p3.insert_text(
+        (50, 520),
+        "(b) Identify reportable operating segments based on 10 percent quantitative thresholds.\n(10 Marks)\n",
+        fontsize=11,
+    )
+    p3.insert_text(
+        (50, 580),
+        "Answer\nSegments meeting revenue, profit or asset threshold of 10 percent are reportable...\n",
+        fontsize=11,
+    )
 
     # Page 4: Question 6
     p4 = doc.new_page(width=595, height=842)
     p4.insert_text((50, 50), "Question 6\n", fontsize=14)
-    p4.insert_text((50, 80), "(a) Explain functional currency determination under Ind AS 21.\n(12 Marks)\n", fontsize=11)
-    p4.insert_text((50, 140), "Answer\nPrimary factors include the currency that mainly influences sales prices...\n", fontsize=11)
-    p4.insert_text((50, 240), "(b) Disclose related party relationships and transactions under Ind AS 24.\n(8 Marks)\n", fontsize=11)
-    p4.insert_text((50, 300), "Answer\nControl and significant influence relationships must be disclosed irrespective of transactions...\n", fontsize=11)
+    p4.insert_text(
+        (50, 80),
+        "(a) Explain functional currency determination under Ind AS 21.\n(12 Marks)\n",
+        fontsize=11,
+    )
+    p4.insert_text(
+        (50, 140),
+        "Answer\nPrimary factors include the currency that mainly influences sales prices...\n",
+        fontsize=11,
+    )
+    p4.insert_text(
+        (50, 240),
+        "(b) Disclose related party relationships and transactions under Ind AS 24.\n(8 Marks)\n",
+        fontsize=11,
+    )
+    p4.insert_text(
+        (50, 300),
+        "Answer\nControl and significant influence relationships must be disclosed irrespective of transactions...\n",
+        fontsize=11,
+    )
 
     doc.save(str(pdf_path))
     doc.close()
@@ -183,7 +278,9 @@ def test_segmentation_pairing_and_validation(tmp_path: Path):
     assert answers["Q1.a"].pairing_method == "same_doc"
 
     # 5. Validation check: attemptable marks is 20 + (4 * 20) = 100
-    validator = DocumentValidator(profile=profile, has_answers=True, optional_pick=segmenter.optional_pick)
+    validator = DocumentValidator(
+        profile=profile, has_answers=True, optional_pick=segmenter.optional_pick
+    )
     val_res = validator.validate(units, answers)
     assert not val_res.has_errors
     assert val_res.outcome in ("ok", "ok_with_warnings")
@@ -194,14 +291,28 @@ def test_validator_detects_deliberate_errors():
 
     # Deliberate V1 error: Q1, Q3 (Q2 missing)
     u1 = ParsedUnit(
-        label_path="Q1", display_label="Question 1", kind="question",
-        page_start=1, page_end=1, block_start="p1-b1", block_end="p1-b5",
-        marks=20, is_gradable=True, choice_role="compulsory",
+        label_path="Q1",
+        display_label="Question 1",
+        kind="question",
+        page_start=1,
+        page_end=1,
+        block_start="p1-b1",
+        block_end="p1-b5",
+        marks=20,
+        is_gradable=True,
+        choice_role="compulsory",
     )
     u3 = ParsedUnit(
-        label_path="Q3", display_label="Question 3", kind="question",
-        page_start=2, page_end=2, block_start="p2-b1", block_end="p2-b5",
-        marks=20, is_gradable=True, choice_role="optional",
+        label_path="Q3",
+        display_label="Question 3",
+        kind="question",
+        page_start=2,
+        page_end=2,
+        block_start="p2-b1",
+        block_end="p2-b5",
+        marks=20,
+        is_gradable=True,
+        choice_role="optional",
     )
     ans = pair_answers([u1, u3], mode="interleaved")
     validator = DocumentValidator(profile=profile, has_answers=True)
@@ -316,9 +427,7 @@ def test_pipeline_end_to_end(tmp_path: Path):
         assert doc_check.has_text_layer is True
 
         persisted_units = (
-            session.query(Unit)
-            .filter(Unit.document_id == doc_id, Unit.current.is_(True))
-            .all()
+            session.query(Unit).filter(Unit.document_id == doc_id, Unit.current.is_(True)).all()
         )
         assert len(persisted_units) > 10
         # Check hierarchy

@@ -29,7 +29,7 @@ class StudyContextIdentity(BaseModel):
     target_attempt_id: str | None
     taxonomy_version_id: int | None
     readiness: str
-    applicability_state: str = 'unresolved'
+    applicability_state: str = "unresolved"
     unresolved_node_ids: list[str] = Field(default_factory=list)
 
 
@@ -37,7 +37,7 @@ class ScoreFreshness(BaseModel):
     publication_generation: int = 0
     scored_generation: int | None = None
     computed_at: datetime | None = None
-    status: str = 'unavailable'
+    status: str = "unavailable"
     job_id: int | None = None
     error: str | None = None
 
@@ -46,7 +46,7 @@ class PaperTree(BaseModel):
     paper_id: str
     code: str
     name: str
-    chapters: list['ChapterItem']
+    chapters: list["ChapterItem"]
     taxonomy_version_id: int | None = None
     hierarchy: list[TaxonomyTreeNode] = Field(default_factory=list)
     context: StudyContextIdentity | None = None
@@ -56,7 +56,7 @@ class SubtopicItem(BaseModel):
     id: str
     name: str
     seq: int
-    status: Literal['not_started', 'in_progress', 'done']
+    status: Literal["not_started", "in_progress", "done"]
     notes: str | None
     first_done_at: datetime | None
     last_revised_at: datetime | None
@@ -109,7 +109,7 @@ class PlanItem(BaseModel):
     paper_code: str
     chapter_id: str
     chapter_name: str
-    status: Literal['not_started', 'in_progress', 'done']
+    status: Literal["not_started", "in_progress", "done"]
     importance: float | None
     priority_score: float | None
     weak: bool
@@ -126,7 +126,7 @@ class StudyPlan(BaseModel):
     hours_per_week: float
     minutes_per_subtopic: int
     items: list[PlanItem]
-    basis: Literal['scored', 'syllabus', 'unavailable'] = 'unavailable'
+    basis: Literal["scored", "syllabus", "unavailable"] = "unavailable"
     allocated_minutes: int = 0
     unused_minutes: float = 0
     score_run_id: int | None = None
@@ -163,7 +163,7 @@ class WeakSubtopic(BaseModel):
     freq_window: int
     exam_marks_total: int
     exam_count: int
-    status: Literal['not_started', 'in_progress', 'done']
+    status: Literal["not_started", "in_progress", "done"]
 
 
 class CoverageValue(BaseModel):
@@ -180,7 +180,7 @@ class WeightedCoverage(BaseModel):
     overall_in_progress_pct: float | None
     groups: dict[int, CoverageValue]
     papers: dict[str, PaperCoverage]
-    basis: Literal['weighted', 'unweighted', 'unavailable'] = 'unavailable'
+    basis: Literal["weighted", "unweighted", "unavailable"] = "unavailable"
     context: StudyContextIdentity | None = None
     freshness: ScoreFreshness | None = None
 
@@ -258,6 +258,11 @@ class Dashboard(BaseModel):
     freshness: ScoreFreshness | None = None
 
 
+class BaselineNotice(BaseModel):
+    attempt_label: str
+    paper_notes: dict[str, str]
+
+
 class Metadata(BaseModel):
     score_unavailable_reason: str | None = None
     taxonomy_version: str
@@ -271,6 +276,7 @@ class Metadata(BaseModel):
     ingestion_coverage: list[IngestionCoverageItem]
     context: StudyContextIdentity | None = None
     freshness: ScoreFreshness | None = None
+    baseline_notice: BaselineNotice
 
 
 class Weightage(BaseModel):
@@ -313,7 +319,7 @@ class SubtopicScoreDetail(BaseModel):
     practice_normalized: float | None = None
     prior_normalized: float | None = None
     known_weighted_subtotal: float | None = None
-    applicability_status: str = 'unresolved'
+    applicability_status: str = "unresolved"
 
 
 class SubtopicDetail(BaseModel):
@@ -322,7 +328,7 @@ class SubtopicDetail(BaseModel):
     paper: PaperReference | None
     chapter: NodeReference | None
     topic: NodeReference | None
-    status: Literal['not_started', 'in_progress', 'done']
+    status: Literal["not_started", "in_progress", "done"]
     notes: str | None
     status_changed_at: datetime | None
     first_done_at: datetime | None
@@ -457,9 +463,15 @@ class CoverageExclusion(BaseModel):
 
 class ScoreExplanation(BaseModel):
     node_id: str
-    explanation_status: Literal['available', 'partial_evidence', 'historical_configuration_unavailable', 'score_unavailable', 'no_score_run']
+    explanation_status: Literal[
+        "available",
+        "partial_evidence",
+        "historical_configuration_unavailable",
+        "score_unavailable",
+        "no_score_run",
+    ]
     error: str | None
-    configuration_source: Literal['snapshot', 'matching_current'] | None
+    configuration_source: Literal["snapshot", "matching_current"] | None
     score_run: ScoreRunIdentity | None
     subtopic: ExplanationSubtopic
     importance_breakdown: ImportanceBreakdown
@@ -468,11 +480,11 @@ class ScoreExplanation(BaseModel):
     appearances: list[AppearanceExplanation | OccurrenceContribution]
     prior_source: dict[str, Any] | None = None
     coverage_exclusions: list[CoverageExclusion] = Field(default_factory=list)
-    historical_evidence_status: Literal['occurrence_inputs_unavailable'] | None = None
+    historical_evidence_status: Literal["occurrence_inputs_unavailable"] | None = None
 
 
 class ProgressResult(BaseModel):
-    status: Literal['not_started', 'in_progress', 'done']
+    status: Literal["not_started", "in_progress", "done"]
     node_id: str
     updated_at: datetime
 
@@ -486,7 +498,7 @@ class NoteResult(BaseModel):
 class RevisionResult(BaseModel):
     event_id: int
     node_id: str
-    outcome: Literal['ok', 'shaky']
+    outcome: Literal["ok", "shaky"]
     at: datetime
     last_revised_at: datetime
 
@@ -530,7 +542,7 @@ class CuratorQueueItem(BaseModel):
     unit_id: int
     taxonomy_version_id: int | None = None
     publication_ready: bool = True
-    verification_state: Literal['unknown'] = 'unknown'
+    verification_state: Literal["unknown"] = "unknown"
     requires_re_review: bool = False
     document_id: int
     attempt_id: str | None
@@ -623,24 +635,28 @@ class SystemHealth(BaseModel):
 
 class BackupItem(BaseModel):
     name: str
-    path: str
     size_mb: float
     age_hours: float
     created_at: datetime
 
 
+class BackupSchedule(BaseModel):
+    """Outcome of the latest scheduled snapshot, as recorded by `caf-host backup`."""
+
+    state: Literal["ok", "failed"]
+    last_attempt_at: datetime
+    last_success_at: datetime | None = None
+    snapshot: str | None = None
+    encryption: str
+    error: str | None = None
+    file_integrity_verified: bool = False
+    restore_verified: bool = False
+
+
 class BackupList(BaseModel):
     count: int
     backups: list[BackupItem]
-
-
-class BackupResult(BaseModel):
-    status: str
-    dump_file: str
-    size_bytes: int
-    blobs_copied: int
-    configs_copied: int
-    created_at: datetime
+    schedule: BackupSchedule | None = None
 
 
 class BucketMetric(BaseModel):

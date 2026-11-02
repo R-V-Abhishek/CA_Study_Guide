@@ -2,18 +2,55 @@ import { test, expect } from "./fixtures";
 import type { ReadinessSummary } from "../../packages/api-client/src/readiness";
 
 const initial: ReadinessSummary = {
-  target_attempt_id: "2027-05", taxonomy_version_id: 3,
-  papers: [{ paper_id: "s2023.P1", name: "Financial Reporting", blocker_count: 1, published_roots: 0, expected_slots: null }],
-  tasks: [{ id: "binding", paper_id: "s2023.P1", stage: 3, stage_name: "Applicability and attempt binding", blocker: "binding_review_pending", evidence: ["Prescribed edition applicability awaits authentic review."], required_role: "administrator", next_action: { label: "Inspect syllabus evidence", href: "/curator/textbooks" }, affected_records: [{ kind: "binding", id: "2027-05:3", revision: "a".repeat(64) }] }],
-  bindings: [{ target_attempt_id: "2027-05", taxonomy_version_id: 3, status: "pending", reviewed_by: null, expected_hash: "a".repeat(64) }],
-  inventory: [{ paper_id: "s2023.P1", attempt_id: "2026-05", taxonomy_version_id: 3, source_family: "past_exam", expected_slots: null, inventory_reviewed: false, expected_hash: "c".repeat(64) }],
-  priors: [], source_evidence: [{ kind: "textbook_span", span_id: 4, sha256: "b".repeat(64) }], history: [],
+  target_attempt_id: "2027-05",
+  taxonomy_version_id: 3,
+  papers: [
+    { paper_id: "s2023.P1", name: "Financial Reporting", blocker_count: 1, published_roots: 0, expected_slots: null },
+  ],
+  tasks: [
+    {
+      id: "binding",
+      paper_id: "s2023.P1",
+      stage: 3,
+      stage_name: "Applicability and attempt binding",
+      blocker: "binding_review_pending",
+      evidence: ["Prescribed edition applicability awaits authentic review."],
+      required_role: "administrator",
+      next_action: { label: "Inspect syllabus evidence", href: "/curator/textbooks" },
+      affected_records: [{ kind: "binding", id: "2027-05:3", revision: "a".repeat(64) }],
+    },
+  ],
+  bindings: [
+    {
+      target_attempt_id: "2027-05",
+      taxonomy_version_id: 3,
+      status: "pending",
+      reviewed_by: null,
+      expected_hash: "a".repeat(64),
+    },
+  ],
+  inventory: [
+    {
+      paper_id: "s2023.P1",
+      attempt_id: "2026-05",
+      taxonomy_version_id: 3,
+      source_family: "past_exam",
+      expected_slots: null,
+      inventory_reviewed: false,
+      expected_hash: "c".repeat(64),
+    },
+  ],
+  priors: [],
+  source_evidence: [{ kind: "textbook_span", span_id: 4, sha256: "b".repeat(64) }],
+  history: [],
 };
 
-test.beforeEach(async ({ request }) => { await request.post("/__test/login?account_id=3"); });
+test.beforeEach(async ({ request }) => {
+  await request.post("/__test/login?account_id=3");
+});
 
 test("readiness preserves unknown inventory and exposes exact source evidence tasks", async ({ page }) => {
-  await page.route("**/api/v1/admin/readiness?**", route => route.fulfill({ json: initial }));
+  await page.route("**/api/v1/admin/readiness?**", (route) => route.fulfill({ json: initial }));
   await page.goto("/curator/readiness");
   await expect(page.getByText("Unknown — inventory review required")).toBeVisible();
   await page.getByRole("button", { name: "View evidence" }).click();
@@ -28,11 +65,24 @@ test("readiness preserves unknown inventory and exposes exact source evidence ta
 
 test("readiness conflicts retain edits and require refreshed revision and confirmation", async ({ page }) => {
   let current = initial;
-  await page.route("**/api/v1/admin/readiness?**", route => route.fulfill({ json: current }));
+  await page.route("**/api/v1/admin/readiness?**", (route) => route.fulfill({ json: current }));
   const requests: Record<string, unknown>[] = [];
-  await page.route("**/api/v1/admin/readiness/bindings", route => {
+  await page.route("**/api/v1/admin/readiness/bindings", (route) => {
     requests.push(route.request().postDataJSON());
-    return requests.length === 1 ? route.fulfill({ status: 409, json: { detail: { message: "Attempt binding changed", current_hash: "d".repeat(64) } } }) : route.fulfill({ json: { record_id: "2027-05:3", expected_hash: "e".repeat(64), audit_id: 9, actor_id: 3, corpus_generation: 2 } });
+    return requests.length === 1
+      ? route.fulfill({
+          status: 409,
+          json: { detail: { message: "Attempt binding changed", current_hash: "d".repeat(64) } },
+        })
+      : route.fulfill({
+          json: {
+            record_id: "2027-05:3",
+            expected_hash: "e".repeat(64),
+            audit_id: 9,
+            actor_id: 3,
+            corpus_generation: 2,
+          },
+        });
   });
   await page.goto("/curator/readiness");
   await page.getByText("Attempt bindings (1)", { exact: true }).click();
@@ -40,7 +90,9 @@ test("readiness conflicts retain edits and require refreshed revision and confir
   await page.getByLabel("Reviewed textbook source context 1").check();
   const reason = page.getByLabel("Review evidence and reason");
   await reason.fill("Compared the official prescribed edition and attempt applicability.");
-  const confirmation = page.getByLabel("I reviewed the current record, proposed decision and cited approved source evidence.");
+  const confirmation = page.getByLabel(
+    "I reviewed the current record, proposed decision and cited approved source evidence.",
+  );
   await confirmation.check();
   await page.getByRole("button", { name: "Record reviewed decision" }).click();
   await expect(page.getByRole("alert")).toContainText("Attempt binding changed");

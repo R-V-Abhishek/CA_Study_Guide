@@ -28,7 +28,9 @@ class UserAccount(Base):
     __table_args__ = (
         UniqueConstraint("issuer", "subject", name="uq_account_identity"),
         CheckConstraint("role IN ('student','administrator')", name="check_account_role"),
-        CheckConstraint("status IN ('pending_binding','active','disabled')", name="check_account_status"),
+        CheckConstraint(
+            "status IN ('pending_binding','active','disabled')", name="check_account_status"
+        ),
         {"schema": "app"},
     )
 
@@ -57,7 +59,9 @@ class Settings(Base):
     )
     selected_paper_ids: Mapped[list[str] | None] = mapped_column(ARRAY(Text), nullable=True)
     exam_start_date: Mapped[date | None] = mapped_column(Date, nullable=True)
-    include_hindi: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False, server_default="false")
+    include_hindi: Mapped[bool] = mapped_column(
+        Boolean, nullable=False, default=False, server_default="false"
+    )
     hours_per_week: Mapped[float] = mapped_column(Numeric(), nullable=False, default=20.0)
     minutes_per_subtopic: Mapped[int] = mapped_column(Integer, nullable=False, default=45)
     revision_intervals: Mapped[list[int]] = mapped_column(
@@ -83,9 +87,7 @@ class Progress(Base):
         DateTime(timezone=True), nullable=False, server_default=func.now()
     )
     first_done_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
-    last_revised_at: Mapped[datetime | None] = mapped_column(
-        DateTime(timezone=True), nullable=True
-    )
+    last_revised_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
     verify_flag: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False)
 
 
@@ -108,7 +110,10 @@ class ProgressEvent(Base):
 
 class Note(Base):
     __tablename__ = "note"
-    __table_args__ = {"schema": "app"}
+    __table_args__ = (
+        CheckConstraint("char_length(body) <= 100000", name="check_note_body_length"),
+        {"schema": "app"},
+    )
 
     user_id: Mapped[int] = mapped_column(
         Integer, ForeignKey("app.user_account.id"), primary_key=True
@@ -124,6 +129,7 @@ class RevisionEvent(Base):
     __tablename__ = "revision_event"
     __table_args__ = (
         CheckConstraint("outcome IN ('ok','shaky')", name="check_revision_outcome"),
+        Index("ix_revision_event_user_node_at", "user_id", "node_id", "at"),
         {"schema": "app"},
     )
 
@@ -140,6 +146,13 @@ class MockTest(Base):
     __tablename__ = "mock_test"
     __table_args__ = (
         CheckConstraint("max_score > 0", name="check_mock_test_max_score"),
+        CheckConstraint(
+            "label IS NULL OR char_length(label) <= 200", name="check_mock_test_label_length"
+        ),
+        CheckConstraint(
+            "notes IS NULL OR char_length(notes) <= 10000", name="check_mock_test_notes_length"
+        ),
+        Index("ix_mock_test_user_taken_on", "user_id", "taken_on"),
         {"schema": "app"},
     )
 
@@ -158,7 +171,7 @@ class MockTest(Base):
 
 class StudySession(Base):
     __tablename__ = "study_session"
-    __table_args__ = {"schema": "app"}
+    __table_args__ = (Index("ix_study_session_user_id", "user_id"), {"schema": "app"})
 
     id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
     user_id: Mapped[int] = mapped_column(Integer, ForeignKey("app.user_account.id"), nullable=False)
@@ -178,9 +191,15 @@ class Invitation(Base):
     token_hash: Mapped[str] = mapped_column(String(64), nullable=False, unique=True)
     email: Mapped[str] = mapped_column(Text, nullable=False)
     role: Mapped[str] = mapped_column(Text, nullable=False, default="student")
-    target_user_id: Mapped[int | None] = mapped_column(Integer, ForeignKey("app.user_account.id"), nullable=True)
-    created_by: Mapped[int | None] = mapped_column(Integer, ForeignKey("app.user_account.id"), nullable=True)
-    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, server_default=func.now())
+    target_user_id: Mapped[int | None] = mapped_column(
+        Integer, ForeignKey("app.user_account.id"), nullable=True
+    )
+    created_by: Mapped[int | None] = mapped_column(
+        Integer, ForeignKey("app.user_account.id"), nullable=True
+    )
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), nullable=False, server_default=func.now()
+    )
     expires_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)
     consumed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
     revoked_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
@@ -203,7 +222,9 @@ class AuthSession(Base):
     __tablename__ = "auth_session"
     __table_args__ = {"schema": "app"}
     token_hash: Mapped[str] = mapped_column(String(64), primary_key=True)
-    user_id: Mapped[int] = mapped_column(Integer, ForeignKey("app.user_account.id"), nullable=False, index=True)
+    user_id: Mapped[int] = mapped_column(
+        Integer, ForeignKey("app.user_account.id"), nullable=False, index=True
+    )
     csrf_token: Mapped[str] = mapped_column(Text, nullable=False)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)
     expires_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)

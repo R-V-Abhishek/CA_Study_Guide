@@ -1,4 +1,5 @@
 """Administrator readiness decisions, with source-bound and optimistic writes."""
+
 from datetime import datetime
 from typing import Annotated, Literal
 from pydantic import BaseModel, ConfigDict, Field, StringConstraints, model_validator
@@ -7,33 +8,33 @@ Nonblank = Annotated[str, StringConstraints(strip_whitespace=True, min_length=1)
 
 
 class TextbookEvidence(BaseModel):
-    model_config = ConfigDict(extra='forbid')
-    kind: Literal['textbook_span']
+    model_config = ConfigDict(extra="forbid")
+    kind: Literal["textbook_span"]
     span_id: int = Field(ge=1)
-    sha256: str = Field(pattern=r'^[a-f0-9]{64}$')
+    sha256: str = Field(pattern=r"^[a-f0-9]{64}$")
 
 
 class DocumentEvidence(BaseModel):
-    model_config = ConfigDict(extra='forbid')
-    kind: Literal['document_revision']
+    model_config = ConfigDict(extra="forbid")
+    kind: Literal["document_revision"]
     revision_id: int = Field(ge=1)
-    content_digest: str = Field(pattern=r'^[a-f0-9]{64}$')
+    content_digest: str = Field(pattern=r"^[a-f0-9]{64}$")
     pdf_page_start: int = Field(ge=1)
     pdf_page_end: int = Field(ge=1)
 
-    @model_validator(mode='after')
+    @model_validator(mode="after")
     def ordered(self):
         if self.pdf_page_end < self.pdf_page_start:
-            raise ValueError('Source page range must be ordered')
+            raise ValueError("Source page range must be ordered")
         return self
 
 
-SourceEvidence = Annotated[TextbookEvidence | DocumentEvidence, Field(discriminator='kind')]
+SourceEvidence = Annotated[TextbookEvidence | DocumentEvidence, Field(discriminator="kind")]
 
 
 class ReadinessWrite(BaseModel):
-    model_config = ConfigDict(extra='forbid')
-    expected_hash: str = Field(pattern=r'^[a-f0-9]{64}$')
+    model_config = ConfigDict(extra="forbid")
+    expected_hash: str = Field(pattern=r"^[a-f0-9]{64}$")
     evidence: Nonblank = Field(max_length=10000)
     idempotency_key: Nonblank = Field(max_length=200)
     taxonomy_version_id: int = Field(ge=1)
@@ -42,7 +43,7 @@ class ReadinessWrite(BaseModel):
 
 class BindingWrite(ReadinessWrite):
     target_attempt_id: Nonblank
-    action: Literal['review', 'withdraw']
+    action: Literal["review", "withdraw"]
 
 
 class InventoryWrite(ReadinessWrite):

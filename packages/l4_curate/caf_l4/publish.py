@@ -19,11 +19,7 @@ def compute_law_stale(
 ) -> bool:
     """Check if exam appearance is stale per ref.law_boundary."""
     paper_code = paper_id.split(".")[-1]
-    boundaries = (
-        session.query(LawBoundary)
-        .filter(LawBoundary.paper_code == paper_code)
-        .all()
-    )
+    boundaries = session.query(LawBoundary).filter(LawBoundary.paper_code == paper_code).all()
     for b in boundaries:
         if b.policy == "mark_stale" and b.first_applicable_attempt:
             if attempt_id < b.first_applicable_attempt:
@@ -44,26 +40,39 @@ def make_decision(
 ) -> Decision:
     """Record curator decision and publish appearance to core.* atomically."""
     unit = session.scalars(
-        select(Unit).where(Unit.id == unit_id).with_for_update()
+        select(Unit)
+        .where(Unit.id == unit_id)
+        .with_for_update()
         .execution_options(populate_existing=True)
     ).one_or_none()
     if not unit:
         raise ValueError(f"Unit {unit_id} not found")
 
     if require_pending and (not unit.current or unit.classify_status != "suggested"):
-        raise StaleDecisionError("This suggestion has already been reviewed or superseded; refresh the queue.")
+        raise StaleDecisionError(
+            "This suggestion has already been reviewed or superseded; refresh the queue."
+        )
 
     doc = session.get(Document, unit.document_id)
     if not doc:
         raise ValueError(f"Document {unit.document_id} not found")
     if action not in ("none_fits", "exclude"):
         from caf_db.models.taxonomy import TaxonomyMember, TaxonomyRelease
+
         selected_ids = [payload.get("primary_node_id"), *payload.get("secondary_node_ids", [])]
-        rebuilt = session.scalar(select(TaxonomyMember.node_id).join(TaxonomyRelease,
-            TaxonomyRelease.taxonomy_version_id == TaxonomyMember.taxonomy_version_id
-        ).where(TaxonomyMember.node_id.in_(selected_ids), TaxonomyRelease.status != "legacy").limit(1))
+        rebuilt = session.scalar(
+            select(TaxonomyMember.node_id)
+            .join(
+                TaxonomyRelease,
+                TaxonomyRelease.taxonomy_version_id == TaxonomyMember.taxonomy_version_id,
+            )
+            .where(TaxonomyMember.node_id.in_(selected_ids), TaxonomyRelease.status != "legacy")
+            .limit(1)
+        )
         if rebuilt:
-            raise ValueError("Textbook labels require a complete root classification review with expected suggestion and publication revisions; use the revisioned classification review operation")
+            raise ValueError(
+                "Textbook labels require a complete root classification review with expected suggestion and publication revisions; use the revisioned classification review operation"
+            )
 
     # 1. Record Decision
     decision = Decision(
@@ -106,9 +115,7 @@ def make_decision(
 
     # Upsert core.appearance
     existing_app = (
-        session.query(Appearance)
-        .filter(Appearance.unit_fingerprint == unit.fingerprint)
-        .first()
+        session.query(Appearance).filter(Appearance.unit_fingerprint == unit.fingerprint).first()
     )
 
     gist_text = payload.get("gist") or unit.display_label
@@ -146,9 +153,7 @@ def make_decision(
         app_id = existing_app.id
 
     # 4. Replace appearance tags
-    session.execute(
-        delete(AppearanceTag).where(AppearanceTag.appearance_id == app_id)
-    )
+    session.execute(delete(AppearanceTag).where(AppearanceTag.appearance_id == app_id))
 
     # Insert primary tag
     session.add(
@@ -196,4 +201,6 @@ def make_decision(
 
 def bulk_accept_bucket_a(session: Session, document_id: int, actor_id: int | None = None) -> int:
     """Retain the historical entry point without automatic model-score publication."""
-    raise ValueError("Automatic bucket publication is disabled; an authenticated administrator must review explicit root revisions in the bulk review workspace")
+    raise ValueError(
+        "Automatic bucket publication is disabled; an authenticated administrator must review explicit root revisions in the bulk review workspace"
+    )

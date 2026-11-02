@@ -31,12 +31,14 @@ class ClassificationSummary:
 class ClassificationPipeline:
     """Orchestrates L3 tag suggestion with LLM, immediate commits, and quota resilience."""
 
-    def __init__(self, session: Session, model_override: str | None = None,
-                 version_id: str | None = None):
+    def __init__(
+        self, session: Session, model_override: str | None = None, version_id: str | None = None
+    ):
         self.session = session
         self.gemini_classifier = GeminiClassifier(session, model_override=model_override)
-        self.classifier = TextbookClassifier(session, version_id=version_id,
-                                            gemini_classifier=self.gemini_classifier)
+        self.classifier = TextbookClassifier(
+            session, version_id=version_id, gemini_classifier=self.gemini_classifier
+        )
 
     def run_classification(
         self,
@@ -62,14 +64,21 @@ class ClassificationPipeline:
             select(Unit, Document, UnitAnswer.answer_text)
             .join(Document, Unit.document_id == Document.id)
             .join(DocType, DocType.id == Document.doc_type_id)
-            .join(Paper, Paper.id == func.coalesce(Unit.extraction_data['paper_id'].astext,Document.paper_id))
+            .join(
+                Paper,
+                Paper.id
+                == func.coalesce(Unit.extraction_data["paper_id"].astext, Document.paper_id),
+            )
             .outerjoin(UnitAnswer, Unit.id == UnitAnswer.unit_id)
             .where(
                 Unit.current.is_(True),
                 Document.superseded.is_(False),
                 Unit.is_gradable.is_(True),
                 Document.catalog_status == "confirmed",
-                or_(Document.current_revision_id.is_not(None),Document.extract_status.in_(["ok", "ok_with_warnings"])),
+                or_(
+                    Document.current_revision_id.is_not(None),
+                    Document.extract_status.in_(["ok", "ok_with_warnings"]),
+                ),
                 Document.course_level == "final",
                 Document.provenance_status == "verified",
                 Document.scheme_id == "s2023",
@@ -87,20 +96,33 @@ class ClassificationPipeline:
         if doc_id is not None:
             query = query.where(Document.id == doc_id)
         if paper_id is not None:
-            query = query.where(func.coalesce(Unit.extraction_data['paper_id'].astext,Document.paper_id) == paper_id)
+            query = query.where(
+                func.coalesce(Unit.extraction_data["paper_id"].astext, Document.paper_id)
+                == paper_id
+            )
         if resume:
-            query = query.where(~select(TagSuggestion.id).where(
-                TagSuggestion.unit_id == Unit.id,
-                TagSuggestion.taxonomy_version_id == self.classifier.taxonomy_version_id,
-                TagSuggestion.is_shadow == is_shadow,
-            ).exists())
+            query = query.where(
+                ~select(TagSuggestion.id)
+                .where(
+                    TagSuggestion.unit_id == Unit.id,
+                    TagSuggestion.taxonomy_version_id == self.classifier.taxonomy_version_id,
+                    TagSuggestion.is_shadow == is_shadow,
+                )
+                .exists()
+            )
             # A reviewed gap is work for the taxonomy queue. Do not repeatedly
             # retry it ahead of later questions on each resumable run. Another
             # taxonomy version, a resolved gap or --no-resume can retry it.
-            open_gap = select(TaxonomyGap.id).join(Run, Run.id == TaxonomyGap.run_id).where(
-                TaxonomyGap.unit_id == Unit.id, TaxonomyGap.status == "open",
-                Run.taxonomy_version_id == self.classifier.taxonomy_version_id,
-            ).exists()
+            open_gap = (
+                select(TaxonomyGap.id)
+                .join(Run, Run.id == TaxonomyGap.run_id)
+                .where(
+                    TaxonomyGap.unit_id == Unit.id,
+                    TaxonomyGap.status == "open",
+                    Run.taxonomy_version_id == self.classifier.taxonomy_version_id,
+                )
+                .exists()
+            )
             query = query.where(~open_gap)
 
         query = query.order_by(Document.attempt_id.desc(), Unit.id.asc()).limit(limit)
@@ -117,7 +139,12 @@ class ClassificationPipeline:
             try:
                 if doc.current_revision_id is not None:
                     from caf_db.models.extraction import ExtractionRevision
-                    from caf_l2.revisions import extraction_ready, flatten_snapshots, complete_answer_text
+                    from caf_l2.revisions import (
+                        extraction_ready,
+                        flatten_snapshots,
+                        complete_answer_text,
+                    )
+
                     revision = self.session.get(ExtractionRevision, doc.current_revision_id)
                     if revision is None or not extraction_ready(self.session, revision):
                         continue
@@ -132,16 +159,29 @@ class ClassificationPipeline:
                     parents.append(parent.question_text)
                     root = parent
                 if doc.current_revision_id is not None:
-                    question = next((q for q in revision.questions if q['question_id'] == unit.stable_question_id), None)
+                    question = next(
+                        (
+                            q
+                            for q in revision.questions
+                            if q["question_id"] == unit.stable_question_id
+                        ),
+                        None,
+                    )
                     if question is None:
-                        raise ValueError('Current extraction has no complete root context for this part')
-                    snapshot = next(n for n in revision.parsed_units if n['stable_question_id'] == unit.stable_question_id)
-                    parents = ['\n'.join(n['question_text'] for n in flatten_snapshots([snapshot]))]
+                        raise ValueError(
+                            "Current extraction has no complete root context for this part"
+                        )
+                    snapshot = next(
+                        n
+                        for n in revision.parsed_units
+                        if n["stable_question_id"] == unit.stable_question_id
+                    )
+                    parents = ["\n".join(n["question_text"] for n in flatten_snapshots([snapshot]))]
                     if not answer_text:
                         answer_text = complete_answer_text(question)
                 # Classify (passes answer text if available)
                 res: ClassificationResult = self.classifier.classify_unit(
-                    paper_id=unit.extraction_data.get('paper_id') or doc.paper_id or "",
+                    paper_id=unit.extraction_data.get("paper_id") or doc.paper_id or "",
                     question_text=unit.question_text,
                     context_text="\n".join(reversed(parents)),
                     answer_text=answer_text or "",
@@ -152,8 +192,14 @@ class ClassificationPipeline:
                 )
 
                 if res.outcome != "matched" or res.primary_node_id is None:
-                    self.session.add(TaxonomyGap(unit_id=unit.id, run_id=run_id,
-                        note=f"{res.outcome}: {res.justification}", status="open"))
+                    self.session.add(
+                        TaxonomyGap(
+                            unit_id=unit.id,
+                            run_id=run_id,
+                            note=f"{res.outcome}: {res.justification}",
+                            status="open",
+                        )
+                    )
                     if not is_shadow:
                         unit.classify_status = "needs_review"
                     bucket_counts["D"] += 1
@@ -166,7 +212,9 @@ class ClassificationPipeline:
                     model_id=res.evidence.get("model_id"),
                     prompt_version="textbook-v1" if res.method == "llm" else None,
                     taxonomy_version_id=self.classifier.taxonomy_version_id,
-                    descriptor_revision_id=res.evidence["descriptor_revisions"][res.primary_node_id],
+                    descriptor_revision_id=res.evidence["descriptor_revisions"][
+                        res.primary_node_id
+                    ],
                     unit_id=unit.id,
                     run_id=run_id,
                     node_id=res.primary_node_id,
@@ -203,10 +251,14 @@ class ClassificationPipeline:
                         role="secondary",
                         method=res.method,
                         bucket=res.bucket,
-                        evidence={**res.evidence, "primary_ref": res.primary_node_id,
-                                  "source_document_id": doc.id,
-                                  "source_document_sha256": doc.sha256,
-                                  "main_question_id": root.id, "part_label": unit.label_path},
+                        evidence={
+                            **res.evidence,
+                            "primary_ref": res.primary_node_id,
+                            "source_document_id": doc.id,
+                            "source_document_sha256": doc.sha256,
+                            "main_question_id": root.id,
+                            "part_label": unit.label_path,
+                        },
                         is_shadow=is_shadow,
                     )
                     self.session.add(sec_sugg)
@@ -223,8 +275,9 @@ class ClassificationPipeline:
                 self.session.commit()
 
             except NeedsTaxonomyReview as gap:
-                self.session.add(TaxonomyGap(unit_id=unit.id, run_id=run_id,
-                                            note=str(gap), status="open"))
+                self.session.add(
+                    TaxonomyGap(unit_id=unit.id, run_id=run_id, note=str(gap), status="open")
+                )
                 if not is_shadow:
                     unit.classify_status = "needs_review"
                 bucket_counts["D"] += 1

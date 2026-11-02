@@ -1,0 +1,334 @@
+{
+  "/api/v1/dashboard": {
+    "context": {
+      "applicability_state": "reviewed",
+      "readiness": "ready",
+      "target_attempt_id": "2026-05",
+      "taxonomy_version_id": null,
+      "unresolved_node_ids": []
+    },
+    "done_subtopics": 3,
+    "freshness": {
+      "computed_at": null,
+      "error": null,
+      "job_id": null,
+      "publication_generation": 0,
+      "scored_generation": null,
+      "status": "unavailable"
+    },
+    "group1_progress_pct": 1.3,
+    "group2_progress_pct": 0.9,
+    "in_progress_subtopics": 2,
+    "ingestion_coverage": [],
+    "overall_progress_pct": 1.1,
+    "plan_preview": [
+      {
+        "chapter_id": "P1-093VHQ",
+        "chapter_name": "Ind AS 116: Leases",
+        "exam_marks_total": 0,
+        "freq_hits": 0,
+        "freq_window": 0,
+        "importance": null,
+        "node_id": "P1-ZXWVWH",
+        "node_name": "Separating components of a contract",
+        "paper_code": "P1",
+        "paper_id": "s2023.P1",
+        "priority_score": null,
+        "reason": "Already in progress",
+        "status": "in_progress",
+        "weak": false
+      },
+      {
+        "chapter_id": "P3-7Z7K1Z",
+        "chapter_name": "Quality Management (SQC 1, SQM 1, SQM 2)",
+        "exam_marks_total": 0,
+        "freq_hits": 0,
+        "freq_window": 0,
+        "importance": null,
+        "node_id": "P3-59Y1QB",
+        "node_name": "Leadership responsibilities for quality within the firm",
+        "paper_code": "P3",
+        "paper_id": "s2023.P3",
+        "priority_score": null,
+        "reason": "Already in progress",
+        "status": "in_progress",
+        "weak": false
+      },
+      {
+        "chapter_id": "P1-093VHQ",
+        "chapter_name": "Ind AS 116: Leases",
+        "exam_marks_total": 0,
+        "freq_hits": 0,
+        "freq_window": 0,
+        "importance": null,
+        "node_id": "P1-BXTF71",
+        "node_name": "Initial measurement of ROU asset and lease liability",
+        "paper_code": "P1",
+        "paper_id": "s2023.P1",
+        "priority_score": null,
+        "reason": "Next in reviewed syllabus order",
+        "status": "not_started",
+        "weak": false
+      },
+      {
+        "chapter_id": "P1-093VHQ",
+        "chapter_name": "Ind AS 116: Leases",
+        "exam_marks_total": 0,
+        "freq_hits": 0,
+        "freq_window": 0,
+        "importance": null,
+        "node_id": "P1-ZEJT68",
+        "node_name": "Subsequent measurement and depreciation of ROU asset",
+        "paper_code": "P1",
+        "paper_id": "s2023.P1",
+        "priority_score": null,
+        "reason": "Next in reviewed syllabus order",
+        "status": "not_started",
+        "weak": false
+      },
+      {
+        "chapter_id": "P1-P425DG",
+        "chapter_name": "Ind AS 115: Revenue from Contracts with Customers",
+        "exam_marks_total": 0,
+        "freq_hits": 0,
+        "freq_window": 0,
+        "importance": null,
+        "node_id": "P1-PZR6WV",
+        "node_name": "Step 1: Identifying the contract with customer",
+        "paper_code": "P1",
+        "paper_id": "s2023.P1",
+        "priority_score": null,
+        "reason": "Next in reviewed syllabus order",
+        "status": "not_started",
+        "weak": false
+      }
+    ],
+    "recent_activity": [
+      {
+        "from_status": "not_started",
+        "node_id": "P3-59Y1QB",
+        "node_name": "Leadership responsibilities for quality within the firm",
+        "paper_code": "P3",
+        "to_status": "in_progress"
+      },
+      {
+        "from_status": "not_started",
+        "node_id": "P5-JWB44P",
+        "node_name": "Section 7: Meaning and scope of supply with consideration",
+        "paper_code": "P5",
+        "to_status": "done"
+      },
+      {
+        "from_status": "not_started",
+        "node_id": "P1-ZXWVWH",
+        "node_name": "Separating components of a contract",
+        "paper_code": "P1",
+        "to_status": "in_progress"
+      },
+      {
+        "from_status": "not_started",
+        "node_id": "P1-YM4GXE",
+        "node_name": "Short-term leases and low-value asset exemptions",
+        "paper_code": "P1",
+        "to_status": "done"
+      },
+      {
+        "from_status": "not_started",
+        "node_id": "P1-GDH25Q",
+        "node_name": "Identifying a lease contract",
+        "paper_code": "P1",
+        "to_status": "done"
+      }
+    ],
+    "revision_due_count": 0,
+    "score_run_id": null,
+    "score_unavailable_reason": "No successful scoring run exists for your target attempt.",
+    "target_attempt": "2026-05",
+    "total_subtopics": 264,
+    "weak_subtopics": [],
+    "weighted_coverage": {
+      "basis": "unweighted",
+      "context": {
+        "applicability_state": "reviewed",
+        "readiness": "ready",
+        "target_attempt_id": "2026-05",
+        "taxonomy_version_id": null,
+        "unresolved_node_ids": []
+      },
+      "freshness": {
+        "computed_at": null,
+        "error": null,
+        "job_id": null,
+        "publication_generation": 0,
+        "scored_generation": null,
+        "status": "unavailable"
+      },
+      "groups": {
+        "1": {
+          "coverage_pct": 1.3,
+          "in_progress_pct": 1.3
+        },
+        "2": {
+          "coverage_pct": 0.9,
+          "in_progress_pct": 0.0
+        }
+      },
+      "overall_coverage_pct": 1.1,
+      "overall_in_progress_pct": 0.8,
+      "papers": {
+        "s2023.P1": {
+          "code": "P1",
+          "coverage_pct": 3.2,
+          "in_progress_pct": 1.6
+        },
+        "s2023.P2": {
+          "code": "P2",
+          "coverage_pct": 0.0,
+          "in_progress_pct": 0.0
+        },
+        "s2023.P3": {
+          "code": "P3",
+          "coverage_pct": 0.0,
+          "in_progress_pct": 1.9
+        },
+        "s2023.P4": {
+          "code": "P4",
+          "coverage_pct": 0.0,
+          "in_progress_pct": 0.0
+        },
+        "s2023.P5": {
+          "code": "P5",
+          "coverage_pct": 2.5,
+          "in_progress_pct": 0.0
+        },
+        "s2023.P6": {
+          "code": "P6",
+          "coverage_pct": 0.0,
+          "in_progress_pct": 0.0
+        }
+      }
+    }
+  },
+  "/api/v1/papers": [
+    {
+      "average_importance": null,
+      "code": "P1",
+      "completed_subtopics": 2,
+      "context": {
+        "applicability_state": "reviewed",
+        "readiness": "ready",
+        "target_attempt_id": "2026-05",
+        "taxonomy_version_id": null,
+        "unresolved_node_ids": []
+      },
+      "group_no": 1,
+      "id": "s2023.P1",
+      "name": "Financial Reporting",
+      "raw_progress_pct": 3.2,
+      "revision_due_count": 0,
+      "total_subtopics": 62,
+      "weak_topic_count": 0,
+      "weighted_coverage_pct": null
+    },
+    {
+      "average_importance": null,
+      "code": "P2",
+      "completed_subtopics": 0,
+      "context": {
+        "applicability_state": "reviewed",
+        "readiness": "ready",
+        "target_attempt_id": "2026-05",
+        "taxonomy_version_id": null,
+        "unresolved_node_ids": []
+      },
+      "group_no": 1,
+      "id": "s2023.P2",
+      "name": "Advanced Financial Management",
+      "raw_progress_pct": 0.0,
+      "revision_due_count": 0,
+      "total_subtopics": 41,
+      "weak_topic_count": 0,
+      "weighted_coverage_pct": null
+    },
+    {
+      "average_importance": null,
+      "code": "P3",
+      "completed_subtopics": 0,
+      "context": {
+        "applicability_state": "reviewed",
+        "readiness": "ready",
+        "target_attempt_id": "2026-05",
+        "taxonomy_version_id": null,
+        "unresolved_node_ids": []
+      },
+      "group_no": 1,
+      "id": "s2023.P3",
+      "name": "Advanced Auditing, Assurance and Professional Ethics",
+      "raw_progress_pct": 0.0,
+      "revision_due_count": 0,
+      "total_subtopics": 54,
+      "weak_topic_count": 0,
+      "weighted_coverage_pct": null
+    },
+    {
+      "average_importance": null,
+      "code": "P4",
+      "completed_subtopics": 0,
+      "context": {
+        "applicability_state": "reviewed",
+        "readiness": "ready",
+        "target_attempt_id": "2026-05",
+        "taxonomy_version_id": null,
+        "unresolved_node_ids": []
+      },
+      "group_no": 2,
+      "id": "s2023.P4",
+      "name": "Direct Tax Laws & International Taxation",
+      "raw_progress_pct": 0.0,
+      "revision_due_count": 0,
+      "total_subtopics": 37,
+      "weak_topic_count": 0,
+      "weighted_coverage_pct": null
+    },
+    {
+      "average_importance": null,
+      "code": "P5",
+      "completed_subtopics": 1,
+      "context": {
+        "applicability_state": "reviewed",
+        "readiness": "ready",
+        "target_attempt_id": "2026-05",
+        "taxonomy_version_id": null,
+        "unresolved_node_ids": []
+      },
+      "group_no": 2,
+      "id": "s2023.P5",
+      "name": "Indirect Tax Laws",
+      "raw_progress_pct": 2.5,
+      "revision_due_count": 0,
+      "total_subtopics": 40,
+      "weak_topic_count": 0,
+      "weighted_coverage_pct": null
+    },
+    {
+      "average_importance": null,
+      "code": "P6",
+      "completed_subtopics": 0,
+      "context": {
+        "applicability_state": "reviewed",
+        "readiness": "ready",
+        "target_attempt_id": "2026-05",
+        "taxonomy_version_id": null,
+        "unresolved_node_ids": []
+      },
+      "group_no": 2,
+      "id": "s2023.P6",
+      "name": "Integrated Business Solutions",
+      "raw_progress_pct": 0.0,
+      "revision_due_count": 0,
+      "total_subtopics": 30,
+      "weak_topic_count": 0,
+      "weighted_coverage_pct": null
+    }
+  ]
+}

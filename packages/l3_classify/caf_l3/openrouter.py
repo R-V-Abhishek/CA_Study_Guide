@@ -90,15 +90,26 @@ def review_manifest(batch: dict, model: str = DEFAULT_MODEL) -> dict:
     """Freeze an independent run identity while preserving complete input evidence."""
     validate_manifest(batch)
     if not model.endswith(":free"):
-        raise ValueError("Choose an explicit :free model; paid models and random routers are disabled")
-    result = {**batch, "classifier": {**batch["classifier"], "method": "openrouter",
-        "model_id": model, "prompt_version": PROMPT_VERSION}, "purpose": "student_markdown_review"}
+        raise ValueError(
+            "Choose an explicit :free model; paid models and random routers are disabled"
+        )
+    result = {
+        **batch,
+        "classifier": {
+            **batch["classifier"],
+            "method": "openrouter",
+            "model_id": model,
+            "prompt_version": PROMPT_VERSION,
+        },
+        "purpose": "student_markdown_review",
+    }
     result["batch_key"] = digest({k: v for k, v in result.items() if k != "batch_key"})
     return result
 
 
-def classify_record(client: httpx.Client, record: dict, model: CatalogModel,
-                    api_key: str, *, retries: int = 2) -> dict:
+def classify_record(
+    client: httpx.Client, record: dict, model: CatalogModel, api_key: str, *, retries: int = 2
+) -> dict:
     """One complete root; reject fabricated IDs, missing parts, truncation and charges."""
     prompt = (
         "Classify every classification_part_id using the complete ICAI CA Final question, "
@@ -123,58 +134,95 @@ def classify_record(client: httpx.Client, record: dict, model: CatalogModel,
             context_limit = min(context_limit, model.top_provider.context_length)
         completion_limit = model.top_provider.max_completion_tokens
         if completion_limit is not None and output_tokens > completion_limit:
-            raise ValueError("Estimated complete response exceeds the model's published completion limit")
+            raise ValueError(
+                "Estimated complete response exceeds the model's published completion limit"
+            )
     # A conservative byte bound avoids silently dropping question or taxonomy context.
     payload_text = json.dumps(record, ensure_ascii=False)
     if len((prompt + payload_text + json.dumps(schema)).encode()) + output_tokens > context_limit:
-        raise ValueError("Complete question and candidate context exceed the conservative model context bound")
-    request = dict(model=model.id, messages=[dict(role="system", content=prompt),
-        dict(role="user", content=payload_text)], max_tokens=output_tokens,
-        response_format=dict(type="json_schema", json_schema=dict(
-            name="question_classification", strict=True, schema=schema)),
-        provider=dict(require_parameters=True, max_price=dict(prompt=0, completion=0, request=0)))
+        raise ValueError(
+            "Complete question and candidate context exceed the conservative model context bound"
+        )
+    request = dict(
+        model=model.id,
+        messages=[dict(role="system", content=prompt), dict(role="user", content=payload_text)],
+        max_tokens=output_tokens,
+        response_format=dict(
+            type="json_schema",
+            json_schema=dict(name="question_classification", strict=True, schema=schema),
+        ),
+        provider=dict(require_parameters=True, max_price=dict(prompt=0, completion=0, request=0)),
+    )
     # The live 8K pilot took ~83s. Give longer complete responses proportional
     # read time while keeping connection establishment bounded.
     response_timeout = httpx.Timeout(90 * output_tokens / 8192, connect=10)
     for attempt in range(retries + 1):
         started = time.monotonic()
         try:
-            response = client.post(f"{API_URL}/chat/completions", json=request,
+            response = client.post(
+                f"{API_URL}/chat/completions",
+                json=request,
                 timeout=response_timeout,
-                headers={"Authorization": f"Bearer {api_key}", "X-OpenRouter-Title": "CA Final Student Review"})
+                headers={
+                    "Authorization": f"Bearer {api_key}",
+                    "X-OpenRouter-Title": "CA Final Student Review",
+                },
+            )
         except httpx.TransportError:
             if attempt == retries:
-                raise RuntimeError("OpenRouter could not be reached; no classification was produced") from None
-            time.sleep(2 ** attempt)
+                raise RuntimeError(
+                    "OpenRouter could not be reached; no classification was produced"
+                ) from None
+            time.sleep(2**attempt)
             continue
         if response.status_code in {408, 429, 500, 502, 503, 504} and attempt < retries:
             retry_after = response.headers.get("retry-after", "")
-            delay = min(float(retry_after), 10) if retry_after.isdigit() else 2 ** attempt
+            delay = min(float(retry_after), 10) if retry_after.isdigit() else 2**attempt
             time.sleep(delay)
             continue
         if response.status_code != 200:
             # Raw provider errors can contain credentials or source text. Retain only status.
-            raise RuntimeError(f"OpenRouter returned HTTP {response.status_code}; no classification was accepted")
+            raise RuntimeError(
+                f"OpenRouter returned HTTP {response.status_code}; no classification was accepted"
+            )
         try:
             completion = Completion.model_validate(response.json())
             if completion.usage.cost != 0:
-                raise RuntimeError("OpenRouter reported a charge despite the zero-price restriction; stopped")
+                raise RuntimeError(
+                    "OpenRouter reported a charge despite the zero-price restriction; stopped"
+                )
             choice = completion.choices[0]
-            if choice.finish_reason != "stop" or choice.message.refusal or not choice.message.content:
+            if (
+                choice.finish_reason != "stop"
+                or choice.message.refusal
+                or not choice.message.content
+            ):
                 raise ValueError("Incomplete or refused model output")
             output = json.loads(choice.message.content)
             validated_mappings(record, output)
         except (ValueError, ValidationError):
             if attempt < retries:
-                time.sleep(2 ** attempt)
+                time.sleep(2**attempt)
                 continue
-            raise RuntimeError("OpenRouter returned invalid, incomplete, or unsupported classifications") from None
-        return dict(result=output, execution=dict(method="openrouter", model_id=completion.model,
-            requested_model_id=model.id, provider=completion.provider, response_id=completion.id,
-            max_output_tokens=output_tokens,
-            usage=completion.usage.model_dump(mode="json"), prompt_version=PROMPT_VERSION,
-            latency_ms=int((time.monotonic() - started) * 1000),
-            created_at=datetime.now(timezone.utc).isoformat(), free_only=True))
+            raise RuntimeError(
+                "OpenRouter returned invalid, incomplete, or unsupported classifications"
+            ) from None
+        return dict(
+            result=output,
+            execution=dict(
+                method="openrouter",
+                model_id=completion.model,
+                requested_model_id=model.id,
+                provider=completion.provider,
+                response_id=completion.id,
+                max_output_tokens=output_tokens,
+                usage=completion.usage.model_dump(mode="json"),
+                prompt_version=PROMPT_VERSION,
+                latency_ms=int((time.monotonic() - started) * 1000),
+                created_at=datetime.now(timezone.utc).isoformat(),
+                free_only=True,
+            ),
+        )
     raise RuntimeError("No classification was produced")
 
 
@@ -197,8 +245,14 @@ def load_results(manifest: dict, output_dir: Path) -> dict[str, dict]:
     return results
 
 
-def run_review(manifest: dict, output_dir: Path, api_key: str, *, limit: int | None = None,
-               client: httpx.Client | None = None) -> dict:
+def run_review(
+    manifest: dict,
+    output_dir: Path,
+    api_key: str,
+    *,
+    limit: int | None = None,
+    client: httpx.Client | None = None,
+) -> dict:
     output_dir.mkdir(parents=True, exist_ok=True)
     with (output_dir / ".review.lock").open("a") as lock:
         try:
@@ -208,11 +262,20 @@ def run_review(manifest: dict, output_dir: Path, api_key: str, *, limit: int | N
         return _run_review(manifest, output_dir, api_key, limit=limit, client=client)
 
 
-def _run_review(manifest: dict, output_dir: Path, api_key: str, *, limit: int | None = None,
-                client: httpx.Client | None = None) -> dict:
+def _run_review(
+    manifest: dict,
+    output_dir: Path,
+    api_key: str,
+    *,
+    limit: int | None = None,
+    client: httpx.Client | None = None,
+) -> dict:
     """Resumable local review files only. No DB/queue mutation, no automatic fallback."""
     validate_manifest(manifest)
-    if manifest["classifier"]["method"] != "openrouter" or manifest.get("purpose") != "student_markdown_review":
+    if (
+        manifest["classifier"]["method"] != "openrouter"
+        or manifest.get("purpose") != "student_markdown_review"
+    ):
         raise ValueError("A frozen OpenRouter student-review manifest is required")
     if not api_key:
         raise ValueError("OPENROUTER_API_KEY is required")
@@ -230,10 +293,14 @@ def _run_review(manifest: dict, output_dir: Path, api_key: str, *, limit: int | 
     try:
         models = {model.id: model for model in free_models(client)}
     except (httpx.HTTPError, ValidationError, ValueError):
-        raise RuntimeError("Could not verify the current OpenRouter free-model catalog; no model calls made") from None
+        raise RuntimeError(
+            "Could not verify the current OpenRouter free-model catalog; no model calls made"
+        ) from None
     model_id = manifest["classifier"]["model_id"]
     if model_id not in models:
-        raise ValueError("Frozen model is not currently free, available and schema-capable; export a new batch")
+        raise ValueError(
+            "Frozen model is not currently free, available and schema-capable; export a new batch"
+        )
     model = models[model_id]
     write_json(output_dir / "model-snapshot.json", model.model_dump(mode="json"))
     for record in pending[:limit] if limit is not None else pending:
@@ -242,9 +309,16 @@ def _run_review(manifest: dict, output_dir: Path, api_key: str, *, limit: int | 
         except (RuntimeError, ValueError) as exc:
             failures[record["question_id"]] = str(exc)
             break  # Preserve completed work; do not fan out a quota/network failure.
-        write_json(result_path(output_dir, record["question_id"]), {**saved, "batch_key": manifest["batch_key"]})
+        write_json(
+            result_path(output_dir, record["question_id"]),
+            {**saved, "batch_key": manifest["batch_key"]},
+        )
         completed[record["question_id"]] = saved
-    state = dict(batch_key=manifest["batch_key"], completed=len(completed),
-        pending=len(manifest["records"]) - len(completed), failures=failures)
+    state = dict(
+        batch_key=manifest["batch_key"],
+        completed=len(completed),
+        pending=len(manifest["records"]) - len(completed),
+        failures=failures,
+    )
     write_json(output_dir / "review-state.json", state)
     return state

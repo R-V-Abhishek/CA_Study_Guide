@@ -105,11 +105,10 @@ class Node(Base):
         CheckConstraint(
             "level IN ('module','chapter','unit','topic','subtopic')", name="check_node_level"
         ),
+        CheckConstraint("status IN ('active','deprecated')", name="check_node_status"),
         CheckConstraint(
-            "status IN ('active','deprecated')", name="check_node_status"
-        ),
-        CheckConstraint(
-            "parent_id IS NOT NULL OR level IN ('module','chapter','topic')", name="check_chapter_parent_null"
+            "parent_id IS NOT NULL OR level IN ('module','chapter','topic')",
+            name="check_chapter_parent_null",
         ),
         Index("ix_ref_node_parent_id", "parent_id"),
         Index("ix_ref_node_paper_id_level", "paper_id", "level"),
@@ -133,7 +132,9 @@ class Node(Base):
     )
 
     paper: Mapped["Paper"] = relationship("Paper", back_populates="nodes")
-    descriptor: Mapped["Descriptor | None"] = relationship("Descriptor", back_populates="node", uselist=False)
+    descriptor: Mapped["Descriptor | None"] = relationship(
+        "Descriptor", back_populates="node", uselist=False
+    )
 
 
 class Descriptor(Base):
@@ -170,7 +171,9 @@ class Anchor(Base):
     )
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
-    instrument_id: Mapped[str] = mapped_column(Text, ForeignKey("ref.instrument.id"), nullable=False)
+    instrument_id: Mapped[str] = mapped_column(
+        Text, ForeignKey("ref.instrument.id"), nullable=False
+    )
     ref_key: Mapped[str] = mapped_column(Text, nullable=False)
     node_id: Mapped[str] = mapped_column(Text, ForeignKey("ref.node.id"), nullable=False)
     weight: Mapped[float] = mapped_column(Float, nullable=False, default=1.0)

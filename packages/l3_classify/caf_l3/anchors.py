@@ -26,9 +26,7 @@ class AnchorMatch:
     confidence: float = 1.0
 
 
-def extract_anchors(
-    text: str, paper_code: str, attempt_id: str | None = None
-) -> list[AnchorMatch]:
+def extract_anchors(text: str, paper_code: str, attempt_id: str | None = None) -> list[AnchorMatch]:
     """Extract deterministic instrument and section anchors from question/answer text."""
     matches: list[AnchorMatch] = []
     paper_clean = paper_code.split(".")[-1].upper()
@@ -103,9 +101,7 @@ def extract_anchors(
     return matches
 
 
-def lookup_anchor_candidates(
-    session: Session, matches: list[AnchorMatch]
-) -> dict[str, float]:
+def lookup_anchor_candidates(session: Session, matches: list[AnchorMatch]) -> dict[str, float]:
     """Look up ref.anchor table and aggregate node weights."""
     if not matches:
         return {}

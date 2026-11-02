@@ -12,7 +12,7 @@ scores match the target/version context. Phase 0 preserves current application b
 ## Phase 0 acceptance gate
 
 The 2026-10-01 gate results and local artifact links are recorded in
-[Phase0_Verification.md](docs/Phase0_Verification.md).
+[Phase0_Verification.md](docs/archive/Phase0_Verification.md).
 
 Execute these checks in order. A checked item requires actual evidence; this document
 does not mark later authentication or reader work complete.
@@ -163,7 +163,7 @@ After running `uv run start.py`:
 - [x] **Phase 2 isolated ownership gate**: two authenticated students cannot read or
   change each other's progress, notes, study sessions, settings, or exports. Every invited
   student may curate; administrative operations remain separately authorized.
-  Python and Chromium/WebKit evidence is recorded in `docs/Phase2_Verification.md`.
+  Python and Chromium/WebKit evidence is recorded in `docs/archive/Phase2_Verification.md`.
   Real Auth0 invitation redemption, preserved owner profile and logout passed locally.
   Native Windows verification remains pending.
 - [ ] **Phase 5/6 publication and reader gates (future)**: one student's review permits

@@ -10,6 +10,7 @@ from pydantic import BaseModel, ConfigDict, Field
 # C0: Taxonomy & Reference Contracts
 # ==============================================================================
 
+
 class NodeLevel(str, Enum):
     MODULE = "module"
     UNIT = "unit"
@@ -118,6 +119,7 @@ class WeightageSection(BaseModel):
 # C1: Ingest Document Contracts
 # ==============================================================================
 
+
 class CatalogStatus(str, Enum):
     INFERRED = "inferred"
     NEEDS_CURATION = "needs_curation"
@@ -160,6 +162,7 @@ class DocumentContract(BaseModel):
 # ==============================================================================
 # C2: Unit & Answer Contracts
 # ==============================================================================
+
 
 class UnitKind(str, Enum):
     CASE_STEM = "case_stem"
@@ -250,6 +253,7 @@ class UnitAnswerContract(BaseModel):
 # C3: Suggestion & Gist Contracts
 # ==============================================================================
 
+
 class SuggestionRole(str, Enum):
     PRIMARY = "primary"
     SECONDARY = "secondary"
@@ -298,6 +302,7 @@ class UnitGistContract(BaseModel):
 # C4: Published Knowledge Contracts
 # ==============================================================================
 
+
 class AppearanceStatus(str, Enum):
     PUBLISHED = "published"
     ORPHANED = "orphaned"
@@ -342,6 +347,7 @@ class AppearanceTagContract(BaseModel):
 # C5: Intelligence Scores Contracts
 # ==============================================================================
 
+
 class SubtopicScoreContract(BaseModel):
     model_config = ConfigDict(frozen=True)
 
@@ -375,6 +381,7 @@ class IngestionCoverageContract(BaseModel):
 # C6: API & Study State Contracts
 # ==============================================================================
 
+
 class ProgressStatus(str, Enum):
     NOT_STARTED = "not_started"
     IN_PROGRESS = "in_progress"
@@ -383,11 +390,12 @@ class ProgressStatus(str, Enum):
 
 class ProgressContract(BaseModel):
     """Maps to app.progress table.
-    
+
     Field mapping:
       - first_done_at: set when status transitions to 'done' for the first time
       - last_revised_at: set by record_revision_outcome
     """
+
     model_config = ConfigDict(frozen=True)
 
     user_id: int
@@ -395,5 +403,5 @@ class ProgressContract(BaseModel):
     status: ProgressStatus
     notes: str | None = None
     updated_at: datetime
-    first_done_at: datetime | None = None   # was incorrectly named completed_at
+    first_done_at: datetime | None = None  # was incorrectly named completed_at
     last_revised_at: datetime | None = None

@@ -169,7 +169,8 @@ class PublishedKnowledgeV1(FutureContractV1):
                 raise ValueError("Review applies to a different published revision")
         if not any(
             review.reviewer_student_id == self.published_by_student_id
-            and review.scope in (
+            and review.scope
+            in (
                 VerificationScopeV1.CLASSIFICATION,
                 VerificationScopeV1.CONTENT_AND_CLASSIFICATION,
             )
@@ -189,11 +190,13 @@ class PublishedKnowledgeV1(FutureContractV1):
         return self._count_reviewers(VerificationScopeV1.CLASSIFICATION)
 
     def _count_reviewers(self, scope: VerificationScopeV1) -> int:
-        return len({
-            review.reviewer_student_id
-            for review in self.reviews
-            if review.scope in (scope, VerificationScopeV1.CONTENT_AND_CLASSIFICATION)
-        })
+        return len(
+            {
+                review.reviewer_student_id
+                for review in self.reviews
+                if review.scope in (scope, VerificationScopeV1.CONTENT_AND_CLASSIFICATION)
+            }
+        )
 
 
 # C5: Raw units are independent from normalized components and configured weights.

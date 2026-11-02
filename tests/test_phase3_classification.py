@@ -40,21 +40,48 @@ def prepare(session, manifest, *, review=True, activate=False):
 
 
 def document(session, *, course="final", provenance="verified", doc_type="rtp"):
-    doc = Document(sha256=uuid4().hex + uuid4().hex, blob_path="/fixture.pdf", bytes=100,
-        origin="manual", scheme_id="s2023", paper_id="s2023.P1", attempt_id="2026-01",
-        doc_type_id=doc_type, course_level=course, provenance_status=provenance,
-        title="Deterministic source fixture", catalog_status="confirmed", extract_status="ok")
+    doc = Document(
+        sha256=uuid4().hex + uuid4().hex,
+        blob_path="/fixture.pdf",
+        bytes=100,
+        origin="manual",
+        scheme_id="s2023",
+        paper_id="s2023.P1",
+        attempt_id="2026-01",
+        doc_type_id=doc_type,
+        course_level=course,
+        provenance_status=provenance,
+        title="Deterministic source fixture",
+        catalog_status="confirmed",
+        extract_status="ok",
+    )
     session.add(doc)
     session.flush()
     return doc
 
 
 def unit(session, doc, text, *, parent=None, label="Q1.a", gradable=True):
-    item = Unit(document_id=doc.id, extract_run_id=1, parent_unit_id=parent,
-        label_path=label, display_label=label, kind="part" if parent else "question",
-        is_gradable=gradable, marks=10, marks_source="explicit", page_start=1, page_end=1,
-        block_start="p1-b1", block_end="p1-b2", question_text=text, text_origin="pdf",
-        fingerprint=uuid4().hex, parse_confidence="high", classify_status="pending", current=True)
+    item = Unit(
+        document_id=doc.id,
+        extract_run_id=1,
+        parent_unit_id=parent,
+        label_path=label,
+        display_label=label,
+        kind="part" if parent else "question",
+        is_gradable=gradable,
+        marks=10,
+        marks_source="explicit",
+        page_start=1,
+        page_end=1,
+        block_start="p1-b1",
+        block_end="p1-b2",
+        question_text=text,
+        text_origin="pdf",
+        fingerprint=uuid4().hex,
+        parse_confidence="high",
+        classify_status="pending",
+        current=True,
+    )
     session.add(item)
     session.flush()
     return item
@@ -66,6 +93,7 @@ def test_new_candidates_require_review_and_do_not_leak_into_legacy(session, mani
     assert {node.id for node in version_nodes(session)} == old_ids
     session.commit()
     from caf_common.audit import collect_baseline
+
     audit = collect_baseline(session.get_bind())
     completeness = audit["taxonomy_completeness"]
     assert completeness["scope"] == "legacy"
@@ -74,16 +102,27 @@ def test_new_candidates_require_review_and_do_not_leak_into_legacy(session, mani
     assert completeness["textbook_releases"][0]["node_count"] == 30
     assert completeness["textbook_releases"][0]["descriptor_revision_count"] == 6
     assert completeness["textbook_releases"][0]["recorded_descriptor_approval_count"] == 0
-    unresolved = TextbookClassifier(session, release.version_id).classify_unit("s2023.P1", "discounting")
-    assert unresolved.outcome == 'needs_review' and unresolved.primary_node_id is None
+    unresolved = TextbookClassifier(session, release.version_id).classify_unit(
+        "s2023.P1", "discounting"
+    )
+    assert unresolved.outcome == "needs_review" and unresolved.primary_node_id is None
     review_all(session, release.version_id)
-    result = TextbookClassifier(session, release.version_id).classify_unit("s2023.P1", "discounting", use_llm=False)
+    result = TextbookClassifier(session, release.version_id).classify_unit(
+        "s2023.P1", "discounting", use_llm=False
+    )
     assert result.primary_node_id not in old_ids
     assert result.evidence["taxonomy_version_id"] == release.taxonomy_version_id
     assert [node["level"] for node in result.evidence["breadcrumbs"][result.primary_node_id]] == [
-        "module", "chapter", "unit", "topic", "subtopic"]
-    no_fit = TextbookClassifier(session, release.version_id).classify_unit("s2023.P1", "unrelated medical question", use_llm=False)
-    assert no_fit.outcome == 'none_fits' and no_fit.primary_node_id is None
+        "module",
+        "chapter",
+        "unit",
+        "topic",
+        "subtopic",
+    ]
+    no_fit = TextbookClassifier(session, release.version_id).classify_unit(
+        "s2023.P1", "unrelated medical question", use_llm=False
+    )
+    assert no_fit.outcome == "none_fits" and no_fit.primary_node_id is None
 
 
 def test_recursive_classification_counts_exclude_subtopic_containers(session, manifest):
@@ -115,13 +154,17 @@ def test_multi_subtopic_and_explicit_ibs_references(session, manifest):
     manifest["descriptors"].append(descriptor)
     release = prepare(session, manifest)
     classifier = TextbookClassifier(session, release.version_id)
-    result = classifier.classify_unit("s2023.P1", "Calculate net present value using discounting", use_llm=False)
+    result = classifier.classify_unit(
+        "s2023.P1", "Calculate net present value using discounting", use_llm=False
+    )
     assert result.outcome == "needs_review" and result.primary_node_id is None
     assert set(result.alternatives) == {first["id"], second["id"]}
     assert not result.secondary_node_ids
     integrated = classifier.classify_unit("s2023.P6", "Calculate net present value", use_llm=False)
     assert integrated.evidence["cross_paper_references"] == [second["id"]]
-    prompt, candidates = GeminiClassifier(session, taxonomy_version_id=release.taxonomy_version_id).build_candidate_prompt("s2023.P6")
+    prompt, candidates = GeminiClassifier(
+        session, taxonomy_version_id=release.taxonomy_version_id
+    ).build_candidate_prompt("s2023.P6")
     assert second["id"] in candidates and "module 1" in prompt and "Descriptor revision" in prompt
     assert all(candidate.level == "subtopic" for candidate in candidates.values())
 
@@ -155,10 +198,21 @@ def test_llm_rejects_forced_candidates_and_records_successful_model(session, man
     node_id = manifest["descriptors"][0]["node_id"] if candidate == "reviewed" else candidate
     classifier = GeminiClassifier(session, taxonomy_version_id=release.taxonomy_version_id)
     classifier.api_key = "deterministic-test-provider"
-    provider = ProviderModels(dict(primary_node_id=node_id, confidence=0.9, bucket="A",
-        core_tested_concept="discounting", justification="Reviewed descriptor evidence", gist="Discount cash flows"))
+    provider = ProviderModels(
+        dict(
+            primary_node_id=node_id,
+            confidence=0.9,
+            bucket="A",
+            core_tested_concept="discounting",
+            justification="Reviewed descriptor evidence",
+            gist="Discount cash flows",
+        )
+    )
     classifier.client = ProviderClient(provider)
     classifier.model_candidates = ["unavailable-model", "fixture-successful-model"]
+    classifier.pricing.update(
+        {name: {"input": 0.0, "output": 0.0} for name in classifier.model_candidates}
+    )
     if candidate == "reviewed":
         result = classifier.classify_unit("s2023.P1", "discounting", retries=0)
         assert result.model_id == "fixture-successful-model"
@@ -174,15 +228,23 @@ def test_pipeline_preserves_root_and_historical_decision(session, manifest, doc_
     doc = document(session, doc_type=doc_type)
     if doc_type == "model_question":
         doc.attempt_id = None
-    root = unit(session, doc, "Use discounting for the following calculations", label="Q1", gradable=False)
+    root = unit(
+        session, doc, "Use discounting for the following calculations", label="Q1", gradable=False
+    )
     part = unit(session, doc, "Calculate the cash-flow value", parent=root.id)
-    second_part = unit(session, doc, "Calculate another cash-flow value", parent=root.id, label="Q1.b")
-    decision = Decision(unit_fingerprint=part.fingerprint, action="accept", payload={"historical": True})
+    second_part = unit(
+        session, doc, "Calculate another cash-flow value", parent=root.id, label="Q1.b"
+    )
+    decision = Decision(
+        unit_fingerprint=part.fingerprint, action="accept", payload={"historical": True}
+    )
     session.add(decision)
     run = Run(stage="l3_classify", status="running", stats={})
     session.add(run)
     session.commit()
-    summary = ClassificationPipeline(session, version_id=release.version_id).run_classification(run.id, doc_id=doc.id, use_llm=False, limit=1)
+    summary = ClassificationPipeline(session, version_id=release.version_id).run_classification(
+        run.id, doc_id=doc.id, use_llm=False, limit=1
+    )
     assert summary.primary_suggestions == 1
     suggestion = session.scalar(sa.select(TagSuggestion).where(TagSuggestion.unit_id == part.id))
     assert suggestion.taxonomy_version_id == release.taxonomy_version_id
@@ -192,12 +254,20 @@ def test_pipeline_preserves_root_and_historical_decision(session, manifest, doc_
     assert suggestion.evidence["source_document_sha256"] == doc.sha256
     assert session.get(Decision, decision.id).payload == {"historical": True}
     assert run.taxonomy_version_id == release.taxonomy_version_id
-    repeated = ClassificationPipeline(session, version_id=release.version_id).run_classification(run.id, doc_id=doc.id, use_llm=False)
+    repeated = ClassificationPipeline(session, version_id=release.version_id).run_classification(
+        run.id, doc_id=doc.id, use_llm=False
+    )
     assert repeated.total_processed == 1
-    assert session.scalar(sa.select(TagSuggestion).where(TagSuggestion.unit_id == second_part.id)) is not None
-    repeated = ClassificationPipeline(session, version_id=release.version_id).run_classification(run.id, doc_id=doc.id, use_llm=False)
+    assert (
+        session.scalar(sa.select(TagSuggestion).where(TagSuggestion.unit_id == second_part.id))
+        is not None
+    )
+    repeated = ClassificationPipeline(session, version_id=release.version_id).run_classification(
+        run.id, doc_id=doc.id, use_llm=False
+    )
     assert repeated.total_processed == 0
     from caf_l4.publish import make_decision
+
     with pytest.raises(ValueError, match="complete root"):
         make_decision(session, part.id, "accept", {"primary_node_id": suggestion.node_id})
     assert session.get(Decision, decision.id).payload == {"historical": True}
@@ -205,8 +275,12 @@ def test_pipeline_preserves_root_and_historical_decision(session, manifest, doc_
 
 def test_queue_excludes_lower_level_synthetic_and_unresolved(session, manifest):
     release = prepare(session, manifest)
-    for course, provenance in [("foundation", "verified"), ("intermediate", "verified"),
-                               ("final", "synthetic"), ("final", "unresolved")]:
+    for course, provenance in [
+        ("foundation", "verified"),
+        ("intermediate", "verified"),
+        ("final", "synthetic"),
+        ("final", "unresolved"),
+    ]:
         doc = document(session, course=course, provenance=provenance)
         unit(session, doc, "discounting")
     for doc_type in ("study_material", "model_answer"):
@@ -215,7 +289,9 @@ def test_queue_excludes_lower_level_synthetic_and_unresolved(session, manifest):
     run = Run(stage="l3_classify", status="running", stats={})
     session.add(run)
     session.commit()
-    summary = ClassificationPipeline(session, version_id=release.version_id).run_classification(run.id, use_llm=False)
+    summary = ClassificationPipeline(session, version_id=release.version_id).run_classification(
+        run.id, use_llm=False
+    )
     assert summary.total_processed == 0
     assert session.scalar(sa.select(sa.func.count()).select_from(TagSuggestion)) == 0
 
@@ -232,9 +308,14 @@ def test_no_fit_records_taxonomy_review_gap(session, manifest, shadow):
     assert item.classify_status == ("pending" if shadow else "needs_review")
     assert session.scalar(sa.select(TaxonomyGap).where(TaxonomyGap.unit_id == item.id)) is not None
     assert session.scalar(sa.select(TagSuggestion).where(TagSuggestion.unit_id == item.id)) is None
-    resumed = pipeline.run_classification(1, doc_id=doc.id, use_llm=False, limit=1, is_shadow=shadow)
+    resumed = pipeline.run_classification(
+        1, doc_id=doc.id, use_llm=False, limit=1, is_shadow=shadow
+    )
     assert resumed.primary_suggestions == 1
-    assert session.scalar(sa.select(TagSuggestion).where(TagSuggestion.unit_id == supported.id)) is not None
+    assert (
+        session.scalar(sa.select(TagSuggestion).where(TagSuggestion.unit_id == supported.id))
+        is not None
+    )
     assert session.scalar(sa.select(sa.func.count()).select_from(TaxonomyGap)) == 1
 
 
@@ -259,6 +340,7 @@ def test_provider_failure_is_not_reported_as_success(session, manifest, monkeypa
 def test_evaluation_requires_decisions_against_the_same_taxonomy(session, manifest):
     from caf_l3.evaluate import evaluate_model_on_reviewed_decisions
     from caf_l3.benchmark import BENCHMARK_FLAG, evaluate_calibration_benchmark
+
     release = prepare(session, manifest, activate=True)
     doc = document(session)
     item = unit(session, doc, "discounting")
@@ -266,15 +348,28 @@ def test_evaluation_requires_decisions_against_the_same_taxonomy(session, manife
     session.commit()
     ClassificationPipeline(session).run_classification(1, doc_id=doc.id, use_llm=False)
     accepted_id = manifest["nodes"][4]["id"]
-    historical = Decision(unit_fingerprint=item.fingerprint, action="accept",
-        payload={"primary_node_id": accepted_id}, blind=False)
+    historical = Decision(
+        unit_fingerprint=item.fingerprint,
+        action="accept",
+        payload={"primary_node_id": accepted_id},
+        blind=False,
+    )
     session.add(historical)
     session.commit()
     report = evaluate_model_on_reviewed_decisions(session, min_samples=1)
     assert report.total_reviewed == 0 and not report.passed
     assert evaluate_calibration_benchmark(session).total_decided == 0
-    session.add(Decision(unit_fingerprint=item.fingerprint, action="accept", blind=False,
-        payload={"primary_node_id": accepted_id, "taxonomy_version_id": release.taxonomy_version_id}))
+    session.add(
+        Decision(
+            unit_fingerprint=item.fingerprint,
+            action="accept",
+            blind=False,
+            payload={
+                "primary_node_id": accepted_id,
+                "taxonomy_version_id": release.taxonomy_version_id,
+            },
+        )
+    )
     session.commit()
     report = evaluate_model_on_reviewed_decisions(session, min_samples=1)
     assert report.total_reviewed == 0  # Version alone does not freeze suggestion/content evidence.
@@ -287,50 +382,81 @@ def test_attempt_version_scores_and_recursive_leaves(session, manifest):
     from caf_db.models.app import Settings
     from caf_db.models.intel import AttemptTaxonomyBinding
     from caf_l5.config import load_scoring_config
-    for artifact in manifest['textbook_artifacts']:
-        artifact['fallback'] = False
-        artifact['target_applicability'] = 'verified'
+
+    for artifact in manifest["textbook_artifacts"]:
+        artifact["fallback"] = False
+        artifact["target_applicability"] = "verified"
     old_run = recompute_scores(session, target_attempt_id="2027-05")
     assert get_current_score_run(session, "2027-05").id == old_run.id
     release = prepare(session, manifest, activate=True)
     assert get_current_score_run(session, "2027-05") is None
-    session.add(AttemptTaxonomyBinding(target_attempt_id='2027-05',
-        taxonomy_version_id=release.taxonomy_version_id, status='reviewed', reviewed_by=9,
-        scoring_config=load_scoring_config().model_dump(mode='json')))
-    session.get(Settings, 1).target_attempt_id = '2027-05'
+    session.add(
+        AttemptTaxonomyBinding(
+            target_attempt_id="2027-05",
+            taxonomy_version_id=release.taxonomy_version_id,
+            status="reviewed",
+            reviewed_by=9,
+            scoring_config=load_scoring_config().model_dump(mode="json"),
+        )
+    )
+    session.get(Settings, 1).target_attempt_id = "2027-05"
     session.commit()
     nodes = {node.id: node for node in version_nodes(session)}
     assert len(nodes) == 30
     assert descendant_leaves(manifest["nodes"][0]["id"], nodes) == [manifest["nodes"][4]["id"]]
     from caf_api.auth import Principal
     from caf_api.routes import get_paper_tree
-    paper_tree = get_paper_tree("s2023.P1", session,
-        Principal(id=1, name="Fixture student", email=None, role="student", status="active"))
+
+    paper_tree = get_paper_tree(
+        "s2023.P1",
+        session,
+        Principal(id=1, name="Fixture student", email=None, role="student", status="active"),
+    )
     assert paper_tree["chapters"][0].total_subtopics == 1
     assert paper_tree["chapters"][0].topics[0].subtopics[0].id == manifest["nodes"][4]["id"]
     assert paper_tree["hierarchy"][0]["children"][0]["children"][0]["level"] == "unit"
     run = recompute_scores(session, target_attempt_id="2027-05")
     assert run.taxonomy_version_id == release.taxonomy_version_id
     assert get_current_score_run(session, "2026-01") is None
-    scores = list(session.scalars(sa.select(SubtopicScore).where(SubtopicScore.score_run_id == run.id)))
+    scores = list(
+        session.scalars(sa.select(SubtopicScore).where(SubtopicScore.score_run_id == run.id))
+    )
     assert len(scores) == 6
     assert all(score.weight_prior is None and score.importance is None for score in scores)
     from caf_l5.why import get_subtopic_why
-    explanation = get_subtopic_why(session, manifest["nodes"][4]["id"], target_attempt_id="2027-05",
-                                  taxonomy_version_id=release.taxonomy_version_id)
+
+    explanation = get_subtopic_why(
+        session,
+        manifest["nodes"][4]["id"],
+        target_attempt_id="2027-05",
+        taxonomy_version_id=release.taxonomy_version_id,
+    )
     prior = explanation["importance_breakdown"]["weightage_prior"]
-    assert prior["available"] is False and prior['weight_prior_W'] is None
-    assert explanation['importance_breakdown']['weights'] == {'exam': .6, 'practice': .2, 'prior': .2}
+    assert prior["available"] is False and prior["weight_prior_W"] is None
+    assert explanation["importance_breakdown"]["weights"] == {
+        "exam": 0.6,
+        "practice": 0.2,
+        "prior": 0.2,
+    }
     assert session.get(ScoreRun, old_run.id) is not None
 
 
 def test_model_mock_course_and_nullable_attempt_metadata(session):
-    model = infer_metadata("https://resource.cdn.icai.org/model.pdf",
-        anchor_text="Paper 1 Model Test Paper Question Paper", breadcrumb=["Final"])
-    mock = infer_metadata("https://resource.cdn.icai.org/mock.pdf",
-        anchor_text="May 2026 Paper 1 Mock Test Paper Question Paper Series II", breadcrumb=["Final"])
-    lower = infer_metadata("https://resource.cdn.icai.org/foundation.pdf",
-        anchor_text="Paper 1 Model Test Paper", breadcrumb=["Foundation"])
+    model = infer_metadata(
+        "https://resource.cdn.icai.org/model.pdf",
+        anchor_text="Paper 1 Model Test Paper Question Paper",
+        breadcrumb=["Final"],
+    )
+    mock = infer_metadata(
+        "https://resource.cdn.icai.org/mock.pdf",
+        anchor_text="May 2026 Paper 1 Mock Test Paper Question Paper Series II",
+        breadcrumb=["Final"],
+    )
+    lower = infer_metadata(
+        "https://resource.cdn.icai.org/foundation.pdf",
+        anchor_text="Paper 1 Model Test Paper",
+        breadcrumb=["Foundation"],
+    )
     assert model["doc_type_id"] == "model_question" and model["attempt_id"] is None
     assert model["catalog_status"] == "inferred"
     assert mock["doc_type_id"] == "mtp_question" and mock["attempt_id"] == "2026-05"

@@ -9,6 +9,8 @@ import sqlalchemy as sa
 from sqlalchemy.orm import Session
 
 from caf_common.backup import list_backups
+from caf_common.backup_status import read_status
+from caf_common.heartbeat import STALE_AFTER_SECONDS, read_heartbeat
 from caf_common.settings import get_settings
 from caf_db.models.core import Decision
 from caf_db.models.ingest import Document, TagSuggestion, Unit
@@ -38,7 +40,7 @@ def evaluate_system_alarms(
     max_backup_age_hours: float = 48.0,
 ) -> list[Alarm]:
     """Evaluate all system alarms specified in Section 6.6 of the specification:
-    
+
     1. BACKUP_STALE: Backup older than 48 hours or absent
     2. ZERO_LINKS_DISCOVERED: Seed discovery returned 0 links
     3. EXTRACTION_FAILURE_HIGH: Extraction failure rate above 20% in latest run
@@ -46,6 +48,43 @@ def evaluate_system_alarms(
     5. BUCKET_A_PRECISION_DROP: Bucket A human acceptance precision below threshold
     """
     alarms: list[Alarm] = []
+
+    # 0. The scheduled snapshot job reports its own failures (including encryption).
+    scheduled = read_status(Path(backup_dir or get_settings().storage.backup_dir))
+    if scheduled is not None and scheduled.get("state") == "failed":
+        alarms.append(
+            Alarm(
+                code="BACKUP_FAILED",
+                level="CRITICAL",
+                message=f"The latest scheduled recovery snapshot failed: {scheduled.get('error')}",
+                details={
+                    "last_attempt_at": scheduled.get("last_attempt_at"),
+                    "last_success_at": scheduled.get("last_success_at"),
+                },
+            )
+        )
+
+    # 0b. The worker reports liveness through a heartbeat file.
+    beat = read_heartbeat(Path(backup_dir or get_settings().storage.backup_dir))
+    now = datetime.now(timezone.utc)
+    if beat is None and get_settings().app.env == "production":
+        alarms.append(
+            Alarm(
+                code="WORKER_STALE",
+                level="WARNING",
+                message="The intelligence worker has not reported yet",
+                details={"last_heartbeat_at": None},
+            )
+        )
+    elif beat is not None and (now - beat).total_seconds() > STALE_AFTER_SECONDS:
+        alarms.append(
+            Alarm(
+                code="WORKER_STALE",
+                level="CRITICAL",
+                message=f"The intelligence worker has not reported for {int((now - beat).total_seconds() // 60)} minutes",
+                details={"last_heartbeat_at": beat.isoformat()},
+            )
+        )
 
     # 1. Check Backup Freshness
     backups = list_backups(backup_dir)
@@ -82,10 +121,7 @@ def evaluate_system_alarms(
 
     # 2. Check Zero Links Discovered
     latest_discover_run = (
-        session.query(Run)
-        .filter(Run.stage == "l1.discover")
-        .order_by(Run.id.desc())
-        .first()
+        session.query(Run).filter(Run.stage == "l1.discover").order_by(Run.id.desc()).first()
     )
     if latest_discover_run and latest_discover_run.stats:
         total_discovered = latest_discover_run.stats.get("total_discovered", 0)
@@ -101,14 +137,13 @@ def evaluate_system_alarms(
 
     # 3. Check Extraction Failure Rate
     latest_extract_run = (
-        session.query(Run)
-        .filter(Run.stage == "extract")
-        .order_by(Run.id.desc())
-        .first()
+        session.query(Run).filter(Run.stage == "extract").order_by(Run.id.desc()).first()
     )
     if latest_extract_run:
         # Check documents for this extract run or overall
-        docs = session.query(Document).filter(Document.extract_run_id == latest_extract_run.id).all()
+        docs = (
+            session.query(Document).filter(Document.extract_run_id == latest_extract_run.id).all()
+        )
         if docs:
             total_docs = len(docs)
             failed_docs = sum(1 for d in docs if d.extract_status == "failed")
@@ -119,16 +154,18 @@ def evaluate_system_alarms(
                         code="EXTRACTION_FAILURE_HIGH",
                         level="WARNING",
                         message=f"Extraction failure rate is {failure_rate * 100:.1f}% (> 20%) in run #{latest_extract_run.id}",
-                        details={"run_id": latest_extract_run.id, "total": total_docs, "failed": failed_docs, "rate": round(failure_rate, 3)},
+                        details={
+                            "run_id": latest_extract_run.id,
+                            "total": total_docs,
+                            "failed": failed_docs,
+                            "rate": round(failure_rate, 3),
+                        },
                     )
                 )
 
     # 4. Check Budget Cap
     budget_aborted_run = (
-        session.query(Run)
-        .filter(Run.status == "aborted_budget")
-        .order_by(Run.id.desc())
-        .first()
+        session.query(Run).filter(Run.status == "aborted_budget").order_by(Run.id.desc()).first()
     )
     if budget_aborted_run:
         alarms.append(

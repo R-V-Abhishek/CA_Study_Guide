@@ -83,9 +83,23 @@ class DocumentValidator:
                     if identity in fidelity_seen:
                         continue
                     fidelity_seen.add(identity)
-                    issues.append(ValidationIssue(code=flag, severity="warn", message=f"Source page {block.page} requires fidelity review", unit_label=unit.label_path))
+                    issues.append(
+                        ValidationIssue(
+                            code=flag,
+                            severity="warn",
+                            message=f"Source page {block.page} requires fidelity review",
+                            unit_label=unit.label_path,
+                        )
+                    )
             if "AMBIGUOUS_REPEATED_LABEL" in unit.validation_flags:
-                issues.append(ValidationIssue(code="AMBIGUOUS_REPEATED_LABEL", severity="error", message="Repeated label needs scope review", unit_label=unit.label_path))
+                issues.append(
+                    ValidationIssue(
+                        code="AMBIGUOUS_REPEATED_LABEL",
+                        severity="error",
+                        message="Repeated label needs scope review",
+                        unit_label=unit.label_path,
+                    )
+                )
         self._assign_unit_confidence(all_units, issues)
 
         outcome = "ok"
@@ -105,22 +119,38 @@ class DocumentValidator:
             if u.kind == "question":
                 match = re.search(r"(?:^|\.)Q(\d+)(?:$|\.alt\d+$)", u.label_path)
                 if match:
-                    scopes.setdefault(u.label_path[:match.start()], set()).add(int(match.group(1)))
+                    scopes.setdefault(u.label_path[: match.start()], set()).add(int(match.group(1)))
             if u.children:
-                letters = list(dict.fromkeys(c.display_label.strip("()") for c in u.children if c.kind == "part"))
+                letters = list(
+                    dict.fromkeys(
+                        c.display_label.strip("()") for c in u.children if c.kind == "part"
+                    )
+                )
                 for offset, letter in enumerate(letters):
                     expected = chr(ord("a") + offset)
                     if letter != expected:
-                        issues.append(ValidationIssue(code="V1_PART_GAP", severity="error", message=f"Expected part {expected}, found {letter}", unit_label=f"{u.label_path}.{letter}"))
+                        issues.append(
+                            ValidationIssue(
+                                code="V1_PART_GAP",
+                                severity="error",
+                                message=f"Expected part {expected}, found {letter}",
+                                unit_label=f"{u.label_path}.{letter}",
+                            )
+                        )
                 self._check_v1_numbering(u.children, issues)
         for scope, numbers in scopes.items():
             for expected, actual in enumerate(sorted(numbers), 1):
                 if actual != expected:
-                    issues.append(ValidationIssue(code="V1_QUESTION_GAP", severity="error", message=f"Question numbering gap: expected Q{expected}, found Q{actual}", unit_label=f"{scope + '.' if scope else ''}Q{actual}"))
+                    issues.append(
+                        ValidationIssue(
+                            code="V1_QUESTION_GAP",
+                            severity="error",
+                            message=f"Question numbering gap: expected Q{expected}, found Q{actual}",
+                            unit_label=f"{scope + '.' if scope else ''}Q{actual}",
+                        )
+                    )
 
-    def _check_v2_marks(
-        self, all_units: list[ParsedUnit], issues: list[ValidationIssue]
-    ) -> None:
+    def _check_v2_marks(self, all_units: list[ParsedUnit], issues: list[ValidationIssue]) -> None:
         """V2: Every gradable unit has marks."""
         for u in all_units:
             if u.is_gradable and u.marks is None:
@@ -175,9 +205,8 @@ class DocumentValidator:
         else:
             # If no choice rule was parsed, check if total is within 1.0x to 1.6x paper_max
             total_raw = compulsory_marks + sum(optional_marks_list)
-            if (
-                self.optional_pick is None
-                and self.profile.paper_max <= total_raw <= int(1.6 * self.profile.paper_max)
+            if self.optional_pick is None and self.profile.paper_max <= total_raw <= int(
+                1.6 * self.profile.paper_max
             ):
                 issues.append(
                     ValidationIssue(
@@ -210,8 +239,17 @@ class DocumentValidator:
         for u in gradables:
             ans = answers.get(u.label_path)
             if ans and ans.status == "ambiguous":
-                issues.append(ValidationIssue(code="V4_AMBIGUOUS_ANSWER", severity="error", message=f"Multiple answers match {u.label_path}", unit_label=u.label_path))
-            has_ans = ans and ans.status != "ambiguous" and (ans.answer_text or ans.mcq_correct_option)
+                issues.append(
+                    ValidationIssue(
+                        code="V4_AMBIGUOUS_ANSWER",
+                        severity="error",
+                        message=f"Multiple answers match {u.label_path}",
+                        unit_label=u.label_path,
+                    )
+                )
+            has_ans = (
+                ans and ans.status != "ambiguous" and (ans.answer_text or ans.mcq_correct_option)
+            )
             if not has_ans:
                 missing += 1
                 issues.append(
@@ -232,12 +270,12 @@ class DocumentValidator:
                 )
             )
 
-    def _check_v5_lengths(
-        self, all_units: list[ParsedUnit], issues: list[ValidationIssue]
-    ) -> None:
+    def _check_v5_lengths(self, all_units: list[ParsedUnit], issues: list[ValidationIssue]) -> None:
         """V5: Unit text length within bounds [min_unit_chars, max_unit_chars]."""
         for u in all_units:
-            text_len = len(u.answer_text if self.profile.document_role == "answers" else u.question_text)
+            text_len = len(
+                u.answer_text if self.profile.document_role == "answers" else u.question_text
+            )
             if text_len == 0 and u.is_gradable:
                 issues.append(
                     ValidationIssue(
@@ -276,7 +314,9 @@ class DocumentValidator:
         for u in all_units:
             if u.kind == "mcq":
                 ans = answers.get(u.label_path)
-                if self.profile.document_role != "answers" and (not u.mcq_options or len(u.mcq_options) < 4):
+                if self.profile.document_role != "answers" and (
+                    not u.mcq_options or len(u.mcq_options) < 4
+                ):
                     issues.append(
                         ValidationIssue(
                             code="V6_MCQ_OPTIONS_MISSING",
@@ -295,9 +335,7 @@ class DocumentValidator:
                         )
                     )
 
-    def _check_v7_spans(
-        self, all_units: list[ParsedUnit], issues: list[ValidationIssue]
-    ) -> None:
+    def _check_v7_spans(self, all_units: list[ParsedUnit], issues: list[ValidationIssue]) -> None:
         """V7: Page spans monotonic (start <= end)."""
         for u in all_units:
             if u.page_start > u.page_end:

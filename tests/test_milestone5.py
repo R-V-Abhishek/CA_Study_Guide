@@ -170,15 +170,23 @@ def test_subtopic_why_explainability(session):
         current_run = recompute_scores(session, target_attempt_id="2026-05")
 
     # Pick a subtopic with published appearances if possible, or any subtopic
-    scored = session.query(SubtopicScore).filter(
-        SubtopicScore.score_run_id == current_run.id,
-        SubtopicScore.exam_count > 0,
-    ).first()
-    if not scored:
-        scored = session.query(SubtopicScore).filter(
+    scored = (
+        session.query(SubtopicScore)
+        .filter(
             SubtopicScore.score_run_id == current_run.id,
-            SubtopicScore.applicable.is_(True),
-        ).first()
+            SubtopicScore.exam_count > 0,
+        )
+        .first()
+    )
+    if not scored:
+        scored = (
+            session.query(SubtopicScore)
+            .filter(
+                SubtopicScore.score_run_id == current_run.id,
+                SubtopicScore.applicable.is_(True),
+            )
+            .first()
+        )
 
     assert scored is not None
     node_id = scored.node_id
@@ -208,32 +216,48 @@ def test_weak_subtopic_flag_rules():
     )
 
     # Case 1: Meets all conditions: applicable, freq_hits >= 3, freq_window >= 5, not_started
-    assert is_subtopic_weak(
-        applicable=True, freq_hits=3, freq_window=5, status="not_started", config=config
-    ) is True
+    assert (
+        is_subtopic_weak(
+            applicable=True, freq_hits=3, freq_window=5, status="not_started", config=config
+        )
+        is True
+    )
 
     # Case 2: Guard on thin data: freq_window < N (e.g. only 3 exams ingested so far)
-    assert is_subtopic_weak(
-        applicable=True, freq_hits=3, freq_window=4, status="not_started", config=config
-    ) is False
+    assert (
+        is_subtopic_weak(
+            applicable=True, freq_hits=3, freq_window=4, status="not_started", config=config
+        )
+        is False
+    )
 
     # Case 3: Hits < min_hits (e.g. only asked once in 5 exams)
-    assert is_subtopic_weak(
-        applicable=True, freq_hits=2, freq_window=5, status="not_started", config=config
-    ) is False
+    assert (
+        is_subtopic_weak(
+            applicable=True, freq_hits=2, freq_window=5, status="not_started", config=config
+        )
+        is False
+    )
 
     # Case 4: Already in progress or done
-    assert is_subtopic_weak(
-        applicable=True, freq_hits=4, freq_window=5, status="in_progress", config=config
-    ) is False
-    assert is_subtopic_weak(
-        applicable=True, freq_hits=4, freq_window=5, status="done", config=config
-    ) is False
+    assert (
+        is_subtopic_weak(
+            applicable=True, freq_hits=4, freq_window=5, status="in_progress", config=config
+        )
+        is False
+    )
+    assert (
+        is_subtopic_weak(applicable=True, freq_hits=4, freq_window=5, status="done", config=config)
+        is False
+    )
 
     # Case 5: Inapplicable subtopic
-    assert is_subtopic_weak(
-        applicable=False, freq_hits=4, freq_window=5, status="not_started", config=config
-    ) is False
+    assert (
+        is_subtopic_weak(
+            applicable=False, freq_hits=4, freq_window=5, status="not_started", config=config
+        )
+        is False
+    )
 
 
 def test_api_meta_and_tree_endpoints(client):

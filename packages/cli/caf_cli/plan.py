@@ -39,7 +39,10 @@ def cmd_plan(
         )
 
         if not items:
-            console.print(plan.get("score_unavailable_reason") or "[dim]No candidate subtopics available for planning.[/dim]")
+            console.print(
+                plan.get("score_unavailable_reason")
+                or "[dim]No candidate subtopics available for planning.[/dim]"
+            )
             return
 
         table = Table(title="Allocated Subtopics for Study")
@@ -55,9 +58,7 @@ def cmd_plan(
         for idx, item in enumerate(items, 1):
             weak_str = "[bold red]YES[/bold red]" if item["weak"] else "-"
             status_style = (
-                "[yellow]in_progress[/yellow]"
-                if item["status"] == "in_progress"
-                else "not_started"
+                "[yellow]in_progress[/yellow]" if item["status"] == "in_progress" else "not_started"
             )
             table.add_row(
                 str(idx),

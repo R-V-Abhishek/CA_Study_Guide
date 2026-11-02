@@ -1,4 +1,5 @@
 """Published student-reader/search contracts; source paths never leave the API."""
+
 from typing import Any, Literal
 from pydantic import BaseModel, Field
 from caf_contracts.extraction import ExtractedQuestion, PageResult
@@ -52,7 +53,7 @@ class AttributedNodeShare(BaseModel):
 class MarksAllocation(BaseModel):
     part_id: str
     marks: int | None
-    allocation_status: Literal['reviewed','ambiguous']
+    allocation_status: Literal["reviewed", "ambiguous"]
     choice_group: str | None
     node_shares: list[AttributedNodeShare]
 
