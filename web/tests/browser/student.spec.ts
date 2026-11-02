@@ -38,6 +38,8 @@ test('plan block duration requests a new allocation without changing saved setti
   expect(expected.minutes_per_subtopic).toBe(17);
   await page.goto('/plan?adjust=true');
   await expect(page.getByLabel('Block duration (minutes)')).toBeVisible();
+  // The field is empty until the plan loads; clearing it earlier fires no change event.
+  await expect(page.getByLabel('Block duration (minutes)')).not.toHaveValue('');
   await page.getByLabel('Block duration (minutes)').fill('');
   await expect(page.getByLabel('Block duration (minutes)')).toHaveValue('');
   await expect(page.getByRole('button',{ name:'Refresh plan',exact:true })).toBeDisabled();
