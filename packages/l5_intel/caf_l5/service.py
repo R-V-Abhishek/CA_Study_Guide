@@ -264,6 +264,10 @@ def get_ingestion_coverage_matrix(session: Session, run_id: int | None = None) -
             for row in rows
         ]
 
+    # Neither source has a defined order, so give the matrix one that is stable between requests.
+    matrix.sort(
+        key=lambda cell: (cell["paper_id"], cell["attempt_id"], cell.get("source_family") or "")
+    )
     return {
         "run_id": run_id,
         "coverage": matrix,
