@@ -87,8 +87,16 @@ def test_bundle_round_trip_and_selection_guards(tmp_path):
     )
 
 
-@pytest.mark.parametrize("oci", [False, True])
-def test_saved_image_identity_across_docker_stores(tmp_path, oci):
+@pytest.mark.parametrize(
+    "media",
+    [
+        None,
+        "application/vnd.oci.image.manifest.v1+json",
+        "application/vnd.docker.distribution.manifest.v2+json",
+    ],
+)
+def test_saved_image_identity_across_docker_stores(tmp_path, media):
+    oci = media is not None
     config = b'{"architecture":"amd64","os":"linux"}'
     config_hash = hashlib.sha256(config).hexdigest()
     reference = "caf:test"
@@ -106,7 +114,7 @@ def test_saved_image_identity_across_docker_stores(tmp_path, oci):
             {
                 "manifests": [
                     {
-                        "mediaType": "application/vnd.oci.image.manifest.v1+json",
+                        "mediaType": media,
                         "digest": "sha256:" + manifest_hash,
                     }
                 ]

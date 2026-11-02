@@ -19,6 +19,11 @@ PAYLOAD = {
     "stack-verification.json",
 }
 LOCKS = ("uv.lock", "web/pnpm-lock.yaml")
+# Docker's containerd image store saves images from the classic builder with a Docker v2 manifest.
+IMAGE_MANIFEST_TYPES = {
+    "application/vnd.oci.image.manifest.v1+json",
+    "application/vnd.docker.distribution.manifest.v2+json",
+}
 
 
 class FileRecord(BaseModel):
@@ -134,7 +139,7 @@ def saved_image_ids(archive: tarfile.TarFile, record: ImageRecord) -> set[str]:
     identities = {config_id}
     if "index.json" in archive.getnames():
         for descriptor in json.loads(read("index.json"))["manifests"]:
-            if descriptor["mediaType"] != "application/vnd.oci.image.manifest.v1+json":
+            if descriptor["mediaType"] not in IMAGE_MANIFEST_TYPES:
                 continue
             manifest_id = descriptor["digest"]
             algorithm, value = manifest_id.split(":", 1)
