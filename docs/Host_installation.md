@@ -146,10 +146,11 @@ snapshot to restore into an empty destination. `.upgrade-in-progress` blocks
 another attempt until the failure has been read.
 
 Status of this tooling: the planning, snapshot-gating and receipt logic are
-unit-tested (`deploy/tests/test_host_upgrade.py`). The shell orchestration was
-syntax-checked but **has not been run end to end on Linux**. Rehearse it on a
-disposable `caf-install-*` project (as the install drill does) before using it
-on `caf-home`, and treat the first production use as unverified.
+unit-tested (`deploy/tests/test_host_upgrade.py`), and the shell orchestration has
+been run end to end by `scripts/verify_host_upgrade.py` (below) on a native Linux
+VM (arm64) against synthetic data. That is a rehearsal, not production
+acceptance: it has not run on `caf-home`, so treat the first production use as
+unverified and take a fresh snapshot first.
 
 ## Scheduled recovery snapshots
 
@@ -213,6 +214,19 @@ Explicit test projects with `--allow-candidate` require 8 GiB free; the normal
 loopback ports. Cleanup removes only the newly created test project and its
 owned temporary paths. The production installer preserves failed destinations.
 The release builder runs this drill before publishing a native Linux bundle.
+
+`scripts/verify_host_upgrade.py` extends this to the upgrade, backup and watch
+scripts. On a disposable install it checks: an upgrade with a real migration
+(0009 to 0010) that keeps every record, the previous release and its snapshot;
+refusal of same-version and overlapping upgrades; a scheduled encrypted backup
+with an authenticated decryption; `caf-host watch` alerting once, staying quiet
+while the problem lasts, then reporting recovery; rollback of a release that
+cannot start with the database untouched; and a same-schema upgrade afterwards.
+The release builder runs it after the install drill. Running it found and fixed
+four defects: image identity on newer Docker stores, the application-owned
+backups directory being unreadable to the host scripts, the upgrade receipt
+recording `snapshot` instead of the real directory name, and unstable dashboard
+coverage ordering.
 
 ### Verified checkpoint
 
