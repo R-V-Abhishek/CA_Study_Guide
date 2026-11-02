@@ -258,6 +258,11 @@ class Dashboard(BaseModel):
     freshness: ScoreFreshness | None = None
 
 
+class BaselineNotice(BaseModel):
+    attempt_label: str
+    paper_notes: dict[str, str]
+
+
 class Metadata(BaseModel):
     score_unavailable_reason: str | None = None
     taxonomy_version: str
@@ -271,6 +276,7 @@ class Metadata(BaseModel):
     ingestion_coverage: list[IngestionCoverageItem]
     context: StudyContextIdentity | None = None
     freshness: ScoreFreshness | None = None
+    baseline_notice: BaselineNotice
 
 
 class Weightage(BaseModel):

@@ -27,6 +27,7 @@ from caf_api.responses import (
     CorpusReadiness,
 )
 from caf_api.deps import get_db
+from caf_common.settings import get_settings
 from caf_api.auth import Principal, require_account
 from caf_api.version import backend_revision, score_run_identity
 from caf_db.models.app import (
@@ -845,6 +846,7 @@ def get_meta(session: Session = Depends(get_db), account: Principal = Depends(re
         "ingestion_coverage": coverage_matrix.get("coverage", []),
         "context": context.identity,
         "freshness": context.freshness,
+        "baseline_notice": get_settings().baseline_notice.model_dump(),
     }
 
 

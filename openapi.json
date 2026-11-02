@@ -5986,6 +5986,27 @@
         ],
         "title": "BaselineActivationRequest"
       },
+      "BaselineNotice": {
+        "properties": {
+          "attempt_label": {
+            "type": "string",
+            "title": "Attempt Label"
+          },
+          "paper_notes": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object",
+            "title": "Paper Notes"
+          }
+        },
+        "type": "object",
+        "required": [
+          "attempt_label",
+          "paper_notes"
+        ],
+        "title": "BaselineNotice"
+      },
       "BindingRecord": {
         "properties": {
           "target_attempt_id": {
@@ -9905,6 +9926,9 @@
                 "type": "null"
               }
             ]
+          },
+          "baseline_notice": {
+            "$ref": "#/components/schemas/BaselineNotice"
           }
         },
         "type": "object",
@@ -9917,7 +9941,8 @@
           "score_run_id",
           "score_run_computed_at",
           "score_run",
-          "ingestion_coverage"
+          "ingestion_coverage",
+          "baseline_notice"
         ],
         "title": "Metadata"
       },

@@ -1945,6 +1945,15 @@ export interface components {
             /** Manifest Hash */
             manifest_hash: string;
         };
+        /** BaselineNotice */
+        BaselineNotice: {
+            /** Attempt Label */
+            attempt_label: string;
+            /** Paper Notes */
+            paper_notes: {
+                [key: string]: string;
+            };
+        };
         /** BindingRecord */
         BindingRecord: {
             /** Target Attempt Id */
@@ -3101,6 +3110,7 @@ export interface components {
             ingestion_coverage: components["schemas"]["IngestionCoverageItem"][];
             context?: components["schemas"]["StudyContextIdentity"] | null;
             freshness?: components["schemas"]["ScoreFreshness"] | null;
+            baseline_notice: components["schemas"]["BaselineNotice"];
         };
         /** MockTestCreateRequest */
         MockTestCreateRequest: {

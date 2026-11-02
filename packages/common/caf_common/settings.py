@@ -13,6 +13,18 @@ class AppSettings(BaseModel):
     target_attempt_id: str = "2027-05"
 
 
+class BaselineNoticeSettings(BaseModel):
+    """Wording for the pending-applicability notice on baseline-adopted questions and sources."""
+
+    attempt_label: str = "May 2027"
+    paper_notes: dict[str, str] = {
+        "s2023.P5": (
+            "P5 includes older-edition material; check the prescribed syllabus before relying on "
+            "it for the exam."
+        )
+    }
+
+
 class StorageSettings(BaseModel):
     data_dir: Path = Path("./data")
     blob_dir: Path = Path("./data/blobs")
@@ -85,6 +97,7 @@ class Settings(BaseSettings):
     storage: StorageSettings = Field(default_factory=StorageSettings)
     database: DatabaseSettings = Field(default_factory=DatabaseSettings)
     ocr: OCRSettings = Field(default_factory=OCRSettings)
+    baseline_notice: BaselineNoticeSettings = Field(default_factory=BaselineNoticeSettings)
 
     @classmethod
     def load(cls, config_dir: Path = Path("config")) -> "Settings":
