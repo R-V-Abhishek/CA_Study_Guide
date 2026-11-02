@@ -219,7 +219,7 @@ def verify(bundle: Path, snapshot: Path, image: str) -> None:
         def failure_detail(result, pattern):
             logs = sorted(target.glob(pattern))
             detail = logs[-1].read_text()[-6000:] if logs else result.stderr
-            return redact(detail)
+            return redact(result.stderr[-1500:] + "\n" + detail)
 
         def upgrade(release, reference, *extra, timeout=900):
             return host(
