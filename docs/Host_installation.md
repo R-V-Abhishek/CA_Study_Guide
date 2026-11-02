@@ -172,7 +172,8 @@ The owner installs the schedule (not done automatically), together with the heal
 sudo /opt/caf/repo/deploy/install-units.sh
 ```
 
-It copies the four units to `/etc/systemd/system`, checks them with `systemd-analyze verify`, reloads
+It first checks that the installed web image has the `_watch` and `_backup` commands (releases up to `v0.2.1`
+do not, and it refuses to install until a newer release is running). It then copies the four units to `/etc/systemd/system`, checks them with `systemd-analyze verify`, reloads
 systemd and enables `caf-backup.timer` and `caf-watch.timer`. It prints a note if the backup recipient or the
 alert webhook is not configured yet.
 
