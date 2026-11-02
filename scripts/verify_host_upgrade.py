@@ -7,6 +7,7 @@ import json
 import os
 from pathlib import Path
 import shutil
+import socket
 import subprocess
 import sys
 import tarfile
@@ -120,6 +121,13 @@ def derive(
     bundle.with_name(bundle.name + ".sha256").write_text(f"{digest(bundle)}  {bundle.name}\n")
     verify_archive(bundle)
     return bundle, reference
+
+
+def free_port() -> int:
+    """Production publishes a fixed loopback port, and the watch script probes that port."""
+    with socket.socket() as probe:
+        probe.bind(("127.0.0.1", 0))
+        return probe.getsockname()[1]
 
 
 class Receiver(BaseHTTPRequestHandler):
@@ -277,7 +285,7 @@ def verify(bundle: Path, snapshot: Path, image: str) -> None:
                 "--project",
                 project,
                 "--port",
-                "0",
+                str(free_port()),
                 "--allow-candidate",
             )
             if installed.returncode:
