@@ -1,10 +1,10 @@
 [Unit]
-Description=Check CA Final Companion health every five minutes
+Description=Check CA Final Companion health every hour
 
 [Timer]
-OnBootSec=5min
-OnUnitActiveSec=5min
-AccuracySec=30s
+OnBootSec=10min
+OnUnitActiveSec=1h
+AccuracySec=1min
 
 [Install]
 WantedBy=timers.target

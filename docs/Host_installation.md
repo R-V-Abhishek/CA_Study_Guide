@@ -182,7 +182,7 @@ The web page `/curator/system` is read-only; it no longer creates snapshots.
 
 ## Health watch and alerts
 
-`caf-host watch` (units `deploy/caf-watch.service` and `deploy/caf-watch.timer`, every five minutes) checks
+`caf-host watch` (units `deploy/caf-watch.service` and `deploy/caf-watch.timer`, every hour) checks
 three things: the loopback readiness endpoint, the intelligence worker heartbeat
 (`backups/worker-heartbeat.json`, written every 30 seconds) and the scheduled snapshot status
 (`backups/status.json`: failed, or no success within 48 hours). The decision and de-duplication state
@@ -222,7 +222,7 @@ says `NeedsLogin`, sign in with `sudo tailscale up` and follow the URL it prints
 
 A normal reboot has not been tested on `caf-home`. After `recover-access.sh --apply` and with the machine
 on AC power, run `sudo systemctl reboot` and do not log in at the console. From another device on the tailnet,
-within about five minutes:
+within about ten minutes:
 
 1. `ssh caf-home uptime -p` answers (SSH and Tailscale came up without a login).
 2. `ssh caf-home 'systemctl is-active caf docker'` prints `active` twice.
