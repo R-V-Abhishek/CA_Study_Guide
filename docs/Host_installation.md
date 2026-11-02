@@ -166,12 +166,15 @@ a missing `age` binary or an encryption error marks the run failed and raises th
 `BACKUP_FAILED` alarm. Nothing here proves a database restore: status reports
 `restore_verified: false` until you run an isolated restore drill.
 
-The owner installs the schedule (not done automatically):
+The owner installs the schedule (not done automatically), together with the health watch below:
 
 ```sh
-sudo install -m 0644 /opt/caf/repo/deploy/caf-backup.service /opt/caf/repo/deploy/caf-backup.timer /etc/systemd/system/
-sudo systemctl daemon-reload && sudo systemctl enable --now caf-backup.timer
+sudo /opt/caf/repo/deploy/install-units.sh
 ```
+
+It copies the four units to `/etc/systemd/system`, checks them with `systemd-analyze verify`, reloads
+systemd and enables `caf-backup.timer` and `caf-watch.timer`. It prints a note if the backup recipient or the
+alert webhook is not configured yet.
 
 Copying encrypted files off the machine (the Mac, an external drive) is still manual.
 The web page `/curator/system` is read-only; it no longer creates snapshots.
@@ -191,13 +194,41 @@ while the deployment lock is held, because upgrades and restores stop services o
 delivery is logged but not retried: the state already records the alert, so check
 `journalctl -u caf-watch` if a notification never arrives.
 
-The units are not installed by the installer. The script and its logic are tested; the shell orchestration
-has not yet been run against a live Docker host (see "Upgrading an installed release" for the same caveat).
+The units are not installed by the installer: run `deploy/install-units.sh` (see above). The watch script and
+its decision logic are tested, and `scripts/verify_host_upgrade.py` runs the script against a live Docker host
+(alert once, stay quiet, report recovery). The timers themselves have not run on `caf-home`.
 
 Application logs are JSON lines in production (`CAF_ENV=production`) and readable text elsewhere. Every
 API response carries `X-Request-ID` (a harmless caller-supplied value is kept, otherwise one is generated)
 and every log line written during the request carries the same `request_id`. Access logs still drop
 query strings on `/auth/` paths.
+
+## Recovering remote access
+
+If the server stops answering SSH (for example after the lid was closed, the laptop slept or Wi-Fi did not
+come back), run this at its console:
+
+```sh
+sudo /opt/caf/repo/deploy/recover-access.sh           # read only: power, sleep policy, network, services
+sudo /opt/caf/repo/deploy/recover-access.sh --apply   # restarts NetworkManager and tailscaled, enables ssh,
+                                                      # makes Wi-Fi available before login, stops lid/idle suspend
+```
+
+It never touches Docker, the CAF services, application data or the Tailscale login. If `tailscale status` then
+says `NeedsLogin`, sign in with `sudo tailscale up` and follow the URL it prints.
+
+## Reboot acceptance
+
+A normal reboot has not been tested on `caf-home`. After `recover-access.sh --apply` and with the machine
+on AC power, run `sudo systemctl reboot` and do not log in at the console. From another device on the tailnet,
+within about five minutes:
+
+1. `ssh caf-home uptime -p` answers (SSH and Tailscale came up without a login).
+2. `ssh caf-home 'systemctl is-active caf docker'` prints `active` twice.
+3. `curl -fsS https://<tailnet-host>/api/v1/ready` succeeds, then sign in and open a question and a PDF page.
+4. `ssh caf-home 'systemctl list-timers caf-backup.timer caf-watch.timer --no-pager'` lists both timers.
+
+Record the date and result in `docs/Deployment_verification_*.md`; until then reboot acceptance stays pending.
 
 ## Disposable verification
 
