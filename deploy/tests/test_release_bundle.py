@@ -93,6 +93,7 @@ def test_bundle_round_trip_and_selection_guards(tmp_path):
         None,
         "application/vnd.oci.image.manifest.v1+json",
         "application/vnd.docker.distribution.manifest.v2+json",
+        "index",
     ],
 )
 def test_saved_image_identity_across_docker_stores(tmp_path, media):
@@ -108,17 +109,28 @@ def test_saved_image_identity_across_docker_stores(tmp_path, media):
             [{"Config": f"blobs/sha256/{config_hash}", "RepoTags": [reference]}]
         ).encode(),
     }
-    if oci:
-        files[f"blobs/sha256/{manifest_hash}"] = manifest
-        files["index.json"] = json.dumps(
+    top_hash, top_type = manifest_hash, media
+    if media == "index":
+        # A pulled multi-platform image is identified by its OCI index, one level above the manifest.
+        index = json.dumps(
             {
                 "manifests": [
                     {
-                        "mediaType": media,
+                        "mediaType": "application/vnd.oci.image.manifest.v1+json",
                         "digest": "sha256:" + manifest_hash,
                     }
                 ]
             }
+        ).encode()
+        top_hash, top_type = (
+            hashlib.sha256(index).hexdigest(),
+            "application/vnd.oci.image.index.v1+json",
+        )
+        files[f"blobs/sha256/{top_hash}"] = index
+    if oci:
+        files[f"blobs/sha256/{manifest_hash}"] = manifest
+        files["index.json"] = json.dumps(
+            {"manifests": [{"mediaType": top_type, "digest": "sha256:" + top_hash}]}
         ).encode()
     path = tmp_path / "images.tar"
 
@@ -133,13 +145,11 @@ def test_saved_image_identity_across_docker_stores(tmp_path, media):
     record = ImageRecord(reference=reference, image_id="sha256:" + config_hash)
     expected = {record.image_id}
     if oci:
-        expected.add("sha256:" + manifest_hash)
+        expected.add("sha256:" + top_hash)
     assert archived_image_ids(path, record) == expected
     if oci:
         assert (
-            archived_image_ids(
-                path, record.model_copy(update={"image_id": "sha256:" + manifest_hash})
-            )
+            archived_image_ids(path, record.model_copy(update={"image_id": "sha256:" + top_hash}))
             == expected
         )
     with pytest.raises(ValueError, match="Recorded image identity"):
@@ -152,7 +162,7 @@ def test_saved_image_identity_across_docker_stores(tmp_path, media):
         archived_image_ids(path, record)
     if oci:
         files[f"blobs/sha256/{config_hash}"] = config
-        files[f"blobs/sha256/{manifest_hash}"] = b"{}"
+        files[f"blobs/sha256/{top_hash}"] = b"{}"
         save()
         with pytest.raises(ValueError, match="manifest digest mismatch"):
             archived_image_ids(path, record)

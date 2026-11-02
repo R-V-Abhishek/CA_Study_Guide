@@ -19,7 +19,9 @@ PAYLOAD = {
     "stack-verification.json",
 }
 LOCKS = ("uv.lock", "web/pnpm-lock.yaml")
-# Docker's containerd image store saves images from the classic builder with a Docker v2 manifest.
+# Docker's containerd image store identifies an image by its manifest (Docker v2 when built by the
+# classic builder) or, for a pulled multi-platform image such as PostgreSQL, by its OCI index.
+IMAGE_INDEX_TYPE = "application/vnd.oci.image.index.v1+json"
 IMAGE_MANIFEST_TYPES = {
     "application/vnd.oci.image.manifest.v1+json",
     "application/vnd.docker.distribution.manifest.v2+json",
@@ -137,19 +139,32 @@ def saved_image_ids(archive: tarfile.TarFile, record: ImageRecord) -> set[str]:
         raise ValueError("Saved image reference must identify exactly one image")
     config_id = "sha256:" + hashlib.sha256(read(matching[0]["Config"])).hexdigest()
     identities = {config_id}
-    if "index.json" in archive.getnames():
+    saved = set(archive.getnames())
+
+    def blob(digest: str) -> bytes:
+        algorithm, value = digest.split(":", 1)
+        if algorithm != "sha256" or not re.fullmatch(r"[0-9a-f]{64}", value):
+            raise ValueError("Invalid saved image manifest digest")
+        payload = read(f"blobs/sha256/{value}")
+        if hashlib.sha256(payload).hexdigest() != value:
+            raise ValueError("Saved image manifest digest mismatch")
+        return payload
+
+    def holds_saved_image(descriptor: dict) -> bool:
+        payload = json.loads(blob(descriptor["digest"]))
+        if descriptor["mediaType"] in IMAGE_MANIFEST_TYPES:
+            return payload["config"]["digest"] == config_id
+        # A multi-platform index is bound to the image through any of its manifests saved with it.
+        return any(
+            "blobs/sha256/" + child["digest"].split(":", 1)[1] in saved and holds_saved_image(child)
+            for child in payload["manifests"]
+        )
+
+    if "index.json" in saved:
         for descriptor in json.loads(read("index.json"))["manifests"]:
-            if descriptor["mediaType"] not in IMAGE_MANIFEST_TYPES:
-                continue
-            manifest_id = descriptor["digest"]
-            algorithm, value = manifest_id.split(":", 1)
-            if algorithm != "sha256" or not re.fullmatch(r"[0-9a-f]{64}", value):
-                raise ValueError("Invalid saved image manifest digest")
-            payload = read(f"blobs/sha256/{value}")
-            if hashlib.sha256(payload).hexdigest() != value:
-                raise ValueError("Saved image manifest digest mismatch")
-            if json.loads(payload)["config"]["digest"] == config_id:
-                identities.add(manifest_id)
+            if descriptor["mediaType"] in IMAGE_MANIFEST_TYPES | {IMAGE_INDEX_TYPE}:
+                if holds_saved_image(descriptor):
+                    identities.add(descriptor["digest"])
     if record.image_id not in identities:
         raise ValueError("Recorded image identity differs from saved image metadata")
     return identities

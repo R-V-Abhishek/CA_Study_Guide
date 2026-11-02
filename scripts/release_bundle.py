@@ -268,19 +268,20 @@ def build(
                 archive.add(directory / name, arcname=name, recursive=False)
         packed.with_name(packed.name + ".sha256").write_text(f"{digest(packed)}  {packed.name}\n")
         verify_archive(packed)
-        subprocess.run(
-            [
-                "uv",
-                "run",
-                "--no-sync",
-                str(ROOT / "scripts/verify_host_install.py"),
-                str(packed),
-                str(directory / "synthetic-backup"),
-                reference,
-            ],
-            cwd=ROOT,
-            check=True,
-        )
+        for drill in ("verify_host_install.py", "verify_host_upgrade.py"):
+            subprocess.run(
+                [
+                    "uv",
+                    "run",
+                    "--no-sync",
+                    str(ROOT / "scripts" / drill),
+                    str(packed),
+                    str(directory / "synthetic-backup"),
+                    reference,
+                ],
+                cwd=ROOT,
+                check=True,
+            )
         if source_identity(ROOT, candidate) != (version, commit):
             raise ValueError("Source changed while packaging")
         # Exclusive creation also prevents overwrites by overlapping packaging invocations.
