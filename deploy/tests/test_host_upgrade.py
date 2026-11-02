@@ -154,6 +154,13 @@ def test_snapshot_must_match_schema_and_postdate_the_maintenance_window(snapshot
         not_before=moment("2026-10-20T09:00:00+00:00"),
     )
     assert report["file_integrity_verified"] is True and report["restore_verified"] is False
+    named = verify_snapshot(
+        snapshot,
+        expected_schema="0009_question_language",
+        not_before=moment("2026-10-20T09:00:00+00:00"),
+        name="caf_20261020_100000_000000_deadbeef",
+    )
+    assert named["name"] == "caf_20261020_100000_000000_deadbeef"
     with pytest.raises(ValueError, match="predates"):
         verify_snapshot(
             snapshot,

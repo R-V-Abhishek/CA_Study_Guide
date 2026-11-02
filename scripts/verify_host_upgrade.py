@@ -207,6 +207,35 @@ def verify(bundle: Path, snapshot: Path, image: str) -> None:
         def counts():
             return {table: int(sql(f"SELECT count(*) FROM {table}")) for table in tables}
 
+        def app_run(directory, *command):
+            """Run a read-only command on a directory owned by the application UID, as the application."""
+            result = subprocess.run(
+                [
+                    "docker",
+                    "run",
+                    "--rm",
+                    "--pull=never",
+                    "--user",
+                    "10001:10001",
+                    "--mount",
+                    f"type=bind,source={target / directory},target=/listing,readonly",
+                    "--entrypoint",
+                    command[0],
+                    image,
+                    *command[1:],
+                ],
+                capture_output=True,
+                text=True,
+            )
+            assert result.returncode == 0, result.stderr
+            return result.stdout
+
+        def app_files(directory):
+            return app_run(directory, "ls", "-1", "/listing").split()
+
+        def app_status():
+            return json.loads(app_run("backups", "cat", "/listing/status.json"))
+
         def receipt():
             return json.loads((target / "installation.json").read_text())
 
@@ -279,7 +308,8 @@ def verify(bundle: Path, snapshot: Path, image: str) -> None:
             assert current["application"]["version"] == "v0.2.2"
             assert current["previous"][0]["application"]["version"] == manifest.version
             snapshot_name = current["previous"][0]["snapshot"]["name"]
-            assert (target / "backups" / snapshot_name / "manifest.json").is_file()
+            assert snapshot_name.startswith("caf_"), snapshot_name
+            assert snapshot_name in app_files("backups"), "the receipt must name a real snapshot"
             assert not (target / ".upgrade-in-progress").exists()
             assert (target / "releases" / bundle.name).is_file()  # the previous bundle is retained
             expect_ready("v0.2.2")
@@ -323,7 +353,7 @@ def verify(bundle: Path, snapshot: Path, image: str) -> None:
                 "backup", "--root", str(target), "--recipient", str(absent), tooling=second_image
             )
             assert plain.returncode == 0, redact(plain.stderr[-1500:])
-            status = json.loads((target / "backups/status.json").read_text())
+            status = app_status()
             assert status["state"] == "ok" and status["encryption"] == "not_configured", status
             if shutil.which("age") and shutil.which("age-keygen"):
                 identity = base / "identity.txt"
@@ -346,7 +376,7 @@ def verify(bundle: Path, snapshot: Path, image: str) -> None:
                     tooling=second_image,
                 )
                 assert sealed.returncode == 0, redact(sealed.stderr[-1500:])
-                status = json.loads((target / "backups/status.json").read_text())
+                status = app_status()
                 assert status["encryption"] == "encrypted", status
                 encrypted = (
                     target / "encrypted-backups" / f"{status['snapshot']['name']}.tar.gz.age"
@@ -373,11 +403,14 @@ def verify(bundle: Path, snapshot: Path, image: str) -> None:
                 f"CAF_WATCH_WEBHOOK_URL=http://127.0.0.1:{receiver.server_port}/topic\n"
             )
             settings.chmod(0o600)
-            heartbeat = target / "backups/worker-heartbeat.json"
             deadline = time.monotonic() + 120
-            while not heartbeat.exists() and time.monotonic() < deadline:
+            while (
+                "worker-heartbeat.json" not in app_files("backups") and time.monotonic() < deadline
+            ):
                 time.sleep(2)
-            assert heartbeat.exists(), "the worker never wrote its heartbeat"
+            assert "worker-heartbeat.json" in app_files("backups"), (
+                "the worker never wrote its heartbeat"
+            )
 
             def watch():
                 result = host(

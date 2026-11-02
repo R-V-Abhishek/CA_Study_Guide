@@ -116,8 +116,12 @@ def prepare(
     )
 
 
-def verify_snapshot(snapshot: Path, *, expected_schema: str, not_before: datetime) -> dict:
-    """The snapshot must be intact, complete, pre-migration and taken after services stopped."""
+def verify_snapshot(
+    snapshot: Path, *, expected_schema: str, not_before: datetime, name: str | None = None
+) -> dict:
+    """The snapshot must be intact, complete, pre-migration and taken after services stopped.
+
+    The host script mounts the directory at a fixed path, so it names the real directory itself."""
     from caf_common.backup import critical_tables
 
     manifest = inspect_recovery_files(snapshot)
@@ -130,7 +134,7 @@ def verify_snapshot(snapshot: Path, *, expected_schema: str, not_before: datetim
             "Snapshot predates the maintenance window; a stale snapshot cannot protect this upgrade"
         )
     return {
-        "name": snapshot.name,
+        "name": name or snapshot.name,
         "manifest_sha256": checksum(snapshot / "manifest.json"),
         "created_at": manifest.created_at.isoformat(),
         "database_revision": manifest.database_revision,
@@ -146,12 +150,15 @@ def verify_snapshot_command(
     snapshot: Path,
     expected_schema: str = typer.Option(...),
     not_before: str = typer.Option(..., help="ISO-8601 time services stopped"),
+    name: str | None = typer.Option(None, help="Snapshot directory name on the host"),
 ) -> None:
     moment = datetime.fromisoformat(not_before)
     if moment.tzinfo is None:
         raise ValueError("not_before requires a UTC offset")
     typer.echo(
-        json.dumps(verify_snapshot(snapshot, expected_schema=expected_schema, not_before=moment))
+        json.dumps(
+            verify_snapshot(snapshot, expected_schema=expected_schema, not_before=moment, name=name)
+        )
     )
 
 

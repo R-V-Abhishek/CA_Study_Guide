@@ -158,7 +158,7 @@ docker run --rm --pull=never --network none --read-only --cap-drop ALL \
     --user 10001:10001 \
     --mount "type=bind,source=$snapshot,target=/snapshot,readonly" \
     --entrypoint caf-host "$image_id" _upgrade verify-snapshot /snapshot \
-    --expected-schema "$live" --not-before "$stopped_at" > "$work/snapshot.json" 2>> "$log"
+    --expected-schema "$live" --not-before "$stopped_at" --name "$created" > "$work/snapshot.json" 2>> "$log"
 phase=migrate
 if test "$live" != "$required"; then
     migrated=true
