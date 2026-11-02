@@ -88,6 +88,18 @@ finish() {
     exit "$code"
 }
 trap finish EXIT
+# The backups directory belongs to the application UID, so the host user reads it through the image.
+backups() {
+    docker run --rm --pull=never --network none --read-only --cap-drop ALL \
+        --security-opt no-new-privileges:true --pids-limit 64 --memory 128m --cpus 1 --user 10001:10001 \
+        --mount "type=bind,source=$root/backups,target=/backups,readonly" \
+        --entrypoint "$1" "$image_id" "${@:2}"
+}
+snapshot_names() {
+    local listing
+    listing=$(backups ls -1 /backups)
+    printf '%s\n' "$listing" | { grep '^caf_' || true; } | sort
+}
 tool() {
     docker run --rm --pull=never --network none --read-only --cap-drop ALL \
         --security-opt no-new-privileges:true --pids-limit 64 --memory 512m --cpus 1 \
@@ -130,14 +142,14 @@ else
 fi
 phase=quiesce
 : > "$root/.upgrade-in-progress"
-before=$(find "$root/backups" -mindepth 1 -maxdepth 1 -name 'caf_*' -printf '%f\n' | sort)
+before=$(snapshot_names)
 stopped_at=$(date -u +%Y-%m-%dT%H:%M:%S+00:00)
 stopped=true
 old_compose stop web worker >> "$log" 2>&1
 phase=snapshot
 # pg_dump output is owner-only (the application UID), so inspect it as that UID, read-only.
 old_compose run --rm -T --no-deps --entrypoint caf web backup run >> "$log" 2>&1
-after=$(find "$root/backups" -mindepth 1 -maxdepth 1 -name 'caf_*' -printf '%f\n' | sort)
+after=$(snapshot_names)
 created=$(comm -13 <(printf '%s\n' "$before") <(printf '%s\n' "$after"))
 test "$(printf '%s\n' "$created" | grep -c .)" = 1 || { echo 'Expected exactly one new recovery snapshot' >> "$log"; exit 1; }
 snapshot=$root/backups/$created
