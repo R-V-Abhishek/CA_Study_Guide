@@ -425,7 +425,7 @@ def verify(bundle: Path, snapshot: Path, image: str) -> None:
                 return result
 
             watch()
-            assert Receiver.messages == [], "a healthy deployment sends nothing"
+            assert Receiver.messages == [], Receiver.messages
             assert compose("stop", "web").returncode == 0
             watch()
             watch()
