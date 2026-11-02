@@ -51,6 +51,8 @@ jobs:
       - name: Tracked frontend build output matches sources
         run: pnpm check:dist
         working-directory: web
+      - run: pnpm format:check
+        working-directory: web
       - run: pnpm type-check && pnpm test:ui && pnpm build
         working-directory: web
   browser:

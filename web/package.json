@@ -10,10 +10,13 @@
     "type-check:browser": "pnpm --filter student exec tsc -p ../../tsconfig.browser.json",
     "test:browser": "playwright test",
     "test:ui": "node --test tests/ui/*.test.cjs",
-    "check:dist": "node scripts/check-dist.mjs"
+    "check:dist": "node scripts/check-dist.mjs",
+    "format": "prettier --write \"{apps,packages}/*/src/**/*.{ts,tsx}\" \"tests/**/*.ts\" playwright.config.ts",
+    "format:check": "prettier --check \"{apps,packages}/*/src/**/*.{ts,tsx}\" \"tests/**/*.ts\" playwright.config.ts"
   },
   "devDependencies": {
     "@playwright/test": "^1.63.0",
+    "prettier": "3.6.2",
     "turbo": "^2.4.4"
   },
   "packageManager": "pnpm@12.6.0"

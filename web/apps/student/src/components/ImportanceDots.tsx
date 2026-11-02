@@ -1,19 +1,13 @@
-export function ImportanceDots({
-  score,
-  size = "md",
-}: {
-  score: number;
-  size?: "sm" | "md" | "lg";
-}) {
+export function ImportanceDots({ score, size = "md" }: { score: number; size?: "sm" | "md" | "lg" }) {
   const filled = Math.round(score * 5);
   const color =
     score >= 0.8
       ? "text-red-600 dark:text-red-500"
       : score >= 0.6
-      ? "text-orange-500"
-      : score >= 0.4
-      ? "text-amber-500"
-      : "text-stone-400 dark:text-stone-500";
+        ? "text-orange-500"
+        : score >= 0.4
+          ? "text-amber-500"
+          : "text-stone-400 dark:text-stone-500";
   const sizes = { sm: "text-xs gap-0.5", md: "text-sm gap-1", lg: "text-base gap-1.5" };
 
   return (
@@ -23,10 +17,7 @@ export function ImportanceDots({
       aria-label={`Importance rating: ${filled} out of 5 stars`}
     >
       {[1, 2, 3, 4, 5].map((i) => (
-        <span
-          key={i}
-          className={i <= filled ? color : "text-stone-200 dark:text-stone-800"}
-        >
+        <span key={i} className={i <= filled ? color : "text-stone-200 dark:text-stone-800"}>
           ●
         </span>
       ))}

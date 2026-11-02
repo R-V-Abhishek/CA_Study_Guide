@@ -41,7 +41,13 @@ export interface TextbookArtifact {
   availability: string;
   fallback: boolean;
   target_applicability: string;
-  expected_structure: { kind: string; module: string | null; chapter: string | null; name: string; download_url: string }[];
+  expected_structure: {
+    kind: string;
+    module: string | null;
+    chapter: string | null;
+    name: string;
+    download_url: string;
+  }[];
   heading_reconciliation: { status: string; expected_count: number; accounted_count: number; unresolved: string[] };
   instrument: string | null;
   extracted_headings?: { number: string; title: string; pdf_page: number }[];
@@ -59,7 +65,7 @@ export interface TextbookNode {
   descriptor_revision: number | null;
   descriptor_approved: boolean;
   eligible: boolean;
-  status?: 'not_started' | 'in_progress' | 'done' | null;
+  status?: "not_started" | "in_progress" | "done" | null;
   breadcrumbs: { id: string; name: string; level: string }[];
   sources: TextbookSource[];
   children: TextbookNode[];
@@ -150,15 +156,31 @@ const nodePath = (id: string) => `/api/v1/taxonomy/nodes/${encodeURIComponent(id
 export const taxonomyApi = {
   versions: () => apiRequest<TaxonomyVersion[]>("/api/v1/taxonomy/versions"),
   tree: (id: string) => apiRequest<TextbookNode[]>(`${versionPath(id)}/tree`),
-  descriptor: (node: string, version: string) => apiRequest<TaxonomyDescriptor | null>(`${nodePath(node)}/descriptor?version_id=${encodeURIComponent(version)}`),
-  approveDescriptor: (node: string, version: string, revision: number) => apiRequest(`${nodePath(node)}/descriptor/approve`, { method: "POST", body: JSON.stringify({ version_id: version, revision }) }),
-  approveSource: (node: string, version: string) => apiRequest(`${nodePath(node)}/source/approve`, { method: "POST", body: JSON.stringify({ version_id: version }) }),
-  editDescriptor: (node: string, version: string, content: Omit<TextbookDescriptor, "revision" | "approved">) => apiRequest(`${nodePath(node)}/descriptor`, { method: "PUT", body: JSON.stringify({ version_id: version, ...content }) }),
-  history: (node: string, version: string) => apiRequest<TaxonomyHistory>(`${nodePath(node)}/history?version_id=${encodeURIComponent(version)}`),
+  descriptor: (node: string, version: string) =>
+    apiRequest<TaxonomyDescriptor | null>(`${nodePath(node)}/descriptor?version_id=${encodeURIComponent(version)}`),
+  approveDescriptor: (node: string, version: string, revision: number) =>
+    apiRequest(`${nodePath(node)}/descriptor/approve`, {
+      method: "POST",
+      body: JSON.stringify({ version_id: version, revision }),
+    }),
+  approveSource: (node: string, version: string) =>
+    apiRequest(`${nodePath(node)}/source/approve`, { method: "POST", body: JSON.stringify({ version_id: version }) }),
+  editDescriptor: (node: string, version: string, content: Omit<TextbookDescriptor, "revision" | "approved">) =>
+    apiRequest(`${nodePath(node)}/descriptor`, {
+      method: "PUT",
+      body: JSON.stringify({ version_id: version, ...content }),
+    }),
+  history: (node: string, version: string) =>
+    apiRequest<TaxonomyHistory>(`${nodePath(node)}/history?version_id=${encodeURIComponent(version)}`),
   crosswalk: (id: string) => apiRequest<TaxonomyCrosswalk[]>(`${versionPath(id)}/crosswalk`),
-  approveCrosswalk: (id: number, version: string) => apiRequest(`/api/v1/taxonomy/crosswalk/${id}/approve`, { method: "POST", body: JSON.stringify({ version_id: version }) }),
+  approveCrosswalk: (id: number, version: string) =>
+    apiRequest(`/api/v1/taxonomy/crosswalk/${id}/approve`, {
+      method: "POST",
+      body: JSON.stringify({ version_id: version }),
+    }),
   sources: (id: string) => apiRequest<TextbookArtifact[]>(`${versionPath(id)}/sources`),
   questionSources: (id: string) => apiRequest<QuestionSourceArtifact[]>(`${versionPath(id)}/question-sources`),
   report: (id: string) => apiRequest<TaxonomyReleaseReport>(`${versionPath(id)}/report`),
-  approve: (id: string, manifest_hash: string) => apiRequest(`${versionPath(id)}/approve`, { method: "POST", body: JSON.stringify({ manifest_hash }) }),
+  approve: (id: string, manifest_hash: string) =>
+    apiRequest(`${versionPath(id)}/approve`, { method: "POST", body: JSON.stringify({ manifest_hash }) }),
 };
