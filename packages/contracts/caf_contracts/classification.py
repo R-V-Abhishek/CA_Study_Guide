@@ -7,9 +7,9 @@ from caf_contracts.extraction import ExtractedQuestion
 
 
 class PartMapping(BaseModel):
-    model_config = ConfigDict(extra='forbid')
+    model_config = ConfigDict(extra="forbid")
     part_id: str = Field(min_length=1)
-    outcome: Literal['matched', 'needs_review', 'none_fits']
+    outcome: Literal["matched", "needs_review", "none_fits"]
     primary_node_id: str | None = None
     secondary_node_ids: list[str] = Field(default_factory=list)
     evidence: dict[str, Any] = Field(default_factory=dict)
@@ -17,22 +17,22 @@ class PartMapping(BaseModel):
     bucket: str | None = None
     excluded: bool = False
 
-    @model_validator(mode='after')
+    @model_validator(mode="after")
     def consistent_labels(self):
-        if self.excluded or self.outcome != 'matched':
+        if self.excluded or self.outcome != "matched":
             if self.primary_node_id or self.secondary_node_ids:
-                raise ValueError('Unresolved or excluded parts cannot carry labels')
+                raise ValueError("Unresolved or excluded parts cannot carry labels")
         elif not self.primary_node_id:
-            raise ValueError('Matched parts require a primary label')
+            raise ValueError("Matched parts require a primary label")
         if len(set(self.secondary_node_ids)) != len(self.secondary_node_ids):
-            raise ValueError('Secondary labels must be distinct')
+            raise ValueError("Secondary labels must be distinct")
         if self.primary_node_id in self.secondary_node_ids:
-            raise ValueError('Primary label cannot also be secondary')
+            raise ValueError("Primary label cannot also be secondary")
         return self
 
 
 class RevisionExpectation(BaseModel):
-    model_config = ConfigDict(extra='forbid')
+    model_config = ConfigDict(extra="forbid")
     expected_suggestion_revision_id: int = Field(ge=1)
     expected_publication_revision_id: int | None
     idempotency_key: str = Field(min_length=1, max_length=200)
@@ -43,10 +43,10 @@ class ClassificationReviewRequest(RevisionExpectation):
     note: str = Field(min_length=1, max_length=10000)
     blind: bool = False
 
-    @model_validator(mode='after')
+    @model_validator(mode="after")
     def distinct_parts(self):
         if len({part.part_id for part in self.mappings}) != len(self.mappings):
-            raise ValueError('Each part must appear exactly once')
+            raise ValueError("Each part must appear exactly once")
         return self
 
 
@@ -60,14 +60,14 @@ class ClassificationDisputeRequest(RevisionExpectation):
 
 
 class ClassificationResolveRequest(RevisionExpectation):
-    resolution: Literal['dismiss', 'replace']
+    resolution: Literal["dismiss", "replace"]
     reason: str = Field(min_length=1, max_length=10000)
     replacement_mappings: list[PartMapping] | None = None
 
-    @model_validator(mode='after')
+    @model_validator(mode="after")
     def replacement_required(self):
-        if self.resolution == 'replace' and not self.replacement_mappings:
-            raise ValueError('Replacement resolution requires the complete mapping')
+        if self.resolution == "replace" and not self.replacement_mappings:
+            raise ValueError("Replacement resolution requires the complete mapping")
         return self
 
 
@@ -137,7 +137,7 @@ class ClassificationQueueItem(BaseModel):
 
 
 class ClassificationBulkRequest(BaseModel):
-    model_config = ConfigDict(extra='forbid')
+    model_config = ConfigDict(extra="forbid")
     reviews: list[ClassificationReviewRequest] = Field(min_length=1, max_length=100)
 
 

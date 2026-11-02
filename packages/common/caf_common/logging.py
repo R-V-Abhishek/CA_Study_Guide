@@ -25,14 +25,25 @@ def setup_logging(level: str = "INFO", json: bool | None = None) -> None:
     """
     use_json = _json_requested() if json is None else json
     log_level = getattr(logging, level.upper(), logging.INFO)
-    timestamp = structlog.processors.TimeStamper(fmt="iso", utc=True) if use_json else \
-        structlog.processors.TimeStamper(fmt="%Y-%m-%d %H:%M:%S", utc=False)
-    shared = [structlog.contextvars.merge_contextvars, structlog.processors.add_log_level, timestamp]
+    timestamp = (
+        structlog.processors.TimeStamper(fmt="iso", utc=True)
+        if use_json
+        else structlog.processors.TimeStamper(fmt="%Y-%m-%d %H:%M:%S", utc=False)
+    )
+    shared = [
+        structlog.contextvars.merge_contextvars,
+        structlog.processors.add_log_level,
+        timestamp,
+    ]
     renderer = structlog.processors.JSONRenderer() if use_json else structlog.dev.ConsoleRenderer()
 
     structlog.configure(
-        processors=[*shared, structlog.processors.StackInfoRenderer(),
-                    structlog.processors.format_exc_info if use_json else structlog.dev.set_exc_info, renderer],
+        processors=[
+            *shared,
+            structlog.processors.StackInfoRenderer(),
+            structlog.processors.format_exc_info if use_json else structlog.dev.set_exc_info,
+            renderer,
+        ],
         wrapper_class=structlog.make_filtering_bound_logger(log_level),
         context_class=dict,
         logger_factory=_stderr_logger,
@@ -40,10 +51,16 @@ def setup_logging(level: str = "INFO", json: bool | None = None) -> None:
     )
     if use_json:
         handler = logging.StreamHandler(sys.stderr)
-        handler.setFormatter(structlog.stdlib.ProcessorFormatter(
-            foreign_pre_chain=[*shared, structlog.stdlib.add_logger_name],
-            processors=[structlog.stdlib.ProcessorFormatter.remove_processors_meta,
-                        structlog.processors.format_exc_info, renderer]))
+        handler.setFormatter(
+            structlog.stdlib.ProcessorFormatter(
+                foreign_pre_chain=[*shared, structlog.stdlib.add_logger_name],
+                processors=[
+                    structlog.stdlib.ProcessorFormatter.remove_processors_meta,
+                    structlog.processors.format_exc_info,
+                    renderer,
+                ],
+            )
+        )
         root = logging.getLogger()
         root.handlers = [handler]
         root.setLevel(log_level)

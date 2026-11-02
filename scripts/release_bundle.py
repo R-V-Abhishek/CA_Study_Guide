@@ -14,7 +14,15 @@ import tomllib
 import typer
 
 from caf_cli.host_bundle import (
-    FileRecord, ImageRecord, LOCKS, Manifest, PAYLOAD, archived_image_ids, check_manifest, digest, verify_archive,
+    FileRecord,
+    ImageRecord,
+    LOCKS,
+    Manifest,
+    PAYLOAD,
+    archived_image_ids,
+    check_manifest,
+    digest,
+    verify_archive,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -27,7 +35,9 @@ def run(arguments: list[str], *, cwd: Path = ROOT, **kwargs) -> str:
 
 def source_identity(root: Path, candidate: bool) -> tuple[str, str]:
     if run(["git", "status", "--porcelain", "--untracked-files=all"], cwd=root):
-        raise ValueError("Release packaging requires a clean working tree, including untracked files")
+        raise ValueError(
+            "Release packaging requires a clean working tree, including untracked files"
+        )
     commit = run(["git", "rev-parse", "HEAD"], cwd=root)
     project = tomllib.loads((root / "pyproject.toml").read_text())["project"]
     version = "v" + project["version"]
@@ -45,8 +55,9 @@ def source_identity(root: Path, candidate: bool) -> tuple[str, str]:
 
 
 @app.command()
-def verify(bundle: Path, platform: str | None = None, allow_candidate: bool = False,
-           load: bool = False) -> None:
+def verify(
+    bundle: Path, platform: str | None = None, allow_candidate: bool = False, load: bool = False
+) -> None:
     """Verify all file hashes before loading; candidate bundles require explicit opt-in."""
     manifest = verify_archive(bundle)
     if manifest.candidate and not allow_candidate:
@@ -59,17 +70,29 @@ def verify(bundle: Path, platform: str | None = None, allow_candidate: bool = Fa
             with tarfile.open(bundle, "r:gz") as archive, path.open("wb") as destination:
                 with archive.extractfile("images.tar") as origin:
                     shutil.copyfileobj(origin, destination)
-            identities = {record.reference: archived_image_ids(path, record)
-                          for record in (manifest.application, manifest.postgres)}
+            identities = {
+                record.reference: archived_image_ids(path, record)
+                for record in (manifest.application, manifest.postgres)
+            }
             subprocess.run(["docker", "image", "load", "-i", str(path)], check=True)
         for record in (manifest.application, manifest.postgres):
             image = json.loads(run(["docker", "image", "inspect", record.reference]))[0]
-            if image["Id"] not in identities[record.reference] or f"{image['Os']}/{image['Architecture']}" != manifest.platform:
+            if (
+                image["Id"] not in identities[record.reference]
+                or f"{image['Os']}/{image['Architecture']}" != manifest.platform
+            ):
                 raise ValueError("Loaded image identity or architecture differs from manifest")
-        labels = json.loads(run(["docker", "image", "inspect", manifest.application.reference]))[0]["Config"]["Labels"]
-        if labels["org.opencontainers.image.revision"] != manifest.commit or labels["org.opencontainers.image.version"] != manifest.version:
+        labels = json.loads(run(["docker", "image", "inspect", manifest.application.reference]))[0][
+            "Config"
+        ]["Labels"]
+        if (
+            labels["org.opencontainers.image.revision"] != manifest.commit
+            or labels["org.opencontainers.image.version"] != manifest.version
+        ):
             raise ValueError("Loaded application version differs from manifest")
-    typer.echo(f"PASS: {manifest.version} {manifest.commit} {manifest.platform}; all bundle checksums")
+    typer.echo(
+        f"PASS: {manifest.version} {manifest.commit} {manifest.platform}; all bundle checksums"
+    )
 
 
 @app.command()
@@ -86,6 +109,7 @@ def build(
     compatibility = tomllib.loads((ROOT / "deploy/compatibility.toml").read_text())
     from alembic.config import Config
     from alembic.script import ScriptDirectory
+
     head = ScriptDirectory.from_config(Config(str(ROOT / "alembic.ini"))).get_current_head()
     if compatibility["required_schema"] != head:
         raise ValueError("Compatibility record must name the current migration head")
@@ -107,33 +131,86 @@ def build(
         source = directory / "source"
         source.mkdir()
         snapshot = directory / "source.tar"
-        subprocess.run(["git", "archive", "--format=tar", "-o", str(snapshot), commit], cwd=ROOT, check=True)
+        subprocess.run(
+            ["git", "archive", "--format=tar", "-o", str(snapshot), commit], cwd=ROOT, check=True
+        )
         with tarfile.open(snapshot) as archive:
             archive.extractall(source, filter="data")
         metadata = directory / "build-metadata.json"
         prefix = ["docker", "buildx"] if buildx == "docker" else [buildx]
         environment = os.environ.copy()
         environment["BUILDX_METADATA_PROVENANCE"] = "max"
-        subprocess.run([*prefix, "build", "--platform", platform, "--load", "--provenance=false",
-            "--build-arg", f"SOURCE_REVISION={commit}", "--build-arg", f"APPLICATION_VERSION={version}",
-            "--build-arg", f"BUILD_TIMESTAMP={created.isoformat()}", "--metadata-file", str(metadata),
-            "-t", reference, str(source)], check=True, env=environment)
+        subprocess.run(
+            [
+                *prefix,
+                "build",
+                "--platform",
+                platform,
+                "--load",
+                "--provenance=false",
+                "--build-arg",
+                f"SOURCE_REVISION={commit}",
+                "--build-arg",
+                f"APPLICATION_VERSION={version}",
+                "--build-arg",
+                f"BUILD_TIMESTAMP={created.isoformat()}",
+                "--metadata-file",
+                str(metadata),
+                "-t",
+                reference,
+                str(source),
+            ],
+            check=True,
+            env=environment,
+        )
         image = json.loads(run(["docker", "image", "inspect", reference]))[0]
         if f"{image['Os']}/{image['Architecture']}" != platform:
             raise ValueError("Built image architecture mismatch")
         labels = image["Config"]["Labels"]
-        if labels["org.opencontainers.image.revision"] != commit or labels["org.opencontainers.image.version"] != version:
+        if (
+            labels["org.opencontainers.image.revision"] != commit
+            or labels["org.opencontainers.image.version"] != version
+        ):
             raise ValueError("Built image source identity mismatch")
         subprocess.run(["sh", str(source / "deploy/verify-image.sh"), reference], check=True)
-        subprocess.run(["uv", "run", "--no-sync", str(ROOT / "scripts/verify_host_launcher.py"),
-                        "--image", reference], cwd=ROOT, check=True)
-        subprocess.run(["docker", "pull", "--platform", platform, "postgres:16-bookworm"], check=True)
+        subprocess.run(
+            [
+                "uv",
+                "run",
+                "--no-sync",
+                str(ROOT / "scripts/verify_host_launcher.py"),
+                "--image",
+                reference,
+            ],
+            cwd=ROOT,
+            check=True,
+        )
+        subprocess.run(
+            ["docker", "pull", "--platform", platform, "postgres:16-bookworm"], check=True
+        )
         receipt = directory / "stack-verification.json"
-        subprocess.run(["uv", "run", "--no-sync", str(ROOT / "scripts/verify_production_stack.py"),
-                        "--image", reference, "--report", str(receipt),
-                        "--backup-output", str(directory / "synthetic-backup")], cwd=ROOT, check=True)
+        subprocess.run(
+            [
+                "uv",
+                "run",
+                "--no-sync",
+                str(ROOT / "scripts/verify_production_stack.py"),
+                "--image",
+                reference,
+                "--report",
+                str(receipt),
+                "--backup-output",
+                str(directory / "synthetic-backup"),
+            ],
+            cwd=ROOT,
+            check=True,
+        )
         tested = json.loads(receipt.read_text())
-        if not tested["passed"] or not tested["cleanup_succeeded"] or tested["image_id"] != image["Id"]:
+        if (
+            not tested["passed"]
+            or not tested["cleanup_succeeded"]
+            or tested["image_id"] != image["Id"]
+        ):
             raise ValueError("Stack verification failed or tested a different image")
         # Capture the exact database image that the disposable stack just exercised.
         database = json.loads(run(["docker", "image", "inspect", tested["postgres_image_id"]]))[0]
@@ -141,23 +218,49 @@ def build(
             raise ValueError("Database image architecture differs; run on a matching builder host")
         database_reference = "caf-postgres:" + database["Id"].split(":")[1]
         subprocess.run(["docker", "tag", database["Id"], database_reference], check=True)
-        subprocess.run(["docker", "image", "save", "-o", str(directory / "images.tar"),
-                        reference, database_reference], check=True)
-        for original, name_in_bundle in (("compose.production.yml", "compose.production.yml"),
-            ("deploy/host.env.example", "host.env.example"), ("deploy/verify-image.sh", "verify-image.sh"),
-            ("CHANGELOG.md", "RELEASE_NOTES.md")):
+        subprocess.run(
+            [
+                "docker",
+                "image",
+                "save",
+                "-o",
+                str(directory / "images.tar"),
+                reference,
+                database_reference,
+            ],
+            check=True,
+        )
+        for original, name_in_bundle in (
+            ("compose.production.yml", "compose.production.yml"),
+            ("deploy/host.env.example", "host.env.example"),
+            ("deploy/verify-image.sh", "verify-image.sh"),
+            ("CHANGELOG.md", "RELEASE_NOTES.md"),
+        ):
             shutil.copyfile(source / original, directory / name_in_bundle)
-        manifest = Manifest(version=version, candidate=candidate, commit=commit, platform=platform,
-            created_at=created, application=ImageRecord(reference=reference, image_id=image["Id"]),
+        manifest = Manifest(
+            version=version,
+            candidate=candidate,
+            commit=commit,
+            platform=platform,
+            created_at=created,
+            application=ImageRecord(reference=reference, image_id=image["Id"]),
             postgres=ImageRecord(reference=database_reference, image_id=database["Id"]),
-            required_schema=head, supported_schemas=compatibility["supported_schemas"],
+            required_schema=head,
+            supported_schemas=compatibility["supported_schemas"],
             dependency_locks={name: digest(source / name) for name in LOCKS},
-            files={name: FileRecord(sha256=digest(directory / name), size=(directory / name).stat().st_size)
-                   for name in PAYLOAD})
+            files={
+                name: FileRecord(
+                    sha256=digest(directory / name), size=(directory / name).stat().st_size
+                )
+                for name in PAYLOAD
+            },
+        )
         check_manifest(manifest)
         (directory / "manifest.json").write_text(manifest.model_dump_json(indent=2) + "\n")
         names = PAYLOAD | {"manifest.json"}
-        (directory / "SHA256SUMS").write_text("".join(f"{digest(directory / name)}  {name}\n" for name in sorted(names)))
+        (directory / "SHA256SUMS").write_text(
+            "".join(f"{digest(directory / name)}  {name}\n" for name in sorted(names))
+        )
         # Publish only after packaging and verification succeed; partial files remain temporary.
         packed = directory / bundle.name
         with tarfile.open(packed, "w:gz", compresslevel=6) as archive:
@@ -165,8 +268,19 @@ def build(
                 archive.add(directory / name, arcname=name, recursive=False)
         packed.with_name(packed.name + ".sha256").write_text(f"{digest(packed)}  {packed.name}\n")
         verify_archive(packed)
-        subprocess.run(["uv", "run", "--no-sync", str(ROOT / "scripts/verify_host_install.py"),
-                        str(packed), str(directory / "synthetic-backup"), reference], cwd=ROOT, check=True)
+        subprocess.run(
+            [
+                "uv",
+                "run",
+                "--no-sync",
+                str(ROOT / "scripts/verify_host_install.py"),
+                str(packed),
+                str(directory / "synthetic-backup"),
+                reference,
+            ],
+            cwd=ROOT,
+            check=True,
+        )
         if source_identity(ROOT, candidate) != (version, commit):
             raise ValueError("Source changed while packaging")
         # Exclusive creation also prevents overwrites by overlapping packaging invocations.

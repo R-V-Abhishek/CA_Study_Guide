@@ -17,8 +17,9 @@ from caf_cli.host_install import app as install_app
 from caf_cli.host_upgrade import app as upgrade_app
 from caf_cli.host_watch import app as watch_app
 
-app = typer.Typer(help="Packaged home-host tools", add_completion=False,
-                  pretty_exceptions_enable=False)
+app = typer.Typer(
+    help="Packaged home-host tools", add_completion=False, pretty_exceptions_enable=False
+)
 app.add_typer(install_app, name="_install", hidden=True)
 app.add_typer(upgrade_app, name="_upgrade", hidden=True)
 app.add_typer(backup_app, name="_backup", hidden=True)
@@ -75,10 +76,15 @@ def inspect_host(root: Path) -> HostReport:
     findings: list[Finding] = []
 
     def note(code: str, message: str, *, blocker: bool = False) -> None:
-        findings.append(Finding(code=code, level="blocker" if blocker else "warning", message=message))
+        findings.append(
+            Finding(code=code, level="blocker" if blocker else "warning", message=message)
+        )
 
-    release = {key: shlex.split(value)[0] for key, value in properties(required(root, "os")).items()
-               if key in {"ID", "VERSION_ID"}}
+    release = {
+        key: shlex.split(value)[0]
+        for key, value in properties(required(root, "os")).items()
+        if key in {"ID", "VERSION_ID"}
+    }
     machine = required(root, "architecture").strip()
     platforms = {"x86_64": "linux/amd64", "aarch64": "linux/arm64"}
     platform = platforms.get(machine, "unsupported")
@@ -86,12 +92,16 @@ def inspect_host(root: Path) -> HostReport:
         note("ARCHITECTURE", "No release platform supports this CPU architecture", blocker=True)
     if release["ID"] != "ubuntu" or release["VERSION_ID"] != "26.04":
         note("OS_VERSION", "Host differs from the selected Ubuntu 26.04 deployment target")
-    memory = {key: int(value.split()[0]) * 1024
-              for key, value in (line.split(":", 1) for line in required(root, "memory").splitlines())
-              if key in {"MemTotal", "MemAvailable"}}
+    memory = {
+        key: int(value.split()[0]) * 1024
+        for key, value in (line.split(":", 1) for line in required(root, "memory").splitlines())
+        if key in {"MemTotal", "MemAvailable"}
+    }
     free = int(required(root, "storage").splitlines()[1].split()[3]) * 1024
     if free < 50 * GIB:
-        note("INITIAL_FREE_SPACE", "Initial installation requires at least 50 GiB free", blocker=True)
+        note(
+            "INITIAL_FREE_SPACE", "Initial installation requires at least 50 GiB free", blocker=True
+        )
     if memory["MemTotal"] < 8 * GIB:
         note("LOW_RAM", "Less than 8 GiB RAM; runtime budgets need measurement")
 
@@ -112,10 +122,13 @@ def inspect_host(root: Path) -> HostReport:
     if state != "Running" or online is not True:
         note("TAILSCALE", "Private connectivity is not confirmed", blocker=True)
     code, text = probe(root, "backup_mount")
-    mounted = code == 0 and any(item["target"] == "/mnt/caf-backup"
-                                for item in json.loads(text)["filesystems"])
+    mounted = code == 0 and any(
+        item["target"] == "/mnt/caf-backup" for item in json.loads(text)["filesystems"]
+    )
     if not mounted:
-        note("BACKUP_DRIVE", "External backup drive is not mounted; production import remains gated")
+        note(
+            "BACKUP_DRIVE", "External backup drive is not mounted; production import remains gated"
+        )
     observations["external_backup_mount"] = json.loads(text)["filesystems"] if mounted else []
 
     code, text = probe(root, "clock")
@@ -126,13 +139,24 @@ def inspect_host(root: Path) -> HostReport:
     code, text = probe(root, "services")
     services = [properties(block) for block in text.strip().split("\n\n") if block.strip()]
     observations["services"] = services
-    if code or len(services) != 3 or any(item.get("ActiveState") != "active" or
-            item.get("UnitFileState") != "enabled" for item in services):
+    if (
+        code
+        or len(services) != 3
+        or any(
+            item.get("ActiveState") != "active" or item.get("UnitFileState") != "enabled"
+            for item in services
+        )
+    ):
         note("BOOT_SERVICES", "Docker, Tailscale and SSH must be active and enabled at boot")
     code, text = probe(root, "firewall")
-    observations["firewall"] = text.strip() if code == 0 else "unverified: permission denied or unavailable"
+    observations["firewall"] = (
+        text.strip() if code == 0 else "unverified: permission denied or unavailable"
+    )
     if code:
-        note("FIREWALL_UNVERIFIED", "Firewall requires a separate authorized read; this tool never elevates privileges")
+        note(
+            "FIREWALL_UNVERIFIED",
+            "Firewall requires a separate authorized read; this tool never elevates privileges",
+        )
     code, text = probe(root, "suspend")
     suspend = {}
     if code == 0:
@@ -140,7 +164,12 @@ def inspect_host(root: Path) -> HostReport:
             line = line.strip()
             if line and not line.startswith(("#", ";", "[")) and "=" in line:
                 key, value = line.split("=", 1)
-                if key in {"HandleLidSwitch", "HandleLidSwitchExternalPower", "HandleLidSwitchDocked", "IdleAction"}:
+                if key in {
+                    "HandleLidSwitch",
+                    "HandleLidSwitchExternalPower",
+                    "HandleLidSwitchDocked",
+                    "IdleAction",
+                }:
                     suspend[key.strip()] = value.strip()
     observations["suspend_policy"] = suspend
     if suspend.get("HandleLidSwitchExternalPower", suspend.get("HandleLidSwitch")) != "ignore":
@@ -156,41 +185,77 @@ def inspect_host(root: Path) -> HostReport:
     if not mains or not any(item.get("online") == "1" for item in mains):
         note("AC_POWER", "Connection to AC power is not confirmed")
     code, text = probe(root, "temperature")
-    temperatures = {key: int(value) / 1000 for key, value in
-                    (line.split() for line in text.splitlines())} if code == 0 else {}
+    temperatures = (
+        {key: int(value) / 1000 for key, value in (line.split() for line in text.splitlines())}
+        if code == 0
+        else {}
+    )
     observations["temperature_celsius"] = temperatures
     if not temperatures:
         note("TEMPERATURE_UNAVAILABLE", "No thermal-zone temperature was available")
     elif max(temperatures.values()) >= 85:
-        note("HIGH_TEMPERATURE", "A sampled thermal zone is at least 85 C; inspect cooling and workload")
+        note(
+            "HIGH_TEMPERATURE",
+            "A sampled thermal zone is at least 85 C; inspect cooling and workload",
+        )
     code, text = probe(root, "users")
     if code:
         note("USERS_UNVERIFIED", "Login and service-account records could not be inspected")
-    users = [dict(zip(("name", "uid", "gid", "home", "shell"), line.split(":")))
-             for line in text.splitlines()] if code == 0 else []
-    observations["login_accounts"] = [item for item in users if 1000 <= int(item["uid"]) < 60000
-                                      and item["shell"] not in {"/bin/false", "/usr/sbin/nologin"}]
-    observations["greeter_accounts"] = [item for item in users if item["name"] in {"gdm", "gdm-greeter", "Debian-gdm"}]
+    users = (
+        [
+            dict(zip(("name", "uid", "gid", "home", "shell"), line.split(":")))
+            for line in text.splitlines()
+        ]
+        if code == 0
+        else []
+    )
+    observations["login_accounts"] = [
+        item
+        for item in users
+        if 1000 <= int(item["uid"]) < 60000
+        and item["shell"] not in {"/bin/false", "/usr/sbin/nologin"}
+    ]
+    observations["greeter_accounts"] = [
+        item for item in users if item["name"] in {"gdm", "gdm-greeter", "Debian-gdm"}
+    ]
     for name in ("filesystem", "disks"):
         code, text = probe(root, name)
         observations[name] = json.loads(text) if code == 0 else {"unverified": True}
     for name in ("containers", "listeners", "layout"):
         code, text = probe(root, name)
         observations[name] = text.splitlines() if code == 0 else [f"unverified: probe exit {code}"]
-    return HostReport(collected_at=(root / "collected_at").read_text().strip(),
-        tool_image=os.environ.get("CAF_HOST_TOOL_IMAGE"), os_id=release["ID"], os_version=release["VERSION_ID"],
-        platform=platform, cpu_threads=int(required(root, "cpu")), ram_total_bytes=memory["MemTotal"],
-        ram_available_bytes=memory["MemAvailable"], free_storage_bytes=free,
-        docker_version=versions["docker"], compose_version=versions["compose"],
-        tailscale_state=state, tailscale_online=online, external_backup_mounted=mounted,
-        findings=findings, observations=observations,
-        unverified=["Privileged SMART/disk health", "Measured internet upload/download",
-            "Reboot, Wi-Fi recovery and disk-unlock behavior", "Encrypted backup write/read and isolated restore",
-            "Separate student-device HTTPS and Auth0 access", "Low-battery shutdown and charge-limit behavior"])
+    return HostReport(
+        collected_at=(root / "collected_at").read_text().strip(),
+        tool_image=os.environ.get("CAF_HOST_TOOL_IMAGE"),
+        os_id=release["ID"],
+        os_version=release["VERSION_ID"],
+        platform=platform,
+        cpu_threads=int(required(root, "cpu")),
+        ram_total_bytes=memory["MemTotal"],
+        ram_available_bytes=memory["MemAvailable"],
+        free_storage_bytes=free,
+        docker_version=versions["docker"],
+        compose_version=versions["compose"],
+        tailscale_state=state,
+        tailscale_online=online,
+        external_backup_mounted=mounted,
+        findings=findings,
+        observations=observations,
+        unverified=[
+            "Privileged SMART/disk health",
+            "Measured internet upload/download",
+            "Reboot, Wi-Fi recovery and disk-unlock behavior",
+            "Encrypted backup write/read and isolated restore",
+            "Separate student-device HTTPS and Auth0 access",
+            "Low-battery shutdown and charge-limit behavior",
+        ],
+    )
 
 
 @app.command()
-def preflight(inspection: Path = typer.Option(..., help="Private snapshot made by collect-host.sh")) -> None:
+def preflight(
+    inspection: Path = typer.Option(..., help="Private snapshot made by collect-host.sh"),
+) -> None:
     """Emit a non-secret report; exit 2 means findings require attention."""
     try:
         report = inspect_host(inspection)
@@ -203,7 +268,9 @@ def preflight(inspection: Path = typer.Option(..., help="Private snapshot made b
 
 
 @app.command()
-def verify_bundle(bundle: Path, platform: str = typer.Option(...), allow_candidate: bool = False) -> None:
+def verify_bundle(
+    bundle: Path, platform: str = typer.Option(...), allow_candidate: bool = False
+) -> None:
     """Verify an offline bundle without extracting, loading images or starting services."""
     try:
         manifest = verify_archive(bundle)

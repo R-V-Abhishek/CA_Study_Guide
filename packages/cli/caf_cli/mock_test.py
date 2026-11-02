@@ -35,7 +35,9 @@ def cmd_list_mock_tests(
 
         console.print(f"\n[bold cyan]Mock Test Performance Log[/bold cyan]")
         if not rows:
-            console.print("[dim]No mock tests recorded yet. Log your first mock test with 'caf mock-test log'![/dim]")
+            console.print(
+                "[dim]No mock tests recorded yet. Log your first mock test with 'caf mock-test log'![/dim]"
+            )
             return
 
         table = Table(title="Mock Test Attempts")
@@ -49,7 +51,9 @@ def cmd_list_mock_tests(
         table.add_column("Notes", style="dim")
 
         for mt, p_code in rows:
-            pct = (float(mt.score) / float(mt.max_score) * 100.0) if float(mt.max_score) > 0 else 0.0
+            pct = (
+                (float(mt.score) / float(mt.max_score) * 100.0) if float(mt.max_score) > 0 else 0.0
+            )
             table.add_row(
                 str(mt.id),
                 p_code,
@@ -73,7 +77,9 @@ def cmd_log_mock_test(
     taken_on: str | None = typer.Option(
         None, "--date", "-d", help="Date taken in YYYY-MM-DD format (default: today)"
     ),
-    label: str | None = typer.Option(None, "--label", "-l", help="Test label (e.g. 'ICAI MTP Series 1')"),
+    label: str | None = typer.Option(
+        None, "--label", "-l", help="Test label (e.g. 'ICAI MTP Series 1')"
+    ),
     notes: str | None = typer.Option(None, "--notes", help="Study notes / review areas"),
 ) -> None:
     """Log a completed mock test attempt."""

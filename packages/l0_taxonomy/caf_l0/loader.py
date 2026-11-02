@@ -152,14 +152,18 @@ class TaxonomyLoader:
 
                 for ch_id in sec.get("chapter_ids", []):
                     if ch_id not in ch_ids:
-                        errors.append(f"Weightage section {sec['id']} references unknown chapter {ch_id}")
+                        errors.append(
+                            f"Weightage section {sec['id']} references unknown chapter {ch_id}"
+                        )
                     if ch_id in assigned_chapters:
                         errors.append(f"Chapter {ch_id} assigned to multiple weightage sections")
                     assigned_chapters.add(ch_id)
 
             unassigned = ch_ids - assigned_chapters
             if unassigned:
-                errors.append(f"Paper {code} has chapters unassigned to any weightage section: {unassigned}")
+                errors.append(
+                    f"Paper {code} has chapters unassigned to any weightage section: {unassigned}"
+                )
 
             if not (90.0 <= midpoint_sum <= 110.0):
                 errors.append(
@@ -181,7 +185,10 @@ class TaxonomyLoader:
 
         errors = self.validate(paper_trees, weightages)
         if errors:
-            raise ValueError(f"Taxonomy validation failed with {len(errors)} error(s):\n" + "\n".join(f" - {e}" for e in errors))
+            raise ValueError(
+                f"Taxonomy validation failed with {len(errors)} error(s):\n"
+                + "\n".join(f" - {e}" for e in errors)
+            )
 
         # Count nodes
         total_chapters = 0
@@ -242,11 +249,16 @@ class TaxonomyLoader:
     def apply(self, session: Session, plan: dict[str, Any]) -> int:
         """Apply plan to database in a single transaction."""
         from caf_db.models.taxonomy import TaxonomyMember, TaxonomyRelease
+
         legacy = session.get(TaxonomyRelease, "legacy")
-        if legacy and session.scalar(sa.select(TaxonomyMember.node_id).where(
-            TaxonomyMember.taxonomy_version_id == legacy.taxonomy_version_id
-        ).limit(1)):
-            raise ValueError("Legacy taxonomy is snapshotted; import an independent textbook release instead of updating legacy nodes")
+        if legacy and session.scalar(
+            sa.select(TaxonomyMember.node_id)
+            .where(TaxonomyMember.taxonomy_version_id == legacy.taxonomy_version_id)
+            .limit(1)
+        ):
+            raise ValueError(
+                "Legacy taxonomy is snapshotted; import an independent textbook release instead of updating legacy nodes"
+            )
         yaml_hash = plan["yaml_hash"]
 
         # 1. Insert taxonomy_version
@@ -392,15 +404,15 @@ class TaxonomyLoader:
                         if not s_node:
                             session.add(
                                 Node(
-                                id=sid,
-                                paper_id=paper_id,
-                                parent_id=tid,
-                                level="subtopic",
-                                name=sub["name"],
-                                seq=sub.get("seq", s_idx),
-                                created_in=version.id,
+                                    id=sid,
+                                    paper_id=paper_id,
+                                    parent_id=tid,
+                                    level="subtopic",
+                                    name=sub["name"],
+                                    seq=sub.get("seq", s_idx),
+                                    created_in=version.id,
+                                )
                             )
-                        )
                         else:
                             s_node.name = sub["name"]
                             s_node.seq = sub.get("seq", s_idx)
@@ -435,11 +447,15 @@ class TaxonomyLoader:
 
         # 10. Anchors into ref.anchor
         for item in plan.get("anchors", []):
-            existing_anchor = session.query(Anchor).filter(
-                Anchor.instrument_id == item["instrument_id"],
-                Anchor.ref_key == item["ref_key"],
-                Anchor.node_id == item["node_id"],
-            ).first()
+            existing_anchor = (
+                session.query(Anchor)
+                .filter(
+                    Anchor.instrument_id == item["instrument_id"],
+                    Anchor.ref_key == item["ref_key"],
+                    Anchor.node_id == item["node_id"],
+                )
+                .first()
+            )
             if not existing_anchor:
                 session.add(
                     Anchor(

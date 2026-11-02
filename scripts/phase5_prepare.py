@@ -9,7 +9,10 @@ import sqlalchemy as sa
 import typer
 
 from caf_common.backup import (
-    _pg_command, _validate_archived_files, database_content, file_checksum,
+    _pg_command,
+    _validate_archived_files,
+    database_content,
+    file_checksum,
 )
 from caf_common.postgres_sandbox import PostgresSandbox
 from caf_db.engine import get_engine
@@ -31,14 +34,19 @@ def migrate(connection):
     config.attributes["connection"] = connection
     command.upgrade(config, HEAD)
     preserved = preserved_content(connection, before)
-    expected = {name: value for name, value in before["tables"].items()
-                if name != "ops.alembic_version"}
+    expected = {
+        name: value for name, value in before["tables"].items() if name != "ops.alembic_version"
+    }
     if preserved != expected:
         raise ValueError("Migration changed original values; transaction aborted")
-    return {"from_revision": revision, "to_revision": HEAD,
-            "migration_sha256": file_checksum(MIGRATION),
-            "all_original_values_preserved": True, "tables_checked": len(expected),
-            "preserved": preserved}
+    return {
+        "from_revision": revision,
+        "to_revision": HEAD,
+        "migration_sha256": file_checksum(MIGRATION),
+        "all_original_values_preserved": True,
+        "tables_checked": len(expected),
+        "preserved": preserved,
+    }
 
 
 @app.command()
@@ -67,9 +75,13 @@ def drill(checkpoint: Path, report: Path = Path("docs/Phase5_Restored_Migration.
                 if compare_schema_snapshots(backup["schema"], schema_snapshot(connection)):
                     raise ValueError("Restored schema differs")
                 result = migrate(connection)
-                result.update(checkpoint=str(checkpoint), dump_sha256=backup["dump_sha256"],
-                              restored_exact=True, archived_files_verified=True,
-                              archived_file_count=len(backup["files"]))
+                result.update(
+                    checkpoint=str(checkpoint),
+                    dump_sha256=backup["dump_sha256"],
+                    restored_exact=True,
+                    archived_files_verified=True,
+                    archived_file_count=len(backup["files"]),
+                )
         finally:
             engine.dispose()
     report.write_text(json.dumps(result, indent=2) + "\n")
@@ -77,19 +89,32 @@ def drill(checkpoint: Path, report: Path = Path("docs/Phase5_Restored_Migration.
 
 
 @app.command()
-def apply(commit: bool = typer.Option(False, "--commit"),
-          drill_report: Path = Path("docs/Phase5_Restored_Migration.json"),
-          report: Path = Path("docs/Phase5_Normal_Migration.json")):
+def apply(
+    commit: bool = typer.Option(False, "--commit"),
+    drill_report: Path = Path("docs/Phase5_Restored_Migration.json"),
+    report: Path = Path("docs/Phase5_Normal_Migration.json"),
+):
     if not commit:
         with get_engine("migration").connect() as connection:
-            typer.echo(json.dumps({"current_revision": connection.scalar(sa.text(
-                "SELECT version_num FROM ops.alembic_version")), "target_revision": HEAD,
-                "migration_sha256": file_checksum(MIGRATION), "database_changed": False}, indent=2))
+            typer.echo(
+                json.dumps(
+                    {
+                        "current_revision": connection.scalar(
+                            sa.text("SELECT version_num FROM ops.alembic_version")
+                        ),
+                        "target_revision": HEAD,
+                        "migration_sha256": file_checksum(MIGRATION),
+                        "database_changed": False,
+                    },
+                    indent=2,
+                )
+            )
         return
     verified = json.loads(drill_report.read_text())
-    if not all(verified.get(key) for key in (
-        "restored_exact", "archived_files_verified", "all_original_values_preserved"
-    )) or verified["migration_sha256"] != file_checksum(MIGRATION):
+    if not all(
+        verified.get(key)
+        for key in ("restored_exact", "archived_files_verified", "all_original_values_preserved")
+    ) or verified["migration_sha256"] != file_checksum(MIGRATION):
         raise ValueError("Successful restored migration for this exact migration is required")
     checkpoint = Path(verified["checkpoint"])
     backup = json.loads(checkpoint.read_text())

@@ -25,6 +25,8 @@ jobs:
           version: '0.11.19'
           python-version: '3.12'
       - run: uv sync --locked
+      - name: Format
+        run: uv run --no-sync ruff format --check packages tests deploy scripts *.py
       - name: Lint (bug-class rules)
         run: uv run --no-sync ruff check packages tests deploy scripts *.py
       - name: Type-check API and database packages

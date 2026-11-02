@@ -47,6 +47,7 @@ def test_backup_rotation_policy(tmp_path):
         f_path.write_text("dummy dump")
         os_time = t.timestamp()
         import os
+
         os.utime(f_path, (os_time, os_time))
         created_files.append(f_path)
 
@@ -77,12 +78,7 @@ def test_backup_creation_and_listing(session, tmp_path):
     assert backups[0]["age_hours"] < 1.0
 
     # Verify ops.event recorded
-    ev = (
-        session.query(Event)
-        .filter(Event.code == "BACKUP_OK")
-        .order_by(Event.id.desc())
-        .first()
-    )
+    ev = session.query(Event).filter(Event.code == "BACKUP_OK").order_by(Event.id.desc()).first()
     assert ev is not None
     assert "caf_" in ev.message
 
@@ -91,7 +87,9 @@ def test_backup_verification_drill(session, tmp_path):
     """Verify live restore drill into scratch DB with critical table row count validation."""
     b_dir = tmp_path / "drill_backups"
     manifest = create_backup(session=session, backup_dir=b_dir)
-    res = verify_backup(session=session, dump_file=manifest.dump_file, scratch_db_name="caf_verify_test")
+    res = verify_backup(
+        session=session, dump_file=manifest.dump_file, scratch_db_name="caf_verify_test"
+    )
     assert res.verified is True
     assert len(res.mismatches) == 0
     assert "critical tables match" in res.message
@@ -165,16 +163,16 @@ def test_model_re_evaluation_procedure(session):
         u = Unit(
             document_id=doc.id,
             extract_run_id=1,
-            label_path=f"Q{i+1}.a",
-            display_label=f"{i+1}(a)",
+            label_path=f"Q{i + 1}.a",
+            display_label=f"{i + 1}(a)",
             kind="part",
             is_gradable=True,
             marks=5,
             page_start=i + 1,
             page_end=i + 1,
-            block_start=f"p{i+1}-b1",
-            block_end=f"p{i+1}-b2",
-            question_text=f"Eval test question {i+1}",
+            block_start=f"p{i + 1}-b1",
+            block_end=f"p{i + 1}-b2",
+            question_text=f"Eval test question {i + 1}",
             text_origin="pdf",
             fingerprint=fp,
             parse_confidence="high",
@@ -185,24 +183,28 @@ def test_model_re_evaluation_procedure(session):
         session.flush()
 
         # Tag suggestion: all propose node_a (Bucket A)
-        session.add(TagSuggestion(
-            unit_id=u.id,
-            run_id=1,
-            node_id=node_a,
-            role="primary",
-            method="anchor",
-            bucket="A",
-            evidence={"gist": f"Eval gist {i}"},
-        ))
+        session.add(
+            TagSuggestion(
+                unit_id=u.id,
+                run_id=1,
+                node_id=node_a,
+                role="primary",
+                method="anchor",
+                bucket="A",
+                evidence={"gist": f"Eval gist {i}"},
+            )
+        )
 
         # Decision: first 4 accept node_a (match), last 1 accepts node_b (mismatch)
         accepted_node = node_a if i < 4 else node_b
-        session.add(Decision(
-            unit_fingerprint=fp,
-            action="accept",
-            payload={"primary_node_id": accepted_node},
-            blind=False,
-        ))
+        session.add(
+            Decision(
+                unit_fingerprint=fp,
+                action="accept",
+                payload={"primary_node_id": accepted_node},
+                blind=False,
+            )
+        )
 
     session.commit()
 
@@ -259,7 +261,9 @@ def test_milestone8_cli_commands():
     # Exit code is 0 when gate passes, 1 when gate fails — both are correct CLI behaviour.
     # We only verify the command ran and produced the expected output structure.
     res_eval = runner.invoke(cli_app, ["classify", "evaluate", "--threshold", "0.80"])
-    assert res_eval.exit_code in (0, 1), f"Unexpected exit code {res_eval.exit_code}: {res_eval.output}"
+    assert res_eval.exit_code in (0, 1), (
+        f"Unexpected exit code {res_eval.exit_code}: {res_eval.output}"
+    )
     assert "Model Evaluation" in res_eval.output
     assert "Gate Outcome" in res_eval.output
 
@@ -277,14 +281,27 @@ def test_backup_endpoint_reports_scheduled_snapshot_status_without_paths(client)
 
     base = Path(get_settings().storage.backup_dir)
     base.mkdir(parents=True, exist_ok=True)
-    write_status(base, {"state": "failed", "last_attempt_at": "2026-11-01T03:30:00+00:00",
-        "last_success_at": "2026-10-31T03:30:00+00:00", "encryption": "failed:age_not_installed",
-        "error": "failed:age_not_installed",
-        "snapshot": {"name": "caf_20261031_033000_000000_deadbeef", "file_integrity_verified": True,
-                     "restore_verified": False}})
+    write_status(
+        base,
+        {
+            "state": "failed",
+            "last_attempt_at": "2026-11-01T03:30:00+00:00",
+            "last_success_at": "2026-10-31T03:30:00+00:00",
+            "encryption": "failed:age_not_installed",
+            "error": "failed:age_not_installed",
+            "snapshot": {
+                "name": "caf_20261031_033000_000000_deadbeef",
+                "file_integrity_verified": True,
+                "restore_verified": False,
+            },
+        },
+    )
     body = client.get("/api/v1/system/backups").json()
     assert body["schedule"]["state"] == "failed" and body["schedule"]["restore_verified"] is False
     assert body["schedule"]["snapshot"] == "caf_20261031_033000_000000_deadbeef"
     assert str(base) not in client.get("/api/v1/system/backups").text
     health = client.get("/api/v1/system/health").json()
-    assert any(alarm["code"] == "BACKUP_FAILED" and alarm["level"] == "CRITICAL" for alarm in health["alarms"])
+    assert any(
+        alarm["code"] == "BACKUP_FAILED" and alarm["level"] == "CRITICAL"
+        for alarm in health["alarms"]
+    )

@@ -33,9 +33,7 @@ def flatten_units(units: list[ParsedUnit]) -> list[ParsedUnit]:
     return res
 
 
-def extract_mcq_key_table(
-    lines_text: list[str], patterns: dict[str, Any]
-) -> dict[str, str]:
+def extract_mcq_key_table(lines_text: list[str], patterns: dict[str, Any]) -> dict[str, str]:
     """Parse MCQ answer key table lines into {mcq_num: option} mapping."""
     key_map: dict[str, str] = {}
     in_table = False
@@ -51,8 +49,22 @@ def extract_mcq_key_table(
             continue
 
         if in_table:
-            number = next((p.pattern.search(line) for p in patterns.get("mcq_key_number", []) if p.pattern.search(line)), None)
-            option = next((p.pattern.search(line) for p in patterns.get("mcq_key_option", []) if p.pattern.search(line)), None)
+            number = next(
+                (
+                    p.pattern.search(line)
+                    for p in patterns.get("mcq_key_number", [])
+                    if p.pattern.search(line)
+                ),
+                None,
+            )
+            option = next(
+                (
+                    p.pattern.search(line)
+                    for p in patterns.get("mcq_key_option", [])
+                    if p.pattern.search(line)
+                ),
+                None,
+            )
             if number:
                 pending_number = number.group("n")
                 continue
@@ -88,10 +100,15 @@ def pair_answers(
     # Key regions are explicit, so narrative answer lists cannot alter an MCQ key.
     mcq_keys: dict[str, str] = {}
     if key_patterns:
-        all_lines = [line.text for u in all_units for line in u.line_blocks if line.region == "answer_key"]
+        all_lines = [
+            line.text for u in all_units for line in u.line_blocks if line.region == "answer_key"
+        ]
         mcq_keys = extract_mcq_key_table(all_lines, key_patterns)
 
-    key_blocks = sorted([line for unit in all_units for line in unit.line_blocks if line.region == "answer_key"], key=lambda b: (b.page, b.order))
+    key_blocks = sorted(
+        [line for unit in all_units for line in unit.line_blocks if line.region == "answer_key"],
+        key=lambda b: (b.page, b.order),
+    )
     key_spans: dict[tuple[str, str], list[LineBlock]] = {}
     pending_number: tuple[str, LineBlock] | None = None
     current_key: tuple[str, str] | None = None
@@ -100,7 +117,9 @@ def pair_answers(
             for rule in key_patterns.get("mcq_key_row", []):
                 match = rule.pattern.search(block.text)
                 if match:
-                    key_spans.setdefault((block.numbering_scope, match.group("n")), []).append(block)
+                    key_spans.setdefault((block.numbering_scope, match.group("n")), []).append(
+                        block
+                    )
             new_number = False
             key_option = False
             for rule in key_patterns.get("mcq_key_number", []):
@@ -116,7 +135,12 @@ def pair_answers(
                     key_spans.setdefault(current_key, []).extend([pending_number[1], block])
                     pending_number = None
                     key_option = True
-            if current_key and not new_number and not key_option and current_key[0] == block.numbering_scope:
+            if (
+                current_key
+                and not new_number
+                and not key_option
+                and current_key[0] == block.numbering_scope
+            ):
                 key_spans[current_key].append(block)
 
     for u in all_units:
@@ -128,20 +152,44 @@ def pair_answers(
         if u.kind == "mcq":
             mcq_num = u.label_path.split(".")[-1].replace("M", "")
             scope = u.label_path.rsplit(".", 1)[0] if "." in u.label_path else ""
-            scoped_lines = [line.text for candidate in all_units if candidate.label_path == scope or candidate.label_path.startswith(scope + ".") for line in candidate.line_blocks if line.region == "answer_key"]
+            scoped_lines = [
+                line.text
+                for candidate in all_units
+                if candidate.label_path == scope or candidate.label_path.startswith(scope + ".")
+                for line in candidate.line_blocks
+                if line.region == "answer_key"
+            ]
             scoped_keys = extract_mcq_key_table(scoped_lines, key_patterns) if key_patterns else {}
             collection_scope = re.sub(r"\.CS[^.]+$", "", scope)
-            collection_lines = [block.text for block in key_blocks if block.numbering_scope == collection_scope]
-            collection_keys = extract_mcq_key_table(collection_lines, key_patterns) if key_patterns else {}
-            correct_opt = scoped_keys.get(mcq_num) or collection_keys.get(mcq_num) or u.mcq_correct_option
-            unique_number = sum(1 for candidate in all_units if candidate.kind == "mcq" and candidate.label_path.split(".")[-1] == f"M{mcq_num}") == 1
+            collection_lines = [
+                block.text for block in key_blocks if block.numbering_scope == collection_scope
+            ]
+            collection_keys = (
+                extract_mcq_key_table(collection_lines, key_patterns) if key_patterns else {}
+            )
+            correct_opt = (
+                scoped_keys.get(mcq_num) or collection_keys.get(mcq_num) or u.mcq_correct_option
+            )
+            unique_number = (
+                sum(
+                    1
+                    for candidate in all_units
+                    if candidate.kind == "mcq"
+                    and candidate.label_path.split(".")[-1] == f"M{mcq_num}"
+                )
+                == 1
+            )
             if not scope or unique_number:
                 correct_opt = correct_opt or mcq_keys.get(mcq_num)
             if correct_opt and not answer_blocks:
                 answer_blocks = key_spans.get((collection_scope, mcq_num), [])
                 if not answer_blocks and unique_number:
                     answer_blocks = key_spans.get(("", mcq_num), [])
-            key_explanation = "\n".join(block.raw_text or block.text for block in answer_blocks[1:]) if answer_blocks and any("Option" in block.text for block in answer_blocks) else None
+            key_explanation = (
+                "\n".join(block.raw_text or block.text for block in answer_blocks[1:])
+                if answer_blocks and any("Option" in block.text for block in answer_blocks)
+                else None
+            )
             paired[u.label_path] = PairedAnswer(
                 label_path=u.label_path,
                 answer_text=u.answer_text or key_explanation or None,
@@ -165,7 +213,9 @@ def pair_answers(
                 pairing_method="same_doc",
                 status="matched" if ans_text else "missing",
                 block_start=next((b.block_id for b in u.line_blocks if b.region == "answer"), None),
-                block_end=next((b.block_id for b in reversed(u.line_blocks) if b.region == "answer"), None),
+                block_end=next(
+                    (b.block_id for b in reversed(u.line_blocks) if b.region == "answer"), None
+                ),
             )
 
     return paired
@@ -177,7 +227,7 @@ def pair_cross_doc_answers(
     answer_doc_id: int | None = None,
 ) -> dict[str, PairedAnswer]:
     """Pair questions from a question document with answers from a separate answer document.
-    
+
     Matches units by label_path (e.g. Q1(a), Q2(b)(i)).
     """
     flat_questions = flatten_units(question_units)
@@ -195,7 +245,19 @@ def pair_cross_doc_answers(
             continue
 
         candidates = answer_map.get(q.label_path, [])
-        evidence = [{"answer_doc_id": answer_doc_id, "label_path": candidate.label_path, "answer_text": candidate.answer_text or None, "page_start": candidate.page_start, "page_end": candidate.page_end, "block_start": candidate.block_start, "block_end": candidate.block_end, "mcq_correct_option": candidate.mcq_correct_option} for candidate in candidates]
+        evidence = [
+            {
+                "answer_doc_id": answer_doc_id,
+                "label_path": candidate.label_path,
+                "answer_text": candidate.answer_text or None,
+                "page_start": candidate.page_start,
+                "page_end": candidate.page_end,
+                "block_start": candidate.block_start,
+                "block_end": candidate.block_end,
+                "mcq_correct_option": candidate.mcq_correct_option,
+            }
+            for candidate in candidates
+        ]
         ans = candidates[0] if len(candidates) == 1 else None
         if ans:
             paired[q.label_path] = PairedAnswer(

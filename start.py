@@ -47,6 +47,7 @@ def parse_db_host_port() -> tuple[str, int]:
 def is_db_reachable(host: str, port: int) -> bool:
     """Test TCP socket connection to database."""
     import socket
+
     try:
         with socket.create_connection((host, port), timeout=1.5):
             return True
@@ -122,7 +123,9 @@ def main() -> None:
         try:
             listener.bind(("0.0.0.0", 8788))
         except OSError as error:
-            raise SystemExit("Port 8788 is already occupied; the existing service was left running.") from error
+            raise SystemExit(
+                "Port 8788 is already occupied; the existing service was left running."
+            ) from error
 
     docker_bin, used_docker = ensure_db_running()
     uv_bin = find_uv()
@@ -137,8 +140,9 @@ def main() -> None:
     )
 
     worker_token = uuid4().hex
-    worker_proc = subprocess.Popen([uv_bin, "run", "caf", "intel", "worker",
-                                    "--owner-token", worker_token], cwd=PROJECT_ROOT)
+    worker_proc = subprocess.Popen(
+        [uv_bin, "run", "caf", "intel", "worker", "--owner-token", worker_token], cwd=PROJECT_ROOT
+    )
     record_worker(worker_proc.pid, worker_token)
 
     try:
@@ -163,12 +167,16 @@ def main() -> None:
             except Exception:
                 pass
         else:
-            print("\n⚠️ Server started but health check timed out. You can try opening http://127.0.0.1:8788 manually.")
+            print(
+                "\n⚠️ Server started but health check timed out. You can try opening http://127.0.0.1:8788 manually."
+            )
 
         # Keep running until Ctrl+C
         while server_proc.poll() is None:
             if worker_proc.poll() is not None:
-                raise RuntimeError(f"Intelligence worker exited with status {worker_proc.returncode}")
+                raise RuntimeError(
+                    f"Intelligence worker exited with status {worker_proc.returncode}"
+                )
             try:
                 server_proc.wait(timeout=1)
             except subprocess.TimeoutExpired:
@@ -198,8 +206,12 @@ def main() -> None:
             server_proc.wait()
         if used_docker and docker_bin:
             print("💾 Stopping database container (data safely stored)...")
-            subprocess.run([docker_bin, "compose", "stop"], cwd=PROJECT_ROOT,
-                           stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            subprocess.run(
+                [docker_bin, "compose", "stop"],
+                cwd=PROJECT_ROOT,
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL,
+            )
         print("✓ All services stopped cleanly.")
 
 

@@ -18,8 +18,12 @@ class Rule:
 
 RULES = (
     Rule("login", re.compile(r"^/auth/login$"), 20, "ip"),
-    Rule("source_pages", re.compile(
-        r"^/api/v1/(questions/[^/]+/pages/|published-sources/|published-assets/)"), 120, "session"),
+    Rule(
+        "source_pages",
+        re.compile(r"^/api/v1/(questions/[^/]+/pages/|published-sources/|published-assets/)"),
+        120,
+        "session",
+    ),
     Rule("search", re.compile(r"^/api/v1/search$"), 60, "session"),
 )
 
@@ -40,7 +44,9 @@ class RateLimiter:
             return (1 - tokens) / rate
         self.buckets[(rule.name, identity)] = (tokens - 1, now)
         if len(self.buckets) > MAX_TRACKED_KEYS:
-            self.buckets = {key: value for key, value in self.buckets.items() if now - value[1] < 120}
+            self.buckets = {
+                key: value for key, value in self.buckets.items() if now - value[1] < 120
+            }
         return None
 
     def match(self, path: str) -> Rule | None:

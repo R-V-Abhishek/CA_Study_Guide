@@ -15,7 +15,9 @@ REMINDER = timedelta(hours=24)
 BACKUP_MAX_AGE = timedelta(hours=48)
 
 
-def find_problems(*, ready: bool, backup: dict | None, heartbeat: datetime | None, now: datetime) -> dict[str, str]:
+def find_problems(
+    *, ready: bool, backup: dict | None, heartbeat: datetime | None, now: datetime
+) -> dict[str, str]:
     problems = {}
     if not ready:
         problems["NOT_READY"] = "The application is not answering its readiness check"
@@ -23,8 +25,11 @@ def find_problems(*, ready: bool, backup: dict | None, heartbeat: datetime | Non
         problems["WORKER_STALE"] = "The intelligence worker has not reported recently"
     if backup is not None and backup.get("state") == "failed":
         problems["BACKUP_FAILED"] = f"The latest recovery snapshot failed: {backup.get('error')}"
-    elif backup is None or not backup.get("last_success_at") or \
-            now - datetime.fromisoformat(backup["last_success_at"]) > BACKUP_MAX_AGE:
+    elif (
+        backup is None
+        or not backup.get("last_success_at")
+        or now - datetime.fromisoformat(backup["last_success_at"]) > BACKUP_MAX_AGE
+    ):
         problems["BACKUP_STALE"] = "No recovery snapshot has succeeded in the last 48 hours"
     return problems
 
@@ -52,7 +57,9 @@ def check(base: Path, *, ready: bool, now: datetime | None = None) -> list[dict]
     now = now or datetime.now(timezone.utc)
     path = base / STATE
     state = json.loads(path.read_text()) if path.is_file() else {}
-    problems = find_problems(ready=ready, backup=read_status(base), heartbeat=read_heartbeat(base), now=now)
+    problems = find_problems(
+        ready=ready, backup=read_status(base), heartbeat=read_heartbeat(base), now=now
+    )
     notifications, new_state = decide(problems, state, now)
     temporary = base / (STATE + ".tmp")
     temporary.write_text(json.dumps(new_state, indent=2) + "\n")

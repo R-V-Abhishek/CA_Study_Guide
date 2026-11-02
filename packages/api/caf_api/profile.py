@@ -1,4 +1,5 @@
 """Per-account profile settings and export."""
+
 from datetime import date, datetime, timezone
 from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel, Field, ConfigDict, model_validator
@@ -6,7 +7,8 @@ import sqlalchemy as sa
 from sqlalchemy.orm import Session
 
 from caf_api.responses import (
-    ProfileSettings, ProfileExport,
+    ProfileSettings,
+    ProfileExport,
 )
 from caf_api.study import api_list_mock_tests
 from caf_api.deps import get_db
@@ -54,7 +56,9 @@ class ProfileSettingsUpdate(BaseModel):
 
 def profile_settings_payload(session: Session, account: Principal) -> dict:
     settings = get_account_settings(session, account.id)
-    papers = session.scalars(sa.select(Paper).where(Paper.is_current.is_(True)).order_by(Paper.code, Paper.id)).all()
+    papers = session.scalars(
+        sa.select(Paper).where(Paper.is_current.is_(True)).order_by(Paper.code, Paper.id)
+    ).all()
     paper_ids = selected_papers(session, account.id)
     return {
         "display_name": account.name,
@@ -66,18 +70,29 @@ def profile_settings_payload(session: Session, account: Principal) -> dict:
         "revision_intervals": settings.revision_intervals,
         "exam_start_date": settings.exam_start_date,
         "include_hindi": settings.include_hindi,
-        "available_papers": [{"id": p.id, "code": p.code, "name": p.name, "group_no": p.group_no} for p in papers],
-        "available_attempts": [{"id": a.id, "label": a.label} for a in session.scalars(sa.select(Attempt).order_by(Attempt.id))],
+        "available_papers": [
+            {"id": p.id, "code": p.code, "name": p.name, "group_no": p.group_no} for p in papers
+        ],
+        "available_attempts": [
+            {"id": a.id, "label": a.label}
+            for a in session.scalars(sa.select(Attempt).order_by(Attempt.id))
+        ],
     }
 
 
 @router.get("/me/settings", response_model=ProfileSettings)
-def get_profile_settings(session: Session = Depends(get_db), account: Principal = Depends(require_account)):
+def get_profile_settings(
+    session: Session = Depends(get_db), account: Principal = Depends(require_account)
+):
     return profile_settings_payload(session, account)
 
 
 @router.put("/me/settings", response_model=ProfileSettings)
-def update_profile_settings(req: ProfileSettingsUpdate, session: Session = Depends(get_identity_db), account: Principal = Depends(require_account)):
+def update_profile_settings(
+    req: ProfileSettingsUpdate,
+    session: Session = Depends(get_identity_db),
+    account: Principal = Depends(require_account),
+):
     if session.get(Attempt, req.target_attempt_id) is None:
         raise HTTPException(status_code=422, detail="Unknown target attempt")
     valid_papers = set(session.scalars(sa.select(Paper.id).where(Paper.is_current.is_(True))))
@@ -100,10 +115,20 @@ def update_profile_settings(req: ProfileSettingsUpdate, session: Session = Depen
 
 
 @router.get("/me/export", response_model=ProfileExport)
-def export_profile(session: Session = Depends(get_db), account: Principal = Depends(require_account)):
+def export_profile(
+    session: Session = Depends(get_db), account: Principal = Depends(require_account)
+):
     def records(model):
         rows = session.scalars(sa.select(model).where(model.user_id == account.id)).all()
-        return [{column.name: row.__dict__[column.name] for column in model.__table__.columns if column.name != "user_id"} for row in rows]
+        return [
+            {
+                column.name: row.__dict__[column.name]
+                for column in model.__table__.columns
+                if column.name != "user_id"
+            }
+            for row in rows
+        ]
+
     return {
         "account_id": account.id,
         "exported_at": datetime.now(timezone.utc),

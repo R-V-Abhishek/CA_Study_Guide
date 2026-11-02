@@ -9,8 +9,15 @@ import tarfile
 
 from pydantic import BaseModel, ConfigDict, Field
 
-PAYLOAD = {"images.tar", "compose.production.yml", "host.env.example", "RELEASE_NOTES.md",
-           "verify-image.sh", "build-metadata.json", "stack-verification.json"}
+PAYLOAD = {
+    "images.tar",
+    "compose.production.yml",
+    "host.env.example",
+    "RELEASE_NOTES.md",
+    "verify-image.sh",
+    "build-metadata.json",
+    "stack-verification.json",
+}
 LOCKS = ("uv.lock", "web/pnpm-lock.yaml")
 
 
@@ -52,14 +59,19 @@ def check_manifest(manifest: Manifest) -> None:
         raise ValueError("Unexpected or missing release payload files")
     if set(manifest.dependency_locks) != set(LOCKS):
         raise ValueError("Both dependency lock hashes are required")
-    if any(not re.fullmatch(r"[0-9a-f]{64}", value) for value in manifest.dependency_locks.values()):
+    if any(
+        not re.fullmatch(r"[0-9a-f]{64}", value) for value in manifest.dependency_locks.values()
+    ):
         raise ValueError("Invalid dependency lock hash")
     if not manifest.required_schema or manifest.required_schema not in manifest.supported_schemas:
         raise ValueError("Required schema must be explicitly supported")
     if len(manifest.supported_schemas) != len(set(manifest.supported_schemas)):
         raise ValueError("Duplicate supported schemas")
     suffix = f"-candidate-{manifest.commit[:12]}" if manifest.candidate else ""
-    if manifest.application.reference != f"caf:{manifest.version}{suffix}-{manifest.platform.split('/')[1]}":
+    if (
+        manifest.application.reference
+        != f"caf:{manifest.version}{suffix}-{manifest.platform.split('/')[1]}"
+    ):
         raise ValueError("Application image reference differs from release identity")
     if manifest.postgres.reference != "caf-postgres:" + manifest.postgres.image_id.split(":")[1]:
         raise ValueError("Database image reference differs from immutable identity")
@@ -136,4 +148,3 @@ def saved_image_ids(archive: tarfile.TarFile, record: ImageRecord) -> set[str]:
     if record.image_id not in identities:
         raise ValueError("Recorded image identity differs from saved image metadata")
     return identities
-

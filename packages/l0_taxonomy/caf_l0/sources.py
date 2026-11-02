@@ -42,10 +42,14 @@ def select_sections(
         chosen = target or fallback
         if len(chosen) > 1:
             raise ValueError(f"Ambiguous verified edition for section {key}")
-        selections.append(SectionSelection(
-            key, chosen[0] if chosen else None, not target and bool(fallback),
-            None if chosen else "No verified target or January 2026 section",
-        ))
+        selections.append(
+            SectionSelection(
+                key,
+                chosen[0] if chosen else None,
+                not target and bool(fallback),
+                None if chosen else "No verified target or January 2026 section",
+            )
+        )
     return selections
 
 
@@ -58,13 +62,21 @@ class HeadingEvidence:
     section_context: str | None = None
 
 
-def pdf_evidence(path: Path, *, min_heading_size: float = 13, allow_lettered: bool = False, allow_unnumbered: bool = False) -> tuple[str, int, list[HeadingEvidence]]:
+def pdf_evidence(
+    path: Path,
+    *,
+    min_heading_size: float = 13,
+    allow_lettered: bool = False,
+    allow_unnumbered: bool = False,
+) -> tuple[str, int, list[HeadingEvidence]]:
     """Extract candidate numbered display headings; reconciliation remains a human gate."""
     digest = hashlib.sha256(path.read_bytes()).hexdigest()
     headings = []
     seen: set[tuple[str, str, str | None, str | None]] = set()
+
     def display(span):
         return span["size"] >= 13 or span["size"] >= min_heading_size and "Bold" in span["font"]
+
     with pymupdf.open(path) as pdf:
         exercise_section = False
         instrument_context = None
@@ -83,24 +95,50 @@ def pdf_evidence(path: Path, *, min_heading_size: float = 13, allow_lettered: bo
                     continue
                 if normalized.startswith("UNIT ") and any(span["size"] >= 16 for span in spans):
                     exercise_section = False
-                if any(normalized.startswith(prefix) for prefix in ("SECURITIES AND EXCHANGE BOARD OF INDIA", "THE SECURITIES AND EXCHANGE BOARD OF INDIA", "SEBI (")) and display_count / max(character_count, 1) >= 0.65 and any(s["size"] >= 15.5 for s in spans):
+                if (
+                    any(
+                        normalized.startswith(prefix)
+                        for prefix in (
+                            "SECURITIES AND EXCHANGE BOARD OF INDIA",
+                            "THE SECURITIES AND EXCHANGE BOARD OF INDIA",
+                            "SEBI (",
+                        )
+                    )
+                    and display_count / max(character_count, 1) >= 0.65
+                    and any(s["size"] >= 15.5 for s in spans)
+                ):
                     # One SEBI chapter has several separately numbered instruments,
                     # each followed by its own exercises. The next instrument is
                     # a substantive source boundary, not an answer heading.
                     instrument_context = normalized
                     previous_bottom = block["bbox"][3]
-                    for following in blocks[block_index + 1:block_index + 3]:
+                    for following in blocks[block_index + 1 : block_index + 3]:
                         following_spans = [s for line in following["lines"] for s in line["spans"]]
                         continuation = " ".join(s["text"].strip() for s in following_spans).strip()
-                        if (not continuation or following["bbox"][1] - previous_bottom > 20 or
-                            not all(s["size"] >= 15.5 for s in following_spans if s["text"].strip()) or
-                            any(continuation.upper().startswith(prefix) for prefix in ("SEBI (", "SECURITIES AND", "THE SECURITIES AND", "INDEX", "TEST YOUR"))):
+                        if (
+                            not continuation
+                            or following["bbox"][1] - previous_bottom > 20
+                            or not all(
+                                s["size"] >= 15.5 for s in following_spans if s["text"].strip()
+                            )
+                            or any(
+                                continuation.upper().startswith(prefix)
+                                for prefix in (
+                                    "SEBI (",
+                                    "SECURITIES AND",
+                                    "THE SECURITIES AND",
+                                    "INDEX",
+                                    "TEST YOUR",
+                                )
+                            )
+                        ):
                             break
                         instrument_context += " " + continuation.upper()
                         previous_bottom = following["bbox"][3]
                     exercise_section = False
                 if any(span["size"] >= 13 for span in spans) and (
-                    "TEST YOUR KNOWLEDGE" in normalized or normalized in {"ANSWERS", "ANSWERS/SOLUTIONS", "PRACTICE QUESTIONS"}
+                    "TEST YOUR KNOWLEDGE" in normalized
+                    or normalized in {"ANSWERS", "ANSWERS/SOLUTIONS", "PRACTICE QUESTIONS"}
                 ):
                     exercise_section = True
                 if exercise_section:
@@ -111,9 +149,14 @@ def pdf_evidence(path: Path, *, min_heading_size: float = 13, allow_lettered: bo
                     continue
                 if match:
                     number, title = match.groups()
-                elif (allow_unnumbered and page_index >= 3 and text.isupper() and len(text) <= 160 and
-                      len(re.sub(r"[^A-Z]", "", text)) >= 5 and
-                      all("Bold" in s["font"] for s in spans if s["text"].strip())):
+                elif (
+                    allow_unnumbered
+                    and page_index >= 3
+                    and text.isupper()
+                    and len(text) <= 160
+                    and len(re.sub(r"[^A-Z]", "", text)) >= 5
+                    and all("Bold" in s["font"] for s in spans if s["text"].strip())
+                ):
                     number, title = f"unnumbered@{page_index + 1}/{block_index}", text
                 else:
                     continue
@@ -121,24 +164,43 @@ def pdf_evidence(path: Path, *, min_heading_size: float = 13, allow_lettered: bo
                 # text block. Join only adjacent display-font text, never body prose.
                 previous_bottom = block["bbox"][3]
                 original_heading_size = max(s["size"] for s in spans if s["text"].strip())
-                for following in blocks[block_index + 1:block_index + 3]:
+                for following in blocks[block_index + 1 : block_index + 3]:
                     following_spans = [s for line in following["lines"] for s in line["spans"]]
                     continuation = " ".join(s["text"].strip() for s in following_spans).strip()
                     following_count = sum(len(s["text"].strip()) for s in following_spans)
-                    following_display = sum(len(s["text"].strip()) for s in following_spans if display(s))
-                    if (not continuation or following["bbox"][1] - previous_bottom > 20 or
-                        abs(following["bbox"][0] - block["bbox"][0]) > 100 or
-                        max(s["size"] for s in following_spans) < original_heading_size - 1 or
-                        not following_count or following_display / following_count < 0.65 or
-                        re.match(r"^(?:\d|[A-Z]\.)", continuation) or
-                        any(term in continuation.upper() for term in ("LEARNING OUTCOMES", "ILLUSTRATION", "TEST YOUR", "ANSWER"))):
+                    following_display = sum(
+                        len(s["text"].strip()) for s in following_spans if display(s)
+                    )
+                    if (
+                        not continuation
+                        or following["bbox"][1] - previous_bottom > 20
+                        or abs(following["bbox"][0] - block["bbox"][0]) > 100
+                        or max(s["size"] for s in following_spans) < original_heading_size - 1
+                        or not following_count
+                        or following_display / following_count < 0.65
+                        or re.match(r"^(?:\d|[A-Z]\.)", continuation)
+                        or any(
+                            term in continuation.upper()
+                            for term in ("LEARNING OUTCOMES", "ILLUSTRATION", "TEST YOUR", "ANSWER")
+                        )
+                    ):
                         break
                     title += " " + continuation
                     previous_bottom = following["bbox"][3]
                 title = re.sub(r"\s+", " ", title).strip()
-                if any(term in title.upper() for term in (
-                    "TEST YOUR", "ANSWER", "SUMMARY", "ILLUSTRATION", "EXERCISE", "QUESTION", "LEARNING OUTCOMES", "ANNEXURE",
-                )):
+                if any(
+                    term in title.upper()
+                    for term in (
+                        "TEST YOUR",
+                        "ANSWER",
+                        "SUMMARY",
+                        "ILLUSTRATION",
+                        "EXERCISE",
+                        "QUESTION",
+                        "LEARNING OUTCOMES",
+                        "ANNEXURE",
+                    )
+                ):
                     continue
                 if title.upper() in {"INDEX", "CHAPTER OVERVIEW", "PARTICULARS", "ITEMS"}:
                     continue
@@ -148,7 +210,11 @@ def pdf_evidence(path: Path, *, min_heading_size: float = 13, allow_lettered: bo
                     section_context = title
                 key = (number, title, instrument_context, section_context)
                 if key not in seen:
-                    headings.append(HeadingEvidence(number, title, page_index + 1, instrument_context, section_context))
+                    headings.append(
+                        HeadingEvidence(
+                            number, title, page_index + 1, instrument_context, section_context
+                        )
+                    )
                     seen.add(key)
         return digest, len(pdf), headings
 
@@ -156,13 +222,25 @@ def pdf_evidence(path: Path, *, min_heading_size: float = 13, allow_lettered: bo
 def question_route(course_level: str, document_type: str, attempt: str | None) -> str:
     """Validate source family routing without confusing model papers with mock papers."""
     allowed = {
-        "model_question", "model_answer", "mtp_question", "mtp_answer", "rtp",
-        "question_paper", "suggested_answer", "case_scenarios", "ibs_case_study",
+        "model_question",
+        "model_answer",
+        "mtp_question",
+        "mtp_answer",
+        "rtp",
+        "question_paper",
+        "suggested_answer",
+        "case_scenarios",
+        "ibs_case_study",
     }
     if course_level not in {"Foundation", "Intermediate", "Final"}:
         raise ValueError("Unknown course level")
     if document_type not in allowed:
         raise ValueError("Unknown document type")
-    if attempt is None and document_type not in {"model_question", "model_answer", "case_scenarios", "ibs_case_study"}:
+    if attempt is None and document_type not in {
+        "model_question",
+        "model_answer",
+        "case_scenarios",
+        "ibs_case_study",
+    }:
         raise ValueError("Dated source family requires its source attempt")
     return "final_queue" if course_level == "Final" else "outside_corpus"

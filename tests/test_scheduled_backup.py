@@ -16,7 +16,11 @@ def identifier(moment: datetime, suffix: str = "deadbeef") -> str:
 def test_retention_keeps_one_per_day_week_and_month_and_always_the_newest():
     start = datetime(2026, 10, 31, 15, 30, tzinfo=timezone.utc)
     # Two snapshots on each of 200 calendar days: 15:30 (newest of its day) and 03:30.
-    ids = [identifier(start - timedelta(days=day, hours=hours)) for day in range(200) for hours in (0, 12)]
+    ids = [
+        identifier(start - timedelta(days=day, hours=hours))
+        for day in range(200)
+        for hours in (0, 12)
+    ]
     keep, delete = plan_retention(ids, daily=7, weekly=4, monthly=6)
     assert keep[0] == identifier(start)
     assert set(keep) | set(delete) == set(ids) and not set(keep) & set(delete)
@@ -29,7 +33,10 @@ def test_retention_keeps_one_per_day_week_and_month_and_always_the_newest():
 
 
 def test_retention_with_few_snapshots_keeps_everything():
-    ids = [identifier(datetime(2026, 10, 29 + n, 3, 0, tzinfo=timezone.utc), f"{n:08x}") for n in range(3)]
+    ids = [
+        identifier(datetime(2026, 10, 29 + n, 3, 0, tzinfo=timezone.utc), f"{n:08x}")
+        for n in range(3)
+    ]
     assert plan_retention(ids)[1] == []
 
 
@@ -56,24 +63,41 @@ def test_scheduled_backup_writes_status_and_prunes_only_verified_old_snapshots(s
     foreign.mkdir()
     status = host_backup.run_backup(tmp_path, daily=1, weekly=1, monthly=1, session=session)
     assert status["state"] == "ok" and status["error"] is None
-    assert status["snapshot"]["file_integrity_verified"] is True and status["snapshot"]["restore_verified"] is False
+    assert (
+        status["snapshot"]["file_integrity_verified"] is True
+        and status["snapshot"]["restore_verified"] is False
+    )
     assert (tmp_path / status["snapshot"]["name"] / "manifest.json").is_file()
-    assert json.loads((tmp_path / "status.json").read_text())["snapshot"]["name"] == status["snapshot"]["name"]
+    assert (
+        json.loads((tmp_path / "status.json").read_text())["snapshot"]["name"]
+        == status["snapshot"]["name"]
+    )
     assert status["retained"][0] == status["snapshot"]["name"]
     # One slot per tier: the new snapshot plus at most one older week and one older month survive.
     assert 1 <= len(status["retained"]) <= 3
     assert sorted(path.name for path in old if path.exists()) == sorted(
-        name for name in status["retained"] if name != status["snapshot"]["name"])
+        name for name in status["retained"] if name != status["snapshot"]["name"]
+    )
     assert sorted(status["deleted"]) == sorted(path.name for path in old if not path.exists())
     assert unverified.exists() and foreign.exists()
 
 
-def test_failed_backup_prunes_nothing_and_preserves_the_last_success(session, tmp_path, monkeypatch):
+def test_failed_backup_prunes_nothing_and_preserves_the_last_success(
+    session, tmp_path, monkeypatch
+):
     now = datetime.now(timezone.utc)
     kept = fake_snapshot(tmp_path, now - timedelta(days=1))
     older = fake_snapshot(tmp_path, now - timedelta(days=900))
-    (tmp_path / "status.json").write_text(json.dumps({"last_success_at": "2026-10-31T03:30:00+00:00",
-        "snapshot": {"name": kept.name}, "retained": [kept.name], "encryption": "not_configured"}))
+    (tmp_path / "status.json").write_text(
+        json.dumps(
+            {
+                "last_success_at": "2026-10-31T03:30:00+00:00",
+                "snapshot": {"name": kept.name},
+                "retained": [kept.name],
+                "encryption": "not_configured",
+            }
+        )
+    )
 
     def broken(**_):
         raise RuntimeError("pg_dump exploded")
@@ -83,5 +107,7 @@ def test_failed_backup_prunes_nothing_and_preserves_the_last_success(session, tm
         host_backup.run_backup(tmp_path, daily=1, weekly=1, monthly=1, session=session)
     status = json.loads((tmp_path / "status.json").read_text())
     assert status["state"] == "failed" and "pg_dump exploded" in status["error"]
-    assert status["last_success_at"] == "2026-10-31T03:30:00+00:00" and status["snapshot"] == {"name": kept.name}
+    assert status["last_success_at"] == "2026-10-31T03:30:00+00:00" and status["snapshot"] == {
+        "name": kept.name
+    }
     assert kept.exists() and older.exists()

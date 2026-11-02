@@ -17,7 +17,9 @@ console = Console()
 @app.command("queue")
 def curate_queue(
     paper_id: Annotated[str | None, typer.Option("--paper", help="Filter by paper ID")] = None,
-    bucket: Annotated[str | None, typer.Option("--bucket", help="Filter by bucket (A, B, C, D)")] = None,
+    bucket: Annotated[
+        str | None, typer.Option("--bucket", help="Filter by bucket (A, B, C, D)")
+    ] = None,
     limit: Annotated[int, typer.Option("--limit", help="Max units to list")] = 20,
 ) -> None:
     """List pending units in the human review queue."""
@@ -82,10 +84,14 @@ def curate_queue(
 
 @app.command("bulk-accept")
 def curate_bulk_accept(
-    doc_id: Annotated[int, typer.Option("--doc", help="Document ID whose Bucket A units to publish")] = ...,
+    doc_id: Annotated[
+        int, typer.Option("--doc", help="Document ID whose Bucket A units to publish")
+    ] = ...,
 ) -> None:
     """Historical command; explicit authenticated root review is now required."""
-    console.print('[red]Automatic bucket publication is disabled. Review selected root revisions as an authenticated administrator in /curator/bulk.[/red]')
+    console.print(
+        "[red]Automatic bucket publication is disabled. Review selected root revisions as an authenticated administrator in /curator/bulk.[/red]"
+    )
     raise typer.Exit(1)
 
 
@@ -94,13 +100,23 @@ def curate_stats() -> None:
     """Display overall knowledge store statistics and curation progress."""
     session_factory = get_session_factory("curation")
     with session_factory() as session:
-        pub_appearances = session.query(func.count(Appearance.id)).filter(Appearance.status == "published").scalar() or 0
+        pub_appearances = (
+            session.query(func.count(Appearance.id))
+            .filter(Appearance.status == "published")
+            .scalar()
+            or 0
+        )
         pub_tags = session.query(func.count(AppearanceTag.appearance_id)).scalar() or 0
         decisions_count = session.query(func.count(Decision.id)).scalar() or 0
         pending_review = (
             session.query(func.count(Unit.id))
-            .filter(Unit.current.is_(True), Unit.is_gradable.is_(True), Unit.classify_status == "suggested")
-            .scalar() or 0
+            .filter(
+                Unit.current.is_(True),
+                Unit.is_gradable.is_(True),
+                Unit.classify_status == "suggested",
+            )
+            .scalar()
+            or 0
         )
 
         table = Table(title="Knowledge Store Curation Progress")

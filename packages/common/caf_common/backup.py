@@ -20,12 +20,25 @@ from caf_common.postgres_sandbox import PostgresSandbox
 from caf_common.recovery_manifest import inspect_recovery_files
 from caf_common.settings import get_settings
 from caf_db.models.ops import Event
-from caf_db.schema_baseline import schema_snapshot, compare_schema_snapshots, migrated_schema_snapshot
+from caf_db.schema_baseline import (
+    schema_snapshot,
+    compare_schema_snapshots,
+    migrated_schema_snapshot,
+)
 
 CRITICAL_TABLES = [
-    "app.user_account", "app.settings", "app.progress", "app.progress_event",
-    "app.note", "app.study_session", "app.revision_event", "app.mock_test",
-    "core.decision", "core.appearance", "core.appearance_tag", "core.change_log",
+    "app.user_account",
+    "app.settings",
+    "app.progress",
+    "app.progress_event",
+    "app.note",
+    "app.study_session",
+    "app.revision_event",
+    "app.mock_test",
+    "core.decision",
+    "core.appearance",
+    "core.appearance_tag",
+    "core.change_log",
 ]
 SCHEMAS = ["app", "core", "ref", "ingest", "intel", "ops"]
 
@@ -35,27 +48,83 @@ def critical_tables(revision: str) -> set[str]:
     if revision not in {"0001_initial_schema", "0002_score_config_snapshot"}:
         tables.update({"app.invitation", "app.login_transaction", "app.auth_session"})
     if revision not in {"0001_initial_schema", "0002_score_config_snapshot", "0003_identity"}:
-        tables.update({"ref.taxonomy_release", "ref.taxonomy_member", "ref.textbook_artifact",
-                       "ref.node_source_span", "ref.descriptor_revision", "ref.descriptor_approval",
-                       "ref.taxonomy_crosswalk", "app.progress_migration"})
-    if revision not in {"0001_initial_schema", "0002_score_config_snapshot", "0003_identity", "0004_textbook_taxonomy"}:
-        tables.update({"ingest.extraction_revision", "ingest.content_block", "ingest.extraction_asset",
-                       "ingest.document_pair", "ingest.extraction_review", "ingest.reconciliation_link"})
-    if revision not in {"0001_initial_schema", "0002_score_config_snapshot", "0003_identity",
-                        "0004_textbook_taxonomy", "0005_extraction_revisions"}:
-        tables.update({"ingest.suggestion_revision", "core.classification_revision",
-                       "core.classification_event", "core.classification_verification",
-                       "core.classification_dispute", "core.question_publication"})
-    if revision not in {"0001_initial_schema", "0002_score_config_snapshot", "0003_identity",
-                        "0004_textbook_taxonomy", "0005_extraction_revisions", "0006_classification_revisions"}:
-        tables.update({"core.published_question", "core.published_source", "core.question_occurrence",
-                       "core.corpus_generation", "intel.attempt_taxonomy_binding",
-                       "intel.corpus_coverage", "intel.reviewed_prior", "intel.recompute_job",
-                       "intel.score_run", "intel.subtopic_score"})
-    if revision not in {"0001_initial_schema", "0002_score_config_snapshot", "0003_identity",
-                        "0004_textbook_taxonomy", "0005_extraction_revisions", "0006_classification_revisions",
-                        "0007_question_reader"}:
-        tables.update({'ref.candidate_catalog','core.baseline_adoption'})
+        tables.update(
+            {
+                "ref.taxonomy_release",
+                "ref.taxonomy_member",
+                "ref.textbook_artifact",
+                "ref.node_source_span",
+                "ref.descriptor_revision",
+                "ref.descriptor_approval",
+                "ref.taxonomy_crosswalk",
+                "app.progress_migration",
+            }
+        )
+    if revision not in {
+        "0001_initial_schema",
+        "0002_score_config_snapshot",
+        "0003_identity",
+        "0004_textbook_taxonomy",
+    }:
+        tables.update(
+            {
+                "ingest.extraction_revision",
+                "ingest.content_block",
+                "ingest.extraction_asset",
+                "ingest.document_pair",
+                "ingest.extraction_review",
+                "ingest.reconciliation_link",
+            }
+        )
+    if revision not in {
+        "0001_initial_schema",
+        "0002_score_config_snapshot",
+        "0003_identity",
+        "0004_textbook_taxonomy",
+        "0005_extraction_revisions",
+    }:
+        tables.update(
+            {
+                "ingest.suggestion_revision",
+                "core.classification_revision",
+                "core.classification_event",
+                "core.classification_verification",
+                "core.classification_dispute",
+                "core.question_publication",
+            }
+        )
+    if revision not in {
+        "0001_initial_schema",
+        "0002_score_config_snapshot",
+        "0003_identity",
+        "0004_textbook_taxonomy",
+        "0005_extraction_revisions",
+        "0006_classification_revisions",
+    }:
+        tables.update(
+            {
+                "core.published_question",
+                "core.published_source",
+                "core.question_occurrence",
+                "core.corpus_generation",
+                "intel.attempt_taxonomy_binding",
+                "intel.corpus_coverage",
+                "intel.reviewed_prior",
+                "intel.recompute_job",
+                "intel.score_run",
+                "intel.subtopic_score",
+            }
+        )
+    if revision not in {
+        "0001_initial_schema",
+        "0002_score_config_snapshot",
+        "0003_identity",
+        "0004_textbook_taxonomy",
+        "0005_extraction_revisions",
+        "0006_classification_revisions",
+        "0007_question_reader",
+    }:
+        tables.update({"ref.candidate_catalog", "core.baseline_adoption"})
     return tables
 
 
@@ -83,6 +152,7 @@ class VerificationResult:
 
 def _database_url(db_url=None):
     from caf_db.engine import database_url
+
     url = make_url(db_url) if db_url else database_url("backup")
     assert_safe_database(url)
     return url
@@ -90,8 +160,13 @@ def _database_url(db_url=None):
 
 def _parse_db_conn_params(db_url=None) -> dict[str, Any]:
     url = _database_url(db_url)
-    return {"host": url.host, "port": str(url.port or 5432), "user": url.username,
-            "password": url.password or "", "database": url.database}
+    return {
+        "host": url.host,
+        "port": str(url.port or 5432),
+        "user": url.username,
+        "password": url.password or "",
+        "database": url.database,
+    }
 
 
 def _pg_command(binary, url, arguments):
@@ -99,8 +174,18 @@ def _pg_command(binary, url, arguments):
     # Do not inherit libpq services or alternate destinations from the shell.
     env = {k: v for k, v in os.environ.items() if not k.startswith("PG")}
     env["PGPASSWORD"] = url.password or ""
-    command = [binary, "-h", url.host, "-p", str(url.port or 5432),
-               "-U", url.username, "-d", url.database, *arguments]
+    command = [
+        binary,
+        "-h",
+        url.host,
+        "-p",
+        str(url.port or 5432),
+        "-U",
+        url.username,
+        "-d",
+        url.database,
+        *arguments,
+    ]
     try:
         return subprocess.run(command, env=env, check=True, capture_output=True, text=True)
     except subprocess.CalledProcessError as exc:
@@ -117,19 +202,24 @@ def database_content(connection, schemas=SCHEMAS) -> dict[str, dict[str, Any]]:
     # timestamptz JSON follows session TimeZone. Normalize presentation before
     # hashing so an Asia/Kolkata source and UTC restore describe identical bytes.
     connection.execute(sa.text("SET LOCAL TIME ZONE 'UTC'"))
-    tables = connection.execute(sa.text("""
+    tables = connection.execute(
+        sa.text("""
         SELECT schemaname, tablename FROM pg_tables
         WHERE schemaname = ANY(:schemas) ORDER BY schemaname, tablename
-    """), {"schemas": list(schemas)}).all()
+    """),
+        {"schemas": list(schemas)},
+    ).all()
     result = {}
     quote = connection.dialect.identifier_preparer.quote
     for schema, name in tables:
         digest = hashlib.sha256()
         count = 0
-        rows = connection.execute(sa.text(
-            f'SELECT to_jsonb(t)::text FROM {quote(schema)}.{quote(name)} t '
-            'ORDER BY to_jsonb(t)::text COLLATE "C"'
-        ))
+        rows = connection.execute(
+            sa.text(
+                f"SELECT to_jsonb(t)::text FROM {quote(schema)}.{quote(name)} t "
+                'ORDER BY to_jsonb(t)::text COLLATE "C"'
+            )
+        )
         for row in rows:
             digest.update(row[0].encode("utf-8") + b"\n")
             count += 1
@@ -156,8 +246,9 @@ def _archive_tree(source: Path, destination: Path, root: Path) -> dict[str, str]
         target.parent.mkdir(parents=True, exist_ok=True)
         if path.suffix in {".toml", ".yaml", ".yml", ".json"}:
             content = re.sub(
-                r'(?im)^(\s*[\w-]*(?:password|secret|api_key|token)[\w-]*\s*[=:]\s*).+$',
-                r'\1"[REDACTED]"', path.read_text(),
+                r"(?im)^(\s*[\w-]*(?:password|secret|api_key|token)[\w-]*\s*[=:]\s*).+$",
+                r'\1"[REDACTED]"',
+                path.read_text(),
             )
             target.write_text(content)
         else:
@@ -168,13 +259,17 @@ def _archive_tree(source: Path, destination: Path, root: Path) -> dict[str, str]
 
 def _record_event(session, code, message, context, verified=True):
     if session is not None:
-        session.add(Event(level="info" if verified else "alarm", code=code,
-                          message=message, context=context))
+        session.add(
+            Event(
+                level="info" if verified else "alarm", code=code, message=message, context=context
+            )
+        )
         session.commit()
 
 
-def create_backup(session: Session | None = None, backup_dir=None, blob_dir=None,
-                  target_dir=None, db_url=None) -> BackupManifest:
+def create_backup(
+    session: Session | None = None, backup_dir=None, blob_dir=None, target_dir=None, db_url=None
+) -> BackupManifest:
     """Capture dump and manifest from one exported read-only snapshot; never rotate.
 
     Optional secondary copies contain the entire unique recovery artifact.
@@ -198,32 +293,55 @@ def create_backup(session: Session | None = None, backup_dir=None, blob_dir=None
         with engine.connect() as connection, connection.begin():
             connection.execute(sa.text("SET TRANSACTION READ ONLY"))
             snapshot = connection.execute(sa.text("SELECT pg_export_snapshot()")).scalar_one()
-            revision = connection.execute(sa.text("SELECT version_num FROM ops.alembic_version")).scalar_one()
+            revision = connection.execute(
+                sa.text("SELECT version_num FROM ops.alembic_version")
+            ).scalar_one()
             tables = database_content(connection)
             missing = sorted(critical_tables(revision) - tables.keys())
             if missing:
                 raise RuntimeError(f"Protected tables missing: {missing}")
             schema = schema_snapshot(connection)
-            _pg_command("pg_dump", url, ["--format=custom", f"--snapshot={snapshot}",
-                                         "--file", str(dump_path)])
+            _pg_command(
+                "pg_dump",
+                url,
+                ["--format=custom", f"--snapshot={snapshot}", "--file", str(dump_path)],
+            )
     finally:
         engine.dispose()
     files = _archive_tree(Path(blob_dir or settings.storage.blob_dir), root / "blobs", root)
     blobs_copied = len(files)
     for directory in ("taxonomy", "config", "profiles", "overrides"):
         files.update(_archive_tree(Path(directory), root / "configs" / directory, root))
-    data = {"format_version": 1, "created_at": now.isoformat(), "database_revision": revision,
-            "dump_file": dump_path.name, "dump_sha256": file_checksum(dump_path),
-            "tables": tables, "schema": schema, "files": files,
-            "digest_format": "PostgreSQL16 to_jsonb text, UTC timezone, C-sort, UTF-8 newline per row",
-            "secrets": "Credential keys redacted; .env, .key and .pem files excluded"}
+    data = {
+        "format_version": 1,
+        "created_at": now.isoformat(),
+        "database_revision": revision,
+        "dump_file": dump_path.name,
+        "dump_sha256": file_checksum(dump_path),
+        "tables": tables,
+        "schema": schema,
+        "files": files,
+        "digest_format": "PostgreSQL16 to_jsonb text, UTC timezone, C-sort, UTF-8 newline per row",
+        "secrets": "Credential keys redacted; .env, .key and .pem files excluded",
+    }
     _write_json(manifest_path, data)
     if target_dir:
         shutil.copytree(root, Path(target_dir) / identifier)
-    manifest = BackupManifest(dump_path, dump_path.stat().st_size, blobs_copied,
-                              len(files) - blobs_copied, now, root, manifest_path)
-    _record_event(session, "BACKUP_OK", f"Backup completed: {dump_path.name}",
-                  {"dump_file": str(dump_path), "manifest_file": str(manifest_path)})
+    manifest = BackupManifest(
+        dump_path,
+        dump_path.stat().st_size,
+        blobs_copied,
+        len(files) - blobs_copied,
+        now,
+        root,
+        manifest_path,
+    )
+    _record_event(
+        session,
+        "BACKUP_OK",
+        f"Backup completed: {dump_path.name}",
+        {"dump_file": str(dump_path), "manifest_file": str(manifest_path)},
+    )
     return manifest
 
 
@@ -237,8 +355,9 @@ def _check_scratch_destination(url, name):
     admin = sa.create_engine(admin_url)
     try:
         with admin.connect() as conn:
-            if conn.execute(sa.text("SELECT 1 FROM pg_database WHERE datname = :name"),
-                            {"name": name}).scalar():
+            if conn.execute(
+                sa.text("SELECT 1 FROM pg_database WHERE datname = :name"), {"name": name}
+            ).scalar():
                 raise ValueError("Existing scratch database preserved; choose a new destination")
     finally:
         admin.dispose()
@@ -255,10 +374,14 @@ def compare_restored_database(url, manifest) -> tuple[dict[str, int], dict]:
             restored_counts = {table: values["count"] for table, values in restored.items()}
             if restored.keys() != manifest["tables"].keys():
                 raise ValueError("Restored table inventory mismatch (missing or unexpected tables)")
-            mismatches = [table for table in restored if restored[table] != manifest["tables"][table]]
+            mismatches = [
+                table for table in restored if restored[table] != manifest["tables"][table]
+            ]
             if mismatches:
                 raise ValueError(f"Restored content mismatch: {', '.join(mismatches)}")
-            revision = connection.execute(sa.text("SELECT version_num FROM ops.alembic_version")).scalar_one()
+            revision = connection.execute(
+                sa.text("SELECT version_num FROM ops.alembic_version")
+            ).scalar_one()
             if revision != manifest["database_revision"]:
                 raise ValueError("Database revision mismatch")
             restored_schema = schema_snapshot(connection)
@@ -269,8 +392,9 @@ def compare_restored_database(url, manifest) -> tuple[dict[str, int], dict]:
     return restored_counts, restored_schema
 
 
-def verify_backup(session: Session | None = None, dump_file=None, scratch_db_name="caf_verify",
-                  db_url=None) -> VerificationResult:
+def verify_backup(
+    session: Session | None = None, dump_file=None, scratch_db_name="caf_verify", db_url=None
+) -> VerificationResult:
     """Restore in a separate disposable container and compare to captured values."""
     url = _database_url(db_url)
     _check_scratch_destination(url, scratch_db_name)
@@ -309,35 +433,55 @@ def verify_backup(session: Session | None = None, dump_file=None, scratch_db_nam
             finally:
                 admin.dispose()
             restored_url = sandbox.url(scratch_db_name)
-            _pg_command("pg_restore", restored_url, ["--exit-on-error", "--no-owner", "--no-acl",
-                                                      str(dump_path)])
+            _pg_command(
+                "pg_restore",
+                restored_url,
+                ["--exit-on-error", "--no-owner", "--no-acl", str(dump_path)],
+            )
             restored_counts, restored_schema = compare_restored_database(restored_url, manifest)
             baseline_engine = sa.create_engine(sandbox.url(baseline_name))
             try:
                 with baseline_engine.connect() as connection:
-                    baseline_schema = migrated_schema_snapshot(connection, manifest["database_revision"])
+                    baseline_schema = migrated_schema_snapshot(
+                        connection, manifest["database_revision"]
+                    )
                     baseline_drift = compare_schema_snapshots(baseline_schema, restored_schema)
                     if baseline_drift:
-                        raise ValueError("Restored schema differs from frozen migration baseline; resolve drift before later migrations")
+                        raise ValueError(
+                            "Restored schema differs from frozen migration baseline; resolve drift before later migrations"
+                        )
             finally:
                 baseline_engine.dispose()
         verified = True
         message = f"Backup verification succeeded: critical tables match; all {len(restored_counts)} table digests and archived files match the manifest."
-    except (ValueError, KeyError, OSError, RuntimeError, subprocess.CalledProcessError, sa.exc.SQLAlchemyError) as exc:
+    except (
+        ValueError,
+        KeyError,
+        OSError,
+        RuntimeError,
+        subprocess.CalledProcessError,
+        sa.exc.SQLAlchemyError,
+    ) as exc:
         verified = False
         message = f"Backup verification failed: {exc}"
         if not mismatches:
             mismatches = [str(exc)]
-    result = VerificationResult(verified, dump_path, expected_counts, restored_counts,
-                                mismatches, message, report_path)
+    result = VerificationResult(
+        verified, dump_path, expected_counts, restored_counts, mismatches, message, report_path
+    )
     report = asdict(result)
     report["expected_counts"] = report.pop("live_counts")
     report["restored_schema"] = restored_schema
     report["baseline_schema_drift"] = baseline_drift
     report["verified_at"] = datetime.now(timezone.utc).isoformat()
     _write_json(report_path, report)
-    _record_event(session, "BACKUP_VERIFIED_OK" if verified else "BACKUP_VERIFIED_FAILED",
-                  message, {"verified": verified, "report_file": str(report_path)}, verified)
+    _record_event(
+        session,
+        "BACKUP_VERIFIED_OK" if verified else "BACKUP_VERIFIED_FAILED",
+        message,
+        {"verified": verified, "report_file": str(report_path)},
+        verified,
+    )
     return result
 
 
@@ -350,17 +494,26 @@ def list_backups(backup_dir=None) -> list[dict[str, Any]]:
     for path in sorted(paths, key=lambda p: p.stat().st_mtime, reverse=True):
         stat = path.stat()
         created = datetime.fromtimestamp(stat.st_mtime, timezone.utc)
-        result.append({"name": path.name, "path": str(path), "size_bytes": stat.st_size,
-                       "size_mb": round(stat.st_size / 1024**2, 2), "created_at": created,
-                       "age_hours": round((now - created).total_seconds() / 3600, 1),
-                       "legacy": not (path.parent / "manifest.json").is_file()})
+        result.append(
+            {
+                "name": path.name,
+                "path": str(path),
+                "size_bytes": stat.st_size,
+                "size_mb": round(stat.st_size / 1024**2, 2),
+                "created_at": created,
+                "age_hours": round((now - created).total_seconds() / 3600, 1),
+                "legacy": not (path.parent / "manifest.json").is_file(),
+            }
+        )
     return result
 
 
 def rotate_backups(backup_dir, max_daily=14, max_weekly=8) -> list[Path]:
     """Explicit legacy flat-dump retention; never invoked by checkpoint creation."""
     assert_safe_storage(Path(backup_dir))
-    paths = sorted(Path(backup_dir).glob("caf_*.dump"), key=lambda p: p.stat().st_mtime, reverse=True)
+    paths = sorted(
+        Path(backup_dir).glob("caf_*.dump"), key=lambda p: p.stat().st_mtime, reverse=True
+    )
     days, weeks, deleted = set(), set(), []
     for path in paths:
         at = datetime.fromtimestamp(path.stat().st_mtime, timezone.utc)

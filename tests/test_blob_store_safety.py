@@ -6,7 +6,9 @@ import pytest
 from caf_common.blob_store import BlobStore
 
 
-@pytest.mark.parametrize("identifier", ["../outside", "/etc/passwd", "a" * 63, "A" * 64, "g" * 64, "a" * 64 + "\n"])
+@pytest.mark.parametrize(
+    "identifier", ["../outside", "/etc/passwd", "a" * 63, "A" * 64, "g" * 64, "a" * 64 + "\n"]
+)
 @pytest.mark.parametrize("method", ["read", "exists", "get_path"])
 def test_blob_identifiers_reject_non_digests(tmp_path, identifier, method):
     store = BlobStore(tmp_path / "blobs")

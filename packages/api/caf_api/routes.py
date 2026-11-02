@@ -5,7 +5,11 @@ from fastapi import APIRouter
 from caf_api.deps import get_db, get_operations_db  # noqa: F401  (kept for existing importers)
 from caf_api.profile import router as profile_router
 from caf_api.study import (  # noqa: F401  (kept for existing importers)
-    get_dashboard, get_paper_tree, get_subtopic_detail, list_papers, router as study_router,
+    get_dashboard,
+    get_paper_tree,
+    get_subtopic_detail,
+    list_papers,
+    router as study_router,
 )
 from caf_api.system import router as system_router
 

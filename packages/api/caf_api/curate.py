@@ -14,17 +14,31 @@ from caf_l4.catalogs import suggestion_candidates
 from caf_db.models.ingest import Document
 from caf_contracts.extraction import PaperPageRange
 from caf_contracts.classification import (
-    ClassificationQueueItem, ClassificationReviewRequest, ClassificationVerificationRequest,
-    ClassificationDisputeRequest, ClassificationResolveRequest, ClassificationRevisionResult,
-    ClassificationHistoryItem, ClassificationDisputeResult, ClassificationBulkRequest,
+    ClassificationQueueItem,
+    ClassificationReviewRequest,
+    ClassificationVerificationRequest,
+    ClassificationDisputeRequest,
+    ClassificationResolveRequest,
+    ClassificationRevisionResult,
+    ClassificationHistoryItem,
+    ClassificationDisputeResult,
+    ClassificationBulkRequest,
     ClassificationBulkResult,
 )
 from caf_api.responses import (
-    BulkAcceptResult, CuratorDecisionResult, CuratorDocument, CuratorQueueItem,
-    DocumentConfirmResult, DocumentEditResult, DocumentStatusResult, RecomputeResult,
+    BulkAcceptResult,
+    CuratorDecisionResult,
+    CuratorDocument,
+    CuratorQueueItem,
+    DocumentConfirmResult,
+    DocumentEditResult,
+    DocumentStatusResult,
+    RecomputeResult,
 )
 
-router = APIRouter(prefix="/api/v1/curate", tags=["curation"], dependencies=[Depends(require_account)])
+router = APIRouter(
+    prefix="/api/v1/curate", tags=["curation"], dependencies=[Depends(require_account)]
+)
 
 
 def get_curation_db():
@@ -32,65 +46,91 @@ def get_curation_db():
         yield session
 
 
-@router.get('/candidate-catalogs/{catalog_hash}', response_model=list[dict])
+@router.get("/candidate-catalogs/{catalog_hash}", response_model=list[dict])
 def candidate_catalog(catalog_hash: str, session: Session = Depends(get_curation_db)):
     from caf_db.models.classification import CandidateCatalog
-    row=session.get(CandidateCatalog,catalog_hash)
+
+    row = session.get(CandidateCatalog, catalog_hash)
     if row is None:
-        raise HTTPException(404,'candidate_catalog_not_found')
+        raise HTTPException(404, "candidate_catalog_not_found")
     return row.candidates
 
 
 class BaselineActivationRequest(BaseModel):
-    model_config = ConfigDict(extra='forbid')
+    model_config = ConfigDict(extra="forbid")
     manifest_hash: str
 
 
-@router.get('/baselines', response_model=list[dict])
-def baselines(session: Session = Depends(get_curation_db), account: Principal = Depends(require_admin)):
+@router.get("/baselines", response_model=list[dict])
+def baselines(
+    session: Session = Depends(get_curation_db), account: Principal = Depends(require_admin)
+):
     from caf_db.models.classification import BaselineAdoption
-    return [dict(release_id=row.release_id, manifest_hash=row.manifest_hash, status=row.status,
-        manifest=row.manifest) for row in session.scalars(sa.select(BaselineAdoption))]
+
+    return [
+        dict(
+            release_id=row.release_id,
+            manifest_hash=row.manifest_hash,
+            status=row.status,
+            manifest=row.manifest,
+        )
+        for row in session.scalars(sa.select(BaselineAdoption))
+    ]
 
 
-@router.post('/baselines/prepare', response_model=dict)
-def prepare_study_baseline(session: Session = Depends(get_operations_db), account: Principal = Depends(require_admin)):
+@router.post("/baselines/prepare", response_model=dict)
+def prepare_study_baseline(
+    session: Session = Depends(get_operations_db), account: Principal = Depends(require_admin)
+):
     from pathlib import Path
     from caf_l3.baseline_pack import freeze_pack
     from caf_l4.baseline import prepare_baseline
+
     try:
-        row=prepare_baseline(session,freeze_pack(Path('data/student_review/luna-papers')),account.id)
+        row = prepare_baseline(
+            session, freeze_pack(Path("data/student_review/luna-papers")), account.id
+        )
         session.commit()
-        return dict(release_id=row.release_id,manifest_hash=row.manifest_hash,status=row.status)
+        return dict(release_id=row.release_id, manifest_hash=row.manifest_hash, status=row.status)
     except ValueError as exc:
         session.rollback()
-        raise HTTPException(409,str(exc)) from exc
+        raise HTTPException(409, str(exc)) from exc
 
 
-@router.post('/baselines/{release_id}/activate', response_model=dict)
-def activate_study_baseline(release_id: str, body: BaselineActivationRequest,
-        session: Session = Depends(get_operations_db), account: Principal = Depends(require_admin)):
+@router.post("/baselines/{release_id}/activate", response_model=dict)
+def activate_study_baseline(
+    release_id: str,
+    body: BaselineActivationRequest,
+    session: Session = Depends(get_operations_db),
+    account: Principal = Depends(require_admin),
+):
     from caf_l4.baseline import activate_baseline
+
     try:
-        result=activate_baseline(session,release_id,body.manifest_hash,account.id)
+        result = activate_baseline(session, release_id, body.manifest_hash, account.id)
         session.commit()
         return result
     except ValueError as exc:
         session.rollback()
-        raise HTTPException(409,str(exc)) from exc
+        raise HTTPException(409, str(exc)) from exc
 
 
-@router.post('/baselines/{release_id}/rollback', response_model=dict)
-def rollback_study_baseline(release_id: str, body: BaselineActivationRequest,
-        session: Session = Depends(get_operations_db), account: Principal = Depends(require_admin)):
+@router.post("/baselines/{release_id}/rollback", response_model=dict)
+def rollback_study_baseline(
+    release_id: str,
+    body: BaselineActivationRequest,
+    session: Session = Depends(get_operations_db),
+    account: Principal = Depends(require_admin),
+):
     from caf_l4.baseline import rollback_baseline
+
     try:
-        result=rollback_baseline(session,release_id,body.manifest_hash,account.id)
+        result = rollback_baseline(session, release_id, body.manifest_hash, account.id)
         session.commit()
         return result
     except ValueError as exc:
         session.rollback()
-        raise HTTPException(409,str(exc)) from exc
+        raise HTTPException(409, str(exc)) from exc
 
 
 class DocumentEditRequest(BaseModel):
@@ -167,7 +207,7 @@ def api_confirm_document(
 ):
     overrides = req.model_dump(exclude_unset=True) if req else None
     try:
-        doc = confirm_document(session, doc_id, overrides=overrides,actor_id=account.id)
+        doc = confirm_document(session, doc_id, overrides=overrides, actor_id=account.id)
         return {
             "id": doc.id,
             "catalog_status": doc.catalog_status,
@@ -180,7 +220,11 @@ def api_confirm_document(
 
 
 @router.post("/documents/{doc_id}/reject", response_model=DocumentStatusResult)
-def api_reject_document(doc_id: int, session: Session = Depends(get_operations_db), account: Principal = Depends(require_admin)):
+def api_reject_document(
+    doc_id: int,
+    session: Session = Depends(get_operations_db),
+    account: Principal = Depends(require_admin),
+):
     try:
         doc = reject_document(session, doc_id)
         return {"id": doc.id, "catalog_status": doc.catalog_status}
@@ -196,6 +240,7 @@ def api_edit_document(
     account: Principal = Depends(require_admin),
 ):
     from caf_l1.catalog import lock_document_metadata
+
     lock_document_metadata(session, doc_id)
     doc = session.get(Document, doc_id, populate_existing=True)
     if not doc:
@@ -214,36 +259,65 @@ def api_edit_document(
 # ==============================================================================
 
 
-@router.get('/classifications', response_model=list[ClassificationQueueItem])
+@router.get("/classifications", response_model=list[ClassificationQueueItem])
 def classification_queue(
-    paper_id: str | None = None, source: str | None = None, outcome: str | None = None,
-    question_id: str | None = Query(None, min_length=1, description="Exact affected question identity"),
-    taxonomy_version_id: int | None = None, experimental: bool | None = None,
-    ready: bool | None = None, disputed: bool | None = None, blind: bool = False,
-    benchmark_only: bool = False, limit: int = Query(100, ge=1, le=500), offset: int = Query(0, ge=0),
-    session: Session = Depends(get_curation_db), account: Principal = Depends(require_account),
+    paper_id: str | None = None,
+    source: str | None = None,
+    outcome: str | None = None,
+    question_id: str | None = Query(
+        None, min_length=1, description="Exact affected question identity"
+    ),
+    taxonomy_version_id: int | None = None,
+    experimental: bool | None = None,
+    ready: bool | None = None,
+    disputed: bool | None = None,
+    blind: bool = False,
+    benchmark_only: bool = False,
+    limit: int = Query(100, ge=1, le=500),
+    offset: int = Query(0, ge=0),
+    session: Session = Depends(get_curation_db),
+    account: Principal = Depends(require_account),
 ):
     """One immutable suggestion per root, retaining the previous publication during review."""
-    from caf_db.models.classification import (SuggestionRevision, ClassificationRevision,
-        QuestionPublication, ClassificationVerification, ClassificationDispute)
+    from caf_db.models.classification import (
+        SuggestionRevision,
+        ClassificationRevision,
+        QuestionPublication,
+        ClassificationVerification,
+        ClassificationDispute,
+    )
     from caf_l4.revisions import readiness, taxonomy_readiness_evidence
 
-    latest_query = sa.select(sa.func.max(SuggestionRevision.id).label('id'))
+    latest_query = sa.select(sa.func.max(SuggestionRevision.id).label("id"))
     if taxonomy_version_id:
-        latest_query = latest_query.where(SuggestionRevision.taxonomy_version_id == taxonomy_version_id)
+        latest_query = latest_query.where(
+            SuggestionRevision.taxonomy_version_id == taxonomy_version_id
+        )
     if question_id:
         latest_query = latest_query.where(SuggestionRevision.question_id == question_id)
     latest = latest_query.group_by(SuggestionRevision.question_id).subquery()
-    query = sa.select(SuggestionRevision, Document).join(latest, SuggestionRevision.id == latest.c.id).join(Document, Document.id == SuggestionRevision.document_id)
-    if paper_id: query = query.where(SuggestionRevision.context['paper_id'].astext == paper_id)
-    if source: query = query.where(Document.doc_type_id == source)
-    if taxonomy_version_id: query = query.where(SuggestionRevision.taxonomy_version_id == taxonomy_version_id)
-    if experimental is not None: query = query.where(SuggestionRevision.experimental == experimental)
-    if outcome: query = query.where(SuggestionRevision.mappings.contains([{'outcome': outcome}]))
-    if benchmark_only: query = query.where(SuggestionRevision.provenance['benchmark'].astext == 'true')
+    query = (
+        sa.select(SuggestionRevision, Document)
+        .join(latest, SuggestionRevision.id == latest.c.id)
+        .join(Document, Document.id == SuggestionRevision.document_id)
+    )
+    if paper_id:
+        query = query.where(SuggestionRevision.context["paper_id"].astext == paper_id)
+    if source:
+        query = query.where(Document.doc_type_id == source)
+    if taxonomy_version_id:
+        query = query.where(SuggestionRevision.taxonomy_version_id == taxonomy_version_id)
+    if experimental is not None:
+        query = query.where(SuggestionRevision.experimental == experimental)
+    if outcome:
+        query = query.where(SuggestionRevision.mappings.contains([{"outcome": outcome}]))
+    if benchmark_only:
+        query = query.where(SuggestionRevision.provenance["benchmark"].astext == "true")
     if disputed is not None:
-        open_dispute = sa.exists().where(ClassificationDispute.question_id == SuggestionRevision.question_id,
-            ClassificationDispute.status == 'open')
+        open_dispute = sa.exists().where(
+            ClassificationDispute.question_id == SuggestionRevision.question_id,
+            ClassificationDispute.status == "open",
+        )
         query = query.where(open_dispute if disputed else ~open_dispute)
     query = query.order_by(SuggestionRevision.id.desc())
     result = []
@@ -265,31 +339,74 @@ def classification_queue(
             if version_id not in taxonomy_evidence:
                 taxonomy_evidence[version_id] = taxonomy_readiness_evidence(session, version_id)
             gate = readiness(session, suggestion, taxonomy_evidence[version_id])
-            if ready is not None and gate['eligible'] != ready: continue
-            benchmark = bool(suggestion.provenance.get('benchmark', False))
+            if ready is not None and gate["eligible"] != ready:
+                continue
+            benchmark = bool(suggestion.provenance.get("benchmark", False))
             current_id, current, count, mine, dispute = page.publication(suggestion.question_id)
             if ready is not None and skipped < offset:
                 skipped += 1
                 continue
-            mappings = suggestion.mappings if not blind else [dict(part_id=part['part_id'], outcome='needs_review') for part in suggestion.mappings]
-            question = {key: value for key, value in suggestion.context.items() if key != 'classification_part_ids'}
-            result.append(dict(suggestion_revision_id=suggestion.id, document_id=document.id, question_id=suggestion.question_id,
-                extraction_revision_id=suggestion.extraction_revision_id, taxonomy_version_id=suggestion.taxonomy_version_id,
-                run_id=None if blind else suggestion.run_id, input_hash=suggestion.input_hash, paper_id=suggestion.context['paper_id'],
-                attempt_id=document.attempt_id, doc_type_id=document.doc_type_id, experimental=suggestion.experimental,
-                stale=gate['stale'], publication_ready=gate['eligible'],
-                readiness_blockers=[dict(code=str(block), message=str(block)) for block in gate['blockers']],
-                question=question, mappings=mappings,
-                candidates=[] if suggestion.candidate_catalog_hash else suggestion_candidates(session,suggestion),
-                candidate_catalog_hash=suggestion.candidate_catalog_hash,
-                provenance={} if blind else suggestion.provenance, publication_revision_id=current_id,
-                publication_suggestion_revision_id=current.suggestion_revision_id if current else None,
-                published_question={key: value for key, value in current.context.items() if key != 'classification_part_ids'} if current and not blind else None,
-                published_mappings=[] if blind or not current else current.mappings,
-                verification_count=count, verified_by_me=bool(mine), dispute_status=dispute.status if dispute else None,
-                is_benchmark=benchmark, blind=blind))
-            if len(result) >= limit: return result
-        if ready is None or len(rows) < chunk: break
+            mappings = (
+                suggestion.mappings
+                if not blind
+                else [
+                    dict(part_id=part["part_id"], outcome="needs_review")
+                    for part in suggestion.mappings
+                ]
+            )
+            question = {
+                key: value
+                for key, value in suggestion.context.items()
+                if key != "classification_part_ids"
+            }
+            result.append(
+                dict(
+                    suggestion_revision_id=suggestion.id,
+                    document_id=document.id,
+                    question_id=suggestion.question_id,
+                    extraction_revision_id=suggestion.extraction_revision_id,
+                    taxonomy_version_id=suggestion.taxonomy_version_id,
+                    run_id=None if blind else suggestion.run_id,
+                    input_hash=suggestion.input_hash,
+                    paper_id=suggestion.context["paper_id"],
+                    attempt_id=document.attempt_id,
+                    doc_type_id=document.doc_type_id,
+                    experimental=suggestion.experimental,
+                    stale=gate["stale"],
+                    publication_ready=gate["eligible"],
+                    readiness_blockers=[
+                        dict(code=str(block), message=str(block)) for block in gate["blockers"]
+                    ],
+                    question=question,
+                    mappings=mappings,
+                    candidates=[]
+                    if suggestion.candidate_catalog_hash
+                    else suggestion_candidates(session, suggestion),
+                    candidate_catalog_hash=suggestion.candidate_catalog_hash,
+                    provenance={} if blind else suggestion.provenance,
+                    publication_revision_id=current_id,
+                    publication_suggestion_revision_id=current.suggestion_revision_id
+                    if current
+                    else None,
+                    published_question={
+                        key: value
+                        for key, value in current.context.items()
+                        if key != "classification_part_ids"
+                    }
+                    if current and not blind
+                    else None,
+                    published_mappings=[] if blind or not current else current.mappings,
+                    verification_count=count,
+                    verified_by_me=bool(mine),
+                    dispute_status=dispute.status if dispute else None,
+                    is_benchmark=benchmark,
+                    blind=blind,
+                )
+            )
+            if len(result) >= limit:
+                return result
+        if ready is None or len(rows) < chunk:
+            break
     return result
 
 
@@ -297,16 +414,47 @@ class QueuePageContext:
     """Publication, verification and dispute rows for one page of suggestions, loaded in four queries."""
 
     def __init__(self, session, rows, account_id):
-        from caf_db.models.classification import (ClassificationRevision, QuestionPublication,
-            ClassificationVerification, ClassificationDispute)
+        from caf_db.models.classification import (
+            ClassificationRevision,
+            QuestionPublication,
+            ClassificationVerification,
+            ClassificationDispute,
+        )
+
         questions = {suggestion.question_id for suggestion, _ in rows}
-        self.publications = {row.question_id: row for row in session.scalars(sa.select(QuestionPublication).where(
-            QuestionPublication.question_id.in_(questions)))}
-        revision_ids = {row.current_revision_id for row in self.publications.values() if row.current_revision_id}
-        self.revisions = {row.id: row for row in session.scalars(sa.select(ClassificationRevision).where(
-            ClassificationRevision.id.in_(revision_ids)))} if revision_ids else {}
-        verifications = session.execute(sa.select(ClassificationVerification.revision_id, ClassificationVerification.actor_id).where(
-            ClassificationVerification.revision_id.in_(revision_ids), ClassificationVerification.active.is_(True))).all() if revision_ids else []
+        self.publications = {
+            row.question_id: row
+            for row in session.scalars(
+                sa.select(QuestionPublication).where(QuestionPublication.question_id.in_(questions))
+            )
+        }
+        revision_ids = {
+            row.current_revision_id for row in self.publications.values() if row.current_revision_id
+        }
+        self.revisions = (
+            {
+                row.id: row
+                for row in session.scalars(
+                    sa.select(ClassificationRevision).where(
+                        ClassificationRevision.id.in_(revision_ids)
+                    )
+                )
+            }
+            if revision_ids
+            else {}
+        )
+        verifications = (
+            session.execute(
+                sa.select(
+                    ClassificationVerification.revision_id, ClassificationVerification.actor_id
+                ).where(
+                    ClassificationVerification.revision_id.in_(revision_ids),
+                    ClassificationVerification.active.is_(True),
+                )
+            ).all()
+            if revision_ids
+            else []
+        )
         self.counts: dict[int, int] = {}
         self.mine: set[int] = set()
         for revision_id, actor_id in verifications:
@@ -314,91 +462,191 @@ class QueuePageContext:
             if actor_id == account_id:
                 self.mine.add(revision_id)
         self.disputes: dict[str, object] = {}
-        for dispute in session.scalars(sa.select(ClassificationDispute).where(
-                ClassificationDispute.question_id.in_(questions), ClassificationDispute.status == 'open'
-                ).order_by(ClassificationDispute.id.asc())):
+        for dispute in session.scalars(
+            sa.select(ClassificationDispute)
+            .where(
+                ClassificationDispute.question_id.in_(questions),
+                ClassificationDispute.status == "open",
+            )
+            .order_by(ClassificationDispute.id.asc())
+        ):
             self.disputes[dispute.question_id] = dispute  # the newest open dispute wins
 
     def publication(self, question_id):
         publication = self.publications.get(question_id)
         current_id = publication.current_revision_id if publication else None
-        return (current_id, self.revisions.get(current_id) if current_id else None,
-                self.counts.get(current_id, 0) if current_id else 0, current_id in self.mine if current_id else False,
-                self.disputes.get(question_id))
+        return (
+            current_id,
+            self.revisions.get(current_id) if current_id else None,
+            self.counts.get(current_id, 0) if current_id else 0,
+            current_id in self.mine if current_id else False,
+            self.disputes.get(question_id),
+        )
 
 
 def classification_mutation(session, operation):
     from caf_l4.revisions import RevisionConflict, ReadinessError
+
     try:
         result = operation()
         session.commit()
         return result
     except RevisionConflict as exc:
         session.rollback()
-        raise HTTPException(409, dict(code='stale_revision', message=str(exc), current_revision_id=exc.current_revision_id)) from exc
+        raise HTTPException(
+            409,
+            dict(
+                code="stale_revision", message=str(exc), current_revision_id=exc.current_revision_id
+            ),
+        ) from exc
     except ReadinessError as exc:
         session.rollback()
-        raise HTTPException(422, dict(code='readiness_failed', message=str(exc), blockers=exc.blockers)) from exc
+        raise HTTPException(
+            422, dict(code="readiness_failed", message=str(exc), blockers=exc.blockers)
+        ) from exc
     except ValueError as exc:
         session.rollback()
-        raise HTTPException(422, dict(code='invalid_classification', message=str(exc))) from exc
+        raise HTTPException(422, dict(code="invalid_classification", message=str(exc))) from exc
 
 
-@router.post('/classifications/{suggestion_id}/review', response_model=ClassificationRevisionResult)
-def classification_review(suggestion_id: int, body: ClassificationReviewRequest,
-    session: Session = Depends(get_curation_db), account: Principal = Depends(require_account)):
+@router.post("/classifications/{suggestion_id}/review", response_model=ClassificationRevisionResult)
+def classification_review(
+    suggestion_id: int,
+    body: ClassificationReviewRequest,
+    session: Session = Depends(get_curation_db),
+    account: Principal = Depends(require_account),
+):
     from caf_l4.revisions import review_classification
-    return classification_mutation(session, lambda: review_classification(session, suggestion_id, account.id,
-        **body.model_dump()))
+
+    return classification_mutation(
+        session,
+        lambda: review_classification(session, suggestion_id, account.id, **body.model_dump()),
+    )
 
 
-@router.post('/classifications/bulk', response_model=ClassificationBulkResult)
-def classification_bulk(body: ClassificationBulkRequest, session: Session = Depends(get_curation_db),
-    account: Principal = Depends(require_admin)):
+@router.post("/classifications/bulk", response_model=ClassificationBulkResult)
+def classification_bulk(
+    body: ClassificationBulkRequest,
+    session: Session = Depends(get_curation_db),
+    account: Principal = Depends(require_admin),
+):
     from caf_l4.revisions import review_classification
-    return classification_mutation(session, lambda: dict(revisions=[review_classification(session,
-        review.expected_suggestion_revision_id, account.id, **review.model_dump()) for review in body.reviews]))
+
+    return classification_mutation(
+        session,
+        lambda: dict(
+            revisions=[
+                review_classification(
+                    session,
+                    review.expected_suggestion_revision_id,
+                    account.id,
+                    **review.model_dump(),
+                )
+                for review in body.reviews
+            ]
+        ),
+    )
 
 
-@router.get('/classifications/questions/{question_id}/history', response_model=list[ClassificationHistoryItem])
+@router.get(
+    "/classifications/questions/{question_id}/history",
+    response_model=list[ClassificationHistoryItem],
+)
 def classification_history(question_id: str, session: Session = Depends(get_curation_db)):
     from caf_l4.revisions import history
+
     return history(session, question_id)
 
 
-@router.post('/classifications/questions/{question_id}/verify', response_model=ClassificationRevisionResult)
-def classification_verify(question_id: str, body: ClassificationVerificationRequest,
-    session: Session = Depends(get_curation_db), account: Principal = Depends(require_account)):
+@router.post(
+    "/classifications/questions/{question_id}/verify", response_model=ClassificationRevisionResult
+)
+def classification_verify(
+    question_id: str,
+    body: ClassificationVerificationRequest,
+    session: Session = Depends(get_curation_db),
+    account: Principal = Depends(require_account),
+):
     from caf_l4.revisions import verify_classification
-    return classification_mutation(session, lambda: verify_classification(session, question_id, account.id, **body.model_dump()))
+
+    return classification_mutation(
+        session,
+        lambda: verify_classification(session, question_id, account.id, **body.model_dump()),
+    )
 
 
-@router.post('/classifications/questions/{question_id}/withdraw', response_model=ClassificationRevisionResult)
-def classification_withdraw(question_id: str, body: ClassificationVerificationRequest,
-    session: Session = Depends(get_curation_db), account: Principal = Depends(require_account)):
+@router.post(
+    "/classifications/questions/{question_id}/withdraw", response_model=ClassificationRevisionResult
+)
+def classification_withdraw(
+    question_id: str,
+    body: ClassificationVerificationRequest,
+    session: Session = Depends(get_curation_db),
+    account: Principal = Depends(require_account),
+):
     from caf_l4.revisions import verify_classification
-    return classification_mutation(session, lambda: verify_classification(session, question_id, account.id, withdraw=True, **body.model_dump()))
+
+    return classification_mutation(
+        session,
+        lambda: verify_classification(
+            session, question_id, account.id, withdraw=True, **body.model_dump()
+        ),
+    )
 
 
-@router.post('/classifications/questions/{question_id}/disputes', response_model=ClassificationRevisionResult)
-def classification_dispute(question_id: str, body: ClassificationDisputeRequest,
-    session: Session = Depends(get_curation_db), account: Principal = Depends(require_account)):
+@router.post(
+    "/classifications/questions/{question_id}/disputes", response_model=ClassificationRevisionResult
+)
+def classification_dispute(
+    question_id: str,
+    body: ClassificationDisputeRequest,
+    session: Session = Depends(get_curation_db),
+    account: Principal = Depends(require_account),
+):
     from caf_l4.revisions import submit_dispute
-    return classification_mutation(session, lambda: submit_dispute(session, question_id, account.id, **body.model_dump()))
+
+    return classification_mutation(
+        session, lambda: submit_dispute(session, question_id, account.id, **body.model_dump())
+    )
 
 
-@router.get('/classifications/questions/{question_id}/disputes', response_model=list[ClassificationDisputeResult])
+@router.get(
+    "/classifications/questions/{question_id}/disputes",
+    response_model=list[ClassificationDisputeResult],
+)
 def classification_disputes(question_id: str, session: Session = Depends(get_curation_db)):
     from caf_db.models.classification import ClassificationDispute
-    return [dict(id=row.id, classification_revision_id=row.revision_id, status=row.status, reason=row.reason)
-        for row in session.scalars(sa.select(ClassificationDispute).where(ClassificationDispute.question_id == question_id).order_by(ClassificationDispute.id.desc()))]
+
+    return [
+        dict(
+            id=row.id,
+            classification_revision_id=row.revision_id,
+            status=row.status,
+            reason=row.reason,
+        )
+        for row in session.scalars(
+            sa.select(ClassificationDispute)
+            .where(ClassificationDispute.question_id == question_id)
+            .order_by(ClassificationDispute.id.desc())
+        )
+    ]
 
 
-@router.post('/classifications/disputes/{dispute_id}/resolve', response_model=ClassificationRevisionResult)
-def classification_resolve(dispute_id: int, body: ClassificationResolveRequest,
-    session: Session = Depends(get_curation_db), account: Principal = Depends(require_admin)):
+@router.post(
+    "/classifications/disputes/{dispute_id}/resolve", response_model=ClassificationRevisionResult
+)
+def classification_resolve(
+    dispute_id: int,
+    body: ClassificationResolveRequest,
+    session: Session = Depends(get_curation_db),
+    account: Principal = Depends(require_admin),
+):
     from caf_l4.revisions import resolve_dispute
-    return classification_mutation(session, lambda: resolve_dispute(session, dispute_id, account.id, **body.model_dump()))
+
+    return classification_mutation(
+        session, lambda: resolve_dispute(session, dispute_id, account.id, **body.model_dump())
+    )
+
 
 class DecisionRequest(BaseModel):
     model_config = ConfigDict(extra="forbid")
@@ -425,11 +673,14 @@ def list_curate_queue(
     from caf_db.models.ref import Node
     from caf_l0.releases import active_version, get_release
     from caf_l0.hierarchy import ancestors, version_nodes
+
     try:
         release = get_release(session, version_id) if version_id else active_version(session)
     except ValueError as exc:
         raise HTTPException(422, str(exc)) from exc
-    taxonomy_version_id = release.taxonomy_version_id if release and release.status != "legacy" else None
+    taxonomy_version_id = (
+        release.taxonomy_version_id if release and release.status != "legacy" else None
+    )
 
     query = (
         sa.select(Unit, Document)
@@ -446,10 +697,14 @@ def list_curate_queue(
     if doc_id:
         query = query.where(Document.id == doc_id)
 
-    units_with_doc = session.execute(query.order_by(Document.attempt_id.desc(), Unit.id.asc())).all()
+    units_with_doc = session.execute(
+        query.order_by(Document.attempt_id.desc(), Unit.id.asc())
+    ).all()
 
     # Pre-fetch nodes
-    all_nodes = {n.id: n for n in version_nodes(session, release.taxonomy_version_id if release else None)}
+    all_nodes = {
+        n.id: n for n in version_nodes(session, release.taxonomy_version_id if release else None)
+    }
 
     def recommendation(node_id: str) -> dict:
         node = all_nodes.get(node_id)
@@ -459,8 +714,12 @@ def list_curate_queue(
             if current.level in ancestry:
                 ancestry[current.level] = {"id": current.id, "name": current.name}
             current = all_nodes.get(current.parent_id) if current.parent_id else None
-        return {"node_id": node_id, "node_name": node.name if node else None, **ancestry,
-                "breadcrumbs": [{"id": n.id, "name": n.name} for n in ancestors(node_id, all_nodes)]}
+        return {
+            "node_id": node_id,
+            "node_name": node.name if node else None,
+            **ancestry,
+            "breadcrumbs": [{"id": n.id, "name": n.name} for n in ancestors(node_id, all_nodes)],
+        }
 
     items = []
     for u, doc in units_with_doc:
@@ -484,9 +743,15 @@ def list_curate_queue(
             continue
 
         # A primary and its secondary evidence must describe the same model run.
-        secondaries = [s for s in suggs if s.role == "secondary" and s.run_id == prim.run_id
-                       and s.method == prim.method and s.model_id == prim.model_id
-                       and s.prompt_version == prim.prompt_version]
+        secondaries = [
+            s
+            for s in suggs
+            if s.role == "secondary"
+            and s.run_id == prim.run_id
+            and s.method == prim.method
+            and s.model_id == prim.model_id
+            and s.prompt_version == prim.prompt_version
+        ]
         ans = session.get(UnitAnswer, u.id)
 
         items.append(
@@ -516,10 +781,7 @@ def list_curate_queue(
                     "method": prim.method,
                     "model_id": prim.model_id,
                 },
-                "secondary_suggestions": [
-                    recommendation(s.node_id)
-                    for s in secondaries
-                ],
+                "secondary_suggestions": [recommendation(s.node_id) for s in secondaries],
             }
         )
 
@@ -539,8 +801,13 @@ def api_make_decision(
     if req.action in ("bulk_accept", "undo") and account.role != "administrator":
         raise HTTPException(status_code=403, detail="Administrator capability required")
     if req.action not in ("none_fits", "exclude"):
-        raise HTTPException(422, dict(code='revision_review_required',
-            message='Review the complete root classification through the revision review workspace'))
+        raise HTTPException(
+            422,
+            dict(
+                code="revision_review_required",
+                message="Review the complete root classification through the revision review workspace",
+            ),
+        )
 
     payload = {
         "primary_node_id": req.primary_node_id,
@@ -576,8 +843,13 @@ def api_bulk_accept_bucket_a(
     account: Principal = Depends(require_admin),
 ):
     """Bulk accept all remaining Bucket A suggestions for a confirmed document."""
-    raise HTTPException(422, dict(code='revision_review_required',
-        message='Select explicit root suggestion and publication revisions in the bulk review workspace'))
+    raise HTTPException(
+        422,
+        dict(
+            code="revision_review_required",
+            message="Select explicit root suggestion and publication revisions in the bulk review workspace",
+        ),
+    )
 
 
 @router.post("/intel/recompute", response_model=RecomputeResult, status_code=202)
@@ -591,13 +863,14 @@ def api_curate_recompute_scores(
     from caf_l5.jobs import enqueue_recompute
 
     try:
-        job = enqueue_recompute(session, target_attempt_id=target_attempt_id,
-                                taxonomy_version_id=taxonomy_version_id)
+        job = enqueue_recompute(
+            session, target_attempt_id=target_attempt_id, taxonomy_version_id=taxonomy_version_id
+        )
         return {
             "job_id": job.id,
             "status": job.status,
             "target_attempt_id": job.target_attempt_id,
-            "scoring_version": job.config_snapshot['version'],
+            "scoring_version": job.config_snapshot["version"],
             "taxonomy_version_id": job.taxonomy_version_id,
             "corpus_generation": job.corpus_generation,
         }

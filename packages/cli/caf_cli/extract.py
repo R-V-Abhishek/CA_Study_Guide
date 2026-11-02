@@ -20,13 +20,25 @@ console = Console()
 
 @app.command("run")
 def extract_run(
-    doc_id: Annotated[int | None, typer.Option("--doc", help="Specific document ID to extract")] = None,
-    profile_path: Annotated[str | None, typer.Option("--profile", help="Path to custom profile YAML")] = None,
-    status: Annotated[str, typer.Option("--status", help="Document extract_status filter")] = "pending",
+    doc_id: Annotated[
+        int | None, typer.Option("--doc", help="Specific document ID to extract")
+    ] = None,
+    profile_path: Annotated[
+        str | None, typer.Option("--profile", help="Path to custom profile YAML")
+    ] = None,
+    status: Annotated[
+        str, typer.Option("--status", help="Document extract_status filter")
+    ] = "pending",
     limit: Annotated[int, typer.Option("--limit", min=1, max=1000)] = 25,
-    dry_run: Annotated[bool, typer.Option("--dry-run", help="List selection without creating revisions")] = False,
-    promote: Annotated[bool, typer.Option("--promote", help="Explicitly promote candidates after parsing")] = False,
-    ocr: Annotated[bool, typer.Option("--ocr", help="Enable configured Tesseract worker for raster pages")] = False,
+    dry_run: Annotated[
+        bool, typer.Option("--dry-run", help="List selection without creating revisions")
+    ] = False,
+    promote: Annotated[
+        bool, typer.Option("--promote", help="Explicitly promote candidates after parsing")
+    ] = False,
+    ocr: Annotated[
+        bool, typer.Option("--ocr", help="Enable configured Tesseract worker for raster pages")
+    ] = False,
 ) -> None:
     """Run L2 extraction pipeline on confirmed documents."""
     settings = get_settings()
@@ -38,13 +50,20 @@ def extract_run(
     debug_dir = Path("data/debug")
 
     from caf_l2.blocks import OCRConfig
+
     pipeline = ExtractionPipeline(
         blob_store=blob_store,
         profiles_dir=profiles_dir,
         overrides_dir=overrides_dir,
         debug_dir=debug_dir,
-        ocr_config=OCRConfig(language=settings.ocr.language,dpi=settings.ocr.dpi,
-            min_native_chars=settings.ocr.min_native_chars,tessdata=settings.ocr.tessdata) if ocr or settings.ocr.enabled else None,
+        ocr_config=OCRConfig(
+            language=settings.ocr.language,
+            dpi=settings.ocr.dpi,
+            min_native_chars=settings.ocr.min_native_chars,
+            tessdata=settings.ocr.tessdata,
+        )
+        if ocr or settings.ocr.enabled
+        else None,
     )
 
     with session_factory() as session:
@@ -56,17 +75,25 @@ def extract_run(
         if doc_id is not None:
             query = query.where(Document.id == doc_id)
         else:
-            query = query.where(Document.extract_status == status, Document.course_level == 'final',
-                Document.provenance_status == 'verified', Document.scheme_id == 's2023')
+            query = query.where(
+                Document.extract_status == status,
+                Document.course_level == "final",
+                Document.provenance_status == "verified",
+                Document.scheme_id == "s2023",
+            )
 
         docs = session.scalars(query.order_by(Document.id).limit(limit)).all()
         if not docs:
-            console.print(f"[yellow]No documents found matching criteria (doc_id={doc_id}, status={status}).[/yellow]")
+            console.print(
+                f"[yellow]No documents found matching criteria (doc_id={doc_id}, status={status}).[/yellow]"
+            )
             return
 
         if dry_run:
             for doc in docs:
-                console.print(f"{doc.id}: {doc.course_level}/{doc.scheme_id}/{doc.paper_id} {doc.attempt_id or doc.collection_id} {doc.doc_type_id}; current revision={doc.current_revision_id}")
+                console.print(
+                    f"{doc.id}: {doc.course_level}/{doc.scheme_id}/{doc.paper_id} {doc.attempt_id or doc.collection_id} {doc.doc_type_id}; current revision={doc.current_revision_id}"
+                )
             return
 
         console.print(f"[bold green]Starting extraction on {len(docs)} document(s)...[/bold green]")
@@ -111,7 +138,9 @@ def extract_run(
                         str(summary.gradable_units),
                         issues_str or "—",
                     )
-                    console.print(f"Document {doc.id}: revision {summary.revision_id} ({summary.revision_status})")
+                    console.print(
+                        f"Document {doc.id}: revision {summary.revision_id} ({summary.revision_status})"
+                    )
                     if summary.extract_status == "needs_review":
                         failures.append(doc.id)
                 except Exception as e:
@@ -136,16 +165,24 @@ def extract_run(
 def compare_revision(revision_id: int) -> None:
     """Print exact content reconciliation before promoting a candidate."""
     from caf_db.models.extraction import ReconciliationLink
+
     with get_session_factory("operations")() as session:
-        rows = session.scalars(select(ReconciliationLink).where(ReconciliationLink.revision_id == revision_id).order_by(ReconciliationLink.id))
+        rows = session.scalars(
+            select(ReconciliationLink)
+            .where(ReconciliationLink.revision_id == revision_id)
+            .order_by(ReconciliationLink.id)
+        )
         for row in rows:
-            console.print(f"{row.relation}: old unit={row.old_unit_id} new={row.new_label}; {row.evidence}")
+            console.print(
+                f"{row.relation}: old unit={row.old_unit_id} new={row.new_label}; {row.evidence}"
+            )
 
 
 @app.command("promote")
 def promote_candidate(revision_id: int, expected_current: int | None = None) -> None:
     """Transactionally promote a candidate with an explicit current-revision check."""
     from caf_l2.revisions import promote_revision
+
     with get_session_factory("operations")() as session:
         try:
             result = promote_revision(session, revision_id, expected_current)
@@ -191,7 +228,9 @@ def extract_debug(
             )
             console.print(f"[bold green]Debug render generated successfully![/bold green]")
             console.print(f"Outcome: [bold]{summary.extract_status}[/bold]")
-            console.print(f"Total units: {summary.total_units} (Gradables: {summary.gradable_units})")
+            console.print(
+                f"Total units: {summary.total_units} (Gradables: {summary.gradable_units})"
+            )
             if summary.debug_html_path:
                 console.print(f"HTML: [cyan]{summary.debug_html_path}[/cyan]")
 
@@ -221,6 +260,9 @@ def extract_report() -> None:
         gradable_count = (
             session.query(func.count(Unit.id))
             .filter(Unit.current.is_(True), Unit.is_gradable.is_(True))
-            .scalar() or 0
+            .scalar()
+            or 0
         )
-        console.print(f"\n[bold]Current Units:[/bold] {unit_count} total, {gradable_count} gradable.")
+        console.print(
+            f"\n[bold]Current Units:[/bold] {unit_count} total, {gradable_count} gradable."
+        )

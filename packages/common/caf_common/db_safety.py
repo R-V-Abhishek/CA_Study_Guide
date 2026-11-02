@@ -35,10 +35,15 @@ def disallow_test_database(host: str, port: int, database: str) -> None:
 
 def assert_safe_storage(path: Path) -> None:
     if os.environ.get("CAF_TEST_MODE") == "1":
-        roots = [Path(os.environ[key]).resolve() for key in
-                 ("CAF_TEST_STORAGE_ROOT", "CAF_TEST_ARTIFACT_ROOT") if os.environ.get(key)]
+        roots = [
+            Path(os.environ[key]).resolve()
+            for key in ("CAF_TEST_STORAGE_ROOT", "CAF_TEST_ARTIFACT_ROOT")
+            if os.environ.get(key)
+        ]
         if not any(path.resolve().is_relative_to(root) for root in roots):
-            raise RuntimeError("Test storage target rejected: outside harness temporary directories")
+            raise RuntimeError(
+                "Test storage target rejected: outside harness temporary directories"
+            )
 
 
 def assert_acquisition_allowed() -> None:

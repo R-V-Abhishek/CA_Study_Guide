@@ -45,26 +45,43 @@ def get_identity_db():
 def prune_auth_tables(db, now: datetime | None = None) -> dict[str, int]:
     """Delete spent login transactions and long-dead sessions; live sessions are never touched."""
     now = now or utcnow()
-    transactions = db.execute(sa.delete(LoginTransaction).where(
-        LoginTransaction.expires_at < now - timedelta(days=1))).rowcount
+    transactions = db.execute(
+        sa.delete(LoginTransaction).where(LoginTransaction.expires_at < now - timedelta(days=1))
+    ).rowcount
     cutoff = now - timedelta(days=30)
-    sessions = db.execute(sa.delete(AuthSession).where(sa.or_(
-        AuthSession.revoked_at < cutoff, AuthSession.expires_at < cutoff))).rowcount
+    sessions = db.execute(
+        sa.delete(AuthSession).where(
+            sa.or_(AuthSession.revoked_at < cutoff, AuthSession.expires_at < cutoff)
+        )
+    ).rowcount
     db.commit()
     return {"login_transactions": transactions, "auth_sessions": sessions}
 
 
 def validate_auth_configuration() -> None:
     settings = get_settings()
-    values = (settings.OIDC_ISSUER, settings.OIDC_CLIENT_ID, settings.OIDC_CLIENT_SECRET, settings.OIDC_REDIRECT_URI)
+    values = (
+        settings.OIDC_ISSUER,
+        settings.OIDC_CLIENT_ID,
+        settings.OIDC_CLIENT_SECRET,
+        settings.OIDC_REDIRECT_URI,
+    )
     if settings.app.env not in ("development", "test") and not all(values):
-        raise RuntimeError("Production requires OIDC issuer, client ID, client secret, and redirect URI")
+        raise RuntimeError(
+            "Production requires OIDC issuer, client ID, client secret, and redirect URI"
+        )
     if settings.AUTH_LOCAL_DEVELOPMENT and settings.app.env not in ("development", "test"):
         raise RuntimeError("Insecure auth cookies are restricted to explicit local development")
     if all(values) and not settings.AUTH_LOCAL_DEVELOPMENT:
-        for value in (settings.OIDC_ISSUER, settings.OIDC_REDIRECT_URI, settings.AUTH_PUBLIC_BASE_URL):
+        for value in (
+            settings.OIDC_ISSUER,
+            settings.OIDC_REDIRECT_URI,
+            settings.AUTH_PUBLIC_BASE_URL,
+        ):
             if urlsplit(value).scheme != "https":
-                raise RuntimeError("OIDC and application URLs must use HTTPS outside local development")
+                raise RuntimeError(
+                    "OIDC and application URLs must use HTTPS outside local development"
+                )
 
 
 def allowed_origins() -> set[str]:
@@ -72,7 +89,11 @@ def allowed_origins() -> set[str]:
     base = urlsplit(settings.AUTH_PUBLIC_BASE_URL)
     origins = {f"{base.scheme}://{base.netloc}"}
     if settings.app.env in ("development", "test"):
-        origins.update(item.strip().rstrip("/") for item in settings.AUTH_ALLOWED_ORIGINS.split(",") if item.strip())
+        origins.update(
+            item.strip().rstrip("/")
+            for item in settings.AUTH_ALLOWED_ORIGINS.split(",")
+            if item.strip()
+        )
     return origins
 
 
@@ -94,11 +115,21 @@ def require_account(request: Request) -> Principal:
     now = utcnow()
     with get_session_factory("identity")() as db:
         session = db.get(AuthSession, hash_token(token))
-        if session is None or session.revoked_at is not None or session.expires_at <= now or session.last_seen_at <= now - timedelta(hours=24):
+        if (
+            session is None
+            or session.revoked_at is not None
+            or session.expires_at <= now
+            or session.last_seen_at <= now - timedelta(hours=24)
+        ):
             raise HTTPException(401, "session_expired")
         account = db.get(UserAccount, session.user_id)
         if account is None or account.status != "active":
-            raise HTTPException(403, "account_disabled" if account and account.status == "disabled" else "invite_required")
+            raise HTTPException(
+                403,
+                "account_disabled"
+                if account and account.status == "disabled"
+                else "invite_required",
+            )
         expected_account = request.headers.get("x-expected-account-id")
         if expected_account is not None and expected_account != str(account.id):
             # A stale tab may send a request after another tab rotates the
@@ -106,7 +137,9 @@ def require_account(request: Request) -> Principal:
             raise HTTPException(409, "identity_changed")
         if request.method not in ("GET", "HEAD", "OPTIONS"):
             supplied = request.headers.get("x-csrf-token", "")
-            if request.headers.get("origin") not in allowed_origins() or not secrets.compare_digest(supplied.encode(), session.csrf_token.encode()):
+            if request.headers.get("origin") not in allowed_origins() or not secrets.compare_digest(
+                supplied.encode(), session.csrf_token.encode()
+            ):
                 raise HTTPException(403, "csrf_rejected")
         principal = Principal(account.id, account.name, account.email, account.role, account.status)
         if session.last_seen_at <= now - LAST_SEEN_WRITE_INTERVAL:
@@ -129,24 +162,43 @@ def create_session(db: Session, user_id: int) -> tuple[str, AuthSession]:
     """Return cookie token and persisted session; callers commit the transaction."""
     token = secrets.token_urlsafe(32)
     now = utcnow()
-    session = AuthSession(token_hash=hash_token(token), user_id=user_id,
-                          csrf_token=secrets.token_urlsafe(32), created_at=now,
-                          expires_at=now + timedelta(days=7), last_seen_at=now)
+    session = AuthSession(
+        token_hash=hash_token(token),
+        user_id=user_id,
+        csrf_token=secrets.token_urlsafe(32),
+        created_at=now,
+        expires_at=now + timedelta(days=7),
+        last_seen_at=now,
+    )
     db.add(session)
     db.flush()
     return token, session
 
 
 def set_cookie(response: Response, name: str, value: str, max_age: int) -> None:
-    response.set_cookie(name, value, max_age=max_age, httponly=True, secure=not get_settings().AUTH_LOCAL_DEVELOPMENT, samesite="lax", path="/")
+    response.set_cookie(
+        name,
+        value,
+        max_age=max_age,
+        httponly=True,
+        secure=not get_settings().AUTH_LOCAL_DEVELOPMENT,
+        samesite="lax",
+        path="/",
+    )
 
 
 def local_return_to(path: str) -> str:
     decoded = path
     from urllib.parse import unquote
+
     for _ in range(3):
         decoded = unquote(decoded)
-    if not decoded.startswith("/") or decoded.startswith("//") or "\\" in decoded or any(ord(char) < 32 for char in decoded):
+    if (
+        not decoded.startswith("/")
+        or decoded.startswith("//")
+        or "\\" in decoded
+        or any(ord(char) < 32 for char in decoded)
+    ):
         raise HTTPException(400, "invalid_return_destination")
     parsed = urlsplit(decoded)
     if parsed.scheme or parsed.netloc or parsed.path.startswith("/auth/"):
@@ -156,33 +208,57 @@ def local_return_to(path: str) -> str:
 
 def oidc_client():
     settings = get_settings()
-    if not all((settings.OIDC_ISSUER, settings.OIDC_CLIENT_ID, settings.OIDC_CLIENT_SECRET, settings.OIDC_REDIRECT_URI)):
+    if not all(
+        (
+            settings.OIDC_ISSUER,
+            settings.OIDC_CLIENT_ID,
+            settings.OIDC_CLIENT_SECRET,
+            settings.OIDC_REDIRECT_URI,
+        )
+    ):
         raise HTTPException(503, "authentication_not_configured")
     oauth = OAuth()
-    return oauth.register("provider", client_id=settings.OIDC_CLIENT_ID,
-                          client_secret=settings.OIDC_CLIENT_SECRET,
-                          server_metadata_url=settings.OIDC_ISSUER.rstrip("/") + "/.well-known/openid-configuration",
-                          client_kwargs={"scope": "openid email profile", "code_challenge_method": "S256"})
+    return oauth.register(
+        "provider",
+        client_id=settings.OIDC_CLIENT_ID,
+        client_secret=settings.OIDC_CLIENT_SECRET,
+        server_metadata_url=settings.OIDC_ISSUER.rstrip("/") + "/.well-known/openid-configuration",
+        client_kwargs={"scope": "openid email profile", "code_challenge_method": "S256"},
+    )
 
 
 @router.get("/auth/login")
-async def login(return_to: str = "/", invitation: str | None = None, db: Session = Depends(get_identity_db)):
+async def login(
+    return_to: str = "/", invitation: str | None = None, db: Session = Depends(get_identity_db)
+):
     return_to = local_return_to(return_to)
     client = oidc_client()
     try:
         metadata = await client.load_server_metadata()
     except (httpx.RequestError, httpx.HTTPStatusError) as exc:
-        logger.warning("OIDC discovery unavailable: provider=%s failure=%s",
-                       urlsplit(get_settings().OIDC_ISSUER).hostname, type(exc).__name__)
+        logger.warning(
+            "OIDC discovery unavailable: provider=%s failure=%s",
+            urlsplit(get_settings().OIDC_ISSUER).hostname,
+            type(exc).__name__,
+        )
         raise HTTPException(503, "identity_provider_unavailable") from exc
     if metadata.get("issuer") != get_settings().OIDC_ISSUER:
         raise HTTPException(400, "invalid_identity_provider")
     state, browser, nonce, verifier = (secrets.token_urlsafe(32) for _ in range(4))
-    authorization = await client.create_authorization_url(get_settings().OIDC_REDIRECT_URI, state=state, nonce=nonce, code_verifier=verifier)
-    db.add(LoginTransaction(state_hash=hash_token(state), browser_hash=hash_token(browser),
-                            nonce=nonce, code_verifier=verifier,
-                            invitation_hash=hash_token(invitation) if invitation else None,
-                            return_to=return_to, expires_at=utcnow() + timedelta(minutes=10)))
+    authorization = await client.create_authorization_url(
+        get_settings().OIDC_REDIRECT_URI, state=state, nonce=nonce, code_verifier=verifier
+    )
+    db.add(
+        LoginTransaction(
+            state_hash=hash_token(state),
+            browser_hash=hash_token(browser),
+            nonce=nonce,
+            code_verifier=verifier,
+            invitation_hash=hash_token(invitation) if invitation else None,
+            return_to=return_to,
+            expires_at=utcnow() + timedelta(minutes=10),
+        )
+    )
     db.commit()
     response = RedirectResponse(authorization["url"], status_code=302)
     set_cookie(response, LOGIN_COOKIE, browser, 600)
@@ -192,22 +268,41 @@ async def login(return_to: str = "/", invitation: str | None = None, db: Session
 def bind_identity(db: Session, identity: dict, invitation_hash: str | None) -> UserAccount:
     """Issuer/subject lookup never links an existing account by email."""
     issuer, subject = identity["iss"], identity["sub"]
-    account = db.scalar(sa.select(UserAccount).where(UserAccount.issuer == issuer, UserAccount.subject == subject).with_for_update())
+    account = db.scalar(
+        sa.select(UserAccount)
+        .where(UserAccount.issuer == issuer, UserAccount.subject == subject)
+        .with_for_update()
+    )
     if account is not None:
         if account.status != "active":
             raise HTTPException(403, "account_disabled")
         return account
     if not invitation_hash:
         raise HTTPException(403, "invite_required")
-    invitation = db.scalar(sa.select(Invitation).where(Invitation.token_hash == invitation_hash).with_for_update())
+    invitation = db.scalar(
+        sa.select(Invitation).where(Invitation.token_hash == invitation_hash).with_for_update()
+    )
     now = utcnow()
-    if invitation is None or invitation.revoked_at is not None or invitation.consumed_at is not None or invitation.expires_at <= now:
+    if (
+        invitation is None
+        or invitation.revoked_at is not None
+        or invitation.consumed_at is not None
+        or invitation.expires_at <= now
+    ):
         raise HTTPException(403, "invitation_invalid")
     email = identity.get("email")
-    if identity.get("email_verified") is not True or not email or email.casefold() != invitation.email.casefold():
+    if (
+        identity.get("email_verified") is not True
+        or not email
+        or email.casefold() != invitation.email.casefold()
+    ):
         raise HTTPException(403, "invitation_email_mismatch")
     if invitation.target_user_id is not None:
-        account = db.scalar(sa.select(UserAccount).where(UserAccount.id == invitation.target_user_id).with_for_update())
+        account = db.scalar(
+            sa.select(UserAccount)
+            .where(UserAccount.id == invitation.target_user_id)
+            .with_for_update()
+        )
         if account is None or account.status != "pending_binding" or account.subject is not None:
             raise HTTPException(409, "account_already_bound")
     else:
@@ -218,19 +313,41 @@ def bind_identity(db: Session, identity: dict, invitation_hash: str | None) -> U
     account.role, account.status = invitation.role, "active"
     db.flush()
     if db.get(Settings, account.id) is None:
-        papers = list(db.scalars(sa.select(Paper.id).where(Paper.is_current.is_(True)).order_by(Paper.id)))
-        db.add(Settings(user_id=account.id, target_attempt_id=get_settings().app.target_attempt_id,
-                        selected_paper_ids=papers,
-                        hours_per_week=20, minutes_per_subtopic=45, revision_intervals=[3, 7, 21, 60]))
+        papers = list(
+            db.scalars(sa.select(Paper.id).where(Paper.is_current.is_(True)).order_by(Paper.id))
+        )
+        db.add(
+            Settings(
+                user_id=account.id,
+                target_attempt_id=get_settings().app.target_attempt_id,
+                selected_paper_ids=papers,
+                hours_per_week=20,
+                minutes_per_subtopic=45,
+                revision_intervals=[3, 7, 21, 60],
+            )
+        )
     invitation.consumed_at = now
     return account
 
 
 @router.get("/auth/callback")
-async def callback(request: Request, state: str = "", code: str = "", db: Session = Depends(get_identity_db)):
+async def callback(
+    request: Request, state: str = "", code: str = "", db: Session = Depends(get_identity_db)
+):
     browser = request.cookies.get(LOGIN_COOKIE, "")
-    tx = db.scalar(sa.select(LoginTransaction).where(LoginTransaction.state_hash == hash_token(state)).with_for_update())
-    if not state or not browser or tx is None or tx.consumed_at is not None or tx.expires_at <= utcnow() or not secrets.compare_digest(tx.browser_hash, hash_token(browser)):
+    tx = db.scalar(
+        sa.select(LoginTransaction)
+        .where(LoginTransaction.state_hash == hash_token(state))
+        .with_for_update()
+    )
+    if (
+        not state
+        or not browser
+        or tx is None
+        or tx.consumed_at is not None
+        or tx.expires_at <= utcnow()
+        or not secrets.compare_digest(tx.browser_hash, hash_token(browser))
+    ):
         raise HTTPException(400, "invalid_login_transaction")
     tx.consumed_at = utcnow()
     db.commit()  # A failed provider exchange also consumes the one-time transaction.
@@ -241,11 +358,20 @@ async def callback(request: Request, state: str = "", code: str = "", db: Sessio
         metadata = await client.load_server_metadata()
         if metadata.get("issuer") != get_settings().OIDC_ISSUER:
             raise ValueError("Provider issuer mismatch")
-        token = await client.fetch_access_token(code=code, redirect_uri=get_settings().OIDC_REDIRECT_URI, code_verifier=tx.code_verifier)
-        identity = await client.parse_id_token(token, nonce=tx.nonce, leeway=0,
-            claims_options={"iss": {"essential": True, "value": get_settings().OIDC_ISSUER},
-                            "sub": {"essential": True}, "exp": {"essential": True},
-                            "aud": {"essential": True}})
+        token = await client.fetch_access_token(
+            code=code, redirect_uri=get_settings().OIDC_REDIRECT_URI, code_verifier=tx.code_verifier
+        )
+        identity = await client.parse_id_token(
+            token,
+            nonce=tx.nonce,
+            leeway=0,
+            claims_options={
+                "iss": {"essential": True, "value": get_settings().OIDC_ISSUER},
+                "sub": {"essential": True},
+                "exp": {"essential": True},
+                "aud": {"essential": True},
+            },
+        )
         if identity.get("nonce") != tx.nonce or identity.get("iss") != get_settings().OIDC_ISSUER:
             raise ValueError("Identity nonce/issuer mismatch")
     except HTTPException:
@@ -288,13 +414,20 @@ class MeResponse(BaseModel):
 
 @router.get("/api/v1/me", response_model=MeResponse)
 def me(request: Request, account: Principal = Depends(require_account)):
-    return MeResponse(account=AccountResponse.model_validate(account),
-                      capabilities=["browse", "profile", "review"] + (["admin"] if account.role == "administrator" else []),
-                      csrf_token=request.state.csrf_token)
+    return MeResponse(
+        account=AccountResponse.model_validate(account),
+        capabilities=["browse", "profile", "review"]
+        + (["admin"] if account.role == "administrator" else []),
+        csrf_token=request.state.csrf_token,
+    )
 
 
 @router.post("/auth/logout")
-def logout(request: Request, account: Principal = Depends(require_account), db: Session = Depends(get_identity_db)):
+def logout(
+    request: Request,
+    account: Principal = Depends(require_account),
+    db: Session = Depends(get_identity_db),
+):
     session = db.get(AuthSession, hash_token(request.cookies[SESSION_COOKIE]))
     session.revoked_at = utcnow()
     db.commit()
@@ -324,15 +457,30 @@ class CreatedInvitationResponse(InvitationResponse):
     invitation_url: str
 
 
-def create_invitation(db: Session, email: str, *, created_by: int | None = None,
-                      target_user_id: int | None = None, role: str = "student") -> tuple[Invitation, str]:
+def create_invitation(
+    db: Session,
+    email: str,
+    *,
+    created_by: int | None = None,
+    target_user_id: int | None = None,
+    role: str = "student",
+) -> tuple[Invitation, str]:
     token = secrets.token_urlsafe(32)
-    invitation = Invitation(token_hash=hash_token(token), email=email.strip().casefold(), role=role,
-                            target_user_id=target_user_id, created_by=created_by,
-                            expires_at=utcnow() + timedelta(days=7))
+    invitation = Invitation(
+        token_hash=hash_token(token),
+        email=email.strip().casefold(),
+        role=role,
+        target_user_id=target_user_id,
+        created_by=created_by,
+        expires_at=utcnow() + timedelta(days=7),
+    )
     db.add(invitation)
     db.flush()
-    url = get_settings().AUTH_PUBLIC_BASE_URL.rstrip("/") + "/auth/login?" + urlencode({"invitation": token})
+    url = (
+        get_settings().AUTH_PUBLIC_BASE_URL.rstrip("/")
+        + "/auth/login?"
+        + urlencode({"invitation": token})
+    )
     return invitation, url
 
 
@@ -342,14 +490,24 @@ def invitations(admin: Principal = Depends(require_admin), db: Session = Depends
 
 
 @router.post("/api/v1/admin/invitations", response_model=CreatedInvitationResponse)
-def invite(body: InvitationRequest, admin: Principal = Depends(require_admin), db: Session = Depends(get_identity_db)):
+def invite(
+    body: InvitationRequest,
+    admin: Principal = Depends(require_admin),
+    db: Session = Depends(get_identity_db),
+):
     invitation, url = create_invitation(db, body.email, created_by=admin.id)
     db.commit()
-    return CreatedInvitationResponse(**InvitationResponse.model_validate(invitation).model_dump(), invitation_url=url)
+    return CreatedInvitationResponse(
+        **InvitationResponse.model_validate(invitation).model_dump(), invitation_url=url
+    )
 
 
 @router.post("/api/v1/admin/invitations/{invitation_id}/revoke")
-def revoke_invitation(invitation_id: int, admin: Principal = Depends(require_admin), db: Session = Depends(get_identity_db)):
+def revoke_invitation(
+    invitation_id: int,
+    admin: Principal = Depends(require_admin),
+    db: Session = Depends(get_identity_db),
+):
     invitation = db.get(Invitation, invitation_id)
     if invitation is None:
         raise HTTPException(404, "invitation_not_found")
@@ -370,18 +528,31 @@ class AccountUpdate(BaseModel):
 
 
 @router.patch("/api/v1/admin/accounts/{account_id}", response_model=AccountResponse)
-def update_account(account_id: int, body: AccountUpdate, admin: Principal = Depends(require_admin), db: Session = Depends(get_identity_db)):
-    account = db.scalar(sa.select(UserAccount).where(UserAccount.id == account_id).with_for_update())
+def update_account(
+    account_id: int,
+    body: AccountUpdate,
+    admin: Principal = Depends(require_admin),
+    db: Session = Depends(get_identity_db),
+):
+    account = db.scalar(
+        sa.select(UserAccount).where(UserAccount.id == account_id).with_for_update()
+    )
     if account is None:
         raise HTTPException(404, "account_not_found")
     if account.status == "pending_binding":
         raise HTTPException(409, "account_requires_explicit_binding")
-    leaving_administration = account.role == "administrator" and account.status == "active" and (
-        body.role == "student" or body.status == "disabled")
+    leaving_administration = (
+        account.role == "administrator"
+        and account.status == "active"
+        and (body.role == "student" or body.status == "disabled")
+    )
     if leaving_administration:
         # Lock every active administrator so two concurrent demotions cannot both pass.
-        active = db.scalars(sa.select(UserAccount.id).where(
-            UserAccount.role == "administrator", UserAccount.status == "active").with_for_update()).all()
+        active = db.scalars(
+            sa.select(UserAccount.id)
+            .where(UserAccount.role == "administrator", UserAccount.status == "active")
+            .with_for_update()
+        ).all()
         if not [identifier for identifier in active if identifier != account.id]:
             raise HTTPException(409, "last_administrator")
     if body.role is not None:
@@ -389,6 +560,10 @@ def update_account(account_id: int, body: AccountUpdate, admin: Principal = Depe
     if body.status is not None:
         account.status = body.status
     if body.status == "disabled":
-        db.execute(sa.update(AuthSession).where(AuthSession.user_id == account.id, AuthSession.revoked_at.is_(None)).values(revoked_at=utcnow()))
+        db.execute(
+            sa.update(AuthSession)
+            .where(AuthSession.user_id == account.id, AuthSession.revoked_at.is_(None))
+            .values(revoked_at=utcnow())
+        )
     db.commit()
     return account

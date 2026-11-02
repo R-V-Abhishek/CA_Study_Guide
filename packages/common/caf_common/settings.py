@@ -36,7 +36,7 @@ class DatabaseSettings(BaseModel):
 
 class OCRSettings(BaseModel):
     enabled: bool = False
-    language: str = 'eng'
+    language: str = "eng"
     dpi: int = Field(default=300, ge=72, le=600)
     min_native_chars: int = Field(default=10, ge=1)
     tessdata: str | None = None
@@ -99,14 +99,14 @@ class Settings(BaseSettings):
             inst.app.env = inst.CAF_ENV
         if os.environ.get("CAF_TEST_MODE") == "1":
             from caf_common.db_safety import assert_safe_database
+
             if not inst.DATABASE_URL or not os.environ.get("CAF_TEST_STORAGE_ROOT"):
                 raise RuntimeError("Test settings require harness database and storage")
             assert_safe_database(inst.DATABASE_URL)
             root = Path(os.environ["CAF_TEST_STORAGE_ROOT"])
-            inst.storage = StorageSettings(**{
-                name: root / name.removesuffix("_dir")
-                for name in StorageSettings.model_fields
-            })
+            inst.storage = StorageSettings(
+                **{name: root / name.removesuffix("_dir") for name in StorageSettings.model_fields}
+            )
             inst.GEMINI_API_KEY = None
             inst.OPENROUTER_API_KEY = None
             inst.app.env = "test"

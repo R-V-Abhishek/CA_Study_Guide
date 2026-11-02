@@ -43,12 +43,13 @@ caf-cli = { workspace = true }
 [tool.ruff]
 target-version = "py312"
 line-length = 100
-extend-exclude = ["packages/*/*.egg-info", "web", "artifacts", "output"]
+# Migrations are immutable once released (the baseline revision is hash-pinned), so they are never reformatted.
+extend-exclude = ["packages/*/*.egg-info", "web", "artifacts", "output", "packages/db/caf_db/alembic/versions"]
 
 [tool.ruff.lint]
 # Bug-class baseline that passes today (syntax errors, undefined names, invalid
 # comparisons). Style rules (E70x, F401, F811, import order) are deliberately
-# deferred to the formatting step so this gate adds no code churn.
+# deferred; formatting is enforced separately by `ruff format --check`.
 select = ["E9", "F63", "F7", "F82", "F402", "F601", "F632"]
 
 [tool.mypy]

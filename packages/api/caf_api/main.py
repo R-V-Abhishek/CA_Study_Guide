@@ -18,8 +18,15 @@ from caf_common.logging import setup_logging
 from caf_common.settings import get_settings
 from caf_api.routes import router
 from caf_api.curate import router as curate_router
-from caf_api.auth import (router as auth_router, allowed_origins, hash_token, prune_auth_tables,
-    require_account, validate_auth_configuration, SESSION_COOKIE)
+from caf_api.auth import (
+    router as auth_router,
+    allowed_origins,
+    hash_token,
+    prune_auth_tables,
+    require_account,
+    validate_auth_configuration,
+    SESSION_COOKIE,
+)
 from caf_api.ratelimit import RateLimiter
 from caf_api.version import application_version
 from caf_api.taxonomy import router as taxonomy_router
@@ -49,10 +56,20 @@ def inline_script_hashes() -> list[str]:
 
 def content_security_policy() -> str:
     scripts = " ".join(["'self'", *inline_script_hashes()])
-    return "; ".join([
-        "default-src 'self'", f"script-src {scripts}", "style-src 'self' 'unsafe-inline'",
-        "img-src 'self' data: blob:", "font-src 'self'", "connect-src 'self'", "object-src 'none'",
-        "frame-ancestors 'none'", "base-uri 'none'", "form-action 'self'"])
+    return "; ".join(
+        [
+            "default-src 'self'",
+            f"script-src {scripts}",
+            "style-src 'self' 'unsafe-inline'",
+            "img-src 'self' data: blob:",
+            "font-src 'self'",
+            "connect-src 'self'",
+            "object-src 'none'",
+            "frame-ancestors 'none'",
+            "base-uri 'none'",
+            "form-action 'self'",
+        ]
+    )
 
 
 CONTENT_SECURITY_POLICY = content_security_policy()
@@ -72,7 +89,9 @@ async def prune_loop() -> None:
         try:
             await asyncio.to_thread(prune_once)
         except Exception:
-            logging.getLogger(__name__).exception("Authentication cleanup failed; it will be retried")
+            logging.getLogger(__name__).exception(
+                "Authentication cleanup failed; it will be retried"
+            )
         await asyncio.sleep(PRUNE_INTERVAL_SECONDS)
 
 
@@ -89,6 +108,7 @@ async def lifespan(application):
     if pruning is not None:
         pruning.cancel()
     reset_database()
+
 
 app = FastAPI(
     title="CA Final Study Companion API",
@@ -145,10 +165,18 @@ async def rate_limit(request: Request, call_next):
     rule = limiter.match(request.url.path) if request.app.state.rate_limit_enabled else None
     if rule is not None:
         token = request.cookies.get(SESSION_COOKIE)
-        identity = hash_token(token) if rule.by == "session" and token else (request.client.host if request.client else "unknown")
+        identity = (
+            hash_token(token)
+            if rule.by == "session" and token
+            else (request.client.host if request.client else "unknown")
+        )
         wait = limiter.check(rule, identity)
         if wait is not None:
-            return JSONResponse({"detail": "rate_limited"}, status_code=429, headers={"Retry-After": str(max(1, round(wait)))})
+            return JSONResponse(
+                {"detail": "rate_limited"},
+                status_code=429,
+                headers={"Retry-After": str(max(1, round(wait)))},
+            )
     return await call_next(request)
 
 
@@ -162,7 +190,10 @@ async def private_response_headers(request: Request, call_next):
     if request.url.path.startswith(("/api/", "/auth/")):
         response.headers["Cache-Control"] = "no-store"
         response.headers["Referrer-Policy"] = "no-referrer"
-    elif request.url.path.startswith(("/assets/", "/curator/assets/")) and response.status_code == 200:
+    elif (
+        request.url.path.startswith(("/assets/", "/curator/assets/"))
+        and response.status_code == 200
+    ):
         # Vite fingerprints these public build assets; a new build has new URLs.
         response.headers["Cache-Control"] = "public, max-age=31536000, immutable"
     elif response.headers.get("content-type", "").startswith("text/html"):
@@ -174,15 +205,39 @@ async def private_response_headers(request: Request, call_next):
 async def authentication_error(request: Request, exc: StarletteHTTPException):
     if request.url.path.startswith("/auth/") and "text/html" in request.headers.get("accept", ""):
         messages = {
-            "invite_required": ("Invitation required", "Open the invitation link supplied by your administrator."),
-            "invitation_invalid": ("Invitation unavailable", "This invitation has expired, was revoked, or has already been used."),
-            "invitation_email_mismatch": ("Invitation email mismatch", "Sign in using the invitation's email address and verify that address with your provider."),
-            "account_disabled": ("Account disabled", "An administrator must restore access to your account."),
-            "authentication_not_configured": ("Sign-in unavailable", "Hosted sign-in has not been configured yet."),
-            "identity_provider_unavailable": ("Sign-in unavailable", "The server could not reach the sign-in provider. Check the server's internet connection and DNS, then try again."),
+            "invite_required": (
+                "Invitation required",
+                "Open the invitation link supplied by your administrator.",
+            ),
+            "invitation_invalid": (
+                "Invitation unavailable",
+                "This invitation has expired, was revoked, or has already been used.",
+            ),
+            "invitation_email_mismatch": (
+                "Invitation email mismatch",
+                "Sign in using the invitation's email address and verify that address with your provider.",
+            ),
+            "account_disabled": (
+                "Account disabled",
+                "An administrator must restore access to your account.",
+            ),
+            "authentication_not_configured": (
+                "Sign-in unavailable",
+                "Hosted sign-in has not been configured yet.",
+            ),
+            "identity_provider_unavailable": (
+                "Sign-in unavailable",
+                "The server could not reach the sign-in provider. Check the server's internet connection and DNS, then try again.",
+            ),
         }
-        title, message = messages.get(str(exc.detail), ("Sign-in failed", "The sign-in request could not be verified. Start sign-in again."))
-        return HTMLResponse(f'<!doctype html><html><head><meta charset="utf-8"><title>{title}</title></head><body><main><h1>{title}</h1><p>{message}</p><a href="/">Return to CA Final Prep</a></main></body></html>', status_code=exc.status_code)
+        title, message = messages.get(
+            str(exc.detail),
+            ("Sign-in failed", "The sign-in request could not be verified. Start sign-in again."),
+        )
+        return HTMLResponse(
+            f'<!doctype html><html><head><meta charset="utf-8"><title>{title}</title></head><body><main><h1>{title}</h1><p>{message}</p><a href="/">Return to CA Final Prep</a></main></body></html>',
+            status_code=exc.status_code,
+        )
     return await http_exception_handler(request, exc)
 
 
@@ -205,7 +260,9 @@ from fastapi.staticfiles import StaticFiles
 if CURATOR_DIST.exists():
     curator_index = CURATOR_DIST / "index.html"
     if (CURATOR_DIST / "assets").exists():
-        app.mount("/curator/assets", StaticFiles(directory=CURATOR_DIST / "assets"), name="curator_assets")
+        app.mount(
+            "/curator/assets", StaticFiles(directory=CURATOR_DIST / "assets"), name="curator_assets"
+        )
 
     @app.get("/curator/{full_path:path}")
     async def serve_curator_spa(full_path: str = ""):

@@ -9,6 +9,7 @@ from caf_l2.segmenter import ParsedUnit
 
 class OverrideInvalidError(Exception):
     """Raised when an override produces validator errors."""
+
     pass
 
 
@@ -22,9 +23,7 @@ def load_override(overrides_dir: Path, doc_sha256: str) -> dict[str, Any] | None
         return yaml.safe_load(f)
 
 
-def apply_override(
-    units: list[ParsedUnit], override_data: dict[str, Any]
-) -> list[ParsedUnit]:
+def apply_override(units: list[ParsedUnit], override_data: dict[str, Any]) -> list[ParsedUnit]:
     """Apply patch or replace override to segmented units."""
     mode = override_data.get("mode", "patch")
     override_units = override_data.get("units", [])

@@ -1,4 +1,5 @@
 """Graceful polling lifecycle for the PostgreSQL intelligence queue."""
+
 import logging
 import signal
 import threading
@@ -18,7 +19,9 @@ def main(poll_seconds: float = 2.0) -> None:
     signal.signal(signal.SIGINT, lambda *_: stopped.set())
     signal.signal(signal.SIGTERM, lambda *_: stopped.set())
     setup_logging()
-    logging.basicConfig(level=logging.INFO)  # plain-text fallback for stdlib records outside production
+    logging.basicConfig(
+        level=logging.INFO
+    )  # plain-text fallback for stdlib records outside production
     factory = get_session_factory("operations")
     logging.info("Intelligence worker started")
     beat_at = 0.0
@@ -28,7 +31,9 @@ def main(poll_seconds: float = 2.0) -> None:
             try:
                 write_heartbeat(Path(get_settings().storage.backup_dir))
             except OSError:
-                logging.exception("Could not record the worker heartbeat; monitoring will report this worker as stale")
+                logging.exception(
+                    "Could not record the worker heartbeat; monitoring will report this worker as stale"
+                )
         try:
             job_id = run_worker_once(factory)
             if job_id is not None:

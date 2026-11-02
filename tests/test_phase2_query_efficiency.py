@@ -16,7 +16,12 @@ QUERY_LIMIT = {"/api/v1/papers": 24, "/api/v1/dashboard": 36}
 
 def leaves(client, paper_id):
     tree = client.get(f"/api/v1/papers/{paper_id}/tree").json()
-    return [sub["id"] for chapter in tree["chapters"] for topic in chapter["topics"] for sub in topic["subtopics"]]
+    return [
+        sub["id"]
+        for chapter in tree["chapters"]
+        for topic in chapter["topics"]
+        for sub in topic["subtopics"]
+    ]
 
 
 def capture(client):
@@ -29,9 +34,18 @@ def capture(client):
 @pytest.fixture
 def progressed(authenticated_client):
     client = authenticated_client()
-    for paper, statuses in (("s2023.P1", ["done", "done", "in_progress"]), ("s2023.P5", ["done"]), ("s2023.P3", ["in_progress"])):
+    for paper, statuses in (
+        ("s2023.P1", ["done", "done", "in_progress"]),
+        ("s2023.P5", ["done"]),
+        ("s2023.P3", ["in_progress"]),
+    ):
         for node, status in zip(leaves(client, paper), statuses):
-            assert client.put(f"/api/v1/subtopics/{node}/progress", json={"status": status}).status_code == 200
+            assert (
+                client.put(
+                    f"/api/v1/subtopics/{node}/progress", json={"status": status}
+                ).status_code
+                == 200
+            )
     return client
 
 

@@ -26,12 +26,11 @@ def cmd_recompute(
     target_attempt: str = typer.Option(
         ..., "--target-attempt", "-t", help="Target attempt ID (e.g. 2024-11 or 2026-05)"
     ),
-    shadow: bool = typer.Option(
-        False, "--shadow", help="Run in shadow mode (do not make current)"
-    ),
+    shadow: bool = typer.Option(False, "--shadow", help="Run in shadow mode (do not make current)"),
 ) -> None:
     """Enqueue durable recomputation; publication remains immediately readable."""
     from caf_l5.jobs import enqueue_recompute
+
     with get_session_factory("operations")() as session:
         if shadow:
             run = recompute_scores(session, target_attempt_id=target_attempt, shadow=True)
@@ -42,30 +41,40 @@ def cmd_recompute(
 
 
 @app.command("enqueue")
-def cmd_enqueue(target_attempt: str = typer.Option(..., "--target-attempt"),
-                taxonomy_version: int | None = typer.Option(None, "--taxonomy-version")) -> None:
+def cmd_enqueue(
+    target_attempt: str = typer.Option(..., "--target-attempt"),
+    taxonomy_version: int | None = typer.Option(None, "--taxonomy-version"),
+) -> None:
     from caf_l5.jobs import enqueue_recompute
+
     with get_session_factory("operations")() as session:
         job = enqueue_recompute(session, target_attempt, taxonomy_version)
         console.print(f"Queued job {job.id}: {job.status}, generation {job.corpus_generation}")
 
 
 @app.command("worker")
-def cmd_worker(once: bool = typer.Option(False, "--once"),
-               owner_token: str | None = typer.Option(None, "--owner-token", hidden=True)) -> None:
+def cmd_worker(
+    once: bool = typer.Option(False, "--once"),
+    owner_token: str | None = typer.Option(None, "--owner-token", hidden=True),
+) -> None:
     from caf_l5.jobs import run_worker_once
+
     if once:
         job = run_worker_once(get_session_factory("operations"))
         console.print(f"Completed job {job}" if job else "Queue is idle")
     else:
         from caf_l5.worker import main
+
         main()
 
 
 @app.command("status")
-def cmd_status(target_attempt: str = typer.Option(..., "--target-attempt"),
-               taxonomy_version: int | None = typer.Option(None, "--taxonomy-version")) -> None:
+def cmd_status(
+    target_attempt: str = typer.Option(..., "--target-attempt"),
+    taxonomy_version: int | None = typer.Option(None, "--taxonomy-version"),
+) -> None:
     from caf_l5.jobs import job_status
+
     with get_session_factory("operations")() as session:
         console.print(job_status(session, target_attempt, taxonomy_version))
 
@@ -81,9 +90,9 @@ def cmd_report(
     session_factory = get_session_factory("operations")
     with session_factory() as session:
         # Resolve paper
-        p_row = session.query(Paper).where(
-            (Paper.code == paper.upper()) | (Paper.id == paper)
-        ).first()
+        p_row = (
+            session.query(Paper).where((Paper.code == paper.upper()) | (Paper.id == paper)).first()
+        )
         if not p_row:
             console.print(f"[bold red]Paper '{paper}' not found.[/bold red]")
             raise typer.Exit(code=1)
@@ -92,10 +101,18 @@ def cmd_report(
         if current_run:
             taxonomy_version = current_run.taxonomy_version_id
         if not current_run:
-            console.print("[bold red]No current score run found. Run 'caf intel recompute' first.[/bold red]")
+            console.print(
+                "[bold red]No current score run found. Run 'caf intel recompute' first.[/bold red]"
+            )
             raise typer.Exit(code=1)
 
-        scores_map = get_subtopic_scores_for_paper(session, p_row.id, current_run.id, target_attempt_id=target_attempt, taxonomy_version_id=taxonomy_version)
+        scores_map = get_subtopic_scores_for_paper(
+            session,
+            p_row.id,
+            current_run.id,
+            target_attempt_id=target_attempt,
+            taxonomy_version_id=taxonomy_version,
+        )
         if not scores_map:
             console.print(f"No scores found for paper {p_row.code}.")
             return
@@ -105,7 +122,9 @@ def cmd_report(
 
         # Sort by importance descending
         sorted_scores = sorted(
-            scores_map.values(), key=lambda s: s.importance if s.importance is not None else -1, reverse=True
+            scores_map.values(),
+            key=lambda s: s.importance if s.importance is not None else -1,
+            reverse=True,
         )[:top]
 
         table = Table(
@@ -142,23 +161,35 @@ def cmd_report(
 
 
 @app.command("why")
-def cmd_why(node_id: str = typer.Argument(...),
-            target_attempt: str = typer.Option(..., "--target-attempt"),
-            taxonomy_version: int | None = typer.Option(None, "--taxonomy-version")) -> None:
+def cmd_why(
+    node_id: str = typer.Argument(...),
+    target_attempt: str = typer.Option(..., "--target-attempt"),
+    taxonomy_version: int | None = typer.Option(None, "--taxonomy-version"),
+) -> None:
     """Show persisted formula, normalized contributions and exact reviewed window."""
     import json
     from caf_l5.context import approved_binding
     from caf_l5.config import ScoringConfig, load_scoring_config
+
     with get_session_factory("operations")() as session:
         binding = approved_binding(session, target_attempt, taxonomy_version)
         if binding:
             taxonomy_version = binding.taxonomy_version_id
-            config = ScoringConfig.model_validate(binding.scoring_config) if binding.scoring_config else load_scoring_config()
+            config = (
+                ScoringConfig.model_validate(binding.scoring_config)
+                if binding.scoring_config
+                else load_scoring_config()
+            )
         else:
             config = load_scoring_config()
         try:
-            payload = get_subtopic_why(session, node_id, target_attempt_id=target_attempt,
-                                      taxonomy_version_id=taxonomy_version, config_hash=config.config_hash)
+            payload = get_subtopic_why(
+                session,
+                node_id,
+                target_attempt_id=target_attempt,
+                taxonomy_version_id=taxonomy_version,
+                config_hash=config.config_hash,
+            )
         except ValueError as exc:
             console.print(f"[red]{exc}[/red]")
             raise typer.Exit(code=1)
@@ -169,16 +200,22 @@ def cmd_why(node_id: str = typer.Argument(...),
 
 
 @app.command("coverage")
-def cmd_coverage(user_id: int = typer.Option(..., "--user-id", min=1, help="Target account ID")) -> None:
+def cmd_coverage(
+    user_id: int = typer.Option(..., "--user-id", min=1, help="Target account ID"),
+) -> None:
     """Display ingestion coverage and weighted syllabus coverage."""
     session_factory = get_session_factory("student")
     with session_factory() as session:
         cov = compute_weighted_coverage(session, user_id=user_id)
         console.print(f"\n[bold cyan]Syllabus Coverage Summary[/bold cyan]")
-        console.print(f"Overall Done: [bold green]{cov['overall_coverage_pct']}%[/bold green] | In Progress: [bold yellow]{cov['overall_in_progress_pct']}%[/bold yellow]")
+        console.print(
+            f"Overall Done: [bold green]{cov['overall_coverage_pct']}%[/bold green] | In Progress: [bold yellow]{cov['overall_in_progress_pct']}%[/bold yellow]"
+        )
 
         for g_no, g_data in sorted(cov.get("groups", {}).items()):
-            console.print(f"  Group {g_no}: Done: {g_data['coverage_pct']}% | In Progress: {g_data['in_progress_pct']}%")
+            console.print(
+                f"  Group {g_no}: Done: {g_data['coverage_pct']}% | In Progress: {g_data['in_progress_pct']}%"
+            )
 
         table = Table(title="Paper Coverage Breakdown")
         table.add_column("Paper Code", style="cyan")
@@ -198,6 +235,7 @@ def cmd_coverage(user_id: int = typer.Option(..., "--user-id", min=1, help="Targ
 def cmd_backfill_reader() -> None:
     """Project existing reviewed publications without creating reviews."""
     from caf_l4.questions import backfill_publications
+
     with get_session_factory("operations")() as session:
         result = backfill_publications(session)
         session.commit()
@@ -208,5 +246,6 @@ def cmd_backfill_reader() -> None:
 def cmd_seed_coverage(taxonomy_version: int = typer.Option(..., "--taxonomy-version")) -> None:
     """Record Phase 4 inventory blockers while leaving official scope unreviewed."""
     from caf_l5.coverage import seed_coverage
+
     with get_session_factory("operations")() as session:
         console.print(seed_coverage(session, taxonomy_version))

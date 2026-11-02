@@ -22,54 +22,90 @@ def test_successive_schema_revisions_preserve_required_backup_tables():
     migrations = ScriptDirectory.from_config(Config("alembic.ini"))
     for migration in migrations.walk_revisions():
         if migration.down_revision:
-            assert backup.critical_tables(migration.revision) >= backup.critical_tables(migration.down_revision)
+            assert backup.critical_tables(migration.revision) >= backup.critical_tables(
+                migration.down_revision
+            )
 
 
 def test_disk_backed_recovery_storage_is_writable_and_removed_with_its_container():
-    with PostgresSandbox('disk-recovery-test',use_tmpfs=False) as sandbox:
-        mounts=json.loads(subprocess.run(['docker','inspect','--format','{{json .Mounts}}',sandbox.name],
-            check=True,capture_output=True,text=True).stdout)
-        storage=next(mount for mount in mounts if mount['Destination']=='/var/lib/postgresql/data')
-        assert storage['Type']=='volume'
-        owned_volume=storage['Name']
-        engine=sa.create_engine(sandbox.url())
+    with PostgresSandbox("disk-recovery-test", use_tmpfs=False) as sandbox:
+        mounts = json.loads(
+            subprocess.run(
+                ["docker", "inspect", "--format", "{{json .Mounts}}", sandbox.name],
+                check=True,
+                capture_output=True,
+                text=True,
+            ).stdout
+        )
+        storage = next(
+            mount for mount in mounts if mount["Destination"] == "/var/lib/postgresql/data"
+        )
+        assert storage["Type"] == "volume"
+        owned_volume = storage["Name"]
+        engine = sa.create_engine(sandbox.url())
         try:
             with engine.begin() as connection:
-                connection.execute(sa.text('CREATE TABLE recovery_marker(value text)'))
-                connection.execute(sa.text("INSERT INTO recovery_marker VALUES ('isolated recovery storage')"))
-                assert connection.execute(sa.text('SELECT value FROM recovery_marker')).scalar_one()=='isolated recovery storage'
+                connection.execute(sa.text("CREATE TABLE recovery_marker(value text)"))
+                connection.execute(
+                    sa.text("INSERT INTO recovery_marker VALUES ('isolated recovery storage')")
+                )
+                assert (
+                    connection.execute(sa.text("SELECT value FROM recovery_marker")).scalar_one()
+                    == "isolated recovery storage"
+                )
         finally:
             engine.dispose()
     # --rm volume cleanup can complete after the stop API returns.
     deadline = time.monotonic() + 5
     while True:
-        removed=subprocess.run(['docker','volume','inspect',owned_volume],capture_output=True,text=True)
+        removed = subprocess.run(
+            ["docker", "volume", "inspect", owned_volume], capture_output=True, text=True
+        )
         if removed.returncode != 0 or time.monotonic() >= deadline:
             break
-        time.sleep(.05)
-    assert removed.returncode!=0 and 'no such volume' in removed.stderr.lower()
+        time.sleep(0.05)
+    assert removed.returncode != 0 and "no such volume" in removed.stderr.lower()
 
 
 def seed_protected_records(session):
     now = datetime.now(timezone.utc)
     node = "P1-WB29V3"
-    session.add_all([
-        Progress(user_id=1, node_id=node, status="done"),
-        Note(user_id=1, node_id=node, body="Recovery checkpoint note"),
-        StudySession(user_id=1, node_id=node, started_at=now, minutes=37),
-    ])
-    decision = Decision(unit_fingerprint="recovery-fixture", action="accept", payload={}, blind=False)
+    session.add_all(
+        [
+            Progress(user_id=1, node_id=node, status="done"),
+            Note(user_id=1, node_id=node, body="Recovery checkpoint note"),
+            StudySession(user_id=1, node_id=node, started_at=now, minutes=37),
+        ]
+    )
+    decision = Decision(
+        unit_fingerprint="recovery-fixture", action="accept", payload={}, blind=False
+    )
     session.add(decision)
     session.flush()
-    appearance = Appearance(unit_fingerprint="recovery-fixture", doc_sha256="fixture-checksum",
-                            attempt_id="2024-05", source_paper_id="s2023.P1",
-                            doc_type_id="suggested_answer", signal_class="exam",
-                            display_label="1(a)", gist="Recovery fixture", page_start=1, page_end=1,
-                            status="published")
+    appearance = Appearance(
+        unit_fingerprint="recovery-fixture",
+        doc_sha256="fixture-checksum",
+        attempt_id="2024-05",
+        source_paper_id="s2023.P1",
+        doc_type_id="suggested_answer",
+        signal_class="exam",
+        display_label="1(a)",
+        gist="Recovery fixture",
+        page_start=1,
+        page_end=1,
+        status="published",
+    )
     session.add(appearance)
     session.flush()
-    session.add(AppearanceTag(appearance_id=appearance.id, node_id=node, role="primary",
-                              share=1.0, decision_id=decision.id))
+    session.add(
+        AppearanceTag(
+            appearance_id=appearance.id,
+            node_id=node,
+            role="primary",
+            share=1.0,
+            decision_id=decision.id,
+        )
+    )
     session.commit()
     blob = get_settings().storage.blob_dir / "fixture.pdf"
     blob.write_bytes(b"recovery-source-blob")
@@ -83,7 +119,13 @@ def artifact(session, tmp_path):
 def test_protected_content_survives_and_live_changes_do_not_affect_verification(session, tmp_path):
     manifest = artifact(session, tmp_path)
     data = json.loads(manifest.manifest_file.read_text())
-    for table in ("app.progress", "app.note", "app.study_session", "core.decision", "core.appearance"):
+    for table in (
+        "app.progress",
+        "app.note",
+        "app.study_session",
+        "core.decision",
+        "core.appearance",
+    ):
         assert data["tables"][table]["count"] == 1
     # The source database evolves after capture; verification must use the manifest.
     session.get(Note, (1, "P1-WB29V3")).body = "Changed after capture"
@@ -99,7 +141,18 @@ def test_protected_content_survives_and_live_changes_do_not_affect_verification(
     assert "postgres_dev_password" not in archived_settings
 
 
-@pytest.mark.parametrize("failure", ["corrupt_dump", "unreadable_dump", "altered_file", "missing_file", "missing_table", "changed_digest", "restore_failure"])
+@pytest.mark.parametrize(
+    "failure",
+    [
+        "corrupt_dump",
+        "unreadable_dump",
+        "altered_file",
+        "missing_file",
+        "missing_table",
+        "changed_digest",
+        "restore_failure",
+    ],
+)
 def test_recovery_failures_are_explicit(session, tmp_path, monkeypatch, failure):
     manifest = artifact(session, tmp_path)
     data = json.loads(manifest.manifest_file.read_text())
@@ -116,16 +169,22 @@ def test_recovery_failures_are_explicit(session, tmp_path, monkeypatch, failure)
             file.unlink()
     elif failure == "missing_table":
         # A valid dump without a required table must fail even when pg_restore succeeds.
-        backup._pg_command("pg_dump", backup._database_url(), ["--format=custom", "--exclude-table=app.note", "--file", str(manifest.dump_file)])
+        backup._pg_command(
+            "pg_dump",
+            backup._database_url(),
+            ["--format=custom", "--exclude-table=app.note", "--file", str(manifest.dump_file)],
+        )
         data["dump_sha256"] = backup.file_checksum(manifest.dump_file)
     elif failure == "changed_digest":
         data["tables"]["app.note"]["sha256"] = "0" * 64
     else:
         run = subprocess.run
+
         def fail_restore(command, **kwargs):
             if command[0] == "pg_restore":
                 raise subprocess.CalledProcessError(1, command, stderr="forced restore failure")
             return run(command, **kwargs)
+
         monkeypatch.setattr(subprocess, "run", fail_restore)
     manifest.manifest_file.write_text(json.dumps(data))
     result = backup.verify_backup(dump_file=manifest.dump_file)
@@ -174,14 +233,18 @@ def test_legacy_backups_not_claimed_verified(tmp_path):
     assert "Legacy" in result.message
 
 
-def test_backup_uses_same_exported_snapshot_when_source_changes_during_dump(session, tmp_path, monkeypatch):
+def test_backup_uses_same_exported_snapshot_when_source_changes_during_dump(
+    session, tmp_path, monkeypatch
+):
     seed_protected_records(session)
     original = backup._pg_command
+
     def change_source_then_dump(binary, url, arguments):
         if binary == "pg_dump":
             with get_engine().begin() as conn:
                 conn.execute(sa.text("UPDATE app.note SET body = 'Modified during pg_dump'"))
         return original(binary, url, arguments)
+
     monkeypatch.setattr(backup, "_pg_command", change_source_then_dump)
     manifest = backup.create_backup(backup_dir=tmp_path)
     result = backup.verify_backup(dump_file=manifest.dump_file)
@@ -191,7 +254,9 @@ def test_backup_uses_same_exported_snapshot_when_source_changes_during_dump(sess
 def test_recovery_digests_independent_of_source_database_timezone(session, tmp_path):
     engine = get_engine()
     with engine.begin() as conn:
-        conn.execute(sa.text(f'ALTER DATABASE "{engine.url.database}" SET timezone = \'Asia/Kolkata\''))
+        conn.execute(
+            sa.text(f"ALTER DATABASE \"{engine.url.database}\" SET timezone = 'Asia/Kolkata'")
+        )
     seed_protected_records(session)
     manifest = backup.create_backup(backup_dir=tmp_path)
     result = backup.verify_backup(dump_file=manifest.dump_file)

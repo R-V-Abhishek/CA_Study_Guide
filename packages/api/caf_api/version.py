@@ -14,33 +14,36 @@ from caf_db.models.intel import ScoreRun
 def application_version() -> str:
     """The root project's release version, which release automation bumps; member versions are not authoritative."""
     try:
-        return metadata.version('ca-final')
+        return metadata.version("ca-final")
     except metadata.PackageNotFoundError:
         # A source checkout or the runtime image runs from the repository root without the root project installed.
-        return tomllib.loads(Path('pyproject.toml').read_text())['project']['version']
+        return tomllib.loads(Path("pyproject.toml").read_text())["project"]["version"]
 
 
 @lru_cache(maxsize=1)
 def backend_revision() -> str:
-    configured = os.environ.get('CAF_BACKEND_REVISION')
+    configured = os.environ.get("CAF_BACKEND_REVISION")
     if configured:
         return configured
     result = subprocess.run(
-        ['git', 'rev-parse', '--short=12', 'HEAD'],
-        cwd=Path(__file__).resolve().parents[3], capture_output=True, text=True, check=False,
+        ["git", "rev-parse", "--short=12", "HEAD"],
+        cwd=Path(__file__).resolve().parents[3],
+        capture_output=True,
+        text=True,
+        check=False,
     )
-    return result.stdout.strip() if result.returncode == 0 else 'unknown'
+    return result.stdout.strip() if result.returncode == 0 else "unknown"
 
 
 def score_run_identity(run: ScoreRun | None) -> dict | None:
     if run is None:
         return None
     return {
-        'id': run.id,
-        'version': run.scoring_version,
-        'target_attempt_id': run.target_attempt_id,
-        'taxonomy_version_id': run.taxonomy_version_id,
-        'computed_at': run.finished_at,
-        'corpus_generation': run.corpus_generation,
-        'config_hash': run.config_hash,
+        "id": run.id,
+        "version": run.scoring_version,
+        "target_attempt_id": run.target_attempt_id,
+        "taxonomy_version_id": run.taxonomy_version_id,
+        "computed_at": run.finished_at,
+        "corpus_generation": run.corpus_generation,
+        "config_hash": run.config_hash,
     }

@@ -1,10 +1,13 @@
 """Administrator observability: health, recovery snapshot status and model evaluation."""
+
 from pathlib import Path
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 
 from caf_api.responses import (
-    BackupList, ModelEvaluation, SystemHealth,
+    BackupList,
+    ModelEvaluation,
+    SystemHealth,
 )
 from caf_common.settings import get_settings
 from caf_api.deps import get_operations_db
@@ -18,7 +21,9 @@ router = APIRouter(prefix="/api/v1", dependencies=[Depends(require_account)])
 # System Observability & Hardening Endpoints (Milestone 8)
 # ==============================================================================
 @router.get("/system/health", response_model=SystemHealth)
-def api_get_system_health(session: Session = Depends(get_operations_db), account: Principal = Depends(require_admin)):
+def api_get_system_health(
+    session: Session = Depends(get_operations_db), account: Principal = Depends(require_admin)
+):
     """Retrieve overall system health and active operational alarms."""
     from caf_common.alarms import get_system_health
 
@@ -54,17 +59,24 @@ def api_list_backups(account: Principal = Depends(require_admin)):
     if status is not None:
         snapshot = status.get("snapshot") or {}
         schedule = {
-            "state": status["state"], "last_attempt_at": status["last_attempt_at"],
-            "last_success_at": status.get("last_success_at"), "snapshot": snapshot.get("name"),
-            "encryption": status.get("encryption", "not_configured"), "error": status.get("error"),
+            "state": status["state"],
+            "last_attempt_at": status["last_attempt_at"],
+            "last_success_at": status.get("last_success_at"),
+            "snapshot": snapshot.get("name"),
+            "encryption": status.get("encryption", "not_configured"),
+            "error": status.get("error"),
             "file_integrity_verified": snapshot.get("file_integrity_verified", False),
             "restore_verified": snapshot.get("restore_verified", False),
         }
     return {
         "count": len(backups),
         "backups": [
-            {"name": b["name"], "size_mb": b["size_mb"], "age_hours": b["age_hours"],
-             "created_at": b["created_at"].isoformat()}
+            {
+                "name": b["name"],
+                "size_mb": b["size_mb"],
+                "age_hours": b["age_hours"],
+                "created_at": b["created_at"].isoformat(),
+            }
             for b in backups
         ],
         "schedule": schedule,
@@ -75,7 +87,8 @@ def api_list_backups(account: Principal = Depends(require_admin)):
 def api_evaluate_models(
     threshold: float = 0.80,
     min_samples: int = 5,
-    session: Session = Depends(get_operations_db), account: Principal = Depends(require_admin),
+    session: Session = Depends(get_operations_db),
+    account: Principal = Depends(require_admin),
 ):
     """Evaluate classifier performance against reviewed human decisions."""
     from caf_l3.evaluate import evaluate_model_on_reviewed_decisions

@@ -75,7 +75,7 @@ def compute_depth_gate(
     target_attempt_id: str | None = None,
 ) -> DepthGateReport:
     """Compute Depth Gate metrics comparing current baseline vs shadow run with the band's provisional appearances.
-    
+
     Args:
         session: SQLAlchemy DB session
         paper: Paper code (e.g. 'P1') or ID (e.g. 's2023.P1')
@@ -83,7 +83,7 @@ def compute_depth_gate(
         top_k: Top K subtopics to evaluate for Jaccard and Spearman (default 50)
         record_report: If True, persist DepthGateReport row in database
         config_path: Path to depth.toml
-        
+
     Returns:
         The generated DepthGateReport
     """
@@ -96,9 +96,7 @@ def compute_depth_gate(
     )
     if not target_paper:
         target_paper = (
-            session.query(Paper)
-            .filter((Paper.code == paper) | (Paper.id == paper))
-            .first()
+            session.query(Paper).filter((Paper.code == paper) | (Paper.id == paper)).first()
         )
     if not target_paper:
         raise ValueError(f"Paper '{paper}' not found")
@@ -117,13 +115,21 @@ def compute_depth_gate(
         .first()
     )
     if target_attempt_id is not None:
-        baseline_run = session.query(ScoreRun).filter(
-            ScoreRun.target_attempt_id == target_attempt_id,
-            ScoreRun.shadow.is_(False), ScoreRun.status == "ok",
-        ).order_by(ScoreRun.id.desc()).first()
+        baseline_run = (
+            session.query(ScoreRun)
+            .filter(
+                ScoreRun.target_attempt_id == target_attempt_id,
+                ScoreRun.shadow.is_(False),
+                ScoreRun.status == "ok",
+            )
+            .order_by(ScoreRun.id.desc())
+            .first()
+        )
     if not baseline_run:
         if target_attempt_id is None:
-            raise ValueError("An explicit target attempt is required to create a baseline score run")
+            raise ValueError(
+                "An explicit target attempt is required to create a baseline score run"
+            )
         baseline_run = recompute_scores(session, target_attempt_id=target_attempt_id, shadow=False)
 
     # 3. Find gradable units in band
@@ -229,9 +235,9 @@ def compute_depth_gate(
     effective_k = min(top_k, len(base_map)) if base_map else 0
 
     if effective_k > 0:
-        top_base = sorted(
-            base_scores_list, key=lambda s: (s.importance, s.node_id), reverse=True
-        )[:effective_k]
+        top_base = sorted(base_scores_list, key=lambda s: (s.importance, s.node_id), reverse=True)[
+            :effective_k
+        ]
         top_shadow = sorted(
             shadow_scores_list, key=lambda s: (s.importance, s.node_id), reverse=True
         )[:effective_k]
@@ -246,7 +252,9 @@ def compute_depth_gate(
 
         union_sorted = sorted(list(union))
         base_vals = [base_map[nid].importance if nid in base_map else 0.0 for nid in union_sorted]
-        shadow_vals = [shadow_map[nid].importance if nid in shadow_map else 0.0 for nid in union_sorted]
+        shadow_vals = [
+            shadow_map[nid].importance if nid in shadow_map else 0.0 for nid in union_sorted
+        ]
         spearman = compute_spearman_correlation(base_vals, shadow_vals)
     else:
         jaccard = 1.0
@@ -332,7 +340,9 @@ def get_depth_gate_reports(
     query = session.query(DepthGateReport)
     if paper:
         paper_code = paper.split(".")[-1]
-        query = query.filter((DepthGateReport.paper_code == paper_code) | (DepthGateReport.paper_code == paper))
+        query = query.filter(
+            (DepthGateReport.paper_code == paper_code) | (DepthGateReport.paper_code == paper)
+        )
     if band:
         query = query.filter(DepthGateReport.band == band)
     return query.order_by(DepthGateReport.id.desc()).all()

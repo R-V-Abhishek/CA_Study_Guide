@@ -1,4 +1,5 @@
 """Identify the application-owned worker before signalling its recorded PID."""
+
 import json
 import os
 import signal
@@ -25,13 +26,25 @@ def stop_recorded_worker() -> bool:
     state = json.loads(STATE_PATH.read_text())
     pid, token = int(state["pid"]), state["token"]
     if os.name == "nt":
-        result = subprocess.run(["powershell", "-NoProfile", "-Command",
-            f"(Get-CimInstance Win32_Process -Filter 'ProcessId = {pid}').CommandLine"],
-            capture_output=True, text=True, check=False)
+        result = subprocess.run(
+            [
+                "powershell",
+                "-NoProfile",
+                "-Command",
+                f"(Get-CimInstance Win32_Process -Filter 'ProcessId = {pid}').CommandLine",
+            ],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
     else:
         # GNU ps can truncate a long uv/Python path before the ownership token.
-        result = subprocess.run(["ps", "-ww", "-p", str(pid), "-o", "command="],
-                                capture_output=True, text=True, check=False)
+        result = subprocess.run(
+            ["ps", "-ww", "-p", str(pid), "-o", "command="],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
     command = result.stdout
     if result.returncode != 0 or not command.strip():
         clear_worker(token)

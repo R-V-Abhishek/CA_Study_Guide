@@ -59,32 +59,62 @@ def test_console_format_stays_readable_outside_production(capsys, restore_loggin
 
 def test_request_id_is_echoed_when_harmless_and_replaced_otherwise():
     client = TestClient(app)
-    assert client.get("/api/v1/health", headers={"X-Request-ID": "client-id_1.2"}).headers["x-request-id"] == "client-id_1.2"
-    generated = client.get("/api/v1/health", headers={"X-Request-ID": "bad id\twith spaces"}).headers["x-request-id"]
+    assert (
+        client.get("/api/v1/health", headers={"X-Request-ID": "client-id_1.2"}).headers[
+            "x-request-id"
+        ]
+        == "client-id_1.2"
+    )
+    generated = client.get(
+        "/api/v1/health", headers={"X-Request-ID": "bad id\twith spaces"}
+    ).headers["x-request-id"]
     assert len(generated) == 32 and generated.isalnum()
     assert client.get("/api/v1/health").headers["x-request-id"] != generated
 
 
 def test_access_log_filter_still_redacts_auth_queries():
-    record = logging.LogRecord("uvicorn.access", logging.INFO, "", 0, '%s - "%s %s HTTP/%s" %d',
-                               ("127.0.0.1", "GET", "/auth/callback?code=secret&state=s", "1.1", 302), None)
+    record = logging.LogRecord(
+        "uvicorn.access",
+        logging.INFO,
+        "",
+        0,
+        '%s - "%s %s HTTP/%s" %d',
+        ("127.0.0.1", "GET", "/auth/callback?code=secret&state=s", "1.1", 302),
+        None,
+    )
     AUTH_ACCESS_FILTER.filter(record)
     assert record.args[2] == "/auth/callback"
 
 
 def test_heartbeat_roundtrip_and_stale_worker_alarm(session, tmp_path):
     assert read_heartbeat(tmp_path) is None
-    assert "WORKER_STALE" not in {alarm.code for alarm in evaluate_system_alarms(session, backup_dir=tmp_path)}
+    assert "WORKER_STALE" not in {
+        alarm.code for alarm in evaluate_system_alarms(session, backup_dir=tmp_path)
+    }
     write_heartbeat(tmp_path, NOW - timedelta(minutes=30))
-    stale = [alarm for alarm in evaluate_system_alarms(session, backup_dir=tmp_path) if alarm.code == "WORKER_STALE"]
-    assert stale and stale[0].level == "CRITICAL" and stale[0].details["last_heartbeat_at"].startswith("2026")
+    stale = [
+        alarm
+        for alarm in evaluate_system_alarms(session, backup_dir=tmp_path)
+        if alarm.code == "WORKER_STALE"
+    ]
+    assert (
+        stale
+        and stale[0].level == "CRITICAL"
+        and stale[0].details["last_heartbeat_at"].startswith("2026")
+    )
     write_heartbeat(tmp_path)
-    assert "WORKER_STALE" not in {alarm.code for alarm in evaluate_system_alarms(session, backup_dir=tmp_path)}
+    assert "WORKER_STALE" not in {
+        alarm.code for alarm in evaluate_system_alarms(session, backup_dir=tmp_path)
+    }
 
 
 def test_missing_worker_is_a_warning_only_in_production(session, tmp_path, monkeypatch):
     monkeypatch.setattr(get_settings().app, "env", "production")
-    alarms = [alarm for alarm in evaluate_system_alarms(session, backup_dir=tmp_path) if alarm.code == "WORKER_STALE"]
+    alarms = [
+        alarm
+        for alarm in evaluate_system_alarms(session, backup_dir=tmp_path)
+        if alarm.code == "WORKER_STALE"
+    ]
     assert [alarm.level for alarm in alarms] == ["WARNING"]
 
 
@@ -94,10 +124,19 @@ def healthy_status(at=NOW):
 
 def test_problem_detection():
     assert find_problems(ready=True, backup=healthy_status(), heartbeat=NOW, now=NOW) == {}
-    problems = find_problems(ready=False, backup={"state": "failed", "error": "disk full"},
-                             heartbeat=NOW - timedelta(hours=1), now=NOW)
-    assert set(problems) == {"NOT_READY", "WORKER_STALE", "BACKUP_FAILED"} and "disk full" in problems["BACKUP_FAILED"]
-    assert "BACKUP_STALE" in find_problems(ready=True, backup=healthy_status(NOW - timedelta(hours=49)), heartbeat=NOW, now=NOW)
+    problems = find_problems(
+        ready=False,
+        backup={"state": "failed", "error": "disk full"},
+        heartbeat=NOW - timedelta(hours=1),
+        now=NOW,
+    )
+    assert (
+        set(problems) == {"NOT_READY", "WORKER_STALE", "BACKUP_FAILED"}
+        and "disk full" in problems["BACKUP_FAILED"]
+    )
+    assert "BACKUP_STALE" in find_problems(
+        ready=True, backup=healthy_status(NOW - timedelta(hours=49)), heartbeat=NOW, now=NOW
+    )
     assert "BACKUP_STALE" in find_problems(ready=True, backup=None, heartbeat=NOW, now=NOW)
 
 
@@ -121,7 +160,9 @@ def test_each_failure_notifies_exactly_once_then_reminds_daily_and_reports_recov
 
 def test_new_problem_while_another_persists_notifies_only_the_new_one():
     _, state = decide({"NOT_READY": "down"}, {}, NOW)
-    notifications, _ = decide({"NOT_READY": "down", "BACKUP_FAILED": "bad"}, state, NOW + timedelta(minutes=5))
+    notifications, _ = decide(
+        {"NOT_READY": "down", "BACKUP_FAILED": "bad"}, state, NOW + timedelta(minutes=5)
+    )
     assert [item["code"] for item in notifications] == ["BACKUP_FAILED"]
 
 

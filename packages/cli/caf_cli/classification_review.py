@@ -16,13 +16,18 @@ from caf_l2.revisions import digest
 from caf_l3.openrouter import DEFAULT_MODEL, free_models, load_results, review_manifest, run_review
 from caf_l3.review_markdown import render_review_markdown
 
-app = typer.Typer(help="Independent AI classification files for student review; never updates the queue")
+app = typer.Typer(
+    help="Independent AI classification files for student review; never updates the queue"
+)
 
 
 @app.command("luna-status")
-def luna_status(root: Path = typer.Option(Path("data/student_review/luna-papers"), "--root")) -> None:
+def luna_status(
+    root: Path = typer.Option(Path("data/student_review/luna-papers"), "--root"),
+) -> None:
     """Show actual saved coverage after correcting paper assignments."""
     from caf_l3.corpus_review import corpus_status
+
     typer.echo(json.dumps(corpus_status(root), indent=2))
 
 
@@ -30,10 +35,13 @@ def luna_status(root: Path = typer.Option(Path("data/student_review/luna-papers"
 def luna_render(
     markdown: Path = typer.Option(..., "--markdown"),
     root: Path = typer.Option(Path("data/student_review/luna-papers"), "--root"),
-    allow_pending: bool = typer.Option(False, "--allow-pending", help="Explicit interim pack with missing classifications marked"),
+    allow_pending: bool = typer.Option(
+        False, "--allow-pending", help="Explicit interim pack with missing classifications marked"
+    ),
 ) -> None:
     """Combine all corrected paper packs into one Markdown file without duplicates."""
     from caf_l3.corpus_review import render_corpus
+
     try:
         status = render_corpus(root, markdown, allow_pending=allow_pending)
     except ValueError as exc:
@@ -55,10 +63,15 @@ def models() -> None:
         with httpx.Client(timeout=30) as client:
             available = free_models(client)
     except httpx.HTTPError as exc:
-        typer.echo(f"OpenRouter catalog unavailable ({type(exc).__name__}); check network access and retry. No model calls made.", err=True)
+        typer.echo(
+            f"OpenRouter catalog unavailable ({type(exc).__name__}); check network access and retry. No model calls made.",
+            err=True,
+        )
         raise typer.Exit(1) from None
     except ValueError:
-        typer.echo("OpenRouter catalog response could not be validated. No model calls made.", err=True)
+        typer.echo(
+            "OpenRouter catalog response could not be validated. No model calls made.", err=True
+        )
         raise typer.Exit(1) from None
     for model in available:
         typer.echo(f"{model.id}\t{model.context_length} context\tcreated {model.created}")
@@ -69,11 +82,21 @@ def export(
     output: Path = typer.Option(..., "--output", "-o"),
     taxonomy: str = typer.Option("textbook-v1", "--taxonomy"),
     model: str = typer.Option(DEFAULT_MODEL, "--model"),
-    revision: list[int] | None = typer.Option(None, "--revision", help="Repeat; defaults to latest available extraction per document"),
+    revision: list[int] | None = typer.Option(
+        None, "--revision", help="Repeat; defaults to latest available extraction per document"
+    ),
     paper: str | None = typer.Option(None, "--paper"),
-    batch_source: Path | None = typer.Option(None, "--batch-source", exists=True,
-        help="Reuse a frozen export instead of querying the database"),
-    draft: bool = typer.Option(True, "--draft/--reviewed-only", help="Student evaluation may include unapproved evidence, marked experimental"),
+    batch_source: Path | None = typer.Option(
+        None,
+        "--batch-source",
+        exists=True,
+        help="Reuse a frozen export instead of querying the database",
+    ),
+    draft: bool = typer.Option(
+        True,
+        "--draft/--reviewed-only",
+        help="Student evaluation may include unapproved evidence, marked experimental",
+    ),
 ) -> None:
     """Freeze all selected complete roots/parts/answers and candidate evidence, read-only."""
     if output.exists():
@@ -90,24 +113,38 @@ def export(
                 if draft:
                     # The corpus has candidate extractions awaiting review. Include
                     # them explicitly for student evaluation without promoting them.
-                    latest = sa.select(sa.func.max(ExtractionRevision.id).label("id")).where(
-                        ExtractionRevision.status != "failed").group_by(ExtractionRevision.document_id).subquery()
-                    query = sa.select(ExtractionRevision.id).join(latest,
-                        latest.c.id == ExtractionRevision.id).join(Document,
-                        Document.id == ExtractionRevision.document_id).where(
-                        Document.catalog_status != "rejected")
+                    latest = (
+                        sa.select(sa.func.max(ExtractionRevision.id).label("id"))
+                        .where(ExtractionRevision.status != "failed")
+                        .group_by(ExtractionRevision.document_id)
+                        .subquery()
+                    )
+                    query = (
+                        sa.select(ExtractionRevision.id)
+                        .join(latest, latest.c.id == ExtractionRevision.id)
+                        .join(Document, Document.id == ExtractionRevision.document_id)
+                        .where(Document.catalog_status != "rejected")
+                    )
                 else:
-                    query = sa.select(ExtractionRevision.id).join(Document,
-                        Document.current_revision_id == ExtractionRevision.id).where(
-                        Document.catalog_status == "confirmed")
-                query = query.where(Document.superseded.is_(False), Document.course_level == "final",
-                    Document.provenance_status == "verified", ExtractionRevision.status != "failed").order_by(ExtractionRevision.id)
+                    query = (
+                        sa.select(ExtractionRevision.id)
+                        .join(Document, Document.current_revision_id == ExtractionRevision.id)
+                        .where(Document.catalog_status == "confirmed")
+                    )
+                query = query.where(
+                    Document.superseded.is_(False),
+                    Document.course_level == "final",
+                    Document.provenance_status == "verified",
+                    ExtractionRevision.status != "failed",
+                ).order_by(ExtractionRevision.id)
                 if paper:
                     query = query.where(Document.paper_id == paper)
                 revision = list(session.scalars(query))
             batch = export_batch(session, taxonomy, revision, draft=draft, model=model)
             if paper:
-                batch["records"] = [record for record in batch["records"] if record["context"]["paper_id"] == paper]
+                batch["records"] = [
+                    record for record in batch["records"] if record["context"]["paper_id"] == paper
+                ]
                 if not batch["records"]:
                     raise typer.BadParameter("No gradable questions match the selected paper")
                 batch["batch_key"] = digest({k: v for k, v in batch.items() if k != "batch_key"})
@@ -130,8 +167,12 @@ def render(
     if state and state["batch_key"] != manifest["batch_key"]:
         raise typer.BadParameter("Results state belongs to another batch")
     if markdown.exists():
-        raise typer.BadParameter("Markdown already exists; preserve student edits and choose a new path")
-    text = render_review_markdown(manifest, load_results(manifest, results), state.get("failures", {}))
+        raise typer.BadParameter(
+            "Markdown already exists; preserve student edits and choose a new path"
+        )
+    text = render_review_markdown(
+        manifest, load_results(manifest, results), state.get("failures", {})
+    )
     markdown.parent.mkdir(parents=True, exist_ok=True)
     with markdown.open("x") as handle:
         handle.write(text)
@@ -142,7 +183,9 @@ def render(
 def run(
     batch: Path = typer.Option(..., "--batch", exists=True),
     results: Path = typer.Option(..., "--results"),
-    limit: int | None = typer.Option(None, "--limit", min=1, help="Maximum NEW roots; saved results are resumed"),
+    limit: int | None = typer.Option(
+        None, "--limit", min=1, help="Maximum NEW roots; saved results are resumed"
+    ),
 ) -> None:
     """Obtain free-only AI outputs into local files; never import them into the queue."""
     manifest = json.loads(batch.read_text())

@@ -18,7 +18,7 @@ def get_revision_due_list(
     paper_id: str | None = None,
 ) -> list[dict[str, Any]]:
     """Generate spaced-repetition revision due list:
-    
+
     for s with status=done:
        k   = number of revision_events for s since first_done_at
        due = (last_revised_at or first_done_at) + intervals[min(k, len-1)] days
@@ -28,13 +28,20 @@ def get_revision_due_list(
     today = as_of_date or datetime.now(timezone.utc).date()
 
     # 1. Fetch user revision intervals
-    app_settings = session.query(AppSettingsModel).where(AppSettingsModel.user_id == user_id).first()
-    intervals = app_settings.revision_intervals if app_settings and app_settings.revision_intervals else [3, 7, 21, 60]
+    app_settings = (
+        session.query(AppSettingsModel).where(AppSettingsModel.user_id == user_id).first()
+    )
+    intervals = (
+        app_settings.revision_intervals
+        if app_settings and app_settings.revision_intervals
+        else [3, 7, 21, 60]
+    )
 
     # 2. Fetch current ScoreRun for importance scores
     current_run = get_account_score_run(session, user_id)
 
     from caf_l5.context import resolve_context, context_leaf_ids
+
     applicable_nodes = context_leaf_ids(session, resolve_context(session, user_id))
     # 3. Query completed subtopics for this user
     query = (
@@ -60,10 +67,15 @@ def get_revision_due_list(
     scores_map: dict[str, SubtopicScore] = {}
     if current_run:
         completed_ids = [node.id for _, node, _ in completed_rows]
-        scores = session.query(SubtopicScore).options(defer(SubtopicScore.evidence)).where(
-            SubtopicScore.score_run_id == current_run.id,
-            SubtopicScore.node_id.in_(completed_ids),
-        ).all()
+        scores = (
+            session.query(SubtopicScore)
+            .options(defer(SubtopicScore.evidence))
+            .where(
+                SubtopicScore.score_run_id == current_run.id,
+                SubtopicScore.node_id.in_(completed_ids),
+            )
+            .all()
+        )
         scores_map = {score.node_id: score for score in scores}
 
     # 4. Fetch all revision events for this user
@@ -101,25 +113,30 @@ def get_revision_due_list(
             sc = scores_map.get(node.id)
             importance = sc.importance if sc else None
 
-            due_list.append({
-                "node_id": node.id,
-                "node_name": node.name,
-                "paper_id": paper.id,
-                "paper_code": paper.code,
-                "importance": importance,
-                "due_date": due_date.isoformat(),
-                "overdue_days": overdue_days,
-                "revision_count_k": k,
-                "interval_days": interval_days,
-                "first_done_at": first_done.isoformat() if first_done else None,
-                "last_revised_at": last_revised.isoformat() if last_revised else None,
-            })
+            due_list.append(
+                {
+                    "node_id": node.id,
+                    "node_name": node.name,
+                    "paper_id": paper.id,
+                    "paper_code": paper.code,
+                    "importance": importance,
+                    "due_date": due_date.isoformat(),
+                    "overdue_days": overdue_days,
+                    "revision_count_k": k,
+                    "interval_days": interval_days,
+                    "first_done_at": first_done.isoformat() if first_done else None,
+                    "last_revised_at": last_revised.isoformat() if last_revised else None,
+                }
+            )
 
     # Order by I(s) desc, then overdue days desc
-    due_list.sort(key=lambda item: (
-        -(item["importance"] if item["importance"] is not None else -1),
-        -item["overdue_days"], item["node_id"],
-    ))
+    due_list.sort(
+        key=lambda item: (
+            -(item["importance"] if item["importance"] is not None else -1),
+            -item["overdue_days"],
+            item["node_id"],
+        )
+    )
     return due_list
 
 
@@ -135,6 +152,7 @@ def record_revision_outcome(
 
     node = session.get(Node, node_id)
     from caf_l5.context import resolve_context, context_leaf_ids
+
     applicable = context_leaf_ids(session, resolve_context(session, user_id))
     if not node or node.level != "subtopic" or node_id not in applicable:
         raise ValueError(f"Node '{node_id}' not found.")

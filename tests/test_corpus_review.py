@@ -12,8 +12,9 @@ def corpus(tmp_path):
     for number in range(1, 7):
         directory = tmp_path / f"P{number}"
         directory.mkdir()
-        (directory / "index.json").write_text(json.dumps([
-            dict(question_id=f"q{number}", gradable_parts=2)]))
+        (directory / "index.json").write_text(
+            json.dumps([dict(question_id=f"q{number}", gradable_parts=2)])
+        )
     for paper, packs in PAPER_PACKS.items():
         for index, name in enumerate(packs):
             directory = tmp_path / name
@@ -26,7 +27,9 @@ def corpus(tmp_path):
 def test_status_counts_only_saved_root_outputs(corpus):
     directory = corpus / "P1-corrected" / "results-direct"
     directory.mkdir()
-    (directory / "q1.json").write_text(json.dumps(dict(result=dict(question_id="q1", mappings=[{}, {}]))))
+    (directory / "q1.json").write_text(
+        json.dumps(dict(result=dict(question_id="q1", mappings=[{}, {}])))
+    )
     status = corpus_status(corpus)
     assert (status["total"], status["saved"], status["pending"]) == (6, 1, 5)
     assert status["papers"]["P1"]["saved_parts"] == 2
@@ -67,11 +70,15 @@ def test_interim_render_uses_one_snapshot_while_workers_continue(corpus, monkeyp
         results = directory / "results-direct"
         results.mkdir(exist_ok=True)
         if directory.name == "P1-corrected":
-            (results / "q1.json").write_text(json.dumps(dict(result=dict(question_id="q1", mappings=[{}, {}]))))
+            (results / "q1.json").write_text(
+                json.dumps(dict(result=dict(question_id="q1", mappings=[{}, {}])))
+            )
         return {"records": []}, {}
 
     monkeypatch.setattr("caf_l3.corpus_review.load_review", load)
-    monkeypatch.setattr("caf_l3.corpus_review.render_review_markdown", lambda manifest, results: "Questions\n")
+    monkeypatch.setattr(
+        "caf_l3.corpus_review.render_review_markdown", lambda manifest, results: "Questions\n"
+    )
     output = corpus / "review.md"
     status = render_corpus(corpus, output, allow_pending=True)
     assert status["saved"] == 0
@@ -82,8 +89,10 @@ def test_interim_render_uses_one_snapshot_while_workers_continue(corpus, monkeyp
 
 
 def test_wrong_paper_cannot_be_rendered_even_as_interim(corpus, monkeypatch):
-    monkeypatch.setattr("caf_l3.corpus_review.load_review", lambda directory, **kwargs:
-        ({"records": [{"context": {"paper_id": "s2023.P6"}}]}, {}))
+    monkeypatch.setattr(
+        "caf_l3.corpus_review.load_review",
+        lambda directory, **kwargs: ({"records": [{"context": {"paper_id": "s2023.P6"}}]}, {}),
+    )
     output = corpus / "review.md"
     with pytest.raises(ValueError, match="wrong final paper"):
         render_corpus(corpus, output, allow_pending=True)
