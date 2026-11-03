@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.2.2](https://github.com/R-V-Abhishek/CA_Study_Guide/compare/v0.2.1...v0.2.2) (2026-11-03)
+
+
+### Bug Fixes
+
+* **api:** export whole numbers as integers so the release version bump leaves openapi.json stable ([#21](https://github.com/R-V-Abhishek/CA_Study_Guide/issues/21)) ([0e38a2d](https://github.com/R-V-Abhishek/CA_Study_Guide/commit/0e38a2de16a93dd7d2aa48048171ea695d58a42b))
+* **release:** install age in the bundle workflow and bump the OpenAPI version with each release ([#17](https://github.com/R-V-Abhishek/CA_Study_Guide/issues/17)) ([5703b45](https://github.com/R-V-Abhishek/CA_Study_Guide/commit/5703b45ba91c61e65ee9c563577627234f754021))
+
+
+### Documentation
+
+* record signed-in production browser acceptance ([#9](https://github.com/R-V-Abhishek/CA_Study_Guide/issues/9)) ([33a677d](https://github.com/R-V-Abhishek/CA_Study_Guide/commit/33a677d786c7803d1a1010220498d2c4e85c68a9))
+* record verified home deployment and recovery ([#7](https://github.com/R-V-Abhishek/CA_Study_Guide/issues/7)) ([1883d4b](https://github.com/R-V-Abhishek/CA_Study_Guide/commit/1883d4b571df52ab0bcf3d154eef3c51de7a5a99))
+
 ## [0.2.1](https://github.com/R-V-Abhishek/CA_Study_Guide/compare/v0.2.0...v0.2.1) (2026-11-01)
 
 
