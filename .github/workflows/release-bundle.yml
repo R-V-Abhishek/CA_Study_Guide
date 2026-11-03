@@ -48,6 +48,8 @@ jobs:
       - run: npm install --global pnpm@12.6.0
       - run: pnpm install --frozen-lockfile && pnpm type-check && pnpm test:ui
         working-directory: web
+      - name: Install age for the encrypted-backup drill
+        run: sudo apt-get install -y --no-install-recommends age
       - uses: docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f # v3
       - run: uv run --no-sync scripts/release_bundle.py build --platform linux/amd64
       - name: Upload bundle then publish the draft
