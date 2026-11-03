@@ -52,7 +52,7 @@ BREAK_STARTUP = (
 def derive(
     source: Path, directory: Path, version: str, *, broken: bool = False
 ) -> tuple[Path, str]:
-    """Repack an existing bundle as a newer release: same layers, new version labels.
+    """Repack an existing bundle as a newer candidate release: same layers, new version labels.
 
     The result is a real verified bundle with a loadable image, so upgrade exercises its normal
     verification, loading and activation. A broken release fails at application import.
@@ -102,6 +102,7 @@ def derive(
     derived = manifest.model_copy(
         update={
             "version": version,
+            "candidate": True,
             "commit": commit,
             "created_at": datetime.now(timezone.utc),
             "application": ImageRecord(reference=reference, image_id=image_id),
@@ -145,12 +146,19 @@ class Receiver(BaseHTTPRequestHandler):
         pass
 
 
+def newer(version: str, step: int) -> str:
+    """The version `step` patch releases after `version`, for repacked bundles."""
+    major, minor, patch = map(int, version.removeprefix("v").split("."))
+    return f"v{major}.{minor}.{patch + step}"
+
+
 @app.command()
 def verify(bundle: Path, snapshot: Path, image: str) -> None:
     if sys.platform != "linux":
         typer.echo("SKIP: host upgrade is exercised on native Linux CI")
         return
     manifest = verify_archive(bundle)
+    v2, v3, v4 = (newer(manifest.version, step) for step in (1, 2, 3))
     captured = inspect_recovery_files(snapshot)
     tables = [
         table
@@ -306,21 +314,21 @@ def verify(bundle: Path, snapshot: Path, image: str) -> None:
             # 1. A forward upgrade that applies a real migration.
             work = base / "bundles"
             work.mkdir()
-            second, second_image = derive(bundle, work / "v0.2.2", "v0.2.2")
+            second, second_image = derive(bundle, work / v2, v2)
             upgraded = upgrade(second, second_image)
             if upgraded.returncode:
                 raise RuntimeError(
                     "Upgrade failed: " + failure_detail(upgraded, "releases/upgrade-*/upgrade.log")
                 )
             current = receipt()
-            assert current["application"]["version"] == "v0.2.2"
+            assert current["application"]["version"] == v2
             assert current["previous"][0]["application"]["version"] == manifest.version
             snapshot_name = current["previous"][0]["snapshot"]["name"]
             assert snapshot_name.startswith("caf_"), snapshot_name
             assert snapshot_name in app_files("backups"), "the receipt must name a real snapshot"
             assert not (target / ".upgrade-in-progress").exists()
             assert (target / "releases" / bundle.name).is_file()  # the previous bundle is retained
-            expect_ready("v0.2.2")
+            expect_ready(v2)
             assert counts() == before, "personal and shared records must survive the upgrade"
             assert sql("SELECT version_num FROM ops.alembic_version") == manifest.required_schema
             assert (
@@ -350,7 +358,7 @@ def verify(bundle: Path, snapshot: Path, image: str) -> None:
                 fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
                 locked = upgrade(second, second_image, timeout=60)
                 assert locked.returncode != 0 and "deployment lock" in locked.stderr
-            expect_ready("v0.2.2")
+            expect_ready(v2)
             typer.echo(
                 "PASS: same-version and overlapping upgrades are refused without disturbance"
             )
@@ -452,21 +460,21 @@ def verify(bundle: Path, snapshot: Path, image: str) -> None:
 
             # 5. A release that cannot start must roll back to the one that was serving.
             before_failure = counts()
-            third, third_image = derive(bundle, work / "v0.2.3", "v0.2.3", broken=True)
+            third, third_image = derive(bundle, work / v3, v3, broken=True)
             failed = upgrade(third, third_image, timeout=900)
             assert failed.returncode != 0, "a release that cannot start must fail the upgrade"
-            assert receipt()["application"]["version"] == "v0.2.2"
+            assert receipt()["application"]["version"] == v2
             assert not (target / ".upgrade-in-progress").exists()
             records = sorted(target.glob("releases/upgrade-*/failure.json"))
             assert records and json.loads(records[-1].read_text())["database_migrated"] is False
-            expect_ready("v0.2.2")
+            expect_ready(v2)
             assert counts() == before_failure
             typer.echo(
                 "PASS: a release that cannot start was rolled back with the database untouched"
             )
 
             # 6. After that failure a good newer release upgrades normally with no migration needed.
-            fourth, fourth_image = derive(bundle, work / "v0.2.4", "v0.2.4")
+            fourth, fourth_image = derive(bundle, work / v4, v4)
             again = upgrade(fourth, fourth_image)
             if again.returncode:
                 raise RuntimeError(
@@ -474,8 +482,8 @@ def verify(bundle: Path, snapshot: Path, image: str) -> None:
                     + failure_detail(again, "releases/upgrade-*/upgrade.log")
                 )
             current = receipt()
-            assert current["application"]["version"] == "v0.2.4" and len(current["previous"]) == 2
-            expect_ready("v0.2.4")
+            assert current["application"]["version"] == v4 and len(current["previous"]) == 2
+            expect_ready(v4)
             assert counts() == before_failure
             typer.echo(
                 "PASS: same-schema upgrade after a rolled-back attempt, two previous releases retained"
