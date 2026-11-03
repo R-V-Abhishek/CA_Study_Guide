@@ -5383,7 +5383,7 @@
           },
           "sequence": {
             "type": "integer",
-            "minimum": 0.0,
+            "minimum": 0,
             "title": "Sequence"
           },
           "answer_text": {
@@ -6068,7 +6068,7 @@
           },
           "taxonomy_version_id": {
             "type": "integer",
-            "minimum": 1.0,
+            "minimum": 1,
             "title": "Taxonomy Version Id"
           },
           "source_evidence": {
@@ -6344,7 +6344,7 @@
         "properties": {
           "expected_suggestion_revision_id": {
             "type": "integer",
-            "minimum": 1.0,
+            "minimum": 1,
             "title": "Expected Suggestion Revision Id"
           },
           "expected_publication_revision_id": {
@@ -6721,7 +6721,7 @@
         "properties": {
           "expected_suggestion_revision_id": {
             "type": "integer",
-            "minimum": 1.0,
+            "minimum": 1,
             "title": "Expected Suggestion Revision Id"
           },
           "expected_publication_revision_id": {
@@ -6785,7 +6785,7 @@
         "properties": {
           "expected_suggestion_revision_id": {
             "type": "integer",
-            "minimum": 1.0,
+            "minimum": 1,
             "title": "Expected Suggestion Revision Id"
           },
           "expected_publication_revision_id": {
@@ -6900,7 +6900,7 @@
         "properties": {
           "expected_suggestion_revision_id": {
             "type": "integer",
-            "minimum": 1.0,
+            "minimum": 1,
             "title": "Expected Suggestion Revision Id"
           },
           "expected_publication_revision_id": {
@@ -7123,7 +7123,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1.0
+                "minimum": 1
               },
               {
                 "type": "null"
@@ -7135,7 +7135,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1.0
+                "minimum": 1
               },
               {
                 "type": "null"
@@ -7169,8 +7169,8 @@
             "anyOf": [
               {
                 "type": "integer",
-                "maximum": 100.0,
-                "minimum": 0.0
+                "maximum": 100,
+                "minimum": 0
               },
               {
                 "type": "null"
@@ -8171,7 +8171,7 @@
           },
           "revision": {
             "type": "integer",
-            "minimum": 1.0,
+            "minimum": 1,
             "title": "Revision"
           }
         },
@@ -8474,7 +8474,7 @@
           },
           "revision_id": {
             "type": "integer",
-            "minimum": 1.0,
+            "minimum": 1,
             "title": "Revision Id"
           },
           "content_digest": {
@@ -8484,12 +8484,12 @@
           },
           "pdf_page_start": {
             "type": "integer",
-            "minimum": 1.0,
+            "minimum": 1,
             "title": "Pdf Page Start"
           },
           "pdf_page_end": {
             "type": "integer",
-            "minimum": 1.0,
+            "minimum": 1,
             "title": "Pdf Page End"
           }
         },
@@ -9570,7 +9570,7 @@
           },
           "taxonomy_version_id": {
             "type": "integer",
-            "minimum": 1.0,
+            "minimum": 1,
             "title": "Taxonomy Version Id"
           },
           "source_evidence": {
@@ -9615,7 +9615,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0.0
+                "minimum": 0
               },
               {
                 "type": "null"
@@ -9977,14 +9977,14 @@
           },
           "score": {
             "type": "number",
-            "minimum": 0.0,
+            "minimum": 0,
             "title": "Score"
           },
           "max_score": {
             "type": "number",
-            "exclusiveMinimum": 0.0,
+            "exclusiveMinimum": 0,
             "title": "Max Score",
-            "default": 100.0
+            "default": 100
           },
           "taken_on": {
             "type": "string",
@@ -10739,12 +10739,12 @@
           },
           "page_start": {
             "type": "integer",
-            "minimum": 1.0,
+            "minimum": 1,
             "title": "Page Start"
           },
           "page_end": {
             "type": "integer",
-            "minimum": 1.0,
+            "minimum": 1,
             "title": "Page End"
           }
         },
@@ -11016,8 +11016,8 @@
             "anyOf": [
               {
                 "type": "number",
-                "maximum": 1.0,
-                "minimum": 0.0
+                "maximum": 1,
+                "minimum": 0
               },
               {
                 "type": "null"
@@ -11444,7 +11444,7 @@
           },
           "taxonomy_version_id": {
             "type": "integer",
-            "minimum": 1.0,
+            "minimum": 1,
             "title": "Taxonomy Version Id"
           },
           "source_evidence": {
@@ -11477,8 +11477,8 @@
           },
           "value": {
             "type": "number",
-            "maximum": 1.0,
-            "minimum": 0.0,
+            "maximum": 1,
+            "minimum": 0,
             "title": "Value"
           }
         },
@@ -11739,13 +11739,13 @@
           "hours_per_week": {
             "type": "number",
             "maximum": 9999.9,
-            "exclusiveMinimum": 0.0,
+            "exclusiveMinimum": 0,
             "title": "Hours Per Week"
           },
           "minutes_per_subtopic": {
             "type": "integer",
-            "maximum": 2147483647.0,
-            "exclusiveMinimum": 0.0,
+            "maximum": 2147483647,
+            "exclusiveMinimum": 0,
             "title": "Minutes Per Subtopic"
           },
           "revision_intervals": {
@@ -12251,7 +12251,7 @@
           },
           "sequence": {
             "type": "integer",
-            "minimum": 0.0,
+            "minimum": 0,
             "title": "Sequence"
           },
           "question_text": {
@@ -12262,7 +12262,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0.0
+                "minimum": 0
               },
               {
                 "type": "null"
@@ -13666,12 +13666,12 @@
           },
           "pdf_page_start": {
             "type": "integer",
-            "minimum": 1.0,
+            "minimum": 1,
             "title": "Pdf Page Start"
           },
           "pdf_page_end": {
             "type": "integer",
-            "minimum": 1.0,
+            "minimum": 1,
             "title": "Pdf Page End"
           },
           "review_status": {
@@ -13708,12 +13708,12 @@
           },
           "page_start": {
             "type": "integer",
-            "minimum": 1.0,
+            "minimum": 1,
             "title": "Page Start"
           },
           "page_end": {
             "type": "integer",
-            "minimum": 1.0,
+            "minimum": 1,
             "title": "Page End"
           },
           "block_start": {
@@ -14547,7 +14547,7 @@
           },
           "span_id": {
             "type": "integer",
-            "minimum": 1.0,
+            "minimum": 1,
             "title": "Span Id"
           },
           "sha256": {
