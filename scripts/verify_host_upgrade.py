@@ -52,7 +52,7 @@ BREAK_STARTUP = (
 def derive(
     source: Path, directory: Path, version: str, *, broken: bool = False
 ) -> tuple[Path, str]:
-    """Repack an existing bundle as a newer release: same layers, new version labels.
+    """Repack an existing bundle as a newer candidate release: same layers, new version labels.
 
     The result is a real verified bundle with a loadable image, so upgrade exercises its normal
     verification, loading and activation. A broken release fails at application import.
@@ -102,6 +102,7 @@ def derive(
     derived = manifest.model_copy(
         update={
             "version": version,
+            "candidate": True,
             "commit": commit,
             "created_at": datetime.now(timezone.utc),
             "application": ImageRecord(reference=reference, image_id=image_id),
