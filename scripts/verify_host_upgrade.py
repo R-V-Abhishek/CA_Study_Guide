@@ -146,13 +146,13 @@ class Receiver(BaseHTTPRequestHandler):
         pass
 
 
-@app.command()
 def newer(version: str, step: int) -> str:
     """The version `step` patch releases after `version`, for repacked bundles."""
     major, minor, patch = map(int, version.removeprefix("v").split("."))
     return f"v{major}.{minor}.{patch + step}"
 
 
+@app.command()
 def verify(bundle: Path, snapshot: Path, image: str) -> None:
     if sys.platform != "linux":
         typer.echo("SKIP: host upgrade is exercised on native Linux CI")
