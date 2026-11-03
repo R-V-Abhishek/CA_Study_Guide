@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.3](https://github.com/R-V-Abhishek/CA_Study_Guide/compare/v0.2.2...v0.2.3) (2026-11-03)
+
+
+### Bug Fixes
+
+* **deploy:** let the upgrade drill derive a newer release from a non-candidate bundle ([#22](https://github.com/R-V-Abhishek/CA_Study_Guide/issues/22)) ([21cef22](https://github.com/R-V-Abhishek/CA_Study_Guide/commit/21cef227ac8e1b2dfc0b9b448b56db40594b9c4c))
+
 ## [0.2.2](https://github.com/R-V-Abhishek/CA_Study_Guide/compare/v0.2.1...v0.2.2) (2026-11-03)
 
 
