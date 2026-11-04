@@ -218,6 +218,17 @@ sudo /opt/caf/repo/deploy/recover-access.sh --apply   # restarts NetworkManager 
 It never touches Docker, the CAF services, application data or the Tailscale login. If `tailscale status` then
 says `NeedsLogin`, sign in with `sudo tailscale up` and follow the URL it prints.
 
+Keep remote access stable:
+
+- In the Tailscale admin console (Machines → the machine → ⋯ → Disable key expiry), disable key expiry for the
+  server and for the administrator's own devices. Otherwise each device is logged out every 180 days.
+- If the server is up but an administrator's Mac reports `Logged out` / `NoState`, check that client before the
+  server. Another VPN on the Mac, such as Cloudflare WARP, can break Tailscale's own connection to
+  `controlplane.tailscale.com` even when ordinary web traffic works. Quitting and reopening the Tailscale app does
+  not restart its network extension. Turn the Tailscale VPN off and on, or disconnect the other VPN while
+  administering the server. A managed WARP profile needs its administrator to exclude `*.tailscale.com` and
+  `fd7a:115c:a1e0::/48` (it already excludes `100.64.0.0/10`).
+
 ## Reboot acceptance
 
 A normal reboot has not been tested on `caf-home`. After `recover-access.sh --apply` and with the machine
