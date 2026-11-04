@@ -40,6 +40,17 @@ def test_retention_with_few_snapshots_keeps_everything():
     assert plan_retention(ids)[1] == []
 
 
+def test_retention_never_prunes_a_protected_rollback_snapshot():
+    day = datetime(2026, 11, 4, tzinfo=timezone.utc)
+    before_upgrade = identifier(day.replace(hour=2, minute=30), "00000001")
+    after_upgrade = identifier(day.replace(hour=3, minute=15), "00000002")
+    assert plan_retention([before_upgrade, after_upgrade])[1] == [before_upgrade]
+    keep, delete = plan_retention(
+        [before_upgrade, after_upgrade], protected=frozenset({before_upgrade, "caf_missing"})
+    )
+    assert before_upgrade in keep and delete == []
+
+
 def test_retention_rejects_foreign_names_and_empty_tiers():
     with pytest.raises(ValueError, match="Not a recovery snapshot"):
         plan_retention(["caf_notes"])
