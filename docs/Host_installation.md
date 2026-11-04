@@ -231,7 +231,8 @@ Keep remote access stable:
 
 ## Reboot acceptance
 
-A normal reboot has not been tested on `caf-home`. After `recover-access.sh --apply` and with the machine
+A normal reboot of `caf-home` passed checks 1, 2 and 4 and the readiness part of 3 on 2026-11-04; see
+`docs/Deployment_verification_2026_11_01.md`. Repeat this after host changes. After `recover-access.sh --apply` and with the machine
 on AC power, run `sudo systemctl reboot` and do not log in at the console. From another device on the tailnet,
 within about ten minutes:
 

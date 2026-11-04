@@ -174,3 +174,19 @@ installation against existing data or silently restore a developer database.
 - General `caf-host deploy`, application rollback/recovery commands, detailed
   operational visibility, and remaining home-hosting plan items are not completed
   merely by this repair.
+
+## Reboot acceptance, 2026-11-04 (release v0.2.3)
+
+The owner issued a normal `systemctl reboot` and did not log in at the console. Checked from the Mac over
+the tailnet about 13 hours later:
+
+- `boot_id` changed from `8fa8d514-9c5e-4d36-a47a-15d1efca004d` to `d215cc96-d0f5-40b1-a7d4-c821ec3aafd3`.
+- `caf`, `docker`, `ssh` and `tailscaled` were active and enabled. There were no failed units.
+- `caf-db-1` and `caf-web-1` were healthy, and `caf-worker-1` was up.
+- `/api/v1/ready` returned 200 on host loopback and at the tailnet HTTPS URL.
+- `caf-watch.timer` had run on schedule, and `caf-backup.timer` was scheduled for 03:30.
+- The only console session was the GDM greeter, so no login was needed.
+
+The check was delayed, not the server: the administrator Mac's Tailscale client could not reach the control
+plane while a managed Cloudflare WARP profile was connected (see "Recovering remote access" in
+`docs/Host_installation.md`). A signed-in browser check after the reboot is still pending.

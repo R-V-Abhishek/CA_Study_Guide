@@ -139,8 +139,9 @@ before working on deployment, then inspect live state when the user authorizes i
   notes/progress remain preserved. No migration or classification was rerun.
 - A fresh recovery snapshot passed isolated restore/file/schema verification,
   and an authenticated encrypted Mac copy was verified before activation.
-- `caf.service` is enabled and follows the current Compose pointer; actual normal
-  reboot acceptance remains pending. Do not assume a reboot test has passed.
+- `caf.service` is enabled and follows the current Compose pointer. A normal reboot
+  on 2026-11-04 (release v0.2.3) came back without a console login: services, timers
+  and tailnet readiness passed. A signed-in browser check after that reboot is pending.
 - First-install tooling exists, but a safe existing-installation `caf-host deploy`
   upgrade workflow is not implemented. This repair used a recorded one-time,
   same-schema activation. Do not rerun it blindly or erase storage to reuse install.
