@@ -371,6 +371,9 @@ def verify(bundle: Path, snapshot: Path, image: str) -> None:
             assert plain.returncode == 0, redact(plain.stderr[-1500:])
             status = app_status()
             assert status["state"] == "ok" and status["encryption"] == "not_configured", status
+            # Retention must not prune the snapshot the upgrade receipt names as its rollback point,
+            # even though it is from the same day as this one.
+            assert snapshot_name in status["retained"], status
             if shutil.which("age") and shutil.which("age-keygen"):
                 identity = base / "identity.txt"
                 subprocess.run(["age-keygen", "-o", str(identity)], check=True, capture_output=True)

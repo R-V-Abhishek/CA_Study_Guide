@@ -29,10 +29,10 @@ def verified_snapshots(base: Path) -> list[str]:
 
 
 def apply_retention(
-    base: Path, *, daily: int, weekly: int, monthly: int
+    base: Path, *, daily: int, weekly: int, monthly: int, protected: frozenset[str] = frozenset()
 ) -> tuple[list[str], list[str]]:
     keep, delete = plan_retention(
-        verified_snapshots(base), daily=daily, weekly=weekly, monthly=monthly
+        verified_snapshots(base), daily=daily, weekly=weekly, monthly=monthly, protected=protected
     )
     for identifier in delete:
         shutil.rmtree(base / identifier)
@@ -40,7 +40,13 @@ def apply_retention(
 
 
 def run_backup(
-    base: Path, *, daily: int = 7, weekly: int = 4, monthly: int = 6, session=None
+    base: Path,
+    *,
+    daily: int = 7,
+    weekly: int = 4,
+    monthly: int = 6,
+    protected: frozenset[str] = frozenset(),
+    session=None,
 ) -> dict:
     """Capture, verify, then prune. A failure never prunes and always leaves a status record."""
     started = datetime.now(timezone.utc)
@@ -60,7 +66,9 @@ def run_backup(
         recovery = inspect_recovery_files(snapshot)
         if critical_tables(recovery.database_revision) - recovery.tables.keys():
             raise ValueError("Snapshot is missing protected tables")
-        keep, deleted = apply_retention(base, daily=daily, weekly=weekly, monthly=monthly)
+        keep, deleted = apply_retention(
+            base, daily=daily, weekly=weekly, monthly=monthly, protected=protected
+        )
         status.update(
             state="ok",
             last_success_at=datetime.now(timezone.utc).isoformat(),
@@ -89,7 +97,12 @@ def run_backup(
 
 
 @app.command("run")
-def run_command(daily: int = 7, weekly: int = 4, monthly: int = 6) -> None:
+def run_command(
+    daily: int = 7,
+    weekly: int = 4,
+    monthly: int = 6,
+    protect: list[str] = typer.Option([], help="Snapshot an upgrade receipt names; never pruned"),
+) -> None:
     from caf_common.settings import get_settings
     from caf_db.engine import get_session_factory
 
@@ -99,6 +112,7 @@ def run_command(daily: int = 7, weekly: int = 4, monthly: int = 6) -> None:
             daily=daily,
             weekly=weekly,
             monthly=monthly,
+            protected=frozenset(protect),
             session=session,
         )
     typer.echo(

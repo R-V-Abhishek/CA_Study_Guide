@@ -14,14 +14,20 @@ def snapshot_time(identifier: str) -> datetime:
 
 
 def plan_retention(
-    identifiers: list[str], *, daily: int = 7, weekly: int = 4, monthly: int = 6
+    identifiers: list[str],
+    *,
+    daily: int = 7,
+    weekly: int = 4,
+    monthly: int = 6,
+    protected: frozenset[str] = frozenset(),
 ) -> tuple[list[str], list[str]]:
     """Return (keep, delete). Keeps the newest snapshot of each of the latest N days, ISO weeks
-    and months, and always the single newest snapshot. Unknown names raise instead of being skipped."""
+    and months, and always the single newest snapshot. Protected snapshots (named by an upgrade receipt
+    as a rollback point) are always kept. Unknown names raise instead of being skipped."""
     if min(daily, weekly, monthly) < 1:
         raise ValueError("Every retention tier must keep at least one snapshot")
     ordered = sorted(identifiers, key=snapshot_time, reverse=True)
-    keep: set[str] = set(ordered[:1])
+    keep: set[str] = set(ordered[:1]) | (protected & set(ordered))
     for limit, label in (
         (daily, lambda t: t.strftime("%Y-%m-%d")),
         (weekly, lambda t: "%d-W%02d" % t.isocalendar()[:2]),

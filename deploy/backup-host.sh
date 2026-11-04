@@ -35,7 +35,10 @@ backups() {
 }
 minimum=5242880
 test "$(df -Pk "$root" | awk 'NR==2 {print $4}')" -ge "$minimum" || { echo 'Insufficient free space for a recovery snapshot' >&2; exit 1; }
-compose run --rm -T --no-deps --entrypoint caf-host web _backup run
+# Snapshots that upgrade receipts name as rollback points are never pruned by retention.
+protect=()
+while read -r kept; do protect+=(--protect "$kept"); done < <(jq -r '.previous[]?.snapshot.name | strings' "$receipt")
+compose run --rm -T --no-deps --entrypoint caf-host web _backup run "${protect[@]}"
 status=$(backups cat /backups/status.json)
 name=$(jq -er .snapshot.name <<< "$status")
 case $name in caf_[0-9]*_[0-9]*_[0-9]*_[0-9a-f]*) ;; *) echo 'Unexpected snapshot name' >&2; exit 1;; esac
