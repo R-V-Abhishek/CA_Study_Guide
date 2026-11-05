@@ -149,8 +149,9 @@ before working on deployment, then inspect live state when the user authorizes i
 - First-install tooling exists, but a safe existing-installation `caf-host deploy`
   upgrade workflow is not implemented. This repair used a recorded one-time,
   same-schema activation. Do not rerun it blindly or erase storage to reuse install.
-- Encrypted recovery copies were verified on the Mac. The external backup drive,
-  daily encrypted server backup scheduling, and retention automation remain pending.
+- Encrypted recovery copies were verified on the Mac. Daily encrypted server backups
+  with retention run from `caf-backup.timer`. The external backup drive and an automatic
+  off-host copy remain pending.
   The recovery identity stays off Ubuntu and out of this repository.
 
 ## Owner shorthand
