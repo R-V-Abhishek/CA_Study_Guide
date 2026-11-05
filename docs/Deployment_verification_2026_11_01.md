@@ -210,7 +210,13 @@ prunes a snapshot that the installation receipt names as a rollback point.
 Limitation: the v0.2.1 rollback snapshot `caf_20261104_023044_121929_b5b2aa20` was deleted on 2026-11-04 by the
 retention rule in place before this fix (a newer snapshot from the same day replaced it). The receipt still
 names it under `previous`. The oldest remaining point at schema `0009` is the install snapshot
-`caf_20261101_040811…`. A signed-in browser check after the reboot and this upgrade is still pending.
+`caf_20261101_040811…`.
+
+Signed-in browser check (v0.2.4, after the reboot): the owner signed in through Auth0 at the tailnet HTTPS URL.
+The question catalog listed 2494 reviewed questions. Question
+`001d2efaf53e…` (Financial Reporting, Sept 2025 RTP, Q11) opened with its original PDF source pages 15–16
+rendered, and its extracted text and answer revealed. Every signed-in API and page-raster request returned 200.
+Tailscale key expiry for `caf-home` was disabled in the admin console the same day ("No expiry").
 
 ### Encrypted nightly backups, 2026-11-05
 
