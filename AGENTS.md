@@ -145,6 +145,7 @@ before working on deployment, then inspect live state when the user authorizes i
 - 2026-11-05: `caf-host upgrade` installed v0.2.4, with no schema change. The host checkout
   `/opt/caf/repo` runs the upgrade and timer scripts, so it must move to each release tag.
   Retention now keeps the rollback snapshots named in the receipt (verified).
+  Nightly backups are now age-encrypted to the Mac recovery recipient; Mac decryption was verified.
 - First-install tooling exists, but a safe existing-installation `caf-host deploy`
   upgrade workflow is not implemented. This repair used a recorded one-time,
   same-schema activation. Do not rerun it blindly or erase storage to reuse install.

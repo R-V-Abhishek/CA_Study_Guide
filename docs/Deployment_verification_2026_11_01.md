@@ -210,5 +210,18 @@ prunes a snapshot that the installation receipt names as a rollback point.
 Limitation: the v0.2.1 rollback snapshot `caf_20261104_023044_121929_b5b2aa20` was deleted on 2026-11-04 by the
 retention rule in place before this fix (a newer snapshot from the same day replaced it). The receipt still
 names it under `previous`. The oldest remaining point at schema `0009` is the install snapshot
-`caf_20261101_040811…`. Backups are still unencrypted (no `/etc/caf/backup-recipient.txt`) and remain on the
-host. A signed-in browser check after the reboot and this upgrade is still pending.
+`caf_20261101_040811…`. A signed-in browser check after the reboot and this upgrade is still pending.
+
+### Encrypted nightly backups, 2026-11-05
+
+- The owner installed `age` 1.2.1 and `/etc/caf/backup-recipient.txt` (root:cafdeploy, 0644). It is the public
+  recipient of the Mac recovery identity (`age-keygen -y` of the identity matches it); the identity stays on the Mac.
+- `caf-host backup` created `caf_20261105_045507_248467_f6e241f6` and its encrypted copy in
+  `/srv/caf/encrypted-backups/`; status `encryption: encrypted`. Retention deleted only the unprotected manual
+  snapshot `caf_20261105_044138…` and kept the protected v0.2.3 rollback snapshot.
+- On the Mac: the ciphertext passed its sha256 check in `release-output/nightly-encrypted/` (0700/0600) and
+  decrypted with the recovery identity. Its archive held only that snapshot directory, the manifest sha256
+  (`29089954…`) matched the server status, and `caf-host inspect-backup` passed (76 tables, 4308 files). The
+  decrypted copy was deleted afterwards. No database restore drill was run on this copy.
+
+Still pending: an automatic off-host copy (the Mac copy above is manual) and the external drive.
