@@ -15,7 +15,9 @@ BENCHMARK_FLAG = "calibration_benchmark"
 ALL_PAPERS = ["s2023.P1", "s2023.P2", "s2023.P3", "s2023.P4", "s2023.P5", "s2023.P6"]
 
 
-def generate_calibration_benchmark(session: Session, size_per_paper: int = 10, seed: int = 42) -> int:
+def generate_calibration_benchmark(
+    session: Session, size_per_paper: int = 10, seed: int = 42
+) -> int:
     """Sample a balanced, representative subset across all 6 papers and tag with calibration_benchmark."""
     rng = random.Random(seed)
     total_flagged = 0
@@ -92,15 +94,17 @@ def list_benchmark_units(session: Session) -> list[dict[str, Any]]:
     results = []
     for u, doc in units_with_doc:
         if BENCHMARK_FLAG in (u.validation_flags or []):
-            results.append({
-                "unit_id": u.id,
-                "paper_id": doc.paper_id,
-                "attempt_id": doc.attempt_id,
-                "display_label": u.display_label,
-                "marks": u.marks,
-                "classify_status": u.classify_status,
-                "question_preview": (u.question_text or "")[:120].strip(),
-            })
+            results.append(
+                {
+                    "unit_id": u.id,
+                    "paper_id": doc.paper_id,
+                    "attempt_id": doc.attempt_id,
+                    "display_label": u.display_label,
+                    "marks": u.marks,
+                    "classify_status": u.classify_status,
+                    "question_preview": (u.question_text or "")[:120].strip(),
+                }
+            )
 
     return results
 
@@ -126,8 +130,9 @@ class BenchmarkEvaluationReport:
     status_note: str
 
 
-def evaluate_calibration_benchmark(session: Session, threshold: float = 0.80,
-                                   version_id: str | None = None) -> BenchmarkEvaluationReport:
+def evaluate_calibration_benchmark(
+    session: Session, threshold: float = 0.80, version_id: str | None = None
+) -> BenchmarkEvaluationReport:
     """Evaluate human decisions vs AI suggestions specifically on the benchmark subset."""
     taxonomy_version_id = evaluation_taxonomy(session, version_id)
     benchmark_units = (
@@ -136,7 +141,9 @@ def evaluate_calibration_benchmark(session: Session, threshold: float = 0.80,
         .filter(Unit.current.is_(True))
         .all()
     )
-    b_units = [(u, doc) for u, doc in benchmark_units if BENCHMARK_FLAG in (u.validation_flags or [])]
+    b_units = [
+        (u, doc) for u, doc in benchmark_units if BENCHMARK_FLAG in (u.validation_flags or [])
+    ]
     total_samples = len(b_units)
 
     if total_samples == 0:
@@ -191,7 +198,7 @@ def evaluate_calibration_benchmark(session: Session, threshold: float = 0.80,
             paper_stats[p_id]["total"] += 1
 
         dec = decisions_by_fp.get(u.fingerprint)
-        sugg = sugg_by_id.get(dec.payload.get('suggestion_id')) if dec else None
+        sugg = sugg_by_id.get(dec.payload.get("suggestion_id")) if dec else None
 
         if dec and sugg and sugg.unit_id == u.id:
             curator_primary = dec.payload.get("primary_node_id")

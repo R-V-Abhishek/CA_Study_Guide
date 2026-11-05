@@ -43,13 +43,24 @@ def pytest_sessionstart(session):
 
     def guarded_connect(conninfo="", **kwargs):
         params = conninfo_to_dict(conninfo)
-        params.update({k: v for k, v in kwargs.items() if k in
-                       {"host", "port", "dbname", "user", "password", "options", "service", "hostaddr"}})
+        params.update(
+            {
+                k: v
+                for k, v in kwargs.items()
+                if k
+                in {"host", "port", "dbname", "user", "password", "options", "service", "hostaddr"}
+            }
+        )
         if any(params.get(k) for k in ("options", "service", "hostaddr")):
             raise RuntimeError("Test database connection overrides rejected")
-        assert_safe_database(sa.URL.create("postgresql+psycopg", host=params.get("host"),
-                                          port=int(params.get("port", 5432)),
-                                          database=params.get("dbname")))
+        assert_safe_database(
+            sa.URL.create(
+                "postgresql+psycopg",
+                host=params.get("host"),
+                port=int(params.get("port", 5432)),
+                database=params.get("dbname"),
+            )
+        )
         return _connect(conninfo, **kwargs)
 
     psycopg.connect = guarded_connect
@@ -68,7 +79,9 @@ def pytest_sessionstart(session):
     socket.socket.connect = guarded_socket_connect
     socket.socket.connect_ex = guarded_socket_connect_ex
     try:
-        _sandbox = PostgresSandbox("tests", published_port=int(os.environ.get("CAF_TEST_DATABASE_PORT", "0"))).__enter__()
+        _sandbox = PostgresSandbox(
+            "tests", published_port=int(os.environ.get("CAF_TEST_DATABASE_PORT", "0"))
+        ).__enter__()
         _sandbox.allow("caf_template")
         _admin = sa.create_engine(_sandbox.url(), isolation_level="AUTOCOMMIT")
         with _admin.connect() as conn:
@@ -109,15 +122,19 @@ def pytest_sessionstart(session):
 def _configure(database, storage):
     from caf_common.settings import reset_settings
     from caf_db.engine import reset_database
+
     reset_database()
     os.environ["DATABASE_URL"] = _sandbox.url(database).render_as_string(hide_password=False)
     from caf_db.engine import ROLE_NAMES
+
     password_names = {"student": "APP", "curation": "CURATOR"}
     for operation, role in ROLE_NAMES.items():
         suffix = password_names.get(operation, operation.upper())
-        os.environ[f"{operation.upper()}_DATABASE_URL"] = _sandbox.url(database).set(
-            username=role, password=os.environ[f"PG_{suffix}_PASSWORD"]
-        ).render_as_string(hide_password=False)
+        os.environ[f"{operation.upper()}_DATABASE_URL"] = (
+            _sandbox.url(database)
+            .set(username=role, password=os.environ[f"PG_{suffix}_PASSWORD"])
+            .render_as_string(hide_password=False)
+        )
     os.environ["PG_HOST"] = "127.0.0.1"
     os.environ["PG_PORT"] = str(_sandbox.port)
     os.environ["PG_DATABASE"] = database
@@ -132,6 +149,7 @@ def isolated_database():
     import sqlalchemy as sa
     from caf_db.engine import reset_database
     from caf_common.db_safety import disallow_test_database
+
     database = f"caf_test_{uuid4().hex}"
     _sandbox.allow(database)
     with _admin.connect() as conn:
@@ -150,6 +168,7 @@ def isolated_database():
 @pytest.fixture
 def session():
     from caf_db.engine import get_session_factory
+
     with get_session_factory()() as db:
         yield db
 
@@ -194,6 +213,7 @@ def legacy_http_sessions(request, isolated_database, authenticated_client, monke
     if request.module.__name__.split(".")[-1].startswith("test_phase2"):
         return
     from fastapi.testclient import TestClient
+
     template = authenticated_client(role="administrator")
     original_init = TestClient.__init__
 
@@ -218,6 +238,7 @@ def _cleanup():
         _sandbox = None
     if _connect is not None:
         import psycopg
+
         psycopg.connect = _connect
     socket.socket.connect = _socket_connect
     socket.socket.connect_ex = _socket_connect_ex
@@ -227,5 +248,6 @@ def _cleanup():
 
 def pytest_sessionfinish(session, exitstatus):
     from caf_db.engine import reset_database
+
     reset_database()
     _cleanup()

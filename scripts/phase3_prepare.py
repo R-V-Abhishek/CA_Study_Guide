@@ -32,10 +32,17 @@ def original_snapshot(connection) -> dict:
     for table in tables:
         schema, name = table.split(".")
         columns[table] = [column["name"] for column in inspector.get_columns(name, schema=schema)]
-    return {"tables": tables, "columns": columns,
-            "legacy_node_ids": list(connection.scalars(sa.text("SELECT id FROM ref.node ORDER BY id"))),
-            "legacy_doc_types": list(connection.scalars(sa.text("SELECT id FROM ref.doc_type ORDER BY id"))),
-            "max_taxonomy_id": connection.scalar(sa.text("SELECT COALESCE(max(id),0) FROM ref.taxonomy_version"))}
+    return {
+        "tables": tables,
+        "columns": columns,
+        "legacy_node_ids": list(connection.scalars(sa.text("SELECT id FROM ref.node ORDER BY id"))),
+        "legacy_doc_types": list(
+            connection.scalars(sa.text("SELECT id FROM ref.doc_type ORDER BY id"))
+        ),
+        "max_taxonomy_id": connection.scalar(
+            sa.text("SELECT COALESCE(max(id),0) FROM ref.taxonomy_version")
+        ),
+    }
 
 
 def preserved_content(connection, snapshot: dict) -> dict:
@@ -81,24 +88,36 @@ def migrate_and_import(connection, manifest: dict) -> dict:
         imported = import_release(session, manifest, dry_run=False)
         session.commit()
     after = preserved_content(connection, before)
-    expected = {table: value for table, value in before["tables"].items() if table != "ops.alembic_version"}
+    expected = {
+        table: value for table, value in before["tables"].items() if table != "ops.alembic_version"
+    }
     if after != expected:
         changed = sorted(table for table in expected if after.get(table) != expected[table])
         raise ValueError("Original values changed; transaction aborted: " + ", ".join(changed))
-    return {"from_revision": revision, "to_revision": HEAD,
-            "all_original_values_preserved": True, "tables_checked": len(expected),
-            "preserved": after, "release": imported, "activation_performed": False}
+    return {
+        "from_revision": revision,
+        "to_revision": HEAD,
+        "all_original_values_preserved": True,
+        "tables_checked": len(expected),
+        "preserved": after,
+        "release": imported,
+        "activation_performed": False,
+    }
 
 
 @app.command("plan")
 def plan(manifest_path: Path = Path("taxonomy/textbook_v1/manifest.json")):
     from caf_l0.releases import validate_manifest
+
     typer.echo(json.dumps(validate_manifest(load_manifest(manifest_path)), indent=2))
 
 
 @app.command("drill")
-def drill(checkpoint: Path, manifest_path: Path = Path("taxonomy/textbook_v1/manifest.json"),
-          report: Path = Path("docs/Phase3_Restored_Migration.json")):
+def drill(
+    checkpoint: Path,
+    manifest_path: Path = Path("taxonomy/textbook_v1/manifest.json"),
+    report: Path = Path("docs/Phase3_Restored_Migration.json"),
+):
     backup = json.loads(checkpoint.read_text())
     dump = checkpoint.parent / backup["dump_file"]
     if file_checksum(dump) != backup["dump_sha256"]:
@@ -122,8 +141,12 @@ def drill(checkpoint: Path, manifest_path: Path = Path("taxonomy/textbook_v1/man
                 if database_content(connection) != backup["tables"]:
                     raise ValueError("Restored checkpoint row hashes differ")
                 result = migrate_and_import(connection, manifest)
-                result.update(checkpoint=str(checkpoint), dump_sha256=backup["dump_sha256"],
-                              manifest_hash=digest(manifest), restored_exact=True)
+                result.update(
+                    checkpoint=str(checkpoint),
+                    dump_sha256=backup["dump_sha256"],
+                    manifest_hash=digest(manifest),
+                    restored_exact=True,
+                )
                 result["archived_files_verified"] = True
         finally:
             engine.dispose()
@@ -132,17 +155,25 @@ def drill(checkpoint: Path, manifest_path: Path = Path("taxonomy/textbook_v1/man
 
 
 @app.command("apply")
-def apply(manifest_path: Path = Path("taxonomy/textbook_v1/manifest.json"),
-          drill_report: Path = Path("docs/Phase3_Restored_Migration.json"),
-          report: Path = Path("docs/Phase3_Normal_Migration.json"),
-          commit: bool = typer.Option(False, "--commit")):
+def apply(
+    manifest_path: Path = Path("taxonomy/textbook_v1/manifest.json"),
+    drill_report: Path = Path("docs/Phase3_Restored_Migration.json"),
+    report: Path = Path("docs/Phase3_Normal_Migration.json"),
+    commit: bool = typer.Option(False, "--commit"),
+):
     manifest = load_manifest(manifest_path)
     if not commit:
         from caf_l0.releases import validate_manifest
+
         typer.echo(json.dumps({**validate_manifest(manifest), "database_changed": False}, indent=2))
         return
     verified = json.loads(drill_report.read_text())
-    if not verified["restored_exact"] or not verified["archived_files_verified"] or not verified["all_original_values_preserved"] or verified["manifest_hash"] != digest(manifest):
+    if (
+        not verified["restored_exact"]
+        or not verified["archived_files_verified"]
+        or not verified["all_original_values_preserved"]
+        or verified["manifest_hash"] != digest(manifest)
+    ):
         raise ValueError("A successful restored migration for this exact manifest is required")
     checkpoint = Path(verified["checkpoint"])
     backup = json.loads(checkpoint.read_text())

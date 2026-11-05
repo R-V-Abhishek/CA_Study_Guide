@@ -13,9 +13,13 @@ from caf_l3.review_markdown import render_review_markdown
 
 def prepare_record(record: dict, catalog: list[dict], sources: dict) -> dict:
     """Expand lexical retrieval explicitly and give the changed evidence a new hash."""
-    expanded = {**record, "original_input_hash": record["input_hash"],
-        "candidates": catalog, "candidate_scope": "full_paper_taxonomy",
-        "source_catalog_hash": digest(sources)}
+    expanded = {
+        **record,
+        "original_input_hash": record["input_hash"],
+        "candidates": catalog,
+        "candidate_scope": "full_paper_taxonomy",
+        "source_catalog_hash": digest(sources),
+    }
     expanded["input_hash"] = digest({k: v for k, v in expanded.items() if k != "input_hash"})
     return expanded
 
@@ -30,19 +34,30 @@ def load_record(directory: Path, question_id: str) -> dict:
     return prepare_record(record, catalog, sources)
 
 
-def save_result(directory: Path, question_id: str, result: dict, *,
-                source_evidence: list[dict] | None = None) -> None:
+def save_result(
+    directory: Path, question_id: str, result: dict, *, source_evidence: list[dict] | None = None
+) -> None:
     record = load_record(directory, question_id)
     validated_mappings(record, result)
     destination = directory / "results-direct"
     destination.mkdir(exist_ok=True)
     path = destination / (question_id + ".json")
-    saved = dict(result=result, execution=dict(model_id="gpt-6-luna", method="luna_worker_direct",
-        candidate_scope="full_paper_taxonomy", candidate_catalog_hash=digest(record["candidates"]),
-        original_input_hash=record["original_input_hash"], source_catalog_hash=record["source_catalog_hash"],
-        source_evidence=source_evidence or []))
+    saved = dict(
+        result=result,
+        execution=dict(
+            model_id="gpt-6-luna",
+            method="luna_worker_direct",
+            candidate_scope="full_paper_taxonomy",
+            candidate_catalog_hash=digest(record["candidates"]),
+            original_input_hash=record["original_input_hash"],
+            source_catalog_hash=record["source_catalog_hash"],
+            source_evidence=source_evidence or [],
+        ),
+    )
     if path.exists():
-        raise ValueError("Result already exists; preserve it and write a separately named correction")
+        raise ValueError(
+            "Result already exists; preserve it and write a separately named correction"
+        )
     write_json(path, saved)
 
 
@@ -56,13 +71,25 @@ def load_review(directory: Path, *, result_ids: set[str] | None = None) -> tuple
     catalog = json.loads((directory / "full-taxonomy.json").read_text())
     sources = json.loads((directory / "sources.json").read_text())
     records = [prepare_record(record, catalog, sources) for record in original["records"]]
-    manifest = {**original, "records": records,
-        "classifier": {**original["classifier"], "method": "luna_worker_direct", "retrieval": "full-paper-taxonomy"}}
+    manifest = {
+        **original,
+        "records": records,
+        "classifier": {
+            **original["classifier"],
+            "method": "luna_worker_direct",
+            "retrieval": "full-paper-taxonomy",
+        },
+    }
     catalog_hash = digest(catalog)
     # Hash the shared catalog once instead of serializing it for every root.
-    manifest["batch_key"] = digest(dict(original_batch_key=original["batch_key"],
-        candidate_catalog_hash=catalog_hash, source_catalog_hash=digest(sources),
-        classifier=manifest["classifier"]))
+    manifest["batch_key"] = digest(
+        dict(
+            original_batch_key=original["batch_key"],
+            candidate_catalog_hash=catalog_hash,
+            source_catalog_hash=digest(sources),
+            classifier=manifest["classifier"],
+        )
+    )
     results = {}
     source_cache = {}
     for record in records:
@@ -88,8 +115,15 @@ def load_review(directory: Path, *, result_ids: set[str] | None = None) -> tuple
                 pages = evidence["pdf_pages"]
                 if any(page < 1 or page > len(texts) for page in pages):
                     raise ValueError("Worker cited a source page outside the PDF")
-                recovered.append({**evidence, "source_sha256": sources[document_id]["sha256"],
-                    "original_pdf_pages": [{"pdf_page": page, "text": texts[page - 1]} for page in pages]})
+                recovered.append(
+                    {
+                        **evidence,
+                        "source_sha256": sources[document_id]["sha256"],
+                        "original_pdf_pages": [
+                            {"pdf_page": page, "text": texts[page - 1]} for page in pages
+                        ],
+                    }
+                )
             saved["execution"]["source_evidence"] = recovered
             results[record["question_id"]] = saved
     return manifest, results
@@ -102,4 +136,8 @@ def render_paper(directory: Path, output: Path) -> dict:
     output.parent.mkdir(parents=True, exist_ok=True)
     with output.open("x") as handle:
         handle.write(render_review_markdown(manifest, results))
-    return dict(total=len(manifest["records"]), completed=len(results), pending=len(manifest["records"]) - len(results))
+    return dict(
+        total=len(manifest["records"]),
+        completed=len(results),
+        pending=len(manifest["records"]) - len(results),
+    )

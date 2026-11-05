@@ -46,16 +46,21 @@ class HierarchicalClassifier:
         self.session = session
         self.gemini_classifier = gemini_classifier
         from caf_l0.releases import active_version
+
         release = active_version(session)
         self.textbook_classifier = None
         if release:
             from caf_l3.textbook import TextbookClassifier
-            self.textbook_classifier = TextbookClassifier(session, release.version_id, gemini_classifier)
+
+            self.textbook_classifier = TextbookClassifier(
+                session, release.version_id, gemini_classifier
+            )
         # Cache nodes and descriptors
         self._load_cache()
 
     def _load_cache(self) -> None:
         from caf_l0.hierarchy import version_nodes
+
         self.nodes = {n.id: n for n in version_nodes(self.session)}
         self.descriptors = {d.node_id: d for d in self.session.query(Descriptor).all()}
         self.nodes_by_paper: dict[str, list[Node]] = {}
@@ -76,9 +81,14 @@ class HierarchicalClassifier:
         """Run hierarchical classification with consistency checks."""
         if self.textbook_classifier:
             return self.textbook_classifier.classify_unit(
-                paper_id=paper_id, question_text=question_text, context_text=context_text,
-                answer_text=answer_text, fingerprint=fingerprint, run_id=run_id,
-                use_llm=use_llm, chapter_hint_id=chapter_hint_id,
+                paper_id=paper_id,
+                question_text=question_text,
+                context_text=context_text,
+                answer_text=answer_text,
+                fingerprint=fingerprint,
+                run_id=run_id,
+                use_llm=use_llm,
+                chapter_hint_id=chapter_hint_id,
             )
         # 0. Try LLM Classification if configured and enabled
         if use_llm and self.gemini_classifier and self.gemini_classifier.is_available():
@@ -144,13 +154,23 @@ class HierarchicalClassifier:
                 # Check if shares parent chapter
                 primary_node = self.nodes.get(r1_primary)
                 primary_chapter = self._get_chapter_id(primary_node) if primary_node else None
-                anchor_chapters = {self._get_chapter_id(self.nodes[aid]) for aid in matched_nodes if aid in self.nodes}
+                anchor_chapters = {
+                    self._get_chapter_id(self.nodes[aid])
+                    for aid in matched_nodes
+                    if aid in self.nodes
+                }
                 is_anchor_consistent = primary_chapter in anchor_chapters
 
         winning_primary = r1_primary
-        winning_secondaries = [s for s in r1_secondaries if s in r2_secondaries] or r1_secondaries[:1]
+        winning_secondaries = [s for s in r1_secondaries if s in r2_secondaries] or r1_secondaries[
+            :1
+        ]
         bucket = "A"
-        method = "structure" if chapter_hint_id else ("anchor" if (anchor_candidates and is_anchor_consistent) else "llm")
+        method = (
+            "structure"
+            if chapter_hint_id
+            else ("anchor" if (anchor_candidates and is_anchor_consistent) else "llm")
+        )
 
         if r1_primary == r2_primary:
             if is_anchor_consistent:
@@ -160,7 +180,12 @@ class HierarchicalClassifier:
         else:
             # Run 3: Tie-break run
             r3_primary, _, _ = self._classify_run(
-                chapters, subtopics, combined_text, chapter_hint_id, anchor_candidates, seed=seed_val + 100
+                chapters,
+                subtopics,
+                combined_text,
+                chapter_hint_id,
+                anchor_candidates,
+                seed=seed_val + 100,
             )
             if r3_primary == r1_primary or r3_primary == r2_primary:
                 winning_primary = r3_primary
@@ -171,8 +196,12 @@ class HierarchicalClassifier:
 
         # Gist generation
         gist = generate_concise_gist(question_text, answer_text)
-        justification = f"Matched concept in {winning_primary} based on domain terms and syllabus alignment."
-        alternatives = list(dict.fromkeys([a for a in [r1_alt, r2_alt] if a and a != winning_primary]))
+        justification = (
+            f"Matched concept in {winning_primary} based on domain terms and syllabus alignment."
+        )
+        alternatives = list(
+            dict.fromkeys([a for a in [r1_alt, r2_alt] if a and a != winning_primary])
+        )
 
         return ClassificationResult(
             primary_node_id=winning_primary,
@@ -254,7 +283,6 @@ class HierarchicalClassifier:
         ]
         if not candidate_subtopics:
             candidate_subtopics = subtopics
-
 
         s_list = list(candidate_subtopics)
         if seed is not None:

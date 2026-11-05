@@ -1,4 +1,5 @@
 """Resolve personal study scope without substituting another attempt or release."""
+
 from dataclasses import dataclass, field
 from typing import Any
 
@@ -25,10 +26,13 @@ class StudyContext:
 
     @property
     def identity(self) -> dict[str, Any]:
-        return {"target_attempt_id": self.target_attempt_id,
-                "taxonomy_version_id": self.taxonomy_version_id, "readiness": self.readiness,
-                "applicability_state": "unresolved" if self.unresolved_node_ids else "reviewed",
-                "unresolved_node_ids": self.unresolved_node_ids}
+        return {
+            "target_attempt_id": self.target_attempt_id,
+            "taxonomy_version_id": self.taxonomy_version_id,
+            "readiness": self.readiness,
+            "applicability_state": "unresolved" if self.unresolved_node_ids else "reviewed",
+            "unresolved_node_ids": self.unresolved_node_ids,
+        }
 
 
 def corpus_generation(session: Session) -> int:
@@ -36,15 +40,20 @@ def corpus_generation(session: Session) -> int:
     return row.generation if row else 0
 
 
-def approved_binding(session: Session, target_attempt_id: str,
-                     taxonomy_version_id: int | None = None) -> AttemptTaxonomyBinding | None:
+def approved_binding(
+    session: Session, target_attempt_id: str, taxonomy_version_id: int | None = None
+) -> AttemptTaxonomyBinding | None:
     query = sa.select(AttemptTaxonomyBinding).where(
         AttemptTaxonomyBinding.target_attempt_id == target_attempt_id,
         AttemptTaxonomyBinding.status == "reviewed",
         AttemptTaxonomyBinding.reviewed_by.is_not(None),
-        AttemptTaxonomyBinding.taxonomy_version_id.in_(sa.select(TaxonomyRelease.taxonomy_version_id).where(
-            TaxonomyRelease.status.in_(["approved", "active", "archived"]),
-            TaxonomyRelease.approved_by.is_not(None))))
+        AttemptTaxonomyBinding.taxonomy_version_id.in_(
+            sa.select(TaxonomyRelease.taxonomy_version_id).where(
+                TaxonomyRelease.status.in_(["approved", "active", "archived"]),
+                TaxonomyRelease.approved_by.is_not(None),
+            )
+        ),
+    )
     if taxonomy_version_id is not None:
         query = query.where(AttemptTaxonomyBinding.taxonomy_version_id == taxonomy_version_id)
     bindings = list(session.scalars(query))
@@ -53,36 +62,58 @@ def approved_binding(session: Session, target_attempt_id: str,
     return bindings[0] if len(bindings) == 1 else None
 
 
-def snapshot_freshness(session: Session, target: str | None, taxonomy: int | None,
-                       run: ScoreRun | None, config_hash: str) -> dict[str, Any]:
+def snapshot_freshness(
+    session: Session,
+    target: str | None,
+    taxonomy: int | None,
+    run: ScoreRun | None,
+    config_hash: str,
+) -> dict[str, Any]:
     latest = corpus_generation(session)
-    job = session.scalar(sa.select(RecomputeJob).where(
-        RecomputeJob.target_attempt_id == target,
-        RecomputeJob.taxonomy_version_id == taxonomy,
-        RecomputeJob.config_hash == config_hash,
-    ).order_by(RecomputeJob.corpus_generation.desc(), RecomputeJob.id.desc()).limit(1))
+    job = session.scalar(
+        sa.select(RecomputeJob)
+        .where(
+            RecomputeJob.target_attempt_id == target,
+            RecomputeJob.taxonomy_version_id == taxonomy,
+            RecomputeJob.config_hash == config_hash,
+        )
+        .order_by(RecomputeJob.corpus_generation.desc(), RecomputeJob.id.desc())
+        .limit(1)
+    )
     status = "unavailable"
     if run:
         status = "ready" if run.corpus_generation == latest and not run.stale else "stale"
     if job and job.status in {"pending", "running", "failed"}:
         status = job.status
-    return {"publication_generation": latest,
-            "scored_generation": run.corpus_generation if run else None,
-            "computed_at": run.finished_at.isoformat() if run and run.finished_at else None,
-            "status": status, "job_id": job.id if job else None,
-            "error": job.last_error if job and job.status == "failed" else None}
+    return {
+        "publication_generation": latest,
+        "scored_generation": run.corpus_generation if run else None,
+        "computed_at": run.finished_at.isoformat() if run and run.finished_at else None,
+        "status": status,
+        "job_id": job.id if job else None,
+        "error": job.last_error if job and job.status == "failed" else None,
+    }
 
 
 def _unresolved_applicability(session: Session, taxonomy: int) -> list[str]:
     # Only these flags determine applicability. Loading full artifact metadata
     # for every source span repeats large heading inventories thousands of times.
-    rows = session.execute(sa.select(
-        NodeSourceSpan.node_id,
-        TextbookArtifact.metadata_json["fallback"],
-        TextbookArtifact.metadata_json["target_applicability"],
-    ).join(TextbookArtifact).where(NodeSourceSpan.taxonomy_version_id == taxonomy))
-    return list(dict.fromkeys(node_id for node_id, fallback, applicability in rows
-                              if fallback and applicability not in {"verified", "applicable"}))
+    rows = session.execute(
+        sa.select(
+            NodeSourceSpan.node_id,
+            TextbookArtifact.metadata_json["fallback"],
+            TextbookArtifact.metadata_json["target_applicability"],
+        )
+        .join(TextbookArtifact)
+        .where(NodeSourceSpan.taxonomy_version_id == taxonomy)
+    )
+    return list(
+        dict.fromkeys(
+            node_id
+            for node_id, fallback, applicability in rows
+            if fallback and applicability not in {"verified", "applicable"}
+        )
+    )
 
 
 def resolve_context(session: Session, user_id: int) -> StudyContext:
@@ -107,8 +138,11 @@ def _resolve_context(session: Session, user_id: int) -> StudyContext:
     taxonomy = None
     readiness = "ready"
     binding = approved_binding(session, target) if target else None
-    rebuilt = session.scalar(sa.select(TaxonomyRelease.taxonomy_version_id).where(
-        TaxonomyRelease.status != "legacy").limit(1))
+    rebuilt = session.scalar(
+        sa.select(TaxonomyRelease.taxonomy_version_id)
+        .where(TaxonomyRelease.status != "legacy")
+        .limit(1)
+    )
     if not target:
         readiness = "target_attempt_unavailable"
     elif binding:
@@ -119,16 +153,31 @@ def _resolve_context(session: Session, user_id: int) -> StudyContext:
         readiness = "taxonomy_binding_unavailable"
     run = None
     if readiness == "ready":
-        run = session.scalar(sa.select(ScoreRun).where(
-            ScoreRun.target_attempt_id == target, ScoreRun.taxonomy_version_id == taxonomy,
-            ScoreRun.config_hash == config.config_hash, ScoreRun.status == "ok",
-            ScoreRun.shadow.is_(False), ScoreRun.is_current.is_(True),
-        ).order_by(ScoreRun.corpus_generation.desc(), ScoreRun.id.desc()).limit(1))
+        run = session.scalar(
+            sa.select(ScoreRun)
+            .where(
+                ScoreRun.target_attempt_id == target,
+                ScoreRun.taxonomy_version_id == taxonomy,
+                ScoreRun.config_hash == config.config_hash,
+                ScoreRun.status == "ok",
+                ScoreRun.shadow.is_(False),
+                ScoreRun.is_current.is_(True),
+            )
+            .order_by(ScoreRun.corpus_generation.desc(), ScoreRun.id.desc())
+            .limit(1)
+        )
     unresolved = []
     if taxonomy is not None:
         unresolved = _unresolved_applicability(session, taxonomy)
-    return StudyContext(target, taxonomy, run, readiness, config,
-                        snapshot_freshness(session, target, taxonomy, run, config.config_hash), unresolved)
+    return StudyContext(
+        target,
+        taxonomy,
+        run,
+        readiness,
+        config,
+        snapshot_freshness(session, target, taxonomy, run, config.config_hash),
+        unresolved,
+    )
 
 
 def context_nodes(session: Session, context: StudyContext, *, study: bool = False) -> list[Node]:
@@ -148,11 +197,17 @@ def _context_nodes(session: Session, context: StudyContext, *, study: bool = Fal
     if context.readiness != "ready":
         return []
     from caf_l0.hierarchy import version_nodes
+
     nodes = version_nodes(session, context.taxonomy_version_id)
     nodes_by_id = {node.id: node for node in nodes}
-    excluded = set(session.scalars(sa.select(ApplicabilityRule.node_id).where(
-        ApplicabilityRule.attempt_id == context.target_attempt_id,
-        ApplicabilityRule.effect == "exclude")))
+    excluded = set(
+        session.scalars(
+            sa.select(ApplicabilityRule.node_id).where(
+                ApplicabilityRule.attempt_id == context.target_attempt_id,
+                ApplicabilityRule.effect == "exclude",
+            )
+        )
+    )
     if context.taxonomy_version_id is not None and not study:
         excluded.update(_unresolved_applicability(session, context.taxonomy_version_id))
     result = []
@@ -187,7 +242,11 @@ def _context_leaf_ids(session: Session, context: StudyContext, *, study: bool = 
     if context.readiness != "ready":
         return set()
     from caf_l0.hierarchy import version_nodes
+
     full_nodes = version_nodes(session, context.taxonomy_version_id)
     structural_parents = {node.parent_id for node in full_nodes}
-    return {node.id for node in context_nodes(session, context, study=study) if
-            node.level == "subtopic" and node.id not in structural_parents}
+    return {
+        node.id
+        for node in context_nodes(session, context, study=study)
+        if node.level == "subtopic" and node.id not in structural_parents
+    }

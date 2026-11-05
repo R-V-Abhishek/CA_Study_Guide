@@ -105,11 +105,143 @@ and `install.log`; the record identifies the failed phase. `status` reports an
 incomplete installation. Do not delete the receipt, rerun install, downgrade the
 database or restore over nonempty storage. Keep access closed, diagnose the
 failure, and select a separate empty recovery destination. An automated
-restore/upgrade/rollback command is still pending.
+restore/rollback command is still pending; see the upgrade section below for
+forward upgrades.
 
 Status is intentionally explicit about unfinished monitoring: worker visibility
-is container state, and backup scheduling is `not_configured`. This is not a
+is container state. `backup` reports the latest scheduled snapshot (or
+`not_configured` before one has run). This is not a
 worker heartbeat or a backup-age dashboard.
+
+## Upgrading an installed release
+
+`deploy/caf-host upgrade BUNDLE` moves an **active** installation to a newer verified
+release. Bootstrap the new tooling image exactly as for installation (load the
+bundle's images, export `CAF_HOST_IMAGE`), then:
+
+```sh
+sh /opt/caf/repo/deploy/caf-host upgrade /path/to/new-release.tar.gz
+sh /opt/caf/repo/deploy/caf-host status
+```
+
+Steps, each recorded in `releases/upgrade-*/upgrade.log`:
+
+1. Verify the bundle, platform and checksums; refuse candidates without
+   `--allow-candidate`, the same or an older version, a changed PostgreSQL image,
+   and any live schema the new release's migration chain does not contain.
+2. Render the new Compose file from the private environment file, pin it to the
+   loaded image IDs, retain the bundle beside the previous ones.
+3. Stop web and worker (PostgreSQL stays up), capture a **new recovery snapshot**
+   with the installed release, and check its files, protected tables, schema and
+   that it was taken after services stopped. A stale snapshot is rejected.
+4. Run forward Alembic migrations and grants only if the schema differs.
+5. Atomically switch `current-compose.json`, start web and worker, check
+   readiness, the schema, and that the running web image is the verified one.
+6. Merge a receipt that keeps the previous release, its directory and snapshot.
+
+Failure handling: if nothing in the database changed, the previous release is
+restarted and the pointer restored automatically. After a migration has started,
+services stay **stopped**, nothing is downgraded, and `failure.json` names the
+snapshot to restore into an empty destination. `.upgrade-in-progress` blocks
+another attempt until the failure has been read.
+
+Status of this tooling: the planning, snapshot-gating and receipt logic are
+unit-tested (`deploy/tests/test_host_upgrade.py`), and the shell orchestration has
+been run end to end by `scripts/verify_host_upgrade.py` (below) on a native Linux
+VM (arm64) against synthetic data. That is a rehearsal, not production
+acceptance: it has not run on `caf-home`, so treat the first production use as
+unverified and take a fresh snapshot first.
+
+## Scheduled recovery snapshots
+
+`deploy/caf-host backup` creates a snapshot with the installed web image
+(`caf-host _backup run`), checks file integrity and protected tables, keeps
+7 daily, 4 weekly and 6 monthly snapshots (only directories with a manifest and a
+canonical name are ever pruned), and writes `backups/status.json`. If
+`/etc/caf/backup-recipient.txt` (a public `age` recipient) exists it also writes
+`/srv/caf/encrypted-backups/<snapshot>.tar.gz.age` with a checksum and removes
+encrypted copies for snapshots retention dropped. The private identity must stay
+off this machine. Without a recipient the status says `not_configured`;
+a missing `age` binary or an encryption error marks the run failed and raises the
+`BACKUP_FAILED` alarm. Nothing here proves a database restore: status reports
+`restore_verified: false` until you run an isolated restore drill.
+
+The owner installs the schedule (not done automatically), together with the health watch below:
+
+```sh
+sudo /opt/caf/repo/deploy/install-units.sh
+```
+
+It first checks that the installed web image has the `_watch` and `_backup` commands (releases up to `v0.2.1`
+do not, and it refuses to install until a newer release is running). It then copies the four units to `/etc/systemd/system`, checks them with `systemd-analyze verify`, reloads
+systemd and enables `caf-backup.timer` and `caf-watch.timer`. It prints a note if the backup recipient or the
+alert webhook is not configured yet.
+
+Copying encrypted files off the machine (the Mac, an external drive) is still manual.
+The web page `/curator/system` is read-only; it no longer creates snapshots.
+
+## Health watch and alerts
+
+`caf-host watch` (units `deploy/caf-watch.service` and `deploy/caf-watch.timer`, every hour) checks
+three things: the loopback readiness endpoint, the intelligence worker heartbeat
+(`backups/worker-heartbeat.json`, written every 30 seconds) and the scheduled snapshot status
+(`backups/status.json`: failed, or no success within 48 hours). The decision and de-duplication state
+(`backups/watch-state.json`) are produced inside the application image, so the host script only delivers:
+one message when a problem appears, one when it clears and one reminder per day while it lasts.
+
+Nothing is sent unless `/etc/caf/watch.env` (mode 0600) defines `CAF_WATCH_WEBHOOK_URL`, for example an
+[ntfy](https://ntfy.sh) topic URL. Without it the script only prints to the journal. The check is skipped
+while the deployment lock is held, because upgrades and restores stop services on purpose. A failed
+delivery is logged but not retried: the state already records the alert, so check
+`journalctl -u caf-watch` if a notification never arrives.
+
+The units are not installed by the installer: run `deploy/install-units.sh` (see above). The watch script and
+its decision logic are tested, and `scripts/verify_host_upgrade.py` runs the script against a live Docker host
+(alert once, stay quiet, report recovery). The timers themselves have not run on `caf-home`.
+
+Application logs are JSON lines in production (`CAF_ENV=production`) and readable text elsewhere. Every
+API response carries `X-Request-ID` (a harmless caller-supplied value is kept, otherwise one is generated)
+and every log line written during the request carries the same `request_id`. Access logs still drop
+query strings on `/auth/` paths.
+
+## Recovering remote access
+
+If the server stops answering SSH (for example after the lid was closed, the laptop slept or Wi-Fi did not
+come back), run this at its console:
+
+```sh
+sudo /opt/caf/repo/deploy/recover-access.sh           # read only: power, sleep policy, network, services
+sudo /opt/caf/repo/deploy/recover-access.sh --apply   # restarts NetworkManager and tailscaled, enables ssh,
+                                                      # makes Wi-Fi available before login, stops lid/idle suspend
+```
+
+It never touches Docker, the CAF services, application data or the Tailscale login. If `tailscale status` then
+says `NeedsLogin`, sign in with `sudo tailscale up` and follow the URL it prints.
+
+Keep remote access stable:
+
+- In the Tailscale admin console (Machines → the machine → ⋯ → Disable key expiry), disable key expiry for the
+  server and for the administrator's own devices. Otherwise each device is logged out every 180 days.
+- If the server is up but an administrator's Mac reports `Logged out` / `NoState`, check that client before the
+  server. Another VPN on the Mac, such as Cloudflare WARP, can break Tailscale's own connection to
+  `controlplane.tailscale.com` even when ordinary web traffic works. Quitting and reopening the Tailscale app does
+  not restart its network extension. Turn the Tailscale VPN off and on, or disconnect the other VPN while
+  administering the server. A managed WARP profile needs its administrator to exclude `*.tailscale.com` and
+  `fd7a:115c:a1e0::/48` (it already excludes `100.64.0.0/10`).
+
+## Reboot acceptance
+
+A normal reboot of `caf-home` passed checks 1, 2 and 4 and the readiness part of 3 on 2026-11-04; see
+`docs/Deployment_verification_2026_11_01.md`. Repeat this after host changes. After `recover-access.sh --apply` and with the machine
+on AC power, run `sudo systemctl reboot` and do not log in at the console. From another device on the tailnet,
+within about ten minutes:
+
+1. `ssh caf-home uptime -p` answers (SSH and Tailscale came up without a login).
+2. `ssh caf-home 'systemctl is-active caf docker'` prints `active` twice.
+3. `curl -fsS https://<tailnet-host>/api/v1/ready` succeeds, then sign in and open a question and a PDF page.
+4. `ssh caf-home 'systemctl list-timers caf-backup.timer caf-watch.timer --no-pager'` lists both timers.
+
+Record the date and result in `docs/Deployment_verification_*.md`; until then reboot acceptance stays pending.
 
 ## Disposable verification
 
@@ -126,6 +258,19 @@ Explicit test projects with `--allow-candidate` require 8 GiB free; the normal
 loopback ports. Cleanup removes only the newly created test project and its
 owned temporary paths. The production installer preserves failed destinations.
 The release builder runs this drill before publishing a native Linux bundle.
+
+`scripts/verify_host_upgrade.py` extends this to the upgrade, backup and watch
+scripts. On a disposable install it checks: an upgrade with a real migration
+(0009 to 0010) that keeps every record, the previous release and its snapshot;
+refusal of same-version and overlapping upgrades; a scheduled encrypted backup
+with an authenticated decryption; `caf-host watch` alerting once, staying quiet
+while the problem lasts, then reporting recovery; rollback of a release that
+cannot start with the database untouched; and a same-schema upgrade afterwards.
+The release builder runs it after the install drill. Running it found and fixed
+four defects: image identity on newer Docker stores, the application-owned
+backups directory being unreadable to the host scripts, the upgrade receipt
+recording `snapshot` instead of the real directory name, and unstable dashboard
+coverage ordering.
 
 ### Verified checkpoint
 

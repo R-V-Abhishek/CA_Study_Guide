@@ -15,13 +15,19 @@ def node_scope(session: Session):
 
     release = active_version(session)
     if release:
-        return Node.id.in_(sa.select(TaxonomyMember.node_id).where(
-            TaxonomyMember.taxonomy_version_id == release.taxonomy_version_id
-        ))
-    return Node.id.not_in(sa.select(TaxonomyMember.node_id).join(
-        TaxonomyRelease,
-        TaxonomyRelease.taxonomy_version_id == TaxonomyMember.taxonomy_version_id,
-    ).where(TaxonomyRelease.status != "legacy"))
+        return Node.id.in_(
+            sa.select(TaxonomyMember.node_id).where(
+                TaxonomyMember.taxonomy_version_id == release.taxonomy_version_id
+            )
+        )
+    return Node.id.not_in(
+        sa.select(TaxonomyMember.node_id)
+        .join(
+            TaxonomyRelease,
+            TaxonomyRelease.taxonomy_version_id == TaxonomyMember.taxonomy_version_id,
+        )
+        .where(TaxonomyRelease.status != "legacy")
+    )
 
 
 def version_nodes(session: Session, taxonomy_version_id: int | None = None) -> list[Node]:
@@ -31,9 +37,13 @@ def version_nodes(session: Session, taxonomy_version_id: int | None = None) -> l
     if taxonomy_version_id is None:
         query = query.where(node_scope(session))
     else:
-        query = query.where(Node.id.in_(sa.select(TaxonomyMember.node_id).where(
-            TaxonomyMember.taxonomy_version_id == taxonomy_version_id
-        )))
+        query = query.where(
+            Node.id.in_(
+                sa.select(TaxonomyMember.node_id).where(
+                    TaxonomyMember.taxonomy_version_id == taxonomy_version_id
+                )
+            )
+        )
     return list(session.scalars(query))
 
 
@@ -42,8 +52,12 @@ def leaf_scope(session: Session):
     from sqlalchemy.orm import aliased
 
     child = aliased(Node)
-    return sa.and_(Node.level == "subtopic", Node.status == "active", node_scope(session),
-        ~sa.exists(sa.select(child.id).where(child.parent_id == Node.id)))
+    return sa.and_(
+        Node.level == "subtopic",
+        Node.status == "active",
+        node_scope(session),
+        ~sa.exists(sa.select(child.id).where(child.parent_id == Node.id)),
+    )
 
 
 def ancestors(node_id: str, nodes: dict[str, Node]) -> list[Node]:

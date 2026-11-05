@@ -14,25 +14,44 @@ from typer.testing import CliRunner
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "scripts"))
 from release_bundle import (
-    FileRecord, ImageRecord, Manifest, PAYLOAD, app, archived_image_ids, digest, source_identity, verify_archive,
+    FileRecord,
+    ImageRecord,
+    Manifest,
+    PAYLOAD,
+    app,
+    archived_image_ids,
+    digest,
+    source_identity,
+    verify_archive,
 )
 
 
 def bundle_fixture(tmp_path, *, overrides=None, extra=None):
     files = {name: b"synthetic payload" for name in PAYLOAD}
-    manifest = Manifest(version="v0.2.0", candidate=True, commit="a" * 40,
-        platform="linux/amd64", created_at=datetime.now(timezone.utc),
-        application=ImageRecord(reference="caf:v0.2.0-candidate-aaaaaaaaaaaa-amd64", image_id="sha256:" + "b" * 64),
+    manifest = Manifest(
+        version="v0.2.0",
+        candidate=True,
+        commit="a" * 40,
+        platform="linux/amd64",
+        created_at=datetime.now(timezone.utc),
+        application=ImageRecord(
+            reference="caf:v0.2.0-candidate-aaaaaaaaaaaa-amd64", image_id="sha256:" + "b" * 64
+        ),
         postgres=ImageRecord(reference="caf-postgres:" + "c" * 64, image_id="sha256:" + "c" * 64),
-        required_schema="0009_question_language", supported_schemas=["0009_question_language"],
+        required_schema="0009_question_language",
+        supported_schemas=["0009_question_language"],
         dependency_locks={"uv.lock": "d" * 64, "web/pnpm-lock.yaml": "e" * 64},
-        files={name: FileRecord(sha256=hashlib.sha256(value).hexdigest(), size=len(value))
-               for name, value in files.items()})
+        files={
+            name: FileRecord(sha256=hashlib.sha256(value).hexdigest(), size=len(value))
+            for name, value in files.items()
+        },
+    )
     if overrides:
         manifest = manifest.model_copy(update=overrides)
     files["manifest.json"] = manifest.model_dump_json().encode()
-    files["SHA256SUMS"] = "".join(f"{hashlib.sha256(files[name]).hexdigest()}  {name}\n"
-                                  for name in sorted(files)).encode()
+    files["SHA256SUMS"] = "".join(
+        f"{hashlib.sha256(files[name]).hexdigest()}  {name}\n" for name in sorted(files)
+    ).encode()
     if extra:
         files.update(extra)
     bundle = tmp_path / "fixture.tar.gz"
@@ -54,25 +73,65 @@ def test_bundle_round_trip_and_selection_guards(tmp_path):
     assert verify_archive(bundle).required_schema == "0009_question_language"
     runner = CliRunner()
     assert runner.invoke(app, ["verify", str(bundle)]).exit_code != 0
-    assert runner.invoke(app, ["verify", str(bundle), "--allow-candidate", "--platform", "linux/arm64"]).exit_code != 0
-    assert runner.invoke(app, ["verify", str(bundle), "--allow-candidate", "--platform", "linux/amd64"]).exit_code == 0
+    assert (
+        runner.invoke(
+            app, ["verify", str(bundle), "--allow-candidate", "--platform", "linux/arm64"]
+        ).exit_code
+        != 0
+    )
+    assert (
+        runner.invoke(
+            app, ["verify", str(bundle), "--allow-candidate", "--platform", "linux/amd64"]
+        ).exit_code
+        == 0
+    )
 
 
-@pytest.mark.parametrize("oci", [False, True])
-def test_saved_image_identity_across_docker_stores(tmp_path, oci):
+@pytest.mark.parametrize(
+    "media",
+    [
+        None,
+        "application/vnd.oci.image.manifest.v1+json",
+        "application/vnd.docker.distribution.manifest.v2+json",
+        "index",
+    ],
+)
+def test_saved_image_identity_across_docker_stores(tmp_path, media):
+    oci = media is not None
     config = b'{"architecture":"amd64","os":"linux"}'
     config_hash = hashlib.sha256(config).hexdigest()
     reference = "caf:test"
     manifest = json.dumps({"config": {"digest": "sha256:" + config_hash}}).encode()
     manifest_hash = hashlib.sha256(manifest).hexdigest()
-    files = {f"blobs/sha256/{config_hash}": config,
-             "manifest.json": json.dumps([{"Config": f"blobs/sha256/{config_hash}",
-                                            "RepoTags": [reference]}]).encode()}
+    files = {
+        f"blobs/sha256/{config_hash}": config,
+        "manifest.json": json.dumps(
+            [{"Config": f"blobs/sha256/{config_hash}", "RepoTags": [reference]}]
+        ).encode(),
+    }
+    top_hash, top_type = manifest_hash, media
+    if media == "index":
+        # A pulled multi-platform image is identified by its OCI index, one level above the manifest.
+        index = json.dumps(
+            {
+                "manifests": [
+                    {
+                        "mediaType": "application/vnd.oci.image.manifest.v1+json",
+                        "digest": "sha256:" + manifest_hash,
+                    }
+                ]
+            }
+        ).encode()
+        top_hash, top_type = (
+            hashlib.sha256(index).hexdigest(),
+            "application/vnd.oci.image.index.v1+json",
+        )
+        files[f"blobs/sha256/{top_hash}"] = index
     if oci:
         files[f"blobs/sha256/{manifest_hash}"] = manifest
-        files["index.json"] = json.dumps({"manifests": [{
-            "mediaType": "application/vnd.oci.image.manifest.v1+json",
-            "digest": "sha256:" + manifest_hash}]}).encode()
+        files["index.json"] = json.dumps(
+            {"manifests": [{"mediaType": top_type, "digest": "sha256:" + top_hash}]}
+        ).encode()
     path = tmp_path / "images.tar"
 
     def save():
@@ -86,10 +145,13 @@ def test_saved_image_identity_across_docker_stores(tmp_path, oci):
     record = ImageRecord(reference=reference, image_id="sha256:" + config_hash)
     expected = {record.image_id}
     if oci:
-        expected.add("sha256:" + manifest_hash)
+        expected.add("sha256:" + top_hash)
     assert archived_image_ids(path, record) == expected
     if oci:
-        assert archived_image_ids(path, record.model_copy(update={"image_id": "sha256:" + manifest_hash})) == expected
+        assert (
+            archived_image_ids(path, record.model_copy(update={"image_id": "sha256:" + top_hash}))
+            == expected
+        )
     with pytest.raises(ValueError, match="Recorded image identity"):
         archived_image_ids(path, record.model_copy(update={"image_id": "sha256:" + "0" * 64}))
     with pytest.raises(ValueError, match="exactly one image"):
@@ -100,7 +162,7 @@ def test_saved_image_identity_across_docker_stores(tmp_path, oci):
         archived_image_ids(path, record)
     if oci:
         files[f"blobs/sha256/{config_hash}"] = config
-        files[f"blobs/sha256/{manifest_hash}"] = b"{}"
+        files[f"blobs/sha256/{top_hash}"] = b"{}"
         save()
         with pytest.raises(ValueError, match="manifest digest mismatch"):
             archived_image_ids(path, record)
@@ -147,10 +209,14 @@ def test_invalid_members_and_inner_hashes(tmp_path, kind):
         verify_archive(bundle)
 
 
-@pytest.mark.parametrize("override", [
-    {"supported_schemas": []}, {"dependency_locks": {}},
-    {"application": ImageRecord(reference="caf:wrong", image_id="sha256:" + "b" * 64)},
-])
+@pytest.mark.parametrize(
+    "override",
+    [
+        {"supported_schemas": []},
+        {"dependency_locks": {}},
+        {"application": ImageRecord(reference="caf:wrong", image_id="sha256:" + "b" * 64)},
+    ],
+)
 def test_invalid_manifest_contract(tmp_path, override):
     bundle = bundle_fixture(tmp_path, overrides=override)
     with pytest.raises(ValueError):
@@ -160,6 +226,7 @@ def test_invalid_manifest_contract(tmp_path, override):
 def test_clean_source_version_tag_and_lock_guards(tmp_path):
     def git(*arguments):
         return subprocess.check_output(["git", *arguments], cwd=tmp_path, text=True).strip()
+
     git("init", "-q")
     git("config", "user.email", "fixture@example.invalid")
     git("config", "user.name", "Synthetic fixture")

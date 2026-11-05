@@ -34,6 +34,7 @@ from caf_l3.evaluate import evaluate_model_on_reviewed_decisions
 # Helpers
 # ---------------------------------------------------------------------------
 
+
 def _make_app_engine():
     """Create a DB engine authenticated as the caf_app role."""
     settings = get_settings()
@@ -57,6 +58,7 @@ def _make_app_engine():
 # Test RBAC: caf_app cannot write to protected schemas
 # ---------------------------------------------------------------------------
 
+
 class TestRBAC:
     """Verify caf_app role is read-only on core, ingest, and ref schemas."""
 
@@ -65,13 +67,15 @@ class TestRBAC:
         engine = _make_app_engine()
         try:
             with engine.begin() as conn:
-                conn.execute(text(
-                    "INSERT INTO core.appearance (unit_fingerprint, doc_sha256, attempt_id, "
-                    "source_paper_id, doc_type_id, signal_class, display_label, gist, "
-                    "page_start, page_end, status) "
-                    "VALUES ('rbac_test_fp', 'deadbeef', '2024-05', 's2023.P1', "
-                    "'suggested_answer', 'exam', 'RBAC test', 'rbac gist', 1, 1, 'published')"
-                ))
+                conn.execute(
+                    text(
+                        "INSERT INTO core.appearance (unit_fingerprint, doc_sha256, attempt_id, "
+                        "source_paper_id, doc_type_id, signal_class, display_label, gist, "
+                        "page_start, page_end, status) "
+                        "VALUES ('rbac_test_fp', 'deadbeef', '2024-05', 's2023.P1', "
+                        "'suggested_answer', 'exam', 'RBAC test', 'rbac gist', 1, 1, 'published')"
+                    )
+                )
             pytest.fail("caf_app should not be allowed to INSERT into core.appearance")
         except sa.exc.ProgrammingError as e:
             assert e.orig.sqlstate == "42501", f"Expected permission denied, got: {e}"
@@ -83,10 +87,12 @@ class TestRBAC:
         engine = _make_app_engine()
         try:
             with engine.begin() as conn:
-                conn.execute(text(
-                    "INSERT INTO ingest.document (sha256, blob_path, bytes, origin, catalog_status, extract_status) "
-                    "VALUES ('rbac_test_sha', '/tmp/test.pdf', 0, 'manual', 'confirmed', 'pending')"
-                ))
+                conn.execute(
+                    text(
+                        "INSERT INTO ingest.document (sha256, blob_path, bytes, origin, catalog_status, extract_status) "
+                        "VALUES ('rbac_test_sha', '/tmp/test.pdf', 0, 'manual', 'confirmed', 'pending')"
+                    )
+                )
             pytest.fail("caf_app should not be allowed to INSERT into ingest.document")
         except sa.exc.ProgrammingError as e:
             assert e.orig.sqlstate == "42501", f"Expected permission denied, got: {e}"
@@ -98,10 +104,12 @@ class TestRBAC:
         engine = _make_app_engine()
         try:
             with engine.begin() as conn:
-                conn.execute(text(
-                    "INSERT INTO ref.node (id, paper_id, level, name, seq, status) "
-                    "VALUES ('RBAC-000000', 's2023.P1', 'chapter', 'RBAC Test', 99, 'active')"
-                ))
+                conn.execute(
+                    text(
+                        "INSERT INTO ref.node (id, paper_id, level, name, seq, status) "
+                        "VALUES ('RBAC-000000', 's2023.P1', 'chapter', 'RBAC Test', 99, 'active')"
+                    )
+                )
             pytest.fail("caf_app should not be allowed to INSERT into ref.node")
         except sa.exc.ProgrammingError as e:
             assert e.orig.sqlstate == "42501", f"Expected permission denied, got: {e}"
@@ -194,6 +202,7 @@ class TestD2Compliance:
 # Test Alarm #5: BUCKET_A_PRECISION_DROP now fires correctly (after BUG-1 fix)
 # ---------------------------------------------------------------------------
 
+
 class TestBucketAPrecisionAlarm:
     """Verify BUCKET_A_PRECISION_DROP alarm JOIN fix (BUG-1) and threshold logic.
 
@@ -238,8 +247,8 @@ class TestBucketAPrecisionAlarm:
             u = Unit(
                 document_id=doc.id,
                 extract_run_id=1,
-                label_path=f"Q{i+1}",
-                display_label=f"Q{i+1}",
+                label_path=f"Q{i + 1}",
+                display_label=f"Q{i + 1}",
                 kind="question",
                 is_gradable=True,
                 marks=5,
@@ -247,7 +256,7 @@ class TestBucketAPrecisionAlarm:
                 page_end=1,
                 block_start="p1-b1",
                 block_end="p1-b2",
-                question_text=f"Prec test Q{i+1} uid={uid}",
+                question_text=f"Prec test Q{i + 1} uid={uid}",
                 text_origin="pdf",
                 fingerprint=fp,
                 parse_confidence="high",
@@ -257,27 +266,31 @@ class TestBucketAPrecisionAlarm:
             session.add(u)
             session.flush()
 
-            session.add(TagSuggestion(
-                unit_id=u.id,
-                run_id=1,
-                node_id=node_right,
-                role="primary",
-                method="anchor",
-                bucket="A",
-                evidence={"gist": f"Prec gist {i}"},
-            ))
+            session.add(
+                TagSuggestion(
+                    unit_id=u.id,
+                    run_id=1,
+                    node_id=node_right,
+                    role="primary",
+                    method="anchor",
+                    bucket="A",
+                    evidence={"gist": f"Prec gist {i}"},
+                )
+            )
 
             # Matching decisions use action="accept" (curator agreed with model suggestion).
             # Mismatching decisions use action="edit" (curator overrode the suggestion).
             # The alarm counts precision = accepted_actions / total.
             action = "accept" if i < match_count else "edit"
             accepted_node = node_right if i < match_count else node_wrong
-            session.add(Decision(
-                unit_fingerprint=fp,
-                action=action,
-                payload={"primary_node_id": accepted_node},
-                blind=False,
-            ))
+            session.add(
+                Decision(
+                    unit_fingerprint=fp,
+                    action=action,
+                    payload={"primary_node_id": accepted_node},
+                    blind=False,
+                )
+            )
             unit_fps.append(fp)
 
         session.commit()
@@ -340,8 +353,9 @@ class TestBucketAPrecisionAlarm:
         # Now confirm the alarm's threshold check logic is correct
         # (mirrors the code in evaluate_system_alarms)
         alarm_fires = total >= 10 and precision < 0.80
-        assert alarm_fires is True, \
+        assert alarm_fires is True, (
             f"Alarm should fire at {precision:.1%} precision with {total} samples"
+        )
 
     def test_alarm_threshold_logic_silent_above_80(self, session, tmp_path):
         """Verify alarm threshold: precision=90% does NOT trigger the alarm."""
@@ -353,13 +367,15 @@ class TestBucketAPrecisionAlarm:
         precision = matched / total  # 0.90
 
         alarm_fires = total >= 10 and precision < 0.80
-        assert alarm_fires is False, \
+        assert alarm_fires is False, (
             f"Alarm should NOT fire at {precision:.1%} precision with {total} samples"
+        )
 
 
 # ---------------------------------------------------------------------------
 # Test C4 Invariant: AppearanceTag.decision_id always set
 # ---------------------------------------------------------------------------
+
 
 class TestC4Invariant:
     """C4: Every AppearanceTag must have a non-null decision_id linking it to core.decision."""
@@ -372,11 +388,7 @@ class TestC4Invariant:
 
     def test_all_appearance_tags_have_decision_id(self, session):
         """Verify no AppearanceTag rows have a null decision_id in the database."""
-        null_tags = (
-            session.query(AppearanceTag)
-            .filter(AppearanceTag.decision_id.is_(None))
-            .count()
-        )
+        null_tags = session.query(AppearanceTag).filter(AppearanceTag.decision_id.is_(None)).count()
         assert null_tags == 0, (
             f"{null_tags} AppearanceTag row(s) have null decision_id — "
             "every tag must be traceable to the curator decision that created it"
@@ -386,6 +398,7 @@ class TestC4Invariant:
 # ---------------------------------------------------------------------------
 # Test C5 Invariant: Only one current score run per target attempt
 # ---------------------------------------------------------------------------
+
 
 class TestC5AtomicSwap:
     """C5: After recompute, exactly one ScoreRun has is_current=True per target_attempt_id."""

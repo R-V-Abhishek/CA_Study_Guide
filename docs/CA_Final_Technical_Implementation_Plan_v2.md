@@ -1,3 +1,5 @@
+> **Superseded design history.** This v2.1 engineering plan predates the published reader, baseline adoption and home deployment. The current plan is [`Implementation_plan.md`](Implementation_plan.md) together with [`PLAN.md`](../PLAN.md); the running system is described in [`Architecture.md`](Architecture.md). Read this file for background only.
+
 # Technical Implementation Plan — v2.1
 ## CA Final Study Companion — Engineering Source of Truth
 

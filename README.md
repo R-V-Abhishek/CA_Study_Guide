@@ -1,280 +1,111 @@
 # CA Final Study Companion
 
-A study workspace and historical exam-intelligence platform for CA Final aspirants.
-The application supports invited Auth0 sign-in, private individual records, and
-shared classification review with administrator controls. Local tenant configuration
-is required; see [Phase 2 setup](docs/Phase2_Setup.md). Recovery and typed browser
-contracts are verified; publication revisions and full published-content reading
-remain later [implementation phases](docs/Implementation_plan.md).
+A private, invitation-only study workspace for CA Final students, built around historical exam
+questions. Students study a syllabus tree, read past questions with their source PDF pages, and see
+frequency- and marks-based importance scores. Curators (any invited account) review how extracted
+questions map to syllabus topics before anything is published.
 
----
+This repository is one Python workspace (API, pipeline, CLI) plus two React single-page apps.
+For how the pieces fit together, read [docs/Architecture.md](docs/Architecture.md). For the state of
+the production deployment, read [docs/Home_hosting.md](docs/Home_hosting.md).
 
-## 🎯 What Is This?
+## What exists today
 
-Preparing for the CA Final examination requires mastering vast syllabus depths across all 6 papers. Standard study planners treat every chapter the same. The **CA Final Study Companion** connects the official ICAI syllabus hierarchy with **historical exam intelligence**:
+| Area | State |
+|---|---|
+| Student app (`/`) | Dashboard, papers and syllabus tree, per-topic progress and private notes, study plan, spaced-revision queue, mock-test tracker, published question reader with source pages, search, profile (including Hindi opt-in). |
+| Curator app (`/curator`) | Catalogue, extraction review, classification queue (single and bulk review, disputes), taxonomy and descriptor review, readiness, accounts and invitations (administrators), system health. |
+| Sign-in | Auth0 (OpenID Connect) with invitations. No self-registration. Sessions are opaque server-side cookies with CSRF protection. |
+| Data | PostgreSQL 16 with six schemas and six least-privilege roles. Forward-only Alembic migrations. |
+| Classification | Mapping suggestions are reviewed by a human before publication; model scores never authorize publication. |
+| Production | Docker Compose on a private Ubuntu host, served over Tailscale HTTPS. See [docs/Home_hosting.md](docs/Home_hosting.md). |
+| Ops | Offline release bundles, `caf-host install/upgrade/backup/watch/status`, scheduled recovery snapshots, health alerts. The shell orchestration for upgrade, backup and watch has not yet run on a live host. |
 
-- 🌲 **Current Syllabus Seed**: Paper → Chapter → Topic → Subtopic across all 6 papers with 264 seeded subtopics. Official module/source reconciliation and paper-specific exceptions remain Phase 3 work.
-- 🎯 **Historical Exam Intelligence**: Surfaces past exam questions, frequency metrics ($E$), marks weightage ($W$), and a 5-dot importance score (`●●●●○`) right at the subtopic you are studying.
-- 📅 **Prioritized Weekly Study Plan**: Dynamic study schedule generator balancing high-weightage chapters and untouched topics based on your available weekly hours (15h to 35h).
-- 🧠 **Anki-Style Spaced Revision Queue**: Automated interval-based active recall cards (`✓ Got it` / `≈ Shaky`) with confetti completion tracking.
-- 📊 **Syllabus Coverage Audit**: Granular progress breakdown (Not Started, In Progress, Done) with 1-click CSV export.
-- 📈 **Mock Test Tracker**: Log your test series scores and visualize your score progression with responsive charts.
-- 📝 **Rich Markdown Notes**: Built-in distraction-free study notes editor with debounced auto-save.
-- 🔒 **Private Profiles**: Study records remain in application PostgreSQL and are scoped to your signed-in account. Auth0 handles hosted sign-in and credentials.
+Features that existed in early design documents but are **not** implemented: confetti or gamified
+completion, auto-saving rich-text notes, charts of mock-test scores, CSV export. Notes are plain text,
+saved explicitly. The syllabus is whatever the active taxonomy release contains, not a fixed 264 nodes.
 
----
+## Roles
 
-## 👥 The Student-Curator Duality
+- **Student**: reads published content; keeps private progress, notes, mock tests and settings.
+- **Curator**: every invited account can review and verify classifications.
+- **Administrator**: additionally manages invitations and accounts, bulk-accepts reviews and runs
+  operational actions. The last active administrator cannot be removed.
 
-As a CA Final aspirant, **you are also the subject-matter curator** of this tool. No generic software developer understands the nuances of Ind AS standards, SA standards, Transfer Pricing sections, or GST valuation rules better than you.
+## Run it locally
 
-The tool provides automated text extraction and AI suggestions, but **you** make the final curation decisions. You will use the system in two phases:
-1. **Phase 1: Content Curator Mode**: Ingest official ICAI papers, let the AI suggest syllabus mappings, and review them rapidly via keyboard in the Curator Workbench (`/curator`).
-2. **Phase 2: Study Mode**: Use the curated intelligence daily in your personal Study App (`/`) to plan, revise, and track your syllabus completion.
-
----
-
-## 💻 System Prerequisites
-
-Before starting, make sure you have the following installed:
-
-| Prerequisite | Minimum Version | Download Link | Notes |
-|---|---|---|---|
-| **Python** | 3.12+ | [python.org/downloads](https://www.python.org/downloads/) | **Windows users**: Check **"Add python.exe to PATH"** |
-| **Docker Desktop** | Latest | [docker.com/products/docker-desktop](https://www.docker.com/products/docker-desktop/) | Manages your local PostgreSQL database |
-| **Google Gemini API Key** | Optional / Recommended | [Google AI Studio](https://aistudio.google.com/) | Powers the automated question classifier |
-
-*Disk Space Required*: Approximately 3–5 GB for PostgreSQL storage, PDF blobs, and dependencies.
-
----
-
-## ⚡ One-Time Setup (~10 Minutes)
-
-1. **Clone or Download** this repository to your computer:
-   ```bash
-   git clone https://github.com/R-V-Abhishek/CA_Study_Guide.git
-   cd CA_Study_Guide
-   ```
-
-2. **Ensure Docker Desktop is running** on your computer.
-
-3. **Run the Setup Script**:
-   - **Windows**: Double-click `setup.bat` (or open Command Prompt and run `python setup.py`).
-   - **macOS / Linux**: Open Terminal and run:
-     ```bash
-     python3 setup.py
-     ```
-     *(or double-click `./setup.sh`)*
-
-### What the Setup Script Does Automatically:
-1. Verifies Python ≥ 3.12 and Docker engine status.
-2. Creates your local `.env` configuration file and prompts for your `GEMINI_API_KEY`.
-3. Starts the PostgreSQL container on port `5433` (isolated from any local Postgres).
-4. Auto-installs `uv` (fast package manager) and all Python dependencies.
-5. Applies database schema migrations and role permissions.
-6. Loads the canonical 264-node CA Final syllabus taxonomy.
-
----
-
-## 🚀 Daily Usage
-
-Every day when you sit down to study:
-
-### 1. Start the Companion
-- **Windows**: Double-click `start.bat` (or run `python start.py`).
-- **macOS / Linux**: Run `./start.sh` (or `python3 start.py`).
-
-Your default web browser will automatically open:
-- 📖 **Student Study App**: [http://127.0.0.1:8788](http://127.0.0.1:8788)
-- 🛠️ **Curator Workbench**: [http://127.0.0.1:8788/curator](http://127.0.0.1:8788/curator)
-- **API health**: [http://127.0.0.1:8788/api/v1/health](http://127.0.0.1:8788/api/v1/health)
-
-### 2. Stop the Companion
-When you finish your study session:
-- Press `Ctrl + C` in the running terminal window.
-- Or double-click `stop.bat` / run `python stop.py`.
-- *Your PostgreSQL database stops cleanly and all your notes and study progress are preserved safely.*
-
----
-
-## 🛠️ Phase 1: Content Curator Mode
-
-*(Run this when loading new ICAI exam papers or suggested answers)*
-
-The pipeline transforms raw ICAI Suggested Answers into structured study intelligence. Full details are in [docs/PIPELINE.md](docs/PIPELINE.md).
-
-### Quick Pipeline Workflow:
+Requirements: Python 3.12+, Docker, [`uv`](https://docs.astral.sh/uv/), and pnpm for the frontends.
 
 ```bash
-# 1. Discover official PDF download links from ICAI website
-uv run caf acquire discover
-
-# 2. Download candidate PDFs into local blob store (batch of 10)
-uv run caf acquire fetch --limit 10
-
-# 3. View downloaded papers in catalogue
-uv run caf acquire catalog
-
-# 4. Extract Question & Answer pairs from confirmed PDFs
-uv run caf extract run
-
-# 5. Let AI classify questions to syllabus topics (requires GEMINI_API_KEY)
-uv run caf classify run --limit 25
+python3 setup.py     # creates .env, starts PostgreSQL on 5433, installs dependencies, migrates, loads the taxonomy
+python3 start.py     # serves the API and both apps on http://127.0.0.1:8788
+python3 stop.py
 ```
 
-### Rapid Review in Curator Workbench (`/curator`):
-Open **http://127.0.0.1:8788/curator** in your browser to access the **Review Queue**:
-- **Side-by-Side View**: Official ICAI Question text on the left, model solution on the right.
-- **AI Recommendation**: Primary suggestion badge with confidence score.
-- **Fast Keyboard Shortcuts**:
-  - `A` — **Accept** suggestion and publish to syllabus.
-  - `E` — **Edit Node** (opens instant search across all 264 syllabus topics).
-  - `N` — **None Fits** (out-of-syllabus or general question).
-  - `X` — **Exclude** (instructions, front matter).
-  - `→` / `L` — Next question.
-  - `←` / `H` — Previous question.
+`setup.py` asks for an optional `GEMINI_API_KEY`; it is only needed for automated classification.
+Local sign-in needs a development Auth0 tenant: see [docs/Phase2_Setup.md](docs/Phase2_Setup.md).
 
-### Recompute Exam Intelligence:
-Once you have curated and accepted questions:
+Frontend development:
+
 ```bash
-uv run caf intel compute
+cd web
+pnpm install --frozen-lockfile
+pnpm type-check && pnpm test:ui && pnpm build
+pnpm exec playwright test --project=chromium
 ```
-*This calculates marks weightage, appearance frequency, and generates your 5-dot topic importance scores.*
 
----
+`web/apps/*/dist` is committed because the container image copies it; `pnpm check:dist` fails if it is
+stale. Rebuild it with `pnpm build` after changing frontend sources.
 
-## 📖 Phase 2: Study Mode
+## Tests and checks
 
-Open **http://127.0.0.1:8788** to use your personal study interface:
-
-### 1. Study Dashboard (`/`)
-- Aggregate completion stats for Group 1 and Group 2.
-- High-priority revision items due today.
-- Direct links to your active chapters.
-
-### 2. Papers & Syllabus Navigator (`/papers`)
-- Browse all 6 canonical papers:
-  - **P1**: Financial Reporting (FR)
-  - **P2**: Advanced Financial Management (AFM)
-  - **P3**: Advanced Auditing & Professional Ethics (Audit)
-  - **P4**: Direct Tax Laws & International Taxation (DT)
-  - **P5**: Indirect Tax Laws (IDT / GST)
-  - **P6**: Integrated Business Solutions (IBS)
-- Two-pane split explorer: Click any chapter on the left to inspect its topics, subtopics, exam marks weightage, and past question appearances on the right.
-- Distraction-free **Markdown Notes Editor** with live preview and auto-save.
-
-### 3. Weekly Study Plan (`/plan`)
-- Choose your weekly budget (15, 20, 28, or 35 hours/week).
-- Filter by Group 1, Group 2, or individual papers.
-- Smart greedy scheduler generates daily study targets prioritizing high-weightage topics you have not covered yet.
-
-### 4. Spaced Revision Queue (`/revision`)
-- Active recall flashcard interface inspired by Anki.
-- Displays syllabus context, overdue days, and personal study notes.
-- Rate your recall: **✓ Got it** (advances interval) or **≈ Shaky** (resets interval).
-- Smooth transitions and celebratory completion screen when you clear today's cards.
-
-### 5. Syllabus Progress Audit (`/progress`)
-- Complete checklist of all 264 subtopics with status pills (`○ Not Started`, `● In Progress`, `✓ Done`).
-- Filter by status or weak coverage flags.
-- **Export CSV**: Download a clean spreadsheet of your entire preparation progress.
-
-### 6. Mock Test Tracker (`/mock`)
-- Record test series attempts: Series name, Paper, Date, Score, and Max Marks.
-- Interactive progression charts show your score trajectory against the 40% per-paper and 50% aggregate passing criteria.
-
----
-
-## ⚙️ Personalizing Your Setup
-
-### Change Your Target Exam Attempt
-Application defaults and the adopted baseline target `2027-05` (May 2027). Existing personal records are preserved. Target
-attempt, applicable material edition, and historical corpus coverage are separate.
-To change the current local target:
-1. Open `config/settings.toml` in any text editor.
-2. Edit line 5:
-   ```toml
-   target_attempt_id = "2027-05"
-   ```
-3. Save the file. Recency scoring uses the selected target; this does not certify
-   May 2027 material applicability or corpus completeness.
-
-### Import Your Own Study Notes or Question Banks
-If you have local coaching material, past papers, or personal question bank PDFs:
 ```bash
-uv run caf acquire import /path/to/my_file.pdf
+uv sync --locked
+uv run --no-sync pytest -q tests deploy/tests      # needs Docker: tests clone a disposable PostgreSQL 16
+uv run --no-sync ruff check packages tests deploy scripts *.py
+uv run --no-sync mypy packages/api/caf_api packages/db/caf_db
+uv run --no-sync scripts/verify_production_compose.py
 ```
 
----
+CI (`.github/workflows/checks.yml`) runs these plus an OpenAPI drift check, the dist check and the
+chromium Playwright suite. No live model or acquisition calls happen in tests.
 
-## 🔧 Troubleshooting
+## Content pipeline (curators)
 
-### "Database won't connect / Connection refused on port 5433"
-- Ensure Docker Desktop is running before starting the app.
-- Check container status:
-  ```bash
-  docker compose ps
-  ```
-- If the container is stopped, run `docker compose up -d`.
-
-### "Port 8000 is already in use"
-- You can run the app on an alternative port:
-  ```bash
-  uv run caf serve --port 8080
-  ```
-- Then open [http://localhost:8080](http://localhost:8080) in your browser.
-
-### "I don't have a Google Gemini API Key"
-- You can still use 100% of the Study App, manual note taking, syllabus navigation, and progress tracking without an API key!
-- The API key is only used in Stage L3 for automated question classification suggestions. Without it, you can still categorize questions manually using the Curator Node Picker (`E` key).
-
-For detailed platform-specific notes (Windows WSL2, Apple Silicon, Linux permissions), see [docs/PLATFORM_NOTES.md](docs/PLATFORM_NOTES.md).
-
----
-
-## 🔍 Verification & Health Checks
-
-To verify that all components are working correctly, consult the step-by-step checklist in [VERIFY.md](VERIFY.md).
-
-You can also run the automated backend test suite at any time:
-```bash
-uv run pytest
+```text
+acquire (ICAI PDFs) -> extract (questions/answers) -> classify (suggest syllabus topics)
+   -> curate (human review) -> publish -> intel (frequency and importance scores)
 ```
-Tests bootstrap a disposable PostgreSQL 16 container before application imports, seed
-a template, and clone a fresh database for each database-changing test. Temporary
-storage and a connection allowlist protect the configured application database.
-Docker must be available; setup failures fail explicitly. No live model/acquisition
-calls are permitted in the suite. See [VERIFY.md](VERIFY.md) for Phase 0 acceptance.
 
----
+Each stage is a `caf` subcommand (`uv run caf --help`). The step-by-step workflow, quotas and
+cost controls are in [docs/PIPELINE.md](docs/PIPELINE.md). Classification never reruns on the adopted
+baseline (`baseline-2026-10-16`); see [docs/Baseline_2026_10_16.md](docs/Baseline_2026_10_16.md).
 
-## 📜 Architectural Decisions Reference
+## Deploying
 
-- **Decision D1**: Invited students sign in individually and retain private study records. All invited students may curate the shared corpus.
-- **Decision D2**: Authenticated students will read complete published questions and available answers with source references; staging remains outside the published reader boundary.
-- **Decision D3**: One identified student's review permits publication. Additional verification counts distinct students for a specific content/classification revision and scope.
-- **Taxonomy and scores**: Follow official module/chapter/unit structure, including paper-specific exceptions. Select scores by target attempt and version context; expose raw units, normalized components, weights, and freshness separately.
-- **Stable IDs**: Crockford base32 syntax (`P[1-6]-[0-9A-Z]{6}`) for permanent bookmarking across exam attempts.
+Production runs from verified, checksummed release bundles, not from a Git checkout.
 
-These are the approved target architecture. Phase 0 adds safe verification, verified
-recovery, provenance reports, a frozen explicit migration, and `shared-study.v1` draft
-contracts in `caf_contracts.future_v1`. Phase 2 implements invited sessions,
-private ownership, restricted database connections, and target-matching score
-selection. Real Auth0 sign-in, legacy-owner binding and logout passed locally;
-see the [Phase 2 verification report](docs/Phase2_Verification.md).
-Collaborative publication revisions are Phase 5; complete reader endpoints and
-the full scoring architecture are Phase 6. Pure contract tests do not establish
-those later runtime features.
-Legacy curator decisions lack reliable reviewer identity and are reported without
-assigning them to a student. See the [implementation plan](docs/Implementation_plan.md).
+- [docs/Home_hosting.md](docs/Home_hosting.md): current deployment state (start here).
+- [docs/Host_installation.md](docs/Host_installation.md): install, upgrade, snapshots, health watch.
+- [docs/Application_releases.md](docs/Application_releases.md): building and verifying bundles.
+- [docs/Recovery_encryption.md](docs/Recovery_encryption.md): encrypted recovery copies.
 
-Tests use disposable PostgreSQL 16 containers through the active Docker context
-(Colima on this workstation), clone deterministic reference data per test, and reject
-normal database/storage destinations. Run `uv run pytest` after starting Colima.
-Recovery artifacts are unique directories with `manifest.json`; `caf backup run`
-preserves existing backups, and `caf backup verify` restores independently and checks
-content, files, and the frozen migration schema.
+## Repository map
 
----
+| Path | Contents |
+|---|---|
+| `packages/` | Python packages by layer: `contracts`, `common`, `db`, `l0_taxonomy` ... `l5_intel`, `api`, `cli` |
+| `web/` | pnpm workspace: `apps/student`, `apps/curator`, shared `packages/*`, Playwright tests |
+| `deploy/` | Host scripts, systemd units, release compatibility, deployment tests |
+| `scripts/` | Verification tools and historical phase scripts |
+| `config/`, `taxonomy/`, `prompts/`, `profiles/` | Scoring, source and model configuration; taxonomy data; classifier prompts |
+| `docs/` | Runbooks, plans and verification evidence ([docs/archive](docs/archive/README.md) holds older reports) |
+| `REVIEW.md`, `PLAN.md` | Repository review and the phased improvement plan |
+| `AGENTS.md` | Rules for coding agents, including data-safety boundaries |
 
-*Happy Studying & All the Best for CA Final! 🎓*
+## Troubleshooting
+
+- **Database refuses connections on 5433**: start Docker, then rerun `python3 setup.py`; it is idempotent.
+- **Port 8788 busy**: stop the other process or run `python3 stop.py`.
+- **Tests fail at startup**: they need a running Docker engine; setup failures are reported, not skipped.
+- **Classification quota errors**: classification stops cleanly on quota exhaustion and can be resumed.

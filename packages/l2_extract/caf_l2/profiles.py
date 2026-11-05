@@ -9,6 +9,7 @@ import yaml
 
 class ProfileNotFoundError(Exception):
     """Raised when no matching extraction profile exists."""
+
     pass
 
 
@@ -62,8 +63,14 @@ def load_profile(path: Path) -> ExtractionProfile:
     paper_max = int(data["paper_max"]) if data.get("paper_max") is not None else None
     mode = data.get("mode")
     role = data.get("document_role")
-    if mode not in {"interleaved", "sectioned", "questions_only", "answers_only"} or role not in {"questions", "answers", "mixed"}:
-        raise ProfileNotFoundError(f"unsupported_profile: {path} must declare document_role and supported mode")
+    if mode not in {"interleaved", "sectioned", "questions_only", "answers_only"} or role not in {
+        "questions",
+        "answers",
+        "mixed",
+    }:
+        raise ProfileNotFoundError(
+            f"unsupported_profile: {path} must declare document_role and supported mode"
+        )
     if not scheme or not doc_type:
         raise ProfileNotFoundError(f"unsupported_profile: {path} has incomplete identity")
 
@@ -73,7 +80,11 @@ def load_profile(path: Path) -> ExtractionProfile:
         for r in rule_list:
             pat = re.compile(r["re"], re.IGNORECASE)
             req_bold = bool(r.get("require_bold", False))
-            compiled_list.append(PatternRule(pattern=pat, require_bold=req_bold, min_x=r.get("min_x"), max_x=r.get("max_x")))
+            compiled_list.append(
+                PatternRule(
+                    pattern=pat, require_bold=req_bold, min_x=r.get("min_x"), max_x=r.get("max_x")
+                )
+            )
         patterns[rule_name] = compiled_list
 
     choice_rules: list[ChoiceRule] = []
@@ -81,9 +92,7 @@ def load_profile(path: Path) -> ExtractionProfile:
         c_pat = re.compile(cr["re"], re.IGNORECASE)
         comp = cr.get("compulsory", [])
         opt_pick = cr.get("optional_pick")
-        choice_rules.append(
-            ChoiceRule(pattern=c_pat, compulsory=comp, optional_pick=opt_pick)
-        )
+        choice_rules.append(ChoiceRule(pattern=c_pat, compulsory=comp, optional_pick=opt_pick))
 
     defs_dict = data.get("defaults", {})
     defaults = ExtractionDefaults(
@@ -115,7 +124,7 @@ def resolve_profile(
     paper_id: str | None = None,
 ) -> ExtractionProfile:
     """Resolve profile following fallback chain:
-    
+
     1. (scheme, doc_type, paper)
     2. (scheme, doc_type)
     3. (doc_type)

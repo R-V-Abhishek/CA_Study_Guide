@@ -47,8 +47,14 @@ class ManualImporter:
 
         # Merge: sidecar > overrides > inferred
         meta = validate_metadata({**inferred, **(overrides or {}), **sidecar_meta}, verified)
-        record_observation(self.blob_store, sha256_hash, origin="manual", original_url=meta.get("source_url"),
-                           final_url=meta.get("source_url"), metadata={**meta, "import_filename": pdf_path.name})
+        record_observation(
+            self.blob_store,
+            sha256_hash,
+            origin="manual",
+            original_url=meta.get("source_url"),
+            final_url=meta.get("source_url"),
+            metadata={**meta, "import_filename": pdf_path.name},
+        )
 
         scheme_id = meta.get("scheme_id", "s2023")
         attempt_id = meta.get("attempt_id")
@@ -112,5 +118,7 @@ class ManualImporter:
                 logger.error("import_error", file=pdf.name, error=str(exc))
                 failures.append(f"{pdf.name}: {exc}")
         if failures:
-            raise ValueError(f"Imported {len(imported)} PDFs; failed imports: {'; '.join(failures)}")
+            raise ValueError(
+                f"Imported {len(imported)} PDFs; failed imports: {'; '.join(failures)}"
+            )
         return imported

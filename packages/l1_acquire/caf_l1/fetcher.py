@@ -52,19 +52,24 @@ class DocumentFetcher:
         query = sa.select(DiscoveredLink)
         if link_ids is not None:
             query = query.where(DiscoveredLink.id.in_(link_ids))
-        links = session.execute(
-            query
-            .where(
-                DiscoveredLink.link_status.in_(["new", "failed", "downloaded"] if refetch else ["new", "failed"]),
-                sa.or_(DiscoveredLink.next_try_at.is_(None), DiscoveredLink.next_try_at <= now),
-                sa.true() if refetch else DiscoveredLink.tries < 3,
+        links = (
+            session.execute(
+                query.where(
+                    DiscoveredLink.link_status.in_(
+                        ["new", "failed", "downloaded"] if refetch else ["new", "failed"]
+                    ),
+                    sa.or_(DiscoveredLink.next_try_at.is_(None), DiscoveredLink.next_try_at <= now),
+                    sa.true() if refetch else DiscoveredLink.tries < 3,
+                )
+                .order_by(
+                    DiscoveredLink.inferred["paper_id"].is_not(None).desc(),
+                    DiscoveredLink.id.desc(),
+                )
+                .limit(limit)
             )
-            .order_by(
-                DiscoveredLink.inferred["paper_id"].is_not(None).desc(),
-                DiscoveredLink.id.desc(),
-            )
-            .limit(limit)
-        ).scalars().all()
+            .scalars()
+            .all()
+        )
 
         downloaded_count = 0
 
@@ -93,7 +98,12 @@ class DocumentFetcher:
                     link.last_error = f"HTTP_{resp.status_code}_GONE"
                     if run_id:
                         session.add(
-                            Event(run_id=run_id, level="warn", code="L1_GONE", message=f"URL is gone: {url}")
+                            Event(
+                                run_id=run_id,
+                                level="warn",
+                                code="L1_GONE",
+                                message=f"URL is gone: {url}",
+                            )
                         )
                     session.commit()
                     continue
@@ -103,14 +113,19 @@ class DocumentFetcher:
                     link.last_error = f"HTTP_{resp.status_code}_CHALLENGE"
                     if run_id:
                         session.add(
-                            Event(run_id=run_id, level="alarm", code="L1_HUMAN_CHECK", message=f"Access challenged: {url}")
+                            Event(
+                                run_id=run_id,
+                                level="alarm",
+                                code="L1_HUMAN_CHECK",
+                                message=f"Access challenged: {url}",
+                            )
                         )
                     session.commit()
                     continue
 
                 if resp.status_code != 200:
                     link.last_error = f"HTTP_{resp.status_code}"
-                    link.next_try_at = now + timedelta(seconds=2 ** link.tries * 15)
+                    link.next_try_at = now + timedelta(seconds=2**link.tries * 15)
                     if link.tries >= 3:
                         link.link_status = "failed"
                     session.commit()
@@ -132,12 +147,25 @@ class DocumentFetcher:
 
                 # Metadata
                 previous_doc = session.get(Document, link.document_id) if link.document_id else None
-                receipt = record_observation(self.blob_store, sha256_hash, origin="http", original_url=link.url,
-                    final_url=str(resp.url), metadata=inferred,
-                    response={"status": resp.status_code, "content_type": resp.headers.get("content-type"),
-                              "etag": resp.headers.get("etag"), "last_modified": resp.headers.get("last-modified"),
-                              "bytes": len(content)}, previous_digest=previous_doc.sha256 if previous_doc else None)
-                inferred["latest_acquisition_receipt"] = str(receipt.relative_to(self.blob_store.base_dir))
+                receipt = record_observation(
+                    self.blob_store,
+                    sha256_hash,
+                    origin="http",
+                    original_url=link.url,
+                    final_url=str(resp.url),
+                    metadata=inferred,
+                    response={
+                        "status": resp.status_code,
+                        "content_type": resp.headers.get("content-type"),
+                        "etag": resp.headers.get("etag"),
+                        "last_modified": resp.headers.get("last-modified"),
+                        "bytes": len(content),
+                    },
+                    previous_digest=previous_doc.sha256 if previous_doc else None,
+                )
+                inferred["latest_acquisition_receipt"] = str(
+                    receipt.relative_to(self.blob_store.base_dir)
+                )
                 link.inferred = inferred
                 scheme_id = inferred.get("scheme_id", "s2023")
                 attempt_id = inferred.get("attempt_id")
@@ -179,7 +207,9 @@ class DocumentFetcher:
                         page_count=verified.page_count,
                         has_text_layer=verified.has_text_layer,
                         created_run_id=run_id,
-                        supersedes_document_id=previous_doc.id if previous_doc and previous_doc.sha256 != sha256_hash else None,
+                        supersedes_document_id=previous_doc.id
+                        if previous_doc and previous_doc.sha256 != sha256_hash
+                        else None,
                     )
                     session.add(new_doc)
                     session.flush()
@@ -190,8 +220,9 @@ class DocumentFetcher:
 
                 link.last_error = None
                 link.next_try_at = None
-                self.last_report["associations"].append({"link_id": link.id, "document_id": link.document_id,
-                                                        "sha256": sha256_hash})
+                self.last_report["associations"].append(
+                    {"link_id": link.id, "document_id": link.document_id, "sha256": sha256_hash}
+                )
                 session.commit()
 
             except Exception as exc:
@@ -205,7 +236,15 @@ class DocumentFetcher:
                 session.commit()
 
         self.last_report["downloaded"] = downloaded_count
-        self.last_report["failures"] = [{"link_id": link.id, "url": link.url, "status": link.link_status,
-                                         "reason": link.last_error} for link in links if link.last_error]
+        self.last_report["failures"] = [
+            {
+                "link_id": link.id,
+                "url": link.url,
+                "status": link.link_status,
+                "reason": link.last_error,
+            }
+            for link in links
+            if link.last_error
+        ]
 
         return downloaded_count

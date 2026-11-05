@@ -26,8 +26,8 @@ class ScoringConfig(BaseModel):
     half_life_practice_months: float = 12.0
     secondary_share: float = 0.5
     p6_cross_paper_factor: float = 0.5  # κ
-    law_stale_factor: float = 0.5       # λ
-    freq_window_attempts: int = 5       # N
+    law_stale_factor: float = 0.5  # λ
+    freq_window_attempts: int = 5  # N
     weak_flag_min_hits: int = 3
 
     weights: WeightsConfig = Field(default_factory=WeightsConfig)

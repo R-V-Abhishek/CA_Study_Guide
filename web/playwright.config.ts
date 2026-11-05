@@ -1,6 +1,6 @@
 import { defineConfig, devices } from "@playwright/test";
 
-const baseURL = `http://127.0.0.1:${process.env.CAF_BROWSER_PORT ?? '8765'}`;
+const baseURL = `http://127.0.0.1:${process.env.CAF_BROWSER_PORT ?? "8765"}`;
 
 export default defineConfig({
   testDir: "./tests/browser",
@@ -15,12 +15,15 @@ export default defineConfig({
     { name: "webkit", use: { ...devices["Desktop Safari"] } },
   ],
   // An explicitly managed sandbox server permits focused tests while iterating.
-  webServer: process.env.CAF_BROWSER_EXTERNAL === '1' ? undefined : {
-    command: "pnpm --dir web build && uv run scripts/browser_server.py",
-    cwd: "..",
-    url: `${baseURL}/__test/fixture`,
-    reuseExistingServer: false,
-    timeout: 120_000,
-    gracefulShutdown: { signal: "SIGTERM", timeout: 10_000 },
-  },
+  webServer:
+    process.env.CAF_BROWSER_EXTERNAL === "1"
+      ? undefined
+      : {
+          command: "pnpm --dir web build && uv run scripts/browser_server.py",
+          cwd: "..",
+          url: `${baseURL}/__test/fixture`,
+          reuseExistingServer: false,
+          timeout: 120_000,
+          gracefulShutdown: { signal: "SIGTERM", timeout: 10_000 },
+        },
 });

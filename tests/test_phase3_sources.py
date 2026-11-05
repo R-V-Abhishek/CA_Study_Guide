@@ -8,15 +8,22 @@ from caf_l0.sources import TextbookSection, pdf_evidence, question_route, select
 
 
 def section(key, attempts, verified=True):
-    return TextbookSection(key, "edition-evidence", tuple(attempts), "https://resource.cdn.icai.org/file.pdf", verified)
+    return TextbookSection(
+        key, "edition-evidence", tuple(attempts), "https://resource.cdn.icai.org/file.pdf", verified
+    )
 
 
 def test_partial_target_preserves_expected_sections_and_only_january_fallback():
-    result = select_sections(["1", "2", "3", "4"], [
-        section("1", ["2027-05"]), section("1", ["2026-01"]),
-        section("2", ["2026-01"]), section("3", ["2026-11"]),
-        section("4", ["2027-05"], verified=False),
-    ])
+    result = select_sections(
+        ["1", "2", "3", "4"],
+        [
+            section("1", ["2027-05"]),
+            section("1", ["2026-01"]),
+            section("2", ["2026-01"]),
+            section("3", ["2026-11"]),
+            section("4", ["2027-05"], verified=False),
+        ],
+    )
     assert len(result) == 4
     assert result[0].section.applicable_attempts == ("2027-05",)
     assert not result[0].fallback
@@ -30,7 +37,14 @@ def test_ambiguous_source_selection_requires_evidence_review():
         select_sections(["1"], [section("1", ["2027-05"]), section("1", ["2027-05"])])
 
 
-@pytest.mark.parametrize("level,route", [("Final", "final_queue"), ("Intermediate", "outside_corpus"), ("Foundation", "outside_corpus")])
+@pytest.mark.parametrize(
+    "level,route",
+    [
+        ("Final", "final_queue"),
+        ("Intermediate", "outside_corpus"),
+        ("Foundation", "outside_corpus"),
+    ],
+)
 def test_model_source_attempt_nullable_and_course_routing(level, route):
     assert question_route(level, "model_question", None) == route
     assert question_route(level, "mtp_question", "2026-01") == route
@@ -84,7 +98,9 @@ def test_separate_instruments_reset_exercises_and_keep_repeated_definition_headi
     path = tmp_path / "sebi.pdf"
     with pymupdf.open() as document:
         page = document.new_page()
-        page.insert_text((50, 100), "SEBI (LODR) REGULATIONS, 2015", fontsize=15.96, fontname="hebo")
+        page.insert_text(
+            (50, 100), "SEBI (LODR) REGULATIONS, 2015", fontsize=15.96, fontname="hebo"
+        )
         page.insert_text((50, 150), "1. DEFINITIONS", fontsize=15.96, fontname="hebo")
         page.insert_text((50, 240), "TEST YOUR KNOWLEDGE", fontsize=15.96, fontname="hebo")
         page.insert_text((50, 320), "SEBI (PIT) REGULATIONS, 2015", fontsize=15.96, fontname="hebo")
@@ -97,7 +113,9 @@ def test_separate_instruments_reset_exercises_and_keep_repeated_definition_headi
 
 
 def test_question_inventory_explicit_types_and_actual_level_routing():
-    source = json.loads((Path(__file__).parents[1] / "taxonomy/textbook_v1/question_sources.json").read_text())
+    source = json.loads(
+        (Path(__file__).parents[1] / "taxonomy/textbook_v1/question_sources.json").read_text()
+    )
     for record in source["records"]:
         if record["artifact_role"] == "announcement":
             assert record["doc_type_id"] is None
@@ -116,6 +134,9 @@ def test_committed_source_matrix_is_independent_and_unapproved():
     assert manifest["target_attempt"] == "2027-05"
     assert manifest["release_approval"] is None
     assert all(d["review_status"] == "pending" for d in manifest["descriptors"])
-    assert all(a["applicable_attempts"] == ["2026-01"] or "2027-05" in a["applicable_attempts"] for a in manifest["textbook_artifacts"])
+    assert all(
+        a["applicable_attempts"] == ["2026-01"] or "2027-05" in a["applicable_attempts"]
+        for a in manifest["textbook_artifacts"]
+    )
     identities = json.loads((path.parent / "identities.json").read_text())
     assert set(n["id"] for n in manifest["nodes"]) <= set(identities.values())

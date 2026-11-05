@@ -2,9 +2,22 @@
 
 ## Current checkpoint
 
-Ubuntu remote access, firewall, AC power configuration, Docker Engine, Compose,
-and Buildx have been verified. No application or production database is deployed.
-External recovery storage is deferred; production import remains pending.
+Ubuntu `caf-home` now runs the verified `v0.2.1` release with web, worker and
+PostgreSQL. Private HTTPS readiness and frontend access pass; all 94 published
+PDFs passed hash/path checks and a real page rendered. The database image, schema,
+baseline, taxonomy and personal records were preserved. Real study-account Auth0
+sign-in, the study workspace, question catalog, extracted text, answer reveal and
+PDF source page reading also passed browser acceptance.
+
+Read the [1 November deployment verification](Deployment_verification_2026_11_01.md)
+for exact release/content/recovery identities, activation records, successful
+isolated restore, encrypted Mac backup and remaining limits. The application is
+available privately at <https://caf-home.tailf901d2.ts.net/>. External backup
+storage and scheduled encrypted backups remain unfinished; a verified manual
+recovery copy is retained separately on the Mac.
+
+The links below are historical preparation checkpoints; their statements about
+production not yet being installed describe the earlier checkpoint dates.
 
 See [container verification](Home_hosting_verification.md) for the build source,
 image identity, checks, and limitations of this checkpoint.
@@ -85,15 +98,19 @@ rejection of missing production authentication configuration. It does not verify
 Auth0 login, database migrations, recovery, or an end-to-end application startup.
 
 Do not deploy an image built from a dirty checkout as an application release.
-Base image digests, release identity, image checksums, and migration compatibility
-must be recorded by the future release bundle tooling before production use.
+Release identity, image checksums, dependency locks and schema compatibility are
+recorded and checked by the [release bundle tooling](Application_releases.md).
 
 ## Pending incremental steps
 
-1. Implement and verify host deployment checks and recovery tooling using the
-   checksummed release bundles.
-2. Configure Auth0 and private HTTPS, then test an isolated restore.
-3. Import production data only after a verified separately stored recovery backup.
+1. Complete student onboarding, invitation/revocation and logout/account-disable
+   acceptance, and access from a separate device; verify a normal reboot.
+2. Configure external recovery storage, daily encrypted backups, retention and
+   monthly restore verification. Current manual snapshots do not provide daily coverage.
+3. Implement a general existing-installation upgrade/rollback workflow and the
+   remaining operational visibility/content-update tooling. The PDF repair used
+   a recorded one-time same-schema activation; first-install must not be rerun
+   against existing production storage.
 
 Updating a Git branch alone must never activate an application release. Ubuntu
 will load a verified image bundle built on the Mac rather than build dependencies.

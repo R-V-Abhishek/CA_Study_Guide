@@ -25,20 +25,15 @@ export function ProgressRing({
     normalizedPct >= 66
       ? "text-emerald-500 stroke-emerald-500"
       : normalizedPct >= 33
-      ? "text-amber-500 stroke-amber-500"
-      : "text-rose-500 stroke-rose-500";
+        ? "text-amber-500 stroke-amber-500"
+        : "text-rose-500 stroke-rose-500";
 
   return (
     <div
       className={`relative inline-flex items-center justify-center ${className}`}
       style={{ width: size, height: size }}
     >
-      <svg
-        width={size}
-        height={size}
-        viewBox={`0 0 ${size} ${size}`}
-        className="transform -rotate-90"
-      >
+      <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} className="transform -rotate-90">
         {/* Track circle */}
         <circle
           cx={size / 2}
@@ -66,11 +61,7 @@ export function ProgressRing({
           <span className="text-xs font-bold tracking-tight text-stone-900 dark:text-stone-100">
             {Math.round(normalizedPct)}%
           </span>
-          {subtext && (
-            <span className="text-[10px] text-stone-400 font-medium leading-none mt-0.5">
-              {subtext}
-            </span>
-          )}
+          {subtext && <span className="text-[10px] text-stone-400 font-medium leading-none mt-0.5">{subtext}</span>}
         </div>
       )}
     </div>

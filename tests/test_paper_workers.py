@@ -32,4 +32,7 @@ def test_full_scope_hash_changes_when_pdf_or_taxonomy_evidence_changes():
     changed_source = prepare_record(original, catalog, {"1": {"sha256": "other"}})
     catalog[0]["descriptor_revision_id"] = 2
     changed_catalog = prepare_record(original, catalog, {"1": {"sha256": "pdf"}})
-    assert len({initial["input_hash"], changed_source["input_hash"], changed_catalog["input_hash"]}) == 3
+    assert (
+        len({initial["input_hash"], changed_source["input_hash"], changed_catalog["input_hash"]})
+        == 3
+    )

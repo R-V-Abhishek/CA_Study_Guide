@@ -141,6 +141,7 @@ def test_cross_doc_answer_pairing():
 def test_practice_signal_scoring(session):
     """Verify that practice appearances contribute to P(s) and Importance."""
     import uuid
+
     # 1. Insert a synthetic practice appearance
     uid = uuid.uuid4().hex[:12]
     doc_sha = f"practice_sha_{uid}"
@@ -176,10 +177,14 @@ def test_practice_signal_scoring(session):
 
     # 2. Recompute scores
     run = recompute_scores(session, target_attempt_id="2026-05")
-    score_rec = session.query(SubtopicScore).where(
-        SubtopicScore.score_run_id == run.id,
-        SubtopicScore.node_id == sub.id,
-    ).first()
+    score_rec = (
+        session.query(SubtopicScore)
+        .where(
+            SubtopicScore.score_run_id == run.id,
+            SubtopicScore.node_id == sub.id,
+        )
+        .first()
+    )
 
     assert score_rec is not None
     assert score_rec.practice_count >= 1
@@ -223,7 +228,9 @@ def test_revision_queue_and_spaced_repetition(session):
     now = datetime.now(timezone.utc)
     # Simulate a subtopic marked done 10 days ago (first interval is 3 days -> overdue by 7 days)
     # Clean any pre-existing revision events for isolation
-    session.query(RevisionEvent).where(RevisionEvent.node_id == sub.id, RevisionEvent.user_id == 1).delete()
+    session.query(RevisionEvent).where(
+        RevisionEvent.node_id == sub.id, RevisionEvent.user_id == 1
+    ).delete()
 
     prog = session.get(Progress, (1, sub.id))
     if not prog:

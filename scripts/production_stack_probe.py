@@ -27,6 +27,7 @@ def guard() -> None:
 def database():
     guard()
     from caf_db.engine import get_engine
+
     return get_engine("migration")
 
 
@@ -43,63 +44,163 @@ def seed() -> None:
         # Identity migration 0003 already creates the May 2027 planning attempt.
         assert session.get(Attempt, "2027-05").exam_year == 2027
         session.flush()
-        session.add(Paper(id="integration.P1", scheme_id="integration", code="P1",
-                          name="Synthetic integration paper", group_no=1, is_current=True))
+        session.add(
+            Paper(
+                id="integration.P1",
+                scheme_id="integration",
+                code="P1",
+                name="Synthetic integration paper",
+                group_no=1,
+                is_current=True,
+            )
+        )
         session.flush()
-        session.add(Node(id="integration.chapter", paper_id="integration.P1", level="chapter",
-                         name="Synthetic integration chapter", seq=1, status="active"))
+        session.add(
+            Node(
+                id="integration.chapter",
+                paper_id="integration.P1",
+                level="chapter",
+                name="Synthetic integration chapter",
+                seq=1,
+                status="active",
+            )
+        )
         session.flush()
-        session.add(Node(id="integration.topic", paper_id="integration.P1", level="topic",
-                         parent_id="integration.chapter", name="Synthetic integration topic", seq=1, status="active"))
+        session.add(
+            Node(
+                id="integration.topic",
+                paper_id="integration.P1",
+                level="topic",
+                parent_id="integration.chapter",
+                name="Synthetic integration topic",
+                seq=1,
+                status="active",
+            )
+        )
         session.flush()
-        session.add(Node(id=NODE, paper_id="integration.P1", level="subtopic", parent_id="integration.topic",
-                         name="Synthetic integration topic", seq=1, status="active"))
+        session.add(
+            Node(
+                id=NODE,
+                paper_id="integration.P1",
+                level="subtopic",
+                parent_id="integration.topic",
+                name="Synthetic integration topic",
+                seq=1,
+                status="active",
+            )
+        )
         now = datetime.now(timezone.utc)
         tokens = json.loads(os.environ["CAF_INTEGRATION_TOKENS"])
         for account in ACCOUNTS:
-            session.add(UserAccount(id=account, name=f"Synthetic student {account}",
-                issuer="integration", subject=str(account), role="student", status="active"))
+            session.add(
+                UserAccount(
+                    id=account,
+                    name=f"Synthetic student {account}",
+                    issuer="integration",
+                    subject=str(account),
+                    role="student",
+                    status="active",
+                )
+            )
         session.flush()
         for account in ACCOUNTS:
             token = tokens[str(account)]
-            session.add(Settings(user_id=account, target_attempt_id="2027-05",
-                                 selected_paper_ids=["integration.P1"]))
-            session.add(Note(user_id=account, node_id=NODE, body=f"Synthetic integration note {account}"))
+            session.add(
+                Settings(
+                    user_id=account,
+                    target_attempt_id="2027-05",
+                    selected_paper_ids=["integration.P1"],
+                )
+            )
+            session.add(
+                Note(user_id=account, node_id=NODE, body=f"Synthetic integration note {account}")
+            )
             session.add(Progress(user_id=account, node_id=NODE, status="in_progress"))
-            session.add(AuthSession(token_hash=hash_token(token), user_id=account,
-                csrf_token=hashlib.sha256(f"csrf:{token}".encode()).hexdigest(),
-                created_at=now, last_seen_at=now, expires_at=now + timedelta(hours=1)))
+            session.add(
+                AuthSession(
+                    token_hash=hash_token(token),
+                    user_id=account,
+                    csrf_token=hashlib.sha256(f"csrf:{token}".encode()).hexdigest(),
+                    created_at=now,
+                    last_seen_at=now,
+                    expires_at=now + timedelta(hours=1),
+                )
+            )
         session.commit()
     Path("/srv/caf/data/integration-marker").write_text("synthetic document marker")
     Path("/srv/caf/data/backups/integration-marker").write_text("synthetic local backup marker")
-    print("PASS: synthetic accounts, private records, sessions and persistent file markers", flush=True)
+    # Existing publications retain repository-relative approved paths after restore.
+    # Exercise the real hash/path guard in the packaged runtime, without rewriting rows.
+    import fitz
+    from caf_api.questions import source_bytes, source_image
+    from caf_common.settings import get_settings
+    from caf_db.models.questions import PublishedSource
+
+    with fitz.open() as document:
+        document.new_page().insert_text((72, 72), "Synthetic published PDF")
+        pdf = document.tobytes()
+    digest = hashlib.sha256(pdf).hexdigest()
+    relative = Path("data/blobs") / digest[:2] / digest[2:4] / f"{digest}.pdf"
+    canonical = get_settings().storage.blob_dir / digest[:2] / digest[2:4] / f"{digest}.pdf"
+    canonical.parent.mkdir(parents=True, exist_ok=True)
+    canonical.write_bytes(pdf)
+    assert relative.resolve() == canonical.resolve()
+    source = PublishedSource(sha256=digest, approved_blob_path=str(relative))
+    assert source_bytes(source) == pdf
+    assert source_image(source, 1).body.startswith(b"\x89PNG\r\n\x1a\n")
+    print(
+        "PASS: published PDF bytes resolve from legacy relative paths with hash validation",
+        flush=True,
+    )
+    print(
+        "PASS: synthetic accounts, private records, sessions and persistent file markers",
+        flush=True,
+    )
 
 
 @app.command()
 def admin() -> None:
     from alembic.config import Config
     from alembic.script import ScriptDirectory
+
     guard()
     for name, expected in json.loads(os.environ["CAF_INTEGRATION_CONFIG_HASHES"]).items():
         assert hashlib.sha256(Path(f"config/{name}.toml").read_bytes()).hexdigest() == expected
     with database().connect() as connection:
         revision = connection.scalar(sa.text("SELECT version_num FROM ops.alembic_version"))
         assert revision == ScriptDirectory.from_config(Config("alembic.ini")).get_current_head()
-        roles = connection.execute(sa.text("SELECT rolname,rolsuper,rolcreatedb,rolcreaterole,rolbypassrls FROM pg_roles WHERE rolname LIKE 'caf_%'"))
+        roles = connection.execute(
+            sa.text(
+                "SELECT rolname,rolsuper,rolcreatedb,rolcreaterole,rolbypassrls FROM pg_roles WHERE rolname LIKE 'caf_%'"
+            )
+        )
         rows = list(roles)
-        assert {row[0] for row in rows} == {"caf_app", "caf_identity", "caf_curator", "caf_operations", "caf_pipeline", "caf_backup"}
+        assert {row[0] for row in rows} == {
+            "caf_app",
+            "caf_identity",
+            "caf_curator",
+            "caf_operations",
+            "caf_pipeline",
+            "caf_backup",
+        }
         assert all(not any(row[1:]) for row in rows)
     print(f"PASS: schema {revision}, six restricted roles, exact runtime config hashes", flush=True)
 
 
 def request(account: int, path: str, *, body: dict | None = None) -> tuple[int, dict]:
     token = json.loads(os.environ["CAF_INTEGRATION_TOKENS"])[str(account)]
-    headers = {"Cookie": f"caf_session={token}", "Origin": os.environ["AUTH_PUBLIC_BASE_URL"],
-               "X-CSRF-Token": hashlib.sha256(f"csrf:{token}".encode()).hexdigest(),
-               "Content-Type": "application/json"}
-    req = urllib.request.Request("http://127.0.0.1:8788" + path, headers=headers,
+    headers = {
+        "Cookie": f"caf_session={token}",
+        "Origin": os.environ["AUTH_PUBLIC_BASE_URL"],
+        "X-CSRF-Token": hashlib.sha256(f"csrf:{token}".encode()).hexdigest(),
+        "Content-Type": "application/json",
+    }
+    req = urllib.request.Request(
+        "http://127.0.0.1:8788" + path,
+        headers=headers,
         data=json.dumps(body).encode() if body is not None else None,
-        method="PUT" if body is not None else "GET")
+        method="PUT" if body is not None else "GET",
+    )
     try:
         response = urllib.request.urlopen(req, timeout=10)
     except urllib.error.HTTPError as error:
@@ -114,6 +215,7 @@ def web(update: bool = False) -> None:
     assert os.getuid() == 10001
     assert os.environ["CAF_ENV"] == "production" and os.environ["AUTH_LOCAL_DEVELOPMENT"] == "false"
     assert not os.environ["GEMINI_API_KEY"] and not os.environ["OPENROUTER_API_KEY"]
+
     def account_check(account: int) -> None:
         status, me = request(account, "/api/v1/me")
         assert status == 200 and me["account"]["id"] == account
@@ -123,25 +225,48 @@ def web(update: bool = False) -> None:
         assert search["notes"][0]["content"].endswith(str(account))
         assert request(account, "/api/v1/admin/accounts")[0] == 403
         if update:
-            status, _ = request(account, f"/api/v1/subtopics/{NODE}/notes",
-                                body={"notes": f"Updated synthetic integration note {account}"})
+            status, _ = request(
+                account,
+                f"/api/v1/subtopics/{NODE}/notes",
+                body={"notes": f"Updated synthetic integration note {account}"},
+            )
             assert status == 200
+
     with ThreadPoolExecutor(max_workers=3) as pool:
         list(pool.map(account_check, ACCOUNTS))
     for role in ("STUDENT", "IDENTITY", "CURATION", "OPERATIONS", "BACKUP"):
         assert os.environ[f"{role}_DATABASE_URL"]
     assert "MIGRATION_DATABASE_URL" not in os.environ
     assert Path("/srv/caf/data/integration-marker").read_text() == "synthetic document marker"
-    assert Path("/srv/caf/data/backups/integration-marker").read_text() == "synthetic local backup marker"
-    print("PASS: three concurrent authenticated accounts, private notes, mutation and admin denial", flush=True)
+    assert (
+        Path("/srv/caf/data/backups/integration-marker").read_text()
+        == "synthetic local backup marker"
+    )
+    print(
+        "PASS: three concurrent authenticated accounts, private notes, mutation and admin denial",
+        flush=True,
+    )
 
 
 @app.command()
 def durable() -> None:
     with database().connect() as connection:
-        rows = connection.execute(sa.text("SELECT user_id,body FROM app.note WHERE user_id BETWEEN 101 AND 103 ORDER BY user_id")).all()
-        assert [(row[0], row[1]) for row in rows] == [(a, f"Updated synthetic integration note {a}") for a in ACCOUNTS]
-        assert connection.scalar(sa.text("SELECT count(*) FROM app.progress WHERE user_id BETWEEN 101 AND 103 AND status='in_progress'")) == 3
+        rows = connection.execute(
+            sa.text(
+                "SELECT user_id,body FROM app.note WHERE user_id BETWEEN 101 AND 103 ORDER BY user_id"
+            )
+        ).all()
+        assert [(row[0], row[1]) for row in rows] == [
+            (a, f"Updated synthetic integration note {a}") for a in ACCOUNTS
+        ]
+        assert (
+            connection.scalar(
+                sa.text(
+                    "SELECT count(*) FROM app.progress WHERE user_id BETWEEN 101 AND 103 AND status='in_progress'"
+                )
+            )
+            == 3
+        )
     print("PASS: durable ownership, notes and progress", flush=True)
 
 
@@ -149,6 +274,7 @@ def durable() -> None:
 def restricted(role: str) -> None:
     guard()
     from caf_db.engine import get_engine
+
     assert os.getuid() == 10001
     with get_engine(role).connect() as connection:
         assert connection.scalar(sa.text("SELECT current_user")) == f"caf_{role}"
@@ -167,6 +293,7 @@ def restricted(role: str) -> None:
 def enqueue(expired: bool = False) -> None:
     from sqlalchemy.orm import Session
     from caf_l5.jobs import enqueue_recompute
+
     with Session(database()) as session:
         job = enqueue_recompute(session, "2027-05")
         if expired:
@@ -183,12 +310,21 @@ def completed(reclaimed: bool = False) -> None:
     deadline = time.monotonic() + 45
     while time.monotonic() < deadline:
         with database().connect() as connection:
-            row = connection.execute(sa.text("SELECT status,attempts,last_error FROM intel.recompute_job ORDER BY id DESC LIMIT 1")).one()
+            row = connection.execute(
+                sa.text(
+                    "SELECT status,attempts,last_error FROM intel.recompute_job ORDER BY id DESC LIMIT 1"
+                )
+            ).one()
         if row.status == "failed":
             raise RuntimeError(f"Synthetic worker job failed: {row.last_error}")
         if row.status == "ok":
             assert row.attempts >= (2 if reclaimed else 1)
-            print("PASS: worker reclaimed expired lease" if reclaimed else "PASS: worker completed scoring job", flush=True)
+            print(
+                "PASS: worker reclaimed expired lease"
+                if reclaimed
+                else "PASS: worker completed scoring job",
+                flush=True,
+            )
             return
         time.sleep(0.25)
     raise RuntimeError("Worker job did not complete within 45 seconds")

@@ -1,22 +1,32 @@
 """Runtime, unpublished whole-question and extraction-review contracts."""
+
 from typing import Any, Literal
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 from caf_contracts.future_v1 import CompleteQuestionV1
 
-QualityDimension = Literal['metadata','questions','answers','pairing','ordering','marks_choices','readability','human_review']
-QualityStatus = Literal['pending','passed','concern','not_applicable']
+QualityDimension = Literal[
+    "metadata",
+    "questions",
+    "answers",
+    "pairing",
+    "ordering",
+    "marks_choices",
+    "readability",
+    "human_review",
+]
+QualityStatus = Literal["pending", "passed", "concern", "not_applicable"]
 
 
 class PaperPageRange(BaseModel):
-    model_config = ConfigDict(extra='forbid')
+    model_config = ConfigDict(extra="forbid")
     paper_id: str = Field(min_length=1)
     page_start: int = Field(ge=1)
     page_end: int = Field(ge=1)
 
-    @model_validator(mode='after')
+    @model_validator(mode="after")
     def ordered(self):
         if self.page_end < self.page_start:
-            raise ValueError('Paper page range must be ordered')
+            raise ValueError("Paper page range must be ordered")
         return self
 
 
@@ -47,7 +57,7 @@ class AnswerPairingCandidate(BaseModel):
 class PartPairingCandidates(BaseModel):
     part_id: str
     label_path: str
-    status: Literal['matched','missing','partial','ambiguous']
+    status: Literal["matched", "missing", "partial", "ambiguous"]
     candidates: list[AnswerPairingCandidate]
 
 
@@ -65,10 +75,10 @@ class ExtractedQuestion(CompleteQuestionV1):
     scheme_id: str
     source_family: str
     source_collection_id: str | None = None
-    question_status: Literal['complete','partial','unknown'] = 'unknown'
-    readability_status: QualityStatus = 'pending'
-    pairing_status: Literal['matched','missing','partial','ambiguous','not_expected']
-    review_status: Literal['pending','reviewed'] = 'pending'
+    question_status: Literal["complete", "partial", "unknown"] = "unknown"
+    readability_status: QualityStatus = "pending"
+    pairing_status: Literal["matched", "missing", "partial", "ambiguous", "not_expected"]
+    review_status: Literal["pending", "reviewed"] = "pending"
     choices: list[QuestionChoice] = Field(default_factory=list)
     mcq: list[QuestionMCQ] = Field(default_factory=list)
     assets: list[QuestionAsset] = Field(default_factory=list)
@@ -77,7 +87,7 @@ class ExtractedQuestion(CompleteQuestionV1):
 
 
 class ExtractionMetadataEvidence(BaseModel):
-    model_config = ConfigDict(extra='allow')
+    model_config = ConfigDict(extra="allow")
     conflicts: list[dict[str, Any]] = Field(default_factory=list)
 
 
@@ -96,7 +106,9 @@ class ExtractionDocument(BaseModel):
     page_count: int | None
     current_revision_id: int | None
     paper_page_ranges: list[PaperPageRange] = Field(default_factory=list)
-    metadata_evidence: ExtractionMetadataEvidence = Field(default_factory=ExtractionMetadataEvidence)
+    metadata_evidence: ExtractionMetadataEvidence = Field(
+        default_factory=ExtractionMetadataEvidence
+    )
 
 
 class RevisionSummary(BaseModel):
@@ -117,12 +129,12 @@ class RevisionDetail(RevisionSummary):
 
 
 class CorrectionRequest(BaseModel):
-    model_config = ConfigDict(extra='forbid')
+    model_config = ConfigDict(extra="forbid")
     label_path: str
     reason: str = Field(min_length=1, max_length=10000)
     question_text: str | None = None
     answer_text: str | None = None
-    answer_candidate_label: str | None = Field(default=None,min_length=1,max_length=1000)
+    answer_candidate_label: str | None = Field(default=None, min_length=1, max_length=1000)
     page_start: int | None = Field(default=None, ge=1)
     page_end: int | None = Field(default=None, ge=1)
     block_start: str | None = None
@@ -132,7 +144,7 @@ class CorrectionRequest(BaseModel):
 
 
 class ReviewRequest(BaseModel):
-    model_config = ConfigDict(extra='forbid')
+    model_config = ConfigDict(extra="forbid")
     dimension: QualityDimension
     status: QualityStatus
     note: str = Field(min_length=1, max_length=10000)
@@ -149,7 +161,7 @@ class ReviewResult(BaseModel):
 
 
 class PromoteRequest(BaseModel):
-    model_config = ConfigDict(extra='forbid')
+    model_config = ConfigDict(extra="forbid")
     expected_current_revision_id: int | None
 
 
@@ -162,7 +174,7 @@ class PromoteResult(BaseModel):
 
 
 class PairRequest(BaseModel):
-    model_config = ConfigDict(extra='forbid')
+    model_config = ConfigDict(extra="forbid")
     answer_document_id: int
     evidence: str = Field(min_length=1, max_length=10000)
 

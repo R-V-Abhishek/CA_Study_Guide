@@ -18,10 +18,14 @@ def list_pending_documents(
     attempt_id: str | None = None,
     paper_id: str | None = None,
 ) -> list[Document]:
-    query = sa.select(Document).where(
-        Document.catalog_status.in_(["inferred", "needs_curation"]),
-        Document.superseded.is_(False),
-    ).order_by(Document.id.desc())
+    query = (
+        sa.select(Document)
+        .where(
+            Document.catalog_status.in_(["inferred", "needs_curation"]),
+            Document.superseded.is_(False),
+        )
+        .order_by(Document.id.desc())
+    )
 
     if attempt_id:
         query = query.where(Document.attempt_id == attempt_id)
@@ -33,35 +37,57 @@ def list_pending_documents(
 
 def lock_document_metadata(session: Session, doc_id: int) -> None:
     """Serialize metadata changes with classifications using this source or answer."""
-    related = session.scalars(sa.select(DocumentPair.question_document_id).where(
-        DocumentPair.answer_document_id == doc_id, DocumentPair.status == 'confirmed'
-    ))
+    related = session.scalars(
+        sa.select(DocumentPair.question_document_id).where(
+            DocumentPair.answer_document_id == doc_id, DocumentPair.status == "confirmed"
+        )
+    )
     for document_id in sorted({doc_id, *related}):
-        session.execute(sa.text('SELECT pg_advisory_xact_lock(:document_id)'), {'document_id': document_id})
+        session.execute(
+            sa.text("SELECT pg_advisory_xact_lock(:document_id)"), {"document_id": document_id}
+        )
 
 
 def confirm_document(
     session: Session,
     doc_id: int,
     overrides: dict[str, Any] | None = None,
-    *, actor_id: int | None = None,
+    *,
+    actor_id: int | None = None,
 ) -> Document:
     lock_document_metadata(session, doc_id)
-    doc = session.scalar(sa.select(Document).where(Document.id==doc_id).with_for_update().execution_options(populate_existing=True))
+    doc = session.scalar(
+        sa.select(Document)
+        .where(Document.id == doc_id)
+        .with_for_update()
+        .execution_options(populate_existing=True)
+    )
     if not doc:
         raise ValueError(f"Document {doc_id} not found")
 
     if overrides:
-        allowed = {"attempt_id", "paper_id", "doc_type_id", "series", "part", "title", "course_level",
-                   "collection_id", "paper_page_ranges", "scheme_id"}
+        allowed = {
+            "attempt_id",
+            "paper_id",
+            "doc_type_id",
+            "series",
+            "part",
+            "title",
+            "course_level",
+            "collection_id",
+            "paper_page_ranges",
+            "scheme_id",
+        }
         if set(overrides) - allowed:
             raise ValueError("Unknown catalogue override fields")
         for k, v in overrides.items():
             setattr(doc, k, v)
 
     # Validation against ref
-    undated_collection = doc.attempt_id is None and (doc.doc_type_id in {"model_question", "model_answer"}
-                                                   or (doc.doc_type_id in {"case_scenarios", "ibs_case_study"} and doc.collection_id))
+    undated_collection = doc.attempt_id is None and (
+        doc.doc_type_id in {"model_question", "model_answer"}
+        or (doc.doc_type_id in {"case_scenarios", "ibs_case_study"} and doc.collection_id)
+    )
     if not undated_collection and (not doc.attempt_id or not session.get(Attempt, doc.attempt_id)):
         raise ValueError(f"Invalid or missing attempt: {doc.attempt_id}")
     ranges = doc.paper_page_ranges or []
@@ -91,10 +117,16 @@ def confirm_document(
         if not paper or paper.scheme_id != doc.scheme_id:
             raise ValueError("Source scheme does not match its paper")
     evidence = doc.metadata_evidence or {}
-    doc.metadata_evidence = {**evidence, "conflicts":[], "administrator_confirmation": {
-        "actor_id":actor_id,
-        "confirmed_at": datetime.now(timezone.utc).isoformat(), "overrides": overrides or {},
-        "resolved_conflicts": evidence.get("conflicts", [])}}
+    doc.metadata_evidence = {
+        **evidence,
+        "conflicts": [],
+        "administrator_confirmation": {
+            "actor_id": actor_id,
+            "confirmed_at": datetime.now(timezone.utc).isoformat(),
+            "overrides": overrides or {},
+            "resolved_conflicts": evidence.get("conflicts", []),
+        },
+    }
 
     doc.catalog_status = "confirmed"
     session.commit()

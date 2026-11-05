@@ -26,7 +26,9 @@ def corpus_status(root: Path) -> dict:
 def _corpus_snapshot(root: Path) -> tuple[dict, dict[str, set[str]]]:
     original_ids = set()
     for name in ORIGINAL_PACKS:
-        original_ids.update(item["question_id"] for item in json.loads((root / name / "index.json").read_text()))
+        original_ids.update(
+            item["question_id"] for item in json.loads((root / name / "index.json").read_text())
+        )
     seen = set()
     papers = {}
     saved_ids = {}
@@ -50,36 +52,58 @@ def _corpus_snapshot(root: Path) -> tuple[dict, dict[str, set[str]]]:
                     completed += 1
                     completed_parts += len(saved["result"]["mappings"])
                     saved_ids[name].add(question_id)
-        papers[paper] = dict(roots=roots, saved=completed, pending=roots - completed,
-            parts=parts, saved_parts=completed_parts, packs=packs)
+        papers[paper] = dict(
+            roots=roots,
+            saved=completed,
+            pending=roots - completed,
+            parts=parts,
+            saved_parts=completed_parts,
+            packs=packs,
+        )
     if seen != original_ids:
         raise ValueError("Corrected paper packs do not cover the original corpus exactly")
-    return dict(total=len(seen), saved=sum(p["saved"] for p in papers.values()),
-        pending=sum(p["pending"] for p in papers.values()), papers=papers), saved_ids
+    return dict(
+        total=len(seen),
+        saved=sum(p["saved"] for p in papers.values()),
+        pending=sum(p["pending"] for p in papers.values()),
+        papers=papers,
+    ), saved_ids
 
 
 def render_corpus(root: Path, output: Path, *, allow_pending: bool = False) -> dict:
     status, saved_ids = _corpus_snapshot(root)
     if status["pending"] and not allow_pending:
-        raise ValueError(f"{status['pending']} roots still lack classifications; use allow_pending only for an explicit interim review")
+        raise ValueError(
+            f"{status['pending']} roots still lack classifications; use allow_pending only for an explicit interim review"
+        )
     if output.exists():
         raise ValueError("Markdown already exists; preserve student edits and choose a new path")
     output.parent.mkdir(parents=True, exist_ok=True)
     # Stage the complete validated artifact before creating the user-facing file.
     with tempfile.TemporaryFile(mode="w+", encoding="utf-8", dir=output.parent) as staged:
         staged.write("# Luna classification review — all papers\n\n")
-        staged.write(f"Roots: {status['total']} · Saved AI outputs: {status['saved']} · Pending: {status['pending']}\n\n")
+        staged.write(
+            f"Roots: {status['total']} · Saved AI outputs: {status['saved']} · Pending: {status['pending']}\n\n"
+        )
         if status["pending"]:
-            staged.write("**INTERIM: classification is incomplete. Missing AI outputs are marked explicitly.**\n\n")
-        staged.write("These are unapproved student-review proposals. Corrected paper routing is preserved with source evidence. No queue imports or publication are performed.\n\n")
+            staged.write(
+                "**INTERIM: classification is incomplete. Missing AI outputs are marked explicitly.**\n\n"
+            )
+        staged.write(
+            "These are unapproved student-review proposals. Corrected paper routing is preserved with source evidence. No queue imports or publication are performed.\n\n"
+        )
         staged.write("| Paper | Roots | Saved AI outputs | Pending |\n|---|---:|---:|---:|\n")
         for paper, counts in status["papers"].items():
-            staged.write(f"| {paper} | {counts['roots']} | {counts['saved']} | {counts['pending']} |\n")
+            staged.write(
+                f"| {paper} | {counts['roots']} | {counts['saved']} | {counts['pending']} |\n"
+            )
         for paper, packs in PAPER_PACKS.items():
             for name in packs:
                 manifest, results = load_review(root / name, result_ids=saved_ids[name])
-                if any(record["context"]["paper_id"] != f"s2023.{paper}"
-                       for record in manifest["records"]):
+                if any(
+                    record["context"]["paper_id"] != f"s2023.{paper}"
+                    for record in manifest["records"]
+                ):
                     raise ValueError("A question is assigned to the wrong final paper pack")
                 staged.write(f"\n\n# {paper} — {name}\n\n")
                 staged.write(render_review_markdown(manifest, results))

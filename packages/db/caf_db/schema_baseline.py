@@ -27,6 +27,7 @@ def canonical_constraint_definition(definition: str) -> str:
     cannot accidentally be rewritten. Column casts, literal values, typmods,
     operators, constraint names and all other structure remain significant.
     """
+
     def replace(match: re.Match[str]) -> str:
         if match.group("quoted") is not None:
             return match.group(0)
@@ -75,7 +76,8 @@ def schema_snapshot(connection: Connection) -> dict[str, dict[str, Any]]:
                   ON d.adrelid = a.attrelid AND d.adnum = a.attnum
                 WHERE a.attrelid = :oid AND a.attnum > 0 AND NOT a.attisdropped
                 ORDER BY a.attnum
-            """), parameters,
+            """),
+            parameters,
         ).mappings()
         constraints = connection.execute(
             text("""
@@ -83,7 +85,8 @@ def schema_snapshot(connection: Connection) -> dict[str, dict[str, Any]]:
                        pg_catalog.pg_get_constraintdef(oid, false) AS definition
                 FROM pg_catalog.pg_constraint
                 WHERE conrelid = :oid ORDER BY conname
-            """), parameters,
+            """),
+            parameters,
         ).mappings()
         indexes = connection.execute(
             text("""
@@ -92,7 +95,8 @@ def schema_snapshot(connection: Connection) -> dict[str, dict[str, Any]]:
                 FROM pg_catalog.pg_index i
                 JOIN pg_catalog.pg_class c ON c.oid = i.indexrelid
                 WHERE i.indrelid = :oid ORDER BY c.relname
-            """), parameters,
+            """),
+            parameters,
         ).mappings()
         result[f"{table['schema_name']}.{table['table_name']}"] = {
             "columns": [dict(row) for row in columns],
@@ -125,14 +129,14 @@ def compare_schema_snapshots(
                 actual_section = canonical_constraints(actual_section)
             if expected_section != actual_section:
                 changes[section] = {
-                    "expected": expected[table][section], "actual": actual[table][section]
+                    "expected": expected[table][section],
+                    "actual": actual[table][section],
                 }
         if changes:
             changed[table] = changes
     if changed:
         differences["changed_tables"] = changed
     return differences
-
 
 
 def migrated_schema_snapshot(connection: Connection, revision: str) -> dict[str, dict[str, Any]]:

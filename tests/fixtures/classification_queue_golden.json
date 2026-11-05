@@ -1,0 +1,1529 @@
+{
+ "{\"benchmark_only\": \"true\"}": [
+  {
+   "blind": false,
+   "blockers": [
+    "stale_extraction",
+    "stale_input_hash",
+    "stale_part_mapping"
+   ],
+   "candidate_count": 1,
+   "dispute_status": null,
+   "experimental": false,
+   "is_benchmark": true,
+   "outcomes": [
+    "matched",
+    "matched"
+   ],
+   "provenance_keys": [
+    "benchmark",
+    "candidate_limit",
+    "extraction_digest",
+    "method",
+    "model_id",
+    "prompt_version",
+    "retrieval",
+    "taxonomy_manifest_hash"
+   ],
+   "publication_ready": false,
+   "publication_revision_id": null,
+   "publication_suggestion_revision_id": null,
+   "published_outcomes": [],
+   "question_id": "0b1edd075bca6ce04501840c2abab8acce8fab08dfdce8e6c3bb7f3f8bfb97fa.extra4",
+   "run_id": 1,
+   "stale": true,
+   "suggestion_revision_id": 6,
+   "verification_count": 0,
+   "verified_by_me": false
+  },
+  {
+   "blind": false,
+   "blockers": [
+    "experimental_suggestion",
+    "stale_extraction",
+    "stale_input_hash",
+    "stale_part_mapping"
+   ],
+   "candidate_count": 1,
+   "dispute_status": null,
+   "experimental": true,
+   "is_benchmark": true,
+   "outcomes": [
+    "needs_review",
+    "needs_review"
+   ],
+   "provenance_keys": [
+    "benchmark",
+    "candidate_limit",
+    "extraction_digest",
+    "method",
+    "model_id",
+    "prompt_version",
+    "retrieval",
+    "taxonomy_manifest_hash"
+   ],
+   "publication_ready": false,
+   "publication_revision_id": null,
+   "publication_suggestion_revision_id": null,
+   "published_outcomes": [],
+   "question_id": "0b1edd075bca6ce04501840c2abab8acce8fab08dfdce8e6c3bb7f3f8bfb97fa.extra3",
+   "run_id": 1,
+   "stale": true,
+   "suggestion_revision_id": 5,
+   "verification_count": 0,
+   "verified_by_me": false
+  },
+  {
+   "blind": false,
+   "blockers": [
+    "stale_extraction",
+    "stale_input_hash",
+    "stale_part_mapping"
+   ],
+   "candidate_count": 1,
+   "dispute_status": null,
+   "experimental": false,
+   "is_benchmark": true,
+   "outcomes": [
+    "matched",
+    "matched"
+   ],
+   "provenance_keys": [
+    "benchmark",
+    "candidate_limit",
+    "extraction_digest",
+    "method",
+    "model_id",
+    "prompt_version",
+    "retrieval",
+    "taxonomy_manifest_hash"
+   ],
+   "publication_ready": false,
+   "publication_revision_id": null,
+   "publication_suggestion_revision_id": null,
+   "published_outcomes": [],
+   "question_id": "0b1edd075bca6ce04501840c2abab8acce8fab08dfdce8e6c3bb7f3f8bfb97fa.extra2",
+   "run_id": 1,
+   "stale": true,
+   "suggestion_revision_id": 4,
+   "verification_count": 0,
+   "verified_by_me": false
+  },
+  {
+   "blind": false,
+   "blockers": [
+    "experimental_suggestion",
+    "stale_extraction",
+    "stale_input_hash",
+    "stale_part_mapping"
+   ],
+   "candidate_count": 1,
+   "dispute_status": null,
+   "experimental": true,
+   "is_benchmark": true,
+   "outcomes": [
+    "matched",
+    "matched"
+   ],
+   "provenance_keys": [
+    "benchmark",
+    "candidate_limit",
+    "extraction_digest",
+    "method",
+    "model_id",
+    "prompt_version",
+    "retrieval",
+    "taxonomy_manifest_hash"
+   ],
+   "publication_ready": false,
+   "publication_revision_id": null,
+   "publication_suggestion_revision_id": null,
+   "published_outcomes": [],
+   "question_id": "0b1edd075bca6ce04501840c2abab8acce8fab08dfdce8e6c3bb7f3f8bfb97fa.extra1",
+   "run_id": 1,
+   "stale": true,
+   "suggestion_revision_id": 3,
+   "verification_count": 0,
+   "verified_by_me": false
+  },
+  {
+   "blind": false,
+   "blockers": [
+    "stale_extraction",
+    "stale_input_hash",
+    "stale_part_mapping"
+   ],
+   "candidate_count": 1,
+   "dispute_status": null,
+   "experimental": false,
+   "is_benchmark": true,
+   "outcomes": [
+    "needs_review",
+    "needs_review"
+   ],
+   "provenance_keys": [
+    "benchmark",
+    "candidate_limit",
+    "extraction_digest",
+    "method",
+    "model_id",
+    "prompt_version",
+    "retrieval",
+    "taxonomy_manifest_hash"
+   ],
+   "publication_ready": false,
+   "publication_revision_id": null,
+   "publication_suggestion_revision_id": null,
+   "published_outcomes": [],
+   "question_id": "0b1edd075bca6ce04501840c2abab8acce8fab08dfdce8e6c3bb7f3f8bfb97fa.extra0",
+   "run_id": 1,
+   "stale": true,
+   "suggestion_revision_id": 2,
+   "verification_count": 0,
+   "verified_by_me": false
+  }
+ ],
+ "{\"blind\": \"true\", \"limit\": 2}": [
+  {
+   "blind": true,
+   "blockers": [
+    "stale_extraction",
+    "stale_input_hash",
+    "stale_part_mapping"
+   ],
+   "candidate_count": 1,
+   "dispute_status": null,
+   "experimental": false,
+   "is_benchmark": true,
+   "outcomes": [
+    "needs_review",
+    "needs_review"
+   ],
+   "provenance_keys": [],
+   "publication_ready": false,
+   "publication_revision_id": null,
+   "publication_suggestion_revision_id": null,
+   "published_outcomes": [],
+   "question_id": "0b1edd075bca6ce04501840c2abab8acce8fab08dfdce8e6c3bb7f3f8bfb97fa.extra4",
+   "run_id": null,
+   "stale": true,
+   "suggestion_revision_id": 6,
+   "verification_count": 0,
+   "verified_by_me": false
+  },
+  {
+   "blind": true,
+   "blockers": [
+    "experimental_suggestion",
+    "stale_extraction",
+    "stale_input_hash",
+    "stale_part_mapping"
+   ],
+   "candidate_count": 1,
+   "dispute_status": null,
+   "experimental": true,
+   "is_benchmark": true,
+   "outcomes": [
+    "needs_review",
+    "needs_review"
+   ],
+   "provenance_keys": [],
+   "publication_ready": false,
+   "publication_revision_id": null,
+   "publication_suggestion_revision_id": null,
+   "published_outcomes": [],
+   "question_id": "0b1edd075bca6ce04501840c2abab8acce8fab08dfdce8e6c3bb7f3f8bfb97fa.extra3",
+   "run_id": null,
+   "stale": true,
+   "suggestion_revision_id": 5,
+   "verification_count": 0,
+   "verified_by_me": false
+  }
+ ],
+ "{\"disputed\": \"false\", \"limit\": 3}": [
+  {
+   "blind": false,
+   "blockers": [
+    "stale_extraction",
+    "stale_input_hash",
+    "stale_part_mapping"
+   ],
+   "candidate_count": 1,
+   "dispute_status": null,
+   "experimental": false,
+   "is_benchmark": true,
+   "outcomes": [
+    "matched",
+    "matched"
+   ],
+   "provenance_keys": [
+    "benchmark",
+    "candidate_limit",
+    "extraction_digest",
+    "method",
+    "model_id",
+    "prompt_version",
+    "retrieval",
+    "taxonomy_manifest_hash"
+   ],
+   "publication_ready": false,
+   "publication_revision_id": null,
+   "publication_suggestion_revision_id": null,
+   "published_outcomes": [],
+   "question_id": "0b1edd075bca6ce04501840c2abab8acce8fab08dfdce8e6c3bb7f3f8bfb97fa.extra4",
+   "run_id": 1,
+   "stale": true,
+   "suggestion_revision_id": 6,
+   "verification_count": 0,
+   "verified_by_me": false
+  },
+  {
+   "blind": false,
+   "blockers": [
+    "experimental_suggestion",
+    "stale_extraction",
+    "stale_input_hash",
+    "stale_part_mapping"
+   ],
+   "candidate_count": 1,
+   "dispute_status": null,
+   "experimental": true,
+   "is_benchmark": true,
+   "outcomes": [
+    "needs_review",
+    "needs_review"
+   ],
+   "provenance_keys": [
+    "benchmark",
+    "candidate_limit",
+    "extraction_digest",
+    "method",
+    "model_id",
+    "prompt_version",
+    "retrieval",
+    "taxonomy_manifest_hash"
+   ],
+   "publication_ready": false,
+   "publication_revision_id": null,
+   "publication_suggestion_revision_id": null,
+   "published_outcomes": [],
+   "question_id": "0b1edd075bca6ce04501840c2abab8acce8fab08dfdce8e6c3bb7f3f8bfb97fa.extra3",
+   "run_id": 1,
+   "stale": true,
+   "suggestion_revision_id": 5,
+   "verification_count": 0,
+   "verified_by_me": false
+  },
+  {
+   "blind": false,
+   "blockers": [
+    "stale_extraction",
+    "stale_input_hash",
+    "stale_part_mapping"
+   ],
+   "candidate_count": 1,
+   "dispute_status": null,
+   "experimental": false,
+   "is_benchmark": true,
+   "outcomes": [
+    "matched",
+    "matched"
+   ],
+   "provenance_keys": [
+    "benchmark",
+    "candidate_limit",
+    "extraction_digest",
+    "method",
+    "model_id",
+    "prompt_version",
+    "retrieval",
+    "taxonomy_manifest_hash"
+   ],
+   "publication_ready": false,
+   "publication_revision_id": null,
+   "publication_suggestion_revision_id": null,
+   "published_outcomes": [],
+   "question_id": "0b1edd075bca6ce04501840c2abab8acce8fab08dfdce8e6c3bb7f3f8bfb97fa.extra2",
+   "run_id": 1,
+   "stale": true,
+   "suggestion_revision_id": 4,
+   "verification_count": 0,
+   "verified_by_me": false
+  }
+ ],
+ "{\"disputed\": \"true\"}": [
+  {
+   "blind": false,
+   "blockers": [],
+   "candidate_count": 1,
+   "dispute_status": "open",
+   "experimental": false,
+   "is_benchmark": false,
+   "outcomes": [
+    "matched",
+    "matched"
+   ],
+   "provenance_keys": [
+    "candidate_limit",
+    "extraction_digest",
+    "method",
+    "model_id",
+    "prompt_version",
+    "retrieval",
+    "taxonomy_manifest_hash"
+   ],
+   "publication_ready": true,
+   "publication_revision_id": 1,
+   "publication_suggestion_revision_id": 1,
+   "published_outcomes": [
+    "matched",
+    "matched"
+   ],
+   "question_id": "0b1edd075bca6ce04501840c2abab8acce8fab08dfdce8e6c3bb7f3f8bfb97fa",
+   "run_id": 1,
+   "stale": false,
+   "suggestion_revision_id": 1,
+   "verification_count": 1,
+   "verified_by_me": true
+  }
+ ],
+ "{\"experimental\": \"false\"}": [
+  {
+   "blind": false,
+   "blockers": [
+    "stale_extraction",
+    "stale_input_hash",
+    "stale_part_mapping"
+   ],
+   "candidate_count": 1,
+   "dispute_status": null,
+   "experimental": false,
+   "is_benchmark": true,
+   "outcomes": [
+    "matched",
+    "matched"
+   ],
+   "provenance_keys": [
+    "benchmark",
+    "candidate_limit",
+    "extraction_digest",
+    "method",
+    "model_id",
+    "prompt_version",
+    "retrieval",
+    "taxonomy_manifest_hash"
+   ],
+   "publication_ready": false,
+   "publication_revision_id": null,
+   "publication_suggestion_revision_id": null,
+   "published_outcomes": [],
+   "question_id": "0b1edd075bca6ce04501840c2abab8acce8fab08dfdce8e6c3bb7f3f8bfb97fa.extra4",
+   "run_id": 1,
+   "stale": true,
+   "suggestion_revision_id": 6,
+   "verification_count": 0,
+   "verified_by_me": false
+  },
+  {
+   "blind": false,
+   "blockers": [
+    "stale_extraction",
+    "stale_input_hash",
+    "stale_part_mapping"
+   ],
+   "candidate_count": 1,
+   "dispute_status": null,
+   "experimental": false,
+   "is_benchmark": true,
+   "outcomes": [
+    "matched",
+    "matched"
+   ],
+   "provenance_keys": [
+    "benchmark",
+    "candidate_limit",
+    "extraction_digest",
+    "method",
+    "model_id",
+    "prompt_version",
+    "retrieval",
+    "taxonomy_manifest_hash"
+   ],
+   "publication_ready": false,
+   "publication_revision_id": null,
+   "publication_suggestion_revision_id": null,
+   "published_outcomes": [],
+   "question_id": "0b1edd075bca6ce04501840c2abab8acce8fab08dfdce8e6c3bb7f3f8bfb97fa.extra2",
+   "run_id": 1,
+   "stale": true,
+   "suggestion_revision_id": 4,
+   "verification_count": 0,
+   "verified_by_me": false
+  },
+  {
+   "blind": false,
+   "blockers": [
+    "stale_extraction",
+    "stale_input_hash",
+    "stale_part_mapping"
+   ],
+   "candidate_count": 1,
+   "dispute_status": null,
+   "experimental": false,
+   "is_benchmark": true,
+   "outcomes": [
+    "needs_review",
+    "needs_review"
+   ],
+   "provenance_keys": [
+    "benchmark",
+    "candidate_limit",
+    "extraction_digest",
+    "method",
+    "model_id",
+    "prompt_version",
+    "retrieval",
+    "taxonomy_manifest_hash"
+   ],
+   "publication_ready": false,
+   "publication_revision_id": null,
+   "publication_suggestion_revision_id": null,
+   "published_outcomes": [],
+   "question_id": "0b1edd075bca6ce04501840c2abab8acce8fab08dfdce8e6c3bb7f3f8bfb97fa.extra0",
+   "run_id": 1,
+   "stale": true,
+   "suggestion_revision_id": 2,
+   "verification_count": 0,
+   "verified_by_me": false
+  },
+  {
+   "blind": false,
+   "blockers": [],
+   "candidate_count": 1,
+   "dispute_status": "open",
+   "experimental": false,
+   "is_benchmark": false,
+   "outcomes": [
+    "matched",
+    "matched"
+   ],
+   "provenance_keys": [
+    "candidate_limit",
+    "extraction_digest",
+    "method",
+    "model_id",
+    "prompt_version",
+    "retrieval",
+    "taxonomy_manifest_hash"
+   ],
+   "publication_ready": true,
+   "publication_revision_id": 1,
+   "publication_suggestion_revision_id": 1,
+   "published_outcomes": [
+    "matched",
+    "matched"
+   ],
+   "question_id": "0b1edd075bca6ce04501840c2abab8acce8fab08dfdce8e6c3bb7f3f8bfb97fa",
+   "run_id": 1,
+   "stale": false,
+   "suggestion_revision_id": 1,
+   "verification_count": 1,
+   "verified_by_me": true
+  }
+ ],
+ "{\"experimental\": \"true\"}": [
+  {
+   "blind": false,
+   "blockers": [
+    "experimental_suggestion",
+    "stale_extraction",
+    "stale_input_hash",
+    "stale_part_mapping"
+   ],
+   "candidate_count": 1,
+   "dispute_status": null,
+   "experimental": true,
+   "is_benchmark": true,
+   "outcomes": [
+    "needs_review",
+    "needs_review"
+   ],
+   "provenance_keys": [
+    "benchmark",
+    "candidate_limit",
+    "extraction_digest",
+    "method",
+    "model_id",
+    "prompt_version",
+    "retrieval",
+    "taxonomy_manifest_hash"
+   ],
+   "publication_ready": false,
+   "publication_revision_id": null,
+   "publication_suggestion_revision_id": null,
+   "published_outcomes": [],
+   "question_id": "0b1edd075bca6ce04501840c2abab8acce8fab08dfdce8e6c3bb7f3f8bfb97fa.extra3",
+   "run_id": 1,
+   "stale": true,
+   "suggestion_revision_id": 5,
+   "verification_count": 0,
+   "verified_by_me": false
+  },
+  {
+   "blind": false,
+   "blockers": [
+    "experimental_suggestion",
+    "stale_extraction",
+    "stale_input_hash",
+    "stale_part_mapping"
+   ],
+   "candidate_count": 1,
+   "dispute_status": null,
+   "experimental": true,
+   "is_benchmark": true,
+   "outcomes": [
+    "matched",
+    "matched"
+   ],
+   "provenance_keys": [
+    "benchmark",
+    "candidate_limit",
+    "extraction_digest",
+    "method",
+    "model_id",
+    "prompt_version",
+    "retrieval",
+    "taxonomy_manifest_hash"
+   ],
+   "publication_ready": false,
+   "publication_revision_id": null,
+   "publication_suggestion_revision_id": null,
+   "published_outcomes": [],
+   "question_id": "0b1edd075bca6ce04501840c2abab8acce8fab08dfdce8e6c3bb7f3f8bfb97fa.extra1",
+   "run_id": 1,
+   "stale": true,
+   "suggestion_revision_id": 3,
+   "verification_count": 0,
+   "verified_by_me": false
+  }
+ ],
+ "{\"limit\": 2, \"offset\": 1, \"ready\": \"false\"}": [
+  {
+   "blind": false,
+   "blockers": [
+    "experimental_suggestion",
+    "stale_extraction",
+    "stale_input_hash",
+    "stale_part_mapping"
+   ],
+   "candidate_count": 1,
+   "dispute_status": null,
+   "experimental": true,
+   "is_benchmark": true,
+   "outcomes": [
+    "needs_review",
+    "needs_review"
+   ],
+   "provenance_keys": [
+    "benchmark",
+    "candidate_limit",
+    "extraction_digest",
+    "method",
+    "model_id",
+    "prompt_version",
+    "retrieval",
+    "taxonomy_manifest_hash"
+   ],
+   "publication_ready": false,
+   "publication_revision_id": null,
+   "publication_suggestion_revision_id": null,
+   "published_outcomes": [],
+   "question_id": "0b1edd075bca6ce04501840c2abab8acce8fab08dfdce8e6c3bb7f3f8bfb97fa.extra3",
+   "run_id": 1,
+   "stale": true,
+   "suggestion_revision_id": 5,
+   "verification_count": 0,
+   "verified_by_me": false
+  },
+  {
+   "blind": false,
+   "blockers": [
+    "stale_extraction",
+    "stale_input_hash",
+    "stale_part_mapping"
+   ],
+   "candidate_count": 1,
+   "dispute_status": null,
+   "experimental": false,
+   "is_benchmark": true,
+   "outcomes": [
+    "matched",
+    "matched"
+   ],
+   "provenance_keys": [
+    "benchmark",
+    "candidate_limit",
+    "extraction_digest",
+    "method",
+    "model_id",
+    "prompt_version",
+    "retrieval",
+    "taxonomy_manifest_hash"
+   ],
+   "publication_ready": false,
+   "publication_revision_id": null,
+   "publication_suggestion_revision_id": null,
+   "published_outcomes": [],
+   "question_id": "0b1edd075bca6ce04501840c2abab8acce8fab08dfdce8e6c3bb7f3f8bfb97fa.extra2",
+   "run_id": 1,
+   "stale": true,
+   "suggestion_revision_id": 4,
+   "verification_count": 0,
+   "verified_by_me": false
+  }
+ ],
+ "{\"limit\": 2, \"offset\": 2}": [
+  {
+   "blind": false,
+   "blockers": [
+    "stale_extraction",
+    "stale_input_hash",
+    "stale_part_mapping"
+   ],
+   "candidate_count": 1,
+   "dispute_status": null,
+   "experimental": false,
+   "is_benchmark": true,
+   "outcomes": [
+    "matched",
+    "matched"
+   ],
+   "provenance_keys": [
+    "benchmark",
+    "candidate_limit",
+    "extraction_digest",
+    "method",
+    "model_id",
+    "prompt_version",
+    "retrieval",
+    "taxonomy_manifest_hash"
+   ],
+   "publication_ready": false,
+   "publication_revision_id": null,
+   "publication_suggestion_revision_id": null,
+   "published_outcomes": [],
+   "question_id": "0b1edd075bca6ce04501840c2abab8acce8fab08dfdce8e6c3bb7f3f8bfb97fa.extra2",
+   "run_id": 1,
+   "stale": true,
+   "suggestion_revision_id": 4,
+   "verification_count": 0,
+   "verified_by_me": false
+  },
+  {
+   "blind": false,
+   "blockers": [
+    "experimental_suggestion",
+    "stale_extraction",
+    "stale_input_hash",
+    "stale_part_mapping"
+   ],
+   "candidate_count": 1,
+   "dispute_status": null,
+   "experimental": true,
+   "is_benchmark": true,
+   "outcomes": [
+    "matched",
+    "matched"
+   ],
+   "provenance_keys": [
+    "benchmark",
+    "candidate_limit",
+    "extraction_digest",
+    "method",
+    "model_id",
+    "prompt_version",
+    "retrieval",
+    "taxonomy_manifest_hash"
+   ],
+   "publication_ready": false,
+   "publication_revision_id": null,
+   "publication_suggestion_revision_id": null,
+   "published_outcomes": [],
+   "question_id": "0b1edd075bca6ce04501840c2abab8acce8fab08dfdce8e6c3bb7f3f8bfb97fa.extra1",
+   "run_id": 1,
+   "stale": true,
+   "suggestion_revision_id": 3,
+   "verification_count": 0,
+   "verified_by_me": false
+  }
+ ],
+ "{\"limit\": 3, \"ready\": \"false\"}": [
+  {
+   "blind": false,
+   "blockers": [
+    "stale_extraction",
+    "stale_input_hash",
+    "stale_part_mapping"
+   ],
+   "candidate_count": 1,
+   "dispute_status": null,
+   "experimental": false,
+   "is_benchmark": true,
+   "outcomes": [
+    "matched",
+    "matched"
+   ],
+   "provenance_keys": [
+    "benchmark",
+    "candidate_limit",
+    "extraction_digest",
+    "method",
+    "model_id",
+    "prompt_version",
+    "retrieval",
+    "taxonomy_manifest_hash"
+   ],
+   "publication_ready": false,
+   "publication_revision_id": null,
+   "publication_suggestion_revision_id": null,
+   "published_outcomes": [],
+   "question_id": "0b1edd075bca6ce04501840c2abab8acce8fab08dfdce8e6c3bb7f3f8bfb97fa.extra4",
+   "run_id": 1,
+   "stale": true,
+   "suggestion_revision_id": 6,
+   "verification_count": 0,
+   "verified_by_me": false
+  },
+  {
+   "blind": false,
+   "blockers": [
+    "experimental_suggestion",
+    "stale_extraction",
+    "stale_input_hash",
+    "stale_part_mapping"
+   ],
+   "candidate_count": 1,
+   "dispute_status": null,
+   "experimental": true,
+   "is_benchmark": true,
+   "outcomes": [
+    "needs_review",
+    "needs_review"
+   ],
+   "provenance_keys": [
+    "benchmark",
+    "candidate_limit",
+    "extraction_digest",
+    "method",
+    "model_id",
+    "prompt_version",
+    "retrieval",
+    "taxonomy_manifest_hash"
+   ],
+   "publication_ready": false,
+   "publication_revision_id": null,
+   "publication_suggestion_revision_id": null,
+   "published_outcomes": [],
+   "question_id": "0b1edd075bca6ce04501840c2abab8acce8fab08dfdce8e6c3bb7f3f8bfb97fa.extra3",
+   "run_id": 1,
+   "stale": true,
+   "suggestion_revision_id": 5,
+   "verification_count": 0,
+   "verified_by_me": false
+  },
+  {
+   "blind": false,
+   "blockers": [
+    "stale_extraction",
+    "stale_input_hash",
+    "stale_part_mapping"
+   ],
+   "candidate_count": 1,
+   "dispute_status": null,
+   "experimental": false,
+   "is_benchmark": true,
+   "outcomes": [
+    "matched",
+    "matched"
+   ],
+   "provenance_keys": [
+    "benchmark",
+    "candidate_limit",
+    "extraction_digest",
+    "method",
+    "model_id",
+    "prompt_version",
+    "retrieval",
+    "taxonomy_manifest_hash"
+   ],
+   "publication_ready": false,
+   "publication_revision_id": null,
+   "publication_suggestion_revision_id": null,
+   "published_outcomes": [],
+   "question_id": "0b1edd075bca6ce04501840c2abab8acce8fab08dfdce8e6c3bb7f3f8bfb97fa.extra2",
+   "run_id": 1,
+   "stale": true,
+   "suggestion_revision_id": 4,
+   "verification_count": 0,
+   "verified_by_me": false
+  }
+ ],
+ "{\"limit\": 3}": [
+  {
+   "blind": false,
+   "blockers": [
+    "stale_extraction",
+    "stale_input_hash",
+    "stale_part_mapping"
+   ],
+   "candidate_count": 1,
+   "dispute_status": null,
+   "experimental": false,
+   "is_benchmark": true,
+   "outcomes": [
+    "matched",
+    "matched"
+   ],
+   "provenance_keys": [
+    "benchmark",
+    "candidate_limit",
+    "extraction_digest",
+    "method",
+    "model_id",
+    "prompt_version",
+    "retrieval",
+    "taxonomy_manifest_hash"
+   ],
+   "publication_ready": false,
+   "publication_revision_id": null,
+   "publication_suggestion_revision_id": null,
+   "published_outcomes": [],
+   "question_id": "0b1edd075bca6ce04501840c2abab8acce8fab08dfdce8e6c3bb7f3f8bfb97fa.extra4",
+   "run_id": 1,
+   "stale": true,
+   "suggestion_revision_id": 6,
+   "verification_count": 0,
+   "verified_by_me": false
+  },
+  {
+   "blind": false,
+   "blockers": [
+    "experimental_suggestion",
+    "stale_extraction",
+    "stale_input_hash",
+    "stale_part_mapping"
+   ],
+   "candidate_count": 1,
+   "dispute_status": null,
+   "experimental": true,
+   "is_benchmark": true,
+   "outcomes": [
+    "needs_review",
+    "needs_review"
+   ],
+   "provenance_keys": [
+    "benchmark",
+    "candidate_limit",
+    "extraction_digest",
+    "method",
+    "model_id",
+    "prompt_version",
+    "retrieval",
+    "taxonomy_manifest_hash"
+   ],
+   "publication_ready": false,
+   "publication_revision_id": null,
+   "publication_suggestion_revision_id": null,
+   "published_outcomes": [],
+   "question_id": "0b1edd075bca6ce04501840c2abab8acce8fab08dfdce8e6c3bb7f3f8bfb97fa.extra3",
+   "run_id": 1,
+   "stale": true,
+   "suggestion_revision_id": 5,
+   "verification_count": 0,
+   "verified_by_me": false
+  },
+  {
+   "blind": false,
+   "blockers": [
+    "stale_extraction",
+    "stale_input_hash",
+    "stale_part_mapping"
+   ],
+   "candidate_count": 1,
+   "dispute_status": null,
+   "experimental": false,
+   "is_benchmark": true,
+   "outcomes": [
+    "matched",
+    "matched"
+   ],
+   "provenance_keys": [
+    "benchmark",
+    "candidate_limit",
+    "extraction_digest",
+    "method",
+    "model_id",
+    "prompt_version",
+    "retrieval",
+    "taxonomy_manifest_hash"
+   ],
+   "publication_ready": false,
+   "publication_revision_id": null,
+   "publication_suggestion_revision_id": null,
+   "published_outcomes": [],
+   "question_id": "0b1edd075bca6ce04501840c2abab8acce8fab08dfdce8e6c3bb7f3f8bfb97fa.extra2",
+   "run_id": 1,
+   "stale": true,
+   "suggestion_revision_id": 4,
+   "verification_count": 0,
+   "verified_by_me": false
+  }
+ ],
+ "{\"offset\": 4}": [
+  {
+   "blind": false,
+   "blockers": [
+    "stale_extraction",
+    "stale_input_hash",
+    "stale_part_mapping"
+   ],
+   "candidate_count": 1,
+   "dispute_status": null,
+   "experimental": false,
+   "is_benchmark": true,
+   "outcomes": [
+    "needs_review",
+    "needs_review"
+   ],
+   "provenance_keys": [
+    "benchmark",
+    "candidate_limit",
+    "extraction_digest",
+    "method",
+    "model_id",
+    "prompt_version",
+    "retrieval",
+    "taxonomy_manifest_hash"
+   ],
+   "publication_ready": false,
+   "publication_revision_id": null,
+   "publication_suggestion_revision_id": null,
+   "published_outcomes": [],
+   "question_id": "0b1edd075bca6ce04501840c2abab8acce8fab08dfdce8e6c3bb7f3f8bfb97fa.extra0",
+   "run_id": 1,
+   "stale": true,
+   "suggestion_revision_id": 2,
+   "verification_count": 0,
+   "verified_by_me": false
+  },
+  {
+   "blind": false,
+   "blockers": [],
+   "candidate_count": 1,
+   "dispute_status": "open",
+   "experimental": false,
+   "is_benchmark": false,
+   "outcomes": [
+    "matched",
+    "matched"
+   ],
+   "provenance_keys": [
+    "candidate_limit",
+    "extraction_digest",
+    "method",
+    "model_id",
+    "prompt_version",
+    "retrieval",
+    "taxonomy_manifest_hash"
+   ],
+   "publication_ready": true,
+   "publication_revision_id": 1,
+   "publication_suggestion_revision_id": 1,
+   "published_outcomes": [
+    "matched",
+    "matched"
+   ],
+   "question_id": "0b1edd075bca6ce04501840c2abab8acce8fab08dfdce8e6c3bb7f3f8bfb97fa",
+   "run_id": 1,
+   "stale": false,
+   "suggestion_revision_id": 1,
+   "verification_count": 1,
+   "verified_by_me": true
+  }
+ ],
+ "{\"outcome\": \"matched\"}": [
+  {
+   "blind": false,
+   "blockers": [
+    "stale_extraction",
+    "stale_input_hash",
+    "stale_part_mapping"
+   ],
+   "candidate_count": 1,
+   "dispute_status": null,
+   "experimental": false,
+   "is_benchmark": true,
+   "outcomes": [
+    "matched",
+    "matched"
+   ],
+   "provenance_keys": [
+    "benchmark",
+    "candidate_limit",
+    "extraction_digest",
+    "method",
+    "model_id",
+    "prompt_version",
+    "retrieval",
+    "taxonomy_manifest_hash"
+   ],
+   "publication_ready": false,
+   "publication_revision_id": null,
+   "publication_suggestion_revision_id": null,
+   "published_outcomes": [],
+   "question_id": "0b1edd075bca6ce04501840c2abab8acce8fab08dfdce8e6c3bb7f3f8bfb97fa.extra4",
+   "run_id": 1,
+   "stale": true,
+   "suggestion_revision_id": 6,
+   "verification_count": 0,
+   "verified_by_me": false
+  },
+  {
+   "blind": false,
+   "blockers": [
+    "stale_extraction",
+    "stale_input_hash",
+    "stale_part_mapping"
+   ],
+   "candidate_count": 1,
+   "dispute_status": null,
+   "experimental": false,
+   "is_benchmark": true,
+   "outcomes": [
+    "matched",
+    "matched"
+   ],
+   "provenance_keys": [
+    "benchmark",
+    "candidate_limit",
+    "extraction_digest",
+    "method",
+    "model_id",
+    "prompt_version",
+    "retrieval",
+    "taxonomy_manifest_hash"
+   ],
+   "publication_ready": false,
+   "publication_revision_id": null,
+   "publication_suggestion_revision_id": null,
+   "published_outcomes": [],
+   "question_id": "0b1edd075bca6ce04501840c2abab8acce8fab08dfdce8e6c3bb7f3f8bfb97fa.extra2",
+   "run_id": 1,
+   "stale": true,
+   "suggestion_revision_id": 4,
+   "verification_count": 0,
+   "verified_by_me": false
+  },
+  {
+   "blind": false,
+   "blockers": [
+    "experimental_suggestion",
+    "stale_extraction",
+    "stale_input_hash",
+    "stale_part_mapping"
+   ],
+   "candidate_count": 1,
+   "dispute_status": null,
+   "experimental": true,
+   "is_benchmark": true,
+   "outcomes": [
+    "matched",
+    "matched"
+   ],
+   "provenance_keys": [
+    "benchmark",
+    "candidate_limit",
+    "extraction_digest",
+    "method",
+    "model_id",
+    "prompt_version",
+    "retrieval",
+    "taxonomy_manifest_hash"
+   ],
+   "publication_ready": false,
+   "publication_revision_id": null,
+   "publication_suggestion_revision_id": null,
+   "published_outcomes": [],
+   "question_id": "0b1edd075bca6ce04501840c2abab8acce8fab08dfdce8e6c3bb7f3f8bfb97fa.extra1",
+   "run_id": 1,
+   "stale": true,
+   "suggestion_revision_id": 3,
+   "verification_count": 0,
+   "verified_by_me": false
+  },
+  {
+   "blind": false,
+   "blockers": [],
+   "candidate_count": 1,
+   "dispute_status": "open",
+   "experimental": false,
+   "is_benchmark": false,
+   "outcomes": [
+    "matched",
+    "matched"
+   ],
+   "provenance_keys": [
+    "candidate_limit",
+    "extraction_digest",
+    "method",
+    "model_id",
+    "prompt_version",
+    "retrieval",
+    "taxonomy_manifest_hash"
+   ],
+   "publication_ready": true,
+   "publication_revision_id": 1,
+   "publication_suggestion_revision_id": 1,
+   "published_outcomes": [
+    "matched",
+    "matched"
+   ],
+   "question_id": "0b1edd075bca6ce04501840c2abab8acce8fab08dfdce8e6c3bb7f3f8bfb97fa",
+   "run_id": 1,
+   "stale": false,
+   "suggestion_revision_id": 1,
+   "verification_count": 1,
+   "verified_by_me": true
+  }
+ ],
+ "{\"outcome\": \"needs_review\"}": [
+  {
+   "blind": false,
+   "blockers": [
+    "experimental_suggestion",
+    "stale_extraction",
+    "stale_input_hash",
+    "stale_part_mapping"
+   ],
+   "candidate_count": 1,
+   "dispute_status": null,
+   "experimental": true,
+   "is_benchmark": true,
+   "outcomes": [
+    "needs_review",
+    "needs_review"
+   ],
+   "provenance_keys": [
+    "benchmark",
+    "candidate_limit",
+    "extraction_digest",
+    "method",
+    "model_id",
+    "prompt_version",
+    "retrieval",
+    "taxonomy_manifest_hash"
+   ],
+   "publication_ready": false,
+   "publication_revision_id": null,
+   "publication_suggestion_revision_id": null,
+   "published_outcomes": [],
+   "question_id": "0b1edd075bca6ce04501840c2abab8acce8fab08dfdce8e6c3bb7f3f8bfb97fa.extra3",
+   "run_id": 1,
+   "stale": true,
+   "suggestion_revision_id": 5,
+   "verification_count": 0,
+   "verified_by_me": false
+  },
+  {
+   "blind": false,
+   "blockers": [
+    "stale_extraction",
+    "stale_input_hash",
+    "stale_part_mapping"
+   ],
+   "candidate_count": 1,
+   "dispute_status": null,
+   "experimental": false,
+   "is_benchmark": true,
+   "outcomes": [
+    "needs_review",
+    "needs_review"
+   ],
+   "provenance_keys": [
+    "benchmark",
+    "candidate_limit",
+    "extraction_digest",
+    "method",
+    "model_id",
+    "prompt_version",
+    "retrieval",
+    "taxonomy_manifest_hash"
+   ],
+   "publication_ready": false,
+   "publication_revision_id": null,
+   "publication_suggestion_revision_id": null,
+   "published_outcomes": [],
+   "question_id": "0b1edd075bca6ce04501840c2abab8acce8fab08dfdce8e6c3bb7f3f8bfb97fa.extra0",
+   "run_id": 1,
+   "stale": true,
+   "suggestion_revision_id": 2,
+   "verification_count": 0,
+   "verified_by_me": false
+  }
+ ],
+ "{\"paper_id\": \"no-such-paper\"}": [],
+ "{\"ready\": \"true\"}": [
+  {
+   "blind": false,
+   "blockers": [],
+   "candidate_count": 1,
+   "dispute_status": "open",
+   "experimental": false,
+   "is_benchmark": false,
+   "outcomes": [
+    "matched",
+    "matched"
+   ],
+   "provenance_keys": [
+    "candidate_limit",
+    "extraction_digest",
+    "method",
+    "model_id",
+    "prompt_version",
+    "retrieval",
+    "taxonomy_manifest_hash"
+   ],
+   "publication_ready": true,
+   "publication_revision_id": 1,
+   "publication_suggestion_revision_id": 1,
+   "published_outcomes": [
+    "matched",
+    "matched"
+   ],
+   "question_id": "0b1edd075bca6ce04501840c2abab8acce8fab08dfdce8e6c3bb7f3f8bfb97fa",
+   "run_id": 1,
+   "stale": false,
+   "suggestion_revision_id": 1,
+   "verification_count": 1,
+   "verified_by_me": true
+  }
+ ],
+ "{}": [
+  {
+   "blind": false,
+   "blockers": [
+    "stale_extraction",
+    "stale_input_hash",
+    "stale_part_mapping"
+   ],
+   "candidate_count": 1,
+   "dispute_status": null,
+   "experimental": false,
+   "is_benchmark": true,
+   "outcomes": [
+    "matched",
+    "matched"
+   ],
+   "provenance_keys": [
+    "benchmark",
+    "candidate_limit",
+    "extraction_digest",
+    "method",
+    "model_id",
+    "prompt_version",
+    "retrieval",
+    "taxonomy_manifest_hash"
+   ],
+   "publication_ready": false,
+   "publication_revision_id": null,
+   "publication_suggestion_revision_id": null,
+   "published_outcomes": [],
+   "question_id": "0b1edd075bca6ce04501840c2abab8acce8fab08dfdce8e6c3bb7f3f8bfb97fa.extra4",
+   "run_id": 1,
+   "stale": true,
+   "suggestion_revision_id": 6,
+   "verification_count": 0,
+   "verified_by_me": false
+  },
+  {
+   "blind": false,
+   "blockers": [
+    "experimental_suggestion",
+    "stale_extraction",
+    "stale_input_hash",
+    "stale_part_mapping"
+   ],
+   "candidate_count": 1,
+   "dispute_status": null,
+   "experimental": true,
+   "is_benchmark": true,
+   "outcomes": [
+    "needs_review",
+    "needs_review"
+   ],
+   "provenance_keys": [
+    "benchmark",
+    "candidate_limit",
+    "extraction_digest",
+    "method",
+    "model_id",
+    "prompt_version",
+    "retrieval",
+    "taxonomy_manifest_hash"
+   ],
+   "publication_ready": false,
+   "publication_revision_id": null,
+   "publication_suggestion_revision_id": null,
+   "published_outcomes": [],
+   "question_id": "0b1edd075bca6ce04501840c2abab8acce8fab08dfdce8e6c3bb7f3f8bfb97fa.extra3",
+   "run_id": 1,
+   "stale": true,
+   "suggestion_revision_id": 5,
+   "verification_count": 0,
+   "verified_by_me": false
+  },
+  {
+   "blind": false,
+   "blockers": [
+    "stale_extraction",
+    "stale_input_hash",
+    "stale_part_mapping"
+   ],
+   "candidate_count": 1,
+   "dispute_status": null,
+   "experimental": false,
+   "is_benchmark": true,
+   "outcomes": [
+    "matched",
+    "matched"
+   ],
+   "provenance_keys": [
+    "benchmark",
+    "candidate_limit",
+    "extraction_digest",
+    "method",
+    "model_id",
+    "prompt_version",
+    "retrieval",
+    "taxonomy_manifest_hash"
+   ],
+   "publication_ready": false,
+   "publication_revision_id": null,
+   "publication_suggestion_revision_id": null,
+   "published_outcomes": [],
+   "question_id": "0b1edd075bca6ce04501840c2abab8acce8fab08dfdce8e6c3bb7f3f8bfb97fa.extra2",
+   "run_id": 1,
+   "stale": true,
+   "suggestion_revision_id": 4,
+   "verification_count": 0,
+   "verified_by_me": false
+  },
+  {
+   "blind": false,
+   "blockers": [
+    "experimental_suggestion",
+    "stale_extraction",
+    "stale_input_hash",
+    "stale_part_mapping"
+   ],
+   "candidate_count": 1,
+   "dispute_status": null,
+   "experimental": true,
+   "is_benchmark": true,
+   "outcomes": [
+    "matched",
+    "matched"
+   ],
+   "provenance_keys": [
+    "benchmark",
+    "candidate_limit",
+    "extraction_digest",
+    "method",
+    "model_id",
+    "prompt_version",
+    "retrieval",
+    "taxonomy_manifest_hash"
+   ],
+   "publication_ready": false,
+   "publication_revision_id": null,
+   "publication_suggestion_revision_id": null,
+   "published_outcomes": [],
+   "question_id": "0b1edd075bca6ce04501840c2abab8acce8fab08dfdce8e6c3bb7f3f8bfb97fa.extra1",
+   "run_id": 1,
+   "stale": true,
+   "suggestion_revision_id": 3,
+   "verification_count": 0,
+   "verified_by_me": false
+  },
+  {
+   "blind": false,
+   "blockers": [
+    "stale_extraction",
+    "stale_input_hash",
+    "stale_part_mapping"
+   ],
+   "candidate_count": 1,
+   "dispute_status": null,
+   "experimental": false,
+   "is_benchmark": true,
+   "outcomes": [
+    "needs_review",
+    "needs_review"
+   ],
+   "provenance_keys": [
+    "benchmark",
+    "candidate_limit",
+    "extraction_digest",
+    "method",
+    "model_id",
+    "prompt_version",
+    "retrieval",
+    "taxonomy_manifest_hash"
+   ],
+   "publication_ready": false,
+   "publication_revision_id": null,
+   "publication_suggestion_revision_id": null,
+   "published_outcomes": [],
+   "question_id": "0b1edd075bca6ce04501840c2abab8acce8fab08dfdce8e6c3bb7f3f8bfb97fa.extra0",
+   "run_id": 1,
+   "stale": true,
+   "suggestion_revision_id": 2,
+   "verification_count": 0,
+   "verified_by_me": false
+  },
+  {
+   "blind": false,
+   "blockers": [],
+   "candidate_count": 1,
+   "dispute_status": "open",
+   "experimental": false,
+   "is_benchmark": false,
+   "outcomes": [
+    "matched",
+    "matched"
+   ],
+   "provenance_keys": [
+    "candidate_limit",
+    "extraction_digest",
+    "method",
+    "model_id",
+    "prompt_version",
+    "retrieval",
+    "taxonomy_manifest_hash"
+   ],
+   "publication_ready": true,
+   "publication_revision_id": 1,
+   "publication_suggestion_revision_id": 1,
+   "published_outcomes": [
+    "matched",
+    "matched"
+   ],
+   "question_id": "0b1edd075bca6ce04501840c2abab8acce8fab08dfdce8e6c3bb7f3f8bfb97fa",
+   "run_id": 1,
+   "stale": false,
+   "suggestion_revision_id": 1,
+   "verification_count": 1,
+   "verified_by_me": true
+  }
+ ]
+}

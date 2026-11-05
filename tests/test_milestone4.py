@@ -230,7 +230,11 @@ def test_curation_api_and_publishing():
         u_check = session.get(Unit, unit_id)
         assert u_check.classify_status == "suggested"
 
-        app = session.query(Appearance).filter(Appearance.unit_fingerprint == f"test_fp_curate_{uid}").first()
+        app = (
+            session.query(Appearance)
+            .filter(Appearance.unit_fingerprint == f"test_fp_curate_{uid}")
+            .first()
+        )
         assert app is None
 
 
@@ -295,7 +299,7 @@ def test_bulk_accept_bucket_a():
     # Call bulk accept endpoint
     res = client.post(f"/api/v1/curate/documents/{doc_id}/bulk_accept_bucket_a")
     with get_session_factory()() as session:
-        with pytest.raises(ValueError, match='Automatic bucket publication is disabled'):
+        with pytest.raises(ValueError, match="Automatic bucket publication is disabled"):
             bulk_accept_bucket_a(session, doc_id)
     assert res.status_code == 422
     assert res.json()["detail"]["code"] == "revision_review_required"
@@ -330,8 +334,9 @@ def test_law_staleness():
         assert compute_law_stale(session, "2024-05", "s2023.P5", ["P5-4RKS1C"]) is False
 
         # 3. P4 with null first_applicable_attempt: never stale (guard in code skips it)
-        assert compute_law_stale(session, "2024-05", "s2023.P4", ["P4-XXXXXX"]) is False, \
+        assert compute_law_stale(session, "2024-05", "s2023.P4", ["P4-XXXXXX"]) is False, (
             "ita_2025 has null first_applicable_attempt — should not fire"
+        )
 
         # 4. MARK_STALE path: insert a boundary with a real threshold and verify True
         test_boundary = LawBoundary(

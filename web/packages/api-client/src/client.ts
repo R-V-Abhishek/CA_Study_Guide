@@ -3,7 +3,10 @@ import type { paths } from "./generated";
 import { authenticatedFetch } from "./auth";
 
 export class ApiError extends Error {
-  constructor(message: string, public readonly status?: number) {
+  constructor(
+    message: string,
+    public readonly status?: number,
+  ) {
     super(message);
     this.name = "ApiError";
   }
@@ -35,7 +38,7 @@ export async function apiRequest<T>(url: string, options: RequestInit = {}): Pro
     throw new ApiError(error instanceof Error ? error.message : "Network request failed");
   }
   await checkedResponse(response);
-  return response.status === 204 ? undefined as T : response.json();
+  return response.status === 204 ? (undefined as T) : response.json();
 }
 
 const errorMiddleware = {

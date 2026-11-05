@@ -16,8 +16,14 @@ console = Console()
 
 @app.command("baseline")
 def baseline(
-    output_dir: Path | None = typer.Option(None, "--output-dir", help="Audit root; creates a unique timestamped child directory"),
-    checkpoint_manifest: Path | None = typer.Option(None, "--checkpoint-manifest", help="Compare protected content with a captured recovery manifest"),
+    output_dir: Path | None = typer.Option(
+        None, "--output-dir", help="Audit root; creates a unique timestamped child directory"
+    ),
+    checkpoint_manifest: Path | None = typer.Option(
+        None,
+        "--checkpoint-manifest",
+        help="Compare protected content with a captured recovery manifest",
+    ),
 ) -> None:
     """Report corpus provenance without changing the source database."""
     settings = get_settings()
@@ -26,13 +32,22 @@ def baseline(
         report = collect_baseline(engine)
         if checkpoint_manifest:
             manifest = json.loads(checkpoint_manifest.read_text())
-            expected = {table: content for table, content in manifest["tables"].items()
-                        if table.startswith(("app.", "core."))}
+            expected = {
+                table: content
+                for table, content in manifest["tables"].items()
+                if table.startswith(("app.", "core."))
+            }
             actual = report["protected_table_content"]
-            mismatches = sorted(table for table in expected.keys() | actual.keys()
-                                if expected.get(table) != actual.get(table))
-            report["checkpoint_comparison"] = {"manifest": str(checkpoint_manifest),
-                                                "unchanged": not mismatches, "mismatches": mismatches}
+            mismatches = sorted(
+                table
+                for table in expected.keys() | actual.keys()
+                if expected.get(table) != actual.get(table)
+            )
+            report["checkpoint_comparison"] = {
+                "manifest": str(checkpoint_manifest),
+                "unchanged": not mismatches,
+                "mismatches": mismatches,
+            }
         folder = write_baseline(report, output_dir or settings.storage.data_dir / "audits")
     finally:
         engine.dispose()

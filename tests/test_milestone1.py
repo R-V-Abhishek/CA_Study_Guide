@@ -12,7 +12,7 @@ def test_health():
     assert res.status_code == 200
     data = res.json()
     assert data["status"] == "ok"
-    assert data["target_attempt"] == "2027-05"
+    assert data == {"status": "ok"}
 
 
 def test_list_papers():
@@ -56,7 +56,9 @@ def test_subtopic_progress_and_notes():
     assert p_res.json()["status"] == "in_progress"
 
     # 3. Add personal notes
-    n_res = client.put(f"/api/v1/subtopics/{sid}/notes", json={"notes": "Reviewed core Ind AS definitions"})
+    n_res = client.put(
+        f"/api/v1/subtopics/{sid}/notes", json={"notes": "Reviewed core Ind AS definitions"}
+    )
     assert n_res.status_code == 200
     assert n_res.json()["notes"] == "Reviewed core Ind AS definitions"
 
@@ -80,7 +82,9 @@ def test_dashboard():
     # Explicitly create this test's progress; other tests use independent databases.
     tree = client.get("/api/v1/papers/s2023.P1/tree").json()
     sid = tree["chapters"][0]["topics"][0]["subtopics"][0]["id"]
-    assert client.put(f"/api/v1/subtopics/{sid}/progress", json={"status": "done"}).status_code == 200
+    assert (
+        client.put(f"/api/v1/subtopics/{sid}/progress", json={"status": "done"}).status_code == 200
+    )
     res = client.get("/api/v1/dashboard")
     assert res.status_code == 200
     data = res.json()
@@ -90,3 +94,11 @@ def test_dashboard():
     recent = data["recent_activity"][0]
     assert "node_name" in recent
     assert "paper_code" in recent
+
+
+def test_openapi_version_follows_the_root_project_version():
+    import tomllib
+    from pathlib import Path
+
+    expected = tomllib.loads(Path("pyproject.toml").read_text())["project"]["version"]
+    assert app.version == expected and app.version != "1.0.0"

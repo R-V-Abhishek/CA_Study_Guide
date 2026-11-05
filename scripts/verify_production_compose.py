@@ -15,21 +15,39 @@ PASSWORDS = ("SUPERUSER", "APP", "IDENTITY", "CURATOR", "OPERATIONS", "PIPELINE"
 
 def fixture() -> dict[str, str]:
     values = {f"PG_{role}_PASSWORD": f"{index + 1:064x}" for index, role in enumerate(PASSWORDS)}
-    return {**values, "CAF_IMAGE": "caf:configuration-test", "CAF_REVISION": "a" * 40,
-            "AUTH_PUBLIC_BASE_URL": "https://caf-home.example.ts.net",
-            "OIDC_ISSUER": "https://example.auth0.com/", "OIDC_CLIENT_ID": "fixture-client",
-            "OIDC_CLIENT_SECRET": "fixture-secret"}
+    return {
+        **values,
+        "CAF_IMAGE": "caf:configuration-test",
+        "CAF_REVISION": "a" * 40,
+        "AUTH_PUBLIC_BASE_URL": "https://caf-home.example.ts.net",
+        "OIDC_ISSUER": "https://example.auth0.com/",
+        "OIDC_CLIENT_ID": "fixture-client",
+        "OIDC_CLIENT_SECRET": "fixture-secret",
+    }
 
 
 def render(values: dict[str, str], *, tools: bool = False) -> subprocess.CompletedProcess[str]:
     # Do not load the user's .env or inherit actual application credentials.
     environment = {key: os.environ[key] for key in ("PATH", "HOME")}
     environment.update(values)
-    command = ["docker", "compose", "--env-file", "/dev/null", "-f", str(ROOT / "compose.production.yml")]
+    command = [
+        "docker",
+        "compose",
+        "--env-file",
+        "/dev/null",
+        "-f",
+        str(ROOT / "compose.production.yml"),
+    ]
     if tools:
         command.extend(["--profile", "tools"])
-    return subprocess.run([*command, "config", "--format", "json"], cwd=ROOT,
-                          env=environment, capture_output=True, text=True, timeout=30)
+    return subprocess.run(
+        [*command, "config", "--format", "json"],
+        cwd=ROOT,
+        env=environment,
+        capture_output=True,
+        text=True,
+        timeout=30,
+    )
 
 
 @app.command()
@@ -53,7 +71,11 @@ def verify() -> None:
     assert services["db"]["environment"]["POSTGRES_PASSWORD"] == values["PG_SUPERUSER_PASSWORD"]
     port = services["web"]["ports"]
     assert len(port) == 1
-    assert (port[0]["host_ip"], port[0]["published"], port[0]["target"]) == ("127.0.0.1", "8788", 8788)
+    assert (port[0]["host_ip"], port[0]["published"], port[0]["target"]) == (
+        "127.0.0.1",
+        "8788",
+        8788,
+    )
     for name, service in services.items():
         assert "build" not in service and not service.get("privileged", False)
         assert service["cpus"] > 0 and int(service["mem_limit"]) > 0
@@ -71,11 +93,17 @@ def verify() -> None:
         assert service["pull_policy"] == "never"
         assert service["user"] == "10001:10001" and service["read_only"] is True
         mounts = {mount["source"]: mount["target"] for mount in service["volumes"]}
-        assert mounts == {"/srv/caf/data": "/srv/caf/data", "/srv/caf/backups": "/srv/caf/data/backups"}
+        assert mounts == {
+            "/srv/caf/data": "/srv/caf/data",
+            "/srv/caf/backups": "/srv/caf/data/backups",
+        }
         assert service["cap_drop"] == ["ALL"]
         assert "no-new-privileges:true" in service["security_opt"]
         environment = service["environment"]
-        assert environment["CAF_ENV"] == "production" and environment["AUTH_LOCAL_DEVELOPMENT"] == "false"
+        assert (
+            environment["CAF_ENV"] == "production"
+            and environment["AUTH_LOCAL_DEVELOPMENT"] == "false"
+        )
         assert environment["GEMINI_API_KEY"] == environment["OPENROUTER_API_KEY"] == ""
         if name in {"web", "worker", "pipeline"}:
             assert "MIGRATION_DATABASE_URL" not in environment
@@ -87,10 +115,17 @@ def verify() -> None:
         else:
             assert service["restart"] == "unless-stopped"
     web = services["web"]["environment"]
-    for role, variable in (("APP", "STUDENT"), ("IDENTITY", "IDENTITY"), ("CURATOR", "CURATION"),
-                           ("OPERATIONS", "OPERATIONS"), ("BACKUP", "BACKUP")):
+    for role, variable in (
+        ("APP", "STUDENT"),
+        ("IDENTITY", "IDENTITY"),
+        ("CURATOR", "CURATION"),
+        ("OPERATIONS", "OPERATIONS"),
+        ("BACKUP", "BACKUP"),
+    ):
         url = urlsplit(web[f"{variable}_DATABASE_URL"])
-        assert url.username == f"caf_{role.lower()}" and url.password == values[f"PG_{role}_PASSWORD"]
+        assert (
+            url.username == f"caf_{role.lower()}" and url.password == values[f"PG_{role}_PASSWORD"]
+        )
         assert (url.hostname, url.port, url.path) == ("db", 5432, "/caf")
     assert web["OIDC_REDIRECT_URI"] == values["AUTH_PUBLIC_BASE_URL"] + "/auth/callback"
     worker = services["worker"]["environment"]
@@ -105,7 +140,9 @@ def verify() -> None:
     for name in values:
         missing = render({**values, name: ""}, tools=True)
         assert missing.returncode != 0, f"Missing {name} was accepted"
-    typer.echo(f"PASS: service isolation, loopback port, role wiring, limits, manual tools, and {len(values)} required-value failures")
+    typer.echo(
+        f"PASS: service isolation, loopback port, role wiring, limits, manual tools, and {len(values)} required-value failures"
+    )
 
 
 if __name__ == "__main__":

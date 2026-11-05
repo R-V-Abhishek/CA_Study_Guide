@@ -11,12 +11,15 @@ import sys
 
 assert sys.version_info[:2] == (3, 12)
 assert os.getuid() == 10001
+assert Path("data").is_symlink()
+assert Path("data").readlink() == Path("/srv/caf/data")
+assert not list(Path("/srv/caf/data").iterdir()), "Image must not bundle local data"
 for module in (
     "caf_contracts", "caf_common", "caf_db", "caf_l0", "caf_l1", "caf_l2",
     "caf_l3", "caf_l4", "caf_l5", "caf_cli", "caf_api",
 ):
     importlib.import_module(module)
-for path in (".env", ".git", "data", "web/node_modules"):
+for path in (".env", ".git", "web/node_modules"):
     assert not Path(path).exists(), path
 for interface in ("student", "curator"):
     root = Path(f"web/apps/{interface}/dist")
@@ -34,6 +37,8 @@ assert not os.environ.get("OPENROUTER_API_KEY")
 assert settings.storage.data_dir == Path("/srv/caf/data")
 probe = settings.storage.data_dir / ".packaging-write-check"
 probe.write_text("ok")
+assert Path("data/.packaging-write-check").read_text() == "ok"
+assert Path("data/.packaging-write-check").resolve() == probe
 probe.unlink()
 importlib.import_module("caf_api.main")
 from caf_api.auth import validate_auth_configuration

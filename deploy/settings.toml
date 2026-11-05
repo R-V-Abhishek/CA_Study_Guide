@@ -15,3 +15,9 @@ language = "eng"
 
 [curate]
 auto_accept_bucket_a = false
+
+[baseline_notice]
+attempt_label = "May 2027"
+
+[baseline_notice.paper_notes]
+"s2023.P5" = "P5 includes older-edition material; check the prescribed syllabus before relying on it for the exam."

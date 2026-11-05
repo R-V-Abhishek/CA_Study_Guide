@@ -95,5 +95,9 @@ def test_decision_d2_student_api_no_content_leak(client):
     # Verify appearance summaries
     appearances = data.get("appearances", [])
     for app_item in appearances:
-        assert "question_text" not in app_item, "Violation of Decision D2: question_text leaked in student API!"
-        assert "answer_text" not in app_item, "Violation of Decision D2: answer_text leaked in student API!"
+        assert "question_text" not in app_item, (
+            "Violation of Decision D2: question_text leaked in student API!"
+        )
+        assert "answer_text" not in app_item, (
+            "Violation of Decision D2: answer_text leaked in student API!"
+        )

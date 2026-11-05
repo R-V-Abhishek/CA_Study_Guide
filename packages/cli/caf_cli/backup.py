@@ -18,7 +18,10 @@ def cmd_run(
         None, "--backup-dir", "-d", help="Directory where backup dumps are stored"
     ),
     target_dir: Path | None = typer.Option(
-        None, "--target-dir", "-t", help="Secondary sync target (e.g. external volume / cloud sync folder)"
+        None,
+        "--target-dir",
+        "-t",
+        help="Secondary sync target (e.g. external volume / cloud sync folder)",
     ),
 ) -> None:
     """Create a unique recovery artifact with a snapshot manifest and archived files."""
@@ -37,7 +40,10 @@ def cmd_run(
 
             table.add_row("Dump File", manifest.dump_file.name)
             table.add_row("Dump Path", str(manifest.dump_file))
-            table.add_row("Size", f"{manifest.dump_size_bytes / (1024 * 1024):.2f} MB ({manifest.dump_size_bytes} bytes)")
+            table.add_row(
+                "Size",
+                f"{manifest.dump_size_bytes / (1024 * 1024):.2f} MB ({manifest.dump_size_bytes} bytes)",
+            )
             table.add_row("Blobs Synced", str(manifest.blobs_copied))
             table.add_row("Configs Archived", str(manifest.configs_copied))
             table.add_row("Created At", manifest.created_at.strftime("%Y-%m-%d %H:%M:%S UTC"))
@@ -45,7 +51,9 @@ def cmd_run(
             table.add_row("Retention Policy", "Existing backups preserved; no automatic rotation")
 
             console.print(table)
-            console.print("[bold green]✓ Nightly backup manifest recorded in ops.event (code=BACKUP_OK).[/bold green]")
+            console.print(
+                "[bold green]✓ Nightly backup manifest recorded in ops.event (code=BACKUP_OK).[/bold green]"
+            )
         except Exception as exc:
             console.print(f"[bold red]Backup failed:[/bold red] {exc}")
             raise typer.Exit(code=1)
@@ -72,7 +80,9 @@ def cmd_verify(
             )
 
             status_color = "bold green" if res.verified else "bold red"
-            table = Table(title=f"Backup Verification Report: {res.dump_file.name}", show_header=True)
+            table = Table(
+                title=f"Backup Verification Report: {res.dump_file.name}", show_header=True
+            )
             table.add_column("Table", style="cyan")
             table.add_column("Manifest Count", justify="right")
             table.add_column("Restored Count", justify="right")
@@ -81,7 +91,7 @@ def cmd_verify(
             for t_name in sorted(res.live_counts.keys()):
                 live_cnt = res.live_counts.get(t_name, 0)
                 rest_cnt = res.restored_counts.get(t_name, 0)
-                match = (live_cnt == rest_cnt)
+                match = live_cnt == rest_cnt
                 table.add_row(
                     t_name,
                     str(live_cnt),
@@ -90,7 +100,9 @@ def cmd_verify(
                 )
 
             console.print(table)
-            console.print(f"\nVerification Result: [{status_color}]{'PASSED' if res.verified else 'FAILED'}[/{status_color}]")
+            console.print(
+                f"\nVerification Result: [{status_color}]{'PASSED' if res.verified else 'FAILED'}[/{status_color}]"
+            )
             console.print(f"[dim]{res.message}[/dim]")
             console.print(f"Report: {res.report_file}")
 
@@ -121,8 +133,12 @@ def cmd_list(
     table.add_column("Created At", style="dim")
 
     for b in backups:
-        age_str = f"{b['age_hours']:.1f} hrs ago" if b['age_hours'] < 48 else f"{b['age_hours'] / 24:.1f} days ago"
-        age_style = "green" if b['age_hours'] <= 48 else "yellow"
+        age_str = (
+            f"{b['age_hours']:.1f} hrs ago"
+            if b["age_hours"] < 48
+            else f"{b['age_hours'] / 24:.1f} days ago"
+        )
+        age_style = "green" if b["age_hours"] <= 48 else "yellow"
         table.add_row(
             b["name"],
             f"{b['size_mb']} MB",

@@ -10,9 +10,17 @@ export function Taxonomy() {
   const [selectedPaper, setSelectedPaper] = useState("");
   const [expandedChapters, setExpandedChapters] = useState<Record<string, boolean>>({});
 
-  const papers = useQuery({ queryKey: ["curator-papers", accountKey()], queryFn: async () => requiredData(await curatorClient.GET("/api/v1/papers")) });
+  const papers = useQuery({
+    queryKey: ["curator-papers", accountKey()],
+    queryFn: async () => requiredData(await curatorClient.GET("/api/v1/papers")),
+  });
   const paperId = selectedPaper || papers.data?.[0]?.id;
-  const { data: treeData, isLoading, error, refetch } = useQuery({
+  const {
+    data: treeData,
+    isLoading,
+    error,
+    refetch,
+  } = useQuery({
     queryKey: ["curator-taxonomy-tree", accountKey(), paperId],
     enabled: Boolean(paperId),
     queryFn: async () => {
@@ -37,10 +45,12 @@ export function Taxonomy() {
             <Network className="w-5 h-5 text-indigo-400" />
             <h1 className="text-lg font-bold text-white">Taxonomy Explorer</h1>
           </div>
-          <p className="text-xs text-slate-400 mt-0.5">
-            Current syllabus hierarchy from the backend.
+          <p className="text-xs text-slate-400 mt-0.5">Current syllabus hierarchy from the backend.</p>
+          <p className="text-xs text-indigo-300 mt-2">
+            <Link to="/textbooks">Recursive textbook taxonomy</Link>
+            {" · "}
+            <Link to="/textbooks?legacy=true">Legacy taxonomy history</Link>
           </p>
-          <p className="text-xs text-indigo-300 mt-2"><Link to="/textbooks">Recursive textbook taxonomy</Link>{" · "}<Link to="/textbooks?legacy=true">Legacy taxonomy history</Link></p>
         </div>
 
         {/* Paper selector tabs */}
@@ -51,9 +61,7 @@ export function Taxonomy() {
               type="button"
               onClick={() => setSelectedPaper(p.id)}
               className={`px-3 py-1 rounded-lg text-xs font-mono font-bold transition-colors ${
-                paperId === p.id
-                  ? "bg-indigo-600 text-white"
-                  : "text-slate-400 hover:text-white"
+                paperId === p.id ? "bg-indigo-600 text-white" : "text-slate-400 hover:text-white"
               }`}
             >
               {p.code}
@@ -72,9 +80,7 @@ export function Taxonomy() {
             <div className="h-48 w-full bg-slate-800 rounded animate-pulse" />
           </div>
         ) : error || papers.error ? null : chapters.length === 0 ? (
-          <div className="p-12 text-center text-xs text-slate-500">
-            No taxonomy chapters loaded for this paper.
-          </div>
+          <div className="p-12 text-center text-xs text-slate-500">No taxonomy chapters loaded for this paper.</div>
         ) : (
           <div className="divide-y divide-slate-800/80">
             {chapters.map((chapter) => {
@@ -94,12 +100,8 @@ export function Taxonomy() {
                       ) : (
                         <ChevronRight className="w-4 h-4 text-slate-400 shrink-0" />
                       )}
-                      <span className="font-mono text-xs font-bold text-indigo-400">
-                        {chapter.id}
-                      </span>
-                      <span className="font-bold text-white truncate">
-                        {chapter.name}
-                      </span>
+                      <span className="font-mono text-xs font-bold text-indigo-400">{chapter.id}</span>
+                      <span className="font-bold text-white truncate">{chapter.name}</span>
                     </div>
 
                     <div className="flex items-center gap-4 shrink-0 font-mono text-[11px] text-slate-400">
@@ -108,9 +110,7 @@ export function Taxonomy() {
                           {chapter.weightage_min_pct}–{chapter.weightage_max_pct}% weightage
                         </span>
                       )}
-                      <span className="font-semibold text-slate-300">
-                        {chapter.total_subtopics} subtopics
-                      </span>
+                      <span className="font-semibold text-slate-300">{chapter.total_subtopics} subtopics</span>
                     </div>
                   </button>
 
@@ -120,9 +120,7 @@ export function Taxonomy() {
                       {(chapter.topics || []).map((topic) => (
                         <div key={topic.id} className="space-y-1.5">
                           <div className="flex items-center gap-2 text-slate-300 font-semibold text-xs">
-                            <span className="font-mono text-indigo-300 text-[11px]">
-                              {topic.id}
-                            </span>
+                            <span className="font-mono text-indigo-300 text-[11px]">{topic.id}</span>
                             <span>{topic.name}</span>
                           </div>
 
@@ -134,16 +132,10 @@ export function Taxonomy() {
                               >
                                 <div className="flex items-center gap-2 truncate pr-2">
                                   <Hash className="w-3 h-3 text-slate-500 shrink-0" />
-                                  <span className="text-indigo-400 shrink-0 font-bold">
-                                    {sub.id}
-                                  </span>
-                                  <span className="text-slate-200 font-sans truncate">
-                                    {sub.name}
-                                  </span>
+                                  <span className="text-indigo-400 shrink-0 font-bold">{sub.id}</span>
+                                  <span className="text-slate-200 font-sans truncate">{sub.name}</span>
                                 </div>
-                                <span className="shrink-0 text-slate-500">
-                                  seq #{sub.seq}
-                                </span>
+                                <span className="shrink-0 text-slate-500">seq #{sub.seq}</span>
                               </div>
                             ))}
                           </div>

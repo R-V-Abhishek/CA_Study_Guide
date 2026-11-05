@@ -1,8 +1,16 @@
 import { apiRequest } from "./client";
 import type { components, paths } from "./generated";
 
-export type ClassificationQueueItem = components["schemas"]["ClassificationQueueItem"] & { candidate_catalog_hash?: string | null };
-export type ClassificationCandidate = { node_id: string; path: { id: string; name: string; level: string }[]; descriptor_revision_id: number | null; descriptor: Record<string, unknown>; textbook_references: unknown[] };
+export type ClassificationQueueItem = components["schemas"]["ClassificationQueueItem"] & {
+  candidate_catalog_hash?: string | null;
+};
+export type ClassificationCandidate = {
+  node_id: string;
+  path: { id: string; name: string; level: string }[];
+  descriptor_revision_id: number | null;
+  descriptor: Record<string, unknown>;
+  textbook_references: unknown[];
+};
 export type PartMapping = components["schemas"]["PartMapping"];
 export type ClassificationReview = components["schemas"]["ClassificationReviewRequest"];
 export type ClassificationExpectation = components["schemas"]["ClassificationVerificationRequest"];
@@ -10,19 +18,33 @@ export type ClassificationDispute = components["schemas"]["ClassificationDispute
 export type ClassificationResolution = components["schemas"]["ClassificationResolveRequest"];
 export type ClassificationResult = components["schemas"]["ClassificationRevisionResult"];
 export type ClassificationHistory = components["schemas"]["ClassificationHistoryItem"];
-export type ClassificationQueueParameters = NonNullable<paths["/api/v1/curate/classifications"]["get"]["parameters"]["query"]>;
+export type ClassificationQueueParameters = NonNullable<
+  paths["/api/v1/curate/classifications"]["get"]["parameters"]["query"]
+>;
 const base = "/api/v1/curate/classifications";
-const post = <T>(path: string, body: unknown) => apiRequest<T>(`${base}${path}`, { method: "POST", body: JSON.stringify(body) });
+const post = <T>(path: string, body: unknown) =>
+  apiRequest<T>(`${base}${path}`, { method: "POST", body: JSON.stringify(body) });
 export const classificationApi = {
   /** question_id resolves an affected root before the server applies pagination. */
-  queue: (filters: Record<string, string>) => apiRequest<ClassificationQueueItem[]>(`${base}?${new URLSearchParams(filters)}`),
-  candidateCatalog: (hash: string) => apiRequest<ClassificationCandidate[]>(`/api/v1/curate/candidate-catalogs/${encodeURIComponent(hash)}`),
+  queue: (filters: Record<string, string>) =>
+    apiRequest<ClassificationQueueItem[]>(`${base}?${new URLSearchParams(filters)}`),
+  candidateCatalog: (hash: string) =>
+    apiRequest<ClassificationCandidate[]>(`/api/v1/curate/candidate-catalogs/${encodeURIComponent(hash)}`),
   review: (suggestion: number, body: ClassificationReview) => post<ClassificationResult>(`/${suggestion}/review`, body),
-  history: (question: string) => apiRequest<ClassificationHistory[]>(`${base}/questions/${encodeURIComponent(question)}/history`),
-  verify: (question: string, body: ClassificationExpectation) => post<ClassificationResult>(`/questions/${encodeURIComponent(question)}/verify`, body),
-  withdraw: (question: string, body: ClassificationExpectation) => post<ClassificationResult>(`/questions/${encodeURIComponent(question)}/withdraw`, body),
-  dispute: (question: string, body: ClassificationDispute) => post<ClassificationResult>(`/questions/${encodeURIComponent(question)}/disputes`, body),
-  disputes: (question: string) => apiRequest<components["schemas"]["ClassificationDisputeResult"][]>(`${base}/questions/${encodeURIComponent(question)}/disputes`),
-  resolve: (dispute: number, body: ClassificationResolution) => post<ClassificationResult>(`/disputes/${dispute}/resolve`, body),
-  bulk: (reviews: ClassificationReview[]) => post<components["schemas"]["ClassificationBulkResult"]>("/bulk", { reviews }),
+  history: (question: string) =>
+    apiRequest<ClassificationHistory[]>(`${base}/questions/${encodeURIComponent(question)}/history`),
+  verify: (question: string, body: ClassificationExpectation) =>
+    post<ClassificationResult>(`/questions/${encodeURIComponent(question)}/verify`, body),
+  withdraw: (question: string, body: ClassificationExpectation) =>
+    post<ClassificationResult>(`/questions/${encodeURIComponent(question)}/withdraw`, body),
+  dispute: (question: string, body: ClassificationDispute) =>
+    post<ClassificationResult>(`/questions/${encodeURIComponent(question)}/disputes`, body),
+  disputes: (question: string) =>
+    apiRequest<components["schemas"]["ClassificationDisputeResult"][]>(
+      `${base}/questions/${encodeURIComponent(question)}/disputes`,
+    ),
+  resolve: (dispute: number, body: ClassificationResolution) =>
+    post<ClassificationResult>(`/disputes/${dispute}/resolve`, body),
+  bulk: (reviews: ClassificationReview[]) =>
+    post<components["schemas"]["ClassificationBulkResult"]>("/bulk", { reviews }),
 };

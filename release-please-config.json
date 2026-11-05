@@ -11,7 +11,8 @@
       "draft": true,
       "force-tag-creation": true,
       "extra-files": [
-        {"type": "toml", "path": "uv.lock", "jsonpath": "$.package[?(@.name.value=='ca-final')].version"}
+        {"type": "toml", "path": "uv.lock", "jsonpath": "$.package[?(@.name.value=='ca-final')].version"},
+        {"type": "json", "path": "openapi.json", "jsonpath": "$.info.version"}
       ]
     }
   }

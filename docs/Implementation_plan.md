@@ -278,11 +278,11 @@ existing personal data, appearances, notes, and human decisions unchanged throug
 ### Phase 1 — Repair current UI behavior and API contracts
 
 Phase 0 acceptance passed on 2026-10-01; see
-[verification evidence](Phase0_Verification.md). This enables Phase 1 but does not
+[verification evidence](archive/Phase0_Verification.md). This enables Phase 1 but does not
 mark its implementation or any later authentication/reader work complete.
 
 Phase 1 acceptance subsequently passed on 2026-10-01; see
-[Phase 1 verification](Phase1_Verification.md) for the 116 isolated Python tests,
+[Phase 1 verification](archive/Phase1_Verification.md) for the 116 isolated Python tests,
 66 Chromium/WebKit checks, generated contracts, migration, and preservation evidence.
 Native Windows verification remains pending. Later phases remain unimplemented.
 
@@ -400,7 +400,7 @@ Acceptance:
 
 **Purpose:** Let all invited students maintain one shared set of reviewed labels with useful evidence.
 
-**Implemented 5 October 2026:** Revisioned review/publication, distinct-account verification, disputes, draft Codex/Luna batches and the curator workspace are implemented. The frozen 12-root pilot and 120-root experiment are complete; their 30-root agent comparison remains provisional. [Phase 5 verification](Phase5_Verification.md) records tests, recovery evidence and deferred corpus/student-adjudication gates. This milestone does not approve the live corpus or calibrate model confidence.
+**Implemented 5 October 2026:** Revisioned review/publication, distinct-account verification, disputes, draft Codex/Luna batches and the curator workspace are implemented. The frozen 12-root pilot and 120-root experiment are complete; their 30-root agent comparison remains provisional. [Phase 5 verification](archive/Phase5_Verification.md) records tests, recovery evidence and deferred corpus/student-adjudication gates. This milestone does not approve the live corpus or calibrate model confidence.
 
 Changes:
 
@@ -441,7 +441,7 @@ Acceptance:
 
 **Purpose:** Make shared content retrievable and personal guidance explainable.
 
-**Implemented 6 October 2026:** Immutable student reader/source projections, canonical occurrence evidence, reviewed attempt/taxonomy contexts, staged completeness, persisted normalized score explanations, durable PostgreSQL jobs and personal syllabus fallback are implemented. [Phase 6 verification](Phase6_Verification.md) records isolated reviewed fixtures, browser checks and migration/recovery evidence. The live rebuilt release remains draft; Phase 5's 120 Luna suggestions remain experimental. Live taxonomy, extraction, metadata, pairing, official priors and corpus-readiness approvals remain deferred for Phase 7/readiness work.
+**Implemented 6 October 2026:** Immutable student reader/source projections, canonical occurrence evidence, reviewed attempt/taxonomy contexts, staged completeness, persisted normalized score explanations, durable PostgreSQL jobs and personal syllabus fallback are implemented. [Phase 6 verification](archive/Phase6_Verification.md) records isolated reviewed fixtures, browser checks and migration/recovery evidence. The live rebuilt release remains draft; Phase 5's 120 Luna suggestions remain experimental. Live taxonomy, extraction, metadata, pairing, official priors and corpus-readiness approvals remain deferred for Phase 7/readiness work.
 
 Changes:
 

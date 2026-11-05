@@ -14,20 +14,8 @@ from caf_common.recovery_manifest import checksum, inspect_recovery_files
 app = typer.Typer(add_completion=False, pretty_exceptions_enable=False)
 
 
-@app.command()
-def prepare(bundle: Path, snapshot: Path, rendered: Path, output: Path,
-            destination: str = typer.Option(...), project: str = typer.Option(...),
-            port: int = 8788, allow_candidate: bool = False) -> None:
-    """Validate inputs and write the private effective Compose file plus a receipt."""
-    manifest = verify_archive(bundle)
-    backup = inspect_recovery_files(snapshot)
-    from caf_common.backup import critical_tables
-    if critical_tables(backup.database_revision) - backup.tables.keys():
-        raise ValueError("Protected tables missing from backup")
-    if manifest.candidate and not allow_candidate:
-        raise ValueError("Candidate installation requires explicit --allow-candidate")
-    if backup.database_revision not in manifest.supported_schemas:
-        raise ValueError("Release does not support the backup schema")
+def effective_compose(manifest, rendered: Path, destination: str, project: str, port: int) -> dict:
+    """Validate the rendered production Compose file and pin it to one verified release."""
     if not re.fullmatch(r"caf(?:-install-[a-z0-9]+)?", project):
         raise ValueError("Use project caf or caf-install-<unique-id>")
     root = Path(destination)
@@ -38,20 +26,36 @@ def prepare(bundle: Path, snapshot: Path, rendered: Path, output: Path,
     if set(services) != {"db", "web", "worker", "admin", "pipeline"}:
         raise ValueError("Expected the production services and manual tools")
     admin = services["admin"]["environment"]
-    passwords = [services["db"]["environment"]["POSTGRES_PASSWORD"],
-                 *[admin[f"PG_{role}_PASSWORD"] for role in
-                   ("APP", "IDENTITY", "CURATOR", "OPERATIONS", "PIPELINE", "BACKUP")]]
-    if len(set(passwords)) != 7 or any(not re.fullmatch(r"[0-9a-f]{64,}", value) for value in passwords):
+    passwords = [
+        services["db"]["environment"]["POSTGRES_PASSWORD"],
+        *[
+            admin[f"PG_{role}_PASSWORD"]
+            for role in ("APP", "IDENTITY", "CURATOR", "OPERATIONS", "PIPELINE", "BACKUP")
+        ],
+    ]
+    if len(set(passwords)) != 7 or any(
+        not re.fullmatch(r"[0-9a-f]{64,}", value) for value in passwords
+    ):
         raise ValueError("Seven distinct hexadecimal production database passwords required")
     web = services["web"]["environment"]
     public = urlsplit(web["AUTH_PUBLIC_BASE_URL"])
     issuer = urlsplit(web["OIDC_ISSUER"])
-    if (public.scheme != "https" or issuer.scheme != "https" or not public.hostname or not issuer.hostname
-            or not web["OIDC_CLIENT_ID"] or not web["OIDC_CLIENT_SECRET"]):
+    if (
+        public.scheme != "https"
+        or issuer.scheme != "https"
+        or not public.hostname
+        or not issuer.hostname
+        or not web["OIDC_CLIENT_ID"]
+        or not web["OIDC_CLIENT_SECRET"]
+    ):
         raise ValueError("HTTPS application URL and Auth0 configuration required")
     if not manifest.candidate and not public.hostname.endswith(".ts.net"):
         raise ValueError("Production application URL must use the assigned private ts.net hostname")
-    paths = {"/srv/caf/data": "data", "/srv/caf/backups": "backups", "/srv/caf/postgres": "postgres"}
+    paths = {
+        "/srv/caf/data": "data",
+        "/srv/caf/backups": "backups",
+        "/srv/caf/postgres": "postgres",
+    }
     for name, service in services.items():
         expected = manifest.postgres.reference if name == "db" else manifest.application.reference
         if service["image"] != expected or service["platform"] != manifest.platform:
@@ -69,12 +73,44 @@ def prepare(bundle: Path, snapshot: Path, rendered: Path, output: Path,
     configuration["name"] = project
     for name, network in configuration["networks"].items():
         network["name"] = f"{project}_{name}"
+    return configuration
+
+
+@app.command()
+def prepare(
+    bundle: Path,
+    snapshot: Path,
+    rendered: Path,
+    output: Path,
+    destination: str = typer.Option(...),
+    project: str = typer.Option(...),
+    port: int = 8788,
+    allow_candidate: bool = False,
+) -> None:
+    """Validate inputs and write the private effective Compose file plus a receipt."""
+    manifest = verify_archive(bundle)
+    backup = inspect_recovery_files(snapshot)
+    from caf_common.backup import critical_tables
+
+    if critical_tables(backup.database_revision) - backup.tables.keys():
+        raise ValueError("Protected tables missing from backup")
+    if manifest.candidate and not allow_candidate:
+        raise ValueError("Candidate installation requires explicit --allow-candidate")
+    if backup.database_revision not in manifest.supported_schemas:
+        raise ValueError("Release does not support the backup schema")
+    configuration = effective_compose(manifest, rendered, destination, project, port)
     (output / "compose.json").write_text(json.dumps(configuration, indent=2) + "\n")
-    receipt = {"format_version": 1, "phase": "prepared", "project": project,
-               "destination": destination, "application": manifest.model_dump(mode="json"),
-               "backup_manifest_sha256": checksum(snapshot / "manifest.json"),
-               "bundle_sha256": digest(bundle), "dump_file": backup.dump_file,
-               "database_revision": backup.database_revision}
+    receipt = {
+        "format_version": 1,
+        "phase": "prepared",
+        "project": project,
+        "destination": destination,
+        "application": manifest.model_dump(mode="json"),
+        "backup_manifest_sha256": checksum(snapshot / "manifest.json"),
+        "bundle_sha256": digest(bundle),
+        "dump_file": backup.dump_file,
+        "database_revision": backup.database_revision,
+    }
     (output / "receipt.json").write_text(json.dumps(receipt, indent=2) + "\n")
 
 
@@ -91,11 +127,16 @@ def loaded(bundle: Path, metadata: Path) -> None:
         with tarfile.open(fileobj=stream, mode="r:") as images:
             for record in (manifest.application, manifest.postgres):
                 image = actual[record.reference]
-                if (image["Id"] not in saved_image_ids(images, record)
-                        or f"{image['Os']}/{image['Architecture']}" != manifest.platform):
+                if (
+                    image["Id"] not in saved_image_ids(images, record)
+                    or f"{image['Os']}/{image['Architecture']}" != manifest.platform
+                ):
                     raise ValueError("Loaded image differs from the verified archive")
     labels = actual[manifest.application.reference]["Config"]["Labels"]
-    if labels["org.opencontainers.image.revision"] != manifest.commit or labels["org.opencontainers.image.version"] != manifest.version:
+    if (
+        labels["org.opencontainers.image.revision"] != manifest.commit
+        or labels["org.opencontainers.image.version"] != manifest.version
+    ):
         raise ValueError("Loaded application labels differ from the release")
     configuration_path = metadata.parent / "compose.json"
     configuration = json.loads(configuration_path.read_text())
@@ -120,13 +161,30 @@ def restored(snapshot: Path, expected_manifest_hash: str = typer.Option(...)) ->
     if critical_tables(manifest.database_revision) - manifest.tables.keys():
         raise ValueError("Protected tables missing from backup")
     url = database_url("migration")
-    if (url.host, url.port, url.database, url.username) != ("db", 5432, "caf", "postgres") or url.query:
+    if (url.host, url.port, url.database, url.username) != (
+        "db",
+        5432,
+        "caf",
+        "postgres",
+    ) or url.query:
         raise ValueError("Restore comparison must use the install project's internal database")
     counts, _ = compare_restored_database(url, manifest.model_dump(by_alias=True))
     data = Path("/srv/caf/data")
     for relative, expected in manifest.files.items():
         source = Path(relative)
-        target = data / (source if source.parts[0] == "blobs" else Path("recovery-configs") / source.relative_to("configs"))
+        target = data / (
+            source
+            if source.parts[0] == "blobs"
+            else Path("recovery-configs") / source.relative_to("configs")
+        )
         if checksum(target) != expected:
             raise ValueError("Restored file checksum mismatch")
-    typer.echo(json.dumps({"restored_tables": len(counts), "restored_files": len(manifest.files), "verified": True}))
+    typer.echo(
+        json.dumps(
+            {
+                "restored_tables": len(counts),
+                "restored_files": len(manifest.files),
+                "verified": True,
+            }
+        )
+    )

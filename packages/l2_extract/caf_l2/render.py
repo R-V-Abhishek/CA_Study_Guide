@@ -8,8 +8,14 @@ from caf_l2.segmenter import ParsedUnit
 from caf_l2.validators import ValidationResult
 
 PALETTE = [
-    "#e8f0fe", "#fce8e6", "#e6f4ea", "#fef7e0",
-    "#f3e8fd", "#e0f2f1", "#fff0f5", "#f1f8e9",
+    "#e8f0fe",
+    "#fce8e6",
+    "#e6f4ea",
+    "#fef7e0",
+    "#f3e8fd",
+    "#e0f2f1",
+    "#fff0f5",
+    "#f1f8e9",
 ]
 
 
@@ -50,10 +56,17 @@ def render_debug_html(
         u = block_unit_map.get(lb.block_id)
         bg = unit_colors.get(u.label_path, "#ffffff") if u else "#f8f9fa"
         u_label = u.label_path if u else "—"
-        marks_badge = f'<span style="background: #1a73e8; color: white; padding: 2px 6px; border-radius: 4px; font-size: 11px;">{u.marks}M</span>' if (u and u.marks is not None and u.block_start == lb.block_id) else ""
+        marks_badge = (
+            f'<span style="background: #1a73e8; color: white; padding: 2px 6px; border-radius: 4px; font-size: 11px;">{u.marks}M</span>'
+            if (u and u.marks is not None and u.block_start == lb.block_id)
+            else ""
+        )
         flags_badge = ""
         if u and u.validation_flags and u.block_start == lb.block_id:
-            flags_badge = "".join(f'<span style="background: #ea8600; color: white; padding: 2px 6px; border-radius: 4px; font-size: 10px; margin-left: 4px;">{f}</span>' for f in u.validation_flags)
+            flags_badge = "".join(
+                f'<span style="background: #ea8600; color: white; padding: 2px 6px; border-radius: 4px; font-size: 10px; margin-left: 4px;">{f}</span>'
+                for f in u.validation_flags
+            )
 
         bold_style = "font-weight: bold;" if lb.bold else ""
 
@@ -88,7 +101,7 @@ def render_debug_html(
         <p><strong>SHA256:</strong> <code>{doc_sha256}</code></p>
         <p><strong>Outcome:</strong> <span class="badge badge-{validation.outcome}">{validation.outcome.upper()}</span></p>
         <p><strong>Total Units:</strong> {len(all_units)} | <strong>Total Lines:</strong> {len(lines)}</p>
-        {f'<div><h4>Validation Issues:</h4><ul>{issues_html}</ul></div>' if validation.issues else '<p style="color: #137333;">✓ All validations passed cleanly.</p>'}
+        {f"<div><h4>Validation Issues:</h4><ul>{issues_html}</ul></div>" if validation.issues else '<p style="color: #137333;">✓ All validations passed cleanly.</p>'}
     </div>
 
     <table>

@@ -2,7 +2,18 @@
 
 from datetime import datetime
 from typing import Any
-from sqlalchemy import Boolean, DateTime, ForeignKey, ForeignKeyConstraint, Index, Integer, Text, UniqueConstraint, func, text
+from sqlalchemy import (
+    Boolean,
+    DateTime,
+    ForeignKey,
+    ForeignKeyConstraint,
+    Index,
+    Integer,
+    Text,
+    UniqueConstraint,
+    func,
+    text,
+)
 from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import Mapped, mapped_column
 from caf_db.models.base import Base
@@ -10,9 +21,19 @@ from caf_db.models.base import Base
 
 class TaxonomyRelease(Base):
     __tablename__ = "taxonomy_release"
-    __table_args__ = (Index("one_active_taxonomy_release", "status", unique=True, postgresql_where=text("status='active'")), {"schema": "ref"})
+    __table_args__ = (
+        Index(
+            "one_active_taxonomy_release",
+            "status",
+            unique=True,
+            postgresql_where=text("status='active'"),
+        ),
+        {"schema": "ref"},
+    )
     version_id: Mapped[str] = mapped_column(Text, primary_key=True)
-    taxonomy_version_id: Mapped[int] = mapped_column(Integer, ForeignKey("ref.taxonomy_version.id"), unique=True)
+    taxonomy_version_id: Mapped[int] = mapped_column(
+        Integer, ForeignKey("ref.taxonomy_version.id"), unique=True
+    )
     target_attempt: Mapped[str] = mapped_column(Text, nullable=False)
     status: Mapped[str] = mapped_column(Text, nullable=False, default="draft")
     manifest_hash: Mapped[str] = mapped_column(Text, nullable=False, unique=True)
@@ -26,10 +47,18 @@ class TaxonomyRelease(Base):
 class TaxonomyMember(Base):
     __tablename__ = "taxonomy_member"
     __table_args__ = (
-        ForeignKeyConstraint(["taxonomy_version_id", "parent_id"], ["ref.taxonomy_member.taxonomy_version_id", "ref.taxonomy_member.node_id"], name="fk_taxonomy_member_parent", deferrable=True, initially="DEFERRED"),
+        ForeignKeyConstraint(
+            ["taxonomy_version_id", "parent_id"],
+            ["ref.taxonomy_member.taxonomy_version_id", "ref.taxonomy_member.node_id"],
+            name="fk_taxonomy_member_parent",
+            deferrable=True,
+            initially="DEFERRED",
+        ),
         {"schema": "ref"},
     )
-    taxonomy_version_id: Mapped[int] = mapped_column(Integer, ForeignKey("ref.taxonomy_version.id"), primary_key=True)
+    taxonomy_version_id: Mapped[int] = mapped_column(
+        Integer, ForeignKey("ref.taxonomy_version.id"), primary_key=True
+    )
     node_id: Mapped[str] = mapped_column(Text, ForeignKey("ref.node.id"), primary_key=True)
     paper_id: Mapped[str] = mapped_column(Text, ForeignKey("ref.paper.id"), nullable=False)
     parent_id: Mapped[str | None] = mapped_column(Text)
@@ -42,7 +71,9 @@ class TaxonomyMember(Base):
 class TextbookArtifact(Base):
     __tablename__ = "textbook_artifact"
     __table_args__ = {"schema": "ref"}
-    taxonomy_version_id: Mapped[int] = mapped_column(Integer, ForeignKey("ref.taxonomy_version.id"), primary_key=True)
+    taxonomy_version_id: Mapped[int] = mapped_column(
+        Integer, ForeignKey("ref.taxonomy_version.id"), primary_key=True
+    )
     id: Mapped[str] = mapped_column(Text, primary_key=True)
     paper_id: Mapped[str] = mapped_column(Text, nullable=False)
     course_level: Mapped[str] = mapped_column(Text, nullable=False)
@@ -56,8 +87,14 @@ class TextbookArtifact(Base):
 class NodeSourceSpan(Base):
     __tablename__ = "node_source_span"
     __table_args__ = (
-        ForeignKeyConstraint(["taxonomy_version_id", "node_id"], ["ref.taxonomy_member.taxonomy_version_id", "ref.taxonomy_member.node_id"]),
-        ForeignKeyConstraint(["taxonomy_version_id", "artifact_id"], ["ref.textbook_artifact.taxonomy_version_id", "ref.textbook_artifact.id"]),
+        ForeignKeyConstraint(
+            ["taxonomy_version_id", "node_id"],
+            ["ref.taxonomy_member.taxonomy_version_id", "ref.taxonomy_member.node_id"],
+        ),
+        ForeignKeyConstraint(
+            ["taxonomy_version_id", "artifact_id"],
+            ["ref.textbook_artifact.taxonomy_version_id", "ref.textbook_artifact.id"],
+        ),
         {"schema": "ref"},
     )
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
@@ -74,7 +111,10 @@ class DescriptorRevision(Base):
     __tablename__ = "descriptor_revision"
     __table_args__ = (
         UniqueConstraint("taxonomy_version_id", "node_id", "revision"),
-        ForeignKeyConstraint(["taxonomy_version_id", "node_id"], ["ref.taxonomy_member.taxonomy_version_id", "ref.taxonomy_member.node_id"]),
+        ForeignKeyConstraint(
+            ["taxonomy_version_id", "node_id"],
+            ["ref.taxonomy_member.taxonomy_version_id", "ref.taxonomy_member.node_id"],
+        ),
         {"schema": "ref"},
     )
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
@@ -90,17 +130,25 @@ class DescriptorRevision(Base):
 class DescriptorApproval(Base):
     __tablename__ = "descriptor_approval"
     __table_args__ = {"schema": "ref"}
-    revision_id: Mapped[int] = mapped_column(Integer, ForeignKey("ref.descriptor_revision.id"), primary_key=True)
-    approved_by: Mapped[int] = mapped_column(Integer, ForeignKey("app.user_account.id"), nullable=False)
+    revision_id: Mapped[int] = mapped_column(
+        Integer, ForeignKey("ref.descriptor_revision.id"), primary_key=True
+    )
+    approved_by: Mapped[int] = mapped_column(
+        Integer, ForeignKey("app.user_account.id"), nullable=False
+    )
     content_hash: Mapped[str] = mapped_column(Text, nullable=False)
-    approved_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
+    approved_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), server_default=func.now()
+    )
 
 
 class TaxonomyCrosswalk(Base):
     __tablename__ = "taxonomy_crosswalk"
     __table_args__ = {"schema": "ref"}
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
-    taxonomy_version_id: Mapped[int] = mapped_column(Integer, ForeignKey("ref.taxonomy_version.id"), nullable=False)
+    taxonomy_version_id: Mapped[int] = mapped_column(
+        Integer, ForeignKey("ref.taxonomy_version.id"), nullable=False
+    )
     old_node_id: Mapped[str] = mapped_column(Text, ForeignKey("ref.node.id"), nullable=False)
     new_node_id: Mapped[str | None] = mapped_column(Text, ForeignKey("ref.node.id"))
     relation: Mapped[str] = mapped_column(Text, nullable=False)
@@ -112,7 +160,13 @@ class TaxonomyCrosswalk(Base):
 class ProgressMigration(Base):
     __tablename__ = "progress_migration"
     __table_args__ = {"schema": "app"}
-    user_id: Mapped[int] = mapped_column(Integer, ForeignKey("app.user_account.id"), primary_key=True)
-    crosswalk_id: Mapped[int] = mapped_column(Integer, ForeignKey("ref.taxonomy_crosswalk.id"), primary_key=True)
-    migrated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
+    user_id: Mapped[int] = mapped_column(
+        Integer, ForeignKey("app.user_account.id"), primary_key=True
+    )
+    crosswalk_id: Mapped[int] = mapped_column(
+        Integer, ForeignKey("ref.taxonomy_crosswalk.id"), primary_key=True
+    )
+    migrated_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), server_default=func.now()
+    )
     original_snapshot: Mapped[dict[str, Any]] = mapped_column(JSONB, nullable=False)
