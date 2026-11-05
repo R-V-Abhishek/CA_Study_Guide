@@ -204,11 +204,21 @@ def test_token_bucket_refills_with_time():
     assert limiter.check(rule, "a") is None
 
 
-def test_search_is_rate_limited_per_session(authenticated_client, monkeypatch):
-    monkeypatch.setattr(app.state, "rate_limit_enabled", True)
-    monkeypatch.setattr(
-        app.state, "rate_limiter", RateLimiter(clock=lambda: 0.0)
-    )  # no refill during the burst
+@pytest.fixture
+def burst_rate_limiter():
+    """Enable a non-refilling limiter, then restore app.state exactly.
+
+    monkeypatch.setattr cannot restore Starlette State attributes (it deletes them on undo
+    from pytest 9.2), so this saves and restores the two values explicitly.
+    """
+    saved = app.state.rate_limit_enabled, app.state.rate_limiter
+    app.state.rate_limit_enabled = True
+    app.state.rate_limiter = RateLimiter(clock=lambda: 0.0)  # no refill during the burst
+    yield
+    app.state.rate_limit_enabled, app.state.rate_limiter = saved
+
+
+def test_search_is_rate_limited_per_session(authenticated_client, burst_rate_limiter):
     first, second = authenticated_client(user_id=1), authenticated_client(user_id=2)
     statuses = [first.get("/api/v1/search", params={"q": "lease"}).status_code for _ in range(61)]
     assert statuses[:60] == [200] * 60 and statuses[60] == 429
