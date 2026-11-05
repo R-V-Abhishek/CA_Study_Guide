@@ -1,5 +1,7 @@
 # Private access and cutover preparation — 27 October 2026
 
+> Historical checkpoint. For current state see `Deployment_verification_2026_11_01.md`.
+
 Production URL: `https://caf-home.tailf901d2.ts.net/`.
 
 ## Verified private HTTPS
