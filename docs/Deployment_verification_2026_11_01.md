@@ -189,7 +189,7 @@ the tailnet about 13 hours later:
 
 The check was delayed, not the server: the administrator Mac's Tailscale client could not reach the control
 plane while a managed Cloudflare WARP profile was connected (see "Recovering remote access" in
-`docs/Host_installation.md`). A signed-in browser check after the reboot is still pending.
+`docs/Host_installation.md`). The signed-in browser check passed on 2026-11-05 (see the v0.2.4 section).
 
 ## Upgrade to v0.2.4, 2026-11-05
 
