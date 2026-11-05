@@ -190,3 +190,25 @@ the tailnet about 13 hours later:
 The check was delayed, not the server: the administrator Mac's Tailscale client could not reach the control
 plane while a managed Cloudflare WARP profile was connected (see "Recovering remote access" in
 `docs/Host_installation.md`). A signed-in browser check after the reboot is still pending.
+
+## Upgrade to v0.2.4, 2026-11-05
+
+v0.2.4 (commit `375fd612d7b89b06428909beb239b86413c62137`) adds the retention rule from PR #24: a backup never
+prunes a snapshot that the installation receipt names as a rollback point.
+
+- The release bundle `caf-v0.2.4-linux-amd64.tar.gz` passed its sha256 check on `caf-home`. Its manifest named
+  the same commit and required schema `0010_bounds_and_indexes`, which is the running schema, so no migration ran.
+- The host checkout `/opt/caf/repo` moved to tag `v0.2.4`. Its scripts run the upgrade and the
+  `caf-backup`/`caf-watch` timers, and the protection is passed to the image by `deploy/backup-host.sh`.
+- `caf-host upgrade` finished at 04:40 UTC and kept the v0.2.3 release and its snapshot
+  `caf_20261105_043955_381368_108ebee3`. Web and worker run image `sha256:efa495f9…`; `caf-db-1` was not
+  restarted. `/api/v1/ready` returned 200 on host loopback.
+- A manual `caf-host backup` immediately afterwards created `caf_20261105_044138_121833_ced77b68`, kept the
+  v0.2.3 rollback snapshot from the same day, and deleted nothing. Retained: `caf_20261101_040811…`,
+  `caf_20261104_220045…`, `caf_20261105_043955…` and `caf_20261105_044138…`.
+
+Limitation: the v0.2.1 rollback snapshot `caf_20261104_023044_121929_b5b2aa20` was deleted on 2026-11-04 by the
+retention rule in place before this fix (a newer snapshot from the same day replaced it). The receipt still
+names it under `previous`. The oldest remaining point at schema `0009` is the install snapshot
+`caf_20261101_040811…`. Backups are still unencrypted (no `/etc/caf/backup-recipient.txt`) and remain on the
+host. A signed-in browser check after the reboot and this upgrade is still pending.
