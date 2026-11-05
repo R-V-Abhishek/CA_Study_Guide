@@ -10,7 +10,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "openapi-fetch": "^0.13.4"
+    "openapi-fetch": "^0.17.0"
   },
   "devDependencies": {
     "@caf/ts-config": "workspace:*",
