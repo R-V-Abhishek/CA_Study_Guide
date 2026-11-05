@@ -141,12 +141,17 @@ before working on deployment, then inspect live state when the user authorizes i
   and an authenticated encrypted Mac copy was verified before activation.
 - `caf.service` is enabled and follows the current Compose pointer. A normal reboot
   on 2026-11-04 (release v0.2.3) came back without a console login: services, timers
-  and tailnet readiness passed. A signed-in browser check after that reboot is pending.
+  and tailnet readiness passed. A signed-in browser check passed on 2026-11-05 (v0.2.4).
+- 2026-11-05: `caf-host upgrade` installed v0.2.4, with no schema change. The host checkout
+  `/opt/caf/repo` runs the upgrade and timer scripts, so it must move to each release tag.
+  Retention now keeps the rollback snapshots named in the receipt (verified).
+  Nightly backups are now age-encrypted to the Mac recovery recipient; Mac decryption was verified.
 - First-install tooling exists, but a safe existing-installation `caf-host deploy`
   upgrade workflow is not implemented. This repair used a recorded one-time,
   same-schema activation. Do not rerun it blindly or erase storage to reuse install.
-- Encrypted recovery copies were verified on the Mac. The external backup drive,
-  daily encrypted server backup scheduling, and retention automation remain pending.
+- Encrypted recovery copies were verified on the Mac. Daily encrypted server backups
+  with retention run from `caf-backup.timer`. The external backup drive and an automatic
+  off-host copy remain pending.
   The recovery identity stays off Ubuntu and out of this repository.
 
 ## Owner shorthand
