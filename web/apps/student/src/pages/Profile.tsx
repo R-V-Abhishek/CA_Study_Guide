@@ -51,17 +51,17 @@ export function Profile() {
     );
   const dirty = Boolean(
     draft &&
-      saved &&
-      (JSON.stringify(draft) !== JSON.stringify(saved) || intervals !== saved.revision_intervals.join(", ")),
+    saved &&
+    (JSON.stringify(draft) !== JSON.stringify(saved) || intervals !== saved.revision_intervals.join(", ")),
   );
   const valid = Boolean(
     draft?.display_name.trim() &&
-      draft.selected_paper_ids.length &&
-      Number.isFinite(draft.hours_per_week) &&
-      draft.hours_per_week > 0 &&
-      Number.isInteger(draft.minutes_per_subtopic) &&
-      draft.minutes_per_subtopic > 0 &&
-      validIntervals,
+    draft.selected_paper_ids.length &&
+    Number.isFinite(draft.hours_per_week) &&
+    draft.hours_per_week > 0 &&
+    Number.isInteger(draft.minutes_per_subtopic) &&
+    draft.minutes_per_subtopic > 0 &&
+    validIntervals,
   );
   const save = async () => {
     if (!draft || saving || !valid) return;
