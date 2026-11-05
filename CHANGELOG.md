@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.2.4](https://github.com/R-V-Abhishek/CA_Study_Guide/compare/v0.2.3...v0.2.4) (2026-11-05)
+
+
+### Bug Fixes
+
+* **deploy:** retention never prunes a snapshot an upgrade receipt names as a rollback point ([#24](https://github.com/R-V-Abhishek/CA_Study_Guide/issues/24)) ([2014764](https://github.com/R-V-Abhishek/CA_Study_Guide/commit/20147643bd67c768886a1fad8aa66af83e734a75))
+
+
+### Documentation
+
+* **host:** record Tailscale stability steps ([#25](https://github.com/R-V-Abhishek/CA_Study_Guide/issues/25)) ([c2311e7](https://github.com/R-V-Abhishek/CA_Study_Guide/commit/c2311e713c46bf19ff89e1f2c6921bc7311c9d4e))
+
 ## [0.2.3](https://github.com/R-V-Abhishek/CA_Study_Guide/compare/v0.2.2...v0.2.3) (2026-11-03)
 
 
