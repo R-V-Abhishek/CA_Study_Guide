@@ -1,1 +1,0 @@
-import{x as n,n as a}from"./index-CtG3CylN.js";async function i(){const o=await n("/api/v1/me/export"),t=URL.createObjectURL(new Blob([JSON.stringify(o,null,2)],{type:"application/json"})),e=document.createElement("a");e.href=t,e.download=`study-profile-${a()}.json`,e.click(),URL.revokeObjectURL(t)}export{i as e};

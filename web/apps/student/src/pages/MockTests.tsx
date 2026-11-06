@@ -8,6 +8,12 @@ import { useUrlState } from "../lib/url";
 import { PageState } from "../components/PageState";
 import { Dialog } from "@caf/workspace/Dialog";
 import type { MockTest } from "../lib/contracts";
+/** Today's date where the student is; toISOString would give the UTC date (yesterday before 05:30 IST). */
+const localToday = () => {
+  const now = new Date();
+  return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
+};
+
 export function MockTests() {
   const { params, set } = useUrlState();
   const selectedPaper = params.get("paper") ?? "all";
@@ -19,7 +25,7 @@ export function MockTests() {
   const [label, setLabel] = useState("");
   const [score, setScore] = useState("");
   const [maximum, setMaximum] = useState("100");
-  const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
+  const [date, setDate] = useState(localToday);
   const [notes, setNotes] = useState("");
   const [feedback, setFeedback] = useState("");
   const generation = authGeneration();

@@ -389,6 +389,8 @@ or `Deferred: <reason>` as it is resolved.
 - **M-23: The default mock date is the UTC date.**
   `web/apps/student/src/pages/MockTests.tsx:22`. Before 05:30 IST the date field
   is prefilled with yesterday's date.
+  **Fixed:** the default uses the browser's local date. Browser test `the mock result date
+  defaults to the local date` (Asia/Kolkata, 01:30 IST) received 2026-11-05 without the fix.
 - **M-24: Each keystroke in a URL-bound input adds a history entry.**
   `web/apps/student/src/lib/url.ts:13`. `setSearchParams` is called without
   `{ replace: true }`, so Back steps through partial search terms.

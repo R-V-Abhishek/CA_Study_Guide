@@ -621,3 +621,14 @@ test("rapid document navigation cancels pending private queries without runtime 
   await page.waitForTimeout(350);
   expect(errors).toEqual([]);
 });
+
+test.describe("in India shortly after midnight", () => {
+  test.use({ timezoneId: "Asia/Kolkata" });
+  test("the mock result date defaults to the local date", async ({ page, request }) => {
+    await fixture(request);
+    await page.clock.setFixedTime(new Date("2026-11-05T20:00:00Z")); // 01:30 IST on 6 November
+    await page.goto("/mock");
+    await page.getByRole("button", { name: "Add result" }).click();
+    await expect(page.getByLabel("Date", { exact: true })).toHaveValue("2026-11-06");
+  });
+});
