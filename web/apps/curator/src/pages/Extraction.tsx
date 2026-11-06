@@ -243,7 +243,15 @@ export function Extraction() {
     queryFn: () => extractionApi.documents(documentPage),
     retry: false,
   });
-  const document = docs.data?.items.find((item) => item.id === selectedDocument);
+  const listed = docs.data?.items.find((item) => item.id === selectedDocument);
+  // A deep link can name a document that is not on the loaded list page.
+  const linked = useQuery({
+    queryKey: ["extraction-document", accountKey(), selectedDocument],
+    queryFn: () => extractionApi.document(selectedDocument!),
+    enabled: selectedDocument !== null && docs.isSuccess && !listed,
+    retry: false,
+  });
+  const document = listed ?? linked.data;
   const revisions = useQuery({
     queryKey: ["extraction-revisions", accountKey(), selectedDocument, revisionPage],
     queryFn: () => extractionApi.revisions(selectedDocument!, revisionPage),
@@ -273,6 +281,7 @@ export function Extraction() {
     await cache.invalidateQueries({ queryKey: ["extraction-revision", accountKey()] });
     await cache.invalidateQueries({ queryKey: ["extraction-revisions", accountKey()] });
     await cache.invalidateQueries({ queryKey: ["extraction-documents", accountKey()] });
+    await cache.invalidateQueries({ queryKey: ["extraction-document", accountKey()] });
     await cache.invalidateQueries({ queryKey: ["extraction-reviews", accountKey()] });
     await cache.invalidateQueries({ queryKey: ["extraction-questions", accountKey()] });
   };

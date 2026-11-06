@@ -376,6 +376,10 @@ or `Deferred: <reason>` as it is resolved.
 - **M-21: An extraction document deep link beyond page 1 resolves to nothing.**
   `web/apps/curator/src/pages/Extraction.tsx:246`. Metadata and "Promote
   candidate revision" disappear, and the header shows "Current revision None".
+  **Fixed:** new `GET /api/v1/extraction/documents/{id}`; the page uses it when the linked
+  document is not on the loaded list page (browser test `a document deep link works when
+  the document is not on the first list page`, fails without the fix; API test
+  `test_single_extraction_document_matches_the_list_entry`).
 - **M-22: The curator's Alt shortcuts never fire on macOS.**
   `web/apps/curator/src/pages/ClassificationQueue.tsx:231`. The handler compares
   `event.key`, which Option changes to characters such as ∆ and ˚. Use

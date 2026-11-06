@@ -811,3 +811,17 @@ def test_changed_source_bytes_reconcile_predecessor_without_deleting_publication
     assert session.get(Appearance, appearance.id).status == "published"
     assert session.get(Unit, old.id).current is False
     assert session.get(Document, doc.id).superseded
+
+
+def test_single_extraction_document_matches_the_list_entry(session, tmp_path, authenticated_client):
+    doc, _ = source(session, tmp_path)
+    client = authenticated_client(role="student")
+    single = client.get(f"/api/v1/extraction/documents/{doc.id}")
+    assert single.status_code == 200, single.text
+    listed = next(
+        item
+        for item in client.get("/api/v1/extraction/documents?page_size=100").json()["items"]
+        if item["id"] == doc.id
+    )
+    assert single.json() == listed
+    assert client.get("/api/v1/extraction/documents/999999").status_code == 404

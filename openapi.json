@@ -3299,6 +3299,49 @@
         }
       }
     },
+    "/api/v1/extraction/documents/{document_id}": {
+      "get": {
+        "tags": [
+          "extraction review"
+        ],
+        "summary": "Document",
+        "description": "One document, for deep links to documents beyond the first list page.",
+        "operationId": "document_api_v1_extraction_documents__document_id__get",
+        "parameters": [
+          {
+            "name": "document_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Document Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExtractionDocument"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/extraction/documents/{document_id}/revisions": {
       "get": {
         "tags": [

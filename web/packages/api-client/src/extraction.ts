@@ -77,6 +77,7 @@ export const extractionApi = {
     apiRequest(`/api/v1/curate/documents/${document}/confirm`, { method: "POST", body: JSON.stringify(metadata) }),
   documents: (page: number) =>
     apiRequest<ExtractionPage<ExtractionDocument>>(`${base}/documents?page=${page}&page_size=20`),
+  document: (document: number) => apiRequest<ExtractionDocument>(`${base}/documents/${document}`),
   revisions: (document: number, page = 1) =>
     apiRequest<ExtractionPage<ExtractionRevisionSummary>>(
       `${base}/documents/${document}/revisions?page=${page}&page_size=20`,
