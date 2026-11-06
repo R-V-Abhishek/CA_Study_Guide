@@ -200,6 +200,10 @@ or `Deferred: <reason>` as it is resolved.
   and configs, which are read through cwd-relative paths, and nothing is cleaned
   up on failure. A dump without a manifest then satisfies `BACKUP_OK`, and a
   no-argument `verify_backup()` picks it.
+  **Fixed:** any failure after the snapshot directory exists renames it
+  `incomplete-<id>`, keeping the partial files but out of `list_backups`, retention and
+  `BACKUP_OK`. `test_interrupted_capture_is_never_listed_as_a_backup` fails without the
+  fix. Config directories are still read relative to the cwd (unchanged).
 
 ### Curator
 

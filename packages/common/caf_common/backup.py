@@ -294,43 +294,49 @@ def create_backup(
     root.mkdir()
     dump_path = root / f"{identifier}.dump"
     manifest_path = root / "manifest.json"
-    engine = sa.create_engine(url, isolation_level="REPEATABLE READ")
     try:
-        with engine.connect() as connection, connection.begin():
-            connection.execute(sa.text("SET TRANSACTION READ ONLY"))
-            snapshot = connection.execute(sa.text("SELECT pg_export_snapshot()")).scalar_one()
-            revision = connection.execute(
-                sa.text("SELECT version_num FROM ops.alembic_version")
-            ).scalar_one()
-            tables = database_content(connection)
-            missing = sorted(critical_tables(revision) - tables.keys())
-            if missing:
-                raise RuntimeError(f"Protected tables missing: {missing}")
-            schema = schema_snapshot(connection)
-            _pg_command(
-                "pg_dump",
-                url,
-                ["--format=custom", f"--snapshot={snapshot}", "--file", str(dump_path)],
-            )
-    finally:
-        engine.dispose()
-    files = _archive_tree(Path(blob_dir or settings.storage.blob_dir), root / "blobs", root)
-    blobs_copied = len(files)
-    for directory in ("taxonomy", "config", "profiles", "overrides"):
-        files.update(_archive_tree(Path(directory), root / "configs" / directory, root))
-    data = {
-        "format_version": 1,
-        "created_at": now.isoformat(),
-        "database_revision": revision,
-        "dump_file": dump_path.name,
-        "dump_sha256": file_checksum(dump_path),
-        "tables": tables,
-        "schema": schema,
-        "files": files,
-        "digest_format": "PostgreSQL16 to_jsonb text, UTC timezone, C-sort, UTF-8 newline per row",
-        "secrets": "Credential keys redacted; .env, .key and .pem files excluded",
-    }
-    _write_json(manifest_path, data)
+        engine = sa.create_engine(url, isolation_level="REPEATABLE READ")
+        try:
+            with engine.connect() as connection, connection.begin():
+                connection.execute(sa.text("SET TRANSACTION READ ONLY"))
+                snapshot = connection.execute(sa.text("SELECT pg_export_snapshot()")).scalar_one()
+                revision = connection.execute(
+                    sa.text("SELECT version_num FROM ops.alembic_version")
+                ).scalar_one()
+                tables = database_content(connection)
+                missing = sorted(critical_tables(revision) - tables.keys())
+                if missing:
+                    raise RuntimeError(f"Protected tables missing: {missing}")
+                schema = schema_snapshot(connection)
+                _pg_command(
+                    "pg_dump",
+                    url,
+                    ["--format=custom", f"--snapshot={snapshot}", "--file", str(dump_path)],
+                )
+        finally:
+            engine.dispose()
+        files = _archive_tree(Path(blob_dir or settings.storage.blob_dir), root / "blobs", root)
+        blobs_copied = len(files)
+        for directory in ("taxonomy", "config", "profiles", "overrides"):
+            files.update(_archive_tree(Path(directory), root / "configs" / directory, root))
+        data = {
+            "format_version": 1,
+            "created_at": now.isoformat(),
+            "database_revision": revision,
+            "dump_file": dump_path.name,
+            "dump_sha256": file_checksum(dump_path),
+            "tables": tables,
+            "schema": schema,
+            "files": files,
+            "digest_format": "PostgreSQL16 to_jsonb text, UTC timezone, C-sort, UTF-8 newline per row",
+            "secrets": "Credential keys redacted; .env, .key and .pem files excluded",
+        }
+        _write_json(manifest_path, data)
+    except BaseException:
+        # A partial capture keeps its files for diagnosis under a name no listing or retention
+        # treats as a backup (list_backups and retention only match caf_* snapshots).
+        root.rename(base / f"incomplete-{identifier}")
+        raise
     if target_dir:
         shutil.copytree(root, Path(target_dir) / identifier)
     manifest = BackupManifest(

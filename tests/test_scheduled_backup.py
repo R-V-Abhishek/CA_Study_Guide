@@ -139,3 +139,23 @@ def test_snapshot_failing_verification_is_set_aside_from_retention(session, tmp_
     # The next verified run competes only with verified snapshots; the rejected one is left alone.
     assert status["retained"][0] == status["snapshot"]["name"]
     assert rejected.name not in status["retained"] + status["deleted"] and rejected.exists()
+
+
+def test_interrupted_capture_is_never_listed_as_a_backup(session, tmp_path, monkeypatch):
+    from caf_common import backup
+
+    archive = backup._archive_tree
+
+    def configs_missing(source, destination, root):
+        if destination.parent.name == "configs":
+            raise FileNotFoundError(f"Required archive directory missing: {source}")
+        return archive(source, destination, root)
+
+    monkeypatch.setattr(backup, "_archive_tree", configs_missing)
+    with pytest.raises(FileNotFoundError, match="archive directory missing"):
+        backup.create_backup(session=session, backup_dir=tmp_path)
+    leftovers = [path.name for path in tmp_path.iterdir()]
+    assert len(leftovers) == 1 and leftovers[0].startswith("incomplete-caf_")
+    assert list((tmp_path / leftovers[0]).glob("*.dump"))  # the partial dump is kept for diagnosis
+    assert backup.list_backups(tmp_path) == []
+    assert host_backup.verified_snapshots(tmp_path) == []
