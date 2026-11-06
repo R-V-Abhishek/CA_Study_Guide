@@ -360,6 +360,9 @@ or `Deferred: <reason>` as it is resolved.
 - **M-19: A rerun of the release workflow cannot publish after a partial upload.**
   `.github/workflows/release-bundle.yml:64`. `gh release upload` has no
   `--clobber`, so the release stays a draft.
+  **Fixed:** the upload uses `--clobber`; the step already refuses a release that is
+  not a draft, so a published release's assets are never replaced. Verified by YAML
+  parse only; it runs on the next tagged release.
 
 ### Web
 

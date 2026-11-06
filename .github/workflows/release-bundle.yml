@@ -62,5 +62,6 @@ jobs:
           else
             gh release create "$RELEASE_TAG" --verify-tag --draft --title "$RELEASE_TAG" --notes-file CHANGELOG.md
           fi
-          gh release upload "$RELEASE_TAG" release-output/*
+          # Only a draft reaches this line, so replacing a partial upload from an earlier attempt is safe.
+          gh release upload "$RELEASE_TAG" release-output/* --clobber
           gh release edit "$RELEASE_TAG" --draft=false --latest
