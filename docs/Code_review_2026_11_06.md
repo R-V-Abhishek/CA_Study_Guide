@@ -46,6 +46,8 @@ or `Deferred: <reason>` as it is resolved.
 - **S-03: `configure-connections` writes `.env` world-readable.**
   `packages/db/caf_db/configuration.py:37`. A new `.env` holding all six role
   passwords is created with the default umask, typically `0644`.
+  **Fixed:** the file is created and kept at `0600` whenever passwords are written;
+  covered by `test_configured_connections_file_is_private`.
 
 ### Recovery and host safety
 

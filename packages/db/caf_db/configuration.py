@@ -34,6 +34,9 @@ def configure_connections(env_file: Path = Path(".env")) -> list[str]:
             found.add(key)
     lines.extend(f"{key}={value}" for key, value in additions.items() if key not in found)
     if additions:
+        # The file holds role passwords: create it private and tighten an existing one.
+        env_file.touch(mode=0o600)
+        env_file.chmod(0o600)
         env_file.write_text("\n".join(lines) + "\n")
     reset_database()
     reset_settings()

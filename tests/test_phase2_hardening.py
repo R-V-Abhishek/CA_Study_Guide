@@ -281,3 +281,16 @@ def test_migration_keeps_existing_oversized_text_and_leaves_its_constraint_unval
             {"node": node, "body": "y" * 100_001},
         )
     session.rollback()
+
+
+def test_configured_connections_file_is_private(tmp_path, monkeypatch):
+    from caf_common.settings import reset_settings
+    from caf_db.configuration import configure_connections
+
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.delenv("PG_BACKUP_PASSWORD", raising=False)
+    monkeypatch.delenv("BACKUP_DATABASE_URL", raising=False)
+    reset_settings()
+    env_file = tmp_path / ".env"
+    assert "PG_BACKUP_PASSWORD" in configure_connections(env_file)
+    assert env_file.stat().st_mode & 0o777 == 0o600
