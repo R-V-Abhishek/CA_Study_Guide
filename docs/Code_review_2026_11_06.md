@@ -470,9 +470,13 @@ or `Deferred: <reason>` as it is resolved.
   `web/apps/curator/src/components/AuthGate.tsx` and `SessionControls.tsx` copy
   the student app's versions. Move them into `@caf/workspace`, which also means
   the D-02 fix is made once.
+  **Fixed:** both apps import `@caf/workspace/AuthGate` and `@caf/workspace/SessionControls`
+  (the copies were byte-identical); auth and curator browser suites pass (25).
 - **L-09: `@caf/workspace` lists `react` as a dependency, not a peer dependency.**
   `web/packages/workspace/package.json:7`. If the ranges drift, two React copies
   can be installed and hooks throw "Invalid hook call".
+  **Fixed:** `react` and `@tanstack/react-query` are peer (and dev) dependencies of
+  `@caf/workspace`; the lockfile gained only the workspace's own entries.
 - **L-10: The `@vitejs/plugin-react` floor predates React 19.**
   `web/apps/curator/package.json:20` (`^4.3.4`). The lockfile resolves 4.7.0, so
   raise the floor.

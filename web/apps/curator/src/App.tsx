@@ -2,8 +2,8 @@ import { lazy, Suspense, useState, useSyncExternalStore, type ReactNode } from "
 import { authState, subscribeAuth } from "@caf/api-client";
 import { BrowserRouter, Routes, Route, NavLink, Link, Navigate, useLocation } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { AuthGate } from "./components/AuthGate";
-import { SessionControls } from "./components/SessionControls";
+import { AuthGate } from "@caf/workspace/AuthGate";
+import { SessionControls } from "@caf/workspace/SessionControls";
 import { Diagnostics } from "./components/Diagnostics";
 import { RouteBoundary } from "./components/RouteBoundary";
 import { Dialog } from "@caf/workspace/Dialog";

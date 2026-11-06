@@ -4,13 +4,21 @@
   "private": true,
   "type": "module",
   "dependencies": {
+    "@caf/api-client": "workspace:*"
+  },
+  "peerDependencies": {
+    "@tanstack/react-query": "^5.105.0",
     "react": "^19.3.1"
   },
   "devDependencies": {
-    "@types/react": "^19.3.0"
+    "@tanstack/react-query": "^5.105.0",
+    "@types/react": "^19.3.0",
+    "react": "^19.3.1"
   },
   "exports": {
+    "./AuthGate": "./AuthGate.tsx",
     "./Dialog": "./Dialog.tsx",
+    "./SessionControls": "./SessionControls.tsx",
     "./theme": "./theme.tsx",
     "./tokens.css": "./tokens.css"
   }

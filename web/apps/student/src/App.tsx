@@ -26,9 +26,9 @@ import { accountKey, apiRequest, type components } from "@caf/api-client";
 import { isDemoMode, demoLink } from "./lib/demo";
 import { RouteBoundary } from "./components/RouteBoundary";
 import { Diagnostics } from "./components/Diagnostics";
-import { AuthGate } from "./components/AuthGate";
+import { AuthGate } from "@caf/workspace/AuthGate";
 import { usePendingReviews } from "./lib/reviews";
-import { SessionControls } from "./components/SessionControls";
+import { SessionControls } from "@caf/workspace/SessionControls";
 import { Dialog } from "@caf/workspace/Dialog";
 import { ThemeControl, useTheme } from "@caf/workspace/theme";
 
