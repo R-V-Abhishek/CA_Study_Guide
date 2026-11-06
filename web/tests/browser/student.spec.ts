@@ -336,6 +336,13 @@ test("syllabus leaf filters retain ancestors and keyboard navigation operates th
   await expect(page.getByText("No topics match these filters.")).toBeVisible();
   await page.getByLabel("Search syllabus").fill("beta");
   await expect(page.getByRole("treeitem")).toHaveCount(3);
+  // Filtered branches display open, so ArrowRight moves straight to the child and ArrowLeft back.
+  await page.getByRole("button", { name: "Collapse all" }).click();
+  await page.getByRole("treeitem", { name: /Returned chapter/ }).focus();
+  await page.keyboard.press("ArrowRight");
+  await expect(page.getByRole("treeitem", { name: /Returned parent topic/ })).toBeFocused();
+  await page.keyboard.press("ArrowLeft");
+  await expect(page.getByRole("treeitem", { name: /Returned chapter/ })).toBeFocused();
   await page.getByLabel("Search syllabus").fill("");
   await page.getByLabel("Status", { exact: true }).selectOption("all");
   await page.getByRole("button", { name: "Collapse all" }).click();

@@ -486,6 +486,12 @@ or `Deferred: <reason>` as it is resolved.
   `web/apps/student/src/components/SyllabusTree.tsx:87`, with the
   `react-router-dom` v6 pin in `web/apps/student/package.json:20`. Keep focus and
   selection in local state, then the pin can be lifted.
+  **Partly fixed:** focus is already local state, and `^6.28.0` has been the range since
+  the Phase 1 foundation commit, so no evidence links the v6 range to the tree. The real
+  defect was that ArrowRight/ArrowLeft ignored branches shown open by a filter; the keys
+  now follow the displayed state (`syllabus leaf filters retain ancestors and keyboard
+  navigation operates the real tree`, fails without the fix). A react-router v7 upgrade
+  is a separate, unrequested dependency change and was not made.
 - **L-12: The openapi-fetch 0.13 → 0.17 upgrade is unchecked.**
   `web/packages/api-client/package.json:13`. The middleware error contract
   (`errorMiddleware.onResponse` throwing `ApiError`) has not been re-verified.
