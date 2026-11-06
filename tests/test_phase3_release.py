@@ -205,7 +205,9 @@ def test_source_ambiguities_survive_import_and_require_resolution(session, manif
         },
         1,
     )
-    approve_descriptor(session, manifest["version_id"], node_id, revised.revision, 1)
+    with pytest.raises(ValueError, match="Another reviewer"):
+        approve_descriptor(session, manifest["version_id"], node_id, revised.revision, 1)
+    approve_descriptor(session, manifest["version_id"], node_id, revised.revision, 9)
 
 
 def test_reject_cycle_duplicate_and_forged_verified_bytes(manifest):
