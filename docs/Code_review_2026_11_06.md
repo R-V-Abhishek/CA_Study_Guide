@@ -353,6 +353,10 @@ or `Deferred: <reason>` as it is resolved.
 - **M-18: `caf.service` hard-codes `-p caf`.**
   `deploy/caf.service:14`. An installation with a non-default `--project` is not
   restarted at boot, and a second project may start against the same storage.
+  **Fixed:** the unit reads `.project` from `/srv/caf/installation.json` and stops if it
+  cannot. Verified by running the unit's shell line with stubbed `docker`; `systemd-analyze
+  verify` was not run (macOS). Production uses project `caf`, so its installed unit is
+  still correct; replacing it is a manual owner step (documented).
 - **M-19: A rerun of the release workflow cannot publish after a partial upload.**
   `.github/workflows/release-bundle.yml:64`. `gh release upload` has no
   `--clobber`, so the release stays a draft.

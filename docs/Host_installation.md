@@ -90,7 +90,11 @@ response exposes only `ready` or a generic 503. Activation records
 
 After successful installation, the owner can install and enable `deploy/caf.service`
 as a system unit. It starts the recorded Compose configuration under `cafdeploy`
-after Docker/network startup. Docker's bounded logs and restart policies remain
+after Docker/network startup. The Compose project name is read from the installation receipt.
+Hosts prepared before 2026-11-06 have a unit that hard-codes `-p caf`; it still works
+for the default project, but `prepare-host.sh` refuses the mismatch until the owner
+replaces `/etc/systemd/system/caf.service` with the new file and runs
+`systemctl daemon-reload`. Docker's bounded logs and restart policies remain
 in effect. Real reboot/Wi-Fi/unlock acceptance still needs testing on the laptop.
 
 ## Failures and recovery
