@@ -401,6 +401,9 @@ or `Deferred: <reason>` as it is resolved.
   `web/packages/api-client/src/client.ts:65`. `...config` is spread after the
   merged `headers`, so passing any `headers` removes the default Content-Type
   from JSON requests.
+  **Fixed:** the merged headers now come after `...config`, and `fetch` still defaults to
+  `authenticatedFetch`. Code-only: no caller passes headers today; type-check and the
+  student/auth browser suites (34 passed) cover the unchanged default path.
 
 ---
 
