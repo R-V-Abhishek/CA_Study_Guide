@@ -65,11 +65,13 @@ def open_run(stage: str, args: dict[str, Any] | None = None) -> Generator[Run, N
         session.commit()
         logger.info("run_finished", stage=stage, run_id=run.id, status=run.status)
     except Exception as exc:
-        run.status = "failed"
+        # A caller may record a more specific terminal status (for example aborted_budget).
+        if run.status == "running":
+            run.status = "failed"
         run.error = str(exc)
         run.finished_at = datetime.now(timezone.utc)
         session.commit()
-        logger.error("run_failed", stage=stage, run_id=run.id, error=str(exc))
+        logger.error("run_failed", stage=stage, run_id=run.id, status=run.status, error=str(exc))
         raise
     finally:
         session.close()

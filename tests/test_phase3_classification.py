@@ -337,6 +337,35 @@ def test_provider_failure_is_not_reported_as_success(session, manifest, monkeypa
     assert session.get(Run, 1).taxonomy_version_id == release.taxonomy_version_id
 
 
+def test_budget_cap_stops_the_run_and_leaves_remaining_units_pending(
+    session, manifest, monkeypatch
+):
+    from caf_common.run_context import open_run
+    from caf_l3.llm import BudgetExhaustedError
+
+    release = prepare(session, manifest)
+    doc = document(session)
+    first = unit(session, doc, "discounting")
+    second = unit(session, doc, "discounting", label="Q2")
+    session.commit()
+    pipeline = ClassificationPipeline(session, version_id=release.version_id)
+
+    def capped(**kwargs):
+        raise BudgetExhaustedError("Classification estimated spend reached max_usd_per_run")
+
+    monkeypatch.setattr(pipeline.classifier, "classify_unit", capped)
+    summary = pipeline.run_classification(1, doc_id=doc.id)
+    assert summary.budget_exhausted and summary.is_partial and summary.failed_units == 0
+    assert "budget cap" in summary.status_message
+    assert first.classify_status == "pending" and second.classify_status == "pending"
+    with pytest.raises(RuntimeError, match="budget"):
+        with open_run("l3_classify") as run:
+            run.status = "aborted_budget"
+            raise RuntimeError(summary.status_message)
+    session.expire_all()
+    assert session.get(Run, run.id).status == "aborted_budget"
+
+
 def test_evaluation_requires_decisions_against_the_same_taxonomy(session, manifest):
     from caf_l3.evaluate import evaluate_model_on_reviewed_decisions
     from caf_l3.benchmark import BENCHMARK_FLAG, evaluate_calibration_benchmark

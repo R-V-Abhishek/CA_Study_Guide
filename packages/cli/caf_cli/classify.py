@@ -216,6 +216,8 @@ def classify_run(
                         border_style="yellow",
                     )
                 )
+            if summary.budget_exhausted:
+                run.status = "aborted_budget"
             if summary.is_partial:
                 raise RuntimeError(summary.status_message)
 

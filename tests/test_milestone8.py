@@ -129,6 +129,11 @@ def test_system_alarms_evaluation(session, tmp_path):
     budget_alarm = next((a for a in health.alarms if a.code == "BUDGET_CAP_REACHED"), None)
     assert budget_alarm is not None
     assert budget_alarm.level == "CRITICAL"
+    # A later run of the same stage (for example after raising the cap) clears the alarm.
+    session.add(Run(stage="l3_classify", status="ok", config_hash="cap_test"))
+    session.commit()
+    health = get_system_health(session, backup_dir=empty_bdir)
+    assert not any(a.code == "BUDGET_CAP_REACHED" for a in health.alarms)
 
 
 def test_model_re_evaluation_procedure(session):

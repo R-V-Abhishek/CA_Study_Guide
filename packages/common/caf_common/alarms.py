@@ -167,7 +167,12 @@ def evaluate_system_alarms(
     budget_aborted_run = (
         session.query(Run).filter(Run.status == "aborted_budget").order_by(Run.id.desc()).first()
     )
-    if budget_aborted_run:
+    # Only while it is still the stage's latest run; a later run of that stage clears the alarm.
+    if budget_aborted_run and not (
+        session.query(Run.id)
+        .filter(Run.stage == budget_aborted_run.stage, Run.id > budget_aborted_run.id)
+        .first()
+    ):
         alarms.append(
             Alarm(
                 code="BUDGET_CAP_REACHED",

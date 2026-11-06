@@ -191,6 +191,10 @@ or `Deferred: <reason>` as it is resolved.
   into the generic `except Exception`, so the loop continues and marks each
   remaining pending unit `failed`. The run ends as `failed`, not
   `aborted_budget`.
+  **Fixed (with M-15):** `BudgetExhaustedError` stops the loop like quota exhaustion,
+  leaving the remaining units pending. The CLI records `aborted_budget`, which `open_run`
+  now preserves. `test_budget_cap_stops_the_run_and_leaves_remaining_units_pending` fails
+  without the fix.
 - **H-10: A partial backup counts as the latest one.**
   `packages/common/caf_common/backup.py:311`. The dump is written before blobs
   and configs, which are read through cwd-relative paths, and nothing is cleaned
@@ -273,6 +277,8 @@ or `Deferred: <reason>` as it is resolved.
   `packages/common/caf_common/alarms.py:167`. Nothing writes
   `status='aborted_budget'`, and the query matches any historical run, not only
   the latest. Related to H-09.
+  **Fixed (with H-09):** `aborted_budget` is now recorded, and the alarm fires only while
+  that run is still the latest of its stage (`test_system_alarms_evaluation`).
 - **M-16: The OpenRouter free-model check crashes on list pricing.**
   `packages/l3_classify/caf_l3/openrouter.py:81`. `Decimal()` on a list raises
   TypeError, and a malformed string raises InvalidOperation; neither is in the
