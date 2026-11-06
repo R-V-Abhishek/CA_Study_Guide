@@ -342,3 +342,52 @@ def test_configured_connections_keep_stored_url_passwords(tmp_path, monkeypatch)
     with pytest.raises(RuntimeError, match="BACKUP_DATABASE_URL does not use the password"):
         configure_connections(tmp_path / "other.env")
     reset_settings()
+
+
+@pytest.mark.parametrize("kind", ["progress", "notes"])
+def test_simultaneous_first_writes_do_not_collide(authenticated_client, monkeypatch, kind):
+    """Both requests read "no row" before either inserts; without serialization one fails."""
+    import threading
+
+    from caf_db.models.app import Progress
+    from sqlalchemy.orm import Session as OrmSession
+
+    first, second = authenticated_client(user_id=1), authenticated_client(user_id=1)
+    node = first_subtopic(first)
+    model = Progress if kind == "progress" else Note
+    barrier = threading.Barrier(2)
+    original_get = OrmSession.get
+
+    def get_then_wait(self, entity, ident, *args, **kwargs):
+        row = original_get(self, entity, ident, *args, **kwargs)
+        if entity is model:
+            try:
+                barrier.wait(timeout=1)
+            except threading.BrokenBarrierError:
+                pass  # serialized: the other request is waiting for the lock
+        return row
+
+    monkeypatch.setattr(OrmSession, "get", get_then_wait)
+    url = f"/api/v1/subtopics/{node}/{kind}"
+    bodies = (
+        [{"status": "in_progress"}, {"status": "done"}]
+        if kind == "progress"
+        else [
+            {"notes": "From the first tab"},
+            {"notes": "From the second tab"},
+        ]
+    )
+    statuses = {}
+
+    def write(name, client, body):
+        statuses[name] = client.put(url, json=body).status_code
+
+    threads = [
+        threading.Thread(target=write, args=("first", first, bodies[0])),
+        threading.Thread(target=write, args=("second", second, bodies[1])),
+    ]
+    for thread in threads:
+        thread.start()
+    for thread in threads:
+        thread.join()
+    assert statuses == {"first": 200, "second": 200}

@@ -235,6 +235,9 @@ or `Deferred: <reason>` as it is resolved.
 - **M-02: Concurrent first writes of progress or notes race.**
   `packages/api/caf_api/study.py:642`, `:688`. Check-then-insert with no upsert:
   a double-click or two tabs give an IntegrityError and a 500.
+  **Fixed:** each write takes a per-student, per-topic `pg_advisory_xact_lock` before
+  reading. `test_simultaneous_first_writes_do_not_collide` forces both reads before
+  either insert and fails without the fix.
 - **M-03: Extraction page, image and PDF routes have no rate limit.**
   `packages/api/caf_api/ratelimit.py:23`. These routes are as expensive as the
   throttled published-page routes (each hashes the whole PDF and rasterizes it),

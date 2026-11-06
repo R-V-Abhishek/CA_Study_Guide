@@ -640,6 +640,14 @@ def get_subtopic_detail(
     }
 
 
+def _lock_personal_row(session: Session, kind: str, user_id: int, node_id: str) -> None:
+    """Serialize first writes: two tabs inserting the same personal row would otherwise collide."""
+    session.execute(
+        sa.text("SELECT pg_advisory_xact_lock(hashtextextended(:key, 0))"),
+        {"key": f"{kind}:{user_id}:{node_id}"},
+    )
+
+
 @router.put("/subtopics/{node_id}/progress", response_model=ProgressResult)
 def update_subtopic_progress(
     node_id: str,
@@ -653,6 +661,7 @@ def update_subtopic_progress(
     if not subtopic or subtopic.level != "subtopic" or node_id not in _nodes(session, account):
         raise HTTPException(status_code=404, detail="Subtopic not found")
 
+    _lock_personal_row(session, "progress", user_id, node_id)
     progress = session.get(Progress, (user_id, node_id))
     old_status = progress.status if progress else "not_started"
     now = datetime.now(timezone.utc)
@@ -706,6 +715,7 @@ def update_subtopic_notes(
     if not subtopic or subtopic.level != "subtopic" or node_id not in _nodes(session, account):
         raise HTTPException(status_code=404, detail="Subtopic not found")
 
+    _lock_personal_row(session, "note", user_id, node_id)
     note = session.get(Note, (user_id, node_id))
     now = datetime.now(timezone.utc)
     if not note:
