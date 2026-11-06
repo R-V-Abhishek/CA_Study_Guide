@@ -287,6 +287,8 @@ or `Deferred: <reason>` as it is resolved.
 - **M-09: The watcher reports "recovered" when an alarm only changes code.**
   `packages/cli/caf_cli/host_watch.py:51`. Going from BACKUP_FAILED to
   BACKUP_STALE sends "Back to normal" alongside the new alert.
+  **Fixed:** a backup code that gives way to the other backup code sends no recovery;
+  only the new alert (`test_backup_alarm_changing_code_is_not_reported_as_recovered`).
 - **M-10: A timezone-naive manifest `created_at` raises TypeError.**
   `packages/cli/caf_cli/host_upgrade.py:132`. The upgrade aborts with a traceback
   instead of a clear validation error.

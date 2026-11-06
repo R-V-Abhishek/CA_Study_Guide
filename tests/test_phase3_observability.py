@@ -166,6 +166,16 @@ def test_new_problem_while_another_persists_notifies_only_the_new_one():
     assert [item["code"] for item in notifications] == ["BACKUP_FAILED"]
 
 
+def test_backup_alarm_changing_code_is_not_reported_as_recovered():
+    _, state = decide({"BACKUP_FAILED": "failed"}, {}, NOW)
+    notifications, state = decide({"BACKUP_STALE": "stale"}, state, NOW + timedelta(hours=1))
+    assert [(item["kind"], item["code"]) for item in notifications] == [("alert", "BACKUP_STALE")]
+    notifications, _ = decide({}, state, NOW + timedelta(hours=2))
+    assert [(item["kind"], item["code"]) for item in notifications] == [
+        ("recovered", "BACKUP_STALE")
+    ]
+
+
 def test_watch_command_reads_the_configured_snapshot_directory(tmp_path, monkeypatch):
     monkeypatch.setattr(get_settings().storage, "backup_dir", tmp_path)
     write_heartbeat(tmp_path)

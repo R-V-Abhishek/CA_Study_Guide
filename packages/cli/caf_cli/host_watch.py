@@ -49,6 +49,9 @@ def decide(problems: dict[str, str], state: dict, now: datetime) -> tuple[list[d
         else:
             updated[code] = previous
     for code in active.keys() - problems.keys():
+        # BACKUP_FAILED and BACKUP_STALE describe one snapshot; a change between them is not a recovery.
+        if code.startswith("BACKUP_") and any(other.startswith("BACKUP_") for other in problems):
+            continue
         notifications.append({"kind": "recovered", "code": code, "message": "Back to normal"})
     return notifications, {"active": updated}
 
