@@ -331,3 +331,20 @@ def test_failed_verification_drill_reports_once(monkeypatch, tmp_path):
     result = runner.invoke(cli_app, ["backup", "verify"])
     assert result.exit_code == 1
     assert "FAILED" in result.output and "Verification drill failed" not in result.output
+
+
+def test_extraction_failure_alarm_reads_the_extract_stage(session, tmp_path):
+    session.add(
+        Run(stage="l2_extract", status="failed", stats={"documents": 4, "failed": [11, 12]})
+    )
+    session.commit()
+    alarm = next(
+        a
+        for a in evaluate_system_alarms(session, backup_dir=tmp_path)
+        if a.code == "EXTRACTION_FAILURE_HIGH"
+    )
+    assert (alarm.details["total"], alarm.details["failed"]) == (4, 2)
+    session.add(Run(stage="l2_extract", status="ok", stats={"documents": 5, "failed": []}))
+    session.commit()
+    codes = {a.code for a in evaluate_system_alarms(session, backup_dir=tmp_path)}
+    assert "EXTRACTION_FAILURE_HIGH" not in codes

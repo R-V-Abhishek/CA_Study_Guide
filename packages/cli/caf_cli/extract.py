@@ -108,7 +108,7 @@ def extract_run(
             table.add_column("Gradables", justify="right")
             table.add_column("Issues", style="red")
 
-            failures = []
+            failures, errors = [], []
             for doc in docs:
                 p_override = Path(profile_path) if profile_path else None
                 try:
@@ -145,6 +145,7 @@ def extract_run(
                         failures.append(doc.id)
                 except Exception as e:
                     failures.append(doc.id)
+                    errors.append(doc.id)
                     table.add_row(
                         str(doc.id),
                         f"{doc.attempt_id or '—'} {doc.paper_id or '—'}",
@@ -156,6 +157,8 @@ def extract_run(
                     )
 
             console.print(table)
+            # The failure alarm reads these; a failed document never gets extract_run_id.
+            run.stats = {**run.stats, "documents": len(docs), "failed": errors}
             if failures:
                 run.stats = {**run.stats, "failed_or_needs_review": failures}
                 raise typer.Exit(1)

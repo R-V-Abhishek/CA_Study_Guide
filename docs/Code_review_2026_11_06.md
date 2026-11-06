@@ -322,6 +322,10 @@ or `Deferred: <reason>` as it is resolved.
   `packages/common/caf_common/alarms.py:140`. It filters on `stage == 'extract'`,
   but runs are recorded as `l2_extract` (`packages/cli/caf_cli/extract.py:101`).
   *Confirmed by the stage names passed to `open_run`.*
+  **Fixed:** the alarm reads the latest `l2_extract` run. Failed documents never get
+  `extract_run_id`, so the run now records `documents` and `failed` (exceptions) in its
+  stats and the alarm uses those. Older runs without the count are skipped
+  (`test_extraction_failure_alarm_reads_the_extract_stage`).
 - **M-15: The budget alarm never fires, and would latch if it did.**
   `packages/common/caf_common/alarms.py:167`. Nothing writes
   `status='aborted_budget'`, and the query matches any historical run, not only

@@ -137,31 +137,28 @@ def evaluate_system_alarms(
 
     # 3. Check Extraction Failure Rate
     latest_extract_run = (
-        session.query(Run).filter(Run.stage == "extract").order_by(Run.id.desc()).first()
+        session.query(Run).filter(Run.stage == "l2_extract").order_by(Run.id.desc()).first()
     )
-    if latest_extract_run:
-        # Check documents for this extract run or overall
-        docs = (
-            session.query(Document).filter(Document.extract_run_id == latest_extract_run.id).all()
-        )
-        if docs:
-            total_docs = len(docs)
-            failed_docs = sum(1 for d in docs if d.extract_status == "failed")
-            failure_rate = failed_docs / total_docs
-            if failure_rate > 0.20:
-                alarms.append(
-                    Alarm(
-                        code="EXTRACTION_FAILURE_HIGH",
-                        level="WARNING",
-                        message=f"Extraction failure rate is {failure_rate * 100:.1f}% (> 20%) in run #{latest_extract_run.id}",
-                        details={
-                            "run_id": latest_extract_run.id,
-                            "total": total_docs,
-                            "failed": failed_docs,
-                            "rate": round(failure_rate, 3),
-                        },
-                    )
+    # Runs recorded before the CLI stored "documents" carry no denominator and are skipped.
+    stats = latest_extract_run.stats if latest_extract_run else {}
+    if stats and stats.get("documents"):
+        total_docs = stats["documents"]
+        failed_docs = len(stats["failed"])
+        failure_rate = failed_docs / total_docs
+        if failure_rate > 0.20:
+            alarms.append(
+                Alarm(
+                    code="EXTRACTION_FAILURE_HIGH",
+                    level="WARNING",
+                    message=f"Extraction failure rate is {failure_rate * 100:.1f}% (> 20%) in run #{latest_extract_run.id}",
+                    details={
+                        "run_id": latest_extract_run.id,
+                        "total": total_docs,
+                        "failed": failed_docs,
+                        "rate": round(failure_rate, 3),
+                    },
                 )
+            )
 
     # 4. Check Budget Cap
     budget_aborted_run = (
