@@ -24,7 +24,8 @@ def get_git_sha() -> str | None:
             timeout=2,
         )
         return res.stdout.strip()
-    except Exception:
+    except (OSError, subprocess.SubprocessError):
+        # Release images carry no git checkout or binary; the run records no SHA there.
         return None
 
 

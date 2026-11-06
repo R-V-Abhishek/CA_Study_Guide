@@ -441,6 +441,12 @@ or `Deferred: <reason>` as it is resolved.
   - The fetcher follows redirects to other hosts without applying politeness or
     robots rules for them.
   - `llm.py` logs `status="ok"` before validating the output.
+  **Fixed:** `collect_baseline` resolves the working directory per call; `get_git_sha`
+  catches only `OSError`/`SubprocessError`; the LLM call is logged as `schema_error`
+  until its output validates. The fetcher now follows redirects hop by hop and paces
+  each new host (`test_redirects_to_another_host_are_paced_per_host`). Robots rules are
+  deliberately not rechecked on redirects, matching the documented policy that robots
+  governs discovery, not the download of a discovered artifact.
 
 ### Deploy
 

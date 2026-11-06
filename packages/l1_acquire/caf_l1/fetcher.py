@@ -24,6 +24,28 @@ def _upgrade_redirect(response: httpx.Response) -> None:
             response.headers["location"] = "https://" + loc[7:]
 
 
+MAX_REDIRECTS = 10
+
+
+def get_politely(client: httpx.Client, politeness: PolitenessManager, url: str) -> httpx.Response:
+    """Follow redirects one hop at a time so every new host gets its own request pacing.
+
+    As for the discovered URL itself, robots rules govern discovery (navigation), not the
+    direct download of an already-discovered artifact, so they are not rechecked here.
+    """
+    for _ in range(MAX_REDIRECTS + 1):
+        response = client.get(url)
+        if not response.is_redirect:
+            return response
+        target = str(response.url.join(response.headers["location"]))
+        if target.startswith("http://"):
+            target = "https://" + target[7:]
+        if politeness.get_host(target) != politeness.get_host(url):
+            politeness.sleep_before_request(target)
+        url = target
+    raise httpx.TooManyRedirects(f"More than {MAX_REDIRECTS} redirects", request=response.request)
+
+
 class DocumentFetcher:
     def __init__(
         self,
@@ -88,10 +110,9 @@ class DocumentFetcher:
                 with httpx.Client(
                     timeout=30.0,
                     headers={"User-Agent": self.politeness.user_agent},
-                    follow_redirects=True,
-                    event_hooks={"response": [_upgrade_redirect]},
+                    follow_redirects=False,
                 ) as client:
-                    resp = client.get(url)
+                    resp = get_politely(client, self.politeness, url)
 
                 if resp.status_code == 404 or resp.status_code == 410:
                     link.link_status = "failed"
