@@ -78,39 +78,36 @@ def cmd_verify(
                 dump_file=dump_file,
                 scratch_db_name=scratch_db,
             )
-
-            status_color = "bold green" if res.verified else "bold red"
-            table = Table(
-                title=f"Backup Verification Report: {res.dump_file.name}", show_header=True
-            )
-            table.add_column("Table", style="cyan")
-            table.add_column("Manifest Count", justify="right")
-            table.add_column("Restored Count", justify="right")
-            table.add_column("Status", justify="center")
-
-            for t_name in sorted(res.live_counts.keys()):
-                live_cnt = res.live_counts.get(t_name, 0)
-                rest_cnt = res.restored_counts.get(t_name, 0)
-                match = live_cnt == rest_cnt
-                table.add_row(
-                    t_name,
-                    str(live_cnt),
-                    str(rest_cnt),
-                    "[green]MATCH[/green]" if match else "[red]MISMATCH[/red]",
-                )
-
-            console.print(table)
-            console.print(
-                f"\nVerification Result: [{status_color}]{'PASSED' if res.verified else 'FAILED'}[/{status_color}]"
-            )
-            console.print(f"[dim]{res.message}[/dim]")
-            console.print(f"Report: {res.report_file}")
-
-            if not res.verified:
-                raise typer.Exit(code=1)
-
         except Exception as exc:
             console.print(f"[bold red]Verification drill failed:[/bold red] {exc}")
+            raise typer.Exit(code=1) from exc
+
+        status_color = "bold green" if res.verified else "bold red"
+        table = Table(title=f"Backup Verification Report: {res.dump_file.name}", show_header=True)
+        table.add_column("Table", style="cyan")
+        table.add_column("Manifest Count", justify="right")
+        table.add_column("Restored Count", justify="right")
+        table.add_column("Status", justify="center")
+
+        for t_name in sorted(res.live_counts.keys()):
+            live_cnt = res.live_counts.get(t_name, 0)
+            rest_cnt = res.restored_counts.get(t_name, 0)
+            match = live_cnt == rest_cnt
+            table.add_row(
+                t_name,
+                str(live_cnt),
+                str(rest_cnt),
+                "[green]MATCH[/green]" if match else "[red]MISMATCH[/red]",
+            )
+
+        console.print(table)
+        console.print(
+            f"\nVerification Result: [{status_color}]{'PASSED' if res.verified else 'FAILED'}[/{status_color}]"
+        )
+        console.print(f"[dim]{res.message}[/dim]")
+        console.print(f"Report: {res.report_file}")
+
+        if not res.verified:
             raise typer.Exit(code=1)
 
 

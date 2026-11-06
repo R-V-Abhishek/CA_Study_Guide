@@ -310,3 +310,24 @@ def test_backup_endpoint_reports_scheduled_snapshot_status_without_paths(client)
         alarm["code"] == "BACKUP_FAILED" and alarm["level"] == "CRITICAL"
         for alarm in health["alarms"]
     )
+
+
+def test_failed_verification_drill_reports_once(monkeypatch, tmp_path):
+    from caf_cli import backup as backup_cli
+    from caf_common.backup import VerificationResult
+
+    def unverified(**_):
+        return VerificationResult(
+            verified=False,
+            dump_file=tmp_path / "caf_test.dump",
+            live_counts={"app.note": 2},
+            restored_counts={"app.note": 1},
+            mismatches=["app.note"],
+            message="Counts differ",
+            report_file=tmp_path / "report.json",
+        )
+
+    monkeypatch.setattr(backup_cli, "verify_backup", unverified)
+    result = runner.invoke(cli_app, ["backup", "verify"])
+    assert result.exit_code == 1
+    assert "FAILED" in result.output and "Verification drill failed" not in result.output

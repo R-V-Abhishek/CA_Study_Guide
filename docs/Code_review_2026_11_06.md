@@ -282,6 +282,8 @@ or `Deferred: <reason>` as it is resolved.
 - **M-08: A verification failure prints a spurious error.**
   `packages/cli/caf_cli/backup.py:110`. `typer.Exit` (a RuntimeError) is caught
   by `except Exception`, which adds "Verification drill failed: 1".
+  **Fixed:** the `try` now covers only `verify_backup`; an unverified result exits 1
+  after the report (`test_failed_verification_drill_reports_once`).
 - **M-09: The watcher reports "recovered" when an alarm only changes code.**
   `packages/cli/caf_cli/host_watch.py:51`. Going from BACKUP_FAILED to
   BACKUP_STALE sends "Back to normal" alongside the new alert.
