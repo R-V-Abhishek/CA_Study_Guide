@@ -40,6 +40,9 @@ or `Deferred: <reason>` as it is resolved.
   `url = "postgresql://u:pw@h/db"` are copied unredacted into `configs/` and
   every secondary copy, even though the manifest says "Credential keys redacted".
   *Confirmed by a regex test during review.*
+  **Fixed:** `backup.redact_config` handles quoted keys, keeps trailing JSON commas
+  and redacts URL passwords; covered by
+  `test_config_redaction_covers_quoted_keys_and_url_credentials`.
 - **S-03: `configure-connections` writes `.env` world-readable.**
   `packages/db/caf_db/configuration.py:37`. A new `.env` holding all six role
   passwords is created with the default umask, typically `0644`.

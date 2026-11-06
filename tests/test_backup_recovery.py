@@ -15,6 +15,18 @@ from caf_db.models.core import Appearance, AppearanceTag, Decision
 from caf_common.postgres_sandbox import PostgresSandbox
 
 
+def test_config_redaction_covers_quoted_keys_and_url_credentials():
+    json_text = '{\n  "db_password": "hunter2",\n  "name": "caf"\n}\n'
+    redacted = backup.redact_config(json_text)
+    assert "hunter2" not in redacted
+    assert json.loads(redacted) == {"db_password": "[REDACTED]", "name": "caf"}
+    toml_text = '"api_key" = "abc"\nurl = "postgresql://caf:pw1@db/caf"\npassword = plain\n'
+    redacted = backup.redact_config(toml_text)
+    assert "abc" not in redacted and "pw1" not in redacted and "plain" not in redacted
+    assert 'url = "postgresql://caf:[REDACTED]@db/caf"' in redacted
+    assert backup.redact_config("host = db\n") == "host = db\n"
+
+
 def test_successive_schema_revisions_preserve_required_backup_tables():
     from alembic.config import Config
     from alembic.script import ScriptDirectory

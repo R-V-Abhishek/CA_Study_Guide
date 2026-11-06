@@ -231,6 +231,17 @@ def _write_json(path, data):
     path.write_text(json.dumps(data, indent=2, sort_keys=True, default=str) + "\n")
 
 
+def redact_config(text: str) -> str:
+    """Redact credential values (bare or quoted keys) and passwords embedded in URLs."""
+    text = re.sub(
+        r"""(?im)^(\s*["']?[\w.-]*(?:password|secret|api_key|token)[\w.-]*["']?\s*[=:]\s*)"""
+        r"""(?:"[^"\n]*"|'[^'\n]*'|[^,\n]*?)(\s*,?\s*)$""",
+        r'\1"[REDACTED]"\2',
+        text,
+    )
+    return re.sub(r"""(\b[a-z][\w+.-]*://[^:/@\s"']+:)[^@\s"']+@""", r"\1[REDACTED]@", text)
+
+
 def _archive_tree(source: Path, destination: Path, root: Path) -> dict[str, str]:
     files = {}
     if not source.is_dir():
@@ -245,12 +256,7 @@ def _archive_tree(source: Path, destination: Path, root: Path) -> dict[str, str]
         target = destination / path.relative_to(source)
         target.parent.mkdir(parents=True, exist_ok=True)
         if path.suffix in {".toml", ".yaml", ".yml", ".json"}:
-            content = re.sub(
-                r"(?im)^(\s*[\w-]*(?:password|secret|api_key|token)[\w-]*\s*[=:]\s*).+$",
-                r'\1"[REDACTED]"',
-                path.read_text(),
-            )
-            target.write_text(content)
+            target.write_text(redact_config(path.read_text()))
         else:
             shutil.copy2(path, target)
         files[target.relative_to(root).as_posix()] = file_checksum(target)
