@@ -61,7 +61,12 @@ finish() {
     trap - EXIT
     if test "$success" != true; then
         action='Services remain stopped. Preserve the database and files; do not rerun upgrade or downgrade the database.'
-        if test "$migrated" = false; then
+        unchanged='The previous release was restarted; the database was not changed.'
+        if test "$stopped" = false; then
+            # Failed before quiesce: nothing was stopped, switched or migrated.
+            unchanged='The previous release is still serving; nothing was changed. Fix the cause and rerun upgrade.'
+            action=$unchanged
+        elif test "$migrated" = false; then
             # No database change happened, so returning to the previous release is safe.
             pointer=restored
             if test "$switched" = true; then
@@ -71,7 +76,7 @@ finish() {
             if test "$stopped" = true; then
                 if old_compose up -d --no-deps --wait --wait-timeout 120 web worker >> "$log" 2>&1; then
                     if test "$pointer" = restored; then
-                        action='The previous release was restarted; the database was not changed.'
+                        action=$unchanged
                     else
                         action="The previous release was restarted, but current-compose.json still names the new release; point it at $current before rebooting or rerunning upgrade."
                     fi
@@ -85,7 +90,7 @@ finish() {
             '{status:"failed",phase:$phase,project:$project,database_migrated:$migrated,previous_release_compose:$previous,pre_migration_snapshot:(if $snapshot == "" then null else $snapshot end),private_log:$log,recovery:$action}' > "$work/failure.json"
         echo "Upgrade failed during $phase. $action Private record: $work/failure.json" >&2
         # The marker is only removed on success or when the previous release is running again.
-        if test "$migrated" = false && test "$action" = 'The previous release was restarted; the database was not changed.'; then
+        if test "$migrated" = false && test "$action" = "$unchanged"; then
             rm -f "$root/.upgrade-in-progress"
         fi
     else

@@ -346,6 +346,10 @@ or `Deferred: <reason>` as it is resolved.
   `deploy/upgrade-host.sh:62`. It always says "Services remain stopped … do not
   rerun", even when the failure happened before quiesce and the old release is
   still serving.
+  **Fixed:** a failure before quiesce reports that the previous release is still serving
+  and nothing changed, and clears the marker. Verified by running the extracted `finish`
+  handler with stubbed Compose for pre-quiesce, rollback and post-migration failures;
+  not exercised on Ubuntu.
 - **M-18: `caf.service` hard-codes `-p caf`.**
   `deploy/caf.service:14`. An installation with a non-default `--project` is not
   restarted at boot, and a second project may start against the same storage.
