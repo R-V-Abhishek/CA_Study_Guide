@@ -1,8 +1,6 @@
 """Authenticated, publication-bound original pages with conservative line crops."""
 
 from collections import OrderedDict
-from pathlib import Path
-import re
 from threading import Lock
 from typing import Literal
 
@@ -14,11 +12,11 @@ from sqlalchemy.orm import Session
 from caf_api.auth import Principal, require_account
 from caf_api.published import (
     approved_source,
+    approved_source_path,
     current_question,
     require_question_language,
     source_bytes,
 )
-from caf_common.settings import get_settings
 from caf_contracts.questions import PublishedQuestionPage
 from caf_db.engine import get_db_session
 from caf_db.models.questions import PublishedQuestion, PublishedSource
@@ -105,12 +103,7 @@ def question_pages(
 
 def source_signature(source: PublishedSource) -> tuple:
     """Recheck the approved content-addressed path and file identity on every hit."""
-    if not re.fullmatch("[0-9a-f]{64}", source.sha256):
-        raise HTTPException(404, "published_source_unavailable")
-    base = Path(get_settings().storage.blob_dir).resolve()
-    expected = (base / source.sha256[:2] / source.sha256[2:4] / f"{source.sha256}.pdf").resolve()
-    if Path(source.approved_blob_path).resolve() != expected or not expected.is_relative_to(base):
-        raise HTTPException(404, "published_source_unavailable")
+    expected = approved_source_path(source)
     try:
         stat = expected.stat()
     except FileNotFoundError as exc:

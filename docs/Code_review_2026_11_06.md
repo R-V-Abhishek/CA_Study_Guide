@@ -422,6 +422,8 @@ or `Deferred: <reason>` as it is resolved.
   `packages/api/caf_api/published_pages.py:106` re-implements the sha256 and
   approved-path checks from `published.py:75-81`. Extract a shared
   `approved_blob_path` so both callers enforce the same rule.
+  **Fixed:** both use `published.approved_source_path`, with identical checks; the
+  existing path/hash guard tests in `tests/test_published_pages.py` pass.
 
 ### Pipelines and common
 
