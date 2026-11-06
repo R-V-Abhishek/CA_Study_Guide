@@ -307,6 +307,9 @@ or `Deferred: <reason>` as it is resolved.
   `packages/l5_intel/caf_l5/jobs.py:235`. Any job at the current generation,
   including a failed one, counts as existing work, so freshness stays `failed`
   until the corpus generation changes.
+  **Fixed:** a failed context is retried up to `MAX_FAILED_ATTEMPTS` (3) times per
+  generation, no sooner than `RETRY_AFTER` (10 minutes) after the last failure; then it
+  stays visibly failed (`test_failed_context_is_retried_a_bounded_number_of_times`).
 - **M-13: `compute_law_stale` ignores the boundary's scope.**
   `packages/l4_curate/caf_l4/publish.py:17`. `node_ids`, `scope_node_ids` and
   the `exclude` policy are ignored, so one scoped boundary marks every earlier
