@@ -57,6 +57,10 @@ or `Deferred: <reason>` as it is resolved.
   upgrade fails after `db migrate`. A backup the same UTC day then makes
   `plan_retention` keep only the newest snapshot that day and delete the
   pre-migration snapshot.
+  **Fixed:** `backup-host.sh` refuses to run while `.upgrade-in-progress` exists,
+  and `failure.json` now records `pre_migration_snapshot`, matching
+  `docs/Host_installation.md`. `bash -n` and jq output checked; the Linux-only
+  `scripts/verify_host_upgrade.py` asserts the new field but was not run here.
 - **R-02: The install and upgrade root guards never abort.**
   `deploy/upgrade-host.sh:26`, `deploy/install-host.sh:28`. Each guard is a
   `test … && test … && test …` chain, and `set -e` does not exit when a non-final

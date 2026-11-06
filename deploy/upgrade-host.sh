@@ -75,8 +75,8 @@ finish() {
             new_compose stop web worker >> "$log" 2>&1 || true
         fi
         jq -n --arg phase "$phase" --arg project "$project" --arg log "$log" --arg action "$action" \
-            --arg previous "$current" --argjson migrated "$migrated" \
-            '{status:"failed",phase:$phase,project:$project,database_migrated:$migrated,previous_release_compose:$previous,private_log:$log,recovery:$action}' > "$work/failure.json"
+            --arg previous "$current" --arg snapshot "${created:-}" --argjson migrated "$migrated" \
+            '{status:"failed",phase:$phase,project:$project,database_migrated:$migrated,previous_release_compose:$previous,pre_migration_snapshot:(if $snapshot == "" then null else $snapshot end),private_log:$log,recovery:$action}' > "$work/failure.json"
         echo "Upgrade failed during $phase. $action Private record: $work/failure.json" >&2
         # The marker is only removed on success or when the previous release is running again.
         if test "$migrated" = false && test "$action" = 'The previous release was restarted; the database was not changed.'; then

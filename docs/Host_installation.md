@@ -143,7 +143,8 @@ Failure handling: if nothing in the database changed, the previous release is
 restarted and the pointer restored automatically. After a migration has started,
 services stay **stopped**, nothing is downgraded, and `failure.json` names the
 snapshot to restore into an empty destination. `.upgrade-in-progress` blocks
-another attempt until the failure has been read.
+another upgrade and the nightly backup (whose retention could otherwise prune that
+snapshot) until the failure has been read.
 
 Status of this tooling: the planning, snapshot-gating and receipt logic are
 unit-tested (`deploy/tests/test_host_upgrade.py`), and the shell orchestration has

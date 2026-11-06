@@ -21,6 +21,8 @@ exec 9> "$root/.deployment.lock"
 flock -n 9 || { echo 'Another installation, upgrade, restore or backup owns the deployment lock' >&2; exit 1; }
 receipt=$root/installation.json
 test -f "$receipt" && test "$(jq -er .phase "$receipt")" = active || { echo 'An active installation is required' >&2; exit 1; }
+# A failed upgrade's pre-migration snapshot is not yet named in the receipt, so retention could prune it.
+test ! -e "$root/.upgrade-in-progress" || { echo 'A previous upgrade did not finish; read its failure.json before taking or pruning snapshots' >&2; exit 1; }
 test -L "$root/current-compose.json" || { echo 'Current deployment pointer is missing' >&2; exit 1; }
 current=$(realpath -e -- "$root/current-compose.json")
 project=$(jq -er .project "$receipt")

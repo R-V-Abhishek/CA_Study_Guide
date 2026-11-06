@@ -469,7 +469,10 @@ def verify(bundle: Path, snapshot: Path, image: str) -> None:
             assert receipt()["application"]["version"] == v2
             assert not (target / ".upgrade-in-progress").exists()
             records = sorted(target.glob("releases/upgrade-*/failure.json"))
-            assert records and json.loads(records[-1].read_text())["database_migrated"] is False
+            assert records
+            record = json.loads(records[-1].read_text())
+            assert record["database_migrated"] is False
+            assert record["pre_migration_snapshot"].startswith("caf_"), record
             expect_ready(v2)
             assert counts() == before_failure
             typer.echo(
