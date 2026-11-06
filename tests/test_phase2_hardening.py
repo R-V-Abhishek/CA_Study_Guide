@@ -323,3 +323,22 @@ def test_login_rate_limit_keys_on_the_tailnet_client_behind_docker_proxy(burst_r
     proxied.get("/auth/login")
     # The appended tailnet address wins over a client-supplied entry; without the header the bridge remains.
     assert identities == ["100.64.0.1", "100.64.0.1", "100.64.0.2", "172.19.0.1"]
+
+
+def test_configured_connections_keep_stored_url_passwords(tmp_path, monkeypatch):
+    from caf_common.settings import reset_settings
+    from caf_db.configuration import configure_connections
+
+    monkeypatch.chdir(tmp_path)
+    url = "postgresql+psycopg://caf_backup:stored-secret@127.0.0.1:5432/caf"
+    monkeypatch.delenv("PG_BACKUP_PASSWORD", raising=False)
+    monkeypatch.setenv("BACKUP_DATABASE_URL", url)
+    reset_settings()
+    env_file = tmp_path / ".env"
+    assert configure_connections(env_file) == ["PG_BACKUP_PASSWORD"]
+    assert "PG_BACKUP_PASSWORD=stored-secret" in env_file.read_text().splitlines()
+    monkeypatch.setenv("PG_BACKUP_PASSWORD", "different-secret")
+    reset_settings()
+    with pytest.raises(RuntimeError, match="BACKUP_DATABASE_URL does not use the password"):
+        configure_connections(tmp_path / "other.env")
+    reset_settings()

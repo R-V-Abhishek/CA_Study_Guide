@@ -149,6 +149,9 @@ or `Deferred: <reason>` as it is resolved.
   new password is generated, but the existing `*_DATABASE_URL` keeps the old one.
   The next `caf db grants` sets the new password, and every connection that uses
   the stored URL fails authentication.
+  **Fixed:** a missing `PG_*_PASSWORD` is taken from the stored URL, and a URL whose
+  password differs from `PG_*_PASSWORD` is refused with a clear error.
+  `test_configured_connections_keep_stored_url_passwords` fails without the fix.
 - **H-05: A snapshot that failed verification stays eligible for retention.**
   `packages/cli/caf_cli/host_backup.py:67`. A failed same-day snapshot is not
   removed. On the next successful run, retention keeps it as that day's newest
