@@ -376,7 +376,20 @@ async def callback(
             raise ValueError("Identity nonce/issuer mismatch")
     except HTTPException:
         raise
+    except (httpx.RequestError, httpx.HTTPStatusError) as exc:
+        logger.warning(
+            "OIDC token exchange unavailable: provider=%s failure=%s",
+            urlsplit(get_settings().OIDC_ISSUER).hostname,
+            type(exc).__name__,
+        )
+        raise HTTPException(503, "identity_provider_unavailable") from exc
     except Exception as exc:
+        # Claim, signature and protocol failures; the type is logged, never the token contents.
+        logger.warning(
+            "OIDC identity rejected: provider=%s failure=%s",
+            urlsplit(get_settings().OIDC_ISSUER).hostname,
+            type(exc).__name__,
+        )
         raise HTTPException(400, "invalid_provider_identity") from exc
     try:
         account = bind_identity(db, dict(identity), tx.invitation_hash)

@@ -127,6 +127,10 @@ or `Deferred: <reason>` as it is resolved.
   5xx responses into `invalid_provider_identity`, not the
   `identity_provider_unavailable` 503 that `/auth/login` uses, and the operator
   gets no log of the cause.
+  **Fixed:** httpx network and status errors return 503 `identity_provider_unavailable`;
+  identity failures stay 400. Both are logged with the provider host and exception type
+  only. `test_provider_outage_during_token_exchange_is_reported_and_logged` (timeout, HTML
+  503) fails without the fix.
 
 ### Database and CLI
 
