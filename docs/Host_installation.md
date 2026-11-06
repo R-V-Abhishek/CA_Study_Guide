@@ -134,7 +134,8 @@ Steps, each recorded in `releases/upgrade-*/upgrade.log`:
 3. Stop web and worker (PostgreSQL stays up), capture a **new recovery snapshot**
    with the installed release, and check its files, protected tables, schema and
    that it was taken after services stopped. A stale snapshot is rejected.
-4. Run forward Alembic migrations and grants only if the schema differs.
+4. Run forward Alembic migrations only if the schema differs, then always apply the
+   idempotent role grants (a release may change privileges without a migration).
 5. Atomically switch `current-compose.json`, start web and worker, check
    readiness, the schema, and that the running web image is the verified one.
 6. Merge a receipt that keeps the previous release, its directory and snapshot.

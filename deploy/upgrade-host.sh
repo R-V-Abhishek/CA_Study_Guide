@@ -169,8 +169,10 @@ phase=migrate
 if test "$live" != "$required"; then
     migrated=true
     new_compose run --rm -T --no-deps admin db migrate >> "$log" 2>&1
-    new_compose run --rm -T --no-deps admin db grants >> "$log" 2>&1
 fi
+# A release can change role privileges without a migration; grants are idempotent and transactional.
+phase=grants
+new_compose run --rm -T --no-deps admin db grants >> "$log" 2>&1
 phase=activate
 point_to "$work/compose.json"
 switched=true

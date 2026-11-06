@@ -175,6 +175,8 @@ or `Deferred: <reason>` as it is resolved.
   `deploy/upgrade-host.sh:163`. A release that adds privileges without a new
   migration activates with missing grants, and its queries fail with permission
   denied after the release is already active.
+  **Fixed:** grants run on every upgrade (new `grants` phase) after any migration;
+  `docs/Host_installation.md` was updated. Checked with `bash -n`; not run on Ubuntu.
 - **H-08: The hourly watch blocks the nightly backup.**
   `deploy/watch-host.sh:18`. The watch holds `.deployment.lock` during
   `compose run`, and `backup-host` uses `flock -n`. If the two overlap, the
