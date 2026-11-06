@@ -433,6 +433,8 @@ or `Deferred: <reason>` as it is resolved.
 - **L-04: Dead resume branch and a no-op try/except.**
   `packages/l3_classify/caf_l3/pipeline.py:91` (both branches apply the same
   filter) and `caf_l3/cascade.py:117-120`.
+  **Fixed:** one unconditional status filter (the real resume filter is the later
+  suggestion/open-gap block), and the re-raising `try` is gone; behaviour is unchanged.
 - **L-05: Minor issues noted but not ranked:**
   - `audit.collect_baseline` defaults to `Path.cwd()`, evaluated once at import.
   - `run_context.get_git_sha` swallows every exception and returns `None`.

@@ -89,10 +89,7 @@ class ClassificationPipeline:
             )
         )
 
-        if resume:
-            query = query.where(Unit.classify_status.not_in(["skipped", "excluded"]))
-        else:
-            query = query.where(Unit.classify_status.not_in(["skipped", "excluded"]))
+        query = query.where(Unit.classify_status.not_in(["skipped", "excluded"]))
 
         if doc_id is not None:
             query = query.where(Document.id == doc_id)
