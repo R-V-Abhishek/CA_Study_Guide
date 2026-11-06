@@ -428,3 +428,38 @@ def test_cli_migrations_target_the_migration_url(isolated_database, monkeypatch)
         with admin.connect() as conn:
             conn.execute(sa.text(f'DROP DATABASE "{database}" WITH (FORCE)'))
         admin.dispose()
+
+
+def test_chapter_in_several_weightage_sections_uses_the_one_in_force(client, session):
+    from caf_db.models.app import Settings
+    from caf_db.models.ref import Attempt
+
+    tree = client.get("/api/v1/papers/s2023.P1/tree").json()
+    chapter = tree["chapters"][0]
+    subtopic = chapter["topics"][0]["subtopics"][0]["id"]
+    target = session.get(Settings, 1).target_attempt_id
+    session.add(
+        Attempt(id="2099-11", exam_year=2099, exam_month=11, label="Nov 2099", verified=False)
+    )
+    for section_id, name, valid_from in [
+        ("test.current", "Section in force", target),
+        ("test.future", "Future section", "2099-11"),
+    ]:
+        session.add(
+            WeightageSection(
+                id=section_id,
+                paper_id="s2023.P1",
+                name=name,
+                min_pct=5,
+                max_pct=10,
+                valid_from_attempt=valid_from,
+            )
+        )
+        session.flush()
+        session.add(WeightageMember(section_id=section_id, chapter_id=chapter["id"]))
+    session.commit()
+    detail = client.get(f"/api/v1/subtopics/{subtopic}")
+    assert detail.status_code == 200, detail.text
+    assert detail.json()["weightage"]["section_name"] == "Section in force"
+    tree = client.get("/api/v1/papers/s2023.P1/tree").json()
+    assert tree["chapters"][0]["weightage_section_name"] == "Section in force"

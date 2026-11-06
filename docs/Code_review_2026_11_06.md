@@ -228,6 +228,10 @@ or `Deferred: <reason>` as it is resolved.
   `valid_from_attempt` values) raises `MultipleResultsFound`, so
   `/api/v1/subtopics/{id}` returns 500. `get_paper_tree` silently keeps one
   arbitrary section.
+  Latent: production has one section per chapter and no `valid_from_attempt` (read-only
+  check, 2026-11-06). **Fixed:** both lookups use `_weightage_by_chapter`, which picks the
+  latest section in force for the student's target attempt.
+  `test_chapter_in_several_weightage_sections_uses_the_one_in_force` fails without the fix.
 - **M-02: Concurrent first writes of progress or notes race.**
   `packages/api/caf_api/study.py:642`, `:688`. Check-then-insert with no upsert:
   a double-click or two tabs give an IntegrityError and a 500.

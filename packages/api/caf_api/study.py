@@ -309,6 +309,37 @@ def list_papers(session: Session = Depends(get_db), account: Principal = Depends
     return summaries
 
 
+def _weightage_by_chapter(session: Session, target_attempt_id: str | None, condition) -> dict:
+    """One section per chapter: the latest `valid_from_attempt` not after the target attempt.
+
+    Undated sections apply to every attempt and lose to a dated section that is in force.
+    """
+    query = (
+        sa.select(
+            WeightageMember.chapter_id,
+            WeightageSection.name,
+            WeightageSection.min_pct,
+            WeightageSection.max_pct,
+        )
+        .join(WeightageSection, WeightageSection.id == WeightageMember.section_id)
+        .where(condition)
+        .order_by(
+            WeightageMember.chapter_id,
+            WeightageSection.valid_from_attempt.desc().nulls_last(),
+            WeightageSection.id,
+        )
+    )
+    if target_attempt_id:
+        query = query.where(
+            WeightageSection.valid_from_attempt.is_(None)
+            | (WeightageSection.valid_from_attempt <= target_attempt_id)
+        )
+    chosen = {}
+    for row in session.execute(query):
+        chosen.setdefault(row.chapter_id, row)
+    return chosen
+
+
 @router.get("/papers/{paper_id}/tree", response_model=PaperTree)
 def get_paper_tree(
     paper_id: str, session: Session = Depends(get_db), account: Principal = Depends(require_account)
@@ -342,17 +373,10 @@ def get_paper_tree(
     note_map = {n.node_id: n.body for n in note_rows}
 
     # Weightages map by chapter
-    weightage_rows = session.execute(
-        sa.select(
-            WeightageMember.chapter_id,
-            WeightageSection.name,
-            WeightageSection.min_pct,
-            WeightageSection.max_pct,
-        )
-        .join(WeightageSection, WeightageSection.id == WeightageMember.section_id)
-        .where(WeightageSection.paper_id == paper_id)
-    ).all()
-    w_map = {r.chapter_id: r for r in weightage_rows}
+    context = resolve_context(session, user_id)
+    w_map = _weightage_by_chapter(
+        session, context.target_attempt_id, WeightageSection.paper_id == paper_id
+    )
 
     # Organize into tree
     chapters_by_id = {}
@@ -434,7 +458,6 @@ def get_paper_tree(
             )
         )
 
-    context = resolve_context(session, user_id)
     from caf_db.models.taxonomy import TaxonomyRelease
 
     release = (
@@ -501,11 +524,11 @@ def get_subtopic_detail(
     # Weightage for this chapter
     w_info = None
     if chapter:
-        w_row = session.execute(
-            sa.select(WeightageSection)
-            .join(WeightageMember, WeightageMember.section_id == WeightageSection.id)
-            .where(WeightageMember.chapter_id == chapter.id)
-        ).scalar_one_or_none()
+        w_row = _weightage_by_chapter(
+            session,
+            resolve_context(session, user_id).target_attempt_id,
+            WeightageMember.chapter_id == chapter.id,
+        ).get(chapter.id)
         if w_row:
             w_info = {
                 "section_name": w_row.name,
