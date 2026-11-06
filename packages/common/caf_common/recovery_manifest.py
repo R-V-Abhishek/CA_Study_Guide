@@ -1,11 +1,10 @@
 """Read-only validation of the existing format-1 recovery artifact."""
 
-from datetime import datetime
 import hashlib
 from pathlib import Path, PurePosixPath
 from typing import Annotated, Literal
 
-from pydantic import BaseModel, ConfigDict, Field, ValidationError
+from pydantic import AwareDatetime, BaseModel, ConfigDict, Field, ValidationError
 
 Checksum = Annotated[str, Field(pattern=r"^[0-9a-f]{64}$")]
 
@@ -19,7 +18,8 @@ class TableDigest(BaseModel):
 class RecoveryManifest(BaseModel):
     model_config = ConfigDict(extra="forbid")
     format_version: Literal[1]
-    created_at: datetime
+    # Snapshots record UTC; a naive time cannot be compared with the maintenance window.
+    created_at: AwareDatetime
     database_revision: str = Field(min_length=1)
     dump_file: str
     dump_sha256: Checksum

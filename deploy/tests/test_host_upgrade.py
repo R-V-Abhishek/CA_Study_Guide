@@ -191,6 +191,19 @@ def test_snapshot_must_match_schema_and_postdate_the_maintenance_window(snapshot
         )
 
 
+def test_snapshot_without_a_timezone_is_a_clear_validation_error(snapshot):
+    path = snapshot / "manifest.json"
+    manifest = json.loads(path.read_text())
+    manifest["created_at"] = manifest["created_at"][:19]
+    path.write_text(json.dumps(manifest))
+    with pytest.raises(ValueError, match="Invalid backup manifest"):
+        verify_snapshot(
+            snapshot,
+            expected_schema="0009_question_language",
+            not_before=moment("2026-10-20T09:00:00+00:00"),
+        )
+
+
 def test_snapshot_missing_protected_tables_is_rejected(snapshot):
     path = snapshot / "manifest.json"
     manifest = json.loads(path.read_text())

@@ -292,9 +292,14 @@ or `Deferred: <reason>` as it is resolved.
 - **M-10: A timezone-naive manifest `created_at` raises TypeError.**
   `packages/cli/caf_cli/host_upgrade.py:132`. The upgrade aborts with a traceback
   instead of a clear validation error.
+  **Fixed:** the manifest declares `created_at: AwareDatetime`, so a naive time is
+  reported as an invalid manifest (`test_snapshot_without_a_timezone_is_a_clear_validation_error`).
 - **M-11: `check_role` raises TypeError when no row comes back.**
   `packages/db/caf_db/engine.py:61`. `any(cursor.fetchone())` on `None` gives an
   unclear error instead of a privilege-check message.
+  **Fixed:** a missing row raises "Serving database role is not visible in pg_roles".
+  Code-only: the nested connect listener has no seam, and `current_user` always has a
+  row; the serving-role tests still pass.
 
 ### Pipelines, alarms and scoring
 
