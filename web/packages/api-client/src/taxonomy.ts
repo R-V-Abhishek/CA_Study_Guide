@@ -151,10 +151,26 @@ export interface QuestionSourceArtifact {
   retrieved_at: string;
 }
 
+/** Someone else's descriptor change that is waiting for a second reviewer. */
+export interface PendingDescriptorReview {
+  version_id: string;
+  node_id: string;
+  paper_id: string;
+  paper_code: string;
+  name: string;
+  revision: number;
+  changed_at: string;
+}
+export interface PendingReviews {
+  count: number;
+  items: PendingDescriptorReview[];
+}
+
 const versionPath = (id: string) => `/api/v1/taxonomy/versions/${encodeURIComponent(id)}`;
 const nodePath = (id: string) => `/api/v1/taxonomy/nodes/${encodeURIComponent(id)}`;
 export const taxonomyApi = {
   versions: () => apiRequest<TaxonomyVersion[]>("/api/v1/taxonomy/versions"),
+  pendingReviews: () => apiRequest<PendingReviews>("/api/v1/taxonomy/reviews/pending"),
   tree: (id: string) => apiRequest<TextbookNode[]>(`${versionPath(id)}/tree`),
   descriptor: (node: string, version: string) =>
     apiRequest<TaxonomyDescriptor | null>(`${nodePath(node)}/descriptor?version_id=${encodeURIComponent(version)}`),

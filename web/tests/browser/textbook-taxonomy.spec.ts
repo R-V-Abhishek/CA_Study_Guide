@@ -439,3 +439,33 @@ test("legacy explorer selects preserved version explicitly and retains URL selec
   await page.goto("/textbooks?legacy=true");
   await expect(page.getByRole("heading", { name: "Syllabus", exact: true })).toBeVisible();
 });
+
+test("descriptor changes by others appear on Today and as a navigation count", async ({ page, request }) => {
+  await request.post("/__test/login?account_id=2");
+  await page.route("**/api/v1/taxonomy/reviews/pending", (route) =>
+    route.fulfill({
+      json: {
+        count: 1,
+        items: [
+          {
+            version_id: version.version_id,
+            node_id: "node-under-review",
+            paper_id: "s2023.P1",
+            paper_code: "P1",
+            name: "Lease classification",
+            revision: 2,
+            changed_at: "2026-11-06T06:00:00+00:00",
+          },
+        ],
+      },
+    }),
+  );
+  await page.goto("/");
+  const section = page.getByRole("region", { name: "Waiting for your review" });
+  await expect(section.getByRole("heading", { name: "Lease classification" })).toBeVisible();
+  await expect(section.getByRole("link", { name: "Review change" })).toHaveAttribute(
+    "href",
+    "/curator/textbooks?version=textbook-fixture&node=node-under-review",
+  );
+  await expect(page.locator(".workspace-sidebar").getByLabel("1 change waiting for your review")).toHaveText("1");
+});

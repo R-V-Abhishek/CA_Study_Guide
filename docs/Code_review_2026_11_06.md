@@ -38,7 +38,12 @@ or `Deferred: <reason>` as it is resolved.
   2026-11-06: the author must not approve their own revision.
   **Fixed (block):** `approve_descriptor` rejects `created_by == actor` with 422;
   `test_recursive_explorer_admin_reviews_and_private_predecessor_notes` fails
-  without the fix. **Open:** notify everyone when a descriptor change awaits review.
+  without the fix.
+  **Notification (owner choice: in-app):** `GET /api/v1/taxonomy/reviews/pending` lists the
+  latest person-written, unapproved revisions by other accounts. Today shows "Waiting for
+  your review" with links to `/curator/textbooks`, and "Review shared content" shows a
+  count, refreshed every 5 minutes. Machine drafts (`created_by` null) are excluded. No
+  email or push.
 - **S-02: Backup redaction misses quoted keys and DSN credentials.**
   `packages/common/caf_common/backup.py:248`. The regex requires the key to start
   with `[\w-]`, so `"db_password": "…"` (JSON), `"api_key" = "…"` (TOML) and

@@ -359,9 +359,15 @@ def test_recursive_explorer_admin_reviews_and_private_predecessor_notes(
     )
     assert edited.status_code == 200 and edited.json()["approved"] is False, edited.text
     second = {"version_id": release.version_id, "revision": edited.json()["revision"]}
+    pending_url = "/api/v1/taxonomy/reviews/pending"
+    assert owner.get(pending_url).json() == {"count": 0, "items": []}
+    waiting = stranger.get(pending_url).json()
+    assert waiting["count"] == 1 and waiting["items"][0]["node_id"] == new_id
+    assert waiting["items"][0]["revision"] == second["revision"]
     self_review = owner.post(review_url, json=second)
     assert self_review.status_code == 422 and "Another reviewer" in self_review.text
     assert stranger.post(review_url, json=second).status_code == 200
+    assert stranger.get(pending_url).json()["count"] == 0
 
 
 def test_partial_release_keeps_unverified_expected_source_gap_explicit(session, manifest):

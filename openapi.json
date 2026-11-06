@@ -3028,6 +3028,28 @@
         }
       }
     },
+    "/api/v1/taxonomy/reviews/pending": {
+      "get": {
+        "tags": [
+          "textbook taxonomy"
+        ],
+        "summary": "Pending Reviews",
+        "description": "Latest person-written descriptor revisions awaiting approval by someone other than their author.",
+        "operationId": "pending_reviews_api_v1_taxonomy_reviews_pending_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PendingReviews"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/taxonomy/nodes/{node_id}/descriptor/approve": {
       "post": {
         "tags": [
@@ -11086,6 +11108,71 @@
           "candidates"
         ],
         "title": "PartPairingCandidates"
+      },
+      "PendingDescriptorReview": {
+        "properties": {
+          "version_id": {
+            "type": "string",
+            "title": "Version Id"
+          },
+          "node_id": {
+            "type": "string",
+            "title": "Node Id"
+          },
+          "paper_id": {
+            "type": "string",
+            "title": "Paper Id"
+          },
+          "paper_code": {
+            "type": "string",
+            "title": "Paper Code"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "revision": {
+            "type": "integer",
+            "title": "Revision"
+          },
+          "changed_at": {
+            "type": "string",
+            "title": "Changed At"
+          }
+        },
+        "type": "object",
+        "required": [
+          "version_id",
+          "node_id",
+          "paper_id",
+          "paper_code",
+          "name",
+          "revision",
+          "changed_at"
+        ],
+        "title": "PendingDescriptorReview"
+      },
+      "PendingReviews": {
+        "properties": {
+          "count": {
+            "type": "integer",
+            "title": "Count"
+          },
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/PendingDescriptorReview"
+            },
+            "type": "array",
+            "title": "Items"
+          }
+        },
+        "type": "object",
+        "required": [
+          "count",
+          "items"
+        ],
+        "title": "PendingReviews",
+        "description": "Descriptor changes written by someone else that still need a second reviewer."
       },
       "PlanItem": {
         "properties": {

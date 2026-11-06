@@ -4,6 +4,7 @@ import { getData, mode } from "../lib/data";
 import { demoLink } from "../lib/demo";
 import { resumeDestination } from "../lib/navigation";
 import { PageState } from "../components/PageState";
+import { reviewLink, usePendingReviews } from "../lib/reviews";
 import type { DashboardData, PlanData, RevisionData } from "../lib/contracts";
 export function Dashboard() {
   const query = useQuery({
@@ -15,6 +16,7 @@ export function Dashboard() {
     queryKey: ["revision-due", mode()],
     queryFn: () => getData<RevisionData>("/api/v1/revision/due"),
   });
+  const reviews = usePendingReviews().data;
   const data = query.data;
   const resume = resumeDestination();
   const awaiting = data?.context && data.context.readiness !== "ready";
@@ -38,6 +40,35 @@ export function Dashboard() {
             View readiness
           </Link>
         </p>
+      )}
+      {reviews && reviews.count > 0 && (
+        <section className="card space-y-3" aria-labelledby="pending-reviews-heading">
+          <h2 id="pending-reviews-heading" className="text-xl font-semibold">
+            Waiting for your review
+          </h2>
+          <p>
+            {reviews.count === 1
+              ? "Another student changed a syllabus descriptor."
+              : `Other students changed ${reviews.count} syllabus descriptors.`}{" "}
+            Classification uses a change only after a second reviewer approves it.
+          </p>
+          {reviews.items.slice(0, 5).map((item) => (
+            <div className="study-row" key={`${item.version_id}:${item.node_id}`}>
+              <h3>{item.name}</h3>
+              <p className="study-meta">
+                {item.paper_code} · Revision {item.revision} · Changed{" "}
+                {new Date(item.changed_at).toLocaleDateString(undefined, {
+                  day: "numeric",
+                  month: "short",
+                  year: "numeric",
+                })}
+              </p>
+              <a className="topic-link" href={reviewLink(item)}>
+                Review change
+              </a>
+            </div>
+          ))}
+        </section>
       )}
       {data && (
         <>

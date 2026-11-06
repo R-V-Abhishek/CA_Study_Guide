@@ -27,6 +27,7 @@ import { isDemoMode, demoLink } from "./lib/demo";
 import { RouteBoundary } from "./components/RouteBoundary";
 import { Diagnostics } from "./components/Diagnostics";
 import { AuthGate } from "./components/AuthGate";
+import { usePendingReviews } from "./lib/reviews";
 import { SessionControls } from "./components/SessionControls";
 import { Dialog } from "@caf/workspace/Dialog";
 import { ThemeControl, useTheme } from "@caf/workspace/theme";
@@ -57,6 +58,22 @@ const secondary = [
   { to: "/progress", label: "Progress", icon: BarChart3 },
   { to: "/mock", label: "Mock results", icon: FileCheck },
 ];
+function ReviewLink({ close }: { close?: () => void }) {
+  const count = usePendingReviews().data?.count ?? 0;
+  return (
+    <a href="/curator/classifications" onClick={close}>
+      Review shared content
+      {count > 0 && (
+        <span
+          className="nav-count"
+          aria-label={`${count} ${count === 1 ? "change" : "changes"} waiting for your review`}
+        >
+          {count}
+        </span>
+      )}
+    </a>
+  );
+}
 function Navigation({ close }: { close?: () => void }) {
   return (
     <>
@@ -75,9 +92,7 @@ function Navigation({ close }: { close?: () => void }) {
             {item.label}
           </NavLink>
         ))}
-        <a href="/curator/classifications" onClick={close}>
-          Review shared content
-        </a>
+        <ReviewLink close={close} />
       </nav>
     </>
   );
