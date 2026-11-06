@@ -429,6 +429,7 @@ or `Deferred: <reason>` as it is resolved.
 
 - **L-03: Each recompute does a linear node scan inside a triple loop.**
   `packages/l5_intel/caf_l5/scoring.py:860`. Build an id → node dict once.
+  **Fixed:** `leaves_by_id` is built once; scoring suites pass. Not benchmarked.
 - **L-04: Dead resume branch and a no-op try/except.**
   `packages/l3_classify/caf_l3/pipeline.py:91` (both branches apply the same
   filter) and `caf_l3/cascade.py:117-120`.
