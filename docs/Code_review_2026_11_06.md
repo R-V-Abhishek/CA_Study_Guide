@@ -497,9 +497,14 @@ or `Deferred: <reason>` as it is resolved.
   (`errorMiddleware.onResponse` throwing `ApiError`) has not been re-verified.
   Local `node_modules` now match the lockfile, so `type-check` and the browser
   tests can cover this.
+  **Verified, no change:** with openapi-fetch 0.17.0 resolved for `@caf/api-client`,
+  `curator controlled responses › other curator pages report failed loads with usable
+  navigation` shows the server `detail` from `errorMiddleware` on the typed-client
+  Catalogue page; the curator suite passes (10) and type-check is clean.
 - **L-13: Formatter churn in `Profile.tsx`.**
   `web/apps/student/src/pages/Profile.tsx:54`. Prettier flattened the nesting of
   the `dirty` and `valid` chains in a dependency commit. Cosmetic only.
+  **No change:** the layout is Prettier's output, which `pnpm format:check` enforces.
 
 ---
 
