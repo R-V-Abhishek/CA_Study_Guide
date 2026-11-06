@@ -109,6 +109,14 @@ or `Deferred: <reason>` as it is resolved.
   behind the Tailscale/Docker proxy. The `login` rule (20/min per IP) then acts
   as a single global bucket, so a few retries lock everyone out with 429. Check
   the real client address seen in production first.
+  **Confirmed** (read-only on `caf-home`, 2026-11-06): Tailscale Serve proxies to
+  `127.0.0.1:8788`, served by userland `docker-proxy`, so uvicorn sees the bridge
+  gateway `172.19.0.1` for every client.
+  **Fixed (pending deployment):** uvicorn uses `--proxy-headers` and trusts only the
+  Docker ranges, so the limiter keys on the rightmost untrusted `X-Forwarded-For`
+  entry. Covered by `test_login_rate_limit_keys_on_the_tailnet_client_behind_docker_proxy`.
+  After the next release, confirm that Tailscale Serve sends `X-Forwarded-For`;
+  without it, behaviour is unchanged.
 - **H-02: OIDC token-exchange failures are flattened to 400 and not logged.**
   `packages/api/caf_api/auth.py:379`. `except Exception` turns Auth0 timeouts and
   5xx responses into `invalid_provider_identity`, not the

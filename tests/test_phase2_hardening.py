@@ -294,3 +294,32 @@ def test_configured_connections_file_is_private(tmp_path, monkeypatch):
     env_file = tmp_path / ".env"
     assert "PG_BACKUP_PASSWORD" in configure_connections(env_file)
     assert env_file.stat().st_mode & 0o777 == 0o600
+
+
+def test_login_rate_limit_keys_on_the_tailnet_client_behind_docker_proxy(burst_rate_limiter):
+    """Production trusts only Docker networks, as configured in compose.production.yml."""
+    from pathlib import Path
+
+    from uvicorn.middleware.proxy_headers import ProxyHeadersMiddleware
+    import yaml
+
+    compose = yaml.safe_load((Path(__file__).parents[1] / "compose.production.yml").read_text())
+    command = compose["services"]["web"]["command"]
+    trusted = command[command.index("--forwarded-allow-ips") + 1]
+    identities = []
+
+    class Recording(RateLimiter):
+        def check(self, rule, identity):
+            identities.append(identity)
+            return 1.0  # always block, so the login route never contacts the provider
+
+    app.state.rate_limiter = Recording()
+    proxied = TestClient(
+        ProxyHeadersMiddleware(app, trusted_hosts=trusted), client=("172.19.0.1", 50000)
+    )
+    for forwarded_for in ("100.64.0.1", "100.64.0.9, 100.64.0.1", "100.64.0.2"):
+        response = proxied.get("/auth/login", headers={"X-Forwarded-For": forwarded_for})
+        assert response.status_code == 429
+    proxied.get("/auth/login")
+    # The appended tailnet address wins over a client-supplied entry; without the header the bridge remains.
+    assert identities == ["100.64.0.1", "100.64.0.1", "100.64.0.2", "172.19.0.1"]
