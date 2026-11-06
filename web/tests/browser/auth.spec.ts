@@ -87,6 +87,52 @@ test("two independent sessions keep notes, settings and exports private", async 
   await other.close();
 });
 
+test("a newer note saved elsewhere replaces a clean draft instead of being overwritten", async ({ page, request }) => {
+  await request.post("/__test/login");
+  const fixture = await (await request.get("/__test/fixture")).json();
+  await page.clock.install();
+  await page.goto(`/papers/${fixture.paper_id}/${fixture.nodes[0].id}?tab=notes`);
+  const notes = page.getByRole("textbox", { name: "Notes", exact: true });
+  await notes.fill("Older note");
+  await page.getByRole("button", { name: "Save notes" }).click();
+  await expect(page.getByRole("status").filter({ hasText: /^Saved$/ })).toBeVisible();
+  const me = await (await request.get("/api/v1/me")).json();
+  const saved = await request.put(`/api/v1/subtopics/${fixture.nodes[0].id}/notes`, {
+    headers: { Origin: browserOrigin(), "X-CSRF-Token": me.csrf_token },
+    data: { notes: "Newer note from another device" },
+  });
+  expect(saved.ok()).toBe(true);
+  await page.locator(".workspace-sidebar").getByRole("link", { name: "Papers" }).click();
+  await page.clock.fastForward("03:00");
+  await page.goBack();
+  await expect(notes).toHaveValue("Newer note from another device");
+});
+
+test("a transient identity check failure keeps the session and unsaved notes", async ({ page, request }) => {
+  await request.post("/__test/login");
+  const fixture = await (await request.get("/__test/fixture")).json();
+  await page.route("**/notes", (route) =>
+    route.fulfill({ status: 503, json: { detail: "Save temporarily unavailable" } }),
+  );
+  await page.goto(`/papers/${fixture.paper_id}/${fixture.nodes[0].id}?tab=notes`);
+  const notes = page.getByRole("textbox", { name: "Notes", exact: true });
+  await notes.fill("Unsaved draft during a restart");
+  await expect(page.getByRole("status").filter({ hasText: "Save failed" })).toBeVisible();
+  for (const failure of [
+    { status: 503, contentType: "application/json", body: JSON.stringify({ detail: "service_unavailable" }) },
+    { status: 502, contentType: "text/html", body: "<html>Bad gateway</html>" },
+  ]) {
+    await page.route("**/api/v1/me", (route) => route.fulfill(failure));
+    const checked = page.waitForResponse("**/api/v1/me");
+    await page.evaluate(() => window.dispatchEvent(new Event("focus")));
+    await checked;
+    await expect(page.getByRole("heading", { name: "Sign-in unavailable" })).toBeVisible();
+    await page.unroute("**/api/v1/me");
+    await page.getByRole("button", { name: "Check again" }).click();
+    await expect(notes).toHaveValue("Unsaved draft during a restart");
+  }
+});
+
 test("logout clears both application tabs and cancels pending notes", async ({ page, request, context }) => {
   await request.post("/__test/login");
   const fixture = await (await request.get("/__test/fixture")).json();

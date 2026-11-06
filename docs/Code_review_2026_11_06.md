@@ -83,12 +83,19 @@ or `Deferred: <reason>` as it is resolved.
   Edit a note on another device, then return to the topic in the original tab.
   The refetched note is ignored, and the next keystroke autosaves the old text
   over it.
+  **Fixed:** a clean draft adopts a newer server note; local edits and in-flight saves
+  still win. Browser test `a newer note saved elsewhere replaces a clean draft…`
+  fails without the fix.
 - **D-02: A backend blip on window focus discards drafts and unmounts the app.**
   `web/packages/api-client/src/auth.ts:71`. `refreshIdentity` runs on every
   focus, and a non-401 failure (for example a 503) sets `identity: null`. That
   bumps the generation, clears the query cache and runs the reset hooks, so
   `drafts.clear()` loses unsaved notes. AuthGate then shows "Sign-in unavailable"
   even though the session is still valid.
+  **Fixed:** only 401, `account_disabled` and `invite_required` clear the identity;
+  other failures show "Sign-in unavailable" but keep the identity, so "Check
+  again" restores the workspace and drafts (the existing network-error design).
+  Browser test `a transient identity check failure…` fails without the fix.
 
 ---
 
