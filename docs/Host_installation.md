@@ -127,7 +127,8 @@ sh /opt/caf/repo/deploy/caf-host status
 Steps, each recorded in `releases/upgrade-*/upgrade.log`:
 
 1. Verify the bundle, platform and checksums; refuse candidates without
-   `--allow-candidate`, the same or an older version, a changed PostgreSQL image,
+   `--allow-candidate`, the same or an older version (an installed candidate may move to
+   the final build of its version), a changed PostgreSQL image,
    and any live schema the new release's migration chain does not contain.
 2. Render the new Compose file from the private environment file, pin it to the
    loaded image IDs, retain the bundle beside the previous ones.

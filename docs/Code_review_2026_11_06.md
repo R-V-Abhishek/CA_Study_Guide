@@ -276,6 +276,9 @@ or `Deferred: <reason>` as it is resolved.
 - **M-07: A candidate cannot be upgraded to the final build of the same version.**
   `packages/cli/caf_cli/host_upgrade.py:56`. The strict `version_key`
   comparison rejects an equal version.
+  **Fixed:** an equal version is accepted only when an installed candidate moves to
+  the final build; final-to-candidate and same-kind repeats are still refused
+  (`test_candidate_upgrades_to_the_final_build_of_its_version`).
 - **M-08: A verification failure prints a spurious error.**
   `packages/cli/caf_cli/backup.py:110`. `typer.Exit` (a RuntimeError) is caught
   by `except Exception`, which adds "Verification drill failed: 1".

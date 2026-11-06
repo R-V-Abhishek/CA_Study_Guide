@@ -116,6 +116,22 @@ def test_same_schema_upgrade_requires_no_migration(tmp_path, installation):
     assert json.loads((output / "receipt.json").read_text())["migration_required"] is False
 
 
+def test_candidate_upgrades_to_the_final_build_of_its_version(tmp_path, installation):
+    final = {
+        "candidate": False,
+        "application": ImageRecord(reference="caf:v0.2.0-amd64", image_id="sha256:" + "e" * 64),
+    }
+    result, output = plan(tmp_path, installation, release(tmp_path, "final", **final), HEAD)
+    assert result.exit_code == 0, result.output or result.exception
+    installation["application"] = verify_archive(
+        release(tmp_path, "installed-final", **final)
+    ).model_dump(mode="json")
+    result, output = plan(
+        tmp_path, installation, release(tmp_path, "again"), HEAD, "--allow-candidate"
+    )
+    assert result.exit_code != 0 and "not older" in str(result.exception)
+
+
 @pytest.mark.parametrize(
     "failure", ["candidate", "same", "older", "platform", "postgres", "newer_schema", "inactive"]
 )
