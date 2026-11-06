@@ -480,6 +480,8 @@ or `Deferred: <reason>` as it is resolved.
 - **L-10: The `@vitejs/plugin-react` floor predates React 19.**
   `web/apps/curator/package.json:20` (`^4.3.4`). The lockfile resolves 4.7.0, so
   raise the floor.
+  **Fixed:** both apps declare `^4.7.0`; the lockfile changed only its specifiers and
+  `pnpm install --frozen-lockfile` passes.
 - **L-11: The syllabus tree focus state can go stale, which is why the router is pinned.**
   `web/apps/student/src/components/SyllabusTree.tsx:87`, with the
   `react-router-dom` v6 pin in `web/apps/student/package.json:20`. Keep focus and
