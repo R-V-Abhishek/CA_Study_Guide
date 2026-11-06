@@ -267,6 +267,12 @@ or `Deferred: <reason>` as it is resolved.
   existing row is over the limit, the constraint stays `NOT VALID`, so the
   database's schema snapshot differs from a fresh one and restore verification
   reports drift. Oversized rows also cannot be updated unless they are shortened.
+  Latent: all four length checks are validated on production (read-only check).
+  **Fixed:** schema comparison ignores ` NOT VALID` on CHECK constraints only, since
+  it is a data property; other constraint types and changed bounds still count as
+  drift (`test_check_left_not_valid_by_existing_data_is_not_schema_drift`). Oversized
+  legacy rows still need shortening before they can be edited; the API already
+  rejects notes over the limit, so this is deliberate.
 - **M-07: A candidate cannot be upgraded to the final build of the same version.**
   `packages/cli/caf_cli/host_upgrade.py:56`. The strict `version_key`
   comparison rejects an equal version.

@@ -39,9 +39,21 @@ def canonical_constraint_definition(definition: str) -> str:
 
 def canonical_constraints(constraints: list[dict[str, Any]]) -> list[dict[str, Any]]:
     return [
-        {**constraint, "definition": canonical_constraint_definition(constraint["definition"])}
+        {**constraint, "definition": canonical_constraint_definition(_validity_free(constraint))}
         for constraint in constraints
     ]
+
+
+def _validity_free(constraint: dict[str, Any]) -> str:
+    """A CHECK left NOT VALID (0010 keeps oversized personal rows) still has the same shape.
+
+    It enforces every new write; only rows that predate it are unchecked, which is
+    a property of the data rather than the schema.
+    """
+    definition = constraint["definition"]
+    if constraint["type"] == "c":
+        return definition.removesuffix(" NOT VALID")
+    return definition
 
 
 def schema_snapshot(connection: Connection) -> dict[str, dict[str, Any]]:

@@ -156,6 +156,28 @@ def test_varchar_array_cast_dump_restore_is_equivalent_without_hiding_drift():
     assert canonical_constraint_definition(typmod) == typmod
 
 
+def test_check_left_not_valid_by_existing_data_is_not_schema_drift():
+    bound = "CHECK (((body IS NULL) OR (char_length(body) <= 100000)))"
+
+    def snapshot(definition, kind="c"):
+        return {
+            "app.note": {
+                "columns": [],
+                "indexes": [],
+                "constraints": [
+                    {"name": "check_note_body_length", "type": kind, "definition": definition}
+                ],
+            }
+        }
+
+    assert compare_schema_snapshots(snapshot(bound), snapshot(bound + " NOT VALID")) == {}
+    assert compare_schema_snapshots(
+        snapshot(bound), snapshot(bound.replace("100000", "1000") + " NOT VALID")
+    )
+    foreign = "FOREIGN KEY (user_id) REFERENCES app.user_account(id)"
+    assert compare_schema_snapshots(snapshot(foreign, "f"), snapshot(foreign + " NOT VALID", "f"))
+
+
 def test_supplied_connection_migration_baseline_isolated_from_settings(
     isolated_database, monkeypatch
 ):
