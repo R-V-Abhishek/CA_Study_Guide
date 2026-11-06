@@ -175,7 +175,7 @@ export function Syllabus() {
               <input
                 className="w-full"
                 value={params.get("search") ?? ""}
-                onChange={(event) => set({ search: event.target.value })}
+                onChange={(event) => set({ search: event.target.value }, { replace: true })}
               />
             </label>
             {!preview && (

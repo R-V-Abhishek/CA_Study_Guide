@@ -90,6 +90,20 @@ test("part links open the extracted text at that part", async ({ page, request }
   await expect(page).toHaveURL(/[?&]part=/);
 });
 
+test("typing a search does not add a history entry per keystroke", async ({ page, request }) => {
+  await fixture(request);
+  await page.goto("/papers");
+  await page.goto("/questions?paper_id=s2023.P1");
+  await page.getByLabel("Search questions", { exact: true }).pressSequentially("Synth");
+  await expect(page).toHaveURL(/q=Synth/);
+  await page.getByLabel("Paper", { exact: true }).selectOption("all");
+  await expect(page).not.toHaveURL(/paper_id=/);
+  await page.goBack();
+  await expect(page).toHaveURL(/paper_id=s2023\.P1&q=Synth|q=Synth&paper_id=s2023\.P1/);
+  await page.goBack();
+  await expect(page).toHaveURL(/\/papers$/);
+});
+
 test("question search filters and private notes enforce account scope", async ({ page, request }) => {
   const data = await fixture(request);
   const me = await (await request.get("/api/v1/me")).json();

@@ -1,1 +1,0 @@
-import{c as t,e as n,j as o,N as p,d as c}from"./index-DLkwJP09.js";function m(){const{paperId:s="",nodeId:a}=t(),[r]=n(),e=new URLSearchParams(r);return e.set("paper",s),a?e.set("node",a):e.delete("node"),o.jsx(p,{replace:!0,to:c(`/syllabus?${e}`)})}export{m as PaperDetail};

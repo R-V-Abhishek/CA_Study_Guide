@@ -394,6 +394,9 @@ or `Deferred: <reason>` as it is resolved.
 - **M-24: Each keystroke in a URL-bound input adds a history entry.**
   `web/apps/student/src/lib/url.ts:13`. `setSearchParams` is called without
   `{ replace: true }`, so Back steps through partial search terms.
+  **Fixed:** `set` takes `{ replace }`; question search and syllabus topic search use it,
+  while filters and selections still add history (`typing a search does not add a history
+  entry per keystroke`, fails without the fix).
 - **M-25: Caller-supplied headers drop the default Content-Type.**
   `web/packages/api-client/src/client.ts:65`. `...config` is spread after the
   merged `headers`, so passing any `headers` removes the default Content-Type

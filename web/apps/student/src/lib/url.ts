@@ -9,14 +9,18 @@ export function internalReturn(value: string | null, fallback = "/questions"): s
 }
 export function useUrlState() {
   const [params, setParams] = useSearchParams();
-  const set = (values: Record<string, string>) =>
-    setParams((previous) => {
-      const next = new URLSearchParams(previous);
-      for (const [key, value] of Object.entries(values)) {
-        if (value === "" || value === "all") next.delete(key);
-        else next.set(key, value);
-      }
-      return next;
-    });
+  // Free-text fields pass replace, so Back skips partial search terms instead of stepping through them.
+  const set = (values: Record<string, string>, { replace = false } = {}) =>
+    setParams(
+      (previous) => {
+        const next = new URLSearchParams(previous);
+        for (const [key, value] of Object.entries(values)) {
+          if (value === "" || value === "all") next.delete(key);
+          else next.set(key, value);
+        }
+        return next;
+      },
+      { replace },
+    );
   return { params, set, search: params.toString() ? `?${params}` : "" };
 }
