@@ -171,11 +171,13 @@ def test_invalid_signed_identity_rejected(provider, session, claims):
 
 @pytest.mark.parametrize("failure", ["timeout", "unavailable"])
 def test_provider_outage_during_token_exchange_is_reported_and_logged(
-    provider, session, failure, caplog
+    provider, session, failure, caplog, monkeypatch
 ):
     _, token = invite_token(session)
     state = start_login(provider, token)
     provider[0]["token_failure"] = failure
+    # In-process Alembic runs (other tests) call fileConfig, which disables existing loggers.
+    monkeypatch.setattr(auth.logger, "disabled", False)
     with caplog.at_level("WARNING", logger=auth.logger.name):
         response = complete(provider, state)
     assert (response.status_code, response.json()) == (
