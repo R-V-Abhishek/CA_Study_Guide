@@ -122,3 +122,20 @@ def test_failed_backup_prunes_nothing_and_preserves_the_last_success(
         "name": kept.name
     }
     assert kept.exists() and older.exists()
+
+
+def test_snapshot_failing_verification_is_set_aside_from_retention(session, tmp_path, monkeypatch):
+    now = datetime.now(timezone.utc)
+    verified = fake_snapshot(tmp_path, now - timedelta(minutes=5))
+    monkeypatch.setattr(host_backup, "critical_tables", lambda revision: {"app.missing_table"})
+    with pytest.raises(ValueError, match="missing protected tables"):
+        host_backup.run_backup(tmp_path, daily=1, weekly=1, monthly=1, session=session)
+    status = json.loads((tmp_path / "status.json").read_text())
+    rejected = tmp_path / status["rejected_snapshot"]
+    assert rejected.name.startswith("rejected-caf_") and (rejected / "manifest.json").is_file()
+    assert host_backup.verified_snapshots(tmp_path) == [verified.name]
+    monkeypatch.undo()
+    status = host_backup.run_backup(tmp_path, daily=1, weekly=1, monthly=1, session=session)
+    # The next verified run competes only with verified snapshots; the rejected one is left alone.
+    assert status["retained"][0] == status["snapshot"]["name"]
+    assert rejected.name not in status["retained"] + status["deleted"] and rejected.exists()

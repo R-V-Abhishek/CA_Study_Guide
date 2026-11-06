@@ -156,6 +156,10 @@ or `Deferred: <reason>` as it is resolved.
   `packages/cli/caf_cli/host_backup.py:67`. A failed same-day snapshot is not
   removed. On the next successful run, retention keeps it as that day's newest
   snapshot and deletes the earlier verified one.
+  **Fixed:** a snapshot that fails inspection or the protected-table check is renamed
+  `rejected-<name>` (kept as evidence, never pruned or listed), and `status.json` records
+  `rejected_snapshot`. `test_snapshot_failing_verification_is_set_aside_from_retention`
+  fails without the fix.
 
 ### Deploy
 
