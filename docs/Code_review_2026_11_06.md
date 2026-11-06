@@ -212,6 +212,9 @@ or `Deferred: <reason>` as it is resolved.
   has no `key`, and `evidenceOpen` is not reset when the item changes. The
   label/field/page state from question A is submitted against question B's
   revision. `Extraction.tsx` avoids this with `key={revisionId}`.
+  **Fixed:** the panel is keyed by question and extraction revision. Browser test
+  `extraction correction form resets when returning to a cached question` submits `2`
+  against Q1 without the fix and `1` with it.
 
 ---
 

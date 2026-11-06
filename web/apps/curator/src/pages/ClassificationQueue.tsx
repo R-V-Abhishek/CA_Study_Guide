@@ -780,6 +780,7 @@ export function ClassificationQueue() {
                     <RequestError error={extraction.error} retry={() => void extraction.refetch()} />
                     {extraction.data && (
                       <ExtractionEvidence
+                        key={`${item.question_id}:${item.extraction_revision_id}`}
                         revision={extraction.data}
                         admin={admin}
                         onCorrected={() => {
