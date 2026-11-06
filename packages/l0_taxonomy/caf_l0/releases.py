@@ -552,6 +552,8 @@ def approve_descriptor(
     latest = latest_descriptor(session, release.taxonomy_version_id, node_id)
     if latest is None or latest.revision != revision:
         raise ValueError("Descriptor revision changed; reload before approving")
+    if latest.created_by == actor_id:
+        raise ValueError("Another reviewer must approve a descriptor revision you wrote")
     if latest.content.get("status") == "index_derived_draft_requires_review":
         raise ValueError(
             "Index heading evidence requires an authored textbook descriptor revision before approval"

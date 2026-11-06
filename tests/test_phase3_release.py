@@ -356,6 +356,10 @@ def test_recursive_explorer_admin_reviews_and_private_predecessor_notes(
         json={**content, "version_id": release.version_id, "definition": "Edited concept"},
     )
     assert edited.status_code == 200 and edited.json()["approved"] is False, edited.text
+    second = {"version_id": release.version_id, "revision": edited.json()["revision"]}
+    self_review = owner.post(review_url, json=second)
+    assert self_review.status_code == 422 and "Another reviewer" in self_review.text
+    assert stranger.post(review_url, json=second).status_code == 200
 
 
 def test_partial_release_keeps_unverified_expected_source_gap_explicit(session, manifest):

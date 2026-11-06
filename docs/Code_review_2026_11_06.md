@@ -34,6 +34,11 @@ or `Deferred: <reason>` as it is resolved.
   An invited student can PUT `/api/v1/taxonomy/nodes/X/descriptor` and then POST
   `/descriptor/approve`. That records a `DescriptorApproval` with no administrator
   or second reviewer, and the approved descriptor feeds classification readiness.
+  Student approval itself is intended (design in `1bba797`); owner decision
+  2026-11-06: the author must not approve their own revision.
+  **Fixed (block):** `approve_descriptor` rejects `created_by == actor` with 422;
+  `test_recursive_explorer_admin_reviews_and_private_predecessor_notes` fails
+  without the fix. **Open:** notify everyone when a descriptor change awaits review.
 - **S-02: Backup redaction misses quoted keys and DSN credentials.**
   `packages/common/caf_common/backup.py:248`. The regex requires the key to start
   with `[\w-]`, so `"db_password": "…"` (JSON), `"api_key" = "…"` (TOML) and
