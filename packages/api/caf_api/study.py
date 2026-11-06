@@ -685,8 +685,7 @@ def update_subtopic_progress(
         progress.status_changed_at = now
         if req.status == "done" and not progress.first_done_at:
             progress.first_done_at = now
-        elif req.status == "done":
-            progress.last_revised_at = now
+        # last_revised_at belongs to recorded revision outcomes; a status correction is not one.
 
     # Log event
     event = ProgressEvent(

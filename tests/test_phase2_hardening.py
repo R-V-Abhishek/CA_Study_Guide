@@ -414,3 +414,15 @@ def test_dashboard_tolerates_a_paper_outside_groups_one_and_two(authenticated_cl
     session.commit()
     response = client.get("/api/v1/dashboard")
     assert response.status_code == 200, response.text
+
+
+def test_status_correction_is_not_recorded_as_a_revision(authenticated_client, session):
+    from caf_db.models.app import Progress
+
+    client = authenticated_client(user_id=1)
+    node = first_subtopic(client)
+    for status in ("done", "in_progress", "done"):
+        response = client.put(f"/api/v1/subtopics/{node}/progress", json={"status": status})
+        assert response.status_code == 200, response.text
+    progress = session.get(Progress, (1, node))
+    assert progress.first_done_at is not None and progress.last_revised_at is None

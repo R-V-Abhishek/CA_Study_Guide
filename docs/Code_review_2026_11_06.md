@@ -255,6 +255,10 @@ or `Deferred: <reason>` as it is resolved.
 - **M-05: A status correction is recorded as a revision.**
   `packages/api/caf_api/study.py:656`. done → in_progress → done sets
   `last_revised_at`, which shifts the revision schedule and dashboard counts.
+  **Fixed:** status changes no longer touch `last_revised_at`, matching the
+  `ProgressContract` rule that only recorded revision outcomes set it.
+  `test_status_correction_is_not_recorded_as_a_revision` fails without the fix. Existing
+  rows that were set this way are left as they are.
 
 ### Database and CLI
 
