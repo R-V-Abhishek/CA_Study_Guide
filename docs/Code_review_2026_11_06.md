@@ -139,6 +139,11 @@ or `Deferred: <reason>` as it is resolved.
   with `DATABASE_URL` or the development default, while `db grants` uses
   `database_url('migration')`. Migrations and grants can therefore hit different
   databases, and the production guard can be bypassed.
+  **Fixed:** Alembic (online and offline) and `caf db migrate` use
+  `database_url("migration")`, which enforces the production rule. The CLI escapes `%`
+  for Alembic's config interpolation. Production compose sets both URLs to the same value,
+  so the live upgrade path is unchanged. `test_cli_migrations_target_the_migration_url`
+  fails without the fix.
 - **H-04: Password regeneration leaves a stale password in the stored URL.**
   `packages/db/caf_db/configuration.py:19`. When `PG_*_PASSWORD` is missing, a
   new password is generated, but the existing `*_DATABASE_URL` keeps the old one.

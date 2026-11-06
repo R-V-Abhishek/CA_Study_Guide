@@ -397,3 +397,34 @@ def test_forward_migration_preserves_legacy_rows(session, isolated_database):
         with admin.connect() as conn:
             conn.execute(sa.text(f'DROP DATABASE "{database}"'))
         admin.dispose()
+
+
+def test_cli_migrations_target_the_migration_url(isolated_database, monkeypatch):
+    """`caf db migrate` follows MIGRATION_DATABASE_URL, not DATABASE_URL (which may be another role)."""
+    from uuid import uuid4
+
+    from caf_cli.main import _get_alembic_config
+    from caf_common.settings import reset_settings
+
+    database = f"caf_migration_{uuid4().hex}"
+    isolated_database.allow(database)
+    admin = sa.create_engine(isolated_database.url(), isolation_level="AUTOCOMMIT")
+    try:
+        with admin.connect() as conn:
+            conn.execute(sa.text(f'CREATE DATABASE "{database}"'))
+        target = isolated_database.url(database).render_as_string(hide_password=False)
+        monkeypatch.setenv("MIGRATION_DATABASE_URL", target)
+        reset_settings()
+        command.upgrade(_get_alembic_config(), "head")
+        engine = sa.create_engine(target)
+        with engine.connect() as conn:
+            assert (
+                conn.execute(sa.text("SELECT count(*) FROM ops.alembic_version")).scalar_one() == 1
+            )
+        engine.dispose()
+    finally:
+        monkeypatch.delenv("MIGRATION_DATABASE_URL")
+        reset_settings()
+        with admin.connect() as conn:
+            conn.execute(sa.text(f'DROP DATABASE "{database}" WITH (FORCE)'))
+        admin.dispose()
