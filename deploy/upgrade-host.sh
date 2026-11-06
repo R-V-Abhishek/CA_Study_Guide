@@ -52,7 +52,8 @@ phase=validation stopped=false switched=false migrated=false success=false
 old_compose() { env -i PATH="$PATH" HOME="$HOME" docker compose --env-file /dev/null -p "$project" -f "$current" "$@"; }
 new_compose() { env -i PATH="$PATH" HOME="$HOME" docker compose --env-file /dev/null -p "$project" -f "$work/compose.json" "$@"; }
 point_to() {
-    ln -s "$1" "$root/current-compose.json.new"
+    # -f replaces a .new link left by an interrupted run; mv -T then swaps the pointer atomically.
+    ln -sfn "$1" "$root/current-compose.json.new"
     mv -T "$root/current-compose.json.new" "$root/current-compose.json"
 }
 finish() {
@@ -62,13 +63,18 @@ finish() {
         action='Services remain stopped. Preserve the database and files; do not rerun upgrade or downgrade the database.'
         if test "$migrated" = false; then
             # No database change happened, so returning to the previous release is safe.
+            pointer=restored
             if test "$switched" = true; then
                 new_compose stop web worker >> "$log" 2>&1 || true
-                point_to "$current" >> "$log" 2>&1 || true
+                point_to "$current" >> "$log" 2>&1 || pointer=failed
             fi
             if test "$stopped" = true; then
                 if old_compose up -d --no-deps --wait --wait-timeout 120 web worker >> "$log" 2>&1; then
-                    action='The previous release was restarted; the database was not changed.'
+                    if test "$pointer" = restored; then
+                        action='The previous release was restarted; the database was not changed.'
+                    else
+                        action="The previous release was restarted, but current-compose.json still names the new release; point it at $current before rebooting or rerunning upgrade."
+                    fi
                 fi
             fi
         elif test "$switched" = true; then

@@ -168,6 +168,9 @@ or `Deferred: <reason>` as it is resolved.
   rollback call ignores errors (`|| true`). The old release restarts, but
   `current-compose.json` still targets the new compose, so the next boot starts
   the unverified release.
+  **Fixed:** `ln -sfn` replaces a stale `.new` link. If the rollback cannot restore the
+  pointer, `failure.json` says so and `.upgrade-in-progress` is kept. Checked with
+  `bash -n` and a local symlink reproduction; not run on Ubuntu.
 - **H-07: Grants are applied only when the schema revision changes.**
   `deploy/upgrade-host.sh:163`. A release that adds privileges without a new
   migration activates with missing grants, and its queries fail with permission
