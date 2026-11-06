@@ -455,12 +455,17 @@ or `Deferred: <reason>` as it is resolved.
   readiness/`alembic_version` probes (about 4) appear across `caf-host`,
   `install-host`, `upgrade-host`, `backup-host` and `status-host`. Use a shared
   `deploy/lib.sh`.
+  **Deferred:** a pure refactor of five production host scripts that cannot be exercised
+  on Ubuntu from this checkout; the risk outweighs the duplication for now.
 
 ### Web
 
 - **L-07: The export object URL is revoked synchronously.**
   `web/apps/student/src/lib/export.ts:9`. This can break downloads in Firefox
   and Safari.
+  **Fixed:** the URL is revoked one second after the click. Browser test `profile export
+  downloads the private JSON file` passes in Chromium; WebKit was not run (installed build
+  2359, Playwright needs 2370) and Firefox is not configured.
 - **L-08: The auth components are duplicated across apps.**
   `web/apps/curator/src/components/AuthGate.tsx` and `SessionControls.tsx` copy
   the student app's versions. Move them into `@caf/workspace`, which also means

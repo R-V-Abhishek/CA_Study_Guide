@@ -6,5 +6,6 @@ export async function exportProfile() {
   link.href = url;
   link.download = `study-profile-${accountKey()}.json`;
   link.click();
-  URL.revokeObjectURL(url);
+  // Revoking in the same task can cancel the download in Firefox and Safari.
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
 }

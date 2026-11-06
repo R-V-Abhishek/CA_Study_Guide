@@ -632,3 +632,13 @@ test.describe("in India shortly after midnight", () => {
     await expect(page.getByLabel("Date", { exact: true })).toHaveValue("2026-11-06");
   });
 });
+
+test("profile export downloads the private JSON file", async ({ page, request }) => {
+  await fixture(request);
+  await page.goto("/progress");
+  const download = page.waitForEvent("download");
+  await page.getByRole("button", { name: "Export my study records", exact: true }).click();
+  const file = await download;
+  expect(file.suggestedFilename()).toMatch(/^study-profile-\d+\.json$/);
+  expect(await file.failure()).toBeNull();
+});
