@@ -415,6 +415,9 @@ or `Deferred: <reason>` as it is resolved.
   `packages/api/caf_api/ratelimit.py:46`. Past 10,000 buckets, each allowed
   request rebuilds the dict, and it removes nothing while the keys are recent.
   Random session cookies can trigger this.
+  **Fixed:** overflow prunes to half capacity, dropping idle buckets and then the least
+  recently used, so memory stays bounded and pruning is amortized
+  (`test_rate_limiter_memory_is_bounded_and_pruning_is_amortized`).
 - **L-02: The source path guard is duplicated.**
   `packages/api/caf_api/published_pages.py:106` re-implements the sha256 and
   approved-path checks from `published.py:75-81`. Extract a shared

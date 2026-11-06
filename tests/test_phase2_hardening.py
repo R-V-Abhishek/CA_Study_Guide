@@ -205,6 +205,30 @@ def test_source_rendering_routes_share_the_source_pages_limit():
         assert limiter.match(path) is None, path
 
 
+def test_rate_limiter_memory_is_bounded_and_pruning_is_amortized(monkeypatch):
+    import caf_api.ratelimit as ratelimit
+
+    monkeypatch.setattr(ratelimit, "MAX_TRACKED_KEYS", 100)
+    clock = [0.0]
+    limiter = RateLimiter(clock=lambda: clock[0])
+    rule = next(item for item in RULES if item.name == "search")
+    prunes = 0
+    original = limiter._prune
+
+    def counted(now):
+        nonlocal prunes
+        prunes += 1
+        original(now)
+
+    limiter._prune = counted
+    for index in range(1000):  # all recent: nothing is idle enough to expire
+        clock[0] += 0.01
+        assert limiter.check(rule, f"session-{index}") is None
+        assert len(limiter.buckets) <= 100
+    assert prunes <= 1000 // 50
+    assert ("search", "session-999") in limiter.buckets
+
+
 def test_token_bucket_refills_with_time():
     clock = [0.0]
     limiter = RateLimiter(clock=lambda: clock[0])
