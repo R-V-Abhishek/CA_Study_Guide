@@ -63,6 +63,8 @@ or `Deferred: <reason>` as it is resolved.
   command in such a chain fails. So `--root /` (or a root that is not writable)
   continues, creating `postgres/`, `data/`, `releases/` and similar directories
   under `/`.
+  **Fixed:** both guards now end in `|| { echo …; exit 1; }`. Reproduced the bypass
+  and the fix under `bash -c 'set -e; …'`; `bash -n` passes; not run on Ubuntu.
 
 ### Student data
 

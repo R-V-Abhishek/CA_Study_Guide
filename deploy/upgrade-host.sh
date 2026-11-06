@@ -23,7 +23,7 @@ bundle=$(realpath -e -- "$bundle")
 config=$(realpath -e -- "$config")
 root=$(realpath -e -- "$root")
 case "$bundle$config$root" in *[,]* ) echo 'Upgrade paths must not contain commas' >&2; exit 1;; esac
-test "$root" != / && test -d "$root" && test -w "$root"
+test "$root" != / && test -d "$root" && test -w "$root" || { echo 'Root must be a writable directory other than /' >&2; exit 1; }
 test "$(stat -c %a "$config")" = 600 && test "$(stat -c %u "$config")" = "$(id -u)" || {
     echo 'Environment file must be owned by the operator with mode 0600' >&2; exit 1;
 }
