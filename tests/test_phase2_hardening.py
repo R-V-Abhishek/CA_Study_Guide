@@ -404,3 +404,13 @@ def test_simultaneous_first_writes_do_not_collide(authenticated_client, monkeypa
     for thread in threads:
         thread.join()
     assert statuses == {"first": 200, "second": 200}
+
+
+def test_dashboard_tolerates_a_paper_outside_groups_one_and_two(authenticated_client, session):
+    from caf_db.models.ref import Paper
+
+    client = authenticated_client(user_id=1)
+    session.execute(sa.update(Paper).where(Paper.id == "s2023.P1").values(group_no=3))
+    session.commit()
+    response = client.get("/api/v1/dashboard")
+    assert response.status_code == 200, response.text

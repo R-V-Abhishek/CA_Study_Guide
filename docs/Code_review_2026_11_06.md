@@ -249,6 +249,9 @@ or `Deferred: <reason>` as it is resolved.
   `packages/api/caf_api/study.py:739`. `group_stats` has keys only for groups 1
   and 2. A paper with `group_no` 3 or 0 raises KeyError, so `/api/v1/dashboard`
   returns 500.
+  Latent: production has three current papers in each of groups 1 and 2 (read-only
+  check). **Fixed:** other groups get their own bucket, counted in overall progress
+  only. `test_dashboard_tolerates_a_paper_outside_groups_one_and_two` fails without the fix.
 - **M-05: A status correction is recorded as a revision.**
   `packages/api/caf_api/study.py:656`. done → in_progress → done sets
   `last_revised_at`, which shifts the revision schedule and dashboard counts.

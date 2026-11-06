@@ -769,8 +769,10 @@ def get_dashboard(
     for p in papers:
         g = p.group_no or 1
         p_subs = leaves_by_paper.get(p.id, [])
-        group_stats[g]["total"] += len(p_subs)
-        group_stats[g]["done"] += sum(statuses.get(node_id) == "done" for node_id in p_subs)
+        # CA Final has two groups; any other value still counts in the overall figures above.
+        stats = group_stats.setdefault(g, {"total": 0, "done": 0})
+        stats["total"] += len(p_subs)
+        stats["done"] += sum(statuses.get(node_id) == "done" for node_id in p_subs)
 
     g1_pct = (
         (group_stats[1]["done"] / group_stats[1]["total"] * 100.0)
