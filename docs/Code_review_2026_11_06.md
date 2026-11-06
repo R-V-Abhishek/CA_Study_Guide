@@ -384,6 +384,8 @@ or `Deferred: <reason>` as it is resolved.
   `web/apps/curator/src/pages/ClassificationQueue.tsx:231`. The handler compares
   `event.key`, which Option changes to characters such as ∆ and ˚. Use
   `event.code`.
+  **Fixed:** shortcuts read `event.code` (physical key); the separator test now sends
+  macOS Option+Q (`key: "œ"`) and fails without the fix.
 - **M-23: The default mock date is the UTC date.**
   `web/apps/student/src/pages/MockTests.tsx:22`. Before 05:30 IST the date field
   is prefilled with yesterday's date.

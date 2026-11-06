@@ -123,6 +123,13 @@ test("review separators support keyboard resizing without publishing", async ({ 
   await page.getByRole("heading", { name: "Review questions", exact: true }).click();
   await page.keyboard.press("Alt+l");
   await expect(page.locator("#review-Labels")).toBeFocused();
+  // macOS Option+Q types "œ"; the shortcut follows the physical key.
+  await page.evaluate(() =>
+    document.activeElement?.dispatchEvent(
+      new KeyboardEvent("keydown", { key: "œ", code: "KeyQ", altKey: true, bubbles: true }),
+    ),
+  );
+  await expect(page.locator("#review-Question")).toBeFocused();
 });
 
 test("source filters use the acquired document type rather than its broad family", async ({ page }) => {
