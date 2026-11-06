@@ -63,7 +63,7 @@ function allAnswerParts(parts: ExtractionAnswerPart[]): ExtractionAnswerPart[] {
 }
 export function QuestionReader() {
   const { questionId = "" } = useParams();
-  const [params] = useSearchParams();
+  const [params, setParams] = useSearchParams();
   const location = useLocation();
   const selected = params.get("part");
   const [reveal, setReveal] = useState(false);
@@ -85,18 +85,20 @@ export function QuestionReader() {
   });
   useEffect(() => {
     setReveal(false);
-    setPresentation("source");
+    // Part anchors exist only in the extracted text, so a link to a part opens that view.
+    setPresentation(params.get("part") ? "text" : "source");
     setSourceOpen(false);
     setDetailsOpen(false);
     setOutlineOpen(false);
     setSourceId("");
     setPage(0);
   }, [questionId]);
-  useEffect(() => {
-    if (query.data && selected) document.getElementById(`part-${selected}`)?.scrollIntoView({ block: "nearest" });
-  }, [query.data, selected]);
   const data = query.data;
   const original = presentation === "source" && Boolean(data?.question_pages?.length);
+  useEffect(() => {
+    if (data && selected && !original)
+      document.getElementById(`part-${selected}`)?.scrollIntoView({ block: "nearest" });
+  }, [data, selected, original]);
   const current = `${location.pathname}${location.search}`;
   useEffect(() => {
     if (!data) return;
@@ -154,7 +156,23 @@ export function QuestionReader() {
       <h2 className="font-semibold">Parts</h2>
       <nav aria-label="Question parts" className="space-y-2">
         {parts.map((part) => (
-          <a className="topic-link block" key={part.id} href={`#part-${part.id}`} onClick={() => setOutlineOpen(false)}>
+          <a
+            className="topic-link block"
+            key={part.id}
+            href={`#part-${part.id}`}
+            onClick={(event) => {
+              event.preventDefault();
+              setOutlineOpen(false);
+              setPresentation("text");
+              setParams(
+                (next) => {
+                  next.set("part", part.id);
+                  return next;
+                },
+                { replace: true },
+              );
+            }}
+          >
             {part.label}
           </a>
         ))}

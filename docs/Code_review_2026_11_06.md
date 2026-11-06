@@ -370,6 +370,9 @@ or `Deferred: <reason>` as it is resolved.
   `web/apps/student/src/pages/QuestionReader.tsx:96`. Original pages is the
   default view, and it renders no `part-<id>` elements, so `?part=` and the
   outline anchors point at nothing.
+  **Fixed:** a `?part=` link opens Extracted text, and outline links select their part
+  through `?part=` and switch to that view before scrolling
+  (`part links open the extracted text at that part`, fails without the fix).
 - **M-21: An extraction document deep link beyond page 1 resolves to nothing.**
   `web/apps/curator/src/pages/Extraction.tsx:246`. Metadata and "Promote
   candidate revision" disappear, and the header shows "Current revision None".
