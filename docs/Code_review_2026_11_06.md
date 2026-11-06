@@ -336,6 +336,9 @@ or `Deferred: <reason>` as it is resolved.
   `packages/l3_classify/caf_l3/openrouter.py:81`. `Decimal()` on a list raises
   TypeError, and a malformed string raises InvalidOperation; neither is in the
   handled exceptions.
+  **Fixed:** a model counts as free only when each listed price is a parseable zero;
+  tiered (list) and malformed prices are skipped, not crashed on
+  (`test_catalog_filters_paid_expired_and_missing_features`).
 
 ### Deploy and CI
 

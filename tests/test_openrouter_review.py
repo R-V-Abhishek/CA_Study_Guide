@@ -89,6 +89,12 @@ def test_catalog_filters_paid_expired_and_missing_features():
         "id": "request:free",
         "pricing": dict(prompt="0", completion="0", request="0.1"),
     }
+    tiered = {
+        **model(),
+        "id": "tiered:free",
+        "pricing": dict(prompt=[{"min_tokens": 0, "price": "0"}], completion="0"),
+    }
+    malformed = {**model(), "id": "malformed:free", "pricing": dict(prompt="free", completion="0")}
     router = {
         **model(),
         "id": "openrouter/auto",
@@ -99,7 +105,17 @@ def test_catalog_filters_paid_expired_and_missing_features():
             lambda r: httpx.Response(
                 200,
                 json=dict(
-                    data=[model(), paid, expired, unsupported, missing_price, request_fee, router]
+                    data=[
+                        model(),
+                        paid,
+                        expired,
+                        unsupported,
+                        missing_price,
+                        request_fee,
+                        tiered,
+                        malformed,
+                        router,
+                    ]
                 ),
             )
         )

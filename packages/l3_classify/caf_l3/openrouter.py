@@ -1,7 +1,7 @@
 """Free-only OpenRouter classification of frozen roots, without queue writes."""
 
 from datetime import date, datetime, timezone
-from decimal import Decimal
+from decimal import Decimal, InvalidOperation
 import fcntl
 import json
 from pathlib import Path
@@ -62,6 +62,16 @@ class Completion(BaseModel):
     usage: Usage
 
 
+def _is_zero_price(value: str | list[dict]) -> bool:
+    """Free only when the price is a parseable zero; tiered (list) or malformed prices are not."""
+    if not isinstance(value, str):
+        return False
+    try:
+        return Decimal(value) == 0
+    except InvalidOperation:
+        return False
+
+
 def free_models(client: httpx.Client) -> list[CatalogModel]:
     """Recheck live prices/features each run; never infer free from a model's name."""
     response = client.get(f"{API_URL}/models")
@@ -78,9 +88,8 @@ def free_models(client: httpx.Client) -> list[CatalogModel]:
             continue
         if "prompt" not in model.pricing or "completion" not in model.pricing:
             continue
-        if any(Decimal(model.pricing[key]) != 0 for key in ("prompt", "completion")):
-            continue
-        if "request" in model.pricing and Decimal(model.pricing["request"]) != 0:
+        charged = [key for key in ("prompt", "completion", "request") if key in model.pricing]
+        if not all(_is_zero_price(model.pricing[key]) for key in charged):
             continue
         models.append(model)
     return sorted(models, key=lambda model: (-model.created, model.id))
