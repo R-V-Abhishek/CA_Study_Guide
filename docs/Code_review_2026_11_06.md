@@ -181,6 +181,8 @@ or `Deferred: <reason>` as it is resolved.
   `deploy/watch-host.sh:18`. The watch holds `.deployment.lock` during
   `compose run`, and `backup-host` uses `flock -n`. If the two overlap, the
   backup exits 1 and no snapshot is taken that day.
+  **Fixed:** `backup-host.sh` waits up to 10 minutes for the lock (`flock -w 600`) and
+  still fails loudly if an upgrade or restore holds it longer. Checked with `bash -n`.
 
 ### Pipelines and backups
 

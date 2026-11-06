@@ -18,7 +18,8 @@ command -v flock >/dev/null
 root=$(realpath -e -- "$root")
 case "$root$recipient" in *[,]* ) echo 'Backup paths must not contain commas' >&2; exit 1;; esac
 exec 9> "$root/.deployment.lock"
-flock -n 9 || { echo 'Another installation, upgrade, restore or backup owns the deployment lock' >&2; exit 1; }
+# The hourly watch holds the lock briefly; wait for it rather than skipping the day's snapshot.
+flock -w 600 9 || { echo 'Another installation, upgrade, restore or backup held the deployment lock for 10 minutes' >&2; exit 1; }
 receipt=$root/installation.json
 test -f "$receipt" && test "$(jq -er .phase "$receipt")" = active || { echo 'An active installation is required' >&2; exit 1; }
 # A failed upgrade's pre-migration snapshot is not yet named in the receipt, so retention could prune it.
