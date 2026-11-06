@@ -17,14 +17,39 @@ class StaleDecisionError(ValueError):
 def compute_law_stale(
     session: Session, attempt_id: str, paper_id: str, node_ids: list[str]
 ) -> bool:
-    """Check if exam appearance is stale per ref.law_boundary."""
+    """Check if exam appearance is stale per ref.law_boundary.
+
+    Only `mark_stale` boundaries apply here (`exclude` is a different treatment). A
+    boundary with `scope_node_ids` covers those nodes and everything beneath them.
+    """
     paper_code = paper_id.split(".")[-1]
     boundaries = session.query(LawBoundary).filter(LawBoundary.paper_code == paper_code).all()
+    covered = None
     for b in boundaries:
-        if b.policy == "mark_stale" and b.first_applicable_attempt:
-            if attempt_id < b.first_applicable_attempt:
-                return True
+        if b.policy != "mark_stale" or not b.first_applicable_attempt:
+            continue
+        if attempt_id >= b.first_applicable_attempt:
+            continue
+        if b.scope_node_ids is None:
+            return True
+        if covered is None:
+            covered = _with_ancestors(session, node_ids)
+        if covered & set(b.scope_node_ids):
+            return True
     return False
+
+
+def _with_ancestors(session: Session, node_ids: list[str]) -> set[str]:
+    from caf_db.models.ref import Node
+
+    found, frontier = set(), set(node_ids)
+    while frontier:
+        found |= frontier
+        parents = session.scalars(
+            select(Node.parent_id).where(Node.id.in_(frontier), Node.parent_id.is_not(None))
+        ).all()
+        frontier = set(parents) - found
+    return found
 
 
 def make_decision(

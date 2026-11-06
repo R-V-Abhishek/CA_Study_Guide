@@ -314,6 +314,10 @@ or `Deferred: <reason>` as it is resolved.
   `packages/l4_curate/caf_l4/publish.py:17`. `node_ids`, `scope_node_ids` and
   the `exclude` policy are ignored, so one scoped boundary marks every earlier
   appearance in the paper stale.
+  Latent: production's only `mark_stale` boundary (`ita_2025`) has no attempt yet and no
+  appearance is stale (read-only check). **Fixed:** a scoped boundary applies only when
+  a tagged node or one of its ancestors is in `scope_node_ids` (`test_law_staleness`).
+  `exclude` remains "not stale" by design; nothing yet applies exclusion itself.
 - **M-14: The extraction-failure alarm can never fire.**
   `packages/common/caf_common/alarms.py:140`. It filters on `stage == 'extract'`,
   but runs are recorded as `l2_extract` (`packages/cli/caf_cli/extract.py:101`).

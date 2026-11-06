@@ -365,6 +365,24 @@ def test_law_staleness():
         is_stale_after = compute_law_stale(session, "2025-11", "s2023.P1", ["P1-093VHQ"])
         assert is_stale_after is False
 
+        # 5. A scoped boundary covers its nodes and their descendants only.
+        leaf = session.get(Node, "P1-093VHQ")
+        chapter = leaf
+        while chapter.parent_id:
+            chapter = session.get(Node, chapter.parent_id)
+        other = (
+            session.query(Node.id)
+            .filter(Node.paper_id == leaf.paper_id, Node.level == "chapter", Node.id != chapter.id)
+            .first()
+            .id
+        )
+        test_boundary.scope_node_ids = [other]
+        session.commit()
+        assert compute_law_stale(session, "2024-05", "s2023.P1", ["P1-093VHQ"]) is False
+        test_boundary.scope_node_ids = [chapter.id]
+        session.commit()
+        assert compute_law_stale(session, "2024-05", "s2023.P1", ["P1-093VHQ"]) is True
+
         # Cleanup: remove test boundary to avoid affecting other tests
         session.delete(test_boundary)
         session.commit()
