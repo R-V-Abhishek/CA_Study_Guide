@@ -242,6 +242,9 @@ or `Deferred: <reason>` as it is resolved.
   `packages/api/caf_api/ratelimit.py:23`. These routes are as expensive as the
   throttled published-page routes (each hashes the whole PDF and rasterizes it),
   and students can reach them.
+  **Fixed:** the extraction page, PDF and asset image routes join the `source_pages`
+  per-session limit (120/min). `test_source_rendering_routes_share_the_source_pages_limit`
+  fails without the fix.
 - **M-04: An unexpected `group_no` crashes the dashboard.**
   `packages/api/caf_api/study.py:739`. `group_stats` has keys only for groups 1
   and 2. A paper with `group_no` 3 or 0 raises KeyError, so `/api/v1/dashboard`

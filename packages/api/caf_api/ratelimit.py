@@ -20,7 +20,11 @@ RULES = (
     Rule("login", re.compile(r"^/auth/login$"), 20, "ip"),
     Rule(
         "source_pages",
-        re.compile(r"^/api/v1/(questions/[^/]+/pages/|published-sources/|published-assets/)"),
+        # Every route that reads and renders source PDFs shares one per-session budget.
+        re.compile(
+            r"^/api/v1/(questions/[^/]+/pages/|published-sources/|published-assets/"
+            r"|extraction/documents/[^/]+/(pages/|pdf$)|extraction/assets/[^/]+/image$)"
+        ),
         120,
         "session",
     ),

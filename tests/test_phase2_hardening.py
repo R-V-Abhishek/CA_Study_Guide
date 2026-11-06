@@ -192,6 +192,19 @@ def test_prune_removes_only_long_dead_authentication_rows(authenticated_client, 
     assert session.scalars(sa.select(LoginTransaction.state_hash)).all() == ["c" * 64]
 
 
+def test_source_rendering_routes_share_the_source_pages_limit():
+    limiter = RateLimiter()
+    for path in (
+        "/api/v1/questions/q1/pages/1",
+        "/api/v1/extraction/documents/7/pages/2",
+        "/api/v1/extraction/documents/7/pdf",
+        "/api/v1/extraction/assets/9/image",
+    ):
+        assert limiter.match(path).name == "source_pages", path
+    for path in ("/api/v1/extraction/documents", "/api/v1/extraction/documents/7/revisions"):
+        assert limiter.match(path) is None, path
+
+
 def test_token_bucket_refills_with_time():
     clock = [0.0]
     limiter = RateLimiter(clock=lambda: clock[0])
