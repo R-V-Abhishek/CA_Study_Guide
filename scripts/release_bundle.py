@@ -101,6 +101,9 @@ def build(
     output: Path = ROOT / "release-output",
     candidate: bool = False,
     buildx: str = "docker",
+    postgres_from: Path | None = typer.Option(
+        None, help="Release bundle whose PostgreSQL image the installed hosts already run"
+    ),
 ) -> None:
     """Build committed source, verify the real stack, export both images and checksum."""
     if platform not in {"linux/amd64", "linux/arm64"}:
@@ -115,6 +118,13 @@ def build(
         raise ValueError("Compatibility record must name the current migration head")
     if compatibility["supported_schemas"] != [head]:
         raise ValueError("Additional schema compatibility needs a separate tested rollback drill")
+    # An application upgrade never changes the database image, so a bundle carries the one the
+    # installed hosts run instead of whatever the moving postgres:16-bookworm tag points at today.
+    pinned = compatibility.get("postgres_release")
+    if pinned and postgres_from is None:
+        raise ValueError(
+            f"deploy/compatibility.toml pins PostgreSQL to {pinned}; pass --postgres-from"
+        )
     suffix = f"-candidate-{commit[:12]}" if candidate else ""
     name = f"caf-{version}{suffix}-{platform.replace('/', '-')}"
     reference = f"caf:{version}{suffix}-{platform.split('/')[1]}"
@@ -185,9 +195,27 @@ def build(
             cwd=ROOT,
             check=True,
         )
-        subprocess.run(
-            ["docker", "pull", "--platform", platform, "postgres:16-bookworm"], check=True
-        )
+        database_image = None
+        if postgres_from is not None:
+            source_manifest = verify_archive(postgres_from)
+            if pinned and source_manifest.version != pinned:
+                raise ValueError(f"--postgres-from must be the {pinned} bundle")
+            if source_manifest.platform != platform:
+                raise ValueError("PostgreSQL source bundle architecture differs")
+            with tarfile.open(postgres_from) as archive:
+                archive.extract("images.tar", directory / "postgres-source", filter="data")
+            subprocess.run(
+                ["docker", "image", "load", "-i", str(directory / "postgres-source/images.tar")],
+                check=True,
+            )
+            database_image = source_manifest.postgres.reference
+            loaded = json.loads(run(["docker", "image", "inspect", database_image]))[0]
+            if loaded["Id"] != source_manifest.postgres.image_id:
+                raise ValueError("Loaded PostgreSQL image differs from its source manifest")
+        else:
+            subprocess.run(
+                ["docker", "pull", "--platform", platform, "postgres:16-bookworm"], check=True
+            )
         receipt = directory / "stack-verification.json"
         subprocess.run(
             [
@@ -201,6 +229,7 @@ def build(
                 str(receipt),
                 "--backup-output",
                 str(directory / "synthetic-backup"),
+                *(["--postgres-image", database_image] if database_image else []),
             ],
             cwd=ROOT,
             check=True,

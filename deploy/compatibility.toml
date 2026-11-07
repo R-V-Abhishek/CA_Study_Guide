@@ -2,3 +2,6 @@
 # may be rolled back only if its own manifest lists the current schema.
 required_schema = "0010_bounds_and_indexes"
 supported_schemas = ["0010_bounds_and_indexes"]
+# Application upgrades never change the database image. Release bundles carry the PostgreSQL image of
+# this release, which the installed hosts run. Change it only as a deliberate database image update.
+postgres_release = "v0.2.4"

@@ -95,11 +95,20 @@ Review and commit all implementation changes first. The builder rejects tracked
 modifications and untracked files, requires matching project/lock versions, and
 builds from `git archive` so ignored local files cannot enter the build context.
 
+`deploy/compatibility.toml` names `postgres_release`, the release whose PostgreSQL image the
+installed hosts run. An application upgrade never changes that image (`caf-host upgrade` refuses it),
+so every build takes the database image from that release's bundle with `--postgres-from` instead of
+pulling the moving `postgres:16-bookworm` tag. The workflows download the bundle for you; locally,
+download `caf-<release>-<platform>.tar.gz` and its `.sha256` from that GitHub release first.
+Changing `postgres_release` is a deliberate database image update and needs its own upgrade plan.
+Without a pin the builder still pulls the tag, which is how the first bundles were made.
+
 For a Mac ARM64 candidate before a production tag exists:
 
 ```sh
 uv run --no-sync scripts/release_bundle.py build --candidate \
-  --platform linux/arm64 --buildx /opt/homebrew/bin/docker-buildx
+  --platform linux/arm64 --buildx /opt/homebrew/bin/docker-buildx \
+  --postgres-from /path/to/caf-v0.2.4-linux-arm64.tar.gz
 ```
 
 Candidates include their commit in the filename and cannot pass production
@@ -114,7 +123,8 @@ uv run --no-sync scripts/release_bundle.py verify \
 For an accepted release checkout with its matching tag:
 
 ```sh
-uv run --no-sync scripts/release_bundle.py build --platform linux/amd64
+uv run --no-sync scripts/release_bundle.py build --platform linux/amd64 \
+  --postgres-from /path/to/caf-v0.2.4-linux-amd64.tar.gz
 uv run --no-sync scripts/release_bundle.py verify \
   release-output/caf-v0.2.0-linux-amd64.tar.gz --platform linux/amd64 --load
 ```

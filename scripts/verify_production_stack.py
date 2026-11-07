@@ -22,6 +22,9 @@ def verify(
     image: str = typer.Option(...),
     report: Path = Path("/tmp/caf-stack-integration.json"),
     backup_output: Path | None = None,
+    postgres_image: str | None = typer.Option(
+        None, help="Run this loaded database image instead of the Compose default"
+    ),
 ) -> None:
     """Use only synthetic data and owned Docker volumes; never use host data binds."""
     environment = {key: os.environ[key] for key in ("PATH", "HOME")}
@@ -44,6 +47,8 @@ def verify(
         AUTH_PUBLIC_BASE_URL="https://caf-integration.invalid",
         OIDC_ISSUER="https://oidc.invalid/",
     )
+    if postgres_image:
+        values["CAF_POSTGRES_IMAGE"] = postgres_image
     parsed = render(values, tools=True)
     assert parsed.returncode == 0, "Production configuration did not render"
     configuration = json.loads(parsed.stdout)
