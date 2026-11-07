@@ -262,7 +262,8 @@ def verify(bundle: Path, snapshot: Path, image: str) -> None:
             assert report["application"] == version, report
 
         def failure_detail(result, pattern):
-            logs = sorted(target.glob(pattern))
+            # Upgrade directories carry random suffixes, so recency comes from the file time.
+            logs = sorted(target.glob(pattern), key=lambda path: path.stat().st_mtime_ns)
             detail = logs[-1].read_text()[-6000:] if logs else result.stderr
             return redact(result.stderr[-1500:] + "\n" + detail)
 
@@ -468,7 +469,11 @@ def verify(bundle: Path, snapshot: Path, image: str) -> None:
             assert failed.returncode != 0, "a release that cannot start must fail the upgrade"
             assert receipt()["application"]["version"] == v2
             assert not (target / ".upgrade-in-progress").exists()
-            records = sorted(target.glob("releases/upgrade-*/failure.json"))
+            # Earlier refused upgrades leave their own records; the newest one is this failure.
+            records = sorted(
+                target.glob("releases/upgrade-*/failure.json"),
+                key=lambda path: path.stat().st_mtime_ns,
+            )
             assert records
             record = json.loads(records[-1].read_text())
             assert record["database_migrated"] is False
