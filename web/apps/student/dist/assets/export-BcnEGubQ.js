@@ -1,1 +1,0 @@
-import{x as n,n as a}from"./index-Cl_NrBPS.js";async function i(){const o=await n("/api/v1/me/export"),t=URL.createObjectURL(new Blob([JSON.stringify(o,null,2)],{type:"application/json"})),e=document.createElement("a");e.href=t,e.download=`study-profile-${a()}.json`,e.click(),setTimeout(()=>URL.revokeObjectURL(t),1e3)}export{i as e};

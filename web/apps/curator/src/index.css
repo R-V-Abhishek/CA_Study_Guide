@@ -48,3 +48,9 @@
 .curator-navigation-dialog .dialog-header h2 { color: #fff; border-bottom-color: var(--rail-active); }
 .curator-navigation-dialog .dialog-header button, .curator-navigation-dialog button:not([class]) { background: var(--rail-active); color: #fff; border-color: var(--rail-active); }
 .curator-navigation-dialog select, .curator-navigation-dialog input { background: var(--rail-active); color: #fff; border-color: var(--rail-active); }
+
+/* Filters never grow past the content box: a long option name must not widen the page. */
+@media (max-width: 767px) {
+  .curator-content label { display: grid; grid-template-columns: minmax(0, 1fr); min-width: 0; max-width: 100%; }
+  .curator-content label > select, .curator-content label > input { width: 100%; min-width: 0; }
+}
