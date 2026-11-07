@@ -57,10 +57,12 @@ jobs:
           GH_REPO: ${{ github.repository }}
         run: |
           tag=$(uv run --no-sync python -c 'import tomllib; print(tomllib.load(open("deploy/compatibility.toml", "rb"))["postgres_release"])')
-          mkdir postgres-source
-          gh release download "$tag" --pattern "caf-$tag-linux-amd64.tar.gz*" --dir postgres-source
-          (cd postgres-source && sha256sum -c "caf-$tag-linux-amd64.tar.gz.sha256")
-          echo "POSTGRES_BUNDLE=$PWD/postgres-source/caf-$tag-linux-amd64.tar.gz" >> "$GITHUB_ENV"
+          # Outside the workspace: the packager rejects untracked files.
+          source="$RUNNER_TEMP/postgres-source"
+          mkdir "$source"
+          gh release download "$tag" --pattern "caf-$tag-linux-amd64.tar.gz*" --dir "$source"
+          (cd "$source" && sha256sum -c "caf-$tag-linux-amd64.tar.gz.sha256")
+          echo "POSTGRES_BUNDLE=$source/caf-$tag-linux-amd64.tar.gz" >> "$GITHUB_ENV"
       - run: uv run --no-sync scripts/release_bundle.py build --platform linux/amd64 --postgres-from "$POSTGRES_BUNDLE"
       - name: Upload bundle then publish the draft
         env:
