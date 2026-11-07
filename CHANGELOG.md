@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.3.0](https://github.com/R-V-Abhishek/CA_Study_Guide/compare/v0.2.4...v0.3.0) (2026-11-07)
+
+
+### Features
+
+* address full code review findings and redesign the web apps ([#30](https://github.com/R-V-Abhishek/CA_Study_Guide/issues/30)) ([aa6940d](https://github.com/R-V-Abhishek/CA_Study_Guide/commit/aa6940d0d25ff491dd220ef8aad0288647bd1899))
+
+
+### Documentation
+
+* **deploy:** record the v0.2.4 upgrade ([#27](https://github.com/R-V-Abhishek/CA_Study_Guide/issues/27)) ([b6d251e](https://github.com/R-V-Abhishek/CA_Study_Guide/commit/b6d251e3af5eb53c7ef1c192cc69e7833380aa21))
+* record private access and cutover verification ([#4](https://github.com/R-V-Abhishek/CA_Study_Guide/issues/4)) ([d9b190f](https://github.com/R-V-Abhishek/CA_Study_Guide/commit/d9b190f947f9a060be7e8603bad3a558ac8993c7))
+
 ## [0.2.4](https://github.com/R-V-Abhishek/CA_Study_Guide/compare/v0.2.3...v0.2.4) (2026-11-05)
 
 
