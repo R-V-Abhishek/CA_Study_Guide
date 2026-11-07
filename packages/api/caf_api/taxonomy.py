@@ -15,6 +15,7 @@ from caf_contracts.taxonomy import (
     CrosswalkReview,
     ReleaseApproval,
     ReleaseActivation,
+    PendingReviews,
     ReleaseSummary,
     TaxonomyTreeNode,
 )
@@ -25,9 +26,10 @@ from caf_db.models.taxonomy import (
     NodeSourceSpan,
     DescriptorRevision,
     DescriptorApproval,
+    TaxonomyMember,
 )
 from caf_db.models.app import Progress, Note
-from caf_db.models.ref import Node
+from caf_db.models.ref import Node, Paper
 from caf_l0.releases import (
     get_release,
     version_nodes,
@@ -279,6 +281,65 @@ def edit_descriptor(
     )
     db.commit()
     return {"revision": revision.revision, "approved": False}
+
+
+@router.get("/reviews/pending", response_model=PendingReviews)
+def pending_reviews(db: Session = Depends(get_db), account: Principal = Depends(require_account)):
+    """Latest person-written descriptor revisions awaiting approval by someone other than their author."""
+    latest = (
+        sa.select(DescriptorRevision)
+        .distinct(DescriptorRevision.taxonomy_version_id, DescriptorRevision.node_id)
+        .order_by(
+            DescriptorRevision.taxonomy_version_id,
+            DescriptorRevision.node_id,
+            DescriptorRevision.revision.desc(),
+        )
+        .subquery()
+    )
+    rows = db.execute(
+        sa.select(
+            TaxonomyRelease.version_id,
+            latest.c.node_id,
+            TaxonomyMember.paper_id,
+            Paper.code.label("paper_code"),
+            TaxonomyMember.name,
+            latest.c.revision,
+            latest.c.created_at,
+        )
+        .join(TaxonomyRelease, TaxonomyRelease.taxonomy_version_id == latest.c.taxonomy_version_id)
+        .join(
+            TaxonomyMember,
+            (TaxonomyMember.taxonomy_version_id == latest.c.taxonomy_version_id)
+            & (TaxonomyMember.node_id == latest.c.node_id),
+        )
+        .join(Paper, Paper.id == TaxonomyMember.paper_id)
+        .outerjoin(
+            DescriptorApproval,
+            (DescriptorApproval.revision_id == latest.c.id)
+            & (DescriptorApproval.content_hash == latest.c.content_hash),
+        )
+        .where(
+            DescriptorApproval.revision_id.is_(None),
+            latest.c.created_by.is_not(None),
+            latest.c.created_by != account.id,
+        )
+        .order_by(latest.c.created_at)
+    ).all()
+    return {
+        "count": len(rows),
+        "items": [
+            {
+                "version_id": row.version_id,
+                "node_id": row.node_id,
+                "paper_id": row.paper_id,
+                "paper_code": row.paper_code,
+                "name": row.name,
+                "revision": row.revision,
+                "changed_at": row.created_at.isoformat(),
+            }
+            for row in rows
+        ],
+    }
 
 
 @router.post("/nodes/{node_id}/descriptor/approve", response_model=dict[str, Any])

@@ -70,15 +70,20 @@ def approved_source(db, source_id):
     return source
 
 
-def source_bytes(source):
-    """Only read the recorded content-addressed PDF inside the configured store."""
+def approved_source_path(source) -> Path:
+    """The recorded content-addressed PDF, only if its approved path is that file inside the store."""
     if not re.fullmatch("[0-9a-f]{64}", source.sha256):
         raise HTTPException(404, "published_source_unavailable")
     base = Path(get_settings().storage.blob_dir).resolve()
     expected = (base / source.sha256[:2] / source.sha256[2:4] / f"{source.sha256}.pdf").resolve()
-    approved = Path(source.approved_blob_path).resolve()
-    if approved != expected or not expected.is_relative_to(base):
+    if Path(source.approved_blob_path).resolve() != expected or not expected.is_relative_to(base):
         raise HTTPException(404, "published_source_unavailable")
+    return expected
+
+
+def source_bytes(source):
+    """Only read the recorded content-addressed PDF inside the configured store."""
+    expected = approved_source_path(source)
     try:
         data = expected.read_bytes()
     except FileNotFoundError as exc:

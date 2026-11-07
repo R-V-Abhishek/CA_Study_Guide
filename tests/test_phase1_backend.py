@@ -397,3 +397,69 @@ def test_forward_migration_preserves_legacy_rows(session, isolated_database):
         with admin.connect() as conn:
             conn.execute(sa.text(f'DROP DATABASE "{database}"'))
         admin.dispose()
+
+
+def test_cli_migrations_target_the_migration_url(isolated_database, monkeypatch):
+    """`caf db migrate` follows MIGRATION_DATABASE_URL, not DATABASE_URL (which may be another role)."""
+    from uuid import uuid4
+
+    from caf_cli.main import _get_alembic_config
+    from caf_common.settings import reset_settings
+
+    database = f"caf_migration_{uuid4().hex}"
+    isolated_database.allow(database)
+    admin = sa.create_engine(isolated_database.url(), isolation_level="AUTOCOMMIT")
+    try:
+        with admin.connect() as conn:
+            conn.execute(sa.text(f'CREATE DATABASE "{database}"'))
+        target = isolated_database.url(database).render_as_string(hide_password=False)
+        monkeypatch.setenv("MIGRATION_DATABASE_URL", target)
+        reset_settings()
+        command.upgrade(_get_alembic_config(), "head")
+        engine = sa.create_engine(target)
+        with engine.connect() as conn:
+            assert (
+                conn.execute(sa.text("SELECT count(*) FROM ops.alembic_version")).scalar_one() == 1
+            )
+        engine.dispose()
+    finally:
+        monkeypatch.delenv("MIGRATION_DATABASE_URL")
+        reset_settings()
+        with admin.connect() as conn:
+            conn.execute(sa.text(f'DROP DATABASE "{database}" WITH (FORCE)'))
+        admin.dispose()
+
+
+def test_chapter_in_several_weightage_sections_uses_the_one_in_force(client, session):
+    from caf_db.models.app import Settings
+    from caf_db.models.ref import Attempt
+
+    tree = client.get("/api/v1/papers/s2023.P1/tree").json()
+    chapter = tree["chapters"][0]
+    subtopic = chapter["topics"][0]["subtopics"][0]["id"]
+    target = session.get(Settings, 1).target_attempt_id
+    session.add(
+        Attempt(id="2099-11", exam_year=2099, exam_month=11, label="Nov 2099", verified=False)
+    )
+    for section_id, name, valid_from in [
+        ("test.current", "Section in force", target),
+        ("test.future", "Future section", "2099-11"),
+    ]:
+        session.add(
+            WeightageSection(
+                id=section_id,
+                paper_id="s2023.P1",
+                name=name,
+                min_pct=5,
+                max_pct=10,
+                valid_from_attempt=valid_from,
+            )
+        )
+        session.flush()
+        session.add(WeightageMember(section_id=section_id, chapter_id=chapter["id"]))
+    session.commit()
+    detail = client.get(f"/api/v1/subtopics/{subtopic}")
+    assert detail.status_code == 200, detail.text
+    assert detail.json()["weightage"]["section_name"] == "Section in force"
+    tree = client.get("/api/v1/papers/s2023.P1/tree").json()
+    assert tree["chapters"][0]["weightage_section_name"] == "Section in force"

@@ -129,6 +129,11 @@ def test_system_alarms_evaluation(session, tmp_path):
     budget_alarm = next((a for a in health.alarms if a.code == "BUDGET_CAP_REACHED"), None)
     assert budget_alarm is not None
     assert budget_alarm.level == "CRITICAL"
+    # A later run of the same stage (for example after raising the cap) clears the alarm.
+    session.add(Run(stage="l3_classify", status="ok", config_hash="cap_test"))
+    session.commit()
+    health = get_system_health(session, backup_dir=empty_bdir)
+    assert not any(a.code == "BUDGET_CAP_REACHED" for a in health.alarms)
 
 
 def test_model_re_evaluation_procedure(session):
@@ -305,3 +310,41 @@ def test_backup_endpoint_reports_scheduled_snapshot_status_without_paths(client)
         alarm["code"] == "BACKUP_FAILED" and alarm["level"] == "CRITICAL"
         for alarm in health["alarms"]
     )
+
+
+def test_failed_verification_drill_reports_once(monkeypatch, tmp_path):
+    from caf_cli import backup as backup_cli
+    from caf_common.backup import VerificationResult
+
+    def unverified(**_):
+        return VerificationResult(
+            verified=False,
+            dump_file=tmp_path / "caf_test.dump",
+            live_counts={"app.note": 2},
+            restored_counts={"app.note": 1},
+            mismatches=["app.note"],
+            message="Counts differ",
+            report_file=tmp_path / "report.json",
+        )
+
+    monkeypatch.setattr(backup_cli, "verify_backup", unverified)
+    result = runner.invoke(cli_app, ["backup", "verify"])
+    assert result.exit_code == 1
+    assert "FAILED" in result.output and "Verification drill failed" not in result.output
+
+
+def test_extraction_failure_alarm_reads_the_extract_stage(session, tmp_path):
+    session.add(
+        Run(stage="l2_extract", status="failed", stats={"documents": 4, "failed": [11, 12]})
+    )
+    session.commit()
+    alarm = next(
+        a
+        for a in evaluate_system_alarms(session, backup_dir=tmp_path)
+        if a.code == "EXTRACTION_FAILURE_HIGH"
+    )
+    assert (alarm.details["total"], alarm.details["failed"]) == (4, 2)
+    session.add(Run(stage="l2_extract", status="ok", stats={"documents": 5, "failed": []}))
+    session.commit()
+    codes = {a.code for a in evaluate_system_alarms(session, backup_dir=tmp_path)}
+    assert "EXTRACTION_FAILURE_HIGH" not in codes

@@ -33,7 +33,10 @@ def pdf_bytes(
 @pytest.fixture
 def polite():
     return SimpleNamespace(
-        user_agent="test-agent", is_allowed=lambda url: True, sleep_before_request=lambda url: None
+        user_agent="test-agent",
+        is_allowed=lambda url: True,
+        sleep_before_request=lambda url: None,
+        get_host=lambda url: httpx.URL(url).host,
     )
 
 
@@ -443,3 +446,23 @@ def test_transaction_dates_do_not_override_source_attempt():
     assert metadata["attempt_id"] == "2026-05"
     assert metadata["metadata_evidence"]["conflicts"] == []
     assert "November 2024" not in metadata["metadata_evidence"]["content_identity_text"]
+
+
+def test_redirects_to_another_host_are_paced_per_host():
+    from caf_l1.fetcher import get_politely
+
+    def handler(request):
+        if request.url.host == "a.example" and request.url.path == "/paper.pdf":
+            return httpx.Response(302, headers={"location": "/moved.pdf"})
+        if request.url.host == "a.example":
+            return httpx.Response(302, headers={"location": "http://b.example/final.pdf"})
+        return httpx.Response(200, content=b"%PDF")
+
+    paced = []
+    politeness = SimpleNamespace(
+        get_host=lambda url: httpx.URL(url).host, sleep_before_request=paced.append
+    )
+    with httpx.Client(transport=httpx.MockTransport(handler)) as client:
+        response = get_politely(client, politeness, "https://a.example/paper.pdf")
+    assert str(response.url) == "https://b.example/final.pdf"  # http redirect upgraded
+    assert paced == ["https://b.example/final.pdf"]  # the same-host hop is not paced again

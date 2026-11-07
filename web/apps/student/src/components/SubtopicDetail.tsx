@@ -110,13 +110,15 @@ export function SubtopicDetail({ nodeId }: { paperId: string; nodeId: string }) 
     };
   }, []);
   useEffect(() => {
-    if (query.data && !drafts.has(key)) {
-      const value = query.data.notes ?? "";
-      drafts.set(key, { text: value, saved: value });
-      latest.current = value;
-      setText(value);
-      setSaveStatus("saved");
-    }
+    if (!query.data) return;
+    const value = query.data.notes ?? "";
+    const existing = drafts.get(key);
+    // Adopt a newer server note (another tab or device) only when there are no local edits or saves in flight.
+    if (existing && (existing.text !== existing.saved || saves.has(key) || existing.saved === value)) return;
+    drafts.set(key, { text: value, saved: value });
+    latest.current = value;
+    setText(value);
+    setSaveStatus("saved");
   }, [query.data, key]);
   const draft = drafts.get(key);
   const dirty = draft !== undefined && text !== draft.saved;

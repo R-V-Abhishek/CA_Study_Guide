@@ -2,23 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 .curator-workspace { min-height: 100dvh; font-size: 16px; line-height: 26px; }
-.curator-sidebar { width: 224px; position: fixed; inset: 0 auto 0 0; padding: 24px 16px; border-right: 1px solid var(--border); background: var(--surface); display: flex; flex-direction: column; overflow-y: auto; }
-.curator-brand { font-size: 16px; font-weight: 650; display: grid; gap: 4px; margin-bottom: 32px; }
-.curator-brand span { font-size: 14px; color: var(--secondary); font-weight: 400; }
+.curator-sidebar { width: 232px; position: fixed; inset: 0 auto 0 0; padding: 24px 16px; background: var(--rail); color: var(--rail-text); display: flex; flex-direction: column; overflow-y: auto; }
+.curator-brand { font-family: var(--font-display); font-size: 18px; font-weight: 650; color: #fff; display: grid; gap: 4px; margin-bottom: 32px; padding-left: 12px; border-left: 3px double var(--margin); }
+.curator-brand span { font-family: inherit; font-size: 14px; color: var(--rail-text); font-weight: 400; }
 .curator-navigation { display: grid; gap: 4px; }
-.curator-navigation a { min-height: 40px; display: flex; align-items: center; padding: 8px 12px; border-radius: 8px; color: var(--secondary); }
-.curator-navigation a:hover { background: var(--subtle); }
-.curator-navigation a.active { background: var(--accent-surface); color: var(--accent); font-weight: 600; }
-.secondary-navigation { border-top: 1px solid var(--border); padding-top: 16px; margin-top: 16px; }
+.curator-navigation a { min-height: 40px; display: flex; align-items: center; padding: 8px 12px; border-radius: var(--radius); border-left: 3px solid transparent; color: var(--rail-text); text-decoration: none; font-size: 14px; }
+.curator-navigation a:hover { background: var(--rail-active); color: #fff; }
+.curator-navigation a.active { background: var(--rail-active); color: #fff; border-left-color: var(--margin); font-weight: 600; }
+.secondary-navigation { border-top: 3px double var(--rail-active); padding-top: 16px; margin-top: 16px; }
 .curator-account { margin-top: auto; padding-top: 24px; display: grid; gap: 12px; font-size: 14px; }
-.curator-account a { color: var(--accent); }
+.curator-account a { color: #fff; }
 .curator-account summary { cursor: pointer; min-height: 40px; padding-top: 8px; }
 .session-controls { display: grid; gap: 8px; }
 .session-controls button { text-align: left; }
-.curator-body { margin-left: 224px; min-width: 0; }
-.curator-header { height: 64px; position: sticky; top: 0; z-index: 20; border-bottom: 1px solid var(--border); padding: 0 32px; display: flex; align-items: center; justify-content: space-between; gap: 16px; background: var(--surface); font-weight: 600; }
+.curator-body { margin-left: 232px; min-width: 0; }
+.curator-header { height: 56px; position: sticky; top: 0; z-index: 20; border-bottom: 1px solid var(--border); padding: 0 32px; display: flex; align-items: center; justify-content: space-between; gap: 16px; background: var(--canvas); font-family: var(--font-display); font-weight: 650; }
 .curator-content { padding: 32px; min-width: 0; }
-.curator-content h1 { font-size: 32px; line-height: 40px; font-weight: 650; }
+.curator-content h1 { font-size: 36px; line-height: 42px; font-weight: 650; }
 .curator-header .curator-menu { display: none; }
 .curator-navigation-dialog { width: min(360px, calc(100vw - 32px)); margin-left: 16px; }
 .bg-\[\#1E293B\] { background: var(--surface); }
@@ -42,4 +42,15 @@
   .catalogue-table tr { padding: 12px 0; border-bottom: 1px solid var(--border); }
   .catalogue-table td { border: 0; padding: 8px 16px; }
   .catalogue-table td::before { content: attr(data-label); display: block; color: var(--secondary); font-size: 14px; margin-bottom: 4px; }
+}
+
+.curator-navigation-dialog { background: var(--rail); color: var(--rail-text); border-color: var(--rail-active); }
+.curator-navigation-dialog .dialog-header h2 { color: #fff; border-bottom-color: var(--rail-active); }
+.curator-navigation-dialog .dialog-header button, .curator-navigation-dialog button:not([class]) { background: var(--rail-active); color: #fff; border-color: var(--rail-active); }
+.curator-navigation-dialog select, .curator-navigation-dialog input { background: var(--rail-active); color: #fff; border-color: var(--rail-active); }
+
+/* Filters never grow past the content box: a long option name must not widen the page. */
+@media (max-width: 767px) {
+  .curator-content label { display: grid; grid-template-columns: minmax(0, 1fr); min-width: 0; max-width: 100%; }
+  .curator-content label > select, .curator-content label > input { width: 100%; min-width: 0; }
 }

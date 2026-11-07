@@ -60,7 +60,7 @@ export function Questions() {
     placeholderData: (previous) => previous,
   });
   const change = (key: string, value: string) =>
-    set({ [key]: value, page: "", ...(key === "paper_id" ? { subtopic_id: "" } : {}) });
+    set({ [key]: value, page: "", ...(key === "paper_id" ? { subtopic_id: "" } : {}) }, { replace: key === "q" });
   const clear = () =>
     set({
       q: "",

@@ -68,8 +68,12 @@ export async function refreshIdentity() {
           if (changed) announce();
         }
       } else {
-        const detail = (await response.json()).detail;
+        const detail = await response.json().then(
+          (body: { detail?: string }) => body.detail,
+          () => undefined,
+        );
         if (expected !== generation) return;
+        const definitive = response.status === 401 || detail === "account_disabled" || detail === "invite_required";
         update({
           status:
             detail === "account_disabled"
@@ -79,8 +83,12 @@ export async function refreshIdentity() {
                 : response.status === 401
                   ? "signed_out"
                   : "error",
-          identity: null,
-          message: response.status === 401 ? "Sign in to your private profile." : detail,
+          // A transient failure (backend restart, proxy 502) keeps the identity, so drafts survive "Check again".
+          identity: definitive ? null : state.identity,
+          message:
+            response.status === 401
+              ? "Sign in to your private profile."
+              : (detail ?? `Could not check sign-in (${response.status}).`),
         });
       }
     } catch (error) {

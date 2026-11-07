@@ -4,6 +4,7 @@ Requires=docker.service
 After=docker.service network-online.target
 Wants=network-online.target
 ConditionPathExists=/srv/caf/current-compose.json
+ConditionPathExists=/srv/caf/installation.json
 
 [Service]
 Type=oneshot
@@ -11,8 +12,9 @@ RemainAfterExit=yes
 User=cafdeploy
 Group=cafdeploy
 SupplementaryGroups=docker
-ExecStart=/usr/bin/docker compose --env-file /dev/null -p caf -f /srv/caf/current-compose.json up -d --wait --wait-timeout 120 db web worker
-ExecStop=/usr/bin/docker compose --env-file /dev/null -p caf -f /srv/caf/current-compose.json stop
+# The Compose project comes from the installation receipt, so a non-default --project boots too.
+ExecStart=/bin/sh -c 'project=$$(/usr/bin/jq -er .project /srv/caf/installation.json) && exec /usr/bin/docker compose --env-file /dev/null -p "$$project" -f /srv/caf/current-compose.json up -d --wait --wait-timeout 120 db web worker'
+ExecStop=/bin/sh -c 'project=$$(/usr/bin/jq -er .project /srv/caf/installation.json) && exec /usr/bin/docker compose --env-file /dev/null -p "$$project" -f /srv/caf/current-compose.json stop'
 TimeoutStartSec=180
 TimeoutStopSec=180
 

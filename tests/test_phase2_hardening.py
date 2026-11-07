@@ -192,6 +192,43 @@ def test_prune_removes_only_long_dead_authentication_rows(authenticated_client, 
     assert session.scalars(sa.select(LoginTransaction.state_hash)).all() == ["c" * 64]
 
 
+def test_source_rendering_routes_share_the_source_pages_limit():
+    limiter = RateLimiter()
+    for path in (
+        "/api/v1/questions/q1/pages/1",
+        "/api/v1/extraction/documents/7/pages/2",
+        "/api/v1/extraction/documents/7/pdf",
+        "/api/v1/extraction/assets/9/image",
+    ):
+        assert limiter.match(path).name == "source_pages", path
+    for path in ("/api/v1/extraction/documents", "/api/v1/extraction/documents/7/revisions"):
+        assert limiter.match(path) is None, path
+
+
+def test_rate_limiter_memory_is_bounded_and_pruning_is_amortized(monkeypatch):
+    import caf_api.ratelimit as ratelimit
+
+    monkeypatch.setattr(ratelimit, "MAX_TRACKED_KEYS", 100)
+    clock = [0.0]
+    limiter = RateLimiter(clock=lambda: clock[0])
+    rule = next(item for item in RULES if item.name == "search")
+    prunes = 0
+    original = limiter._prune
+
+    def counted(now):
+        nonlocal prunes
+        prunes += 1
+        original(now)
+
+    limiter._prune = counted
+    for index in range(1000):  # all recent: nothing is idle enough to expire
+        clock[0] += 0.01
+        assert limiter.check(rule, f"session-{index}") is None
+        assert len(limiter.buckets) <= 100
+    assert prunes <= 1000 // 50
+    assert ("search", "session-999") in limiter.buckets
+
+
 def test_token_bucket_refills_with_time():
     clock = [0.0]
     limiter = RateLimiter(clock=lambda: clock[0])
@@ -281,3 +318,135 @@ def test_migration_keeps_existing_oversized_text_and_leaves_its_constraint_unval
             {"node": node, "body": "y" * 100_001},
         )
     session.rollback()
+
+
+def test_configured_connections_file_is_private(tmp_path, monkeypatch):
+    from caf_common.settings import reset_settings
+    from caf_db.configuration import configure_connections
+
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.delenv("PG_BACKUP_PASSWORD", raising=False)
+    monkeypatch.delenv("BACKUP_DATABASE_URL", raising=False)
+    reset_settings()
+    env_file = tmp_path / ".env"
+    assert "PG_BACKUP_PASSWORD" in configure_connections(env_file)
+    assert env_file.stat().st_mode & 0o777 == 0o600
+
+
+def test_login_rate_limit_keys_on_the_tailnet_client_behind_docker_proxy(burst_rate_limiter):
+    """Production trusts only Docker networks, as configured in compose.production.yml."""
+    from pathlib import Path
+
+    from uvicorn.middleware.proxy_headers import ProxyHeadersMiddleware
+    import yaml
+
+    compose = yaml.safe_load((Path(__file__).parents[1] / "compose.production.yml").read_text())
+    command = compose["services"]["web"]["command"]
+    trusted = command[command.index("--forwarded-allow-ips") + 1]
+    identities = []
+
+    class Recording(RateLimiter):
+        def check(self, rule, identity):
+            identities.append(identity)
+            return 1.0  # always block, so the login route never contacts the provider
+
+    app.state.rate_limiter = Recording()
+    proxied = TestClient(
+        ProxyHeadersMiddleware(app, trusted_hosts=trusted), client=("172.19.0.1", 50000)
+    )
+    for forwarded_for in ("100.64.0.1", "100.64.0.9, 100.64.0.1", "100.64.0.2"):
+        response = proxied.get("/auth/login", headers={"X-Forwarded-For": forwarded_for})
+        assert response.status_code == 429
+    proxied.get("/auth/login")
+    # The appended tailnet address wins over a client-supplied entry; without the header the bridge remains.
+    assert identities == ["100.64.0.1", "100.64.0.1", "100.64.0.2", "172.19.0.1"]
+
+
+def test_configured_connections_keep_stored_url_passwords(tmp_path, monkeypatch):
+    from caf_common.settings import reset_settings
+    from caf_db.configuration import configure_connections
+
+    monkeypatch.chdir(tmp_path)
+    url = "postgresql+psycopg://caf_backup:stored-secret@127.0.0.1:5432/caf"
+    monkeypatch.delenv("PG_BACKUP_PASSWORD", raising=False)
+    monkeypatch.setenv("BACKUP_DATABASE_URL", url)
+    reset_settings()
+    env_file = tmp_path / ".env"
+    assert configure_connections(env_file) == ["PG_BACKUP_PASSWORD"]
+    assert "PG_BACKUP_PASSWORD=stored-secret" in env_file.read_text().splitlines()
+    monkeypatch.setenv("PG_BACKUP_PASSWORD", "different-secret")
+    reset_settings()
+    with pytest.raises(RuntimeError, match="BACKUP_DATABASE_URL does not use the password"):
+        configure_connections(tmp_path / "other.env")
+    reset_settings()
+
+
+@pytest.mark.parametrize("kind", ["progress", "notes"])
+def test_simultaneous_first_writes_do_not_collide(authenticated_client, monkeypatch, kind):
+    """Both requests read "no row" before either inserts; without serialization one fails."""
+    import threading
+
+    from caf_db.models.app import Progress
+    from sqlalchemy.orm import Session as OrmSession
+
+    first, second = authenticated_client(user_id=1), authenticated_client(user_id=1)
+    node = first_subtopic(first)
+    model = Progress if kind == "progress" else Note
+    barrier = threading.Barrier(2)
+    original_get = OrmSession.get
+
+    def get_then_wait(self, entity, ident, *args, **kwargs):
+        row = original_get(self, entity, ident, *args, **kwargs)
+        if entity is model:
+            try:
+                barrier.wait(timeout=1)
+            except threading.BrokenBarrierError:
+                pass  # serialized: the other request is waiting for the lock
+        return row
+
+    monkeypatch.setattr(OrmSession, "get", get_then_wait)
+    url = f"/api/v1/subtopics/{node}/{kind}"
+    bodies = (
+        [{"status": "in_progress"}, {"status": "done"}]
+        if kind == "progress"
+        else [
+            {"notes": "From the first tab"},
+            {"notes": "From the second tab"},
+        ]
+    )
+    statuses = {}
+
+    def write(name, client, body):
+        statuses[name] = client.put(url, json=body).status_code
+
+    threads = [
+        threading.Thread(target=write, args=("first", first, bodies[0])),
+        threading.Thread(target=write, args=("second", second, bodies[1])),
+    ]
+    for thread in threads:
+        thread.start()
+    for thread in threads:
+        thread.join()
+    assert statuses == {"first": 200, "second": 200}
+
+
+def test_dashboard_tolerates_a_paper_outside_groups_one_and_two(authenticated_client, session):
+    from caf_db.models.ref import Paper
+
+    client = authenticated_client(user_id=1)
+    session.execute(sa.update(Paper).where(Paper.id == "s2023.P1").values(group_no=3))
+    session.commit()
+    response = client.get("/api/v1/dashboard")
+    assert response.status_code == 200, response.text
+
+
+def test_status_correction_is_not_recorded_as_a_revision(authenticated_client, session):
+    from caf_db.models.app import Progress
+
+    client = authenticated_client(user_id=1)
+    node = first_subtopic(client)
+    for status in ("done", "in_progress", "done"):
+        response = client.put(f"/api/v1/subtopics/{node}/progress", json={"status": status})
+        assert response.status_code == 200, response.text
+    progress = session.get(Progress, (1, node))
+    assert progress.first_done_at is not None and progress.last_revised_at is None

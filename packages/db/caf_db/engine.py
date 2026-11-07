@@ -58,7 +58,10 @@ def get_engine(operation: Operation = "migration") -> Engine:
                     cursor.execute(
                         "SELECT rolsuper, rolcreaterole, rolcreatedb, rolbypassrls FROM pg_roles WHERE rolname=current_user"
                     )
-                    if any(cursor.fetchone()):
+                    privileges = cursor.fetchone()
+                    if privileges is None:
+                        raise RuntimeError("Serving database role is not visible in pg_roles")
+                    if any(privileges):
                         raise RuntimeError("Serving database role has administrative privileges")
                 connection.rollback()
 

@@ -6,8 +6,8 @@ from alembic import context
 import sqlalchemy as sa
 from sqlalchemy import engine_from_config, pool
 
-from caf_common.settings import get_settings
 from caf_common.db_safety import assert_safe_database
+from caf_db.engine import database_url
 from caf_db.models.base import Base
 
 # Import all models to ensure they register on metadata
@@ -31,9 +31,8 @@ def include_object(object, name, type_, reflected, compare_to):
 
 
 def run_migrations_offline() -> None:
-    settings = get_settings()
-    url = settings.DATABASE_URL or settings.database.url
-    assert_safe_database(url)
+    # The migration URL is validated (production requires MIGRATION_DATABASE_URL) by database_url.
+    url = database_url("migration").render_as_string(hide_password=False)
     context.configure(
         url=url,
         target_metadata=target_metadata,
@@ -73,9 +72,7 @@ def run_migrations_online() -> None:
         run_migrations_on_connection(supplied_connection)
         return
 
-    settings = get_settings()
-    url = settings.DATABASE_URL or settings.database.url
-    assert_safe_database(url)
+    url = database_url("migration").render_as_string(hide_password=False)
     configuration = config.get_section(config.config_ini_section, {})
     configuration["sqlalchemy.url"] = url
     connectable = engine_from_config(

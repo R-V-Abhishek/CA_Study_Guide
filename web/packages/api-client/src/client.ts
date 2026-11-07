@@ -56,13 +56,14 @@ export interface ApiClientConfig extends ClientOptions {
 export function createStudentClient(config: ApiClientConfig = {}) {
   const baseUrl = config.baseUrl ?? "";
   const client = createClient<paths>({
+    ...config,
     baseUrl,
-    fetch: authenticatedFetch,
+    fetch: config.fetch ?? authenticatedFetch,
+    // After the spread, so caller headers add to the default Content-Type instead of replacing it.
     headers: {
       "Content-Type": "application/json",
       ...config.headers,
     },
-    ...config,
   });
   client.use(errorMiddleware);
   return client;

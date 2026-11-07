@@ -465,6 +465,33 @@ def test_new_bindings_enqueue_and_worker_records_output(session, reviewed_contex
     assert context.run.id == job.score_run_id and context.freshness["status"] == "ready"
 
 
+def test_failed_context_is_retried_a_bounded_number_of_times(session, reviewed_context):
+    from caf_l5.jobs import MAX_FAILED_ATTEMPTS, RETRY_AFTER, enqueue_missing_contexts
+
+    suggestion, target = reviewed_context
+
+    def context_jobs(status):
+        return session.scalars(
+            sa.select(RecomputeJob).where(
+                RecomputeJob.target_attempt_id == target, RecomputeJob.status == status
+            )
+        ).all()
+
+    def fail_pending():
+        assert enqueue_missing_contexts(session) == 1
+        job = claim_job(session)
+        assert complete_job(session, job.id, job.lease_token, None, error="database restarted")
+
+    for _ in range(MAX_FAILED_ATTEMPTS):
+        fail_pending()
+        assert enqueue_missing_contexts(session) == 0  # not before the retry delay
+        for job in context_jobs("failed"):
+            job.created_at -= RETRY_AFTER
+        session.commit()
+    assert enqueue_missing_contexts(session) == 0
+    assert len(context_jobs("failed")) == MAX_FAILED_ATTEMPTS and not context_jobs("pending")
+
+
 def test_mid_compute_publication_preserves_last_same_context_and_queues_newer(
     session, reviewed_context, monkeypatch
 ):

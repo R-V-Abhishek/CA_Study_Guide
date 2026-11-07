@@ -57,6 +57,10 @@ def provider(monkeypatch, session):
         if request.url.path == "/jwks":
             return httpx.Response(200, json={"keys": [key.as_dict(private=False)]})
         if request.url.path == "/token":
+            if data.get("token_failure") == "timeout":
+                raise httpx.ReadTimeout("Provider timed out", request=request)
+            if data.get("token_failure") == "unavailable":
+                return httpx.Response(503, text="<html>Service unavailable</html>")
             body = parse_qs(request.content.decode())
             assert "code_verifier" in body
             claims = {
@@ -162,6 +166,25 @@ def test_invalid_signed_identity_rejected(provider, session, claims):
     provider[0]["claims"] = claims
     response = complete(provider, start_login(provider, token))
     assert response.status_code == 400 and response.json()["detail"] == "invalid_provider_identity"
+    assert session.scalar(sa.select(sa.func.count()).select_from(AuthSession)) == 0
+
+
+@pytest.mark.parametrize("failure", ["timeout", "unavailable"])
+def test_provider_outage_during_token_exchange_is_reported_and_logged(
+    provider, session, failure, caplog, monkeypatch
+):
+    _, token = invite_token(session)
+    state = start_login(provider, token)
+    provider[0]["token_failure"] = failure
+    # In-process Alembic runs (other tests) call fileConfig, which disables existing loggers.
+    monkeypatch.setattr(auth.logger, "disabled", False)
+    with caplog.at_level("WARNING", logger=auth.logger.name):
+        response = complete(provider, state)
+    assert (response.status_code, response.json()) == (
+        503,
+        {"detail": "identity_provider_unavailable"},
+    ), response.text
+    assert "OIDC token exchange unavailable" in caplog.text
     assert session.scalar(sa.select(sa.func.count()).select_from(AuthSession)) == 0
 
 

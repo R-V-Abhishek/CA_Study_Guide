@@ -23,7 +23,7 @@ bundle=$(realpath -e -- "$bundle")
 config=$(realpath -e -- "$config")
 root=$(realpath -e -- "$root")
 case "$bundle$config$root" in *[,]* ) echo 'Upgrade paths must not contain commas' >&2; exit 1;; esac
-test "$root" != / && test -d "$root" && test -w "$root"
+test "$root" != / && test -d "$root" && test -w "$root" || { echo 'Root must be a writable directory other than /' >&2; exit 1; }
 test "$(stat -c %a "$config")" = 600 && test "$(stat -c %u "$config")" = "$(id -u)" || {
     echo 'Environment file must be owned by the operator with mode 0600' >&2; exit 1;
 }
@@ -52,7 +52,8 @@ phase=validation stopped=false switched=false migrated=false success=false
 old_compose() { env -i PATH="$PATH" HOME="$HOME" docker compose --env-file /dev/null -p "$project" -f "$current" "$@"; }
 new_compose() { env -i PATH="$PATH" HOME="$HOME" docker compose --env-file /dev/null -p "$project" -f "$work/compose.json" "$@"; }
 point_to() {
-    ln -s "$1" "$root/current-compose.json.new"
+    # -f replaces a .new link left by an interrupted run; mv -T then swaps the pointer atomically.
+    ln -sfn "$1" "$root/current-compose.json.new"
     mv -T "$root/current-compose.json.new" "$root/current-compose.json"
 }
 finish() {
@@ -60,26 +61,36 @@ finish() {
     trap - EXIT
     if test "$success" != true; then
         action='Services remain stopped. Preserve the database and files; do not rerun upgrade or downgrade the database.'
-        if test "$migrated" = false; then
+        unchanged='The previous release was restarted; the database was not changed.'
+        if test "$stopped" = false; then
+            # Failed before quiesce: nothing was stopped, switched or migrated.
+            unchanged='The previous release is still serving; nothing was changed. Fix the cause and rerun upgrade.'
+            action=$unchanged
+        elif test "$migrated" = false; then
             # No database change happened, so returning to the previous release is safe.
+            pointer=restored
             if test "$switched" = true; then
                 new_compose stop web worker >> "$log" 2>&1 || true
-                point_to "$current" >> "$log" 2>&1 || true
+                point_to "$current" >> "$log" 2>&1 || pointer=failed
             fi
             if test "$stopped" = true; then
                 if old_compose up -d --no-deps --wait --wait-timeout 120 web worker >> "$log" 2>&1; then
-                    action='The previous release was restarted; the database was not changed.'
+                    if test "$pointer" = restored; then
+                        action=$unchanged
+                    else
+                        action="The previous release was restarted, but current-compose.json still names the new release; point it at $current before rebooting or rerunning upgrade."
+                    fi
                 fi
             fi
         elif test "$switched" = true; then
             new_compose stop web worker >> "$log" 2>&1 || true
         fi
         jq -n --arg phase "$phase" --arg project "$project" --arg log "$log" --arg action "$action" \
-            --arg previous "$current" --argjson migrated "$migrated" \
-            '{status:"failed",phase:$phase,project:$project,database_migrated:$migrated,previous_release_compose:$previous,private_log:$log,recovery:$action}' > "$work/failure.json"
+            --arg previous "$current" --arg snapshot "${created:-}" --argjson migrated "$migrated" \
+            '{status:"failed",phase:$phase,project:$project,database_migrated:$migrated,previous_release_compose:$previous,pre_migration_snapshot:(if $snapshot == "" then null else $snapshot end),private_log:$log,recovery:$action}' > "$work/failure.json"
         echo "Upgrade failed during $phase. $action Private record: $work/failure.json" >&2
         # The marker is only removed on success or when the previous release is running again.
-        if test "$migrated" = false && test "$action" = 'The previous release was restarted; the database was not changed.'; then
+        if test "$migrated" = false && test "$action" = "$unchanged"; then
             rm -f "$root/.upgrade-in-progress"
         fi
     else
@@ -163,8 +174,10 @@ phase=migrate
 if test "$live" != "$required"; then
     migrated=true
     new_compose run --rm -T --no-deps admin db migrate >> "$log" 2>&1
-    new_compose run --rm -T --no-deps admin db grants >> "$log" 2>&1
 fi
+# A release can change role privileges without a migration; grants are idempotent and transactional.
+phase=grants
+new_compose run --rm -T --no-deps admin db grants >> "$log" 2>&1
 phase=activate
 point_to "$work/compose.json"
 switched=true

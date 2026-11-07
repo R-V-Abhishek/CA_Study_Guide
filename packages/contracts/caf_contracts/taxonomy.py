@@ -69,6 +69,23 @@ class ReleaseSummary(BaseModel):
     baseline_provenance: dict[str, Any] | None = None
 
 
+class PendingDescriptorReview(BaseModel):
+    version_id: str
+    node_id: str
+    paper_id: str
+    paper_code: str
+    name: str
+    revision: int
+    changed_at: str
+
+
+class PendingReviews(BaseModel):
+    """Descriptor changes written by someone else that still need a second reviewer."""
+
+    count: int
+    items: list[PendingDescriptorReview]
+
+
 class TaxonomyTreeNode(BaseModel):
     id: str
     paper_id: str

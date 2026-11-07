@@ -589,3 +589,20 @@ test("administrator reviews original pages and confirms ranges before any extrac
     paper_page_ranges: [{ paper_id: "s2023.P1", page_start: 1, page_end: 2 }],
   });
 });
+
+test("a document deep link works when the document is not on the first list page", async ({ page, request }) => {
+  await request.post("/__test/login?account_id=3");
+  await routes(page);
+  await page.route("**/api/v1/extraction/documents?**", (route) =>
+    route.fulfill({
+      json: { items: [{ ...document, id: 99, title: "Newer document" }], page: 1, page_size: 20, total: 30 },
+    }),
+  );
+  await page.route("**/api/v1/extraction/documents/10", (route) => route.fulfill({ json: document }));
+  await page.goto("/curator/extraction?document_id=10");
+  await expect(
+    page.getByText(/Document: Official model fixture · Candidate revision 2 · Current revision\s+1/),
+  ).toBeVisible();
+  await page.getByRole("tab", { name: "Quality checks" }).click();
+  await expect(page.getByRole("button", { name: "Promote candidate revision" })).toBeVisible();
+});

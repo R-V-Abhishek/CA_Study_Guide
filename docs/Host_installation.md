@@ -90,7 +90,11 @@ response exposes only `ready` or a generic 503. Activation records
 
 After successful installation, the owner can install and enable `deploy/caf.service`
 as a system unit. It starts the recorded Compose configuration under `cafdeploy`
-after Docker/network startup. Docker's bounded logs and restart policies remain
+after Docker/network startup. The Compose project name is read from the installation receipt.
+Hosts prepared before 2026-11-06 have a unit that hard-codes `-p caf`; it still works
+for the default project, but `prepare-host.sh` refuses the mismatch until the owner
+replaces `/etc/systemd/system/caf.service` with the new file and runs
+`systemctl daemon-reload`. Docker's bounded logs and restart policies remain
 in effect. Real reboot/Wi-Fi/unlock acceptance still needs testing on the laptop.
 
 ## Failures and recovery
@@ -127,14 +131,16 @@ sh /opt/caf/repo/deploy/caf-host status
 Steps, each recorded in `releases/upgrade-*/upgrade.log`:
 
 1. Verify the bundle, platform and checksums; refuse candidates without
-   `--allow-candidate`, the same or an older version, a changed PostgreSQL image,
+   `--allow-candidate`, the same or an older version (an installed candidate may move to
+   the final build of its version), a changed PostgreSQL image,
    and any live schema the new release's migration chain does not contain.
 2. Render the new Compose file from the private environment file, pin it to the
    loaded image IDs, retain the bundle beside the previous ones.
 3. Stop web and worker (PostgreSQL stays up), capture a **new recovery snapshot**
    with the installed release, and check its files, protected tables, schema and
    that it was taken after services stopped. A stale snapshot is rejected.
-4. Run forward Alembic migrations and grants only if the schema differs.
+4. Run forward Alembic migrations only if the schema differs, then always apply the
+   idempotent role grants (a release may change privileges without a migration).
 5. Atomically switch `current-compose.json`, start web and worker, check
    readiness, the schema, and that the running web image is the verified one.
 6. Merge a receipt that keeps the previous release, its directory and snapshot.
@@ -143,7 +149,8 @@ Failure handling: if nothing in the database changed, the previous release is
 restarted and the pointer restored automatically. After a migration has started,
 services stay **stopped**, nothing is downgraded, and `failure.json` names the
 snapshot to restore into an empty destination. `.upgrade-in-progress` blocks
-another attempt until the failure has been read.
+another upgrade and the nightly backup (whose retention could otherwise prune that
+snapshot) until the failure has been read.
 
 Status of this tooling: the planning, snapshot-gating and receipt logic are
 unit-tested (`deploy/tests/test_host_upgrade.py`), and the shell orchestration has

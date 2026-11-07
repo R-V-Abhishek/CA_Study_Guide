@@ -124,6 +124,13 @@ def documents(
     return page_query(db, query, Document, page, page_size)
 
 
+@router.get("/documents/{document_id}", response_model=ExtractionDocument)
+def document(document_id: int, db: Session = Depends(get_curation_db)):
+    """One document, for deep links to documents beyond the first list page."""
+    row = found(db, Document, document_id)
+    return {c.name: row.__dict__[c.name] for c in Document.__table__.columns}
+
+
 @router.get("/documents/{document_id}/revisions", response_model=PageResult[RevisionSummary])
 def revisions(
     document_id: int,

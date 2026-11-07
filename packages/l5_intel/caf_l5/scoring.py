@@ -788,6 +788,7 @@ def recompute_scores(
             and url.hostname in {"www.icai.org", "icai.org", "resource.cdn.icai.org"}
         ):
             priors[row.node_id] = row
+    leaves_by_id = {node.id: node for node in leaves}
     stats = {
         node.id: {
             "exam": 0.0,
@@ -857,7 +858,7 @@ def recompute_scores(
                 node_id = share["node_id"]
                 if node_id not in stats or share["attributed_marks"] is None:
                     continue
-                node = next(node for node in leaves if node.id == node_id)
+                node = leaves_by_id[node_id]
                 marks, kappa, stale_factor = calculate_attributed_marks(
                     allocation["marks"],
                     share["share"],

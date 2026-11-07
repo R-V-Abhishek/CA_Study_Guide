@@ -11,6 +11,10 @@ from caf_l5.config import ScoringConfig, load_scoring_config
 from caf_l5.context import approved_binding, corpus_generation, snapshot_freshness
 
 
+MAX_FAILED_ATTEMPTS = 3
+RETRY_AFTER = timedelta(minutes=10)
+
+
 def enqueue_recompute(
     session: Session,
     target_attempt_id: str,
@@ -232,15 +236,26 @@ def enqueue_missing_contexts(session: Session) -> int:
             if binding.scoring_config
             else load_scoring_config()
         )
+        same_context = (
+            RecomputeJob.target_attempt_id == binding.target_attempt_id,
+            RecomputeJob.taxonomy_version_id == binding.taxonomy_version_id,
+            RecomputeJob.config_hash == config.config_hash,
+            RecomputeJob.corpus_generation >= generation,
+        )
         latest_job = session.scalar(
             sa.select(RecomputeJob.id)
-            .where(
-                RecomputeJob.target_attempt_id == binding.target_attempt_id,
-                RecomputeJob.taxonomy_version_id == binding.taxonomy_version_id,
-                RecomputeJob.config_hash == config.config_hash,
-                RecomputeJob.corpus_generation >= generation,
-            )
+            .where(*same_context, RecomputeJob.status != "failed")
             .limit(1)
+        )
+        failures, last_failure = session.execute(
+            sa.select(sa.func.count(), sa.func.max(RecomputeJob.created_at)).where(
+                *same_context, RecomputeJob.status == "failed"
+            )
+        ).one()
+        # A failed context is retried a few times, spaced out; after that it stays
+        # visibly failed until the corpus generation or configuration changes.
+        retry_due = failures < MAX_FAILED_ATTEMPTS and (
+            last_failure is None or last_failure <= datetime.now(timezone.utc) - RETRY_AFTER
         )
         latest_run = session.scalar(
             sa.select(ScoreRun.id)
@@ -255,7 +270,7 @@ def enqueue_missing_contexts(session: Session) -> int:
             )
             .limit(1)
         )
-        if latest_job is None and latest_run is None:
+        if latest_job is None and latest_run is None and retry_due:
             enqueue_recompute(
                 session,
                 binding.target_attempt_id,

@@ -117,8 +117,9 @@ def _document_provenance(doc: dict) -> tuple[str, list[str]]:
     return "unresolved provenance", evidence
 
 
-def collect_baseline(engine: Engine, project_root: Path = Path.cwd()) -> dict:
+def collect_baseline(engine: Engine, project_root: Path | None = None) -> dict:
     """Collect all database observations without writable transactions or run logs."""
+    project_root = project_root or Path.cwd()  # resolved per call, not at import
     with engine.connect().execution_options(isolation_level="REPEATABLE READ") as conn:
         with conn.begin():
             conn.execute(text("SET TRANSACTION READ ONLY"))

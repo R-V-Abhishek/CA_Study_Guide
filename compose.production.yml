@@ -90,7 +90,9 @@ services:
       CURATION_DATABASE_URL: postgresql+psycopg://caf_curator:${PG_CURATOR_PASSWORD:?Set the curator role password}@db:5432/caf
       OPERATIONS_DATABASE_URL: postgresql+psycopg://caf_operations:${PG_OPERATIONS_PASSWORD:?Set the operations role password}@db:5432/caf
       BACKUP_DATABASE_URL: postgresql+psycopg://caf_backup:${PG_BACKUP_PASSWORD:?Set the backup role password}@db:5432/caf
-    command: [uvicorn, "caf_api.main:app", --host, "0.0.0.0", --port, "8788", --workers, "1", --no-proxy-headers]
+    # Tailscale Serve -> loopback -> docker-proxy (Docker bridge address): trust only Docker
+    # networks, so the rate limiter keys on the rightmost untrusted X-Forwarded-For (tailnet client).
+    command: [uvicorn, "caf_api.main:app", --host, "0.0.0.0", --port, "8788", --workers, "1", --proxy-headers, --forwarded-allow-ips, "172.16.0.0/12,192.168.0.0/16"]
     ports:
       - "127.0.0.1:8788:8788"
     networks: [backend, egress]

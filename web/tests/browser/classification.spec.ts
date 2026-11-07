@@ -123,6 +123,13 @@ test("review separators support keyboard resizing without publishing", async ({ 
   await page.getByRole("heading", { name: "Review questions", exact: true }).click();
   await page.keyboard.press("Alt+l");
   await expect(page.locator("#review-Labels")).toBeFocused();
+  // macOS Option+Q types "œ"; the shortcut follows the physical key.
+  await page.evaluate(() =>
+    document.activeElement?.dispatchEvent(
+      new KeyboardEvent("keydown", { key: "œ", code: "KeyQ", altKey: true, bubbles: true }),
+    ),
+  );
+  await expect(page.locator("#review-Question")).toBeFocused();
 });
 
 test("source filters use the acquired document type rather than its broad family", async ({ page }) => {
@@ -333,4 +340,56 @@ test("a background refresh clears stale publication confirmation while retaining
   await expect(reason).toHaveValue("This part does not fit the available descriptor after source comparison.");
   await expect(page.getByLabel("Outcome (a)", { exact: true })).toHaveValue("none_fits");
   await expect(page.getByRole("button", { name: "Publish reviewed labels" })).toBeDisabled();
+});
+
+test("extraction correction form resets when returning to a cached question", async ({ page, request }) => {
+  await request.post("/__test/login?account_id=3");
+  const second = {
+    ...item,
+    suggestion_revision_id: 12,
+    question_id: "scope:q2",
+    extraction_revision_id: 3,
+    question: { ...item.question, question_id: "scope:q2", display_label: "Q2" },
+  };
+  await page.route("**/api/v1/curate/classifications?**", (route) => route.fulfill({ json: [item, second] }));
+  const revision = (id: number, questions: unknown[]) => ({
+    id,
+    source_documents: [{ id: 10, sha256: "a".repeat(64), page_count: 2 }],
+    questions,
+    quality: { issues: [] },
+  });
+  await page.route("**/api/v1/extraction/revisions/2", (route) =>
+    route.fulfill({
+      json: revision(2, [
+        {
+          label_path: "1",
+          parts: [
+            { label_path: "1(a)", parts: [] },
+            { label_path: "1(b)", parts: [] },
+          ],
+        },
+      ]),
+    }),
+  );
+  await page.route("**/api/v1/extraction/revisions/3", (route) =>
+    route.fulfill({ json: revision(3, [{ label_path: "2", parts: [] }]) }),
+  );
+  let submitted: Record<string, unknown> | undefined;
+  await page.route("**/api/v1/extraction/revisions/*/corrections", (route) => {
+    submitted = route.request().postDataJSON();
+    return route.fulfill({ json: { id: 99 } });
+  });
+  await page.goto("/curator/classifications");
+  await page.getByRole("button", { name: "Extraction and source evidence" }).click();
+  const scoped = page.getByLabel("Scoped question or part");
+  await expect(scoped).toHaveValue("1");
+  await page.getByRole("button", { name: "Next question", exact: true }).click();
+  await expect(page.getByRole("heading", { name: "Q2", exact: true })).toBeVisible();
+  await expect(scoped).toHaveValue("2");
+  await page.getByRole("button", { name: "Previous question", exact: true }).click();
+  await expect(page.getByRole("heading", { name: "Q1", exact: true })).toBeVisible();
+  await page.getByLabel("Corrected value", { exact: true }).fill("Corrected question text");
+  await page.getByLabel("Correction reason", { exact: true }).fill("Checked against the original page.");
+  await page.getByRole("button", { name: "Create corrected candidate revision" }).click();
+  await expect.poll(() => submitted?.label_path).toBe("1");
 });

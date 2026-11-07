@@ -132,12 +132,14 @@ export function SyllabusTree({
               if (event.key === "ArrowUp") focus(visible[Math.max(index - 1, 0)].node.id);
               if (event.key === "Home") focus(visible[0].node.id);
               if (event.key === "End") focus(visible[visible.length - 1].node.id);
+              // A filter shows every branch open, so the keys follow what is displayed.
+              const open = activeFilter || expanded.includes(node.id);
               if (event.key === "ArrowRight" && node.children.length) {
-                if (!expanded.includes(node.id)) toggle(node.id);
+                if (!open) toggle(node.id);
                 else focus(node.children[0].id);
               }
               if (event.key === "ArrowLeft") {
-                if (expanded.includes(node.id)) toggle(node.id);
+                if (open && !activeFilter) toggle(node.id);
                 else if (parent) focus(parent);
               }
               if (event.key === "Enter" || event.key === " ") {

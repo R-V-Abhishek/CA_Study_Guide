@@ -336,6 +336,13 @@ test("syllabus leaf filters retain ancestors and keyboard navigation operates th
   await expect(page.getByText("No topics match these filters.")).toBeVisible();
   await page.getByLabel("Search syllabus").fill("beta");
   await expect(page.getByRole("treeitem")).toHaveCount(3);
+  // Filtered branches display open, so ArrowRight moves straight to the child and ArrowLeft back.
+  await page.getByRole("button", { name: "Collapse all" }).click();
+  await page.getByRole("treeitem", { name: /Returned chapter/ }).focus();
+  await page.keyboard.press("ArrowRight");
+  await expect(page.getByRole("treeitem", { name: /Returned parent topic/ })).toBeFocused();
+  await page.keyboard.press("ArrowLeft");
+  await expect(page.getByRole("treeitem", { name: /Returned chapter/ })).toBeFocused();
   await page.getByLabel("Search syllabus").fill("");
   await page.getByLabel("Status", { exact: true }).selectOption("all");
   await page.getByRole("button", { name: "Collapse all" }).click();
@@ -620,4 +627,25 @@ test("rapid document navigation cancels pending private queries without runtime 
   await expect(page.getByRole("heading", { level: 1, name: "Syllabus", exact: true })).toBeVisible();
   await page.waitForTimeout(350);
   expect(errors).toEqual([]);
+});
+
+test.describe("in India shortly after midnight", () => {
+  test.use({ timezoneId: "Asia/Kolkata" });
+  test("the mock result date defaults to the local date", async ({ page, request }) => {
+    await fixture(request);
+    await page.clock.setFixedTime(new Date("2026-11-05T20:00:00Z")); // 01:30 IST on 6 November
+    await page.goto("/mock");
+    await page.getByRole("button", { name: "Add result" }).click();
+    await expect(page.getByLabel("Date", { exact: true })).toHaveValue("2026-11-06");
+  });
+});
+
+test("profile export downloads the private JSON file", async ({ page, request }) => {
+  await fixture(request);
+  await page.goto("/progress");
+  const download = page.waitForEvent("download");
+  await page.getByRole("button", { name: "Export my study records", exact: true }).click();
+  const file = await download;
+  expect(file.suggestedFilename()).toMatch(/^study-profile-\d+\.json$/);
+  expect(await file.failure()).toBeNull();
 });

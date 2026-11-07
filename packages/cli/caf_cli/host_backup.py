@@ -60,12 +60,19 @@ def run_backup(
         "encryption": previous.get("encryption", "not_configured"),
         "error": None,
     }
+    snapshot = None
     try:
         manifest = create_backup(session=session, backup_dir=base)
         snapshot = manifest.backup_dir
-        recovery = inspect_recovery_files(snapshot)
-        if critical_tables(recovery.database_revision) - recovery.tables.keys():
-            raise ValueError("Snapshot is missing protected tables")
+        try:
+            recovery = inspect_recovery_files(snapshot)
+            if critical_tables(recovery.database_revision) - recovery.tables.keys():
+                raise ValueError("Snapshot is missing protected tables")
+        except Exception:
+            # Keep the evidence, but under a name retention and backup listings never match,
+            # so a rejected snapshot cannot displace a verified one.
+            snapshot = snapshot.rename(base / f"rejected-{snapshot.name}")
+            raise
         keep, deleted = apply_retention(
             base, daily=daily, weekly=weekly, monthly=monthly, protected=protected
         )
@@ -90,6 +97,8 @@ def run_backup(
     except Exception as error:
         # Operators see the class and message in the private status file; nothing is swallowed.
         status["error"] = f"{type(error).__name__}: {error}"
+        if snapshot is not None and snapshot.name.startswith("rejected-"):
+            status["rejected_snapshot"] = snapshot.name
         write_status(base, status)
         raise
     write_status(base, status)

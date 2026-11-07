@@ -241,7 +241,8 @@ class GeminiClassifier:
                     cost_usd = self._compute_cost(model_name, input_tokens, output_tokens)
                     self.total_cost_usd += cost_usd
 
-                    # Log to ops.llm_call
+                    # Log to ops.llm_call; the cost counts even if the output is rejected.
+                    call_log = None
                     if run_id:
                         call_log = LLMCall(
                             run_id=run_id,
@@ -252,7 +253,7 @@ class GeminiClassifier:
                             output_tokens=output_tokens,
                             cost_usd=cost_usd,
                             latency_ms=latency_ms,
-                            status="ok",
+                            status="schema_error",  # becomes "ok" once the output validates
                         )
                         self.session.add(call_log)
 
@@ -293,6 +294,8 @@ class GeminiClassifier:
                     ):
                         raise NeedsTaxonomyReview("Each model label requires supporting evidence")
 
+                    if call_log is not None:
+                        call_log.status = "ok"
                     return result
 
                 except APIError as api_err:

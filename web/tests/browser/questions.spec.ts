@@ -76,6 +76,34 @@ test("part highlight retains sibling parts and rejects external return URLs", as
   expect(before.status).toBe("not_started");
 });
 
+test("part links open the extracted text at that part", async ({ page, request }) => {
+  const data = await fixture(request);
+  await page.goto(`/questions/${data.question_id}?part=${data.reader_part_id}`);
+  await expect(page.getByRole("tab", { name: "Extracted text", exact: true })).toHaveAttribute("aria-selected", "true");
+  await expect(page.locator("[data-selected=true]")).toContainText("Synthetic first requirement.");
+  await page.goto(`/questions/${data.question_id}`);
+  await expect(page.getByRole("tab", { name: "Original pages", exact: true })).toHaveAttribute("aria-selected", "true");
+  await page.getByRole("button", { name: "Topics and outline", exact: true }).click();
+  await page.getByRole("dialog").getByRole("navigation", { name: "Question parts" }).getByRole("link").last().click();
+  await expect(page.getByRole("tab", { name: "Extracted text", exact: true })).toHaveAttribute("aria-selected", "true");
+  await expect(page.locator("[data-selected=true]")).toContainText("Synthetic second requirement.");
+  await expect(page).toHaveURL(/[?&]part=/);
+});
+
+test("typing a search does not add a history entry per keystroke", async ({ page, request }) => {
+  await fixture(request);
+  await page.goto("/papers");
+  await page.goto("/questions?paper_id=s2023.P1");
+  await page.getByLabel("Search questions", { exact: true }).pressSequentially("Synth");
+  await expect(page).toHaveURL(/q=Synth/);
+  await page.getByLabel("Paper", { exact: true }).selectOption("all");
+  await expect(page).not.toHaveURL(/paper_id=/);
+  await page.goBack();
+  await expect(page).toHaveURL(/paper_id=s2023\.P1&q=Synth|q=Synth&paper_id=s2023\.P1/);
+  await page.goBack();
+  await expect(page).toHaveURL(/\/papers$/);
+});
+
 test("question search filters and private notes enforce account scope", async ({ page, request }) => {
   const data = await fixture(request);
   const me = await (await request.get("/api/v1/me")).json();

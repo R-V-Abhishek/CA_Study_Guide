@@ -228,7 +228,8 @@ export function ClassificationQueue() {
     const shortcut = (event: KeyboardEvent) => {
       if (!event.altKey || (event.target as HTMLElement).closest("input, textarea, select, [contenteditable=true]"))
         return;
-      const key = event.key.toLowerCase();
+      // macOS Option changes event.key (Option+J is ∆), so use the physical key.
+      const key = event.code.startsWith("Key") ? event.code.slice(3).toLowerCase() : "";
       if (key === "j" && index < items.length - 1 && !mutation.isPending)
         setSelected(items[index + 1].suggestion_revision_id);
       else if (key === "k" && index > 0 && !mutation.isPending) setSelected(items[index - 1].suggestion_revision_id);
@@ -780,6 +781,7 @@ export function ClassificationQueue() {
                     <RequestError error={extraction.error} retry={() => void extraction.refetch()} />
                     {extraction.data && (
                       <ExtractionEvidence
+                        key={`${item.question_id}:${item.extraction_revision_id}`}
                         revision={extraction.data}
                         admin={admin}
                         onCorrected={() => {

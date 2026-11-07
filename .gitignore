@@ -53,3 +53,6 @@ stitch_ca_study_companion.zip
 .idea/
 .vscode/
 *.swp
+
+# graphify knowledge graph (local, rebuilt by hooks)
+graphify-out/

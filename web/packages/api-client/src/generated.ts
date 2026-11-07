@@ -1066,6 +1066,26 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/taxonomy/reviews/pending": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Pending Reviews
+         * @description Latest person-written descriptor revisions awaiting approval by someone other than their author.
+         */
+        get: operations["pending_reviews_api_v1_taxonomy_reviews_pending_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/taxonomy/nodes/{node_id}/descriptor/approve": {
         parameters: {
             query?: never;
@@ -1126,6 +1146,26 @@ export interface paths {
         };
         /** Documents */
         get: operations["documents_api_v1_extraction_documents_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/extraction/documents/{document_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Document
+         * @description One document, for deep links to documents beyond the first list page.
+         */
+        get: operations["document_api_v1_extraction_documents__document_id__get"];
         put?: never;
         post?: never;
         delete?: never;
@@ -3508,6 +3548,33 @@ export interface components {
             status: "matched" | "missing" | "partial" | "ambiguous";
             /** Candidates */
             candidates: components["schemas"]["AnswerPairingCandidate"][];
+        };
+        /** PendingDescriptorReview */
+        PendingDescriptorReview: {
+            /** Version Id */
+            version_id: string;
+            /** Node Id */
+            node_id: string;
+            /** Paper Id */
+            paper_id: string;
+            /** Paper Code */
+            paper_code: string;
+            /** Name */
+            name: string;
+            /** Revision */
+            revision: number;
+            /** Changed At */
+            changed_at: string;
+        };
+        /**
+         * PendingReviews
+         * @description Descriptor changes written by someone else that still need a second reviewer.
+         */
+        PendingReviews: {
+            /** Count */
+            count: number;
+            /** Items */
+            items: components["schemas"]["PendingDescriptorReview"][];
         };
         /** PlanItem */
         PlanItem: {
@@ -6667,6 +6734,26 @@ export interface operations {
             };
         };
     };
+    pending_reviews_api_v1_taxonomy_reviews_pending_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PendingReviews"];
+                };
+            };
+        };
+    };
     review_descriptor_api_v1_taxonomy_nodes__node_id__descriptor_approve_post: {
         parameters: {
             query?: never;
@@ -6797,6 +6884,37 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["PageResult_ExtractionDocument_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    document_api_v1_extraction_documents__document_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                document_id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ExtractionDocument"];
                 };
             };
             /** @description Validation Error */

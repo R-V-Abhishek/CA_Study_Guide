@@ -12,7 +12,7 @@ import typer
 
 from caf_common.logging import setup_logging
 from caf_common.settings import get_settings
-from caf_db.engine import get_engine, get_session_factory
+from caf_db.engine import database_url, get_engine, get_session_factory
 from caf_db.grants import apply_grants
 
 app = typer.Typer(
@@ -67,9 +67,9 @@ def _get_alembic_config() -> Config:
     if not ini_path.exists():
         ini_path = Path("packages/db/alembic.ini")
     cfg = Config(str(ini_path))
-    settings = get_settings()
-    url = settings.DATABASE_URL or settings.database.url
-    cfg.set_main_option("sqlalchemy.url", url)
+    # "%" is escaped because Alembic config values use ConfigParser interpolation.
+    url = database_url("migration").render_as_string(hide_password=False)
+    cfg.set_main_option("sqlalchemy.url", url.replace("%", "%%"))
     return cfg
 
 

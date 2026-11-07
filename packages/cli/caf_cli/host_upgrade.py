@@ -53,7 +53,11 @@ def plan_upgrade(
         raise ValueError("Upgrade bundle architecture differs from the installed release")
     if manifest.postgres.image_id != current["postgres"]["image_id"]:
         raise ValueError("PostgreSQL image changes are not part of an application upgrade")
-    if version_key(manifest.version) <= version_key(current["version"]):
+    # A candidate may be replaced by the final build of the same version, never the reverse.
+    finalizes_candidate = current["candidate"] and not manifest.candidate
+    if version_key(manifest.version) < version_key(current["version"]) or (
+        version_key(manifest.version) == version_key(current["version"]) and not finalizes_candidate
+    ):
         raise ValueError(
             f"Installed {current['version']} is not older than {manifest.version}; "
             "downgrades and reinstallations are not performed by upgrade"

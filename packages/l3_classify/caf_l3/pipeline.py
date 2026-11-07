@@ -10,7 +10,7 @@ from caf_db.models.ingest import Document, TagSuggestion, TaxonomyGap, Unit, Uni
 from caf_db.models.ops import Run
 from caf_db.models.ref import DocType, Paper
 from caf_l3.cascade import ClassificationResult
-from caf_l3.llm import GeminiClassifier, QuotaExhaustedError
+from caf_l3.llm import BudgetExhaustedError, GeminiClassifier, QuotaExhaustedError
 from caf_l3.textbook import NeedsTaxonomyReview, TextbookClassifier
 
 logger = logging.getLogger(__name__)
@@ -24,6 +24,7 @@ class ClassificationSummary:
     secondary_suggestions: int
     is_partial: bool = False
     quota_exhausted: bool = False
+    budget_exhausted: bool = False
     failed_units: int = 0
     status_message: str = "Completed successfully."
 
@@ -88,10 +89,7 @@ class ClassificationPipeline:
             )
         )
 
-        if resume:
-            query = query.where(Unit.classify_status.not_in(["skipped", "excluded"]))
-        else:
-            query = query.where(Unit.classify_status.not_in(["skipped", "excluded"]))
+        query = query.where(Unit.classify_status.not_in(["skipped", "excluded"]))
 
         if doc_id is not None:
             query = query.where(Document.id == doc_id)
@@ -133,6 +131,7 @@ class ClassificationPipeline:
         total_secondary = 0
         processed_count = 0
         quota_hit = False
+        budget_hit = False
         failed_count = 0
 
         for unit, doc, answer_text in results:
@@ -290,6 +289,13 @@ class ClassificationPipeline:
                 self.session.rollback()
                 break
 
+            except BudgetExhaustedError as b_err:
+                # Remaining units stay pending; marking them failed would hide valid work.
+                logger.warning("Budget cap reached before unit ID %s: %s", unit.id, b_err)
+                budget_hit = True
+                self.session.rollback()
+                break
+
             except Exception as e:
                 logger.error("Error classifying unit ID %s: %s", unit.id, e)
                 self.session.rollback()
@@ -306,6 +312,11 @@ class ClassificationPipeline:
                 f"Successfully saved {processed_count} units before stopping. "
                 f"Re-run with '--resume' once your quota resets to continue seamlessly."
             )
+        elif budget_hit:
+            status_msg = (
+                f"Configured budget cap (max_usd_per_run) reached. Saved {processed_count} units; "
+                "the remaining units stay pending for a later run."
+            )
         elif failed_count:
             status_msg = f"Saved {processed_count} units; {failed_count} units failed and need retry. Inspect classification errors before resuming."
 
@@ -314,8 +325,9 @@ class ClassificationPipeline:
             buckets=bucket_counts,
             primary_suggestions=total_primary,
             secondary_suggestions=total_secondary,
-            is_partial=quota_hit or failed_count > 0,
+            is_partial=quota_hit or budget_hit or failed_count > 0,
             quota_exhausted=quota_hit,
+            budget_exhausted=budget_hit,
             failed_units=failed_count,
             status_message=status_msg,
         )
