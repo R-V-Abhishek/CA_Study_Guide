@@ -4,7 +4,10 @@
 .controls button:not(.action):not(.destructive-action),.study-tabs button{background:var(--surface);color:var(--text);border:1px solid var(--border);border-radius:8px;padding:8px 12px;font-size:14px;line-height:20px}.study-tabs [aria-selected=true]{background:var(--accent-surface);color:var(--accent)}
 .controls>label{min-width:0;max-width:100%;grid-template-columns:minmax(0,1fr)}.controls select{min-width:0;width:100%}
 
-.reader-columns { grid-template-columns: minmax(0, 800px) 240px; margin-inline: auto; }
+/* The outline wraps below the text when the canvas is narrow, instead of squeezing the question into a sliver. */
+.reader-columns { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 32px; margin-inline: 0; }
+.reader-columns > .reader-body { flex: 1 1 420px; }
+.reader-columns > .reader-aside { flex: 0 0 240px; }
 .reader-body h2, .reader-body h3 { font-family: inherit; letter-spacing: normal; }
 .reader-toolbar { border-radius: 8px; }
 .syllabus-tree [role=treeitem] { white-space: normal; overflow-wrap: anywhere; }
@@ -17,7 +20,7 @@
 .question-filters > summary { min-height: 40px; }
 .question-filters[open] > summary { margin-bottom: 12px; }
 @media(max-width:1279px) {
-  .reader-columns { grid-template-columns: minmax(0, 800px); justify-content: center; }
+  .reader-columns { grid-template-columns: minmax(0, 800px); justify-content: start; }
   .reader-aside { display: none !important; }
 }
 @media(max-width:767px) { .question-results { padding: 0 16px; } }
@@ -29,3 +32,33 @@
 .image-enlargement { width: min(1400px, calc(100vw - 32px)); }
 .image-enlargement-canvas { overflow: auto; max-height: calc(100dvh - 160px); }
 .image-enlargement-canvas img { display: block; width: auto; max-width: none; }
+
+/* Question reader: an exam paper with a ruled header, a reading measure and a marked answer. */
+.question-header { display: grid; gap: 8px; max-width: 1120px; margin: 8px 0 32px; padding-bottom: 20px; border-bottom: 3px double var(--border); }
+.question-header h1 { font-size: 40px; line-height: 46px; margin: 0; }
+.question-facts { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; }
+.reader-body { max-width: 720px; }
+.reader-body h2, .reader-body h3 { padding: 0; border: 0; }
+.reader-part { border-top: 3px double var(--border); }
+.answer-sheet { margin-top: 24px; padding-left: 20px; border-left: 3px solid var(--margin); }
+.study-tabs { gap: 0; padding: 0; border-bottom: 1px solid var(--border); }
+.study-tabs button[role=tab] { background: transparent; border: 0; border-bottom: 3px solid transparent; border-radius: 0; padding: 8px 16px; color: var(--secondary); margin-bottom: -1px; }
+.study-tabs button[role=tab][aria-selected=true] { background: transparent; color: var(--text); font-weight: 600; border-bottom-color: var(--accent); }
+.reader-toolbar { background: var(--rail); color: var(--rail-text); border: 0; border-radius: var(--radius); align-items: center; }
+.reader-toolbar button { background: transparent; color: #fff; border: 1px solid var(--rail-active); border-radius: var(--radius); }
+.reader-toolbar button:hover { background: var(--rail-active); }
+.reader-toolbar a.topic-link { color: #fff; }
+.reader-aside { padding-left: 16px; border-left: 1px solid var(--rule); }
+.reader-aside summary { font-weight: 600; }
+.dark .workspace-sidebar, .dark .curator-sidebar { border-right: 1px solid var(--rail-active); }
+
+/* Today: a day book. Sections are ruled, not boxed; figures sit in their own column. */
+.continue-band { display: grid; gap: 12px; justify-items: start; padding: 4px 0 28px; border-bottom: 3px double var(--border); }
+.continue-band h2 { border: 0; padding: 0; font-size: 15px; line-height: 22px; font-weight: 600; letter-spacing: 0; color: var(--secondary); font-family: inherit; }
+.continue-title { margin: 0; font-family: var(--font-display); font-size: 30px; line-height: 36px; font-weight: 650; letter-spacing: -.02em; }
+.ledger-section { min-width: 0; }
+.ledger-section > .study-row:first-of-type { padding-top: 12px; }
+.ledger-section .study-row { border-bottom: 1px solid var(--rule); }
+.ledger-figure { margin: 8px 0; color: var(--secondary); }
+.ledger-figure strong { font-family: var(--font-display); font-size: 56px; line-height: 1; font-weight: 650; letter-spacing: -.03em; color: var(--text); font-variant-numeric: tabular-nums; }
+.attention { border-top-color: var(--margin); border-top-width: 3px; }

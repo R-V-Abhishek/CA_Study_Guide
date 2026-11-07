@@ -222,7 +222,7 @@ export function QuestionReader() {
       />
       {data && (
         <>
-          <header className="space-y-2">
+          <header className="question-header">
             <p className="study-meta">
               {papers.data?.find((item) => item.id === data.content.paper_id)?.name ??
                 settings.data?.available_papers.find((item) => item.id === data.content.paper_id)?.name ??
@@ -233,7 +233,7 @@ export function QuestionReader() {
                 "Undated collection"}
             </p>
             <h1 className="page-title">{data.content.display_label}</h1>
-            <p>
+            <p className="question-facts">
               {data.content.source_family.replace(/_/g, " ")} · {marksText(data.marks.whole_question_marks)} ·{" "}
               {data.content.answer_status === "complete"
                 ? "Complete answer"
@@ -290,7 +290,7 @@ export function QuestionReader() {
                       {reveal ? "Hide answer" : "Reveal answer"}
                     </button>
                     {reveal && (
-                      <div className="mt-6">
+                      <div className="answer-sheet">
                         {data.content.answer_status === "partial" && (
                           <p role="status">This answer is partial. Some parts have no reviewed answer.</p>
                         )}

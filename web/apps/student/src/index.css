@@ -3,49 +3,58 @@
 @tailwind utilities;
 
 .student-workspace { min-height: 100dvh; }
-.workspace-sidebar { width: 224px; position: fixed; inset: 0 auto 0 0; border-right: 1px solid var(--border); background: var(--surface); display: flex; flex-direction: column; padding: 24px 16px; overflow-y: auto; z-index: 30; }
-.workspace-brand { display: flex; gap: 8px; align-items: center; font-weight: 650; color: var(--text); margin: 0 0 32px; }
+.workspace-sidebar { width: 232px; position: fixed; inset: 0 auto 0 0; background: var(--rail); color: var(--rail-text); display: flex; flex-direction: column; padding: 24px 16px; overflow-y: auto; z-index: 30; }
+.workspace-brand { display: flex; gap: 12px; align-items: center; font-family: var(--font-display); font-weight: 650; font-size: 18px; letter-spacing: -.01em; color: #fff; margin: 0 0 32px; text-decoration: none; }
+.brand-mark { flex-shrink: 0; width: 20px; height: 24px; border-left: 1px solid var(--margin); border-right: 1px solid var(--margin); position: relative; }
+.brand-mark::after { content: ""; position: absolute; left: 3px; right: 3px; top: 7px; bottom: 7px; border-top: 1px solid var(--rail-text); border-bottom: 3px double var(--rail-text); }
 .workspace-navigation { display: grid; gap: 4px; }
-.workspace-navigation a { display: flex; gap: 12px; align-items: center; padding: 8px 12px; min-height: 40px; border-radius: 8px; color: var(--secondary); font-size: 14px; line-height: 20px; }
-.workspace-navigation a:hover { background: var(--subtle); }
-.workspace-navigation a.active { color: var(--accent); background: var(--accent-surface); font-weight: 600; }
-.secondary-navigation { padding-top: 24px; margin-top: 24px; border-top: 1px solid var(--border); }
-.nav-count { margin-left: auto; min-width: 22px; padding: 0 6px; border-radius: 11px; background: var(--accent); color: var(--accent-ink); font-size: 12px; line-height: 20px; font-weight: 650; text-align: center; font-variant-numeric: tabular-nums; }
+.workspace-navigation a { display: flex; gap: 12px; align-items: center; padding: 8px 12px; min-height: 40px; border-radius: var(--radius); border-left: 3px solid transparent; color: var(--rail-text); font-size: 14px; line-height: 20px; text-decoration: none; }
+.workspace-navigation a:hover { background: var(--rail-active); color: #fff; }
+.workspace-navigation a.active { color: #fff; background: var(--rail-active); border-left-color: var(--margin); font-weight: 600; }
+.secondary-navigation { padding-top: 24px; margin-top: 24px; border-top: 3px double var(--rail-active); }
+.nav-count { margin-left: auto; min-width: 22px; padding: 0 6px; border-radius: 11px; background: var(--margin); color: #fff; font-size: 12px; line-height: 20px; font-weight: 650; text-align: center; font-variant-numeric: tabular-nums; }
 .workspace-account { margin-top: auto; padding-top: 24px; display: grid; gap: 12px; font-size: 14px; line-height: 20px; }
-.workspace-account a { color: var(--accent); }
-.workspace-account details { color: var(--secondary); }
+.workspace-account a { color: #fff; }
+.workspace-account details { color: var(--rail-text); }
 .workspace-account summary { cursor: pointer; min-height: 40px; padding-top: 8px; }
 .session-controls { display: grid; gap: 8px; }
 .session-controls button { text-align: left; }
-.workspace-body { margin-left: 224px; min-width: 0; }
-.workspace-header { position: sticky; top: 0; height: 64px; display: flex; align-items: center; gap: 16px; padding: 0 32px; background: var(--surface); border-bottom: 1px solid var(--border); z-index: 20; }
-.shell-page-name { font-weight: 600; }
+.workspace-body { margin-left: 232px; min-width: 0; }
+.workspace-header { position: sticky; top: 0; height: 56px; display: flex; align-items: center; gap: 16px; padding: 0 32px; background: var(--canvas); border-bottom: 1px solid var(--border); z-index: 20; }
+.shell-page-name { font-family: var(--font-display); font-weight: 650; font-size: 17px; }
 .shell-context { display: flex; gap: 12px; min-width: 0; }
 .shell-search { margin-left: auto; gap: 8px; flex-shrink: 0; }
-.workspace-content { width: 100%; max-width: 1264px; margin: 0 auto; padding: 32px; min-width: 0; }
+.workspace-content { width: 100%; max-width: 1264px; margin: 0 auto; padding: 32px 32px 32px 40px; min-width: 0; position: relative; }
+/* The margin rule of a ledger page: a double red line down the left of every screen. */
+.workspace-content::before { content: ""; position: absolute; left: 24px; top: 0; bottom: 0; width: 5px; border-left: 1px solid var(--margin); border-right: 1px solid var(--margin); opacity: .5; pointer-events: none; }
 /* Keep controls clear of the sticky header and wrapped reader toolbar at zoom. */
-.reader-body button { scroll-margin-block: 80px 180px; }
+.reader-body button { scroll-margin-block: 80px 260px; }
 .workspace-header .tablet-menu, .mobile-navigation { display: none; }
 .navigation-dialog { margin-left: 16px; width: min(360px, calc(100vw - 32px)); }
 @media (min-width: 768px) and (max-width: 1023px) {
   .workspace-sidebar { display: none; } .workspace-body { margin-left: 0; }
   .workspace-header .tablet-menu { display: inline-flex; align-items: center; gap: 8px; }
-  .workspace-content { padding: 24px; } .workspace-header { padding: 0 24px; }
+  .workspace-content { padding: 24px 24px 24px 32px; } .workspace-content::before { left: 16px; } .workspace-header { padding: 0 24px; }
 }
 @media (max-width: 767px) {
   .workspace-sidebar { display: none; } .workspace-body { margin-left: 0; }
   .workspace-header { height: 56px; padding: 0 16px; gap: 8px; }
-  .workspace-content { padding: 16px 16px calc(88px + env(safe-area-inset-bottom)); }
+  .workspace-content { padding: 16px 16px calc(88px + env(safe-area-inset-bottom)) 24px; } .workspace-content::before { left: 8px; }
   .shell-context { font-size: 14px; display: block; line-height: 20px; }
   .shell-context span { display: none; }
   .shell-search { font-size: 14px; padding: 8px; gap: 4px; }
   .shell-search svg { display: none; } .shell-page-name { display: none; }
-  .mobile-navigation { position: fixed; bottom: 0; left: 0; right: 0; z-index: 30; background: var(--surface); border-top: 1px solid var(--border); display: flex; justify-content: space-around; padding: 8px 4px calc(8px + env(safe-area-inset-bottom)); }
-  .mobile-navigation a, .mobile-navigation button { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; min-height: 44px; min-width: 52px; font-size: 14px; color: var(--secondary); border-radius: 8px; }
-  .mobile-navigation a.active { color: var(--accent); background: var(--accent-surface); }
+  .mobile-navigation { position: fixed; bottom: 0; left: 0; right: 0; z-index: 30; background: var(--rail); border-top: 1px solid var(--rail-active); display: flex; justify-content: space-around; padding: 8px 4px calc(8px + env(safe-area-inset-bottom)); }
+  .mobile-navigation a, .mobile-navigation button { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; min-height: 44px; min-width: 52px; font-size: 14px; color: var(--rail-text); border-radius: var(--radius); text-decoration: none; }
+  .mobile-navigation a.active { color: #fff; background: var(--rail-active); box-shadow: inset 0 -3px 0 var(--margin); }
   .reader-toolbar { bottom: calc(68px + env(safe-area-inset-bottom)); }
   .navigation-dialog { margin: auto 0 0; width: 100%; max-width: 100%; border-radius: 12px 12px 0 0; padding-bottom: calc(24px + env(safe-area-inset-bottom)); }
 }
 
-.workspace-brand { font-size: 16px; line-height: 22px; align-items: flex-start; }
-.workspace-brand svg { flex-shrink: 0; }
+.workspace-brand { line-height: 22px; }
+
+/* Menus opened from the header or tab bar keep the dark rail so links stay legible. */
+.navigation-dialog { background: var(--rail); color: var(--rail-text); border-color: var(--rail-active); }
+.navigation-dialog .dialog-header h2 { color: #fff; border-bottom-color: var(--rail-active); }
+.navigation-dialog .dialog-header button, .navigation-dialog button:not([class]) { background: var(--rail-active); color: #fff; border-color: var(--rail-active); }
+.navigation-dialog select, .navigation-dialog input { background: var(--rail-active); color: #fff; border-color: var(--rail-active); }

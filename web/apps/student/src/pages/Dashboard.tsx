@@ -42,10 +42,8 @@ export function Dashboard() {
         </p>
       )}
       {reviews && reviews.count > 0 && (
-        <section className="card space-y-3" aria-labelledby="pending-reviews-heading">
-          <h2 id="pending-reviews-heading" className="text-xl font-semibold">
-            Waiting for your review
-          </h2>
+        <section className="card attention space-y-3" aria-labelledby="pending-reviews-heading">
+          <h2 id="pending-reviews-heading">Waiting for your review</h2>
           <p>
             {reviews.count === 1
               ? "Another student changed a syllabus descriptor."
@@ -73,11 +71,11 @@ export function Dashboard() {
       {data && (
         <>
           <div className="study-stack">
-            <section className="card continue-study space-y-3">
-              <h2 className="text-xl font-semibold">Continue studying</h2>
+            <section className="continue-band">
+              <h2>Continue studying</h2>
               {resume ? (
                 <>
-                  <h3 className="font-semibold">{resume.title}</h3>
+                  <h3 className="continue-title">{resume.title}</h3>
                   <p className="study-meta">
                     {resume.paper} · {resume.breadcrumb}
                   </p>
@@ -98,8 +96,8 @@ export function Dashboard() {
               )}
             </section>
             <div className="study-columns">
-              <section className="card">
-                <h2 className="text-xl font-semibold">Next in your plan</h2>
+              <section className="ledger-section">
+                <h2>Next in your plan</h2>
                 <PageState loading={plan.isPending} error={plan.error} retry={() => plan.refetch()} />
                 {plan.data && (
                   <>
@@ -135,8 +133,8 @@ export function Dashboard() {
                 )}
               </section>
               <aside className="study-stack">
-                <section className="card">
-                  <h2 className="text-xl font-semibold">Revision due</h2>
+                <section className="ledger-section">
+                  <h2>Revision due</h2>
                   <PageState loading={revision.isPending} error={revision.error} retry={() => revision.refetch()} />
                   {revision.data && (
                     <>
@@ -159,14 +157,14 @@ export function Dashboard() {
                     </>
                   )}
                 </section>
-                <section className="card space-y-3">
-                  <h2 className="font-semibold">Personal progress</h2>
+                <section className="ledger-section">
+                  <h2>Personal progress</h2>
                   {awaiting ? (
                     <p>Not available until this attempt’s syllabus is reviewed.</p>
                   ) : (
                     <>
-                      <p>
-                        {data.done_subtopics} / {data.total_subtopics} topics completed
+                      <p className="ledger-figure">
+                        <strong>{data.done_subtopics}</strong> / {data.total_subtopics} topics completed
                       </p>
                       <progress
                         className="study-bar"
@@ -182,8 +180,8 @@ export function Dashboard() {
                 </section>
               </aside>
             </div>
-            <section className="card">
-              <h2 className="font-semibold">Recent activity</h2>
+            <section className="ledger-section">
+              <h2>Recent activity</h2>
               {data.recent_activity.length ? (
                 data.recent_activity.slice(0, 5).map((item, index) => (
                   <p className="study-row study-meta" key={`${item.node_id}-${index}`}>

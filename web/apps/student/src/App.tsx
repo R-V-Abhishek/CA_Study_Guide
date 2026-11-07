@@ -160,7 +160,7 @@ function Layout({ children }: { children: ReactNode }) {
       </a>
       <aside className="workspace-sidebar">
         <Link to={demoLink("/")} className="workspace-brand">
-          <BookOpen size={22} aria-hidden="true" />
+          <span className="brand-mark" aria-hidden="true" />
           CA Study Companion
         </Link>
         <Navigation />
