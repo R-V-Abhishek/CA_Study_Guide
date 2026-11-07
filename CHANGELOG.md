@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.1](https://github.com/R-V-Abhishek/CA_Study_Guide/compare/v0.3.0...v0.3.1) (2026-11-07)
+
+
+### Bug Fixes
+
+* **release:** carry the installed PostgreSQL image in release bundles ([#31](https://github.com/R-V-Abhishek/CA_Study_Guide/issues/31)) ([e5a40a1](https://github.com/R-V-Abhishek/CA_Study_Guide/commit/e5a40a19b42d8b7b44ec14347197c8c99cf45a91))
+
 ## [0.3.0](https://github.com/R-V-Abhishek/CA_Study_Guide/compare/v0.2.4...v0.3.0) (2026-11-07)
 
 
