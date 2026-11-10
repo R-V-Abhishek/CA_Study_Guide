@@ -117,13 +117,13 @@ Do not start, resize, reset, or prune Colima without first checking its state an
 - Inspect current host/container/configuration state before remote changes. Do not
   infer production status solely from an old runbook or deployment receipt.
 
-## Deployment handoff: last observed checkpoint, 2026-11-01
+## Deployment handoff: last observed checkpoint, 2026-11-10
 
 This is historical context, not a claim about the machine's current state. Read it
 before working on deployment, then inspect live state when the user authorizes it.
 
-- Release `v0.2.1` (commit `8855f58a7e7945b27d87074e94ab8417d6b4849d`)
-  is active on Ubuntu `caf-home`. Read
+- Release `v0.2.1` (commit `8855f58a7e7945b27d87074e94ab8417d6b4849d`) was the first
+  release activated on Ubuntu `caf-home` (2026-11-01). Read
   `docs/Deployment_verification_2026_11_01.md` for release/content/recovery identities,
   evidence, and limitations before touching the deployment.
 - The image now maps `/app/data -> /srv/caf/data`. All 94 actual published PDFs
@@ -146,9 +146,16 @@ before working on deployment, then inspect live state when the user authorizes i
   `/opt/caf/repo` runs the upgrade and timer scripts, so it must move to each release tag.
   Retention now keeps the rollback snapshots named in the receipt (verified).
   Nightly backups are now age-encrypted to the Mac recovery recipient; Mac decryption was verified.
-- First-install tooling exists, but a safe existing-installation `caf-host deploy`
-  upgrade workflow is not implemented. This repair used a recorded one-time,
-  same-schema activation. Do not rerun it blindly or erase storage to reuse install.
+- 2026-11-07: `caf-host upgrade` installed v0.3.1 (commit `90bc5be…`), same schema
+  `0010_bounds_and_indexes`, with the v0.2.4 rollback snapshot kept in the receipt.
+  v0.3.0 was never installed. Status, readiness and the nightly backup were checked
+  read-only on 2026-11-10; a signed-in browser pass on v0.3.1 is not recorded.
+- Existing installations upgrade only through `caf-host upgrade`. The first v0.2.1
+  repair used a recorded one-time, same-schema activation; never rerun first-install
+  against existing production storage.
+- New source PDFs have no production path yet. The content-snapshot workflow in
+  `docs/Content_and_classification_plan.md` (P1) is the planned route; do not copy a
+  developer database or blob store into production.
 - Encrypted recovery copies were verified on the Mac. Daily encrypted server backups
   with retention run from `caf-backup.timer`. The external backup drive and an automatic
   off-host copy remain pending.

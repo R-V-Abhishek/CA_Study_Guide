@@ -1,5 +1,10 @@
 # Implementation plan — review fixes (Part A) and agent-ready question association (Part B)
 
+> **Status (2026-11-10): Part A is done** (PR #10, #30; only L-06 in `docs/Code_review_2026_11_06.md` is deferred).
+> **Part B is superseded** by [docs/Content_and_classification_plan.md](docs/Content_and_classification_plan.md),
+> which puts a production content path first and keeps only the engine interface and offline evaluation from Part B.
+> The rest of this file is kept as the historical plan.
+
 ## Context
 
 `REVIEW.md` (2026-11-01) found a well-secured, data-careful app with gaps in operations (no upgrade path, unscheduled backups), CI enforcement (no Playwright, ruff or mypy), input bounds, query efficiency, code readability and docs. The owner also wants question-to-syllabus association to become an **async, batch API behind a swappable engine interface**, so a future agentic classifier can replace today's logic without changing the contract, and can be measured against it.

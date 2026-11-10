@@ -2,19 +2,17 @@
 
 ## Current checkpoint
 
-Ubuntu `caf-home` now runs the verified `v0.2.1` release with web, worker and
-PostgreSQL. Private HTTPS readiness and frontend access pass; all 94 published
-PDFs passed hash/path checks and a real page rendered. The database image, schema,
-baseline, taxonomy and personal records were preserved. Real study-account Auth0
-sign-in, the study workspace, question catalog, extracted text, answer reveal and
-PDF source page reading also passed browser acceptance.
+Ubuntu `caf-home` runs release `v0.3.1` (installed with `caf-host upgrade` on
+2026-11-07, schema `0010_bounds_and_indexes`), with web, worker and PostgreSQL.
+A read-only check on 2026-11-10 found readiness passing, the `caf-backup` and
+`caf-watch` timers scheduled and the latest nightly encrypted backup successful.
+The [deployment verification record](Deployment_verification_2026_11_01.md) holds
+the release, content and recovery identities for the first activation (v0.2.1)
+and every later upgrade, with their limitations. The application is available
+privately at <https://caf-home.tailf901d2.ts.net/>.
 
-Read the [1 November deployment verification](Deployment_verification_2026_11_01.md)
-for exact release/content/recovery identities, activation records, successful
-isolated restore, encrypted Mac backup and remaining limits. The application is
-available privately at <https://caf-home.tailf901d2.ts.net/>. External backup
-storage and scheduled encrypted backups remain unfinished; a verified manual
-recovery copy is retained separately on the Mac.
+Production content is still the `baseline-2026-10-16` corpus. New source PDFs have
+no production path yet; see [the content and classification plan](Content_and_classification_plan.md).
 
 The links below are historical preparation checkpoints; their statements about
 production not yet being installed describe the earlier checkpoint dates.
@@ -104,13 +102,13 @@ recorded and checked by the [release bundle tooling](Application_releases.md).
 ## Pending incremental steps
 
 1. Complete student onboarding, invitation/revocation and logout/account-disable
-   acceptance, and access from a separate device; verify a normal reboot.
-2. Configure external recovery storage, daily encrypted backups, retention and
-   monthly restore verification. Current manual snapshots do not provide daily coverage.
-3. Implement a general existing-installation upgrade/rollback workflow and the
-   remaining operational visibility/content-update tooling. The PDF repair used
-   a recorded one-time same-schema activation; first-install must not be rerun
-   against existing production storage.
+   acceptance, and access from a separate device.
+2. Configure the external backup drive and an automatic off-host copy, and a regular
+   restore drill. Daily encrypted snapshots with retention already run on the host.
+3. Add content updates (verified source snapshots imported into production) as
+   described in [the content and classification plan](Content_and_classification_plan.md).
+4. Run a signed-in browser pass on v0.3.1 and confirm that Tailscale Serve sends
+   `X-Forwarded-For` (finding H-01 in [the code review](Code_review_2026_11_06.md)).
 
 Updating a Git branch alone must never activate an application release. Ubuntu
 will load a verified image bundle built on the Mac rather than build dependencies.
