@@ -21,7 +21,7 @@ concurrency:
 jobs:
   package:
     runs-on: ubuntu-24.04
-    timeout-minutes: 45
+    timeout-minutes: 55
     env:
       RELEASE_TAG: ${{ inputs.tag || github.ref_name }}
     steps:
