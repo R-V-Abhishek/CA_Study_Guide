@@ -583,7 +583,11 @@ def verify(bundle: Path, snapshot: Path, image: str) -> None:
             assert counts() == before_content, "a content import must not touch personal records"
             again = content_host("import", str(content))
             assert again.returncode == 0, redact(again.stderr[-1500:])
-            assert json.loads(again.stdout)["imported"] == 0
+            repeat = json.loads(again.stdout)
+            assert repeat["imported"] == 0 and repeat["existing"] == 2, repeat
+            # Every import takes its own recovery snapshot, and the latest one is protected.
+            latest = json.loads((target / "content" / "last-import.json").read_text())
+            assert latest["recovery_snapshot"] == repeat["recovery_snapshot"], latest
             assert (
                 sql(
                     f"SELECT count(*) FROM ingest.document WHERE sha256 IN ('{shas[0]}', '{shas[1]}')"
@@ -630,7 +634,18 @@ def verify(bundle: Path, snapshot: Path, image: str) -> None:
                 tooling=fourth_image,
             )
             assert nightly.returncode == 0, redact(nightly.stderr[-1500:])
-            assert report["recovery_snapshot"] in app_status()["retained"]
+            status = app_status()
+            assert repeat["recovery_snapshot"] in status["retained"], redact(
+                json.dumps(
+                    {
+                        "protected": repeat["recovery_snapshot"],
+                        "status": status,
+                        "backups": app_files("backups"),
+                        "last_import": latest,
+                        "output": nightly.stdout[-1000:] + nightly.stderr[-1500:],
+                    }
+                )
+            )
             expect_ready(v4)
             typer.echo(
                 "PASS: extraction ran in the installed image; upgrades wait for content work; "
