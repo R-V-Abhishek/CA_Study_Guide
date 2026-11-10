@@ -1,6 +1,6 @@
 [project]
 name = "ca-final"
-version = "0.3.1"
+version = "0.4.0"
 description = "CA Final Study Companion — One Place for CA Final Prep"
 readme = "README.md"
 requires-python = ">=3.12"

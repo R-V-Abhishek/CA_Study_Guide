@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.4.0](https://github.com/R-V-Abhishek/CA_Study_Guide/compare/v0.3.1...v0.4.0) (2026-11-10)
+
+
+### Features
+
+* content snapshots for new source PDFs in production ([#47](https://github.com/R-V-Abhishek/CA_Study_Guide/issues/47)) ([8952205](https://github.com/R-V-Abhishek/CA_Study_Guide/commit/8952205efbc9b73f08f6acbea299000cd25bea41))
+
+
+### Documentation
+
+* record the v0.3.1 install and adopt the content and classification plan ([#40](https://github.com/R-V-Abhishek/CA_Study_Guide/issues/40)) ([1915d85](https://github.com/R-V-Abhishek/CA_Study_Guide/commit/1915d85fae622d5063e4b206672c193ae551df88))
+
 ## [0.3.1](https://github.com/R-V-Abhishek/CA_Study_Guide/compare/v0.3.0...v0.3.1) (2026-11-07)
 
 
