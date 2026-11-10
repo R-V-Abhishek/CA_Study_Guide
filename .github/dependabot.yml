@@ -22,6 +22,11 @@ updates:
       # 7.x breaks openapi-typescript client generation (PR #34, 2026-11-09).
       - dependency-name: typescript
         update-types: [version-update:semver-major]
+      # 8.x needs @vitejs/plugin-react 6 with new peers (PR #36, 2026-11-10); migrate both together.
+      - dependency-name: vite
+        update-types: [version-update:semver-major]
+      - dependency-name: "@vitejs/plugin-react"
+        update-types: [version-update:semver-major]
   - package-ecosystem: github-actions
     directory: /
     schedule:
