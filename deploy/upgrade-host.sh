@@ -29,6 +29,8 @@ test "$(stat -c %a "$config")" = 600 && test "$(stat -c %u "$config")" = "$(id -
 }
 exec 9> "$root/.deployment.lock"
 flock -n 9 || { echo 'Another installation, upgrade, restore or backup owns the deployment lock' >&2; exit 1; }
+exec 8> "$root/.content.lock"
+flock -n 8 || { echo 'A content import, extraction or batch is running; let it finish first' >&2; exit 1; }
 receipt=$root/installation.json
 test -f "$receipt" && test "$(jq -er .phase "$receipt")" = active || {
     echo 'An active installation receipt is required; use install for a new host' >&2; exit 1;

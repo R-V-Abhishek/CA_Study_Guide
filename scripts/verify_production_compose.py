@@ -61,11 +61,12 @@ def verify() -> None:
     assert result.returncode == 0, "Compose tools configuration did not render"
     configuration = json.loads(result.stdout)
     services = configuration["services"]
-    assert set(services) == {"db", "web", "worker", "admin", "pipeline"}
+    assert set(services) == {"db", "web", "worker", "admin", "pipeline", "content"}
     assert configuration["networks"]["backend"]["internal"] is True
     assert not configuration["networks"]["egress"].get("internal", False)
     assert set(services["db"]["networks"]) == {"backend"}
     assert set(services["worker"]["networks"]) == {"backend"}
+    assert set(services["content"]["networks"]) == {"backend"}
     assert set(services["web"]["networks"]) == {"backend", "egress"}
     assert services["db"]["image"].startswith("postgres:16-")
     assert services["db"]["environment"]["POSTGRES_PASSWORD"] == values["PG_SUPERUSER_PASSWORD"]
@@ -105,11 +106,11 @@ def verify() -> None:
             and environment["AUTH_LOCAL_DEVELOPMENT"] == "false"
         )
         assert environment["GEMINI_API_KEY"] == environment["OPENROUTER_API_KEY"] == ""
-        if name in {"web", "worker", "pipeline"}:
+        if name in {"web", "worker", "pipeline", "content"}:
             assert "MIGRATION_DATABASE_URL" not in environment
             assert "PG_SUPERUSER_PASSWORD" not in environment
             assert values["PG_SUPERUSER_PASSWORD"] not in json.dumps(environment)
-        if name in {"admin", "pipeline"}:
+        if name in {"admin", "pipeline", "content"}:
             assert service["profiles"] == ["tools"] and service["restart"] == "no"
             assert service["entrypoint"] == ["caf"] and service["command"] == ["--help"]
         else:
@@ -131,6 +132,9 @@ def verify() -> None:
     worker = services["worker"]["environment"]
     assert {key for key in worker if key.endswith("DATABASE_URL")} == {"OPERATIONS_DATABASE_URL"}
     assert not any(key.startswith("OIDC_") for key in worker)
+    content = services["content"]["environment"]
+    assert {key for key in content if key.endswith("DATABASE_URL")} == {"OPERATIONS_DATABASE_URL"}
+    assert urlsplit(content["OPERATIONS_DATABASE_URL"]).username == "caf_operations"
     pipeline = services["pipeline"]["environment"]
     assert urlsplit(pipeline["DATABASE_URL"]).username == "caf_pipeline"
     admin = services["admin"]["environment"]

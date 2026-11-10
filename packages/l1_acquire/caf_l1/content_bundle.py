@@ -158,14 +158,19 @@ def build_bundle(
             )
         )
         members[f"sources/{sha}.pdf"] = data
+    return pack_bundle(entries, members, output_dir)
+
+
+def pack_bundle(entries: list[ContentEntry], members: dict[str, bytes], output_dir: Path) -> Path:
+    """Write entries and their source/observation members as a verified, reproducible archive."""
     manifest = ContentManifest(snapshot_id=snapshot_id(entries), entries=entries)
     output_dir.mkdir(parents=True, exist_ok=True)
     bundle = output_dir / f"content-{manifest.snapshot_id[:12]}.tar.gz"
     if bundle.exists():
         raise FileExistsError(f"Bundle already exists: {bundle}")
-    members["manifest.json"] = manifest.model_dump_json(indent=2).encode() + b"\n"
+    members = {**members, "manifest.json": manifest.model_dump_json(indent=2).encode() + b"\n"}
     partial = bundle.with_name(bundle.name + ".partial")
-    # gzip's header holds a timestamp; mtime=0 keeps the archive bytes reproducible.
+    # gzip's header holds a timestamp and file name; omitting both keeps the bytes reproducible.
     with (
         partial.open("wb") as raw,
         gzip.GzipFile(filename="", fileobj=raw, mode="wb", mtime=0) as compressed,
