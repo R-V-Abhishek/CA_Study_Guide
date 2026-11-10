@@ -1,0 +1,1 @@
+import{C as e,E as t,S as n}from"./index-CvhIsLm7.js";import{r,t as i}from"./demo-xjOa7-VH.js";var a=r();function o(){let{paperId:r=``,nodeId:o}=t(),[s]=n(),c=new URLSearchParams(s);return c.set(`paper`,r),o?c.set(`node`,o):c.delete(`node`),(0,a.jsx)(e,{replace:!0,to:i(`/syllabus?${c}`)})}export{o as PaperDetail};

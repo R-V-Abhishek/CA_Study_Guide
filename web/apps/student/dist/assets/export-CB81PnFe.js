@@ -1,0 +1,1 @@
+import{n as e,r as t}from"./PageState-CXheoWm2.js";async function n(){let n=await e(`/api/v1/me/export`),r=URL.createObjectURL(new Blob([JSON.stringify(n,null,2)],{type:`application/json`})),i=document.createElement(`a`);i.href=r,i.download=`study-profile-${t()}.json`,i.click(),setTimeout(()=>URL.revokeObjectURL(r),1e3)}export{n as t};
