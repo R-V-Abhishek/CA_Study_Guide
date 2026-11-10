@@ -69,3 +69,10 @@ def test_import_requires_an_active_installation(tmp_path):
     assert result.returncode == 1
     assert "An active installation is required" in result.stderr
     assert not (tmp_path / "content").exists() and not (tmp_path / ".content.lock").exists()
+
+
+def test_sandboxed_verify_has_writable_storage():
+    # The image links /app/data to /srv/caf/data, and caf creates storage directories on start.
+    script = (ROOT / "deploy/content-host.sh").read_text()
+    verify = script[script.index('docker run "${sandbox[@]}"') :].split("content verify")[0]
+    assert "--tmpfs /srv/caf/data:" in verify
