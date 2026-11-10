@@ -27,6 +27,7 @@ from caf_cli.host_bundle import (
     verify_archive,
 )
 from caf_common.recovery_manifest import inspect_recovery_files
+from caf_l1.content_bundle import ContentEntry, pack_bundle
 from verify_production_compose import fixture
 
 app = typer.Typer(add_completion=False, pretty_exceptions_enable=False)
@@ -122,6 +123,47 @@ def derive(
     bundle.with_name(bundle.name + ".sha256").write_text(f"{digest(bundle)}  {bundle.name}\n")
     verify_archive(bundle)
     return bundle, reference
+
+
+def content_bundle(directory: Path) -> tuple[Path, list[str]]:
+    """Two official-looking question papers for an attempt the installation has never seen."""
+    import fitz
+
+    entries, members = [], {}
+    for number, topic in ((1, "lease liabilities"), (2, "revenue from contracts")):
+        with fitz.open() as document:
+            document.new_page().insert_text(
+                (50, 70),
+                f"FINAL COURSE\nQUESTION PAPER\nNOVEMBER 2031\nPAPER 1: FINANCIAL REPORTING\n"
+                f"Question {number}\n(a) Explain the accounting for {topic}. (5 Marks)",
+            )
+            data = document.tobytes()
+        sha = hashlib.sha256(data).hexdigest()
+        url = f"https://resource.cdn.icai.org/drill-{number}.pdf"
+        observation = json.dumps(
+            {"sha256": sha, "origin": "http", "original_url": url, "final_url": url}
+        ).encode()
+        name = f"observations/{sha}/drill.json"
+        members[f"sources/{sha}.pdf"] = data
+        members[name] = observation
+        entries.append(
+            ContentEntry(
+                sha256=sha,
+                bytes=len(data),
+                origin="http",
+                catalog={
+                    "course_level": "final",
+                    "scheme_id": "s2023",
+                    "attempt_id": "2031-11",
+                    "paper_id": "s2023.P1",
+                    "doc_type_id": "question_paper",
+                    "title": f"Drill question paper {number}",
+                },
+                observations={name: hashlib.sha256(observation).hexdigest()},
+            )
+        )
+    entries.sort(key=lambda entry: entry.sha256)
+    return pack_bundle(entries, members, directory), [entry.sha256 for entry in entries]
 
 
 def free_port() -> int:
@@ -498,6 +540,116 @@ def verify(bundle: Path, snapshot: Path, image: str) -> None:
             assert counts() == before_failure
             typer.echo(
                 "PASS: same-schema upgrade after a rolled-back attempt, two previous releases retained"
+            )
+
+            # 7. A content snapshot adds documents after a recovery snapshot, never twice, and
+            # leaves confirmation to an administrator; extraction runs in the installed image.
+            for statement in (
+                "INSERT INTO ref.scheme (id, name) VALUES ('s2023', 'Scheme 2023') ON CONFLICT DO NOTHING",
+                "INSERT INTO ref.paper (id, scheme_id, code, name, group_no, max_marks, is_current) "
+                "VALUES ('s2023.P1', 's2023', 'P1', 'Financial Reporting', 1, 100, true) ON CONFLICT DO NOTHING",
+                "INSERT INTO ref.doc_type (id, signal_class, has_questions, has_answers) "
+                "VALUES ('question_paper', 'exam', true, false) ON CONFLICT DO NOTHING",
+            ):
+                sql(statement)
+            content, shas = content_bundle(base / "content")
+            before_content = counts()
+
+            def content_host(*arguments, timeout=900):
+                return host(
+                    "content",
+                    *arguments,
+                    "--root",
+                    str(target),
+                    tooling=fourth_image,
+                    timeout=timeout,
+                )
+
+            imported = content_host("import", str(content))
+            assert imported.returncode == 0, failure_detail(imported, "content/import-*/import.log")
+            report = json.loads(imported.stdout)
+            assert report["imported"] == 2 and report["existing"] == 0, report
+            assert report["created_attempts"] == ["2031-11"], report
+            assert report["recovery_snapshot"] in app_files("backups"), report
+            last = json.loads((target / "content" / "last-import.json").read_text())
+            assert last["recovery_snapshot"] == report["recovery_snapshot"]
+            rows = sql(
+                "SELECT catalog_status || ':' || provenance_status FROM ingest.document "
+                f"WHERE sha256 IN ('{shas[0]}', '{shas[1]}') ORDER BY sha256"
+            ).split()
+            assert len(rows) == 2 and all(
+                not row.startswith("confirmed") and row.endswith(":verified") for row in rows
+            ), rows
+            assert counts() == before_content, "a content import must not touch personal records"
+            again = content_host("import", str(content))
+            assert again.returncode == 0, redact(again.stderr[-1500:])
+            repeat = json.loads(again.stdout)
+            assert repeat["imported"] == 0 and repeat["existing"] == 2, repeat
+            # Every import takes its own recovery snapshot, and the latest one is protected.
+            latest = json.loads((target / "content" / "last-import.json").read_text())
+            assert latest["recovery_snapshot"] == repeat["recovery_snapshot"], latest
+            assert (
+                sql(
+                    f"SELECT count(*) FROM ingest.document WHERE sha256 IN ('{shas[0]}', '{shas[1]}')"
+                )
+                == "2"
+            )
+            typer.echo(
+                "PASS: content import after a recovery snapshot; a repeated import adds nothing"
+            )
+
+            document = sql(
+                "UPDATE ingest.document SET catalog_status = 'confirmed' "
+                f"WHERE sha256 = '{shas[0]}' RETURNING id"
+            ).splitlines()[0]
+            extracted = content_host("extract", "--doc", document)
+            assert "Traceback" not in extracted.stdout, redact(extracted.stdout[-3000:])
+            assert (
+                sql(
+                    "SELECT stats->>'documents' FROM ops.run WHERE stage = 'l2_extract' "
+                    "ORDER BY id DESC LIMIT 1"
+                )
+                == "1"
+            ), redact(extracted.stdout[-3000:])
+            assert (
+                sql(
+                    f"SELECT count(*) FROM ingest.extraction_revision WHERE document_id = {document}"
+                )
+                != "0"
+            ), redact(extracted.stdout[-3000:])
+            with (target / ".content.lock").open("w") as lock:
+                import fcntl
+
+                fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+                blocked = upgrade(fourth, fourth_image, timeout=60)
+                assert blocked.returncode != 0 and "content import" in blocked.stderr, (
+                    blocked.stderr
+                )
+            nightly = host(
+                "backup",
+                "--root",
+                str(target),
+                "--recipient",
+                str(base / "none.txt"),
+                tooling=fourth_image,
+            )
+            assert nightly.returncode == 0, redact(nightly.stderr[-1500:])
+            status = app_status()
+            assert repeat["recovery_snapshot"] in status["retained"], redact(
+                json.dumps(
+                    {
+                        "protected": repeat["recovery_snapshot"],
+                        "status": status,
+                        "backups": app_files("backups"),
+                        "last_import": latest,
+                        "output": nightly.stdout[-1000:] + nightly.stderr[-1500:],
+                    }
+                )
+            )
+            expect_ready(v4)
+            typer.echo(
+                "PASS: extraction ran in the installed image; upgrades wait for content work; "
+                "retention keeps the pre-import snapshot"
             )
         finally:
             for destination, name in projects:

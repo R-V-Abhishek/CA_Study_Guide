@@ -23,7 +23,7 @@ def effective_compose(manifest, rendered: Path, destination: str, project: str, 
         raise ValueError("Invalid destination or loopback port")
     configuration = json.loads(rendered.read_text())
     services = configuration["services"]
-    if set(services) != {"db", "web", "worker", "admin", "pipeline"}:
+    if set(services) != {"db", "web", "worker", "admin", "pipeline", "content"}:
         raise ValueError("Expected the production services and manual tools")
     admin = services["admin"]["environment"]
     passwords = [

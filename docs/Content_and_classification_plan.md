@@ -1,6 +1,19 @@
 # Content and classification plan
 
-Approved 2026-11-10. It supersedes Part B of [../PLAN.md](../PLAN.md). Status per phase is kept below.
+Approved 2026-11-10. It supersedes Part B of [../PLAN.md](../PLAN.md).
+
+Status (2026-11-10): **P0 done** (PR #40). **P1 implemented, not yet released or installed**: steps 1.1–1.6
+are done ([Content_updates.md](Content_updates.md)); 1.7, the first real import, needs a release and the
+owner's authorization. P2–P4 are not started.
+
+Changes from the text below, made during P1:
+- Provenance is derived from the bundled evidence (an HTTPS download from a `pdf_hosts` host), not copied
+  from the curating database. New fetches are recorded `unresolved` there, so requiring `verified` would
+  have refused every new PDF.
+- An existing document is reported (with the catalogue fields that differ) and left unchanged, rather than
+  aborting the whole import, so a snapshot that overlaps production stays importable.
+- The archive has no creation time or builder commit, so the same documents give the same bytes.
+- `caf-host content report` is left for P2.
 
 ## Context
 

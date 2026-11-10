@@ -41,6 +41,10 @@ test "$(df -Pk "$root" | awk 'NR==2 {print $4}')" -ge "$minimum" || { echo 'Insu
 # Snapshots that upgrade receipts name as rollback points are never pruned by retention.
 protect=()
 while read -r kept; do protect+=(--protect "$kept"); done < <(jq -r '.previous[]?.snapshot.name | strings' "$receipt")
+# So is the snapshot taken before the latest content import.
+if test -f "$root/content/last-import.json"; then
+    protect+=(--protect "$(jq -er .recovery_snapshot "$root/content/last-import.json")")
+fi
 compose run --rm -T --no-deps --entrypoint caf-host web _backup run "${protect[@]}"
 status=$(backups cat /backups/status.json)
 name=$(jq -er .snapshot.name <<< "$status")

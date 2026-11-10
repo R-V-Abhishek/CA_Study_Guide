@@ -118,9 +118,9 @@ shows another account's data.
 - **Upgrade**: `caf-host upgrade BUNDLE` snapshots first, migrates only forward and keeps the previous release.
 - **Monitoring**: JSON logs, `/api/v1/ready`, authenticated `/system/health` alarms, and the `caf-host watch`
   timer with de-duplicated webhook alerts.
-- **Content**: new source PDFs reach production only through the content-snapshot workflow (planned; see
-  [Content_and_classification_plan.md](Content_and_classification_plan.md)). A developer database or blob store
-  is never copied into production.
+- **Content**: new source PDFs reach production only as verified content snapshots (`caf content build` on the
+  curating machine, `caf-host content import` on the host; see [Content_updates.md](Content_updates.md)).
+  Extraction and classification then run on production. A developer database or blob store is never copied.
 
 ## 8. Known limits
 
