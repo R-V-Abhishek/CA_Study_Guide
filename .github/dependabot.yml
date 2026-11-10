@@ -7,6 +7,10 @@ updates:
     groups:
       python-minor-and-patch:
         update-types: [minor, patch]
+    ignore:
+      # 3.x pulls in httpx2, which breaks the API test client (PR #39, 2026-11-09).
+      - dependency-name: google-genai
+        update-types: [version-update:semver-major]
   - package-ecosystem: npm
     directory: /web
     schedule:
@@ -14,6 +18,10 @@ updates:
     groups:
       web-minor-and-patch:
         update-types: [minor, patch]
+    ignore:
+      # 7.x breaks openapi-typescript client generation (PR #34, 2026-11-09).
+      - dependency-name: typescript
+        update-types: [version-update:semver-major]
   - package-ecosystem: github-actions
     directory: /
     schedule:

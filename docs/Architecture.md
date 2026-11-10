@@ -2,7 +2,7 @@
 
 This describes the code as it is. It was written from the source on 1 November 2026; where something
 could not be confirmed it says so. For deployment state read [Home_hosting.md](Home_hosting.md). For
-planned changes read [../PLAN.md](../PLAN.md).
+planned changes read [Content_and_classification_plan.md](Content_and_classification_plan.md).
 
 ## 1. Shape of the system
 
@@ -118,10 +118,16 @@ shows another account's data.
 - **Upgrade**: `caf-host upgrade BUNDLE` snapshots first, migrates only forward and keeps the previous release.
 - **Monitoring**: JSON logs, `/api/v1/ready`, authenticated `/system/health` alarms, and the `caf-host watch`
   timer with de-duplicated webhook alerts.
+- **Content**: new source PDFs reach production only through the content-snapshot workflow (planned; see
+  [Content_and_classification_plan.md](Content_and_classification_plan.md)). A developer database or blob store
+  is never copied into production.
 
 ## 8. Known limits
 
 - Single API worker: the rate limiter and caches are per process.
 - The dashboard still issues about 34 queries per request (no longer growing with the number of papers).
-- The host upgrade, backup and watch shell scripts are tested through their Python logic, not yet end to end on Docker.
+- The host install, upgrade, backup and watch scripts run end to end in the native-Linux drill of the release builder
+  (`scripts/verify_host_install.py`, `scripts/verify_host_upgrade.py`); production upgrades use `caf-host upgrade`.
+- Two classification flows coexist: the legacy unit-level `tag_suggestion` queue and the whole-question
+  `suggestion_revision` flow that feeds publication.
 - Several large curator pages and `caf_api/study.py` are long; see [../REVIEW.md](../REVIEW.md).

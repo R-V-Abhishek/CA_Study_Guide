@@ -231,3 +231,25 @@ Tailscale key expiry for `caf-home` was disabled in the admin console the same d
   decrypted copy was deleted afterwards. No database restore drill was run on this copy.
 
 Still pending: an automatic off-host copy (the Mac copy above is manual) and the external drive.
+
+## Upgrade to v0.3.1, 2026-11-07 (observed 2026-11-10)
+
+v0.3.1 (commit `90bc5be4fc3413081fee52cf088d43ca8dd7d148`) carries the review fixes and web redesign of v0.3.0
+plus the PostgreSQL image pin from PR #31. v0.3.0 itself was never installed: `caf-host upgrade` refused its
+bundle because its database image differed from the installed one.
+
+Recorded from a read-only check on 2026-11-10 (`caf-host status`, `/srv/caf/installation.json`, Compose `ps`):
+
+- The receipt is `phase: active`, application `v0.3.1` (`caf:v0.3.1-amd64`, image `sha256:92f59849…`), bundle
+  sha256 `0576b6a5…`, `upgraded_at` 2026-11-07T17:44:22Z, activation "same-schema application-only; no database
+  migration". The schema is still `0010_bounds_and_indexes`; the PostgreSQL image `sha256:6a35283e…` is unchanged.
+- The v0.2.4 rollback point is kept under `previous` with pre-upgrade snapshot
+  `caf_20261107_174257_540876_8ad4531b` (76 tables, 4308 files, file integrity verified, restore not verified).
+- `db` has been up 6 days (not restarted by the upgrade); `web` and `worker` 2 days. `/api/v1/ready` returns 200
+  on host loopback. `caf` and `docker` units are active; `caf-backup.timer` and `caf-watch.timer` are scheduled.
+- The last nightly backup succeeded at 2026-11-09T22:04Z (`caf_20261109_220328_433911_5ed8922e`, encrypted).
+- The host checkout `/opt/caf/repo` is at tag `v0.3.1`.
+
+Not checked in this record: a signed-in browser pass on v0.3.1, and whether Tailscale Serve sends
+`X-Forwarded-For` so the login rate limit keys on the real client (finding H-01 in
+`docs/Code_review_2026_11_06.md`).
