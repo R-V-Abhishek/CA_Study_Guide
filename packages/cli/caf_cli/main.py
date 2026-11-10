@@ -36,6 +36,7 @@ from caf_cli.audit import app as audit_app
 from caf_cli.auth import app as auth_app
 from caf_cli.taxonomy_index import app as taxonomy_index_app
 from caf_cli.baseline import app as baseline_app
+from caf_cli.content import app as content_app
 
 app.add_typer(db_app, name="db")
 app.add_typer(taxonomy_app, name="taxonomy")
@@ -53,6 +54,7 @@ app.add_typer(audit_app, name="audit")
 app.add_typer(auth_app, name="auth")
 app.add_typer(taxonomy_index_app, name="taxonomy-index")
 app.add_typer(baseline_app, name="baseline")
+app.add_typer(content_app, name="content")
 
 console = Console()
 
