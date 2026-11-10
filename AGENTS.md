@@ -153,8 +153,8 @@ before working on deployment, then inspect live state when the user authorizes i
 - Existing installations upgrade only through `caf-host upgrade`. The first v0.2.1
   repair used a recorded one-time, same-schema activation; never rerun first-install
   against existing production storage.
-- New source PDFs have no production path yet. The content-snapshot workflow in
-  `docs/Content_and_classification_plan.md` (P1) is the planned route; do not copy a
+- New source PDFs reach production only as content snapshots (`docs/Content_updates.md`,
+  implemented after v0.3.1 and not yet installed or run on `caf-home`). Never copy a
   developer database or blob store into production.
 - Encrypted recovery copies were verified on the Mac. Daily encrypted server backups
   with retention run from `caf-backup.timer`. The external backup drive and an automatic

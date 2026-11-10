@@ -149,6 +149,21 @@ services:
     command: [--help]
     networks: [backend, egress]
 
+  # Content snapshot import and extraction: the shared corpus through the operations role,
+  # with no route to the internet. Run only by caf-host content.
+  content:
+    <<: *application
+    profiles: [tools]
+    restart: "no"
+    cpus: 2
+    mem_limit: 3g
+    environment:
+      <<: *runtime-env
+      OPERATIONS_DATABASE_URL: postgresql+psycopg://caf_operations:${PG_OPERATIONS_PASSWORD:?Set the operations role password}@db:5432/caf
+    entrypoint: [caf]
+    command: [--help]
+    networks: [backend]
+
 networks:
   backend:
     internal: true

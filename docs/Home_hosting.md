@@ -11,8 +11,9 @@ the release, content and recovery identities for the first activation (v0.2.1)
 and every later upgrade, with their limitations. The application is available
 privately at <https://caf-home.tailf901d2.ts.net/>.
 
-Production content is still the `baseline-2026-10-16` corpus. New source PDFs have
-no production path yet; see [the content and classification plan](Content_and_classification_plan.md).
+Production content is still the `baseline-2026-10-16` corpus. New source PDFs reach
+production only as verified content snapshots ([Content updates](Content_updates.md));
+the installed v0.3.1 does not include that workflow yet.
 
 The links below are historical preparation checkpoints; their statements about
 production not yet being installed describe the earlier checkpoint dates.
@@ -105,8 +106,8 @@ recorded and checked by the [release bundle tooling](Application_releases.md).
    acceptance, and access from a separate device.
 2. Configure the external backup drive and an automatic off-host copy, and a regular
    restore drill. Daily encrypted snapshots with retention already run on the host.
-3. Add content updates (verified source snapshots imported into production) as
-   described in [the content and classification plan](Content_and_classification_plan.md).
+3. Install the first release with content updates (`caf-host content`, see
+   [Content updates](Content_updates.md)) and import the first real snapshot.
 4. Run a signed-in browser pass on v0.3.1 and confirm that Tailscale Serve sends
    `X-Forwarded-For` (finding H-01 in [the code review](Code_review_2026_11_06.md)).
 
