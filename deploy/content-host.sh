@@ -80,7 +80,9 @@ import_snapshot() {
             if $imported; then echo "Content was imported, but recording it failed during $phase. Record: $work/failure.json" >&2
             else echo "Content import failed during $phase; no documents were added. Record: $work/failure.json" >&2; fi
         fi' EXIT
+    # caf creates its storage directories on start; give it a private, empty one.
     docker run "${sandbox[@]}" --memory 512m --user 10001:10001 \
+        --tmpfs /srv/caf/data:rw,noexec,nosuid,size=16m,uid=10001,gid=10001 \
         --mount "type=bind,source=$work,target=/input,readonly" \
         --entrypoint caf "$image" content verify "/input/$name" > "$work/verify.json" 2>> "$log"
     phase=snapshot
