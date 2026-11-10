@@ -9,10 +9,47 @@ from sqlalchemy.orm import Session
 from caf_common.blob_store import BlobStore
 from caf_common.logging import get_logger
 from caf_l1.infer import infer_metadata
-from caf_l1.artifacts import record_observation, validate_metadata, validate_pdf
+from caf_l1.artifacts import VerifiedPDF, record_observation, validate_metadata, validate_pdf
 from caf_db.models.ingest import Document
 
 logger = get_logger("acquire.importer")
+
+
+def new_document(
+    sha256_hash: str,
+    blob_path: Path,
+    size: int,
+    verified: VerifiedPDF,
+    meta: dict[str, Any],
+    *,
+    origin: str,
+    provenance_status: str,
+    run_id: int | None,
+) -> Document:
+    """A pending document from validated metadata; confirmation stays an administrator action."""
+    return Document(
+        sha256=sha256_hash,
+        blob_path=str(blob_path),
+        bytes=size,
+        origin=origin,
+        course_level=meta.get("course_level"),
+        provenance_status=provenance_status,
+        scheme_id=meta.get("scheme_id", "s2023"),
+        attempt_id=meta.get("attempt_id"),
+        paper_id=meta.get("paper_id"),
+        doc_type_id=meta.get("doc_type_id"),
+        series=meta.get("series"),
+        part=meta.get("part"),
+        collection_id=meta.get("collection_id"),
+        paper_page_ranges=meta.get("paper_page_ranges") or [],
+        metadata_evidence=meta.get("metadata_evidence") or {},
+        title=meta.get("title"),
+        catalog_status=meta.get("catalog_status", "needs_curation"),
+        extract_status="pending",
+        page_count=verified.page_count,
+        has_text_layer=verified.has_text_layer,
+        created_run_id=run_id,
+    )
 
 
 class ManualImporter:
@@ -56,14 +93,6 @@ class ManualImporter:
             metadata={**meta, "import_filename": pdf_path.name},
         )
 
-        scheme_id = meta.get("scheme_id", "s2023")
-        attempt_id = meta.get("attempt_id")
-        paper_id = meta.get("paper_id")
-        doc_type_id = meta.get("doc_type_id")
-        series = meta.get("series")
-        title = meta.get("title") or pdf_path.stem
-        catalog_status = meta.get("catalog_status", "needs_curation")
-
         existing = session.execute(
             sa.select(Document).where(Document.sha256 == sha256_hash)
         ).scalar_one_or_none()
@@ -72,33 +101,21 @@ class ManualImporter:
             logger.info("document_already_exists", sha256=sha256_hash, id=existing.id)
             return existing
 
-        new_doc = Document(
-            sha256=sha256_hash,
-            blob_path=str(blob_path),
-            bytes=len(data),
+        new_doc = new_document(
+            sha256_hash,
+            blob_path,
+            len(data),
+            verified,
+            {**meta, "title": meta.get("title") or pdf_path.stem},
             origin="manual",
-            course_level=meta.get("course_level"),
             provenance_status="unresolved",
-            scheme_id=scheme_id,
-            attempt_id=attempt_id,
-            paper_id=paper_id,
-            doc_type_id=doc_type_id,
-            series=series,
-            collection_id=meta.get("collection_id"),
-            paper_page_ranges=meta.get("paper_page_ranges") or [],
-            metadata_evidence=meta.get("metadata_evidence") or {},
-            title=title,
-            catalog_status=catalog_status,
-            extract_status="pending",
-            page_count=verified.page_count,
-            has_text_layer=verified.has_text_layer,
-            created_run_id=run_id,
+            run_id=run_id,
         )
         session.add(new_doc)
         session.commit()
         session.refresh(new_doc)
 
-        logger.info("imported_document", id=new_doc.id, sha256=sha256_hash, title=title)
+        logger.info("imported_document", id=new_doc.id, sha256=sha256_hash, title=new_doc.title)
         return new_doc
 
     def import_directory(
